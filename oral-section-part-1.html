@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1: Meine Persönliche Vorstellung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card { transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    <!-- Chosen Palette: Calm & Neutral -->
+    <!-- Application Structure Plan: The SPA uses a centered, responsive two-column grid (md:grid-cols-2) to present the content. The left column is dedicated to the 'Vorstellung' (Introduction) text, divided into logical sections (Personal Info, Family/Home, Hobbies, Profession) with key stats highlighted. The right column displays an interactive 'Vokabular' (Vocabulary) list in a separate card. This structure was chosen to allow the user to read the full text while simultaneously studying the key vocabulary, facilitating immediate association and memorization for the oral exam. -->
+    <!-- Visualization & Content Choices: Report Info -> B1 Self-Introduction Text and vocabulary. Goal -> Inform, Organize. Viz/Presentation Method -> Styled text blocks and a data table. Interaction -> None, static display (for initial focus). Justification -> The content is purely textual; the best presentation is clean, readable typography with a supportive vocabulary list. The two-column layout efficiently uses screen space to connect the text to the vocabulary. Library/Method -> HTML/CSS with Tailwind for structure and styling, no complex JS libraries needed. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto max-w-6xl p-4 sm:p-8 lg:p-12">
+        <header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#42A5F5]">Mündliche Prüfung B1 – Teil 1</h1>
+            <p class="text-lg text-[#757575] mt-1">Interaktive Vorlage für Ihre persönliche Vorstellung</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <section id="vorstellung" class="md:col-span-2 space-y-6">
+                <h2 class="text-2xl font-semibold text-[#212121] border-b pb-2 mb-4">Mein Profil</h2>
+                
+                <div class="card bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-[#42A5F5] mb-4">Persönliche Informationen und Herkunft</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        **Guten Tag!** Mein Name ist **Muhammad** und ich **komme aus Ägypten**. 
+                        Ich **wurde in Kairo geboren** und bin **35 Jahre alt**. 
+                        Ich **lebe seit 2016 in Deutschland**. Ich **bin verheiratet** und habe eine **kleine Familie**: meine Frau und zwei Töchter.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-4">
+                        <span class="bg-[#e3f2fd] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium shadow-inner">Geboren in Kairo</span>
+                        <span class="bg-[#e3f2fd] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium shadow-inner">Seit 2016 in Deutschland</span>
+                        <span class="bg-[#e3f2fd] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium shadow-inner">35 Jahre alt</span>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-[#42A5F5] mb-4">Familie und Wohnort</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Wir **wohnen in Charlottenburg**. Meine ältere **Tochter** ist **acht Jahre alt** und **geht in die dritte Klasse**. 
+                        Meine jüngere Tochter ist **drei Jahre alt** und **besucht den Kindergarten**.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-4">
+                         <span class="bg-[#e3f2fd] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium shadow-inner">Wohnort: Charlottenburg</span>
+                         <span class="bg-[#e3f2fd] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium shadow-inner">Zwei Töchter</span>
+                    </div>
+                </div>
+
+                <div class="card bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-[#42A5F5] mb-4">Beruf und Hobbys</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        **Beruflich bin ich Ingenieur** und **arbeite bei HelloFresh**. 
+                        **In meiner Freizeit treibe ich gerne Sport**, besonders **gehe ich regelmäßig ins Fitnessstudio** und **laufe einmal pro Woche**. 
+                        Ich **verbringe gerne Zeit mit meinen Töchtern**, wir **fahren Fahrrad**, **gehen in Parks** und **besuchen den Zoo**. 
+                        Außerdem **zeichne** ich **sehr gerne** und **oft zusammen** mit meinen Töchtern. Und ich **lese auch sehr gerne Bücher**.
+                    </p>
+                </div>
+            </section>
+
+            <section id="vokabular" class="md:col-span-1">
+                <h2 class="text-2xl font-semibold text-[#212121] border-b pb-2 mb-4">Schlüssel-Vokabular</h2>
+                <div class="card bg-white p-4 rounded-xl shadow-md overflow-y-auto max-h-[70vh]">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-[#F5F5F5] text-[#757575] uppercase sticky top-0">
+                            <tr>
+                                <th class="p-3">Deutsch</th>
+                                <th class="p-3">Englisch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b"><td class="p-3 font-medium">Ich komme aus Ägypten.</td><td class="p-3">I come from Egypt.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Ich lebe seit 2016 in Deutschland.</td><td class="p-3">I have been living in Germany since 2016.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Ich bin verheiratet.</td><td class="p-3">I am married.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">die Tochter</td><td class="p-3">daughter</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">den Kindergarten besuchen</td><td class="p-3">to attend kindergarten</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">die dritte Klasse</td><td class="p-3">the third grade</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Ich treibe gerne Sport.</td><td class="p-3">I like to do sports.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">regelmäßig ins Fitnessstudio gehen</td><td class="p-3">to go to the gym regularly</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Beruflich bin ich Ingenieur.</td><td class="p-3">Professionally, I am an engineer.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Ich arbeite bei HelloFresh.</td><td class="p-3">I work at HelloFresh.</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Zeit verbringen mit</td><td class="p-3">to spend time with</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Fahrrad fahren</td><td class="p-3">to ride a bicycle</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">den Zoo besuchen</td><td class="p-3">to visit the zoo</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">zeichnen</td><td class="p-3">to draw</td></tr>
+                            <tr class="border-b"><td class="p-3 font-medium">Bücher lesen</td><td class="p-3">to read books</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-12 text-[#757575] text-sm">
+            <p>Diese Vorlage basiert auf den typischen Themen des Telc B1 mündlichen Prüfungsteils 1 (Sich vorstellen).</p>
+        </footer>
+    </div>
+</body>
+</html>
