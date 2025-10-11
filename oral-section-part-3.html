@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktiver Lernhelfer: Telc B1 - Gemeinsam etwas planen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { background-color: #42A5F5; color: white; }
+        .topic-active { border-color: #42A5F5; transform: scale(1.03); box-shadow: 0 4px 14px 0 rgba(66, 165, 245, 0.2); }
+        .content-view { display: none; }
+        .content-view.active { display: block; }
+        .chat-bubble { max-width: 80%; }
+        .chat-bubble-a { background-color: #e3f2fd; color: #1e3a8a; }
+        .chat-bubble-b { background-color: #f3e5f5; color: #4a148c; }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    <!-- Chosen Palette: Calm & Neutral -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive study dashboard. A top-level grid of 10 buttons allows users to select a specific planning scenario. Below this, a dynamic content area with three tabs ("Dialog", "Vokabular", "Redemittel") displays the information for the selected scenario. This structure was chosen over a linear document to empower the user with non-linear exploration, allowing them to focus on specific topics or content types (e.g., only vocabulary) as needed. This active learning approach is more engaging and efficient for exam preparation than passive reading. -->
+    <!-- Visualization & Content Choices: Report Info -> Key planning scenarios and associated learning materials. Goal -> Organize, Inform, Interact. Viz/Presentation Method -> Interactive Dashboard. Interaction -> The core interaction is a two-level selection: first the user selects a topic from a grid of buttons, which updates the main content view. Then, the user can select a tab (Dialog, Vocabulary, Phrases) to drill down into the specific content type for that topic. Justification -> This architecture transforms static text into a focused, explorable study tool. The dialogue is presented as a chat to improve readability. Vocabulary and phrases are in clean tables for easy memorization. Library/Method -> HTML/CSS with Tailwind for structure and styling, Vanilla JS for all dynamic content updates and state management. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#212121]">Interaktiver Lernhelfer: Telc B1</h1>
+            <p class="text-lg md:text-xl text-[#42A5F5] font-semibold mt-1">Teil 3 – Gemeinsam etwas planen</p>
+            <p class="text-md text-[#757575] mt-3 max-w-3xl mx-auto">Wählen Sie ein Szenario aus, um den Dialog, das Vokabular und wichtige Redemittel zu üben.</p>
+        </header>
+
+        <section id="topic-selection" class="mb-8">
+            <div id="topic-buttons-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+            </div>
+        </section>
+
+        <main id="main-content-area" class="bg-white rounded-xl shadow-lg min-h-[500px] p-4 sm:p-6 md:p-8">
+            <div class="flex items-start md:items-center justify-between flex-col md:flex-row mb-6">
+                 <div class="mb-4 md:mb-0">
+                    <h2 id="topic-title" class="text-2xl font-bold text-[#212121]"></h2>
+                    <p id="topic-scenario" class="text-md text-[#757575] italic mt-1"></p>
+                 </div>
+                <div id="view-tabs" class="flex space-x-2 bg-[#F5F5F5] p-1 rounded-lg">
+                    <button data-view="dialog" class="view-tab px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-200">Dialog</button>
+                    <button data-view="vocab" class="view-tab px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-200">Vokabular</button>
+                    <button data-view="phrases" class="view-tab px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-200">Redemittel</button>
+                </div>
+            </div>
+
+            <div id="content-display">
+                <div id="dialog-view" class="content-view"></div>
+                <div id="vocab-view" class="content-view overflow-x-auto"></div>
+                <div id="phrases-view" class="content-view overflow-x-auto"></div>
+            </div>
+        </main>
+        
+        <footer class="text-center mt-12">
+            <p class="text-sm text-[#757575]">Ein interaktives Tool zur Vorbereitung auf die mündliche Telc B1 Prüfung. Viel Erfolg!</p>
+        </footer>
+    </div>
+
+<script>
+const studyData = [
+    {
+        title: "Abschiedsparty",
+        scenario: "Sie planen eine Abschiedsparty für nette Bekannte, bevor sie aus der Stadt abreisen.",
+        dialogue: [
+            { speaker: "A", line: "Hallo! Schön, dass wir uns treffen. Also, wir müssen die Abschiedsparty für unsere Freunde planen. Hast du schon Ideen, wann wir sie machen sollen?" },
+            { speaker: "B", line: "Ja, hallo! Was denkst du, nächsten Freitag oder Samstag? Freitagabend wäre besser, da haben die meisten am Samstag frei." },
+            { speaker: "A", line: "Das ist eine gute Idee. Freitagabend, so gegen 19:00 Uhr. Wo sollen wir feiern? Vielleicht in meinem Garten?" },
+            { speaker: "B", line: "Super! In einem Restaurant wäre es zu teuer. Wie wäre es mit Grillen? Ich kann mich um die Salate kümmern." },
+            { speaker: "A", line: "Grillen ist perfekt! Ich kaufe das Fleisch und die Getränke – Wein, Bier und Wasser. Wer kümmert sich um die Einladungen?" },
+            { speaker: "B", line: "Ich mache die Einladungen und schicke sie per E-Mail. Und wer bezahlt wofür?" },
+            { speaker: "A", line: "Ich übernehme die Kosten für das Fleisch und die Getränke, und du für die Salate." },
+            { speaker: "B", line: "Das ist fair! Dann treffen wir uns am Freitagabend. Toll, dass wir das geklärt haben!" },
+            { speaker: "A", line: "Perfekt! Bis dann!" }
+        ],
+        vocab: [
+            { de: "die Abschiedsparty", en: "farewell party" }, { de: "die Einladung", en: "invitation" }, { de: "die Getränke", en: "drinks" }, { de: "die Kosten übernehmen", en: "to cover the costs" }, { de: "sich einigen auf", en: "to agree upon" }, { de: "der Garten", en: "garden" }, { de: "die Aufgabe", en: "task" }
+        ],
+        phrases: [
+            { suggestion: "Wie wäre es mit Freitagabend?", response: "Das ist eine gute Idee!" }, { suggestion: "Was hältst du von Grillen?", response: "Das gefällt mir gut." }, { delegation: "Wer kann das übernehmen?", response: "Ich kümmere mich darum." }, { conclusion: "Haben wir alles besprochen?", response: "Ich denke schon." }
+        ]
+    },
+    {
+        title: "Städtereise",
+        scenario: "Sie möchten gemeinsam einen zweitägigen Ausflug in eine deutsche Stadt planen.",
+        dialogue: [
+            { speaker: "B", line: "Hallo Anna, wir müssen unsere Städtereise nach Hamburg planen. Ich freue mich schon!" },
+            { speaker: "A", line: "Ich mich auch! In welche Stadt wollten wir fahren? Ach ja, Hamburg! Wann genau?" },
+            { speaker: "B", line: "Wie wäre es, wenn wir am ersten Wochenende im nächsten Monat fahren? Samstags und sonntags." },
+            { speaker: "A", line: "Das passt mir gut. Aber wie kommen wir hin? Fahren wir mit dem Zug oder mit dem Auto?" },
+            { speaker: "B", line: "Ich schlage vor, wir nehmen den ICE. Das ist schneller und entspannter, und wir sparen das Geld für das Parkhaus." },
+            { speaker: "A", line: "Gute Idee. Wir brauchen auch eine Übernachtung. Ich habe ein zentrales Hotel gefunden, das nicht zu teuer ist. Ich kann es buchen." },
+            { speaker: "B", line: "Perfekt! Was wollen wir besichtigen? Ich möchte unbedingt die Elbphilharmonie sehen." },
+            { speaker: "A", line: "Das ist ein Muss! Und am Abend könnten wir in einem Fischrestaurant essen. Ich suche das Restaurant und du kaufst die Zugtickets." },
+            { speaker: "B", line: "Einverstanden! Dann buche ich die Tickets und du das Hotel und das Restaurant." }
+        ],
+        vocab: [
+            { de: "die Städtereise", en: "city trip" }, { de: "die Übernachtung", en: "accommodation/stay" }, { de: "die Sehenswürdigkeit", en: "sight / point of interest" }, { de: "der Zug", en: "train" }, { de: "zentral", en: "central" }, { de: "besichtigen", en: "to visit/sightsee" }, { de: "buchen", en: "to book" }
+        ],
+        phrases: [
+            { suggestion: "Ich hätte eine Idee: Wir nehmen den Zug.", response: "Das ist schneller und entspannter." }, { suggestion: "Ich möchte unbedingt die Elbphilharmonie sehen.", response: "Das ist ein Muss!" }, { delegation: "Wer kauft die Zugtickets?", response: "Ich kann das machen." }, { delegation: "Ich kann mich um das Buchen kümmern.", response: "Das ist sehr nett von dir." }
+        ]
+    },
+    {
+        title: "Umzug",
+        scenario: "Ein gemeinsamer Freund zieht bald um, und Sie sollen die Hilfe organisieren.",
+        dialogue: [
+            { speaker: "A", line: "Tina, Thomas zieht nächste Woche um. Wir müssen ihm helfen, alles zu organisieren." },
+            { speaker: "B", line: "Stimmt! Lass uns das besprechen. Zuerst: Wann genau zieht er um? Wir brauchen einen genauen Termin." },
+            { speaker: "A", line: "Am nächsten Samstagmorgen. Wir sollten um 9:00 Uhr beginnen. Wer kann alles helfen? Ich frage noch Lukas und Sarah." },
+            { speaker: "B", line: "Gut. Ich kann mich um das Transportmittel kümmern. Ich rufe eine Firma an, die einen Transporter vermietet." },
+            { speaker: "A", line: "Hervorragend! Und wir brauchen Umzugskartons. Ich habe noch ein paar, aber nicht genug. Ich kaufe neue." },
+            { speaker: "B", line: "Perfekt. Und wir müssen die Helfer verpflegen. Ich schlage vor, ich mache belegte Brote und kaufe Kaffee." },
+            { speaker: "A", line: "Das ist toll, ich kaufe dann Pizza für das Abendessen. Ich schreibe alle Helfer auf eine Liste und du reservierst den Transporter, okay?" },
+            { speaker: "B", line: "Abgemacht! Dann ist alles organisiert." }
+        ],
+        vocab: [
+            { de: "der Umzug", en: "the move / relocation" }, { de: "der Transporter", en: "delivery van" }, { de: "die Umzugskartons", en: "moving boxes" }, { de: "helfen bei", en: "to help with" }, { de: "das Transportmittel", en: "means of transport" }, { de: "die Verpflegung", en: "catering / food supply" }, { de: "der Helfer", en: "helper" }
+        ],
+        phrases: [
+            { suggestion: "Wir sollten am Samstag um 9:00 Uhr beginnen.", response: "Einverstanden!" }, { delegation: "Was ist mit den Umzugskartons?", response: "Ich besorge neue." }, { suggestion: "Was machen wir mit dem Essen?", response: "Ich kann belegte Brote vorbereiten." }, { conclusion: "Damit hätten wir alles.", response: "Der Plan steht." }
+        ]
+    },
+    {
+        title: "Sommerfest",
+        scenario: "Sie und Ihr Kollege planen das jährliche Sommerfest für die Firma.",
+        dialogue: [
+            { speaker: "B", line: "Hallo Max, wir müssen das Sommerfest planen. Wann passt es am besten? Ende Juli oder Anfang August?" },
+            { speaker: "A", line: "Anfang August ist besser, finde ich. Und wo können wir feiern? Ich schlage den Park beim Büro vor." },
+            { speaker: "B", line: "Das ist eine gute Idee. Es ist groß genug. Was machen wir mit dem Essen? Wir brauchen etwas Einfaches." },
+            { speaker: "A", line: "Wir könnten einen Partyservice bestellen. Sie bringen Essen und Geschirr mit. Ich hole Angebote ein." },
+            { speaker: "B", line: "Super! Und wir brauchen Musik und Tanz. Ich habe eine gute Playlist mit Sommerhits. Ich kümmere mich um die Musikanlage." },
+            { speaker: "A", line: "Toll! Ich organisiere das Essen und die Tische. Kannst du die Einladungen an alle Kollegen schicken?" },
+            { speaker: "B", line: "Ja, das mache ich sofort. Ich schreibe auch eine Liste für die Getränke. Brauchen wir noch etwas?" },
+            { speaker: "A", line: "Nein, ich denke, das Wichtigste haben wir besprochen. Ich freue mich auf das Fest!" }
+        ],
+        vocab: [
+            { de: "das Sommerfest", en: "summer festival" }, { de: "der Kollege", en: "colleague" }, { de: "die Musikanlage", en: "sound system" }, { de: "der Partyservice", en: "catering service" }, { de: "ein Angebot einholen", en: "to get a quote" }, { de: "das Geschirr", en: "crockery / dishes" }
+        ],
+        phrases: [
+            { suggestion: "Ich schlage vor, wir holen Angebote ein.", response: "Das ist sehr praktisch." }, { delegation: "Kannst du vielleicht die Einladungen schicken?", response: "Gerne, mache ich!" }, { suggestion: "Was machen wir zur Unterhaltung?", response: "Wir brauchen Musik." }, { conclusion: "Ich denke, wir haben alles.", response: "Ja, wir sind fertig." }
+        ]
+    },
+    {
+        title: "Fahrradausflug",
+        scenario: "Sie möchten am Wochenende zusammen einen Fahrrad-Tagesausflug machen.",
+        dialogue: [
+            { speaker: "A", line: "Lena, dieses Wochenende soll das Wetter toll sein! Wollen wir unseren Fahrradausflug machen?" },
+            { speaker: "B", line: "Ja, unbedingt! Wann wollen wir starten? Vormittags, gegen 10 Uhr?" },
+            { speaker: "A", line: "10 Uhr ist gut. Aber wohin fahren wir? Ich kenne eine schöne Route am Fluss. Das sind ungefähr 30 Kilometer." },
+            { speaker: "B", line: "30 Kilometer sind gut. Wir müssen aber auch eine Pause machen. Gibt es ein Restaurant auf der Strecke?" },
+            { speaker: "A", line: "Ich weiß nicht genau. Wir könnten ein Picknick machen. Ich bringe Brot und Käse mit." },
+            { speaker: "B", line: "Das ist besser! Ich mache frischen Saft und bringe Obst mit. Und jeder muss seine Fahrräder überprüfen!" },
+            { speaker: "A", line: "Stimmt! Ich schaue nach dem Reifendruck und du nach den Bremsen. Wir treffen uns um 10 Uhr an der Brücke." },
+            { speaker: "B", line: "Perfekt! Dann bis Samstag! Ich freue mich auf die frische Luft." }
+        ],
+        vocab: [
+            { de: "der Fahrradausflug", en: "bike tour" }, { de: "die Route", en: "route" }, { de: "das Picknick", en: "picnic" }, { de: "die Bremse", en: "brake" }, { de: "der Reifendruck", en: "tire pressure" }, { de: "überprüfen", en: "to check / inspect" }
+        ],
+        phrases: [
+            { suggestion: "Wann wollen wir starten?", response: "10 Uhr ist gut." }, { suggestion: "Wir könnten ein Picknick machen.", response: "Das ist besser!" }, { delegation: "Jeder muss seine Fahrräder überprüfen!", response: "Stimmt!" }, { conclusion: "Perfekt! Dann bis Samstag!", response: "" }
+        ]
+    },
+    {
+        title: "Spendenaktion",
+        scenario: "Sie möchten eine Spendenaktion für Kinder in der Nachbarschaft organisieren.",
+        dialogue: [
+            { speaker: "B", line: "Hallo Martin. Wir wollen eine Spendenaktion starten, um den Kindern in unserer Gegend zu helfen. Wie fangen wir an?" },
+            { speaker: "A", line: "Hallo! Zuerst müssen wir klären, welche Organisation wir unterstützen wollen. Kennst du das Kinderheim in der Schillerstraße?" },
+            { speaker: "B", line: "Ja, das ist eine gute Wahl. Wir sollten Sachspenden sammeln, keine Kleidung, sondern Spielzeug und Bücher." },
+            { speaker: "A", line: "Gute Idee. Wo können wir die Spenden sammeln? Ich habe einen Kellerraum, den wir nutzen können." },
+            { speaker: "B", line: "Super. Ich erstelle Flyer und hänge sie in den Supermärkten auf. Und ich informiere die lokale Zeitung." },
+            { speaker: "A", line: "Prima! Ich mache eine Liste mit Dingen, die wir dringend brauchen, und organisiere die Abgabezeiten." },
+            { speaker: "B", line: "Und wir brauchen Freiwillige, die beim Sortieren helfen. Ich frage meine Nachbarn." },
+            { speaker: "A", line: "Einverstanden. Ich mache die Liste, du die Flyer und wir fragen Freiwillige. Ich denke, das ist ein guter Plan!" }
+        ],
+        vocab: [
+            { de: "die Spendenaktion", en: "donation drive" }, { de: "das Kinderheim", en: "children's home" }, { de: "die Sachspende", en: "non-monetary donation" }, { de: "sammeln", en: "to collect" }, { de: "der Flyer", en: "flyer" }, { de: "der Freiwillige", en: "volunteer" }
+        ],
+        phrases: [
+            { suggestion: "Welche Organisation unterstützen wir?", response: "Das ist eine gute Wahl." }, { suggestion: "Wo können wir die Spenden sammeln?", response: "Ich habe einen Kellerraum." }, { delegation: "Wir brauchen Freiwillige.", response: "Ich frage meine Nachbarn." }, { conclusion: "Das ist ein guter Plan!", response: "" }
+        ]
+    },
+    {
+        title: "Kindergeburtstag",
+        scenario: "Ihre Kinder sind befreundet und planen eine gemeinsame Feier.",
+        dialogue: [
+            { speaker: "A", line: "Susi, unsere Kinder haben ja bald Geburtstag. Wollen wir eine gemeinsame Feier machen?" },
+            { speaker: "B", line: "Ja, das wird einfacher! Wen sollen wir einladen? Nur die Kinder aus der Schule oder auch die Eltern?" },
+            { speaker: "A", line: "Nur die Kinder. Ich denke, 15 Kinder sind genug. Wo feiern wir? Bei mir zu Hause ist es zu klein." },
+            { speaker: "B", line: "Wie wäre es, wenn wir in den Zoo gehen und dort picknicken? Oder wir mieten einen Raum in der Sporthalle?" },
+            { speaker: "A", line: "Die Sporthalle ist gut, wenn das Wetter schlecht ist. Ich rufe dort an und reserviere den Raum." },
+            { speaker: "B", line: "Sehr gut. Was machen wir mit dem Kuchen und den Süßigkeiten? Ich kann den Kuchen backen." },
+            { speaker: "A", line: "Toll! Ich kümmere mich um die Spiele und die Getränke. Wir brauchen auch ein kleines Geschenk von uns." },
+            { speaker: "B", line: "Abgemacht. Ich backe den Kuchen und du reservierst den Raum. Und wir kaufen ein Geschenk zusammen." }
+        ],
+        vocab: [
+            { de: "die Feier", en: "celebration" }, { de: "reservieren", en: "to reserve" }, { de: "der Kuchen", en: "cake" }, { de: "die Süßigkeiten", en: "sweets" }, { de: "die Sporthalle", en: "sports hall" }, { de: "das Geschenk", en: "gift" }
+        ],
+        phrases: [
+            { suggestion: "Wen sollen wir einladen?", response: "Nur die Kinder." }, { suggestion: "Wo feiern wir?", response: "Wie wäre es im Zoo?" }, { delegation: "Was machen wir mit dem Kuchen?", response: "Ich kann den Kuchen backen." }, { conclusion: "Abgemacht.", response: "" }
+        ]
+    },
+    {
+        title: "Fitness-Routine",
+        scenario: "Sie wollen zusammen mit einem gesunden Sportprogramm starten.",
+        dialogue: [
+            { speaker: "B", line: "Hallo Alex! Wir wollten ja mehr für unsere Gesundheit tun. Was schlagen wir vor? Joggen oder Schwimmen?" },
+            { speaker: "A", line: "Hallo! Ich denke, Joggen ist einfacher, weil wir keine Mitgliedschaft im Fitnessstudio brauchen." },
+            { speaker: "B", line: "Stimmt. Wie oft wollen wir trainieren? Ich kann dreimal pro Woche." },
+            { speaker: "A", line: "Dreimal ist gut. Und wann genau? Ich kann nur abends nach 18:00 Uhr." },
+            { speaker: "B", line: "18:30 Uhr? Wir könnten im Park joggen, das ist näher. Und wer sucht einen guten Trainingsplan im Internet?" },
+            { speaker: "A", line: "Das kann ich übernehmen! Ich suche einen Plan für Anfänger und schreibe eine Liste mit Aufwärmübungen." },
+            { speaker: "B", line: "Super. Ich kaufe uns neue Sportschuhe und suche eine gute Laufstrecke im Park." },
+            { speaker: "A", line: "Perfekt! Lass uns am Montagabend mit dem Training beginnen." }
+        ],
+        vocab: [
+            { de: "die Gesundheit", en: "health" }, { de: "joggen", en: "to jog" }, { de: "die Mitgliedschaft", en: "membership" }, { de: "der Trainingsplan", en: "training schedule" }, { de: "der Anfänger", en: "beginner" }, { de: "die Laufstrecke", en: "running route" }
+        ],
+        phrases: [
+            { suggestion: "Was schlagen wir vor?", response: "Joggen ist einfacher." }, { suggestion: "Wie oft wollen wir trainieren?", response: "Dreimal ist gut." }, { delegation: "Wer sucht einen guten Trainingsplan?", response: "Das kann ich übernehmen!" }, { conclusion: "Perfekt! Lass uns beginnen.", response: "" }
+        ]
+    },
+    {
+        title: "Klassentreffen",
+        scenario: "Sie wollen nach 10 Jahren ein Treffen mit ehemaligen Schulkameraden organisieren.",
+        dialogue: [
+            { speaker: "A", line: "Hey, es ist 10 Jahre her, dass wir die Schule beendet haben! Wir müssen ein Klassentreffen organisieren!" },
+            { speaker: "B", line: "Ja, das ist eine tolle Idee! Aber das ist viel Arbeit. Wen laden wir ein? Nur unsere Klasse oder auch die Lehrer?" },
+            { speaker: "A", line: "Nur die Schüler der Klasse. Wann passt es am besten? Vielleicht im Herbst? Ende Oktober?" },
+            { speaker: "B", line: "Oktober ist gut. Und wo treffen wir uns? Im alten Schulgebäude? Oder in einem Café?" },
+            { speaker: "A", line: "Das alte Schulgebäude ist nostalgisch, aber ein Café ist bequemer. Ich kann ein Café im Zentrum reservieren." },
+            { speaker: "B", line: "Mach das! Wir müssen auch die Adressen von allen finden. Ich habe noch eine alte Liste. Ich schreibe alle an." },
+            { speaker: "A", line: "Perfekt! Ich mache das Café und du die Einladungen. Und jeder bezahlt sein Essen selbst, das ist einfacher." },
+            { speaker: "B", line: "Absolut! Dann teilen wir uns die Aufgaben so auf." }
+        ],
+        vocab: [
+            { de: "das Klassentreffen", en: "class reunion" }, { de: "ehemalig", en: "former" }, { de: "das Schulgebäude", en: "school building" }, { de: "bequem", en: "convenient" }, { de: "die Adresse", en: "address" }, { de: "die Liste", en: "list" }
+        ],
+        phrases: [
+            { suggestion: "Wen laden wir ein?", response: "Nur die Schüler der Klasse." }, { suggestion: "Wo treffen wir uns?", response: "Ein Café ist bequemer." }, { delegation: "Wir müssen die Adressen finden.", response: "Ich habe noch eine alte Liste." }, { conclusion: "Dann teilen wir uns die Aufgaben so auf.", response: "" }
+        ]
+    },
+    {
+        title: "Besuch für einen Gast",
+        scenario: "Ein Freund aus dem Ausland kommt zu Besuch und Sie planen seinen Aufenthalt.",
+        dialogue: [
+            { speaker: "B", line: "Tina, unser Freund Marco kommt nächstes Wochenende! Wir müssen seinen Aufenthalt planen." },
+            { speaker: "A", line: "Stimmt! Wann kommt er an? Ich kann ihn vom Flughafen abholen." },
+            { speaker: "B", line: "Das ist lieb von dir. Er landet am Freitag um 15:00 Uhr. Wo soll er übernachten? Bei mir ist Platz." },
+            { speaker: "A", line: "Gut, dann bleibt er bei dir. Was wollen wir ihm zeigen? Er mag Kunst und Geschichte." },
+            { speaker: "B", line: "Dann besuchen wir am Samstag das Historische Museum und machen eine Stadtführung. Ich kaufe die Tickets." },
+            { speaker: "A", line: "Super! Und abends gehen wir in mein Lieblingsrestaurant. Ich reserviere einen Tisch für uns drei." },
+            { speaker: "B", line: "Perfekt. Dann hole ich ihn ab, du machst die Reservierung und ich kümmere mich um die Tickets für das Museum." },
+            { speaker: "A", line: "Wunderbar! Ich freue mich schon sehr auf seinen Besuch!" }
+        ],
+        vocab: [
+            { de: "der Aufenthalt", en: "stay / visit" }, { de: "der Flughafen", en: "airport" }, { de: "abholen", en: "to pick up" }, { de: "die Stadtführung", en: "city tour" }, { de: "die Geschichte", en: "history" }, { de: "die Kunst", en: "art" }
+        ],
+        phrases: [
+            { suggestion: "Wann kommt er an?", response: "Ich kann ihn abholen." }, { suggestion: "Was wollen wir ihm zeigen?", response: "Er mag Kunst und Geschichte." }, { delegation: "Ich kaufe die Tickets.", response: "Super!" }, { conclusion: "Wunderbar!", response: "" }
+        ]
+    }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const topicButtonsContainer = document.getElementById('topic-buttons-container');
+    const topicTitleEl = document.getElementById('topic-title');
+    const topicScenarioEl = document.getElementById('topic-scenario');
+    const viewTabs = document.querySelectorAll('.view-tab');
+    
+    const dialogView = document.getElementById('dialog-view');
+    const vocabView = document.getElementById('vocab-view');
+    const phrasesView = document.getElementById('phrases-view');
+    const contentViews = document.querySelectorAll('.content-view');
+
+    let activeTopicIndex = 0;
+    let activeView = 'dialog';
+
+    function renderTopicButtons() {
+        topicButtonsContainer.innerHTML = '';
+        studyData.forEach((topic, index) => {
+            const button = document.createElement('button');
+            button.className = `topic-button text-sm font-semibold p-3 text-left border-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md hover:border-[#42A5F5] ${index === activeTopicIndex ? 'topic-active' : 'border-transparent bg-white'}`;
+            button.textContent = topic.title;
+            button.dataset.index = index;
+            button.addEventListener('click', () => {
+                activeTopicIndex = index;
+                render();
+            });
+            topicButtonsContainer.appendChild(button);
+        });
+    }
+
+    function renderContent() {
+        const topic = studyData[activeTopicIndex];
+        
+        topicTitleEl.textContent = topic.title;
+        topicScenarioEl.textContent = topic.scenario;
+
+        dialogView.innerHTML = `<div class="space-y-4 p-2">${topic.dialogue.map(d => `
+            <div class="flex ${d.speaker === 'A' ? 'justify-start' : 'justify-end'}">
+                <div class="chat-bubble p-3 rounded-lg ${d.speaker === 'A' ? 'chat-bubble-a' : 'chat-bubble-b'}">
+                    <p class="text-sm"><strong>${d.speaker}:</strong> ${d.line}</p>
+                </div>
+            </div>`).join('')}</div>`;
+
+        vocabView.innerHTML = `<table class="w-full text-sm text-left">
+            <thead class="bg-[#F5F5F5] text-[#757575] uppercase"><tr>
+                <th class="p-3">Deutsch</th><th class="p-3">English</th>
+            </tr></thead>
+            <tbody>${topic.vocab.map(v => `<tr class="border-b"><td class="p-3 font-semibold">${v.de}</td><td class="p-3">${v.en}</td></tr>`).join('')}</tbody>
+        </table>`;
+
+        phrasesView.innerHTML = `<table class="w-full text-sm text-left">
+             <thead class="bg-[#F5F5F5] text-[#757575] uppercase"><tr>
+                <th class="p-3">Vorschlag / Aufgabe</th><th class="p-3">Beispiel-Reaktion</th>
+            </tr></thead>
+            <tbody>${topic.phrases.map(p => `<tr class="border-b"><td class="p-3 font-semibold">${p.suggestion || p.delegation || p.conclusion}</td><td class="p-3">${p.response}</td></tr>`).join('')}</tbody>
+        </table>`;
+
+        contentViews.forEach(view => view.classList.remove('active'));
+        document.getElementById(`${activeView}-view`).classList.add('active');
+
+        viewTabs.forEach(tab => {
+            tab.classList.toggle('tab-active', tab.dataset.view === activeView);
+        });
+    }
+    
+    function render() {
+        renderTopicButtons();
+        renderContent();
+    }
+
+    viewTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            activeView = tab.dataset.view;
+            renderContent();
+        });
+    });
+
+    render();
+});
+</script>
+</body>
+</html>
