@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1: Sprechen Teil 2 Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { background-color: #0077B6; color: white; }
+        .topic-active { border-color: #0077B6; background-color: #E6F0FF; }
+        .content-view { display: none; }
+        .content-view.active { display: block; }
+        .expand-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; background-color: #f0f8ff; }
+        .expand-content.expanded { max-height: 500px; padding: 1rem; border: 1px solid #0077B6; }
+        .summary-box { border-left: 4px solid #FBC02D; }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    <!-- Chosen Palette: Professional Blues and Neutrals -->
+    <!-- Application Structure Plan: This SPA is structured as a dedicated drill-down tool for Sprechen Teil 2. A central Topic Selection allows the user to switch between 10 scenarios. The main learning area is segmented by two tabs (Teilnehmer A and B) to simulate the card-based nature of the exam. A separate, static 'Diskussion' section is placed below the tabs. Crucially, each tab includes an expandable summary of the *opposing* view (in third-person narrative) to train the user to summarize the partner's opinion, a necessary exam skill. -->
+    <!-- Visualization & Content Choices: Report Info -> Telc B1 Speaking Part 2 structure (two views, one topic). Goal -> Organize, Inform, Compare. Viz/Presentation Method -> Interactive Tabs, expandable text container for view summaries, and structured Q&A blocks. Interaction -> Topic selection updates all content, tab selection switches the active view (A or B), and an accordion button reveals the required third-person summary of the opposing argument. Justification -> This workflow directly trains the required speaking components (Presentation, Summarizing Opposing View, Discussion). Library/Method -> HTML/CSS with Tailwind for structure and styling, Vanilla JS for all dynamic content and state management. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    
+    <div class="container mx-auto max-w-6xl p-4 sm:p-8 lg:p-12">
+        
+        <header class="text-center mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#0077B6]">Telc B1 Mündlicher Ausdruck</h1>
+            <p class="text-lg text-[#757575] mt-1">Sprechen Teil 2: Thema präsentieren & diskutieren</p>
+            <nav class="mt-4 flex justify-center space-x-4 text-sm font-semibold">
+                <a href="/oral-section-part-1.html" class="text-[#0077B6] hover:text-[#00B4D8]">Teil 1: Vorstellung</a>
+                <span class="text-gray-400">|</span>
+                <a href="/oral-section-part-2.html" class="text-[#0077B6] font-bold underline">Teil 2: Thema sprechen</a>
+                <span class="text-gray-400">|</span>
+                <a href="/oral-section-part-3.html" class="text-[#0077B6] hover:text-[#00B4D8]">Teil 3: Planen</a>
+            </nav>
+        </header>
+
+        <section id="topic-selection" class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Themenauswahl:</h2>
+            <div id="topic-buttons-container" class="grid grid-cols-3 sm:grid-cols-5 gap-3">
+            </div>
+        </section>
+
+        <main id="main-content-area" class="bg-white rounded-xl shadow-lg min-h-[600px] p-6 md:p-8">
+            <div class="mb-6">
+                <h2 id="current-topic-title" class="text-2xl font-bold text-[#212121]"></h2>
+                <p class="text-gray-600">Ihre Aufgabe: Berichten Sie Ihrer Gesprächspartnerin/Ihrem Gesprächspartner über den folgenden Text und unterhalten Sie sich dann über das Thema.</p>
+            </div>
+            
+            <div id="view-tabs" class="flex space-x-1 border-b mb-6">
+                <button data-view="A" class="view-tab px-6 py-3 text-lg font-semibold rounded-t-lg transition-colors duration-200 border-x border-t">Ihre Rolle (Teilnehmer A)</button>
+                <button data-view="B" class="view-tab px-6 py-3 text-lg font-semibold rounded-t-lg transition-colors duration-200 border-x border-t">Partnerrolle (Teilnehmer B)</button>
+            </div>
+
+            <div id="content-display">
+                
+                <!-- VIEW A -->
+                <div id="view-A" class="content-view active">
+                    <div class="p-6 rounded-lg bg-gray-50 shadow-inner border-l-4 border-[#0077B6]">
+                        <h3 class="text-xl font-bold text-[#0077B6] mb-3">Ihr Ausgangstext zur Präsentation:</h3>
+                        <p id="my-view-text-A" class="text-gray-700 leading-relaxed text-lg mb-4"></p>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-3">Die Sicht des Partners zusammenfassen (Sabina/Jens findet...)</h4>
+                        <button data-view="B" class="toggle-partner-view bg-[#FBC02D] text-[#212121] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#FFD54F] transition-colors duration-200 shadow-md">
+                            Partneransicht zusammenfassen (Drittperson)
+                        </button>
+                        <div id="summary-content-B" class="expand-content mt-3 rounded-lg">
+                             <p id="partner-summary-text-A" class="text-gray-800 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW B -->
+                <div id="view-B" class="content-view">
+                    <div class="p-6 rounded-lg bg-gray-50 shadow-inner border-l-4 border-[#0077B6]">
+                        <h3 class="text-xl font-bold text-[#0077B6] mb-3">Ihr Ausgangstext zur Präsentation:</h3>
+                        <p id="my-view-text-B" class="text-gray-700 leading-relaxed text-lg mb-4"></p>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-3">Die Sicht des Partners zusammenfassen (Sabina/Jens findet...)</h4>
+                        <button data-view="A" class="toggle-partner-view bg-[#FBC02D] text-[#212121] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#FFD54F] transition-colors duration-200 shadow-md">
+                            Partneransicht zusammenfassen (Drittperson)
+                        </button>
+                        <div id="summary-content-A" class="expand-content mt-3 rounded-lg">
+                             <p id="partner-summary-text-B" class="text-gray-800 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="border-t pt-8 mt-8">
+                <h3 class="text-2xl font-bold text-[#0077B6] mb-4">Diskussion (Nach der Präsentation)</h3>
+                <p class="text-gray-600 mb-6">Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und eigene Erfahrungen zu teilen.</p>
+                <div id="discussion-qa" class="space-y-6">
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-12 text-[#757575] text-sm">
+            <p>Diese App dient nur zu Übungszwecken und ist kein offizielles Prüfungsformat.</p>
+        </footer>
+    </div>
+
+<script>
+    const examTopics = [
+        {
+            title: "Gruppenreisen",
+            viewA: { person: "Sabine Klostermann, 33 Jahre, Bürokauffrau", text: "'Ich verreise gern in einer Gruppe. Allein reisen macht mir keinen Spaß. Bei Gruppenreisen kann man neue Leute kennenlernen und hat immer Gesellschaft. Außerdem ist ein Reiseführer dabei, der einem die Sehenswürdigkeiten zeigt.'" },
+            viewB: { person: "Jens Mühle, 39 Jahre, Physiker", text: "'Wenn man mit einer Gruppe unterwegs ist, gibt es meist ein festes Programm. Daher reise ich immer allein. Manchmal möchte ich ausschlafen, manchmal etwas besichtigen. Ganz nach Lust und Laune. In einer Gruppe wäre das nicht möglich.'" },
+            discussion: [
+                { q: "Reisen Sie lieber allein oder in der Gruppe? Warum?", a: "Hier sollten Sie Ihre eigene Präferenz mit Begründung nennen und auf die Argumente der Partner eingehen (Gesellschaft vs. Flexibilität)." },
+                { q: "Welche Rolle spielt der Reiseführer für Sie?", a: "Diskutieren Sie, ob ein Experte notwendig ist oder ob man lieber alles selbst planen möchte." },
+                { q: "Welche Nachteile haben Gruppenreisen?", a: "Nennen Sie Nachteile wie mangelnde Flexibilität, feste Zeiten oder dass man nicht alle Leute mag." }
+            ]
+        },
+        {
+            title: "Online-Shopping",
+            viewA: { person: "Ali Müller, 24 Jahre, Student", text: "'Ich kaufe fast alles online, weil es bequemer ist. Die Preise sind oft niedriger und die Auswahl viel größer als im Laden. Ich kann rund um die Uhr einkaufen, ohne das Haus verlassen zu müssen.'" },
+            viewB: { person: "Hannelore Schmidt, 68 Jahre, Rentnerin", text: "'Ich gehe lieber in den Laden. Da kann ich die Ware anfassen und anprobieren. Außerdem berate ich mich gerne mit dem Verkaufspersonal, und es unterstützt die lokalen Geschäfte.'" },
+            discussion: [
+                { q: "Kaufen Sie lieber online oder im Geschäft? Nennen Sie Vor- und Nachteile beider Methoden.", a: "Verwenden Sie Konnektoren wie 'einerseits... andererseits' oder 'obwohl' um die Meinungen zu vergleichen." },
+                { q: "Wie wichtig ist die Beratung beim Einkaufen für Sie?", a: "Diskutieren Sie die Rolle von Verkaufspersonal im digitalen Zeitalter." },
+                { q: "Was halten Sie von Retouren und dem Einfluss auf die Umwelt?", a: "Ein kritischer Aspekt des Online-Shoppings, der oft angesprochen wird." }
+            ]
+        },
+        {
+            title: "Tiere im Haushalt",
+            viewA: { person: "Dr. Laura Koch, 45 Jahre, Tierärztin", text: "'Haustiere sind gut für die Seele. Sie machen uns glücklich, reduzieren Stress und helfen uns, verantwortungsvoller zu werden. Besonders für Kinder ist ein Tier eine tolle Erfahrung.'" },
+            viewB: { person: "Dennis Schulz, 29 Jahre, Softwareentwickler", text: "'Tiere machen viel Arbeit und Lärm. Die Wohnung wird schnell schmutzig, und man ist in seiner Reisefreiheit eingeschränkt. Außerdem sind die Tierarztkosten oft sehr hoch.'" },
+            discussion: [
+                { q: "Haben Sie selbst Haustiere? Erzählen Sie von Ihren Erfahrungen.", a: "Teilen Sie persönliche Erfahrungen und verwenden Sie dabei passendes Vokabular (z.B. 'füttern', 'Gassi gehen')." },
+                { q: "Sollte man Haustiere aus dem Tierheim holen? Warum?", a: "Diskutieren Sie ethische Aspekte und die Verantwortung gegenüber Tieren." },
+                { q: "Welche Tiere sind für das Leben in einer kleinen Stadtwohnung geeignet?", a: "Nennen Sie geeignete Arten und begründen Sie Ihre Wahl." }
+            ]
+        },
+        {
+            title: "Fernsehen vs. Kino",
+            viewA: { person: "Julia Berg, 21 Jahre, Auszubildende", text: "'Ich schaue am liebsten Filme zu Hause auf dem Sofa. Das ist bequemer, kostet weniger und ich kann jederzeit eine Pause machen. Die große Leinwand brauche ich nicht.'" },
+            viewB: { person: "Max Finke, 48 Jahre, Filmkritiker", text: "'Kino ist ein Erlebnis. Die Atmosphäre, der große Bildschirm und der Sound sind einzigartig. Filme sind für das Kino gemacht; man sollte sie nicht nur auf kleinen Bildschirmen sehen.'" },
+            discussion: [
+                { q: "Was machen Sie lieber in Ihrer Freizeit: ins Kino gehen oder zu Hause einen Film sehen?", a: "Geben Sie eine klare Präferenz an und begründen Sie diese mit drei Argumenten." },
+                { q: "Wie hat sich die Filmlandschaft durch Streaming-Dienste verändert?", a: "Sprechen Sie über die Verfügbarkeit von Filmen und Serien." },
+                { q: "Was war der letzte Film, den Sie gesehen haben? Erzählen Sie kurz davon.", a: "Dies dient zur Anwendung von Erzählformen in der Vergangenheit." }
+            ]
+        },
+        {
+            title: "Kinder und Handy",
+            viewA: { person: "Thomas Meier, 41 Jahre, Selbstständiger", text: "'Handys sind wichtig für die Sicherheit. Kinder können uns jederzeit erreichen, und sie lernen früh den Umgang mit Technologie. Das ist wichtig für ihre Zukunft.'" },
+            viewB: { person: "Frau Lehmann, 55 Jahre, Lehrerin", text: "'Handys lenken in der Schule ab und führen oft zu Problemen wie Cyber-Mobbing. Die Zeit, die sie vor dem Bildschirm verbringen, fehlt ihnen für Bewegung und soziale Kontakte.'", },
+            discussion: [
+                { q: "Ab welchem Alter sollten Kinder ein eigenes Handy bekommen?", a: "Nennen Sie ein Alter und begründen Sie Ihre Entscheidung." },
+                { q: "Sollten Handys in der Schule verboten werden? Warum?", a: "Diskutieren Sie die Vor- und Nachteile eines Handyverbots im Unterricht." },
+                { q: "Welche Risiken bringt die ständige Erreichbarkeit mit sich?", a: "Sprechen Sie über Sucht, Konzentrationsprobleme und Schlafstörungen." }
+            ]
+        },
+        {
+            title: "Fahrrad in der Stadt",
+            viewA: { person: "Mia Schmidt, 30 Jahre, Umweltaktivistin", text: "'Das Fahrrad ist das beste Verkehrsmittel in der Stadt. Es ist schnell, schont die Umwelt und hält fit. Man spart Geld und vermeidet Staus.'" },
+            viewB: { person: "Herr Wagner, 52 Jahre, Manager", text: "'Das ist in einer Großstadt zu gefährlich. Oft gibt es keine Fahrradwege, und bei schlechtem Wetter ist es sehr unpraktisch. Außerdem muss man seine Einkäufe transportieren können.'"},
+            discussion: [
+                { q: "Welches Verkehrsmittel nutzen Sie am häufigsten in der Stadt? Warum?", a: "Erzählen Sie von Ihrem Alltag und den praktischen Aspekten Ihres Verkehrsmittels." },
+                { q: "Was muss die Stadt tun, um das Fahrradfahren sicherer zu machen?", a: "Nennen Sie konkrete Maßnahmen (z.B. mehr Radwege, bessere Beschilderung)." },
+                { q: "Sollte Autofahren in der Innenstadt teurer werden?", a: "Diskutieren Sie die Kosten und die städtische Planung." }
+            ]
+        },
+         {
+            title: "Bücher vs. E-Books",
+            viewA: { person: "Karin Haas, 58 Jahre, Bibliothekarin", text: "'Ein gedrucktes Buch fühlt sich einfach besser an. Der Geruch, das Gefühl des Papiers – das ist ein anderes Leseerlebnis. E-Books sind unpersönlich.'"},
+            viewB: { person: "Elias Roth, 26 Jahre, Journalist", text: "'E-Books sind praktisch. Ich kann Hunderte von Büchern auf einem Gerät speichern und habe sie immer dabei. Das spart Platz und ist ökologischer als gedruckte Bücher.'"},
+            discussion: [
+                { q: "Lesen Sie lieber gedruckte Bücher oder E-Books? Begründen Sie Ihre Wahl.", a: "Vergleichen Sie die Haptik des Buches mit der Portabilität des E-Readers." },
+                { q: "Gehen Sie oft in Bibliotheken? Was bieten Bibliotheken heutzutage an?", a: "Erklären Sie die Rolle der Bibliothek in der modernen Gesellschaft." },
+                { q: "Wie wichtig ist Lesen für das Erlernen einer Fremdsprache?", a: "Sprechen Sie über die Vorteile des Lesens für Ihren Deutschkurs." }
+            ]
+        },
+         {
+            title: "Wohnen auf dem Land",
+            viewA: { person: "Frau Schmidt, 37 Jahre, Mutter von zwei Kindern", text: "'Das Landleben ist ideal für Familien. Die Kinder können draußen spielen, die Luft ist besser, und es ist ruhiger als in der Stadt. Die Lebensqualität ist viel höher.'"},
+            viewB: { person: "Paul Bauer, 31 Jahre, Unternehmensberater", text: "'Ich brauche die Stadt. Alle meine Freunde, die Kultur und mein Job sind hier. Die Fahrt zur Arbeit ist vom Land aus zu lang und der öffentliche Nahverkehr ist schlecht.'"},
+            discussion: [
+                { q: "Wo wohnen Sie im Moment? Fühlen Sie sich dort wohl?", a: "Beschreiben Sie kurz Ihren Wohnort und Ihre Wohnsituation (Mietwohnung, Haus etc.)." },
+                { q: "Welche Kompromisse muss man beim Leben auf dem Land machen?", a: "Sprechen Sie über lange Wege, schlechte Infrastruktur oder fehlende Freizeitmöglichkeiten." },
+                { q: "Was ist in Deutschland typisch für eine 'WG' (Wohngemeinschaft)?", a: "Ein typisch deutsches Thema, um Vokabular zur Wohnform zu nutzen." }
+            ]
+        },
+         {
+            title: "Gesunde Ernährung",
+            viewA: { person: "Steffen Hahn, 44 Jahre, Fitnesstrainer", text: "'Gesundheit beginnt in der Küche. Man sollte viel frisches Obst und Gemüse essen und wenig Fleisch. Das gibt Energie und stärkt das Immunsystem.'"},
+            viewB: { person: "Marie Nowak, 35 Jahre, Köchin", text: "'Essen muss vor allem gut schmecken. Ein bisschen Fleisch und Süßigkeiten sind erlaubt, solange man sich nicht zu sehr einschränkt. Genuss gehört zum Leben dazu.'"},
+            discussion: [
+                { q: "Was bedeutet für Sie 'gesund essen'? Können Sie ein Beispiel nennen?", a: "Definieren Sie gesunde Ernährung aus Ihrer Sicht und nennen Sie typische Lebensmittel." },
+                { q: "Kochen Sie lieber selbst oder gehen Sie ins Restaurant? Warum?", a: "Vergleichen Sie die Kosten, den Zeitaufwand und den Genuss beider Optionen." },
+                { q: "Wie kann man sich im stressigen Alltag gesund ernähren?", a: "Sprechen Sie über Meal Prep oder die Wahl von gesunden Kantinen-Essen." }
+            ]
+        },
+        {
+            title: "Arbeiten im Homeoffice",
+            viewA: { person: "Dr. Anna Jäger, 38 Jahre, IT-Spezialistin", text: "'Homeoffice macht mich produktiver. Ich habe keinen Stress durch den Arbeitsweg, kann meine Zeit flexibel einteilen und spare Geld. Ich arbeite viel effizienter.'"},
+            viewB: { person: "Markus Gross, 49 Jahre, Teamleiter", text: "'Zusammenarbeit ist im Büro am besten. Die Kommunikation ist direkter, und das Teamgefühl leidet, wenn jeder zu Hause sitzt. Die Grenze zwischen Arbeit und Freizeit verschwimmt.'"},
+            discussion: [
+                { q: "Arbeiten Sie im Homeoffice oder im Büro? Was sind Ihre Erfahrungen?", a: "Teilen Sie Ihre persönlichen Erfahrungen und nennen Sie die größten Herausforderungen (z.B. Ablenkung, fehlender Austausch)." },
+                { q: "Welche technischen Voraussetzungen sind für die Arbeit zu Hause nötig?", a: "Sprechen Sie über WLAN, gute Bildschirme und Ergonomie." },
+                { q: "Wie können Teams zusammenarbeiten, wenn sie an verschiedenen Orten sind?", a: "Nennen Sie Tools und Strategien für die virtuelle Kommunikation." }
+            ]
+        }
+    ];
+
+    let activeTopicTitle = "Gruppenreisen"; 
+    let activeView = "A";
+
+    function getActiveTopic() {
+        return examTopics.find(t => t.title === activeTopicTitle);
+    }
+
+    function formatText(text) {
+        if (!text) return '';
+        // Find the person data (Name, Alter, Job) and put it in strong tags.
+        text = text.replace(/([A-ZÄÖÜ][a-zäöüß]+(\s[A-ZÄÖÜ][a-zäöüß]+)?, \d{2,}\sJahre, [A-ZÄÖÜ].+?:)/, '<strong>$1</strong>');
+        // Replace newlines with paragraph breaks
+        return text.split('\n').map(p => p.trim()).filter(p => p.length > 0).map(p => `<p class="mb-3">${p}</p>`).join('');
+    }
+
+    function createSummary(view) {
+        const personData = view.person.split(',').map(s => s.trim());
+        const name = personData[0];
+        const text = view.text.replace(/'/g, '').replace(/"/g, '').trim();
+
+        // Convert first-person singular statements ('Ich...') to third-person singular ('Er/Sie...')
+        let summary = text
+            .replace(/Ich\s+verreise\s+gern/g, name + ' reist gern')
+            .replace(/Allein\s+reisen\s+macht\s+mir\s+keinen\s+Spaß/g, 'Allein reisen macht ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihr' : 'ihm') + ' keinen Spaß')
+            .replace(/meist\s+ein\s+festes\s+Programm/g, 'meist ein festes Programm')
+            .replace(/Manchmal\s+möchte\s+ich\s+ausschlafen/g, 'Manchmal möchte ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' ausschlafen')
+            .replace(/Daher\s+reise\s+ich\s+immer\s+allein/g, 'Daher reist ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' immer allein')
+            .replace(/meine\s+Zeit\s+flexibel\s+einteilen/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihre' : 'seine') + ' Zeit flexibel einteilen')
+            .replace(/kann\s+meine\s+Zeit\s+flexibel/g, 'kann ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihre' : 'seine') + ' Zeit flexibel')
+            .replace(/ich\s+kann\s+jederzeit\s+eine\s+Pause/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie' : 'Er') + ' kann jederzeit eine Pause')
+            .replace(/Ich\s+gehe\s+lieber\s+in\s+den\s+Laden/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie' : 'Er') + ' geht lieber in den Laden')
+            .replace(/Da\s+kann\s+ich\s+die\s+Ware\s+anfassen/g, 'Da kann ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' die Ware anfassen')
+            .replace(/Meine\s+Freunde,\s+die\s+Kultur\s+und\s+mein\s+Job/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihre' : 'seine') + ' Freunde, die Kultur und ' + (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihr' : 'sein') + ' Job')
+            .replace(/ich\s+brauche\s+die\s+Stadt/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' braucht die Stadt')
+            .replace(/Ich\s+kaufe\s+fast\s+alles\s+online/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie' : 'Er') + ' kauft fast alles online')
+            .replace(/ich\s+kann\s+rund\s+um\s+die\s+Uhr\s+einkaufen/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' kann rund um die Uhr einkaufen')
+            
+            // General first person to third person conversions
+            .replace(/ich\s+finde/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'er') + ' findet')
+            .replace(/Ich\s+bin/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie ist' : 'Er ist'))
+            .replace(/Ich\s+habe/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie hat' : 'Er hat'))
+            .replace(/ich\s+bin/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie ist' : 'er ist'))
+            .replace(/ich\s+habe/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie hat' : 'er hat'))
+            .replace(/ich\s+kann/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie kann' : 'er kann'))
+            .replace(/ich\s+schaue/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie schaut' : 'er schaut'))
+            .replace(/mich/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'sie' : 'ihn'))
+            .replace(/meine/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihre' : 'seine'))
+            .replace(/mein/g, (name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'ihr' : 'sein'));
+
+        const genderPronoun = name.includes('Sabine') || name.includes('Hannelore') || name.includes('Laura') || name.includes('Julia') || name.includes('Lehmann') || name.includes('Mia') || name.includes('Karin') || name.includes('Schmidt') || name.includes('Marie') || name.includes('Anna') ? 'Sie' : 'Er';
+        
+        let initialSentence;
+        if (view.title === 'Gruppenreisen') {
+            initialSentence = `**${genderPronoun}** ist der Meinung, dass ${genderPronoun.toLowerCase()} **gern in einer Gruppe verreist**.`;
+        } else {
+            initialSentence = `**${genderPronoun}** hat in der Zeitschrift gelesen, dass ${genderPronoun.toLowerCase()} **das Thema sehr positiv sieht**.`;
+        }
+        
+        return `<p class="font-bold text-lg text-red-700 mb-3">${view.person}:</p>` + `<p class="text-gray-800 italic leading-relaxed">${initialSentence} ${summary}</p>`;
+    }
+
+
+    function renderTopicButtons() {
+        const container = document.getElementById('topic-buttons-container');
+        container.innerHTML = '';
+        examTopics.forEach(topic => {
+            const button = document.createElement('button');
+            button.className = `topic-button text-xs sm:text-sm font-medium p-2 rounded-lg border-2 transition-all duration-200 shadow-sm ${topic.title === activeTopicTitle ? 'topic-active' : 'border-gray-200 bg-white hover:border-[#0077B6]'}`;
+            button.textContent = topic.title;
+            button.dataset.title = topic.title;
+            button.addEventListener('click', () => {
+                activeTopicTitle = topic.title;
+                // Reset view to A when topic changes
+                activeView = 'A'; 
+                render();
+            });
+            container.appendChild(button);
+        });
+    }
+
+    function renderViewContent(topic) {
+        // Render View A Content
+        document.getElementById('my-view-text-A').innerHTML = formatText(topic.viewA.person + ":\n" + topic.viewA.text);
+        
+        // Render View B Content
+        document.getElementById('my-view-text-B').innerHTML = formatText(topic.viewB.person + ":\n" + topic.viewB.text);
+        
+        // Render Summary A (Partner B's view in third person)
+        document.getElementById('partner-summary-text-A').innerHTML = createSummary(topic.viewB);
+
+        // Render Summary B (Partner A's view in third person)
+        document.getElementById('partner-summary-text-B').innerHTML = createSummary(topic.viewA);
+    }
+
+    function setupToggleButtons() {
+        document.querySelectorAll('.toggle-partner-view').forEach(button => {
+            const viewId = button.dataset.view === 'A' ? 'summary-content-A' : 'summary-content-B';
+            const content = document.getElementById(viewId);
+            
+            // Reset state
+            content.classList.remove('expanded');
+            button.textContent = 'Partneransicht zusammenfassen (Drittperson)';
+
+            button.onclick = () => {
+                const isExpanded = content.classList.toggle('expanded');
+                // Ensure only the content associated with the active tab's opposite view is expanded
+                if (isExpanded) {
+                    button.textContent = 'Zusammenfassung ausblenden';
+                } else {
+                    button.textContent = 'Partneransicht zusammenfassen (Drittperson)';
+                }
+            };
+        });
+    }
+
+    function renderDiscussionView(topic) {
+        const qaContainer = document.getElementById('discussion-qa');
+        qaContainer.innerHTML = '';
+
+        topic.discussion.forEach(qa => {
+            const item = document.createElement('div');
+            item.className = 'p-4 rounded-lg bg-white border border-gray-200 shadow-sm';
+            item.innerHTML = `
+                <p class="font-bold text-gray-800 mb-2">Q: ${qa.q}</p>
+                <div class="bg-gray-50 border-l-4 border-yellow-500 p-3 mt-3">
+                    <p class="text-sm text-gray-700"><strong>Tipp:</strong> ${qa.a}</p>
+                </div>
+            `;
+            qaContainer.appendChild(item);
+        });
+    }
+
+    function renderTabs() {
+        const views = {
+            'A': document.getElementById('view-A'),
+            'B': document.getElementById('view-B')
+        };
+        
+        document.querySelectorAll('.view-tab').forEach(tab => {
+            tab.classList.remove('tab-active');
+            if (tab.dataset.view === activeView) {
+                tab.classList.add('tab-active');
+                views[activeView].classList.add('active');
+            } else {
+                views[tab.dataset.view].classList.remove('active');
+            }
+            tab.onclick = () => {
+                activeView = tab.dataset.view;
+                renderTabs();
+            };
+        });
+    }
+
+    function render() {
+        const topic = getActiveTopic();
+        document.getElementById('current-topic-title').textContent = activeTopicTitle;
+        
+        renderTopicButtons();
+        renderTabs();
+        renderViewContent(topic);
+        setupToggleButtons();
+        renderDiscussionView(topic);
+    }
+
+    render();
+</script>
+</body>
+</html>
