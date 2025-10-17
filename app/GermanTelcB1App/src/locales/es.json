@@ -1,0 +1,113 @@
+{
+  "common": {
+    "continue": "Continuar",
+    "go": "Ir",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "close": "Cerrar",
+    "done": "Hecho"
+  },
+  "onboarding": {
+    "welcome": "Preparemos juntos para el examen alemán TELC B1",
+    "selectLanguage": "Selecciona tu idioma de interfaz",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    }
+  },
+  "navigation": {
+    "home": "Inicio",
+    "mockExam": "Examen de Práctica",
+    "profile": "Perfil"
+  },
+  "home": {
+    "title": "Preparación TELC B1 Alemán",
+    "examStructure": "Estructura del Examen",
+    "practice": "Practicar",
+    "practiceSections": {
+      "reading": "Comprensión Lectora",
+      "listening": "Comprensión Auditiva",
+      "writing": "Expresión Escrita",
+      "speaking": "Expresión Oral"
+    }
+  },
+  "examStructure": {
+    "title": "Estructura del Examen",
+    "description": "Aprende sobre el formato y puntuación del examen TELC B1",
+    "comingSoon": "Contenido próximamente..."
+  },
+  "practice": {
+    "reading": {
+      "title": "Comprensión Lectora",
+      "part1": "Parte 1: Emparejar Encabezados",
+      "part2": "Parte 2: Opción Múltiple",
+      "part3": "Parte 3: Emparejar Anuncios"
+    },
+    "listening": {
+      "title": "Comprensión Auditiva",
+      "part1": "Parte 1: Diálogos Cortos",
+      "part2": "Parte 2: Conversaciones Largas",
+      "part3": "Parte 3: Monólogos",
+      "comingSoon": "Próximamente"
+    },
+    "writing": {
+      "title": "Expresión Escrita",
+      "description": "Escribe un email personal o semi-formal"
+    },
+    "speaking": {
+      "title": "Expresión Oral",
+      "part1": "Parte 1: Presentación Personal",
+      "part2": "Parte 2: Presentación de Tema",
+      "part3": "Parte 3: Planificar Juntos"
+    },
+    "grammar": {
+      "title": "Elementos Lingüísticos",
+      "part1": "Parte 1: Completar Huecos (Opción Múltiple)",
+      "part2": "Parte 2: Completar Huecos (Lista de Palabras)"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "settings": "Configuración",
+    "language": "Idioma de Interfaz",
+    "clearProgress": "Borrar Progreso",
+    "about": "Acerca de",
+    "authentication": "Autenticación",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "loginProviders": {
+      "google": "Continuar con Google",
+      "facebook": "Continuar con Facebook",
+      "twitter": "Continuar con Twitter",
+      "apple": "Continuar con Apple"
+    },
+    "userInfo": {
+      "welcome": "Bienvenido",
+      "notLoggedIn": "No iniciado sesión"
+    }
+  },
+  "mockExam": {
+    "title": "Examen de Práctica",
+    "description": "Realiza un examen de práctica completo",
+    "comingSoon": "Función de examen de práctica próximamente..."
+  },
+  "questions": {
+    "checkAnswers": "Verificar Respuestas",
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "score": "Puntuación",
+    "results": "Resultados",
+    "tryAgain": "Intentar de Nuevo"
+  }
+}

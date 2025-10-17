@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1 Schriftlicher Ausdruck Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .exam-tab { transition: all 0.2s; }
+        .exam-active { background-color: #0077B6; color: white; }
+        .modal { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden; 
+            opacity: 0; 
+            transition: visibility 0s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .modal.open { 
+            visibility: visible; 
+            opacity: 1; 
+            pointer-events: auto;
+        }
+        textarea {
+            min-height: 350px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8 lg:p-12">
+        
+        <header class="text-center mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#0077B6]">Telc B1 Schriftlicher Ausdruck</h1>
+            <p class="text-lg text-[#757575] mt-1">Übung: Persönliche/Halbformelle E-Mail (30 Minuten)</p>
+        </header>
+
+        <section id="exam-selection" class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Aufgabe auswählen:</h2>
+            <div id="exam-tabs" class="flex flex-wrap gap-2 md:gap-4 justify-center bg-gray-200 p-2 rounded-lg shadow-inner">
+                <button data-exam-id="0" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 1 (Reise)</button>
+                <button data-exam-id="1" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 2 (Wohnungssuche)</button>
+                <button data-exam-id="2" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 3 (Job-Wechsel)</button>
+                <button data-exam-id="3" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 4 (Sprachkurs)</button>
+                <button data-exam-id="4" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 5 (Krankheit)</button>
+            </div>
+        </section>
+
+        <main class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            
+            <h2 class="text-2xl font-bold text-[#0077B6] mb-4">Ihre Aufgabe: Antworten Sie auf die E-Mail</h2>
+            
+            <!-- Question Display -->
+            <div class="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-300">
+                <p class="text-sm font-semibold text-[#0077B6] mb-2">Eingegangene Nachricht:</p>
+                <pre id="incoming-email" class="text-gray-800 whitespace-pre-wrap font-mono text-sm leading-relaxed"></pre>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3 text-[#0077B6]">Schreiben Sie etwas zu allen vier Punkten:</h3>
+            <ul id="writing-points" class="list-disc list-inside ml-4 mb-6 text-gray-700 space-y-1">
+                <!-- Points will be rendered here -->
+            </ul>
+
+            <label for="user-answer" class="block text-xl font-semibold mb-2 text-[#0077B6]">Ihre Antwort (max. 30 Minuten):</label>
+            <textarea id="user-answer" class="w-full p-3 border border-gray-300 rounded-lg focus:border-[#0077B6] focus:ring-[#0077B6] shadow-sm text-gray-800" placeholder="Beginnen Sie mit Betreff, Anrede und schreiben Sie Ihren Text..."></textarea>
+            
+            <!-- New Warning Message Element -->
+            <p id="warning-message" class="text-red-600 font-semibold mt-2 hidden">Bitte schreiben Sie einen längeren Text (mindestens 50 Zeichen), um eine Bewertung zu starten.</p>
+
+            <button id="evaluate-button" class="mt-6 w-full bg-[#0077B6] text-white py-3 rounded-lg text-lg font-semibold hover:bg-[#005F92] transition-colors duration-200 shadow-md">
+                Antwort bewerten lassen (KI-Feedback)
+            </button>
+        </main>
+    </div>
+
+    <!-- Modal for Results -->
+    <div id="results-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 md:p-8 transform transition-all duration-300 scale-95 modal-content">
+            <h3 class="text-2xl font-bold text-[#0077B6] mb-4 border-b pb-2">Ihre Bewertung (Schriftlicher Ausdruck)</h3>
+            
+            <div id="evaluation-summary" class="mb-6 space-y-4">
+                <!-- Mock Data/Real Data will be inserted here -->
+
+                <div class="p-3 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <p class="font-bold text-lg text-indigo-700 mb-2">Gesamtergebnis (Mock Data)</p>
+                    <p class="text-sm">Gesamtpunkte: <span class="font-bold text-xl text-green-600">15 / 15</span> (Maximale Punktzahl)</p>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-[#0077B6] border-b pb-1">Detaillierte Kriterien:</h4>
+                <div id="criteria-feedback" class="space-y-3">
+                    <div class="border-l-4 border-green-500 p-3 bg-green-50 rounded-md">
+                        <p class="font-semibold">Kriterium I: Aufgabenbewältigung (Mock: A)</p>
+                        <p class="text-sm text-gray-600">Alle vier Leitpunkte wurden sinnvoll und verständlich bearbeitet.</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-500 p-3 bg-yellow-50 rounded-md">
+                        <p class="font-semibold">Kriterium II: Kommunikative Gestaltung (Mock: B)</p>
+                        <p class="text-sm text-gray-600">Anrede und Schluss sind passend. Es gibt eine gute Verbindung der Sätze, aber das Register schwankt leicht.</p>
+                    </div>
+                    <div class="border-l-4 border-red-500 p-3 bg-red-50 rounded-md">
+                        <p class="font-semibold">Kriterium III: Formale Richtigkeit (Mock: C)</p>
+                        <p class="text-sm text-gray-600">Viele Genusfehler und einige falsche Verbpositionen behindern das zügige Verständnis stellenweise.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-gray-100 rounded-lg">
+                    <p class="font-bold text-lg text-gray-800 mb-2">Konkreter Verbesserungstipp:</p>
+                    <p class="text-sm text-gray-700 italic">Achten Sie besonders auf die richtige Stellung des Verbs im Nebensatz (z.B. nach "weil" oder "dass").</p>
+                </div>
+            </div>
+
+            <button id="close-modal-button" class="w-full bg-gray-500 text-white py-2 rounded-lg font-semibold hover:bg-gray-700">
+                Schließen
+            </button>
+        </div>
+    </div>
+
+<script>
+    // --- EXAM DATA ---
+    const allExams = [
+        // --- Test 1: Original PDF Example (Visit to my country) ---
+        {
+            id: 0,
+            title: "Test 1 (Reiseplanung)",
+            email: "Liebe/r [Name],\n\ndanke für deine nette Einladung! Ich komme dich sehr gerne besuchen, um dein Land kennenzulernen - wie du weißt, war ich ja noch nie da. Wann wäre die beste Zeit, dich zu besuchen?\nIch weiß noch nicht einmal, ob es bei euch im Sommer sehr heiß wird - allzu große Hitze mag ich nämlich nicht so sehr. Und gibt es sonst noch irgendwelche Dinge, die ich wissen sollte, bevor ich diese Reise mache?\n\nBitte schreib mir möglichst bald, damit ich mich gut auf die Reise vorbereiten kann.\n\nHerzliche Grüße\nMarianne",
+            points: [
+                "welche Ausflüge Sie mit Marianne machen wollen",
+                "was die beste Jahreszeit für die Reise ist",
+                "welche Kleidung sie mitnehmen soll",
+                "wie sie sich am besten auf die Reise vorbereiten kann"
+            ]
+        },
+        // --- Test 2: New topics - Apartment/Flatmate search (Halbformell) ---
+        {
+            id: 1,
+            title: "Test 2 (Wohnungssuche)",
+            email: "Sehr geehrte Frau Meier,\n\nvielen Dank für die schnelle Antwort auf meine Anzeige wegen des freien WG-Zimmers. Ich habe bereits viele Bewerbungen bekommen, Ihre klingt aber besonders interessant.\nIch würde Sie gerne zu einem Treffen einladen. Am besten passen mir Donnerstag oder Freitag Abend.\n\nKönnten Sie mir bitte mitteilen, ob diese Termine bei Ihnen passen? Und könnten Sie mir noch sagen, wann genau Sie in München angekommen sind? Ich möchte auch wissen, was Sie studieren oder arbeiten.\n\nIch freue mich auf Ihre Rückmeldung.\n\nMit freundlichen Grüßen\nMax Schmidt",
+            points: [
+                "ob Ihnen Donnerstag oder Freitag passt und warum",
+                "wann Sie genau in München angekommen sind",
+                "was Sie studieren oder arbeiten (mit Details)",
+                "eine Frage zum Zimmer oder zur Miete stellen"
+            ]
+        },
+        // --- Test 3: New topics - New Job Invitation (Halbformell/Persönlich) ---
+        {
+            id: 2,
+            title: "Test 3 (Job-Wechsel)",
+            email: "Liebe/r [Name],\n\nich gratuliere dir ganz herzlich zum neuen Job in Berlin! Das sind wirklich tolle Neuigkeiten. Ich habe gehört, du fängst nächsten Monat schon an. Ich möchte dich vorher noch unbedingt treffen.\n\nHättest du am kommenden Samstag Zeit für einen Kaffee? Ich möchte wissen, warum du dich für diesen Job entschieden hast. Erzähl mir auch, wann du nach Berlin umziehst. Ich mache mir auch Sorgen: Ist Berlin nicht viel teurer als unsere Stadt?\n\nSchreib mir bitte schnell zurück!\n\nViele Grüße\nLaura",
+            points: [
+                "die Einladung zum Kaffee annehmen oder ablehnen und einen Gegenvorschlag machen",
+                "warum Sie sich für den Job in Berlin entschieden haben (Gründe nennen)",
+                "wann genau Sie umziehen werden",
+                "eine Rückfrage zu den Kosten oder zur Wohnungssituation in Berlin stellen"
+            ]
+        },
+        // --- Test 4: New topics - Course Organization (Halbformell) ---
+        {
+            id: 3,
+            title: "Test 4 (Sprachkurs)",
+            email: "Sehr geehrte Teilnehmer/innen des Deutschkurses B1,\n\nwie Sie wissen, endet der Kurs in zwei Wochen. Wir möchten uns danach noch einmal treffen, um gemeinsam zu essen und den Abschluss zu feiern.\n\nHätten Sie am kommenden Freitagabend Zeit? Oder wäre der Samstag besser? Wir müssen auch noch entscheiden, ob wir in der Pizzeria 'Bella' essen gehen oder lieber in einem vegetarischen Restaurant.\n\nBitte teilen Sie mir mit, wann Sie Zeit haben und welches Restaurant Sie bevorzugen. Vergessen Sie nicht, mir Bescheid zu sagen, ob Sie vegetarisch essen oder nicht.\n\nMit freundlichen Grüßen\nIhre Kursleiterin, Frau Hansen",
+            points: [
+                "bestätigen, dass Sie teilnehmen",
+                "welcher Tag Ihnen besser passt und warum",
+                "welches Restaurant Sie bevorzugen und warum (Pizzeria oder vegetarisch)",
+                "ob Sie Vegetarier sind oder nicht"
+            ]
+        },
+        // --- Test 5: New topics - Sickness and Absence (Formell/Halbformell) ---
+        {
+            id: 4,
+            title: "Test 5 (Krankheit/Arbeitsabwesenheit)",
+            email: "Sehr geehrte/r Herr/Frau [Name des Chefs],\n\nwie besprochen, fällt unser Kollege Herr Müller wegen einer Grippe für die ganze Woche aus. Er hat uns gebeten, seine Aufgaben zu übernehmen.\n\nIch weiß, dass Sie diese Woche auf Geschäftsreise sind, aber ich möchte fragen, wer für seine Aufgaben zuständig ist. Können Sie mir bitte sagen, welche E-Mails Priorität haben? Wer ist diese Woche außerdem für die Telefonate zuständig?\n\nIch hoffe, Sie haben eine gute Reise.\n\nMit freundlichen Grüßen\nIhre Kollegin, Sabine Weber",
+            points: [
+                "eine Entschuldigung für die späte Rückmeldung formulieren",
+                "bestätigen, dass Sie die Aufgaben übernehmen werden",
+                "fragen, ob Sie eine Liste der wichtigsten E-Mails bekommen können",
+                "fragen, wer diese Woche die Telefonate übernimmt"
+            ]
+        }
+    ];
+
+    let activeExamId = 0; // Start with Test 1
+    
+    // Initialize user answers storage 
+    const userAnswers = {}; 
+
+    function loadExamData() {
+        const exam = allExams[activeExamId];
+        document.getElementById('incoming-email').textContent = exam.email;
+        
+        const pointsList = document.getElementById('writing-points');
+        pointsList.innerHTML = '';
+        exam.points.forEach(point => {
+            const li = document.createElement('li');
+            li.textContent = point;
+            pointsList.appendChild(li);
+        });
+        
+        // Load user's saved answer for this test (if available)
+        const textarea = document.getElementById('user-answer');
+        textarea.value = userAnswers[activeExamId] || '';
+    }
+    
+    function saveAnswer() {
+        const textarea = document.getElementById('user-answer');
+        userAnswers[activeExamId] = textarea.value;
+    }
+
+    function renderExamTabs() {
+        const tabs = document.querySelectorAll('.exam-tab');
+        tabs.forEach(tab => {
+            const id = parseInt(tab.dataset.examId);
+            const isActive = id === activeExamId;
+            tab.classList.toggle('exam-active', isActive);
+            
+            tab.onclick = () => {
+                // Save current answer before switching
+                saveAnswer();
+                activeExamId = id;
+                loadExamData();
+                renderExamTabs(); // Rerender tabs to update active state
+            };
+        });
+    }
+
+    // MOCK DATA for evaluation (replace with fetch call later)
+    function mockEvaluate() {
+        // 1. Get user text and warning element
+        const userText = document.getElementById('user-answer').value;
+        const warningEl = document.getElementById('warning-message');
+        
+        // Check for minimum length (e.g., 50 characters)
+        if (userText.trim().length < 50) {
+            warningEl.classList.remove('hidden');
+            return;
+        }
+        
+        warningEl.classList.add('hidden');
+
+        // 2. Show Modal (with mock data)
+        const modal = document.getElementById('results-modal');
+        modal.classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('results-modal').classList.remove('open');
+    }
+
+    function init() {
+        // Initial load
+        loadExamData();
+        renderExamTabs();
+
+        // Save answer automatically on input change
+        document.getElementById('user-answer').addEventListener('input', saveAnswer);
+
+        // Attach event listeners
+        document.getElementById('evaluate-button').addEventListener('click', mockEvaluate);
+        document.getElementById('close-modal-button').addEventListener('click', closeModal);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+{
+  "common": {
+    "continue": "Continuer",
+    "go": "Aller",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "close": "Fermer",
+    "done": "Terminé"
+  },
+  "onboarding": {
+    "welcome": "Préparons ensemble l'examen allemand TELC B1",
+    "selectLanguage": "Sélectionnez votre langue d'interface",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "mockExam": "Examen Blanc",
+    "profile": "Profil"
+  },
+  "home": {
+    "title": "Préparation TELC B1 Allemand",
+    "examStructure": "Structure de l'Examen",
+    "practice": "Pratique",
+    "practiceSections": {
+      "reading": "Compréhension Écrite",
+      "listening": "Compréhension Orale",
+      "writing": "Expression Écrite",
+      "speaking": "Expression Orale"
+    }
+  },
+  "examStructure": {
+    "title": "Structure de l'Examen",
+    "description": "Apprenez le format et la notation de l'examen TELC B1",
+    "comingSoon": "Contenu bientôt disponible..."
+  },
+  "practice": {
+    "reading": {
+      "title": "Compréhension Écrite",
+      "part1": "Partie 1: Associer les Titres",
+      "part2": "Partie 2: Choix Multiple",
+      "part3": "Partie 3: Associer les Annonces"
+    },
+    "listening": {
+      "title": "Compréhension Orale",
+      "part1": "Partie 1: Dialogues Courts",
+      "part2": "Partie 2: Conversations Longues",
+      "part3": "Partie 3: Monologues",
+      "comingSoon": "Bientôt disponible"
+    },
+    "writing": {
+      "title": "Expression Écrite",
+      "description": "Écrivez un email personnel ou semi-formel"
+    },
+    "speaking": {
+      "title": "Expression Orale",
+      "part1": "Partie 1: Présentation Personnelle",
+      "part2": "Partie 2: Présentation de Sujet",
+      "part3": "Partie 3: Planifier Ensemble"
+    },
+    "grammar": {
+      "title": "Éléments Linguistiques",
+      "part1": "Partie 1: Compléter les Lacunes (Choix Multiple)",
+      "part2": "Partie 2: Compléter les Lacunes (Liste de Mots)"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "settings": "Paramètres",
+    "language": "Langue d'Interface",
+    "clearProgress": "Effacer le Progrès",
+    "about": "À Propos",
+    "authentication": "Authentification",
+    "login": "Se Connecter",
+    "logout": "Se Déconnecter",
+    "loginProviders": {
+      "google": "Continuer avec Google",
+      "facebook": "Continuer avec Facebook",
+      "twitter": "Continuer avec Twitter",
+      "apple": "Continuer avec Apple"
+    },
+    "userInfo": {
+      "welcome": "Bienvenue",
+      "notLoggedIn": "Non connecté"
+    }
+  },
+  "mockExam": {
+    "title": "Examen Blanc",
+    "description": "Passez un examen de pratique complet",
+    "comingSoon": "Fonction d'examen blanc bientôt disponible..."
+  },
+  "questions": {
+    "checkAnswers": "Vérifier les Réponses",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "score": "Score",
+    "results": "Résultats",
+    "tryAgain": "Réessayer"
+  }
+}

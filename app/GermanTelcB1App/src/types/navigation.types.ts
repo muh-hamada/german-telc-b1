@@ -1,0 +1,46 @@
+import { NavigatorScreenParams } from '@react-navigation/native';
+
+// Root Stack Navigator
+export type RootStackParamList = {
+  Onboarding: undefined;
+  Main: NavigatorScreenParams<MainTabParamList>;
+};
+
+// Main Tab Navigator
+export type MainTabParamList = {
+  HomeStack: NavigatorScreenParams<HomeStackParamList>;
+  MockExam: undefined;
+  Profile: undefined;
+};
+
+// Home Stack Navigator
+export type HomeStackParamList = {
+  Home: undefined;
+  ExamStructure: undefined;
+  PracticeMenu: undefined;
+  ReadingMenu: undefined;
+  ReadingPart1: undefined;
+  ReadingPart2: undefined;
+  ReadingPart3: undefined;
+  GrammarPart1: undefined;
+  GrammarPart2: undefined;
+  Writing: undefined;
+  SpeakingMenu: undefined;
+  SpeakingPart1: undefined;
+  SpeakingPart2: undefined;
+  SpeakingPart3: undefined;
+  ListeningMenu: undefined;
+  ListeningPart1: undefined;
+  ListeningPart2: undefined;
+  ListeningPart3: undefined;
+};
+
+// Navigation prop types
+export type RootStackNavigationProp = import('@react-navigation/stack').StackNavigationProp<RootStackParamList>;
+export type MainTabNavigationProp = import('@react-navigation/bottom-tabs').BottomTabNavigationProp<MainTabParamList>;
+export type HomeStackNavigationProp = import('@react-navigation/stack').StackNavigationProp<HomeStackParamList>;
+
+// Route prop types
+export type RootStackRouteProp<T extends keyof RootStackParamList> = import('@react-navigation/native').RouteProp<RootStackParamList, T>;
+export type MainTabRouteProp<T extends keyof MainTabParamList> = import('@react-navigation/native').RouteProp<MainTabParamList, T>;
+export type HomeStackRouteProp<T extends keyof HomeStackParamList> = import('@react-navigation/native').RouteProp<HomeStackParamList, T>;

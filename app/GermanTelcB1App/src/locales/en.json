@@ -1,0 +1,113 @@
+{
+  "common": {
+    "continue": "Continue",
+    "go": "Go",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "done": "Done"
+  },
+  "onboarding": {
+    "welcome": "Let's prepare for the German TELC B1 exam together",
+    "selectLanguage": "Select your interface language",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "mockExam": "Mock Exam",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "German TELC B1 Preparation",
+    "examStructure": "Exam Structure",
+    "practice": "Practice",
+    "practiceSections": {
+      "reading": "Reading",
+      "listening": "Listening",
+      "writing": "Writing",
+      "speaking": "Speaking"
+    }
+  },
+  "examStructure": {
+    "title": "Exam Structure",
+    "description": "Learn about the TELC B1 exam format and scoring",
+    "comingSoon": "Content coming soon..."
+  },
+  "practice": {
+    "reading": {
+      "title": "Reading Comprehension",
+      "part1": "Part 1: Matching Headings",
+      "part2": "Part 2: Multiple Choice",
+      "part3": "Part 3: Advertisement Matching"
+    },
+    "listening": {
+      "title": "Listening Comprehension",
+      "part1": "Part 1: Short Dialogues",
+      "part2": "Part 2: Longer Conversations",
+      "part3": "Part 3: Monologues",
+      "comingSoon": "Coming Soon"
+    },
+    "writing": {
+      "title": "Written Expression",
+      "description": "Write a personal or semi-formal email"
+    },
+    "speaking": {
+      "title": "Oral Expression",
+      "part1": "Part 1: Personal Introduction",
+      "part2": "Part 2: Topic Presentation",
+      "part3": "Part 3: Planning Together"
+    },
+    "grammar": {
+      "title": "Language Building Blocks",
+      "part1": "Part 1: Gap Fill (Multiple Choice)",
+      "part2": "Part 2: Gap Fill (Word List)"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "settings": "Settings",
+    "language": "Interface Language",
+    "clearProgress": "Clear Progress",
+    "about": "About",
+    "authentication": "Authentication",
+    "login": "Login",
+    "logout": "Logout",
+    "loginProviders": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook",
+      "twitter": "Continue with Twitter",
+      "apple": "Continue with Apple"
+    },
+    "userInfo": {
+      "welcome": "Welcome",
+      "notLoggedIn": "Not logged in"
+    }
+  },
+  "mockExam": {
+    "title": "Mock Exam",
+    "description": "Take a full practice exam",
+    "comingSoon": "Mock exam feature coming soon..."
+  },
+  "questions": {
+    "checkAnswers": "Check Answers",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "score": "Score",
+    "results": "Results",
+    "tryAgain": "Try Again"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "common": {
+    "continue": "متابعة",
+    "go": "ابدأ",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "close": "إغلاق",
+    "done": "تم"
+  },
+  "onboarding": {
+    "welcome": "دعنا نستعد لامتحان TELC B1 الألماني معاً",
+    "selectLanguage": "اختر لغة الواجهة",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    }
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "mockExam": "امتحان تجريبي",
+    "profile": "الملف الشخصي"
+  },
+  "home": {
+    "title": "التحضير لامتحان TELC B1 الألماني",
+    "examStructure": "هيكل الامتحان",
+    "practice": "التدريب",
+    "practiceSections": {
+      "reading": "القراءة",
+      "listening": "الاستماع",
+      "writing": "الكتابة",
+      "speaking": "المحادثة"
+    }
+  },
+  "examStructure": {
+    "title": "هيكل الامتحان",
+    "description": "تعرف على تنسيق امتحان TELC B1 ونظام التقييم",
+    "comingSoon": "المحتوى قريباً..."
+  },
+  "practice": {
+    "reading": {
+      "title": "فهم المقروء",
+      "part1": "الجزء 1: مطابقة العناوين",
+      "part2": "الجزء 2: اختيار من متعدد",
+      "part3": "الجزء 3: مطابقة الإعلانات"
+    },
+    "listening": {
+      "title": "فهم المسموع",
+      "part1": "الجزء 1: حوارات قصيرة",
+      "part2": "الجزء 2: محادثات أطول",
+      "part3": "الجزء 3: مونولوجات",
+      "comingSoon": "قريباً"
+    },
+    "writing": {
+      "title": "التعبير الكتابي",
+      "description": "اكتب رسالة إلكترونية شخصية أو شبه رسمية"
+    },
+    "speaking": {
+      "title": "التعبير الشفهي",
+      "part1": "الجزء 1: التعريف الشخصي",
+      "part2": "الجزء 2: عرض موضوع",
+      "part3": "الجزء 3: التخطيط معاً"
+    },
+    "grammar": {
+      "title": "البناء اللغوي",
+      "part1": "الجزء 1: ملء الفراغات (اختيار من متعدد)",
+      "part2": "الجزء 2: ملء الفراغات (قائمة كلمات)"
+    }
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "language": "لغة الواجهة",
+    "clearProgress": "مسح التقدم",
+    "about": "حول",
+    "authentication": "المصادقة",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "loginProviders": {
+      "google": "المتابعة مع Google",
+      "facebook": "المتابعة مع Facebook",
+      "twitter": "المتابعة مع Twitter",
+      "apple": "المتابعة مع Apple"
+    },
+    "userInfo": {
+      "welcome": "مرحباً",
+      "notLoggedIn": "غير مسجل الدخول"
+    }
+  },
+  "mockExam": {
+    "title": "امتحان تجريبي",
+    "description": "أد امتحان تدريبي كامل",
+    "comingSoon": "ميزة الامتحان التجريبي قريباً..."
+  },
+  "questions": {
+    "checkAnswers": "فحص الإجابات",
+    "correct": "صحيح",
+    "incorrect": "خطأ",
+    "score": "النتيجة",
+    "results": "النتائج",
+    "tryAgain": "حاول مرة أخرى"
+  }
+}

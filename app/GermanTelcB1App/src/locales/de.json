@@ -1,0 +1,113 @@
+{
+  "common": {
+    "continue": "Weiter",
+    "go": "Los",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "loading": "Lädt...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "close": "Schließen",
+    "done": "Fertig"
+  },
+  "onboarding": {
+    "welcome": "Lassen Sie uns gemeinsam für die deutsche TELC B1 Prüfung lernen",
+    "selectLanguage": "Wählen Sie Ihre Benutzeroberflächensprache",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    }
+  },
+  "navigation": {
+    "home": "Start",
+    "mockExam": "Probe-Prüfung",
+    "profile": "Profil"
+  },
+  "home": {
+    "title": "Deutsche TELC B1 Vorbereitung",
+    "examStructure": "Prüfungsstruktur",
+    "practice": "Üben",
+    "practiceSections": {
+      "reading": "Leseverstehen",
+      "listening": "Hörverstehen",
+      "writing": "Schriftlicher Ausdruck",
+      "speaking": "Mündlicher Ausdruck"
+    }
+  },
+  "examStructure": {
+    "title": "Prüfungsstruktur",
+    "description": "Erfahren Sie mehr über das TELC B1 Prüfungsformat und die Bewertung",
+    "comingSoon": "Inhalt kommt bald..."
+  },
+  "practice": {
+    "reading": {
+      "title": "Leseverstehen",
+      "part1": "Teil 1: Überschriften zuordnen",
+      "part2": "Teil 2: Multiple Choice",
+      "part3": "Teil 3: Anzeigen zuordnen"
+    },
+    "listening": {
+      "title": "Hörverstehen",
+      "part1": "Teil 1: Kurze Dialoge",
+      "part2": "Teil 2: Längere Gespräche",
+      "part3": "Teil 3: Monologe",
+      "comingSoon": "Demnächst verfügbar"
+    },
+    "writing": {
+      "title": "Schriftlicher Ausdruck",
+      "description": "Schreiben Sie eine persönliche oder halbformelle E-Mail"
+    },
+    "speaking": {
+      "title": "Mündlicher Ausdruck",
+      "part1": "Teil 1: Persönliche Vorstellung",
+      "part2": "Teil 2: Thema präsentieren",
+      "part3": "Teil 3: Gemeinsam planen"
+    },
+    "grammar": {
+      "title": "Sprachbausteine",
+      "part1": "Teil 1: Lückentext (Multiple Choice)",
+      "part2": "Teil 2: Lückentext (Wortliste)"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "settings": "Einstellungen",
+    "language": "Benutzeroberflächensprache",
+    "clearProgress": "Fortschritt löschen",
+    "about": "Über",
+    "authentication": "Anmeldung",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "loginProviders": {
+      "google": "Mit Google fortfahren",
+      "facebook": "Mit Facebook fortfahren",
+      "twitter": "Mit Twitter fortfahren",
+      "apple": "Mit Apple fortfahren"
+    },
+    "userInfo": {
+      "welcome": "Willkommen",
+      "notLoggedIn": "Nicht angemeldet"
+    }
+  },
+  "mockExam": {
+    "title": "Probe-Prüfung",
+    "description": "Nehmen Sie an einer vollständigen Übungsprüfung teil",
+    "comingSoon": "Probe-Prüfung kommt bald..."
+  },
+  "questions": {
+    "checkAnswers": "Antworten prüfen",
+    "correct": "Richtig",
+    "incorrect": "Falsch",
+    "score": "Punkte",
+    "results": "Ergebnisse",
+    "tryAgain": "Nochmal versuchen"
+  }
+}
