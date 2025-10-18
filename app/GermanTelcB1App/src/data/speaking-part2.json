@@ -1,24 +1,264 @@
 {
-  "content": {
-    "id": 1,
-    "title": "Thema sprechen",
-    "topics": [
-      {
-        "id": "topic1",
-        "title": "Coming Soon",
-        "description": "This section will contain topic presentation exercises for the speaking exam. Content is being prepared.",
-        "keyPoints": [
-          "Content under development",
-          "Will include various topics for presentation",
-          "Vocabulary and key phrases will be provided"
-        ],
-        "vocabulary": [
-          {
-            "german": "Coming Soon",
-            "english": "Content being prepared"
-          }
-        ]
-      }
-    ]
-  }
+  "topics": [
+    {
+      "id": 1,
+      "title": "Gruppenreisen",
+      "viewA": {
+        "person": "Sabine Klostermann, 33 Jahre, Bürokauffrau",
+        "text": "Ich verreise gern in einer Gruppe. Allein reisen macht mir keinen Spaß. Bei Gruppenreisen kann man neue Leute kennenlernen und hat immer Gesellschaft. Außerdem ist ein Reiseführer dabei, der einem die Sehenswürdigkeiten zeigt."
+      },
+      "viewB": {
+        "person": "Jens Mühle, 39 Jahre, Physiker",
+        "text": "Wenn man mit einer Gruppe unterwegs ist, gibt es meist ein festes Programm. Daher reise ich immer allein. Manchmal möchte ich ausschlafen, manchmal etwas besichtigen. Ganz nach Lust und Laune. In einer Gruppe wäre das nicht möglich."
+      },
+      "discussion": [
+        {
+          "question": "Reisen Sie lieber allein oder in der Gruppe? Warum?",
+          "tip": "Hier sollten Sie Ihre eigene Präferenz mit Begründung nennen und auf die Argumente der Partner eingehen (Gesellschaft vs. Flexibilität)."
+        },
+        {
+          "question": "Welche Rolle spielt der Reiseführer für Sie?",
+          "tip": "Diskutieren Sie, ob ein Experte notwendig ist oder ob man lieber alles selbst planen möchte."
+        },
+        {
+          "question": "Welche Nachteile haben Gruppenreisen?",
+          "tip": "Nennen Sie Nachteile wie mangelnde Flexibilität, feste Zeiten oder dass man nicht alle Leute mag."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Online-Shopping",
+      "viewA": {
+        "person": "Ali Müller, 24 Jahre, Student",
+        "text": "Ich kaufe fast alles online, weil es bequemer ist. Die Preise sind oft niedriger und die Auswahl viel größer als im Laden. Ich kann rund um die Uhr einkaufen, ohne das Haus verlassen zu müssen."
+      },
+      "viewB": {
+        "person": "Hannelore Schmidt, 68 Jahre, Rentnerin",
+        "text": "Ich gehe lieber in den Laden. Da kann ich die Ware anfassen und anprobieren. Außerdem berate ich mich gerne mit dem Verkaufspersonal, und es unterstützt die lokalen Geschäfte."
+      },
+      "discussion": [
+        {
+          "question": "Kaufen Sie lieber online oder im Geschäft? Nennen Sie Vor- und Nachteile beider Methoden.",
+          "tip": "Verwenden Sie Konnektoren wie 'einerseits... andererseits' oder 'obwohl' um die Meinungen zu vergleichen."
+        },
+        {
+          "question": "Wie wichtig ist die Beratung beim Einkaufen für Sie?",
+          "tip": "Diskutieren Sie die Rolle von Verkaufspersonal im digitalen Zeitalter."
+        },
+        {
+          "question": "Was halten Sie von Retouren und dem Einfluss auf die Umwelt?",
+          "tip": "Ein kritischer Aspekt des Online-Shoppings, der oft angesprochen wird."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Tiere im Haushalt",
+      "viewA": {
+        "person": "Dr. Laura Koch, 45 Jahre, Tierärztin",
+        "text": "Haustiere sind gut für die Seele. Sie machen uns glücklich, reduzieren Stress und helfen uns, verantwortungsvoller zu werden. Besonders für Kinder ist ein Tier eine tolle Erfahrung."
+      },
+      "viewB": {
+        "person": "Dennis Schulz, 29 Jahre, Softwareentwickler",
+        "text": "Tiere machen viel Arbeit und Lärm. Die Wohnung wird schnell schmutzig, und man ist in seiner Reisefreiheit eingeschränkt. Außerdem sind die Tierarztkosten oft sehr hoch."
+      },
+      "discussion": [
+        {
+          "question": "Haben Sie selbst Haustiere? Erzählen Sie von Ihren Erfahrungen.",
+          "tip": "Teilen Sie persönliche Erfahrungen und verwenden Sie dabei passendes Vokabular (z.B. 'füttern', 'Gassi gehen')."
+        },
+        {
+          "question": "Sollte man Haustiere aus dem Tierheim holen? Warum?",
+          "tip": "Diskutieren Sie ethische Aspekte und die Verantwortung gegenüber Tieren."
+        },
+        {
+          "question": "Welche Tiere sind für das Leben in einer kleinen Stadtwohnung geeignet?",
+          "tip": "Nennen Sie geeignete Arten und begründen Sie Ihre Wahl."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Fernsehen vs. Kino",
+      "viewA": {
+        "person": "Julia Berg, 21 Jahre, Auszubildende",
+        "text": "Ich schaue am liebsten Filme zu Hause auf dem Sofa. Das ist bequemer, kostet weniger und ich kann jederzeit eine Pause machen. Die große Leinwand brauche ich nicht."
+      },
+      "viewB": {
+        "person": "Max Finke, 48 Jahre, Filmkritiker",
+        "text": "Kino ist ein Erlebnis. Die Atmosphäre, der große Bildschirm und der Sound sind einzigartig. Filme sind für das Kino gemacht; man sollte sie nicht nur auf kleinen Bildschirmen sehen."
+      },
+      "discussion": [
+        {
+          "question": "Was machen Sie lieber in Ihrer Freizeit: ins Kino gehen oder zu Hause einen Film sehen?",
+          "tip": "Geben Sie eine klare Präferenz an und begründen Sie diese mit drei Argumenten."
+        },
+        {
+          "question": "Wie hat sich die Filmlandschaft durch Streaming-Dienste verändert?",
+          "tip": "Sprechen Sie über die Verfügbarkeit von Filmen und Serien."
+        },
+        {
+          "question": "Was war der letzte Film, den Sie gesehen haben? Erzählen Sie kurz davon.",
+          "tip": "Dies dient zur Anwendung von Erzählformen in der Vergangenheit."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Kinder und Handy",
+      "viewA": {
+        "person": "Thomas Meier, 41 Jahre, Selbstständiger",
+        "text": "Handys sind wichtig für die Sicherheit. Kinder können uns jederzeit erreichen, und sie lernen früh den Umgang mit Technologie. Das ist wichtig für ihre Zukunft."
+      },
+      "viewB": {
+        "person": "Frau Lehmann, 55 Jahre, Lehrerin",
+        "text": "Handys lenken in der Schule ab und führen oft zu Problemen wie Cyber-Mobbing. Die Zeit, die sie vor dem Bildschirm verbringen, fehlt ihnen für Bewegung und soziale Kontakte."
+      },
+      "discussion": [
+        {
+          "question": "Ab welchem Alter sollten Kinder ein eigenes Handy bekommen?",
+          "tip": "Nennen Sie ein Alter und begründen Sie Ihre Entscheidung."
+        },
+        {
+          "question": "Sollten Handys in der Schule verboten werden? Warum?",
+          "tip": "Diskutieren Sie die Vor- und Nachteile eines Handyverbots im Unterricht."
+        },
+        {
+          "question": "Welche Risiken bringt die ständige Erreichbarkeit mit sich?",
+          "tip": "Sprechen Sie über Sucht, Konzentrationsprobleme und Schlafstörungen."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Fahrrad in der Stadt",
+      "viewA": {
+        "person": "Mia Schmidt, 30 Jahre, Umweltaktivistin",
+        "text": "Das Fahrrad ist das beste Verkehrsmittel in der Stadt. Es ist schnell, schont die Umwelt und hält fit. Man spart Geld und vermeidet Staus."
+      },
+      "viewB": {
+        "person": "Herr Wagner, 52 Jahre, Manager",
+        "text": "Das ist in einer Großstadt zu gefährlich. Oft gibt es keine Fahrradwege, und bei schlechtem Wetter ist es sehr unpraktisch. Außerdem muss man seine Einkäufe transportieren können."
+      },
+      "discussion": [
+        {
+          "question": "Welches Verkehrsmittel nutzen Sie am häufigsten in der Stadt? Warum?",
+          "tip": "Erzählen Sie von Ihrem Alltag und den praktischen Aspekten Ihres Verkehrsmittels."
+        },
+        {
+          "question": "Was muss die Stadt tun, um das Fahrradfahren sicherer zu machen?",
+          "tip": "Nennen Sie konkrete Maßnahmen (z.B. mehr Radwege, bessere Beschilderung)."
+        },
+        {
+          "question": "Sollte Autofahren in der Innenstadt teurer werden?",
+          "tip": "Diskutieren Sie die Kosten und die städtische Planung."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Bücher vs. E-Books",
+      "viewA": {
+        "person": "Karin Haas, 58 Jahre, Bibliothekarin",
+        "text": "Ein gedrucktes Buch fühlt sich einfach besser an. Der Geruch, das Gefühl des Papiers – das ist ein anderes Leseerlebnis. E-Books sind unpersönlich."
+      },
+      "viewB": {
+        "person": "Elias Roth, 26 Jahre, Journalist",
+        "text": "E-Books sind praktisch. Ich kann Hunderte von Büchern auf einem Gerät speichern und habe sie immer dabei. Das spart Platz und ist ökologischer als gedruckte Bücher."
+      },
+      "discussion": [
+        {
+          "question": "Lesen Sie lieber gedruckte Bücher oder E-Books? Begründen Sie Ihre Wahl.",
+          "tip": "Vergleichen Sie die Haptik des Buches mit der Portabilität des E-Readers."
+        },
+        {
+          "question": "Gehen Sie oft in Bibliotheken? Was bieten Bibliotheken heutzutage an?",
+          "tip": "Erklären Sie die Rolle der Bibliothek in der modernen Gesellschaft."
+        },
+        {
+          "question": "Wie wichtig ist Lesen für das Erlernen einer Fremdsprache?",
+          "tip": "Sprechen Sie über die Vorteile des Lesens für Ihren Deutschkurs."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Wohnen auf dem Land",
+      "viewA": {
+        "person": "Frau Schmidt, 37 Jahre, Mutter von zwei Kindern",
+        "text": "Das Landleben ist ideal für Familien. Die Kinder können draußen spielen, die Luft ist besser, und es ist ruhiger als in der Stadt. Die Lebensqualität ist viel höher."
+      },
+      "viewB": {
+        "person": "Paul Bauer, 31 Jahre, Unternehmensberater",
+        "text": "Ich brauche die Stadt. Alle meine Freunde, die Kultur und mein Job sind hier. Die Fahrt zur Arbeit ist vom Land aus zu lang und der öffentliche Nahverkehr ist schlecht."
+      },
+      "discussion": [
+        {
+          "question": "Wo wohnen Sie im Moment? Fühlen Sie sich dort wohl?",
+          "tip": "Beschreiben Sie kurz Ihren Wohnort und Ihre Wohnsituation (Mietwohnung, Haus etc.)."
+        },
+        {
+          "question": "Welche Kompromisse muss man beim Leben auf dem Land machen?",
+          "tip": "Sprechen Sie über lange Wege, schlechte Infrastruktur oder fehlende Freizeitmöglichkeiten."
+        },
+        {
+          "question": "Was ist in Deutschland typisch für eine 'WG' (Wohngemeinschaft)?",
+          "tip": "Ein typisch deutsches Thema, um Vokabular zur Wohnform zu nutzen."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Gesunde Ernährung",
+      "viewA": {
+        "person": "Steffen Hahn, 44 Jahre, Fitnesstrainer",
+        "text": "Gesundheit beginnt in der Küche. Man sollte viel frisches Obst und Gemüse essen und wenig Fleisch. Das gibt Energie und stärkt das Immunsystem."
+      },
+      "viewB": {
+        "person": "Marie Nowak, 35 Jahre, Köchin",
+        "text": "Essen muss vor allem gut schmecken. Ein bisschen Fleisch und Süßigkeiten sind erlaubt, solange man sich nicht zu sehr einschränkt. Genuss gehört zum Leben dazu."
+      },
+      "discussion": [
+        {
+          "question": "Was bedeutet für Sie 'gesund essen'? Können Sie ein Beispiel nennen?",
+          "tip": "Definieren Sie gesunde Ernährung aus Ihrer Sicht und nennen Sie typische Lebensmittel."
+        },
+        {
+          "question": "Kochen Sie lieber selbst oder gehen Sie ins Restaurant? Warum?",
+          "tip": "Vergleichen Sie die Kosten, den Zeitaufwand und den Genuss beider Optionen."
+        },
+        {
+          "question": "Wie kann man sich im stressigen Alltag gesund ernähren?",
+          "tip": "Sprechen Sie über Meal Prep oder die Wahl von gesunden Kantinen-Essen."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Arbeiten im Homeoffice",
+      "viewA": {
+        "person": "Dr. Anna Jäger, 38 Jahre, IT-Spezialistin",
+        "text": "Homeoffice macht mich produktiver. Ich habe keinen Stress durch den Arbeitsweg, kann meine Zeit flexibel einteilen und spare Geld. Ich arbeite viel effizienter."
+      },
+      "viewB": {
+        "person": "Markus Gross, 49 Jahre, Teamleiter",
+        "text": "Zusammenarbeit ist im Büro am besten. Die Kommunikation ist direkter, und das Teamgefühl leidet, wenn jeder zu Hause sitzt. Die Grenze zwischen Arbeit und Freizeit verschwimmt."
+      },
+      "discussion": [
+        {
+          "question": "Arbeiten Sie im Homeoffice oder im Büro? Was sind Ihre Erfahrungen?",
+          "tip": "Teilen Sie Ihre persönlichen Erfahrungen und nennen Sie die größten Herausforderungen (z.B. Ablenkung, fehlender Austausch)."
+        },
+        {
+          "question": "Welche technischen Voraussetzungen sind für die Arbeit zu Hause nötig?",
+          "tip": "Sprechen Sie über WLAN, gute Bildschirme und Ergonomie."
+        },
+        {
+          "question": "Wie können Teams zusammenarbeiten, wenn sie an verschiedenen Orten sind?",
+          "tip": "Nennen Sie Tools und Strategien für die virtuelle Kommunikation."
+        }
+      ]
+    }
+  ]
 }

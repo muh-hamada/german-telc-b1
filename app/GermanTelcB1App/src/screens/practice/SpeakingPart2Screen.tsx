@@ -1,26 +1,440 @@
-import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
+import speakingPart2Data from '../../data/speaking-part2.json';
+
+interface Topic {
+  id: number;
+  title: string;
+  viewA: {
+    person: string;
+    text: string;
+  };
+  viewB: {
+    person: string;
+    text: string;
+  };
+  discussion: Array<{
+    question: string;
+    tip: string;
+  }>;
+}
 
 const SpeakingPart2Screen: React.FC = () => {
   const { t } = useTranslation();
+  const [selectedTopicId, setSelectedTopicId] = useState<number>(1);
+  const [activeView, setActiveView] = useState<'A' | 'B'>('A');
+  const [showPartnerSummary, setShowPartnerSummary] = useState(false);
+
+  const topics = (speakingPart2Data as any).topics as Topic[];
+  const currentTopic = topics?.find(t => t.id === selectedTopicId) || topics?.[0];
+
+  const renderTopicButtons = () => {
+    if (!topics || topics.length === 0) return null;
+    
+    return (
+      <View style={styles.topicButtonsContainer}>
+        {topics.map(topic => (
+          <TouchableOpacity
+            key={topic.id}
+            style={[
+              styles.topicButton,
+              selectedTopicId === topic.id && styles.topicButtonActive,
+            ]}
+            onPress={() => {
+              setSelectedTopicId(topic.id);
+              setActiveView('A');
+              setShowPartnerSummary(false);
+            }}
+          >
+            <Text
+              style={[
+                styles.topicButtonText,
+                selectedTopicId === topic.id && styles.topicButtonTextActive,
+              ]}
+            >
+              {topic.title}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    );
+  };
+
+  const formatPersonText = (person: string, text: string): string => {
+    return `**${person}:**\n\n${text}`;
+  };
+
+  const createPartnerSummary = (view: { person: string; text: string }): string => {
+    const [namePart] = view.person.split(',');
+    const name = namePart.trim();
+    const isFemale = name.includes('Frau') || 
+                     ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
+    
+    const pronoun = isFemale ? 'Sie' : 'Er';
+    const pronounLower = pronoun.toLowerCase();
+    
+    return `**${view.person}:**\n\n${pronoun} ist der Meinung, dass das Thema wichtig ist. ${pronoun} findet die Argumente überzeugend und hat eine klare Position dazu.`;
+  };
+
+  const renderViewContent = () => {
+    if (!currentTopic) return null;
+    
+    const view = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
+    const partnerView = activeView === 'A' ? currentTopic.viewB : currentTopic.viewA;
+
+    return (
+      <View style={styles.viewContent}>
+        <View style={styles.textCard}>
+          <Text style={styles.cardTitle}>Ihr Ausgangstext zur Präsentation:</Text>
+          <Markdown style={markdownStyles}>
+            {formatPersonText(view.person, view.text)}
+          </Markdown>
+        </View>
+
+        <View style={styles.partnerSection}>
+          <Text style={styles.partnerTitle}>
+            Die Sicht des Partners zusammenfassen
+          </Text>
+          <TouchableOpacity
+            style={styles.toggleButton}
+            onPress={() => setShowPartnerSummary(!showPartnerSummary)}
+          >
+            <Text style={styles.toggleButtonText}>
+              {showPartnerSummary
+                ? 'Zusammenfassung ausblenden'
+                : 'Partneransicht zusammenfassen (Drittperson)'}
+            </Text>
+          </TouchableOpacity>
+
+          {showPartnerSummary && (
+            <View style={styles.summaryCard}>
+              <Markdown style={markdownStylesSummary}>
+                {createPartnerSummary(partnerView)}
+              </Markdown>
+            </View>
+          )}
+        </View>
+      </View>
+    );
+  };
+
+  const renderDiscussion = () => {
+    if (!currentTopic || !currentTopic.discussion) return null;
+    
+    return (
+      <View style={styles.discussionSection}>
+        <Text style={styles.discussionTitle}>
+          Diskussion (Nach der Präsentation)
+        </Text>
+        <Text style={styles.discussionDescription}>
+          Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen,
+          Ihre Meinung zu äußern und eigene Erfahrungen zu teilen.
+        </Text>
+
+        {currentTopic.discussion.map((item, index) => (
+          <View key={index} style={styles.discussionCard}>
+            <Text style={styles.questionText}>Q: {item.question}</Text>
+            <View style={styles.tipCard}>
+              <Text style={styles.tipText}>
+                <Text style={styles.tipLabel}>Tipp: </Text>
+                {item.tip}
+              </Text>
+            </View>
+          </View>
+        ))}
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>{t('practice.speaking.part2')}</Text>
-        <Text style={styles.comingSoon}>Content coming soon...</Text>
-      </View>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
+        {/* Topic Selection */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Themenauswahl:</Text>
+          {renderTopicButtons()}
+        </View>
+
+        {/* Main Content */}
+        {currentTopic && (
+          <View style={styles.mainCard}>
+            <Text style={styles.topicTitle}>{currentTopic.title}</Text>
+          <Text style={styles.instructionText}>
+            Ihre Aufgabe: Berichten Sie Ihrer Gesprächspartnerin/Ihrem Gesprächspartner
+            über den folgenden Text und unterhalten Sie sich dann über das Thema.
+          </Text>
+
+          {/* View Tabs */}
+          <View style={styles.tabsContainer}>
+            <TouchableOpacity
+              style={[styles.tab, activeView === 'A' && styles.activeTab]}
+              onPress={() => {
+                setActiveView('A');
+                setShowPartnerSummary(false);
+              }}
+            >
+              <Text style={[styles.tabText, activeView === 'A' && styles.activeTabText]}>
+                Ihre Rolle (Teilnehmer A)
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.tab, activeView === 'B' && styles.activeTab]}
+              onPress={() => {
+                setActiveView('B');
+                setShowPartnerSummary(false);
+              }}
+            >
+              <Text style={[styles.tabText, activeView === 'B' && styles.activeTabText]}>
+                Partnerrolle (Teilnehmer B)
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* View Content */}
+          {renderViewContent()}
+
+          {/* Discussion */}
+          {renderDiscussion()}
+        </View>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
+const markdownStyles = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 24,
+  },
+  paragraph: {
+    marginBottom: spacing.margin.sm,
+  },
+  strong: {
+    fontWeight: '700' as '700',
+    color: colors.primary[700],
+  },
+};
+
+const markdownStylesSummary = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 24,
+  },
+  paragraph: {
+    marginBottom: spacing.margin.sm,
+  },
+  strong: {
+    fontWeight: '700' as '700',
+    color: colors.error[600],
+  },
+};
+
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background.primary },
-  content: { flex: 1, padding: spacing.padding.lg, justifyContent: 'center', alignItems: 'center' },
-  title: { ...typography.textStyles.h2, color: colors.text.primary, marginBottom: spacing.margin.lg },
-  comingSoon: { ...typography.textStyles.body, color: colors.text.tertiary, fontStyle: 'italic' },
+  container: {
+    flex: 1,
+    backgroundColor: colors.background.primary,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.padding.lg,
+  },
+  section: {
+    marginBottom: spacing.margin.lg,
+  },
+  sectionTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.md,
+  },
+  topicButtonsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.margin.sm,
+  },
+  topicButton: {
+    paddingVertical: spacing.padding.sm,
+    paddingHorizontal: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    borderWidth: 2,
+    borderColor: colors.secondary[200],
+    backgroundColor: colors.background.secondary,
+  },
+  topicButtonActive: {
+    borderColor: colors.primary[500],
+    backgroundColor: colors.primary[50],
+  },
+  topicButtonText: {
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text.secondary,
+  },
+  topicButtonTextActive: {
+    color: colors.primary[700],
+  },
+  mainCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  topicTitle: {
+    ...typography.textStyles.h2,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  instructionText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    marginBottom: spacing.margin.lg,
+    lineHeight: 22,
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    marginBottom: spacing.margin.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.gray[200],
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.sm,
+    borderTopLeftRadius: spacing.borderRadius.md,
+    borderTopRightRadius: spacing.borderRadius.md,
+    borderWidth: 1,
+    borderBottomWidth: 0,
+    borderColor: colors.secondary[200],
+    backgroundColor: colors.background.primary,
+  },
+  activeTab: {
+    backgroundColor: colors.primary[500],
+    borderColor: colors.primary[500],
+  },
+  tabText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text.secondary,
+    textAlign: 'center',
+  },
+  activeTabText: {
+    color: colors.background.secondary,
+  },
+  viewContent: {
+    marginBottom: spacing.margin.xl,
+  },
+  textCard: {
+    backgroundColor: colors.gray[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.primary[500],
+    marginBottom: spacing.margin.lg,
+  },
+  cardTitle: {
+    ...typography.textStyles.h4,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.sm,
+  },
+  partnerSection: {
+    marginTop: spacing.margin.md,
+  },
+  partnerTitle: {
+    ...typography.textStyles.h4,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  toggleButton: {
+    backgroundColor: colors.warning[500],
+    paddingVertical: spacing.padding.sm,
+    paddingHorizontal: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    alignSelf: 'flex-start',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  toggleButtonText: {
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text.primary,
+  },
+  summaryCard: {
+    backgroundColor: colors.primary[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginTop: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.primary[200],
+  },
+  discussionSection: {
+    borderTopWidth: 1,
+    borderTopColor: colors.gray[200],
+    paddingTop: spacing.padding.lg,
+    marginTop: spacing.margin.lg,
+  },
+  discussionTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.sm,
+  },
+  discussionDescription: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    marginBottom: spacing.margin.lg,
+    lineHeight: 22,
+  },
+  discussionCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.secondary[200],
+  },
+  questionText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  tipCard: {
+    backgroundColor: colors.gray[50],
+    padding: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.warning[500],
+    marginTop: spacing.margin.sm,
+  },
+  tipText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.primary,
+    lineHeight: 20,
+  },
+  tipLabel: {
+    fontWeight: typography.fontWeight.bold,
+  },
 });
 
 export default SpeakingPart2Screen;
