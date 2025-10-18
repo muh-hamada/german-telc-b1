@@ -90,13 +90,16 @@ const ListeningPart1Screen: React.FC = () => {
   };
 
   const handlePlayAudio = () => {
+    // Enable playback in silence mode (iOS)
+    Sound.setCategory('Playback');
+
     setHasStarted(true);
     setIsPlaying(true);
 
-    console.log('currentExam.audio_url', currentExam.audio_url);
-
+    // For react-native-sound compatibility with RN 0.82+, use empty string for basePath
     const audioSound = new Sound(
       currentExam.audio_url,
+      '',  // Empty string works for both remote URLs and raw resource names
       (error: any) => {
         if (error) {
           console.error('Failed to load the sound', error);
@@ -282,9 +285,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   headerTitle: {
-    ...typography.textStyles.h2,
+    ...typography.textStyles.h3,
     color: colors.primary[600],
-    marginBottom: spacing.margin.sm,
+    marginBottom: spacing.margin.md,
   },
   metaInfo: {
     flexDirection: 'row',

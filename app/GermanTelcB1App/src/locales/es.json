@@ -57,9 +57,11 @@
     "listening": {
       "title": "Comprensión Auditiva",
       "part1": "Parte 1: Diálogos Cortos",
+      "part1Description": "Escucharás cinco diálogos cortos y deberás resolver cinco tareas.",
       "part2": "Parte 2: Conversaciones Largas",
+      "part2Description": "Escucharás una conversación larga y deberás resolver 10 tareas.",
       "part3": "Parte 3: Monólogos",
-      "comingSoon": "Próximamente"
+      "part3Description": "Escucharás cinco monólogos y deberás resolver cinco tareas."
     },
     "writing": {
       "title": "Expresión Escrita",

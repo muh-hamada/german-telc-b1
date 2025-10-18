@@ -57,9 +57,11 @@
     "listening": {
       "title": "Hörverstehen",
       "part1": "Teil 1: Kurze Dialoge",
+      "part1Description": "Sie hören fünf kurze Dialoge und Sie sollen fünf Aufgaben lösen.",
       "part2": "Teil 2: Längere Gespräche",
+      "part2Description": "Sie hören ein langes Gespräch und Sie sollen 10 Aufgaben lösen.",
       "part3": "Teil 3: Monologe",
-      "comingSoon": "Demnächst verfügbar"
+      "part3Description": "Sie hören fünf Monologe und Sie sollen fünf Aufgaben lösen."
     },
     "writing": {
       "title": "Schriftlicher Ausdruck",

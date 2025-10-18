@@ -19,15 +19,15 @@ const ListeningMenuScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.listening.part1')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.comingSoon')}</Text>
+          <Text style={styles.cardDescription}>{t('practice.listening.part1Description')}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart2Press}>
           <Text style={styles.cardTitle}>{t('practice.listening.part2')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.comingSoon')}</Text>
+          <Text style={styles.cardDescription}>{t('practice.listening.part2Description')}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart3Press}>
           <Text style={styles.cardTitle}>{t('practice.listening.part3')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.comingSoon')}</Text>
+          <Text style={styles.cardDescription}>{t('practice.listening.part3Description')}</Text>
         </Card>
       </ScrollView>
     </SafeAreaView>

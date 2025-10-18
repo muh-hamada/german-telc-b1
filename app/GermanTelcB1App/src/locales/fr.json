@@ -57,9 +57,11 @@
     "listening": {
       "title": "Compréhension Orale",
       "part1": "Partie 1: Dialogues Courts",
+      "part1Description": "Vous entendrez cinq dialogues courts et vous devrez résoudre cinq tâches.",
       "part2": "Partie 2: Conversations Longues",
+      "part2Description": "Vous entendrez une conversation longue et vous devrez résoudre 10 tâches.",
       "part3": "Partie 3: Monologues",
-      "comingSoon": "Bientôt disponible"
+      "part3Description": "Vous entendrez cinq monologues et vous devrez résoudre cinq tâches.",
     },
     "writing": {
       "title": "Expression Écrite",

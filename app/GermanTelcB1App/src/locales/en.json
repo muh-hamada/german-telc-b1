@@ -57,9 +57,11 @@
     "listening": {
       "title": "Listening Comprehension",
       "part1": "Part 1: Short Dialogues",
+      "part1Description": "You will hear five short dialogues and you should solve five tasks.",
       "part2": "Part 2: Longer Conversations",
+      "part2Description": "You will hear a long conversation and you should solve 10 tasks.",
       "part3": "Part 3: Monologues",
-      "comingSoon": "Coming Soon"
+      "part3Description": "You will hear five monologues and you should solve five tasks."
     },
     "writing": {
       "title": "Written Expression",
