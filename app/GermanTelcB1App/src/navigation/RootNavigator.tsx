@@ -6,6 +6,7 @@ import { RootStackParamList } from '../types/navigation.types';
 import { colors } from '../theme';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import TabNavigator from './TabNavigator';
+import MockExamRunningScreen from '../screens/MockExamRunningScreen';
 import { Text } from 'react-native';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -43,6 +44,7 @@ const RootNavigator: React.FC = () => {
       >
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="Main" component={TabNavigator} />
+        <Stack.Screen name="MockExamRunning" component={MockExamRunningScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
