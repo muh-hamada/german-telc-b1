@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
+  Modal,
+  FlatList,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
@@ -34,39 +36,81 @@ const SpeakingPart2Screen: React.FC = () => {
   const [selectedTopicId, setSelectedTopicId] = useState<number>(1);
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
   const [showPartnerSummary, setShowPartnerSummary] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const topics = (speakingPart2Data as any).topics as Topic[];
   const currentTopic = topics?.find(t => t.id === selectedTopicId) || topics?.[0];
 
-  const renderTopicButtons = () => {
+  const renderTopicDropdown = () => {
     if (!topics || topics.length === 0) return null;
     
     return (
-      <View style={styles.topicButtonsContainer}>
-        {topics.map(topic => (
+      <>
+        <TouchableOpacity
+          style={styles.dropdownButton}
+          onPress={() => setIsDropdownOpen(true)}
+        >
+          <Text style={styles.dropdownButtonText}>
+            {currentTopic?.title || 'Select a topic'}
+          </Text>
+          <Text style={styles.dropdownArrow}>▼</Text>
+        </TouchableOpacity>
+
+        <Modal
+          visible={isDropdownOpen}
+          transparent={true}
+          animationType="fade"
+          onRequestClose={() => setIsDropdownOpen(false)}
+        >
           <TouchableOpacity
-            key={topic.id}
-            style={[
-              styles.topicButton,
-              selectedTopicId === topic.id && styles.topicButtonActive,
-            ]}
-            onPress={() => {
-              setSelectedTopicId(topic.id);
-              setActiveView('A');
-              setShowPartnerSummary(false);
-            }}
+            style={styles.modalOverlay}
+            activeOpacity={1}
+            onPress={() => setIsDropdownOpen(false)}
           >
-            <Text
-              style={[
-                styles.topicButtonText,
-                selectedTopicId === topic.id && styles.topicButtonTextActive,
-              ]}
-            >
-              {topic.title}
-            </Text>
+            <View style={styles.modalContent}>
+              <View style={styles.modalHeader}>
+                <Text style={styles.modalTitle}>Themenauswahl</Text>
+                <TouchableOpacity
+                  onPress={() => setIsDropdownOpen(false)}
+                  style={styles.closeButton}
+                >
+                  <Text style={styles.closeButtonText}>✕</Text>
+                </TouchableOpacity>
+              </View>
+              <FlatList
+                data={topics}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[
+                      styles.dropdownItem,
+                      selectedTopicId === item.id && styles.dropdownItemActive,
+                    ]}
+                    onPress={() => {
+                      setSelectedTopicId(item.id);
+                      setActiveView('A');
+                      setShowPartnerSummary(false);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.dropdownItemText,
+                        selectedTopicId === item.id && styles.dropdownItemTextActive,
+                      ]}
+                    >
+                      {item.title}
+                    </Text>
+                    {selectedTopicId === item.id && (
+                      <Text style={styles.checkmark}>✓</Text>
+                    )}
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
           </TouchableOpacity>
-        ))}
-      </View>
+        </Modal>
+      </>
     );
   };
 
@@ -160,9 +204,9 @@ const SpeakingPart2Screen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         {/* Topic Selection */}
+        <Text style={styles.sectionTitle}>Themenauswahl:</Text>
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Themenauswahl:</Text>
-          {renderTopicButtons()}
+          {renderTopicDropdown()}
         </View>
 
         {/* Main Content */}
@@ -253,38 +297,106 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
   },
-  section: {
-    marginBottom: spacing.margin.lg,
-  },
   sectionTitle: {
     ...typography.textStyles.h3,
     color: colors.text.primary,
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
   },
-  topicButtonsContainer: {
+  section: {
+    marginBottom: spacing.margin.lg,
+  },
+  dropdownButton: {
+    width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.margin.sm,
-  },
-  topicButton: {
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.md,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     borderWidth: 2,
-    borderColor: colors.secondary[200],
-    backgroundColor: colors.background.secondary,
-  },
-  topicButtonActive: {
     borderColor: colors.primary[500],
-    backgroundColor: colors.primary[50],
+    backgroundColor: colors.background.secondary,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  topicButtonText: {
-    ...typography.textStyles.bodySmall,
+  dropdownButtonText: {
+    ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  dropdownArrow: {
+    ...typography.textStyles.body,
+    color: colors.primary[500],
+    marginLeft: spacing.margin.sm,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: spacing.padding.lg,
+  },
+  modalContent: {
+    width: '100%',
+    maxWidth: 500,
+    maxHeight: '80%',
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondary[200],
+  },
+  modalTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+  },
+  closeButton: {
+    padding: spacing.padding.xs,
+  },
+  closeButtonText: {
+    ...typography.textStyles.h3,
     color: colors.text.secondary,
   },
-  topicButtonTextActive: {
+  dropdownItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondary[100],
+  },
+  dropdownItemActive: {
+    backgroundColor: colors.primary[50],
+  },
+  dropdownItemText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  dropdownItemTextActive: {
+    fontWeight: typography.fontWeight.bold,
     color: colors.primary[700],
+  },
+  checkmark: {
+    ...typography.textStyles.h3,
+    color: colors.primary[500],
+    marginLeft: spacing.margin.sm,
   },
   mainCard: {
     backgroundColor: colors.background.secondary,
@@ -311,7 +423,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: spacing.margin.lg,
     borderBottomWidth: 1,
-    borderBottomColor: colors.gray[200],
+    borderBottomColor: colors.secondary[200],
   },
   tab: {
     flex: 1,
@@ -341,7 +453,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xl,
   },
   textCard: {
-    backgroundColor: colors.gray[50],
+    backgroundColor: colors.secondary[50],
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     borderLeftWidth: 4,
@@ -389,7 +501,7 @@ const styles = StyleSheet.create({
   },
   discussionSection: {
     borderTopWidth: 1,
-    borderTopColor: colors.gray[200],
+    borderTopColor: colors.secondary[200],
     paddingTop: spacing.padding.lg,
     marginTop: spacing.margin.lg,
   },
@@ -420,7 +532,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   tipCard: {
-    backgroundColor: colors.gray[50],
+    backgroundColor: colors.secondary[50],
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.sm,
     borderLeftWidth: 4,

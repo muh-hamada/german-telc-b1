@@ -136,7 +136,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       
       if (user) {
         // User is authenticated, try to merge local and Firebase progress
-        const mergedProgress = await firebaseProgressService.mergeProgress();
+        const mergedProgress = await firebaseProgressService.mergeProgress(user.uid);
         dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
       } else {
         // No user, just load local progress
@@ -177,7 +177,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         // Try to sync to Firebase if user is authenticated
         if (user) {
           try {
-            await firebaseProgressService.syncProgressToFirebase();
+            await firebaseProgressService.syncProgressToFirebase(user.uid);
           } catch (firebaseError) {
             console.warn('Failed to sync to Firebase:', firebaseError);
           }
@@ -209,7 +209,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       dispatch({ type: 'SET_LOADING', payload: true });
       
       // Clear both local and Firebase progress
-      const success = await firebaseProgressService.clearAllProgress();
+      const success = await firebaseProgressService.clearAllProgress(user?.uid);
       
       if (success) {
         dispatch({ type: 'CLEAR_PROGRESS' });
@@ -230,7 +230,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   const syncProgressToFirebase = async (): Promise<boolean> => {
     try {
-      return await firebaseProgressService.syncProgressToFirebase();
+      return await firebaseProgressService.syncProgressToFirebase(user?.uid);
     } catch (error) {
       console.error('Error syncing progress to Firebase:', error);
       return false;
@@ -239,7 +239,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   const hasUnsyncedProgress = async (): Promise<boolean> => {
     try {
-      return await firebaseProgressService.hasUnsyncedProgress();
+      return await firebaseProgressService.hasUnsyncedProgress(user?.uid);
     } catch (error) {
       console.error('Error checking unsynced progress:', error);
       return false;

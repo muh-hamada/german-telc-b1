@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
+  Modal,
+  FlatList,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -42,37 +44,79 @@ const SpeakingPart3Screen: React.FC = () => {
   const { t } = useTranslation();
   const [selectedScenarioId, setSelectedScenarioId] = useState<number>(1);
   const [activeView, setActiveView] = useState<ViewType>('dialog');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const scenarios = (speakingPart3Data as any).scenarios as Scenario[];
   const currentScenario = scenarios?.find(s => s.id === selectedScenarioId) || scenarios?.[0];
 
-  const renderScenarioButtons = () => {
+  const renderScenarioDropdown = () => {
     if (!scenarios || scenarios.length === 0) return null;
     
     return (
-      <View style={styles.scenarioButtonsContainer}>
-        {scenarios.map(scenario => (
+      <>
+        <TouchableOpacity
+          style={styles.dropdownButton}
+          onPress={() => setIsDropdownOpen(true)}
+        >
+          <Text style={styles.dropdownButtonText}>
+            {currentScenario?.title || 'Select a scenario'}
+          </Text>
+          <Text style={styles.dropdownArrow}>▼</Text>
+        </TouchableOpacity>
+
+        <Modal
+          visible={isDropdownOpen}
+          transparent={true}
+          animationType="fade"
+          onRequestClose={() => setIsDropdownOpen(false)}
+        >
           <TouchableOpacity
-            key={scenario.id}
-            style={[
-              styles.scenarioButton,
-              selectedScenarioId === scenario.id && styles.scenarioButtonActive,
-            ]}
-            onPress={() => {
-              setSelectedScenarioId(scenario.id);
-            }}
+            style={styles.modalOverlay}
+            activeOpacity={1}
+            onPress={() => setIsDropdownOpen(false)}
           >
-            <Text
-              style={[
-                styles.scenarioButtonText,
-                selectedScenarioId === scenario.id && styles.scenarioButtonTextActive,
-              ]}
-            >
-              {scenario.title}
-            </Text>
+            <View style={styles.modalContent}>
+              <View style={styles.modalHeader}>
+                <Text style={styles.modalTitle}>Szenarioauswahl</Text>
+                <TouchableOpacity
+                  onPress={() => setIsDropdownOpen(false)}
+                  style={styles.closeButton}
+                >
+                  <Text style={styles.closeButtonText}>✕</Text>
+                </TouchableOpacity>
+              </View>
+              <FlatList
+                data={scenarios}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[
+                      styles.dropdownItem,
+                      selectedScenarioId === item.id && styles.dropdownItemActive,
+                    ]}
+                    onPress={() => {
+                      setSelectedScenarioId(item.id);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.dropdownItemText,
+                        selectedScenarioId === item.id && styles.dropdownItemTextActive,
+                      ]}
+                    >
+                      {item.title}
+                    </Text>
+                    {selectedScenarioId === item.id && (
+                      <Text style={styles.checkmark}>✓</Text>
+                    )}
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
           </TouchableOpacity>
-        ))}
-      </View>
+        </Modal>
+      </>
     );
   };
 
@@ -162,8 +206,9 @@ const SpeakingPart3Screen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         {/* Scenario Selection */}
+        <Text style={styles.sectionTitle}>Themenauswahl:</Text>
         <View style={styles.section}>
-          {renderScenarioButtons()}
+          {renderScenarioDropdown()}
         </View>
 
         {/* Main Content */}
@@ -228,41 +273,106 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
   },
+  sectionTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
   section: {
     marginBottom: spacing.margin.lg,
   },
-  scenarioButtonsContainer: {
+  dropdownButton: {
+    width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.margin.sm,
-  },
-  scenarioButton: {
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.md,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     borderWidth: 2,
-    borderColor: 'transparent',
+    borderColor: colors.primary[500],
     backgroundColor: colors.background.secondary,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  scenarioButtonActive: {
-    borderColor: colors.primary[500],
-    backgroundColor: colors.primary[50],
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
   },
-  scenarioButtonText: {
-    ...typography.textStyles.bodySmall,
+  dropdownButtonText: {
+    ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  dropdownArrow: {
+    ...typography.textStyles.body,
+    color: colors.primary[500],
+    marginLeft: spacing.margin.sm,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: spacing.padding.lg,
+  },
+  modalContent: {
+    width: '100%',
+    maxWidth: 500,
+    maxHeight: '80%',
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondary[200],
+  },
+  modalTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+  },
+  closeButton: {
+    padding: spacing.padding.xs,
+  },
+  closeButtonText: {
+    ...typography.textStyles.h3,
     color: colors.text.secondary,
   },
-  scenarioButtonTextActive: {
+  dropdownItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondary[100],
+  },
+  dropdownItemActive: {
+    backgroundColor: colors.primary[50],
+  },
+  dropdownItemText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  dropdownItemTextActive: {
+    fontWeight: typography.fontWeight.bold,
     color: colors.primary[700],
+  },
+  checkmark: {
+    ...typography.textStyles.h3,
+    color: colors.primary[500],
+    marginLeft: spacing.margin.sm,
   },
   mainCard: {
     backgroundColor: colors.background.secondary,
@@ -367,7 +477,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: spacing.padding.sm,
     borderRightWidth: 1,
-    borderRightColor: colors.gray[200],
+    borderRightColor: colors.secondary[200],
   },
   tableHeaderText: {
     ...typography.textStyles.bodySmall,
@@ -378,13 +488,13 @@ const styles = StyleSheet.create({
   tableRow: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderTopColor: colors.gray[200],
+    borderTopColor: colors.secondary[200],
   },
   tableCell: {
     flex: 1,
     padding: spacing.padding.sm,
     borderRightWidth: 1,
-    borderRightColor: colors.gray[200],
+    borderRightColor: colors.secondary[200],
   },
   tableCellTextGerman: {
     ...typography.textStyles.body,

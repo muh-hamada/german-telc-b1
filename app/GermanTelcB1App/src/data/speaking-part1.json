@@ -40,27 +40,51 @@
       ]
     },
     "completeExample": [
-      "**Guten Tag!** Mein Name ist **Muhammad** und ich **komme aus Ägypten**. Ich **wurde in Kairo geboren** und bin **35 Jahre alt**. Ich **lebe seit 2016 in Deutschland**. Ich **bin verheiratet** und habe eine **kleine Familie**: meine Frau und zwei Töchter.",
-      "Wir **wohnen in Charlottenburg**. Meine ältere **Tochter** ist **acht Jahre alt** und **geht in die dritte Klasse**. Meine jüngere Tochter ist **drei Jahre alt** und **besucht den Kindergarten**.",
-      "**Beruflich bin ich Ingenieur** und **arbeite bei HelloFresh**. **In meiner Freizeit treibe ich gerne Sport**, besonders **gehe ich regelmäßig ins Fitnessstudio** und **laufe einmal pro Woche**.",
+      "**Guten Tag!** Mein Name ist **John** und ich **komme aus Kolombia**. Ich **wurde in Bogotá geboren** und bin **30 Jahre alt**. Ich **lebe seit 2016 in Deutschland**. Ich **bin verheiratet** und habe eine **kleine Familie**: meine Frau und zwei Töchter.",
+      "Wir **wohnen in Mitte**. Meine ältere **Tochter** ist **acht Jahre alt** und **geht in die dritte Klasse**. Meine jüngere Tochter ist **drei Jahre alt** und **besucht den Kindergarten**.",
+      "**Beruflich bin ich Fahrer** und **arbeite bei BVG**. **In meiner Freizeit treibe ich gerne Sport**, besonders **gehe ich regelmäßig ins Fitnessstudio** und **laufe einmal pro Woche**.",
       "Ich **verbringe gerne Zeit mit meinen Töchtern**, wir **fahren Fahrrad**, **gehen in Parks** und **besuchen den Zoo**. Außerdem **zeichne** ich **sehr gerne** und **oft zusammen** mit meinen Töchtern. Und ich **lese auch sehr gerne Bücher**."
     ],
     "vocabulary": [
       {
-        "german": "Ich komme aus Ägypten.",
-        "english": "I come from Egypt."
+        "german": "Ich komme aus Kolombia.",
+        "english": "I come from Colombia.",
+        "arabic": "أنا من كولومبيا.",
+        "russian": "Я из Колумбии.",
+        "french": "Je viens de Colombie.",
+        "spanish": "Vengo de Colombia.",
+        "portuguese": "Vou de Colombia.",
+        "italian": "Vengo da Colombia."
       },
       {
-        "german": "Ich lebe seit 2016 in Deutschland.",
-        "english": "I have been living in Germany since 2016."
+        "german": "Ich wurde in Bogotá geboren.",
+        "english": "I was born in Bogotá.",
+        "arabic": "أنا مولد في بوغوتا.",
+        "russian": "Я родился в Боготá.",
+        "french": "Je suis né à Bogotá.",
+        "spanish": "Nací en Bogotá.",
+        "portuguese": "Nasci em Bogotá.",
+        "italian": "Sono nato a Bogotá."
       },
       {
         "german": "Ich bin verheiratet.",
-        "english": "I am married."
+        "english": "I am married.",
+        "arabic": "أنا متزوج.",
+        "russian": "Я женат.",
+        "french": "Je suis marié.",
+        "spanish": "Estoy casado.",
+        "portuguese": "Sou casado.",
+        "italian": "Sono sposato."
       },
       {
         "german": "die Tochter",
-        "english": "daughter"
+        "english": "daughter",
+        "arabic": "البنت",
+        "russian": "дочь",
+        "french": "la fille",
+        "spanish": "la hija",
+        "portuguese": "a filha",
+        "italian": "la figlia"
       },
       {
         "german": "den Kindergarten besuchen",

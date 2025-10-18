@@ -27,8 +27,6 @@ const RootNavigator: React.FC = () => {
     checkFirstLaunch();
   }, []);
 
-  return <Text style={{ color: 'red' }}>Hello</Text>
-
   if (isFirstLaunch === null) {
     // Show loading screen or splash screen
     return null;
@@ -37,16 +35,14 @@ const RootNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName={isFirstLaunch ? 'Onboarding' : 'Main'}
         screenOptions={{
           headerShown: false,
           cardStyle: { backgroundColor: colors.background.primary },
         }}
       >
-        {isFirstLaunch ? (
-          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        ) : (
-          <Stack.Screen name="Main" component={TabNavigator} />
-        )}
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+        <Stack.Screen name="Main" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

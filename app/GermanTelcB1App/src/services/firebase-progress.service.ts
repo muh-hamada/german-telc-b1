@@ -1,15 +1,12 @@
 import { UserProgress, ExamResult, ExamType } from '../types/exam.types';
 import { storageService } from './storage.service';
 import FirestoreService from './firestore.service';
-import { useAuth } from '../contexts/AuthContext';
 
 class FirebaseProgressService {
   // Sync local progress to Firebase when user is authenticated
-  async syncProgressToFirebase(): Promise<boolean> {
+  async syncProgressToFirebase(userId?: string): Promise<boolean> {
     try {
-      // Get current user from auth context
-      const { user } = useAuth();
-      if (!user) {
+      if (!userId) {
         console.log('No authenticated user, skipping Firebase sync');
         return false;
       }
@@ -22,7 +19,7 @@ class FirebaseProgressService {
       }
 
       // Sync to Firebase
-      await FirestoreService.saveUserProgress(user.uid, localProgress);
+      await FirestoreService.saveUserProgress(userId, localProgress);
       console.log('Progress synced to Firebase successfully');
       return true;
     } catch (error) {
@@ -32,14 +29,13 @@ class FirebaseProgressService {
   }
 
   // Load progress from Firebase when user signs in
-  async loadProgressFromFirebase(): Promise<UserProgress | null> {
+  async loadProgressFromFirebase(userId?: string): Promise<UserProgress | null> {
     try {
-      const { user } = useAuth();
-      if (!user) {
+      if (!userId) {
         return null;
       }
 
-      const firebaseProgress = await FirestoreService.getUserProgress(user.uid);
+      const firebaseProgress = await FirestoreService.getUserProgress(userId);
       if (firebaseProgress) {
         // Save to local storage as well
         await storageService.saveUserProgress(firebaseProgress);
@@ -56,18 +52,18 @@ class FirebaseProgressService {
   async saveExamResult(
     examType: ExamType,
     examId: number,
-    result: ExamResult
+    result: ExamResult,
+    userId?: string
   ): Promise<boolean> {
     try {
       // Save to local storage first
       const localSuccess = await this.saveToLocalStorage(examType, examId, result);
       
       // Try to save to Firebase if user is authenticated
-      const { user } = useAuth();
-      if (user) {
+      if (userId) {
         try {
           await FirestoreService.updateExamProgress(
-            user.uid,
+            userId,
             examType,
             examId,
             result.userAnswers,
@@ -113,20 +109,19 @@ class FirebaseProgressService {
   }
 
   // Merge local and Firebase progress
-  async mergeProgress(): Promise<UserProgress | null> {
+  async mergeProgress(userId?: string): Promise<UserProgress | null> {
     try {
-      const { user } = useAuth();
-      if (!user) {
+      if (!userId) {
         // No user, just return local progress
         return await storageService.loadUserProgress();
       }
 
       const localProgress = await storageService.loadUserProgress() || {};
-      const firebaseProgress = await FirestoreService.getUserProgress(user.uid);
+      const firebaseProgress = await FirestoreService.getUserProgress(userId);
 
       if (!firebaseProgress) {
         // No Firebase progress, save local to Firebase
-        await FirestoreService.saveUserProgress(user.uid, localProgress);
+        await FirestoreService.saveUserProgress(userId, localProgress);
         return localProgress;
       }
 
@@ -135,7 +130,7 @@ class FirebaseProgressService {
       
       // Save merged progress to both local and Firebase
       await storageService.saveUserProgress(mergedProgress);
-      await FirestoreService.saveUserProgress(user.uid, mergedProgress);
+      await FirestoreService.saveUserProgress(userId, mergedProgress);
       
       return mergedProgress;
     } catch (error) {
@@ -181,16 +176,15 @@ class FirebaseProgressService {
   }
 
   // Clear all progress (local and Firebase)
-  async clearAllProgress(): Promise<boolean> {
+  async clearAllProgress(userId?: string): Promise<boolean> {
     try {
       // Clear local progress
       const localSuccess = await storageService.clearUserProgress();
       
       // Clear Firebase progress if user is authenticated
-      const { user } = useAuth();
-      if (user) {
+      if (userId) {
         try {
-          await FirestoreService.deleteUserData(user.uid);
+          await FirestoreService.deleteUserData(userId);
           console.log('Firebase progress cleared');
         } catch (firebaseError) {
           console.warn('Failed to clear Firebase progress:', firebaseError);
@@ -205,15 +199,14 @@ class FirebaseProgressService {
   }
 
   // Check if user has unsynced progress
-  async hasUnsyncedProgress(): Promise<boolean> {
+  async hasUnsyncedProgress(userId?: string): Promise<boolean> {
     try {
-      const { user } = useAuth();
-      if (!user) {
+      if (!userId) {
         return false; // No user, no sync needed
       }
 
       const localProgress = await storageService.loadUserProgress();
-      const firebaseProgress = await FirestoreService.getUserProgress(user.uid);
+      const firebaseProgress = await FirestoreService.getUserProgress(userId);
 
       if (!localProgress) {
         return false; // No local progress
