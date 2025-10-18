@@ -9,16 +9,43 @@ import {
   TextInput,
   Modal,
   FlatList,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import writingData from '../../data/writing.json';
+import {
+  evaluateWriting,
+  getMockAssessment,
+  isOpenAIConfigured,
+} from '../../services/openai.service';
 
 interface WritingExam {
   id: number;
   title: string;
   incomingEmail: string;
   writingPoints: string[];
+}
+
+interface WritingAssessment {
+  overallScore: number;
+  maxScore: number;
+  criteria: {
+    taskCompletion: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+    communicativeDesign: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+    formalCorrectness: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+  };
+  improvementTip: string;
 }
 
 const WritingScreen: React.FC = () => {
@@ -28,10 +55,17 @@ const WritingScreen: React.FC = () => {
   const [isResultsModalOpen, setIsResultsModalOpen] = useState(false);
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
   const [showWarning, setShowWarning] = useState(false);
+  const [isEvaluating, setIsEvaluating] = useState(false);
+  const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
+  // Cache for evaluated answers and their assessments
+  const [evaluatedAnswers, setEvaluatedAnswers] = useState<{ [key: number]: string }>({});
+  const [cachedAssessments, setCachedAssessments] = useState<{ [key: number]: WritingAssessment }>({});
 
   const exams = (writingData as any).exams as WritingExam[];
   const currentExam = exams?.find(e => e.id === selectedExamId) || exams?.[0];
   const currentAnswer = userAnswers[selectedExamId] || '';
+  const lastEvaluatedAnswer = evaluatedAnswers[selectedExamId] || '';
+  const cachedAssessment = cachedAssessments[selectedExamId];
 
   const handleAnswerChange = (text: string) => {
     setUserAnswers(prev => ({ ...prev, [selectedExamId]: text }));
@@ -40,13 +74,71 @@ const WritingScreen: React.FC = () => {
     }
   };
 
-  const handleEvaluate = () => {
+  const handleEvaluate = async () => {
     if (currentAnswer.trim().length < 50) {
       setShowWarning(true);
       return;
     }
     setShowWarning(false);
-    setIsResultsModalOpen(true);
+
+    // Check if answer hasn't changed since last evaluation
+    if (currentAnswer === lastEvaluatedAnswer && cachedAssessment) {
+      console.log('Answer unchanged, using cached assessment');
+      setAssessment(cachedAssessment);
+      setIsResultsModalOpen(true);
+      return;
+    }
+
+    setIsEvaluating(true);
+
+    try {
+      let result: WritingAssessment;
+
+      if (isOpenAIConfigured()) {
+        // Use OpenAI for evaluation
+        result = await evaluateWriting({
+          userAnswer: currentAnswer,
+          incomingEmail: currentExam.incomingEmail,
+          writingPoints: currentExam.writingPoints,
+          examTitle: currentExam.title,
+        });
+      } else {
+        // Use mock data when API key is not configured
+        console.log('OpenAI API key not configured. Using mock assessment.');
+        // Simulate API delay
+        await new Promise<void>(resolve => setTimeout(() => resolve(), 1000));
+        result = getMockAssessment();
+      }
+
+      // Cache the result for this exam
+      setEvaluatedAnswers(prev => ({ ...prev, [selectedExamId]: currentAnswer }));
+      setCachedAssessments(prev => ({ ...prev, [selectedExamId]: result }));
+      
+      setAssessment(result);
+      setIsResultsModalOpen(true);
+    } catch (error) {
+      console.error('Evaluation error:', error);
+      Alert.alert(
+        'Fehler bei der Bewertung',
+        error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten.',
+        [
+          {
+            text: 'Mock-Daten verwenden',
+            onPress: () => {
+              const mockResult = getMockAssessment();
+              // Cache the mock result as well
+              setEvaluatedAnswers(prev => ({ ...prev, [selectedExamId]: currentAnswer }));
+              setCachedAssessments(prev => ({ ...prev, [selectedExamId]: mockResult }));
+              setAssessment(mockResult);
+              setIsResultsModalOpen(true);
+            },
+          },
+          { text: 'Abbrechen', style: 'cancel' },
+        ]
+      );
+    } finally {
+      setIsEvaluating(false);
+    }
   };
 
   const renderExamDropdown = () => {
@@ -70,11 +162,7 @@ const WritingScreen: React.FC = () => {
           animationType="fade"
           onRequestClose={() => setIsDropdownOpen(false)}
         >
-          <TouchableOpacity
-            style={styles.modalOverlay}
-            activeOpacity={1}
-            onPress={() => setIsDropdownOpen(false)}
-          >
+          <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
               <View style={styles.modalHeader}>
                 <Text style={styles.modalTitle}>Aufgabe auswählen</Text>
@@ -114,13 +202,32 @@ const WritingScreen: React.FC = () => {
                 )}
               />
             </View>
-          </TouchableOpacity>
+          </View>
         </Modal>
       </>
     );
   };
 
+  const getGradeStyle = (grade: 'A' | 'B' | 'C' | 'D') => {
+    switch (grade) {
+      case 'A':
+        return styles.criterionGreen;
+      case 'B':
+        return styles.criterionYellow;
+      case 'C':
+      case 'D':
+        return styles.criterionRed;
+      default:
+        return styles.criterionYellow;
+    }
+  };
+
   const renderResultsModal = () => {
+    if (!assessment) return null;
+
+    const isUsingMock = !isOpenAIConfigured();
+    const isUsingCache = currentAnswer === lastEvaluatedAnswer && cachedAssessment !== undefined;
+
     return (
       <Modal
         visible={isResultsModalOpen}
@@ -128,67 +235,77 @@ const WritingScreen: React.FC = () => {
         animationType="fade"
         onRequestClose={() => setIsResultsModalOpen(false)}
       >
-        <TouchableOpacity
-          style={styles.modalOverlay}
-          activeOpacity={1}
-          onPress={() => setIsResultsModalOpen(false)}
-        >
+        <View style={styles.modalOverlay}>
           <View style={[styles.modalContent, styles.resultsModalContent]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Text style={styles.resultsTitle}>
                 Ihre Bewertung (Schriftlicher Ausdruck)
               </Text>
 
+              {isUsingMock && (
+                <View style={styles.mockWarning}>
+                  <Text style={styles.mockWarningText}>
+                    ⚠️ Mock-Daten: API-Schlüssel nicht konfiguriert
+                  </Text>
+                </View>
+              )}
+
+              {isUsingCache && !isUsingMock && (
+                <View style={styles.cacheInfo}>
+                  <Text style={styles.cacheInfoText}>
+                    ℹ️ Zwischengespeicherte Bewertung (Text unverändert)
+                  </Text>
+                </View>
+              )}
+
               {/* Overall Score */}
               <View style={styles.overallScoreCard}>
-                <Text style={styles.overallScoreTitle}>Gesamtergebnis (Mock Data)</Text>
+                <Text style={styles.overallScoreTitle}>Gesamtergebnis</Text>
                 <Text style={styles.overallScoreText}>
-                  Gesamtpunkte: <Text style={styles.scoreNumber}>15 / 15</Text> (Maximale Punktzahl)
+                  Gesamtpunkte:{' '}
+                  <Text style={styles.scoreNumber}>
+                    {assessment.overallScore} / {assessment.maxScore}
+                  </Text>
                 </Text>
               </View>
 
               {/* Criteria Header */}
               <Text style={styles.criteriaHeader}>Detaillierte Kriterien:</Text>
 
-              {/* Criterion I - Green */}
-              <View style={[styles.criterionCard, styles.criterionGreen]}>
+              {/* Criterion I */}
+              <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.taskCompletion.grade)]}>
                 <Text style={styles.criterionTitle}>
-                  Kriterium I: Aufgabenbewältigung (Mock: A)
+                  Kriterium I: Aufgabenbewältigung (Note: {assessment.criteria.taskCompletion.grade})
                 </Text>
                 <Text style={styles.criterionText}>
-                  Alle vier Leitpunkte wurden sinnvoll und verständlich bearbeitet.
+                  {assessment.criteria.taskCompletion.feedback}
                 </Text>
               </View>
 
-              {/* Criterion II - Yellow */}
-              <View style={[styles.criterionCard, styles.criterionYellow]}>
+              {/* Criterion II */}
+              <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.communicativeDesign.grade)]}>
                 <Text style={styles.criterionTitle}>
-                  Kriterium II: Kommunikative Gestaltung (Mock: B)
+                  Kriterium II: Kommunikative Gestaltung (Note: {assessment.criteria.communicativeDesign.grade})
                 </Text>
                 <Text style={styles.criterionText}>
-                  Anrede und Schluss sind passend. Es gibt eine gute Verbindung der Sätze, 
-                  aber das Register schwankt leicht.
+                  {assessment.criteria.communicativeDesign.feedback}
                 </Text>
               </View>
 
-              {/* Criterion III - Red */}
-              <View style={[styles.criterionCard, styles.criterionRed]}>
+              {/* Criterion III */}
+              <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.formalCorrectness.grade)]}>
                 <Text style={styles.criterionTitle}>
-                  Kriterium III: Formale Richtigkeit (Mock: C)
+                  Kriterium III: Formale Richtigkeit (Note: {assessment.criteria.formalCorrectness.grade})
                 </Text>
                 <Text style={styles.criterionText}>
-                  Viele Genusfehler und einige falsche Verbpositionen behindern das zügige 
-                  Verständnis stellenweise.
+                  {assessment.criteria.formalCorrectness.feedback}
                 </Text>
               </View>
 
               {/* Improvement Tip */}
               <View style={styles.tipCard}>
                 <Text style={styles.tipTitle}>Konkreter Verbesserungstipp:</Text>
-                <Text style={styles.tipText}>
-                  Achten Sie besonders auf die richtige Stellung des Verbs im Nebensatz 
-                  (z.B. nach "weil" oder "dass").
-                </Text>
+                <Text style={styles.tipText}>{assessment.improvementTip}</Text>
               </View>
 
               <TouchableOpacity
@@ -199,7 +316,7 @@ const WritingScreen: React.FC = () => {
               </TouchableOpacity>
             </ScrollView>
           </View>
-        </TouchableOpacity>
+        </View>
       </Modal>
     );
   };
@@ -268,10 +385,21 @@ const WritingScreen: React.FC = () => {
             )}
 
             {/* Evaluate Button */}
-            <TouchableOpacity style={styles.evaluateButton} onPress={handleEvaluate}>
-              <Text style={styles.evaluateButtonText}>
-                Antwort bewerten lassen (KI-Feedback)
-              </Text>
+            <TouchableOpacity
+              style={[styles.evaluateButton, isEvaluating && styles.evaluateButtonDisabled]}
+              onPress={handleEvaluate}
+              disabled={isEvaluating}
+            >
+              {isEvaluating ? (
+                <View style={styles.evaluateButtonContent}>
+                  <ActivityIndicator color={colors.background.secondary} size="small" />
+                  <Text style={styles.evaluateButtonText}>Bewertung läuft...</Text>
+                </View>
+              ) : (
+                <Text style={styles.evaluateButtonText}>
+                  Antwort bewerten lassen (KI-Feedback)
+                </Text>
+              )}
             </TouchableOpacity>
           </View>
         )}
@@ -512,10 +640,46 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginTop: spacing.margin.md,
   },
+  evaluateButtonDisabled: {
+    backgroundColor: colors.secondary[400],
+    opacity: 0.7,
+  },
+  evaluateButtonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.margin.sm,
+  },
   evaluateButtonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
+    textAlign: 'center',
+  },
+  mockWarning: {
+    backgroundColor: colors.warning[50],
+    padding: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    marginBottom: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.warning[500],
+  },
+  mockWarningText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.warning[700],
+    textAlign: 'center',
+  },
+  cacheInfo: {
+    backgroundColor: colors.primary[50],
+    padding: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    marginBottom: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.primary[200],
+  },
+  cacheInfoText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[700],
     textAlign: 'center',
   },
   resultsTitle: {
