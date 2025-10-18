@@ -6,6 +6,7 @@ export interface Answer {
 
 export interface Question {
   id: number;
+  question?: string; // Question text for Reading Part 2
   answers: Answer[];
 }
 
@@ -53,11 +54,17 @@ export interface ReadingPart2Exam {
 }
 
 // Reading Part 3 (Advertisement Matching)
+export interface ReadingPart3Situation {
+  id: number;
+  text: string;
+  answer: string;
+}
+
 export interface ReadingPart3Exam {
   id: number;
   title: string;
-  advertisements: string[];
-  texts: Text[];
+  advertisements: Record<string, string>; // a-l, x
+  situations: ReadingPart3Situation[];
 }
 
 // Writing Section
