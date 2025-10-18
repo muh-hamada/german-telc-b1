@@ -8,16 +8,167 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
+import examInfoData from '../data/exam-info.json';
 
 const ExamStructureScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const examInfo = (examInfoData as any).exam_info;
+
+  const getLocalizedText = (obj: any) => {
+    const lang = i18n.language;
+    return obj[lang] || obj.en;
+  };
+
+  const renderPartItem = (part: any, index: number) => (
+    <View key={index} style={styles.partItem}>
+      <View style={styles.partHeader}>
+        <Text style={styles.partName}>{part.part_name}</Text>
+        <View style={styles.partMeta}>
+          {part.time_minutes && (
+            <Text style={styles.partMetaText}>⏱️ {part.time_minutes} Min</Text>
+          )}
+          {part.max_points && (
+            <Text style={styles.partMetaText}>📊 {part.max_points} Pkt</Text>
+          )}
+        </View>
+      </View>
+      {part.question_type_detail && (
+        <Text style={styles.partDetail}>
+          {getLocalizedText(part.question_type_detail)}
+        </Text>
+      )}
+    </View>
+  );
+
+  const renderSection = (section: any, index: number) => {
+    const sectionNumber = index + 1;
+    const isOral = section.name.includes('Mündlich');
+
+    return (
+      <View key={index} style={styles.sectionCard}>
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionNumber}>{sectionNumber}</Text>
+          <View style={styles.sectionTitleContainer}>
+            <Text style={styles.sectionName}>{section.name}</Text>
+            <View style={styles.sectionMetaRow}>
+              <Text style={styles.sectionMeta}>
+                ⏱️ {section.total_time_minutes} Min
+              </Text>
+              {section.preparation_time_minutes && (
+                <Text style={styles.sectionMeta}>
+                  📝 +{section.preparation_time_minutes} Min Vorbereitung
+                </Text>
+              )}
+              <Text style={styles.sectionMeta}>
+                📊 {section.max_points} Pkt ({section.weight_percent}%)
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.partsContainer}>
+          {section.parts.map((part: any, idx: number) => renderPartItem(part, idx))}
+        </View>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>{t('examStructure.title')}</Text>
-        <Text style={styles.description}>{t('examStructure.description')}</Text>
-        <Text style={styles.comingSoon}>{t('examStructure.comingSoon')}</Text>
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.title}>{getLocalizedText(examInfo.title)}</Text>
+          <View style={styles.overviewCard}>
+            <View style={styles.overviewRow}>
+              <Text style={styles.overviewLabel}>CEFR Level:</Text>
+              <Text style={styles.overviewValue}>{examInfo.cefr_level}</Text>
+            </View>
+            <View style={styles.overviewRow}>
+              <Text style={styles.overviewLabel}>Gesamtdauer:</Text>
+              <Text style={styles.overviewValue}>
+                {examInfo.total_duration_minutes} Minuten
+              </Text>
+            </View>
+            <View style={styles.overviewRow}>
+              <Text style={styles.overviewLabel}>Maximalpunktzahl:</Text>
+              <Text style={styles.overviewValue}>{examInfo.total_max_points} Punkte</Text>
+            </View>
+            <View style={styles.overviewRow}>
+              <Text style={styles.overviewLabel}>Bestehensgrenze:</Text>
+              <Text style={styles.overviewValue}>
+                {examInfo.passing_score.overall_points} Punkte (60%)
+              </Text>
+            </View>
+          </View>
+
+          {/* Passing Score Note */}
+          <View style={styles.noteCard}>
+            <Text style={styles.noteTitle}>⚠️ Wichtig:</Text>
+            <Text style={styles.noteText}>
+              {getLocalizedText(examInfo.passing_score.note)}
+            </Text>
+          </View>
+        </View>
+
+        {/* Exam Structure Sections */}
+        <Text style={styles.structureTitle}>
+          {getLocalizedText(examInfo.exam_structure.title)}
+        </Text>
+
+        {examInfo.exam_structure.sections.map((section: any, index: number) =>
+          renderSection(section, index)
+        )}
+
+        {/* Assessment Criteria */}
+        <View style={styles.assessmentSection}>
+          <Text style={styles.structureTitle}>
+            {getLocalizedText(examInfo.assessment_score.title)}
+          </Text>
+
+          {examInfo.assessment_score.assessment_details.map((detail: any, index: number) => (
+            <View key={index} style={styles.assessmentCard}>
+              <Text style={styles.assessmentSectionName}>
+                {detail.section_name}
+              </Text>
+              <Text style={styles.assessmentMaxPoints}>
+                Maximalpunktzahl: {detail.max_points} Punkte
+              </Text>
+
+              <View style={styles.criteriaList}>
+                {detail.criteria.map((criterion: any, idx: number) => (
+                  <View key={idx} style={styles.criterionItem}>
+                    <Text style={styles.criterionName}>{criterion.name}</Text>
+                    {criterion.max_points && (
+                      <Text style={styles.criterionPoints}>
+                        ({criterion.max_points} Pkt)
+                      </Text>
+                    )}
+                    <Text style={styles.criterionExplanation}>
+                      {getLocalizedText(criterion.explanation)}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+
+              {detail.note && (
+                <View style={styles.assessmentNote}>
+                  <Text style={styles.assessmentNoteText}>
+                    ℹ️ {getLocalizedText(detail.note)}
+                  </Text>
+                </View>
+              )}
+
+              {detail.points_distribution && (
+                <View style={styles.assessmentNote}>
+                  <Text style={styles.assessmentNoteText}>
+                    ℹ️ {getLocalizedText(detail.points_distribution)}
+                  </Text>
+                </View>
+              )}
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -33,23 +184,205 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: spacing.padding.lg,
+    paddingBottom: spacing.padding.xl * 2,
+  },
+  header: {
+    marginBottom: spacing.margin.xl,
   },
   title: {
     ...typography.textStyles.h2,
+    color: colors.primary[600],
+    marginBottom: spacing.margin.lg,
+    textAlign: 'center',
+  },
+  overviewCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.lg,
+    borderRadius: spacing.borderRadius.lg,
+    marginBottom: spacing.margin.md,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  overviewRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.margin.sm,
+  },
+  overviewLabel: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    fontWeight: typography.fontWeight.semibold,
+  },
+  overviewValue: {
+    ...typography.textStyles.body,
+    color: colors.primary[600],
+    fontWeight: typography.fontWeight.bold,
+  },
+  noteCard: {
+    backgroundColor: colors.warning[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.warning[500],
+  },
+  noteTitle: {
+    ...typography.textStyles.h4,
+    color: colors.warning[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.xs,
+  },
+  noteText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.warning[700],
+    lineHeight: 20,
+  },
+  structureTitle: {
+    ...typography.textStyles.h3,
     color: colors.text.primary,
+    marginTop: spacing.margin.xl,
     marginBottom: spacing.margin.lg,
   },
-  description: {
-    ...typography.textStyles.bodyLarge,
-    color: colors.text.secondary,
-    marginBottom: spacing.margin.xl,
-    lineHeight: 28,
+  sectionCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    marginBottom: spacing.margin.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
   },
-  comingSoon: {
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: spacing.margin.md,
+  },
+  sectionNumber: {
+    ...typography.textStyles.h1,
+    color: colors.primary[500],
+    fontWeight: typography.fontWeight.bold,
+    marginRight: spacing.margin.md,
+    width: 40,
+  },
+  sectionTitleContainer: {
+    flex: 1,
+  },
+  sectionName: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.xs,
+  },
+  sectionMetaRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.margin.sm,
+  },
+  sectionMeta: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  partsContainer: {
+    marginTop: spacing.margin.sm,
+  },
+  partItem: {
+    backgroundColor: colors.secondary[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.sm,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.primary[400],
+  },
+  partHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: spacing.margin.xs,
+  },
+  partName: {
     ...typography.textStyles.body,
-    color: colors.text.tertiary,
-    fontStyle: 'italic',
-    textAlign: 'center',
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+    flex: 1,
+    marginRight: spacing.margin.sm,
+  },
+  partMeta: {
+    flexDirection: 'row',
+    gap: spacing.margin.xs,
+  },
+  partMetaText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  partDetail: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    lineHeight: 20,
+    marginTop: spacing.margin.xs,
+  },
+  assessmentSection: {
+    marginTop: spacing.margin.xl,
+  },
+  assessmentCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    marginBottom: spacing.margin.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  assessmentSectionName: {
+    ...typography.textStyles.h3,
+    color: colors.primary[600],
+    marginBottom: spacing.margin.xs,
+  },
+  assessmentMaxPoints: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    marginBottom: spacing.margin.md,
+  },
+  criteriaList: {
+    marginTop: spacing.margin.sm,
+  },
+  criterionItem: {
+    backgroundColor: colors.secondary[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.sm,
+  },
+  criterionName: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.xs,
+  },
+  criterionPoints: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[500],
+    marginBottom: spacing.margin.xs,
+  },
+  criterionExplanation: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    lineHeight: 20,
+  },
+  assessmentNote: {
+    backgroundColor: colors.primary[50],
+    padding: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    marginTop: spacing.margin.md,
+  },
+  assessmentNoteText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[700],
+    lineHeight: 18,
   },
 });
 
