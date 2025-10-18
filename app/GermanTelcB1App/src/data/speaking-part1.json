@@ -1,0 +1,105 @@
+{
+  "content": {
+    "id": 1,
+    "title": "Persönliche Vorstellung",
+    "personalInfo": {
+      "name": "Muhammad",
+      "age": 35,
+      "origin": "Ägypten",
+      "livingSince": "2016",
+      "family": "verheiratet mit zwei Töchtern"
+    },
+    "familyInfo": {
+      "location": "Charlottenburg",
+      "children": [
+        {
+          "name": "Ältere Tochter",
+          "age": 8,
+          "activity": "geht in die dritte Klasse"
+        },
+        {
+          "name": "Jüngere Tochter",
+          "age": 3,
+          "activity": "besucht den Kindergarten"
+        }
+      ]
+    },
+    "professionalInfo": {
+      "job": "Ingenieur",
+      "company": "HelloFresh",
+      "hobbies": [
+        "Sport treiben",
+        "ins Fitnessstudio gehen",
+        "laufen",
+        "Zeit mit Töchtern verbringen",
+        "Fahrrad fahren",
+        "in Parks gehen",
+        "den Zoo besuchen",
+        "zeichnen",
+        "Bücher lesen"
+      ]
+    },
+    "vocabulary": [
+      {
+        "german": "Ich komme aus Ägypten.",
+        "english": "I come from Egypt."
+      },
+      {
+        "german": "Ich lebe seit 2016 in Deutschland.",
+        "english": "I have been living in Germany since 2016."
+      },
+      {
+        "german": "Ich bin verheiratet.",
+        "english": "I am married."
+      },
+      {
+        "german": "die Tochter",
+        "english": "daughter"
+      },
+      {
+        "german": "den Kindergarten besuchen",
+        "english": "to attend kindergarten"
+      },
+      {
+        "german": "die dritte Klasse",
+        "english": "the third grade"
+      },
+      {
+        "german": "Ich treibe gerne Sport.",
+        "english": "I like to do sports."
+      },
+      {
+        "german": "regelmäßig ins Fitnessstudio gehen",
+        "english": "to go to the gym regularly"
+      },
+      {
+        "german": "Beruflich bin ich Ingenieur.",
+        "english": "Professionally, I am an engineer."
+      },
+      {
+        "german": "Ich arbeite bei HelloFresh.",
+        "english": "I work at HelloFresh."
+      },
+      {
+        "german": "Zeit verbringen mit",
+        "english": "to spend time with"
+      },
+      {
+        "german": "Fahrrad fahren",
+        "english": "to ride a bicycle"
+      },
+      {
+        "german": "den Zoo besuchen",
+        "english": "to visit the zoo"
+      },
+      {
+        "german": "zeichnen",
+        "english": "to draw"
+      },
+      {
+        "german": "Bücher lesen",
+        "english": "to read books"
+      }
+    ]
+  }
+}

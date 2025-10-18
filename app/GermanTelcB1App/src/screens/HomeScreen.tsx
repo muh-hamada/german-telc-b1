@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,19 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import ProgressCard from '../components/ProgressCard';
+import LoginPromptModal from '../components/LoginPromptModal';
 import { HomeStackNavigationProp } from '../types/navigation.types';
+import { useAuth } from '../contexts/AuthContext';
+import { useProgress } from '../contexts/ProgressContext';
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useTranslation();
+  const { user } = useAuth();
+  const { hasUnsyncedProgress } = useProgress();
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+  const [hasCheckedProgress, setHasCheckedProgress] = useState(false);
 
   const handleExamStructurePress = () => {
     navigation.navigate('ExamStructure');
@@ -24,6 +32,29 @@ const HomeScreen: React.FC = () => {
 
   const handlePracticePress = () => {
     navigation.navigate('PracticeMenu');
+  };
+
+  // Check if user has unsynced progress and show login prompt
+  useEffect(() => {
+    const checkProgressAndShowPrompt = async () => {
+      if (!user && !hasCheckedProgress) {
+        setHasCheckedProgress(true);
+        const hasProgress = await hasUnsyncedProgress();
+        if (hasProgress) {
+          // Show login prompt after a short delay
+          setTimeout(() => {
+            setShowLoginPrompt(true);
+          }, 2000);
+        }
+      }
+    };
+
+    checkProgressAndShowPrompt();
+  }, [user, hasUnsyncedProgress, hasCheckedProgress]);
+
+  const handleLoginSuccess = () => {
+    // Refresh progress after successful login
+    // The ProgressContext will automatically handle syncing
   };
 
   return (
@@ -41,6 +72,8 @@ const HomeScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
+        <ProgressCard />
+        
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
           <Text style={styles.cardDescription}>
@@ -55,6 +88,13 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+
+      {/* Login Prompt Modal */}
+      <LoginPromptModal
+        visible={showLoginPrompt}
+        onClose={() => setShowLoginPrompt(false)}
+        onLoginSuccess={handleLoginSuccess}
+      />
     </SafeAreaView>
   );
 };

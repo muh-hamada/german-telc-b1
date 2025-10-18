@@ -1,0 +1,24 @@
+{
+  "content": {
+    "id": 1,
+    "title": "Thema sprechen",
+    "topics": [
+      {
+        "id": "topic1",
+        "title": "Coming Soon",
+        "description": "This section will contain topic presentation exercises for the speaking exam. Content is being prepared.",
+        "keyPoints": [
+          "Content under development",
+          "Will include various topics for presentation",
+          "Vocabulary and key phrases will be provided"
+        ],
+        "vocabulary": [
+          {
+            "german": "Coming Soon",
+            "english": "Content being prepared"
+          }
+        ]
+      }
+    ]
+  }
+}

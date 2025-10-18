@@ -1,0 +1,20 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Test 1 (Coming Soon)",
+      "advertisements": [
+        "Advertisement A: Coming Soon",
+        "Advertisement B: Under Development",
+        "Advertisement C: Content Being Prepared"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "This section will contain advertisement matching exercises. Content is being prepared and will be available soon.",
+          "correct": "a"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Test 1 (Coming Soon)",
+      "text": "This section will contain multiple choice reading comprehension exercises. Content is being prepared and will be available soon.",
+      "questions": [
+        {
+          "id": 1,
+          "answers": [
+            { "text": "Coming Soon", "correct": true },
+            { "text": "Not Available", "correct": false },
+            { "text": "Under Development", "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

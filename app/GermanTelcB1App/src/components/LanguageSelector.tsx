@@ -92,9 +92,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: spacing.padding.lg,
+    width: '100%',
   },
   title: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.text.primary,
     textAlign: 'center',
     marginBottom: spacing.margin.xl,
@@ -104,12 +105,14 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: spacing.padding.lg,
+    alignSelf: 'center',
   },
   languageItem: {
+    width: '80%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: spacing.padding.lg,
+    paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.lg,
     marginBottom: spacing.margin.sm,
     backgroundColor: colors.white,

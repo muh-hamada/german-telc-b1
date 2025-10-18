@@ -1,0 +1,59 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Test 1 (Reise)",
+      "incomingEmail": "Betreff: Reise nach Berlin\n\nLiebe/r [Name],\n\nich hoffe, es geht dir gut! Ich plane eine Reise nach Berlin und würde gerne deine Meinung hören. Ich bin mir noch nicht sicher, wann ich fahren soll und was ich unbedingt sehen muss.\n\nKannst du mir vielleicht ein paar Tipps geben? Ich interessiere mich besonders für Geschichte und Kultur, aber auch für das Nachtleben.\n\nVielen Dank im Voraus!\n\nLiebe Grüße\n[Name]",
+      "writingPoints": [
+        "Sagen Sie, wann Sie nach Berlin fahren möchten",
+        "Erklären Sie, was Sie in Berlin sehen möchten",
+        "Fragen Sie nach Restaurantempfehlungen",
+        "Erzählen Sie von Ihren Reiseerfahrungen"
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Test 2 (Wohnungssuche)",
+      "incomingEmail": "Betreff: Wohnungssuche in München\n\nHallo [Name],\n\nich ziehe bald nach München und suche eine Wohnung. Ich habe deine Anzeige gesehen und bin interessiert. Die Wohnung klingt perfekt für mich!\n\nIch hätte aber noch ein paar Fragen: Wie hoch sind die Nebenkosten? Und ist die Wohnung möbliert oder unmöbliert?\n\nWäre es möglich, die Wohnung zu besichtigen? Ich könnte nächste Woche kommen.\n\nFreundliche Grüße\n[Name]",
+      "writingPoints": [
+        "Beantworten Sie die Fragen zu den Nebenkosten",
+        "Erklären Sie, ob die Wohnung möbliert ist",
+        "Schlagen Sie einen Termin für die Besichtigung vor",
+        "Erzählen Sie etwas über die Nachbarschaft"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Test 3 (Job-Wechsel)",
+      "incomingEmail": "Betreff: Neuer Job\n\nLiebe/r [Name],\n\nich habe eine neue Arbeitsstelle gefunden! Das ist eine große Veränderung für mich, aber ich freue mich darauf.\n\nMein neuer Job ist in einer anderen Stadt, deshalb muss ich umziehen. Das wird spannend, aber auch ein bisschen aufregend.\n\nIch wollte dir das einfach mitteilen, weil du immer so gute Ratschläge gibst. Hast du vielleicht Tipps für den Umzug?\n\nBis bald!\n[Name]",
+      "writingPoints": [
+        "Gratulieren Sie zu dem neuen Job",
+        "Fragen Sie nach Details über die neue Stelle",
+        "Geben Sie Tipps für den Umzug",
+        "Erzählen Sie von Ihren eigenen Erfahrungen mit Jobwechseln"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Test 4 (Sprachkurs)",
+      "incomingEmail": "Betreff: Deutschkurs-Anmeldung\n\nSehr geehrte Damen und Herren,\n\nich interessiere mich für einen Deutschkurs an Ihrer Sprachschule. Ich habe bereits das A2-Niveau erreicht und möchte gerne B1 machen.\n\nKönnen Sie mir bitte Informationen über die Kurse geben? Wann beginnen die nächsten Kurse und wie viel kosten sie?\n\nIch würde gerne abends lernen, da ich tagsüber arbeite.\n\nMit freundlichen Grüßen\n[Name]",
+      "writingPoints": [
+        "Bestätigen Sie die Kursinformationen",
+        "Erklären Sie die Kurszeiten und Preise",
+        "Fragen Sie nach dem Sprachniveau-Test",
+        "Geben Sie Informationen über die Anmeldung"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Test 5 (Krankheit)",
+      "incomingEmail": "Betreff: Krankmeldung\n\nLiebe/r [Name],\n\nich bin leider krank geworden und kann heute nicht zur Arbeit kommen. Ich habe Fieber und fühle mich sehr schwach.\n\nIch hoffe, es ist nicht so schlimm und ich kann morgen wieder kommen. Falls nicht, melde ich mich nochmal.\n\nKönntest du bitte meinen Termin um 14 Uhr verschieben? Das wäre sehr nett.\n\nEntschuldigung für die Unannehmlichkeiten!\n\nLiebe Grüße\n[Name]",
+      "writingPoints": [
+        "Wünschen Sie gute Besserung",
+        "Fragen Sie, ob Sie helfen können",
+        "Bestätigen Sie die Terminverschiebung",
+        "Erzählen Sie von Ihren eigenen Erfahrungen mit Krankheit"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Test 1 (Hotelanfrage)",
+      "words": [
+        { "key": "A", "word": "BESONDERS" },
+        { "key": "B", "word": "DA" },
+        { "key": "C", "word": "DAFÜR" },
+        { "key": "D", "word": "DAMALS" },
+        { "key": "E", "word": "DAMIT" },
+        { "key": "F", "word": "DANKBAR" },
+        { "key": "G", "word": "DESHALB" },
+        { "key": "H", "word": "FÜR" },
+        { "key": "I", "word": "GERNE" },
+        { "key": "J", "word": "KÖNNTEN" },
+        { "key": "K", "word": "MIT" },
+        { "key": "L", "word": "MÜSSTEN" },
+        { "key": "M", "word": "SCHLIESSLICH" },
+        { "key": "N", "word": "WANN" },
+        { "key": "O", "word": "WENN" }
+      ],
+      "text": "Sehr geehrter Herr Janosch,\n\n[31] ich Ihre Anzeige gelesen habe, interessiere ich mich sehr [32] Ihr Angebot. Ich möchte [33] meiner Familie vom 10.-24. August in Österreich Urlaub machen und hätte [34] noch nähere Informationen.\n\nMeine Frau und mich interessiert ganz [35] das Freizeitprogramm für Kinder, [36] wir zwei Kinder (3 und 8 Jahre) haben. Gibt es Schwimm- und Tenniskurse für Kinder und [37] ja, was kosten sie?\n\nIn Ihrer Anzeige steht auch, dass Sie für die Unterkunft günstige Angebote für Kinder haben. Wie viel [38] wir pro Woche für unsere Kinder bezahlen? Und [39] noch eine letzte Frage: Wir haben einen kleinen Hund, von dem sich meine Kinder nicht trennen können und den wir [40] auch mitnehmen müssten. Wäre das möglich?\n\nBitte schreiben Sie uns so bald wie möglich, damit wir uns bald entscheiden können.\n\nMit freundlichen Grüßen\nIhr Anton Müller",
+      "answers": {
+        "31": "B",
+        "32": "H",
+        "33": "K",
+        "34": "G",
+        "35": "A",
+        "36": "B",
+        "37": "O",
+        "38": "J",
+        "39": "M",
+        "40": "L"
+      }
+    },
+    {
+      "id": 1,
+      "title": "Test 2 (Job-Bewerbung)",
+      "words": [
+        { "key": "A", "word": "ALS" },
+        { "key": "B", "word": "AUCH" },
+        { "key": "C", "word": "DAMIT" },
+        { "key": "D", "word": "DENN" },
+        { "key": "E", "word": "FÜR" },
+        { "key": "F", "word": "GELEGENHEIT" },
+        { "key": "G", "word": "GERNE" },
+        { "key": "H", "word": "IM" },
+        { "key": "I", "word": "IN" },
+        { "key": "J", "word": "JEDOCH" },
+        { "key": "K", "word": "KANN" },
+        { "key": "L", "word": "KÖNNEN" },
+        { "key": "M", "word": "MEHR" },
+        { "key": "N", "word": "SOLLTEN" },
+        { "key": "O", "word": "ZU" }
+      ],
+      "text": "Sehr geehrte Frau Dr. Keller,\n\nmit großem Interesse habe ich Ihre Anzeige [31] die Stelle als Marketingassistentin gelesen. Ich bin davon überzeugt, dass meine Qualifikationen gut [32] die Anforderungen passen.\n\nIch habe [33] letzten Jahr meine Ausbildung als Mediengestalterin abgeschlossen. Ich möchte mich [34] in einem internationalen Unternehmen bewerben, [35] ich meine Englischkenntnisse nutzen kann.\n\nIch bin bereit, [36] Aufgaben zu übernehmen, die mir gestellt werden. Mein Ziel ist es, mich [37] Ihrer Firma beruflich weiterzuentwickeln.\n\n[38] Sie mir bitte mitteilen, wann Sie Bewerbungsgespräche führen? Ich freue mich auf Ihre positive [39] und [40] einen Termin.\n\nMit freundlichen Grüßen\nSarah Bauer",
+      "answers": {
+        "31": "E",
+        "32": "O",
+        "33": "H",
+        "34": "G",
+        "35": "C",
+        "36": "L",
+        "37": "B",
+        "38": "N",
+        "39": "J",
+        "40": "D"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Test 3 (Mietwagen-Problem)",
+      "words": [
+        { "key": "A", "word": "ALLES" },
+        { "key": "B", "word": "AUF" },
+        { "key": "C", "word": "BEI" },
+        { "key": "D", "word": "DASS" },
+        { "key": "E", "word": "JEDOCH" },
+        { "key": "F", "word": "LEIDER" },
+        { "key": "G", "word": "MEINEN" },
+        { "key": "H", "word": "MÜSSTE" },
+        { "key": "I", "word": "UM" },
+        { "key": "J", "word": "ÜBER" },
+        { "key": "K", "word": "VON" },
+        { "key": "L", "word": "WARUM" },
+        { "key": "M", "word": "WIE" },
+        { "key": "N", "word": "WIEVIEL" },
+        { "key": "O", "word": "ZU" }
+      ],
+      "text": "Sehr geehrte Damen und Herren,\n\nmit dieser E-Mail möchte ich mich [31] den Mietwagen beschweren, den ich letzte Woche bei Ihnen gemietet hatte.\n\nAls ich das Auto am Freitag abholte, bemerkte ich [32] einen Kratzer an der hinteren Tür. Da es schon spät war, habe ich ihn [33] nicht gemeldet.\n\nAm schlimmsten ist [34], der Motor nach 200 Kilometern plötzlich stehen geblieben ist. Ich musste über zwei Stunden [35] den Pannendienst warten.\n\nIch bitte Sie [36] eine Erklärung, [37] dieses Problem auftreten konnte. Außerdem erwarte ich eine Erstattung [38] die volle Mietgebühr. Ich bin mir sicher, Sie [39] dies [40] lösen.\n\nMit freundlichen Grüßen\nKlaus Richter",
+      "answers": {
+        "31": "J",
+        "32": "A",
+        "33": "F",
+        "34": "D",
+        "35": "B",
+        "36": "I",
+        "37": "L",
+        "38": "J",
+        "39": "H",
+        "40": "O"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Test 4 (Uni-Anfrage)",
+      "words": [
+        { "key": "A", "word": "AUF" },
+        { "key": "B", "word": "BEZÜGLICH" },
+        { "key": "C", "word": "DA" },
+        { "key": "D", "word": "DAZU" },
+        { "key": "E", "word": "DENN" },
+        { "key": "F", "word": "DIESES" },
+        { "key": "G", "word": "EINEN" },
+        { "key": "H", "word": "GENUG" },
+        { "key": "I", "word": "IHM" },
+        { "key": "J", "word": "KEIN" },
+        { "key": "K", "word": "ODER" },
+        { "key": "L", "word": "VORLEGEN" },
+        { "key": "M", "word": "WICHTIGSTE" },
+        { "key": "N", "word": "ZWISCHEN" },
+        { "key": "O", "word": "ZU" }
+      ],
+      "text": "Sehr geehrte Frau Lehmann,\n\nich schreibe Ihnen, [31] ich mich für den Masterstudiengang 'Internationale Beziehungen' interessiere. Ich habe [32] Ihrer Webseite gelesen, dass die Bewerbungsfrist am 30. Juli endet.\n\nIch habe einige Fragen [33] die Zulassungsvoraussetzungen. Ist der Studiengang nur für Absolventen eines Bachelor-Studienganges in Politikwissenschaften zugänglich [34] auch für Absolventen anderer Fächer?\n\nAm [35] ist es, ob ich für die Zulassung einen Nachweis meiner Deutschkenntnisse [36] muss. Ich habe das B1-Zertifikat, aber reicht [37] Niveau [38]?\n\nIch freue mich [39] eine baldige Antwort. Ich bitte [40] Verständnis, falls meine Fragen unklar sind.\n\nMit freundlichen Grüßen\nAhmed Hassan",
+      "answers": {
+        "31": "C",
+        "32": "A",
+        "33": "B",
+        "34": "K",
+        "35": "M",
+        "36": "L",
+        "37": "F",
+        "38": "H",
+        "39": "A",
+        "40": "D"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Test 5 (Städtereise-Bericht)",
+      "words": [
+        { "key": "A", "word": "ABER" },
+        { "key": "B", "word": "BEI" },
+        { "key": "C", "word": "DENN" },
+        { "key": "D", "word": "ETWAS" },
+        { "key": "E", "word": "FÜHLEN" },
+        { "key": "F", "word": "GERADE" },
+        { "key": "G", "word": "IM" },
+        { "key": "H", "word": "LÄNGER" },
+        { "key": "I", "word": "MIT" },
+        { "key": "J", "word": "OBWOHL" },
+        { "key": "K", "word": "SCHON" },
+        { "key": "L", "word": "SO DASS" },
+        { "key": "M", "word": "UND" },
+        { "key": "N", "word": "UNS" },
+        { "key": "O", "word": "ZU" }
+      ],
+      "text": "Hallo Jan,\n\nich wollte dir nur kurz von meinem Wochenende in Hamburg erzählen. Es war super, [31] das Wetter war nicht so toll. Wir sind am Freitagabend [32] dem Zug angekommen.\n\nDie Stadt ist viel größer als ich dachte! Am Samstag haben wir zuerst eine Hafenrundfahrt gemacht, [33] uns die großen Schiffe anzusehen. Abends haben wir in einem kleinen, gemütlichen Restaurant am Fischmarkt [34] Abendbrot gegessen.\n\nAm Sonntag haben wir [35] die Elbphilharmonie angesehen. Die Architektur ist wirklich beeindruckend. Leider war die Zeit viel [36] kurz, [37] ich nächstes Mal [38] bleiben werde. Ich habe [39] Fotos gemacht, die ich dir [40] zeigen werde.\n\nLiebe Grüße\nLena",
+      "answers": {
+        "31": "J",
+        "32": "I",
+        "33": "O",
+        "34": "C",
+        "35": "N",
+        "36": "B",
+        "37": "L",
+        "38": "H",
+        "39": "D",
+        "40": "G"
+      }
+    }
+  ]
+}

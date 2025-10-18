@@ -1,0 +1,24 @@
+{
+  "content": {
+    "id": 1,
+    "title": "Planen",
+    "scenarios": [
+      {
+        "id": "scenario1",
+        "title": "Coming Soon",
+        "description": "This section will contain planning together exercises for the speaking exam. Content is being prepared.",
+        "options": [
+          "Content under development",
+          "Will include various planning scenarios",
+          "Vocabulary and key phrases will be provided"
+        ],
+        "vocabulary": [
+          {
+            "german": "Coming Soon",
+            "english": "Content being prepared"
+          }
+        ]
+      }
+    ]
+  }
+}

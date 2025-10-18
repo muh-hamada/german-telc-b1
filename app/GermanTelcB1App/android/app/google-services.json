@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "494473710301",
+    "project_id": "telc-b1-german",
+    "storage_bucket": "telc-b1-german.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494473710301:android:1b5d40d4f9e1b2b6c0a934",
+        "android_client_info": {
+          "package_name": "com.mhamada.telcb1german"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494473710301-7hb56foba0cai1gaoe6kaa3m2o1073gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb1german",
+            "certificate_hash": "78804fb7d225d5b40b1a64b7e6afa5d3da82a97b"
+          }
+        },
+        {
+          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mhamada.telcb1german"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
