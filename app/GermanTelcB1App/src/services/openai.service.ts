@@ -6,7 +6,7 @@
  */
 
 // API Configuration
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' for cost efficiency
 
