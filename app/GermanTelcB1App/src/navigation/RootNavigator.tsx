@@ -6,6 +6,7 @@ import { RootStackParamList } from '../types/navigation.types';
 import { colors } from '../theme';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import TabNavigator from './TabNavigator';
+import { Text } from 'react-native';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -25,6 +26,8 @@ const RootNavigator: React.FC = () => {
 
     checkFirstLaunch();
   }, []);
+
+  return <Text style={{ color: 'red' }}>Hello</Text>
 
   if (isFirstLaunch === null) {
     // Show loading screen or splash screen
