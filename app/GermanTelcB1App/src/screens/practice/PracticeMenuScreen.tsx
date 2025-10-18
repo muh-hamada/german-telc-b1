@@ -32,6 +32,10 @@ const PracticeMenuScreen: React.FC = () => {
     navigation.navigate('SpeakingMenu');
   };
 
+  const handleGrammarPress = () => {
+    navigation.navigate('GrammarMenu');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -46,6 +50,13 @@ const PracticeMenuScreen: React.FC = () => {
           <Text style={styles.cardTitle}>{t('practice.listening.title')}</Text>
           <Text style={styles.cardDescription}>
             {t('practice.listening.comingSoon')}
+          </Text>
+        </Card>
+
+        <Card style={styles.card} onPress={handleGrammarPress}>
+          <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
+          <Text style={styles.cardDescription}>
+            Practice German grammar with gap-fill exercises
           </Text>
         </Card>
 

@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -170,7 +171,9 @@ const ReadingPart2Screen: React.FC = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>{currentExam.title}</Text>
         <View style={styles.textContainer}>
-          <Text style={styles.textContent}>{currentExam.text}</Text>
+          <Markdown style={markdownStyles}>
+            {currentExam.text}
+          </Markdown>
         </View>
       </View>
     );
@@ -184,9 +187,9 @@ const ReadingPart2Screen: React.FC = () => {
         <Text style={styles.sectionTitle}>Aufgaben 6-10</Text>
         {currentExam.questions.map((question) => (
           <View key={question.id} style={styles.questionContainer}>
-            <Text style={styles.questionText}>
-              {question.id}. {question.question}
-            </Text>
+            <Markdown style={markdownStyles}>
+              {`${question.id}. ${question.question}`}
+            </Markdown>
             
             <View style={styles.answersContainer}>
               {question.answers.map((answer, index) => {
@@ -209,12 +212,9 @@ const ReadingPart2Screen: React.FC = () => {
                       {isSelected && <View style={styles.radioButtonInner} />}
                     </View>
                     <Text style={styles.optionLetter}>{optionLetter}.</Text>
-                    <Text style={[
-                      styles.answerText,
-                      isSelected && styles.selectedAnswerText,
-                    ]}>
+                    <Markdown style={isSelected ? markdownStylesSelected : markdownStylesAnswer}>
                       {answer.text}
-                    </Text>
+                    </Markdown>
                   </TouchableOpacity>
                 );
               })}
@@ -447,5 +447,60 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.semibold,
   },
 });
+
+const markdownStyles = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 24,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesAnswer = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesSelected = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.medium as '500',
+    flex: 1,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
 
 export default ReadingPart2Screen;

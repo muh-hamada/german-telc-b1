@@ -10,6 +10,7 @@ import ReadingMenuScreen from '../screens/practice/ReadingMenuScreen';
 import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
 import ReadingPart2Screen from '../screens/practice/ReadingPart2Screen';
 import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
+import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
 import WritingScreen from '../screens/practice/WritingScreen';
@@ -89,6 +90,13 @@ const HomeStackNavigator: React.FC = () => {
         component={ReadingPart3Screen}
         options={{
           title: t('practice.reading.part3'),
+        }}
+      />
+      <Stack.Screen
+        name="GrammarMenu"
+        component={GrammarMenuScreen}
+        options={{
+          title: t('practice.grammar.title'),
         }}
       />
       <Stack.Screen

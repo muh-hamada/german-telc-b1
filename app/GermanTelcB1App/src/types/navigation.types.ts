@@ -22,6 +22,7 @@ export type HomeStackParamList = {
   ReadingPart1: undefined;
   ReadingPart2: undefined;
   ReadingPart3: undefined;
+  GrammarMenu: undefined;
   GrammarPart1: undefined;
   GrammarPart2: undefined;
   Writing: undefined;

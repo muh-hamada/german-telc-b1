@@ -10,6 +10,7 @@ import {
   Modal,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -192,7 +193,9 @@ const ReadingPart3Screen: React.FC = () => {
           {adKeys.map((key) => (
             <View key={key} style={styles.advertisementCard}>
               <Text style={styles.advertisementKey}>{key.toUpperCase()}</Text>
-              <Text style={styles.advertisementText}>{currentExam.advertisements[key]}</Text>
+              <Markdown style={markdownStylesAd}>
+                {currentExam.advertisements[key]}
+              </Markdown>
             </View>
           ))}
         </View>
@@ -210,7 +213,9 @@ const ReadingPart3Screen: React.FC = () => {
           <View key={situation.id} style={styles.situationContainer}>
             <View style={styles.situationHeader}>
               <Text style={styles.situationNumber}>{situation.id}.</Text>
-              <Text style={styles.situationText}>{situation.text}</Text>
+              <Markdown style={markdownStylesSituation}>
+                {situation.text}
+              </Markdown>
             </View>
             
             <TouchableOpacity
@@ -265,10 +270,9 @@ const ReadingPart3Screen: React.FC = () => {
         {renderExamTabs()}
         
         <View style={styles.instructionsContainer}>
-          <Text style={styles.instructionsText}>
-            Lesen Sie die Situationen (11-20) und die Anzeigen (a-l). Finden Sie für jede Situation die passende Anzeige. 
-            Sie können jede Anzeige nur einmal benutzen. Wenn Sie keine Anzeige finden, markieren Sie <Text style={styles.boldText}>x</Text>.
-          </Text>
+          <Markdown style={markdownStylesInstructions}>
+            {`Lesen Sie die Situationen (11-20) und die Anzeigen (a-l). Finden Sie für jede Situation die passende Anzeige. Sie können jede Anzeige nur einmal benutzen. Wenn Sie keine Anzeige finden, markieren Sie **x**.`}
+          </Markdown>
         </View>
 
         {renderAdvertisements()}
@@ -318,12 +322,9 @@ const ReadingPart3Screen: React.FC = () => {
                     onPress={() => selectAnswer(key)}
                   >
                     <Text style={styles.answerOptionLetter}>{key.toUpperCase()}</Text>
-                    <Text style={[
-                      styles.answerOptionText,
-                      isSelected && styles.selectedAnswerOptionText,
-                    ]}>
+                    <Markdown style={isSelected ? markdownStylesModalSelected : markdownStylesModal}>
                       {currentExam.advertisements[key]}
-                    </Text>
+                    </Markdown>
                     {isSelected && <Text style={styles.checkmark}>✓</Text>}
                   </TouchableOpacity>
                 );
@@ -613,5 +614,99 @@ const styles = StyleSheet.create({
     marginLeft: spacing.margin.sm,
   },
 });
+
+const markdownStylesInstructions = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesAd = {
+  body: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.primary,
+    lineHeight: 20,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesSituation = {
+  body: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+    lineHeight: 22,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesModal = {
+  body: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.primary,
+    flex: 1,
+    lineHeight: 18,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
+
+const markdownStylesModalSelected = {
+  body: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.medium as '500',
+    flex: 1,
+    lineHeight: 18,
+  },
+  paragraph: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  strong: {
+    fontWeight: typography.fontWeight.bold as '700',
+  },
+  em: {
+    fontStyle: 'italic' as 'italic',
+  },
+};
 
 export default ReadingPart3Screen;
