@@ -8,7 +8,7 @@ interface AuthState {
   user: User | null;
   isLoading: boolean;
   isInitialized: boolean;
-  error: string | null;
+  error: AuthError | null;
 }
 
 interface AuthContextType extends AuthState {
@@ -67,7 +67,7 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 };
 
 // Context
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Provider Component
 interface AuthProviderProps {
@@ -80,12 +80,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Initialize auth state on mount
   useEffect(() => {
     const unsubscribe = AuthService.onAuthStateChanged(async (user) => {
+      console.log('[AuthContext] Auth state changed:', user ? `User ${user.uid}` : 'No user');
       if (user) {
         try {
           // Create or update user profile in Firestore
           await FirestoreService.createUserProfile(user);
         } catch (error) {
-          console.error('Error creating user profile:', error);
+          console.error('[AuthContext] Error creating user profile:', error);
         }
       }
       dispatch({ type: 'SET_USER', payload: user });
@@ -96,7 +97,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const handleAuthError = (error: AuthError) => {
-    dispatch({ type: 'SET_ERROR', payload: error.message });
+    dispatch({ type: 'SET_ERROR', payload: error.code });
+    throw error;
   };
 
   const signInWithGoogle = async (): Promise<void> => {
@@ -112,6 +114,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const signInWithFacebook = async (): Promise<void> => {
+    console.log('signInWithFacebook');
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
@@ -119,6 +122,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const user = await AuthService.signInWithFacebook();
       dispatch({ type: 'SET_USER', payload: user });
     } catch (error: any) {
+      console.log('error', error);
       handleAuthError(error);
     }
   };
@@ -177,13 +181,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const signOut = async (): Promise<void> => {
     try {
+      console.log('[AuthContext] Starting sign out...');
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       await AuthService.signOut();
+      
+      console.log('[AuthContext] Sign out successful, clearing user state');
+      // Update state to null after successful signout
       dispatch({ type: 'SET_USER', payload: null });
     } catch (error: any) {
+      console.error('[AuthContext] Error during sign out:', error);
       handleAuthError(error);
+      // Even if there's an error, clear the user state to allow retry
+      dispatch({ type: 'SET_USER', payload: null });
+      // Re-throw the error so the UI can handle it
+      throw error;
+    } finally {
+      dispatch({ type: 'SET_LOADING', payload: false });
+      console.log('[AuthContext] Sign out process completed');
     }
   };
 

@@ -85,15 +85,23 @@ class AuthService {
       // Check if your device supports Google Play
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
 
+      console.log('GoogleSignin.signIn()', GoogleSignin.signIn());
+
       // Get the users ID token
-      const { idToken } = await GoogleSignin.signIn();
+      const tokens = await GoogleSignin.getTokens();
+
+      console.log('tokens', tokens);
 
       // Create a Google credential with the token
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      const googleCredential = auth.GoogleAuthProvider.credential(tokens.idToken);
+
+      console.log('googleCredential', googleCredential);
 
       // Sign-in the user with the credential
       const userCredential = await auth().signInWithCredential(googleCredential);
-      
+
+      console.log('userCredential', userCredential);
+
       return this.getCurrentUser()!;
     } catch (error: any) {
       console.error('Google sign-in error:', error);
@@ -104,28 +112,52 @@ class AuthService {
   // Sign in with Facebook
   async signInWithFacebook(): Promise<User> {
     try {
+      console.log('signInWithFacebook step 1');
+      
+      // Check if Facebook is properly configured
+      if (!facebookConfig.appId || facebookConfig.appId === 'YOUR_FACEBOOK_APP_ID') {
+        throw {
+          code: 'auth/not-configured',
+          message: 'Facebook Sign-In is not configured yet. Please follow the setup guide in FACEBOOK_SETUP.md or use Google/Email sign-in instead.',
+        };
+      }
+      
       await this.initialize();
 
       // Attempt login with permissions
       const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
+      console.log('signInWithFacebook step 2', result);
+
       if (result.isCancelled) {
         throw new Error('User cancelled the login process');
       }
 
+
+      console.log('signInWithFacebook step 3');
+
       // Once signed in, get the users AccessToken
       const data = await AccessToken.getCurrentAccessToken();
+
+
+      console.log('signInWithFacebook step 4', data);
 
       if (!data) {
         throw new Error('Something went wrong obtaining access token');
       }
 
+      console.log('signInWithFacebook step 5');
+
       // Create a Facebook credential with the AccessToken
       const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
 
+
+      console.log('signInWithFacebook step 6', facebookCredential);
       // Sign-in the user with the credential
       await auth().signInWithCredential(facebookCredential);
       
+      console.log('signInWithFacebook step 7');
+
       return this.getCurrentUser()!;
     } catch (error: any) {
       console.error('Facebook sign-in error:', error);
@@ -204,18 +236,12 @@ class AuthService {
   // Sign out
   async signOut(): Promise<void> {
     try {
-      // Sign out from Google if signed in
-      if (await GoogleSignin.isSignedIn()) {
-        await GoogleSignin.signOut();
-      }
-
-      // Sign out from Facebook if signed in
-      await LoginManager.logOut();
-
-      // Sign out from Firebase
+      console.log('[AuthService] Starting sign out...');
+      // Firebase handles sign-out for all providers
       await auth().signOut();
+      console.log('[AuthService] Sign out completed successfully');
     } catch (error: any) {
-      console.error('Sign out error:', error);
+      console.error('[AuthService] Sign out error:', error);
       throw this.handleAuthError(error);
     }
   }

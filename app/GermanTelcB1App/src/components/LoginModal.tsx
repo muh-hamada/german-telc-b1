@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  Platform,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
@@ -23,6 +24,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   visible,
   onClose,
   onSuccess,
+  onFailure,
 }) => {
   const {
     signInWithGoogle,
@@ -62,6 +64,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
       onClose();
     } catch (error) {
       // Error is handled by the auth context
+      onFailure?.();
     }
   };
 
@@ -165,11 +168,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       loading={isLoading}
                     /> */}
                     
-                    <SocialLoginButton
+                    {Platform.OS === 'ios' && <SocialLoginButton
                       provider="apple"
                       onPress={() => handleSocialLogin('apple')}
                       loading={isLoading}
-                    />
+                    />}
                   </View>
 
                   <View style={styles.divider}>

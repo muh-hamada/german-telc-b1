@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, ReactNode } fr
 import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import StorageService from '../services/storage.service';
 import firebaseProgressService from '../services/firebase-progress.service';
-import { useAuth } from './AuthContext';
+import { AuthContext } from './AuthContext';
 
 // Progress Context Types
 interface ProgressState {
@@ -123,30 +123,62 @@ interface ProgressProviderProps {
 
 export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(progressReducer, initialState);
-  const { user } = useAuth();
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user || null;
 
-  // Load user progress on mount and when user changes
-  useEffect(() => {
-    loadUserProgress();
-  }, [user]);
-
-  const loadUserProgress = async (): Promise<void> => {
+  // Load user progress function
+  const loadUserProgress = React.useCallback(async (): Promise<void> => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
+      console.log('[ProgressContext] Loading progress for user:', user?.uid || 'anonymous');
       
-      if (user) {
+      if (user?.uid) {
         // User is authenticated, try to merge local and Firebase progress
-        const mergedProgress = await firebaseProgressService.mergeProgress(user.uid);
-        dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
+        try {
+          console.log('[ProgressContext] Merging Firebase progress for user:', user.uid);
+          const mergedProgress = await firebaseProgressService.mergeProgress(user.uid);
+          dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
+          console.log('[ProgressContext] Successfully loaded Firebase progress');
+        } catch (firebaseError) {
+          console.warn('[ProgressContext] Failed to merge Firebase progress, falling back to local:', firebaseError);
+          // Fallback to local progress if Firebase fails
+          const progress = await StorageService.getUserProgress();
+          dispatch({ type: 'SET_USER_PROGRESS', payload: progress });
+        }
       } else {
         // No user, just load local progress
+        console.log('[ProgressContext] Loading local progress only');
         const progress = await StorageService.getUserProgress();
         dispatch({ type: 'SET_USER_PROGRESS', payload: progress });
       }
     } catch (error) {
+      console.error('[ProgressContext] Error loading progress:', error);
       dispatch({ type: 'SET_ERROR', payload: 'Failed to load progress' });
+      dispatch({ type: 'SET_LOADING', payload: false });
     }
-  };
+  }, [user?.uid]); // Only depend on user.uid, not the entire user object
+
+  // Load user progress on mount and when user changes
+  useEffect(() => {
+    // Use a flag to avoid race conditions when unmounting
+    let isActive = true;
+    
+    const loadProgress = async () => {
+      if (isActive) {
+        try {
+          await loadUserProgress();
+        } catch (error) {
+          console.error('Error in loadProgress effect:', error);
+        }
+      }
+    };
+    
+    loadProgress();
+    
+    return () => {
+      isActive = false;
+    };
+  }, [loadUserProgress]); // Depend on the memoized function
 
   const updateExamProgress = async (
     examType: string,

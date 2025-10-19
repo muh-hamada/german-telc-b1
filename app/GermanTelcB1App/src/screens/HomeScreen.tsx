@@ -120,9 +120,9 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: spacing.padding.lg,
+    gap: spacing.margin.md,
   },
   card: {
-    marginBottom: spacing.margin.lg,
     minHeight: 120,
     justifyContent: 'center',
   },

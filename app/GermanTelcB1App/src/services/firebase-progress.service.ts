@@ -1,5 +1,5 @@
-import { UserProgress, ExamResult, ExamType } from '../types/exam.types';
-import { storageService } from './storage.service';
+import { UserProgress, ExamResult, ExamType, ExamProgress } from '../types/exam.types';
+import storageService from './storage.service';
 import FirestoreService from './firestore.service';
 
 class FirebaseProgressService {
@@ -12,14 +12,14 @@ class FirebaseProgressService {
       }
 
       // Get local progress
-      const localProgress = await storageService.loadUserProgress();
+      const localProgress = await storageService.getUserProgress() || {};
       if (!localProgress) {
         console.log('No local progress to sync');
         return true;
       }
 
       // Sync to Firebase
-      await FirestoreService.saveUserProgress(userId, localProgress);
+      await FirestoreService.saveUserProgress(userId, localProgress as UserProgress);
       console.log('Progress synced to Firebase successfully');
       return true;
     } catch (error) {
@@ -62,13 +62,21 @@ class FirebaseProgressService {
       // Try to save to Firebase if user is authenticated
       if (userId) {
         try {
+          // Convert ExamResult answers to UserAnswer format
+          const userAnswers = result.answers.map(ans => ({
+            questionId: ans.questionId,
+            answer: ans.userAnswer,
+            isCorrect: ans.isCorrect,
+            timestamp: result.timestamp,
+          }));
+          
           await FirestoreService.updateExamProgress(
             userId,
             examType,
             examId,
-            result.userAnswers,
+            userAnswers,
             result.score,
-            result.total
+            result.maxScore
           );
           console.log('Exam result saved to Firebase');
         } catch (firebaseError) {
@@ -90,16 +98,47 @@ class FirebaseProgressService {
     result: ExamResult
   ): Promise<boolean> {
     try {
-      const currentProgress = await storageService.loadUserProgress() || {};
+      let currentProgress = await storageService.loadUserProgress();
       
-      if (!currentProgress[examType]) {
-        currentProgress[examType] = {};
-      }
-      if (!currentProgress[examType][examId]) {
-        currentProgress[examType][examId] = [];
+      if (!currentProgress) {
+        currentProgress = {
+          exams: [],
+          totalScore: 0,
+          totalMaxScore: 0,
+          lastUpdated: Date.now(),
+        };
       }
       
-      currentProgress[examType][examId].push(result);
+      // Find existing exam progress or create new
+      const existingIndex = currentProgress.exams.findIndex(
+        e => e.examId === examId && e.examType === examType
+      );
+      
+      const examProgress: ExamProgress = {
+        examId,
+        examType,
+        answers: result.answers.map(ans => ({
+          questionId: ans.questionId,
+          answer: ans.userAnswer,
+          isCorrect: ans.isCorrect,
+          timestamp: result.timestamp,
+        })),
+        completed: true,
+        score: result.score,
+        maxScore: result.maxScore,
+        lastAttempt: result.timestamp,
+      };
+      
+      if (existingIndex === -1) {
+        currentProgress.exams.push(examProgress);
+      } else {
+        currentProgress.exams[existingIndex] = examProgress;
+      }
+      
+      // Recalculate totals
+      currentProgress.totalScore = currentProgress.exams.reduce((sum, exam) => sum + (exam.score || 0), 0);
+      currentProgress.totalMaxScore = currentProgress.exams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
+      currentProgress.lastUpdated = Date.now();
       
       return await storageService.saveUserProgress(currentProgress);
     } catch (error) {
@@ -113,16 +152,25 @@ class FirebaseProgressService {
     try {
       if (!userId) {
         // No user, just return local progress
-        return await storageService.loadUserProgress();
+        const localProgress = await storageService.getUserProgress();
+        return localProgress;
       }
 
-      const localProgress = await storageService.loadUserProgress() || {};
+      const localProgress = await storageService.getUserProgress();
       const firebaseProgress = await FirestoreService.getUserProgress(userId);
 
       if (!firebaseProgress) {
-        // No Firebase progress, save local to Firebase
-        await FirestoreService.saveUserProgress(userId, localProgress);
+        // No Firebase progress, save local to Firebase if it exists
+        if (localProgress) {
+          await FirestoreService.saveUserProgress(userId, localProgress);
+        }
         return localProgress;
+      }
+
+      if (!localProgress) {
+        // No local progress, just return Firebase progress
+        await storageService.saveUserProgress(firebaseProgress);
+        return firebaseProgress;
       }
 
       // Merge progress (Firebase takes precedence for conflicts)
@@ -135,42 +183,46 @@ class FirebaseProgressService {
       return mergedProgress;
     } catch (error) {
       console.error('Error merging progress:', error);
-      return null;
+      // Return local progress as fallback
+      try {
+        return await storageService.getUserProgress();
+      } catch (storageError) {
+        console.error('Error getting local progress as fallback:', storageError);
+        return null;
+      }
     }
   }
 
   // Merge local and Firebase progress data
   private mergeProgressData(local: UserProgress, firebase: UserProgress): UserProgress {
-    const merged: UserProgress = { ...firebase };
+    // Start with Firebase progress as base
+    const merged: UserProgress = {
+      ...firebase,
+      exams: [...firebase.exams],
+    };
 
-    // Add any local progress that doesn't exist in Firebase
-    Object.keys(local).forEach(examType => {
-      if (!merged[examType]) {
-        merged[examType] = local[examType];
+    // Add or merge local exams
+    local.exams.forEach(localExam => {
+      const existingIndex = merged.exams.findIndex(
+        e => e.examId === localExam.examId && e.examType === localExam.examType
+      );
+
+      if (existingIndex === -1) {
+        // Exam doesn't exist in Firebase, add it
+        merged.exams.push(localExam);
       } else {
-        Object.keys(local[examType]).forEach(examId => {
-          const examIdNum = parseInt(examId);
-          if (!merged[examType][examIdNum]) {
-            merged[examType][examIdNum] = local[examType][examIdNum];
-          } else {
-            // Merge results, keeping the latest attempts
-            const localResults = local[examType][examIdNum];
-            const firebaseResults = merged[examType][examIdNum];
-            
-            // Combine and sort by completion time
-            const allResults = [...localResults, ...firebaseResults];
-            allResults.sort((a, b) => b.completedAt - a.completedAt);
-            
-            // Remove duplicates based on completion time
-            const uniqueResults = allResults.filter((result, index, self) => 
-              index === self.findIndex(r => r.completedAt === result.completedAt)
-            );
-            
-            merged[examType][examIdNum] = uniqueResults;
-          }
-        });
+        // Exam exists, keep the one with the latest attempt
+        const firebaseExam = merged.exams[existingIndex];
+        if (localExam.lastAttempt > firebaseExam.lastAttempt) {
+          merged.exams[existingIndex] = localExam;
+        }
       }
     });
+
+    // Recalculate totals
+    merged.totalScore = merged.exams.reduce((sum, exam) => sum + (exam.score || 0), 0);
+    merged.totalMaxScore = merged.exams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
+    merged.lastUpdated = Math.max(local.lastUpdated, firebase.lastUpdated);
 
     return merged;
   }
@@ -205,13 +257,12 @@ class FirebaseProgressService {
         return false; // No user, no sync needed
       }
 
-      const localProgress = await storageService.loadUserProgress();
-      const firebaseProgress = await FirestoreService.getUserProgress(userId);
-
+      const localProgress = await storageService.getUserProgress();
       if (!localProgress) {
         return false; // No local progress
       }
 
+      const firebaseProgress = await FirestoreService.getUserProgress(userId);
       if (!firebaseProgress) {
         return true; // Has local progress but no Firebase progress
       }

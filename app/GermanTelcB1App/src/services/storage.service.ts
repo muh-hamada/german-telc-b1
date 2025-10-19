@@ -20,6 +20,11 @@ class StorageService {
     }
   }
 
+  // Alias for getUserProgress for compatibility
+  async loadUserProgress(): Promise<UserProgress | null> {
+    return this.getUserProgress();
+  }
+
   async saveUserProgress(progress: UserProgress): Promise<boolean> {
     try {
       await AsyncStorage.setItem(

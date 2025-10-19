@@ -84,18 +84,11 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.card,
+    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.lg,
-    marginVertical: spacing.sm,
-    shadowColor: colors.text.primary,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    // marginVertical: spacing.sm,
+    ...spacing.shadow.sm,
   },
   header: {
     flexDirection: 'row',

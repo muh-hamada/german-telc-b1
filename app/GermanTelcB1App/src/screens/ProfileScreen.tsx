@@ -91,6 +91,10 @@ const ProfileScreen: React.FC = () => {
     Alert.alert('Success', 'You have been signed in successfully!');
   };
 
+  const handleLoginFailure = () => {
+    Alert.alert('Error', 'Failed to sign in. Please try again.');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -117,7 +121,6 @@ const ProfileScreen: React.FC = () => {
         
         {/* Progress Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Your Progress</Text>
           <ProgressCard showDetails={true} />
         </View>
 
@@ -178,6 +181,7 @@ const ProfileScreen: React.FC = () => {
         visible={showLoginModal}
         onClose={() => setShowLoginModal(false)}
         onSuccess={handleLoginSuccess}
+        onFailure={handleLoginFailure}
       />
 
       {/* Language Selector Modal */}

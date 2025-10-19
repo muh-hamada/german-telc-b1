@@ -145,9 +145,11 @@ export interface UserAnswer {
   timestamp: number;
 }
 
+export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3';
+
 export interface ExamProgress {
   examId: number;
-  examType: 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3';
+  examType: ExamType;
   answers: UserAnswer[];
   completed: boolean;
   score?: number;
