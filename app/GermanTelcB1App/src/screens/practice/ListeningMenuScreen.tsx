@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
+import AdBanner from '../../components/AdBanner';
 
 const ListeningMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -30,6 +31,7 @@ const ListeningMenuScreen: React.FC = () => {
           <Text style={styles.cardDescription}>{t('practice.listening.part3Description')}</Text>
         </Card>
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };

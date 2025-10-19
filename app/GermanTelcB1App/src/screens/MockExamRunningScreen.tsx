@@ -30,6 +30,7 @@ import {
   clearMockExamProgress,
   getTestIdForStep,
 } from '../services/mock-exam.service';
+import AdBanner from '../components/AdBanner';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -65,6 +66,7 @@ const MockExamRunningScreen: React.FC = () => {
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>Prüfung wird geladen...</Text>
         </View>
+        <AdBanner />
       </SafeAreaView>
     );
   }
@@ -284,6 +286,7 @@ const MockExamRunningScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         {renderResults()}
+        <AdBanner />
       </SafeAreaView>
     );
   }
@@ -310,6 +313,7 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
+      <AdBanner />
     </SafeAreaView>
   );
 };

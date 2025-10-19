@@ -13,6 +13,7 @@ import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
 import { HomeStackNavigationProp } from '../types/navigation.types';
+import AdBanner from '../components/AdBanner';
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -57,6 +58,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };

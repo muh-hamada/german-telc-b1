@@ -6,6 +6,7 @@ import {
 import { colors } from '../../theme';
 import listeningPart3Data from '../../data/listening-part3.json';
 import ListeningPart3UI from '../../components/exam-ui/ListeningPart3UI';
+import AdBanner from '../../components/AdBanner';
 
 interface Statement {
   id: number;
@@ -36,6 +37,7 @@ const ListeningPart3Screen: React.FC = () => {
         sectionDetails={sectionDetails}
         onComplete={handleComplete} 
       />
+      <AdBanner />
     </SafeAreaView>
   );
 };

@@ -9,6 +9,7 @@ import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
 import i18n from '../utils/i18n';
+import AdBanner from '../components/AdBanner';
 
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 
@@ -49,6 +50,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
         onLanguageSelect={handleLanguageChange}
       />
       <Button title={t('common.go')} onPress={handleGoPress} style={styles.goButton} />
+      <AdBanner />
     </View>
   );
 };

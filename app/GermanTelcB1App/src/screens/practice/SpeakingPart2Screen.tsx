@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import speakingPart2Data from '../../data/speaking-part2.json';
+import AdBanner from '../../components/AdBanner';
 
 interface Topic {
   id: number;
@@ -252,6 +253,7 @@ const SpeakingPart2Screen: React.FC = () => {
         </View>
         )}
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };

@@ -15,6 +15,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
+import AdBanner from '../../components/AdBanner';
 
 const ReadingPart2Screen: React.FC = () => {
   const { t } = useTranslation();
@@ -112,6 +113,7 @@ const ReadingPart2Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>Loading exam...</Text>
         </View>
+        <AdBanner />
       </SafeAreaView>
     );
   }
@@ -122,6 +124,7 @@ const ReadingPart2Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>Failed to load exam data</Text>
         </View>
+        <AdBanner />
       </SafeAreaView>
     );
   }
@@ -143,6 +146,7 @@ const ReadingPart2Screen: React.FC = () => {
         examTitle={`Reading Part 2 - Test ${currentExamId + 1}`}
         result={examResult}
       />
+      <AdBanner />
     </SafeAreaView>
   );
 };

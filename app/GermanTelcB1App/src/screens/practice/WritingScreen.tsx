@@ -12,6 +12,7 @@ import {
 import { colors, spacing, typography } from '../../theme';
 import writingData from '../../data/writing.json';
 import WritingUI from '../../components/exam-ui/WritingUI';
+import AdBanner from '../../components/AdBanner';
 
 interface WritingExam {
   id: number;
@@ -105,6 +106,7 @@ const WritingScreen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>No exam data available</Text>
         </View>
+        <AdBanner />
       </SafeAreaView>
     );
   }
@@ -121,6 +123,7 @@ const WritingScreen: React.FC = () => {
       </View>
 
       <WritingUI exam={currentExam} onComplete={handleComplete} />
+      <AdBanner />
     </SafeAreaView>
   );
 };

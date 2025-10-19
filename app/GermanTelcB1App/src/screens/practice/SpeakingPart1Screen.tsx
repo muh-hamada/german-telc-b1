@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
 import speakingPart1Data from '../../data/speaking-part1.json';
+import AdBanner from '../../components/AdBanner';
 
 interface PersonalInfo {
   name: string;
@@ -560,6 +561,7 @@ const SpeakingPart1Screen: React.FC = () => {
 
       {renderEditModal()}
       {renderInfoModal()}
+      <AdBanner />
     </SafeAreaView>
   );
 };

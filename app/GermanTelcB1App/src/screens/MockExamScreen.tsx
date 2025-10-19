@@ -19,6 +19,7 @@ import {
   createInitialMockExamProgress,
   saveMockExamProgress,
 } from '../services/mock-exam.service';
+import AdBanner from '../components/AdBanner';
 
 type RootStackParamList = {
   MockExamRunning: undefined;
@@ -223,6 +224,7 @@ const MockExamScreen: React.FC = () => {
           Viel Erfolg! Nehmen Sie sich Zeit und lesen Sie alle Anweisungen sorgfältig.
         </Text>
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };

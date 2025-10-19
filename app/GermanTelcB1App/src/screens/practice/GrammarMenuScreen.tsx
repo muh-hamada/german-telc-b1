@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
+import AdBanner from '../../components/AdBanner';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -41,6 +42,7 @@ const GrammarMenuScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };

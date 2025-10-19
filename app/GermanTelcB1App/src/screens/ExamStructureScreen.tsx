@@ -9,6 +9,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import examInfoData from '../data/exam-info.json';
+import AdBanner from '../components/AdBanner';
 
 const ExamStructureScreen: React.FC = () => {
   const { i18n } = useTranslation();
@@ -170,6 +171,7 @@ const ExamStructureScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
+      <AdBanner />
     </SafeAreaView>
   );
 };
