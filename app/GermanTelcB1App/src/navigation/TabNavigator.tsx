@@ -1,7 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MainTabParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
 import HomeStackNavigator from './HomeStackNavigator';
@@ -39,7 +39,7 @@ const TabNavigator: React.FC = () => {
         options={{
           tabBarLabel: t('navigation.home'),
           tabBarIcon: ({ color, size }) => (
-            <HomeIcon color={color} size={size} />
+            <Icon name="home" size={size} color={color} />
           ),
         }}
       />
@@ -49,7 +49,7 @@ const TabNavigator: React.FC = () => {
         options={{
           tabBarLabel: t('navigation.mockExam'),
           tabBarIcon: ({ color, size }) => (
-            <ExamIcon color={color} size={size} />
+            <Icon name="assignment" size={size} color={color} />
           ),
         }}
       />
@@ -59,25 +59,12 @@ const TabNavigator: React.FC = () => {
         options={{
           tabBarLabel: t('navigation.profile'),
           tabBarIcon: ({ color, size }) => (
-            <ProfileIcon color={color} size={size} />
+            <Icon name="person" size={size} color={color} />
           ),
         }}
       />
     </Tab.Navigator>
   );
 };
-
-// Simple icon components (replace with proper icons later)
-const HomeIcon: React.FC<{ color: string; size: number }> = ({ color, size }) => (
-  <View style={{ width: size, height: size, backgroundColor: color, borderRadius: 2 }} />
-);
-
-const ExamIcon: React.FC<{ color: string; size: number }> = ({ color, size }) => (
-  <View style={{ width: size, height: size, backgroundColor: color, borderRadius: 2 }} />
-);
-
-const ProfileIcon: React.FC<{ color: string; size: number }> = ({ color, size }) => (
-  <View style={{ width: size, height: size, backgroundColor: color, borderRadius: 2 }} />
-);
 
 export default TabNavigator;

@@ -53,8 +53,9 @@ class FirestoreService {
         .doc(uid)
         .get();
 
-      if (doc.exists) {
-        return doc.data();
+      const data = doc.data();
+      if (data) {
+        return data;
       }
       return null;
     } catch (error) {
@@ -81,12 +82,22 @@ class FirestoreService {
   // Progress Management
   async saveUserProgress(uid: string, progress: UserProgress): Promise<void> {
     try {
+      // Ensure progress has valid structure
+      const safeProgress: UserProgress = {
+        exams: Array.isArray(progress.exams) ? progress.exams : [],
+        totalScore: typeof progress.totalScore === 'number' ? progress.totalScore : 0,
+        totalMaxScore: typeof progress.totalMaxScore === 'number' ? progress.totalMaxScore : 0,
+        lastUpdated: typeof progress.lastUpdated === 'number' ? progress.lastUpdated : Date.now(),
+      };
+
       const progressData = {
-        ...progress,
-        lastUpdated: firestore.Timestamp.fromDate(new Date(progress.lastUpdated)),
-        exams: progress.exams.map(exam => ({
+        ...safeProgress,
+        lastUpdated: firestore.Timestamp.fromDate(new Date(safeProgress.lastUpdated)),
+        exams: safeProgress.exams.map(exam => ({
           ...exam,
-          lastAttempt: firestore.Timestamp.fromDate(new Date(exam.lastAttempt)),
+          lastAttempt: firestore.Timestamp.fromDate(
+            new Date(typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now())
+          ),
         })),
       };
 
@@ -107,18 +118,34 @@ class FirestoreService {
         .doc(uid)
         .get();
 
-      if (doc.exists) {
-        const data = doc.data()!;
-        return {
-          ...data,
-          lastUpdated: data.lastUpdated.toDate().getTime(),
-          exams: data.exams.map((exam: any) => ({
-            ...exam,
-            lastAttempt: exam.lastAttempt.toDate().getTime(),
-          })),
-        } as UserProgress;
+      const data = doc.data();
+      if (!data) {
+        return null;
       }
-      return null;
+      
+      // Helper function to safely convert timestamps
+      const convertTimestamp = (value: any): number => {
+        if (!value) return Date.now();
+        if (typeof value === 'number') return value;
+        if (typeof value.toDate === 'function') {
+          try {
+            return value.toDate().getTime();
+          } catch (e) {
+            return Date.now();
+          }
+        }
+        return Date.now();
+      };
+      
+      return {
+        exams: Array.isArray(data.exams) ? data.exams.map((exam: any) => ({
+          ...exam,
+          lastAttempt: convertTimestamp(exam.lastAttempt),
+        })) : [],
+        totalScore: typeof data.totalScore === 'number' ? data.totalScore : 0,
+        totalMaxScore: typeof data.totalMaxScore === 'number' ? data.totalMaxScore : 0,
+        lastUpdated: convertTimestamp(data.lastUpdated),
+      } as UserProgress;
     } catch (error) {
       console.error('Error getting user progress:', error);
       throw error;
@@ -142,7 +169,21 @@ class FirestoreService {
         .doc(uid);
 
       const progressDoc = await progressRef.get();
-      let progressData = progressDoc.exists ? progressDoc.data() : { exams: [] };
+      const rawData = progressDoc.data();
+      
+      // Ensure progressData has a valid structure
+      let progressData: any = {
+        exams: [],
+        totalScore: 0,
+        totalMaxScore: 0,
+        lastUpdated: now,
+        ...(rawData || {}),
+      };
+      
+      // Ensure exams array exists
+      if (!Array.isArray(progressData.exams)) {
+        progressData.exams = [];
+      }
 
       // Find or create exam progress
       let examProgress = progressData.exams.find(
@@ -302,17 +343,34 @@ class FirestoreService {
 
   // Merge local and cloud progress
   private mergeProgress(local: UserProgress, cloud: UserProgress): UserProgress {
-    const mergedExams = [...cloud.exams];
+    // Ensure both have valid structure
+    const safeLocal: UserProgress = {
+      exams: local.exams || [],
+      totalScore: local.totalScore ?? 0,
+      totalMaxScore: local.totalMaxScore ?? 0,
+      lastUpdated: local.lastUpdated ?? Date.now(),
+    };
+
+    const safeCloud: UserProgress = {
+      exams: cloud.exams || [],
+      totalScore: cloud.totalScore ?? 0,
+      totalMaxScore: cloud.totalMaxScore ?? 0,
+      lastUpdated: cloud.lastUpdated ?? Date.now(),
+    };
+
+    const mergedExams = [...safeCloud.exams];
 
     // Add or update local exams
-    local.exams.forEach(localExam => {
+    safeLocal.exams.forEach(localExam => {
       const existingIndex = mergedExams.findIndex(
         exam => exam.examId === localExam.examId && exam.examType === localExam.examType
       );
 
       if (existingIndex >= 0) {
         // Update existing exam if local is newer
-        if (localExam.lastAttempt > mergedExams[existingIndex].lastAttempt) {
+        const localAttempt = localExam.lastAttempt ?? 0;
+        const cloudAttempt = mergedExams[existingIndex].lastAttempt ?? 0;
+        if (localAttempt > cloudAttempt) {
           mergedExams[existingIndex] = localExam;
         }
       } else {
@@ -326,11 +384,10 @@ class FirestoreService {
     const totalMaxScore = mergedExams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
 
     return {
-      ...local,
       exams: mergedExams,
       totalScore,
       totalMaxScore,
-      lastUpdated: Math.max(local.lastUpdated, cloud.lastUpdated),
+      lastUpdated: Math.max(safeLocal.lastUpdated, safeCloud.lastUpdated),
     };
   }
 

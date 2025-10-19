@@ -13,9 +13,47 @@ class StorageService {
   async getUserProgress(): Promise<UserProgress | null> {
     try {
       const data = await AsyncStorage.getItem(StorageService.KEYS.USER_PROGRESS);
-      return data ? JSON.parse(data) : null;
+      if (!data) return null;
+      
+      const parsed = JSON.parse(data);
+      
+      // Validate and migrate data to ensure all required fields exist
+      return this.validateAndMigrateProgress(parsed);
     } catch (error) {
       console.error('Error getting user progress:', error);
+      return null;
+    }
+  }
+
+  // Validate and migrate progress data to ensure it has all required fields
+  private validateAndMigrateProgress(progress: any): UserProgress | null {
+    try {
+      if (!progress || typeof progress !== 'object') {
+        return null;
+      }
+
+      // Ensure all required fields exist with defaults
+      const validatedProgress: UserProgress = {
+        exams: Array.isArray(progress.exams) ? progress.exams : [],
+        totalScore: typeof progress.totalScore === 'number' ? progress.totalScore : 0,
+        totalMaxScore: typeof progress.totalMaxScore === 'number' ? progress.totalMaxScore : 0,
+        lastUpdated: typeof progress.lastUpdated === 'number' ? progress.lastUpdated : Date.now(),
+      };
+
+      // Validate each exam progress
+      validatedProgress.exams = validatedProgress.exams.map(exam => ({
+        examId: exam.examId,
+        examType: exam.examType,
+        answers: Array.isArray(exam.answers) ? exam.answers : [],
+        completed: typeof exam.completed === 'boolean' ? exam.completed : false,
+        score: typeof exam.score === 'number' ? exam.score : undefined,
+        maxScore: typeof exam.maxScore === 'number' ? exam.maxScore : undefined,
+        lastAttempt: typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now(),
+      }));
+
+      return validatedProgress;
+    } catch (error) {
+      console.error('Error validating progress data:', error);
       return null;
     }
   }

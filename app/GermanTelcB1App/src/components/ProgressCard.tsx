@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
+import { useAuth } from '../contexts/AuthContext';
 
 interface ProgressCardProps {
   onPress?: () => void;
@@ -10,6 +11,7 @@ interface ProgressCardProps {
 
 const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true }) => {
   const stats = useUserStats();
+  const { user } = useAuth();
 
   const getScoreColor = (score: number): string => {
     if (score >= 80) return colors.success[500];
@@ -23,6 +25,28 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
     if (score >= 40) return 'Fair';
     return 'Needs Improvement';
   };
+
+  // If user is not logged in, show login prompt
+  if (!user) {
+    return (
+      <TouchableOpacity 
+        style={styles.container} 
+        onPress={onPress}
+        activeOpacity={onPress ? 0.7 : 1}
+      >
+        <View style={styles.header}>
+          <Text style={styles.title}>Your Progress</Text>
+        </View>
+        <View style={styles.loginPrompt}>
+          <Text style={styles.loginPromptIcon}>🔒</Text>
+          <Text style={styles.loginPromptTitle}>Login Required</Text>
+          <Text style={styles.loginPromptText}>
+            Please login to save and view your progress across all devices
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
 
   return (
     <TouchableOpacity 
@@ -129,6 +153,27 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     textAlign: 'center',
+  },
+  loginPrompt: {
+    alignItems: 'center',
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+  },
+  loginPromptIcon: {
+    fontSize: 48,
+    marginBottom: spacing.md,
+  },
+  loginPromptTitle: {
+    ...typography.textStyles.h4,
+    color: colors.text.primary,
+    marginBottom: spacing.sm,
+    textAlign: 'center',
+  },
+  loginPromptText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    lineHeight: 22,
   },
 });
 

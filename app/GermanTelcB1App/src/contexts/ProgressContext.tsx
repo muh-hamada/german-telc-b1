@@ -25,7 +25,6 @@ interface ProgressContextType extends ProgressState {
   clearUserProgress: () => Promise<boolean>;
   refreshProgress: () => Promise<void>;
   syncProgressToFirebase: () => Promise<boolean>;
-  hasUnsyncedProgress: () => Promise<boolean>;
 }
 
 // Action Types
@@ -56,48 +55,51 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
       return { ...state, userProgress: action.payload, isLoading: false, error: null };
     
     case 'UPDATE_EXAM_PROGRESS': {
-      if (!state.userProgress) return state;
-      
       const { examType, examId, answers, score, maxScore } = action.payload;
       const now = Date.now();
       
+      // Initialize userProgress if it doesn't exist
+      let currentProgress = state.userProgress || {
+        exams: [],
+        totalScore: 0,
+        totalMaxScore: 0,
+        lastUpdated: now,
+      };
+      
+      // Create a mutable copy of exams array
+      const exams = [...currentProgress.exams];
+      
       // Find existing exam progress or create new one
-      let examProgress = state.userProgress.exams.find(
+      const existingIndex = exams.findIndex(
         exam => exam.examId === examId && exam.examType === examType
       );
       
-      if (!examProgress) {
-        examProgress = {
-          examId,
-          examType: examType as any,
-          answers: [],
-          completed: false,
-          lastAttempt: now,
-        };
-        state.userProgress.exams.push(examProgress);
+      const examProgress: ExamProgress = {
+        examId,
+        examType: examType as any,
+        answers,
+        completed: true,
+        score,
+        maxScore,
+        lastAttempt: now,
+      };
+      
+      if (existingIndex >= 0) {
+        // Update existing exam
+        exams[existingIndex] = examProgress;
+      } else {
+        // Add new exam
+        exams.push(examProgress);
       }
       
-      // Update exam progress
-      examProgress.answers = answers;
-      examProgress.completed = true;
-      examProgress.score = score;
-      examProgress.maxScore = maxScore;
-      examProgress.lastAttempt = now;
-      
-      // Update total scores
-      const totalScore = state.userProgress.exams.reduce(
-        (sum, exam) => sum + (exam.score || 0),
-        0
-      );
-      const totalMaxScore = state.userProgress.exams.reduce(
-        (sum, exam) => sum + (exam.maxScore || 0),
-        0
-      );
+      // Calculate total scores
+      const totalScore = exams.reduce((sum, exam) => sum + (exam.score || 0), 0);
+      const totalMaxScore = exams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
       
       return {
         ...state,
         userProgress: {
-          ...state.userProgress,
+          exams,
           totalScore,
           totalMaxScore,
           lastUpdated: now,
@@ -130,27 +132,26 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   const loadUserProgress = React.useCallback(async (): Promise<void> => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      console.log('[ProgressContext] Loading progress for user:', user?.uid || 'anonymous');
+      console.log('[ProgressContext] Loading progress for user:', user?.uid || 'not logged in');
       
       if (user?.uid) {
-        // User is authenticated, try to merge local and Firebase progress
+        // User is authenticated, load from Firebase only
         try {
-          console.log('[ProgressContext] Merging Firebase progress for user:', user.uid);
-          const mergedProgress = await firebaseProgressService.mergeProgress(user.uid);
-          dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
+          console.log('[ProgressContext] Loading Firebase progress for user:', user.uid);
+          const firebaseProgress = await firebaseProgressService.loadProgressFromFirebase(user.uid);
+          dispatch({ type: 'SET_USER_PROGRESS', payload: firebaseProgress });
           console.log('[ProgressContext] Successfully loaded Firebase progress');
         } catch (firebaseError) {
-          console.warn('[ProgressContext] Failed to merge Firebase progress, falling back to local:', firebaseError);
-          // Fallback to local progress if Firebase fails
-          const progress = await StorageService.getUserProgress();
-          dispatch({ type: 'SET_USER_PROGRESS', payload: progress });
+          console.error('[ProgressContext] Failed to load Firebase progress:', firebaseError);
+          dispatch({ type: 'SET_ERROR', payload: 'Failed to load progress from Firebase' });
+          dispatch({ type: 'SET_USER_PROGRESS', payload: null });
         }
       } else {
-        // No user, just load local progress
-        console.log('[ProgressContext] Loading local progress only');
-        const progress = await StorageService.getUserProgress();
-        dispatch({ type: 'SET_USER_PROGRESS', payload: progress });
+        // No user, clear progress
+        console.log('[ProgressContext] No user logged in, clearing progress');
+        dispatch({ type: 'SET_USER_PROGRESS', payload: null });
       }
+      dispatch({ type: 'SET_LOADING', payload: false });
     } catch (error) {
       console.error('[ProgressContext] Error loading progress:', error);
       dispatch({ type: 'SET_ERROR', payload: 'Failed to load progress' });
@@ -188,40 +189,61 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     maxScore?: number
   ): Promise<boolean> => {
     try {
+      console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore });
+      
+      // Check if user is logged in
+      if (!user?.uid) {
+        console.error('[ProgressContext] Cannot save progress: User not logged in');
+        dispatch({ type: 'SET_ERROR', payload: 'Please login to save your progress' });
+        return false;
+      }
+      
       dispatch({ type: 'SET_LOADING', payload: true });
       
-      // Update in storage (local and Firebase if authenticated)
-      const success = await StorageService.updateExamProgress(
-        examType,
-        examId,
-        answers,
-        score,
-        maxScore
-      );
-      
-      if (success) {
-        // Update in context
+      // Save directly to Firebase (no local storage)
+      try {
+        console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
+        await firebaseProgressService.saveExamResult(
+          examType as any,
+          examId,
+          {
+            examId,
+            score: score || 0,
+            maxScore: maxScore || 0,
+            percentage: maxScore ? Math.round((score || 0) / maxScore * 100) : 0,
+            correctAnswers: score || 0,
+            totalQuestions: answers.length,
+            answers: answers.map(a => ({
+              questionId: a.questionId,
+              userAnswer: a.answer,
+              correctAnswer: '',
+              isCorrect: a.isCorrect || false,
+            })),
+            timestamp: Date.now(),
+          },
+          user.uid
+        );
+        
+        console.log('[ProgressContext] Successfully saved to Firebase');
+        
+        // Update in context immediately
         dispatch({
           type: 'UPDATE_EXAM_PROGRESS',
           payload: { examType, examId, answers, score, maxScore },
         });
         
-        // Try to sync to Firebase if user is authenticated
-        if (user) {
-          try {
-            await firebaseProgressService.syncProgressToFirebase(user.uid);
-          } catch (firebaseError) {
-            console.warn('Failed to sync to Firebase:', firebaseError);
-          }
-        }
-        
+        dispatch({ type: 'SET_LOADING', payload: false });
         return true;
-      } else {
-        dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress' });
+      } catch (firebaseError) {
+        console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
+        dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
+        dispatch({ type: 'SET_LOADING', payload: false });
         return false;
       }
     } catch (error) {
+      console.error('[ProgressContext] Error updating exam progress:', error);
       dispatch({ type: 'SET_ERROR', payload: 'Failed to update progress' });
+      dispatch({ type: 'SET_LOADING', payload: false });
       return false;
     }
   };
@@ -238,20 +260,28 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   const clearUserProgress = async (): Promise<boolean> => {
     try {
+      if (!user?.uid) {
+        console.error('[ProgressContext] Cannot clear progress: User not logged in');
+        return false;
+      }
+
       dispatch({ type: 'SET_LOADING', payload: true });
       
-      // Clear both local and Firebase progress
-      const success = await firebaseProgressService.clearAllProgress(user?.uid);
-      
-      if (success) {
+      // Clear Firebase progress only
+      try {
+        await firebaseProgressService.clearAllProgress(user.uid);
         dispatch({ type: 'CLEAR_PROGRESS' });
+        dispatch({ type: 'SET_LOADING', payload: false });
         return true;
-      } else {
+      } catch (error) {
+        console.error('[ProgressContext] Failed to clear progress:', error);
         dispatch({ type: 'SET_ERROR', payload: 'Failed to clear progress' });
+        dispatch({ type: 'SET_LOADING', payload: false });
         return false;
       }
     } catch (error) {
       dispatch({ type: 'SET_ERROR', payload: 'Failed to clear progress' });
+      dispatch({ type: 'SET_LOADING', payload: false });
       return false;
     }
   };
@@ -269,15 +299,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     }
   };
 
-  const hasUnsyncedProgress = async (): Promise<boolean> => {
-    try {
-      return await firebaseProgressService.hasUnsyncedProgress(user?.uid);
-    } catch (error) {
-      console.error('Error checking unsynced progress:', error);
-      return false;
-    }
-  };
-
   const contextValue: ProgressContextType = {
     ...state,
     loadUserProgress,
@@ -286,7 +307,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     clearUserProgress,
     refreshProgress,
     syncProgressToFirebase,
-    hasUnsyncedProgress,
   };
 
   return (
