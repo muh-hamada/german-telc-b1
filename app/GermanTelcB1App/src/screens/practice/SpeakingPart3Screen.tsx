@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import speakingPart3Data from '../../data/speaking-part3.json';
 import AdBanner from '../../components/AdBanner';
+import { DEMO_MODE } from '../../config/demo.config';
 
 interface DialogueLine {
   speaker: string;
@@ -259,7 +260,7 @@ const SpeakingPart3Screen: React.FC = () => {
         </View>
         )}
       </ScrollView>
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };

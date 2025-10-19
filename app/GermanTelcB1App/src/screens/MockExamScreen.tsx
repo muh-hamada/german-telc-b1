@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  StatusBar,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
@@ -20,6 +21,7 @@ import {
   saveMockExamProgress,
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
+import { DEMO_MODE } from '../config/demo.config';
 
 type RootStackParamList = {
   MockExamRunning: undefined;
@@ -108,6 +110,10 @@ const MockExamScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={colors.primary[500]}
+      />
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
@@ -224,7 +230,7 @@ const MockExamScreen: React.FC = () => {
           Viel Erfolg! Nehmen Sie sich Zeit und lesen Sie alle Anweisungen sorgfältig.
         </Text>
       </ScrollView>
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };
@@ -236,6 +242,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingTop: spacing.padding.xl,
   },
   scrollContent: {
     padding: spacing.padding.lg,

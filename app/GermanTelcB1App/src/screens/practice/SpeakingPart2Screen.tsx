@@ -14,6 +14,7 @@ import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import speakingPart2Data from '../../data/speaking-part2.json';
 import AdBanner from '../../components/AdBanner';
+import { DEMO_MODE } from '../../config/demo.config';
 
 interface Topic {
   id: number;
@@ -253,7 +254,7 @@ const SpeakingPart2Screen: React.FC = () => {
         </View>
         )}
       </ScrollView>
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };

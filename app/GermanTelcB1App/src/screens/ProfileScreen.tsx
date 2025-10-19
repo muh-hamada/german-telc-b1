@@ -16,6 +16,7 @@ import LoginModal from '../components/LoginModal';
 import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
+import { DEMO_MODE } from '../config/demo.config';
 
 const ProfileScreen: React.FC = () => {
   const { t, i18n } = useTranslation();

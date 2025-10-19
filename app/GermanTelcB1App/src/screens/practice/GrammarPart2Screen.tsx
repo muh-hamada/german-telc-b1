@@ -16,6 +16,7 @@ import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart2UI from '../../components/exam-ui/LanguagePart2UI';
 import AdBanner from '../../components/AdBanner';
+import { DEMO_MODE } from '../../config/demo.config';
 
 const GrammarPart2Screen: React.FC = () => {
   const { t } = useTranslation();
@@ -114,7 +115,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>Loading exam...</Text>
         </View>
-        <AdBanner />
+        {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -125,7 +126,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>Failed to load exam data</Text>
         </View>
-        <AdBanner />
+        {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -147,7 +148,7 @@ const GrammarPart2Screen: React.FC = () => {
         examTitle={`Grammar Part 2 - Test ${currentExamId + 1}`}
         result={examResult}
       />
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };

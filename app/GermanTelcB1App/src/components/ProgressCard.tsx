@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
+import { DEMO_MODE, DEMO_STATS } from '../config/demo.config';
 
 interface ProgressCardProps {
   onPress?: () => void;
@@ -12,6 +13,10 @@ interface ProgressCardProps {
 const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true }) => {
   const stats = useUserStats();
   const { user } = useAuth();
+  
+  // Use demo stats if demo mode is enabled
+  const displayStats = DEMO_MODE ? DEMO_STATS : stats;
+  const hasUser = DEMO_MODE ? true : !!user;
 
   const getScoreColor = (score: number): string => {
     if (score >= 80) return colors.success[500];
@@ -26,8 +31,8 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
     return 'Needs Improvement';
   };
 
-  // If user is not logged in, show login prompt
-  if (!user) {
+  // If user is not logged in and not in demo mode, show login prompt
+  if (!hasUser) {
     return (
       <TouchableOpacity 
         style={styles.container} 
@@ -56,25 +61,25 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
     >
       <View style={styles.header}>
         <Text style={styles.title}>Your Progress</Text>
-        {stats.totalExams > 0 && (
-          <Text style={[styles.score, { color: getScoreColor(stats.averageScore) }]}>
-            {stats.averageScore}%
+        {displayStats.totalExams > 0 && (
+          <Text style={[styles.score, { color: getScoreColor(displayStats.averageScore) }]}>
+            {displayStats.averageScore}%
           </Text>
         )}
       </View>
 
-      {stats.totalExams > 0 ? (
+      {displayStats.totalExams > 0 ? (
         <View style={styles.statsContainer}>
           <View style={styles.statRow}>
             <Text style={styles.statLabel}>Exams Completed</Text>
             <Text style={styles.statValue}>
-              {stats.completedExams} / {stats.totalExams}
+              {displayStats.completedExams} / {displayStats.totalExams}
             </Text>
           </View>
           
           <View style={styles.statRow}>
             <Text style={styles.statLabel}>Completion Rate</Text>
-            <Text style={styles.statValue}>{stats.completionRate}%</Text>
+            <Text style={styles.statValue}>{displayStats.completionRate}%</Text>
           </View>
 
           {showDetails && (
@@ -82,14 +87,14 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
               <View style={styles.statRow}>
                 <Text style={styles.statLabel}>Total Score</Text>
                 <Text style={styles.statValue}>
-                  {stats.totalScore} / {stats.totalMaxScore}
+                  {displayStats.totalScore} / {displayStats.totalMaxScore}
                 </Text>
               </View>
               
               <View style={styles.statRow}>
                 <Text style={styles.statLabel}>Performance</Text>
-                <Text style={[styles.statValue, { color: getScoreColor(stats.averageScore) }]}>
-                  {getScoreText(stats.averageScore)}
+                <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
+                  {getScoreText(displayStats.averageScore)}
                 </Text>
               </View>
             </>

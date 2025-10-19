@@ -12,6 +12,7 @@ import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import AdBanner from '../../components/AdBanner';
+import { DEMO_MODE } from '../../config/demo.config';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -75,7 +76,7 @@ const PracticeMenuScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };

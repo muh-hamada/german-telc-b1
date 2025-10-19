@@ -8,6 +8,7 @@ import { colors } from '../../theme';
 import listeningPart1Data from '../../data/listening-part1.json';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import AdBanner from '../../components/AdBanner';
+import { DEMO_MODE } from '../../config/demo.config';
 
 interface Statement {
   id: number;
@@ -38,7 +39,7 @@ const ListeningPart1Screen: React.FC = () => {
         sectionDetails={sectionDetails}
         onComplete={handleComplete} 
       />
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );
 };

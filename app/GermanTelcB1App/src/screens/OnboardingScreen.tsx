@@ -10,6 +10,7 @@ import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
 import i18n from '../utils/i18n';
 import AdBanner from '../components/AdBanner';
+import { DEMO_MODE } from '../config/demo.config';
 
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 
@@ -50,7 +51,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
         onLanguageSelect={handleLanguageChange}
       />
       <Button title={t('common.go')} onPress={handleGoPress} style={styles.goButton} />
-      <AdBanner />
+      {!DEMO_MODE && <AdBanner />}
     </View>
   );
 };
