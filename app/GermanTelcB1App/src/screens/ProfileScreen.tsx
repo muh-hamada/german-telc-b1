@@ -13,15 +13,17 @@ import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
 import LoginModal from '../components/LoginModal';
+import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const ProfileScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, signOut, isLoading: authLoading } = useAuth();
   const [isClearing, setIsClearing] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showLanguageModal, setShowLanguageModal] = useState(false);
 
   const handleClearProgress = () => {
     Alert.alert(
@@ -49,11 +51,17 @@ const ProfileScreen: React.FC = () => {
   };
 
   const handleLanguageChange = () => {
-    Alert.alert(
-      'Language Settings',
-      'Language settings will be available in the next update.',
-      [{ text: 'OK' }]
-    );
+    setShowLanguageModal(true);
+  };
+
+  const handleLanguageSelect = async (languageCode: string) => {
+    try {
+      await i18n.changeLanguage(languageCode);
+      Alert.alert('Success', 'Language changed successfully!');
+    } catch (error) {
+      console.error('Error changing language:', error);
+      Alert.alert('Error', 'Failed to change language. Please try again.');
+    }
   };
 
   const handleSignOut = () => {
@@ -170,6 +178,13 @@ const ProfileScreen: React.FC = () => {
         visible={showLoginModal}
         onClose={() => setShowLoginModal(false)}
         onSuccess={handleLoginSuccess}
+      />
+
+      {/* Language Selector Modal */}
+      <LanguageSelectorModal
+        visible={showLanguageModal}
+        onClose={() => setShowLanguageModal(false)}
+        onLanguageSelect={handleLanguageSelect}
       />
     </SafeAreaView>
   );

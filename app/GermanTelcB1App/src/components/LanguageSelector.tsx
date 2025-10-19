@@ -13,15 +13,16 @@ interface Language {
   code: string;
   name: string;
   nativeName: string;
+  flag: string;
 }
 
 const languages: Language[] = [
-  { code: 'en', name: 'English', nativeName: 'English' },
-  { code: 'de', name: 'German', nativeName: 'Deutsch' },
-  { code: 'ar', name: 'Arabic', nativeName: 'العربية' },
-  { code: 'es', name: 'Spanish', nativeName: 'Español' },
-  { code: 'fr', name: 'French', nativeName: 'Français' },
-  { code: 'ru', name: 'Russian', nativeName: 'Русский' },
+  { code: 'en', name: 'English', nativeName: 'English', flag: '🇬🇧' },
+  { code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
+  { code: 'fr', name: 'French', nativeName: 'Français', flag: '🇫🇷' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
 ];
 
 interface LanguageSelectorProps {
@@ -58,6 +59,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             onPress={() => handleLanguageSelect(language.code)}
             activeOpacity={0.7}
           >
+            <Text style={styles.flag}>{language.flag}</Text>
             <View style={styles.languageContent}>
               <Text
                 style={[
@@ -111,14 +113,17 @@ const styles = StyleSheet.create({
     width: '80%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: spacing.padding.sm,
+    paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
     marginBottom: spacing.margin.sm,
     backgroundColor: colors.white,
     borderRadius: spacing.borderRadius.lg,
     borderWidth: 2,
     borderColor: colors.border.light,
+  },
+  flag: {
+    fontSize: 32,
+    marginRight: spacing.margin.md,
   },
   selectedLanguageItem: {
     borderColor: colors.primary[500],

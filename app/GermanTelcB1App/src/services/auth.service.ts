@@ -9,7 +9,7 @@ export interface User {
   email: string | null;
   displayName: string | null;
   photoURL: string | null;
-  provider: 'google' | 'facebook' | 'apple' | 'email';
+  provider: 'google' | 'facebook' | 'apple' | 'twitter' | 'email';
   createdAt: Date;
   lastLoginAt: Date;
 }
@@ -70,6 +70,8 @@ class AuthService {
         return 'facebook';
       case 'apple.com':
         return 'apple';
+      case 'twitter.com':
+        return 'twitter';
       default:
         return 'email';
     }
@@ -139,6 +141,35 @@ class AuthService {
       throw new Error('Apple Sign-In not yet implemented');
     } catch (error: any) {
       console.error('Apple sign-in error:', error);
+      throw this.handleAuthError(error);
+    }
+  }
+
+  // Sign in with Twitter
+  async signInWithTwitter(): Promise<User> {
+    try {
+      await this.initialize();
+
+      // Create a Twitter auth provider
+      const twitterAuthProvider = auth.TwitterAuthProvider;
+
+      // For React Native, we need to handle OAuth flow differently
+      // Twitter requires OAuth 1.0a which needs a redirect flow
+      // This is typically handled through a WebView or native Twitter SDK
+      
+      // For now, throw a user-friendly error that Twitter is not yet configured
+      throw {
+        code: 'auth/not-configured',
+        message: 'Twitter Sign-In requires additional native configuration. Please use Google, Facebook, or Email to sign in for now.',
+      };
+      
+      // Future implementation would use:
+      // 1. A library like react-native-twitter-signin
+      // 2. Or implement OAuth 1.0a flow manually
+      // 3. Then exchange tokens with Firebase: auth().signInWithCredential(twitterAuthProvider.credential(token, secret))
+      
+    } catch (error: any) {
+      console.error('Twitter sign-in error:', error);
       throw this.handleAuthError(error);
     }
   }

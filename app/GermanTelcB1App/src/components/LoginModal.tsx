@@ -28,6 +28,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
     signInWithGoogle,
     signInWithFacebook,
     signInWithApple,
+    signInWithTwitter,
     signInWithEmail,
     createAccountWithEmail,
     sendPasswordResetEmail,
@@ -38,7 +39,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const [showEmailForm, setShowEmailForm] = useState(false);
 
-  const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple') => {
+  const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple' | 'twitter') => {
     try {
       clearError();
       
@@ -51,6 +52,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
           break;
         case 'apple':
           await signInWithApple();
+          break;
+        case 'twitter':
+          await signInWithTwitter();
           break;
       }
       
@@ -155,6 +159,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       loading={isLoading}
                     />
                     
+                    {/* <SocialLoginButton
+                      provider="twitter"
+                      onPress={() => handleSocialLogin('twitter')}
+                      loading={isLoading}
+                    /> */}
+                    
                     <SocialLoginButton
                       provider="apple"
                       onPress={() => handleSocialLogin('apple')}
@@ -206,7 +216,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   modalContainer: {
-    backgroundColor: colors.card,
+    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.xl,
     maxHeight: '90%',
     width: '100%',
@@ -232,7 +242,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: colors.background.tertiary,
+    backgroundColor: colors.secondary[100],
     justifyContent: 'center',
     alignItems: 'center',
   },

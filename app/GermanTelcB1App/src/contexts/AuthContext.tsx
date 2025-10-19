@@ -16,6 +16,7 @@ interface AuthContextType extends AuthState {
   signInWithGoogle: () => Promise<void>;
   signInWithFacebook: () => Promise<void>;
   signInWithApple: () => Promise<void>;
+  signInWithTwitter: () => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
   createAccountWithEmail: (email: string, password: string, displayName?: string) => Promise<void>;
   signOut: () => Promise<void>;
@@ -134,6 +135,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const signInWithTwitter = async (): Promise<void> => {
+    try {
+      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: 'CLEAR_ERROR' });
+      
+      const user = await AuthService.signInWithTwitter();
+      dispatch({ type: 'SET_USER', payload: user });
+    } catch (error: any) {
+      handleAuthError(error);
+    }
+  };
+
   const signInWithEmail = async (email: string, password: string): Promise<void> => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
@@ -241,6 +254,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     signInWithGoogle,
     signInWithFacebook,
     signInWithApple,
+    signInWithTwitter,
     signInWithEmail,
     createAccountWithEmail,
     signOut,

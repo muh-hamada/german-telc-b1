@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator } from 'rea
 import { colors, spacing, typography } from '../theme';
 
 interface SocialLoginButtonProps {
-  provider: 'google' | 'facebook' | 'apple';
+  provider: 'google' | 'facebook' | 'apple' | 'twitter';
   onPress: () => void;
   loading?: boolean;
   disabled?: boolean;
@@ -30,6 +30,13 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
           backgroundColor: '#1877F2',
           textColor: colors.white,
           icon: 'f',
+        };
+      case 'twitter':
+        return {
+          title: 'Continue with Twitter',
+          backgroundColor: '#1DA1F2',
+          textColor: colors.white,
+          icon: '𝕏',
         };
       case 'apple':
         return {
