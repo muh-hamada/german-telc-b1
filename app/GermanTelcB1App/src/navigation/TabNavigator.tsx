@@ -23,7 +23,7 @@ const TabNavigator: React.FC = () => {
           borderTopWidth: 1,
           paddingBottom: spacing.padding.sm,
           paddingTop: spacing.padding.sm,
-          height: 60,
+          height: 85,
         },
         tabBarActiveTintColor: colors.primary[500],
         tabBarInactiveTintColor: colors.text.secondary,

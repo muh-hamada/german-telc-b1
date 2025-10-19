@@ -51,7 +51,6 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
         onLanguageSelect={handleLanguageChange}
       />
       <Button title={t('common.go')} onPress={handleGoPress} style={styles.goButton} />
-      {!DEMO_MODE && <AdBanner />}
     </View>
   );
 };
