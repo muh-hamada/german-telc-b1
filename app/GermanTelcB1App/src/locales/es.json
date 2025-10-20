@@ -103,7 +103,14 @@
   "examStructure": {
     "title": "Estructura del Examen",
     "description": "Aprende sobre el formato y puntuación del examen TELC B1",
-    "comingSoon": "Contenido próximamente..."
+    "comingSoon": "Contenido próximamente...",
+    "cefrLevel": "Nivel MCER:",
+    "totalDuration": "Duración total:",
+    "minutes": "Minutos",
+    "maxPoints": "Puntuación máxima:",
+    "points": "Puntos",
+    "passingThreshold": "Umbral de aprobación:",
+    "preparation": "Preparación"
   },
   "practice": {
     "reading": {
@@ -435,14 +442,5 @@
       "title": "Comprensión auditiva Parte 3",
       "subtitle": "Monólogos"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "Nivel MCER:",
-    "totalDuration": "Duración total:",
-    "minutes": "Minutos",
-    "maxPoints": "Puntuación máxima:",
-    "points": "Puntos",
-    "passingThreshold": "Umbral de aprobación:",
-    "preparation": "Preparación"
   }
 }

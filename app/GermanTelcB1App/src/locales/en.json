@@ -103,7 +103,14 @@
   "examStructure": {
     "title": "Exam Structure",
     "description": "Learn about the TELC B1 exam format and scoring",
-    "comingSoon": "Content coming soon..."
+    "comingSoon": "Content coming soon...",
+    "cefrLevel": "CEFR Level:",
+    "totalDuration": "Total Duration:",
+    "minutes": "Minutes",
+    "maxPoints": "Maximum Points:",
+    "points": "Points",
+    "passingThreshold": "Passing Threshold:",
+    "preparation": "Preparation"
   },
   "practice": {
     "reading": {
@@ -435,14 +442,5 @@
       "title": "Listening Part 3",
       "subtitle": "Monologues"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "CEFR Level:",
-    "totalDuration": "Total Duration:",
-    "minutes": "Minutes",
-    "maxPoints": "Maximum Points:",
-    "points": "Points",
-    "passingThreshold": "Passing Threshold:",
-    "preparation": "Preparation"
   }
 }

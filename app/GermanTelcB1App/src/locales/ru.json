@@ -103,7 +103,14 @@
   "examStructure": {
     "title": "Структура экзамена",
     "description": "Узнайте о формате и системе оценки экзамена TELC B1",
-    "comingSoon": "Содержание скоро появится..."
+    "comingSoon": "Содержание скоро появится...",
+    "cefrLevel": "Уровень CEFR:",
+    "totalDuration": "Общая продолжительность:",
+    "minutes": "Минут",
+    "maxPoints": "Максимальное количество баллов:",
+    "points": "Баллов",
+    "passingThreshold": "Порог прохождения:",
+    "preparation": "Подготовка"
   },
   "practice": {
     "reading": {
@@ -435,14 +442,5 @@
       "title": "Понимание на слух Часть 3",
       "subtitle": "Монологи"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "Уровень CEFR:",
-    "totalDuration": "Общая продолжительность:",
-    "minutes": "Минут",
-    "maxPoints": "Максимальное количество баллов:",
-    "points": "Баллов",
-    "passingThreshold": "Порог прохождения:",
-    "preparation": "Подготовка"
   }
 }

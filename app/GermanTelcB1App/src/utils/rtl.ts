@@ -1,10 +1,20 @@
 import { I18nManager } from 'react-native';
 import { FlexAlignType } from 'react-native';
+import i18n from './i18n';
 
 /**
- * Check if the app is currently in RTL mode
+ * Check if the current language requires RTL
+ * Uses the current i18n language instead of I18nManager for dynamic detection
  */
 export const isRTL = (): boolean => {
+  const currentLang = i18n.language;
+  return currentLang === 'ar'; // Only Arabic needs RTL
+};
+
+/**
+ * Check if I18nManager is in RTL mode (static, requires restart to change)
+ */
+export const isRTLLayout = (): boolean => {
   return I18nManager.isRTL;
 };
 

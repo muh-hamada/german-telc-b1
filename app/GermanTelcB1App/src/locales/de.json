@@ -103,7 +103,14 @@
   "examStructure": {
     "title": "Prüfungsstruktur",
     "description": "Erfahren Sie mehr über das TELC B1 Prüfungsformat und die Bewertung",
-    "comingSoon": "Inhalt kommt bald..."
+    "comingSoon": "Inhalt kommt bald...",
+    "cefrLevel": "CEFR-Niveau:",
+    "totalDuration": "Gesamtdauer:",
+    "minutes": "Minuten",
+    "maxPoints": "Maximalpunktzahl:",
+    "points": "Punkte",
+    "passingThreshold": "Bestehensgrenze:",
+    "preparation": "Vorbereitung"
   },
   "practice": {
     "reading": {
@@ -435,14 +442,5 @@
       "title": "Hörverstehen Teil 3",
       "subtitle": "Monologe"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "CEFR-Niveau:",
-    "totalDuration": "Gesamtdauer:",
-    "minutes": "Minuten",
-    "maxPoints": "Maximalpunktzahl:",
-    "points": "Punkte",
-    "passingThreshold": "Bestehensgrenze:",
-    "preparation": "Vorbereitung"
   }
 }

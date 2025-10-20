@@ -7,10 +7,10 @@ import {
   ScrollView,
   Alert,
   Image,
-  BackHandler,
   I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import RNRestart from 'react-native-restart';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
@@ -64,17 +64,27 @@ const ProfileScreen: React.FC = () => {
       await i18n.changeLanguage(languageCode);
       
       if (needsRestart) {
+        // Switching between RTL and LTR requires app restart
+        const isGoingToRTL = languageCode === 'ar';
         Alert.alert(
           t('common.success'),
-          'Language changed successfully. Please restart the app to apply layout direction changes.',
+          isGoingToRTL 
+            ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
+            : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.',
           [
             {
-              text: 'Restart Later',
+              text: t('common.cancel'),
               style: 'cancel',
             },
             {
-              text: 'Close App',
-              onPress: () => BackHandler.exitApp(),
+              text: 'Restart / إعادة التشغيل',
+              style: 'default',
+              onPress: () => {
+                // Give a small delay to ensure language is saved
+                setTimeout(() => {
+                  RNRestart.restart();
+                }, 100);
+              },
             },
           ]
         );

@@ -100,6 +100,18 @@
       "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale"
     }
   },
+  "examStructure": {
+    "title": "Structure de l'examen",
+    "description": "Apprenez le format et le système de notation de l'examen TELC B1",
+    "comingSoon": "Contenu à venir...",
+    "cefrLevel": "Niveau CECR :",
+    "totalDuration": "Durée totale :",
+    "minutes": "Minutes",
+    "maxPoints": "Points maximum :",
+    "points": "Points",
+    "passingThreshold": "Seuil de réussite :",
+    "preparation": "Préparation"
+  },
   "practice": {
     "reading": {
       "title": "Compréhension écrite",
@@ -425,14 +437,5 @@
       "title": "Compréhension orale Partie 3",
       "subtitle": "Monologues"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "Niveau CECR :",
-    "totalDuration": "Durée totale :",
-    "minutes": "Minutes",
-    "maxPoints": "Points maximum :",
-    "points": "Points",
-    "passingThreshold": "Seuil de réussite :",
-    "preparation": "Préparation"
   }
 }

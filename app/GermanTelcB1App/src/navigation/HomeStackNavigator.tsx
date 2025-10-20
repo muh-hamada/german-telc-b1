@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
+import { Text, I18nManager } from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
 import HomeScreen from '../screens/HomeScreen';
@@ -25,28 +26,35 @@ import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
+// Header component for dynamic translations
+const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
+  const { t } = useTranslation();
+  return <Text style={{ color: colors.white, fontSize: 18, fontWeight: '600' }}>{t(titleKey)}</Text>;
+};
+
 const HomeStackNavigator: React.FC = () => {
   const { t } = useTranslation();
+  
+  // Common screen options for RTL support
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: colors.primary[500],
+    },
+    headerTintColor: colors.white,
+    headerTitleStyle: {
+      fontWeight: '600' as '600',
+      fontSize: 18,
+    },
+    headerBackTitleVisible: false,
+    headerTitleAlign: 'center' as 'center',
+  };
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: colors.primary[500],
-        },
-        headerTintColor: colors.white,
-        headerTitleStyle: {
-          fontWeight: '600',
-          fontSize: 18,
-        },
-        headerBackTitleVisible: false,
-      }}
-    >
+    <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          title: t('home.title'),
           headerShown: false,
         }}
       />
@@ -54,126 +62,126 @@ const HomeStackNavigator: React.FC = () => {
         name="ExamStructure"
         component={ExamStructureScreen}
         options={{
-          title: t('examStructure.title'),
+          headerTitle: () => <HeaderTitle titleKey="examStructure.title" />,
         }}
       />
       <Stack.Screen
         name="PracticeMenu"
         component={PracticeMenuScreen}
         options={{
-          title: t('home.practice'),
+          headerTitle: () => <HeaderTitle titleKey="home.practice" />,
         }}
       />
       <Stack.Screen
         name="ReadingMenu"
         component={ReadingMenuScreen}
         options={{
-          title: t('practice.reading.title'),
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.title" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart1"
         component={ReadingPart1Screen}
         options={{
-          title: t('practice.reading.part1'),
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part1" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart2"
         component={ReadingPart2Screen}
         options={{
-          title: t('practice.reading.part2'),
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part2" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart3"
         component={ReadingPart3Screen}
         options={{
-          title: t('practice.reading.part3'),
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part3" />,
         }}
       />
       <Stack.Screen
         name="GrammarMenu"
         component={GrammarMenuScreen}
         options={{
-          title: t('practice.grammar.title'),
+          headerTitle: () => <HeaderTitle titleKey="practice.grammar.title" />,
         }}
       />
       <Stack.Screen
         name="GrammarPart1"
         component={GrammarPart1Screen}
         options={{
-          title: t('practice.grammar.part1'),
+          headerTitle: () => <HeaderTitle titleKey="practice.grammar.part1" />,
         }}
       />
       <Stack.Screen
         name="GrammarPart2"
         component={GrammarPart2Screen}
         options={{
-          title: t('practice.grammar.part2'),
+          headerTitle: () => <HeaderTitle titleKey="practice.grammar.part2" />,
         }}
       />
       <Stack.Screen
         name="Writing"
         component={WritingScreen}
         options={{
-          title: t('practice.writing.title'),
+          headerTitle: () => <HeaderTitle titleKey="practice.writing.title" />,
         }}
       />
       <Stack.Screen
         name="SpeakingMenu"
         component={SpeakingMenuScreen}
         options={{
-          title: t('practice.speaking.title'),
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.title" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart1"
         component={SpeakingPart1Screen}
         options={{
-          title: t('practice.speaking.part1'),
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part1" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart2"
         component={SpeakingPart2Screen}
         options={{
-          title: t('practice.speaking.part2'),
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part2" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart3"
         component={SpeakingPart3Screen}
         options={{
-          title: t('practice.speaking.part3'),
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part3" />,
         }}
       />
       <Stack.Screen
         name="ListeningMenu"
         component={ListeningMenuScreen}
         options={{
-          title: t('practice.listening.title'),
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.title" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart1"
         component={ListeningPart1Screen}
         options={{
-          title: t('practice.listening.part1'),
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part1" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart2"
         component={ListeningPart2Screen}
         options={{
-          title: t('practice.listening.part2'),
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part2" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart3"
         component={ListeningPart3Screen}
         options={{
-          title: t('practice.listening.part3'),
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
         }}
       />
     </Stack.Navigator>

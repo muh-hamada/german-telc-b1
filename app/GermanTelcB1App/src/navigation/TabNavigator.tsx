@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MainTabParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
@@ -10,21 +11,52 @@ import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
+// Screens where tab bar should be hidden
+const HIDE_TAB_SCREENS = [
+  'PracticeMenu',
+  'ReadingMenu',
+  'ReadingPart1',
+  'ReadingPart2',
+  'ReadingPart3',
+  'GrammarMenu',
+  'GrammarPart1',
+  'GrammarPart2',
+  'Writing',
+  'SpeakingMenu',
+  'SpeakingPart1',
+  'SpeakingPart2',
+  'SpeakingPart3',
+  'ListeningMenu',
+  'ListeningPart1',
+  'ListeningPart2',
+  'ListeningPart3',
+  'ExamStructure',
+];
+
 const TabNavigator: React.FC = () => {
   const { t } = useTranslation();
+
+  const getTabBarStyle = (route: any) => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    
+    if (routeName && HIDE_TAB_SCREENS.includes(routeName)) {
+      return { display: 'none' as 'none' };
+    }
+    
+    return {
+      backgroundColor: colors.white,
+      borderTopColor: colors.border.light,
+      borderTopWidth: 1,
+      paddingBottom: spacing.padding.sm,
+      paddingTop: spacing.padding.sm,
+      height: 85,
+    };
+  };
 
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {
-          backgroundColor: colors.white,
-          borderTopColor: colors.border.light,
-          borderTopWidth: 1,
-          paddingBottom: spacing.padding.sm,
-          paddingTop: spacing.padding.sm,
-          height: 85,
-        },
         tabBarActiveTintColor: colors.primary[500],
         tabBarInactiveTintColor: colors.text.secondary,
         tabBarLabelStyle: {
@@ -36,12 +68,13 @@ const TabNavigator: React.FC = () => {
       <Tab.Screen
         name="HomeStack"
         component={HomeStackNavigator}
-        options={{
+        options={({ route }) => ({
           tabBarLabel: t('navigation.home'),
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" size={size} color={color} />
           ),
-        }}
+          tabBarStyle: getTabBarStyle(route),
+        })}
       />
       <Tab.Screen
         name="MockExam"

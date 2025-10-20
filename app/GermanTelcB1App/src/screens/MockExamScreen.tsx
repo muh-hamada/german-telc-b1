@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
     width: 40,
-    marginRight: spacing.margin.sm,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
   },
   sectionContent: {
     flex: 1,

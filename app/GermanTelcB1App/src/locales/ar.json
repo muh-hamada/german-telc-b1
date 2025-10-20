@@ -103,7 +103,14 @@
   "examStructure": {
     "title": "بنية الامتحان",
     "description": "تعرف على صيغة ونظام تقييم امتحان TELC B1",
-    "comingSoon": "المحتوى قريبًا..."
+    "comingSoon": "المحتوى قريبًا...",
+    "cefrLevel": "مستوى CEFR:",
+    "totalDuration": "المدة الإجمالية:",
+    "minutes": "دقائق",
+    "maxPoints": "النقاط القصوى:",
+    "points": "نقاط",
+    "passingThreshold": "حد النجاح:",
+    "preparation": "التحضير"
   },
   "practice": {
     "reading": {
@@ -435,14 +442,5 @@
       "title": "فهم المسموع الجزء 3",
       "subtitle": "مونولوجات"
     }
-  },
-  "examStructure": {
-    "cefrLevel": "مستوى CEFR:",
-    "totalDuration": "المدة الإجمالية:",
-    "minutes": "دقائق",
-    "maxPoints": "النقاط القصوى:",
-    "points": "نقاط",
-    "passingThreshold": "حد النجاح:",
-    "preparation": "التحضير"
   }
 }
