@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator, I18nManager } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 
 interface SocialLoginButtonProps {
@@ -105,14 +105,14 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   content: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   icon: {
     fontSize: 20,
     fontWeight: typography.fontWeight.bold,
-    marginRight: spacing.margin.sm,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
   },
   title: {
     ...typography.textStyles.body,

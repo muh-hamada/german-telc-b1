@@ -7,9 +7,13 @@ import RootNavigator from './src/navigation/RootNavigator';
 import { ProgressProvider } from './src/contexts/ProgressContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import './src/utils/i18n';
+import { applyRTLLayout } from './src/utils/i18n';
 
 const App: React.FC = () => {
   useEffect(() => {
+    // Apply RTL layout based on saved language
+    applyRTLLayout();
+    
     // Initialize Google Mobile Ads SDK
     mobileAds()
       .initialize()

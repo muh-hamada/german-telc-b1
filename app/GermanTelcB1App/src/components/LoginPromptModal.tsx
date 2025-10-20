@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -251,7 +252,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   benefitItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.xs,
   },

@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart1Exam } from '../../types/exam.types';
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   headingItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     padding: spacing.padding.sm,
     backgroundColor: colors.background.secondary,
     marginBottom: spacing.margin.xs,
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   answerButtons: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     flexWrap: 'wrap',
   },
   answerButton: {

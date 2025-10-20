@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart1Exam } from '../../types/exam.types';
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   answerOption: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.sm,

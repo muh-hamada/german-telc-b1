@@ -43,7 +43,7 @@ const GrammarPart1Screen: React.FC = () => {
       }
     } catch (error) {
       console.error('Error loading exam:', error);
-      Alert.alert('Error', 'Failed to load exam data');
+      Alert.alert(t('common.error'), t('exam.failedToLoad'));
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +82,7 @@ const GrammarPart1Screen: React.FC = () => {
     const exams = dataService.getGrammarPart1Exams();
     return (
       <View style={styles.tabsContainer}>
-        <Text style={styles.tabsTitle}>Select Exam:</Text>
+        <Text style={styles.tabsTitle}>{t('exam.selectExam')}</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabsScroll}>
           {exams.map((exam) => (
             <TouchableOpacity
@@ -99,7 +99,7 @@ const GrammarPart1Screen: React.FC = () => {
                   currentExamId === exam.id && styles.activeTabText,
                 ]}
               >
-                Test {exam.id + 1}
+                {t('exam.test')} {exam.id + 1}
               </Text>
             </TouchableOpacity>
           ))}
@@ -112,7 +112,7 @@ const GrammarPart1Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>Loading exam...</Text>
+          <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -123,7 +123,7 @@ const GrammarPart1Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>Failed to load exam data</Text>
+          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -133,8 +133,8 @@ const GrammarPart1Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Grammar Part 1</Text>
-        <Text style={styles.subtitle}>Fill in the blanks (Grammar)</Text>
+        <Text style={styles.title}>{t('grammar.part1.title')}</Text>
+        <Text style={styles.subtitle}>{t('grammar.part1.subtitle')}</Text>
       </View>
 
       {renderExamTabs()}

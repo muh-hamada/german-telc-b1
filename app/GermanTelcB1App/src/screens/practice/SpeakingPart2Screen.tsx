@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
@@ -53,7 +54,7 @@ const SpeakingPart2Screen: React.FC = () => {
           onPress={() => setIsDropdownOpen(true)}
         >
           <Text style={styles.dropdownButtonText}>
-            {currentTopic?.title || 'Select a topic'}
+            {currentTopic?.title || t('speaking.part2.selectTopic')}
           </Text>
           <Text style={styles.dropdownArrow}>▼</Text>
         </TouchableOpacity>
@@ -71,7 +72,7 @@ const SpeakingPart2Screen: React.FC = () => {
           >
             <View style={styles.modalContent}>
               <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>Themenauswahl</Text>
+                <Text style={styles.modalTitle}>{t('speaking.part2.topicSelection')}</Text>
                 <TouchableOpacity
                   onPress={() => setIsDropdownOpen(false)}
                   style={styles.closeButton}
@@ -141,7 +142,7 @@ const SpeakingPart2Screen: React.FC = () => {
     return (
       <View style={styles.viewContent}>
         <View style={styles.textCard}>
-          <Text style={styles.cardTitle}>Ihr Ausgangstext zur Präsentation:</Text>
+          <Text style={styles.cardTitle}>{t('speaking.part2.instructions.startingText')}</Text>
           <Markdown style={markdownStyles}>
             {formatPersonText(view.person, view.text)}
           </Markdown>
@@ -149,7 +150,7 @@ const SpeakingPart2Screen: React.FC = () => {
 
         <View style={styles.partnerSection}>
           <Text style={styles.partnerTitle}>
-            Die Sicht des Partners zusammenfassen
+            {t('speaking.part2.sections.partnerSummary')}
           </Text>
           <TouchableOpacity
             style={styles.toggleButton}
@@ -157,8 +158,8 @@ const SpeakingPart2Screen: React.FC = () => {
           >
             <Text style={styles.toggleButtonText}>
               {showPartnerSummary
-                ? 'Zusammenfassung ausblenden'
-                : 'Partneransicht zusammenfassen (Drittperson)'}
+                ? t('speaking.part2.buttons.hideSummary')
+                : t('speaking.part2.buttons.showSummary')}
             </Text>
           </TouchableOpacity>
 
@@ -180,11 +181,10 @@ const SpeakingPart2Screen: React.FC = () => {
     return (
       <View style={styles.discussionSection}>
         <Text style={styles.discussionTitle}>
-          Diskussion (Nach der Präsentation)
+          {t('speaking.part2.sections.discussion')}
         </Text>
         <Text style={styles.discussionDescription}>
-          Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen,
-          Ihre Meinung zu äußern und eigene Erfahrungen zu teilen.
+          {t('speaking.part2.sections.discussionNote')}
         </Text>
 
         {currentTopic.discussion.map((item, index) => (
@@ -206,7 +206,7 @@ const SpeakingPart2Screen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         {/* Topic Selection */}
-        <Text style={styles.sectionTitle}>Themenauswahl:</Text>
+        <Text style={styles.sectionTitle}>{t('speaking.part2.sections.topicSelectionLabel')}</Text>
         <View style={styles.section}>
           {renderTopicDropdown()}
         </View>
@@ -216,8 +216,7 @@ const SpeakingPart2Screen: React.FC = () => {
           <View style={styles.mainCard}>
             <Text style={styles.topicTitle}>{currentTopic.title}</Text>
           <Text style={styles.instructionText}>
-            Ihre Aufgabe: Berichten Sie Ihrer Gesprächspartnerin/Ihrem Gesprächspartner
-            über den folgenden Text und unterhalten Sie sich dann über das Thema.
+            {t('speaking.part2.instructions.taskDescription')}
           </Text>
 
           {/* View Tabs */}
@@ -230,7 +229,7 @@ const SpeakingPart2Screen: React.FC = () => {
               }}
             >
               <Text style={[styles.tabText, activeView === 'A' && styles.activeTabText]}>
-                Ihre Rolle (Teilnehmer A)
+                {t('speaking.part2.tabs.yourRole')}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -241,7 +240,7 @@ const SpeakingPart2Screen: React.FC = () => {
               }}
             >
               <Text style={[styles.tabText, activeView === 'B' && styles.activeTabText]}>
-                Partnerrolle (Teilnehmer B)
+                {t('speaking.part2.tabs.partnerRole')}
               </Text>
             </TouchableOpacity>
           </View>
@@ -310,7 +309,7 @@ const styles = StyleSheet.create({
   },
   dropdownButton: {
     width: '100%',
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -356,7 +355,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   modalHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -376,7 +375,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   dropdownItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -423,7 +422,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   tabsContainer: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     marginBottom: spacing.margin.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondary[200],

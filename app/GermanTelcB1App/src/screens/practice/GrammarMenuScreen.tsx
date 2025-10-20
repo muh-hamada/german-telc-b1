@@ -32,14 +32,14 @@ const GrammarMenuScreen: React.FC = () => {
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.grammar.part1')}</Text>
           <Text style={styles.cardDescription}>
-            Sprachbausteine Teil 1 - Gap fill exercise
+            {t('practice.grammar.descriptions.main')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart2Press}>
           <Text style={styles.cardTitle}>{t('practice.grammar.part2')}</Text>
           <Text style={styles.cardDescription}>
-            Sprachbausteine Teil 2 - Word list gap fill
+            {t('practice.grammar.descriptions.main')}
           </Text>
         </Card>
       </ScrollView>

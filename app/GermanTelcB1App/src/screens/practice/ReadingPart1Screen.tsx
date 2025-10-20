@@ -44,7 +44,7 @@ const ReadingPart1Screen: React.FC = () => {
       }
     } catch (error) {
       console.error('Error loading exam:', error);
-      Alert.alert('Error', 'Failed to load exam data');
+      Alert.alert(t('common.error'), t('exam.failedToLoad'));
     } finally {
       setIsLoading(false);
     }
@@ -84,7 +84,7 @@ const ReadingPart1Screen: React.FC = () => {
     const exams = dataService.getReadingPart1Exams();
     return (
       <View style={styles.tabsContainer}>
-        <Text style={styles.tabsTitle}>Select Exam:</Text>
+        <Text style={styles.tabsTitle}>{t('exam.selectExam')}</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabsScroll}>
           {exams.map((exam, index) => (
             <TouchableOpacity
@@ -115,7 +115,7 @@ const ReadingPart1Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>Loading exam...</Text>
+          <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -126,7 +126,7 @@ const ReadingPart1Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>Failed to load exam data</Text>
+          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -136,8 +136,8 @@ const ReadingPart1Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Reading Part 1</Text>
-        <Text style={styles.subtitle}>Match headings to texts</Text>
+        <Text style={styles.title}>{t('reading.part1.title')}</Text>
+        <Text style={styles.subtitle}>{t('reading.part1.subtitle')}</Text>
       </View>
 
       {renderExamTabs()}

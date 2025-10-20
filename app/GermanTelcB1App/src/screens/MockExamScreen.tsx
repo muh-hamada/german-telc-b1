@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   StatusBar,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
@@ -43,20 +44,20 @@ const MockExamScreen: React.FC = () => {
       if (progress && !progress.isCompleted) {
         // Show alert to continue or start new
         Alert.alert(
-          'Prüfung in Bearbeitung',
-          'Sie haben bereits eine Mock-Prüfung begonnen. Möchten Sie diese fortsetzen oder eine neue Prüfung beginnen?',
+          t('mockExam.examInProgress'),
+          t('mockExam.resumeOrRestart'),
           [
             {
-              text: 'Fortsetzen',
+              text: t('mockExam.resume'),
               onPress: () => navigation.navigate('MockExamRunning'),
             },
             {
-              text: 'Neu beginnen',
+              text: t('mockExam.startNew'),
               onPress: () => confirmStartNew(),
               style: 'destructive',
             },
             {
-              text: 'Abbrechen',
+              text: t('common.cancel'),
               style: 'cancel',
             },
           ]
@@ -71,11 +72,11 @@ const MockExamScreen: React.FC = () => {
 
   const confirmStartNew = () => {
     Alert.alert(
-      'Bestätigen',
-      'Sind Sie sicher, dass Sie eine neue Prüfung beginnen möchten? Ihr aktueller Fortschritt wird gelöscht.',
+      t('mockExam.confirm'),
+      t('mockExam.confirmRestart'),
       [
         {
-          text: 'Ja, neu beginnen',
+          text: t('mockExam.yesStartNew'),
           onPress: async () => {
             await clearMockExamProgress();
             handleStartExam();
@@ -83,7 +84,7 @@ const MockExamScreen: React.FC = () => {
           style: 'destructive',
         },
         {
-          text: 'Abbrechen',
+          text: t('common.cancel'),
           style: 'cancel',
         },
       ]
@@ -98,7 +99,7 @@ const MockExamScreen: React.FC = () => {
       navigation.navigate('MockExamRunning');
     } catch (error) {
       console.error('Error starting exam:', error);
-      Alert.alert('Fehler', 'Die Prüfung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.');
+      Alert.alert(t('common.error'), t('mockExam.couldNotStartExam'));
     }
   };
 
@@ -117,117 +118,111 @@ const MockExamScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>📝 Mock Exam</Text>
-          <Text style={styles.subtitle}>Telc Deutsch B1 Vollständige Prüfung</Text>
+          <Text style={styles.title}>📝 {t('mockExam.title')}</Text>
+          <Text style={styles.subtitle}>{t('mockExam.subtitle')}</Text>
         </View>
 
         {/* Overview Card */}
         <View style={styles.overviewCard}>
-          <Text style={styles.cardTitle}>Prüfungsübersicht</Text>
+          <Text style={styles.cardTitle}>{t('mockExam.overview')}</Text>
           <View style={styles.overviewRow}>
-            <Text style={styles.overviewLabel}>⏱️ Gesamtdauer:</Text>
-            <Text style={styles.overviewValue}>{totalTime} Minuten</Text>
+            <Text style={styles.overviewLabel}>⏱️ {t('mockExam.totalDuration')}:</Text>
+            <Text style={styles.overviewValue}>{totalTime} {t('mockExam.minutes')}</Text>
           </View>
           <View style={styles.overviewRow}>
-            <Text style={styles.overviewLabel}>📊 Gesamtpunkte:</Text>
-            <Text style={styles.overviewValue}>300 Punkte</Text>
+            <Text style={styles.overviewLabel}>📊 {t('mockExam.totalPoints')}:</Text>
+            <Text style={styles.overviewValue}>300 {t('mockExam.points')}</Text>
           </View>
           <View style={styles.overviewRow}>
-            <Text style={styles.overviewLabel}>✅ Bestehensgrenze:</Text>
-            <Text style={styles.overviewValue}>180 Punkte (60%)</Text>
+            <Text style={styles.overviewLabel}>✅ {t('mockExam.passingScore')}:</Text>
+            <Text style={styles.overviewValue}>180 {t('mockExam.points')} (60%)</Text>
           </View>
         </View>
 
         {/* Important Note */}
         <View style={styles.noteCard}>
-          <Text style={styles.noteTitle}>⚠️ Wichtiger Hinweis:</Text>
+          <Text style={styles.noteTitle}>⚠️ {t('mockExam.importantNote')}</Text>
           <Text style={styles.noteText}>
-            Bevor Sie mit der Prüfung beginnen, empfehlen wir Ihnen dringend, die Prüfungsstruktur 
-            zu überprüfen, um sich mit dem Format und den Anforderungen vertraut zu machen.
+            {t('mockExam.importantNoteText')}
           </Text>
           <TouchableOpacity style={styles.linkButton} onPress={handleViewStructure}>
-            <Text style={styles.linkButtonText}>📖 Prüfungsstruktur ansehen</Text>
+            <Text style={styles.linkButtonText}>📖 {t('mockExam.viewStructure')}</Text>
           </TouchableOpacity>
         </View>
 
         {/* Disclaimer */}
         <View style={styles.disclaimerCard}>
-          <Text style={styles.disclaimerTitle}>ℹ️ Über diese Mock-Prüfung</Text>
+          <Text style={styles.disclaimerTitle}>ℹ️ {t('mockExam.aboutMockExam')}</Text>
           <Text style={styles.disclaimerText}>
-            Diese Mock-Prüfung gibt Ihnen eine grobe Einschätzung Ihres aktuellen Kenntnisstands 
-            und Ihrer Vorbereitung. Sie ist jedoch{' '}
-            <Text style={styles.disclaimerBold}>keine Garantie</Text> dafür, dass Sie die 
-            echte Telc B1-Prüfung bestehen werden.
+            {t('mockExam.disclaimerText1')}{' '}
+            <Text style={styles.disclaimerBold}>{t('mockExam.disclaimerText2')}</Text>{' '}
+            {t('mockExam.disclaimerText3')}
           </Text>
           <Text style={styles.disclaimerText}>
-            {'\n'}Die echte Prüfung wird unter kontrollierten Bedingungen durchgeführt und von 
-            zertifizierten Prüfern bewertet. Nutzen Sie diese Mock-Prüfung als Übungswerkzeug, 
-            um Ihre Schwachstellen zu identifizieren und gezielt zu verbessern.
+            {'\n'}{t('mockExam.disclaimerText4')}
           </Text>
         </View>
 
         {/* Exam Sections */}
         <View style={styles.sectionsCard}>
-          <Text style={styles.cardTitle}>Prüfungsteile:</Text>
+          <Text style={styles.cardTitle}>{t('mockExam.examSections')}</Text>
           
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>1</Text>
             <View style={styles.sectionContent}>
-              <Text style={styles.sectionTitle}>Leseverstehen (3 Teile)</Text>
-              <Text style={styles.sectionDetail}>90 Min • 75 Punkte</Text>
+              <Text style={styles.sectionTitle}>{t('mockExam.readingComprehension')}</Text>
+              <Text style={styles.sectionDetail}>90 {t('mockExam.minutes')} • 75 {t('mockExam.points')}</Text>
             </View>
           </View>
 
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>2</Text>
             <View style={styles.sectionContent}>
-              <Text style={styles.sectionTitle}>Sprachbausteine (2 Teile)</Text>
-              <Text style={styles.sectionDetail}>90 Min • 30 Punkte</Text>
+              <Text style={styles.sectionTitle}>{t('mockExam.languageElements')}</Text>
+              <Text style={styles.sectionDetail}>90 {t('mockExam.minutes')} • 30 {t('mockExam.points')}</Text>
             </View>
           </View>
 
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>3</Text>
             <View style={styles.sectionContent}>
-              <Text style={styles.sectionTitle}>Hörverstehen (3 Teile)</Text>
-              <Text style={styles.sectionDetail}>30 Min • 75 Punkte</Text>
+              <Text style={styles.sectionTitle}>{t('mockExam.listeningComprehension')}</Text>
+              <Text style={styles.sectionDetail}>30 {t('mockExam.minutes')} • 75 {t('mockExam.points')}</Text>
             </View>
           </View>
 
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>4</Text>
             <View style={styles.sectionContent}>
-              <Text style={styles.sectionTitle}>Schriftlicher Ausdruck</Text>
-              <Text style={styles.sectionDetail}>30 Min • 45 Punkte</Text>
+              <Text style={styles.sectionTitle}>{t('mockExam.writtenExpression')}</Text>
+              <Text style={styles.sectionDetail}>30 {t('mockExam.minutes')} • 45 {t('mockExam.points')}</Text>
             </View>
           </View>
 
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>5</Text>
             <View style={styles.sectionContent}>
-              <Text style={styles.sectionTitle}>Mündlicher Ausdruck (3 Teile)</Text>
-              <Text style={styles.sectionDetail}>15 Min • 75 Punkte (Übung empfohlen)</Text>
+              <Text style={styles.sectionTitle}>{t('mockExam.oralExpression')}</Text>
+              <Text style={styles.sectionDetail}>15 {t('mockExam.minutes')} • 75 {t('mockExam.points')} ({t('mockExam.practiceRecommended')})</Text>
             </View>
           </View>
         </View>
 
         {/* Speaking Note */}
         <View style={styles.speakingNote}>
-          <Text style={styles.speakingNoteTitle}>🗣️ Hinweis zur mündlichen Prüfung:</Text>
+          <Text style={styles.speakingNoteTitle}>🗣️ {t('mockExam.speakingNote')}</Text>
           <Text style={styles.speakingNoteText}>
-            Die mündliche Prüfung erfordert menschliche Interaktion und kann nicht in dieser 
-            Mock-Prüfung simuliert werden. Wir empfehlen Ihnen, den Übungsbereich zu nutzen 
-            und mit einem Freund, Sprachpartner oder Tutor zu üben.
+            {t('mockExam.speakingNoteText')}
           </Text>
         </View>
 
         {/* Start Button */}
         <TouchableOpacity style={styles.startButton} onPress={handleStartExam}>
-          <Text style={styles.startButtonText}>🚀 Mock-Prüfung starten</Text>
+          <Text style={styles.startButtonText}>🚀 {t('mockExam.startExam')}</Text>
         </TouchableOpacity>
 
         <Text style={styles.disclaimer}>
-          Viel Erfolg! Nehmen Sie sich Zeit und lesen Sie alle Anweisungen sorgfältig.
+          {t('mockExam.goodLuck')}
         </Text>
       </ScrollView>
       {!DEMO_MODE && <AdBanner />}
@@ -280,7 +275,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   overviewRow: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     marginBottom: spacing.margin.sm,
   },
@@ -356,7 +351,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   sectionItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
   },

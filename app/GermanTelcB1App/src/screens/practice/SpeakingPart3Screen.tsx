@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -61,7 +62,7 @@ const SpeakingPart3Screen: React.FC = () => {
           onPress={() => setIsDropdownOpen(true)}
         >
           <Text style={styles.dropdownButtonText}>
-            {currentScenario?.title || 'Select a scenario'}
+            {currentScenario?.title || t('speaking.part3.selectScenario')}
           </Text>
           <Text style={styles.dropdownArrow}>▼</Text>
         </TouchableOpacity>
@@ -79,7 +80,7 @@ const SpeakingPart3Screen: React.FC = () => {
           >
             <View style={styles.modalContent}>
               <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>Szenarioauswahl</Text>
+                <Text style={styles.modalTitle}>{t('speaking.part3.scenarioSelection')}</Text>
                 <TouchableOpacity
                   onPress={() => setIsDropdownOpen(false)}
                   style={styles.closeButton}
@@ -157,10 +158,10 @@ const SpeakingPart3Screen: React.FC = () => {
       <View style={styles.tableContainer}>
         <View style={styles.tableHeader}>
           <View style={styles.tableHeaderCell}>
-            <Text style={styles.tableHeaderText}>Deutsch</Text>
+            <Text style={styles.tableHeaderText}>{t('speaking.part3.tableHeaders.german')}</Text>
           </View>
           <View style={styles.tableHeaderCell}>
-            <Text style={styles.tableHeaderText}>English</Text>
+            <Text style={styles.tableHeaderText}>{t('speaking.part3.tableHeaders.english')}</Text>
           </View>
         </View>
         {currentScenario.vocabulary.map((item, index) => (
@@ -184,10 +185,10 @@ const SpeakingPart3Screen: React.FC = () => {
       <View style={styles.tableContainer}>
         <View style={styles.tableHeader}>
           <View style={styles.tableHeaderCell}>
-            <Text style={styles.tableHeaderText}>Vorschlag / Aufgabe</Text>
+            <Text style={styles.tableHeaderText}>{t('speaking.part3.tableHeaders.suggestion')}</Text>
           </View>
           <View style={styles.tableHeaderCell}>
-            <Text style={styles.tableHeaderText}>Beispiel-Reaktion</Text>
+            <Text style={styles.tableHeaderText}>{t('speaking.part3.tableHeaders.response')}</Text>
           </View>
         </View>
         {currentScenario.phrases.map((item, index) => (
@@ -208,7 +209,7 @@ const SpeakingPart3Screen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         {/* Scenario Selection */}
-        <Text style={styles.sectionTitle}>Themenauswahl:</Text>
+        <Text style={styles.sectionTitle}>{t('speaking.part3.sections.scenarioSelectionLabel')}</Text>
         <View style={styles.section}>
           {renderScenarioDropdown()}
         </View>
@@ -229,7 +230,7 @@ const SpeakingPart3Screen: React.FC = () => {
                 onPress={() => setActiveView('dialog')}
               >
                 <Text style={[styles.tabText, activeView === 'dialog' && styles.activeTabText]}>
-                  Dialog
+                  {t('speaking.part3.tabs.dialog')}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -237,7 +238,7 @@ const SpeakingPart3Screen: React.FC = () => {
                 onPress={() => setActiveView('vocab')}
               >
                 <Text style={[styles.tabText, activeView === 'vocab' && styles.activeTabText]}>
-                  Vokabular
+                  {t('speaking.part3.tabs.vocabulary')}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -245,7 +246,7 @@ const SpeakingPart3Screen: React.FC = () => {
                 onPress={() => setActiveView('phrases')}
               >
                 <Text style={[styles.tabText, activeView === 'phrases' && styles.activeTabText]}>
-                  Redemittel
+                  {t('speaking.part3.tabs.phrases')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -286,7 +287,7 @@ const styles = StyleSheet.create({
   },
   dropdownButton: {
     width: '100%',
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -332,7 +333,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   modalHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -352,7 +353,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   dropdownItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -405,7 +406,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   tabsContainer: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     backgroundColor: colors.secondary[100],
     borderRadius: spacing.borderRadius.md,
     padding: 4,
@@ -435,7 +436,7 @@ const styles = StyleSheet.create({
     gap: spacing.margin.md,
   },
   dialogBubbleContainer: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     marginBottom: spacing.margin.sm,
   },
   dialogBubbleLeft: {
@@ -473,7 +474,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     backgroundColor: colors.secondary[100],
   },
   tableHeaderCell: {
@@ -489,7 +490,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase' as 'uppercase',
   },
   tableRow: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
   },

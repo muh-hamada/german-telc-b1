@@ -9,6 +9,7 @@ import {
   Modal,
   ActivityIndicator,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../../theme';
 import { WritingExam } from '../../types/exam.types';
@@ -358,7 +359,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xl,
   },
   pointItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     marginBottom: spacing.margin.sm,
     paddingLeft: spacing.padding.sm,
   },
@@ -480,7 +481,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.lg,
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -520,7 +521,7 @@ const styles = StyleSheet.create({
     borderLeftColor: colors.error[500],
   },
   criterionHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,

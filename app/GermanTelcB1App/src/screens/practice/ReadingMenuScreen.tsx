@@ -36,21 +36,21 @@ const ReadingMenuScreen: React.FC = () => {
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part1')}</Text>
           <Text style={styles.cardDescription}>
-            Match headings to texts
+            {t('practice.reading.descriptions.part1')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart2Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part2')}</Text>
           <Text style={styles.cardDescription}>
-            Multiple choice questions about a text
+            {t('practice.reading.descriptions.part2')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart3Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part3')}</Text>
           <Text style={styles.cardDescription}>
-            Match situations to advertisements
+            {t('practice.reading.descriptions.part3')}
           </Text>
         </Card>
       </ScrollView>

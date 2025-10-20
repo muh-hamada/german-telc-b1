@@ -43,20 +43,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="hero-image">
-            <div className="phone-mockup">
-              <div className="phone-screen">
-                <div className="app-screenshot">
-                  {/* Placeholder for app screenshot */}
-                  <div className="screenshot-placeholder">
-                    <h3>German TELC B1</h3>
-                    <div className="feature-card">📖 Reading</div>
-                    <div className="feature-card">✍️ Writing</div>
-                    <div className="feature-card">🎧 Listening</div>
-                    <div className="feature-card">🗣️ Speaking</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img src="/hero-image.png" alt="German TELC B1" />
           </div>
         </div>
       </section>

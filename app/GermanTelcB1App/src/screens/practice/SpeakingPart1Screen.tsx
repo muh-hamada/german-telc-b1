@@ -79,23 +79,23 @@ const SpeakingPart1Screen: React.FC = () => {
   const savePersonalInfo = async () => {
     // Validate required fields
     if (!personalInfo.name || !personalInfo.origin || !personalInfo.livingSince) {
-      Alert.alert('Required Fields', 'Please fill in at least Name, Origin, and Living Since fields.');
+      Alert.alert(t('common.alerts.requiredFields'), t('common.alerts.fillNameOriginLiving'));
       return;
     }
 
     try {
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(personalInfo));
       setShowEditModal(false);
-      Alert.alert('Success', 'Personal information saved!');
+      Alert.alert(t('common.success'), t('common.alerts.infoSaved'));
     } catch (error) {
       console.error('Error saving personal info:', error);
-      Alert.alert('Error', 'Failed to save personal information');
+      Alert.alert(t('common.error'), t('common.alerts.failedToSave'));
     }
   };
 
   const generateIntroductionText = (): string => {
     if (!personalInfo.name) {
-      return 'Please enter your personal information to generate your introduction text.';
+      return t('speaking.part1.help.enterInfoPrompt');
     }
 
     let text = `**Guten Tag!** Mein Name ist **${personalInfo.name}**`;
@@ -185,10 +185,10 @@ const SpeakingPart1Screen: React.FC = () => {
     return (
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Mein Profil</Text>
+          <Text style={styles.sectionTitle}>{t('speaking.part1.sections.myProfile')}</Text>
           
           <View style={styles.textCard}>
-            <Text style={styles.cardTitle}>Persönliche Vorstellung</Text>
+            <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')}</Text>
             <Text style={styles.introText}>
               {renderFormattedText(introText)}
             </Text>
@@ -199,14 +199,14 @@ const SpeakingPart1Screen: React.FC = () => {
               style={[styles.button, styles.infoButton]}
               onPress={() => setShowInfoModal(true)}
             >
-              <Text style={styles.buttonText}>View Personal Info</Text>
+              <Text style={styles.buttonText}>{t('speaking.part1.buttons.viewInfo')}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={[styles.button, styles.editButton]}
               onPress={() => setShowEditModal(true)}
             >
-              <Text style={styles.buttonText}>Edit Info</Text>
+              <Text style={styles.buttonText}>{t('speaking.part1.buttons.editInfo')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -218,7 +218,7 @@ const SpeakingPart1Screen: React.FC = () => {
     return (
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Schlüssel-Vokabular</Text>
+          <Text style={styles.sectionTitle}>{t('speaking.part1.sections.keyVocabulary')}</Text>
           
           <View style={styles.vocabCard}>
             {speakingPart1Data.content.vocabulary.map((item, index) => (
@@ -257,13 +257,13 @@ const SpeakingPart1Screen: React.FC = () => {
     return (
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Vollständiges Beispiel</Text>
+          <Text style={styles.sectionTitle}>{t('speaking.part1.sections.completeExample')}</Text>
           <Text style={styles.exampleNote}>
-            This is a complete example of a personal introduction for the TELC B1 oral exam. You can use this as a reference to create your own.
+            {t('speaking.part1.help.exampleNote')}
           </Text>
           
           <View style={styles.textCard}>
-            <Text style={styles.cardTitle}>Persönliche Vorstellung - Beispiel</Text>
+            <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')} - {t('speaking.part1.tabs.example')}</Text>
             
             {speakingPart1Data.content.completeExample.map((paragraph, index) => (
               <Text key={index} style={styles.exampleParagraph}>
@@ -291,7 +291,7 @@ const SpeakingPart1Screen: React.FC = () => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Personal Information</Text>
+              <Text style={styles.modalTitle}>{t('speaking.part1.modal.personalInfo')}</Text>
               {personalInfo.name && (
                 <TouchableOpacity
                   style={styles.modalCloseButton}
@@ -303,139 +303,139 @@ const SpeakingPart1Screen: React.FC = () => {
             </View>
 
             <ScrollView contentContainerStyle={styles.modalScrollContent}>
-              <Text style={styles.inputLabel}>Name *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.name')} *</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.name}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, name: text })}
-                placeholder="e.g., Muhammad"
+                placeholder={t('common.placeholders.exampleMuhammad')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Age</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.age')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, age: text })}
-                placeholder="e.g., 35"
+                placeholder={t('common.placeholders.example35')}
                 keyboardType="numeric"
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Birth City</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.birthCity')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.birthCity}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, birthCity: text })}
-                placeholder="e.g., Kairo"
+                placeholder={t('common.placeholders.exampleKairo')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Origin (Country) *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.origin')} *</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.origin}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, origin: text })}
-                placeholder="e.g., Ägypten"
+                placeholder={t('common.placeholders.exampleEgypt')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Living in Germany Since *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.livingSince')} *</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.livingSince}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, livingSince: text })}
-                placeholder="e.g., 2016"
+                placeholder={t('common.placeholders.example2016')}
                 keyboardType="numeric"
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Marital Status</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.maritalStatus')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.maritalStatus}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, maritalStatus: text })}
-                placeholder="e.g., verheiratet"
+                placeholder={t('common.placeholders.exampleMarried')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Family Size</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.familySize')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.familySize}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, familySize: text })}
-                placeholder="e.g., eine kleine Familie: meine Frau und zwei Töchter"
+                placeholder={t('common.placeholders.exampleFamily')}
                 placeholderTextColor={colors.text.tertiary}
                 multiline
               />
 
-              <Text style={styles.inputLabel}>Location in Germany</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.location')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.location}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, location: text })}
-                placeholder="e.g., Charlottenburg"
+                placeholder={t('common.placeholders.exampleCharlottenburg')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Child 1 Age</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.child1Age')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.child1Age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child1Age: text })}
-                placeholder="e.g., acht"
+                placeholder={t('common.placeholders.exampleEight')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Child 1 Grade</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.child1Grade')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.child1Grade}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child1Grade: text })}
-                placeholder="e.g., dritte Klasse"
+                placeholder={t('common.placeholders.exampleThirdGrade')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Child 2 Age</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.child2Age')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.child2Age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child2Age: text })}
-                placeholder="e.g., drei"
+                placeholder={t('common.placeholders.exampleThree')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Profession</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.profession')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.profession}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, profession: text })}
-                placeholder="e.g., Ingenieur"
+                placeholder={t('common.placeholders.exampleEngineer')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Company</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.company')}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.company}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, company: text })}
-                placeholder="e.g., HelloFresh"
+                placeholder={t('common.placeholders.exampleHelloFresh')}
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>Hobbies & Free Time</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.hobbies')}</Text>
               <TextInput
                 style={[styles.input, styles.textArea]}
                 value={personalInfo.hobbies}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, hobbies: text })}
-                placeholder="e.g., treibe ich gerne Sport, gehe ins Fitnessstudio..."
+                placeholder={t('common.placeholders.exampleHobbies')}
                 placeholderTextColor={colors.text.tertiary}
                 multiline
                 numberOfLines={4}
               />
 
               <TouchableOpacity style={styles.saveButton} onPress={savePersonalInfo}>
-                <Text style={styles.saveButtonText}>Save Information</Text>
+                <Text style={styles.saveButtonText}>{t('speaking.part1.buttons.saveInfo')}</Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -455,7 +455,7 @@ const SpeakingPart1Screen: React.FC = () => {
         <View style={styles.modalOverlay}>
           <View style={[styles.modalContainer, { maxHeight: '70%' }]}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Your Personal Information</Text>
+              <Text style={styles.modalTitle}>{t('speaking.part1.modal.yourPersonalInfo')}</Text>
               <TouchableOpacity
                 style={styles.modalCloseButton}
                 onPress={() => setShowInfoModal(false)}
@@ -466,47 +466,47 @@ const SpeakingPart1Screen: React.FC = () => {
 
             <ScrollView contentContainerStyle={styles.modalScrollContent}>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Name:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.name')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.name || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Age:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.age')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.age || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Birth City:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.birthCity')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.birthCity || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Origin:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.origin')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.origin || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Living Since:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.livingSince')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.livingSince || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Marital Status:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.maritalStatus')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.maritalStatus || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Family:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.family')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.familySize || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Location:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.location')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.location || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Profession:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.profession')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.profession || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Company:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.company')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.company || '-'}</Text>
               </View>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Hobbies:</Text>
+                <Text style={styles.infoLabel}>{t('speaking.part1.infoLabels.hobbies')}</Text>
                 <Text style={styles.infoValue}>{personalInfo.hobbies || '-'}</Text>
               </View>
             </ScrollView>
@@ -519,8 +519,8 @@ const SpeakingPart1Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Speaking Part 1</Text>
-        <Text style={styles.subtitle}>Persönliche Vorstellung</Text>
+        <Text style={styles.title}>{t('speaking.part1.title')}</Text>
+        <Text style={styles.subtitle}>{t('speaking.part1.subtitle')}</Text>
       </View>
 
       <View style={styles.tabsContainer}>
@@ -531,7 +531,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text
             style={[styles.tabText, activeTab === 'introduction' && styles.activeTabText]}
           >
-            My Intro
+            {t('speaking.part1.tabs.myIntro')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -541,7 +541,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text
             style={[styles.tabText, activeTab === 'example' && styles.activeTabText]}
           >
-            Example
+            {t('speaking.part1.tabs.example')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -551,7 +551,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text
             style={[styles.tabText, activeTab === 'vocabulary' && styles.activeTabText]}
           >
-            Vocabulary
+            {t('speaking.part1.tabs.vocabulary')}
           </Text>
         </TouchableOpacity>
       </View>

@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
@@ -335,7 +336,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.margin.md,
   },
   stepHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -460,7 +461,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   placeholderMeta: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-around',
     marginTop: spacing.margin.sm,
   },

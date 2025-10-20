@@ -7,7 +7,9 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
@@ -25,8 +27,9 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   result,
   onClose,
   onRetry,
-  examTitle = 'Exam Results',
+  examTitle,
 }) => {
+  const { t } = useTranslation();
   if (!result) return null;
 
   const getScoreColor = (percentage: number): string => {
@@ -36,10 +39,10 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   };
 
   const getScoreText = (percentage: number): string => {
-    if (percentage >= 80) return 'Excellent!';
-    if (percentage >= 60) return 'Good job!';
-    if (percentage >= 40) return 'Keep practicing!';
-    return 'Try again!';
+    if (percentage >= 80) return t('results.feedback.excellent');
+    if (percentage >= 60) return t('results.feedback.goodJob');
+    if (percentage >= 40) return t('results.feedback.keepPracticing');
+    return t('results.feedback.tryAgain');
   };
 
   const getScoreEmoji = (percentage: number): string => {
@@ -51,11 +54,11 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
 
   const handleRetry = () => {
     Alert.alert(
-      'Retry Exam',
-      'Are you sure you want to retry this exam? Your previous answers will be lost.',
+      t('common.alerts.retryExam'),
+      t('common.alerts.retryExamConfirm'),
       [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Retry', style: 'destructive', onPress: onRetry },
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('common.retry'), style: 'destructive', onPress: onRetry },
       ]
     );
   };
@@ -76,7 +79,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
           >
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>{examTitle}</Text>
+              <Text style={styles.title}>{examTitle || t('results.title')}</Text>
               <TouchableOpacity style={styles.closeButton} onPress={onClose}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
@@ -90,13 +93,13 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
               </Text>
               <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
               <Text style={styles.scoreDetails}>
-                {result.score} out of {result.maxScore} points
+                {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
               </Text>
             </View>
 
             {/* Detailed Results */}
             <View style={styles.detailsContainer}>
-              <Text style={styles.detailsTitle}>Detailed Results</Text>
+              <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
               
               {result.answers.map((answer, index) => (
                 <View
@@ -107,23 +110,23 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                   ]}
                 >
                   <View style={styles.answerHeader}>
-                    <Text style={styles.questionNumber}>Question {answer.questionId}</Text>
+                    <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
                     <Text style={[
                       styles.status,
                       answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
                     ]}>
-                      {answer.isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                      {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
                     </Text>
                   </View>
                   
                   <View style={styles.answerDetails}>
-                    <Text style={styles.answerLabel}>Your answer:</Text>
+                    <Text style={styles.answerLabel}>{t('results.yourAnswer')}</Text>
                     <Text style={styles.answerText}>{answer.userAnswer}</Text>
                   </View>
                   
                   {!answer.isCorrect && (
                     <View style={styles.answerDetails}>
-                      <Text style={styles.answerLabel}>Correct answer:</Text>
+                      <Text style={styles.answerLabel}>{t('results.correctAnswer')}</Text>
                       <Text style={styles.correctAnswerText}>{answer.correctAnswer}</Text>
                     </View>
                   )}
@@ -135,14 +138,14 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
             <View style={styles.buttonContainer}>
               {onRetry && (
                 <Button
-                  title="Try Again"
+                  title={t('questions.tryAgain')}
                   onPress={handleRetry}
                   variant="outline"
                   style={styles.retryButton}
                 />
               )}
               <Button
-                title="Continue"
+                title={t('common.continue')}
                 onPress={onClose}
                 style={styles.continueButton}
               />
@@ -176,7 +179,7 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.md,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: spacing.md,
@@ -249,7 +252,7 @@ const styles = StyleSheet.create({
     borderLeftColor: colors.error[500],
   },
   answerHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.xs,
@@ -287,7 +290,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     gap: spacing.md,

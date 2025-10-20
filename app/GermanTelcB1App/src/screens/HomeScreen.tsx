@@ -48,14 +48,14 @@ const HomeScreen: React.FC = () => {
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
           <Text style={styles.cardDescription}>
-            Learn about the TELC B1 exam format and scoring
+            {t('home.descriptions.examStructure')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePracticePress}>
           <Text style={styles.cardTitle}>{t('home.practice')}</Text>
           <Text style={styles.cardDescription}>
-            Practice all exam sections: Reading, Listening, Writing, and Speaking
+            {t('home.descriptions.practice')}
           </Text>
         </Card>
       </ScrollView>

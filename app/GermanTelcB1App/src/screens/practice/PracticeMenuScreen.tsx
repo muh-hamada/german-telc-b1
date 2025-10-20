@@ -44,7 +44,7 @@ const PracticeMenuScreen: React.FC = () => {
         <Card style={styles.card} onPress={handleReadingPress}>
           <Text style={styles.cardTitle}>{t('practice.reading.title')}</Text>
           <Text style={styles.cardDescription}>
-            Practice reading comprehension with various text types
+            {t('practice.reading.descriptions.main')}
           </Text>
         </Card>
 
@@ -58,7 +58,7 @@ const PracticeMenuScreen: React.FC = () => {
         <Card style={styles.card} onPress={handleGrammarPress}>
           <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
           <Text style={styles.cardDescription}>
-            Practice German grammar with gap-fill exercises
+            {t('practice.grammar.descriptions.main')}
           </Text>
         </Card>
 
@@ -72,7 +72,7 @@ const PracticeMenuScreen: React.FC = () => {
         <Card style={styles.card} onPress={handleSpeakingPress}>
           <Text style={styles.cardTitle}>{t('practice.speaking.title')}</Text>
           <Text style={styles.cardDescription}>
-            Practice oral expression and conversation skills
+            {t('practice.speaking.descriptions.main')}
           </Text>
         </Card>
       </ScrollView>

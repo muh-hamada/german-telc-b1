@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import Button from './Button';
 
@@ -23,6 +24,7 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
   onForgotPassword,
   loading = false,
 }) => {
+  const { t } = useTranslation();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,21 +33,21 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
 
   const handleSubmit = async () => {
     if (!email.trim() || !password.trim()) {
-      Alert.alert('Error', 'Please fill in all required fields');
+      Alert.alert(t('common.error'), t('common.alerts.fillRequiredFields'));
       return;
     }
 
     if (isSignUp) {
       if (!displayName.trim()) {
-        Alert.alert('Error', 'Please enter your name');
+        Alert.alert(t('common.error'), t('common.alerts.enterName'));
         return;
       }
       if (password !== confirmPassword) {
-        Alert.alert('Error', 'Passwords do not match');
+        Alert.alert(t('common.error'), t('common.alerts.passwordsNoMatch'));
         return;
       }
       if (password.length < 6) {
-        Alert.alert('Error', 'Password must be at least 6 characters');
+        Alert.alert(t('common.error'), t('common.alerts.passwordTooShort'));
         return;
       }
       await onCreateAccount(email.trim(), password, displayName.trim());
@@ -56,7 +58,7 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
 
   const handleForgotPassword = async () => {
     if (!email.trim()) {
-      Alert.alert('Error', 'Please enter your email address first');
+      Alert.alert(t('common.error'), t('common.alerts.enterEmailFirst'));
       return;
     }
     await onForgotPassword(email.trim());
@@ -65,17 +67,17 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        {isSignUp ? 'Create Account' : 'Sign In'}
+        {isSignUp ? t('auth.createAccount') : t('auth.signIn')}
       </Text>
 
       {isSignUp && (
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Name</Text>
+          <Text style={styles.label}>{t('common.labels.name')}</Text>
           <TextInput
             style={styles.input}
             value={displayName}
             onChangeText={setDisplayName}
-            placeholder="Enter your name"
+            placeholder={t('common.placeholders.enterName')}
             placeholderTextColor={colors.text.tertiary}
             autoCapitalize="words"
             autoCorrect={false}
@@ -84,12 +86,12 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
       )}
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Email</Text>
+        <Text style={styles.label}>{t('common.labels.email')}</Text>
         <TextInput
           style={styles.input}
           value={email}
           onChangeText={setEmail}
-          placeholder="Enter your email"
+          placeholder={t('common.placeholders.enterEmail')}
           placeholderTextColor={colors.text.tertiary}
           keyboardType="email-address"
           autoCapitalize="none"
@@ -98,12 +100,12 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
       </View>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Password</Text>
+        <Text style={styles.label}>{t('common.labels.password')}</Text>
         <TextInput
           style={styles.input}
           value={password}
           onChangeText={setPassword}
-          placeholder="Enter your password"
+          placeholder={t('common.placeholders.enterPassword')}
           placeholderTextColor={colors.text.tertiary}
           secureTextEntry
           autoCapitalize="none"
@@ -113,12 +115,12 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
 
       {isSignUp && (
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Confirm Password</Text>
+          <Text style={styles.label}>{t('common.labels.confirmPassword')}</Text>
           <TextInput
             style={styles.input}
             value={confirmPassword}
             onChangeText={setConfirmPassword}
-            placeholder="Confirm your password"
+            placeholder={t('common.placeholders.confirmPassword')}
             placeholderTextColor={colors.text.tertiary}
             secureTextEntry
             autoCapitalize="none"
@@ -128,7 +130,7 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
       )}
 
       <Button
-        title={isSignUp ? 'Create Account' : 'Sign In'}
+        title={isSignUp ? t('auth.createAccount') : t('auth.signIn')}
         onPress={handleSubmit}
         loading={loading}
         style={styles.submitButton}
@@ -136,7 +138,7 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
 
       {!isSignUp && (
         <TouchableOpacity onPress={handleForgotPassword} style={styles.forgotButton}>
-          <Text style={styles.forgotText}>Forgot Password?</Text>
+          <Text style={styles.forgotText}>{t('auth.forgotPassword')}</Text>
         </TouchableOpacity>
       )}
 
@@ -146,8 +148,8 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
       >
         <Text style={styles.switchText}>
           {isSignUp
-            ? 'Already have an account? Sign In'
-            : "Don't have an account? Create Account"}
+            ? t('auth.alreadyHaveAccount')
+            : t('auth.noAccount')}
         </Text>
       </TouchableOpacity>
     </View>

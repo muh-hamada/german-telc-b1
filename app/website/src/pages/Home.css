@@ -87,6 +87,12 @@
   animation: fadeInRight 0.8s ease-out;
 }
 
+.hero-image img {
+  width: auto;
+  height: 80vh;
+  object-fit: cover;
+}
+
 .phone-mockup {
   position: relative;
   width: 300px;

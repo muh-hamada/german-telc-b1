@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -43,7 +44,7 @@ const GrammarPart2Screen: React.FC = () => {
       }
     } catch (error) {
       console.error('Error loading exam:', error);
-      Alert.alert('Error', 'Failed to load exam data');
+      Alert.alert(t('common.error'), t('exam.failedToLoad'));
     } finally {
       setIsLoading(false);
     }
@@ -83,7 +84,7 @@ const GrammarPart2Screen: React.FC = () => {
     const exams = dataService.getGrammarPart2Exams();
     return (
       <View style={styles.tabsContainer}>
-        <Text style={styles.tabsTitle}>Select Exam:</Text>
+        <Text style={styles.tabsTitle}>{t('exam.selectExam')}</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabsScroll}>
           {exams.map((exam) => (
             <TouchableOpacity
@@ -100,7 +101,7 @@ const GrammarPart2Screen: React.FC = () => {
                   currentExamId === exam.id && styles.activeTabText,
                 ]}
               >
-                Test {exam.id + 1}
+                {t('exam.test')} {exam.id + 1}
               </Text>
             </TouchableOpacity>
           ))}
@@ -113,7 +114,7 @@ const GrammarPart2Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>Loading exam...</Text>
+          <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -124,7 +125,7 @@ const GrammarPart2Screen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>Failed to load exam data</Text>
+          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -134,8 +135,8 @@ const GrammarPart2Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Grammar Part 2</Text>
-        <Text style={styles.subtitle}>Fill in the blanks (Lexical)</Text>
+        <Text style={styles.title}>{t('grammar.part2.title')}</Text>
+        <Text style={styles.subtitle}>{t('grammar.part2.subtitle')}</Text>
       </View>
 
       {renderExamTabs()}
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   tabsScroll: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
   },
   tab: {
     paddingHorizontal: spacing.padding.md,

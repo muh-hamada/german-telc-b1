@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   },
   languageItem: {
     width: '80%',
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,

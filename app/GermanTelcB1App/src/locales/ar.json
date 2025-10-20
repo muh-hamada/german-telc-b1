@@ -1,21 +1,75 @@
 {
   "common": {
     "continue": "متابعة",
-    "go": "ابدأ",
+    "go": "إذهب",
     "back": "رجوع",
     "next": "التالي",
     "previous": "السابق",
     "submit": "إرسال",
     "cancel": "إلغاء",
     "save": "حفظ",
-    "loading": "جاري التحميل...",
+    "loading": "جارٍ التحميل...",
     "error": "خطأ",
-    "success": "نجح",
+    "success": "نجاح",
     "close": "إغلاق",
-    "done": "تم"
+    "done": "تم",
+    "retry": "إعادة المحاولة",
+    "user": "مستخدم",
+    "labels": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "age": "العمر",
+      "birthCity": "مدينة الميلاد",
+      "origin": "الأصل (البلد)",
+      "livingSince": "العيش في ألمانيا منذ",
+      "maritalStatus": "الحالة الاجتماعية",
+      "familySize": "حجم العائلة",
+      "location": "الموقع في ألمانيا",
+      "child1Age": "عمر الطفل 1",
+      "child1Grade": "صف الطفل 1",
+      "child2Age": "عمر الطفل 2",
+      "profession": "المهنة",
+      "company": "الشركة",
+      "hobbies": "الهوايات ووقت الفراغ"
+    },
+    "placeholders": {
+      "enterName": "أدخل اسمك",
+      "enterEmail": "أدخل بريدك الإلكتروني",
+      "enterPassword": "أدخل كلمة المرور",
+      "confirmPassword": "أكد كلمة المرور",
+      "exampleMuhammad": "مثال: Muhammad",
+      "example35": "مثال: 35",
+      "exampleKairo": "مثال: Kairo",
+      "exampleEgypt": "مثال: Ägypten",
+      "example2016": "مثال: 2016",
+      "exampleMarried": "مثال: verheiratet",
+      "exampleFamily": "مثال: eine kleine Familie: meine Frau und zwei Töchter",
+      "exampleCharlottenburg": "مثال: Charlottenburg",
+      "exampleEight": "مثال: acht",
+      "exampleThirdGrade": "مثال: dritte Klasse",
+      "exampleThree": "مثال: drei",
+      "exampleEngineer": "مثال: Ingenieur",
+      "exampleHelloFresh": "مثال: HelloFresh",
+      "exampleHobbies": "مثال: treibe ich gerne Sport, gehe ins Fitnessstudio..."
+    },
+    "alerts": {
+      "requiredFields": "الحقول المطلوبة",
+      "fillRequiredFields": "يرجى ملء جميع الحقول المطلوبة",
+      "enterName": "يرجى إدخال اسمك",
+      "passwordsNoMatch": "كلمات المرور غير متطابقة",
+      "passwordTooShort": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+      "enterEmailFirst": "يرجى إدخال عنوان بريدك الإلكتروني أولاً",
+      "fillNameOriginLiving": "يرجى ملء الاسم والأصل والعيش منذ على الأقل.",
+      "infoSaved": "تم حفظ المعلومات الشخصية!",
+      "failedToSave": "فشل حفظ المعلومات الشخصية",
+      "retryExam": "إعادة الامتحان",
+      "retryExamConfirm": "هل أنت متأكد أنك تريد إعادة هذا الامتحان؟ ستفقد إجاباتك السابقة."
+    }
   },
   "onboarding": {
-    "welcome": "دعنا نستعد لامتحان TELC B1 الألماني معاً",
+    "welcome": "لنستعد معًا لامتحان اللغة الألمانية TELC B1",
     "selectLanguage": "اختر لغة الواجهة",
     "languages": {
       "en": "English",
@@ -33,50 +87,67 @@
   },
   "home": {
     "title": "التحضير لامتحان TELC B1 الألماني",
-    "examStructure": "هيكل الامتحان",
+    "examStructure": "بنية الامتحان",
     "practice": "التدريب",
     "practiceSections": {
-      "reading": "القراءة",
-      "listening": "الاستماع",
-      "writing": "الكتابة",
-      "speaking": "المحادثة"
+      "reading": "الفهم القرائي",
+      "listening": "الفهم السمعي",
+      "writing": "التعبير الكتابي",
+      "speaking": "التعبير الشفهي"
+    },
+    "descriptions": {
+      "examStructure": "تعرف على صيغة ونظام تقييم امتحان TELC B1",
+      "practice": "تدرب على جميع أقسام الامتحان: القراءة والاستماع والكتابة والتحدث"
     }
   },
   "examStructure": {
-    "title": "هيكل الامتحان",
-    "description": "تعرف على تنسيق امتحان TELC B1 ونظام التقييم",
-    "comingSoon": "المحتوى قريباً..."
+    "title": "بنية الامتحان",
+    "description": "تعرف على صيغة ونظام تقييم امتحان TELC B1",
+    "comingSoon": "المحتوى قريبًا..."
   },
   "practice": {
     "reading": {
-      "title": "فهم المقروء",
+      "title": "الفهم القرائي",
       "part1": "الجزء 1: مطابقة العناوين",
       "part2": "الجزء 2: اختيار من متعدد",
-      "part3": "الجزء 3: مطابقة الإعلانات"
+      "part3": "الجزء 3: مطابقة الإعلانات",
+      "descriptions": {
+        "main": "تدرب على الفهم القرائي مع أنواع مختلفة من النصوص",
+        "part1": "طابق العناوين مع النصوص",
+        "part2": "أسئلة اختيار من متعدد حول نص",
+        "part3": "طابق المواقف مع الإعلانات"
+      }
     },
     "listening": {
-      "title": "فهم المسموع",
+      "title": "الفهم السمعي",
       "part1": "الجزء 1: حوارات قصيرة",
-      "part1Description": "ستسمع خمس حوارات قصيرة وستحل خمس عمليات.",
-      "part2": "الجزء 2: محادثات أطول",
-      "part2Description": "ستسمع حوارًا طويلًا وستحل 10 عمليات.",
+      "part1Description": "ستسمع خمسة حوارات قصيرة ويجب عليك حل خمس مهام.",
+      "part2": "الجزء 2: محادثات طويلة",
+      "part2Description": "ستسمع محادثة طويلة ويجب عليك حل 10 مهام.",
       "part3": "الجزء 3: مونولوجات",
-      "part3Description": "ستسمع خمس مونولوجات وستحل خمس عمليات."
+      "part3Description": "ستسمع خمسة مونولوجات ويجب عليك حل خمس مهام.",
+      "comingSoon": "تمارين الاستماع قريبًا"
     },
     "writing": {
       "title": "التعبير الكتابي",
-      "description": "اكتب رسالة إلكترونية شخصية أو شبه رسمية"
+      "description": "اكتب بريدًا إلكترونيًا شخصيًا أو شبه رسمي"
     },
     "speaking": {
       "title": "التعبير الشفهي",
-      "part1": "الجزء 1: التعريف الشخصي",
-      "part2": "الجزء 2: عرض موضوع",
-      "part3": "الجزء 3: التخطيط معاً"
+      "part1": "الجزء 1: التقديم الشخصي",
+      "part2": "الجزء 2: عرض الموضوع",
+      "part3": "الجزء 3: التخطيط معًا",
+      "descriptions": {
+        "main": "تدرب على التعبير الشفهي ومهارات المحادثة"
+      }
     },
     "grammar": {
-      "title": "البناء اللغوي",
+      "title": "عناصر اللغة",
       "part1": "الجزء 1: ملء الفراغات (اختيار من متعدد)",
-      "part2": "الجزء 2: ملء الفراغات (قائمة كلمات)"
+      "part2": "الجزء 2: ملء الفراغات (قائمة الكلمات)",
+      "descriptions": {
+        "main": "تدرب على قواعد اللغة الألمانية مع تمارين ملء الفراغات"
+      }
     }
   },
   "profile": {
@@ -88,6 +159,13 @@
     "authentication": "المصادقة",
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",
+    "account": "الحساب",
+    "signIn": "تسجيل الدخول",
+    "signOut": "تسجيل الخروج",
+    "changeLanguage": "تغيير اللغة",
+    "signedInWith": "تم تسجيل الدخول بواسطة",
+    "appName": "تطبيق التحضير لامتحان اللغة الألمانية TELC B1",
+    "version": "الإصدار 1.0.0",
     "loginProviders": {
       "google": "المتابعة مع Google",
       "facebook": "المتابعة مع Facebook",
@@ -95,21 +173,276 @@
       "apple": "المتابعة مع Apple"
     },
     "userInfo": {
-      "welcome": "مرحباً",
-      "notLoggedIn": "غير مسجل الدخول"
+      "welcome": "مرحبًا",
+      "notLoggedIn": "لم تسجل الدخول"
+    },
+    "alerts": {
+      "clearProgressTitle": "مسح التقدم",
+      "clearProgressMessage": "هل أنت متأكد أنك تريد مسح كل تقدمك؟ لا يمكن التراجع عن هذا الإجراء.",
+      "clear": "مسح",
+      "progressCleared": "تم مسح تقدمك.",
+      "clearFailed": "فشل مسح التقدم. يرجى المحاولة مرة أخرى.",
+      "languageChanged": "تم تغيير اللغة بنجاح!",
+      "languageChangeFailed": "فشل تغيير اللغة. يرجى المحاولة مرة أخرى.",
+      "signOutTitle": "تسجيل الخروج",
+      "signOutMessage": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "signedOut": "تم تسجيل خروجك.",
+      "signOutFailed": "فشل تسجيل الخروج. يرجى المحاولة مرة أخرى.",
+      "signedInSuccess": "تم تسجيل دخولك بنجاح!",
+      "signInFailed": "فشل تسجيل الدخول. يرجى المحاولة مرة أخرى."
     }
   },
   "mockExam": {
     "title": "امتحان تجريبي",
-    "description": "أد امتحان تدريبي كامل",
-    "comingSoon": "ميزة الامتحان التجريبي قريباً..."
+    "description": "خذ امتحانًا تجريبيًا كاملاً",
+    "comingSoon": "ميزة الامتحان التجريبي قريبًا..."
   },
   "questions": {
-    "checkAnswers": "فحص الإجابات",
+    "checkAnswers": "التحقق من الإجابات",
     "correct": "صحيح",
     "incorrect": "خطأ",
     "score": "النتيجة",
     "results": "النتائج",
     "tryAgain": "حاول مرة أخرى"
+  },
+  "auth": {
+    "signIn": "تسجيل الدخول",
+    "createAccount": "إنشاء حساب",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟ تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟ إنشاء حساب"
+  },
+  "speaking": {
+    "part1": {
+      "title": "التحدث الجزء 1",
+      "subtitle": "التقديم الشخصي",
+      "tabs": {
+        "myIntro": "تقديمي",
+        "example": "مثال",
+        "vocabulary": "المفردات"
+      },
+      "sections": {
+        "myProfile": "ملفي الشخصي",
+        "personalIntro": "التقديم الشخصي",
+        "keyVocabulary": "المفردات الأساسية",
+        "completeExample": "مثال كامل"
+      },
+      "buttons": {
+        "viewInfo": "عرض المعلومات الشخصية",
+        "editInfo": "تعديل المعلومات",
+        "saveInfo": "حفظ المعلومات"
+      },
+      "modal": {
+        "personalInfo": "المعلومات الشخصية",
+        "yourPersonalInfo": "معلوماتك الشخصية"
+      },
+      "help": {
+        "exampleNote": "هذا مثال كامل لتقديم شخصي لامتحان TELC B1 الشفهي. يمكنك استخدامه كمرجع لإنشاء تقديمك الخاص.",
+        "enterInfoPrompt": "يرجى إدخال معلوماتك الشخصية لإنشاء نص التقديم الخاص بك."
+      },
+      "infoLabels": {
+        "name": "الاسم:",
+        "age": "العمر:",
+        "birthCity": "مدينة الميلاد:",
+        "origin": "الأصل:",
+        "livingSince": "العيش منذ:",
+        "maritalStatus": "الحالة الاجتماعية:",
+        "family": "العائلة:",
+        "location": "الموقع:",
+        "profession": "المهنة:",
+        "company": "الشركة:",
+        "hobbies": "الهوايات:"
+      }
+    },
+    "part2": {
+      "title": "التحدث الجزء 2",
+      "subtitle": "عرض الموضوع",
+      "selectTopic": "اختر موضوعًا",
+      "topicSelection": "اختيار الموضوع",
+      "sections": {
+        "topicSelectionLabel": "اختيار الموضوع:",
+        "partnerSummary": "تلخيص وجهة نظر الشريك",
+        "discussion": "النقاش (بعد العرض)",
+        "discussionNote": "استخدم هذه الأسئلة لمواصلة المحادثة مع شريكك، والتعبير عن رأيك، ومشاركة تجاربك الخاصة."
+      },
+      "tabs": {
+        "yourRole": "دورك (المشارك أ)",
+        "partnerRole": "دور الشريك (المشارك ب)"
+      },
+      "buttons": {
+        "hideSummary": "إخفاء الملخص",
+        "showSummary": "تلخيص وجهة نظر الشريك (الشخص الثالث)"
+      },
+      "instructions": {
+        "taskDescription": "مهمتك: أخبر شريك المحادثة عن النص التالي ثم ناقشوا الموضوع.",
+        "startingText": "نصك الأولي للعرض:"
+      }
+    },
+    "part3": {
+      "title": "التحدث الجزء 3",
+      "subtitle": "التخطيط معًا",
+      "selectScenario": "اختر سيناريو",
+      "scenarioSelection": "اختيار السيناريو",
+      "sections": {
+        "scenarioSelectionLabel": "اختيار السيناريو:"
+      },
+      "tabs": {
+        "dialog": "حوار",
+        "vocabulary": "المفردات",
+        "phrases": "العبارات"
+      },
+      "tableHeaders": {
+        "german": "الألمانية",
+        "english": "الإنجليزية",
+        "suggestion": "اقتراح / مهمة",
+        "response": "مثال على الاستجابة"
+      }
+    }
+  },
+  "results": {
+    "title": "نتائج الامتحان",
+    "detailedResults": "نتائج مفصلة",
+    "question": "السؤال",
+    "yourAnswer": "إجابتك:",
+    "correctAnswer": "الإجابة الصحيحة:",
+    "outOf": "من",
+    "points": "نقاط",
+    "feedback": {
+      "excellent": "ممتاز!",
+      "goodJob": "عمل جيد!",
+      "keepPracticing": "استمر في التدريب!",
+      "tryAgain": "حاول مرة أخرى!"
+    }
+  },
+  "progress": {
+    "yourProgress": "تقدمك",
+    "loginRequired": "يتطلب تسجيل الدخول",
+    "loginPrompt": "يرجى تسجيل الدخول لحفظ ومشاهدة تقدمك على جميع الأجهزة",
+    "examsCompleted": "الامتحانات المكتملة",
+    "completionRate": "معدل الإكمال",
+    "totalScore": "النتيجة الإجمالية",
+    "performance": "الأداء",
+    "startPracticing": "ابدأ التدريب لتتبع تقدمك!",
+    "performanceLevels": {
+      "excellent": "ممتاز",
+      "good": "جيد",
+      "fair": "مقبول",
+      "needsImprovement": "يحتاج إلى تحسين"
+    }
+  },
+  "mockExam": {
+    "title": "امتحان تجريبي",
+    "subtitle": "امتحان Telc الألماني B1 كامل",
+    "overview": "نظرة عامة على الامتحان",
+    "totalDuration": "المدة الإجمالية",
+    "totalPoints": "إجمالي النقاط",
+    "passingScore": "درجة النجاح",
+    "minutes": "دقائق",
+    "points": "نقاط",
+    "importantNote": "ملاحظة مهمة:",
+    "importantNoteText": "قبل البدء في الامتحان، نوصي بشدة بمراجعة هيكل الامتحان للتعرف على الشكل والمتطلبات.",
+    "viewStructure": "عرض هيكل الامتحان",
+    "aboutMockExam": "حول هذا الامتحان التجريبي",
+    "disclaimerText1": "يمنحك هذا الامتحان التجريبي تقييماً تقريبياً لمعرفتك الحالية واستعدادك. ومع ذلك، فهو",
+    "disclaimerText2": "ليس ضماناً",
+    "disclaimerText3": "بأنك ستنجح في امتحان Telc B1 الفعلي.",
+    "disclaimerText4": "يتم إجراء الامتحان الفعلي في ظروف خاضعة للرقابة ويتم تقييمه من قبل ممتحنين معتمدين. استخدم هذا الامتحان التجريبي كأداة تدريب لتحديد نقاط ضعفك وتحسينها بشكل محدد.",
+    "examSections": "أقسام الامتحان:",
+    "readingComprehension": "فهم المقروء (3 أجزاء)",
+    "languageElements": "عناصر اللغة (جزءان)",
+    "listeningComprehension": "فهم المسموع (3 أجزاء)",
+    "writtenExpression": "التعبير الكتابي",
+    "oralExpression": "التعبير الشفهي (3 أجزاء)",
+    "practiceRecommended": "يُنصح بالتدريب",
+    "speakingNote": "ملاحظة حول الامتحان الشفهي:",
+    "speakingNoteText": "يتطلب الامتحان الشفهي تفاعلاً بشرياً ولا يمكن محاكاته في هذا الامتحان التجريبي. نوصي باستخدام منطقة التدريب والتدرب مع صديق أو شريك لغوي أو مدرس.",
+    "startExam": "بدء الامتحان التجريبي",
+    "goodLuck": "حظاً سعيداً! خذ وقتك واقرأ جميع التعليمات بعناية.",
+    "examInProgress": "الامتحان قيد التقدم",
+    "resumeOrRestart": "لقد بدأت بالفعل امتحاناً تجريبياً. هل تريد المتابعة أو بدء امتحان جديد؟",
+    "resume": "متابعة",
+    "startNew": "بدء جديد",
+    "confirm": "تأكيد",
+    "confirmRestart": "هل أنت متأكد من أنك تريد بدء امتحان جديد؟ سيتم حذف تقدمك الحالي.",
+    "yesStartNew": "نعم، بدء جديد",
+    "examNotFound": "لم يتم العثور على الامتحان.",
+    "couldNotLoadProgress": "تعذر تحميل تقدم الامتحان.",
+    "couldNotStartExam": "تعذر بدء الامتحان. يرجى المحاولة مرة أخرى.",
+    "examLoading": "جارٍ تحميل الامتحان...",
+    "exitExam": "الخروج من الامتحان؟",
+    "exitExamMessage": "هل تريد حقاً الخروج؟ سيتم حفظ تقدمك ويمكنك المتابعة لاحقاً.",
+    "stay": "البقاء",
+    "exit": "خروج",
+    "couldNotSaveProgress": "تعذر حفظ التقدم.",
+    "finishExam": "إنهاء الامتحان",
+    "finishExamMessage": "هل أنت متأكد من أنك تريد إنهاء الامتحان؟ يمكنك مراجعة نتائجك بعد ذلك.",
+    "finish": "إنهاء",
+    "completeAllSections": "يرجى إكمال جميع الأقسام المطلوبة قبل إنهاء الامتحان.",
+    "congratulations": "تهانينا!",
+    "examCompleted": "لقد أكملت الامتحان التجريبي!",
+    "yourScore": "نتيجتك",
+    "passed": "ناجح",
+    "failed": "راسب",
+    "viewResults": "عرض النتائج",
+    "backToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "exam": {
+    "selectExam": "اختر الامتحان:",
+    "test": "اختبار",
+    "loadingExam": "جارٍ تحميل الامتحان...",
+    "failedToLoad": "فشل تحميل بيانات الامتحان",
+    "selectAnExam": "اختر امتحاناً",
+    "selectTask": "اختر مهمة"
+  },
+  "grammar": {
+    "part1": {
+      "title": "القواعد الجزء 1",
+      "subtitle": "املأ الفراغات (القواعد)"
+    },
+    "part2": {
+      "title": "القواعد الجزء 2",
+      "subtitle": "املأ الفراغات (المفردات)"
+    }
+  },
+  "reading": {
+    "part1": {
+      "title": "فهم المقروء الجزء 1",
+      "subtitle": "مطابقة العناوين مع النصوص"
+    },
+    "part2": {
+      "title": "فهم المقروء الجزء 2",
+      "subtitle": "أسئلة الاختيار من متعدد"
+    },
+    "part3": {
+      "title": "فهم المقروء الجزء 3",
+      "subtitle": "مطابقة الإعلانات"
+    }
+  },
+  "writing": {
+    "title": "التعبير الكتابي",
+    "subtitle": "كتابة رسالة شخصية"
+  },
+  "listening": {
+    "part1": {
+      "title": "فهم المسموع الجزء 1",
+      "subtitle": "حوارات قصيرة"
+    },
+    "part2": {
+      "title": "فهم المسموع الجزء 2",
+      "subtitle": "محادثة أطول"
+    },
+    "part3": {
+      "title": "فهم المسموع الجزء 3",
+      "subtitle": "مونولوجات"
+    }
+  },
+  "examStructure": {
+    "cefrLevel": "مستوى CEFR:",
+    "totalDuration": "المدة الإجمالية:",
+    "minutes": "دقائق",
+    "maxPoints": "النقاط القصوى:",
+    "points": "نقاط",
+    "passingThreshold": "حد النجاح:",
+    "preparation": "التحضير"
   }
 }

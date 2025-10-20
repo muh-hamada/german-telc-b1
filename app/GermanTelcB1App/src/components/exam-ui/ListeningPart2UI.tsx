@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Sound from 'react-native-sound';
@@ -289,12 +290,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   metaInfo: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
   },
   metaText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    marginRight: spacing.margin.md,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.md } : { marginRight: spacing.margin.md }),
   },
   instructionsCard: {
     backgroundColor: colors.secondary[50],
@@ -387,13 +388,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     backgroundColor: colors.primary[100],
     borderBottomWidth: 2,
     borderBottomColor: colors.primary[500],
   },
   tableRow: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.light,
     backgroundColor: colors.background.secondary,
@@ -404,7 +405,7 @@ const styles = StyleSheet.create({
   },
   statementCell: {
     flex: 3,
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'flex-start',
   },
   answerCell: {
@@ -421,7 +422,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    marginRight: spacing.margin.xs,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.xs } : { marginRight: spacing.margin.xs }),
     minWidth: 30,
   },
   statementText: {

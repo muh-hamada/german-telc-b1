@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, I18nManager } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -11,6 +12,7 @@ interface ProgressCardProps {
 }
 
 const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true }) => {
+  const { t } = useTranslation();
   const stats = useUserStats();
   const { user } = useAuth();
   
@@ -25,10 +27,10 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
   };
 
   const getScoreText = (score: number): string => {
-    if (score >= 80) return 'Excellent';
-    if (score >= 60) return 'Good';
-    if (score >= 40) return 'Fair';
-    return 'Needs Improvement';
+    if (score >= 80) return t('progress.performanceLevels.excellent');
+    if (score >= 60) return t('progress.performanceLevels.good');
+    if (score >= 40) return t('progress.performanceLevels.fair');
+    return t('progress.performanceLevels.needsImprovement');
   };
 
   // If user is not logged in and not in demo mode, show login prompt
@@ -40,13 +42,13 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
         activeOpacity={onPress ? 0.7 : 1}
       >
         <View style={styles.header}>
-          <Text style={styles.title}>Your Progress</Text>
+          <Text style={styles.title}>{t('progress.yourProgress')}</Text>
         </View>
         <View style={styles.loginPrompt}>
           <Text style={styles.loginPromptIcon}>🔒</Text>
-          <Text style={styles.loginPromptTitle}>Login Required</Text>
+          <Text style={styles.loginPromptTitle}>{t('progress.loginRequired')}</Text>
           <Text style={styles.loginPromptText}>
-            Please login to save and view your progress across all devices
+            {t('progress.loginPrompt')}
           </Text>
         </View>
       </TouchableOpacity>
@@ -60,7 +62,7 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
       activeOpacity={onPress ? 0.7 : 1}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>Your Progress</Text>
+        <Text style={styles.title}>{t('progress.yourProgress')}</Text>
         {displayStats.totalExams > 0 && (
           <Text style={[styles.score, { color: getScoreColor(displayStats.averageScore) }]}>
             {displayStats.averageScore}%
@@ -71,28 +73,28 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
       {displayStats.totalExams > 0 ? (
         <View style={styles.statsContainer}>
           <View style={styles.statRow}>
-            <Text style={styles.statLabel}>Exams Completed</Text>
+            <Text style={styles.statLabel}>{t('progress.examsCompleted')}</Text>
             <Text style={styles.statValue}>
               {displayStats.completedExams} / {displayStats.totalExams}
             </Text>
           </View>
           
           <View style={styles.statRow}>
-            <Text style={styles.statLabel}>Completion Rate</Text>
+            <Text style={styles.statLabel}>{t('progress.completionRate')}</Text>
             <Text style={styles.statValue}>{displayStats.completionRate}%</Text>
           </View>
 
           {showDetails && (
             <>
               <View style={styles.statRow}>
-                <Text style={styles.statLabel}>Total Score</Text>
+                <Text style={styles.statLabel}>{t('progress.totalScore')}</Text>
                 <Text style={styles.statValue}>
                   {displayStats.totalScore} / {displayStats.totalMaxScore}
                 </Text>
               </View>
               
               <View style={styles.statRow}>
-                <Text style={styles.statLabel}>Performance</Text>
+                <Text style={styles.statLabel}>{t('progress.performance')}</Text>
                 <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
                   {getScoreText(displayStats.averageScore)}
                 </Text>
@@ -103,7 +105,7 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
       ) : (
         <View style={styles.emptyState}>
           <Text style={styles.emptyText}>
-            Start practicing to track your progress!
+            {t('progress.startPracticing')}
           </Text>
         </View>
       )}
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.md,
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   statRow: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },

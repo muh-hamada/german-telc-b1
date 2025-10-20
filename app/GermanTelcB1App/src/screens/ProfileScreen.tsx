@@ -7,6 +7,8 @@ import {
   ScrollView,
   Alert,
   Image,
+  BackHandler,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
@@ -17,6 +19,7 @@ import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE } from '../config/demo.config';
+import { checkRTLChange } from '../utils/i18n';
 
 const ProfileScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -28,12 +31,12 @@ const ProfileScreen: React.FC = () => {
 
   const handleClearProgress = () => {
     Alert.alert(
-      'Clear Progress',
-      'Are you sure you want to clear all your progress? This action cannot be undone.',
+      t('profile.alerts.clearProgressTitle'),
+      t('profile.alerts.clearProgressMessage'),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Clear',
+          text: t('profile.alerts.clear'),
           style: 'destructive',
           onPress: async () => {
             setIsClearing(true);
@@ -41,9 +44,9 @@ const ProfileScreen: React.FC = () => {
             setIsClearing(false);
             
             if (success) {
-              Alert.alert('Success', 'Your progress has been cleared.');
+              Alert.alert(t('common.success'), t('profile.alerts.progressCleared'));
             } else {
-              Alert.alert('Error', 'Failed to clear progress. Please try again.');
+              Alert.alert(t('common.error'), t('profile.alerts.clearFailed'));
             }
           },
         },
@@ -57,29 +60,48 @@ const ProfileScreen: React.FC = () => {
 
   const handleLanguageSelect = async (languageCode: string) => {
     try {
+      const needsRestart = checkRTLChange(languageCode);
       await i18n.changeLanguage(languageCode);
-      Alert.alert('Success', 'Language changed successfully!');
+      
+      if (needsRestart) {
+        Alert.alert(
+          t('common.success'),
+          'Language changed successfully. Please restart the app to apply layout direction changes.',
+          [
+            {
+              text: 'Restart Later',
+              style: 'cancel',
+            },
+            {
+              text: 'Close App',
+              onPress: () => BackHandler.exitApp(),
+            },
+          ]
+        );
+      } else {
+        Alert.alert(t('common.success'), t('profile.alerts.languageChanged'));
+      }
     } catch (error) {
       console.error('Error changing language:', error);
-      Alert.alert('Error', 'Failed to change language. Please try again.');
+      Alert.alert(t('common.error'), t('profile.alerts.languageChangeFailed'));
     }
   };
 
   const handleSignOut = () => {
     Alert.alert(
-      'Sign Out',
-      'Are you sure you want to sign out?',
+      t('profile.alerts.signOutTitle'),
+      t('profile.alerts.signOutMessage'),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Sign Out',
+          text: t('profile.signOut'),
           style: 'destructive',
           onPress: async () => {
             try {
               await signOut();
-              Alert.alert('Success', 'You have been signed out.');
+              Alert.alert(t('common.success'), t('profile.alerts.signedOut'));
             } catch (error) {
-              Alert.alert('Error', 'Failed to sign out. Please try again.');
+              Alert.alert(t('common.error'), t('profile.alerts.signOutFailed'));
             }
           },
         },
@@ -89,11 +111,11 @@ const ProfileScreen: React.FC = () => {
 
   const handleLoginSuccess = () => {
     setShowLoginModal(false);
-    Alert.alert('Success', 'You have been signed in successfully!');
+    Alert.alert(t('common.success'), t('profile.alerts.signedInSuccess'));
   };
 
   const handleLoginFailure = () => {
-    Alert.alert('Error', 'Failed to sign in. Please try again.');
+    Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
   };
 
   return (
@@ -104,16 +126,16 @@ const ProfileScreen: React.FC = () => {
         {/* User Info Section */}
         {user && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Account</Text>
+            <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
             <View style={styles.userInfo}>
               {user.photoURL && (
                 <Image source={{ uri: user.photoURL }} style={styles.avatar} />
               )}
               <View style={styles.userDetails}>
-                <Text style={styles.userName}>{user.displayName || 'User'}</Text>
+                <Text style={styles.userName}>{user.displayName || t('common.user')}</Text>
                 <Text style={styles.userEmail}>{user.email}</Text>
                 <Text style={styles.userProvider}>
-                  Signed in with {user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}
+                  {t('profile.signedInWith')} {user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}
                 </Text>
               </View>
             </View>
@@ -127,17 +149,17 @@ const ProfileScreen: React.FC = () => {
 
         {/* Settings Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Settings</Text>
+          <Text style={styles.sectionTitle}>{t('profile.settings')}</Text>
           
           <Button
-            title="Change Language"
+            title={t('profile.changeLanguage')}
             onPress={handleLanguageChange}
             variant="outline"
             style={styles.settingButton}
           />
           
           <Button
-            title="Clear Progress"
+            title={t('profile.clearProgress')}
             onPress={handleClearProgress}
             variant="outline"
             style={[styles.settingButton, styles.dangerButton]}
@@ -147,11 +169,11 @@ const ProfileScreen: React.FC = () => {
 
         {/* Authentication Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Account</Text>
+          <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
           
           {user ? (
             <Button
-              title="Sign Out"
+              title={t('profile.signOut')}
               onPress={handleSignOut}
               variant="outline"
               style={[styles.settingButton, styles.dangerButton]}
@@ -159,7 +181,7 @@ const ProfileScreen: React.FC = () => {
             />
           ) : (
             <Button
-              title="Sign In"
+              title={t('profile.signIn')}
               onPress={() => setShowLoginModal(true)}
               variant="outline"
               style={styles.settingButton}
@@ -169,11 +191,11 @@ const ProfileScreen: React.FC = () => {
 
         {/* About Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>About</Text>
+          <Text style={styles.sectionTitle}>{t('profile.about')}</Text>
           <Text style={styles.aboutText}>
-            German TELC B1 Exam Preparation App
+            {t('profile.appName')}
           </Text>
-          <Text style={styles.versionText}>Version 1.0.0</Text>
+          <Text style={styles.versionText}>{t('profile.version')}</Text>
         </View>
       </ScrollView>
 
@@ -235,7 +257,7 @@ const styles = StyleSheet.create({
     color: colors.text.tertiary,
   },
   userInfo: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,

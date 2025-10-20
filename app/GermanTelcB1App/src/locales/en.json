@@ -12,7 +12,61 @@
     "error": "Error",
     "success": "Success",
     "close": "Close",
-    "done": "Done"
+    "done": "Done",
+    "retry": "Retry",
+    "user": "User",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "age": "Age",
+      "birthCity": "Birth City",
+      "origin": "Origin (Country)",
+      "livingSince": "Living in Germany Since",
+      "maritalStatus": "Marital Status",
+      "familySize": "Family Size",
+      "location": "Location in Germany",
+      "child1Age": "Child 1 Age",
+      "child1Grade": "Child 1 Grade",
+      "child2Age": "Child 2 Age",
+      "profession": "Profession",
+      "company": "Company",
+      "hobbies": "Hobbies & Free Time"
+    },
+    "placeholders": {
+      "enterName": "Enter your name",
+      "enterEmail": "Enter your email",
+      "enterPassword": "Enter your password",
+      "confirmPassword": "Confirm your password",
+      "exampleMuhammad": "e.g., Muhammad",
+      "example35": "e.g., 35",
+      "exampleKairo": "e.g., Kairo",
+      "exampleEgypt": "e.g., Ägypten",
+      "example2016": "e.g., 2016",
+      "exampleMarried": "e.g., verheiratet",
+      "exampleFamily": "e.g., eine kleine Familie: meine Frau und zwei Töchter",
+      "exampleCharlottenburg": "e.g., Charlottenburg",
+      "exampleEight": "e.g., acht",
+      "exampleThirdGrade": "e.g., dritte Klasse",
+      "exampleThree": "e.g., drei",
+      "exampleEngineer": "e.g., Ingenieur",
+      "exampleHelloFresh": "e.g., HelloFresh",
+      "exampleHobbies": "e.g., treibe ich gerne Sport, gehe ins Fitnessstudio..."
+    },
+    "alerts": {
+      "requiredFields": "Required Fields",
+      "fillRequiredFields": "Please fill in all required fields",
+      "enterName": "Please enter your name",
+      "passwordsNoMatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "enterEmailFirst": "Please enter your email address first",
+      "fillNameOriginLiving": "Please fill in at least Name, Origin, and Living Since fields.",
+      "infoSaved": "Personal information saved!",
+      "failedToSave": "Failed to save personal information",
+      "retryExam": "Retry Exam",
+      "retryExamConfirm": "Are you sure you want to retry this exam? Your previous answers will be lost."
+    }
   },
   "onboarding": {
     "welcome": "Let's prepare for the German TELC B1 exam together",
@@ -40,6 +94,10 @@
       "listening": "Listening",
       "writing": "Writing",
       "speaking": "Speaking"
+    },
+    "descriptions": {
+      "examStructure": "Learn about the TELC B1 exam format and scoring",
+      "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
     }
   },
   "examStructure": {
@@ -52,7 +110,13 @@
       "title": "Reading Comprehension",
       "part1": "Part 1: Matching Headings",
       "part2": "Part 2: Multiple Choice",
-      "part3": "Part 3: Advertisement Matching"
+      "part3": "Part 3: Advertisement Matching",
+      "descriptions": {
+        "main": "Practice reading comprehension with various text types",
+        "part1": "Match headings to texts",
+        "part2": "Multiple choice questions about a text",
+        "part3": "Match situations to advertisements"
+      }
     },
     "listening": {
       "title": "Listening Comprehension",
@@ -61,7 +125,8 @@
       "part2": "Part 2: Longer Conversations",
       "part2Description": "You will hear a long conversation and you should solve 10 tasks.",
       "part3": "Part 3: Monologues",
-      "part3Description": "You will hear five monologues and you should solve five tasks."
+      "part3Description": "You will hear five monologues and you should solve five tasks.",
+      "comingSoon": "Listening exercises coming soon"
     },
     "writing": {
       "title": "Written Expression",
@@ -71,12 +136,18 @@
       "title": "Oral Expression",
       "part1": "Part 1: Personal Introduction",
       "part2": "Part 2: Topic Presentation",
-      "part3": "Part 3: Planning Together"
+      "part3": "Part 3: Planning Together",
+      "descriptions": {
+        "main": "Practice oral expression and conversation skills"
+      }
     },
     "grammar": {
       "title": "Language Building Blocks",
       "part1": "Part 1: Gap Fill (Multiple Choice)",
-      "part2": "Part 2: Gap Fill (Word List)"
+      "part2": "Part 2: Gap Fill (Word List)",
+      "descriptions": {
+        "main": "Practice German grammar with gap-fill exercises"
+      }
     }
   },
   "profile": {
@@ -88,6 +159,13 @@
     "authentication": "Authentication",
     "login": "Login",
     "logout": "Logout",
+    "account": "Account",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "changeLanguage": "Change Language",
+    "signedInWith": "Signed in with",
+    "appName": "German TELC B1 Exam Preparation App",
+    "version": "Version 1.0.0",
     "loginProviders": {
       "google": "Continue with Google",
       "facebook": "Continue with Facebook",
@@ -97,6 +175,21 @@
     "userInfo": {
       "welcome": "Welcome",
       "notLoggedIn": "Not logged in"
+    },
+    "alerts": {
+      "clearProgressTitle": "Clear Progress",
+      "clearProgressMessage": "Are you sure you want to clear all your progress? This action cannot be undone.",
+      "clear": "Clear",
+      "progressCleared": "Your progress has been cleared.",
+      "clearFailed": "Failed to clear progress. Please try again.",
+      "languageChanged": "Language changed successfully!",
+      "languageChangeFailed": "Failed to change language. Please try again.",
+      "signOutTitle": "Sign Out",
+      "signOutMessage": "Are you sure you want to sign out?",
+      "signedOut": "You have been signed out.",
+      "signOutFailed": "Failed to sign out. Please try again.",
+      "signedInSuccess": "You have been signed in successfully!",
+      "signInFailed": "Failed to sign in. Please try again."
     }
   },
   "mockExam": {
@@ -111,5 +204,245 @@
     "score": "Score",
     "results": "Results",
     "tryAgain": "Try Again"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "forgotPassword": "Forgot Password?",
+    "alreadyHaveAccount": "Already have an account? Sign In",
+    "noAccount": "Don't have an account? Create Account"
+  },
+  "speaking": {
+    "part1": {
+      "title": "Speaking Part 1",
+      "subtitle": "Personal Introduction",
+      "tabs": {
+        "myIntro": "My Intro",
+        "example": "Example",
+        "vocabulary": "Vocabulary"
+      },
+      "sections": {
+        "myProfile": "My Profile",
+        "personalIntro": "Personal Introduction",
+        "keyVocabulary": "Key Vocabulary",
+        "completeExample": "Complete Example"
+      },
+      "buttons": {
+        "viewInfo": "View Personal Info",
+        "editInfo": "Edit Info",
+        "saveInfo": "Save Information"
+      },
+      "modal": {
+        "personalInfo": "Personal Information",
+        "yourPersonalInfo": "Your Personal Information"
+      },
+      "help": {
+        "exampleNote": "This is a complete example of a personal introduction for the TELC B1 oral exam. You can use this as a reference to create your own.",
+        "enterInfoPrompt": "Please enter your personal information to generate your introduction text."
+      },
+      "infoLabels": {
+        "name": "Name:",
+        "age": "Age:",
+        "birthCity": "Birth City:",
+        "origin": "Origin:",
+        "livingSince": "Living Since:",
+        "maritalStatus": "Marital Status:",
+        "family": "Family:",
+        "location": "Location:",
+        "profession": "Profession:",
+        "company": "Company:",
+        "hobbies": "Hobbies:"
+      }
+    },
+    "part2": {
+      "title": "Speaking Part 2",
+      "subtitle": "Topic Presentation",
+      "selectTopic": "Select a topic",
+      "topicSelection": "Topic Selection",
+      "sections": {
+        "topicSelectionLabel": "Topic Selection:",
+        "partnerSummary": "Summarize Partner's View",
+        "discussion": "Discussion (After the Presentation)",
+        "discussionNote": "Use these questions to continue the conversation with your partner, express your opinion, and share your own experiences."
+      },
+      "tabs": {
+        "yourRole": "Your Role (Participant A)",
+        "partnerRole": "Partner Role (Participant B)"
+      },
+      "buttons": {
+        "hideSummary": "Hide Summary",
+        "showSummary": "Summarize partner's view (third person)"
+      },
+      "instructions": {
+        "taskDescription": "Your task: Tell your conversation partner about the following text and then discuss the topic.",
+        "startingText": "Your starting text for presentation:"
+      }
+    },
+    "part3": {
+      "title": "Speaking Part 3",
+      "subtitle": "Planning Together",
+      "selectScenario": "Select a scenario",
+      "scenarioSelection": "Scenario Selection",
+      "sections": {
+        "scenarioSelectionLabel": "Scenario Selection:"
+      },
+      "tabs": {
+        "dialog": "Dialog",
+        "vocabulary": "Vocabulary",
+        "phrases": "Phrases"
+      },
+      "tableHeaders": {
+        "german": "German",
+        "english": "English",
+        "suggestion": "Suggestion / Task",
+        "response": "Example Response"
+      }
+    }
+  },
+  "results": {
+    "title": "Exam Results",
+    "detailedResults": "Detailed Results",
+    "question": "Question",
+    "yourAnswer": "Your answer:",
+    "correctAnswer": "Correct answer:",
+    "outOf": "out of",
+    "points": "points",
+    "feedback": {
+      "excellent": "Excellent!",
+      "goodJob": "Good job!",
+      "keepPracticing": "Keep practicing!",
+      "tryAgain": "Try again!"
+    }
+  },
+  "progress": {
+    "yourProgress": "Your Progress",
+    "loginRequired": "Login Required",
+    "loginPrompt": "Please login to save and view your progress across all devices",
+    "examsCompleted": "Exams Completed",
+    "completionRate": "Completion Rate",
+    "totalScore": "Total Score",
+    "performance": "Performance",
+    "startPracticing": "Start practicing to track your progress!",
+    "performanceLevels": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "fair": "Fair",
+      "needsImprovement": "Needs Improvement"
+    }
+  },
+  "mockExam": {
+    "title": "Mock Exam",
+    "subtitle": "Telc German B1 Complete Exam",
+    "overview": "Exam Overview",
+    "totalDuration": "Total Duration",
+    "totalPoints": "Total Points",
+    "passingScore": "Passing Score",
+    "minutes": "Minutes",
+    "points": "Points",
+    "importantNote": "Important Note:",
+    "importantNoteText": "Before starting the exam, we strongly recommend reviewing the exam structure to familiarize yourself with the format and requirements.",
+    "viewStructure": "View Exam Structure",
+    "aboutMockExam": "About this Mock Exam",
+    "disclaimerText1": "This mock exam gives you a rough assessment of your current knowledge and preparation. However, it is",
+    "disclaimerText2": "no guarantee",
+    "disclaimerText3": "that you will pass the real Telc B1 exam.",
+    "disclaimerText4": "The real exam is conducted under controlled conditions and evaluated by certified examiners. Use this mock exam as a practice tool to identify your weaknesses and improve them specifically.",
+    "examSections": "Exam Sections:",
+    "readingComprehension": "Reading Comprehension (3 Parts)",
+    "languageElements": "Language Building Blocks (2 Parts)",
+    "listeningComprehension": "Listening Comprehension (3 Parts)",
+    "writtenExpression": "Written Expression",
+    "oralExpression": "Oral Expression (3 Parts)",
+    "practiceRecommended": "Practice recommended",
+    "speakingNote": "Note on Oral Exam:",
+    "speakingNoteText": "The oral exam requires human interaction and cannot be simulated in this mock exam. We recommend using the practice area and practicing with a friend, language partner, or tutor.",
+    "startExam": "Start Mock Exam",
+    "goodLuck": "Good luck! Take your time and read all instructions carefully.",
+    "examInProgress": "Exam in Progress",
+    "resumeOrRestart": "You have already started a mock exam. Would you like to continue or start a new exam?",
+    "resume": "Resume",
+    "startNew": "Start New",
+    "confirm": "Confirm",
+    "confirmRestart": "Are you sure you want to start a new exam? Your current progress will be deleted.",
+    "yesStartNew": "Yes, Start New",
+    "examNotFound": "No exam found.",
+    "couldNotLoadProgress": "Could not load exam progress.",
+    "couldNotStartExam": "Could not start exam. Please try again.",
+    "examLoading": "Exam is loading...",
+    "exitExam": "Exit Exam?",
+    "exitExamMessage": "Do you really want to exit? Your progress will be saved and you can continue later.",
+    "stay": "Stay",
+    "exit": "Exit",
+    "couldNotSaveProgress": "Progress could not be saved.",
+    "finishExam": "Finish Exam",
+    "finishExamMessage": "Are you sure you want to finish the exam? You can review your results afterwards.",
+    "finish": "Finish",
+    "completeAllSections": "Please complete all required sections before finishing the exam.",
+    "congratulations": "Congratulations!",
+    "examCompleted": "You have completed the mock exam!",
+    "yourScore": "Your Score",
+    "passed": "Passed",
+    "failed": "Failed",
+    "viewResults": "View Results",
+    "backToHome": "Back to Home"
+  },
+  "exam": {
+    "selectExam": "Select Exam:",
+    "test": "Test",
+    "loadingExam": "Loading exam...",
+    "failedToLoad": "Failed to load exam data",
+    "selectAnExam": "Select an exam",
+    "selectTask": "Select Task"
+  },
+  "grammar": {
+    "part1": {
+      "title": "Grammar Part 1",
+      "subtitle": "Fill in the blanks (Grammar)"
+    },
+    "part2": {
+      "title": "Grammar Part 2",
+      "subtitle": "Fill in the blanks (Lexical)"
+    }
+  },
+  "reading": {
+    "part1": {
+      "title": "Reading Part 1",
+      "subtitle": "Match headings to texts"
+    },
+    "part2": {
+      "title": "Reading Part 2",
+      "subtitle": "Multiple choice questions"
+    },
+    "part3": {
+      "title": "Reading Part 3",
+      "subtitle": "Match advertisements"
+    }
+  },
+  "writing": {
+    "title": "Writing",
+    "subtitle": "Write a personal email"
+  },
+  "listening": {
+    "part1": {
+      "title": "Listening Part 1",
+      "subtitle": "Short dialogues"
+    },
+    "part2": {
+      "title": "Listening Part 2",
+      "subtitle": "Longer conversation"
+    },
+    "part3": {
+      "title": "Listening Part 3",
+      "subtitle": "Monologues"
+    }
+  },
+  "examStructure": {
+    "cefrLevel": "CEFR Level:",
+    "totalDuration": "Total Duration:",
+    "minutes": "Minutes",
+    "maxPoints": "Maximum Points:",
+    "points": "Points",
+    "passingThreshold": "Passing Threshold:",
+    "preparation": "Preparation"
   }
 }

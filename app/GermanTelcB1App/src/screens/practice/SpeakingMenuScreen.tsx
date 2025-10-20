@@ -21,15 +21,15 @@ const SpeakingMenuScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
-          <Text style={styles.cardDescription}>Personal introduction</Text>
+          <Text style={styles.cardDescription}>{t('speaking.part1.subtitle')}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart2Press}>
           <Text style={styles.cardTitle}>{t('practice.speaking.part2')}</Text>
-          <Text style={styles.cardDescription}>Topic presentation</Text>
+          <Text style={styles.cardDescription}>{t('speaking.part2.subtitle')}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart3Press}>
           <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
-          <Text style={styles.cardDescription}>Planning together</Text>
+          <Text style={styles.cardDescription}>{t('speaking.part3.subtitle')}</Text>
         </Card>
       </ScrollView>
       {!DEMO_MODE && <AdBanner />}

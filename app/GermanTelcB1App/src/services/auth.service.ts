@@ -133,7 +133,6 @@ class AuthService {
         throw new Error('User cancelled the login process');
       }
 
-
       console.log('signInWithFacebook step 3');
 
       // Once signed in, get the users AccessToken

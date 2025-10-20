@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
   Platform,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
     maxHeight: '100%',
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -279,7 +280,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   divider: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     marginVertical: spacing.margin.lg,
   },

@@ -10,6 +10,7 @@ import {
   FlatList,
 } from 'react-native';
 import { colors, spacing, typography } from '../../theme';
+import { useTranslation } from 'react-i18next';
 import writingData from '../../data/writing.json';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
@@ -23,6 +24,7 @@ interface WritingExam {
 }
 
 const WritingScreen: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedExamId, setSelectedExamId] = useState<number>(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -44,7 +46,7 @@ const WritingScreen: React.FC = () => {
           onPress={() => setIsDropdownOpen(true)}
         >
           <Text style={styles.dropdownButtonText}>
-            {currentExam?.title || 'Select an exam'}
+            {currentExam?.title || t('exam.selectAnExam')}
           </Text>
           <Text style={styles.dropdownArrow}>▼</Text>
         </TouchableOpacity>
@@ -58,7 +60,7 @@ const WritingScreen: React.FC = () => {
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
               <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>Aufgabe auswählen</Text>
+                <Text style={styles.modalTitle}>{t('exam.selectTask')}</Text>
                 <TouchableOpacity
                   onPress={() => setIsDropdownOpen(false)}
                   style={styles.closeButton}

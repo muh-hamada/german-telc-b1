@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TextStyle,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
   },
   
   // Variants

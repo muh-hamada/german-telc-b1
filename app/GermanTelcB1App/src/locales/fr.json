@@ -7,16 +7,70 @@
     "previous": "Précédent",
     "submit": "Soumettre",
     "cancel": "Annuler",
-    "save": "Sauvegarder",
+    "save": "Enregistrer",
     "loading": "Chargement...",
     "error": "Erreur",
     "success": "Succès",
     "close": "Fermer",
-    "done": "Terminé"
+    "done": "Terminé",
+    "retry": "Réessayer",
+    "user": "Utilisateur",
+    "labels": {
+      "name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "age": "Âge",
+      "birthCity": "Ville de naissance",
+      "origin": "Origine (Pays)",
+      "livingSince": "Vivant en Allemagne depuis",
+      "maritalStatus": "État civil",
+      "familySize": "Taille de la famille",
+      "location": "Emplacement en Allemagne",
+      "child1Age": "Âge de l'enfant 1",
+      "child1Grade": "Classe de l'enfant 1",
+      "child2Age": "Âge de l'enfant 2",
+      "profession": "Profession",
+      "company": "Entreprise",
+      "hobbies": "Loisirs et temps libre"
+    },
+    "placeholders": {
+      "enterName": "Entrez votre nom",
+      "enterEmail": "Entrez votre email",
+      "enterPassword": "Entrez votre mot de passe",
+      "confirmPassword": "Confirmez votre mot de passe",
+      "exampleMuhammad": "ex., Muhammad",
+      "example35": "ex., 35",
+      "exampleKairo": "ex., Kairo",
+      "exampleEgypt": "ex., Ägypten",
+      "example2016": "ex., 2016",
+      "exampleMarried": "ex., verheiratet",
+      "exampleFamily": "ex., eine kleine Familie: meine Frau und zwei Töchter",
+      "exampleCharlottenburg": "ex., Charlottenburg",
+      "exampleEight": "ex., acht",
+      "exampleThirdGrade": "ex., dritte Klasse",
+      "exampleThree": "ex., drei",
+      "exampleEngineer": "ex., Ingenieur",
+      "exampleHelloFresh": "ex., HelloFresh",
+      "exampleHobbies": "ex., treibe ich gerne Sport, gehe ins Fitnessstudio..."
+    },
+    "alerts": {
+      "requiredFields": "Champs obligatoires",
+      "fillRequiredFields": "Veuillez remplir tous les champs obligatoires",
+      "enterName": "Veuillez entrer votre nom",
+      "passwordsNoMatch": "Les mots de passe ne correspondent pas",
+      "passwordTooShort": "Le mot de passe doit contenir au moins 6 caractères",
+      "enterEmailFirst": "Veuillez d'abord entrer votre adresse email",
+      "fillNameOriginLiving": "Veuillez remplir au moins Nom, Origine et Vivant depuis.",
+      "infoSaved": "Informations personnelles enregistrées !",
+      "failedToSave": "Échec de l'enregistrement des informations personnelles",
+      "retryExam": "Réessayer l'examen",
+      "retryExamConfirm": "Êtes-vous sûr de vouloir réessayer cet examen ? Vos réponses précédentes seront perdues."
+    }
   },
   "onboarding": {
     "welcome": "Préparons ensemble l'examen allemand TELC B1",
-    "selectLanguage": "Sélectionnez votre langue d'interface",
+    "selectLanguage": "Sélectionnez la langue de votre interface",
     "languages": {
       "en": "English",
       "de": "Deutsch",
@@ -28,66 +82,85 @@
   },
   "navigation": {
     "home": "Accueil",
-    "mockExam": "Examen Blanc",
+    "mockExam": "Examen blanc",
     "profile": "Profil"
   },
   "home": {
     "title": "Préparation TELC B1 Allemand",
-    "examStructure": "Structure de l'Examen",
-    "practice": "Pratique",
+    "examStructure": "Structure de l'examen",
+    "practice": "Pratiquer",
     "practiceSections": {
-      "reading": "Compréhension Écrite",
-      "listening": "Compréhension Orale",
-      "writing": "Expression Écrite",
-      "speaking": "Expression Orale"
+      "reading": "Compréhension écrite",
+      "listening": "Compréhension orale",
+      "writing": "Expression écrite",
+      "speaking": "Expression orale"
+    },
+    "descriptions": {
+      "examStructure": "Apprenez le format et le système de notation de l'examen TELC B1",
+      "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale"
     }
-  },
-  "examStructure": {
-    "title": "Structure de l'Examen",
-    "description": "Apprenez le format et la notation de l'examen TELC B1",
-    "comingSoon": "Contenu bientôt disponible..."
   },
   "practice": {
     "reading": {
-      "title": "Compréhension Écrite",
-      "part1": "Partie 1: Associer les Titres",
-      "part2": "Partie 2: Choix Multiple",
-      "part3": "Partie 3: Associer les Annonces"
+      "title": "Compréhension écrite",
+      "part1": "Partie 1 : Associer les titres",
+      "part2": "Partie 2 : Questions à choix multiples",
+      "part3": "Partie 3 : Associer les annonces",
+      "descriptions": {
+        "main": "Pratiquez la compréhension écrite avec différents types de textes",
+        "part1": "Associez les titres aux textes",
+        "part2": "Questions à choix multiples sur un texte",
+        "part3": "Associez les situations aux annonces"
+      }
     },
     "listening": {
-      "title": "Compréhension Orale",
-      "part1": "Partie 1: Dialogues Courts",
+      "title": "Compréhension orale",
+      "part1": "Partie 1 : Dialogues courts",
       "part1Description": "Vous entendrez cinq dialogues courts et vous devrez résoudre cinq tâches.",
-      "part2": "Partie 2: Conversations Longues",
-      "part2Description": "Vous entendrez une conversation longue et vous devrez résoudre 10 tâches.",
-      "part3": "Partie 3: Monologues",
-      "part3Description": "Vous entendrez cinq monologues et vous devrez résoudre cinq tâches."
+      "part2": "Partie 2 : Conversations longues",
+      "part2Description": "Vous entendrez une longue conversation et vous devrez résoudre 10 tâches.",
+      "part3": "Partie 3 : Monologues",
+      "part3Description": "Vous entendrez cinq monologues et vous devrez résoudre cinq tâches.",
+      "comingSoon": "Exercices d'écoute à venir"
     },
     "writing": {
-      "title": "Expression Écrite",
+      "title": "Expression écrite",
       "description": "Écrivez un email personnel ou semi-formel"
     },
     "speaking": {
-      "title": "Expression Orale",
-      "part1": "Partie 1: Présentation Personnelle",
-      "part2": "Partie 2: Présentation de Sujet",
-      "part3": "Partie 3: Planifier Ensemble"
+      "title": "Expression orale",
+      "part1": "Partie 1 : Présentation personnelle",
+      "part2": "Partie 2 : Présentation de sujet",
+      "part3": "Partie 3 : Planifier ensemble",
+      "descriptions": {
+        "main": "Pratiquez l'expression orale et les compétences de conversation"
+      }
     },
     "grammar": {
-      "title": "Éléments Linguistiques",
-      "part1": "Partie 1: Compléter les Lacunes (Choix Multiple)",
-      "part2": "Partie 2: Compléter les Lacunes (Liste de Mots)"
+      "title": "Éléments de langage",
+      "part1": "Partie 1 : Texte à trous (Choix multiples)",
+      "part2": "Partie 2 : Texte à trous (Liste de mots)",
+      "descriptions": {
+        "main": "Pratiquez la grammaire allemande avec des exercices à trous"
+      }
     }
   },
   "profile": {
     "title": "Profil",
     "settings": "Paramètres",
-    "language": "Langue d'Interface",
-    "clearProgress": "Effacer le Progrès",
-    "about": "À Propos",
+    "language": "Langue de l'interface",
+    "clearProgress": "Effacer la progression",
+    "about": "À propos",
     "authentication": "Authentification",
-    "login": "Se Connecter",
-    "logout": "Se Déconnecter",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "account": "Compte",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter",
+    "changeLanguage": "Changer de langue",
+    "signedInWith": "Connecté avec",
+    "appName": "Application de préparation à l'examen allemand TELC B1",
+    "version": "Version 1.0.0",
     "loginProviders": {
       "google": "Continuer avec Google",
       "facebook": "Continuer avec Facebook",
@@ -97,19 +170,269 @@
     "userInfo": {
       "welcome": "Bienvenue",
       "notLoggedIn": "Non connecté"
+    },
+    "alerts": {
+      "clearProgressTitle": "Effacer la progression",
+      "clearProgressMessage": "Êtes-vous sûr de vouloir effacer toute votre progression ? Cette action ne peut pas être annulée.",
+      "clear": "Effacer",
+      "progressCleared": "Votre progression a été effacée.",
+      "clearFailed": "Échec de l'effacement de la progression. Veuillez réessayer.",
+      "languageChanged": "Langue changée avec succès !",
+      "languageChangeFailed": "Échec du changement de langue. Veuillez réessayer.",
+      "signOutTitle": "Se déconnecter",
+      "signOutMessage": "Êtes-vous sûr de vouloir vous déconnecter ?",
+      "signedOut": "Vous avez été déconnecté.",
+      "signOutFailed": "Échec de la déconnexion. Veuillez réessayer.",
+      "signedInSuccess": "Vous vous êtes connecté avec succès !",
+      "signInFailed": "Échec de la connexion. Veuillez réessayer."
     }
   },
-  "mockExam": {
-    "title": "Examen Blanc",
-    "description": "Passez un examen de pratique complet",
-    "comingSoon": "Fonction d'examen blanc bientôt disponible..."
-  },
   "questions": {
-    "checkAnswers": "Vérifier les Réponses",
+    "checkAnswers": "Vérifier les réponses",
     "correct": "Correct",
     "incorrect": "Incorrect",
     "score": "Score",
     "results": "Résultats",
     "tryAgain": "Réessayer"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "createAccount": "Créer un compte",
+    "forgotPassword": "Mot de passe oublié ?",
+    "alreadyHaveAccount": "Vous avez déjà un compte ? Se connecter",
+    "noAccount": "Vous n'avez pas de compte ? Créer un compte"
+  },
+  "speaking": {
+    "part1": {
+      "title": "Expression orale Partie 1",
+      "subtitle": "Présentation personnelle",
+      "tabs": {
+        "myIntro": "Ma présentation",
+        "example": "Exemple",
+        "vocabulary": "Vocabulaire"
+      },
+      "sections": {
+        "myProfile": "Mon profil",
+        "personalIntro": "Présentation personnelle",
+        "keyVocabulary": "Vocabulaire clé",
+        "completeExample": "Exemple complet"
+      },
+      "buttons": {
+        "viewInfo": "Voir les informations personnelles",
+        "editInfo": "Modifier les informations",
+        "saveInfo": "Enregistrer les informations"
+      },
+      "modal": {
+        "personalInfo": "Informations personnelles",
+        "yourPersonalInfo": "Vos informations personnelles"
+      },
+      "help": {
+        "exampleNote": "Ceci est un exemple complet d'une présentation personnelle pour l'examen oral TELC B1. Vous pouvez l'utiliser comme référence pour créer la vôtre.",
+        "enterInfoPrompt": "Veuillez entrer vos informations personnelles pour générer votre texte de présentation."
+      },
+      "infoLabels": {
+        "name": "Nom :",
+        "age": "Âge :",
+        "birthCity": "Ville de naissance :",
+        "origin": "Origine :",
+        "livingSince": "Vivant depuis :",
+        "maritalStatus": "État civil :",
+        "family": "Famille :",
+        "location": "Emplacement :",
+        "profession": "Profession :",
+        "company": "Entreprise :",
+        "hobbies": "Loisirs :"
+      }
+    },
+    "part2": {
+      "title": "Expression orale Partie 2",
+      "subtitle": "Présentation de sujet",
+      "selectTopic": "Sélectionnez un sujet",
+      "topicSelection": "Sélection de sujet",
+      "sections": {
+        "topicSelectionLabel": "Sélection de sujet :",
+        "partnerSummary": "Résumer le point de vue du partenaire",
+        "discussion": "Discussion (Après la présentation)",
+        "discussionNote": "Utilisez ces questions pour continuer la conversation avec votre partenaire, exprimer votre opinion et partager vos propres expériences."
+      },
+      "tabs": {
+        "yourRole": "Votre rôle (Participant A)",
+        "partnerRole": "Rôle du partenaire (Participant B)"
+      },
+      "buttons": {
+        "hideSummary": "Masquer le résumé",
+        "showSummary": "Résumer le point de vue du partenaire (troisième personne)"
+      },
+      "instructions": {
+        "taskDescription": "Votre tâche : Informez votre partenaire de conversation du texte suivant, puis discutez du sujet.",
+        "startingText": "Votre texte de départ pour la présentation :"
+      }
+    },
+    "part3": {
+      "title": "Expression orale Partie 3",
+      "subtitle": "Planifier ensemble",
+      "selectScenario": "Sélectionnez un scénario",
+      "scenarioSelection": "Sélection de scénario",
+      "sections": {
+        "scenarioSelectionLabel": "Sélection de scénario :"
+      },
+      "tabs": {
+        "dialog": "Dialogue",
+        "vocabulary": "Vocabulaire",
+        "phrases": "Phrases"
+      },
+      "tableHeaders": {
+        "german": "Allemand",
+        "english": "Anglais",
+        "suggestion": "Suggestion / Tâche",
+        "response": "Exemple de réponse"
+      }
+    }
+  },
+  "results": {
+    "title": "Résultats de l'examen",
+    "detailedResults": "Résultats détaillés",
+    "question": "Question",
+    "yourAnswer": "Votre réponse :",
+    "correctAnswer": "Réponse correcte :",
+    "outOf": "sur",
+    "points": "points",
+    "feedback": {
+      "excellent": "Excellent !",
+      "goodJob": "Bon travail !",
+      "keepPracticing": "Continuez à pratiquer !",
+      "tryAgain": "Réessayez !"
+    }
+  },
+  "progress": {
+    "yourProgress": "Votre progression",
+    "loginRequired": "Connexion requise",
+    "loginPrompt": "Veuillez vous connecter pour sauvegarder et voir votre progression sur tous vos appareils",
+    "examsCompleted": "Examens terminés",
+    "completionRate": "Taux de réussite",
+    "totalScore": "Score total",
+    "performance": "Performance",
+    "startPracticing": "Commencez à pratiquer pour suivre vos progrès !",
+    "performanceLevels": {
+      "excellent": "Excellent",
+      "good": "Bien",
+      "fair": "Passable",
+      "needsImprovement": "À améliorer"
+    }
+  },
+  "mockExam": {
+    "title": "Examen blanc",
+    "subtitle": "Examen complet Telc Allemand B1",
+    "overview": "Aperçu de l'examen",
+    "totalDuration": "Durée totale",
+    "totalPoints": "Points totaux",
+    "passingScore": "Score minimum",
+    "minutes": "Minutes",
+    "points": "Points",
+    "importantNote": "Note importante :",
+    "importantNoteText": "Avant de commencer l'examen, nous vous recommandons vivement de consulter la structure de l'examen pour vous familiariser avec le format et les exigences.",
+    "viewStructure": "Voir la structure de l'examen",
+    "aboutMockExam": "À propos de cet examen blanc",
+    "disclaimerText1": "Cet examen blanc vous donne une évaluation approximative de vos connaissances actuelles et de votre préparation. Cependant, ce",
+    "disclaimerText2": "n'est pas une garantie",
+    "disclaimerText3": "que vous réussirez le véritable examen Telc B1.",
+    "disclaimerText4": "Le véritable examen se déroule dans des conditions contrôlées et est évalué par des examinateurs certifiés. Utilisez cet examen blanc comme outil d'entraînement pour identifier vos faiblesses et les améliorer spécifiquement.",
+    "examSections": "Sections de l'examen :",
+    "readingComprehension": "Compréhension écrite (3 parties)",
+    "languageElements": "Éléments de langue (2 parties)",
+    "listeningComprehension": "Compréhension orale (3 parties)",
+    "writtenExpression": "Expression écrite",
+    "oralExpression": "Expression orale (3 parties)",
+    "practiceRecommended": "Pratique recommandée",
+    "speakingNote": "Note sur l'examen oral :",
+    "speakingNoteText": "L'examen oral nécessite une interaction humaine et ne peut pas être simulé dans cet examen blanc. Nous vous recommandons d'utiliser la zone de pratique et de vous entraîner avec un ami, un partenaire linguistique ou un tuteur.",
+    "startExam": "Commencer l'examen blanc",
+    "goodLuck": "Bonne chance ! Prenez votre temps et lisez attentivement toutes les instructions.",
+    "examInProgress": "Examen en cours",
+    "resumeOrRestart": "Vous avez déjà commencé un examen blanc. Voulez-vous continuer ou commencer un nouvel examen ?",
+    "resume": "Continuer",
+    "startNew": "Nouveau départ",
+    "confirm": "Confirmer",
+    "confirmRestart": "Êtes-vous sûr de vouloir commencer un nouvel examen ? Votre progression actuelle sera supprimée.",
+    "yesStartNew": "Oui, nouveau départ",
+    "examNotFound": "Aucun examen trouvé.",
+    "couldNotLoadProgress": "Impossible de charger la progression de l'examen.",
+    "couldNotStartExam": "Impossible de démarrer l'examen. Veuillez réessayer.",
+    "examLoading": "Chargement de l'examen...",
+    "exitExam": "Quitter l'examen ?",
+    "exitExamMessage": "Voulez-vous vraiment quitter ? Votre progression sera sauvegardée et vous pourrez continuer plus tard.",
+    "stay": "Rester",
+    "exit": "Quitter",
+    "couldNotSaveProgress": "Impossible de sauvegarder la progression.",
+    "finishExam": "Terminer l'examen",
+    "finishExamMessage": "Êtes-vous sûr de vouloir terminer l'examen ? Vous pourrez consulter vos résultats après.",
+    "finish": "Terminer",
+    "completeAllSections": "Veuillez compléter toutes les sections requises avant de terminer l'examen.",
+    "congratulations": "Félicitations !",
+    "examCompleted": "Vous avez terminé l'examen blanc !",
+    "yourScore": "Votre score",
+    "passed": "Réussi",
+    "failed": "Échoué",
+    "viewResults": "Voir les résultats",
+    "backToHome": "Retour à l'accueil"
+  },
+  "exam": {
+    "selectExam": "Sélectionner l'examen :",
+    "test": "Test",
+    "loadingExam": "Chargement de l'examen...",
+    "failedToLoad": "Échec du chargement des données de l'examen",
+    "selectAnExam": "Sélectionner un examen",
+    "selectTask": "Sélectionner une tâche"
+  },
+  "grammar": {
+    "part1": {
+      "title": "Grammaire Partie 1",
+      "subtitle": "Remplir les espaces (Grammaire)"
+    },
+    "part2": {
+      "title": "Grammaire Partie 2",
+      "subtitle": "Remplir les espaces (Lexical)"
+    }
+  },
+  "reading": {
+    "part1": {
+      "title": "Compréhension écrite Partie 1",
+      "subtitle": "Associer les titres aux textes"
+    },
+    "part2": {
+      "title": "Compréhension écrite Partie 2",
+      "subtitle": "Questions à choix multiples"
+    },
+    "part3": {
+      "title": "Compréhension écrite Partie 3",
+      "subtitle": "Associer les annonces"
+    }
+  },
+  "writing": {
+    "title": "Expression écrite",
+    "subtitle": "Écrire un courriel personnel"
+  },
+  "listening": {
+    "part1": {
+      "title": "Compréhension orale Partie 1",
+      "subtitle": "Dialogues courts"
+    },
+    "part2": {
+      "title": "Compréhension orale Partie 2",
+      "subtitle": "Conversation plus longue"
+    },
+    "part3": {
+      "title": "Compréhension orale Partie 3",
+      "subtitle": "Monologues"
+    }
+  },
+  "examStructure": {
+    "cefrLevel": "Niveau CECR :",
+    "totalDuration": "Durée totale :",
+    "minutes": "Minutes",
+    "maxPoints": "Points maximum :",
+    "points": "Points",
+    "passingThreshold": "Seuil de réussite :",
+    "preparation": "Préparation"
   }
 }

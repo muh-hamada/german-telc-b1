@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart2Exam } from '../../types/exam.types';
@@ -222,14 +223,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   wordBankGrid: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     flexWrap: 'wrap',
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.md,
   },
   wordItem: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     padding: spacing.padding.xs,
     margin: spacing.margin.xs,
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    marginRight: 4,
+    ...(I18nManager.isRTL ? { marginLeft: 4 } : { marginRight: 4 }),
   },
   wordText: {
     ...typography.textStyles.bodySmall,
@@ -292,7 +293,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   modalHeader: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -321,7 +322,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   wordOption: {
-    flexDirection: 'row',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.md,
@@ -339,7 +340,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    marginRight: spacing.margin.sm,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
   },
   wordOptionText: {
     ...typography.textStyles.body,
