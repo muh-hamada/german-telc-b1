@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.md,
   },
   title: {
     ...typography.textStyles.h4,
@@ -163,8 +162,9 @@ const styles = StyleSheet.create({
   },
   loginPrompt: {
     alignItems: 'center',
-    paddingVertical: spacing.xl,
-    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    paddingHorizontal: spacing.sm,
   },
   loginPromptIcon: {
     fontSize: 48,

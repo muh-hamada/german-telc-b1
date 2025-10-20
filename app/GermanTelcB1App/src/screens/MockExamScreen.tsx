@@ -11,8 +11,9 @@ import {
   I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { colors, spacing, typography } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
 import { 
@@ -23,15 +24,11 @@ import {
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
 import { DEMO_MODE } from '../config/demo.config';
-
-type RootStackParamList = {
-  MockExamRunning: undefined;
-  ExamStructure: undefined;
-};
+import { RootStackParamList, MainTabParamList, HomeStackParamList } from '../types/navigation.types';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<any>(); // Using any to allow cross-stack navigation
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -104,7 +101,8 @@ const MockExamScreen: React.FC = () => {
   };
 
   const handleViewStructure = () => {
-    navigation.navigate('ExamStructure');
+    // @ts-ignore - Navigate to ExamStructure in HomeStack
+    navigation.navigate('HomeStack', { screen: 'ExamStructure' });
   };
 
   const totalTime = MOCK_EXAM_STEPS.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
