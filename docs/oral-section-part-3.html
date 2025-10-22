@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button data-version="1" class="dialog-version-tab px-3 py-1 text-sm font-semibold rounded-md transition-colors duration-200 ${activeDialogVersion === 1 ? 'tab-active' : ''}">Version 1: ${topic.title}</button>
                 <button data-version="2" class="dialog-version-tab px-3 py-1 text-sm font-semibold rounded-md transition-colors duration-200 ${activeDialogVersion === 2 ? 'tab-active' : ''}">Version 2: ${topic.title}</button>
             </div>
-            <div id="chat-container" class="space-y-4 p-2 h-[400px] overflow-y-auto border border-gray-200 rounded-lg">
+            <div id="chat-container" class="space-y-4 p-2 border border-gray-200 rounded-lg">
                 ${currentDialogue.map(d => `
                     <div class="flex ${d.speaker === 'A' ? 'justify-start' : 'justify-end'}">
                         <div class="chat-bubble p-3 rounded-xl shadow-sm ${d.speaker === 'A' ? 'chat-bubble-a' : 'chat-bubble-b'}">
