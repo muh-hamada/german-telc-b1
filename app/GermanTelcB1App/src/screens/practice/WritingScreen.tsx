@@ -116,11 +116,6 @@ const WritingScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Writing Section</Text>
-        <Text style={styles.subtitle}>Compose an email response</Text>
-      </View>
-
       <View style={styles.dropdownContainer}>
         {renderExamDropdown()}
       </View>

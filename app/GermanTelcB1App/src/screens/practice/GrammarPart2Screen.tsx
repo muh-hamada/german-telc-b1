@@ -134,11 +134,6 @@ const GrammarPart2Screen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t('grammar.part2.title')}</Text>
-        <Text style={styles.subtitle}>{t('grammar.part2.subtitle')}</Text>
-      </View>
-
       {renderExamTabs()}
 
       <LanguagePart2UI exam={currentExam} onComplete={handleComplete} />

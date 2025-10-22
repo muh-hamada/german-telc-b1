@@ -518,11 +518,6 @@ const SpeakingPart1Screen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t('speaking.part1.title')}</Text>
-        <Text style={styles.subtitle}>{t('speaking.part1.subtitle')}</Text>
-      </View>
-
       <View style={styles.tabsContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'introduction' && styles.activeTab]}

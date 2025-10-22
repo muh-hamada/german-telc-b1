@@ -133,11 +133,6 @@ const ReadingPart3Screen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t('reading.part3.title')}</Text>
-        <Text style={styles.subtitle}>{t('reading.part3.subtitle')}</Text>
-      </View>
-
       {renderExamTabs()}
 
       <ReadingPart3UI exam={currentExam} onComplete={handleComplete} />
