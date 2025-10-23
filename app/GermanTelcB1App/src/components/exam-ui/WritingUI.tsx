@@ -10,11 +10,16 @@ import {
   ActivityIndicator,
   Alert,
   I18nManager,
+  Image,
+  Platform,
+  PermissionsAndroid,
 } from 'react-native';
+import { launchCamera } from 'react-native-image-picker';
 import { colors, spacing, typography } from '../../theme';
 import { WritingExam } from '../../types/exam.types';
 import {
   evaluateWriting,
+  evaluateWritingWithImage,
   getMockAssessment,
   isOpenAIConfigured,
 } from '../../services/openai.service';
@@ -51,11 +56,153 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
   const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
   const [isResultsModalOpen, setIsResultsModalOpen] = useState(false);
   const [lastEvaluatedAnswer, setLastEvaluatedAnswer] = useState('');
+  const [capturedImageUri, setCapturedImageUri] = useState<string | null>(null);
+  const [capturedImageBase64, setCapturedImageBase64] = useState<string | null>(null);
+  const [isImagePreviewModalOpen, setIsImagePreviewModalOpen] = useState(false);
 
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);
     if (showWarning && text.trim().length >= 50) {
       setShowWarning(false);
+    }
+  };
+
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Kamera-Berechtigung erforderlich',
+            message: 'Diese App benötigt Zugriff auf Ihre Kamera, um Fotos aufzunehmen.',
+            buttonNeutral: 'Später fragen',
+            buttonNegative: 'Abbrechen',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true; // iOS permissions are handled by Info.plist
+  };
+
+  const handleTakePhoto = async () => {
+    // Check if the module is available
+    if (!launchCamera) {
+      Alert.alert(
+        'Kamera nicht verfügbar',
+        'Die Kamera-Funktion ist noch nicht initialisiert. Bitte starten Sie die App neu, nachdem Sie sie neu kompiliert haben.',
+        [{ text: 'OK' }]
+      );
+      return;
+    }
+
+    // Request camera permission
+    const hasPermission = await requestCameraPermission();
+    
+    if (!hasPermission) {
+      Alert.alert(
+        'Berechtigung verweigert',
+        'Kamera-Berechtigung ist erforderlich, um Fotos aufzunehmen.',
+        [{ text: 'OK' }]
+      );
+      return;
+    }
+
+    const options = {
+      mediaType: 'photo' as const,
+      quality: 0.8 as const,
+      saveToPhotos: false,
+      includeBase64: true, // Request base64 data
+    };
+
+    launchCamera(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled camera');
+      } else if (response.errorCode) {
+        Alert.alert('Fehler', 'Kamera konnte nicht geöffnet werden: ' + response.errorMessage);
+      } else if (response.assets && response.assets.length > 0) {
+        const asset = response.assets[0];
+        const imageUri = asset.uri;
+        const imageBase64 = asset.base64;
+        
+        if (imageUri && imageBase64) {
+          setCapturedImageUri(imageUri);
+          setCapturedImageBase64(imageBase64);
+          setIsImagePreviewModalOpen(true);
+        } else if (imageUri) {
+          // Fallback if base64 is not available
+          setCapturedImageUri(imageUri);
+          setCapturedImageBase64(null);
+          setIsImagePreviewModalOpen(true);
+        } else {
+          Alert.alert('Fehler', 'Bild konnte nicht geladen werden');
+        }
+      }
+    });
+  };
+
+  const handleEvaluateImage = async () => {
+    if (!capturedImageUri) {
+      Alert.alert('Fehler', 'Kein Bild verfügbar');
+      return;
+    }
+
+    setIsImagePreviewModalOpen(false);
+    setIsEvaluating(true);
+
+    try {
+      let result: WritingAssessment;
+
+      if (isOpenAIConfigured()) {
+        // Use base64 if available, otherwise use URI
+        if (capturedImageBase64) {
+          result = await evaluateWritingWithImage({
+            imageBase64: capturedImageBase64,
+            incomingEmail: exam.incomingEmail,
+            writingPoints: exam.writingPoints,
+            examTitle: exam.title,
+          });
+        } else {
+          result = await evaluateWritingWithImage({
+            imageUri: capturedImageUri,
+            incomingEmail: exam.incomingEmail,
+            writingPoints: exam.writingPoints,
+            examTitle: exam.title,
+          });
+        }
+      } else {
+        console.log('OpenAI API key not configured. Using mock assessment.');
+        await new Promise<void>(resolve => setTimeout(() => resolve(), 1000));
+        result = getMockAssessment();
+      }
+
+      setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
+      setAssessment(result);
+      setIsResultsModalOpen(true);
+    } catch (error) {
+      console.error('Evaluation error:', error);
+      Alert.alert(
+        'Fehler bei der Bewertung',
+        error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten.',
+        [
+          {
+            text: 'Mock-Daten verwenden',
+            onPress: () => {
+              const mockResult = getMockAssessment();
+              setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
+              setAssessment(mockResult);
+              setIsResultsModalOpen(true);
+            },
+          },
+          { text: 'Abbrechen', style: 'cancel' },
+        ]
+      );
+    } finally {
+      setIsEvaluating(false);
     }
   };
 
@@ -233,6 +380,76 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     );
   };
 
+  const renderImagePreviewModal = () => {
+    if (!capturedImageUri) return null;
+
+    return (
+      <Modal
+        visible={isImagePreviewModalOpen}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setIsImagePreviewModalOpen(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, styles.imagePreviewModalContent]}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <Text style={styles.imagePreviewTitle}>
+                Aufgenommenes Bild überprüfen
+              </Text>
+              
+              <Text style={styles.imagePreviewSubtitle}>
+                Bitte überprüfen Sie, ob das Bild klar und lesbar ist.
+              </Text>
+
+              <View style={styles.imageContainer}>
+                <Image
+                  source={{ uri: capturedImageUri }}
+                  style={styles.previewImage}
+                  resizeMode="contain"
+                />
+              </View>
+
+              <View style={styles.imagePreviewButtonsContainer}>
+                <TouchableOpacity
+                  style={[styles.imagePreviewButton, styles.retakeButton]}
+                  onPress={() => {
+                    setIsImagePreviewModalOpen(false);
+                    setTimeout(handleTakePhoto, 300);
+                  }}
+                >
+                  <Text style={styles.imagePreviewButtonText}>🔄 Erneut aufnehmen</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={[styles.imagePreviewButton, styles.evaluateImageButton]}
+                  onPress={handleEvaluateImage}
+                  disabled={isEvaluating}
+                >
+                  {isEvaluating ? (
+                    <ActivityIndicator color={colors.background.secondary} />
+                  ) : (
+                    <Text style={styles.imagePreviewButtonText}>✓ Bild bewerten</Text>
+                  )}
+                </TouchableOpacity>
+              </View>
+
+              <TouchableOpacity
+                style={styles.cancelImageButton}
+                onPress={() => {
+                  setIsImagePreviewModalOpen(false);
+                  setCapturedImageUri(null);
+                  setCapturedImageBase64(null);
+                }}
+              >
+                <Text style={styles.cancelImageButtonText}>Abbrechen</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
@@ -283,6 +500,20 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         </Text>
       </View>
 
+      {/* Camera Button */}
+      <View style={styles.cameraSection}>
+        <Text style={styles.orText}>oder</Text>
+        <TouchableOpacity
+          style={styles.cameraButton}
+          onPress={handleTakePhoto}
+        >
+          <Text style={styles.cameraButtonText}>📷 Handschriftliche Antwort fotografieren</Text>
+        </TouchableOpacity>
+        <Text style={styles.cameraHint}>
+          Nehmen Sie ein Foto Ihrer handschriftlichen Antwort auf
+        </Text>
+      </View>
+
       {/* Evaluate Button */}
       <TouchableOpacity
         style={[styles.evaluateButton, isEvaluating && styles.evaluateButtonDisabled]}
@@ -304,6 +535,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
       )}
 
       {renderResultsModal()}
+      {renderImagePreviewModal()}
     </ScrollView>
   );
 };
@@ -570,6 +802,105 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
+  },
+  cameraSection: {
+    marginBottom: spacing.margin.lg,
+    alignItems: 'center',
+  },
+  orText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    marginBottom: spacing.margin.md,
+    fontWeight: typography.fontWeight.bold,
+  },
+  cameraButton: {
+    backgroundColor: colors.primary[100],
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderRadius: spacing.borderRadius.md,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: colors.primary[300],
+    borderStyle: 'dashed',
+    width: '100%',
+    marginBottom: spacing.margin.sm,
+  },
+  cameraButtonText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.primary[700],
+  },
+  cameraHint: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+  imagePreviewModalContent: {
+    maxHeight: '90%',
+  },
+  imagePreviewTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[600],
+    textAlign: 'center',
+    marginBottom: spacing.margin.sm,
+  },
+  imagePreviewSubtitle: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    marginBottom: spacing.margin.lg,
+  },
+  imageContainer: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.sm,
+    marginBottom: spacing.margin.lg,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  previewImage: {
+    width: '100%',
+    height: 400,
+    borderRadius: spacing.borderRadius.sm,
+  },
+  imagePreviewButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: spacing.margin.md,
+    gap: spacing.margin.sm,
+  },
+  imagePreviewButton: {
+    flex: 1,
+    paddingVertical: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 48,
+  },
+  retakeButton: {
+    backgroundColor: colors.warning[500],
+  },
+  evaluateImageButton: {
+    backgroundColor: colors.secondary[500],
+  },
+  imagePreviewButtonText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.background.secondary,
+  },
+  cancelImageButton: {
+    backgroundColor: colors.error[100],
+    paddingVertical: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.error[500],
+  },
+  cancelImageButtonText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.error[600],
   },
 });
 

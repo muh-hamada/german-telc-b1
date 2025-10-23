@@ -6,7 +6,7 @@
  */
 
 // API Configuration
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' for cost efficiency
 
@@ -30,8 +30,16 @@ interface WritingAssessment {
   improvementTip: string;
 }
 
-interface EvaluationRequest {
+export interface EvaluationRequest {
   userAnswer: string;
+  incomingEmail: string;
+  writingPoints: string[];
+  examTitle: string;
+}
+
+export interface ImageEvaluationRequest {
+  imageUri?: string;
+  imageBase64?: string;
   incomingEmail: string;
   writingPoints: string[];
   examTitle: string;
@@ -161,6 +169,117 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
 }
 
 /**
+ * Converts an image URI to base64
+ */
+async function imageUriToBase64(uri: string): Promise<string> {
+  try {
+    // For React Native, we need to use fetch to get the blob
+    const response = await fetch(uri);
+    const blob = await response.blob();
+    
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64data = reader.result as string;
+        // Remove the data:image/...;base64, prefix if it exists
+        const base64 = base64data.split(',')[1] || base64data;
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    throw new Error(`Failed to convert image to base64: ${error}`);
+  }
+}
+
+/**
+ * Creates a user prompt for image evaluation
+ */
+function createImageUserPrompt(request: ImageEvaluationRequest): string {
+  return `Bitte bewerte die handschriftliche E-Mail-Antwort im Bild für die Telc B1 Prüfung:
+
+**Prüfungsaufgabe:** ${request.examTitle}
+
+**Eingegangene E-Mail:**
+${request.incomingEmail}
+
+**Zu bearbeitende Leitpunkte:**
+${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n')}
+
+---
+
+Bitte lese den handschriftlichen Text im Bild und bewerte diese Antwort nach den Telc B1 Kriterien. Gib das Ergebnis als JSON zurück.`;
+}
+
+/**
+ * Calls OpenAI Vision API to assess handwritten text in an image
+ */
+async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Promise<WritingAssessment> {
+  const apiKey = getOpenAIApiKey();
+  
+  if (!apiKey || apiKey === '') {
+    throw new Error('OpenAI API key is not configured. Please set the API key in openai.service.ts');
+  }
+
+  try {
+    const response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { 
+            role: 'user', 
+            content: [
+              { type: 'text', text: userPrompt },
+              { 
+                type: 'image_url', 
+                image_url: {
+                  url: `data:image/jpeg;base64,${imageBase64}`,
+                  detail: 'high'
+                }
+              }
+            ]
+          },
+        ],
+        temperature: 0.7,
+        max_tokens: 1500,
+        response_format: { type: 'json_object' },
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        `OpenAI API error: ${response.status} ${response.statusText}. ${
+          errorData.error?.message || ''
+        }`
+      );
+    }
+
+    const data = await response.json();
+    const content = data.choices[0]?.message?.content;
+
+    if (!content) {
+      throw new Error('No response from OpenAI');
+    }
+
+    const assessment: WritingAssessment = JSON.parse(content);
+    return assessment;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`OpenAI API call failed: ${error.message}`);
+    }
+    throw new Error('OpenAI API call failed with unknown error');
+  }
+}
+
+/**
  * Main function to evaluate writing using OpenAI
  */
 export async function evaluateWriting(
@@ -168,6 +287,28 @@ export async function evaluateWriting(
 ): Promise<WritingAssessment> {
   const userPrompt = createUserPrompt(request);
   const assessment = await callOpenAI(userPrompt);
+  return assessment;
+}
+
+/**
+ * Main function to evaluate handwritten text from an image using OpenAI Vision
+ */
+export async function evaluateWritingWithImage(
+  request: ImageEvaluationRequest
+): Promise<WritingAssessment> {
+  let imageBase64: string;
+  
+  // Use provided base64 or convert from URI
+  if (request.imageBase64) {
+    imageBase64 = request.imageBase64;
+  } else if (request.imageUri) {
+    imageBase64 = await imageUriToBase64(request.imageUri);
+  } else {
+    throw new Error('Either imageUri or imageBase64 must be provided');
+  }
+  
+  const userPrompt = createImageUserPrompt(request);
+  const assessment = await callOpenAIWithImage(userPrompt, imageBase64);
   return assessment;
 }
 

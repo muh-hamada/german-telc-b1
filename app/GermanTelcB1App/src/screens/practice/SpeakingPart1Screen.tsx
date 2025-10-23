@@ -36,6 +36,8 @@ interface PersonalInfo {
 
 const STORAGE_KEY = '@speaking_part1_personal_info';
 
+const mandatoryFields = ['name', 'origin', 'livingSince'] as const;
+
 const SpeakingPart1Screen: React.FC = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary'>('introduction');
@@ -78,7 +80,7 @@ const SpeakingPart1Screen: React.FC = () => {
 
   const savePersonalInfo = async () => {
     // Validate required fields
-    if (!personalInfo.name || !personalInfo.origin || !personalInfo.livingSince) {
+    if (mandatoryFields.some(field => !personalInfo[field])) {
       Alert.alert(t('common.alerts.requiredFields'), t('common.alerts.fillNameOriginLiving'));
       return;
     }
@@ -94,26 +96,26 @@ const SpeakingPart1Screen: React.FC = () => {
   };
 
   const generateIntroductionText = (): string => {
-    if (!personalInfo.name) {
-      return t('speaking.part1.help.enterInfoPrompt');
+    if (mandatoryFields.some(field => !personalInfo[field])) {
+      return ''; // Return empty string instead of null to avoid type errors
     }
 
     let text = `**Guten Tag!** Mein Name ist **${personalInfo.name}**`;
-    
+
     if (personalInfo.origin) {
       text += ` und ich **komme aus ${personalInfo.origin}**`;
     }
-    
+
     text += '.';
 
     if (personalInfo.birthCity) {
       text += ` Ich **wurde in ${personalInfo.birthCity} geboren**`;
     }
-    
+
     if (personalInfo.age) {
       text += ` und bin **${personalInfo.age} Jahre alt**`;
     }
-    
+
     text += '.';
 
     if (personalInfo.livingSince) {
@@ -165,9 +167,11 @@ const SpeakingPart1Screen: React.FC = () => {
 
   const renderIntroductionTab = () => {
     const introText = generateIntroductionText();
-    
+
     // Split text by ** markers for bold formatting
     const renderFormattedText = (text: string) => {
+      if (!text) return null;
+
       const parts = text.split(/(\*\*.*?\*\*)/g);
       return parts.map((part, index) => {
         if (part.startsWith('**') && part.endsWith('**')) {
@@ -186,12 +190,16 @@ const SpeakingPart1Screen: React.FC = () => {
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('speaking.part1.sections.myProfile')}</Text>
-          
+
           <View style={styles.textCard}>
             <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')}</Text>
-            <Text style={styles.introText}>
-              {renderFormattedText(introText)}
-            </Text>
+            {introText !== '' ? (
+              <Text style={styles.introText}>
+                {renderFormattedText(introText)}
+              </Text>
+            ) : (
+              <Text style={styles.introText}>{t('speaking.part1.help.enterInfoPrompt')}</Text>
+            )}
           </View>
 
           <View style={styles.buttonRow}>
@@ -219,7 +227,7 @@ const SpeakingPart1Screen: React.FC = () => {
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('speaking.part1.sections.keyVocabulary')}</Text>
-          
+
           <View style={styles.vocabCard}>
             {speakingPart1Data.content.vocabulary.map((item, index) => (
               <View key={index} style={styles.vocabRow}>
@@ -261,10 +269,10 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text style={styles.exampleNote}>
             {t('speaking.part1.help.exampleNote')}
           </Text>
-          
+
           <View style={styles.textCard}>
             <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')} - {t('speaking.part1.tabs.example')}</Text>
-            
+
             {speakingPart1Data.content.completeExample.map((paragraph, index) => (
               <Text key={index} style={styles.exampleParagraph}>
                 {renderFormattedText(paragraph)}
@@ -292,18 +300,17 @@ const SpeakingPart1Screen: React.FC = () => {
           <View style={styles.modalContainer}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>{t('speaking.part1.modal.personalInfo')}</Text>
-              {personalInfo.name && (
-                <TouchableOpacity
-                  style={styles.modalCloseButton}
-                  onPress={() => setShowEditModal(false)}
-                >
-                  <Text style={styles.modalCloseText}>✕</Text>
-                </TouchableOpacity>
-              )}
+
+              <TouchableOpacity
+                style={styles.modalCloseButton}
+                onPress={() => setShowEditModal(false)}
+              >
+                <Text style={styles.modalCloseText}>✕</Text>
+              </TouchableOpacity>
             </View>
 
             <ScrollView contentContainerStyle={styles.modalScrollContent}>
-              <Text style={styles.inputLabel}>{t('common.labels.name')} *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.name')} {mandatoryFields.includes('name') ? '*' : ''}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.name}
@@ -331,7 +338,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>{t('common.labels.origin')} *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.origin')} {mandatoryFields.includes('origin') ? '*' : ''}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.origin}
@@ -340,7 +347,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 placeholderTextColor={colors.text.tertiary}
               />
 
-              <Text style={styles.inputLabel}>{t('common.labels.livingSince')} *</Text>
+              <Text style={styles.inputLabel}>{t('common.labels.livingSince')} {mandatoryFields.includes('livingSince') ? '*' : ''}</Text>
               <TextInput
                 style={styles.input}
                 value={personalInfo.livingSince}

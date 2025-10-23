@@ -14,10 +14,12 @@ import RNRestart from 'react-native-restart';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
+import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
 import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useCompletion } from '../contexts/CompletionContext';
 import { DEMO_MODE } from '../config/demo.config';
 import { checkRTLChange } from '../utils/i18n';
 
@@ -25,6 +27,7 @@ const ProfileScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, signOut, isLoading: authLoading } = useAuth();
+  const { allStats, isLoading: statsLoading } = useCompletion();
   const [isClearing, setIsClearing] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
@@ -156,6 +159,13 @@ const ProfileScreen: React.FC = () => {
         <View style={styles.section}>
           <ProgressCard showDetails={true} />
         </View>
+
+        {/* Completion Statistics Section */}
+        {user && (
+          <View style={styles.section}>
+            <CompletionStatsCard stats={allStats} isLoading={statsLoading} />
+          </View>
+        )}
 
         {/* Settings Section */}
         <View style={styles.section}>

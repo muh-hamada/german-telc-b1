@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -11,19 +11,34 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
+import ExamSelectionModal from '../../components/ExamSelectionModal';
+import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { DEMO_MODE } from '../../config/demo.config';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useTranslation();
+  const [showPart1Modal, setShowPart1Modal] = useState(false);
+  const [showPart2Modal, setShowPart2Modal] = useState(false);
+
+  const part1Exams = dataService.getGrammarPart1Exams();
+  const part2Exams = dataService.getGrammarPart2Exams();
 
   const handlePart1Press = () => {
-    navigation.navigate('GrammarPart1');
+    setShowPart1Modal(true);
   };
 
   const handlePart2Press = () => {
-    navigation.navigate('GrammarPart2');
+    setShowPart2Modal(true);
+  };
+
+  const handleSelectPart1Exam = (examId: number) => {
+    navigation.navigate('GrammarPart1', { examId });
+  };
+
+  const handleSelectPart2Exam = (examId: number) => {
+    navigation.navigate('GrammarPart2', { examId });
   };
 
   return (
@@ -43,6 +58,27 @@ const GrammarMenuScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+      
+      <ExamSelectionModal
+        visible={showPart1Modal}
+        onClose={() => setShowPart1Modal(false)}
+        exams={part1Exams}
+        onSelectExam={handleSelectPart1Exam}
+        examType="grammar"
+        partNumber={1}
+        title={t('practice.grammar.part1')}
+      />
+
+      <ExamSelectionModal
+        visible={showPart2Modal}
+        onClose={() => setShowPart2Modal(false)}
+        exams={part2Exams}
+        onSelectExam={handleSelectPart2Exam}
+        examType="grammar"
+        partNumber={2}
+        title={t('practice.grammar.part2')}
+      />
+
       {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
   );

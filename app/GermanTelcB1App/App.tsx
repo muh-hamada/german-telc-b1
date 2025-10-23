@@ -6,6 +6,7 @@ import mobileAds from 'react-native-google-mobile-ads';
 import RootNavigator from './src/navigation/RootNavigator';
 import { ProgressProvider } from './src/contexts/ProgressContext';
 import { AuthProvider } from './src/contexts/AuthContext';
+import { CompletionProvider } from './src/contexts/CompletionContext';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 
@@ -29,8 +30,10 @@ const App: React.FC = () => {
     <SafeAreaProvider>
       <AuthProvider>
         <ProgressProvider>
-          <StatusBar barStyle="dark-content" backgroundColor="#F5F5F5" />
-          <RootNavigator />
+          <CompletionProvider>
+            <StatusBar barStyle="dark-content" backgroundColor="#F5F5F5" />
+            <RootNavigator />
+          </CompletionProvider>
         </ProgressProvider>
       </AuthProvider>
     </SafeAreaProvider>

@@ -173,6 +173,9 @@
     "signedInWith": "Angemeldet mit",
     "appName": "Deutsche TELC B1 Prüfungsvorbereitungs-App",
     "version": "Version 1.0.0",
+    "completionStats": "Abschlussstatistiken",
+    "totalProgress": "Gesamtfortschritt",
+    "noCompletedExams": "Noch keine abgeschlossenen Prüfungen. Beginnen Sie zu üben!",
     "loginProviders": {
       "google": "Mit Google fortfahren",
       "facebook": "Mit Facebook fortfahren",
@@ -399,7 +402,12 @@
     "loadingExam": "Prüfung wird geladen...",
     "failedToLoad": "Prüfungsdaten konnten nicht geladen werden",
     "selectAnExam": "Wählen Sie eine Prüfung",
-    "selectTask": "Aufgabe auswählen"
+    "selectTask": "Aufgabe auswählen",
+    "completed": "Abgeschlossen",
+    "completedCount": "{{completed}}/{{total}} abgeschlossen",
+    "markedCompleted": "Prüfung als abgeschlossen markiert!",
+    "markedIncomplete": "Prüfung als unvollständig markiert!",
+    "completionFailed": "Fehler beim Aktualisieren des Abschlussstatus"
   },
   "grammar": {
     "part1": {

@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   SafeAreaView,
-  ScrollView,
   TouchableOpacity,
-  Modal,
-  FlatList,
+  Alert,
 } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
 import { useTranslation } from 'react-i18next';
+import { useExamCompletion } from '../../contexts/CompletionContext';
+import { HomeStackRouteProp } from '../../types/navigation.types';
 import writingData from '../../data/writing.json';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
@@ -25,89 +27,57 @@ interface WritingExam {
 
 const WritingScreen: React.FC = () => {
   const { t } = useTranslation();
-  const [selectedExamId, setSelectedExamId] = useState<number>(0);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const route = useRoute<HomeStackRouteProp<'Writing'>>();
+  const navigation = useNavigation();
+  const examId = route.params?.examId ?? 0;
+  
+  const { isCompleted, toggleCompletion } = useExamCompletion('writing', 1, examId);
+  
+  const [examResult, setExamResult] = useState<{ score: number } | null>(null);
 
   const exams = (writingData as any).exams as WritingExam[];
-  const currentExam = exams?.find(e => e.id === selectedExamId) || exams?.[0];
+  const currentExam = exams?.find(e => e.id === examId) || exams?.[0];
 
-  const handleComplete = (score: number) => {
-    console.log('Writing completed with score:', score);
-    // Note: Progress tracking for practice mode can be added here if needed
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.text.secondary}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(examResult?.score || 0);
+      Alert.alert(
+        t('common.success'),
+        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      );
+    } catch (error) {
+      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    }
   };
 
-  const renderExamDropdown = () => {
-    if (!exams || exams.length === 0) return null;
-    
-    return (
-      <>
-        <TouchableOpacity
-          style={styles.dropdownButton}
-          onPress={() => setIsDropdownOpen(true)}
-        >
-          <Text style={styles.dropdownButtonText}>
-            {currentExam?.title || t('exam.selectAnExam')}
-          </Text>
-          <Text style={styles.dropdownArrow}>▼</Text>
-        </TouchableOpacity>
-
-        <Modal
-          visible={isDropdownOpen}
-          transparent={true}
-          animationType="fade"
-          onRequestClose={() => setIsDropdownOpen(false)}
-        >
-          <View style={styles.modalOverlay}>
-            <View style={styles.modalContent}>
-              <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>{t('exam.selectTask')}</Text>
-                <TouchableOpacity
-                  onPress={() => setIsDropdownOpen(false)}
-                  style={styles.closeButton}
-                >
-                  <Text style={styles.closeButtonText}>✕</Text>
-                </TouchableOpacity>
-              </View>
-              <FlatList
-                data={exams}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    style={[
-                      styles.dropdownItem,
-                      selectedExamId === item.id && styles.dropdownItemActive,
-                    ]}
-                    onPress={() => {
-                      setSelectedExamId(item.id);
-                      setIsDropdownOpen(false);
-                    }}
-                  >
-                    <Text
-                      style={[
-                        styles.dropdownItemText,
-                        selectedExamId === item.id && styles.dropdownItemTextActive,
-                      ]}
-                    >
-                      {item.title}
-                    </Text>
-                    {selectedExamId === item.id && (
-                      <Text style={styles.checkmark}>✓</Text>
-                    )}
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-          </View>
-        </Modal>
-      </>
-    );
+  const handleComplete = (score: number) => {
+    setExamResult({ score });
+    console.log('Writing completed with score:', score);
   };
 
   if (!currentExam) {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>No exam data available</Text>
+          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
         {!DEMO_MODE && <AdBanner />}
       </SafeAreaView>
@@ -116,10 +86,6 @@ const WritingScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.dropdownContainer}>
-        {renderExamDropdown()}
-      </View>
-
       <WritingUI exam={currentExam} onComplete={handleComplete} />
       {!DEMO_MODE && <AdBanner />}
     </SafeAreaView>
@@ -140,103 +106,10 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.error[500],
   },
-  header: {
-    backgroundColor: colors.primary[500],
-    padding: spacing.padding.lg,
-    alignItems: 'center',
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.white,
-    textAlign: 'center',
-  },
-  subtitle: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    textAlign: 'center',
-    marginTop: spacing.margin.xs,
-    opacity: 0.9,
-  },
-  dropdownContainer: {
-    padding: spacing.padding.lg,
-    backgroundColor: colors.background.secondary,
-  },
-  dropdownButton: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  dropdownButtonText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownArrow: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.lg,
-    width: '85%',
-    maxHeight: '70%',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  modalTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-  },
-  closeButton: {
+  headerButton: {
+    marginRight: spacing.margin.md,
     padding: spacing.padding.xs,
-  },
-  closeButtonText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-  },
-  dropdownItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.md,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border.light,
-  },
-  dropdownItemActive: {
-    backgroundColor: colors.primary[50],
-  },
-  dropdownItemText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownItemTextActive: {
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  checkmark: {
-    ...typography.textStyles.body,
-    color: colors.primary[500],
-    fontWeight: typography.fontWeight.bold,
   },
 });
 
 export default WritingScreen;
-

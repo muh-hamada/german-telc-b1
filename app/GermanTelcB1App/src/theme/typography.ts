@@ -92,6 +92,17 @@ export const typography = {
         default: 'System',
       }),
     },
+
+    h5: {
+      fontSize: 18,
+      lineHeight: 26,
+      fontWeight: '600' as const,
+      fontFamily: Platform.select({
+        ios: 'System',
+        android: 'Roboto-Medium',
+        default: 'System',
+      }),
+    },
     
     // Body text
     body: {

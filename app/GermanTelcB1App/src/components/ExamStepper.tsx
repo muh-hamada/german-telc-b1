@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, I18nManager } from 'react-native';
+import { View, Text, StyleSheet, I18nManager } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import type { MockExamStep } from '../types/mock-exam.types';
 
@@ -13,55 +13,26 @@ const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
+      <View style={styles.stepsRow}>
         {steps.map((step, index) => {
           const isCurrent = step.id === currentStepId;
           const isCompleted = step.isCompleted;
           const isPast = index < currentStepIndex;
 
           return (
-            <View key={step.id} style={styles.stepWrapper}>
-              <View style={styles.stepContainer}>
-                {/* Step Circle */}
-                <View
-                  style={[
-                    styles.stepCircle,
-                    isCurrent && styles.stepCircleCurrent,
-                    isCompleted && styles.stepCircleCompleted,
-                    isPast && !isCompleted && styles.stepCirclePast,
-                  ]}
-                >
-                  {isCompleted ? (
-                    <Text style={styles.stepCheckmark}>✓</Text>
-                  ) : (
-                    <Text
-                      style={[
-                        styles.stepNumber,
-                        isCurrent && styles.stepNumberCurrent,
-                        isPast && styles.stepNumberPast,
-                      ]}
-                    >
-                      {index + 1}
-                    </Text>
-                  )}
-                </View>
-
-                {/* Step Label */}
-                <View style={styles.stepLabelContainer}>
-                  <Text
-                    style={[
-                      styles.stepLabel,
-                      isCurrent && styles.stepLabelCurrent,
-                    ]}
-                    numberOfLines={2}
-                  >
-                    {step.partName}
-                  </Text>
-                </View>
+            <React.Fragment key={step.id}>
+              {/* Step Dot */}
+              <View
+                style={[
+                  styles.stepDot,
+                  isCurrent && styles.stepDotCurrent,
+                  isCompleted && styles.stepDotCompleted,
+                  !isCurrent && !isCompleted && !isPast && styles.stepDotUpcoming,
+                ]}
+              >
+                {isCompleted && (
+                  <Text style={styles.stepCheckmark}>✓</Text>
+                )}
               </View>
 
               {/* Connector Line */}
@@ -73,10 +44,10 @@ const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
                   ]}
                 />
               )}
-            </View>
+            </React.Fragment>
           );
         })}
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -84,81 +55,47 @@ const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background.secondary,
-    paddingVertical: spacing.padding.sm,
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondary[200],
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
-  scrollContent: {
-    paddingHorizontal: spacing.padding.md,
-    alignItems: 'center',
-  },
-  stepWrapper: {
+  stepsRow: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  stepContainer: {
-    alignItems: 'center',
-    width: 80,
-  },
-  stepCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+  stepDot: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: colors.secondary[200],
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: spacing.margin.xs,
   },
-  stepCircleCurrent: {
+  stepDotCurrent: {
     backgroundColor: colors.primary[500],
     borderWidth: 3,
     borderColor: colors.primary[300],
+    width: 32,
+    height: 32,
+    borderRadius: 16,
   },
-  stepCircleCompleted: {
+  stepDotCompleted: {
     backgroundColor: colors.success[500],
   },
-  stepCirclePast: {
-    backgroundColor: colors.secondary[300],
-  },
-  stepNumber: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.tertiary,
-    fontWeight: typography.fontWeight.bold,
-  },
-  stepNumberCurrent: {
-    color: colors.background.secondary,
-  },
-  stepNumberPast: {
-    color: colors.text.secondary,
+  stepDotUpcoming: {
+    backgroundColor: colors.secondary[200],
   },
   stepCheckmark: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.background.secondary,
     fontWeight: typography.fontWeight.bold,
-  },
-  stepLabelContainer: {
-    width: '100%',
-    paddingHorizontal: spacing.padding.xs,
-  },
-  stepLabel: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    fontSize: 10,
-    lineHeight: 12,
-  },
-  stepLabelCurrent: {
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.bold,
+    fontSize: 14,
   },
   connector: {
-    width: 24,
-    height: 2,
+    flex: 1,
+    height: 3,
     backgroundColor: colors.secondary[200],
     marginHorizontal: spacing.margin.xs,
   },

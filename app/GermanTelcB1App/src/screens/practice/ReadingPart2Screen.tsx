@@ -4,38 +4,75 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  ScrollView,
   TouchableOpacity,
   Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
+import { useExamCompletion } from '../../contexts/CompletionContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
 import AdBanner from '../../components/AdBanner';
 import { DEMO_MODE } from '../../config/demo.config';
+import { HomeStackRouteProp } from '../../types/navigation.types';
 
 const ReadingPart2Screen: React.FC = () => {
   const { t } = useTranslation();
+  const route = useRoute<HomeStackRouteProp<'ReadingPart2'>>();
+  const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
+  const examId = route.params?.examId ?? 0;
   
-  const [currentExamId, setCurrentExamId] = useState(0);
+  const { isCompleted, toggleCompletion } = useExamCompletion('reading', 2, examId);
+  
   const [currentExam, setCurrentExam] = useState<ReadingPart2Exam | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    loadExam(currentExamId);
-  }, [currentExamId]);
+    loadExam(examId);
+  }, [examId]);
 
-  const loadExam = async (examId: number) => {
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.text.secondary}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(examResult?.score || 0);
+      Alert.alert(
+        t('common.success'),
+        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      );
+    } catch (error) {
+      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    }
+  };
+
+  const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = dataService.getReadingPart2Exam(examId);
+      const exam = dataService.getReadingPart2Exam(id);
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);
@@ -55,7 +92,7 @@ const ReadingPart2Screen: React.FC = () => {
     const percentage = Math.round((score / 25) * 100);
     
     const result: ExamResult = {
-      examId: currentExamId,
+      examId: examId,
       score,
       maxScore: 25,
       percentage,
@@ -75,37 +112,7 @@ const ReadingPart2Screen: React.FC = () => {
       timestamp: Date.now(),
     }));
 
-    updateExamProgress('reading-part2', currentExamId, userAnswersArray, score, 25);
-  };
-
-  const renderExamTabs = () => {
-    const exams = dataService.getReadingPart2Exams();
-    return (
-      <View style={styles.tabsContainer}>
-        <Text style={styles.tabsTitle}>{t('exam.selectExam')}</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabsScroll}>
-          {exams.map((exam) => (
-            <TouchableOpacity
-              key={exam.id}
-              style={[
-                styles.tab,
-                currentExamId === exam.id && styles.activeTab,
-              ]}
-              onPress={() => setCurrentExamId(exam.id)}
-            >
-              <Text
-                style={[
-                  styles.tabText,
-                  currentExamId === exam.id && styles.activeTabText,
-                ]}
-              >
-                {t('exam.test')} {exam.id + 1}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
-    );
+    updateExamProgress('reading-part2', examId, userAnswersArray, score, 25);
   };
 
   if (isLoading) {
@@ -132,14 +139,12 @@ const ReadingPart2Screen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {renderExamTabs()}
-
       <ReadingPart2UI exam={currentExam} onComplete={handleComplete} />
 
       <ResultsModal
         visible={showResults}
         onClose={() => setShowResults(false)}
-        examTitle={`Reading Part 2 - Test ${currentExamId + 1}`}
+        examTitle={`Reading Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
       {!DEMO_MODE && <AdBanner />}
@@ -170,57 +175,10 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.error[500],
   },
-  header: {
-    backgroundColor: colors.primary[500],
-    padding: spacing.padding.lg,
-    alignItems: 'center',
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.white,
-    textAlign: 'center',
-  },
-  subtitle: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    textAlign: 'center',
-    marginTop: spacing.margin.xs,
-    opacity: 0.9,
-  },
-  tabsContainer: {
-    padding: spacing.padding.lg,
-    backgroundColor: colors.background.secondary,
-  },
-  tabsTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  tabsScroll: {
-    flexDirection: 'row',
-  },
-  tab: {
-    paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.sm,
-    marginRight: spacing.margin.sm,
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.md,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  activeTab: {
-    backgroundColor: colors.primary[500],
-    borderColor: colors.primary[500],
-  },
-  tabText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  activeTabText: {
-    color: colors.white,
+  headerButton: {
+    marginRight: spacing.margin.md,
+    padding: spacing.padding.xs,
   },
 });
 
 export default ReadingPart2Screen;
-
