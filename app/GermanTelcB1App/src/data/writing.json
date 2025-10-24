@@ -54,6 +54,116 @@
         "fragen, ob Sie eine Liste der wichtigsten E-Mails bekommen können",
         "fragen, wer diese Woche die Telefonate übernimmt"
       ]
+    },
+    {
+      "id": 5,
+      "title": "Test 6 (Wohnungsübergabe/Umzug)",
+      "incomingEmail": "Sehr geehrte/r Herr/Frau [Name],\n\nvielen Dank für die Bestätigung des Mietvertrages. Die Übergabe der Wohnung (Musterstraße 5) ist für den 1. April um 14:00 Uhr geplant. \n\nIst dieser Termin noch gültig? Wir haben festgestellt, dass im Mietvertrag die Maße des Wohnzimmers nicht angegeben sind. Ich muss ein neues Sofa kaufen. Könnten Sie uns die Maße mitteilen? Ist der Kellerraum schon leer und kann ich dort schon Kisten abstellen?\n\nMit freundlichen Grüßen\nIhre Hausverwaltung",
+      "writingPoints": [
+        "bestätigen Sie den Termin der Wohnungsübergabe (Uhrzeit/Datum)",
+        "fragen Sie nach den genauen Maßen des Wohnzimmers für den Kauf eines Sofas",
+        "bitten Sie höflich um Erlaubnis, einen Tag früher mit dem Streichen zu beginnen",
+        "fragen Sie, ob der Kellerraum bereits leer ist und genutzt werden kann"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Test 7 (Hotel-Beschwerde)",
+      "incomingEmail": "Sehr geehrte/r Herr/Frau [Name],\n\nvielen Dank für Ihren kürzlichen Aufenthalt in unserem Hotel. Wir möchten uns bei Ihnen erkundigen, ob Sie mit Ihrem Zimmer und unserem Service zufrieden waren.\n\nWir sind stets bemüht, die Qualität für unsere Gäste zu verbessern und bitten Sie um ein kurzes Feedback zu Ihrem Aufenthalt.\n\nMit freundlichen Grüßen\nIhr Hotelmanagement",
+      "writingPoints": [
+        "sagen Sie, dass Sie mit dem Aufenthalt nicht zufrieden waren und nennen Sie den Hauptgrund (z.B. Lärm oder Sauberkeit)",
+        "beschreiben Sie, wann und wo genau das Problem war (z.B. Zimmernummer/Uhrzeit)",
+        "fragen Sie nach einer Reduzierung des Preises oder einer Kompensation",
+        "fragen Sie, ob Sie bei einem nächsten Aufenthalt ein ruhigeres/besseres Zimmer bekommen könnten"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Test 8 (Sprach-Tandem)",
+      "incomingEmail": "Hallo [Name],\n\nvielen Dank für deine Nachricht. Ich suche auch jemanden für ein Sprachtandem! Ich möchte mein Deutsch verbessern, und im Gegenzug helfe ich dir gerne beim [Muttersprache der anderen Person].\n\nLass uns nächste Woche einmal treffen! Was ist deine Muttersprache und wie lange lernst du schon Deutsch?\n\nIch freue mich auf deine Antwort!\n\nViele Grüße\nJulia/Jonas",
+      "writingPoints": [
+        "nehmen Sie das Tandem-Angebot an und schlagen Sie einen ersten Termin vor (Tag und Uhrzeit)",
+        "sagen Sie, welche Ihre Muttersprache ist und wie lange Sie Deutsch lernen",
+        "fragen Sie, welche Hobbys die Person hat, um gemeinsame Interessen zu finden",
+        "fragen Sie, wo sich die Person am liebsten trifft (z.B. Café, Park, Bibliothek)"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Test 9 (Gemeinsames Geschenk)",
+      "incomingEmail": "Liebe/r [Name],\n\nwie du weißt, hat Peter bald Geburtstag. Ich dachte, wir könnten ihm zusammen ein Geschenk kaufen. Ich habe an einen neuen Kopfhörer gedacht, da sein alter kaputt ist.\n\nHast du eine bessere Idee? Ich möchte wissen, wie viel Geld du maximal ausgeben möchtest.\n\nLass uns bitte schnell entscheiden. Am besten treffen wir uns nächste Woche.\n\nViele Grüße\nKatrin",
+      "writingPoints": [
+        "sagen Sie, dass die Kopfhörer-Idee gut ist, schlagen Sie aber eine Alternative vor",
+        "begründen Sie, warum Ihr Vorschlag besser als der Kopfhörer ist",
+        "fragen Sie, wie viel Geld die Person schon gesammelt hat und wie viel Sie selbst beisteuern sollen",
+        "machen Sie einen konkreten Vorschlag für ein Treffen, um das Geschenk zu kaufen"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Test 10 (Mietwagen-Stornierung)",
+      "incomingEmail": "Sehr geehrte/r Herr/Frau [Name],\n\nwir bedauern Ihre Stornierung der Fahrzeugreservierung (Reservierungsnummer: XY123). Gemäß unseren Allgemeinen Geschäftsbedingungen fällt eine Stornogebühr von 80 Euro an.\n\nBitte überweisen Sie den Betrag bis zum 15. des Monats. Wenn Sie Fragen haben, melden Sie sich bitte.\n\nMit freundlichen Grüßen\nIhr Kundenservice der Autovermietung",
+      "writingPoints": [
+        "beschreiben Sie kurz das Problem (warum Sie stornieren mussten)",
+        "erklären Sie, warum Sie die Stornogebühr für zu hoch halten",
+        "bitten Sie höflich um einen Rabatt oder eine Teilrückerstattung",
+        "fragen Sie, ob Sie die Gebühr später per Überweisung bezahlen können"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Test 11 (Geburtstagseinladung)",
+      "incomingEmail": "Hallo [Name],\n\nich lade dich herzlich zu meiner Geburtstagsparty ein! Ich werde 30 und möchte das mit meinen besten Freunden feiern. Die Party findet am Samstag in zwei Wochen statt (20.00 Uhr).\n\nIch freue mich schon sehr, wenn du kommst. Soll ich etwas Spezielles für dich vorbereiten?\n\nBis bald und viele Grüße\nLena",
+      "writingPoints": [
+        "sagen Sie zu und gratulieren Sie zum Geburtstag",
+        "fragen Sie nach der genauen Adresse/dem Ort, da Sie noch nie dort waren",
+        "fragen Sie, ob sie eine Wunschliste für Geschenke hat (falls nicht, schlagen Sie ein Buch vor)",
+        "fragen Sie, ob Sie etwas zum Buffet mitbringen sollen (z.B. Salat oder Kuchen)"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Test 12 (Arzttermin verpasst)",
+      "incomingEmail": "Sehr geehrte/r Herr/Frau [Name],\n\nwir bedauern, Ihnen mitteilen zu müssen, dass Sie Ihren Termin am [Datum] um [Uhrzeit] leider versäumt haben. Wir möchten Sie bitten, so schnell wie möglich einen neuen Termin zu vereinbaren.\n\nBitte rufen Sie uns an oder schicken Sie uns eine E-Mail mit einem Terminvorschlag.\n\nMit freundlichen Grüßen\nIhre Arzthelferin, Maria Schuster",
+      "writingPoints": [
+        "entschuldigen Sie sich für das Versäumen des Termins und nennen Sie einen kurzen Grund",
+        "schlagen Sie zwei neue Termine für die kommende Woche vor",
+        "erklären Sie kurz, welche Symptome Sie haben (um die Dringlichkeit zu zeigen)",
+        "bitten Sie um eine kurze Bestätigung, ob einer der Termine passt"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Test 13 (Spendenaktion/Charity)",
+      "incomingEmail": "Liebe Kollegen und Kolleginnen,\n\nwie Sie wissen, organisieren wir nächste Woche einen Spendenlauf, um Geld für die lokale Tierrettung zu sammeln. Jeder, der teilnimmt, läuft so viele Runden wie er schafft.\n\nWir brauchen noch viele Teilnehmer und freiwillige Helfer. Wären Sie dabei? Sie können sich bis Freitag anmelden.\n\nMit freundlichen Grüßen\nIhre Kollegin, Annette Roth",
+      "writingPoints": [
+        "sagen Sie, dass Sie gerne an der Aktion teilnehmen möchten",
+        "fragen Sie, wo genau der Lauf stattfindet und wie lang eine Runde ist",
+        "fragen Sie, wie Sie spenden können (online oder bar)",
+        "schlagen Sie vor, dass Sie nach dem Lauf beim Aufräumen helfen"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Test 14 (Kursangebot/Hobby)",
+      "incomingEmail": "Liebe/r [Name],\n\nich habe mich für dich erkundigt: Es gibt einen B2-Kurs, der Montags und Mittwochs stattfindet! Ich habe aber auch noch einen günstigen italienischen Kochkurs gesehen. Das wäre doch etwas für dich!\n\nIch habe leider vergessen, nach den Kosten und der Dauer des Kochkurses zu fragen. Möchtest du dich anmelden?\n\nViele Grüße\nDein Freund, Markus",
+      "writingPoints": [
+        "bedanken Sie sich für die Information zum Sprachkurs und sagen Sie, dass Sie ihn buchen werden",
+        "sagen Sie, dass Sie am Kochkurs teilnehmen möchten, und erklären Sie, welche Art von Essen Sie gerne kochen",
+        "fragen Sie nach den genauen Kosten und der Dauer des Kochkurses",
+        "fragen Sie, ob man sich für den Kochkurs online anmelden muss"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Test 15 (Fahrkarten-Erstattung)",
+      "incomingEmail": "Sehr geehrte/r Herr/Frau [Name],\n\nIhre Erstattungsanfrage für das Zugticket [Nummer] wurde bearbeitet. Wir haben Ihnen eine Gutschrift in Höhe von 50 Euro ausgestellt, die in den nächsten Tagen auf Ihrem Kundenkonto gutgeschrieben wird.\n\nWir entschuldigen uns nochmals für die Verspätung.\n\nMit freundlichen Grüßen\nIhr Bahn-Service-Team",
+      "writingPoints": [
+        "teilen Sie mit, dass Sie die Gutschrift für das Zugticket erhalten haben",
+        "erklären Sie, dass der Betrag nicht korrekt ist, und nennen Sie den fehlenden Betrag (z.B. es fehlen 20 Euro)",
+        "bitten Sie um eine schnelle Korrektur des Betrags",
+        "fragen Sie, ob Sie das nächste Ticket online mit dieser Gutschrift bezahlen können"
+      ]
     }
   ]
 }
