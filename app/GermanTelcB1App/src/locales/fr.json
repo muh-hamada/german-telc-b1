@@ -330,7 +330,8 @@
       "good": "Bien",
       "fair": "Passable",
       "needsImprovement": "À améliorer"
-    }
+    },
+    "login": "Se connecter"
   },
   "mockExam": {
     "title": "Examen blanc",
@@ -386,7 +387,15 @@
     "passed": "Réussi",
     "failed": "Échoué",
     "viewResults": "Voir les résultats",
-    "backToHome": "Retour à l'accueil"
+    "backToHome": "Retour à l'accueil",
+    "exitExamButton": "Quitter",
+    "exitExamTitle": "Examen de sortie",
+    "speakingTitle": "Section parlante",
+    "skipAndContinue": "Passer et continuer",
+    "writtenExam": "Examen écrit",
+    "speakingCardTitle": "Section parlante",
+    "oralExam": "Examen oral",
+    "examResultsNote": "ℹ️ Il s'agit d'un examen blanc pour la pratique. \nLes résultats réels de l’examen peuvent varier. \nUtilisez ces résultats pour identifier vos forces et vos faiblesses."
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -394,7 +403,9 @@
     "loadingExam": "Chargement de l'examen...",
     "failedToLoad": "Échec du chargement des données de l'examen",
     "selectAnExam": "Sélectionner un examen",
-    "selectTask": "Sélectionner une tâche"
+    "selectTask": "Sélectionner une tâche",
+    "markedCompleted": "Examen marqué comme terminé !",
+    "markedIncomplete": "Examen marqué comme incomplet !"
   },
   "grammar": {
     "part1": {
@@ -422,7 +433,73 @@
   },
   "writing": {
     "title": "Expression écrite",
-    "subtitle": "Écrire un courriel personnel"
+    "subtitle": "Écrire un courriel personnel",
+    "instructions": {
+      "title": "Tâche:",
+      "description": "Lisez le courriel entrant et répondez-y. Tenez compte des points d'écriture fournis."
+    },
+    "sections": {
+      "incomingEmail": "Courriel entrant:",
+      "writingPoints": "Points d'écriture:",
+      "yourAnswer": "Votre réponse:"
+    },
+    "input": {
+      "placeholder": "Écrivez votre courriel ici...",
+      "characterCount": "caractères",
+      "minCharactersWarning": "⚠️ Veuillez écrire au moins 50 caractères."
+    },
+    "camera": {
+      "orText": "ou",
+      "buttonText": "📷 Photographier la réponse manuscrite",
+      "hint": "Prenez une photo de votre réponse manuscrite"
+    },
+    "buttons": {
+      "evaluate": "Évaluer la réponse",
+      "nextSection": "Continuer à la partie suivante"
+    },
+    "evaluation": {
+      "title": "Votre évaluation (Expression écrite)",
+      "totalScore": "Score total:",
+      "criteriaTitle": "Critères d'évaluation:",
+      "criteria": {
+        "taskCompletion": "1. Accomplissement de la tâche",
+        "communicativeDesign": "2. Conception communicative",
+        "formalCorrectness": "3. Correction formelle"
+      },
+      "grade": "Note:",
+      "improvementTip": "💡 Conseil d'amélioration:",
+      "closeButton": "Fermer"
+    },
+    "imagePreview": {
+      "title": "Vérifier l'image capturée",
+      "subtitle": "Veuillez vérifier que l'image est claire et lisible.",
+      "retakeButton": "🔄 Reprendre",
+      "evaluateButton": "✓ Évaluer l'image",
+      "cancelButton": "Annuler"
+    },
+    "alerts": {
+      "cameraNotAvailable": "Caméra non disponible",
+      "cameraNotAvailableMessage": "La fonction caméra n'est pas encore initialisée. Veuillez redémarrer l'application après l'avoir recompilée.",
+      "permissionDenied": "Autorisation refusée",
+      "permissionDeniedMessage": "L'autorisation de la caméra est requise pour prendre des photos.",
+      "cameraError": "Erreur",
+      "cameraErrorMessage": "Impossible d'ouvrir la caméra: ",
+      "imageLoadError": "Impossible de charger l'image",
+      "imageNotAvailable": "Aucune image disponible",
+      "evaluationError": "Erreur d'évaluation",
+      "evaluationErrorMessage": "Une erreur inattendue s'est produite.",
+      "useMockData": "Utiliser des données de test",
+      "noEvaluation": "Pas d'évaluation",
+      "noEvaluationMessage": "Veuillez évaluer votre réponse avant de continuer.",
+      "cameraPermissionTitle": "Autorisation de caméra requise",
+      "cameraPermissionMessage": "Cette application a besoin d'accéder à votre caméra pour prendre des photos.",
+      "askLater": "Demander plus tard",
+      "ok": "OK"
+    },
+    "mock": {
+      "warning": "⚠️ Données de test: clé API non configurée",
+      "cacheInfo": "ℹ️ Résultat en cache (réponse inchangée)"
+    }
   },
   "listening": {
     "part1": {

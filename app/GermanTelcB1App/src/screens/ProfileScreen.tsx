@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
   I18nManager,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useRoute, RouteProp } from '@react-navigation/native';
 import RNRestart from 'react-native-restart';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
@@ -22,15 +23,24 @@ import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { DEMO_MODE } from '../config/demo.config';
 import { checkRTLChange } from '../utils/i18n';
+import { MainTabParamList } from '../types/navigation.types';
 
 const ProfileScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const route = useRoute<RouteProp<MainTabParamList, 'Profile'>>();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, signOut, isLoading: authLoading } = useAuth();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const [isClearing, setIsClearing] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
+
+  // Auto-open login modal if parameter is passed
+  useEffect(() => {
+    if (route.params?.openLoginModal && !user) {
+      setShowLoginModal(true);
+    }
+  }, [route.params?.openLoginModal, user]);
 
   const handleClearProgress = () => {
     Alert.alert(

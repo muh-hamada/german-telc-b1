@@ -32,6 +32,7 @@ export interface MockExamProgress {
   totalScore: number;
   totalMaxPoints: number;
   isCompleted: boolean;
+  hasStarted: boolean;
 }
 
 export const MOCK_EXAM_STEPS: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [

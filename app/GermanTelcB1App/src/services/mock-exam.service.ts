@@ -123,6 +123,7 @@ export const createInitialMockExamProgress = (): MockExamProgress => {
     totalScore: 0,
     totalMaxPoints: 225, // Written sections only (no speaking)
     isCompleted: false,
+    hasStarted: false,
   };
 };
 
@@ -164,6 +165,8 @@ export const updateStepProgress = async (
       progress.isCompleted = true;
       progress.endDate = Date.now();
     }
+
+    progress.hasStarted = true;
 
     await saveMockExamProgress(progress);
   } catch (error) {

@@ -16,7 +16,7 @@ import { HomeStackRouteProp } from '../../types/navigation.types';
 import writingData from '../../data/writing.json';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 
 interface WritingExam {
   id: number;
@@ -49,7 +49,7 @@ const WritingScreen: React.FC = () => {
           <Icon
             name={isCompleted ? 'check-circle' : 'circle-o'}
             size={24}
-            color={isCompleted ? colors.success[500] : colors.text.secondary}
+            color={isCompleted ? colors.success[500] : colors.white}
           />
         </TouchableOpacity>
       ),
@@ -79,7 +79,7 @@ const WritingScreen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -87,7 +87,7 @@ const WritingScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <WritingUI exam={currentExam} onComplete={handleComplete} />
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

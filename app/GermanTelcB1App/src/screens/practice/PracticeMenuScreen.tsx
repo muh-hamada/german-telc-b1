@@ -14,7 +14,7 @@ import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import writingData from '../../data/writing.json';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -94,7 +94,7 @@ const PracticeMenuScreen: React.FC = () => {
         title={t('practice.writing.title')}
       />
 
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

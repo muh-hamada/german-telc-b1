@@ -6,7 +6,7 @@ import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 
 const SpeakingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -32,7 +32,7 @@ const SpeakingMenuScreen: React.FC = () => {
           <Text style={styles.cardDescription}>{t('speaking.part3.subtitle')}</Text>
         </Card>
       </ScrollView>
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

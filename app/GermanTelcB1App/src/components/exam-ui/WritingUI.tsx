@@ -15,6 +15,7 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { WritingExam } from '../../types/exam.types';
 import {
@@ -50,6 +51,7 @@ interface WritingUIProps {
 }
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -73,11 +75,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         const granted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.CAMERA,
           {
-            title: 'Kamera-Berechtigung erforderlich',
-            message: 'Diese App benötigt Zugriff auf Ihre Kamera, um Fotos aufzunehmen.',
-            buttonNeutral: 'Später fragen',
-            buttonNegative: 'Abbrechen',
-            buttonPositive: 'OK',
+            title: t('writing.alerts.cameraPermissionTitle'),
+            message: t('writing.alerts.cameraPermissionMessage'),
+            buttonNeutral: t('writing.alerts.askLater'),
+            buttonNegative: t('common.cancel'),
+            buttonPositive: t('writing.alerts.ok'),
           }
         );
         return granted === PermissionsAndroid.RESULTS.GRANTED;
@@ -93,9 +95,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     // Check if the module is available
     if (!launchCamera) {
       Alert.alert(
-        'Kamera nicht verfügbar',
-        'Die Kamera-Funktion ist noch nicht initialisiert. Bitte starten Sie die App neu, nachdem Sie sie neu kompiliert haben.',
-        [{ text: 'OK' }]
+        t('writing.alerts.cameraNotAvailable'),
+        t('writing.alerts.cameraNotAvailableMessage'),
+        [{ text: t('writing.alerts.ok') }]
       );
       return;
     }
@@ -105,9 +107,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     
     if (!hasPermission) {
       Alert.alert(
-        'Berechtigung verweigert',
-        'Kamera-Berechtigung ist erforderlich, um Fotos aufzunehmen.',
-        [{ text: 'OK' }]
+        t('writing.alerts.permissionDenied'),
+        t('writing.alerts.permissionDeniedMessage'),
+        [{ text: t('writing.alerts.ok') }]
       );
       return;
     }
@@ -123,7 +125,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
       if (response.didCancel) {
         console.log('User cancelled camera');
       } else if (response.errorCode) {
-        Alert.alert('Fehler', 'Kamera konnte nicht geöffnet werden: ' + response.errorMessage);
+        Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.cameraErrorMessage') + response.errorMessage);
       } else if (response.assets && response.assets.length > 0) {
         const asset = response.assets[0];
         const imageUri = asset.uri;
@@ -139,7 +141,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
           setCapturedImageBase64(null);
           setIsImagePreviewModalOpen(true);
         } else {
-          Alert.alert('Fehler', 'Bild konnte nicht geladen werden');
+          Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.imageLoadError'));
         }
       }
     });
@@ -147,7 +149,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
 
   const handleEvaluateImage = async () => {
     if (!capturedImageUri) {
-      Alert.alert('Fehler', 'Kein Bild verfügbar');
+      Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.imageNotAvailable'));
       return;
     }
 
@@ -186,11 +188,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     } catch (error) {
       console.error('Evaluation error:', error);
       Alert.alert(
-        'Fehler bei der Bewertung',
-        error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten.',
+        t('writing.alerts.evaluationError'),
+        error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
         [
           {
-            text: 'Mock-Daten verwenden',
+            text: t('writing.alerts.useMockData'),
             onPress: () => {
               const mockResult = getMockAssessment();
               setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
@@ -198,7 +200,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               setIsResultsModalOpen(true);
             },
           },
-          { text: 'Abbrechen', style: 'cancel' },
+          { text: t('common.cancel'), style: 'cancel' },
         ]
       );
     } finally {
@@ -244,11 +246,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     } catch (error) {
       console.error('Evaluation error:', error);
       Alert.alert(
-        'Fehler bei der Bewertung',
-        error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten.',
+        t('writing.alerts.evaluationError'),
+        error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
         [
           {
-            text: 'Mock-Daten verwenden',
+            text: t('writing.alerts.useMockData'),
             onPress: () => {
               const mockResult = getMockAssessment();
               setLastEvaluatedAnswer(userAnswer);
@@ -256,7 +258,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               setIsResultsModalOpen(true);
             },
           },
-          { text: 'Abbrechen', style: 'cancel' },
+          { text: t('common.cancel'), style: 'cancel' },
         ]
       );
     } finally {
@@ -267,9 +269,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
   const handleSubmit = () => {
     if (!assessment) {
       Alert.alert(
-        'Keine Bewertung',
-        'Bitte evaluieren Sie Ihre Antwort, bevor Sie fortfahren.',
-        [{ text: 'OK' }]
+        t('writing.alerts.noEvaluation'),
+        t('writing.alerts.noEvaluationMessage'),
+        [{ text: t('writing.alerts.ok') }]
       );
       return;
     }
@@ -308,13 +310,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
           <View style={[styles.modalContent, styles.resultsModalContent]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Text style={styles.resultsTitle}>
-                Ihre Bewertung (Schriftlicher Ausdruck)
+                {t('writing.evaluation.title')}
               </Text>
 
               {isUsingMock && (
                 <View style={styles.mockWarning}>
                   <Text style={styles.mockWarningText}>
-                    ⚠️ Mock-Daten: API-Schlüssel nicht konfiguriert
+                    {t('writing.mock.warning')}
                   </Text>
                 </View>
               )}
@@ -322,48 +324,48 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               {isUsingCache && (
                 <View style={styles.cacheInfo}>
                   <Text style={styles.cacheInfoText}>
-                    ℹ️ Gecachtes Ergebnis (Antwort unverändert)
+                    {t('writing.mock.cacheInfo')}
                   </Text>
                 </View>
               )}
 
               <View style={styles.scoreSection}>
-                <Text style={styles.scoreLabel}>Gesamtpunktzahl:</Text>
+                <Text style={styles.scoreLabel}>{t('writing.evaluation.totalScore')}</Text>
                 <Text style={styles.scoreValue}>
                   {assessment.overallScore} / {assessment.maxScore}
                 </Text>
               </View>
 
               <View style={styles.criteriaSection}>
-                <Text style={styles.criteriaTitle}>Bewertungskriterien:</Text>
+                <Text style={styles.criteriaTitle}>{t('writing.evaluation.criteriaTitle')}</Text>
 
                 <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.taskCompletion.grade)]}>
                   <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>1. Aufgabenerfüllung</Text>
-                    <Text style={styles.criterionGrade}>Note: {assessment.criteria.taskCompletion.grade}</Text>
+                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.taskCompletion')}</Text>
+                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.taskCompletion.grade}</Text>
                   </View>
                   <Text style={styles.criterionFeedback}>{assessment.criteria.taskCompletion.feedback}</Text>
                 </View>
 
                 <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.communicativeDesign.grade)]}>
                   <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>2. Kommunikative Gestaltung</Text>
-                    <Text style={styles.criterionGrade}>Note: {assessment.criteria.communicativeDesign.grade}</Text>
+                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.communicativeDesign')}</Text>
+                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.communicativeDesign.grade}</Text>
                   </View>
                   <Text style={styles.criterionFeedback}>{assessment.criteria.communicativeDesign.feedback}</Text>
                 </View>
 
                 <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.formalCorrectness.grade)]}>
                   <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>3. Formale Korrektheit</Text>
-                    <Text style={styles.criterionGrade}>Note: {assessment.criteria.formalCorrectness.grade}</Text>
+                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.formalCorrectness')}</Text>
+                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.formalCorrectness.grade}</Text>
                   </View>
                   <Text style={styles.criterionFeedback}>{assessment.criteria.formalCorrectness.feedback}</Text>
                 </View>
               </View>
 
               <View style={styles.improvementSection}>
-                <Text style={styles.improvementTitle}>💡 Verbesserungstipp:</Text>
+                <Text style={styles.improvementTitle}>{t('writing.evaluation.improvementTip')}</Text>
                 <Text style={styles.improvementText}>{assessment.improvementTip}</Text>
               </View>
             </ScrollView>
@@ -372,7 +374,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               style={styles.closeModalButton}
               onPress={() => setIsResultsModalOpen(false)}
             >
-              <Text style={styles.closeModalButtonText}>Schließen</Text>
+              <Text style={styles.closeModalButtonText}>{t('writing.evaluation.closeButton')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -394,11 +396,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
           <View style={[styles.modalContent, styles.imagePreviewModalContent]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Text style={styles.imagePreviewTitle}>
-                Aufgenommenes Bild überprüfen
+                {t('writing.imagePreview.title')}
               </Text>
               
               <Text style={styles.imagePreviewSubtitle}>
-                Bitte überprüfen Sie, ob das Bild klar und lesbar ist.
+                {t('writing.imagePreview.subtitle')}
               </Text>
 
               <View style={styles.imageContainer}>
@@ -417,7 +419,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
                     setTimeout(handleTakePhoto, 300);
                   }}
                 >
-                  <Text style={styles.imagePreviewButtonText}>🔄 Erneut aufnehmen</Text>
+                  <Text style={styles.imagePreviewButtonText}>{t('writing.imagePreview.retakeButton')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -428,7 +430,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
                   {isEvaluating ? (
                     <ActivityIndicator color={colors.background.secondary} />
                   ) : (
-                    <Text style={styles.imagePreviewButtonText}>✓ Bild bewerten</Text>
+                    <Text style={styles.imagePreviewButtonText}>{t('writing.imagePreview.evaluateButton')}</Text>
                   )}
                 </TouchableOpacity>
               </View>
@@ -441,7 +443,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
                   setCapturedImageBase64(null);
                 }}
               >
-                <Text style={styles.cancelImageButtonText}>Abbrechen</Text>
+                <Text style={styles.cancelImageButtonText}>{t('writing.imagePreview.cancelButton')}</Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -454,15 +456,15 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('writing.instructions.title')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie die eingehende E-Mail und beantworten Sie diese. Berücksichtigen Sie dabei die angegebenen Schreibpunkte.
+          {t('writing.instructions.description')}
         </Text>
       </View>
 
       {/* Incoming Email */}
       <View style={styles.emailSection}>
-        <Text style={styles.sectionTitle}>Eingehende E-Mail:</Text>
+        <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
         <View style={styles.emailCard}>
           <Text style={styles.emailText}>{exam.incomingEmail}</Text>
         </View>
@@ -470,7 +472,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
 
       {/* Writing Points */}
       <View style={styles.pointsSection}>
-        <Text style={styles.sectionTitle}>Schreibpunkte:</Text>
+        <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
         {exam.writingPoints.map((point, index) => (
           <View key={index} style={styles.pointItem}>
             <Text style={styles.pointBullet}>•</Text>
@@ -481,36 +483,36 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
 
       {/* Answer Input */}
       <View style={styles.answerSection}>
-        <Text style={styles.sectionTitle}>Ihre Antwort:</Text>
+        <Text style={styles.sectionTitle}>{t('writing.sections.yourAnswer')}</Text>
         <TextInput
           style={styles.textInput}
           multiline
-          placeholder="Schreiben Sie hier Ihre E-Mail..."
+          placeholder={t('writing.input.placeholder')}
           value={userAnswer}
           onChangeText={handleAnswerChange}
           textAlignVertical="top"
         />
         {showWarning && (
           <Text style={styles.warningText}>
-            ⚠️ Bitte schreiben Sie mindestens 50 Zeichen.
+            {t('writing.input.minCharactersWarning')}
           </Text>
         )}
         <Text style={styles.characterCount}>
-          {userAnswer.length} Zeichen
+          {userAnswer.length} {t('writing.input.characterCount')}
         </Text>
       </View>
 
       {/* Camera Button */}
       <View style={styles.cameraSection}>
-        <Text style={styles.orText}>oder</Text>
+        <Text style={styles.orText}>{t('writing.camera.orText')}</Text>
         <TouchableOpacity
           style={styles.cameraButton}
           onPress={handleTakePhoto}
         >
-          <Text style={styles.cameraButtonText}>📷 Handschriftliche Antwort fotografieren</Text>
+          <Text style={styles.cameraButtonText}>{t('writing.camera.buttonText')}</Text>
         </TouchableOpacity>
         <Text style={styles.cameraHint}>
-          Nehmen Sie ein Foto Ihrer handschriftlichen Antwort auf
+          {t('writing.camera.hint')}
         </Text>
       </View>
 
@@ -523,14 +525,14 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         {isEvaluating ? (
           <ActivityIndicator color={colors.background.secondary} />
         ) : (
-          <Text style={styles.evaluateButtonText}>Antwort bewerten</Text>
+          <Text style={styles.evaluateButtonText}>{t('writing.buttons.evaluate')}</Text>
         )}
       </TouchableOpacity>
 
       {/* Submit Button (only visible after evaluation) */}
       {assessment && (
         <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitButtonText}>Weiter zum nächsten Teil</Text>
+          <Text style={styles.submitButtonText}>{t('writing.buttons.nextSection')}</Text>
         </TouchableOpacity>
       )}
 

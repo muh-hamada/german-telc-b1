@@ -14,7 +14,7 @@ import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -79,7 +79,7 @@ const GrammarMenuScreen: React.FC = () => {
         title={t('practice.grammar.part2')}
       />
 
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

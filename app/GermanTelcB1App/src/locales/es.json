@@ -200,9 +200,68 @@
     }
   },
   "mockExam": {
-    "title": "Examen de Práctica",
-    "description": "Toma un examen de práctica completo",
-    "comingSoon": "Función de examen de práctica próximamente..."
+    "title": "Examen de prueba",
+    "subtitle": "Examen completo Telc Alemán B1",
+    "overview": "Resumen del examen",
+    "totalDuration": "Duración total",
+    "totalPoints": "Puntos totales",
+    "passingScore": "Puntuación mínima",
+    "minutes": "Minutos",
+    "points": "Puntos",
+    "importantNote": "Nota importante:",
+    "importantNoteText": "Antes de comenzar el examen, le recomendamos encarecidamente revisar la estructura del examen para familiarizarse con el formato y los requisitos.",
+    "viewStructure": "Ver estructura del examen",
+    "aboutMockExam": "Acerca de este examen de prueba",
+    "disclaimerText1": "Este examen de prueba le da una evaluación aproximada de su conocimiento actual y preparación. Sin embargo, es",
+    "disclaimerText2": "no es garantía",
+    "disclaimerText3": "de que aprobará el examen real Telc B1.",
+    "disclaimerText4": "El examen real se realiza bajo condiciones controladas y es evaluado por examinadores certificados. Use este examen de prueba como herramienta de práctica para identificar sus debilidades y mejorarlas específicamente.",
+    "examSections": "Partes del examen:",
+    "readingComprehension": "Comprensión lectora (3 partes)",
+    "languageElements": "Elementos del idioma (2 partes)",
+    "listeningComprehension": "Comprensión auditiva (3 partes)",
+    "writtenExpression": "Expresión escrita",
+    "oralExpression": "Expresión oral (3 partes)",
+    "practiceRecommended": "Práctica recomendada",
+    "speakingNote": "Nota sobre el examen oral:",
+    "speakingNoteText": "El examen oral requiere interacción humana y no se puede simular en este examen de prueba. Le recomendamos usar el área de práctica y practicar con un amigo, compañero de idioma o tutor.",
+    "startExam": "Comenzar examen de prueba",
+    "goodLuck": "¡Buena suerte! Tómese su tiempo y lea todas las instrucciones cuidadosamente.",
+    "examInProgress": "Examen en progreso",
+    "resumeOrRestart": "Ya ha comenzado un examen de prueba. ¿Desea continuar o comenzar uno nuevo?",
+    "resume": "Continuar",
+    "startNew": "Comenzar nuevo",
+    "confirm": "Confirmar",
+    "confirmRestart": "¿Está seguro de que desea comenzar un nuevo examen? Su progreso actual se eliminará.",
+    "yesStartNew": "Sí, comenzar nuevo",
+    "examNotFound": "No se encontró el examen.",
+    "couldNotLoadProgress": "No se pudo cargar el progreso del examen.",
+    "couldNotStartExam": "No se pudo iniciar el examen. Por favor, inténtelo de nuevo.",
+    "examLoading": "Cargando examen...",
+    "exitExam": "¿Salir del examen?",
+    "exitExamMessage": "¿Realmente desea salir? Su progreso se guardará y puede continuar más tarde.",
+    "stay": "Permanecer",
+    "exit": "Salir",
+    "couldNotSaveProgress": "No se pudo guardar el progreso.",
+    "finishExam": "Finalizar examen",
+    "finishExamMessage": "¿Está seguro de que desea finalizar el examen? Puede revisar sus resultados después.",
+    "finish": "Finalizar",
+    "completeAllSections": "Por favor complete todas las secciones requeridas antes de finalizar el examen.",
+    "congratulations": "¡Felicidades!",
+    "examCompleted": "¡Ha completado el examen de prueba!",
+    "yourScore": "Su puntuación",
+    "passed": "Aprobado",
+    "failed": "No aprobado",
+    "viewResults": "Ver resultados",
+    "backToHome": "Volver al inicio",
+    "exitExamButton": "Salir",
+    "exitExamTitle": "Salir del examen",
+    "speakingTitle": "Sección de habla",
+    "skipAndContinue": "Saltar y continuar",
+    "writtenExam": "Examen escrito",
+    "speakingCardTitle": "Sección de habla",
+    "oralExam": "examen oral",
+    "examResultsNote": "ℹ️ Este es un examen simulado para practicar. \nLos resultados reales del examen pueden variar. \nUtilice estos resultados para identificar sus fortalezas y debilidades."
   },
   "questions": {
     "checkAnswers": "Verificar respuestas",
@@ -335,63 +394,8 @@
       "good": "Bueno",
       "fair": "Aceptable",
       "needsImprovement": "Necesita mejorar"
-    }
-  },
-  "mockExam": {
-    "title": "Examen de prueba",
-    "subtitle": "Examen completo Telc Alemán B1",
-    "overview": "Resumen del examen",
-    "totalDuration": "Duración total",
-    "totalPoints": "Puntos totales",
-    "passingScore": "Puntuación mínima",
-    "minutes": "Minutos",
-    "points": "Puntos",
-    "importantNote": "Nota importante:",
-    "importantNoteText": "Antes de comenzar el examen, le recomendamos encarecidamente revisar la estructura del examen para familiarizarse con el formato y los requisitos.",
-    "viewStructure": "Ver estructura del examen",
-    "aboutMockExam": "Acerca de este examen de prueba",
-    "disclaimerText1": "Este examen de prueba le da una evaluación aproximada de su conocimiento actual y preparación. Sin embargo, es",
-    "disclaimerText2": "no es garantía",
-    "disclaimerText3": "de que aprobará el examen real Telc B1.",
-    "disclaimerText4": "El examen real se realiza bajo condiciones controladas y es evaluado por examinadores certificados. Use este examen de prueba como herramienta de práctica para identificar sus debilidades y mejorarlas específicamente.",
-    "examSections": "Partes del examen:",
-    "readingComprehension": "Comprensión lectora (3 partes)",
-    "languageElements": "Elementos del idioma (2 partes)",
-    "listeningComprehension": "Comprensión auditiva (3 partes)",
-    "writtenExpression": "Expresión escrita",
-    "oralExpression": "Expresión oral (3 partes)",
-    "practiceRecommended": "Práctica recomendada",
-    "speakingNote": "Nota sobre el examen oral:",
-    "speakingNoteText": "El examen oral requiere interacción humana y no se puede simular en este examen de prueba. Le recomendamos usar el área de práctica y practicar con un amigo, compañero de idioma o tutor.",
-    "startExam": "Comenzar examen de prueba",
-    "goodLuck": "¡Buena suerte! Tómese su tiempo y lea todas las instrucciones cuidadosamente.",
-    "examInProgress": "Examen en progreso",
-    "resumeOrRestart": "Ya ha comenzado un examen de prueba. ¿Desea continuar o comenzar uno nuevo?",
-    "resume": "Continuar",
-    "startNew": "Comenzar nuevo",
-    "confirm": "Confirmar",
-    "confirmRestart": "¿Está seguro de que desea comenzar un nuevo examen? Su progreso actual se eliminará.",
-    "yesStartNew": "Sí, comenzar nuevo",
-    "examNotFound": "No se encontró el examen.",
-    "couldNotLoadProgress": "No se pudo cargar el progreso del examen.",
-    "couldNotStartExam": "No se pudo iniciar el examen. Por favor, inténtelo de nuevo.",
-    "examLoading": "Cargando examen...",
-    "exitExam": "¿Salir del examen?",
-    "exitExamMessage": "¿Realmente desea salir? Su progreso se guardará y puede continuar más tarde.",
-    "stay": "Permanecer",
-    "exit": "Salir",
-    "couldNotSaveProgress": "No se pudo guardar el progreso.",
-    "finishExam": "Finalizar examen",
-    "finishExamMessage": "¿Está seguro de que desea finalizar el examen? Puede revisar sus resultados después.",
-    "finish": "Finalizar",
-    "completeAllSections": "Por favor complete todas las secciones requeridas antes de finalizar el examen.",
-    "congratulations": "¡Felicidades!",
-    "examCompleted": "¡Ha completado el examen de prueba!",
-    "yourScore": "Su puntuación",
-    "passed": "Aprobado",
-    "failed": "No aprobado",
-    "viewResults": "Ver resultados",
-    "backToHome": "Volver al inicio"
+    },
+    "login": "Acceso"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -399,7 +403,9 @@
     "loadingExam": "Cargando examen...",
     "failedToLoad": "Error al cargar los datos del examen",
     "selectAnExam": "Seleccionar un examen",
-    "selectTask": "Seleccionar tarea"
+    "selectTask": "Seleccionar tarea",
+    "markedCompleted": "¡Examen marcado como completado!",
+    "markedIncomplete": "¡Examen marcado como incompleto!"
   },
   "grammar": {
     "part1": {
@@ -427,7 +433,73 @@
   },
   "writing": {
     "title": "Expresión escrita",
-    "subtitle": "Escribir un correo personal"
+    "subtitle": "Escribir un correo personal",
+    "instructions": {
+      "title": "Tarea:",
+      "description": "Lea el correo electrónico entrante y respóndalo. Tenga en cuenta los puntos de escritura proporcionados."
+    },
+    "sections": {
+      "incomingEmail": "Correo electrónico entrante:",
+      "writingPoints": "Puntos de escritura:",
+      "yourAnswer": "Tu respuesta:"
+    },
+    "input": {
+      "placeholder": "Escribe tu correo aquí...",
+      "characterCount": "caracteres",
+      "minCharactersWarning": "⚠️ Por favor, escribe al menos 50 caracteres."
+    },
+    "camera": {
+      "orText": "o",
+      "buttonText": "📷 Fotografiar respuesta escrita a mano",
+      "hint": "Toma una foto de tu respuesta escrita a mano"
+    },
+    "buttons": {
+      "evaluate": "Evaluar respuesta",
+      "nextSection": "Continuar a la siguiente parte"
+    },
+    "evaluation": {
+      "title": "Tu evaluación (Expresión escrita)",
+      "totalScore": "Puntuación total:",
+      "criteriaTitle": "Criterios de evaluación:",
+      "criteria": {
+        "taskCompletion": "1. Cumplimiento de la tarea",
+        "communicativeDesign": "2. Diseño comunicativo",
+        "formalCorrectness": "3. Corrección formal"
+      },
+      "grade": "Nota:",
+      "improvementTip": "💡 Consejo de mejora:",
+      "closeButton": "Cerrar"
+    },
+    "imagePreview": {
+      "title": "Revisar imagen capturada",
+      "subtitle": "Por favor, verifica que la imagen sea clara y legible.",
+      "retakeButton": "🔄 Volver a tomar",
+      "evaluateButton": "✓ Evaluar imagen",
+      "cancelButton": "Cancelar"
+    },
+    "alerts": {
+      "cameraNotAvailable": "Cámara no disponible",
+      "cameraNotAvailableMessage": "La función de cámara aún no está inicializada. Por favor, reinicia la aplicación después de recompilarla.",
+      "permissionDenied": "Permiso denegado",
+      "permissionDeniedMessage": "Se requiere permiso de cámara para tomar fotos.",
+      "cameraError": "Error",
+      "cameraErrorMessage": "No se pudo abrir la cámara: ",
+      "imageLoadError": "No se pudo cargar la imagen",
+      "imageNotAvailable": "No hay imagen disponible",
+      "evaluationError": "Error de evaluación",
+      "evaluationErrorMessage": "Ocurrió un error inesperado.",
+      "useMockData": "Usar datos de prueba",
+      "noEvaluation": "Sin evaluación",
+      "noEvaluationMessage": "Por favor, evalúa tu respuesta antes de continuar.",
+      "cameraPermissionTitle": "Permiso de cámara requerido",
+      "cameraPermissionMessage": "Esta aplicación necesita acceso a tu cámara para tomar fotos.",
+      "askLater": "Preguntar más tarde",
+      "ok": "OK"
+    },
+    "mock": {
+      "warning": "⚠️ Datos de prueba: clave API no configurada",
+      "cacheInfo": "ℹ️ Resultado en caché (respuesta sin cambios)"
+    }
   },
   "listening": {
     "part1": {

@@ -15,7 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
 import speakingPart1Data from '../../data/speaking-part1.json';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 
 interface PersonalInfo {
   name: string;
@@ -564,7 +564,7 @@ const SpeakingPart1Screen: React.FC = () => {
 
       {renderEditModal()}
       {renderInfoModal()}
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

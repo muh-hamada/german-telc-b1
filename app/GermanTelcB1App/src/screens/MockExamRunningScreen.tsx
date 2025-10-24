@@ -32,13 +32,15 @@ import {
   getTestIdForStep,
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
-import { DEMO_MODE } from '../config/demo.config';
+import { HIDE_ADS } from '../config/demo.config';
+import { useTranslation } from 'react-i18next';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
   const [examProgress, setExamProgress] = useState<MockExamProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const { t } = useTranslation();
+  
   useEffect(() => {
     loadProgress();
   }, []);
@@ -47,14 +49,14 @@ const MockExamRunningScreen: React.FC = () => {
     try {
       const progress = await loadMockExamProgress();
       if (!progress) {
-        Alert.alert('Fehler', 'Keine Prüfung gefunden.');
+        Alert.alert(t('common.error'), t('mockExam.examNotFound'));
         navigation.goBack();
         return;
       }
       setExamProgress(progress);
     } catch (error) {
       console.error('Error loading progress:', error);
-      Alert.alert('Fehler', 'Prüfungsfortschritt konnte nicht geladen werden.');
+      Alert.alert(t('common.error'), t('mockExam.couldNotLoadProgress'));
       navigation.goBack();
     } finally {
       setIsLoading(false);
@@ -66,9 +68,9 @@ const MockExamRunningScreen: React.FC = () => {
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
-          <Text style={styles.loadingText}>Prüfung wird geladen...</Text>
+          <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -92,18 +94,18 @@ const MockExamRunningScreen: React.FC = () => {
       }
     } catch (error) {
       console.error('Error completing step:', error);
-      Alert.alert('Fehler', 'Fortschritt konnte nicht gespeichert werden.');
+      Alert.alert(t('common.error'), t('mockExam.couldNotSaveProgress'));
     }
   };
 
   const handleExitExam = () => {
     Alert.alert(
-      'Prüfung beenden?',
-      'Möchten Sie die Prüfung wirklich beenden? Ihr Fortschritt wird gespeichert.',
+      t('mockExam.exitExamTitle'),
+      t('mockExam.exitExamMessage'),
       [
-        { text: 'Abbrechen', style: 'cancel' },
+        { text: t('mockExam.stay'), style: 'default', onPress: () => {} },
         {
-          text: 'Beenden',
+          text: t('mockExam.exitExamButton'),
           style: 'destructive',
           onPress: () => navigation.goBack(),
         },
@@ -121,12 +123,12 @@ const MockExamRunningScreen: React.FC = () => {
     if (currentStep.sectionNumber === 5) {
       return (
         <View style={styles.speakingMessageContainer}>
-          <Text style={styles.speakingTitle}>🗣️ Mündlicher Ausdruck</Text>
+          <Text style={styles.speakingTitle}>🗣️ {t('mockExam.speakingTitle')}</Text>
           <Text style={styles.speakingSubtitle}>{currentStep.partName}</Text>
 
           <View style={styles.speakingCard}>
             <Text style={styles.speakingCardTitle}>
-              ℹ️ Diese Prüfung erfordert menschliche Interaktion
+              ℹ️ {t('mockExam.speakingCardTitle')}
             </Text>
             <Text style={styles.speakingCardText}>
               Die mündliche Prüfung kann nicht automatisch bewertet werden, da sie eine 
@@ -148,7 +150,7 @@ const MockExamRunningScreen: React.FC = () => {
             style={styles.skipButton}
             onPress={() => handleCompleteStep(0)}
           >
-            <Text style={styles.skipButtonText}>Überspringen und fortfahren</Text>
+            <Text style={styles.skipButtonText}>{t('mockExam.skipAndContinue')}</Text>
           </TouchableOpacity>
         </View>
       );
@@ -223,7 +225,7 @@ const MockExamRunningScreen: React.FC = () => {
           passedOverall ? styles.resultCardPass : styles.resultCardFail
         ]}>
           <Text style={styles.resultCardTitle}>
-            {passedOverall ? '✅ Bestanden' : '❌ Nicht bestanden'}
+            {passedOverall ? `✅ ${t('mockExam.passed')} (≥180%)` : `❌ ${t('mockExam.failed')} (<180%)`}
           </Text>
           <Text style={styles.resultScore}>
             {examProgress.totalScore} / {examProgress.totalMaxPoints}
@@ -233,7 +235,7 @@ const MockExamRunningScreen: React.FC = () => {
 
         {/* Written Component */}
         <View style={styles.componentCard}>
-          <Text style={styles.componentTitle}>Schriftliche Prüfung</Text>
+          <Text style={styles.componentTitle}>{t('mockExam.writtenExam')}</Text>
           <Text style={styles.componentScore}>
             {writtenScore} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
           </Text>
@@ -241,14 +243,14 @@ const MockExamRunningScreen: React.FC = () => {
             styles.componentStatus,
             passedWritten ? styles.componentStatusPass : styles.componentStatusFail
           ]}>
-            {passedWritten ? '✓ Bestanden (≥60%)' : '✗ Nicht bestanden (<60%)'}
+            {passedWritten ? `✓ ${t('mockExam.passed')} (≥135%)` : `✗ ${t('mockExam.failed')} (<135%)`}
           </Text>
         </View>
 
         {/* Oral Component (if taken) */}
         {oralScore > 0 && (
           <View style={styles.componentCard}>
-            <Text style={styles.componentTitle}>Mündliche Prüfung</Text>
+            <Text style={styles.componentTitle}>{t('mockExam.oralExam')}</Text>
             <Text style={styles.componentScore}>
               {oralScore} / {oralMaxPoints} ({oralPercentage.toFixed(1)}%)
             </Text>
@@ -256,7 +258,7 @@ const MockExamRunningScreen: React.FC = () => {
               styles.componentStatus,
               passedOral ? styles.componentStatusPass : styles.componentStatusFail
             ]}>
-              {passedOral ? '✓ Bestanden (≥60%)' : '✗ Nicht bestanden (<60%)'}
+              {passedOral ? `✓ ${t('mockExam.passed')} (≥60%)` : `✗ ${t('mockExam.failed')} (<60%)`}
             </Text>
           </View>
         )}
@@ -264,9 +266,7 @@ const MockExamRunningScreen: React.FC = () => {
         {/* Note */}
         <View style={styles.noteCard}>
           <Text style={styles.noteText}>
-            ℹ️ Dies ist eine Mock-Prüfung zur Übung. Die tatsächlichen Prüfungsergebnisse 
-            können variieren. Nutzen Sie diese Ergebnisse, um Ihre Stärken und Schwächen 
-            zu identifizieren.
+            {t('mockExam.examResultsNote')}
           </Text>
         </View>
 
@@ -278,7 +278,7 @@ const MockExamRunningScreen: React.FC = () => {
             navigation.goBack();
           }}
         >
-          <Text style={styles.primaryButtonText}>Zurück zur Startseite</Text>
+          <Text style={styles.primaryButtonText}>{t('mockExam.backToHome')}</Text>
         </TouchableOpacity>
       </ScrollView>
     );
@@ -288,7 +288,7 @@ const MockExamRunningScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         {renderResults()}
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -307,7 +307,7 @@ const MockExamRunningScreen: React.FC = () => {
           <Text style={styles.stepHeaderPart}>{currentStep?.partName}</Text>
         </View>
         <TouchableOpacity onPress={handleExitExam} style={styles.exitButton}>
-          <Text style={styles.exitButtonText}>✕ Beenden</Text>
+          <Text style={styles.exitButtonText}>✕ {t('mockExam.exitExamButton')}</Text>
         </TouchableOpacity>
       </View>
 
@@ -315,7 +315,7 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

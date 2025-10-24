@@ -5,13 +5,15 @@ import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE, DEMO_STATS } from '../config/demo.config';
+import Button from './Button';
 
 interface ProgressCardProps {
   onPress?: () => void;
+  onLoginPress?: () => void;
   showDetails?: boolean;
 }
 
-const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true }) => {
+const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, showDetails = true }) => {
   const { t } = useTranslation();
   const stats = useUserStats();
   const { user } = useAuth();
@@ -50,6 +52,7 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, showDetails = true
           <Text style={styles.loginPromptText}>
             {t('progress.loginPrompt')}
           </Text>
+          {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' style={styles.loginButton} />}
         </View>
       </TouchableOpacity>
     );
@@ -181,6 +184,9 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     textAlign: 'center',
     lineHeight: 22,
+  },
+  loginButton: {
+    marginTop: spacing.md,
   },
 });
 

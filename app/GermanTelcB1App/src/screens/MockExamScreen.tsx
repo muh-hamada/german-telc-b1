@@ -12,8 +12,6 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { colors, spacing, typography } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
 import { 
@@ -23,22 +21,17 @@ import {
   saveMockExamProgress,
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
-import { DEMO_MODE } from '../config/demo.config';
-import { RootStackParamList, MainTabParamList, HomeStackParamList } from '../types/navigation.types';
+import { HIDE_ADS } from '../config/demo.config';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation<any>(); // Using any to allow cross-stack navigation
+  const navigation = useNavigation<any>();
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    checkForActiveExam();
-  }, []);
 
   const checkForActiveExam = async () => {
     try {
       const progress = await loadMockExamProgress();
-      if (progress && !progress.isCompleted) {
+      if (progress && progress.hasStarted && !progress.isCompleted) {
         // Show alert to continue or start new
         Alert.alert(
           t('mockExam.examInProgress'),
@@ -59,6 +52,8 @@ const MockExamScreen: React.FC = () => {
             },
           ]
         );
+      } else {
+        handleStartExam();
       }
     } catch (error) {
       console.error('Error checking for active exam:', error);
@@ -215,7 +210,7 @@ const MockExamScreen: React.FC = () => {
         </View>
 
         {/* Start Button */}
-        <TouchableOpacity style={styles.startButton} onPress={handleStartExam}>
+        <TouchableOpacity style={styles.startButton} onPress={checkForActiveExam}>
           <Text style={styles.startButtonText}>🚀 {t('mockExam.startExam')}</Text>
         </TouchableOpacity>
 
@@ -223,7 +218,7 @@ const MockExamScreen: React.FC = () => {
           {t('mockExam.goodLuck')}
         </Text>
       </ScrollView>
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

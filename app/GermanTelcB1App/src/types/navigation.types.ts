@@ -11,7 +11,7 @@ export type RootStackParamList = {
 export type MainTabParamList = {
   HomeStack: NavigatorScreenParams<HomeStackParamList>;
   MockExam: undefined;
-  Profile: undefined;
+  Profile: { openLoginModal?: boolean } | undefined;
 };
 
 // Home Stack Navigator

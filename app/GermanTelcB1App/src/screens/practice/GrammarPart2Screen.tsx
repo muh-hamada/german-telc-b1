@@ -18,7 +18,7 @@ import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart2UI from '../../components/exam-ui/LanguagePart2UI';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 
 const GrammarPart2Screen: React.FC = () => {
@@ -50,7 +50,7 @@ const GrammarPart2Screen: React.FC = () => {
           <Icon
             name={isCompleted ? 'check-circle' : 'circle-o'}
             size={24}
-            color={isCompleted ? colors.success[500] : colors.text.secondary}
+            color={isCompleted ? colors.success[500] : colors.white}
           />
         </TouchableOpacity>
       ),
@@ -122,7 +122,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -133,7 +133,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -148,7 +148,7 @@ const GrammarPart2Screen: React.FC = () => {
         examTitle={`Grammar Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

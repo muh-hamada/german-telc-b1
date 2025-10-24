@@ -14,10 +14,18 @@ import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import AdBanner from '../components/AdBanner';
-import { DEMO_MODE } from '../config/demo.config';
+import { HIDE_ADS } from '../config/demo.config';
+import { CompositeNavigationProp } from '@react-navigation/native';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { MainTabParamList } from '../types/navigation.types';
+
+type HomeScreenNavigationProp = CompositeNavigationProp<
+  HomeStackNavigationProp,
+  BottomTabNavigationProp<MainTabParamList>
+>;
 
 const HomeScreen: React.FC = () => {
-  const navigation = useNavigation<HomeStackNavigationProp>();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useTranslation();
 
   const handleExamStructurePress = () => {
@@ -26,6 +34,10 @@ const HomeScreen: React.FC = () => {
 
   const handlePracticePress = () => {
     navigation.navigate('PracticeMenu');
+  };
+
+  const handleLoginPress = () => {
+    navigation.navigate('Profile', { openLoginModal: true });
   };
 
   return (
@@ -43,7 +55,7 @@ const HomeScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ProgressCard />
+        <ProgressCard onLoginPress={handleLoginPress} />
         
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
@@ -59,7 +71,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };

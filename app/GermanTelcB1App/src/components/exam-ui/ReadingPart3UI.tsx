@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
-    marginTop: spacing.margin.lg,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,

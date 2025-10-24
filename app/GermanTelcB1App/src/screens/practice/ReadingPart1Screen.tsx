@@ -18,7 +18,7 @@ import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
 import AdBanner from '../../components/AdBanner';
-import { DEMO_MODE } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 
 const ReadingPart1Screen: React.FC = () => {
@@ -50,7 +50,7 @@ const ReadingPart1Screen: React.FC = () => {
           <Icon
             name={isCompleted ? 'check-circle' : 'circle-o'}
             size={24}
-            color={isCompleted ? colors.success[500] : colors.text.secondary}
+            color={isCompleted ? colors.success[500] : colors.white}
           />
         </TouchableOpacity>
       ),
@@ -121,7 +121,7 @@ const ReadingPart1Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -132,7 +132,7 @@ const ReadingPart1Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!DEMO_MODE && <AdBanner />}
+        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -147,7 +147,7 @@ const ReadingPart1Screen: React.FC = () => {
         examTitle={`Reading Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!DEMO_MODE && <AdBanner />}
+      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };
