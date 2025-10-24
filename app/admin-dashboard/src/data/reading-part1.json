@@ -1,0 +1,212 @@
+[
+  {
+    "id": 0,
+      "headings": [
+        "Immer mehr deutsche Familien reisen mit der Bahn",
+        "Buchtipp: Hilfe bei Schlafproblemen",
+        "Der Computer: Liebstes Hobby von Deutschlands Frauen",
+        "Neu bei der Bahn: Spezielle Informationen und Angebote für Radfahrer",
+        "Neu am Markt: Billige Schlaftabletten",
+        "Familien reisen billiger",
+        "Urlaub mit dem Fahrrad in Deutschland immer beliebter",
+        "Kultur im Urlaub: Interessen je nach Alter unterschiedlich",
+        "Umfrage: Wer verwendet den Computer am häufigsten?",
+        "Deutschland: Immer mehr Touristen reisen in den Westen"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "Wer ist der typische Computerfan? Das B.A.T. Freizeitforschungsinstitut Hamburg ermittelte einige Eigenschaften: Er ist männlich, jung und hat einen höheren Schulabschluss. Bei der Beschäftigung am heimischen Computer stehen Textverarbeitung und Spiele ganz oben, es folgen private Buchhaltung, Grafikprogramme und Tabellenkalkulation.",
+          "correct": "i"
+        },
+        {
+          "id": 2,
+          "text": "„Bahn&Bike\" heißt ein 222-seitiger Prospekt, den die Deutsche Bahn AG in Zusammenarbeit mit der Deutschen Zentrale für Tourismus herausgebracht hat und der wichtige Informationen für jene bereitstellt, die ihren Radurlaub mit Bahnfahren verbinden wollen. Das Motto lautet: Hin mit der Bahn - das Rad vor Ort mieten. Der Prospekt enthält Angaben zur Streckenlänge und Wegbeschaffenheit, Adressen von Verleihstationen, verweist auf Sehenswürdigkeiten sowie Unterkünfte und wird durch Karten ergänzt. Die Broschüre kostet 5 Euro und ist im Buchhandel beziehungsweise an Fahrkartenschaltern zu beziehen.",
+          "correct": "d"
+        },
+        {
+          "id": 3,
+          "text": "Ausführliche Informationen zum Thema „Schlafstörungen\" finden Sie im gleichnamigen Patientenratgeber von Dr. med. Fritz Hohagen. Sie erfahren, was den Schlaf stört und was Sie dagegen unternehmen können. Für 9,95 Euro erhalten Sie das Buch in Apotheken oder direkt beim Wort&Bild Verlag, 82065 Baierbrunn.",
+          "correct": "b"
+        },
+        {
+          "id": 4,
+          "text": "Jetzt wird für Familien Reisen mit der Bahn zwischen Österreich und Deutschland noch ein gutes Stück günstiger. Denn ab 6. Oktober gibt es den Familien-Super-Sparpreis. Ein echter Traumpreis für die ganze Familie vom Baby bis zum Großpapa da kann man wirklich sparen. Der Familien-Super-Sparpreis gilt für Familien, bestehend aus ein oder zwei Erwachsenen (Eltern, auch Großeltern) und deren Kindern/Enkelkindern bis zum vollendeten 17. Lebensjahr, wobei mindestens ein Kind/Enkelkind an der Reise teilnehmen muss.",
+          "correct": "f"
+        },
+        {
+          "id": 5,
+          "text": "Touristen zwischen 14 und 29 Jahren sowie zwischen 40 und 49 Jahren haben ein besonders großes Interesse an der Kultur des jeweiligen Reiselandes, während die Gruppe der 30- bis 39-jährigen im Urlaub eine Kulturpause einlegt. Dies geht aus der neuesten Analyse der Forschungsgemeinschaft Urlaub und Reisen e. V. hervor. Urlauber aus Ostdeutschland, so die Studie, zeigen wiederum mehr Kulturinteresse als Reisende aus dem Westen. Grundsätzlich gelte: Je höher das Einkommen und die Schulbildung sind, umso mehr besteht im Urlaub der Wunsch, Land und Leute kennenzulernen.",
+          "correct": "h"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "headings": [
+        "Steigende Nachfrage nach Teilzeit-Jobs",
+        "Umweltbewusstsein: Die beliebtesten nachhaltigen Verkehrsmittel",
+        "Achtung: Gefahr beim mobilen Arbeiten",
+        "Die Rente: Wie viel Geld man sparen muss",
+        "Tipps für das Bewerbungsgespräch",
+        "Die besten Strategien für das frühe Aufstehen",
+        "Neuer Trend: Mittagspause für die Gesundheit nutzen",
+        "Karriere: Ist ein Auslandsaufenthalt wirklich nötig?",
+        "Die Vorteile des digitalen Lesens",
+        "Arbeitgeber suchen flexible Mitarbeiter"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "Ein perfektes Bewerbungsgespräch beginnt lange vor dem Termin. Informieren Sie sich gründlich über das Unternehmen und die Stelle. Seien Sie pünktlich und achten Sie auf angemessene Kleidung. Denken Sie daran: Ihre Körpersprache ist genauso wichtig wie Ihre Worte. Zeigen Sie echtes Interesse und stellen Sie eigene Fragen.",
+          "correct": "e"
+        },
+        {
+          "id": 2,
+          "text": "Viele junge Berufstätige fragen sich, ob sie für eine internationale Karriere ins Ausland gehen sollen. Experten sind sich einig: Ein längerer Aufenthalt in einem fremden Land verbessert nicht nur die Sprachkenntnisse, sondern auch die interkulturelle Kompetenz, was bei großen Firmen sehr geschätzt wird.",
+          "correct": "h"
+        },
+        {
+          "id": 3,
+          "text": "Immer mehr Beschäftigte wünschen sich, ihre Wochenarbeitszeit zu reduzieren, um mehr Zeit für die Familie oder Hobbys zu haben. Besonders in sozialen Berufen und im öffentlichen Dienst gibt es einen deutlichen Anstieg der Nachfragen nach halben oder reduzierten Stellen.",
+          "correct": "a"
+        },
+        {
+          "id": 4,
+          "text": "Das Arbeiten mit Laptop und Handy im Zug oder Café birgt Risiken. Viele Netzwerke sind nicht ausreichend gesichert, was sensible Unternehmensdaten gefährden kann. Experten raten dazu, immer ein VPN zu nutzen und keine wichtigen Passwörter über öffentliche Verbindungen einzugeben.",
+          "correct": "c"
+        },
+        {
+          "id": 5,
+          "text": "Die klassische Mittagspause im Büro oder an der Kantine wird neu erfunden. Ärzte empfehlen, die 30 Minuten für einen kurzen Spaziergang an der frischen Luft zu nutzen, um den Kreislauf in Schwung zu bringen. Das steigert die Produktivität am Nachmittag und hilft gegen Kopfschmerzen.",
+          "correct": "g"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "headings": [
+        "E-Mails im Beruf: Klare Regeln für die Kommunikation",
+        "Achtung: Was Sie beim Kauf eines neuen Laptops beachten müssen",
+        "Digitale Medien: Die beliebtesten Nachrichtenquellen der Jugendlichen",
+        "Weniger Leser: Die Zukunft der Printmedien",
+        "Die besten Methoden, Vokabeln schnell zu lernen",
+        "Studiengebühren: Wird das Studium in Deutschland teurer?",
+        "Kostenlose Online-Kurse erleben einen Boom",
+        "Die Wichtigkeit von Pausen beim Lernen",
+        "Warum Sprachen lernen im Alter einfacher ist",
+        "Schule: Wie man eine gute Präsentation hält"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "Eine überzeugende Präsentation braucht mehr als nur gute Inhalte. Üben Sie Ihren Vortrag mehrmals und sprechen Sie frei, ohne nur vom Blatt abzulesen. Achten Sie auf deutliche Aussprache und Blickkontakt zum Publikum. Nutzen Sie visuelle Hilfsmittel wie Bilder oder kurze Videos, um die Zuhörer zu fesseln.",
+          "correct": "j"
+        },
+        {
+          "id": 2,
+          "text": "Die Verkaufszahlen für Zeitungen und Magazine sinken seit Jahren kontinuierlich. Viele Verlage reagieren darauf mit der Entwicklung von digitalen Abonnements und Apps. Dennoch sehen Experten eine schwierige Zukunft für gedruckte Zeitungen, besonders in der jüngeren Generation.",
+          "correct": "d"
+        },
+        {
+          "id": 3,
+          "text": "In vielen Firmen fehlt es an einer klaren E-Mail-Kultur. Vermeiden Sie lange Sätze und nutzen Sie Betreffzeilen, die den Inhalt sofort erkennen lassen. Stellen Sie sicher, dass Ihre Nachricht nur die notwendigen Empfänger enthält, um die Postfächer nicht unnötig zu überlasten.",
+          "correct": "a"
+        },
+        {
+          "id": 4,
+          "text": "Um eine neue Sprache zu lernen, ist Vokabular entscheidend. Versuchen Sie nicht, lange Listen auswendig zu lernen. Effektiver ist es, die neuen Wörter in Kontexten zu sehen (z.B. in Sätzen oder Geschichten) und sie mehrmals zu wiederholen, idealerweise mit Lernkarten.",
+          "correct": "e"
+        },
+        {
+          "id": 5,
+          "text": "Soziale Medien und Internetplattformen haben traditionelle Nachrichtenquellen wie das Fernsehen bei jungen Menschen abgelöst. Studien zeigen, dass Jugendliche politische und globale Informationen primär über Kanäle wie Instagram, TikTok oder YouTube konsumieren.",
+          "correct": "c"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "headings": [
+        "Neue Regeln für E-Scooter in der Stadt",
+        "Flugreisen: Das Handgepäck wird strenger kontrolliert",
+        "Camping: Die beliebteste Urlaubsform der Deutschen",
+        "Hotel-Sterne: Was die Klassifizierung wirklich bedeutet",
+        "Mietwagen im Urlaub: Worauf Sie achten müssen",
+        "Die schönsten Wanderrouten in den Alpen",
+        "Kurztrips: Beliebteste Ziele am Wochenende",
+        "Günstige Flüge nur noch außerhalb der Saison",
+        "Bahnfahren: Ein neues Ticket für Pendler",
+        "Umfrage: Deutschland plant mehr Urlaub im eigenen Land"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "Die Deutsche Bahn führt eine neue Monatskarte ein, die speziell für Berufspendler konzipiert ist. Das neue Ticket gilt nicht nur für die Zugstrecke, sondern bietet auch die freie Nutzung des Nahverkehrs in der jeweiligen Zielstadt. Es soll den täglichen Weg zur Arbeit einfacher und günstiger gestalten.",
+          "correct": "i"
+        },
+        {
+          "id": 2,
+          "text": "Weg vom Hotel und hin zur Natur: Der Camping-Boom hält an. Die Deutschen verbringen ihren Urlaub immer häufiger im eigenen Wohnwagen oder Zelt. Besonders beliebt sind Stellplätze an Seen und in den Bergen. Der Wunsch nach Freiheit und Unabhängigkeit spielt hierbei eine große Rolle.",
+          "correct": "c"
+        },
+        {
+          "id": 3,
+          "text": "Bevor Sie im Urlaubsland ein Auto mieten, sollten Sie die Versicherung genau prüfen. Achten Sie darauf, dass eine Vollkaskoversicherung ohne Selbstbeteiligung enthalten ist. Machen Sie Fotos vom Fahrzeug, bevor Sie losfahren, um spätere Streitigkeiten über Schäden zu vermeiden.",
+          "correct": "e"
+        },
+        {
+          "id": 4,
+          "text": "Eine aktuelle Tourismusstudie zeigt: Die Mehrheit der Befragten plant, dieses Jahr ihre Ferien innerhalb der deutschen Grenzen zu verbringen. Gründe dafür sind die einfache Anreise, die vielfältige Natur und die Unterstützung der regionalen Wirtschaft. Nord- und Ostsee sind dabei die Top-Ziele.",
+          "correct": "j"
+        },
+        {
+          "id": 5,
+          "text": "Für die kleinen Elektro-Roller, die immer häufiger in den Städten zu sehen sind, gelten neue Vorschriften. Das Fahren auf dem Bürgersteig ist strikt verboten. Außerdem muss jeder E-Scooter eine gültige Versicherungsplakette haben und darf nur von Personen über 14 Jahren gefahren werden.",
+          "correct": "a"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "headings": [
+        "Einfache Übungen für das Büro: Fit am Schreibtisch",
+        "Rauchverbot in der Gastronomie wird ausgeweitet",
+        "Klimawandel: So können Bürger aktiv werden",
+        "Gesunde Ernährung: Die Rolle von regionalen Produkten",
+        "Tipps: So finden Sie den richtigen Hausarzt",
+        "Lärmschutz: Neue Regeln für laute Partys",
+        "Freiwilligenarbeit: Senioren engagieren sich in Schulen",
+        "Der beste Weg, um Schlafstörungen zu vermeiden",
+        "Sportvereine suchen dringend Nachwuchs",
+        "Wochenmärkte: Die Wiederbelebung des Einkaufserlebnisses"
+      ],
+      "texts": [
+        {
+          "id": 1,
+          "text": "Wer acht Stunden am Schreibtisch sitzt, sollte regelmäßig kurze Pausen einlegen. Bereits einfache Dehnübungen für Nacken und Schultern können Verspannungen vermeiden. Eine Minute lang aufstehen und strecken bringt den Kreislauf in Schwung und beugt Rückenschmerzen vor.",
+          "correct": "a"
+        },
+        {
+          "id": 2,
+          "text": "Experten betonen: Regelmäßige Schlafzeiten sind das A und O für eine gute Nachtruhe. Vermeiden Sie helles Licht (besonders von Bildschirmen) und schwere Mahlzeiten kurz vor dem Zubettgehen. Ein entspannendes Abendritual hilft dem Körper, sich auf das Einschlafen einzustellen.",
+          "correct": "h"
+        },
+        {
+          "id": 3,
+          "text": "Viele lokale Sportvereine haben Schwierigkeiten, junge Mitglieder zu gewinnen. Sie bieten daher kostenlose Probetrainings an und arbeiten verstärkt mit Schulen zusammen, um Kinder und Jugendliche für Sportarten wie Fußball, Handball oder Leichtathletik zu begeistern.",
+          "correct": "i"
+        },
+        {
+          "id": 4,
+          "text": "Der Trend geht klar zu Lebensmitteln aus der Region. Produkte, die kurze Transportwege haben, sind frischer und enthalten mehr Vitamine. Außerdem unterstützt der Kauf direkt beim Bauern die lokale Landwirtschaft und reduziert den CO2-Fußabdruck.",
+          "correct": "d"
+        },
+        {
+          "id": 5,
+          "text": "In Deutschland gibt es klare Ruhezeiten, die besonders ab 22 Uhr gelten. Laute Musik oder Feiern, die die Nachbarn stören, können zu Beschwerden führen. Bei größeren Veranstaltungen sollte man die Nachbarschaft vorher informieren, um Ärger zu vermeiden.",
+          "correct": "f"
+        }
+      ]
+    }
+  ]

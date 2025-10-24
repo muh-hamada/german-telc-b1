@@ -1,0 +1,439 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Test 1 (Original PDF)",
+      "text": "Liebe Karin,\n\nnach meinem Praktikum in Frankreich bin ich jetzt wieder zu Hause. Wie du ja weißt, wollte ich eigentlich nach Paris, [21] das hat dann leider nicht geklappt. Doch dann habe ich eine Stelle als Praktikant bei [22] Firma in Straßburg gefunden.\n\nDort [23] ich drei Monate geblieben. Die Arbeit war sehr [24], ich musste schon um 8.00 Uhr im Büro sein, hat mir aber [25] sehr gut gefallen.\nIch habe [26] dieser Zeit in verschiedenen Abteilungen gearbeitet und so nicht nur etwas über die Herstellung von Fernsehgeräten [27], sondern auch über den Verkauf. Und die Kollegen, mit [28] ich am meisten zu tun hatte, waren wirklich sehr nett.\n\nNach dem Praktikum habe ich noch zwei Wochen Urlaub bei [29] Freunden gemacht. Darüber erzähle ich [30] bald mehr – für heute muss ich Schluss machen.\n\nLiebe Grüße\nFritz",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "aber", "correct": true },
+            { "text": "denn", "correct": false },
+            { "text": "sondern", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "eine", "correct": false },
+            { "text": "einen", "correct": false },
+            { "text": "einer", "correct": true }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "bin", "correct": true },
+            { "text": "habe", "correct": false },
+            { "text": "wurde", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "anstrengend", "correct": true },
+            { "text": "anstrengende", "correct": false },
+            { "text": "anstrengendes", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "trotzdem", "correct": true },
+            { "text": "wegen", "correct": false },
+            { "text": "weshalb", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "bis", "correct": false },
+            { "text": "in", "correct": true },
+            { "text": "nach", "correct": false }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "gelernt", "correct": true },
+            { "text": "lernen", "correct": false },
+            { "text": "lernte", "correct": false }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "dem", "correct": false },
+            { "text": "denen", "correct": true },
+            { "text": "die", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "meine", "correct": false },
+            { "text": "meinen", "correct": true },
+            { "text": "meiner", "correct": false }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "dir", "correct": true },
+            { "text": "Ihnen", "correct": false },
+            { "text": "uns", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Test 2 (Neue Stadt)",
+      "text": "Hallo Max,\n\nich bin gut in München angekommen. Die Wohnungssuche war zwar stressig, aber die Stadt ist wirklich toll! Ich wohne jetzt in einem schönen Viertel, [21] der Park in der Nähe ist.\n\nIch habe mich schnell [22] die neue Umgebung eingelebt. Am Anfang habe ich mich oft verlaufen, [23] es gibt so viele kleine Gassen! Aber jetzt kenne ich mich besser aus und habe sogar schon eine nette Sportgruppe [24].\n\nLetzte Woche [25] ich im Zentrum einen [26] Brief gefunden. Ich [27] die ganze Zeit, wem er gehört.\n\nMorgen bringe ich ihn zur Post, [28] ich keine Adresse finde.\n\nIch hoffe, wir sehen uns bald! Du kannst mir [29] eine E-Mail schreiben.\n\nDie neue Sportgruppe ist sehr [30].\n\nViele Grüße, Lena",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "weshalb", "correct": false },
+            { "text": "wo", "correct": true },
+            { "text": "damit", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "in", "correct": true },
+            { "text": "an", "correct": false },
+            { "text": "auf", "correct": false }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "trotz", "correct": false },
+            { "text": "weil", "correct": true },
+            { "text": "obwohl", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "gefahren", "correct": false },
+            { "text": "gefunden", "correct": true },
+            { "text": "gesehen", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "habe mich gefragt", "correct": true },
+            { "text": "fragte", "correct": false },
+            { "text": "fragte mich", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "diesem", "correct": false },
+            { "text": "diese", "correct": true },
+            { "text": "diesen", "correct": false }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "da", "correct": true },
+            { "text": "deshalb", "correct": false },
+            { "text": "trotzdem", "correct": false }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "ihr", "correct": false },
+            { "text": "mir", "correct": true },
+            { "text": "dich", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "noch", "correct": true },
+            { "text": "schon", "correct": false },
+            { "text": "erst", "correct": false }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "aufmerksam", "correct": false },
+            { "text": "interessant", "correct": true },
+            { "text": "interessante", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Test 3 (Wohnungssuche)",
+      "text": "Liebe Frau Müller,\n\nvielen Dank für Ihre E-Mail. Ich habe die Fotos der Wohnung gesehen und sie gefallen mir sehr. [21] ich habe noch einige Fragen [22] die Nebenkosten.\n\nDie Wohnung ist zwar etwas älter, [23] sie in einer ruhigen Gegend liegt, ist sie perfekt für mich. Ich habe gelesen, dass Sie ein [24] Büro im Haus haben. Könnte ich bitte wissen, [25] der Kellerraum auch [26] den Mietern zur Verfügung steht?\n\nIch muss leider [27] dass meine Möbel etwas größer sind, [28] die Maße, die ich in der Anzeige [29].\n\nWäre es möglich, die Wohnung am nächsten Samstag [30]?\n\nIch freue mich auf Ihrer Antwort.\n\nMit freundlichen Grüßen, S. Schmidt",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "darüber", "correct": false },
+            { "text": "bezüglich", "correct": true },
+            { "text": "gegen", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "weil", "correct": false },
+            { "text": "deshalb", "correct": false },
+            { "text": "aber", "correct": true }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "kleinen", "correct": true },
+            { "text": "kleine", "correct": false },
+            { "text": "kleiner", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "ob", "correct": true },
+            { "text": "wann", "correct": false },
+            { "text": "dass", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "alle", "correct": true },
+            { "text": "jeden", "correct": false },
+            { "text": "manche", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "zugeben", "correct": true },
+            { "text": "eingeben", "correct": false },
+            { "text": "angeben", "correct": false }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "als", "correct": false },
+            { "text": "wie", "correct": true },
+            { "text": "denn", "correct": false }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "angeben", "correct": true },
+            { "text": "gegeben", "correct": false },
+            { "text": "gaben", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "besichtigen", "correct": true },
+            { "text": "besichtigend", "correct": false },
+            { "text": "besichtigt", "correct": false }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "ihrer", "correct": true },
+            { "text": "ihre", "correct": false },
+            { "text": "ihren", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Test 4 (Arbeitswoche)",
+      "text": "Liebes Team,\n\nmeine erste Woche in der Marketingabteilung ist [21] und ich möchte mich kurz bei Ihnen melden. Es ist eine [22] Erfahrung, hier zu arbeiten. Am ersten Tag war ich sehr nervös, [23] alle waren so freundlich und haben mir sofort geholfen.\n\nIch [24] mich schnell mit den Programmen vertraut machen, aber das war gar nicht so leicht. Ich [25] noch einiges lernen, besonders in Bezug auf [26] neuen Projekte.\n\nIch habe viel Unterstützung von meinem direkten Kollegen bekommen, [27] ich mich sehr bedanken möchte. Ich [28] noch ein paar Unterlagen vorbereiten, [29] ich in der Besprechung präsentieren muss.\n\nIch freue mich auf die kommende Zeit in [30] Firma.\n\nMit besten Grüßen, Anna Schmidt",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "vorbei", "correct": true },
+            { "text": "beendet", "correct": false },
+            { "text": "fertig", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "tolle", "correct": true },
+            { "text": "toll", "correct": false },
+            { "text": "tollem", "correct": false }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "denn", "correct": true },
+            { "text": "deshalb", "correct": false },
+            { "text": "obwohl", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "kann", "correct": false },
+            { "text": "sollte", "correct": true },
+            { "text": "wollte", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "muss", "correct": true },
+            { "text": "will", "correct": false },
+            { "text": "dürfe", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "der", "correct": false },
+            { "text": "die", "correct": false },
+            { "text": "die", "correct": true }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "dem", "correct": false },
+            { "text": "für den", "correct": false },
+            { "text": "bei dem", "correct": true }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "nachdem", "correct": false },
+            { "text": "bevor", "correct": false },
+            { "text": "die", "correct": true }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "in", "correct": true },
+            { "text": "an", "correct": false },
+            { "text": "mit", "correct": false }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "weitere", "correct": true },
+            { "text": "weiteres", "correct": false },
+            { "text": "weiteren", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Test 5 (Ausflug)",
+      "text": "Liebe Hanna, ich schreibe dir schnell aus dem Zug. Der Ausflug in die Berge war wirklich schön, [21] es hat gestern Abend sehr stark geregnet. Ich habe [22] einen kleinen Schreck bekommen, [23] ich das Zelt aufbauen wollte. Aber danach hat sich die Sonne gezeigt und die [24] Aussicht war fantastisch.\n\nIch bin den ganzen Tag am Berg gewandert und habe mich dabei gut [25]. Jetzt fühle ich mich ein bisschen müde, [26] aber sehr entspannt.\n\nIch habe viele Fotos von den [27] Bergbächen gemacht. Die Stille dort ist ganz anders als [28] der Stadt. Das einzige Problem war die Rückreise. Der Zug hat eine Stunde Verspätung, [29] ich erst später zu Hause sein werde.\n\nSchreib mir, wie es [30] geht, wenn du Zeit hast.\n\nViele Grüße, Stefan",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "obwohl", "correct": true },
+            { "text": "denn", "correct": false },
+            { "text": "trotzdem", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "als", "correct": true },
+            { "text": "wann", "correct": false },
+            { "text": "wenn", "correct": false }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "schön", "correct": false },
+            { "text": "schönen", "correct": true },
+            { "text": "schöne", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "gefühlt", "correct": true },
+            { "text": "fühlen", "correct": false },
+            { "text": "fuhlen", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "und", "correct": true },
+            { "text": "sondern", "correct": false },
+            { "text": "doch", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "kaltem", "correct": false },
+            { "text": "kalte", "correct": true },
+            { "text": "kalten", "correct": false }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "zu", "correct": false },
+            { "text": "wie", "correct": true },
+            { "text": "mit", "correct": false }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "sodass", "correct": true },
+            { "text": "obwohl", "correct": false },
+            { "text": "weil", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "Ihnen", "correct": false },
+            { "text": "dich", "correct": false },
+            { "text": "dir", "correct": true }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "gemütlich", "correct": false },
+            { "text": "ruhige", "correct": false },
+            { "text": "einsame", "correct": true }
+          ]
+        }
+      ]
+    }
+  ]
+}
