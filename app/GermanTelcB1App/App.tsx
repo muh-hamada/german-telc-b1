@@ -9,6 +9,7 @@ import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
+import { colors } from './src/theme/colors';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <ProgressProvider>
           <CompletionProvider>
-            <StatusBar barStyle="dark-content" backgroundColor="#F5F5F5" />
+            <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
             <RootNavigator />
           </CompletionProvider>
         </ProgressProvider>

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "telc-exam-admin",
     "public": "build",
     "ignore": [
       "firebase.json",

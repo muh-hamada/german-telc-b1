@@ -7,7 +7,7 @@ const adUnitId = __DEV__
   ? TestIds.ADAPTIVE_BANNER // Use test ads in development
   : Platform.select({
       ios: 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyy', // Replace with your iOS Ad Unit ID
-      android: 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyy', // Replace with your Android Ad Unit ID
+      android: 'ca-app-pub-5101905792101482/4385105786', // Replace with your Android Ad Unit ID
     }) || TestIds.ADAPTIVE_BANNER;
 
 interface AdBannerProps {
