@@ -1,0 +1,295 @@
+[
+    {
+        "id": "06a59154-5ce4-4d22-a7dc-62a79e49fab4",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie auf die Nachricht. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nIch hoffe, dir geht es gut! Weißt du was? Ich werde bald meinen Führerschein machen und bin schon ganz aufgeregt. Vielleicht kannst du mir ja ein paar gute Tipps geben. Weißt du noch, wie deine Führerscheinprüfung war? Außerdem wollte ich dich fragen, ob du Lust hast, mit mir eine kleine Spritztour zu machen, sobald ich den Führerschein habe. Das wäre doch sicher lustig, oder?\n\nSchreib mir doch bald!\n\nViele Grüße\n\nPaul",
+            "bulletPoints": [
+                "Eigene Erfahrungen mit der Führerscheinprüfung",
+                "Tipps für die Prüfungsvorbereitung",
+                "Reaktion auf Pauls Vorschlag",
+                "Was Sie Neues erlebt haben"
+            ],
+            "instructions": "Ihr Freund Paul hat Ihnen folgende Nachricht geschickt:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:25:17.819729+00:00",
+        "updated_at": "2025-04-25T21:25:17.819729+00:00",
+        "title": "Tipps zum Führerschein",
+        "collection_id": null,
+        "is_premium": false,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "d029daee-0d42-4356-b52f-73e7ef47e23d",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Betreffzeile, Anrede, Einleitung und einen passenden Schluss.",
+            "task": "Antworten Sie auf die E-Mail. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nWie geht es dir? Ich habe endlich eine neue Wohnung gefunden und ziehe bald um. Sie ist größer und liegt näher am Zentrum. Leider habe ich noch nicht alle Möbel, und deshalb wollte ich dich fragen, ob du mir beim Umzug helfen könntest. Vielleicht hast du auch Tipps, wo ich günstige Möbel finden kann? Außerdem würde ich nach dem Umzug gern eine kleine Feier mit Freunden machen und hoffe, dass du auch dabei bist!\n\nLass mich bitte wissen, ob du Zeit hast.\n\nHerzliche Grüße\n\nMichael",
+            "bulletPoints": [
+                "Ob und wann Sie helfen können",
+                "Wo man günstige Möbel kaufen kann",
+                "Reaktion auf die Einladung zur Feier",
+                "Was es bei Ihnen Neues gibt"
+            ],
+            "instructions": "Ihr Bekannter Michael hat Ihnen eine E-Mail geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:23:01.268686+00:00",
+        "updated_at": "2025-04-25T21:23:01.268686+00:00",
+        "title": "Hilfe beim Umzug",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "43a61365-b02d-4f12-8ede-468179c92364",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie auf den Brief. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nIch hoffe, es geht dir gut! Ich habe tolle Neuigkeiten: Meine Eltern haben mir erlaubt, eine kleine Party bei uns im Garten zu feiern. Es soll eine Grillparty werden. Du kannst dir gar nicht vorstellen, wie sehr ich mich freue! Ich dachte sofort an dich. Es wäre großartig, wenn du kommen könntest. Natürlich kannst du jemanden mitbringen, wenn du möchtest. Ich plane die Party für nächsten Samstag.\n\nSchreib mir doch bald, damit ich alles organisieren kann!\n\nViele liebe Grüße\n\nJulia",
+            "bulletPoints": [
+                "Reaktion auf Julias Einladung",
+                "Wen Sie mitbringen möchten",
+                "Was Sie gerne essen und trinken",
+                "Wie Sie zur Party kommen möchten"
+            ],
+            "instructions": "Eine Bekannte hat Ihnen folgenden Brief geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:19:54.848075+00:00",
+        "updated_at": "2025-04-25T21:19:54.848075+00:00",
+        "title": "Einladung zur Grillparty",
+        "collection_id": "3e637b35-facc-456d-9597-99fd865a6e39",
+        "is_premium": true,
+        "category": "Einladungen & Vorschläge",
+        "is_new": false,
+        "collection": {
+            "id": "3e637b35-facc-456d-9597-99fd865a6e39",
+            "slug": "einladungen",
+            "title": "Einladungen & Vorschläge"
+        }
+    },
+    {
+        "id": "c46fff38-ebd4-4d43-bffc-5f59578d988f",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie Alex. Schreiben Sie etwas zu folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nWie geht es dir? Stell dir vor, ich habe endlich angefangen, regelmäßig Sport zu machen. Ich gehe jetzt zweimal pro Woche ins Fitnessstudio und fühle mich schon viel besser. Machst du eigentlich auch regelmäßig Sport? Vielleicht könnten wir ja mal zusammen trainieren gehen. Hast du Tipps, wie ich motiviert bleiben kann?\n\nSchreib mir doch bald zurück.\n\nViele Grüße\n\nAlex",
+            "bulletPoints": [
+                "Reaktion auf Alex' neues Hobby",
+                "Ihre eigenen Sportgewohnheiten",
+                "Vorschläge für gemeinsames Training",
+                "Tipps, wie Alex motiviert bleiben kann"
+            ],
+            "instructions": "Ihr Freund Alex hat Ihnen geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:31:11.01913+00:00",
+        "updated_at": "2025-04-25T21:31:11.01913+00:00",
+        "title": "Fitness und Motivation",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "edc55879-8318-4924-bdb7-9de272bcec22",
+        "content": {
+            "note": "Vergessen Sie nicht Anrede und Gruß. Achten Sie auf die richtige Struktur des Briefes und beantworten Sie alle vier Punkte.",
+            "task": "Antworten Sie Laura. Schreiben Sie etwas zu folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nIch hoffe, es geht dir gut! Ich habe eine tolle Nachricht – ich fahre nächste Woche nach Berlin, um meine Schwester zu besuchen. Hast du Zeit, dich mit mir zu treffen? Vielleicht könnten wir gemeinsam etwas Schönes unternehmen. Hast du Vorschläge, was wir in Berlin machen könnten? Ich freue mich schon sehr auf die Reise!\n\nLass bald von dir hören.\n\nViele Grüße\n\nLaura",
+            "bulletPoints": [
+                "Reaktion auf Lauras Besuch",
+                "Vorschläge, was Sie gemeinsam unternehmen können",
+                "Wann Sie Zeit haben",
+                "Was Sie Neues erlebt haben"
+            ],
+            "instructions": "Ihre Bekannte Laura hat Ihnen folgende Nachricht geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:27:51.249416+00:00",
+        "updated_at": "2025-04-25T21:27:51.249416+00:00",
+        "title": "Besuch in Berlin",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Reisepläne",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "328215be-6d72-4782-8a40-3c1855405df4",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie Alina. Schreiben Sie etwas zu folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nwie geht es dir? Ich habe angefangen, mich für das Gärtnern zu begeistern und verbringe jetzt viel Zeit im Garten. Es macht mir richtig Spaß! Kennst du dich vielleicht ein bisschen mit Pflanzen aus? Ich bräuchte ein paar Tipps von dir. Außerdem würde ich mich freuen, wenn du einmal vorbeikommst und dir meinen Garten anschaust. Vielleicht hast du ja Ideen, was ich noch pflanzen könnte?\n\nSchreib mir doch bald zurück!\n\nViele liebe Grüße\nAlina",
+            "bulletPoints": [
+                "Reaktion auf Alinas neues Hobby",
+                "Ihre eigenen Erfahrungen oder Interessen am Gärtnern",
+                "Vorschläge für Pflanzen, die Alina anbauen könnte",
+                "Wann Sie Alina besuchen könnten"
+            ],
+            "instructions": "Ihre Freundin Alina hat Ihnen folgende Nachricht geschickt:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-06-13T15:08:40.960131+00:00",
+        "updated_at": "2025-06-13T15:08:40.960131+00:00",
+        "title": "Alinas Gartenhobby",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "7bba53be-2188-4447-834f-2532730f5b2d",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie auf die Nachricht. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nWie geht es dir? Ich habe tolle Neuigkeiten! Ich werde bald einen Hund adoptieren und freue mich schon sehr darauf. Du hattest doch mal ein Haustier, oder? Vielleicht kannst du mir ja ein paar Ratschläge geben. Was meinst du, welche Dinge brauche ich unbedingt für den Anfang? Hast du auch Tipps, wie man ein Haustier gut erziehen kann? Außerdem würde ich dich gerne bald mal mit meinem neuen Freund besuchen kommen. Hättest du Lust darauf?\n\nIch freue mich auf deine Antwort!\n\nViele Grüße\n\nMax",
+            "bulletPoints": [
+                "Eigene Erfahrungen mit einem Haustier",
+                "Dinge, die Max am Anfang braucht",
+                "Tipps für die Erziehung eines Haustiers",
+                "Reaktion auf Max' Vorschlag"
+            ],
+            "instructions": "Ihr Freund Max hat Ihnen folgende Nachricht geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-06-13T14:32:34.349927+00:00",
+        "updated_at": "2025-06-13T14:32:34.349927+00:00",
+        "title": "Ratschläge für Haustiere",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "2f68a78f-8493-401d-b28e-0d3fe3a629b7",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie auf die Nachricht. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nWie geht's dir? Ich habe Neuigkeiten: Ich habe endlich ein neues Hobby gefunden – Fotografieren! Es macht mir richtig Spaß, und ich lerne schon viel dazu. Hast du Lust, einmal mit mir einen kleinen Fotoausflug zu machen? Vielleicht könnten wir ja schöne Orte oder interessante Motive finden. Was meinst du? Oder hast du vielleicht Vorschläge, wohin wir gehen könnten?\n\nMelde dich bald!\n\nHerzliche Grüße\n\nAnna",
+            "bulletPoints": [
+                "Reaktion auf Annas neues Hobby",
+                "Eigene Vorschläge für einen Fotoausflug",
+                "Was Ihr eigenes Hobby ist",
+                "Was es bei Ihnen sonst Neues gibt"
+            ],
+            "instructions": "Ihre Freundin Anna hat Ihnen folgende Nachricht geschrieben:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-04-25T21:26:26.604296+00:00",
+        "updated_at": "2025-04-25T21:26:26.604296+00:00",
+        "title": "Fotoausflug mit Anna",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Einladungen & Vorschläge",
+        "is_new": false,
+        "collection": null
+    },
+    {
+        "id": "98c10440-a73d-440b-87df-d69afcdde0c6",
+        "content": {
+            "note": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Datum und Anrede.",
+            "task": "Antworten Sie auf die Nachricht. Schreiben Sie etwas zu den folgenden Punkten:",
+            "title": "Schriftlicher Ausdruck",
+            "content": "Liebe(r) _________,\n\nich hoffe, dir geht es gut! Ich habe beschlossen, meine Ernährung umzustellen und gesünder zu essen. Da du dich ja schon länger mit dem Thema beschäftigst, dachte ich, du könntest mir vielleicht helfen. Welche Lebensmittel empfiehlst du mir für den Anfang? Hast du vielleicht ein paar leckere Rezepte, die du mir geben könntest? Außerdem würde ich gerne wissen, wie du es schaffst, motiviert zu bleiben und nicht wieder in alte Gewohnheiten zurückzufallen.\n\nIch freue mich sehr auf deine Tipps!\n\nViele Grüße\n\nLena",
+            "bulletPoints": [
+                "Eigene Erfahrungen mit gesunder Ernährung",
+                "Empfohlene Lebensmittel für den Einstieg",
+                "Leckere Rezeptvorschläge",
+                "Tipps zur Motivation"
+            ],
+            "instructions": "Ihre Freundin Lena hat Ihnen folgende Nachricht geschickt:"
+        },
+        "exam_type": "TELC",
+        "level": "B1",
+        "recommended_length": 100,
+        "exercise_type": "email_response",
+        "is_published": true,
+        "display_order": null,
+        "created_at": "2025-06-13T14:37:48.792725+00:00",
+        "updated_at": "2025-06-13T14:37:48.792725+00:00",
+        "title": "Gesunde Ernährung mit Lena",
+        "collection_id": null,
+        "is_premium": true,
+        "category": "Ratschläge & Tipps",
+        "is_new": false,
+        "collection": null
+    }
+]
+
+
+"answers": {
+    "1": {
+        "value": "a"
+    },
+    "2": {
+        "value": "c"
+    },
+    "3": {
+        "value": "b"
+    },
+    "4": {
+        "value": "d"
+    },
+    "5": {
+        "value": "g"
+    }
+},
