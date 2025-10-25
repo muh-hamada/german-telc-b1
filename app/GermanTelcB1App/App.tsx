@@ -32,7 +32,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <ProgressProvider>
           <CompletionProvider>
-            <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
+            {/* <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} /> */}
             <RootNavigator />
           </CompletionProvider>
         </ProgressProvider>
