@@ -143,7 +143,7 @@ const ProfileScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>{t('profile.title')}</Text>
         
@@ -311,6 +311,7 @@ const styles = StyleSheet.create({
   },
   userEmail: {
     ...typography.textStyles.body,
+    fontSize: typography.fontSize.sm,
     color: colors.text.secondary,
     marginBottom: spacing.margin.xs,
   },

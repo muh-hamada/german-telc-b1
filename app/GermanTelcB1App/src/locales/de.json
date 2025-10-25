@@ -110,7 +110,10 @@
     "maxPoints": "Maximalpunktzahl:",
     "points": "Punkte",
     "passingThreshold": "Bestehensgrenze:",
-    "preparation": "Vorbereitung"
+    "preparation": "Vorbereitung",
+    "passingScore": "Bestehen der Punktzahl",
+    "important": "Wichtig",
+    "totalMaxPoints": "Maximale Gesamtpunktzahl"
   },
   "practice": {
     "reading": {
@@ -416,25 +419,64 @@
   "grammar": {
     "part1": {
       "title": "Sprachbausteine Teil 1",
-      "subtitle": "Lückentext (Grammatik)"
+      "subtitle": "Lückentext (Grammatik)",
+      "taskTitle": "Aufgabenstellung:",
+      "taskDescription": "Lesen Sie den Text und wählen Sie für jede Lücke die richtige Antwort aus den drei Optionen.",
+      "questions": "Fragen:",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie fortfahren. {{count}} Frage(n) verbleiben."
     },
     "part2": {
       "title": "Sprachbausteine Teil 2",
-      "subtitle": "Lückentext (Lexikalisch)"
+      "subtitle": "Lückentext (Lexikalisch)",
+      "taskTitle": "Aufgabenstellung:",
+      "taskDescription": "Lesen Sie den Text und wählen Sie für jede Lücke das passende Wort aus der Wortbank.",
+      "wordBank": "Wortbank:",
+      "select": "Wählen",
+      "selectWord": "Wort für Lücke [{{gap}}] wählen:",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie fortfahren. {{count}} Lücke(n) verbleiben."
     }
   },
   "reading": {
     "part1": {
       "title": "Leseverstehen Teil 1",
-      "subtitle": "Überschriften zuordnen"
+      "subtitle": "Überschriften zuordnen",
+      "taskTitle": "Aufgabenstellung:",
+      "taskDescription": "Lesen Sie die folgenden fünf Texte und ordnen Sie jedem Text eine passende Überschrift zu. Es gibt mehr Überschriften als Texte. Jede Überschrift kann nur einmal verwendet werden.",
+      "headings": "Überschriften (a-j):",
+      "texts": "Texte (1-{{count}}):",
+      "text": "Text",
+      "selectHeading": "Überschrift wählen:",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte ordnen Sie allen Texten eine Überschrift zu, bevor Sie fortfahren.",
+      "duplicateAnswers": "Doppelte Antworten",
+      "duplicateAnswersMessage": "Sie haben dieselbe Überschrift für mehrere Texte verwendet. Bitte überprüfen Sie Ihre Antworten."
     },
     "part2": {
       "title": "Leseverstehen Teil 2",
-      "subtitle": "Multiple-Choice-Fragen"
+      "subtitle": "Multiple-Choice-Fragen",
+      "taskTitle": "Aufgabenstellung:",
+      "taskDescription": "Lesen Sie den folgenden Text und beantworten Sie die Fragen, indem Sie die richtige Antwort auswählen.",
+      "questions": "Fragen ({{first}}-{{last}}):",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie fortfahren. {{count}} Frage(n) verbleiben."
     },
     "part3": {
       "title": "Leseverstehen Teil 3",
-      "subtitle": "Anzeigen zuordnen"
+      "subtitle": "Anzeigen zuordnen",
+      "taskTitle": "Aufgabenstellung:",
+      "taskDescription": "Lesen Sie die Anzeigen und die Situationen. Welche Anzeige passt zu welcher Situation? Es gibt nicht für jede Situation eine passende Anzeige.",
+      "advertisements": "Anzeigen:",
+      "situations": "Situationen:",
+      "selectAdvertisement": "Anzeige wählen:",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Situationen, bevor Sie fortfahren. {{count}} Situation(en) verbleiben."
     }
   },
   "writing": {
@@ -510,15 +552,72 @@
   "listening": {
     "part1": {
       "title": "Hörverstehen Teil 1",
-      "subtitle": "Kurze Dialoge"
+      "subtitle": "Kurze Dialoge",
+      "minutes": "Minuten",
+      "tasks": "Aufgaben",
+      "instructions": "Anweisungen:",
+      "examWarning": "⚠️ Hinweis: Im echten Examen können Sie die Audiodatei nicht pausieren oder stoppen. Sie hören jeden Text nur einmal.",
+      "audioFile": "🎧 Audio-Datei",
+      "readyToPlay": "Bereit zum Abspielen",
+      "playing": "▶️ Wird abgespielt...",
+      "completed": "✓ Abgeschlossen",
+      "playAudio": "▶️ Audio abspielen",
+      "audioPlaying": "Audio läuft... (kann nicht gestoppt werden)",
+      "statements": "Aussagen (Statements):",
+      "statement": "Aussage",
+      "correct": "Richtig",
+      "incorrect": "Falsch",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "audioError": "Audio Fehler",
+      "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie einreichen. {{count}} Aussage(n) verbleiben."
     },
     "part2": {
       "title": "Hörverstehen Teil 2",
-      "subtitle": "Längeres Gespräch"
+      "subtitle": "Längeres Gespräch",
+      "minutes": "Minuten",
+      "tasks": "Aufgaben",
+      "instructions": "Anweisungen:",
+      "examWarning": "⚠️ Hinweis: Diese Audiodatei enthält eine Vorbereitungszeit und wird zweimal abgespielt. Im echten Examen können Sie die Datei nicht pausieren oder stoppen.",
+      "audioFile": "🎧 Audio-Datei",
+      "readyToPlay": "Bereit zum Abspielen",
+      "playing": "▶️ Wird abgespielt...",
+      "completed": "✓ Abgeschlossen",
+      "playAudio": "▶️ Audio abspielen",
+      "audioPlaying": "Audio läuft... (kann nicht gestoppt werden)",
+      "statements": "Aussagen (Statements):",
+      "statement": "Aussage",
+      "correct": "Richtig",
+      "incorrect": "Falsch",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "audioError": "Audio Fehler",
+      "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie einreichen. {{count}} Aussage(n) verbleiben."
     },
     "part3": {
       "title": "Hörverstehen Teil 3",
-      "subtitle": "Monologe"
+      "subtitle": "Monologe",
+      "minutes": "Minuten",
+      "tasks": "Aufgaben",
+      "instructions": "Anweisungen:",
+      "examWarning": "⚠️ Hinweis: Diese Audiodatei enthält fünf kurze Texte, jeder wird zweimal abgespielt. Im echten Examen können Sie die Datei nicht pausieren oder stoppen.",
+      "audioFile": "🎧 Audio-Datei",
+      "readyToPlay": "Bereit zum Abspielen",
+      "playing": "▶️ Wird abgespielt...",
+      "completed": "✓ Abgeschlossen",
+      "playAudio": "▶️ Audio abspielen",
+      "audioPlaying": "Audio läuft... (kann nicht gestoppt werden)",
+      "statements": "Aussagen (Statements):",
+      "statement": "Aussage",
+      "correct": "Richtig",
+      "incorrect": "Falsch",
+      "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
+      "audioError": "Audio Fehler",
+      "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
+      "incomplete": "Unvollständig",
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie einreichen. {{count}} Aussage(n) verbleiben."
     }
   }
 }

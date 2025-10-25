@@ -3,10 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   I18nManager,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import examInfoData from '../data/exam-info.json';
@@ -14,7 +14,7 @@ import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/demo.config';
 
 const ExamStructureScreen: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const examInfo = (examInfoData as any).exam_info;
 
   const getLocalizedText = (obj: any) => {
@@ -45,7 +45,6 @@ const ExamStructureScreen: React.FC = () => {
 
   const renderSection = (section: any, index: number) => {
     const sectionNumber = index + 1;
-    const isOral = section.name.includes('Mündlich');
 
     return (
       <View key={index} style={styles.sectionCard}>
@@ -77,37 +76,37 @@ const ExamStructureScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{getLocalizedText(examInfo.title)}</Text>
+          <Text style={styles.title}>📝 {getLocalizedText(examInfo.title)}</Text>
           <View style={styles.overviewCard}>
             <View style={styles.overviewRow}>
-              <Text style={styles.overviewLabel}>CEFR Level:</Text>
+              <Text style={styles.overviewLabel}>{t('examStructure.cefrLevel')}:</Text>
               <Text style={styles.overviewValue}>{examInfo.cefr_level}</Text>
             </View>
             <View style={styles.overviewRow}>
-              <Text style={styles.overviewLabel}>Gesamtdauer:</Text>
+              <Text style={styles.overviewLabel}>{t('examStructure.totalDuration')}:</Text>
               <Text style={styles.overviewValue}>
-                {examInfo.total_duration_minutes} Minuten
+                {examInfo.total_duration_minutes} {t('examStructure.minutes')}
               </Text>
             </View>
             <View style={styles.overviewRow}>
-              <Text style={styles.overviewLabel}>Maximalpunktzahl:</Text>
-              <Text style={styles.overviewValue}>{examInfo.total_max_points} Punkte</Text>
+              <Text style={styles.overviewLabel}>{t('examStructure.totalMaxPoints')}:</Text>
+              <Text style={styles.overviewValue}>{examInfo.total_max_points} {t('examStructure.points')}</Text>
             </View>
             <View style={styles.overviewRow}>
-              <Text style={styles.overviewLabel}>Bestehensgrenze:</Text>
+              <Text style={styles.overviewLabel}>{t('examStructure.passingScore')}:</Text>
               <Text style={styles.overviewValue}>
-                {examInfo.passing_score.overall_points} Punkte (60%)
+                {examInfo.passing_score.overall_points} {t('examStructure.points')} (60%)
               </Text>
             </View>
           </View>
 
           {/* Passing Score Note */}
           <View style={styles.noteCard}>
-            <Text style={styles.noteTitle}>⚠️ Wichtig:</Text>
+            <Text style={styles.noteTitle}>⚠️ {t('examStructure.important')}:</Text>
             <Text style={styles.noteText}>
               {getLocalizedText(examInfo.passing_score.note)}
             </Text>
@@ -135,7 +134,7 @@ const ExamStructureScreen: React.FC = () => {
                 {detail.section_name}
               </Text>
               <Text style={styles.assessmentMaxPoints}>
-                Maximalpunktzahl: {detail.max_points} Punkte
+                {t('examStructure.maxPoints')}: {detail.max_points} {t('examStructure.points')}
               </Text>
 
               <View style={styles.criteriaList}>
@@ -144,7 +143,7 @@ const ExamStructureScreen: React.FC = () => {
                     <Text style={styles.criterionName}>{criterion.name}</Text>
                     {criterion.max_points && (
                       <Text style={styles.criterionPoints}>
-                        ({criterion.max_points} Pkt)
+                        ({criterion.max_points} {t('examStructure.points')})
                       </Text>
                     )}
                     <Text style={styles.criterionExplanation}>
@@ -245,10 +244,9 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   structureTitle: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.text.primary,
-    marginTop: spacing.margin.xl,
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   sectionCard: {
     backgroundColor: colors.background.secondary,
@@ -267,17 +265,17 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   sectionNumber: {
-    ...typography.textStyles.h1,
+    ...typography.textStyles.h2,
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
-    marginRight: spacing.margin.md,
+    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
     width: 40,
   },
   sectionTitleContainer: {
     flex: 1,
   },
   sectionName: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
   },
@@ -329,7 +327,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.margin.xs,
   },
   assessmentSection: {
-    marginTop: spacing.margin.xl,
+    marginTop: spacing.margin.md,
   },
   assessmentCard: {
     backgroundColor: colors.background.secondary,
@@ -343,7 +341,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   assessmentSectionName: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.primary[600],
     marginBottom: spacing.margin.xs,
   },

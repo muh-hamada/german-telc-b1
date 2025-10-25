@@ -8,6 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart2Exam } from '../../types/exam.types';
 
@@ -17,6 +18,7 @@ interface LanguagePart2UIProps {
 }
 
 const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [gapId: number]: string }>({});
   const [showWordBank, setShowWordBank] = useState(false);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
@@ -32,7 +34,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
 
   const getSelectedWordText = (gapId: number): string => {
     const selectedKey = userAnswers[gapId];
-    if (!selectedKey) return 'Select';
+    if (!selectedKey) return t('grammar.part2.select');
     const wordItem = exam.words.find(w => w.key === selectedKey);
     return wordItem ? wordItem.word : selectedKey;
   };
@@ -75,8 +77,8 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
 
     if (unansweredGaps.length > 0) {
       Alert.alert(
-        'Incomplete',
-        `Please answer all questions before submitting. ${unansweredGaps.length} gap(s) remaining.`,
+        t('grammar.part2.incomplete'),
+        t('grammar.part2.incompleteMessage', { count: unansweredGaps.length }),
         [{ text: 'OK' }]
       );
       return;
@@ -101,15 +103,15 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('grammar.part2.taskTitle')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie den Text und wählen Sie für jede Lücke das passende Wort aus der Wortbank.
+          {t('grammar.part2.taskDescription')}
         </Text>
       </View>
 
       {/* Word Bank */}
       <View style={styles.wordBankSection}>
-        <Text style={styles.sectionTitle}>Wortbank:</Text>
+        <Text style={styles.sectionTitle}>{t('grammar.part2.wordBank')}</Text>
         <View style={styles.wordBankGrid}>
           {exam.words.map((word) => (
             <View key={word.key} style={styles.wordItem}>
@@ -129,10 +131,10 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
       {/* Word Selection Modal */}
       {showWordBank && selectedGap !== null && (
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Wort für Lücke [{selectedGap}] wählen:</Text>
-              <TouchableOpacity
+        <View style={styles.modalContainer}>
+          <View style={styles.modalHeader}>
+            <Text style={styles.modalTitle}>{t('grammar.part2.selectWord', { gap: selectedGap })}</Text>
+            <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => {
                   setShowWordBank(false);
@@ -180,7 +182,10 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({Object.keys(userAnswers).length}/{gapIds.length})
+          {t('grammar.part2.submitAnswers', { 
+            answered: Object.keys(userAnswers).length, 
+            total: gapIds.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

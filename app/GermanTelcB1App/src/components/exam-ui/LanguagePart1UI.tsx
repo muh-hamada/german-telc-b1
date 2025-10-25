@@ -8,6 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart1Exam } from '../../types/exam.types';
 
@@ -17,6 +18,7 @@ interface LanguagePart1UIProps {
 }
 
 const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
@@ -56,8 +58,8 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
 
     if (unansweredQuestions.length > 0) {
       Alert.alert(
-        'Incomplete',
-        `Please answer all questions before submitting. ${unansweredQuestions.length} question(s) remaining.`,
+        t('grammar.part1.incomplete'),
+        t('grammar.part1.incompleteMessage', { count: unansweredQuestions.length }),
         [{ text: 'OK' }]
       );
       return;
@@ -80,9 +82,9 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('grammar.part1.taskTitle')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie den Text und wählen Sie für jede Lücke die richtige Antwort aus den drei Optionen.
+          {t('grammar.part1.taskDescription')}
         </Text>
       </View>
 
@@ -94,7 +96,7 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
 
       {/* Questions */}
       <View style={styles.questionsSection}>
-        <Text style={styles.sectionTitle}>Fragen:</Text>
+        <Text style={styles.sectionTitle}>{t('grammar.part1.questions')}</Text>
         {exam.questions.map((question) => (
           <View key={question.id} style={styles.questionCard}>
             <Text style={styles.questionNumber}>[{question.id}]</Text>
@@ -139,7 +141,10 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({Object.keys(userAnswers).length}/{exam.questions.length})
+          {t('grammar.part1.submitAnswers', { 
+            answered: Object.keys(userAnswers).length, 
+            total: exam.questions.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

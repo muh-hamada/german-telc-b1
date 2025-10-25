@@ -110,7 +110,10 @@
     "maxPoints": "Points maximum :",
     "points": "Points",
     "passingThreshold": "Seuil de réussite :",
-    "preparation": "Préparation"
+    "preparation": "Préparation",
+    "passingScore": "Note de passage",
+    "important": "Important",
+    "totalMaxPoints": "Total maximum de points"
   },
   "practice": {
     "reading": {
@@ -410,25 +413,64 @@
   "grammar": {
     "part1": {
       "title": "Grammaire Partie 1",
-      "subtitle": "Remplir les espaces (Grammaire)"
+      "subtitle": "Remplir les espaces (Grammaire)",
+      "taskTitle": "Tâche:",
+      "taskDescription": "Lisez le texte et choisissez la bonne réponse parmi les trois options pour chaque espace.",
+      "questions": "Questions:",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
     },
     "part2": {
       "title": "Grammaire Partie 2",
-      "subtitle": "Remplir les espaces (Lexical)"
+      "subtitle": "Remplir les espaces (Lexical)",
+      "taskTitle": "Tâche:",
+      "taskDescription": "Lisez le texte et choisissez le mot approprié de la banque de mots pour chaque espace.",
+      "wordBank": "Banque de mots:",
+      "select": "Sélectionner",
+      "selectWord": "Choisir le mot pour l'espace [{{gap}}]:",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} espace(s) restant(s)."
     }
   },
   "reading": {
     "part1": {
       "title": "Compréhension écrite Partie 1",
-      "subtitle": "Associer les titres aux textes"
+      "subtitle": "Associer les titres aux textes",
+      "taskTitle": "Tâche:",
+      "taskDescription": "Lisez les cinq textes suivants et attribuez un titre approprié à chaque texte. Il y a plus de titres que de textes. Chaque titre ne peut être utilisé qu'une seule fois.",
+      "headings": "Titres (a-j):",
+      "texts": "Textes (1-{{count}}):",
+      "text": "Texte",
+      "selectHeading": "Sélectionner le titre:",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez attribuer un titre à tous les textes avant de continuer.",
+      "duplicateAnswers": "Réponses en Double",
+      "duplicateAnswersMessage": "Vous avez utilisé le même titre pour plusieurs textes. Veuillez vérifier vos réponses."
     },
     "part2": {
       "title": "Compréhension écrite Partie 2",
-      "subtitle": "Questions à choix multiples"
+      "subtitle": "Questions à choix multiples",
+      "taskTitle": "Tâche:",
+      "taskDescription": "Lisez le texte suivant et répondez aux questions en sélectionnant la bonne réponse.",
+      "questions": "Questions ({{first}}-{{last}}):",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
     },
     "part3": {
       "title": "Compréhension écrite Partie 3",
-      "subtitle": "Associer les annonces"
+      "subtitle": "Associer les annonces",
+      "taskTitle": "Tâche:",
+      "taskDescription": "Lisez les annonces et les situations. Quelle annonce correspond à quelle situation? Il n'y a pas d'annonce appropriée pour chaque situation.",
+      "advertisements": "Annonces:",
+      "situations": "Situations:",
+      "selectAdvertisement": "Sélectionner l'annonce:",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les situations avant de soumettre. {{count}} situation(s) restante(s)."
     }
   },
   "writing": {
@@ -504,15 +546,72 @@
   "listening": {
     "part1": {
       "title": "Compréhension orale Partie 1",
-      "subtitle": "Dialogues courts"
+      "subtitle": "Dialogues courts",
+      "minutes": "Minutes",
+      "tasks": "Tâches",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Remarque : Dans le véritable examen, vous ne pouvez pas mettre en pause ou arrêter le fichier audio. Vous entendrez chaque texte une seule fois.",
+      "audioFile": "🎧 Fichier Audio",
+      "readyToPlay": "Prêt à lire",
+      "playing": "▶️ En cours de lecture...",
+      "completed": "✓ Terminé",
+      "playAudio": "▶️ Lire l'Audio",
+      "audioPlaying": "Audio en cours... (ne peut pas être arrêté)",
+      "statements": "Déclarations:",
+      "statement": "Déclaration",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "audioError": "Erreur Audio",
+      "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
     },
     "part2": {
       "title": "Compréhension orale Partie 2",
-      "subtitle": "Conversation plus longue"
+      "subtitle": "Conversation plus longue",
+      "minutes": "Minutes",
+      "tasks": "Tâches",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Remarque : Ce fichier audio contient un temps de préparation et sera lu deux fois. Dans le véritable examen, vous ne pouvez pas mettre en pause ou arrêter le fichier.",
+      "audioFile": "🎧 Fichier Audio",
+      "readyToPlay": "Prêt à lire",
+      "playing": "▶️ En cours de lecture...",
+      "completed": "✓ Terminé",
+      "playAudio": "▶️ Lire l'Audio",
+      "audioPlaying": "Audio en cours... (ne peut pas être arrêté)",
+      "statements": "Déclarations:",
+      "statement": "Déclaration",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "audioError": "Erreur Audio",
+      "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
     },
     "part3": {
       "title": "Compréhension orale Partie 3",
-      "subtitle": "Monologues"
+      "subtitle": "Monologues",
+      "minutes": "Minutes",
+      "tasks": "Tâches",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Remarque : Ce fichier audio contient cinq textes courts, chacun sera lu deux fois. Dans le véritable examen, vous ne pouvez pas mettre en pause ou arrêter le fichier.",
+      "audioFile": "🎧 Fichier Audio",
+      "readyToPlay": "Prêt à lire",
+      "playing": "▶️ En cours de lecture...",
+      "completed": "✓ Terminé",
+      "playAudio": "▶️ Lire l'Audio",
+      "audioPlaying": "Audio en cours... (ne peut pas être arrêté)",
+      "statements": "Déclarations:",
+      "statement": "Déclaration",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
+      "audioError": "Erreur Audio",
+      "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
+      "incomplete": "Incomplet",
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
     }
   }
 }

@@ -110,7 +110,10 @@
     "maxPoints": "Maximum Points:",
     "points": "Points",
     "passingThreshold": "Passing Threshold:",
-    "preparation": "Preparation"
+    "preparation": "Preparation",
+    "passingScore": "Passing Score",
+    "important": "Important",
+    "totalMaxPoints": "Total Max Points"
   },
   "practice": {
     "reading": {
@@ -416,25 +419,64 @@
   "grammar": {
     "part1": {
       "title": "Grammar Part 1",
-      "subtitle": "Fill in the blanks (Grammar)"
+      "subtitle": "Fill in the blanks (Grammar)",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the text and choose the correct answer from the three options for each gap.",
+      "questions": "Questions:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
     },
     "part2": {
       "title": "Grammar Part 2",
-      "subtitle": "Fill in the blanks (Lexical)"
+      "subtitle": "Fill in the blanks (Lexical)",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the text and choose the appropriate word from the word bank for each gap.",
+      "wordBank": "Word Bank:",
+      "select": "Select",
+      "selectWord": "Choose word for gap [{{gap}}]:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} gap(s) remaining."
     }
   },
   "reading": {
     "part1": {
       "title": "Reading Part 1",
-      "subtitle": "Match headings to texts"
+      "subtitle": "Match headings to texts",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the following five texts and assign a suitable heading to each text. There are more headings than texts. Each heading can only be used once.",
+      "headings": "Headings (a-j):",
+      "texts": "Texts (1-{{count}}):",
+      "text": "Text",
+      "selectHeading": "Select heading:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please assign a heading to all texts before continuing.",
+      "duplicateAnswers": "Duplicate Answers",
+      "duplicateAnswersMessage": "You have used the same heading for multiple texts. Please check your answers."
     },
     "part2": {
       "title": "Reading Part 2",
-      "subtitle": "Multiple choice questions"
+      "subtitle": "Multiple choice questions",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the following text and answer the questions by selecting the correct answer.",
+      "questions": "Questions ({{first}}-{{last}}):",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
     },
     "part3": {
       "title": "Reading Part 3",
-      "subtitle": "Match advertisements"
+      "subtitle": "Match advertisements",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the advertisements and the situations. Which advertisement fits which situation? There is not a suitable advertisement for every situation.",
+      "advertisements": "Advertisements:",
+      "situations": "Situations:",
+      "selectAdvertisement": "Select advertisement:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all situations before submitting. {{count}} situation(s) remaining."
     }
   },
   "writing": {
@@ -510,15 +552,72 @@
   "listening": {
     "part1": {
       "title": "Listening Part 1",
-      "subtitle": "Short dialogues"
+      "subtitle": "Short dialogues",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: In the real exam, you cannot pause or stop the audio file. You will hear each text only once.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
     },
     "part2": {
       "title": "Listening Part 2",
-      "subtitle": "Longer conversation"
+      "subtitle": "Longer conversation",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: This audio file contains preparation time and will be played twice. In the real exam, you cannot pause or stop the file.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
     },
     "part3": {
       "title": "Listening Part 3",
-      "subtitle": "Monologues"
+      "subtitle": "Monologues",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: This audio file contains five short texts, each will be played twice. In the real exam, you cannot pause or stop the file.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
     }
   }
 }

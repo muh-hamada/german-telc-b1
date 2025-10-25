@@ -36,7 +36,7 @@ interface UserAnswer {
 }
 
 const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetails, onComplete }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -97,8 +97,8 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
         if (error) {
           console.error('Failed to load the sound', error);
           Alert.alert(
-            'Audio Fehler',
-            'Die Audiodatei konnte nicht geladen werden.',
+            t('listening.part3.audioError'),
+            t('listening.part3.audioErrorMessage'),
             [{ text: 'OK' }]
           );
           setIsPlaying(false);
@@ -127,8 +127,8 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
 
     if (unansweredStatements.length > 0) {
       Alert.alert(
-        'Incomplete',
-        `Please answer all statements before submitting. ${unansweredStatements.length} statement(s) remaining.`,
+        t('listening.part3.incomplete'),
+        t('listening.part3.incompleteMessage', { count: unansweredStatements.length }),
         [{ text: 'OK' }]
       );
       return;
@@ -153,17 +153,17 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
         <Text style={styles.headerTitle}>{sectionDetails.title}</Text>
         <View style={styles.metaInfo}>
           <Text style={styles.metaText}>
-            ⏱️ {sectionDetails.duration_minutes} Minuten
+            ⏱️ {sectionDetails.duration_minutes} {t('listening.part3.minutes')}
           </Text>
           <Text style={styles.metaText}>
-            📝 {exam.statements.length} Aufgaben
+            📝 {exam.statements.length} {t('listening.part3.tasks')}
           </Text>
         </View>
       </View>
 
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Anweisungen:</Text>
+        <Text style={styles.instructionsTitle}>{t('listening.part3.instructions')}</Text>
         <Text style={styles.instructionsText}>{getInstructions()}</Text>
       </View>
 
@@ -171,28 +171,27 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
       <View style={styles.audioSection}>
         <View style={styles.examWarning}>
           <Text style={styles.examWarningText}>
-            ⚠️ Hinweis: Diese Audiodatei enthält fünf kurze Texte, jeder wird zweimal abgespielt. 
-            Im echten Examen können Sie die Datei nicht pausieren oder stoppen.
+            {t('listening.part3.examWarning')}
           </Text>
         </View>
 
         <View style={styles.audioPlayer}>
           <View style={styles.audioInfo}>
-            <Text style={styles.audioTitle}>🎧 Audio-Datei</Text>
+            <Text style={styles.audioTitle}>{t('listening.part3.audioFile')}</Text>
             <Text style={styles.audioStatus}>
-              {!hasStarted ? 'Bereit zum Abspielen' : isPlaying ? '▶️ Wird abgespielt...' : '✓ Abgeschlossen'}
+              {!hasStarted ? t('listening.part3.readyToPlay') : isPlaying ? t('listening.part3.playing') : t('listening.part3.completed')}
             </Text>
           </View>
           
           {!hasStarted && (
             <TouchableOpacity style={styles.playButton} onPress={handlePlayAudio}>
-              <Text style={styles.playButtonText}>▶️ Audio abspielen</Text>
+              <Text style={styles.playButtonText}>{t('listening.part3.playAudio')}</Text>
             </TouchableOpacity>
           )}
 
           {isPlaying && (
             <View style={styles.playingIndicator}>
-              <Text style={styles.playingText}>Audio läuft... (kann nicht gestoppt werden)</Text>
+              <Text style={styles.playingText}>{t('listening.part3.audioPlaying')}</Text>
             </View>
           )}
         </View>
@@ -200,19 +199,19 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
 
       {/* Statements Table */}
       <View style={styles.statementsSection}>
-        <Text style={styles.sectionTitle}>Aussagen (Statements):</Text>
+        <Text style={styles.sectionTitle}>{t('listening.part3.statements')}</Text>
         
         <View style={styles.table}>
           {/* Table Header */}
           <View style={styles.tableHeader}>
             <View style={[styles.tableCell, styles.statementCell]}>
-              <Text style={styles.tableHeaderText}>Aussage</Text>
+              <Text style={styles.tableHeaderText}>{t('listening.part3.statement')}</Text>
             </View>
             <View style={[styles.tableCell, styles.answerCell]}>
-              <Text style={styles.tableHeaderText}>Richtig</Text>
+              <Text style={styles.tableHeaderText}>{t('listening.part3.correct')}</Text>
             </View>
             <View style={[styles.tableCell, styles.answerCell]}>
-              <Text style={styles.tableHeaderText}>Falsch</Text>
+              <Text style={styles.tableHeaderText}>{t('listening.part3.incorrect')}</Text>
             </View>
           </View>
 
@@ -263,7 +262,10 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({userAnswers.filter(a => a.selectedAnswer !== null).length}/{exam.statements.length})
+          {t('listening.part3.submitAnswers', { 
+            answered: userAnswers.filter(a => a.selectedAnswer !== null).length, 
+            total: exam.statements.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

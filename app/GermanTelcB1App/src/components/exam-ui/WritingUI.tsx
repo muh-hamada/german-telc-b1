@@ -511,9 +511,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         >
           <Text style={styles.cameraButtonText}>{t('writing.camera.buttonText')}</Text>
         </TouchableOpacity>
-        <Text style={styles.cameraHint}>
-          {t('writing.camera.hint')}
-        </Text>
       </View>
 
       {/* Evaluate Button */}
@@ -551,7 +548,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   instructionsCard: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.white,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.lg,
@@ -610,7 +607,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   answerSection: {
-    marginBottom: spacing.margin.lg,
+
   },
   textInput: {
     ...typography.textStyles.body,

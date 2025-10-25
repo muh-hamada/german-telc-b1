@@ -110,7 +110,10 @@
     "maxPoints": "Puntuación máxima:",
     "points": "Puntos",
     "passingThreshold": "Umbral de aprobación:",
-    "preparation": "Preparación"
+    "preparation": "Preparación",
+    "passingScore": "Puntaje de aprobación",
+    "important": "Importante",
+    "totalMaxPoints": "Puntos máximos totales"
   },
   "practice": {
     "reading": {
@@ -410,25 +413,64 @@
   "grammar": {
     "part1": {
       "title": "Gramática Parte 1",
-      "subtitle": "Completar espacios (Gramática)"
+      "subtitle": "Completar espacios (Gramática)",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el texto y elija la respuesta correcta de las tres opciones para cada espacio.",
+      "questions": "Preguntas:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
     },
     "part2": {
       "title": "Gramática Parte 2",
-      "subtitle": "Completar espacios (Léxico)"
+      "subtitle": "Completar espacios (Léxico)",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el texto y elija la palabra apropiada del banco de palabras para cada espacio.",
+      "wordBank": "Banco de palabras:",
+      "select": "Seleccionar",
+      "selectWord": "Elegir palabra para espacio [{{gap}}]:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} espacio(s) restante(s)."
     }
   },
   "reading": {
     "part1": {
       "title": "Comprensión lectora Parte 1",
-      "subtitle": "Relacionar títulos con textos"
+      "subtitle": "Relacionar títulos con textos",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea los siguientes cinco textos y asigne un título adecuado a cada texto. Hay más títulos que textos. Cada título solo se puede usar una vez.",
+      "headings": "Títulos (a-j):",
+      "texts": "Textos (1-{{count}}):",
+      "text": "Texto",
+      "selectHeading": "Seleccionar título:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor asigne un título a todos los textos antes de continuar.",
+      "duplicateAnswers": "Respuestas Duplicadas",
+      "duplicateAnswersMessage": "Ha usado el mismo título para múltiples textos. Por favor verifique sus respuestas."
     },
     "part2": {
       "title": "Comprensión lectora Parte 2",
-      "subtitle": "Preguntas de opción múltiple"
+      "subtitle": "Preguntas de opción múltiple",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el siguiente texto y responda las preguntas seleccionando la respuesta correcta.",
+      "questions": "Preguntas ({{first}}-{{last}}):",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
     },
     "part3": {
       "title": "Comprensión lectora Parte 3",
-      "subtitle": "Relacionar anuncios"
+      "subtitle": "Relacionar anuncios",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea los anuncios y las situaciones. ¿Qué anuncio se ajusta a qué situación? No hay un anuncio adecuado para cada situación.",
+      "advertisements": "Anuncios:",
+      "situations": "Situaciones:",
+      "selectAdvertisement": "Seleccionar anuncio:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las situaciones antes de enviar. {{count}} situación(es) restante(s)."
     }
   },
   "writing": {
@@ -504,15 +546,72 @@
   "listening": {
     "part1": {
       "title": "Comprensión auditiva Parte 1",
-      "subtitle": "Diálogos cortos"
+      "subtitle": "Diálogos cortos",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: En el examen real, no puede pausar o detener el archivo de audio. Escuchará cada texto solo una vez.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
     },
     "part2": {
       "title": "Comprensión auditiva Parte 2",
-      "subtitle": "Conversación más larga"
+      "subtitle": "Conversación más larga",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: Este archivo de audio contiene tiempo de preparación y se reproducirá dos veces. En el examen real, no puede pausar o detener el archivo.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
     },
     "part3": {
       "title": "Comprensión auditiva Parte 3",
-      "subtitle": "Monólogos"
+      "subtitle": "Monólogos",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: Este archivo de audio contiene cinco textos cortos, cada uno se reproducirá dos veces. En el examen real, no puede pausar o detener el archivo.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
     }
   }
 }

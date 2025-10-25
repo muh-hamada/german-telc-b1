@@ -42,14 +42,8 @@ const TabNavigator: React.FC = () => {
     if (routeName && HIDE_TAB_SCREENS.includes(routeName)) {
       return { display: 'none' as 'none' };
     }
-    
-    return {
-      backgroundColor: colors.white,
-      borderTopColor: colors.border.light,
-      borderTopWidth: 1,
-      paddingTop: spacing.padding.sm,
-      height: 70,
-    };
+
+    return {};
   };
 
   return (

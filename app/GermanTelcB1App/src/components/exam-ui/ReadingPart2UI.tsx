@@ -8,6 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart2Exam } from '../../types/exam.types';
 
@@ -17,6 +18,7 @@ interface ReadingPart2UIProps {
 }
 
 const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
@@ -33,8 +35,8 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
 
     if (unansweredQuestions.length > 0) {
       Alert.alert(
-        'Incomplete',
-        `Please answer all questions before submitting. ${unansweredQuestions.length} question(s) remaining.`,
+        t('reading.part2.incomplete'),
+        t('reading.part2.incompleteMessage', { count: unansweredQuestions.length }),
         [{ text: 'OK' }]
       );
       return;
@@ -57,9 +59,9 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('reading.part2.taskTitle')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie den folgenden Text und beantworten Sie die Fragen, indem Sie die richtige Antwort auswählen.
+          {t('reading.part2.taskDescription')}
         </Text>
       </View>
 
@@ -73,7 +75,10 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
 
       {/* Questions */}
       <View style={styles.questionsSection}>
-        <Text style={styles.sectionTitle}>Fragen ({exam.questions[0]?.id}-{exam.questions[exam.questions.length - 1]?.id}):</Text>
+        <Text style={styles.sectionTitle}>{t('reading.part2.questions', { 
+          first: exam.questions[0]?.id, 
+          last: exam.questions[exam.questions.length - 1]?.id 
+        })}</Text>
         {exam.questions.map((question) => (
           <View key={question.id} style={styles.questionCard}>
             <Text style={styles.questionNumber}>{question.id}.</Text>
@@ -119,7 +124,10 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({Object.keys(userAnswers).length}/{exam.questions.length})
+          {t('reading.part2.submitAnswers', { 
+            answered: Object.keys(userAnswers).length, 
+            total: exam.questions.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

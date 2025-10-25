@@ -103,7 +103,7 @@ const MockExamScreen: React.FC = () => {
   const totalTime = MOCK_EXAM_STEPS.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor={colors.primary[500]}

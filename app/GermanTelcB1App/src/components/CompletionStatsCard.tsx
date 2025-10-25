@@ -140,8 +140,10 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoad
 
       {totalStats.totalCompleted === 0 && (
         <View style={styles.emptyState}>
-          <Icon name="info-circle" size={32} color={colors.text.tertiary} />
-          <Text style={styles.emptyText}>{t('profile.noCompletedExams')}</Text>
+          <Icon name="info-circle" size={32} color={colors.text.tertiary} style={styles.emptyIcon} />
+          {t('profile.noCompletedExams').split('.').map((sentence, index) => (
+            <Text key={index} style={styles.emptyText}>{sentence}</Text>
+          ))}
         </View>
       )}
     </View>
@@ -263,12 +265,14 @@ const styles = StyleSheet.create({
   },
   emptyState: {
     alignItems: 'center',
-    paddingVertical: spacing.padding.xl,
+    paddingTop: spacing.padding.xl,
+  },
+  emptyIcon: {
+    marginBottom: spacing.margin.md,
   },
   emptyText: {
     ...typography.textStyles.body,
     color: colors.text.tertiary,
-    marginTop: spacing.margin.sm,
     textAlign: 'center',
   },
 });

@@ -8,6 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart3Exam } from '../../types/exam.types';
 
@@ -17,6 +18,7 @@ interface ReadingPart3UIProps {
 }
 
 const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>({});
 
   const handleAnswerSelect = (situationId: number, adKey: string) => {
@@ -33,8 +35,8 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
 
     if (unansweredSituations.length > 0) {
       Alert.alert(
-        'Incomplete',
-        `Please answer all situations before submitting. ${unansweredSituations.length} situation(s) remaining.`,
+        t('reading.part3.incomplete'),
+        t('reading.part3.incompleteMessage', { count: unansweredSituations.length }),
         [{ text: 'OK' }]
       );
       return;
@@ -59,15 +61,15 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('reading.part3.taskTitle')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie die Anzeigen und die Situationen. Welche Anzeige passt zu welcher Situation? Es gibt nicht für jede Situation eine passende Anzeige.
+          {t('reading.part3.taskDescription')}
         </Text>
       </View>
 
       {/* Advertisements */}
       <View style={styles.adsSection}>
-        <Text style={styles.sectionTitle}>Anzeigen:</Text>
+        <Text style={styles.sectionTitle}>{t('reading.part3.advertisements')}</Text>
         {adKeys.map((key) => (
           <View key={key} style={styles.adItem}>
             <Text style={styles.adLetter}>{key.toUpperCase()}</Text>
@@ -78,7 +80,7 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
 
       {/* Situations */}
       <View style={styles.situationsSection}>
-        <Text style={styles.sectionTitle}>Situationen:</Text>
+        <Text style={styles.sectionTitle}>{t('reading.part3.situations')}</Text>
         {exam.situations.map((situation) => (
           <View key={situation.id} style={styles.situationCard}>
             <Text style={styles.situationNumber}>{situation.id}.</Text>
@@ -86,7 +88,7 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
             
             {/* Answer Selection */}
             <View style={styles.answerSection}>
-              <Text style={styles.answerLabel}>Anzeige wählen:</Text>
+              <Text style={styles.answerLabel}>{t('reading.part3.selectAdvertisement')}</Text>
               <View style={styles.answerButtons}>
                 {adKeys.map((key) => {
                   const isSelected = userAnswers[situation.id] === key;
@@ -125,7 +127,10 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({Object.keys(userAnswers).length}/{exam.situations.length})
+          {t('reading.part3.submitAnswers', { 
+            answered: Object.keys(userAnswers).length, 
+            total: exam.situations.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

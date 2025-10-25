@@ -8,6 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart1Exam } from '../../types/exam.types';
 
@@ -17,6 +18,7 @@ interface ReadingPart1UIProps {
 }
 
 const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => {
+  const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
 
   const handleAnswerSelect = (textId: number, headingIndex: number) => {
@@ -27,8 +29,8 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
   const handleSubmit = () => {
     if (Object.keys(userAnswers).length < exam.texts.length) {
       Alert.alert(
-        'Unvollständig',
-        'Bitte ordnen Sie allen Texten eine Überschrift zu, bevor Sie fortfahren.',
+        t('reading.part1.incomplete'),
+        t('reading.part1.incompleteMessage'),
         [{ text: 'OK' }]
       );
       return;
@@ -48,8 +50,8 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
 
     if (hasDuplicates) {
       Alert.alert(
-        'Duplicate Answers',
-        'You have used the same heading for multiple texts. Please check your answers.',
+        t('reading.part1.duplicateAnswers'),
+        t('reading.part1.duplicateAnswersMessage'),
         [{ text: 'OK' }]
       );
       return;
@@ -70,17 +72,15 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>Aufgabenstellung:</Text>
+        <Text style={styles.instructionsTitle}>{t('reading.part1.taskTitle')}</Text>
         <Text style={styles.instructionsText}>
-          Lesen Sie die folgenden fünf Texte und ordnen Sie jedem Text eine passende 
-          Überschrift zu. Es gibt mehr Überschriften als Texte. Jede Überschrift kann 
-          nur einmal verwendet werden.
+          {t('reading.part1.taskDescription')}
         </Text>
       </View>
 
       {/* Headings */}
       <View style={styles.headingsSection}>
-        <Text style={styles.sectionTitle}>Überschriften (a-j):</Text>
+        <Text style={styles.sectionTitle}>{t('reading.part1.headings')}</Text>
         {exam.headings.map((heading, index) => (
           <View key={index} style={styles.headingItem}>
             <Text style={styles.headingLetter}>{String.fromCharCode(97 + index)}</Text>
@@ -91,15 +91,15 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
 
       {/* Texts */}
       <View style={styles.textsSection}>
-        <Text style={styles.sectionTitle}>Texte (1-{exam.texts.length}):</Text>
+        <Text style={styles.sectionTitle}>{t('reading.part1.texts', { count: exam.texts.length })}</Text>
         {exam.texts.map((text) => (
           <View key={text.id} style={styles.textCard}>
-            <Text style={styles.textNumber}>Text {text.id}</Text>
+            <Text style={styles.textNumber}>{t('reading.part1.text')} {text.id}</Text>
             <Text style={styles.textContent}>{text.text}</Text>
             
             {/* Answer Selection */}
             <View style={styles.answerSection}>
-              <Text style={styles.answerLabel}>Überschrift wählen:</Text>
+              <Text style={styles.answerLabel}>{t('reading.part1.selectHeading')}</Text>
               <View style={styles.answerButtons}>
                 {exam.headings.map((_, headingIndex) => {
                   const letter = String.fromCharCode(97 + headingIndex);
@@ -139,7 +139,10 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          Antworten einreichen ({Object.keys(userAnswers).length}/{exam.texts.length})
+          {t('reading.part1.submitAnswers', { 
+            answered: Object.keys(userAnswers).length, 
+            total: exam.texts.length 
+          })}
         </Text>
       </TouchableOpacity>
     </ScrollView>

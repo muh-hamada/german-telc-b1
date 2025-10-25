@@ -41,11 +41,7 @@ const HomeScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor={colors.primary[500]}
-      />
+    <SafeAreaView style={styles.container} edges={[]}>
       <View style={styles.header}>
         <Text style={styles.title}>{t('home.title')}</Text>
       </View>
