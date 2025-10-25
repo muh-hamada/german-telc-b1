@@ -3,13 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   ScrollView,
   Alert,
   ActivityIndicator,
   I18nManager,
+  StatusBar,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
 import ExamStepper from '../components/ExamStepper';
@@ -65,7 +66,11 @@ const MockExamRunningScreen: React.FC = () => {
 
   if (isLoading || !examProgress) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={colors.primary[500]}
+        />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
@@ -286,7 +291,11 @@ const MockExamRunningScreen: React.FC = () => {
 
   if (examProgress.isCompleted) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={colors.primary[500]}
+        />
         {renderResults()}
         {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
@@ -294,7 +303,7 @@ const MockExamRunningScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       {/* Fixed Stepper at Top */}
       <ExamStepper steps={examProgress.steps} currentStepId={examProgress.currentStepId} />
 

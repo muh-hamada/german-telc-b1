@@ -3,13 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
   Alert,
   StatusBar,
   I18nManager,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
@@ -103,9 +103,9 @@ const MockExamScreen: React.FC = () => {
   const totalTime = MOCK_EXAM_STEPS.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         backgroundColor={colors.primary[500]}
       />
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
