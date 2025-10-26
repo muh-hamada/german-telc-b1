@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, I18nManager } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, I18nManager, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
@@ -17,7 +17,18 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
   const { t } = useTranslation();
   const stats = useUserStats();
   const { user } = useAuth();
+  const [isUserLoaded, setIsUserLoaded] = useState(false);
   
+  useEffect(() => {
+    // Simulate loading state for 2 seconds
+    // We do this to avoid the loading state flashing when the user is logged in
+    // but it takes a bit of time to load the "user" from the database
+    const timeout = setTimeout(() => {
+      setIsUserLoaded(true);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [])
+
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_STATS : stats;
   const hasUser = DEMO_MODE ? true : !!user;
@@ -34,6 +45,15 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
     if (score >= 40) return t('progress.performanceLevels.fair');
     return t('progress.performanceLevels.needsImprovement');
   };
+
+  // If the user is not null, then render the card directly
+  if (!isUserLoaded && user == null) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color={colors.primary[500]} />
+      </View>
+    );
+  }
 
   // If user is not logged in and not in demo mode, show login prompt
   if (!hasUser) {
@@ -187,6 +207,10 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginTop: spacing.md,
+  },
+  loadingState: {
+    alignItems: 'center',
+    paddingVertical: spacing.lg * 2,
   },
 });
 
