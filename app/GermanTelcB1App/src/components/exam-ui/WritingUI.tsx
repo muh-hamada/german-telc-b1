@@ -30,6 +30,7 @@ import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-nat
 interface WritingAssessment {
   overallScore: number;
   maxScore: number;
+  userInput: string;
   criteria: {
     taskCompletion: {
       grade: 'A' | 'B' | 'C' | 'D';
@@ -566,6 +567,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                 </View>
               </View>
 
+              <View style={styles.userInputSection}>
+                <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
+                <Text style={styles.userInputText}>{assessment.userInput}</Text>
+              </View>
+
               <View style={styles.improvementSection}>
                 <Text style={styles.improvementTitle}>{t('writing.evaluation.improvementTip')}</Text>
                 <Text style={styles.improvementText}>{assessment.improvementTip}</Text>
@@ -967,7 +973,6 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
   },
   criteriaSection: {
-    marginBottom: spacing.margin.lg,
   },
   criteriaTitle: {
     ...typography.textStyles.h4,
@@ -1014,8 +1019,25 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 22,
   },
+  userInputSection: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.md,
+  },
+  userInputTitle: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  userInputText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+  },
   improvementSection: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.md,

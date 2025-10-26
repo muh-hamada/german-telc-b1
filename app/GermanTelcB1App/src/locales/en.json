@@ -175,7 +175,7 @@
     "changeLanguage": "Change Language",
     "signedInWith": "Signed in with",
     "appName": "German TELC B1 Exam Preparation App",
-    "version": "Version 1.0.0",
+    "version": "Version",
     "completionStats": "Completion Statistics",
     "totalProgress": "Total Progress",
     "noCompletedExams": "No completed exams yet. Start practicing!",
@@ -527,7 +527,8 @@
       "grade": "Grade:",
       "improvementTip": "💡 Improvement Tip:",
       "closeButton": "Close",
-      "loading": "Evaluation is in progress, this will take a few seconds"
+      "loading": "Evaluation is in progress, this will take a few seconds",
+      "userInput": "Your Answer"
     },
     "imagePreview": {
       "title": "Review Captured Image",

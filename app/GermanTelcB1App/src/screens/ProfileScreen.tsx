@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import RNRestart from 'react-native-restart';
+import DeviceInfo from 'react-native-device-info';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
@@ -226,7 +227,9 @@ const ProfileScreen: React.FC = () => {
           <Text style={styles.aboutText}>
             {t('profile.appName')}
           </Text>
-          <Text style={styles.versionText}>{t('profile.version')}</Text>
+          <Text style={styles.versionText}>
+            {t('profile.version')} {DeviceInfo.getVersion()}
+          </Text>
         </View>
       </ScrollView>
 

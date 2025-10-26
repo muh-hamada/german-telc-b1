@@ -13,6 +13,7 @@ const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' f
 interface WritingAssessment {
   overallScore: number;
   maxScore: number;
+  userInput: string;
   criteria: {
     taskCompletion: {
       grade: 'A' | 'B' | 'C' | 'D';
@@ -73,6 +74,7 @@ Deine Aufgabe ist es, E-Mail-Antworten nach den offiziellen Telc B1 Kriterien zu
 Gib deine Bewertung als JSON zurück mit folgendem Format:
 {
   "overallScore": <Gesamtpunkte>,
+  "userInput": "<Antwort des Teilnehmers>",
   "maxScore": 15,
   "criteria": {
     "taskCompletion": {
@@ -209,6 +211,8 @@ ${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n
 
 ---
 
+Extrahieren Sie den Text aus dem Bild und geben Sie ihn als Benutzereingabe zurück.
+
 Bitte lese den handschriftlichen Text im Bild und bewerte diese Antwort nach den Telc B1 Kriterien. Gib das Ergebnis als JSON zurück.`;
 }
 
@@ -318,6 +322,7 @@ export async function evaluateWritingWithImage(
 export function getMockAssessment(): WritingAssessment {
   return {
     overallScore: 13,
+    userInput: 'Test user input',
     maxScore: 15,
     criteria: {
       taskCompletion: {

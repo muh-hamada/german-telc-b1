@@ -175,7 +175,7 @@
     "changeLanguage": "Sprache ändern",
     "signedInWith": "Angemeldet mit",
     "appName": "Deutsche TELC B1 Prüfungsvorbereitungs-App",
-    "version": "Version 1.0.0",
+    "version": "Version",
     "completionStats": "Abschlussstatistiken",
     "totalProgress": "Gesamtfortschritt",
     "noCompletedExams": "Noch keine abgeschlossenen Prüfungen. Beginnen Sie zu üben!",
@@ -527,7 +527,8 @@
       "grade": "Note:",
       "improvementTip": "💡 Verbesserungstipp:",
       "closeButton": "Schließen",
-      "loading": "Die Auswertung läuft, dies kann einige Sekunden dauern"
+      "loading": "Die Auswertung läuft, dies kann einige Sekunden dauern",
+      "userInput": "Ihre Antwort"
     },
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",

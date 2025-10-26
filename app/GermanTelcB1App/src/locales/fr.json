@@ -175,7 +175,7 @@
     "changeLanguage": "Changer de langue",
     "signedInWith": "Connecté avec",
     "appName": "Application de préparation à l'examen allemand TELC B1",
-    "version": "Version 1.0.0",
+    "version": "Version",
     "loginProviders": {
       "google": "Continuer avec Google",
       "facebook": "Continuer avec Facebook",
@@ -521,7 +521,8 @@
       "grade": "Note:",
       "improvementTip": "💡 Conseil d'amélioration:",
       "closeButton": "Fermer",
-      "loading": "L'évaluation est en cours, cela prendra quelques secondes"
+      "loading": "L'évaluation est en cours, cela prendra quelques secondes",
+      "userInput": "Votre Réponse"
     },
     "imagePreview": {
       "title": "Vérifier l'image capturée",
