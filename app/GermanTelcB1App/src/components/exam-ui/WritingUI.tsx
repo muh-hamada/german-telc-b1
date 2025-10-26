@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -77,6 +77,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
+  const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -94,9 +95,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       reward => {
         console.log('User earned reward:', reward);
         // Proceed with evaluation after ad is watched
-        if (pendingEvaluationType === 'text') {
+        const evaluationType = pendingEvaluationTypeRef.current;
+        console.log('Pending evaluation type:', evaluationType);
+        if (evaluationType === 'text') {
           proceedWithTextEvaluation();
-        } else if (pendingEvaluationType === 'image') {
+        } else if (evaluationType === 'image') {
           proceedWithImageEvaluation();
         }
       }
@@ -106,6 +109,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       console.log('Rewarded ad closed');
       // Reset pending evaluation
       setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
       // Reload ad for next time
       setIsAdLoaded(false);
       ad.load();
@@ -244,11 +248,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     // Show rewarded ad modal before evaluation
     setIsImagePreviewModalOpen(false);
     setPendingEvaluationType('image');
+    pendingEvaluationTypeRef.current = 'image';
     setShowRewardedAdModal(true);
   };
 
   const proceedWithImageEvaluation = async () => {
-    setShowRewardedAdModal(false);
     setIsEvaluating(true);
     setIsUsingCachedResult(false); // This is a fresh evaluation (image)
 
@@ -305,6 +309,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     } finally {
       setIsEvaluating(false);
       setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
     }
   };
 
@@ -325,11 +330,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     // Show rewarded ad modal before evaluation
     setPendingEvaluationType('text');
+    pendingEvaluationTypeRef.current = 'text';
     setShowRewardedAdModal(true);
   };
 
   const proceedWithTextEvaluation = async () => {
-    setShowRewardedAdModal(false);
     setIsEvaluating(true);
     setIsUsingCachedResult(false); // This is a fresh evaluation
 
@@ -387,6 +392,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       return;
     }
 
+    // Close the modal before showing the ad
+    setShowRewardedAdModal(false);
+
     try {
       rewardedAd.show();
     } catch (error) {
@@ -396,12 +404,16 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         '',
         [{ text: t('writing.alerts.ok') }]
       );
+      // Reset state if ad fails to show
+      setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
     }
   };
 
   const handleMaybeLater = () => {
     setShowRewardedAdModal(false);
     setPendingEvaluationType(null);
+    pendingEvaluationTypeRef.current = null;
   };
 
   const handleSubmit = () => {
