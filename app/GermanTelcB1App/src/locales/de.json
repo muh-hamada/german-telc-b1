@@ -282,7 +282,17 @@
     "createAccount": "Konto erstellen",
     "forgotPassword": "Passwort vergessen?",
     "alreadyHaveAccount": "Haben Sie bereits ein Konto? Anmelden",
-    "noAccount": "Noch kein Konto? Konto erstellen"
+    "noAccount": "Noch kein Konto? Konto erstellen",
+    "loginModal": {
+      "welcomeBack": "Willkommen zurück",
+      "signInCreateAccount": "Anmelden / Konto erstellen",
+      "subtitle": "Melden Sie sich an, um Ihren Fortschritt zu speichern und über Geräte hinweg zu synchronisieren",
+      "orDivider": "oder",
+      "continueWithEmail": "Mit E-Mail fortfahren",
+      "backToSocialLogin": "← Zurück zur Social-Anmeldung",
+      "passwordReset": "Passwort zurücksetzen",
+      "passwordResetMessage": "Eine E-Mail zum Zurücksetzen des Passworts wurde an Ihre E-Mail-Adresse gesendet."
+    }
   },
   "speaking": {
     "part1": {

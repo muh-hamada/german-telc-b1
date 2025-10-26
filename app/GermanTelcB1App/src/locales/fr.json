@@ -215,7 +215,17 @@
     "createAccount": "Créer un compte",
     "forgotPassword": "Mot de passe oublié ?",
     "alreadyHaveAccount": "Vous avez déjà un compte ? Se connecter",
-    "noAccount": "Vous n'avez pas de compte ? Créer un compte"
+    "noAccount": "Vous n'avez pas de compte ? Créer un compte",
+    "loginModal": {
+      "welcomeBack": "Bienvenue",
+      "signInCreateAccount": "Se connecter / Créer un compte",
+      "subtitle": "Connectez-vous pour enregistrer votre progression et la synchroniser entre les appareils",
+      "orDivider": "ou",
+      "continueWithEmail": "Continuer avec l'e-mail",
+      "backToSocialLogin": "← Retour à la connexion sociale",
+      "passwordReset": "Réinitialisation du mot de passe",
+      "passwordResetMessage": "Un e-mail de réinitialisation du mot de passe a été envoyé à votre adresse e-mail."
+    }
   },
   "speaking": {
     "part1": {

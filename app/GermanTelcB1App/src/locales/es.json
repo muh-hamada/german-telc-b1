@@ -279,7 +279,17 @@
     "createAccount": "Crear cuenta",
     "forgotPassword": "¿Olvidó su contraseña?",
     "alreadyHaveAccount": "¿Ya tiene una cuenta? Iniciar sesión",
-    "noAccount": "¿No tiene una cuenta? Crear cuenta"
+    "noAccount": "¿No tiene una cuenta? Crear cuenta",
+    "loginModal": {
+      "welcomeBack": "Bienvenido de nuevo",
+      "signInCreateAccount": "Iniciar sesión / Crear cuenta",
+      "subtitle": "Inicie sesión para guardar su progreso y sincronizarlo entre dispositivos",
+      "orDivider": "o",
+      "continueWithEmail": "Continuar con correo electrónico",
+      "backToSocialLogin": "← Volver al inicio de sesión social",
+      "passwordReset": "Restablecer contraseña",
+      "passwordResetMessage": "Se ha enviado un correo electrónico de restablecimiento de contraseña a su dirección de correo electrónico."
+    }
   },
   "speaking": {
     "part1": {

@@ -20,7 +20,7 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
       case 'google':
         return {
           title: 'Continue with Google',
-          backgroundColor: '#4285F4',
+          backgroundColor: colors.gray[500] ,
           textColor: colors.white,
           icon: 'G',
         };

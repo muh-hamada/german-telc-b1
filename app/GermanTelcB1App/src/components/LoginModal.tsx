@@ -10,6 +10,7 @@ import {
   Platform,
   I18nManager,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import SocialLoginButton from './SocialLoginButton';
@@ -19,6 +20,7 @@ interface LoginModalProps {
   visible: boolean;
   onClose: () => void;
   onSuccess?: () => void;
+  onFailure?: () => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({
@@ -27,6 +29,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   onSuccess,
   onFailure,
 }) => {
+  const { t } = useTranslation();
   const {
     signInWithGoogle,
     signInWithFacebook,
@@ -93,9 +96,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
     try {
       await sendPasswordResetEmail(email);
       Alert.alert(
-        'Password Reset',
-        'A password reset email has been sent to your email address.',
-        [{ text: 'OK' }]
+        t('auth.loginModal.passwordReset'),
+        t('auth.loginModal.passwordResetMessage'),
+        [{ text: t('common.done') }]
       );
     } catch (error) {
       // Error is handled by the auth context
@@ -121,7 +124,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>
-                {showEmailForm ? 'Sign In / Create Account' : 'Welcome Back'}
+                {showEmailForm ? t('auth.loginModal.signInCreateAccount') : t('auth.loginModal.welcomeBack')}
               </Text>
               <TouchableOpacity style={styles.closeButton} onPress={handleClose}>
                 <Text style={styles.closeButtonText}>✕</Text>
@@ -131,7 +134,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Error Message */}
             {error && (
               <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{error}</Text>
+                <Text style={styles.errorText}>{typeof error === 'string' ? error : error.message}</Text>
               </View>
             )}
 
@@ -147,7 +150,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
               ) : (
                 <>
                   <Text style={styles.subtitle}>
-                    Sign in to save your progress and sync across devices
+                    {t('auth.loginModal.subtitle')}
                   </Text>
 
                   <View style={styles.socialButtons}>
@@ -178,7 +181,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
                   <View style={styles.divider}>
                     <View style={styles.dividerLine} />
-                    <Text style={styles.dividerText}>or</Text>
+                    <Text style={styles.dividerText}>{t('auth.loginModal.orDivider')}</Text>
                     <View style={styles.dividerLine} />
                   </View>
 
@@ -187,7 +190,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                     onPress={() => setShowEmailForm(true)}
                   >
                     <Text style={styles.emailButtonText}>
-                      Continue with Email
+                      {t('auth.loginModal.continueWithEmail')}
                     </Text>
                   </TouchableOpacity>
                 </>
@@ -199,7 +202,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                   onPress={() => setShowEmailForm(false)}
                 >
                   <Text style={styles.backButtonText}>
-                    ← Back to social login
+                    {t('auth.loginModal.backToSocialLogin')}
                   </Text>
                 </TouchableOpacity>
               )}
@@ -282,7 +285,7 @@ const styles = StyleSheet.create({
   divider: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
-    marginVertical: spacing.margin.lg,
+    marginBottom: spacing.margin.lg,
   },
   dividerLine: {
     flex: 1,

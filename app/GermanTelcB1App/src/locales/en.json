@@ -282,7 +282,17 @@
     "createAccount": "Create Account",
     "forgotPassword": "Forgot Password?",
     "alreadyHaveAccount": "Already have an account? Sign In",
-    "noAccount": "Don't have an account? Create Account"
+    "noAccount": "Don't have an account? Create Account",
+    "loginModal": {
+      "welcomeBack": "Welcome Back",
+      "signInCreateAccount": "Sign In / Create Account",
+      "subtitle": "Sign in to save your progress and sync across devices",
+      "orDivider": "or",
+      "continueWithEmail": "Continue with Email",
+      "backToSocialLogin": "← Back to social login",
+      "passwordReset": "Password Reset",
+      "passwordResetMessage": "A password reset email has been sent to your email address."
+    }
   },
   "speaking": {
     "part1": {

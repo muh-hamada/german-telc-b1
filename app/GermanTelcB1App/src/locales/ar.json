@@ -279,7 +279,17 @@
     "createAccount": "إنشاء حساب",
     "forgotPassword": "هل نسيت كلمة المرور؟",
     "alreadyHaveAccount": "هل لديك حساب بالفعل؟ تسجيل الدخول",
-    "noAccount": "ليس لديك حساب؟ إنشاء حساب"
+    "noAccount": "ليس لديك حساب؟ إنشاء حساب",
+    "loginModal": {
+      "welcomeBack": "مرحبًا بعودتك",
+      "signInCreateAccount": "تسجيل الدخول / إنشاء حساب",
+      "subtitle": "سجل الدخول لحفظ تقدمك ومزامنته عبر الأجهزة",
+      "orDivider": "أو",
+      "continueWithEmail": "المتابعة بالبريد الإلكتروني",
+      "backToSocialLogin": "← العودة إلى تسجيل الدخول الاجتماعي",
+      "passwordReset": "إعادة تعيين كلمة المرور",
+      "passwordResetMessage": "تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور إلى عنوان بريدك الإلكتروني."
+    }
   },
   "speaking": {
     "part1": {

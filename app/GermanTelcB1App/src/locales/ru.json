@@ -279,7 +279,17 @@
     "createAccount": "Создать аккаунт",
     "forgotPassword": "Забыли пароль?",
     "alreadyHaveAccount": "Уже есть аккаунт? Войти",
-    "noAccount": "Нет аккаунта? Создать аккаунт"
+    "noAccount": "Нет аккаунта? Создать аккаунт",
+    "loginModal": {
+      "welcomeBack": "Добро пожаловать",
+      "signInCreateAccount": "Войти / Создать аккаунт",
+      "subtitle": "Войдите, чтобы сохранить свой прогресс и синхронизировать его между устройствами",
+      "orDivider": "или",
+      "continueWithEmail": "Продолжить с электронной почтой",
+      "backToSocialLogin": "← Вернуться к социальному входу",
+      "passwordReset": "Сброс пароля",
+      "passwordResetMessage": "Письмо для сброса пароля отправлено на ваш адрес электронной почты."
+    }
   },
   "speaking": {
     "part1": {

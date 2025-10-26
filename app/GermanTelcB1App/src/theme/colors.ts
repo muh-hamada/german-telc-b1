@@ -57,6 +57,17 @@ export const colors = {
   black: '#000000',
   transparent: 'transparent',
   
+  // Gray colors
+  gray: {
+    50: '#F5F5F5',
+    100: '#E0E0E0',
+    200: '#BDBDBD',
+    300: '#9E9E9E',
+    400: '#757575',
+    500: '#616161',
+    600: '#424242',
+  },
+
   // Background colors
   background: {
     primary: '#F5F5F5',
