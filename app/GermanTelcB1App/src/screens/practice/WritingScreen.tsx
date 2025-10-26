@@ -13,17 +13,11 @@ import { colors, spacing, typography } from '../../theme';
 import { useTranslation } from 'react-i18next';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
-import writingData from '../../data/writing.json';
+import { dataService } from '../../services/data.service';
+import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
-
-interface WritingExam {
-  id: number;
-  title: string;
-  incomingEmail: string;
-  writingPoints: string[];
-}
 
 const WritingScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -34,9 +28,24 @@ const WritingScreen: React.FC = () => {
   const { isCompleted, toggleCompletion } = useExamCompletion('writing', 1, examId);
   
   const [examResult, setExamResult] = useState<{ score: number } | null>(null);
+  const [currentExam, setCurrentExam] = useState<WritingExam | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const exams = (writingData as any).exams as WritingExam[];
-  const currentExam = exams?.find(e => e.id === examId) || exams?.[0];
+  useEffect(() => {
+    loadExam();
+  }, [examId]);
+
+  const loadExam = async () => {
+    try {
+      setIsLoading(true);
+      const exam = await dataService.getWritingExam(examId);
+      setCurrentExam(exam || null);
+    } catch (error) {
+      console.error('Error loading exam:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Set up header button
   useEffect(() => {
@@ -73,6 +82,17 @@ const WritingScreen: React.FC = () => {
     console.log('Writing completed with score:', score);
   };
 
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{t('exam.loadingExam')}</Text>
+        </View>
+        {!HIDE_ADS && <AdBanner />}
+      </SafeAreaView>
+    );
+  }
+
   if (!currentExam) {
     return (
       <SafeAreaView style={styles.container}>
@@ -92,7 +112,7 @@ const WritingScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.Create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

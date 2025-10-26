@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
-import writingData from '../../data/writing.json';
+import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -20,6 +20,15 @@ const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useTranslation();
   const [showWritingModal, setShowWritingModal] = useState(false);
+  const [writingExams, setWritingExams] = useState<any[]>([]);
+
+  useEffect(() => {
+    const loadWritingExams = async () => {
+      const exams = await dataService.getWritingExams();
+      setWritingExams(exams);
+    };
+    loadWritingExams();
+  }, []);
 
   const handleReadingPress = () => {
     navigation.navigate('ReadingMenu');
@@ -87,7 +96,7 @@ const PracticeMenuScreen: React.FC = () => {
       <ExamSelectionModal
         visible={showWritingModal}
         onClose={() => setShowWritingModal(false)}
-        exams={writingData.exams}
+        exams={writingExams}
         onSelectExam={handleSelectWritingExam}
         examType="writing"
         partNumber={1}
