@@ -41,6 +41,13 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   const { getCompletionStatus, getStatsForPart } = useCompletion();
   
   const stats = getStatsForPart(examType, partNumber);
+  
+  // Always show stats, even if user is logged out (will show 0 progress)
+  const displayStats = stats || {
+    completed: 0,
+    total: exams.length,
+    percentage: 0,
+  };
 
   const handleSelectExam = (examId: number) => {
     onSelectExam(examId);
@@ -69,24 +76,27 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
           </View>
 
           {/* Stats Section */}
-          {stats && (
-            <View style={styles.statsContainer}>
-              <View style={styles.statsRow}>
-                <Icon name="check-circle" size={20} color={colors.success[500]} />
-                <Text style={styles.statsText}>
-                  {t('exam.completedCount', { completed: stats.completed, total: stats.total })}
-                </Text>
-              </View>
-              <View style={styles.progressBarContainer}>
-                <View 
-                  style={[
-                    styles.progressBarFill, 
-                    { width: `${stats.percentage}%` }
-                  ]} 
-                />
-              </View>
+          <View style={styles.statsContainer}>
+            <View style={styles.statsRow}>
+              <Icon name="check-circle" size={20} color={colors.success[500]} />
+              <Text style={styles.statsText}>
+                {t('exam.completedCount', { completed: displayStats.completed, total: displayStats.total })}
+              </Text>
             </View>
-          )}
+            <View style={styles.progressBarContainer}>
+              <View 
+                style={[
+                  styles.progressBarFill, 
+                  { width: `${displayStats.percentage}%` }
+                ]} 
+              />
+            </View>
+            {!stats && (
+              <Text style={styles.loginHintText}>
+                {t('exam.loginToSaveProgress')}
+              </Text>
+            )}
+          </View>
 
           <ScrollView style={styles.examList}>
             {exams && exams.length > 0 ? (
@@ -209,6 +219,13 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: colors.success[500],
     borderRadius: 4,
+  },
+  loginHintText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginTop: spacing.margin.sm,
+    textAlign: 'center',
+    fontStyle: 'italic',
   },
   examList: {
     flexGrow: 1,

@@ -105,7 +105,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
     score: number
   ): Promise<boolean> => {
     if (!user?.uid) {
-      throw new Error('User must be logged in to toggle completion');
+      throw new Error('auth/not-logged-in');
     }
 
     try {

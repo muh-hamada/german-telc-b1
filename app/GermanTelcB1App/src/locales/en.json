@@ -424,7 +424,8 @@
     "completedCount": "{{completed}}/{{total}} completed",
     "markedCompleted": "Exam marked as completed!",
     "markedIncomplete": "Exam marked as incomplete!",
-    "completionFailed": "Failed to update completion status"
+    "completionFailed": "Failed to update completion status",
+    "loginToSaveProgress": "You need to log in to save your progress"
   },
   "grammar": {
     "part1": {

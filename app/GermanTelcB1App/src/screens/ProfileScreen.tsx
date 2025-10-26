@@ -173,11 +173,9 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Completion Statistics Section */}
-        {user && (
-          <View style={styles.section}>
-            <CompletionStatsCard stats={allStats} isLoading={statsLoading} />
-          </View>
-        )}
+        <View style={styles.section}>
+          <CompletionStatsCard stats={allStats} isLoading={statsLoading} showLoggedOutMessage={!user} />
+        </View>
 
         {/* Settings Section */}
         <View style={styles.section}>

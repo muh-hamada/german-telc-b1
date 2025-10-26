@@ -418,7 +418,9 @@
     "selectAnExam": "اختر امتحاناً",
     "selectTask": "اختر مهمة",
     "markedCompleted": "تم وضع علامة على الامتحان كمكتمل!",
-    "markedIncomplete": "تم وضع علامة على الامتحان بأنه غير مكتمل!"
+    "markedIncomplete": "تم وضع علامة على الامتحان بأنه غير مكتمل!",
+    "completionFailed": "فشل في تحديث حالة الإكمال",
+    "loginToSaveProgress": "تحتاج إلى تسجيل الدخول لحفظ تقدمك"
   },
   "grammar": {
     "part1": {

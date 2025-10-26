@@ -64,8 +64,12 @@ const ReadingPart1Screen: React.FC = () => {
         t('common.success'),
         newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
       );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 

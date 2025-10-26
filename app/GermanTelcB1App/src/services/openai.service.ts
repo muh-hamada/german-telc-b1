@@ -112,6 +112,8 @@ ${request.userAnswer}
 
 ---
 
+Extrahieren Sie den Text aus dem Bild und geben Sie ihn als Benutzereingabe zurück.
+
 Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück.`;
 }
 

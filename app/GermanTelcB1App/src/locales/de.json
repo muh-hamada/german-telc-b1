@@ -424,7 +424,8 @@
     "completedCount": "{{completed}}/{{total}} abgeschlossen",
     "markedCompleted": "Prüfung als abgeschlossen markiert!",
     "markedIncomplete": "Prüfung als unvollständig markiert!",
-    "completionFailed": "Fehler beim Aktualisieren des Abschlussstatus"
+    "completionFailed": "Fehler beim Aktualisieren des Abschlussstatus",
+    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern"
   },
   "grammar": {
     "part1": {

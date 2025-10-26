@@ -418,7 +418,9 @@
     "selectAnExam": "Seleccionar un examen",
     "selectTask": "Seleccionar tarea",
     "markedCompleted": "¡Examen marcado como completado!",
-    "markedIncomplete": "¡Examen marcado como incompleto!"
+    "markedIncomplete": "¡Examen marcado como incompleto!",
+    "completionFailed": "Error al actualizar el estado de finalización",
+    "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso"
   },
   "grammar": {
     "part1": {

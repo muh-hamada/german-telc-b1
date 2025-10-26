@@ -13,6 +13,7 @@ import { AllCompletionStats } from '../services/firebase-completion.service';
 interface CompletionStatsCardProps {
   stats: AllCompletionStats;
   isLoading?: boolean;
+  showLoggedOutMessage?: boolean;
 }
 
 interface ExamSection {
@@ -21,7 +22,7 @@ interface ExamSection {
   parts: number[];
 }
 
-const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoading = false }) => {
+const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoading = false, showLoggedOutMessage = false }) => {
   const { t } = useTranslation();
 
   const examSections: ExamSection[] = [
@@ -145,9 +146,13 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoad
       {totalStats.totalCompleted === 0 && (
         <View style={styles.emptyState}>
           <Icon name="info-circle" size={32} color={colors.text.tertiary} style={styles.emptyIcon} />
-          {t('profile.noCompletedExams').split('.').map((sentence, index) => (
-            <Text key={index} style={styles.emptyText}>{sentence}</Text>
-          ))}
+          {showLoggedOutMessage ? (
+            <Text style={styles.emptyText}>{t('exam.loginToSaveProgress')}</Text>
+          ) : (
+            t('profile.noCompletedExams').split('.').map((sentence, index) => (
+              <Text key={index} style={styles.emptyText}>{sentence}</Text>
+            ))
+          )}
         </View>
       )}
     </View>
