@@ -24,7 +24,6 @@ export const typography = {
   fontSize: {
     xs: 12,
     sm: 14,
-    xs: 12,
     base: 16,
     lg: 18,
     xl: 20,
@@ -54,7 +53,7 @@ export const typography = {
   textStyles: {
     // Headers
     h1: {
-      fontSize: 36,
+      fontSize: 32,
       lineHeight: 44,
       fontWeight: '700' as const,
       fontFamily: Platform.select({
@@ -64,7 +63,7 @@ export const typography = {
       }),
     },
     h2: {
-      fontSize: 30,
+      fontSize: 28,
       lineHeight: 38,
       fontWeight: '700' as const,
       fontFamily: Platform.select({
@@ -74,7 +73,7 @@ export const typography = {
       }),
     },
     h3: {
-      fontSize: 24,
+      fontSize: 22,
       lineHeight: 32,
       fontWeight: '600' as const,
       fontFamily: Platform.select({
@@ -84,7 +83,7 @@ export const typography = {
       }),
     },
     h4: {
-      fontSize: 20,
+      fontSize: 18,
       lineHeight: 28,
       fontWeight: '600' as const,
       fontFamily: Platform.select({
@@ -95,7 +94,7 @@ export const typography = {
     },
 
     h5: {
-      fontSize: 18,
+      fontSize: 16,
       lineHeight: 26,
       fontWeight: '600' as const,
       fontFamily: Platform.select({
@@ -107,7 +106,7 @@ export const typography = {
     
     // Body text
     body: {
-      fontSize: 16,
+      fontSize: 14,
       lineHeight: 24,
       fontWeight: '400' as const,
       fontFamily: Platform.select({
@@ -117,7 +116,7 @@ export const typography = {
       }),
     },
     bodyLarge: {
-      fontSize: 18,
+      fontSize: 16,
       lineHeight: 28,
       fontWeight: '400' as const,
       fontFamily: Platform.select({
@@ -127,7 +126,7 @@ export const typography = {
       }),
     },
     bodySmall: {
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 20,
       fontWeight: '400' as const,
       fontFamily: Platform.select({
@@ -139,7 +138,7 @@ export const typography = {
     
     // Labels and captions
     label: {
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 20,
       fontWeight: '500' as const,
       fontFamily: Platform.select({
@@ -149,7 +148,7 @@ export const typography = {
       }),
     },
     caption: {
-      fontSize: 12,
+      fontSize: 10,
       lineHeight: 16,
       fontWeight: '400' as const,
       fontFamily: Platform.select({
@@ -161,7 +160,7 @@ export const typography = {
     
     // Button text
     button: {
-      fontSize: 16,
+      fontSize: 14,
       lineHeight: 24,
       fontWeight: '600' as const,
       fontFamily: Platform.select({
@@ -171,7 +170,7 @@ export const typography = {
       }),
     },
     buttonLarge: {
-      fontSize: 18,
+      fontSize: 16,
       lineHeight: 28,
       fontWeight: '600' as const,
       fontFamily: Platform.select({
