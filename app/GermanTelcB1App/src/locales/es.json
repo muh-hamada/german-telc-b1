@@ -526,7 +526,8 @@
       "improvementTip": "💡 Consejo de mejora:",
       "closeButton": "Cerrar",
       "loading": "La evaluación está en progreso, esto tomará unos segundos.",
-      "userInput": "Tu respuesta"
+      "userInput": "Tu respuesta",
+      "noUserInput": "No se ha reconocido ninguna respuesta. \nIntenta mejorar tu letra."
     },
     "imagePreview": {
       "title": "Revisar imagen capturada",

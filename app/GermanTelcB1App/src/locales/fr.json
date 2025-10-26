@@ -526,7 +526,8 @@
       "improvementTip": "💡 Conseil d'amélioration:",
       "closeButton": "Fermer",
       "loading": "L'évaluation est en cours, cela prendra quelques secondes",
-      "userInput": "Votre Réponse"
+      "userInput": "Votre Réponse",
+      "noUserInput": "Aucune réponse n'a été reconnue. \nEssayez d'améliorer votre écriture."
     },
     "imagePreview": {
       "title": "Vérifier l'image capturée",

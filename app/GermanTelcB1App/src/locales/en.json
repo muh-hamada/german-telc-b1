@@ -531,7 +531,8 @@
       "improvementTip": "💡 Improvement Tip:",
       "closeButton": "Close",
       "loading": "Evaluation is in progress, this will take a few seconds",
-      "userInput": "Your Answer"
+      "userInput": "Your Answer",
+      "noUserInput": "No answer has been recognized. Try improving your handwriting."
     },
     "imagePreview": {
       "title": "Review Captured Image",

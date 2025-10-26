@@ -531,7 +531,8 @@
       "improvementTip": "💡 Verbesserungstipp:",
       "closeButton": "Schließen",
       "loading": "Die Auswertung läuft, dies kann einige Sekunden dauern",
-      "userInput": "Ihre Antwort"
+      "userInput": "Ihre Antwort",
+      "noUserInput": "Es wurde keine Antwort erkannt. \nVersuchen Sie, Ihre Handschrift zu verbessern."
     },
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",

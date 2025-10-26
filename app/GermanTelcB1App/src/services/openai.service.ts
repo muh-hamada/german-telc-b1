@@ -71,10 +71,12 @@ Deine Aufgabe ist es, E-Mail-Antworten nach den offiziellen Telc B1 Kriterien zu
 - C (2-3 Punkte): Viele Syntax-/Morphologiefehler; das Verständnis ist deutlich erschwert
 - D (0-1 Punkte): Die Syntax ist überwiegend inkorrekt; der Text ist kaum verständlich
 
+WICHTIG: Das Feld "userInput" muss EXAKT die Antwort des Teilnehmers enthalten, wie sie bereitgestellt wurde. Bei Bildern: Extrahiere den Text GENAU wie geschrieben, ohne Änderungen, Ergänzungen oder Korrekturen. Erfinde NIEMALS eine Beispielantwort.
+
 Gib deine Bewertung als JSON zurück mit folgendem Format:
 {
   "overallScore": <Gesamtpunkte>,
-  "userInput": "<Antwort des Teilnehmers>",
+  "userInput": "<EXAKTE Antwort des Teilnehmers - bei Bildern: der extrahierte Text ohne Änderungen>",
   "maxScore": 15,
   "criteria": {
     "taskCompletion": {
@@ -112,9 +114,7 @@ ${request.userAnswer}
 
 ---
 
-Extrahieren Sie den Text aus dem Bild und geben Sie ihn als Benutzereingabe zurück.
-
-Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück.`;
+Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld.`;
 }
 
 /**
@@ -213,9 +213,14 @@ ${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n
 
 ---
 
-Extrahieren Sie den Text aus dem Bild und geben Sie ihn als Benutzereingabe zurück.
+WICHTIGE ANWEISUNGEN:
+1. Lese zuerst den GESAMTEN handschriftlichen Text im Bild sorgfältig
+2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern
+3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
+4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
+5. Bewerte dann diese extrahierte Antwort nach den Telc B1 Kriterien
 
-Bitte lese den handschriftlichen Text im Bild und bewerte diese Antwort nach den Telc B1 Kriterien. Gib das Ergebnis als JSON zurück.`;
+Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
 }
 
 /**

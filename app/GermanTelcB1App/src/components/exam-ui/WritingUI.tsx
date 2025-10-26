@@ -26,6 +26,7 @@ import {
   isOpenAIConfigured,
 } from '../../services/openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
+import { SKIP_REWARDED_ADS } from '../../config/demo.config';
 
 interface WritingAssessment {
   overallScore: number;
@@ -250,7 +251,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setIsImagePreviewModalOpen(false);
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
-    setShowRewardedAdModal(true);
+
+    if (SKIP_REWARDED_ADS) {
+      await proceedWithImageEvaluation();
+    } else {
+      setShowRewardedAdModal(true);
+    }
   };
 
   const proceedWithImageEvaluation = async () => {
@@ -332,7 +338,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     // Show rewarded ad modal before evaluation
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
-    setShowRewardedAdModal(true);
+
+    if (SKIP_REWARDED_ADS) {
+      await proceedWithTextEvaluation();
+    } else {
+      setShowRewardedAdModal(true);
+    }
   };
 
   const proceedWithTextEvaluation = async () => {
@@ -569,7 +580,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
               <View style={styles.userInputSection}>
                 <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
-                <Text style={styles.userInputText}>{assessment.userInput}</Text>
+                <Text style={styles.userInputText}>{assessment.userInput || t('writing.evaluation.noUserInput')}</Text>
               </View>
 
               <View style={styles.improvementSection}>
