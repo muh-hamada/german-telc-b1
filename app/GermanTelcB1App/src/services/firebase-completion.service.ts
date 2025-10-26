@@ -174,6 +174,7 @@ class FirebaseCompletionService {
         'grammar': [1, 2],
         'reading': [1, 2, 3],
         'writing': [1],
+        'speaking': [1, 2, 3],
       };
       
       // Fetch stats for each exam type and part

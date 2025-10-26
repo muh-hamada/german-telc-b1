@@ -28,11 +28,15 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoad
     { key: 'grammar', titleKey: 'practice.grammar.title', parts: [1, 2] },
     { key: 'reading', titleKey: 'practice.reading.title', parts: [1, 2, 3] },
     { key: 'writing', titleKey: 'practice.writing.title', parts: [1] },
+    { key: 'speaking', titleKey: 'practice.speaking.title', parts: [1, 2, 3] },
   ];
 
   const getPartTitle = (examType: string, partNumber: number): string => {
     if (examType === 'writing') {
       return t('practice.writing.title');
+    }
+    if (examType === 'speaking') {
+      return t(`practice.speaking.part${partNumber}`);
     }
     return t(`practice.${examType}.part${partNumber}`);
   };

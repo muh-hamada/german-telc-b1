@@ -57,6 +57,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         'grammar': [1, 2],
         'reading': [1, 2, 3],
         'writing': [1],
+        'speaking': [1, 2, 3],
       };
       
       for (const [examType, parts] of Object.entries(examStructure)) {

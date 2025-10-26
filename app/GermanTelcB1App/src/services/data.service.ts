@@ -281,9 +281,13 @@ class DataService {
       case 'writing':
         return (await this.getWritingExams()).length;
       case 'speaking-part1':
+        return 1; // Single personal introduction, no multiple exams
       case 'speaking-part2':
+        const part2Data = await this.getSpeakingPart2Content();
+        return part2Data.topics?.length || 0;
       case 'speaking-part3':
-        return 1;
+        const part3Data = await this.getSpeakingPart3Content();
+        return part3Data.scenarios?.length || 0;
       default:
         return 0;
     }

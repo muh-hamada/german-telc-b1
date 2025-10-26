@@ -5,16 +5,17 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Modal,
-  FlatList,
-  I18nManager,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
+import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -35,24 +36,62 @@ interface Topic {
   }>;
 }
 
+type SpeakingPart2ScreenRouteProp = RouteProp<{ params: { topicId: number } }, 'params'>;
+
 const SpeakingPart2Screen: React.FC = () => {
   const { t } = useTranslation();
-  const [selectedTopicId, setSelectedTopicId] = useState<number>(1);
+  const route = useRoute<SpeakingPart2ScreenRouteProp>();
+  const navigation = useNavigation();
+  const topicId = route.params?.topicId ?? 0;
+  
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
+  
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
   const [showPartnerSummary, setShowPartnerSummary] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [speakingPart2Data, setSpeakingPart2Data] = useState<any>(null);
+  const [currentTopic, setCurrentTopic] = useState<Topic | null>(null);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [topicId]);
+
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.white}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
+      Alert.alert(
+        t('common.success'),
+        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      );
+    } catch (error) {
+      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    }
+  };
 
   const loadData = async () => {
     try {
       setIsLoading(true);
       const data = await dataService.getSpeakingPart2Content();
-      setSpeakingPart2Data(data);
+      const topics = data.topics as Topic[];
+      const topic = topics.find(t => t.id === topicId) || topics[0];
+      setCurrentTopic(topic);
     } catch (error) {
       console.error('Error loading speaking part 2 data:', error);
     } finally {
@@ -70,7 +109,7 @@ const SpeakingPart2Screen: React.FC = () => {
     );
   }
 
-  if (!speakingPart2Data) {
+  if (!currentTopic) {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.centerContent}>
@@ -79,82 +118,6 @@ const SpeakingPart2Screen: React.FC = () => {
       </SafeAreaView>
     );
   }
-
-  const topics = (speakingPart2Data as any).topics as Topic[];
-  const currentTopic = topics?.find(t => t.id === selectedTopicId) || topics?.[0];
-
-  const renderTopicDropdown = () => {
-    if (!topics || topics.length === 0) return null;
-    
-    return (
-      <>
-        <TouchableOpacity
-          style={styles.dropdownButton}
-          onPress={() => setIsDropdownOpen(true)}
-        >
-          <Text style={styles.dropdownButtonText}>
-            {currentTopic?.title || t('speaking.part2.selectTopic')}
-          </Text>
-          <Text style={styles.dropdownArrow}>▼</Text>
-        </TouchableOpacity>
-
-        <Modal
-          visible={isDropdownOpen}
-          transparent={true}
-          animationType="fade"
-          onRequestClose={() => setIsDropdownOpen(false)}
-        >
-          <TouchableOpacity
-            style={styles.modalOverlay}
-            activeOpacity={1}
-            onPress={() => setIsDropdownOpen(false)}
-          >
-            <View style={styles.modalContent}>
-              <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>{t('speaking.part2.topicSelection')}</Text>
-                <TouchableOpacity
-                  onPress={() => setIsDropdownOpen(false)}
-                  style={styles.closeButton}
-                >
-                  <Text style={styles.closeButtonText}>✕</Text>
-                </TouchableOpacity>
-              </View>
-              <FlatList
-                data={topics}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    style={[
-                      styles.dropdownItem,
-                      selectedTopicId === item.id && styles.dropdownItemActive,
-                    ]}
-                    onPress={() => {
-                      setSelectedTopicId(item.id);
-                      setActiveView('A');
-                      setShowPartnerSummary(false);
-                      setIsDropdownOpen(false);
-                    }}
-                  >
-                    <Text
-                      style={[
-                        styles.dropdownItemText,
-                        selectedTopicId === item.id && styles.dropdownItemTextActive,
-                      ]}
-                    >
-                      {item.title}
-                    </Text>
-                    {selectedTopicId === item.id && (
-                      <Text style={styles.checkmark}>✓</Text>
-                    )}
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-          </TouchableOpacity>
-        </Modal>
-      </>
-    );
-  };
 
   const formatPersonText = (person: string, text: string): string => {
     return `**${person}:**\n\n${text}`;
@@ -167,14 +130,11 @@ const SpeakingPart2Screen: React.FC = () => {
                      ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
     
     const pronoun = isFemale ? 'Sie' : 'Er';
-    const pronounLower = pronoun.toLowerCase();
     
     return `**${view.person}:**\n\n${pronoun} ist der Meinung, dass das Thema wichtig ist. ${pronoun} findet die Argumente überzeugend und hat eine klare Position dazu.`;
   };
 
   const renderViewContent = () => {
-    if (!currentTopic) return null;
-    
     const view = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
     const partnerView = activeView === 'A' ? currentTopic.viewB : currentTopic.viewA;
 
@@ -215,7 +175,7 @@ const SpeakingPart2Screen: React.FC = () => {
   };
 
   const renderDiscussion = () => {
-    if (!currentTopic || !currentTopic.discussion) return null;
+    if (!currentTopic.discussion) return null;
     
     return (
       <View style={styles.discussionSection}>
@@ -244,16 +204,8 @@ const SpeakingPart2Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-        {/* Topic Selection */}
-        <Text style={styles.sectionTitle}>{t('speaking.part2.sections.topicSelectionLabel')}</Text>
-        <View style={styles.section}>
-          {renderTopicDropdown()}
-        </View>
-
-        {/* Main Content */}
-        {currentTopic && (
-          <View style={styles.mainCard}>
-            <Text style={styles.topicTitle}>{currentTopic.title}</Text>
+        <View style={styles.mainCard}>
+          <Text style={styles.topicTitle}>{currentTopic.title}</Text>
           <Text style={styles.instructionText}>
             {t('speaking.part2.instructions.taskDescription')}
           </Text>
@@ -290,7 +242,6 @@ const SpeakingPart2Screen: React.FC = () => {
           {/* Discussion */}
           {renderDiscussion()}
         </View>
-        )}
       </ScrollView>
       {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
@@ -338,107 +289,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
   },
-  sectionTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  section: {
-    marginBottom: spacing.margin.lg,
-  },
-  dropdownButton: {
-    width: '100%',
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    borderWidth: 2,
-    borderColor: colors.primary[500],
-    backgroundColor: colors.background.secondary,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  dropdownButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownArrow: {
-    ...typography.textStyles.body,
-    color: colors.primary[500],
-    marginLeft: spacing.margin.sm,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContent: {
-    width: '100%',
-    maxWidth: 500,
-    maxHeight: '80%',
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.secondary[200],
-  },
-  modalTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-  },
-  closeButton: {
-    padding: spacing.padding.xs,
-  },
-  closeButtonText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-  },
-  dropdownItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.secondary[100],
-  },
-  dropdownItemActive: {
-    backgroundColor: colors.primary[50],
-  },
-  dropdownItemText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownItemTextActive: {
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[700],
-  },
-  checkmark: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginLeft: spacing.margin.sm,
-  },
   mainCard: {
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
@@ -461,7 +311,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   tabsContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     marginBottom: spacing.margin.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondary[200],
@@ -596,6 +446,10 @@ const styles = StyleSheet.create({
   errorText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+  },
+  headerButton: {
+    padding: spacing.padding.sm,
+    marginRight: spacing.margin.sm,
   },
 });
 

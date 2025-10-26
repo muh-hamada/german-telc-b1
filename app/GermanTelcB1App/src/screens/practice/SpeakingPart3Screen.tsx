@@ -3,17 +3,19 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  Modal,
-  FlatList,
-  I18nManager,
   ActivityIndicator,
+  I18nManager,
+  Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
+import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -44,23 +46,61 @@ interface Scenario {
 
 type ViewType = 'dialog' | 'vocab' | 'phrases';
 
+type SpeakingPart3ScreenRouteProp = RouteProp<{ params: { scenarioId: number } }, 'params'>;
+
 const SpeakingPart3Screen: React.FC = () => {
   const { t } = useTranslation();
-  const [selectedScenarioId, setSelectedScenarioId] = useState<number>(1);
+  const route = useRoute<SpeakingPart3ScreenRouteProp>();
+  const navigation = useNavigation();
+  const scenarioId = route.params?.scenarioId ?? 0;
+  
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 3, scenarioId);
+  
   const [activeView, setActiveView] = useState<ViewType>('dialog');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [speakingPart3Data, setSpeakingPart3Data] = useState<any>(null);
+  const [currentScenario, setCurrentScenario] = useState<Scenario | null>(null);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [scenarioId]);
+
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.white}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
+      Alert.alert(
+        t('common.success'),
+        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      );
+    } catch (error) {
+      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    }
+  };
 
   const loadData = async () => {
     try {
       setIsLoading(true);
       const data = await dataService.getSpeakingPart3Content();
-      setSpeakingPart3Data(data);
+      const scenarios = data.scenarios as Scenario[];
+      const scenario = scenarios.find(s => s.id === scenarioId) || scenarios[0];
+      setCurrentScenario(scenario);
     } catch (error) {
       console.error('Error loading speaking part 3 data:', error);
     } finally {
@@ -78,7 +118,7 @@ const SpeakingPart3Screen: React.FC = () => {
     );
   }
 
-  if (!speakingPart3Data) {
+  if (!currentScenario) {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.centerContent}>
@@ -88,82 +128,8 @@ const SpeakingPart3Screen: React.FC = () => {
     );
   }
 
-  const scenarios = (speakingPart3Data as any).scenarios as Scenario[];
-  const currentScenario = scenarios?.find(s => s.id === selectedScenarioId) || scenarios?.[0];
-
-  const renderScenarioDropdown = () => {
-    if (!scenarios || scenarios.length === 0) return null;
-    
-    return (
-      <>
-        <TouchableOpacity
-          style={styles.dropdownButton}
-          onPress={() => setIsDropdownOpen(true)}
-        >
-          <Text style={styles.dropdownButtonText}>
-            {currentScenario?.title || t('speaking.part3.selectScenario')}
-          </Text>
-          <Text style={styles.dropdownArrow}>▼</Text>
-        </TouchableOpacity>
-
-        <Modal
-          visible={isDropdownOpen}
-          transparent={true}
-          animationType="fade"
-          onRequestClose={() => setIsDropdownOpen(false)}
-        >
-          <TouchableOpacity
-            style={styles.modalOverlay}
-            activeOpacity={1}
-            onPress={() => setIsDropdownOpen(false)}
-          >
-            <View style={styles.modalContent}>
-              <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>{t('speaking.part3.scenarioSelection')}</Text>
-                <TouchableOpacity
-                  onPress={() => setIsDropdownOpen(false)}
-                  style={styles.closeButton}
-                >
-                  <Text style={styles.closeButtonText}>✕</Text>
-                </TouchableOpacity>
-              </View>
-              <FlatList
-                data={scenarios}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    style={[
-                      styles.dropdownItem,
-                      selectedScenarioId === item.id && styles.dropdownItemActive,
-                    ]}
-                    onPress={() => {
-                      setSelectedScenarioId(item.id);
-                      setIsDropdownOpen(false);
-                    }}
-                  >
-                    <Text
-                      style={[
-                        styles.dropdownItemText,
-                        selectedScenarioId === item.id && styles.dropdownItemTextActive,
-                      ]}
-                    >
-                      {item.title}
-                    </Text>
-                    {selectedScenarioId === item.id && (
-                      <Text style={styles.checkmark}>✓</Text>
-                    )}
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-          </TouchableOpacity>
-        </Modal>
-      </>
-    );
-  };
-
   const renderDialogView = () => {
-    if (!currentScenario || !currentScenario.dialogue) return null;
+    if (!currentScenario.dialogue) return null;
     
     return (
       <View style={styles.dialogView}>
@@ -191,7 +157,7 @@ const SpeakingPart3Screen: React.FC = () => {
   };
 
   const renderVocabView = () => {
-    if (!currentScenario || !currentScenario.vocabulary) return null;
+    if (!currentScenario.vocabulary) return null;
     
     return (
       <View style={styles.tableContainer}>
@@ -218,7 +184,7 @@ const SpeakingPart3Screen: React.FC = () => {
   };
 
   const renderPhrasesView = () => {
-    if (!currentScenario || !currentScenario.phrases) return null;
+    if (!currentScenario.phrases) return null;
     
     return (
       <View style={styles.tableContainer}>
@@ -247,19 +213,11 @@ const SpeakingPart3Screen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-        {/* Scenario Selection */}
-        <Text style={styles.sectionTitle}>{t('speaking.part3.sections.scenarioSelectionLabel')}</Text>
-        <View style={styles.section}>
-          {renderScenarioDropdown()}
-        </View>
-
-        {/* Main Content */}
-        {currentScenario && (
-          <View style={styles.mainCard}>
-            <View style={styles.headerContainer}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.scenarioTitle}>{currentScenario.title}</Text>
-                <Text style={styles.scenarioDescription}>{currentScenario.scenario}</Text>
+        <View style={styles.mainCard}>
+          <View style={styles.headerContainer}>
+            <View style={styles.titleContainer}>
+              <Text style={styles.scenarioTitle}>{currentScenario.title}</Text>
+              <Text style={styles.scenarioDescription}>{currentScenario.scenario}</Text>
             </View>
 
             {/* View Tabs */}
@@ -298,7 +256,6 @@ const SpeakingPart3Screen: React.FC = () => {
             {activeView === 'phrases' && renderPhrasesView()}
           </View>
         </View>
-        )}
       </ScrollView>
       {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
@@ -315,107 +272,6 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: spacing.padding.lg,
-  },
-  sectionTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  section: {
-    marginBottom: spacing.margin.lg,
-  },
-  dropdownButton: {
-    width: '100%',
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    borderWidth: 2,
-    borderColor: colors.primary[500],
-    backgroundColor: colors.background.secondary,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  dropdownButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownArrow: {
-    ...typography.textStyles.body,
-    color: colors.primary[500],
-    marginLeft: spacing.margin.sm,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContent: {
-    width: '100%',
-    maxWidth: 500,
-    maxHeight: '80%',
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.secondary[200],
-  },
-  modalTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-  },
-  closeButton: {
-    padding: spacing.padding.xs,
-  },
-  closeButtonText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-  },
-  dropdownItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.secondary[100],
-  },
-  dropdownItemActive: {
-    backgroundColor: colors.primary[50],
-  },
-  dropdownItemText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  dropdownItemTextActive: {
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[700],
-  },
-  checkmark: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginLeft: spacing.margin.sm,
   },
   mainCard: {
     backgroundColor: colors.background.secondary,
@@ -556,6 +412,10 @@ const styles = StyleSheet.create({
   errorText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+  },
+  headerButton: {
+    padding: spacing.padding.sm,
+    marginRight: spacing.margin.sm,
   },
 });
 

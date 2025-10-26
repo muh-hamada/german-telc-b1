@@ -11,9 +11,12 @@ import {
   Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
+import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -40,6 +43,9 @@ const mandatoryFields = ['name', 'origin', 'livingSince'] as const;
 
 const SpeakingPart1Screen: React.FC = () => {
   const { t } = useTranslation();
+  const navigation = useNavigation();
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
+  
   const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary'>('introduction');
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -65,6 +71,36 @@ const SpeakingPart1Screen: React.FC = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.white}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
+      Alert.alert(
+        t('common.success'),
+        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      );
+    } catch (error) {
+      Alert.alert(t('common.error'), t('exam.completionFailed'));
+    }
+  };
 
   const loadData = async () => {
     try {
@@ -246,7 +282,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text style={styles.sectionTitle}>{t('speaking.part1.sections.keyVocabulary')}</Text>
 
           <View style={styles.vocabCard}>
-            {speakingPart1Data.content.vocabulary.map((item, index) => (
+            {speakingPart1Data.vocabulary.map((item, index) => (
               <View key={index} style={styles.vocabRow}>
                 <View style={styles.vocabColumn}>
                   <Text style={styles.vocabGerman}>{item.german}</Text>
@@ -292,7 +328,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <View style={styles.textCard}>
             <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')} - {t('speaking.part1.tabs.example')}</Text>
 
-            {speakingPart1Data.content.completeExample.map((paragraph, index) => (
+            {speakingPart1Data.completeExample.map((paragraph, index) => (
               <Text key={index} style={styles.exampleParagraph}>
                 {renderFormattedText(paragraph)}
               </Text>
@@ -705,7 +741,9 @@ const styles = StyleSheet.create({
     borderColor: colors.primary[500],
   },
   editButton: {
-    backgroundColor: colors.primary[500],
+    backgroundColor: colors.primary[200],
+    borderWidth: 1,
+    borderColor: colors.primary[500],
   },
   buttonText: {
     ...typography.textStyles.body,
@@ -831,6 +869,10 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
     flex: 1,
+  },
+  headerButton: {
+    padding: spacing.padding.sm,
+    marginRight: spacing.margin.sm,
   },
 });
 
