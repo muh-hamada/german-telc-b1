@@ -58,7 +58,7 @@ interface WritingUIProps {
 const REWARDED_AD_UNIT_ID = __DEV__
   ? TestIds.REWARDED
   : Platform.select({
-      ios: 'ca-app-pub-5101905792101482/1207745272', // Replace with iOS Ad Unit ID if different
+      ios: 'todo-ios-ad-unit-id', // Replace with iOS Ad Unit ID if different
       android: 'ca-app-pub-5101905792101482/1207745272',
     }) || TestIds.REWARDED;
 
