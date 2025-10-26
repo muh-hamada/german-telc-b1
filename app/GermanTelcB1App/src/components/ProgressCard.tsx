@@ -55,8 +55,8 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
     );
   }
 
-  // If user is not logged in and not in demo mode, show login prompt
-  if (!hasUser) {
+  // If user is not logged in and not in demo mode, show login prompt only if they have progress
+  if (!hasUser && displayStats.totalExams === 0) {
     return (
       <TouchableOpacity 
         style={styles.container} 
@@ -67,10 +67,10 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
           <Text style={styles.title}>{t('progress.yourProgress')}</Text>
         </View>
         <View style={styles.loginPrompt}>
-          <Text style={styles.loginPromptIcon}>🔒</Text>
-          <Text style={styles.loginPromptTitle}>{t('progress.loginRequired')}</Text>
+          <Text style={styles.loginPromptIcon}>📊</Text>
+          <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
           <Text style={styles.loginPromptText}>
-            {t('progress.loginPrompt')}
+            {t('progress.trackingPrompt')}
           </Text>
           {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' style={styles.loginButton} />}
         </View>

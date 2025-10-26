@@ -333,6 +333,8 @@
     "yourProgress": "Votre progression",
     "loginRequired": "Connexion requise",
     "loginPrompt": "Veuillez vous connecter pour sauvegarder et voir votre progression sur tous vos appareils",
+    "startTracking": "Commencer le suivi",
+    "trackingPrompt": "Connectez-vous pour synchroniser vos progrès sur tous les appareils et ne jamais perdre votre travail",
     "examsCompleted": "Examens terminés",
     "completionRate": "Taux de réussite",
     "totalScore": "Score total",

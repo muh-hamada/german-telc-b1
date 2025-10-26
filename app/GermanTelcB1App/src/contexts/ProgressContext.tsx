@@ -135,21 +135,61 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       console.log('[ProgressContext] Loading progress for user:', user?.uid || 'not logged in');
       
       if (user?.uid) {
-        // User is authenticated, load from Firebase only
+        // User is authenticated, load from Firebase and merge with local storage
         try {
           console.log('[ProgressContext] Loading Firebase progress for user:', user.uid);
           const firebaseProgress = await firebaseProgressService.loadProgressFromFirebase(user.uid);
-          dispatch({ type: 'SET_USER_PROGRESS', payload: firebaseProgress });
-          console.log('[ProgressContext] Successfully loaded Firebase progress');
+          
+          // Check if there's local storage data to migrate
+          const localProgress = await StorageService.getUserProgress();
+          
+          if (localProgress && localProgress.exams.length > 0) {
+            console.log('[ProgressContext] Found local progress with', localProgress.exams.length, 'exams');
+            
+            if (!firebaseProgress || firebaseProgress.exams.length === 0) {
+              // No Firebase data, migrate local progress
+              console.log('[ProgressContext] Migrating local progress to Firebase');
+              await firebaseProgressService.migrateLocalProgress(user.uid, localProgress);
+              dispatch({ type: 'SET_USER_PROGRESS', payload: localProgress });
+              
+              // Clear local storage after successful migration
+              await StorageService.clearUserProgress();
+              console.log('[ProgressContext] Local progress migrated and cleared');
+            } else {
+              // Merge local and Firebase progress
+              console.log('[ProgressContext] Merging local and Firebase progress');
+              const mergedProgress = await firebaseProgressService.mergeAndSaveProgress(
+                user.uid,
+                localProgress,
+                firebaseProgress
+              );
+              dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
+              
+              // Clear local storage after successful merge
+              await StorageService.clearUserProgress();
+              console.log('[ProgressContext] Progress merged and local storage cleared');
+            }
+          } else {
+            // No local progress, just use Firebase data
+            dispatch({ type: 'SET_USER_PROGRESS', payload: firebaseProgress });
+            console.log('[ProgressContext] Successfully loaded Firebase progress');
+          }
         } catch (firebaseError) {
           console.error('[ProgressContext] Failed to load Firebase progress:', firebaseError);
           dispatch({ type: 'SET_ERROR', payload: 'Failed to load progress from Firebase' });
           dispatch({ type: 'SET_USER_PROGRESS', payload: null });
         }
       } else {
-        // No user, clear progress
-        console.log('[ProgressContext] No user logged in, clearing progress');
-        dispatch({ type: 'SET_USER_PROGRESS', payload: null });
+        // No user, load from local storage
+        console.log('[ProgressContext] No user logged in, loading from local storage');
+        try {
+          const localProgress = await StorageService.getUserProgress();
+          dispatch({ type: 'SET_USER_PROGRESS', payload: localProgress });
+          console.log('[ProgressContext] Successfully loaded local progress:', localProgress ? 'has data' : 'empty');
+        } catch (localError) {
+          console.error('[ProgressContext] Failed to load local progress:', localError);
+          dispatch({ type: 'SET_USER_PROGRESS', payload: null });
+        }
       }
       dispatch({ type: 'SET_LOADING', payload: false });
     } catch (error) {
@@ -191,54 +231,70 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     try {
       console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore });
       
-      // Check if user is logged in
-      if (!user?.uid) {
-        console.error('[ProgressContext] Cannot save progress: User not logged in');
-        dispatch({ type: 'SET_ERROR', payload: 'Please login to save your progress' });
-        return false;
-      }
-      
       dispatch({ type: 'SET_LOADING', payload: true });
       
-      // Save directly to Firebase (no local storage)
-      try {
-        console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
-        await firebaseProgressService.saveExamResult(
-          examType as any,
-          examId,
-          {
+      if (user?.uid) {
+        // User is logged in, save to Firebase
+        try {
+          console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
+          await firebaseProgressService.saveExamResult(
+            examType as any,
             examId,
-            score: score || 0,
-            maxScore: maxScore || 0,
-            percentage: maxScore ? Math.round((score || 0) / maxScore * 100) : 0,
-            correctAnswers: score || 0,
-            totalQuestions: answers.length,
-            answers: answers.map(a => ({
-              questionId: a.questionId,
-              userAnswer: a.answer,
-              correctAnswer: '',
-              isCorrect: a.isCorrect || false,
-            })),
-            timestamp: Date.now(),
-          },
-          user.uid
-        );
-        
-        console.log('[ProgressContext] Successfully saved to Firebase');
-        
-        // Update in context immediately
-        dispatch({
-          type: 'UPDATE_EXAM_PROGRESS',
-          payload: { examType, examId, answers, score, maxScore },
-        });
-        
-        dispatch({ type: 'SET_LOADING', payload: false });
-        return true;
-      } catch (firebaseError) {
-        console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
-        dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
-        dispatch({ type: 'SET_LOADING', payload: false });
-        return false;
+            {
+              examId,
+              score: score || 0,
+              maxScore: maxScore || 0,
+              percentage: maxScore ? Math.round((score || 0) / maxScore * 100) : 0,
+              correctAnswers: score || 0,
+              totalQuestions: answers.length,
+              answers: answers.map(a => ({
+                questionId: a.questionId,
+                userAnswer: a.answer,
+                correctAnswer: '',
+                isCorrect: a.isCorrect || false,
+              })),
+              timestamp: Date.now(),
+            },
+            user.uid
+          );
+          
+          console.log('[ProgressContext] Successfully saved to Firebase');
+          
+          // Update in context immediately
+          dispatch({
+            type: 'UPDATE_EXAM_PROGRESS',
+            payload: { examType, examId, answers, score, maxScore },
+          });
+          
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return true;
+        } catch (firebaseError) {
+          console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
+          dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return false;
+        }
+      } else {
+        // User is not logged in, save to local storage
+        console.log('[ProgressContext] User not logged in, saving to local storage');
+        try {
+          await StorageService.updateExamProgress(examType, examId, answers, score, maxScore);
+          console.log('[ProgressContext] Successfully saved to local storage');
+          
+          // Update in context immediately
+          dispatch({
+            type: 'UPDATE_EXAM_PROGRESS',
+            payload: { examType, examId, answers, score, maxScore },
+          });
+          
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return true;
+        } catch (localError) {
+          console.error('[ProgressContext] Failed to save to local storage:', localError);
+          dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress locally' });
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return false;
+        }
       }
     } catch (error) {
       console.error('[ProgressContext] Error updating exam progress:', error);

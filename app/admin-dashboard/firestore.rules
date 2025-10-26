@@ -9,18 +9,32 @@ service cloud.firestore {
       allow write: if request.auth != null;
     }
     
+    // User progress collection (top-level)
+    // Users can only read/write their own progress
+    match /progress/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Exam results collection (top-level)
+    // Users can only read/write their own exam results
+    match /examResults/{document} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+    }
+    
     // User profiles
     // Users can only read/write their own profile
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if request.auth != null && request.auth.uid == userId;
       
-      // User progress data (legacy)
+      // User progress data (legacy - nested under users)
       match /progress/{document=**} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
       
-      // User exam results (legacy)
+      // User exam results (legacy - nested under users)
       match /examResults/{document=**} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }

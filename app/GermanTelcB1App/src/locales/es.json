@@ -397,6 +397,8 @@
     "yourProgress": "Tu progreso",
     "loginRequired": "Inicio de sesión requerido",
     "loginPrompt": "Por favor inicie sesión para guardar y ver su progreso en todos los dispositivos",
+    "startTracking": "Comenzar seguimiento",
+    "trackingPrompt": "Inicie sesión para sincronizar su progreso en todos los dispositivos y nunca perder su trabajo",
     "examsCompleted": "Exámenes completados",
     "completionRate": "Tasa de finalización",
     "totalScore": "Puntuación total",

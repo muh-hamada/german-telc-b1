@@ -400,6 +400,8 @@
     "yourProgress": "Your Progress",
     "loginRequired": "Login Required",
     "loginPrompt": "Please login to save and view your progress across all devices",
+    "startTracking": "Start Tracking Progress",
+    "trackingPrompt": "Login to sync your progress across all devices and never lose your work",
     "examsCompleted": "Exams Completed",
     "completionRate": "Completion Rate",
     "totalScore": "Total Score",
