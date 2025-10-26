@@ -66,8 +66,14 @@ const LoginModal: React.FC<LoginModalProps> = ({
       
       onSuccess?.();
       onClose();
-    } catch (error) {
-      // Error is handled by the auth context
+    } catch (error: any) {
+      // Don't show error or call onFailure for user cancellations
+      if (error?.code === 'auth/cancelled') {
+        console.log('User cancelled sign-in');
+        return;
+      }
+      
+      // Error is handled by the auth context and will be displayed
       onFailure?.();
     }
   };
@@ -134,7 +140,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Error Message */}
             {error && (
               <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{typeof error === 'string' ? error : error.message}</Text>
+                <Text style={styles.errorText}>{error}</Text>
               </View>
             )}
 

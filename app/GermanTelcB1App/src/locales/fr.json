@@ -552,6 +552,14 @@
     "mock": {
       "warning": "⚠️ Données de test: clé API non configurée",
       "cacheInfo": "ℹ️ Résultat en cache (réponse inchangée)"
+    },
+    "rewardedAdModal": {
+      "title": "Support d'évaluation par IA",
+      "message": "Nous utilisons une IA avancée pour évaluer votre écriture, en fournissant des commentaires complets similaires au véritable examen Telc. Ce processus entraîne des coûts. Regarder cette courte publicité aide à garder notre service gratuit pour tous.",
+      "watchAdButton": "Regarder la Publicité et Évaluer",
+      "maybeLaterButton": "Peut-être plus tard",
+      "adLoadingError": "Échec du chargement de la publicité. Veuillez réessayer.",
+      "adNotReady": "La publicité n'est pas encore prête. Veuillez patienter un moment et réessayer."
     }
   },
   "listening": {

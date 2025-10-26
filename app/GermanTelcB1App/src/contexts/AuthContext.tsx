@@ -8,7 +8,7 @@ interface AuthState {
   user: User | null;
   isLoading: boolean;
   isInitialized: boolean;
-  error: AuthError | null;
+  error: string | null;
 }
 
 interface AuthContextType extends AuthState {
@@ -97,7 +97,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const handleAuthError = (error: AuthError) => {
-    dispatch({ type: 'SET_ERROR', payload: error.code });
+    // Don't set error state for user cancellations
+    if (error.code !== 'auth/cancelled') {
+      dispatch({ type: 'SET_ERROR', payload: error.message });
+    } else {
+      dispatch({ type: 'SET_LOADING', payload: false });
+    }
     throw error;
   };
 

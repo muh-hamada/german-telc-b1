@@ -85,22 +85,31 @@ class AuthService {
       // Check if your device supports Google Play
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
 
-      console.log('GoogleSignin.signIn()', GoogleSignin.signIn());
+      // Show Google sign-in prompt and get user info
+      const signInResponse = await GoogleSignin.signIn();
+      
+      // Check if sign-in was cancelled or failed
+      if (!signInResponse || !signInResponse.data) {
+        throw {
+          code: 'auth/cancelled',
+          message: 'Sign-in was cancelled',
+        };
+      }
+      
+      console.log('Google sign-in successful, user:', signInResponse.data?.user?.email || 'unknown');
 
-      // Get the users ID token
+      // Get the users ID token (only after successful sign-in)
       const tokens = await GoogleSignin.getTokens();
 
-      console.log('tokens', tokens);
+      console.log('Got tokens for user');
 
       // Create a Google credential with the token
       const googleCredential = auth.GoogleAuthProvider.credential(tokens.idToken);
 
-      console.log('googleCredential', googleCredential);
-
       // Sign-in the user with the credential
-      const userCredential = await auth().signInWithCredential(googleCredential);
+      await auth().signInWithCredential(googleCredential);
 
-      console.log('userCredential', userCredential);
+      console.log('Firebase sign-in successful');
 
       return this.getCurrentUser()!;
     } catch (error: any) {
@@ -316,11 +325,44 @@ class AuthService {
         case 'auth/cancelled-popup-request':
           message = 'Sign-in was cancelled';
           break;
+        case 'auth/not-configured':
+          message = error.message || 'This sign-in method is not configured yet';
+          break;
+        // Google Sign-In specific errors
+        case '-5': // SIGN_IN_CANCELLED
+          code = 'auth/cancelled';
+          message = 'Sign-in was cancelled';
+          break;
+        case '12501': // SIGN_IN_CANCELLED (Android)
+          code = 'auth/cancelled';
+          message = 'Sign-in was cancelled';
+          break;
+        case '7': // NETWORK_ERROR
+          message = 'Network error. Please check your connection';
+          break;
         default:
           message = error.message || message;
       }
     } else if (error.message) {
-      message = error.message;
+      // Handle specific error messages
+      if (error.message.includes('getTokens requires a user to be signed in')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('cancelled') || error.message.includes('canceled')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('Sign in action cancelled')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('DEVELOPER_ERROR')) {
+        code = 'auth/configuration-error';
+        message = 'Sign-in configuration error. Please contact support';
+      } else {
+        // For any other technical errors, provide a user-friendly message
+        message = error.message.includes('auth/') || error.message.includes('firebase') 
+          ? error.message 
+          : 'Failed to sign in. Please try again';
+      }
     }
 
     return { code, message };

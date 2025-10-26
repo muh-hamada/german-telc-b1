@@ -558,6 +558,14 @@
     "mock": {
       "warning": "⚠️ Mock Data: API key not configured",
       "cacheInfo": "ℹ️ Cached result (answer unchanged)"
+    },
+    "rewardedAdModal": {
+      "title": "AI Evaluation Support",
+      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real Telc exam. This process incurs costs. Watching this short ad helps keep our service free for everyone.",
+      "watchAdButton": "Watch Ad and Evaluate",
+      "maybeLaterButton": "Maybe Later",
+      "adLoadingError": "Failed to load ad. Please try again.",
+      "adNotReady": "Ad is not ready yet. Please wait a moment and try again."
     }
   },
   "listening": {

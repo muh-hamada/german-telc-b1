@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -25,6 +25,7 @@ import {
   getMockAssessment,
   isOpenAIConfigured,
 } from '../../services/openai.service';
+import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 
 interface WritingAssessment {
   overallScore: number;
@@ -52,6 +53,14 @@ interface WritingUIProps {
   isMockExam?: boolean; // Optional flag to indicate if this is part of a mock exam
 }
 
+// Ad Unit ID for rewarded ad
+const REWARDED_AD_UNIT_ID = __DEV__
+  ? TestIds.REWARDED
+  : Platform.select({
+      ios: 'ca-app-pub-5101905792101482/1207745272', // Replace with iOS Ad Unit ID if different
+      android: 'ca-app-pub-5101905792101482/1207745272',
+    }) || TestIds.REWARDED;
+
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useTranslation();
   const [userAnswer, setUserAnswer] = useState('');
@@ -64,6 +73,71 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [capturedImageBase64, setCapturedImageBase64] = useState<string | null>(null);
   const [isImagePreviewModalOpen, setIsImagePreviewModalOpen] = useState(false);
   const [isUsingCachedResult, setIsUsingCachedResult] = useState(false);
+  const [showRewardedAdModal, setShowRewardedAdModal] = useState(false);
+  const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
+  const [isAdLoaded, setIsAdLoaded] = useState(false);
+  const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
+
+  // Initialize and load rewarded ad
+  useEffect(() => {
+    const ad = RewardedAd.createForAdRequest(REWARDED_AD_UNIT_ID, {
+      requestNonPersonalizedAdsOnly: false,
+    });
+
+    const unsubscribeLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
+      console.log('Rewarded ad loaded');
+      setIsAdLoaded(true);
+    });
+
+    const unsubscribeEarned = ad.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      reward => {
+        console.log('User earned reward:', reward);
+        // Proceed with evaluation after ad is watched
+        if (pendingEvaluationType === 'text') {
+          proceedWithTextEvaluation();
+        } else if (pendingEvaluationType === 'image') {
+          proceedWithImageEvaluation();
+        }
+      }
+    );
+
+    const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
+      console.log('Rewarded ad closed');
+      // Reset pending evaluation
+      setPendingEvaluationType(null);
+      // Reload ad for next time
+      setIsAdLoaded(false);
+      ad.load();
+    });
+
+    const unsubscribeError = ad.addAdEventListener(AdEventType.ERROR, error => {
+      console.error('Rewarded ad error:', error);
+      setIsAdLoaded(false);
+      // Retry loading after a delay
+      setTimeout(() => {
+        ad.load();
+      }, 5000);
+    });
+
+    // Load the ad
+    ad.load();
+    setRewardedAd(ad);
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+      unsubscribeClosed();
+      unsubscribeError();
+    };
+  }, []);
+
+  // Reload ad when pending evaluation type changes
+  useEffect(() => {
+    if (pendingEvaluationType && !isAdLoaded && rewardedAd) {
+      rewardedAd.load();
+    }
+  }, [pendingEvaluationType, isAdLoaded, rewardedAd]);
 
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);
@@ -156,7 +230,25 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       return;
     }
 
+    const imageIdentifier = `[IMAGE:${capturedImageUri}]`;
+
+    // Check if answer hasn't changed since last evaluation
+    if (imageIdentifier === lastEvaluatedAnswer && assessment) {
+      console.log('Image unchanged, showing cached assessment directly');
+      setIsImagePreviewModalOpen(false);
+      setIsUsingCachedResult(true);
+      setIsResultsModalOpen(true);
+      return;
+    }
+
+    // Show rewarded ad modal before evaluation
     setIsImagePreviewModalOpen(false);
+    setPendingEvaluationType('image');
+    setShowRewardedAdModal(true);
+  };
+
+  const proceedWithImageEvaluation = async () => {
+    setShowRewardedAdModal(false);
     setIsEvaluating(true);
     setIsUsingCachedResult(false); // This is a fresh evaluation (image)
 
@@ -172,13 +264,15 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
             writingPoints: exam.writingPoints,
             examTitle: exam.title,
           });
-        } else {
+        } else if (capturedImageUri) {
           result = await evaluateWritingWithImage({
             imageUri: capturedImageUri,
             incomingEmail: exam.incomingEmail,
             writingPoints: exam.writingPoints,
             examTitle: exam.title,
           });
+        } else {
+          throw new Error('No image available');
         }
       } else {
         console.log('OpenAI API key not configured. Using mock assessment.');
@@ -210,6 +304,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       );
     } finally {
       setIsEvaluating(false);
+      setPendingEvaluationType(null);
     }
   };
 
@@ -222,12 +317,19 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     // Check if answer hasn't changed since last evaluation
     if (userAnswer === lastEvaluatedAnswer && assessment) {
-      console.log('Answer unchanged, using cached assessment');
+      console.log('Answer unchanged, showing cached assessment directly');
       setIsUsingCachedResult(true);
       setIsResultsModalOpen(true);
       return;
     }
 
+    // Show rewarded ad modal before evaluation
+    setPendingEvaluationType('text');
+    setShowRewardedAdModal(true);
+  };
+
+  const proceedWithTextEvaluation = async () => {
+    setShowRewardedAdModal(false);
     setIsEvaluating(true);
     setIsUsingCachedResult(false); // This is a fresh evaluation
 
@@ -271,7 +373,35 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       );
     } finally {
       setIsEvaluating(false);
+      setPendingEvaluationType(null);
     }
+  };
+
+  const handleWatchAdAndEvaluate = () => {
+    if (!rewardedAd || !isAdLoaded) {
+      Alert.alert(
+        t('writing.rewardedAdModal.adNotReady'),
+        '',
+        [{ text: t('writing.alerts.ok') }]
+      );
+      return;
+    }
+
+    try {
+      rewardedAd.show();
+    } catch (error) {
+      console.error('Error showing rewarded ad:', error);
+      Alert.alert(
+        t('writing.rewardedAdModal.adLoadingError'),
+        '',
+        [{ text: t('writing.alerts.ok') }]
+      );
+    }
+  };
+
+  const handleMaybeLater = () => {
+    setShowRewardedAdModal(false);
+    setPendingEvaluationType(null);
   };
 
   const handleSubmit = () => {
@@ -299,6 +429,59 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       default:
         return styles.criterionYellow;
     }
+  };
+
+  const renderRewardedAdModal = () => {
+    return (
+      <Modal
+        visible={showRewardedAdModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={handleMaybeLater}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, styles.rewardedAdModalContent]}>
+            <Text style={styles.rewardedAdModalTitle}>
+              {t('writing.rewardedAdModal.title')}
+            </Text>
+
+            <Text style={styles.rewardedAdModalMessage}>
+              {t('writing.rewardedAdModal.message')}
+            </Text>
+
+            <View style={styles.rewardedAdModalButtons}>
+              <TouchableOpacity
+                style={[styles.rewardedAdModalButton, styles.watchAdButton]}
+                onPress={handleWatchAdAndEvaluate}
+                disabled={!isAdLoaded}
+              >
+                <Text style={styles.rewardedAdModalButtonText}>
+                  {t('writing.rewardedAdModal.watchAdButton')}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.rewardedAdModalButton, styles.maybeLaterButton]}
+                onPress={handleMaybeLater}
+              >
+                <Text style={[styles.rewardedAdModalButtonText, styles.maybeLaterButtonText]}>
+                  {t('writing.rewardedAdModal.maybeLaterButton')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {!isAdLoaded && (
+              <View style={styles.adLoadingContainer}>
+                <ActivityIndicator size="small" color={colors.primary[500]} />
+                <Text style={styles.adLoadingText}>
+                  {t('common.loading')}
+                </Text>
+              </View>
+            )}
+          </View>
+        </View>
+      </Modal>
+    );
   };
 
   const renderResultsModal = () => {
@@ -481,6 +664,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       </View>
 
       {renderFullScreenLoading()}
+      {renderRewardedAdModal()}
 
       {/* Incoming Email */}
       <View style={styles.emailSection}>
@@ -945,6 +1129,63 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
     color: colors.error[600],
+  },
+  rewardedAdModalContent: {
+    padding: spacing.padding.xl,
+  },
+  rewardedAdModalTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.md,
+    textAlign: 'center',
+  },
+  rewardedAdModalMessage: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 24,
+    marginBottom: spacing.margin.xl,
+    textAlign: 'center',
+  },
+  rewardedAdModalButtons: {
+    width: '100%',
+  },
+  rewardedAdModalButton: {
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    borderRadius: spacing.borderRadius.md,
+    alignItems: 'center',
+    marginBottom: spacing.margin.md,
+  },
+  watchAdButton: {
+    backgroundColor: colors.primary[500],
+  },
+  maybeLaterButton: {
+    backgroundColor: colors.background.secondary,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  rewardedAdModalButtonText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.background.secondary,
+  },
+  maybeLaterButtonText: {
+    color: colors.text.secondary,
+  },
+  adLoadingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: spacing.margin.md,
+    paddingTop: spacing.padding.md,
+    borderTopWidth: 1,
+    borderTopColor: colors.border.light,
+  },
+  adLoadingText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginLeft: spacing.margin.sm,
   },
 });
 
