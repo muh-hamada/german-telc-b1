@@ -510,7 +510,8 @@
       },
       "grade": "Nota:",
       "improvementTip": "💡 Consejo de mejora:",
-      "closeButton": "Cerrar"
+      "closeButton": "Cerrar",
+      "loading": "La evaluación está en progreso, esto tomará unos segundos."
     },
     "imagePreview": {
       "title": "Revisar imagen capturada",

@@ -516,7 +516,8 @@
       },
       "grade": "Grade:",
       "improvementTip": "💡 Improvement Tip:",
-      "closeButton": "Close"
+      "closeButton": "Close",
+      "loading": "Evaluation is in progress, this will take a few seconds"
     },
     "imagePreview": {
       "title": "Review Captured Image",

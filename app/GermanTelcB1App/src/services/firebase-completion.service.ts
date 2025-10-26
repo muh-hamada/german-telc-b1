@@ -1,4 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
+import { dataService } from './data.service';
 
 export interface CompletionData {
   examId: number;
@@ -85,8 +86,9 @@ class FirebaseCompletionService {
       const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
       const doc = await firestore().doc(docPath).get();
       
-      if (doc.exists) {
-        return doc.data() as CompletionData;
+      const data = doc.data();
+      if (data) {
+        return data as CompletionData;
       }
       
       return null;
@@ -109,7 +111,9 @@ class FirebaseCompletionService {
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
       const snapshot = await firestore().collection(collectionPath).get();
       
-      const completed = snapshot.size;
+      // Cap completed count to not exceed total (in case exams were removed)
+      const completedCount = snapshot.size;
+      const completed = Math.min(completedCount, totalExams);
       const percentage = totalExams > 0 ? Math.round((completed / totalExams) * 100) : 0;
       
       return {
@@ -153,26 +157,32 @@ class FirebaseCompletionService {
     try {
       const stats: AllCompletionStats = {};
       
-      // Define exam structure with totals
+      // Define exam structure with parts (totals come from dataService)
       const examStructure = {
-        'grammar': { 1: 5, 2: 5 },
-        'reading': { 1: 5, 2: 5, 3: 5 },
-        'writing': { 1: 5 },
+        'grammar': [1, 2],
+        'reading': [1, 2, 3],
+        'writing': [1],
       };
       
       // Fetch stats for each exam type and part
       for (const [examType, parts] of Object.entries(examStructure)) {
         stats[examType] = {};
         
-        for (const [partNumber, totalExams] of Object.entries(parts)) {
+        for (const partNumber of parts) {
+          // Get the actual current number of exams from the JSON data
+          const examTypeKey = parts.length > 1 
+            ? `${examType}-part${partNumber}` 
+            : examType;
+          const totalExams = dataService.getExamCount(examTypeKey);
+          
           const partStats = await this.getCompletionStats(
             userId,
             examType,
-            parseInt(partNumber),
+            partNumber,
             totalExams
           );
           
-          stats[examType][partNumber] = partStats;
+          stats[examType][partNumber.toString()] = partStats;
         }
       }
       

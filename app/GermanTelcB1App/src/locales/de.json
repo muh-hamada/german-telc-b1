@@ -516,7 +516,8 @@
       },
       "grade": "Note:",
       "improvementTip": "💡 Verbesserungstipp:",
-      "closeButton": "Schließen"
+      "closeButton": "Schließen",
+      "loading": "Die Auswertung läuft, dies kann einige Sekunden dauern"
     },
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",

@@ -26,7 +26,7 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, onComplete }) =
 
   return (
     <View style={styles.container}>
-      <WritingUI exam={exam} onComplete={onComplete} />
+      <WritingUI exam={exam} onComplete={onComplete} isMockExam={true} />
     </View>
   );
 };

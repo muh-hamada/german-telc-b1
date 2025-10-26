@@ -13,6 +13,7 @@ import {
   Image,
   Platform,
   PermissionsAndroid,
+  Dimensions,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
 import { useTranslation } from 'react-i18next';
@@ -48,9 +49,10 @@ interface WritingAssessment {
 interface WritingUIProps {
   exam: WritingExam;
   onComplete: (score: number) => void;
+  isMockExam?: boolean; // Optional flag to indicate if this is part of a mock exam
 }
 
-const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
+const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useTranslation();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
@@ -61,6 +63,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
   const [capturedImageUri, setCapturedImageUri] = useState<string | null>(null);
   const [capturedImageBase64, setCapturedImageBase64] = useState<string | null>(null);
   const [isImagePreviewModalOpen, setIsImagePreviewModalOpen] = useState(false);
+  const [isUsingCachedResult, setIsUsingCachedResult] = useState(false);
 
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);
@@ -104,7 +107,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
 
     // Request camera permission
     const hasPermission = await requestCameraPermission();
-    
+
     if (!hasPermission) {
       Alert.alert(
         t('writing.alerts.permissionDenied'),
@@ -130,7 +133,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         const asset = response.assets[0];
         const imageUri = asset.uri;
         const imageBase64 = asset.base64;
-        
+
         if (imageUri && imageBase64) {
           setCapturedImageUri(imageUri);
           setCapturedImageBase64(imageBase64);
@@ -155,6 +158,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
 
     setIsImagePreviewModalOpen(false);
     setIsEvaluating(true);
+    setIsUsingCachedResult(false); // This is a fresh evaluation (image)
 
     try {
       let result: WritingAssessment;
@@ -197,6 +201,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               const mockResult = getMockAssessment();
               setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
               setAssessment(mockResult);
+              setIsUsingCachedResult(false); // This is not cached, it's a fresh mock evaluation
               setIsResultsModalOpen(true);
             },
           },
@@ -218,11 +223,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     // Check if answer hasn't changed since last evaluation
     if (userAnswer === lastEvaluatedAnswer && assessment) {
       console.log('Answer unchanged, using cached assessment');
+      setIsUsingCachedResult(true);
       setIsResultsModalOpen(true);
       return;
     }
 
     setIsEvaluating(true);
+    setIsUsingCachedResult(false); // This is a fresh evaluation
 
     try {
       let result: WritingAssessment;
@@ -255,6 +262,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               const mockResult = getMockAssessment();
               setLastEvaluatedAnswer(userAnswer);
               setAssessment(mockResult);
+              setIsUsingCachedResult(false); // This is not cached, it's a fresh mock evaluation
               setIsResultsModalOpen(true);
             },
           },
@@ -297,7 +305,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     if (!assessment) return null;
 
     const isUsingMock = !isOpenAIConfigured();
-    const isUsingCache = userAnswer === lastEvaluatedAnswer && assessment !== null;
 
     return (
       <Modal
@@ -321,7 +328,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
                 </View>
               )}
 
-              {isUsingCache && (
+              {isUsingCachedResult && (
                 <View style={styles.cacheInfo}>
                   <Text style={styles.cacheInfoText}>
                     {t('writing.mock.cacheInfo')}
@@ -398,7 +405,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
               <Text style={styles.imagePreviewTitle}>
                 {t('writing.imagePreview.title')}
               </Text>
-              
+
               <Text style={styles.imagePreviewSubtitle}>
                 {t('writing.imagePreview.subtitle')}
               </Text>
@@ -452,6 +459,17 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
     );
   };
 
+  const renderFullScreenLoading = () => {
+    return (
+      <Modal visible={isEvaluating} transparent={true} animationType="fade">
+        <View style={styles.fullScreenLoadingContainer}>
+          <ActivityIndicator color={colors.background.secondary} size="large" />
+          <Text style={styles.fullScreenLoadingText}>{t('writing.evaluation.loading')}</Text>
+        </View>
+      </Modal>
+    );
+  };
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       {/* Instructions */}
@@ -461,6 +479,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
           {t('writing.instructions.description')}
         </Text>
       </View>
+
+      {renderFullScreenLoading()}
 
       {/* Incoming Email */}
       <View style={styles.emailSection}>
@@ -526,8 +546,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete }) => {
         )}
       </TouchableOpacity>
 
-      {/* Submit Button (only visible after evaluation) */}
-      {assessment && (
+      {/* Submit Button (only visible after evaluation and in mock exam mode) */}
+      {assessment && isMockExam && (
         <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
           <Text style={styles.submitButtonText}>{t('writing.buttons.nextSection')}</Text>
         </TouchableOpacity>
@@ -543,6 +563,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
+    position: 'relative',
+  },
+  fullScreenLoadingContainer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    height: Dimensions.get('window').height,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1000,
+  },
+  fullScreenLoadingText: {
+    ...typography.textStyles.h4,
+    color: colors.white,
+    marginTop: spacing.margin.md,
+    textAlign: 'center',
+    paddingHorizontal: '20%',
+    textShadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    textShadowRadius: 10,
+    textShadowColor: colors.black,
   },
   scrollContent: {
     padding: spacing.padding.lg,
@@ -631,7 +676,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   evaluateButton: {
-    backgroundColor: colors.secondary[500],
+    backgroundColor: colors.primary[500],
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
