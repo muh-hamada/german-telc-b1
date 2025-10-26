@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,10 +9,11 @@ import {
   Modal,
   FlatList,
   I18nManager,
+  ActivityIndicator,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
-import speakingPart3Data from '../../data/speaking-part3.json';
+import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -48,6 +49,44 @@ const SpeakingPart3Screen: React.FC = () => {
   const [selectedScenarioId, setSelectedScenarioId] = useState<number>(1);
   const [activeView, setActiveView] = useState<ViewType>('dialog');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [speakingPart3Data, setSpeakingPart3Data] = useState<any>(null);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      const data = await dataService.getSpeakingPart3Content();
+      setSpeakingPart3Data(data);
+    } catch (error) {
+      console.error('Error loading speaking part 3 data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (!speakingPart3Data) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <Text style={styles.errorText}>Failed to load speaking data</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   const scenarios = (speakingPart3Data as any).scenarios as Scenario[];
   const currentScenario = scenarios?.find(s => s.id === selectedScenarioId) || scenarios?.[0];
@@ -508,6 +547,15 @@ const styles = StyleSheet.create({
   tableCellText: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
+  },
+  centerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
   },
 });
 

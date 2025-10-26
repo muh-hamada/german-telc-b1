@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
   Modal,
   FlatList,
   I18nManager,
+  ActivityIndicator,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
-import speakingPart2Data from '../../data/speaking-part2.json';
+import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -40,6 +41,44 @@ const SpeakingPart2Screen: React.FC = () => {
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
   const [showPartnerSummary, setShowPartnerSummary] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [speakingPart2Data, setSpeakingPart2Data] = useState<any>(null);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      const data = await dataService.getSpeakingPart2Content();
+      setSpeakingPart2Data(data);
+    } catch (error) {
+      console.error('Error loading speaking part 2 data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (!speakingPart2Data) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <Text style={styles.errorText}>Failed to load speaking data</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   const topics = (speakingPart2Data as any).topics as Topic[];
   const currentTopic = topics?.find(t => t.id === selectedTopicId) || topics?.[0];
@@ -548,6 +587,15 @@ const styles = StyleSheet.create({
   },
   tipLabel: {
     fontWeight: typography.fontWeight.bold,
+  },
+  centerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
   },
 });
 

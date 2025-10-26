@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
 import { colors } from '../../theme';
-import listeningPart2Data from '../../data/listening-part2.json';
+import dataService from '../../services/data.service';
 import ListeningPart2UI from '../exam-ui/ListeningPart2UI';
 
 interface ListeningPart2WrapperProps {
@@ -22,8 +22,46 @@ interface Exam {
 }
 
 const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, onComplete }) => {
-  const sectionDetails = (listeningPart2Data as any).section_details;
-  const exams = (listeningPart2Data as any).exams as Exam[];
+  const [isLoading, setIsLoading] = useState(true);
+  const [listeningData, setListeningData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadData();
+  }, [testId]);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      const data = await dataService.getListeningPart2Content();
+      setListeningData(data);
+    } catch (err) {
+      console.error('Error loading listening part 2 data:', err);
+      setError('Failed to load exam data');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <View style={[styles.container, styles.centerContent]}>
+        <ActivityIndicator size="large" color={colors.primary} />
+      </View>
+    );
+  }
+
+  if (error || !listeningData) {
+    return (
+      <View style={[styles.container, styles.centerContent]}>
+        <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
+      </View>
+    );
+  }
+
+  const sectionDetails = listeningData.section_details;
+  const exams = listeningData.exams as Exam[];
   const exam = exams[testId] || exams[0];
 
   return (
@@ -42,7 +80,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background.primary,
   },
+  centerContent: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: colors.text.primary,
+    fontSize: 16,
+  },
 });
 
 export default ListeningPart2Wrapper;
-

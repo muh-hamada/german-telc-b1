@@ -34,6 +34,10 @@ import writingDataLocal from '../data/writing.json';
 import speakingPart1DataLocal from '../data/speaking-part1.json';
 import speakingPart2DataLocal from '../data/speaking-part2.json';
 import speakingPart3DataLocal from '../data/speaking-part3.json';
+import listeningPart1DataLocal from '../data/listening-part1.json';
+import listeningPart2DataLocal from '../data/listening-part2.json';
+import listeningPart3DataLocal from '../data/listening-part3.json';
+import examInfoDataLocal from '../data/exam-info.json';
 
 const COLLECTION_NAME = 'b1_telc_exam_data';
 const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
@@ -241,6 +245,26 @@ class DataService {
     return data;
   }
 
+  // Listening Part 1
+  async getListeningPart1Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part1', listeningPart1DataLocal);
+  }
+
+  // Listening Part 2
+  async getListeningPart2Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part2', listeningPart2DataLocal);
+  }
+
+  // Listening Part 3
+  async getListeningPart3Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part3', listeningPart3DataLocal);
+  }
+
+  // Exam Info (structure, assessment criteria, etc.)
+  async getExamInfo(): Promise<any> {
+    return await this.fetchFromFirestore('exam-info', examInfoDataLocal);
+  }
+
   // Utility methods
   async getExamCount(examType: string): Promise<number> {
     switch (examType) {
@@ -305,3 +329,4 @@ class DataService {
 
 const dataService = new DataService();
 export { dataService };
+export default dataService;

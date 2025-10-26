@@ -1,21 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   I18nManager,
+  ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
-import examInfoData from '../data/exam-info.json';
+import dataService from '../services/data.service';
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/demo.config';
 
 const ExamStructureScreen: React.FC = () => {
   const { i18n, t } = useTranslation();
-  const examInfo = (examInfoData as any).exam_info;
+  const [isLoading, setIsLoading] = useState(true);
+  const [examInfoData, setExamInfoData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      const data = await dataService.getExamInfo();
+      setExamInfoData(data);
+    } catch (err) {
+      console.error('Error loading exam info data:', err);
+      setError('Failed to load exam structure data');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container} edges={['bottom']}>
+        <View style={styles.centerContent}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (error || !examInfoData) {
+    return (
+      <SafeAreaView style={styles.container} edges={['bottom']}>
+        <View style={styles.centerContent}>
+          <Text style={styles.errorText}>{error || 'Failed to load exam structure'}</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const examInfo = examInfoData.exam_info;
 
   const getLocalizedText = (obj: any) => {
     const lang = i18n.language;
@@ -188,6 +231,15 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
     paddingBottom: spacing.padding.xl * 2,
+  },
+  centerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
   },
   header: {
     marginBottom: spacing.margin.xl,

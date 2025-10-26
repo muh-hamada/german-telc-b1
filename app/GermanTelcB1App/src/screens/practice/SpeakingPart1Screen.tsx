@@ -13,7 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
-import speakingPart1Data from '../../data/speaking-part1.json';
+import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 
@@ -43,6 +43,8 @@ const SpeakingPart1Screen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary'>('introduction');
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [speakingPart1Data, setSpeakingPart1Data] = useState<any>(null);
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
     name: '',
     age: '',
@@ -61,8 +63,21 @@ const SpeakingPart1Screen: React.FC = () => {
   });
 
   useEffect(() => {
-    loadPersonalInfo();
+    loadData();
   }, []);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      const data = await dataService.getSpeakingPart1Content();
+      setSpeakingPart1Data(data);
+      await loadPersonalInfo();
+    } catch (error) {
+      console.error('Error loading speaking part 1 data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const loadPersonalInfo = async () => {
     try {
@@ -223,6 +238,8 @@ const SpeakingPart1Screen: React.FC = () => {
   };
 
   const renderVocabularyTab = () => {
+    if (!speakingPart1Data) return null;
+    
     return (
       <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
@@ -246,6 +263,8 @@ const SpeakingPart1Screen: React.FC = () => {
   };
 
   const renderCompleteExampleTab = () => {
+    if (!speakingPart1Data) return null;
+    
     // Split text by ** markers for bold formatting
     const renderFormattedText = (text: string) => {
       const parts = text.split(/(\*\*.*?\*\*)/g);

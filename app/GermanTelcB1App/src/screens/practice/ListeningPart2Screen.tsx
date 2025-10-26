@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   SafeAreaView,
+  View,
+  ActivityIndicator,
+  Text,
 } from 'react-native';
 import { colors } from '../../theme';
-import listeningPart2Data from '../../data/listening-part2.json';
+import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
@@ -22,14 +25,56 @@ interface Exam {
 }
 
 const ListeningPart2Screen: React.FC = () => {
-  const sectionDetails = (listeningPart2Data as any).section_details;
-  const exams = (listeningPart2Data as any).exams as Exam[];
-  const currentExam = exams[0];
+  const [isLoading, setIsLoading] = useState(true);
+  const [listeningData, setListeningData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      const data = await dataService.getListeningPart2Content();
+      setListeningData(data);
+    } catch (err) {
+      console.error('Error loading listening part 2 data:', err);
+      setError('Failed to load exam data');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleComplete = (score: number) => {
     console.log('Listening Part 2 completed with score:', score);
     // Note: Progress tracking for practice mode can be added here if needed
   };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (error || !listeningData) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const sectionDetails = listeningData.section_details;
+  const exams = listeningData.exams as Exam[];
+  const currentExam = exams[0];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -48,7 +93,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background.primary,
   },
+  centerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: colors.text.primary,
+    fontSize: 16,
+  },
 });
 
 export default ListeningPart2Screen;
-
