@@ -22,6 +22,23 @@ const ReadingMenuScreen: React.FC = () => {
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
+  const [part1Exams, setPart1Exams] = useState<any[]>([]);
+  const [part2Exams, setPart2Exams] = useState<any[]>([]);
+  const [part3Exams, setPart3Exams] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    const loadExams = async () => {
+      const [p1, p2, p3] = await Promise.all([
+        dataService.getReadingPart1Exams(),
+        dataService.getReadingPart2Exams(),
+        dataService.getReadingPart3Exams()
+      ]);
+      setPart1Exams(p1);
+      setPart2Exams(p2);
+      setPart3Exams(p3);
+    };
+    loadExams();
+  }, []);
 
   const handlePart1Press = () => {
     setShowPart1Modal(true);
@@ -75,7 +92,7 @@ const ReadingMenuScreen: React.FC = () => {
       <ExamSelectionModal
         visible={showPart1Modal}
         onClose={() => setShowPart1Modal(false)}
-        exams={dataService.getReadingPart1Exams()}
+        exams={part1Exams}
         onSelectExam={handleSelectPart1Exam}
         examType="reading"
         partNumber={1}
@@ -85,7 +102,7 @@ const ReadingMenuScreen: React.FC = () => {
       <ExamSelectionModal
         visible={showPart2Modal}
         onClose={() => setShowPart2Modal(false)}
-        exams={dataService.getReadingPart2Exams()}
+        exams={part2Exams}
         onSelectExam={handleSelectPart2Exam}
         examType="reading"
         partNumber={2}
@@ -95,7 +112,7 @@ const ReadingMenuScreen: React.FC = () => {
       <ExamSelectionModal
         visible={showPart3Modal}
         onClose={() => setShowPart3Modal(false)}
-        exams={dataService.getReadingPart3Exams()}
+        exams={part3Exams}
         onSelectExam={handleSelectPart3Exam}
         examType="reading"
         partNumber={3}

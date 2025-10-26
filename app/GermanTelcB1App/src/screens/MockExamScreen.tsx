@@ -86,7 +86,7 @@ const MockExamScreen: React.FC = () => {
   const handleStartExam = async () => {
     try {
       // Create and save initial progress
-      const initialProgress = createInitialMockExamProgress();
+      const initialProgress = await createInitialMockExamProgress();
       await saveMockExamProgress(initialProgress);
       navigation.navigate('MockExamRunning');
     } catch (error) {

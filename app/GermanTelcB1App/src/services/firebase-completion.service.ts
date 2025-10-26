@@ -185,7 +185,7 @@ class FirebaseCompletionService {
           const examTypeKey = parts.length > 1 
             ? `${examType}-part${partNumber}` 
             : examType;
-          const totalExams = dataService.getExamCount(examTypeKey);
+          const totalExams = await dataService.getExamCount(examTypeKey);
           
           const partStats = await this.getCompletionStats(
             userId,

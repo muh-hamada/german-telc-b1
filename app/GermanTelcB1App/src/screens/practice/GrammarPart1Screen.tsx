@@ -72,7 +72,7 @@ const GrammarPart1Screen: React.FC = () => {
   const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = dataService.getGrammarPart1Exam(id);
+      const exam = await dataService.getGrammarPart1Exam(id);
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);

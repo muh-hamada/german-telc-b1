@@ -8,13 +8,13 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
  * Generates random test selection for mock exam
  * Picks one random test from each section's available exams
  */
-export const generateRandomExamSelection = () => {
+export const generateRandomExamSelection = async () => {
   // Get counts of available exams for each section
-  const readingPart1Count = dataService.getReadingPart1Exams().length;
-  const readingPart2Count = dataService.getReadingPart2Exams().length;
-  const readingPart3Count = dataService.getReadingPart3Exams().length;
-  const grammarPart1Count = dataService.getGrammarPart1Exams().length;
-  const grammarPart2Count = dataService.getGrammarPart2Exams().length;
+  const readingPart1Count = (await dataService.getReadingPart1Exams()).length;
+  const readingPart2Count = (await dataService.getReadingPart2Exams()).length;
+  const readingPart3Count = (await dataService.getReadingPart3Exams()).length;
+  const grammarPart1Count = (await dataService.getGrammarPart1Exams()).length;
+  const grammarPart2Count = (await dataService.getGrammarPart2Exams()).length;
   
   // For listening and writing, we only have 1 exam per section currently
   // but we'll structure it the same way for consistency
@@ -96,8 +96,8 @@ export const hasActiveMockExam = async (): Promise<boolean> => {
 /**
  * Creates initial mock exam progress object
  */
-export const createInitialMockExamProgress = (): MockExamProgress => {
-  const selectedTests = generateRandomExamSelection();
+export const createInitialMockExamProgress = async (): Promise<MockExamProgress> => {
+  const selectedTests = await generateRandomExamSelection();
   const examId = `mock-exam-${Date.now()}`;
 
   // Import MOCK_EXAM_STEPS to initialize steps

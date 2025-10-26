@@ -72,7 +72,7 @@ const ReadingPart2Screen: React.FC = () => {
   const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = dataService.getReadingPart2Exam(id);
+      const exam = await dataService.getReadingPart2Exam(id);
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);

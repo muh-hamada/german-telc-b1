@@ -21,9 +21,20 @@ const GrammarMenuScreen: React.FC = () => {
   const { t } = useTranslation();
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
+  const [part1Exams, setPart1Exams] = useState<any[]>([]);
+  const [part2Exams, setPart2Exams] = useState<any[]>([]);
 
-  const part1Exams = dataService.getGrammarPart1Exams();
-  const part2Exams = dataService.getGrammarPart2Exams();
+  React.useEffect(() => {
+    const loadExams = async () => {
+      const [p1, p2] = await Promise.all([
+        dataService.getGrammarPart1Exams(),
+        dataService.getGrammarPart2Exams()
+      ]);
+      setPart1Exams(p1);
+      setPart2Exams(p2);
+    };
+    loadExams();
+  }, []);
 
   const handlePart1Press = () => {
     setShowPart1Modal(true);
