@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -25,6 +24,7 @@ const PracticeMenuScreen: React.FC = () => {
   useEffect(() => {
     const loadWritingExams = async () => {
       const exams = await dataService.getWritingExams();
+      console.log('-----------------------', {exams})
       setWritingExams(exams);
     };
     loadWritingExams();

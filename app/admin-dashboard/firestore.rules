@@ -2,9 +2,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     // B1 Telc Exam Data Collection
-    // Only authenticated users can read and write
     match /b1_telc_exam_data/{document} {
-      allow read: if request.auth != null;
+      allow read: if true
+      
+      // Only authenticated users can write
       allow write: if request.auth != null;
     }
     

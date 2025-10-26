@@ -40,7 +40,8 @@ import listeningPart3DataLocal from '../data/listening-part3.json';
 import examInfoDataLocal from '../data/exam-info.json';
 
 const COLLECTION_NAME = 'b1_telc_exam_data';
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+// TODO: Change to 24 hours in milliseconds once the data is stable
+const CACHE_EXPIRATION = 60 * 1000; // 1 minute in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {
