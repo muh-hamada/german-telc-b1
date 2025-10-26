@@ -84,9 +84,11 @@ class FirebaseCompletionService {
   ): Promise<CompletionData | null> {
     try {
       const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
+      console.log('[CompletionService] Getting completion status for:', { docPath, examType, partNumber, examId });
       const doc = await firestore().doc(docPath).get();
       
       const data = doc.data();
+      console.log('[CompletionService] Got data:', data ? 'exists' : 'null', data);
       if (data) {
         return data as CompletionData;
       }
@@ -109,12 +111,15 @@ class FirebaseCompletionService {
   ): Promise<CompletionStats> {
     try {
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
+      console.log('[CompletionService] Getting stats for:', { collectionPath, totalExams });
       const snapshot = await firestore().collection(collectionPath).get();
       
       // Cap completed count to not exceed total (in case exams were removed)
       const completedCount = snapshot.size;
       const completed = Math.min(completedCount, totalExams);
       const percentage = totalExams > 0 ? Math.round((completed / totalExams) * 100) : 0;
+      
+      console.log('[CompletionService] Stats:', { completedCount, completed, total: totalExams, percentage });
       
       return {
         completed,
@@ -141,9 +146,16 @@ class FirebaseCompletionService {
   ): Promise<CompletionData[]> {
     try {
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
+      console.log('[CompletionService] Getting all completions for:', collectionPath);
       const snapshot = await firestore().collection(collectionPath).get();
       
-      return snapshot.docs.map(doc => doc.data() as CompletionData);
+      console.log('[CompletionService] Found', snapshot.size, 'completions');
+      const completions = snapshot.docs.map(doc => {
+        const data = doc.data() as CompletionData;
+        console.log('[CompletionService] Completion:', doc.id, data);
+        return data;
+      });
+      return completions;
     } catch (error) {
       console.error('[CompletionService] Error getting all completions:', error);
       return [];

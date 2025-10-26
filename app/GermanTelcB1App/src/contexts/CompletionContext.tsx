@@ -35,16 +35,19 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   // Load all completion data
   const loadCompletionData = useCallback(async () => {
     if (!user?.uid) {
+      console.log('[CompletionContext] No user, clearing data');
       setCompletionData(new Map());
       setAllStats({});
       return;
     }
 
     try {
+      console.log('[CompletionContext] Loading completion data for user:', user.uid);
       setIsLoading(true);
       
       // Load all stats
       const stats = await firebaseCompletionService.getAllCompletionStats(user.uid);
+      console.log('[CompletionContext] Loaded stats:', stats);
       setAllStats(stats);
       
       // Load individual completion data for each exam type and part
@@ -64,6 +67,8 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
             partNumber
           );
           
+          console.log(`[CompletionContext] Got ${completions.length} completions for ${examType} part ${partNumber}`);
+          
           completions.forEach(completion => {
             const key = createKey(examType, partNumber, completion.examId);
             newCompletionData.set(key, completion);
@@ -71,6 +76,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         }
       }
       
+      console.log('[CompletionContext] Total completions loaded:', newCompletionData.size);
       setCompletionData(newCompletionData);
     } catch (error) {
       console.error('[CompletionContext] Error loading completion data:', error);
