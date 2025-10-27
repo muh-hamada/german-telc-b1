@@ -149,7 +149,8 @@
       "part3": "Part 3: Planning Together",
       "descriptions": {
         "main": "Practice oral expression and conversation skills"
-      }
+      },
+      "part4": "Part 4: Important Phrases"
     },
     "grammar": {
       "title": "Language Building Blocks",
@@ -202,8 +203,11 @@
       "signedOut": "You have been signed out.",
       "signOutFailed": "Failed to sign out. Please try again.",
       "signedInSuccess": "You have been signed in successfully!",
-      "signInFailed": "Failed to sign in. Please try again."
-    }
+      "signInFailed": "Failed to sign in. Please try again.",
+      "couldNotOpenStore": "We couldn't open the app store",
+      "iosRatingComingSoon": "The iOS app is coming soon"
+    },
+    "rateApp": "Rate our App"
   },
   "mockExam": {
     "title": "Mock Exam",
@@ -301,13 +305,15 @@
       "tabs": {
         "myIntro": "My Intro",
         "example": "Example",
-        "vocabulary": "Vocabulary"
+        "vocabulary": "Vocabulary",
+        "questions": "Questions"
       },
       "sections": {
         "myProfile": "My Profile",
         "personalIntro": "Personal Introduction",
         "keyVocabulary": "Key Vocabulary",
-        "completeExample": "Complete Example"
+        "completeExample": "Complete Example",
+        "questions": "Question and Answer"
       },
       "buttons": {
         "viewInfo": "View Personal Info",
@@ -320,7 +326,8 @@
       },
       "help": {
         "exampleNote": "This is a complete example of a personal introduction for the TELC B1 oral exam. You can use this as a reference to create your own.",
-        "enterInfoPrompt": "Please enter your personal information to generate your introduction text."
+        "enterInfoPrompt": "Please enter your personal information to generate your introduction text.",
+        "questionsNote": "Important: This part of the exam will likely be in a conversation style. You and your partner will take turns asking questions to get to know each other. It's important to practice asking and answering questions."
       },
       "infoLabels": {
         "name": "Name:",
@@ -334,6 +341,11 @@
         "profession": "Profession:",
         "company": "Company:",
         "hobbies": "Hobbies:"
+      },
+      "questions": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "answer": "Answer"
       }
     },
     "part2": {
@@ -379,6 +391,10 @@
         "suggestion": "Suggestion / Task",
         "response": "Example Response"
       }
+    },
+    "part4": {
+      "subtitle": "Common phrases that you can use in many situations",
+      "itemType": "Part"
     }
   },
   "results": {

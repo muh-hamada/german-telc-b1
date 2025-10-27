@@ -85,6 +85,8 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.padding.xl,
     paddingHorizontal: spacing.padding.lg,
     alignItems: 'center',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   title: {
     marginTop: spacing.margin.xl,

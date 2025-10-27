@@ -19,6 +19,7 @@ import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
+import SpeakingPart4Screen from '../screens/practice/SpeakingPart4Screen';
 import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
@@ -154,6 +155,13 @@ const HomeStackNavigator: React.FC = () => {
         component={SpeakingPart3Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.speaking.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="SpeakingPart4"
+        component={SpeakingPart4Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part4" />,
         }}
       />
       <Stack.Screen

@@ -8,6 +8,8 @@ import {
   Image,
   I18nManager,
   StatusBar,
+  Platform,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +40,24 @@ const ProfileScreen: React.FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
 
+  const handleRateApp = async () => {
+    if (Platform.OS === 'android') {
+      const url = 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1german';
+      try {
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+          await Linking.openURL(url);
+        } else {
+          Alert.alert(t('common.error'), t('profile.alerts.couldNotOpenStore'));
+        }
+      } catch (e) {
+        Alert.alert(t('common.error'), t('profile.alerts.couldNotOpenStore'));
+      }
+    } else if (Platform.OS === 'ios') {
+      Alert.alert(t('common.success'), t('profile.alerts.iosRatingComingSoon'));
+    }
+  };
+
   // Auto-open login modal if parameter is passed
   useEffect(() => {
     if (route.params?.openLoginModal && !user) {
@@ -61,7 +81,7 @@ const ProfileScreen: React.FC = () => {
             setIsClearing(true);
             const success = await clearUserProgress();
             setIsClearing(false);
-            
+
             if (success) {
               Alert.alert(t('common.success'), t('profile.alerts.progressCleared'));
             } else {
@@ -83,13 +103,13 @@ const ProfileScreen: React.FC = () => {
       logEvent(AnalyticsEvents.LANGUAGE_CHANGED, { to: languageCode });
       const needsRestart = checkRTLChange(languageCode);
       await i18n.changeLanguage(languageCode);
-      
+
       if (needsRestart) {
         // Switching between RTL and LTR requires app restart
         const isGoingToRTL = languageCode === 'ar';
         Alert.alert(
           t('common.success'),
-          isGoingToRTL 
+          isGoingToRTL
             ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
             : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.',
           [
@@ -157,7 +177,7 @@ const ProfileScreen: React.FC = () => {
     <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>{t('profile.title')}</Text>
-        
+
         {/* User Info Section */}
         {user && (
           <View style={styles.section}>
@@ -176,7 +196,7 @@ const ProfileScreen: React.FC = () => {
             </View>
           </View>
         )}
-        
+
         {/* Progress Section */}
         <View style={styles.section}>
           <ProgressCard showDetails={true} />
@@ -190,14 +210,14 @@ const ProfileScreen: React.FC = () => {
         {/* Settings Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('profile.settings')}</Text>
-          
+
           <Button
             title={t('profile.changeLanguage')}
             onPress={handleLanguageChange}
             variant="outline"
             style={styles.settingButton}
           />
-          
+
           <Button
             title={t('profile.clearProgress')}
             onPress={handleClearProgress}
@@ -210,7 +230,7 @@ const ProfileScreen: React.FC = () => {
         {/* Authentication Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
-          
+
           {user ? (
             <Button
               title={t('profile.signOut')}
@@ -227,6 +247,27 @@ const ProfileScreen: React.FC = () => {
               style={styles.settingButton}
             />
           )}
+        </View>
+
+        <View style={styles.rateAppSection}>
+          <Button
+            title={t('profile.rateApp')}
+            onPress={async () => {
+              if (Platform.OS === 'android') {
+                const url = 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1german';
+                try {
+                  const supported = await Linking.canOpenURL(url);
+                  if (supported) {
+                    await Linking.openURL(url);
+                  }
+                } catch (e) {
+                  // no-op
+                }
+              }
+            }}
+            variant="primary"
+            style={styles.rateAppButton}
+          />
         </View>
 
         {/* About Section */}
@@ -263,7 +304,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
-    
+
   },
   content: {
     flex: 1,
@@ -277,15 +318,24 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   section: {
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.sm,
   },
   sectionTitle: {
     ...typography.textStyles.h4,
     color: colors.text.primary,
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
   },
   settingButton: {
     marginBottom: spacing.margin.sm,
+  },
+  rateAppSection: {
+    paddingTop: spacing.padding.lg,
+    marginTop: spacing.margin.sm,
+    borderTopWidth: 1,
+    borderTopColor: colors.border.light,
+  },
+  rateAppButton: {
+    marginBottom: spacing.margin.lg,
   },
   dangerButton: {
     borderColor: colors.error[500],

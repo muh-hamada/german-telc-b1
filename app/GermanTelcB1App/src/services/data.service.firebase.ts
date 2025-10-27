@@ -37,7 +37,8 @@ import speakingPart2DataLocal from '../data/speaking-part2.json';
 import speakingPart3DataLocal from '../data/speaking-part3.json';
 
 const COLLECTION_NAME = 'b1_telc_exam_data';
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+// TODO: Change to 24 hours in milliseconds once the data is stable
+const CACHE_EXPIRATION = 10 * 1000; // 10 seconds in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {

@@ -149,7 +149,8 @@
       "part3": "Teil 3: Gemeinsam planen",
       "descriptions": {
         "main": "Üben Sie mündlichen Ausdruck und Gesprächsfähigkeiten"
-      }
+      },
+      "part4": "Teil 4: Wichtige Sätze"
     },
     "grammar": {
       "title": "Sprachbausteine",
@@ -202,8 +203,11 @@
       "signedOut": "Sie wurden abgemeldet.",
       "signOutFailed": "Abmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
       "signedInSuccess": "Sie wurden erfolgreich angemeldet!",
-      "signInFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut."
-    }
+      "signInFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "couldNotOpenStore": "Wir konnten den App Store nicht öffnen",
+      "iosRatingComingSoon": "Die iOS-App kommt bald"
+    },
+    "rateApp": "Bewerten Sie unsere App"
   },
   "mockExam": {
     "title": "Probe-Prüfung",
@@ -301,13 +305,15 @@
       "tabs": {
         "myIntro": "Meine Vorstellung",
         "example": "Beispiel",
-        "vocabulary": "Vokabular"
+        "vocabulary": "Vokabular",
+        "questions": "Fragen"
       },
       "sections": {
         "myProfile": "Mein Profil",
         "personalIntro": "Persönliche Vorstellung",
         "keyVocabulary": "Schlüssel-Vokabular",
-        "completeExample": "Vollständiges Beispiel"
+        "completeExample": "Vollständiges Beispiel",
+        "questions": "Frage und Antwort"
       },
       "buttons": {
         "viewInfo": "Info anzeigen",
@@ -320,7 +326,8 @@
       },
       "help": {
         "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Vorstellung für die TELC B1 mündliche Prüfung. Sie können dies als Referenz verwenden, um Ihre eigene zu erstellen.",
-        "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Informationen ein, um Ihren Vorstellungstext zu generieren."
+        "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Informationen ein, um Ihren Vorstellungstext zu generieren.",
+        "questionsNote": "Wichtig: Dieser Teil der Prüfung wird wahrscheinlich im Konversationsstil stattfinden. \nSie und Ihr Partner werden abwechselnd Fragen stellen, um sich kennenzulernen. \nEs ist wichtig, das Stellen und Beantworten von Fragen zu üben."
       },
       "infoLabels": {
         "name": "Name:",
@@ -334,6 +341,11 @@
         "profession": "Beruf:",
         "company": "Firma:",
         "hobbies": "Hobbys:"
+      },
+      "questions": {
+        "formal": "Formell",
+        "informal": "Informell",
+        "answer": "Antwort"
       }
     },
     "part2": {
@@ -379,6 +391,10 @@
         "suggestion": "Vorschlag / Aufgabe",
         "response": "Beispiel-Reaktion"
       }
+    },
+    "part4": {
+      "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können",
+      "itemType": "Teil"
     }
   },
   "results": {

@@ -27,6 +27,7 @@ interface ExamSelectionModalProps {
   examType: string;
   partNumber: number;
   title?: string;
+  itemType?: string;
 }
 
 const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
@@ -37,6 +38,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   examType,
   partNumber,
   title,
+  itemType,
 }) => {
   const { t } = useTranslation();
   const { getCompletionStatus, getStatsForPart } = useCompletion();
@@ -122,7 +124,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
                     <View style={styles.examItemContent}>
                       <View style={styles.examItemLeft}>
                         <Text style={styles.examItemNumber}>
-                          {t('exam.test')} {exam.id + 1}
+                          {itemType || t('exam.test')}  {exam.id + 1}
                         </Text>
                         {exam.title && (
                           <Text style={styles.examItemTitle}>{exam.title}</Text>

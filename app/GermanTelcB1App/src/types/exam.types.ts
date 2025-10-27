@@ -103,6 +103,11 @@ export interface SpeakingPart1Content {
     german: string;
     english: string;
   }>;
+  questions: Array<{
+    formal: string;
+    informal: string;
+    answer: string;
+  }>;
 }
 
 // Speaking Part 2 (Topic Presentation)
@@ -135,6 +140,19 @@ export interface SpeakingPart3Content {
       english: string;
     }>;
   }>;
+}
+
+// Speaking Important Phrases (Part 4)
+export interface SpeakingImportantPhrasesGroup {
+  id: number;
+  name: string; // not localized
+  phrases: string[]; // simple list of sentences
+}
+
+export interface SpeakingImportantPhrasesContent {
+  title?: string;
+  note?: string;
+  groups: SpeakingImportantPhrasesGroup[];
 }
 
 // User Progress Types

@@ -46,7 +46,7 @@ const SpeakingPart1Screen: React.FC = () => {
   const navigation = useNavigation();
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
   
-  const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary'>('introduction');
+  const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary' | 'questions'>('introduction');
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -111,6 +111,7 @@ const SpeakingPart1Screen: React.FC = () => {
       setIsLoading(true);
       const data = await dataService.getSpeakingPart1Content();
       setSpeakingPart1Data(data);
+      console.log('Speaking Part 1 Data:', data);
       await loadPersonalInfo();
     } catch (error) {
       console.error('Error loading speaking part 1 data:', error);
@@ -339,6 +340,30 @@ const SpeakingPart1Screen: React.FC = () => {
             ))}
           </View>
         </View>
+      </ScrollView>
+    );
+  };
+
+  const renderQuestionsTab = () => {
+    if (!speakingPart1Data) return null;
+    
+    return (
+      <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('speaking.part1.sections.questions')}</Text>
+          <Text style={styles.exampleNote}>{t('speaking.part1.help.questionsNote')}</Text>
+        </View>
+
+        {speakingPart1Data.questions.map((question, index) => (
+          <View key={index} style={styles.questionCard}>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.formal')}:</Text> {question.formal}</Text>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.informal')}:</Text> {question.informal}</Text>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.answer')}:</Text> {question.answer}</Text>
+          </View>
+        ))}
       </ScrollView>
     );
   };
@@ -606,6 +631,16 @@ const SpeakingPart1Screen: React.FC = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={[styles.tab, activeTab === 'questions' && styles.activeTab]}
+          onPress={() => setActiveTab('questions')}
+        >
+          <Text
+            style={[styles.tabText, activeTab === 'questions' && styles.activeTabText]}
+          >
+            {t('speaking.part1.tabs.questions')}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           style={[styles.tab, activeTab === 'vocabulary' && styles.activeTab]}
           onPress={() => setActiveTab('vocabulary')}
         >
@@ -620,6 +655,7 @@ const SpeakingPart1Screen: React.FC = () => {
       {activeTab === 'introduction' && renderIntroductionTab()}
       {activeTab === 'example' && renderCompleteExampleTab()}
       {activeTab === 'vocabulary' && renderVocabularyTab()}
+      {activeTab === 'questions' && renderQuestionsTab()}
 
       {renderEditModal()}
       {renderInfoModal()}
@@ -682,7 +718,6 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   section: {
-    marginBottom: spacing.margin.lg,
   },
   sectionTitle: {
     ...typography.textStyles.h3,
@@ -724,6 +759,40 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.xs,
   },
   exampleParagraph: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 26,
+    marginBottom: spacing.margin.md,
+  },
+  questionCard: {
+    backgroundColor: colors.white,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.lg,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.primary[500],
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    marginBottom: spacing.margin.md,
+  },
+  questionNumber: {
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.md,
+  },
+  questionText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 26,
+
+  },
+  questionType: {
+    fontWeight: typography.fontWeight.bold,
+  },
+  questionAnswer: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 26,

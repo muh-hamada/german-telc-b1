@@ -22,6 +22,7 @@ import {
   SpeakingPart1Content,
   SpeakingPart2Content,
   SpeakingPart3Content,
+  SpeakingImportantPhrasesContent,
 } from '../types/exam.types';
 
 // Import local JSON data as fallback
@@ -249,6 +250,17 @@ class DataService {
     return data;
   }
 
+  // Speaking Important Phrases (Part 4) - Firebase only (no local fallback)
+  async getSpeakingImportantPhrases(): Promise<SpeakingImportantPhrasesContent> {
+    // Pass empty object as fallback; we only expect Firebase to return real data
+    const data = await this.fetchFromFirestore('speaking-important-phrases', {});
+    const typed = data as SpeakingImportantPhrasesContent;
+    if (!typed || !Array.isArray(typed.groups)) {
+      throw new Error('speaking-important-phrases not available');
+    }
+    return typed;
+  }
+
   // Listening Part 1
   async getListeningPart1Content(): Promise<any> {
     return await this.fetchFromFirestore('listening-part1', listeningPart1DataLocal);
@@ -292,6 +304,9 @@ class DataService {
       case 'speaking-part3':
         const part3Data = await this.getSpeakingPart3Content();
         return part3Data.scenarios?.length || 0;
+      case 'speaking-important-phrases':
+        // Not a count-based exam; treat as available if document exists
+        return (await this.getSpeakingImportantPhrases())?.groups?.length ? 1 : 0;
       default:
         return 0;
     }
@@ -323,6 +338,8 @@ class DataService {
         return [await this.getSpeakingPart2Content()];
       case 'speaking-part3':
         return [await this.getSpeakingPart3Content()];
+      case 'speaking-important-phrases':
+        return [await this.getSpeakingImportantPhrases()];
       default:
         return [];
     }

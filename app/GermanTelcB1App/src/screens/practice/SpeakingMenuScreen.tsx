@@ -17,17 +17,22 @@ const SpeakingMenuScreen: React.FC = () => {
   const { t } = useTranslation();
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
+  const [showPart4Modal, setShowPart4Modal] = useState(false);
   const [part2Topics, setPart2Topics] = useState<any[]>([]);
   const [part3Scenarios, setPart3Scenarios] = useState<any[]>([]);
+  const [part4Groups, setPart4Groups] = useState<any[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const [part2Data, part3Data] = await Promise.all([
+      const [part2Data, part3Data, part4Data] = await Promise.all([
         dataService.getSpeakingPart2Content(),
-        dataService.getSpeakingPart3Content()
+        dataService.getSpeakingPart3Content(),
+        dataService.getSpeakingImportantPhrases().catch(() => ({ groups: [] }))
       ]);
       setPart2Topics(part2Data.topics || []);
       setPart3Scenarios(part3Data.scenarios || []);
+      const groups = (part4Data.groups || []).map((g: any, index: number) => ({ id: index, title: g.name }));
+      setPart4Groups(groups);
     };
     loadData();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
@@ -55,6 +60,16 @@ const SpeakingMenuScreen: React.FC = () => {
     navigation.navigate('SpeakingPart3', { scenarioId });
   };
 
+  const handlePart4Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 4 });
+    setShowPart4Modal(true);
+  };
+
+  const handleSelectPart4Group = (groupIndex: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 4, exam_id: groupIndex });
+    navigation.navigate('SpeakingPart4', { groupIndex });
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -70,6 +85,20 @@ const SpeakingMenuScreen: React.FC = () => {
           <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
           <Text style={styles.cardDescription}>{t('speaking.part3.subtitle')}</Text>
         </Card>
+        <Card style={styles.card} onPress={handlePart4Press}>
+          <Text style={styles.cardTitle}>{t('practice.speaking.part4')}</Text>
+          <Text style={styles.cardDescription}>{t('speaking.part4.subtitle')}</Text>
+        </Card>
+      <ExamSelectionModal
+        visible={showPart4Modal}
+        onClose={() => setShowPart4Modal(false)}
+        exams={part4Groups}
+        onSelectExam={handleSelectPart4Group}
+        examType="speaking"
+        partNumber={4}
+        title={t('practice.speaking.part4')}
+        itemType={t('speaking.part4.itemType')}
+      />
       </ScrollView>
 
       <ExamSelectionModal

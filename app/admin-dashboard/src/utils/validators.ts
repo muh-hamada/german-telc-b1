@@ -233,6 +233,32 @@ export const validateListeningPart = (data: any): ValidationResult => {
 };
 
 /**
+ * Validate Speaking - Important Phrases structure
+ */
+export const validateSpeakingImportantPhrases = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.groups || !Array.isArray(data.groups)) {
+    errors.push('Missing or invalid "phrases" array');
+    return { valid: false, errors };
+  }
+
+  data.groups.forEach((group: any, index: number) => {
+    if (typeof group.id !== 'number') {
+      errors.push(`Group ${index}: Missing or invalid "id"`);
+    }
+    if (typeof group.name !== 'string') {
+      errors.push(`Group ${index}: Missing or invalid "name"`);
+    }
+    if (!Array.isArray(group.phrases)) {
+      errors.push(`Group ${index}: Missing or invalid "phrases" array`);
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
  * Validate Speaking Part 1 structure
  */
 export const validateSpeakingPart1 = (data: any): ValidationResult => {
@@ -255,6 +281,21 @@ export const validateSpeakingPart1 = (data: any): ValidationResult => {
   }
   if (!Array.isArray(content.vocabulary)) {
     errors.push('Content: Missing or invalid "vocabulary" array');
+  }
+  if (!Array.isArray(content.questions)) {
+    errors.push('Content: Missing or invalid "questions" array');
+  } else {
+    content.questions.forEach((question: any, index: number) => {
+      if (typeof question.formal !== 'string') {
+        errors.push(`Question ${index}: Missing or invalid "formal"`);
+      }
+      if (typeof question.informal !== 'string') {
+        errors.push(`Question ${index}: Missing or invalid "informal"`);
+      }
+      if (typeof question.answer !== 'string') {
+        errors.push(`Question ${index}: Missing or invalid "answer"`);
+      }
+    });
   }
 
   return { valid: errors.length === 0, errors };
@@ -429,6 +470,8 @@ export const validateDocument = (docId: string, data: any): ValidationResult => 
         return validateSpeakingPart2(data);
       case 'speaking-part3':
         return validateSpeakingPart3(data);
+      case 'speaking-important-phrases':
+        return validateSpeakingImportantPhrases(data);
       case 'writing':
         return validateWriting(data);
       case 'exam-info':

@@ -15,7 +15,7 @@ const Home: React.FC = () => {
             </p>
             <div className="download-buttons">
               <a 
-                href="#android" 
+                href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" 
                 className="download-btn android-btn"
                 aria-label="Download on Google Play"
               >

@@ -149,7 +149,8 @@
       "part3": "Partie 3 : Planifier ensemble",
       "descriptions": {
         "main": "Pratiquez l'expression orale et les compétences de conversation"
-      }
+      },
+      "part4": "Partie 4 : Phrases importantes"
     },
     "grammar": {
       "title": "Éléments de langage",
@@ -166,6 +167,7 @@
     "language": "Langue de l'interface",
     "clearProgress": "Effacer la progression",
     "about": "À propos",
+    "legal": "Mentions légales",
     "authentication": "Authentification",
     "login": "Se connecter",
     "logout": "Se déconnecter",
@@ -176,6 +178,9 @@
     "signedInWith": "Connecté avec",
     "appName": "Application de préparation à l'examen allemand TELC B1",
     "version": "Version",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "rateApp": "Noter l'application",
     "loginProviders": {
       "google": "Continuer avec Google",
       "facebook": "Continuer avec Facebook",
@@ -199,7 +204,9 @@
       "signedOut": "Vous avez été déconnecté.",
       "signOutFailed": "Échec de la déconnexion. Veuillez réessayer.",
       "signedInSuccess": "Vous vous êtes connecté avec succès !",
-      "signInFailed": "Échec de la connexion. Veuillez réessayer."
+      "signInFailed": "Échec de la connexion. Veuillez réessayer.",
+      "couldNotOpenStore": "Impossible d'ouvrir la boutique d'applications.",
+      "iosRatingComingSoon": "Le lien d'évaluation iOS sera ajouté plus tard."
     }
   },
   "questions": {
@@ -234,13 +241,15 @@
       "tabs": {
         "myIntro": "Ma présentation",
         "example": "Exemple",
-        "vocabulary": "Vocabulaire"
+        "vocabulary": "Vocabulaire",
+        "questions": "Questions"
       },
       "sections": {
         "myProfile": "Mon profil",
         "personalIntro": "Présentation personnelle",
         "keyVocabulary": "Vocabulaire clé",
-        "completeExample": "Exemple complet"
+        "completeExample": "Exemple complet",
+        "questions": "Questions et réponses"
       },
       "buttons": {
         "viewInfo": "Voir les informations personnelles",
@@ -253,7 +262,8 @@
       },
       "help": {
         "exampleNote": "Ceci est un exemple complet d'une présentation personnelle pour l'examen oral TELC B1. Vous pouvez l'utiliser comme référence pour créer la vôtre.",
-        "enterInfoPrompt": "Veuillez entrer vos informations personnelles pour générer votre texte de présentation."
+        "enterInfoPrompt": "Veuillez entrer vos informations personnelles pour générer votre texte de présentation.",
+        "questionsNote": "Important : Cette partie de l'examen se déroulera probablement sous forme de conversation. \nVous et votre partenaire poserez des questions à tour de rôle pour apprendre à vous connaître. \nIl est important de s’entraîner à poser des questions et à y répondre."
       },
       "infoLabels": {
         "name": "Nom :",
@@ -267,6 +277,11 @@
         "profession": "Profession :",
         "company": "Entreprise :",
         "hobbies": "Loisirs :"
+      },
+      "questions": {
+        "formal": "Officiel",
+        "informal": "Informel",
+        "answer": "Répondre"
       }
     },
     "part2": {
@@ -312,6 +327,10 @@
         "suggestion": "Suggestion / Tâche",
         "response": "Exemple de réponse"
       }
+    },
+    "part4": {
+      "subtitle": "Phrases courantes que vous pouvez utiliser dans de nombreuses situations",
+      "itemType": "Partie"
     }
   },
   "results": {
