@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -7,6 +8,7 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ListeningMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -16,8 +18,12 @@ const ListeningMenuScreen: React.FC = () => {
   const handlePart2Press = () => navigation.navigate('ListeningPart2');
   const handlePart3Press = () => navigation.navigate('ListeningPart3');
 
+  React.useEffect(() => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' });
+  }, []);
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.listening.part1')}</Text>

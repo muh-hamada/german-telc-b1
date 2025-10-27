@@ -3,10 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
@@ -15,6 +15,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -34,26 +35,31 @@ const GrammarMenuScreen: React.FC = () => {
       setPart2Exams(p2);
     };
     loadExams();
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
   }, []);
 
   const handlePart1Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'grammar', part: 1 });
     setShowPart1Modal(true);
   };
 
   const handlePart2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'grammar', part: 2 });
     setShowPart2Modal(true);
   };
 
   const handleSelectPart1Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 1, exam_id: examId });
     navigation.navigate('GrammarPart1', { examId });
   };
 
   const handleSelectPart2Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 2, exam_id: examId });
     navigation.navigate('GrammarPart2', { examId });
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.grammar.part1')}</Text>

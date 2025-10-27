@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const SpeakingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -29,28 +30,33 @@ const SpeakingMenuScreen: React.FC = () => {
       setPart3Scenarios(part3Data.scenarios || []);
     };
     loadData();
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
   }, []);
 
   const handlePart1Press = () => navigation.navigate('SpeakingPart1');
   
   const handlePart2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 2 });
     setShowPart2Modal(true);
   };
 
   const handlePart3Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 3 });
     setShowPart3Modal(true);
   };
 
   const handleSelectPart2Topic = (topicId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 2, exam_id: topicId });
     navigation.navigate('SpeakingPart2', { topicId });
   };
 
   const handleSelectPart3Scenario = (scenarioId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 3, exam_id: scenarioId });
     navigation.navigate('SpeakingPart3', { scenarioId });
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>

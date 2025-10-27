@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import Sound from 'react-native-sound';
 import { colors, spacing, typography } from '../../theme';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface Statement {
   id: number;
@@ -78,6 +79,12 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
       }
       return [...prev, { statementId, selectedAnswer: answer }];
     });
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'listening',
+      part: 1,
+      exam_id: exam.id,
+      question_id: statementId,
+    });
   };
 
   const getUserAnswer = (statementId: number): boolean | null => {
@@ -89,6 +96,8 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
     Sound.setCategory('Playback');
     setHasStarted(true);
     setIsPlaying(true);
+    const startTs = Date.now();
+    logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id });
 
     const audioSound = new Sound(
       exam.audio_url,
@@ -107,7 +116,7 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
 
         audioSound.play((success: boolean) => {
           if (success) {
-            console.log('Audio playback finished successfully');
+            logEvent(AnalyticsEvents.AUDIO_COMPLETED, { exam_id: exam.id, duration_ms: Date.now() - startTs });
           } else {
             console.log('Audio playback failed');
           }
@@ -140,6 +149,13 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
       if (userAnswer && userAnswer.selectedAnswer === statement.is_correct) {
         correctCount++;
       }
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'listening',
+        part: 1,
+        exam_id: exam.id,
+        question_id: statement.id,
+        is_correct: userAnswer?.selectedAnswer === statement.is_correct,
+      });
     });
 
     const score = (correctCount / exam.statements.length) * 25;

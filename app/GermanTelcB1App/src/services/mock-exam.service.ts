@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MockExamProgress } from '../types/mock-exam.types';
 import { dataService } from './data.service';
+import { AnalyticsEvents, logEvent } from './analytics.events';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
@@ -151,6 +152,17 @@ export const updateStepProgress = async (
     progress.steps[stepIndex].isCompleted = isCompleted;
     progress.steps[stepIndex].endTime = Date.now();
 
+    // Track step completed
+    const completedDurationMs = (progress.steps[stepIndex].endTime || 0) - (progress.steps[stepIndex].startTime || progress.startDate);
+    logEvent(AnalyticsEvents.MOCK_EXAM_STEP_COMPLETED, {
+      exam_id: progress.examId,
+      step_id: progress.steps[stepIndex].id,
+      step_index: stepIndex,
+      score,
+      max_points: progress.steps[stepIndex].maxPoints,
+      duration_ms: completedDurationMs,
+    });
+
     // Update total score
     progress.totalScore = progress.steps
       .filter(s => s.isCompleted && s.score !== undefined)
@@ -160,15 +172,57 @@ export const updateStepProgress = async (
     if (stepIndex < progress.steps.length - 1) {
       progress.currentStepId = progress.steps[stepIndex + 1].id;
       progress.steps[stepIndex + 1].startTime = Date.now();
+
+      // Track next step started
+      logEvent(AnalyticsEvents.MOCK_EXAM_STEP_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[stepIndex + 1].id,
+        step_index: stepIndex + 1,
+      });
     } else {
       // Mark exam as completed
       progress.isCompleted = true;
       progress.endDate = Date.now();
+
+      // Track exam completed
+      const writtenScore = progress.steps
+        .filter(s => s.sectionNumber <= 4)
+        .reduce((acc, s) => acc + (s.score || 0), 0);
+      const writtenMaxPoints = 225;
+      const passedWritten = writtenScore >= 135;
+      const passedOverall = progress.totalScore >= 180 && passedWritten;
+
+      logEvent(AnalyticsEvents.MOCK_EXAM_COMPLETED, {
+        exam_id: progress.examId,
+        total_score: progress.totalScore,
+        total_max_points: progress.totalMaxPoints,
+        written_score: writtenScore,
+        percentage: Math.round((progress.totalScore / progress.totalMaxPoints) * 100),
+        passed_written: passedWritten,
+        passed_overall: passedOverall,
+        duration_ms: (progress.endDate || 0) - progress.startDate,
+      });
     }
 
     progress.hasStarted = true;
 
     await saveMockExamProgress(progress);
+    
+    // If this is the first time starting, log started and first step started
+    if (stepIndex === 0 && progress.steps[0].startTime === undefined) {
+      logEvent(AnalyticsEvents.MOCK_EXAM_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[0].id,
+        total_steps: progress.steps.length,
+      });
+      progress.steps[0].startTime = Date.now();
+      logEvent(AnalyticsEvents.MOCK_EXAM_STEP_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[0].id,
+        step_index: 0,
+      });
+      await saveMockExamProgress(progress);
+    }
   } catch (error) {
     console.error('Error updating step progress:', error);
     throw error;

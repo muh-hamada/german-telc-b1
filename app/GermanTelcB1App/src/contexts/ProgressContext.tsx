@@ -3,6 +3,7 @@ import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import StorageService from '../services/storage.service';
 import firebaseProgressService from '../services/firebase-progress.service';
 import { AuthContext } from './AuthContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 // Progress Context Types
 interface ProgressState {
@@ -265,6 +266,16 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
             type: 'UPDATE_EXAM_PROGRESS',
             payload: { examType, examId, answers, score, maxScore },
           });
+
+          // Log practice exam completed
+          logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+            section: examType.split('-')[0],
+            part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+            exam_id: examId,
+            score: score || 0,
+            max_score: maxScore || 0,
+            percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
+          });
           
           dispatch({ type: 'SET_LOADING', payload: false });
           return true;
@@ -285,6 +296,16 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           dispatch({
             type: 'UPDATE_EXAM_PROGRESS',
             payload: { examType, examId, answers, score, maxScore },
+          });
+
+          // Log practice exam completed
+          logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+            section: examType.split('-')[0],
+            part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+            exam_id: examId,
+            score: score || 0,
+            max_score: maxScore || 0,
+            percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
           });
           
           dispatch({ type: 'SET_LOADING', payload: false });

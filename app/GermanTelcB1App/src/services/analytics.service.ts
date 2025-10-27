@@ -25,19 +25,71 @@ interface AnalyticsParams {
 
 class AnalyticsService {
   private isEnabled: boolean;
+  private recentEvents: Map<string, number>;
+  private readonly dedupeWindowMs = 750; // drop exact duplicates within this window
 
   constructor() {
     this.isEnabled = ANALYTICS_ENABLED;
+    this.recentEvents = new Map();
     
     if (!this.isEnabled) {
       console.log('[Analytics] Disabled in development mode');
     }
   }
 
+  private stableKey(obj: any): string {
+    if (!obj || typeof obj !== 'object') return '';
+    const replacer = (_key: string, value: any) => {
+      // Remove volatile fields from dedupe key
+      if (typeof value === 'object' && value !== null) return value;
+      return value;
+    };
+    const sorted = (input: any): any => {
+      if (Array.isArray(input)) return input.map(sorted);
+      if (input && typeof input === 'object') {
+        const out: any = {};
+        Object.keys(input)
+          .filter(k => k !== 'ts')
+          .sort()
+          .forEach(k => {
+            out[k] = sorted(input[k]);
+          });
+        return out;
+      }
+      return input;
+    };
+    try {
+      return JSON.stringify(sorted(obj), replacer);
+    } catch (_e) {
+      return '';
+    }
+  }
+
+  private shouldLog(eventName: string, params?: AnalyticsParams): boolean {
+    const key = `${eventName}|${this.stableKey(params)}`;
+    const now = Date.now();
+    const last = this.recentEvents.get(key) || 0;
+    if (now - last < this.dedupeWindowMs) {
+      return false;
+    }
+    this.recentEvents.set(key, now);
+    // Periodically prune old entries
+    if (this.recentEvents.size > 200) {
+      const cutoff = now - this.dedupeWindowMs * 4;
+      for (const [k, t] of this.recentEvents.entries()) {
+        if (t < cutoff) this.recentEvents.delete(k);
+      }
+    }
+    return true;
+  }
+
   /**
    * Log a custom event
    */
   logEvent(eventName: string, params?: AnalyticsParams): void {
+    if (!this.shouldLog(eventName, params)) {
+      return;
+    }
     if (!this.isEnabled) {
       console.log(`[Analytics] (DEV) Event: ${eventName}`, params);
       return;
@@ -59,6 +111,9 @@ class AnalyticsService {
    * Log screen view
    */
   logScreenView(screenName: string, screenClass?: string): void {
+    if (!this.shouldLog('screen_view', { screen_name: screenName, screen_class: screenClass })) {
+      return;
+    }
     if (!this.isEnabled) {
       console.log(`[Analytics] (DEV) Screen View: ${screenName}`);
       return;

@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart2Exam } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface LanguagePart2UIProps {
   exam: GrammarPart2Exam;
@@ -30,6 +31,12 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     }));
     setSelectedGap(null);
     setShowWordBank(false);
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'grammar',
+      part: 2,
+      exam_id: exam.id,
+      question_id: gapId,
+    });
   };
 
   const getSelectedWordText = (gapId: number): string => {
@@ -91,6 +98,13 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
       if (userAnswer === correctAnswer) {
         correctCount++;
       }
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'grammar',
+        part: 2,
+        exam_id: exam.id,
+        question_id: gapId,
+        is_correct: userAnswer === correctAnswer,
+      });
     });
 
     const score = (correctCount / gapIds.length) * 15;

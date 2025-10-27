@@ -27,6 +27,7 @@ import {
 } from '../../services/openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface WritingAssessment {
   overallScore: number;
@@ -96,6 +97,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       RewardedAdEventType.EARNED_REWARD,
       reward => {
         console.log('User earned reward:', reward);
+        logEvent(AnalyticsEvents.REWARDED_AD_EARNED_REWARD, { ad_unit_id: REWARDED_AD_UNIT_ID });
         // Proceed with evaluation after ad is watched
         const evaluationType = pendingEvaluationTypeRef.current;
         console.log('Pending evaluation type:', evaluationType);
@@ -109,6 +111,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
       console.log('Rewarded ad closed');
+      logEvent(AnalyticsEvents.REWARDED_AD_CLOSED, { ad_unit_id: REWARDED_AD_UNIT_ID });
       // Reset pending evaluation
       setPendingEvaluationType(null);
       pendingEvaluationTypeRef.current = null;
@@ -119,6 +122,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     const unsubscribeError = ad.addAdEventListener(AdEventType.ERROR, error => {
       console.error('Rewarded ad error:', error);
+      logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: String((error as any)?.code || 'unknown') });
       setIsAdLoaded(false);
       // Retry loading after a delay
       setTimeout(() => {
@@ -255,6 +259,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     if (SKIP_REWARDED_ADS) {
       await proceedWithImageEvaluation();
     } else {
+      logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
       setShowRewardedAdModal(true);
     }
   };
@@ -342,6 +347,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     if (SKIP_REWARDED_ADS) {
       await proceedWithTextEvaluation();
     } else {
+      logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
       setShowRewardedAdModal(true);
     }
   };
@@ -369,8 +375,10 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setLastEvaluatedAnswer(userAnswer);
       setAssessment(result);
       setIsResultsModalOpen(true);
+      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore, max_score: result.maxScore });
     } catch (error) {
       console.error('Evaluation error:', error);
+      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { error_code: error instanceof Error ? error.message : 'unknown' });
       Alert.alert(
         t('writing.alerts.evaluationError'),
         error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
@@ -408,9 +416,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setShowRewardedAdModal(false);
 
     try {
+      logEvent(AnalyticsEvents.REWARDED_AD_OPENED, { ad_unit_id: REWARDED_AD_UNIT_ID });
       rewardedAd.show();
     } catch (error) {
       console.error('Error showing rewarded ad:', error);
+      logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: 'show_failed' });
       Alert.alert(
         t('writing.rewardedAdModal.adLoadingError'),
         '',
@@ -426,6 +436,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setShowRewardedAdModal(false);
     setPendingEvaluationType(null);
     pendingEvaluationTypeRef.current = null;
+    logEvent(AnalyticsEvents.REWARDED_AD_SKIPPED, { reason: 'user_cancelled' });
   };
 
   const handleSubmit = () => {

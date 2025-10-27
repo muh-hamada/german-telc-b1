@@ -35,6 +35,7 @@ import {
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/demo.config';
 import { useTranslation } from 'react-i18next';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -104,15 +105,19 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   const handleExitExam = () => {
+    logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_PROMPT_SHOWN);
     Alert.alert(
       t('mockExam.exitExamTitle'),
       t('mockExam.exitExamMessage'),
       [
-        { text: t('mockExam.stay'), style: 'default', onPress: () => {} },
+        { text: t('mockExam.stay'), style: 'default', onPress: () => logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CANCELLED) },
         {
           text: t('mockExam.exitExamButton'),
           style: 'destructive',
-          onPress: () => navigation.goBack(),
+          onPress: () => {
+            logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CONFIRMED);
+            navigation.goBack();
+          },
         },
       ]
     );

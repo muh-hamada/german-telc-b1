@@ -29,8 +29,8 @@ export type HomeStackParamList = {
   Writing: { examId: number };
   SpeakingMenu: undefined;
   SpeakingPart1: undefined;
-  SpeakingPart2: undefined;
-  SpeakingPart3: undefined;
+  SpeakingPart2: { topicId: number };
+  SpeakingPart3: { scenarioId: number };
   ListeningMenu: undefined;
   ListeningPart1: undefined;
   ListeningPart2: undefined;

@@ -18,6 +18,7 @@ import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const WritingScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -84,6 +85,14 @@ const WritingScreen: React.FC = () => {
   const handleComplete = (score: number) => {
     setExamResult({ score });
     console.log('Writing completed with score:', score);
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+      section: 'writing',
+      part: 1,
+      exam_id: examId,
+      score,
+      max_score: 45,
+      percentage: Math.round((score / 45) * 100),
+    });
   };
 
   if (isLoading) {

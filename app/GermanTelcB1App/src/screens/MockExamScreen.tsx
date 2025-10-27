@@ -22,6 +22,7 @@ import {
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -33,17 +34,24 @@ const MockExamScreen: React.FC = () => {
       const progress = await loadMockExamProgress();
       if (progress && progress.hasStarted && !progress.isCompleted) {
         // Show alert to continue or start new
+        logEvent(AnalyticsEvents.MOCK_EXAM_RESUME_DIALOG_SHOWN, { has_active_exam: true });
         Alert.alert(
           t('mockExam.examInProgress'),
           t('mockExam.resumeOrRestart'),
           [
             {
               text: t('mockExam.resume'),
-              onPress: () => navigation.navigate('MockExamRunning'),
+              onPress: () => {
+                logEvent(AnalyticsEvents.MOCK_EXAM_RESUME_SELECTED);
+                navigation.navigate('MockExamRunning');
+              },
             },
             {
               text: t('mockExam.startNew'),
-              onPress: () => confirmStartNew(),
+              onPress: () => {
+                logEvent(AnalyticsEvents.MOCK_EXAM_START_NEW_SELECTED);
+                confirmStartNew();
+              },
               style: 'destructive',
             },
             {
@@ -85,6 +93,7 @@ const MockExamScreen: React.FC = () => {
 
   const handleStartExam = async () => {
     try {
+      logEvent(AnalyticsEvents.MOCK_EXAM_START_CLICKED);
       // Create and save initial progress
       const initialProgress = await createInitialMockExamProgress();
       await saveMockExamProgress(initialProgress);

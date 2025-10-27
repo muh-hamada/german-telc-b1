@@ -8,6 +8,7 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import TabNavigator from './TabNavigator';
 import MockExamRunningScreen from '../screens/MockExamRunningScreen';
 import { Text } from 'react-native';
+import { logScreenView } from '../services/analytics.events';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -34,7 +35,17 @@ const RootNavigator: React.FC = () => {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      onStateChange={(state) => {
+        try {
+          const route = state?.routes?.[state.index ?? 0];
+          const name = route?.name || 'Unknown';
+          logScreenView(name);
+        } catch (e) {
+          // no-op
+        }
+      }}
+    >
       <Stack.Navigator
         initialRouteName={isFirstLaunch ? 'Onboarding' : 'Main'}
         screenOptions={{

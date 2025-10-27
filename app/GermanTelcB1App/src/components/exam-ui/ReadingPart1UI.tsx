@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart1Exam } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart1UIProps {
   exam: ReadingPart1Exam;
@@ -24,6 +25,13 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
   const handleAnswerSelect = (textId: number, headingIndex: number) => {
     const letter = String.fromCharCode(97 + headingIndex);
     setUserAnswers(prev => ({ ...prev, [textId]: letter }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'reading',
+      part: 1,
+      exam_id: exam.id,
+      question_id: textId,
+      // is_correct not known until submit in this UI
+    });
   };
 
   const handleSubmit = () => {
@@ -65,6 +73,18 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
     });
 
     const score = (correctCount / exam.texts.length) * 25;
+    // Log per-question correctness on submit
+    exam.texts.forEach(text => {
+      const selected = userAnswers[text.id];
+      const isCorrect = selected === text.correct;
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'reading',
+        part: 1,
+        exam_id: exam.id,
+        question_id: text.id,
+        is_correct: !!isCorrect,
+      });
+    });
     onComplete(Math.round(score));
   };
 

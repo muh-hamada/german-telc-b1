@@ -18,6 +18,7 @@ import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface Topic {
   id: number;
@@ -76,6 +77,7 @@ const SpeakingPart2Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 2, exam_id: topicId, completed: newStatus });
       Alert.alert(
         t('common.success'),
         newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')

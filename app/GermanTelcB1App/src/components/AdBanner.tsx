@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -15,6 +16,8 @@ interface AdBannerProps {
    * Optional style to apply to the container
    */
   style?: any;
+  /** Optional screen identifier to attach to analytics */
+  screen?: string;
 }
 
 /**
@@ -22,7 +25,7 @@ interface AdBannerProps {
  * Displays a Google AdMob banner ad
  * Uses test ads in development and should use real ads in production
  */
-const AdBanner: React.FC<AdBannerProps> = ({ style }) => {
+const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   return (
     <View style={[styles.container, style]}>
       <BannerAd
@@ -36,9 +39,11 @@ const AdBanner: React.FC<AdBannerProps> = ({ style }) => {
         }}
         onAdLoaded={() => {
           console.log('Banner ad loaded');
+          logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen });
         }}
         onAdFailedToLoad={(error) => {
           console.error('Banner ad failed to load:', error);
+          logEvent(AnalyticsEvents.BANNER_AD_FAILED, { screen, error_code: String((error as any)?.code || 'unknown') });
         }}
       />
     </View>

@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart3Exam } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart3UIProps {
   exam: ReadingPart3Exam;
@@ -26,6 +27,12 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
       ...prev,
       [situationId]: adKey,
     }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'reading',
+      part: 3,
+      exam_id: exam.id,
+      question_id: situationId,
+    });
   };
 
   const handleSubmit = () => {
@@ -49,6 +56,13 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
       if (isCorrect) {
         correctCount++;
       }
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'reading',
+        part: 3,
+        exam_id: exam.id,
+        question_id: situation.id,
+        is_correct: !!isCorrect,
+      });
     });
 
     const score = (correctCount / exam.situations.length) * 25;

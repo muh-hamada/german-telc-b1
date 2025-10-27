@@ -18,6 +18,7 @@ import { HIDE_ADS } from '../config/demo.config';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { MainTabParamList } from '../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -29,10 +30,12 @@ const HomeScreen: React.FC = () => {
   const { t } = useTranslation();
 
   const handleExamStructurePress = () => {
+    logEvent(AnalyticsEvents.EXAM_STRUCTURE_OPENED);
     navigation.navigate('ExamStructure');
   };
 
   const handlePracticePress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
     navigation.navigate('PracticeMenu');
   };
 

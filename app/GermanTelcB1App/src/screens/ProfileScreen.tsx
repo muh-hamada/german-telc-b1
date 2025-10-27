@@ -26,6 +26,7 @@ import { useCompletion } from '../contexts/CompletionContext';
 import { DEMO_MODE } from '../config/demo.config';
 import { checkRTLChange } from '../utils/i18n';
 import { MainTabParamList } from '../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const ProfileScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -41,19 +42,22 @@ const ProfileScreen: React.FC = () => {
   useEffect(() => {
     if (route.params?.openLoginModal && !user) {
       setShowLoginModal(true);
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_MODAL_OPENED);
     }
   }, [route.params?.openLoginModal, user]);
 
   const handleClearProgress = () => {
+    logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_PROMPT_SHOWN);
     Alert.alert(
       t('profile.alerts.clearProgressTitle'),
       t('profile.alerts.clearProgressMessage'),
       [
-        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel', onPress: () => logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_CANCELLED) },
         {
           text: t('profile.alerts.clear'),
           style: 'destructive',
           onPress: async () => {
+            logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_CONFIRMED);
             setIsClearing(true);
             const success = await clearUserProgress();
             setIsClearing(false);
@@ -70,11 +74,13 @@ const ProfileScreen: React.FC = () => {
   };
 
   const handleLanguageChange = () => {
+    logEvent(AnalyticsEvents.LANGUAGE_CHANGE_OPENED);
     setShowLanguageModal(true);
   };
 
   const handleLanguageSelect = async (languageCode: string) => {
     try {
+      logEvent(AnalyticsEvents.LANGUAGE_CHANGED, { to: languageCode });
       const needsRestart = checkRTLChange(languageCode);
       await i18n.changeLanguage(languageCode);
       
@@ -113,17 +119,19 @@ const ProfileScreen: React.FC = () => {
   };
 
   const handleSignOut = () => {
+    logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_PROMPT_SHOWN);
     Alert.alert(
       t('profile.alerts.signOutTitle'),
       t('profile.alerts.signOutMessage'),
       [
-        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel', onPress: () => logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_CANCELLED) },
         {
           text: t('profile.signOut'),
           style: 'destructive',
           onPress: async () => {
             try {
               await signOut();
+              logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_CONFIRMED);
               Alert.alert(t('common.success'), t('profile.alerts.signedOut'));
             } catch (error) {
               Alert.alert(t('common.error'), t('profile.alerts.signOutFailed'));
@@ -136,10 +144,12 @@ const ProfileScreen: React.FC = () => {
 
   const handleLoginSuccess = () => {
     setShowLoginModal(false);
+    logEvent(AnalyticsEvents.PROFILE_LOGIN_SUCCESS);
     Alert.alert(t('common.success'), t('profile.alerts.signedInSuccess'));
   };
 
   const handleLoginFailure = () => {
+    logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED);
     Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
   };
 
@@ -192,7 +202,7 @@ const ProfileScreen: React.FC = () => {
             title={t('profile.clearProgress')}
             onPress={handleClearProgress}
             variant="outline"
-            style={[styles.settingButton, styles.dangerButton]}
+            style={{ ...styles.settingButton, ...styles.dangerButton }}
             disabled={isClearing || isLoading}
           />
         </View>
@@ -206,7 +216,7 @@ const ProfileScreen: React.FC = () => {
               title={t('profile.signOut')}
               onPress={handleSignOut}
               variant="outline"
-              style={[styles.settingButton, styles.dangerButton]}
+              style={{ ...styles.settingButton, ...styles.dangerButton }}
               disabled={authLoading}
             />
           ) : (

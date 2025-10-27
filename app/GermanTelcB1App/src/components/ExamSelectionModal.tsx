@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
 import { useCompletion } from '../contexts/CompletionContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface Exam {
   id: number;
@@ -54,12 +55,17 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
     onClose();
   };
 
+  const handleClose = (reason: 'user' | 'system') => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_CLOSED, { section: examType, part: partNumber, reason });
+    onClose();
+  };
+
   return (
     <Modal
       visible={visible}
       transparent={true}
       animationType="fade"
-      onRequestClose={onClose}
+      onRequestClose={() => handleClose('system')}
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
@@ -68,7 +74,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
               {title || t('exam.selectExam')}
             </Text>
             <TouchableOpacity
-              onPress={onClose}
+              onPress={() => handleClose('user')}
               style={styles.closeButton}
             >
               <Text style={styles.closeButtonText}>✕</Text>

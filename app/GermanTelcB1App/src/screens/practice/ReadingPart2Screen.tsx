@@ -20,6 +20,7 @@ import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ReadingPart2Screen: React.FC = () => {
   const { t } = useTranslation();
@@ -60,6 +61,7 @@ const ReadingPart2Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(examResult?.score || 0);
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'reading', part: 2, exam_id: examId, completed: newStatus });
       Alert.alert(
         t('common.success'),
         newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')

@@ -14,6 +14,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -28,29 +29,37 @@ const PracticeMenuScreen: React.FC = () => {
       setWritingExams(exams);
     };
     loadWritingExams();
+    // Section opened
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
   }, []);
 
   const handleReadingPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
     navigation.navigate('ReadingMenu');
   };
 
   const handleListeningPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' });
     navigation.navigate('ListeningMenu');
   };
 
   const handleWritingPress = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });
     setShowWritingModal(true);
   };
 
   const handleSelectWritingExam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
     navigation.navigate('Writing', { examId });
   };
 
   const handleSpeakingPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
     navigation.navigate('SpeakingMenu');
   };
 
   const handleGrammarPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
     navigation.navigate('GrammarMenu');
   };
 

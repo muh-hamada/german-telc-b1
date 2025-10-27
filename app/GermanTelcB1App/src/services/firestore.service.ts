@@ -1,4 +1,4 @@
-import firestore from '@react-native-firebase/firestore';
+import firestore, { Timestamp } from '@react-native-firebase/firestore';
 import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import { User } from './auth.service';
 
@@ -18,8 +18,8 @@ class FirestoreService {
         displayName: user.displayName,
         photoURL: user.photoURL,
         provider: user.provider,
-        createdAt: firestore.Timestamp.fromDate(user.createdAt),
-        lastLoginAt: firestore.Timestamp.fromDate(user.lastLoginAt),
+        createdAt: Timestamp.fromDate(user.createdAt),
+        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
         preferences: {
           language: 'en',
           notifications: true,
@@ -32,7 +32,7 @@ class FirestoreService {
           totalMaxScore: 0,
           averageScore: 0,
           streak: 0,
-          lastActivity: firestore.Timestamp.fromDate(new Date()),
+          lastActivity: Timestamp.fromDate(new Date()),
         },
       };
 
@@ -71,7 +71,7 @@ class FirestoreService {
         .doc(uid)
         .update({
           ...updates,
-          lastUpdated: firestore.Timestamp.fromDate(new Date()),
+          lastUpdated: Timestamp.fromDate(new Date()),
         });
     } catch (error) {
       console.error('Error updating user profile:', error);
@@ -92,10 +92,10 @@ class FirestoreService {
 
       const progressData = {
         ...safeProgress,
-        lastUpdated: firestore.Timestamp.fromDate(new Date(safeProgress.lastUpdated)),
+        lastUpdated: Timestamp.fromDate(new Date(safeProgress.lastUpdated)),
         exams: safeProgress.exams.map(exam => ({
           ...exam,
-          lastAttempt: firestore.Timestamp.fromDate(
+          lastAttempt: Timestamp.fromDate(
             new Date(typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now())
           ),
         })),
@@ -161,7 +161,7 @@ class FirestoreService {
     maxScore?: number
   ): Promise<void> {
     try {
-      const now = firestore.Timestamp.fromDate(new Date());
+      const now = Timestamp.fromDate(new Date());
       
       // Update progress document
       const progressRef = firestore()
@@ -247,7 +247,7 @@ class FirestoreService {
         score: score || 0,
         maxScore: maxScore || 0,
         percentage: maxScore && maxScore > 0 ? Math.round((score || 0) / maxScore * 100) : 0,
-        completedAt: firestore.Timestamp.fromDate(new Date()),
+        completedAt: Timestamp.fromDate(new Date()),
       };
 
       await firestore()
@@ -288,7 +288,7 @@ class FirestoreService {
         .update({
           stats: {
             ...stats,
-            lastActivity: firestore.Timestamp.fromDate(new Date()),
+            lastActivity: Timestamp.fromDate(new Date()),
           },
         });
     } catch (error) {

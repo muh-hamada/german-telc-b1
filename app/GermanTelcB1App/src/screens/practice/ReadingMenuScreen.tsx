@@ -3,9 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -15,6 +15,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ReadingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -38,34 +39,41 @@ const ReadingMenuScreen: React.FC = () => {
       setPart3Exams(p3);
     };
     loadExams();
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
   }, []);
 
   const handlePart1Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 1 });
     setShowPart1Modal(true);
   };
 
   const handlePart2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 2 });
     setShowPart2Modal(true);
   };
 
   const handlePart3Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 3 });
     setShowPart3Modal(true);
   };
 
   const handleSelectPart1Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
     navigation.navigate('ReadingPart1', { examId });
   };
 
   const handleSelectPart2Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
     navigation.navigate('ReadingPart2', { examId });
   };
 
   const handleSelectPart3Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
     navigation.navigate('ReadingPart3', { examId });
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part1')}</Text>

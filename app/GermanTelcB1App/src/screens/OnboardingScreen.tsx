@@ -11,6 +11,7 @@ import LanguageSelector from '../components/LanguageSelector';
 import i18n from '../utils/i18n';
 import AdBanner from '../components/AdBanner';
 import { DEMO_MODE } from '../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 
@@ -22,10 +23,12 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
     setSelectedLanguage(lang);
+    logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: lang });
   };
 
   const handleGoPress = async () => {
     try {
+      logEvent(AnalyticsEvents.ONBOARDING_GO_PRESSED, { first_launch: true });
       await AsyncStorage.setItem('hasLaunched', 'true');
       navigation.reset({
         index: 0,

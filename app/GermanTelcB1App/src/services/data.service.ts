@@ -76,7 +76,10 @@ class DataService {
         .doc(docId)
         .get();
 
-      if (docSnapshot.exists) {
+      const exists = typeof (docSnapshot as any).exists === 'function'
+        ? (docSnapshot as any).exists()
+        : (docSnapshot as any).exists;
+      if (exists) {
         const firestoreData = docSnapshot.data();
         const data = firestoreData?.data || firestoreData || fallbackData;
         

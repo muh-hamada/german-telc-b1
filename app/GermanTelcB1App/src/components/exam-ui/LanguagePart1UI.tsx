@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart1Exam } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface LanguagePart1UIProps {
   exam: GrammarPart1Exam;
@@ -26,6 +27,12 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
       ...prev,
       [questionId]: answerIndex,
     }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'grammar',
+      part: 1,
+      exam_id: exam.id,
+      question_id: questionId,
+    });
   };
 
   const renderTextWithGaps = () => {
@@ -72,6 +79,13 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
       if (isCorrect) {
         correctCount++;
       }
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'grammar',
+        part: 1,
+        exam_id: exam.id,
+        question_id: question.id,
+        is_correct: !!isCorrect,
+      });
     });
 
     const score = (correctCount / exam.questions.length) * 15;

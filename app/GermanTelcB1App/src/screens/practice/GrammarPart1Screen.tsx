@@ -3,10 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -20,6 +20,7 @@ import LanguagePart1UI from '../../components/exam-ui/LanguagePart1UI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const GrammarPart1Screen: React.FC = () => {
   const { t } = useTranslation();
@@ -60,6 +61,7 @@ const GrammarPart1Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(examResult?.score || 0);
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'grammar', part: 1, exam_id: examId, completed: newStatus });
       Alert.alert(
         t('common.success'),
         newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
@@ -121,7 +123,7 @@ const GrammarPart1Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
@@ -132,7 +134,7 @@ const GrammarPart1Screen: React.FC = () => {
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
