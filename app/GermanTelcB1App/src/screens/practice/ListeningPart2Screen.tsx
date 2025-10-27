@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
-  SafeAreaView,
   View,
   ActivityIndicator,
   Text,
@@ -11,6 +10,7 @@ import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface Statement {
   id: number;
@@ -54,9 +54,9 @@ const ListeningPart2Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
       </SafeAreaView>
     );
@@ -64,7 +64,7 @@ const ListeningPart2Screen: React.FC = () => {
 
   if (error || !listeningData) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
         </View>
@@ -77,7 +77,7 @@ const ListeningPart2Screen: React.FC = () => {
   const currentExam = exams[0];
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ListeningPart2UI 
         exam={currentExam} 
         sectionDetails={sectionDetails}

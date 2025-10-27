@@ -64,7 +64,7 @@ const PracticeMenuScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handleReadingPress}>
           <Text style={styles.cardTitle}>{t('practice.reading.title')}</Text>

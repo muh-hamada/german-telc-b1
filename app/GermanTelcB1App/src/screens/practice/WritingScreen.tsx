@@ -97,7 +97,7 @@ const WritingScreen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.loadingExam')}</Text>
         </View>
@@ -108,7 +108,7 @@ const WritingScreen: React.FC = () => {
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
@@ -118,7 +118,7 @@ const WritingScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <WritingUI exam={currentExam} onComplete={handleComplete} />
       {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>

@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
 } from 'react-native';
@@ -21,6 +20,7 @@ import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ReadingPart3Screen: React.FC = () => {
   const { t } = useTranslation();
@@ -123,7 +123,7 @@ const ReadingPart3Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
@@ -134,7 +134,7 @@ const ReadingPart3Screen: React.FC = () => {
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
@@ -144,7 +144,7 @@ const ReadingPart3Screen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ReadingPart3UI exam={currentExam} onComplete={handleComplete} />
 
       <ResultsModal

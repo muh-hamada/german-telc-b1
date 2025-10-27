@@ -144,7 +144,7 @@ const GrammarPart1Screen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <LanguagePart1UI exam={currentExam} onComplete={handleComplete} />
 
       <ResultsModal

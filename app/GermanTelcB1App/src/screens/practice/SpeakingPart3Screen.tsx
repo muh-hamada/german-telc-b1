@@ -116,9 +116,9 @@ const SpeakingPart3Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
       </SafeAreaView>
     );
@@ -126,7 +126,7 @@ const SpeakingPart3Screen: React.FC = () => {
 
   if (!currentScenario) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>Failed to load speaking data</Text>
         </View>
@@ -217,7 +217,7 @@ const SpeakingPart3Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.mainCard}>
           <View style={styles.headerContainer}>
