@@ -78,10 +78,10 @@ const SpeakingPart2Screen: React.FC = () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
       logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 2, exam_id: topicId, completed: newStatus });
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
+      // Alert.alert(
+      //   t('common.success'),
+      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      // );
     } catch (error: any) {
       if (error.message === 'auth/not-logged-in') {
         Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));

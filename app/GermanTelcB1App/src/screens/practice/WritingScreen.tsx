@@ -69,10 +69,20 @@ const WritingScreen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(examResult?.score || 0);
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
+      // The alert doesn't add much value, so we'll just log the event
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, {
+        section: 'writing',
+        part: 1,
+        exam_id: examId,
+        completed: newStatus,
+        score: examResult?.score || 0,
+        max_score: 45,
+        percentage: Math.round((examResult?.score || 0 / 45) * 100),
+      });
+      // Alert.alert(
+      //   t('common.success'),
+      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      // );
     } catch (error: any) {
       if (error.message === 'auth/not-logged-in') {
         Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));

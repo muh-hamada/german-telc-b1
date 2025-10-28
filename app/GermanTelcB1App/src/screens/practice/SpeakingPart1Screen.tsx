@@ -18,6 +18,7 @@ import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HIDE_ADS } from '../../config/demo.config';
 
 interface PersonalInfo {
@@ -93,10 +94,11 @@ const SpeakingPart1Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 1, exam_id: 0, completed: newStatus });
+      // Alert.alert(
+      //   t('common.success'),
+      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      // );
     } catch (error: any) {
       if (error.message === 'auth/not-logged-in') {
         Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));

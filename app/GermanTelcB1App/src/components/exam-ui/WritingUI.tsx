@@ -81,6 +81,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
   const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
+  const capturedImageUriRef = useRef<string | null>(null);
+  const capturedImageBase64Ref = useRef<string | null>(null);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -221,11 +223,15 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         if (imageUri && imageBase64) {
           setCapturedImageUri(imageUri);
           setCapturedImageBase64(imageBase64);
+          capturedImageUriRef.current = imageUri;
+          capturedImageBase64Ref.current = imageBase64;
           setIsImagePreviewModalOpen(true);
         } else if (imageUri) {
           // Fallback if base64 is not available
           setCapturedImageUri(imageUri);
           setCapturedImageBase64(null);
+          capturedImageUriRef.current = imageUri;
+          capturedImageBase64Ref.current = null;
           setIsImagePreviewModalOpen(true);
         } else {
           Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.imageLoadError'));
@@ -271,18 +277,22 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     try {
       let result: WritingAssessment;
 
+      // Use ref values which persist even if state is lost during ad display
+      const imageBase64 = capturedImageBase64Ref.current;
+      const imageUri = capturedImageUriRef.current;
+
       if (isOpenAIConfigured()) {
         // Use base64 if available, otherwise use URI
-        if (capturedImageBase64) {
+        if (imageBase64) {
           result = await evaluateWritingWithImage({
-            imageBase64: capturedImageBase64,
+            imageBase64: imageBase64,
             incomingEmail: exam.incomingEmail,
             writingPoints: exam.writingPoints,
             examTitle: exam.title,
           });
-        } else if (capturedImageUri) {
+        } else if (imageUri) {
           result = await evaluateWritingWithImage({
-            imageUri: capturedImageUri,
+            imageUri: imageUri,
             incomingEmail: exam.incomingEmail,
             writingPoints: exam.writingPoints,
             examTitle: exam.title,
@@ -296,7 +306,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         result = getMockAssessment();
       }
 
-      setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
+      setLastEvaluatedAnswer(`[IMAGE:${imageUri}]`);
       setAssessment(result);
       setIsResultsModalOpen(true);
     } catch (error) {
@@ -309,7 +319,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
             text: t('writing.alerts.useMockData'),
             onPress: () => {
               const mockResult = getMockAssessment();
-              setLastEvaluatedAnswer(`[IMAGE:${capturedImageUri}]`);
+              setLastEvaluatedAnswer(`[IMAGE:${capturedImageUriRef.current}]`);
               setAssessment(mockResult);
               setIsUsingCachedResult(false); // This is not cached, it's a fresh mock evaluation
               setIsResultsModalOpen(true);
@@ -671,6 +681,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                   setIsImagePreviewModalOpen(false);
                   setCapturedImageUri(null);
                   setCapturedImageBase64(null);
+                  capturedImageUriRef.current = null;
+                  capturedImageBase64Ref.current = null;
                 }}
               >
                 <Text style={styles.cancelImageButtonText}>{t('writing.imagePreview.cancelButton')}</Text>
