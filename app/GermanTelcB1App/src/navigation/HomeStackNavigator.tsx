@@ -47,6 +47,7 @@ const HomeStackNavigator: React.FC = () => {
       fontSize: 18,
     },
     headerBackTitleVisible: false,
+    headerBackTitle: ' ', // This ensures no text appears next to back button on iOS
     headerTitleAlign: 'center' as 'center',
   };
 

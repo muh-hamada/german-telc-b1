@@ -45,8 +45,5 @@
 	<array/>
 	<key>NSPrivacyTracking</key>
 	<false/>
-	<key>NSPrivacyTrackingDomains</key>
-	<string>Module map file '/Users/mham/Library/Developer/Xcode/DerivedData/GermanTelcB1App-aburgpgmmdpmiqhgzlqddhvyywpx/Build/Products/Debug-iphonesimulator/FirebaseFirestore/FirebaseFirestore.modulemap' not found
-</string>
 </dict>
 </plist>

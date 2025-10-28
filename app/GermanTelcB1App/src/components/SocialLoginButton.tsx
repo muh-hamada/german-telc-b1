@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator, I18nManager } from 'react-native';
 import { colors, spacing, typography } from '../theme';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface SocialLoginButtonProps {
   provider: 'google' | 'facebook' | 'apple' | 'twitter';
@@ -43,7 +44,7 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
           title: 'Continue with Apple',
           backgroundColor: colors.text.primary,
           textColor: colors.white,
-          icon: '🍎',
+          icon: <Icon name="apple" size={20} color={colors.white} />
         };
       default:
         return {
