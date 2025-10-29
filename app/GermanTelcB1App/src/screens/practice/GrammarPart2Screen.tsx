@@ -92,34 +92,27 @@ const GrammarPart2Screen: React.FC = () => {
     }
   };
 
-  const handleComplete = (score: number) => {
+  const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const percentage = Math.round((score / 15) * 100);
+    const totalQuestions = Object.keys(currentExam.answers).length;
+    const percentage = Math.round((score / totalQuestions) * 100);
     
     const result: ExamResult = {
       examId: examId,
       score,
-      maxScore: 15,
+      maxScore: totalQuestions,
       percentage,
       correctAnswers: score,
-      totalQuestions: Object.keys(currentExam.answers).length,
-      answers: [],
+      totalQuestions: totalQuestions,
+      answers: answers,
       timestamp: Date.now(),
     };
 
     setExamResult(result);
     setShowResults(true);
 
-    const gapIds = Object.keys(currentExam.answers).map(Number);
-    const userAnswersArray: UserAnswer[] = gapIds.map(gapId => ({
-      questionId: gapId,
-      answer: '',
-      isCorrect: false,
-      timestamp: Date.now(),
-    }));
-
-    updateExamProgress('grammar-part2', examId, userAnswersArray, score, 15);
+    updateExamProgress('grammar-part2', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {

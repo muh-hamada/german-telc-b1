@@ -13,7 +13,7 @@ export const DEMO_MODE = false; // Set to false for production
 
 export const HIDE_ADS = true; // Set to false for production
 
-export const SKIP_REWARDED_ADS = false; // Set to false for production
+export const SKIP_REWARDED_ADS = true; // Set to false for production
 
 /**
  * Demo progress statistics shown in ProgressCard

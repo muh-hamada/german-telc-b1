@@ -10,12 +10,12 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
-import { GrammarPart2Exam } from '../../types/exam.types';
+import { GrammarPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface LanguagePart2UIProps {
   exam: GrammarPart2Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) => {
@@ -92,23 +92,32 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     gapIds.forEach(gapId => {
       const userAnswer = userAnswers[gapId] || '';
       const correctAnswer = exam.answers[gapId.toString()];
-      if (userAnswer === correctAnswer) {
+      const isCorrect = userAnswer === correctAnswer;
+      if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: gapId,
+        answer: userAnswer,
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswer,
+      });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'grammar',
         part: 2,
         exam_id: exam.id,
         question_id: gapId,
-        is_correct: userAnswer === correctAnswer,
+        is_correct: isCorrect,
       });
     });
 
-    const score = (correctCount / gapIds.length) * 15;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   const gapIds = Object.keys(exam.answers).map(Number);

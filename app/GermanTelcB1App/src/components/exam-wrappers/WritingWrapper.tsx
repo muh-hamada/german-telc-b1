@@ -3,11 +3,11 @@ import { View, StyleSheet, Text } from 'react-native';
 import { colors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import WritingUI from '../exam-ui/WritingUI';
-import { WritingExam } from '../../types/exam.types';
+import { UserAnswer, WritingExam } from '../../types/exam.types';
 
 interface WritingWrapperProps {
   testId: number;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, onComplete }) => {

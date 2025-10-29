@@ -14,17 +14,19 @@ import { useTranslation } from 'react-i18next';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
-import { WritingExam } from '../../types/exam.types';
+import { ExamResult, WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useProgress } from '../../contexts/ProgressContext';
 
 const WritingScreen: React.FC = () => {
   const { t } = useTranslation();
   const route = useRoute<HomeStackRouteProp<'Writing'>>();
   const navigation = useNavigation();
   const examId = route.params?.examId ?? 0;
+  const { updateExamProgress } = useProgress();
   
   const { isCompleted, toggleCompletion } = useExamCompletion('writing', 1, examId);
   
@@ -79,10 +81,6 @@ const WritingScreen: React.FC = () => {
         max_score: 45,
         percentage: Math.round((examResult?.score || 0 / 45) * 100),
       });
-      // Alert.alert(
-      //   t('common.success'),
-      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      // );
     } catch (error: any) {
       if (error.message === 'auth/not-logged-in') {
         Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
@@ -93,16 +91,19 @@ const WritingScreen: React.FC = () => {
   };
 
   const handleComplete = (score: number) => {
-    setExamResult({ score });
-    console.log('Writing completed with score:', score);
+    const maxScore = 45;
+    const percentage = Math.round((score / maxScore) * 100);
+
     logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
       section: 'writing',
       part: 1,
       exam_id: examId,
       score,
-      max_score: 45,
-      percentage: Math.round((score / 45) * 100),
+      max_score: maxScore,
+      percentage: percentage,
     });
+
+    updateExamProgress('writing', examId, [], score, maxScore);
   };
 
   if (isLoading) {

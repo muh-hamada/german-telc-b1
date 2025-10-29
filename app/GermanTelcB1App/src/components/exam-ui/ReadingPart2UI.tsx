@@ -10,12 +10,12 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
-import { ReadingPart2Exam } from '../../types/exam.types';
+import { ReadingPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart2UIProps {
   exam: ReadingPart2Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => {
@@ -50,12 +50,21 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.questions.forEach(question => {
       const userAnswerIndex = userAnswers[question.id];
-      const isCorrect = question.answers[userAnswerIndex]?.correct === true;
+      const correctAnswerIndex = question.answers.findIndex(a => a.correct === true);
+      const isCorrect = userAnswerIndex === correctAnswerIndex;
       if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: question.id,
+        answer: question.answers[userAnswerIndex]?.text || '',
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswerIndex !== -1 ? question.answers[correctAnswerIndex]?.text : undefined,
+      });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'reading',
         part: 2,
@@ -65,8 +74,8 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
       });
     });
 
-    const score = (correctCount / exam.questions.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   return (

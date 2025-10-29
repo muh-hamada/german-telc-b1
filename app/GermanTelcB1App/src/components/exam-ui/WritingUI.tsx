@@ -18,7 +18,7 @@ import {
 import { launchCamera } from 'react-native-image-picker';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
-import { WritingExam } from '../../types/exam.types';
+import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
   evaluateWriting,
   evaluateWritingWithImage,
@@ -28,6 +28,10 @@ import {
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/demo.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+
+// In the Telc exam, the initiatial evaluation if from 15
+// Then we multiply by 3 to reach a max score of 45
+const SCORE_MULTIPLIER = 3;
 
 interface WritingAssessment {
   overallScore: number;
@@ -52,7 +56,7 @@ interface WritingAssessment {
 
 interface WritingUIProps {
   exam: WritingExam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
   isMockExam?: boolean; // Optional flag to indicate if this is part of a mock exam
 }
 
@@ -385,7 +389,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setLastEvaluatedAnswer(userAnswer);
       setAssessment(result);
       setIsResultsModalOpen(true);
-      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore, max_score: result.maxScore });
+      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
     } catch (error) {
       console.error('Evaluation error:', error);
       logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { error_code: error instanceof Error ? error.message : 'unknown' });
@@ -459,7 +463,16 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       return;
     }
 
-    onComplete(assessment.overallScore);
+    const answers: UserAnswer[] = [];
+    answers.push({
+      questionId: 0,
+      answer: assessment.userInput,
+      isCorrect: true, // Writing is always correct
+      timestamp: Date.now(),
+      correctAnswer: undefined, // No correct answer for writing
+    });
+
+    onComplete(assessment.overallScore * SCORE_MULTIPLIER, answers);
   };
 
   const getGradeStyle = (grade: 'A' | 'B' | 'C' | 'D') => {
@@ -567,7 +580,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
               <View style={styles.scoreSection}>
                 <Text style={styles.scoreLabel}>{t('writing.evaluation.totalScore')}</Text>
                 <Text style={styles.scoreValue}>
-                  {assessment.overallScore} / {assessment.maxScore}
+                  {assessment.overallScore * SCORE_MULTIPLIER} / {assessment.maxScore * SCORE_MULTIPLIER}
                 </Text>
               </View>
 

@@ -11,6 +11,10 @@ import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { UserAnswer } from '../../types/exam.types';
+import { ExamResult } from '../../types/exam.types';
+import ResultsModal from '../../components/ResultsModal';
+import { useProgress } from '../../contexts/ProgressContext';
 
 interface Statement {
   id: number;
@@ -28,6 +32,13 @@ const ListeningPart1Screen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [examResult, setExamResult] = useState<ExamResult | null>(null);
+  const [showResults, setShowResults] = useState(false);
+  const { updateExamProgress } = useProgress();
+  const sectionDetails = listeningData?.section_details || {};
+  const exams = listeningData?.exams as Exam[] || [];
+  const currentExam = exams[0] || null;
+  const examId = currentExam?.id || -1;
 
   useEffect(() => {
     loadData();
@@ -47,9 +58,27 @@ const ListeningPart1Screen: React.FC = () => {
     }
   };
 
-  const handleComplete = (score: number) => {
-    console.log('Listening Part 1 completed with score:', score);
-    // Note: Progress tracking for practice mode can be added here if needed
+  const handleComplete = (score: number, answers: UserAnswer[]) => {
+    if (!currentExam) return;
+
+    const totalQuestions = currentExam.statements.length;
+    const percentage = Math.round((score / totalQuestions) * 100);
+    
+    const result: ExamResult = {
+      examId: examId,
+      score,
+      maxScore: totalQuestions,
+      percentage,
+      correctAnswers: score,
+      totalQuestions: totalQuestions,
+      answers: answers,
+      timestamp: Date.now(),
+    };
+
+    setExamResult(result);
+    setShowResults(true);
+
+    updateExamProgress('listening-part1', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {
@@ -72,16 +101,18 @@ const ListeningPart1Screen: React.FC = () => {
     );
   }
 
-  const sectionDetails = listeningData.section_details;
-  const exams = listeningData.exams as Exam[];
-  const currentExam = exams[0];
-
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ListeningPart1UI 
         exam={currentExam} 
         sectionDetails={sectionDetails}
         onComplete={handleComplete} 
+      />
+      <ResultsModal
+        visible={showResults}
+        onClose={() => setShowResults(false)}
+        examTitle={`Listening Part 1 - Test ${examId + 1}`}
+        result={examResult}
       />
       {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>

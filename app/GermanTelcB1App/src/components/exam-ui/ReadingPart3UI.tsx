@@ -10,12 +10,12 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
-import { ReadingPart3Exam } from '../../types/exam.types';
+import { ReadingPart3Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart3UIProps {
   exam: ReadingPart3Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => {
@@ -50,12 +50,21 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.situations.forEach(situation => {
       const userAnswer = userAnswers[situation.id];
-      const isCorrect = userAnswer?.toLowerCase() === situation.answer.toLowerCase();
+      const correctAnswer = situation.answer;
+      const isCorrect = userAnswer?.toLowerCase() === correctAnswer.toLowerCase();
       if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: situation.id,
+        answer: userAnswer,
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswer,
+      });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'reading',
         part: 3,
@@ -65,8 +74,8 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
       });
     });
 
-    const score = (correctCount / exam.situations.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   const adKeys = Object.keys(exam.advertisements).sort();

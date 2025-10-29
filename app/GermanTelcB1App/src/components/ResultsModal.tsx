@@ -32,6 +32,8 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   const { t } = useTranslation();
   if (!result) return null;
 
+  console.log('-------------> result', result);
+
   const getScoreColor = (percentage: number): string => {
     if (percentage >= 80) return colors.success[500];
     if (percentage >= 60) return colors.warning[500];
@@ -98,41 +100,46 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
             </View>
 
             {/* Detailed Results */}
-            <View style={styles.detailsContainer}>
-              <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
-              
-              {result.answers.map((answer, index) => (
-                <View
-                  key={index}
-                  style={[
-                    styles.answerRow,
-                    answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
-                  ]}
-                >
-                  <View style={styles.answerHeader}>
-                    <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                    <Text style={[
-                      styles.status,
-                      answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
-                    ]}>
-                      {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
-                    </Text>
-                  </View>
-                  
-                  <View style={styles.answerDetails}>
-                    <Text style={styles.answerLabel}>{t('results.yourAnswer')}</Text>
-                    <Text style={styles.answerText}>{answer.userAnswer}</Text>
-                  </View>
-                  
-                  {!answer.isCorrect && (
-                    <View style={styles.answerDetails}>
-                      <Text style={styles.answerLabel}>{t('results.correctAnswer')}</Text>
-                      <Text style={styles.correctAnswerText}>{answer.correctAnswer}</Text>
+            {result.answers.length > 0 && (
+              <View style={styles.detailsContainer}>
+                <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
+
+                {result.answers.map((answer, index) => (
+                  <View
+                    key={index}
+                    style={[
+                      styles.answerRow,
+                      answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
+                    ]}
+                  >
+                    <View style={styles.answerHeader}>
+                      <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
+                      <Text style={[
+                        styles.status,
+                        answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
+                      ]}>
+                        {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
+                      </Text>
                     </View>
-                  )}
-                </View>
-              ))}
-            </View>
+
+                    {/* <View style={styles.answerDetails}>
+                      <Text style={styles.answerLabel}>{t('results.yourAnswer')}
+                        <Text style={styles.answerText}>{' ' + answer.answer}</Text>
+                      </Text>
+
+                    </View> */}
+
+                    {!answer.isCorrect && answer.correctAnswer && (
+                      <View style={styles.answerDetails}>
+                        <Text style={styles.answerLabel}>{t('results.correctAnswer')}
+                          <Text style={styles.answerText}>{' ' + answer.correctAnswer}</Text>
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </View>
+            )}
 
             {/* Action Buttons */}
             <View style={styles.buttonContainer}>
@@ -255,7 +262,6 @@ const styles = StyleSheet.create({
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.xs,
   },
   questionNumber: {
     ...typography.textStyles.bodySmall,
@@ -273,21 +279,14 @@ const styles = StyleSheet.create({
     color: colors.error[700],
   },
   answerDetails: {
-    marginBottom: spacing.xs,
   },
   answerLabel: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    marginBottom: spacing.xs,
   },
   answerText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
-  },
-  correctAnswerText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.medium,
   },
   buttonContainer: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',

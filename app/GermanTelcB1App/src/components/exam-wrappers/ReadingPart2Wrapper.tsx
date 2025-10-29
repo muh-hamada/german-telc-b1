@@ -3,11 +3,11 @@ import { View, StyleSheet, Text } from 'react-native';
 import { colors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart2UI from '../exam-ui/ReadingPart2UI';
-import { ReadingPart2Exam } from '../../types/exam.types';
+import { ReadingPart2Exam, UserAnswer } from '../../types/exam.types';
 
 interface ReadingPart2WrapperProps {
   testId: number;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart2Wrapper: React.FC<ReadingPart2WrapperProps> = ({ testId, onComplete }) => {

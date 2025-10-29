@@ -92,33 +92,27 @@ const ReadingPart2Screen: React.FC = () => {
     }
   };
 
-  const handleComplete = (score: number) => {
+  const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const percentage = Math.round((score / 25) * 100);
+    const totalQuestions = currentExam.questions.length;
+    const percentage = Math.round((score / totalQuestions) * 100);
     
     const result: ExamResult = {
       examId: examId,
       score,
-      maxScore: 25,
+      maxScore: totalQuestions,
       percentage,
       correctAnswers: score,
-      totalQuestions: currentExam.questions.length,
-      answers: [],
+      totalQuestions: totalQuestions,
+      answers: answers,
       timestamp: Date.now(),
     };
 
     setExamResult(result);
     setShowResults(true);
 
-    const userAnswersArray: UserAnswer[] = currentExam.questions.map(question => ({
-      questionId: question.id,
-      answer: '',
-      isCorrect: false,
-      timestamp: Date.now(),
-    }));
-
-    updateExamProgress('reading-part2', examId, userAnswersArray, score, 25);
+    updateExamProgress('reading-part2', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {

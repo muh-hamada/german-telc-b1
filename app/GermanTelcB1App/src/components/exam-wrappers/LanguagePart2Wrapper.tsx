@@ -3,11 +3,11 @@ import { View, StyleSheet, Text } from 'react-native';
 import { colors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import LanguagePart2UI from '../exam-ui/LanguagePart2UI';
-import { GrammarPart2Exam } from '../../types/exam.types';
+import { GrammarPart2Exam, UserAnswer } from '../../types/exam.types';
 
 interface LanguagePart2WrapperProps {
   testId: number;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const LanguagePart2Wrapper: React.FC<LanguagePart2WrapperProps> = ({ testId, onComplete }) => {

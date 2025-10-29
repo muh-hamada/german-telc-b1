@@ -159,8 +159,9 @@ export interface SpeakingImportantPhrasesContent {
 export interface UserAnswer {
   questionId: number;
   answer: string;
-  isCorrect?: boolean;
+  isCorrect: boolean;
   timestamp: number;
+  correctAnswer?: string;
 }
 
 export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3';
@@ -201,11 +202,6 @@ export interface ExamResult {
   percentage: number;
   correctAnswers: number;
   totalQuestions: number;
-  answers: Array<{
-    questionId: number;
-    userAnswer: string;
-    correctAnswer: string;
-    isCorrect: boolean;
-  }>;
+  answers: UserAnswer[];
   timestamp: number;
 }

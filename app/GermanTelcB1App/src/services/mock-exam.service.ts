@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MockExamProgress } from '../types/mock-exam.types';
 import { dataService } from './data.service';
 import { AnalyticsEvents, logEvent } from './analytics.events';
+import { UserAnswer } from '../types/exam.types';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
@@ -134,7 +135,8 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
 export const updateStepProgress = async (
   stepId: string,
   score: number,
-  isCompleted: boolean = true
+  isCompleted: boolean = true,
+  answers: UserAnswer[]
 ): Promise<void> => {
   try {
     const progress = await loadMockExamProgress();

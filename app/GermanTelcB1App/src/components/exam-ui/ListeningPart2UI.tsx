@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import Sound from 'react-native-sound';
 import { colors, spacing, typography } from '../../theme';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { UserAnswer } from '../../types/exam.types';
 
 interface Statement {
   id: number;
@@ -28,12 +29,7 @@ interface Exam {
 interface ListeningPart2UIProps {
   exam: Exam;
   sectionDetails: any;
-  onComplete: (score: number) => void;
-}
-
-interface UserAnswer {
-  statementId: number;
-  selectedAnswer: boolean | null;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetails, onComplete }) => {
@@ -71,13 +67,13 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
 
   const handleAnswerSelect = (statementId: number, answer: boolean) => {
     setUserAnswers(prev => {
-      const existing = prev.find(a => a.statementId === statementId);
+      const existing = prev.find(a => a.questionId === statementId);
       if (existing) {
         return prev.map(a =>
-          a.statementId === statementId ? { ...a, selectedAnswer: answer } : a
+          a.questionId === statementId ? { ...a, answer: answer ? 'true' : 'false', isCorrect: answer, timestamp: Date.now() } : a
         );
       }
-      return [...prev, { statementId, selectedAnswer: answer }];
+      return [...prev, { questionId: statementId, answer: answer ? 'true' : 'false', isCorrect: answer, timestamp: Date.now() }];
     });
     logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
       section: 'listening',
@@ -88,8 +84,8 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
   };
 
   const getUserAnswer = (statementId: number): boolean | null => {
-    const answer = userAnswers.find(a => a.statementId === statementId);
-    return answer ? answer.selectedAnswer : null;
+    const answer = userAnswers.find(a => a.questionId === statementId);
+    return answer ? answer.answer === 'true' : null;
   };
 
   const handlePlayAudio = () => {
@@ -131,7 +127,7 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
 
   const handleSubmit = () => {
     const unansweredStatements = exam.statements.filter(
-      s => !userAnswers.find(a => a.statementId === s.id && a.selectedAnswer !== null)
+      s => !userAnswers.find(a => a.questionId === s.id && a.answer !== null)
     );
 
     if (unansweredStatements.length > 0) {
@@ -144,22 +140,30 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.statements.forEach(statement => {
-      const userAnswer = userAnswers.find(a => a.statementId === statement.id);
-      if (userAnswer && userAnswer.selectedAnswer === statement.is_correct) {
+      const userAnswer = userAnswers.find(a => a.questionId === statement.id);
+      const isCorrect = userAnswer?.answer === 'true' === statement.is_correct;
+      if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: statement.id,
+        answer: userAnswer?.answer || '',
+        isCorrect,
+        timestamp: Date.now(),
+      });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'listening',
         part: 2,
         exam_id: exam.id,
         question_id: statement.id,
-        is_correct: userAnswer?.selectedAnswer === statement.is_correct,
+        is_correct: isCorrect,
       });
     });
 
-    const score = (correctCount / exam.statements.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   return (
@@ -272,14 +276,14 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
       <TouchableOpacity
         style={[
           styles.submitButton,
-          userAnswers.filter(a => a.selectedAnswer !== null).length < exam.statements.length && styles.submitButtonDisabled
+          userAnswers.filter(a => a.answer !== null).length < exam.statements.length && styles.submitButtonDisabled
         ]}
-        disabled={userAnswers.filter(a => a.selectedAnswer !== null).length < exam.statements.length}
+        disabled={userAnswers.filter(a => a.answer !== null).length < exam.statements.length}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
           {t('listening.part2.submitAnswers', { 
-            answered: userAnswers.filter(a => a.selectedAnswer !== null).length, 
+            answered: userAnswers.filter(a => a.answer !== null).length, 
             total: exam.statements.length 
           })}
         </Text>

@@ -289,7 +289,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text style={styles.sectionTitle}>{t('speaking.part1.sections.keyVocabulary')}</Text>
 
           <View style={styles.vocabCard}>
-            {speakingPart1Data.vocabulary.map((item, index) => (
+            {speakingPart1Data.vocabulary.map((item: any, index: number) => (
               <View key={index} style={styles.vocabRow}>
                 <View style={styles.vocabColumn}>
                   <Text style={styles.vocabGerman}>{item.german}</Text>
@@ -335,7 +335,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <View style={styles.textCard}>
             <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')} - {t('speaking.part1.tabs.example')}</Text>
 
-            {speakingPart1Data.completeExample.map((paragraph, index) => (
+            {speakingPart1Data.completeExample.map((paragraph: any, index: number) => (
               <Text key={index} style={styles.exampleParagraph}>
                 {renderFormattedText(paragraph)}
               </Text>
@@ -356,7 +356,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text style={styles.exampleNote}>{t('speaking.part1.help.questionsNote')}</Text>
         </View>
 
-        {speakingPart1Data.questions.map((question, index) => (
+        {speakingPart1Data.questions.map((question: any, index: number) => (
           <View key={index} style={styles.questionCard}>
             <Text style={[styles.questionText]}>
               <Text style={[styles.questionType]}>{t('speaking.part1.questions.formal')}:</Text> {question.formal}</Text>

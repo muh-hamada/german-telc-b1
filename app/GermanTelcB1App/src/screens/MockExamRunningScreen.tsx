@@ -36,6 +36,7 @@ import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/demo.config';
 import { useTranslation } from 'react-i18next';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { UserAnswer } from '../types/exam.types';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -88,10 +89,10 @@ const MockExamRunningScreen: React.FC = () => {
     step => step.id === examProgress.currentStepId
   );
 
-  const handleCompleteStep = async (score: number) => {
+  const handleCompleteStep = async (score: number, answers: UserAnswer[]) => {
     try {
       // Update progress in storage
-      await updateStepProgress(examProgress.currentStepId, score);
+      await updateStepProgress(examProgress.currentStepId, score, true, answers);
       
       // Reload progress from storage to get updated state
       const updatedProgress = await loadMockExamProgress();
@@ -158,7 +159,7 @@ const MockExamRunningScreen: React.FC = () => {
 
           <TouchableOpacity
             style={styles.skipButton}
-            onPress={() => handleCompleteStep(0)}
+            onPress={() => handleCompleteStep(0, [])}
           >
             <Text style={styles.skipButtonText}>{t('mockExam.skipAndContinue')}</Text>
           </TouchableOpacity>
