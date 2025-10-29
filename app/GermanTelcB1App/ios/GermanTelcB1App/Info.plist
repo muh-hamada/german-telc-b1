@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>GermanTelcB1App</string>
+	<string>TELC B1 German</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -39,6 +39,8 @@
 	<string>Diese App benötigt Zugriff auf die Kamera, um Fotos von handschriftlichen Antworten zu machen.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This app would like to use tracking to provide you with a personalized ad experience and enable Facebook login.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Diese App benötigt Zugriff, um Fotos in Ihrer Fotobibliothek zu speichern.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -50,6 +52,14 @@
 		<dict>
 			<key>SKAdNetworkIdentifier</key>
 			<string>cstr6suwn9.skadnetwork</string>
+		</dict>
+		<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>v9wttpbfk9.skadnetwork</string>
+		</dict>
+		<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>n38lu8286q.skadnetwork</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -74,6 +84,38 @@
 	<array>
 		<string>MaterialIcons.ttf</string>
 		<string>FontAwesome.ttf</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1507568217229301</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1507568217229301</string>
+	<key>FacebookClientToken</key>
+	<string>c1f3d10c6a4054707078aae7a71dd580</string>
+	<key>FacebookDisplayName</key>
+	<string>German TELC B1 App</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>

@@ -296,6 +296,18 @@
       "backToSocialLogin": "← Back to social login",
       "passwordReset": "Password Reset",
       "passwordResetMessage": "A password reset email has been sent to your email address."
+    },
+    "errors": {
+      "invalidCredential": "The email or password you entered is incorrect. Please try again.",
+      "userNotFound": "No account found with this email address.",
+      "wrongPassword": "Incorrect password. Please try again.",
+      "emailInUse": "An account with this email already exists.",
+      "weakPassword": "Password must be at least 6 characters long.",
+      "invalidEmail": "Please enter a valid email address.",
+      "userDisabled": "This account has been disabled.",
+      "tooManyRequests": "Too many failed attempts. Please try again later.",
+      "networkError": "Network error. Please check your internet connection.",
+      "unknownError": "An unexpected error occurred. Please try again."
     }
   },
   "speaking": {
@@ -544,7 +556,7 @@
         "formalCorrectness": "3. Formal Correctness"
       },
       "grade": "Grade:",
-      "improvementTip": "💡 Improvement Tip:",
+      "correctedAnswer": "✏️ Corrected Answer:",
       "closeButton": "Close",
       "loading": "Evaluation is in progress, this will take a few seconds",
       "userInput": "Your Answer",

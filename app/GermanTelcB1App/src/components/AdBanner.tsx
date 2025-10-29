@@ -8,7 +8,7 @@ const adUnitId = __DEV__
   ? TestIds.ADAPTIVE_BANNER // Use test ads in development
   : Platform.select({
       ios: 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyy', // Replace with your iOS Ad Unit ID
-      android: 'ca-app-pub-5101905792101482/4385105786', // Replace with your Android Ad Unit ID
+      android: 'ca-app-pub-5101905792101482/4385105786',
     }) || TestIds.ADAPTIVE_BANNER;
 
 interface AdBannerProps {
@@ -26,6 +26,11 @@ interface AdBannerProps {
  * Uses test ads in development and should use real ads in production
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
+  // Hide ads in ios until the final version is released
+  if (Platform.OS === 'ios') {
+    return null;
+  }
+
   return (
     <View style={[styles.container, style]}>
       <BannerAd

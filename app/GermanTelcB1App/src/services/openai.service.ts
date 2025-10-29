@@ -10,7 +10,7 @@ const OPENAI_API_KEY = 'sk-proj-tM3WdTQbj1QfP8vT87FX-K6yLtoNQ41OZRllALsERzu9EF4c
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' for cost efficiency
 
-interface WritingAssessment {
+export interface WritingAssessment {
   overallScore: number;
   maxScore: number;
   userInput: string;
@@ -28,7 +28,7 @@ interface WritingAssessment {
       feedback: string;
     };
   };
-  improvementTip: string;
+  correctedAnswer: string;
 }
 
 export interface EvaluationRequest {
@@ -92,8 +92,17 @@ Gib deine Bewertung als JSON zurück mit folgendem Format:
       "feedback": "<Detailliertes Feedback>"
     }
   },
-  "improvementTip": "<Ein konkreter, hilfreicher Tipp für die Verbesserung>"
-}`;
+  "correctedAnswer": "<Die korrigierte Antwort mit Markdown-Hervorhebungen>"
+}
+
+WICHTIG für "correctedAnswer":
+- Nimm die EXAKTE Antwort des Teilnehmers und korrigiere NUR die Fehler
+- Erstelle KEINE neue Antwort - behalte den originalen Text bei
+- Verwende Markdown zur Hervorhebung der Korrekturen:
+  * **fett** für korrigierte Wörter/Phrasen
+  * ~~durchgestrichen~~ für entfernte/falsche Teile (optional, falls nötig)
+- Wenn es keine Fehler gibt, gib die originale Antwort zurück
+- Beispiel: "Ich **habe** gestern ins Kino gegangen" → "Ich **bin** gestern ins Kino gegangen"`;
 
 /**
  * Creates a user prompt for the OpenAI API
@@ -114,7 +123,7 @@ ${request.userAnswer}
 
 ---
 
-Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld.`;
+Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
 }
 
 /**
@@ -219,6 +228,7 @@ WICHTIGE ANWEISUNGEN:
 3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
 4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
 5. Bewerte dann diese extrahierte Antwort nach den Telc B1 Kriterien
+6. Für "correctedAnswer": Nimm den extrahierten Text und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.
 
 Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
 }
@@ -329,7 +339,7 @@ export async function evaluateWritingWithImage(
 export function getMockAssessment(): WritingAssessment {
   return {
     overallScore: 13,
-    userInput: 'Test user input',
+    userInput: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein mit.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\nDein Thomas',
     maxScore: 15,
     criteria: {
       taskCompletion: {
@@ -345,7 +355,7 @@ export function getMockAssessment(): WritingAssessment {
         feedback: 'Viele Genusfehler und einige falsche Verbpositionen behindern das zügige Verständnis stellenweise. Achten Sie besonders auf die Artikel (der/die/das).',
       },
     },
-    improvementTip: 'Achten Sie besonders auf die richtige Stellung des Verbs im Nebensatz (z.B. nach "weil" oder "dass"). Das Verb sollte am Ende des Nebensatzes stehen.',
+    correctedAnswer: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein **mit**.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\n**Dein** Thomas',
   };
 }
 

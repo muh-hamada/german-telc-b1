@@ -296,6 +296,18 @@
       "backToSocialLogin": "← Zurück zur Social-Anmeldung",
       "passwordReset": "Passwort zurücksetzen",
       "passwordResetMessage": "Eine E-Mail zum Zurücksetzen des Passworts wurde an Ihre E-Mail-Adresse gesendet."
+    },
+    "errors": {
+      "invalidCredential": "Die eingegebene E-Mail oder das Passwort ist falsch. Bitte versuchen Sie es erneut.",
+      "userNotFound": "Es wurde kein Konto mit dieser E-Mail-Adresse gefunden.",
+      "wrongPassword": "Falsches Passwort. Bitte versuchen Sie es erneut.",
+      "emailInUse": "Ein Konto mit dieser E-Mail existiert bereits.",
+      "weakPassword": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "userDisabled": "Dieses Konto wurde deaktiviert.",
+      "tooManyRequests": "Zu viele fehlgeschlagene Versuche. Bitte versuchen Sie es später erneut.",
+      "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung.",
+      "unknownError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
     }
   },
   "speaking": {
@@ -544,7 +556,7 @@
         "formalCorrectness": "3. Formale Korrektheit"
       },
       "grade": "Note:",
-      "improvementTip": "💡 Verbesserungstipp:",
+      "correctedAnswer": "✏️ Korrigierte Antwort:",
       "closeButton": "Schließen",
       "loading": "Die Auswertung läuft, dies kann einige Sekunden dauern",
       "userInput": "Ihre Antwort",

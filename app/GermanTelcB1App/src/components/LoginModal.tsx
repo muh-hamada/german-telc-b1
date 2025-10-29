@@ -140,7 +140,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Error Message */}
             {error && (
               <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{error}</Text>
+                <Text style={styles.errorText}>
+                  {error.startsWith('auth.errors.') ? t(error) : error}
+                </Text>
               </View>
             )}
 
@@ -166,11 +168,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       loading={isLoading}
                     />
                     
-                    <SocialLoginButton
+                    {Platform.OS === 'android' && <SocialLoginButton
                       provider="facebook"
                       onPress={() => handleSocialLogin('facebook')}
                       loading={isLoading}
-                    />
+                    />}
                     
                     {/* <SocialLoginButton
                       provider="twitter"

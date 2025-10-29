@@ -26,6 +26,7 @@
 		7E1A4272D7E5EEE334C649CC /* Pods_GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GermanTelcB1App/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EADD4CD82EB1870A003DB545 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EADD4CDA2EB2B8CB003DB545 /* GermanTelcB1App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GermanTelcB1App.entitlements; path = GermanTelcB1App/GermanTelcB1App.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -44,6 +45,7 @@
 		13B07FAE1A68108700A75B9A /* GermanTelcB1App */ = {
 			isa = PBXGroup;
 			children = (
+				EADD4CDA2EB2B8CB003DB545 /* GermanTelcB1App.entitlements */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -291,6 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GermanTelcB1App/GermanTelcB1App.entitlements;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				ENABLE_BITCODE = NO;
@@ -322,6 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GermanTelcB1App/GermanTelcB1App.entitlements;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				INFOPLIST_FILE = GermanTelcB1App/Info.plist;

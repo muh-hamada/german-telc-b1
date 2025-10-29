@@ -296,6 +296,18 @@
       "backToSocialLogin": "← Volver al inicio de sesión social",
       "passwordReset": "Restablecer contraseña",
       "passwordResetMessage": "Se ha enviado un correo electrónico de restablecimiento de contraseña a su dirección de correo electrónico."
+    },
+    "errors": {
+      "invalidCredential": "El correo electrónico o la contraseña que ingresó es incorrecta. Por favor, inténtelo de nuevo.",
+      "userNotFound": "No se encontró ninguna cuenta con esta dirección de correo electrónico.",
+      "wrongPassword": "Contraseña incorrecta. Por favor, inténtelo de nuevo.",
+      "emailInUse": "Ya existe una cuenta con este correo electrónico.",
+      "weakPassword": "La contraseña debe tener al menos 6 caracteres.",
+      "invalidEmail": "Por favor, ingrese una dirección de correo electrónico válida.",
+      "userDisabled": "Esta cuenta ha sido deshabilitada.",
+      "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtelo más tarde.",
+      "networkError": "Error de red. Por favor, verifique su conexión a internet.",
+      "unknownError": "Ocurrió un error inesperado. Por favor, inténtelo de nuevo."
     }
   },
   "speaking": {
@@ -542,7 +554,7 @@
         "formalCorrectness": "3. Corrección formal"
       },
       "grade": "Nota:",
-      "improvementTip": "💡 Consejo de mejora:",
+      "correctedAnswer": "✏️ Respuesta corregida:",
       "closeButton": "Cerrar",
       "loading": "La evaluación está en progreso, esto tomará unos segundos.",
       "userInput": "Tu respuesta",

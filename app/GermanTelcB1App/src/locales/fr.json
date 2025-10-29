@@ -232,6 +232,18 @@
       "backToSocialLogin": "← Retour à la connexion sociale",
       "passwordReset": "Réinitialisation du mot de passe",
       "passwordResetMessage": "Un e-mail de réinitialisation du mot de passe a été envoyé à votre adresse e-mail."
+    },
+    "errors": {
+      "invalidCredential": "L'adresse e-mail ou le mot de passe que vous avez saisi est incorrect. Veuillez réessayer.",
+      "userNotFound": "Aucun compte trouvé avec cette adresse e-mail.",
+      "wrongPassword": "Mot de passe incorrect. Veuillez réessayer.",
+      "emailInUse": "Un compte avec cette adresse e-mail existe déjà.",
+      "weakPassword": "Le mot de passe doit comporter au moins 6 caractères.",
+      "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
+      "userDisabled": "Ce compte a été désactivé.",
+      "tooManyRequests": "Trop de tentatives infructueuses. Veuillez réessayer plus tard.",
+      "networkError": "Erreur réseau. Veuillez vérifier votre connexion Internet.",
+      "unknownError": "Une erreur inattendue s'est produite. Veuillez réessayer."
     }
   },
   "speaking": {
@@ -542,7 +554,7 @@
         "formalCorrectness": "3. Correction formelle"
       },
       "grade": "Note:",
-      "improvementTip": "💡 Conseil d'amélioration:",
+      "correctedAnswer": "✏️ Réponse corrigée:",
       "closeButton": "Fermer",
       "loading": "L'évaluation est en cours, cela prendra quelques secondes",
       "userInput": "Votre Réponse",
