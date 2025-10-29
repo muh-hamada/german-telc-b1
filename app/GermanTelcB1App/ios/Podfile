@@ -65,5 +65,15 @@ target 'GermanTelcB1App' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    
+    # Fix for Hermes dSYM missing issue
+    installer.pods_project.targets.each do |target|
+      if target.name == 'hermes-engine'
+        target.build_configurations.each do |config|
+          config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf-with-dsym'
+          config.build_settings['STRIP_INSTALLED_PRODUCT'] = 'NO'
+        end
+      end
+    end
   end
 end
