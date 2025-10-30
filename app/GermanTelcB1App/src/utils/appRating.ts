@@ -4,7 +4,7 @@
  * Handles opening the native app store for rating
  */
 
-import { Platform, Linking, Alert } from 'react-native';
+import { Platform, Linking } from 'react-native';
 
 // Replace these with your actual app IDs
 const APP_STORE_ID = '6754566955';

@@ -102,8 +102,6 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
    */
   const completeReview = async (): Promise<void> => {
     try {
-      // Record that review is completed
-      await reviewService.recordReviewCompleted();
       setShowReviewModal(false);
       
       // Open the app store for rating
@@ -113,10 +111,17 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
       logEvent(AnalyticsEvents.REVIEW_COMPLETED, {
         success,
       });
-      
-      console.log('[ReviewContext] Review completed, opened store:', success);
+
+      if (success) {
+        // Record that review is completed
+        await reviewService.recordReviewCompleted();
+      } else {
+        console.error('[ReviewContext] Failed to open app store for rating');
+      }
     } catch (error) {
       console.error('[ReviewContext] Error completing review:', error);
+    } finally {
+      setShowReviewModal(false);
     }
   };
 

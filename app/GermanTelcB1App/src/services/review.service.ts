@@ -9,7 +9,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+import { ALWAYS_SHOW_REVIEW_MODAL } from '../config/demo.config';
 
 const STORAGE_KEYS = {
   LAST_PROMPT_DATE: '@review_last_prompt_date',
@@ -35,6 +35,11 @@ class ReviewService {
    * @returns Promise<ReviewPromptResult>
    */
   async shouldShowReviewPrompt(): Promise<ReviewPromptResult> {
+    // Always show review modal in demo/testing mode
+    if (ALWAYS_SHOW_REVIEW_MODAL) {
+      return { shouldShow: true };
+    }
+
     try {
       // Check if user has already reviewed
       const hasReviewed = await this.hasUserReviewed();
