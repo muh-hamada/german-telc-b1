@@ -15,7 +15,7 @@ export const HIDE_ADS = false; // Set to false for production
 
 export const SKIP_REWARDED_ADS = false; // Set to false for production
 
-export const ALWAYS_SHOW_REVIEW_MODAL = true; // Set to false for production
+export const ALWAYS_SHOW_REVIEW_MODAL = false; // Set to false for production
 
 /**
  * Demo progress statistics shown in ProgressCard
