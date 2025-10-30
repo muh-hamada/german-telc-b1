@@ -209,6 +209,12 @@
       "iosRatingComingSoon": "El enlace de valoración en iOS se añadirá más tarde."
     }
   },
+  "review": {
+    "title": "¿Disfrutando la aplicación?",
+    "message": "Tu feedback nos ayuda a mejorar y llegar a más estudiantes como tú. ¡Comparte tu experiencia con una calificación rápida!",
+    "rateButton": "⭐ Calificar la aplicación",
+    "laterButton": "Tal vez más tarde"
+  },
   "mockExam": {
     "title": "Examen de prueba",
     "subtitle": "Examen completo Telc Alemán B1",
@@ -462,6 +468,8 @@
       "taskTitle": "Tarea:",
       "taskDescription": "Lea el texto y elija la respuesta correcta de las tres opciones para cada espacio.",
       "questions": "Preguntas:",
+      "select": "Seleccionar",
+      "selectAnswer": "Elija la respuesta para el espacio [{{gap}}]:",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."

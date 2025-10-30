@@ -7,7 +7,6 @@ import { colors } from '../theme';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import TabNavigator from './TabNavigator';
 import MockExamRunningScreen from '../screens/MockExamRunningScreen';
-import { Text } from 'react-native';
 import { logScreenView } from '../services/analytics.events';
 
 const Stack = createStackNavigator<RootStackParamList>();

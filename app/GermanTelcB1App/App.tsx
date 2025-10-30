@@ -7,6 +7,8 @@ import RootNavigator from './src/navigation/RootNavigator';
 import { ProgressProvider } from './src/contexts/ProgressContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
+import { ReviewProvider } from './src/contexts/ReviewContext';
+import ReviewModalContainer from './src/components/ReviewModalContainer';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
@@ -29,14 +31,17 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaProvider>
-      <AuthProvider>
-        <ProgressProvider>
-          <CompletionProvider>
-            <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
-            <RootNavigator />
-          </CompletionProvider>
-        </ProgressProvider>
-      </AuthProvider>
+      <ReviewProvider>
+        <AuthProvider>
+          <ProgressProvider>
+            <CompletionProvider>
+              <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
+              <RootNavigator />
+              <ReviewModalContainer />
+            </CompletionProvider>
+          </ProgressProvider>
+        </AuthProvider>
+      </ReviewProvider>
     </SafeAreaProvider>
   );
 };

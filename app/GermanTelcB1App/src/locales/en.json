@@ -209,6 +209,12 @@
     },
     "rateApp": "Rate our App"
   },
+  "review": {
+    "title": "Enjoying the App?",
+    "message": "Your feedback helps us improve and reach more learners like you. Share your experience with a quick rating!",
+    "rateButton": "⭐ Rate the App",
+    "laterButton": "Maybe Later"
+  },
   "mockExam": {
     "title": "Mock Exam",
     "subtitle": "Telc German B1 Complete Exam",
@@ -464,6 +470,8 @@
       "taskTitle": "Task:",
       "taskDescription": "Read the text and choose the correct answer from the three options for each gap.",
       "questions": "Questions:",
+      "select": "Select",
+      "selectAnswer": "Choose answer for gap [{{gap}}]:",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
       "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."

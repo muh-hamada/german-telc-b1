@@ -22,6 +22,53 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
   const { t } = useTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>({});
 
+  const renderMarkdownText = (text: string, style: any) => {
+    // Split text by newlines to preserve line breaks
+    const lines = text.split('\n');
+    
+    return lines.map((line, lineIndex) => {
+      // Parse markdown for bold (**text**)
+      const parts: Array<{ text: string; bold: boolean }> = [];
+      let currentPos = 0;
+      const boldRegex = /\*\*(.+?)\*\*/g;
+      let match;
+      
+      while ((match = boldRegex.exec(line)) !== null) {
+        // Add text before the match
+        if (match.index > currentPos) {
+          parts.push({ text: line.slice(currentPos, match.index), bold: false });
+        }
+        // Add the bold text
+        parts.push({ text: match[1], bold: true });
+        currentPos = match.index + match[0].length;
+      }
+      
+      // Add remaining text
+      if (currentPos < line.length) {
+        parts.push({ text: line.slice(currentPos), bold: false });
+      }
+      
+      // If no markdown was found, just add the line as is
+      if (parts.length === 0) {
+        parts.push({ text: line, bold: false });
+      }
+      
+      return (
+        <Text key={lineIndex} style={style}>
+          {parts.map((part, partIndex) => (
+            <Text 
+              key={partIndex} 
+              style={part.bold ? styles.boldText : undefined}
+            >
+              {part.text}
+            </Text>
+          ))}
+          {lineIndex < lines.length - 1 && '\n'}
+        </Text>
+      );
+    });
+  };
+
   const handleAnswerSelect = (situationId: number, adKey: string) => {
     setUserAnswers(prev => ({
       ...prev,
@@ -96,7 +143,9 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
         {adKeys.map((key) => (
           <View key={key} style={styles.adItem}>
             <Text style={styles.adLetter}>{key.toUpperCase()}</Text>
-            <Text style={styles.adText}>{exam.advertisements[key]}</Text>
+            <View style={styles.adTextContainer}>
+              {renderMarkdownText(exam.advertisements[key], styles.adText)}
+            </View>
           </View>
         ))}
       </View>
@@ -107,7 +156,9 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
         {exam.situations.map((situation) => (
           <View key={situation.id} style={styles.situationCard}>
             <Text style={styles.situationNumber}>{situation.id}.</Text>
-            <Text style={styles.situationText}>{situation.text}</Text>
+            <View style={styles.situationTextContainer}>
+              {renderMarkdownText(situation.text, styles.situationText)}
+            </View>
             
             {/* Answer Selection */}
             <View style={styles.answerSection}>
@@ -214,6 +265,9 @@ const styles = StyleSheet.create({
     flex: 1,
     lineHeight: 18,
   },
+  adTextContainer: {
+    flex: 1,
+  },
   situationsSection: {
     marginBottom: spacing.margin.lg,
   },
@@ -239,6 +293,12 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 24,
     marginBottom: spacing.margin.md,
+  },
+  situationTextContainer: {
+    marginBottom: spacing.margin.md,
+  },
+  boldText: {
+    fontWeight: typography.fontWeight.bold,
   },
   answerSection: {
     borderTopWidth: 1,

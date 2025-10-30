@@ -12,6 +12,7 @@
  */
 
 import { Platform } from 'react-native';
+import analytics from '@react-native-firebase/analytics';
 
 // Check if we're in development mode
 const isDevelopment = __DEV__;
@@ -34,6 +35,8 @@ class AnalyticsService {
     
     if (!this.isEnabled) {
       console.log('[Analytics] Disabled in development mode');
+    } else {
+      console.log('[Analytics] Enabled in production mode');
     }
   }
 
@@ -96,11 +99,7 @@ class AnalyticsService {
     }
 
     try {
-      // TODO: If you want to use Firebase Analytics, uncomment the following:
-      // import analytics from '@react-native-firebase/analytics';
-      // analytics().logEvent(eventName, params);
-      
-      // For now, just log to console in production too since analytics isn't initialized
+      analytics().logEvent(eventName, params);
       console.log(`[Analytics] Event: ${eventName}`, params);
     } catch (error) {
       console.error('[Analytics] Error logging event:', error);
@@ -120,10 +119,7 @@ class AnalyticsService {
     }
 
     try {
-      // TODO: If you want to use Firebase Analytics, uncomment the following:
-      // import analytics from '@react-native-firebase/analytics';
-      // analytics().logScreenView({ screen_name: screenName, screen_class: screenClass });
-      
+      analytics().logScreenView({ screen_name: screenName, screen_class: screenClass });
       console.log(`[Analytics] Screen View: ${screenName}`);
     } catch (error) {
       console.error('[Analytics] Error logging screen view:', error);
@@ -140,10 +136,7 @@ class AnalyticsService {
     }
 
     try {
-      // TODO: If you want to use Firebase Analytics, uncomment the following:
-      // import analytics from '@react-native-firebase/analytics';
-      // analytics().setUserProperty(name, value);
-      
+      analytics().setUserProperty(name, value);
       console.log(`[Analytics] User Property: ${name} = ${value}`);
     } catch (error) {
       console.error('[Analytics] Error setting user property:', error);
@@ -160,10 +153,7 @@ class AnalyticsService {
     }
 
     try {
-      // TODO: If you want to use Firebase Analytics, uncomment the following:
-      // import analytics from '@react-native-firebase/analytics';
-      // analytics().setUserId(userId);
-      
+      analytics().setUserId(userId);
       console.log(`[Analytics] User ID: ${userId}`);
     } catch (error) {
       console.error('[Analytics] Error setting user ID:', error);
@@ -177,10 +167,7 @@ class AnalyticsService {
     this.isEnabled = enabled && ANALYTICS_ENABLED;
     
     try {
-      // TODO: If you want to use Firebase Analytics, uncomment the following:
-      // import analytics from '@react-native-firebase/analytics';
-      // analytics().setAnalyticsCollectionEnabled(this.isEnabled);
-      
+      analytics().setAnalyticsCollectionEnabled(this.isEnabled);
       console.log(`[Analytics] Collection ${this.isEnabled ? 'enabled' : 'disabled'}`);
     } catch (error) {
       console.error('[Analytics] Error toggling analytics:', error);
@@ -200,4 +187,3 @@ export const analyticsService = new AnalyticsService();
 
 // Export class for testing
 export { AnalyticsService };
-

@@ -66,6 +66,11 @@ export const AnalyticsEvents = {
   MOCK_EXAM_EXIT_PROMPT_SHOWN: 'mock_exam_exit_prompt_shown',
   MOCK_EXAM_EXIT_CONFIRMED: 'mock_exam_exit_confirmed',
   MOCK_EXAM_EXIT_CANCELLED: 'mock_exam_exit_cancelled',
+  
+  // Review
+  REVIEW_PROMPT_SHOWN: 'review_prompt_shown',
+  REVIEW_PROMPT_DISMISSED: 'review_prompt_dismissed',
+  REVIEW_COMPLETED: 'review_completed',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
-import { ExamResult, WritingExam } from '../../types/exam.types';
+import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/demo.config';

@@ -30,7 +30,20 @@ const Stack = createStackNavigator<HomeStackParamList>();
 // Header component for dynamic translations
 const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
   const { t } = useTranslation();
-  return <Text style={{ color: colors.white, fontSize: 18, fontWeight: '600' }}>{t(titleKey)}</Text>;
+  return (
+    <Text 
+      style={{ 
+        color: colors.white, 
+        fontSize: 18, 
+        fontWeight: '600',
+        maxWidth: 250, // Prevent overlap with back button
+      }}
+      numberOfLines={1}
+      ellipsizeMode="tail"
+    >
+      {t(titleKey)}
+    </Text>
+  );
 };
 
 const HomeStackNavigator: React.FC = () => {

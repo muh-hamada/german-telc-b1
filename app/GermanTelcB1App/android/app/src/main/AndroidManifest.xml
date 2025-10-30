@@ -36,11 +36,12 @@
       <!-- Disable Firebase Analytics Collection in development -->
       <meta-data
         android:name="firebase_analytics_collection_deactivated"
-        android:value="@string/google_analytics_disabled" />
+        android:value="@string/google_analytics_disabled"
+        tools:replace="android:value" />
       
       <meta-data
         android:name="google_analytics_adid_collection_enabled"
-        android:value="false" />
+        android:value="true" />
       
       <activity
         android:name=".MainActivity"

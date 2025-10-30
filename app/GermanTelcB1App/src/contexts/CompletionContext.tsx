@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import firebaseCompletionService, { CompletionData, CompletionStats, AllCompletionStats } from '../services/firebase-completion.service';
+import { reviewTrigger } from '../utils/reviewTrigger';
 
 interface CompletionContextType {
   // State
@@ -140,6 +141,16 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
       
       // Refresh stats
       await loadCompletionData();
+      
+      // Trigger review prompt if marking as complete (newStatus === true)
+      // We use a mock maxScore of 100 to indicate completion
+      if (newStatus) {
+        console.log('[CompletionContext] Triggering review prompt for score:', score);
+        // We use 100% to indicate completion
+        reviewTrigger.trigger(100, 100);
+      } else {
+        console.log('[CompletionContext] Not triggering review prompt for score:', score);
+      }
       
       return newStatus;
     } catch (error) {

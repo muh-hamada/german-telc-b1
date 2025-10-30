@@ -70,7 +70,7 @@ class DataService {
         .doc(docId)
         .get();
 
-      if (docSnapshot.exists) {
+      if (docSnapshot.exists()) {
         const firestoreData = docSnapshot.data();
         const data = firestoreData?.data || fallbackData;
         

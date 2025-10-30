@@ -4,6 +4,7 @@ import StorageService from '../services/storage.service';
 import firebaseProgressService from '../services/firebase-progress.service';
 import { AuthContext } from './AuthContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { reviewTrigger } from '../utils/reviewTrigger';
 
 // Progress Context Types
 interface ProgressState {
@@ -277,6 +278,11 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
             percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
           });
           
+          // Trigger review prompt if score is provided
+          if (score !== undefined && maxScore !== undefined) {
+            reviewTrigger.trigger(score, maxScore);
+          }
+          
           dispatch({ type: 'SET_LOADING', payload: false });
           return true;
         } catch (firebaseError) {
@@ -307,6 +313,11 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
             max_score: maxScore || 0,
             percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
           });
+          
+          // Trigger review prompt if score is provided
+          if (score !== undefined && maxScore !== undefined) {
+            reviewTrigger.trigger(score, maxScore);
+          }
           
           dispatch({ type: 'SET_LOADING', payload: false });
           return true;

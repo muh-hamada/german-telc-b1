@@ -209,6 +209,12 @@
     },
     "rateApp": "Bewerten Sie unsere App"
   },
+  "review": {
+    "title": "App gefällt Ihnen?",
+    "message": "Ihr Feedback hilft uns zu verbessern und mehr Lernende wie Sie zu erreichen. Teilen Sie Ihre Erfahrung mit einer kurzen Bewertung!",
+    "rateButton": "⭐ App bewerten",
+    "laterButton": "Vielleicht später"
+  },
   "mockExam": {
     "title": "Probe-Prüfung",
     "subtitle": "Telc Deutsch B1 Vollständige Prüfung",
@@ -464,6 +470,8 @@
       "taskTitle": "Aufgabenstellung:",
       "taskDescription": "Lesen Sie den Text und wählen Sie für jede Lücke die richtige Antwort aus den drei Optionen.",
       "questions": "Fragen:",
+      "select": "Auswählen",
+      "selectAnswer": "Wählen Sie die Antwort für Lücke [{{gap}}]:",
       "submitAnswers": "Antworten einreichen ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie fortfahren. {{count}} Frage(n) verbleiben."
