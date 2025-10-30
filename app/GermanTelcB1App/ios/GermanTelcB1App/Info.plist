@@ -39,8 +39,6 @@
 	<string>Diese App benötigt Zugriff auf die Kamera, um Fotos von handschriftlichen Antworten zu machen.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This app would like to use tracking to provide you with a personalized ad experience and enable Facebook login.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Diese App benötigt Zugriff, um Fotos in Ihrer Fotobibliothek zu speichern.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
