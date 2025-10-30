@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Alert,
   I18nManager,
+  Modal,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../../theme';
@@ -57,7 +58,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             if (gapMatch) {
               const gapId = parseInt(gapMatch[1]);
               return (
-                <TouchableOpacity
+                <Text
                   key={index}
                   style={styles.gapButton}
                   onPress={() => {
@@ -65,10 +66,8 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
                     setShowWordBank(true);
                   }}
                 >
-                  <Text style={styles.gapButtonText}>
-                    {getSelectedWordText(gapId)}
-                  </Text>
-                </TouchableOpacity>
+                  {getSelectedWordText(gapId)}
+                </Text>
               );
             }
             return <Text key={index}>{part}</Text>;
@@ -152,12 +151,22 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
       </View>
 
       {/* Word Selection Modal */}
-      {showWordBank && selectedGap !== null && (
+      <Modal
+        visible={showWordBank && selectedGap !== null}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setShowWordBank(false);
+          setSelectedGap(null);
+        }}
+      >
         <View style={styles.modalOverlay}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>{t('grammar.part2.selectWord', { gap: selectedGap })}</Text>
-            <TouchableOpacity
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {selectedGap !== null && t('grammar.part2.selectWord', { gap: selectedGap })}
+              </Text>
+              <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => {
                   setShowWordBank(false);
@@ -169,7 +178,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             </View>
             <ScrollView style={styles.modalContent}>
               {exam.words.map((word) => {
-                const isSelected = userAnswers[selectedGap] === word.key;
+                const isSelected = selectedGap !== null && userAnswers[selectedGap] === word.key;
                 return (
                   <TouchableOpacity
                     key={word.key}
@@ -177,7 +186,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
                       styles.wordOption,
                       isSelected && styles.wordOptionSelected
                     ]}
-                    onPress={() => handleSelectWord(selectedGap, word.key)}
+                    onPress={() => selectedGap !== null && handleSelectWord(selectedGap, word.key)}
                   >
                     <Text style={styles.wordOptionKey}>{word.key}:</Text>
                     <Text style={[
@@ -193,7 +202,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             </ScrollView>
           </View>
         </View>
-      )}
+      </Modal>
 
       {/* Submit Button */}
       <TouchableOpacity
@@ -291,17 +300,15 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   gapButton: {
+    ...typography.textStyles.bodySmall,
     backgroundColor: colors.primary[100],
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.medium,
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: colors.primary[300],
-  },
-  gapButtonText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.medium,
   },
   modalOverlay: {
     position: 'absolute',
