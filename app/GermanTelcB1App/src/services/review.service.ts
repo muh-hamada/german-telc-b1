@@ -9,7 +9,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ALWAYS_SHOW_REVIEW_MODAL } from '../config/demo.config';
+import { ALWAYS_SHOW_REVIEW_MODAL } from '../config/development.config';
 
 const STORAGE_KEYS = {
   LAST_PROMPT_DATE: '@review_last_prompt_date',

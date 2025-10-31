@@ -21,7 +21,7 @@ import {
   saveMockExamProgress,
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { HIDE_ADS } from '../config/development.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamScreen: React.FC = () => {

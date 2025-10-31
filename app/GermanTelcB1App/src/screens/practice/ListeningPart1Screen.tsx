@@ -9,7 +9,7 @@ import { colors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/development.config';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserAnswer } from '../../types/exam.types';
 import { ExamResult } from '../../types/exam.types';

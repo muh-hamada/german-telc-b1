@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import dataService from '../services/data.service';
 import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { HIDE_ADS } from '../config/development.config';
 
 const ExamStructureScreen: React.FC = () => {
   const { i18n, t } = useTranslation();

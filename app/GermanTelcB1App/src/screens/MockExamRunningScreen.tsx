@@ -33,7 +33,7 @@ import {
   getTestIdForStep,
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { HIDE_ADS } from '../config/development.config';
 import { useTranslation } from 'react-i18next';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { UserAnswer } from '../types/exam.types';

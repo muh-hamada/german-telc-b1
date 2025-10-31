@@ -17,7 +17,7 @@ import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
 import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';

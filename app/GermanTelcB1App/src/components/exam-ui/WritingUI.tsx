@@ -27,7 +27,7 @@ import {
   WritingAssessment,
 } from '../../services/openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
-import { SKIP_REWARDED_ADS } from '../../config/demo.config';
+import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 // In the Telc exam, the initiatial evaluation if from 15

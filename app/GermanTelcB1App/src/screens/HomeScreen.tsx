@@ -14,7 +14,7 @@ import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { HIDE_ADS } from '../config/development.config';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { MainTabParamList } from '../types/navigation.types';

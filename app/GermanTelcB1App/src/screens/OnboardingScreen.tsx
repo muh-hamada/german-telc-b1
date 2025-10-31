@@ -10,7 +10,7 @@ import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
 import i18n from '../utils/i18n';
 import AdBanner from '../components/AdBanner';
-import { DEMO_MODE } from '../config/demo.config';
+import { DEMO_MODE } from '../config/development.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;

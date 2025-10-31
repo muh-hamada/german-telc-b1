@@ -10,7 +10,7 @@ import { colors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart3UI from '../../components/exam-ui/ListeningPart3UI';
 import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/development.config';
 import { useProgress } from '../../contexts/ProgressContext';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';

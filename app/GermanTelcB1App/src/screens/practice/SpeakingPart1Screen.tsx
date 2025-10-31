@@ -19,7 +19,7 @@ import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import AdBanner from '../../components/AdBanner';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { HIDE_ADS } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/development.config';
 
 interface PersonalInfo {
   name: string;

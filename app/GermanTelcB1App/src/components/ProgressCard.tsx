@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
-import { DEMO_MODE, DEMO_STATS } from '../config/demo.config';
+import { DEMO_MODE, DEMO_STATS } from '../config/development.config';
 import Button from './Button';
 
 interface ProgressCardProps {
