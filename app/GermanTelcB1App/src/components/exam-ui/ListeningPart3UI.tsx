@@ -13,6 +13,7 @@ import Sound from 'react-native-sound';
 import { colors, spacing, typography } from '../../theme';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { UserAnswer } from '../../types/exam.types';
+import AudioDuration from '../AudioDuration';
 
 interface Statement {
   id: number;
@@ -38,6 +39,8 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [sound, setSound] = useState<Sound | null>(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     return () => {
@@ -120,6 +123,15 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
           audioSound.release();
         });
 
+        const audioDuration = audioSound.getDuration();
+        setDuration(audioDuration);
+
+        const interval = setInterval(() => {
+          audioSound.getCurrentTime((seconds: number) => {
+            setCurrentTime(seconds);
+          });
+        }, 1000);
+
         setSound(audioSound);
       }
     );
@@ -197,10 +209,17 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
 
         <View style={styles.audioPlayer}>
           <View style={styles.audioInfo}>
-            <Text style={styles.audioTitle}>{t('listening.part3.audioFile')}</Text>
-            <Text style={styles.audioStatus}>
-              {!hasStarted ? t('listening.part3.readyToPlay') : isPlaying ? t('listening.part3.playing') : t('listening.part3.completed')}
-            </Text>
+            <View>
+              <Text style={styles.audioTitle}>{t('listening.part2.audioFile')}</Text>
+              <Text style={styles.audioStatus}>
+                {!hasStarted ? t('listening.part2.readyToPlay') : isPlaying ? t('listening.part2.playing') : t('listening.part2.completed')}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.audioTime}>
+                {hasStarted && <AudioDuration currentTime={currentTime} duration={duration} />}
+              </Text>
+            </View>
           </View>
           
           {!hasStarted && (
@@ -362,6 +381,9 @@ const styles = StyleSheet.create({
     borderColor: colors.border.light,
   },
   audioInfo: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: spacing.margin.md,
   },
   audioTitle: {
@@ -370,6 +392,18 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   audioStatus: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  audioTime: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  audioCurrentTime: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[600],
+  },
+  audioDuration: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
   },
