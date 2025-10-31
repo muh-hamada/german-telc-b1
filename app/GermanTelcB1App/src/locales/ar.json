@@ -373,17 +373,17 @@
       "topicSelection": "اختيار الموضوع",
       "sections": {
         "topicSelectionLabel": "اختيار الموضوع:",
-        "partnerSummary": "تلخيص وجهة نظر الشريك",
+        "presentationExample": "مثال العرض التقديمي",
         "discussion": "النقاش (بعد العرض)",
         "discussionNote": "استخدم هذه الأسئلة لمواصلة المحادثة مع شريكك، والتعبير عن رأيك، ومشاركة تجاربك الخاصة."
       },
       "tabs": {
-        "yourRole": "دورك (المشارك أ)",
-        "partnerRole": "دور الشريك (المشارك ب)"
+        "yourRole": "المشارك أ",
+        "partnerRole": "المشارك ب"
       },
       "buttons": {
-        "hideSummary": "إخفاء الملخص",
-        "showSummary": "تلخيص وجهة نظر الشريك (الشخص الثالث)"
+        "hideExample": "إخفاء المثال",
+        "showExample": "وجهة نظر الشخص الحاضر (الشخص الثالث)"
       },
       "instructions": {
         "taskDescription": "مهمتك: أخبر شريك المحادثة عن النص التالي ثم ناقشوا الموضوع.",

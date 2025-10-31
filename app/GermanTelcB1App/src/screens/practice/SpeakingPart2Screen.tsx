@@ -48,7 +48,7 @@ const SpeakingPart2Screen: React.FC = () => {
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
   
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
-  const [showPartnerSummary, setShowPartnerSummary] = useState(false);
+  const [showPresentationExample, setShowPresentationExample] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [currentTopic, setCurrentTopic] = useState<Topic | null>(null);
 
@@ -78,10 +78,6 @@ const SpeakingPart2Screen: React.FC = () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
       logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 2, exam_id: topicId, completed: newStatus });
-      // Alert.alert(
-      //   t('common.success'),
-      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      // );
     } catch (error: any) {
       if (error.message === 'auth/not-logged-in') {
         Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
@@ -129,7 +125,7 @@ const SpeakingPart2Screen: React.FC = () => {
     return `**${person}:**\n\n${text}`;
   };
 
-  const createPartnerSummary = (view: { person: string; text: string }): string => {
+  const createPresentationExample = (view: { person: string; text: string }): string => {
     const [namePart] = view.person.split(',');
     const name = namePart.trim();
     const isFemale = name.includes('Frau') || 
@@ -142,7 +138,7 @@ const SpeakingPart2Screen: React.FC = () => {
 
   const renderViewContent = () => {
     const view = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
-    const partnerView = activeView === 'A' ? currentTopic.viewB : currentTopic.viewA;
+    const exampleView = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
 
     return (
       <View style={styles.viewContent}>
@@ -155,23 +151,23 @@ const SpeakingPart2Screen: React.FC = () => {
 
         <View style={styles.partnerSection}>
           <Text style={styles.partnerTitle}>
-            {t('speaking.part2.sections.partnerSummary')}
+            {t('speaking.part2.sections.presentationExample')}
           </Text>
           <TouchableOpacity
             style={styles.toggleButton}
-            onPress={() => setShowPartnerSummary(!showPartnerSummary)}
+            onPress={() => setShowPresentationExample(!showPresentationExample)}
           >
             <Text style={styles.toggleButtonText}>
-              {showPartnerSummary
-                ? t('speaking.part2.buttons.hideSummary')
-                : t('speaking.part2.buttons.showSummary')}
+              {showPresentationExample
+                ? t('speaking.part2.buttons.hideExample')
+                : t('speaking.part2.buttons.showExample')}
             </Text>
           </TouchableOpacity>
 
-          {showPartnerSummary && (
+          {showPresentationExample && (
             <View style={styles.summaryCard}>
               <Markdown style={markdownStylesSummary}>
-                {createPartnerSummary(partnerView)}
+                {createPresentationExample(exampleView)}
               </Markdown>
             </View>
           )}
@@ -222,7 +218,7 @@ const SpeakingPart2Screen: React.FC = () => {
               style={[styles.tab, activeView === 'A' && styles.activeTab]}
               onPress={() => {
                 setActiveView('A');
-                setShowPartnerSummary(false);
+                setShowPresentationExample(false);
               }}
             >
               <Text style={[styles.tabText, activeView === 'A' && styles.activeTabText]}>
@@ -233,7 +229,7 @@ const SpeakingPart2Screen: React.FC = () => {
               style={[styles.tab, activeView === 'B' && styles.activeTab]}
               onPress={() => {
                 setActiveView('B');
-                setShowPartnerSummary(false);
+                setShowPresentationExample(false);
               }}
             >
               <Text style={[styles.tabText, activeView === 'B' && styles.activeTabText]}>
@@ -324,7 +320,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.sm,
     borderTopLeftRadius: spacing.borderRadius.md,
     borderTopRightRadius: spacing.borderRadius.md,

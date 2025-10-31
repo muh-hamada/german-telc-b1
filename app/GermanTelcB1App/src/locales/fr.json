@@ -303,17 +303,17 @@
       "topicSelection": "Sélection de sujet",
       "sections": {
         "topicSelectionLabel": "Sélection de sujet :",
-        "partnerSummary": "Résumer le point de vue du partenaire",
+        "presentationExample": "Exemple de présentation",
         "discussion": "Discussion (Après la présentation)",
         "discussionNote": "Utilisez ces questions pour continuer la conversation avec votre partenaire, exprimer votre opinion et partager vos propres expériences."
       },
       "tabs": {
-        "yourRole": "Votre rôle (Participant A)",
-        "partnerRole": "Rôle du partenaire (Participant B)"
+        "yourRole": "Participant A",
+        "partnerRole": "Participant B"
       },
       "buttons": {
-        "hideSummary": "Masquer le résumé",
-        "showSummary": "Résumer le point de vue du partenaire (troisième personne)"
+        "hideExample": "Masquer l'exemple",
+        "showExample": "Le point de vue de la personne présente (troisième personne)"
       },
       "instructions": {
         "taskDescription": "Votre tâche : Informez votre partenaire de conversation du texte suivant, puis discutez du sujet.",

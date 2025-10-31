@@ -373,17 +373,17 @@
       "topicSelection": "Themenauswahl",
       "sections": {
         "topicSelectionLabel": "Themenauswahl:",
-        "partnerSummary": "Sicht des Partners zusammenfassen",
+        "presentationExample": "Präsentationsbeispiel",
         "discussion": "Diskussion (Nach der Präsentation)",
         "discussionNote": "Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und eigene Erfahrungen zu teilen."
       },
       "tabs": {
-        "yourRole": "Ihre Rolle (Teilnehmer A)",
-        "partnerRole": "Partnerrolle (Teilnehmer B)"
+        "yourRole": "Teilnehmer A",
+        "partnerRole": "Teilnehmer B"
       },
       "buttons": {
-        "hideSummary": "Zusammenfassung ausblenden",
-        "showSummary": "Partneransicht zusammenfassen (Drittperson)"
+        "hideExample": "Beispiel ausblenden",
+        "showExample": "Sicht der gegenwärtigen Person (dritte Person)"
       },
       "instructions": {
         "taskDescription": "Ihre Aufgabe: Berichten Sie Ihrer Gesprächspartnerin/Ihrem Gesprächspartner über den folgenden Text und unterhalten Sie sich dann über das Thema.",

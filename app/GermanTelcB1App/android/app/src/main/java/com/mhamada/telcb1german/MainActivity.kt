@@ -23,7 +23,7 @@ class MainActivity : ReactActivity() {
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
+    super.onCreate(null)
     // Set the status bar to be translucent but not overlapping
     // This allows React Native's StatusBar component to control the appearance
   }

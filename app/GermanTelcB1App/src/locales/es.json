@@ -373,17 +373,17 @@
       "topicSelection": "Selección de tema",
       "sections": {
         "topicSelectionLabel": "Selección de tema:",
-        "partnerSummary": "Resumir la opinión del compañero",
+        "presentationExample": "Ejemplo de presentación",
         "discussion": "Discusión (Después de la presentación)",
         "discussionNote": "Use estas preguntas para continuar la conversación con su compañero, expresar su opinión y compartir sus propias experiencias."
       },
       "tabs": {
-        "yourRole": "Su rol (Participante A)",
-        "partnerRole": "Rol del compañero (Participante B)"
+        "yourRole": "Participante A",
+        "partnerRole": "Participante B"
       },
       "buttons": {
-        "hideSummary": "Ocultar resumen",
-        "showSummary": "Resumir opinión del compañero (tercera persona)"
+        "hideExample": "Ocultar ejemplo",
+        "showExample": "Vista de la persona presente (tercera persona)"
       },
       "instructions": {
         "taskDescription": "Su tarea: Informe a su compañero de conversación sobre el siguiente texto y luego discutan sobre el tema.",

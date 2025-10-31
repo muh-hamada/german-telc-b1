@@ -26,7 +26,7 @@ interface AdBannerProps {
  * Uses test ads in development and should use real ads in production
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
-  // Hide ads in ios until the final version is released
+  // Hide ads in ios until the first version is released
   if (Platform.OS === 'ios') {
     return null;
   }

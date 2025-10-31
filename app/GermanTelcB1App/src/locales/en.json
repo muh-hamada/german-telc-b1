@@ -373,17 +373,17 @@
       "topicSelection": "Topic Selection",
       "sections": {
         "topicSelectionLabel": "Topic Selection:",
-        "partnerSummary": "Summarize Partner's View",
+        "presentationExample": "Presentation Example",
         "discussion": "Discussion (After the Presentation)",
         "discussionNote": "Use these questions to continue the conversation with your partner, express your opinion, and share your own experiences."
       },
       "tabs": {
-        "yourRole": "Your Role (Participant A)",
-        "partnerRole": "Partner Role (Participant B)"
+        "yourRole": "Participant A",
+        "partnerRole": "Participant B"
       },
       "buttons": {
-        "hideSummary": "Hide Summary",
-        "showSummary": "Summarize partner's view (third person)"
+        "hideExample": "Hide Example",
+        "showExample": "Present person's view (third person)"
       },
       "instructions": {
         "taskDescription": "Your task: Tell your conversation partner about the following text and then discuss the topic.",
