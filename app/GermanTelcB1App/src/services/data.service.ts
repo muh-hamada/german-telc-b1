@@ -307,7 +307,16 @@ class DataService {
       case 'speaking-important-phrases':
         // Not a count-based exam; treat as available if document exists
         return (await this.getSpeakingImportantPhrases())?.groups?.length ? 1 : 0;
-      default:
+      case 'listening-part1':
+        const listeningPart1Data = await this.getListeningPart1Content();
+        return listeningPart1Data.exams?.length || 0;
+      case 'listening-part2':
+        const listeningPart2Data = await this.getListeningPart2Content();
+        return listeningPart2Data.exams?.length || 0;
+      case 'listening-part3':
+        const listeningPart3Data = await this.getListeningPart3Content();
+        return listeningPart3Data.exams?.length || 0;
+        default:
         return 0;
     }
   }

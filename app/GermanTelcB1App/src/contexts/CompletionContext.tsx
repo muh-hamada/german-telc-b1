@@ -95,6 +95,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   // Get completion status for a specific exam
   const getCompletionStatus = (examType: string, partNumber: number, examId: number): CompletionData | null => {
     const key = createKey(examType, partNumber, examId);
+    console.log('[CompletionContext] Getting completion status for key:', key, completionData.has(key));
     return completionData.get(key) || null;
   };
 
@@ -110,6 +111,8 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
     }
 
     try {
+      console.log('[CompletionContext] Toggle completion called for:', { examType, partNumber, examId, score });
+      
       const newStatus = await firebaseCompletionService.toggleCompletion(
         user.uid,
         examType,
@@ -117,10 +120,14 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         examId,
         score
       );
+
+      console.log('[CompletionContext] Firebase returned newStatus:', newStatus);
       
       // Update local state
       const key = createKey(examType, partNumber, examId);
       const newData = new Map(completionData);
+      
+      console.log('[CompletionContext] Updating local state for key:', key, 'newStatus:', newStatus);
       
       if (newStatus) {
         // Mark as completed
@@ -132,15 +139,18 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
           date: Date.now(),
           completed: true,
         });
+        console.log('[CompletionContext] Added to local state');
       } else {
         // Remove from map
         newData.delete(key);
+        console.log('[CompletionContext] Removed from local state');
       }
       
       setCompletionData(newData);
       
-      // Refresh stats
-      await loadCompletionData();
+      // Refresh only stats (not the completion data to avoid overwriting optimistic update)
+      const stats = await firebaseCompletionService.getAllCompletionStats(user.uid);
+      setAllStats(stats);
       
       // Trigger review prompt if marking as complete (newStatus === true)
       // We use a mock maxScore of 100 to indicate completion

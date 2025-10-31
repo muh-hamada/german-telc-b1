@@ -175,6 +175,7 @@ class FirebaseCompletionService {
         'reading': [1, 2, 3],
         'writing': [1],
         'speaking': [1, 2, 3],
+        'listening': [1, 2, 3],
       };
       
       // Fetch stats for each exam type and part
@@ -218,12 +219,15 @@ class FirebaseCompletionService {
   ): Promise<boolean> {
     try {
       const current = await this.getCompletionStatus(userId, examType, partNumber, examId);
+
+      console.log('[CompletionService] getCompletionStatus:', current);
       
       if (current?.completed) {
         await this.unmarkExamCompleted(userId, examType, partNumber, examId);
         return false;
       } else {
         await this.markExamCompleted(userId, examType, partNumber, examId, score);
+        console.log('[CompletionService] Exam marked as completed:', { userId, examType, partNumber, examId, score });
         return true;
       }
     } catch (error) {

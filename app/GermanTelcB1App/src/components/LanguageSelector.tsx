@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     textAlign: 'center',
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.md,
   },
   scrollView: {
     flex: 1,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.semibold,
-    marginBottom: spacing.margin.xs,
+    marginBottom: 0,
   },
   selectedLanguageName: {
     color: colors.primary[700],
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
   languageCode: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    marginBottom: 0,
   },
   selectedLanguageCode: {
     color: colors.primary[600],

@@ -25,7 +25,6 @@ import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
-import { DEMO_MODE } from '../config/development.config';
 import { checkRTLChange } from '../utils/i18n';
 import { MainTabParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
