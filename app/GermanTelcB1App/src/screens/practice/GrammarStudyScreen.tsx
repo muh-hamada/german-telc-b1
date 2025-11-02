@@ -331,9 +331,10 @@ const GrammarStudyScreen: React.FC = () => {
         </View>
 
         {/* Answer Options */}
-        {!showResult && (
-          <View style={styles.optionsContainer}>
-            {getRandomizedOptions().map((item, index) => {
+        <View style={styles.optionsContainer}>
+          {!showResult ? (
+            // Show all options before answering
+            getRandomizedOptions().map((item, index) => {
               const { option, letter } = item;
               
               return (
@@ -342,19 +343,55 @@ const GrammarStudyScreen: React.FC = () => {
                   style={styles.optionButton}
                   onPress={() => handleAnswerSelect(option.choice)}
                 >
-                  <Text style={styles.optionText}>
-                    {letter}. {option.choice}
-                  </Text>
+                  <View style={styles.optionContent}>
+                    <View style={styles.letterCircle}>
+                      <Text style={styles.letterText}>{letter}</Text>
+                    </View>
+                    <Text style={styles.optionText}>
+                      {option.choice}
+                    </Text>
+                    <View style={styles.emptyCircle} />
+                  </View>
                 </TouchableOpacity>
               );
-            })}
-          </View>
-        )}
+            })
+          ) : (
+            // Show only selected option after answering
+            selectedOption && (
+              <View style={[
+                styles.selectedOptionCard,
+                selectedOption.is_correct ? styles.correctOptionCard : styles.wrongOptionCard
+              ]}>
+                <View style={styles.optionContent}>
+                  <View style={styles.letterCircle}>
+                    <Text style={styles.letterText}>
+                      {getRandomizedOptions().find(item => item.option.choice === selectedOption.choice)?.letter || 'a'}
+                    </Text>
+                  </View>
+                  <Text style={[
+                    styles.selectedOptionText,
+                    selectedOption.is_correct ? styles.correctOptionText : styles.wrongOptionText
+                  ]}>
+                    {selectedOption.choice}
+                  </Text>
+                  <View style={[
+                    styles.iconCircle,
+                    selectedOption.is_correct ? styles.correctIconCircle : styles.wrongIconCircle
+                  ]}>
+                    <Text style={styles.iconText}>
+                      {selectedOption.is_correct ? '✓' : '✗'}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            )
+          )}
+        </View>
 
         {/* Result and Explanation */}
         {showResult && selectedOption && (
           <View style={styles.resultContainer}>
-            <View style={[
+            {/* <View style={[
               styles.resultHeader,
               selectedOption.is_correct ? styles.correctHeader : styles.wrongHeader
             ]}>
@@ -364,7 +401,7 @@ const GrammarStudyScreen: React.FC = () => {
                   : t('practice.grammar.study.incorrect')
                 }
               </Text>
-            </View>
+            </View> */}
             
             <View style={styles.explanationContainer}>
               <MarkdownText text={selectedOption.explanation[getLanguageKey()]}/>
@@ -483,29 +520,104 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   optionButton: {
-    backgroundColor: colors.background.secondary,
-    padding: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
+    backgroundColor: colors.white,
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
+    borderRadius: spacing.borderRadius.lg,
     marginBottom: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  optionContent: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: spacing.margin.md,
+  },
+  letterCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.primary[600],
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  letterText: {
+    ...typography.textStyles.body,
+    color: colors.white,
+    fontWeight: typography.fontWeight.bold,
+    textTransform: 'uppercase',
+  },
+  emptyCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     borderWidth: 2,
     borderColor: colors.border.light,
-    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   optionText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.medium,
+    flex: 1,
   },
-  correctOption: {
+  selectedOptionCard: {
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
+    borderRadius: spacing.borderRadius.lg,
+    borderWidth: 2,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  correctOptionCard: {
     backgroundColor: colors.success[50],
     borderColor: colors.success[500],
   },
-  correctOptionText: {
-    color: colors.success[700],
-  },
-  wrongOption: {
+  wrongOptionCard: {
     backgroundColor: colors.error[50],
     borderColor: colors.error[500],
+  },
+  selectedOptionText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    flex: 1,
+  },
+  iconCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: spacing.margin.sm,
+  },
+  correctIconCircle: {
+    backgroundColor: colors.success[500],
+  },
+  wrongIconCircle: {
+    backgroundColor: colors.error[500],
+  },
+  iconText: {
+    ...typography.textStyles.h4,
+    color: colors.white,
+    fontWeight: typography.fontWeight.bold,
+  },
+  correctOptionText: {
+    color: colors.success[700],
   },
   wrongOptionText: {
     color: colors.error[700],
