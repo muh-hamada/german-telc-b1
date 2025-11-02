@@ -158,6 +158,28 @@
       "part2": "Part 2: Gap Fill (Word List)",
       "descriptions": {
         "main": "Practice German grammar with gap-fill exercises"
+      },
+      "study": {
+        "title": "150 Grammar Questions",
+        "description": "Master German grammar with 150 practice questions from various topics",
+        "progress": "Question {{current}} of {{total}}",
+        "currentProgress": "Current Progress",
+        "progressFound": "Previous Progress Found",
+        "progressMessage": "You have previous progress on question {{current}} of {{total}}. Would you like to continue from where you left off or start over?",
+        "continue": "Continue",
+        "startOver": "Start Over",
+        "restart": "Restart",
+        "confirmRestart": "Confirm Restart",
+        "restartWarning": "This will clear your current progress and start from the beginning. Are you sure?",
+        "correct": "Correct!",
+        "incorrect": "Incorrect",
+        "tryAgain": "Try Again",
+        "skip": "Skip",
+        "next": "Next",
+        "finish": "Finish",
+        "congratulations": "Congratulations!",
+        "allCompleted": "You have completed all 150 grammar questions! Would you like to restart or go back?",
+        "close": "Close"
       }
     }
   },

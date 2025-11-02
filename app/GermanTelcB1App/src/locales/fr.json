@@ -158,6 +158,27 @@
       "part2": "Partie 2 : Texte à trous (Liste de mots)",
       "descriptions": {
         "main": "Pratiquez la grammaire allemande avec des exercices à trous"
+      },
+      "study": {
+        "title": "150 Questions de Grammaire",
+        "description": "Maîtrisez la grammaire allemande avec 150 questions d'entraînement sur divers sujets",
+        "progress": "Question {{current}} sur {{total}}",
+        "currentProgress": "Progrès actuel",
+        "progressFound": "Progrès précédent trouvé",
+        "progressMessage": "Vous avez un progrès précédent à la question {{current}} sur {{total}}. Voulez-vous continuer où vous vous êtes arrêté ou recommencer ?",
+        "continue": "Continuer",
+        "startOver": "Recommencer",
+        "restart": "Redémarrer",
+        "confirmRestart": "Confirmer le redémarrage",
+        "restartWarning": "Cela effacera votre progrès actuel et recommencera depuis le début. Êtes-vous sûr ?",
+        "correct": "Correct !",
+        "incorrect": "Incorrect",
+        "tryAgain": "Réessayer",
+        "skip": "Passer",
+        "finish": "Terminer",
+        "congratulations": "Félicitations !",
+        "allCompleted": "Vous avez terminé toutes les 150 questions de grammaire ! Voulez-vous redémarrer ou revenir en arrière ?",
+        "close": "Fermer"
       }
     }
   },

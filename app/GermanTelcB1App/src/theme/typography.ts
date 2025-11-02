@@ -103,6 +103,16 @@ export const typography = {
         default: 'System',
       }),
     },
+    h6: {
+      fontSize: 12,
+      lineHeight: 18,
+      fontWeight: '400' as const,
+      fontFamily: Platform.select({
+        ios: 'System',
+        android: 'Roboto-Medium',
+        default: 'System',
+      }),
+    },
     
     // Body text
     body: {

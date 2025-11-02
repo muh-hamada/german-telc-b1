@@ -21,6 +21,7 @@ const HIDE_TAB_SCREENS = [
   'GrammarMenu',
   'GrammarPart1',
   'GrammarPart2',
+  'GrammarStudy',
   'Writing',
   'SpeakingMenu',
   'SpeakingPart1',

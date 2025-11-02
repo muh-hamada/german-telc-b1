@@ -58,6 +58,11 @@ const GrammarMenuScreen: React.FC = () => {
     navigation.navigate('GrammarPart2', { examId });
   };
 
+  const handleGrammarStudyPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar_study' });
+    navigation.navigate('GrammarStudy');
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -72,6 +77,13 @@ const GrammarMenuScreen: React.FC = () => {
           <Text style={styles.cardTitle}>{t('practice.grammar.part2')}</Text>
           <Text style={styles.cardDescription}>
             {t('practice.grammar.descriptions.main')}
+          </Text>
+        </Card>
+
+        <Card style={styles.card} onPress={handleGrammarStudyPress}>
+          <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('practice.grammar.study.description')}
           </Text>
         </Card>
       </ScrollView>

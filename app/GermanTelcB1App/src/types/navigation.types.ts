@@ -26,6 +26,7 @@ export type HomeStackParamList = {
   GrammarMenu: undefined;
   GrammarPart1: { examId: number };
   GrammarPart2: { examId: number };
+  GrammarStudy: undefined;
   Writing: { examId: number };
   SpeakingMenu: undefined;
   SpeakingPart1: undefined;

@@ -14,6 +14,7 @@ import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
 import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
+import GrammarStudyScreen from '../screens/practice/GrammarStudyScreen';
 import WritingScreen from '../screens/practice/WritingScreen';
 import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
@@ -134,6 +135,13 @@ const HomeStackNavigator: React.FC = () => {
         component={GrammarPart2Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.grammar.part2" />,
+        }}
+      />
+      <Stack.Screen
+        name="GrammarStudy"
+        component={GrammarStudyScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.grammar.study" />,
         }}
       />
       <Stack.Screen

@@ -158,6 +158,27 @@
       "part2": "Parte 2: Rellenar espacios (Lista de palabras)",
       "descriptions": {
         "main": "Practica gramática alemana con ejercicios de completar espacios"
+      },
+      "study": {
+        "title": "150 Preguntas de Gramática",
+        "description": "Domina la gramática alemana con 150 preguntas de práctica sobre varios temas",
+        "progress": "Pregunta {{current}} de {{total}}",
+        "currentProgress": "Progreso actual",
+        "progressFound": "Progreso anterior encontrado",
+        "progressMessage": "Tienes progreso anterior en la pregunta {{current}} de {{total}}. ¿Te gustaría continuar desde donde lo dejaste o empezar de nuevo?",
+        "continue": "Continuar",
+        "startOver": "Empezar de nuevo",
+        "restart": "Reiniciar",
+        "confirmRestart": "Confirmar reinicio",
+        "restartWarning": "Esto borrará tu progreso actual y empezará desde el principio. ¿Estás seguro?",
+        "correct": "¡Correcto!",
+        "incorrect": "Incorrecto",
+        "tryAgain": "Intentar de nuevo",
+        "skip": "Saltar",
+        "finish": "Terminar",
+        "congratulations": "¡Felicitaciones!",
+        "allCompleted": "¡Has completado todas las 150 preguntas de gramática! ¿Te gustaría reiniciar o volver atrás?",
+        "close": "Cerrar"
       }
     }
   },

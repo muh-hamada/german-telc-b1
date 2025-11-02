@@ -29,6 +29,7 @@ import {
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import MarkdownText from '../MarkdownText';
 
 // In the Telc exam, the initiatial evaluation if from 15
 // Then we multiply by 3 to reach a max score of 45
@@ -67,54 +68,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
-
-  // Simple markdown renderer for corrected text
-  const renderMarkdownText = (text: string) => {
-    // Split text by newlines to preserve line breaks
-    const lines = text.split('\n');
-    
-    return lines.map((line, lineIndex) => {
-      // Parse markdown for bold (**text**)
-      const parts: Array<{ text: string; bold: boolean }> = [];
-      let currentPos = 0;
-      const boldRegex = /\*\*(.+?)\*\*/g;
-      let match;
-      
-      while ((match = boldRegex.exec(line)) !== null) {
-        // Add text before the match
-        if (match.index > currentPos) {
-          parts.push({ text: line.slice(currentPos, match.index), bold: false });
-        }
-        // Add the bold text
-        parts.push({ text: match[1], bold: true });
-        currentPos = match.index + match[0].length;
-      }
-      
-      // Add remaining text
-      if (currentPos < line.length) {
-        parts.push({ text: line.slice(currentPos), bold: false });
-      }
-      
-      // If no markdown was found, just add the line as is
-      if (parts.length === 0) {
-        parts.push({ text: line, bold: false });
-      }
-      
-      return (
-        <Text key={lineIndex} style={styles.correctedAnswerText}>
-          {parts.map((part, partIndex) => (
-            <Text 
-              key={partIndex} 
-              style={part.bold ? styles.correctedText : undefined}
-            >
-              {part.text}
-            </Text>
-          ))}
-          {lineIndex < lines.length - 1 && '\n'}
-        </Text>
-      );
-    });
-  };
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -648,7 +601,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
               <View style={styles.correctedAnswerSection}>
                 <Text style={styles.correctedAnswerTitle}>{t('writing.evaluation.correctedAnswer')}</Text>
                 <View style={styles.correctedAnswerContainer}>
-                  {renderMarkdownText(assessment.correctedAnswer)}
+                  <MarkdownText text={assessment.correctedAnswer}/>
                 </View>
               </View>
             </ScrollView>
@@ -1134,12 +1087,6 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
-  },
-  correctedText: {
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[700],
-    backgroundColor: colors.primary[100],
-    paddingHorizontal: 2,
   },
   closeModalButton: {
     backgroundColor: colors.primary[500],

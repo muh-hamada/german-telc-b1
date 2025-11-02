@@ -158,6 +158,28 @@
       "part2": "Teil 2: Lückentext (Wortliste)",
       "descriptions": {
         "main": "Üben Sie deutsche Grammatik mit Lückentexten"
+      },
+      "study": {
+        "title": "150 Grammatikfragen",
+        "description": "Meistern Sie deutsche Grammatik mit 150 Übungsfragen aus verschiedenen Themen",
+        "progress": "Frage {{current}} von {{total}}",
+        "currentProgress": "Aktueller Fortschritt",
+        "progressFound": "Vorheriger Fortschritt gefunden",
+        "progressMessage": "Sie haben einen vorherigen Fortschritt bei Frage {{current}} von {{total}}. Möchten Sie von dort aus fortfahren oder von vorne beginnen?",
+        "continue": "Fortfahren",
+        "startOver": "Von vorne beginnen",
+        "restart": "Neustart",
+        "confirmRestart": "Neustart bestätigen",
+        "restartWarning": "Dies wird Ihren aktuellen Fortschritt löschen und von vorne beginnen. Sind Sie sicher?",
+        "correct": "Richtig!",
+        "incorrect": "Falsch",
+        "tryAgain": "Nochmal versuchen",
+        "skip": "Überspringen",
+        "next": "Weiter",
+        "finish": "Beenden",
+        "congratulations": "Herzlichen Glückwunsch!",
+        "allCompleted": "Sie haben alle 150 Grammatikfragen abgeschlossen! Möchten Sie neu starten oder zurückgehen?",
+        "close": "Schließen"
       }
     }
   },

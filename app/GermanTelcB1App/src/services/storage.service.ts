@@ -7,6 +7,7 @@ class StorageService {
     LANGUAGE_PREFERENCE: 'language_preference',
     ONBOARDING_COMPLETED: 'onboarding_completed',
     USER_SETTINGS: 'user_settings',
+    GRAMMAR_STUDY_PROGRESS: 'grammar_study_progress',
   };
 
   // User Progress Methods
@@ -238,6 +239,7 @@ class StorageService {
         StorageService.KEYS.LANGUAGE_PREFERENCE,
         StorageService.KEYS.ONBOARDING_COMPLETED,
         StorageService.KEYS.USER_SETTINGS,
+        StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
       ]);
       return true;
     } catch (error) {
@@ -265,6 +267,52 @@ class StorageService {
     } catch (error) {
       console.error('Error getting storage info:', error);
       return { used: 0, available: 0 };
+    }
+  }
+
+  // Grammar Study Progress Methods
+  async getGrammarStudyProgress(): Promise<{ currentQuestionIndex: number; completedQuestions: Set<number> } | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GRAMMAR_STUDY_PROGRESS);
+      if (!data) return null;
+      
+      const parsed = JSON.parse(data);
+      return {
+        currentQuestionIndex: parsed.currentQuestionIndex || 0,
+        completedQuestions: new Set(parsed.completedQuestions || []),
+      };
+    } catch (error) {
+      console.error('Error getting grammar study progress:', error);
+      return null;
+    }
+  }
+
+  async saveGrammarStudyProgress(currentQuestionIndex: number, completedQuestions: Set<number>): Promise<boolean> {
+    try {
+      const progressData = {
+        currentQuestionIndex,
+        completedQuestions: Array.from(completedQuestions),
+        lastUpdated: Date.now(),
+      };
+      
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
+        JSON.stringify(progressData)
+      );
+      return true;
+    } catch (error) {
+      console.error('Error saving grammar study progress:', error);
+      return false;
+    }
+  }
+
+  async clearGrammarStudyProgress(): Promise<boolean> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GRAMMAR_STUDY_PROGRESS);
+      return true;
+    } catch (error) {
+      console.error('Error clearing grammar study progress:', error);
+      return false;
     }
   }
 }
