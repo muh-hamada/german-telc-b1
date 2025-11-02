@@ -4033,7 +4033,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - RNPermissions (5.4.3):
+  - RNPermissions (5.4.4):
     - boost
     - DoubleConversion
     - fast_float
@@ -4624,7 +4624,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 332c71177cd5c856673c7e7875fa3f92ba5a5cc2
   RNGoogleMobileAds: 314f701b17495d7face0b5f6708e3106511abda2
   RNGoogleSignin: 85c82d6e1494bd4a039804959362e63771f7ad5a
-  RNPermissions: 5a2a8a2d957a6ca578c7b7b8727c1be6907b27fd
+  RNPermissions: d499665271f4f2f523cd6fb8cea0e08dcbb51850
   RNScreens: 98771ad898d1c0528fc8139606bbacf5a2e9d237
   RNSound: 80f864773ff8f670fc8f052a3e478cec201d9b43
   RNVectorIcons: e355dd0998d6b9020e560922a66614eb9636501b
