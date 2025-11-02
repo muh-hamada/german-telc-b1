@@ -71,6 +71,11 @@ export const AnalyticsEvents = {
   REVIEW_PROMPT_SHOWN: 'review_prompt_shown',
   REVIEW_PROMPT_DISMISSED: 'review_prompt_dismissed',
   REVIEW_COMPLETED: 'review_completed',
+  
+  // Settings
+  SETTINGS_NOTIFICATIONS_ENABLED: 'settings_notifications_enabled',
+  SETTINGS_NOTIFICATIONS_DISABLED: 'settings_notifications_disabled',
+  SETTINGS_NOTIFICATION_TIME_CHANGED: 'settings_notification_time_changed',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

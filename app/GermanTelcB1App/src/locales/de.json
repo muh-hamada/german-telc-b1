@@ -66,7 +66,8 @@
       "failedToSave": "Speichern der persönlichen Informationen fehlgeschlagen",
       "retryExam": "Prüfung wiederholen",
       "retryExamConfirm": "Sind Sie sicher, dass Sie diese Prüfung wiederholen möchten? Ihre vorherigen Antworten gehen verloren."
-    }
+    },
+    "ok": "OK"
   },
   "onboarding": {
     "welcome": "Lassen Sie uns gemeinsam für die deutsche TELC B1 Prüfung lernen",

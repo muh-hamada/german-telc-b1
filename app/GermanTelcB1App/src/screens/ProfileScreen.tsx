@@ -13,31 +13,27 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { useRoute, RouteProp } from '@react-navigation/native';
-import RNRestart from 'react-native-restart';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import DeviceInfo from 'react-native-device-info';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
-import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
-import { checkRTLChange } from '../utils/i18n';
-import { MainTabParamList } from '../types/navigation.types';
+import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const ProfileScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const route = useRoute<RouteProp<MainTabParamList, 'Profile'>>();
-  const { clearUserProgress, isLoading } = useProgress();
+  const { t } = useTranslation();
+  const route = useRoute<RouteProp<ProfileStackParamList, 'Profile'>>();
+  const navigation = useNavigation<StackNavigationProp<ProfileStackParamList>>();
   const { user, signOut, isLoading: authLoading } = useAuth();
   const { allStats, isLoading: statsLoading } = useCompletion();
-  const [isClearing, setIsClearing] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showLanguageModal, setShowLanguageModal] = useState(false);
 
   const handleRateApp = async () => {
     if (Platform.OS === 'android') {
@@ -65,76 +61,12 @@ const ProfileScreen: React.FC = () => {
     }
   }, [route.params?.openLoginModal, user]);
 
-  const handleClearProgress = () => {
-    logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_PROMPT_SHOWN);
-    Alert.alert(
-      t('profile.alerts.clearProgressTitle'),
-      t('profile.alerts.clearProgressMessage'),
-      [
-        { text: t('common.cancel'), style: 'cancel', onPress: () => logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_CANCELLED) },
-        {
-          text: t('profile.alerts.clear'),
-          style: 'destructive',
-          onPress: async () => {
-            logEvent(AnalyticsEvents.PROFILE_CLEAR_PROGRESS_CONFIRMED);
-            setIsClearing(true);
-            const success = await clearUserProgress();
-            setIsClearing(false);
-
-            if (success) {
-              Alert.alert(t('common.success'), t('profile.alerts.progressCleared'));
-            } else {
-              Alert.alert(t('common.error'), t('profile.alerts.clearFailed'));
-            }
-          },
-        },
-      ]
-    );
+  const handleNavigateToSettings = () => {
+    navigation.navigate('Settings');
   };
 
-  const handleLanguageChange = () => {
-    logEvent(AnalyticsEvents.LANGUAGE_CHANGE_OPENED);
-    setShowLanguageModal(true);
-  };
-
-  const handleLanguageSelect = async (languageCode: string) => {
-    try {
-      logEvent(AnalyticsEvents.LANGUAGE_CHANGED, { to: languageCode });
-      const needsRestart = checkRTLChange(languageCode);
-      await i18n.changeLanguage(languageCode);
-
-      if (needsRestart) {
-        // Switching between RTL and LTR requires app restart
-        const isGoingToRTL = languageCode === 'ar';
-        Alert.alert(
-          t('common.success'),
-          isGoingToRTL
-            ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
-            : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.',
-          [
-            {
-              text: t('common.cancel'),
-              style: 'cancel',
-            },
-            {
-              text: 'Restart / إعادة التشغيل',
-              style: 'default',
-              onPress: () => {
-                // Give a small delay to ensure language is saved
-                setTimeout(() => {
-                  RNRestart.restart();
-                }, 100);
-              },
-            },
-          ]
-        );
-      } else {
-        Alert.alert(t('common.success'), t('profile.alerts.languageChanged'));
-      }
-    } catch (error) {
-      console.error('Error changing language:', error);
-      Alert.alert(t('common.error'), t('profile.alerts.languageChangeFailed'));
-    }
+  const handleNavigateToStats = () => {
+    navigation.navigate('CompletionStats');
   };
 
   const handleSignOut = () => {
@@ -203,26 +135,24 @@ const ProfileScreen: React.FC = () => {
 
         {/* Completion Statistics Section */}
         <View style={styles.section}>
-          <CompletionStatsCard stats={allStats} isLoading={statsLoading} showLoggedOutMessage={!user} />
+          <CompletionStatsCard 
+            stats={allStats} 
+            isLoading={statsLoading} 
+            showLoggedOutMessage={!user}
+            showOnlyTop={true}
+            onSeeAllStats={handleNavigateToStats}
+          />
         </View>
 
-        {/* Settings Section */}
+        {/* Quick Actions Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.settings')}</Text>
+          <Text style={styles.sectionTitle}>{t('profile.quickActions')}</Text>
 
           <Button
-            title={t('profile.changeLanguage')}
-            onPress={handleLanguageChange}
+            title={t('settings.title')}
+            onPress={handleNavigateToSettings}
             variant="outline"
             style={styles.settingButton}
-          />
-
-          <Button
-            title={t('profile.clearProgress')}
-            onPress={handleClearProgress}
-            variant="outline"
-            style={{ ...styles.settingButton, ...styles.dangerButton }}
-            disabled={isClearing || isLoading}
           />
         </View>
 
@@ -275,13 +205,6 @@ const ProfileScreen: React.FC = () => {
         onClose={() => setShowLoginModal(false)}
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
-      />
-
-      {/* Language Selector Modal */}
-      <LanguageSelectorModal
-        visible={showLanguageModal}
-        onClose={() => setShowLanguageModal(false)}
-        onLanguageSelect={handleLanguageSelect}
       />
     </SafeAreaView>
   );

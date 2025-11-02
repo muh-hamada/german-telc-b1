@@ -66,7 +66,8 @@
       "failedToSave": "Error al guardar la información personal",
       "retryExam": "Reintentar examen",
       "retryExamConfirm": "¿Está seguro de que desea reintentar este examen? Sus respuestas anteriores se perderán."
-    }
+    },
+    "ok": "DE ACUERDO"
   },
   "onboarding": {
     "welcome": "Preparemos juntos para el examen alemán TELC B1",

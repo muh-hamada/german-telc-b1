@@ -422,6 +422,36 @@ class FirestoreService {
       throw error;
     }
   }
+
+  // User Settings Management
+  async getUserSettings(uid: string): Promise<any | null> {
+    try {
+      const userDoc = await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .get();
+
+      if (userDoc.exists()) {
+        return userDoc.data();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error getting user settings:', error);
+      throw error;
+    }
+  }
+
+  async updateUserSettings(uid: string, settings: any): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .set(settings, { merge: true });
+    } catch (error) {
+      console.error('Error updating user settings:', error);
+      throw error;
+    }
+  }
 }
 
 export default new FirestoreService();

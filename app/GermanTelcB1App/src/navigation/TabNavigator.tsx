@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MainTabParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
 import HomeStackNavigator from './HomeStackNavigator';
+import ProfileStackNavigator from './ProfileStackNavigator';
 import MockExamScreen from '../screens/MockExamScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -32,6 +32,8 @@ const HIDE_TAB_SCREENS = [
   'ListeningPart2',
   'ListeningPart3',
   'ExamStructure',
+  'Settings',
+  'CompletionStats',
 ];
 
 const TabNavigator: React.FC = () => {
@@ -81,14 +83,15 @@ const TabNavigator: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
+        name="ProfileStack"
+        component={ProfileStackNavigator}
+        options={({ route }) => ({
           tabBarLabel: t('navigation.profile'),
           tabBarIcon: ({ color, size }) => (
             <Icon name="person" size={size} color={color} />
           ),
-        }}
+          tabBarStyle: getTabBarStyle(route),
+        })}
       />
     </Tab.Navigator>
   );

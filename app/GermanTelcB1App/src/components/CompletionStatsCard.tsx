@@ -8,12 +8,15 @@ import {
 import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
+import Button from './Button';
 import { AllCompletionStats } from '../services/firebase-completion.service';
 
 interface CompletionStatsCardProps {
   stats: AllCompletionStats;
   isLoading?: boolean;
   showLoggedOutMessage?: boolean;
+  showOnlyTop?: boolean;
+  onSeeAllStats?: () => void;
 }
 
 interface ExamSection {
@@ -22,7 +25,13 @@ interface ExamSection {
   parts: number[];
 }
 
-const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoading = false, showLoggedOutMessage = false }) => {
+const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ 
+  stats, 
+  isLoading = false, 
+  showLoggedOutMessage = false, 
+  showOnlyTop = false,
+  onSeeAllStats 
+}) => {
   const { t } = useTranslation();
 
   const examSections: ExamSection[] = [
@@ -93,56 +102,68 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({ stats, isLoad
         <Text style={styles.percentageText}>{totalStats.percentage}%</Text>
       </View>
 
-      {/* Section-wise breakdown */}
-      <View style={styles.sectionsContainer}>
-        {examSections.map((section) => {
-          const sectionStats = stats[section.key];
-          if (!sectionStats) return null;
+      {/* See All Stats Button for showOnlyTop mode */}
+      {showOnlyTop && onSeeAllStats && (
+        <Button
+          title={t('profile.seeAllStats')}
+          onPress={onSeeAllStats}
+          variant="outline"
+          style={styles.seeAllButton}
+        />
+      )}
 
-          // Calculate section totals
-          let sectionCompleted = 0;
-          let sectionTotal = 0;
-          section.parts.forEach(partNumber => {
-            const partStats = sectionStats[partNumber];
-            if (partStats) {
-              sectionCompleted += partStats.completed;
-              sectionTotal += partStats.total;
-            }
-          });
+      {/* Section-wise breakdown - only show when not showOnlyTop */}
+      {!showOnlyTop && (
+        <View style={styles.sectionsContainer}>
+          {examSections.map((section) => {
+            const sectionStats = stats[section.key];
+            if (!sectionStats) return null;
 
-          return (
-            <View key={section.key} style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>{t(section.titleKey)}</Text>
-              
-              {section.parts.map((partNumber) => {
-                const partStats = sectionStats[partNumber];
-                if (!partStats) return null;
+            // Calculate section totals
+            let sectionCompleted = 0;
+            let sectionTotal = 0;
+            section.parts.forEach(partNumber => {
+              const partStats = sectionStats[partNumber];
+              if (partStats) {
+                sectionCompleted += partStats.completed;
+                sectionTotal += partStats.total;
+              }
+            });
 
-                return (
-                  <View key={`${section.key}-${partNumber}`} style={styles.partRow}>
-                    <View style={styles.partInfo}>
-                      <Text style={styles.partTitle}>
-                        {section.key === 'writing' ? '' : `Part ${partNumber}`}
-                      </Text>
-                      <View style={styles.miniProgressBar}>
-                        <View
-                          style={[
-                            styles.miniProgressBarFill,
-                            { width: `${partStats.percentage}%` },
-                          ]}
-                        />
+            return (
+              <View key={section.key} style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>{t(section.titleKey)}</Text>
+                
+                {section.parts.map((partNumber) => {
+                  const partStats = sectionStats[partNumber];
+                  if (!partStats) return null;
+
+                  return (
+                    <View key={`${section.key}-${partNumber}`} style={styles.partRow}>
+                      <View style={styles.partInfo}>
+                        <Text style={styles.partTitle}>
+                          {section.key === 'writing' ? '' : `Part ${partNumber}`}
+                        </Text>
+                        <View style={styles.miniProgressBar}>
+                          <View
+                            style={[
+                              styles.miniProgressBarFill,
+                              { width: `${partStats.percentage}%` },
+                            ]}
+                          />
+                        </View>
                       </View>
+                      <Text style={styles.partStats}>
+                        {partStats.completed}/{partStats.total}
+                      </Text>
                     </View>
-                    <Text style={styles.partStats}>
-                      {partStats.completed}/{partStats.total}
-                    </Text>
-                  </View>
-                );
-              })}
-            </View>
-          );
-        })}
-      </View>
+                  );
+                })}
+              </View>
+            );
+          })}
+        </View>
+      )}
 
       {totalStats.totalCompleted === 0 && (
         <View style={styles.emptyState}>
@@ -284,6 +305,8 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.tertiary,
     textAlign: 'center',
+  },
+  seeAllButton: {
   },
 });
 

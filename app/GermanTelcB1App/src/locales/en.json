@@ -66,7 +66,8 @@
       "failedToSave": "Failed to save personal information",
       "retryExam": "Retry Exam",
       "retryExamConfirm": "Are you sure you want to retry this exam? Your previous answers will be lost."
-    }
+    },
+    "ok": "OK"
   },
   "onboarding": {
     "welcome": "Let's prepare for the German TELC B1 exam together",
@@ -202,6 +203,8 @@
     "version": "Version",
     "completionStats": "Completion Statistics",
     "totalProgress": "Total Progress",
+    "seeAllStats": "See All Stats",
+    "quickActions": "Quick Actions",
     "noCompletedExams": "No completed exams yet. Start practicing!",
     "loginProviders": {
       "google": "Continue with Google",
@@ -231,6 +234,28 @@
       "iosRatingComingSoon": "The iOS app is coming soon"
     },
     "rateApp": "Rate our App"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "dailyNotification": "Daily Notification",
+    "notificationTime": "Notification Time",
+    "selectHour": "Select Hour",
+    "popularTimes": "Popular Times",
+    "notificationPermission": "Notification Permission",
+    "notificationPermissionMessage": "We'll send you daily reminders to practice your German. You can change this anytime in settings.",
+    "permissionDenied": "Permission Denied",
+    "permissionDeniedMessage": "To receive notifications, please enable them in your device settings.",
+    "permissionError": "Unable to request notification permission. Please check your device settings.",
+    "openSettings": "Open Settings",
+    "saveSettingsError": "Failed to save settings. Please try again.",
+    "signInToSaveSettings": "Sign in to save your notification preferences",
+    "data": "Data"
+  },
+  "stats": {
+    "title": "Statistics",
+    "subtitle": "Detailed view of your progress across all exam sections"
   },
   "review": {
     "title": "Enjoying the App?",
