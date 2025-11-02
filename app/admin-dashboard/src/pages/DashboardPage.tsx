@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { firestoreService, DocumentMetadata } from '../services/firestore.service';
 import { MigrationPanel } from '../components/MigrationPanel';
+import { GrammarStudyUpload } from '../components/GrammarStudyUpload';
 import { toast } from 'react-toastify';
 import './DashboardPage.css';
 
@@ -10,6 +11,7 @@ export const DashboardPage: React.FC = () => {
   const [documents, setDocuments] = useState<DocumentMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const [showMigration, setShowMigration] = useState(false);
+  const [showGrammarUpload, setShowGrammarUpload] = useState(false);
   const { logout, currentUser } = useAuth();
   const navigate = useNavigate();
 
@@ -95,56 +97,98 @@ export const DashboardPage: React.FC = () => {
             setShowMigration(false);
             loadDocuments();
           }} />
+        ) : showGrammarUpload ? (
+          <GrammarStudyUpload onComplete={() => {
+            setShowGrammarUpload(false);
+            loadDocuments();
+          }} />
         ) : loading ? (
           <div className="loading-state">Loading documents...</div>
-        ) : documents.length === 0 ? (
-          <div className="empty-state">
-            <p>No documents found</p>
-            <p className="empty-state-hint">
-              You may need to run the data migration to initialize the collection.
-            </p>
-            <button onClick={() => setShowMigration(true)} className="btn-migrate-link">
-              Start Migration
-            </button>
-          </div>
         ) : (
-          <div className="documents-grid">
-            {documents.map((doc) => (
-              <div key={doc.id} className="document-card">
-                <div className="document-header">
-                  <h3>{doc.id}</h3>
-                </div>
-                <div className="document-info">
-                  <div className="info-row">
-                    <span className="info-label">Size:</span>
-                    <span className="info-value">{formatSize(doc.size)}</span>
-                  </div>
-                  <div className="info-row">
-                    <span className="info-label">Updated:</span>
-                    <span className="info-value">{formatDate(doc.updatedAt)}</span>
-                  </div>
-                  <div className="info-row">
-                    <span className="info-label">Created:</span>
-                    <span className="info-value">{formatDate(doc.createdAt)}</span>
-                  </div>
-                </div>
-                <div className="document-actions">
-                  <button
-                    onClick={() => handleEdit(doc.id)}
+          <>
+            {/* Grammar Study Questions Special Section */}
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ 
+                background: '#f5f5f5', 
+                padding: '1.5rem', 
+                borderRadius: '8px',
+                border: '2px dashed #2196f3'
+              }}>
+                <h2 style={{ marginTop: 0, color: '#2196f3' }}>Grammar Study Questions</h2>
+                <p style={{ color: '#666', marginBottom: '1rem' }}>
+                  Manage grammar study questions used in the mobile app's practice section.
+                </p>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                  <button 
+                    onClick={() => setShowGrammarUpload(true)} 
                     className="btn-action btn-edit"
+                    style={{ marginRight: '0.5rem' }}
                   >
-                    Edit
+                    Upload / Re-upload Data
                   </button>
-                  <button
-                    onClick={() => handleDelete(doc.id)}
-                    className="btn-action btn-delete"
-                  >
-                    Delete
-                  </button>
+                  {documents.some(doc => doc.id === 'grammar-study-questions') && (
+                    <button 
+                      onClick={() => handleEdit('grammar-study-questions')} 
+                      className="btn-action btn-edit"
+                    >
+                      Edit in JSON Editor
+                    </button>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+
+            {/* Regular Documents Grid */}
+            {documents.length === 0 ? (
+              <div className="empty-state">
+                <p>No documents found</p>
+                <p className="empty-state-hint">
+                  You may need to run the data migration to initialize the collection.
+                </p>
+                <button onClick={() => setShowMigration(true)} className="btn-migrate-link">
+                  Start Migration
+                </button>
+              </div>
+            ) : (
+              <div className="documents-grid">
+                {documents.map((doc) => (
+                  <div key={doc.id} className="document-card">
+                    <div className="document-header">
+                      <h3>{doc.id}</h3>
+                    </div>
+                    <div className="document-info">
+                      <div className="info-row">
+                        <span className="info-label">Size:</span>
+                        <span className="info-value">{formatSize(doc.size)}</span>
+                      </div>
+                      <div className="info-row">
+                        <span className="info-label">Updated:</span>
+                        <span className="info-value">{formatDate(doc.updatedAt)}</span>
+                      </div>
+                      <div className="info-row">
+                        <span className="info-label">Created:</span>
+                        <span className="info-value">{formatDate(doc.createdAt)}</span>
+                      </div>
+                    </div>
+                    <div className="document-actions">
+                      <button
+                        onClick={() => handleEdit(doc.id)}
+                        className="btn-action btn-edit"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDelete(doc.id)}
+                        className="btn-action btn-delete"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
         )}
       </main>
     </div>

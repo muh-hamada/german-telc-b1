@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   continueButton: {
     backgroundColor: colors.primary[500],
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
   buttonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
+    textAlign: 'center',
   },
   continueButtonText: {
     color: colors.white,

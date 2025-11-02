@@ -180,7 +180,8 @@
         "congratulations": "Congratulations!",
         "allCompleted": "You have completed all 150 grammar questions! Would you like to restart or go back?",
         "close": "Close"
-      }
+      },
+      "separator": "Study"
     }
   },
   "profile": {

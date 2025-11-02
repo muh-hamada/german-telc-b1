@@ -21,9 +21,7 @@ import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
-
-// Import the JSON data directly
-const grammarQuestions = require('../../data/grammer-study-questions.json');
+import dataService from '../../services/data.service';
 
 interface GrammarQuestion {
   choice: string;
@@ -73,28 +71,36 @@ const GrammarStudyScreen: React.FC = () => {
   const [showProgressModal, setShowProgressModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [randomizedOptions, setRandomizedOptions] = useState<Array<{ option: GrammarQuestion; letter: string }>>([]);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
-    const initializeQuestions = () => {
-      const flattened: Array<{ question: Sentence; groupName: string; questionIndex: number }> = [];
-      
-      grammarQuestions.forEach((group: QuestionGroup) => {
-        group.sentences.forEach((sentence: Sentence, sentenceIndex: number) => {
-          flattened.push({
-            question: sentence,
-            groupName: group.name,
-            questionIndex: sentenceIndex + 1
+    const loadAndInitialize = async () => {
+      try {
+        setIsLoading(true);
+        setLoadError(null);
+        
+        // Fetch grammar study questions from Firebase
+        console.log('[GrammarStudyScreen] Loading grammar study questions from Firebase...');
+        const grammarQuestions = await dataService.getGrammarStudyQuestions();
+        console.log('[GrammarStudyScreen] Loaded', grammarQuestions.length, 'question groups');
+        
+        // Initialize questions
+        const flattened: Array<{ question: Sentence; groupName: string; questionIndex: number }> = [];
+        
+        grammarQuestions.forEach((group: QuestionGroup) => {
+          group.sentences.forEach((sentence: Sentence, sentenceIndex: number) => {
+            flattened.push({
+              question: sentence,
+              groupName: group.name,
+              questionIndex: sentenceIndex + 1
+            });
           });
         });
-      });
-      
-      setAllQuestions(flattened);
-      return flattened.length;
-    };
-
-    const loadProgress = async () => {
-      try {
-        const totalQuestions = initializeQuestions();
+        
+        setAllQuestions(flattened);
+        const totalQuestions = flattened.length;
+        
+        // Load progress
         const progress = await StorageService.getGrammarStudyProgress();
         
         if (progress && progress.currentQuestionIndex > 0) {
@@ -109,13 +115,14 @@ const GrammarStudyScreen: React.FC = () => {
           current_progress: progress?.currentQuestionIndex || 0
         });
       } catch (error) {
-        console.error('Error loading progress:', error);
+        console.error('[GrammarStudyScreen] Error loading grammar study questions:', error);
+        setLoadError('Failed to load grammar study questions. Please try again later.');
       } finally {
         setIsLoading(false);
       }
     };
 
-    loadProgress();
+    loadAndInitialize();
   }, []);
 
   const saveProgress = async () => {
@@ -279,11 +286,24 @@ const GrammarStudyScreen: React.FC = () => {
     );
   }
 
-  if (allQuestions.length === 0) {
+  if (loadError || allQuestions.length === 0) {
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
+          <Text style={styles.errorText}>
+            {loadError || t('exam.failedToLoad')}
+          </Text>
+          <TouchableOpacity 
+            style={styles.retryButton}
+            onPress={() => {
+              setIsLoading(true);
+              setLoadError(null);
+              // Reload by re-mounting component (navigate back and forward)
+              navigation.goBack();
+            }}
+          >
+            <Text style={styles.retryButtonText}>{t('common.retry')}</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
@@ -326,7 +346,8 @@ const GrammarStudyScreen: React.FC = () => {
             {currentQuestion.question.question.rendered_sentence}
           </Text>
           <Text style={styles.sentenceTranslation}>
-            {currentQuestion.question.translations[getLanguageKey()]}
+            {/* If the language is German, show the English translation, otherwise show the translation in the current language */}
+            {currentQuestion.question.translations[getLanguageKey() === 'de' ? 'en' : getLanguageKey()]}
           </Text>
         </View>
 
@@ -654,10 +675,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   actionButtonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
+    textAlign: 'center',
   },
   tryAgainButton: {
     backgroundColor: colors.warning[500],
@@ -701,6 +724,19 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: colors.primary[500],
     borderRadius: 4,
+  },
+  retryButton: {
+    marginTop: spacing.margin.lg,
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    backgroundColor: colors.primary[500],
+    borderRadius: spacing.borderRadius.md,
+    alignItems: 'center',
+  },
+  retryButtonText: {
+    ...typography.textStyles.body,
+    color: colors.white,
+    fontWeight: typography.fontWeight.semibold,
   },
 });
 

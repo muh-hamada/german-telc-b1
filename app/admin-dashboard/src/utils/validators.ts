@@ -439,6 +439,126 @@ export const validateExamInfo = (data: any): ValidationResult => {
 };
 
 /**
+ * Validate Grammar Study Questions structure
+ */
+export const validateGrammarStudyQuestions = (data: any): ValidationResult => {
+  const errors: string[] = [];
+  const requiredLanguages = ['en', 'de', 'ar', 'Fr', 'ru', 'es'];
+
+  // Check if data has the wrapped structure
+  let questionGroups;
+  if (data.data && Array.isArray(data.data)) {
+    // Wrapped structure with metadata
+    questionGroups = data.data;
+    
+    // Validate metadata if present
+    if (data.metadata) {
+      if (typeof data.metadata !== 'object') {
+        errors.push('Invalid "metadata" - should be an object');
+      }
+    }
+  } else if (Array.isArray(data)) {
+    // Direct array structure
+    questionGroups = data;
+  } else {
+    errors.push('Data must be an array of question groups or an object with "data" array');
+    return { valid: false, errors };
+  }
+
+  if (!Array.isArray(questionGroups)) {
+    errors.push('Question groups must be an array');
+    return { valid: false, errors };
+  }
+
+  // Validate each question group
+  questionGroups.forEach((group: any, groupIndex: number) => {
+    if (typeof group.name !== 'string') {
+      errors.push(`Group ${groupIndex}: Missing or invalid "name"`);
+    }
+
+    if (!group.description || typeof group.description !== 'object') {
+      errors.push(`Group ${groupIndex}: Missing or invalid "description" object`);
+    } else {
+      requiredLanguages.forEach((lang) => {
+        if (typeof group.description[lang] !== 'string') {
+          errors.push(`Group ${groupIndex}: Missing "${lang}" in description`);
+        }
+      });
+    }
+
+    if (!Array.isArray(group.sentences)) {
+      errors.push(`Group ${groupIndex}: Missing or invalid "sentences" array`);
+      return;
+    }
+
+    // Validate each sentence
+    group.sentences.forEach((sentence: any, sentenceIndex: number) => {
+      if (typeof sentence.text !== 'string') {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "text"`);
+      }
+
+      if (!sentence.translations || typeof sentence.translations !== 'object') {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "translations" object`);
+      } else {
+        requiredLanguages.forEach((lang) => {
+          if (typeof sentence.translations[lang] !== 'string') {
+            errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing "${lang}" in translations`);
+          }
+        });
+      }
+
+      if (!sentence.question || typeof sentence.question !== 'object') {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "question" object`);
+        return;
+      }
+
+      const question = sentence.question;
+      if (typeof question.rendered_sentence !== 'string') {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "rendered_sentence"`);
+      }
+
+      if (typeof question.type !== 'string') {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid question "type"`);
+      }
+
+      if (!Array.isArray(question.options)) {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "options" array`);
+        return;
+      }
+
+      // Validate each option
+      question.options.forEach((option: any, optionIndex: number) => {
+        if (typeof option.choice !== 'string') {
+          errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}, Option ${optionIndex}: Missing or invalid "choice"`);
+        }
+
+        if (typeof option.is_correct !== 'boolean') {
+          errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}, Option ${optionIndex}: Missing or invalid "is_correct"`);
+        }
+
+        if (!option.explanation || typeof option.explanation !== 'object') {
+          errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}, Option ${optionIndex}: Missing or invalid "explanation" object`);
+        } else {
+          requiredLanguages.forEach((lang) => {
+            if (typeof option.explanation[lang] !== 'string') {
+              errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}, Option ${optionIndex}: Missing "${lang}" in explanation`);
+            }
+          });
+        }
+      });
+
+      // Check that at least one option is correct
+      const hasCorrectAnswer = question.options.some((opt: any) => opt.is_correct === true);
+      if (!hasCorrectAnswer) {
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: No option marked as correct`);
+      }
+    });
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
  * Main validator that routes to specific validators based on document ID
  */
 export const validateDocument = (docId: string, data: any): ValidationResult => {
@@ -454,6 +574,8 @@ export const validateDocument = (docId: string, data: any): ValidationResult => 
         return validateGrammarPart1(data);
       case 'grammar-part2':
         return validateGrammarPart2(data);
+      case 'grammar-study-questions':
+        return validateGrammarStudyQuestions(data);
       case 'reading-part1':
         return validateReadingPart1(data);
       case 'reading-part2':

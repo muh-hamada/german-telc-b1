@@ -179,7 +179,8 @@
         "congratulations": "¡Felicitaciones!",
         "allCompleted": "¡Has completado todas las 150 preguntas de gramática! ¿Te gustaría reiniciar o volver atrás?",
         "close": "Cerrar"
-      }
+      },
+      "separator": "Estudiar"
     }
   },
   "profile": {

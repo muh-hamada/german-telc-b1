@@ -70,6 +70,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
               >
                 {language.nativeName}
               </Text>
+              <Text style={styles.languageNameSeparator}> • </Text>
               <Text
                 style={[
                   styles.languageCode,
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   languageItem: {
-    width: '80%',
+    width: '90%',
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -121,10 +122,12 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.lg,
     borderWidth: 2,
     borderColor: colors.border.light,
+    gap: spacing.margin.sm,
+    position: 'relative',
   },
   flag: {
     fontSize: 32,
-    marginRight: spacing.margin.md,
+    marginRight: spacing.margin.xs,
   },
   selectedLanguageItem: {
     borderColor: colors.primary[500],
@@ -132,11 +135,19 @@ const styles = StyleSheet.create({
   },
   languageContent: {
     flex: 1,
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   languageName: {
     ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.semibold,
+    marginBottom: 0,
+  },
+  languageNameSeparator: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
     marginBottom: 0,
   },
   selectedLanguageName: {
@@ -157,6 +168,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary[500],
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    right: -12,
+    top: '50%',
+    transform: [{ translateY: 4 }],
   },
   checkmarkText: {
     color: colors.white,

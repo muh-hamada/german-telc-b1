@@ -180,7 +180,8 @@
         "congratulations": "Herzlichen Glückwunsch!",
         "allCompleted": "Sie haben alle 150 Grammatikfragen abgeschlossen! Möchten Sie neu starten oder zurückgehen?",
         "close": "Schließen"
-      }
+      },
+      "separator": "Studie"
     }
   },
   "profile": {

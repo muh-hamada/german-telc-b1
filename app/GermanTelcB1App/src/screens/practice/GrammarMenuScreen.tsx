@@ -80,6 +80,14 @@ const GrammarMenuScreen: React.FC = () => {
           </Text>
         </Card>
 
+        <View style={styles.separatorContainer}>
+          <View style={styles.separator}>
+            <View style={styles.separatorTextContainer}>
+              <Text style={styles.separatorText}>{t('practice.grammar.separator')}</Text>
+            </View>
+          </View>
+        </View>
+
         <Card style={styles.card} onPress={handleGrammarStudyPress}>
           <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
           <Text style={styles.cardDescription}>
@@ -138,6 +146,32 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     lineHeight: 24,
+  },
+  separatorContainer: {
+    marginBottom: spacing.margin.lg,
+    position: 'relative',
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: colors.border.light,
+  },
+  separatorTextContainer: {
+    position: 'absolute',
+    width: '100%',
+    left: 0,
+    zIndex: 1000,
+    top: -10,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  separatorText: {
+    ...typography.textStyles.h6,
+    color: colors.text.secondary,
+    textTransform: 'uppercase',
+    backgroundColor: colors.background.primary,
+    paddingHorizontal: spacing.padding.md,
   },
 });
 

@@ -39,6 +39,7 @@ import listeningPart1DataLocal from '../data/listening-part1.json';
 import listeningPart2DataLocal from '../data/listening-part2.json';
 import listeningPart3DataLocal from '../data/listening-part3.json';
 import examInfoDataLocal from '../data/exam-info.json';
+import grammarStudyQuestionsDataLocal from '../data/grammer-study-questions.json';
 
 const COLLECTION_NAME = 'b1_telc_exam_data';
 // TODO: Change to 24 hours in milliseconds once the data is stable
@@ -279,6 +280,14 @@ class DataService {
   // Exam Info (structure, assessment criteria, etc.)
   async getExamInfo(): Promise<any> {
     return await this.fetchFromFirestore('exam-info', examInfoDataLocal);
+  }
+
+  // Grammar Study Questions
+  async getGrammarStudyQuestions(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('grammar-study-questions', { data: grammarStudyQuestionsDataLocal });
+    // The Firebase document has structure { data: [...], metadata: {...} }
+    // Extract just the data array
+    return data.data || data;
   }
 
   // Utility methods
