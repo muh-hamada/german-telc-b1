@@ -106,39 +106,6 @@ export const DashboardPage: React.FC = () => {
           <div className="loading-state">Loading documents...</div>
         ) : (
           <>
-            {/* Grammar Study Questions Special Section */}
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{ 
-                background: '#f5f5f5', 
-                padding: '1.5rem', 
-                borderRadius: '8px',
-                border: '2px dashed #2196f3'
-              }}>
-                <h2 style={{ marginTop: 0, color: '#2196f3' }}>Grammar Study Questions</h2>
-                <p style={{ color: '#666', marginBottom: '1rem' }}>
-                  Manage grammar study questions used in the mobile app's practice section.
-                </p>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  <button 
-                    onClick={() => setShowGrammarUpload(true)} 
-                    className="btn-action btn-edit"
-                    style={{ marginRight: '0.5rem' }}
-                  >
-                    Upload / Re-upload Data
-                  </button>
-                  {documents.some(doc => doc.id === 'grammar-study-questions') && (
-                    <button 
-                      onClick={() => handleEdit('grammar-study-questions')} 
-                      className="btn-action btn-edit"
-                    >
-                      Edit in JSON Editor
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Regular Documents Grid */}
             {documents.length === 0 ? (
               <div className="empty-state">
                 <p>No documents found</p>
