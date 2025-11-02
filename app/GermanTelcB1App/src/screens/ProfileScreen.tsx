@@ -251,19 +251,7 @@ const ProfileScreen: React.FC = () => {
         <View style={styles.rateAppSection}>
           <Button
             title={t('profile.rateApp')}
-            onPress={async () => {
-              if (Platform.OS === 'android') {
-                const url = 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1german';
-                try {
-                  const supported = await Linking.canOpenURL(url);
-                  if (supported) {
-                    await Linking.openURL(url);
-                  }
-                } catch (e) {
-                  // no-op
-                }
-              }
-            }}
+            onPress={handleRateApp}
             variant="primary"
             style={styles.rateAppButton}
           />
