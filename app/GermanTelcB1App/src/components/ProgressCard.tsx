@@ -63,9 +63,9 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
         onPress={onPress}
         activeOpacity={onPress ? 0.7 : 1}
       >
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
           <Text style={styles.title}>{t('progress.yourProgress')}</Text>
-        </View>
+        </View> */}
         <View style={styles.loginPrompt}>
           <Text style={styles.loginPromptIcon}>📊</Text>
           <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>

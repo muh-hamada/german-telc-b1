@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
+import HomeHeader from '../components/HomeHeader';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
@@ -39,14 +40,13 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleLoginPress = () => {
-    navigation.navigate('Profile', { openLoginModal: true });
+    logEvent(AnalyticsEvents.PROGRESS_CARD_LOGIN_NAVIGATED);
+    navigation.navigate('ProfileStack', { screen: 'Profile', params: { openLoginModal: true } });
   };
 
   return (
     <SafeAreaView style={styles.container} edges={[]}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t('home.title')}</Text>
-      </View>
+      <HomeHeader />
       
       <ScrollView
         style={styles.content}
@@ -78,20 +78,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
-  },
-  header: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: spacing.padding.xl,
-    paddingHorizontal: spacing.padding.lg,
-    alignItems: 'center',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-  },
-  title: {
-    marginTop: spacing.margin.xl,
-    ...typography.textStyles.h2,
-    color: colors.white,
-    textAlign: 'center',
   },
   content: {
     flex: 1,

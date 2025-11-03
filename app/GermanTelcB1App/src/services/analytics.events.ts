@@ -34,6 +34,9 @@ export const AnalyticsEvents = {
   WRITING_EVAL_COMPLETED: 'writing_eval_completed',
   WRITING_EVAL_FAILED: 'writing_eval_failed',
 
+  // Progress
+  PROGRESS_CARD_LOGIN_NAVIGATED: 'progress_card_login_navigated',
+
   // Ads
   BANNER_AD_LOADED: 'banner_ad_loaded',
   BANNER_AD_FAILED: 'banner_ad_failed',

@@ -36,37 +36,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     FirebaseApp.configure()
     
-    // Configure Facebook SDK settings
-    Settings.shared.isAdvertiserIDCollectionEnabled = true
-    Settings.shared.isAutoLogAppEventsEnabled = true
-    Settings.shared.isAdvertiserTrackingEnabled = true
-    
-    // Initialize Facebook SDK
-    ApplicationDelegate.shared.application(
-      application,
-      didFinishLaunchingWithOptions: launchOptions
-    )
-    
-    // Request tracking authorization for iOS 14+
+    // Request tracking authorization for iOS 14+ (no delay; request early but contextually)
     if #available(iOS 14, *) {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-        ATTrackingManager.requestTrackingAuthorization { status in
-          switch status {
-          case .authorized:
-            print("Tracking authorization granted")
-            // Enable Facebook tracking
-            Settings.shared.isAdvertiserTrackingEnabled = true
-          case .denied:
-            print("Tracking authorization denied")
-          case .notDetermined:
-            print("Tracking authorization not determined")
-          case .restricted:
-            print("Tracking authorization restricted")
-          @unknown default:
-            break
-          }
-        }
+      ATTrackingManager.requestTrackingAuthorization { status in
+        let trackingEnabled = (status == .authorized)
+        
+        // Set Facebook settings based on ATT status
+        Settings.shared.isAdvertiserIDCollectionEnabled = trackingEnabled
+        Settings.shared.isAutoLogAppEventsEnabled = trackingEnabled
+        Settings.shared.isAdvertiserTrackingEnabled = trackingEnabled  // Deprecated in SDK 17+ on iOS 17+, but safe to set
+        
+        // Log for debugging
+        print("ATT status: \(status), Tracking enabled: \(trackingEnabled)")
+        
+        // Initialize Facebook SDK after settings are updated
+        ApplicationDelegate.shared.application(
+          application,
+          didFinishLaunchingWithOptions: launchOptions
+        )
       }
+    } else {
+      // For pre-iOS 14, enable by default (or handle Limit Ad Tracking if needed)
+      Settings.shared.isAdvertiserIDCollectionEnabled = true
+      Settings.shared.isAutoLogAppEventsEnabled = true
+      Settings.shared.isAdvertiserTrackingEnabled = true
+      
+      // Initialize Facebook SDK
+      ApplicationDelegate.shared.application(
+        application,
+        didFinishLaunchingWithOptions: launchOptions
+      )
     }
 
     return true
