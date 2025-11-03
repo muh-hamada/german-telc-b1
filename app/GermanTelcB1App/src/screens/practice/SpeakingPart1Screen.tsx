@@ -692,22 +692,23 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
     alignItems: 'center',
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
+    justifyContent: 'center',
   },
   activeTab: {
     borderBottomColor: colors.primary[500],
   },
   tabText: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
+    lineHeight: 15,
+    textAlign: 'center',
   },
   activeTabText: {
     color: colors.primary[500],
-    fontWeight: typography.fontWeight.bold,
   },
   tabContent: {
     flex: 1,

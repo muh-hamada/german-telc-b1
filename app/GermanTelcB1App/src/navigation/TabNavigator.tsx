@@ -27,6 +27,7 @@ const HIDE_TAB_SCREENS = [
   'SpeakingPart1',
   'SpeakingPart2',
   'SpeakingPart3',
+  'SpeakingPart4',
   'ListeningMenu',
   'ListeningPart1',
   'ListeningPart2',
