@@ -26,10 +26,12 @@ interface Topic {
   viewA: {
     person: string;
     text: string;
+    presentationExample: string;
   };
   viewB: {
     person: string;
     text: string;
+    presentationExample: string;
   };
   discussion: Array<{
     question: string;
@@ -44,9 +46,9 @@ const SpeakingPart2Screen: React.FC = () => {
   const route = useRoute<SpeakingPart2ScreenRouteProp>();
   const navigation = useNavigation();
   const topicId = route.params?.topicId ?? 0;
-  
+
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
-  
+
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
   const [showPresentationExample, setShowPresentationExample] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -128,11 +130,11 @@ const SpeakingPart2Screen: React.FC = () => {
   const createPresentationExample = (view: { person: string; text: string }): string => {
     const [namePart] = view.person.split(',');
     const name = namePart.trim();
-    const isFemale = name.includes('Frau') || 
-                     ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
-    
+    const isFemale = name.includes('Frau') ||
+      ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
+
     const pronoun = isFemale ? 'Sie' : 'Er';
-    
+
     return `**${view.person}:**\n\n${pronoun} ist der Meinung, dass das Thema wichtig ist. ${pronoun} findet die Argumente überzeugend und hat eine klare Position dazu.`;
   };
 
@@ -166,9 +168,7 @@ const SpeakingPart2Screen: React.FC = () => {
 
           {showPresentationExample && (
             <View style={styles.summaryCard}>
-              <Markdown style={markdownStylesSummary}>
-                {createPresentationExample(exampleView)}
-              </Markdown>
+              <Text style={styles.presentationExampleText}>{view.presentationExample}</Text>
             </View>
           )}
         </View>
@@ -178,7 +178,7 @@ const SpeakingPart2Screen: React.FC = () => {
 
   const renderDiscussion = () => {
     if (!currentTopic.discussion) return null;
-    
+
     return (
       <View style={styles.discussionSection}>
         <Text style={styles.discussionTitle}>
@@ -262,21 +262,6 @@ const markdownStyles = {
   strong: {
     fontWeight: '700' as '700',
     color: colors.primary[700],
-  },
-};
-
-const markdownStylesSummary = {
-  body: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 24,
-  },
-  paragraph: {
-    marginBottom: spacing.margin.sm,
-  },
-  strong: {
-    fontWeight: '700' as '700',
-    color: colors.error[600],
   },
 };
 
@@ -392,11 +377,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.primary[200],
   },
+  presentationExampleText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+  },
   discussionSection: {
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
     paddingTop: spacing.padding.lg,
-    marginTop: spacing.margin.lg,
   },
   discussionTitle: {
     ...typography.textStyles.h3,
@@ -453,6 +442,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.sm,
     marginRight: spacing.margin.sm,
   },
+
 });
 
 export default SpeakingPart2Screen;

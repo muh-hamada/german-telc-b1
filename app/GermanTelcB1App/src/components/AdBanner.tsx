@@ -39,7 +39,9 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
         requestOptions={{
           requestNonPersonalizedAdsOnly: false,
           networkExtras: {
-            collapsible: 'bottom',
+            // TODO: enabled collapsible again but in specific screens only
+            // Today it's disabled globally because it's very annoying in some screens
+            // collapsible: 'bottom',
           },
         }}
         onAdLoaded={() => {

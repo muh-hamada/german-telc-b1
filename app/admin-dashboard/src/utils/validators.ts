@@ -322,8 +322,15 @@ export const validateSpeakingPart2 = (data: any): ValidationResult => {
     if (!topic.viewA || typeof topic.viewA !== 'object') {
       errors.push(`Topic ${index}: Missing or invalid "viewA" object`);
     }
+    if (!topic.viewA.presentationExample || typeof topic.viewA.presentationExample !== 'string') {
+      errors.push(`Topic ${index}: Missing or invalid "viewA.presentationExample"`);
+    }
     if (!topic.viewB || typeof topic.viewB !== 'object') {
       errors.push(`Topic ${index}: Missing or invalid "viewB" object`);
+
+    }
+    if (!topic.viewB.presentationExample || typeof topic.viewB.presentationExample !== 'string') {
+      errors.push(`Topic ${index}: Missing or invalid "viewB.presentationExample"`);
     }
     if (!Array.isArray(topic.discussion)) {
       errors.push(`Topic ${index}: Missing or invalid "discussion" array`);
@@ -450,7 +457,7 @@ export const validateGrammarStudyQuestions = (data: any): ValidationResult => {
   if (data.data && Array.isArray(data.data)) {
     // Wrapped structure with metadata
     questionGroups = data.data;
-    
+
     // Validate metadata if present
     if (data.metadata) {
       if (typeof data.metadata !== 'object') {
