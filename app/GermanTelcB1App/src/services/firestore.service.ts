@@ -7,6 +7,7 @@ class FirestoreService {
     USERS: 'users',
     PROGRESS: 'progress',
     EXAM_RESULTS: 'examResults',
+    ACCOUNT_DELETION_REQUESTS: 'account_deletion_requests',
   };
 
   // User Management
@@ -449,6 +450,38 @@ class FirestoreService {
         .set(settings, { merge: true });
     } catch (error) {
       console.error('Error updating user settings:', error);
+      throw error;
+    }
+  }
+
+  // Account Deletion Requests
+  async createDeletionRequest(uid: string, email: string): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
+        .doc(uid)
+        .set({
+          uid,
+          email,
+          requestedAt: Timestamp.fromDate(new Date()),
+          status: 'pending',
+        });
+    } catch (error) {
+      console.error('Error creating deletion request:', error);
+      throw error;
+    }
+  }
+
+  async checkDeletionRequestExists(uid: string): Promise<boolean> {
+    try {
+      const doc = await firestore()
+        .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
+        .doc(uid)
+        .get();
+
+      return doc.exists && doc.data()?.status === 'pending';
+    } catch (error) {
+      console.error('Error checking deletion request:', error);
       throw error;
     }
   }

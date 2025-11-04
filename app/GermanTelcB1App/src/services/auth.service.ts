@@ -3,7 +3,6 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { LoginManager, AccessToken, Settings } from 'react-native-fbsdk-next';
 import { Platform } from 'react-native';
 import appleAuth from '@invertase/react-native-apple-authentication';
-import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { firebaseConfig, googleSignInConfig, facebookConfig } from '../config/firebase.config';
 
 // User types
@@ -135,43 +134,6 @@ class AuthService {
       }
       
       await this.initialize();
-
-      // CRITICAL: Request App Tracking Transparency permission BEFORE Facebook login on iOS
-      // This prevents Facebook from using Limited Login which causes invalid-credential errors
-      if (Platform.OS === 'ios') {
-        console.log('[Facebook] Step 1.5: Requesting App Tracking Transparency permission');
-        
-        try {
-          const result = await request(PERMISSIONS.IOS.APP_TRACKING_TRANSPARENCY);
-          console.log('[Facebook] ATT Permission result:', result);
-          
-          if (result === RESULTS.GRANTED || result === RESULTS.UNAVAILABLE) {
-            console.log('[Facebook] Tracking permission granted or unavailable (iOS < 14)');
-            Settings.setAdvertiserTrackingEnabled(true);
-          } else {
-            console.log('[Facebook] Tracking permission denied, but continuing with login');
-            // User denied tracking, but we can still try to login with limited mode
-            Settings.setAdvertiserTrackingEnabled(false);
-          }
-        } catch (error) {
-          console.warn('[Facebook] Failed to request ATT permission:', error);
-          // Continue anyway - older iOS versions don't need this
-        }
-      }
-
-      // Configure Facebook SDK settings for iOS
-      if (Platform.OS === 'ios') {
-        console.log('[Facebook] Step 2: Configuring Facebook SDK for iOS');
-        Settings.setAppID(facebookConfig.appId);
-        Settings.setClientToken(facebookConfig.clientToken);
-        Settings.initializeSDK();
-        
-        // Enable auto log events
-        Settings.setAdvertiserIDCollectionEnabled(true);
-        Settings.setAutoLogAppEventsEnabled(true);
-        
-        console.log('[Facebook] Facebook SDK configured');
-      }
 
       // Logout first to ensure clean state
       await LoginManager.logOut();

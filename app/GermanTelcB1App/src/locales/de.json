@@ -231,7 +231,18 @@
       "couldNotOpenStore": "Wir konnten den App Store nicht öffnen",
       "iosRatingComingSoon": "Die iOS-App kommt bald"
     },
-    "rateApp": "Bewerten Sie unsere App"
+    "rateApp": "Bewerten Sie unsere App",
+    "deleteAccount": "Konto löschen",
+    "deleteAccountModal": {
+      "title": "Konto löschen",
+      "message": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Fortschritte und Daten werden innerhalb von 7 Tagen endgültig gelöscht.",
+      "confirm": "Mein Konto löschen",
+      "successTitle": "Anfrage eingereicht",
+      "successMessage": "Ihre Anfrage zur Kontolöschung wurde empfangen. Ihr Konto und alle zugehörigen Daten werden innerhalb von 7 Tagen endgültig gelöscht.",
+      "inProgressTitle": "Löschung in Bearbeitung",
+      "inProgressMessage": "Ihre Anfrage zur Kontolöschung wird bereits bearbeitet. Ihr Konto wird innerhalb von 7 Tagen ab dem ursprünglichen Anfragedatum gelöscht.",
+      "error": "Anfrage zur Löschung konnte nicht übermittelt werden. Bitte versuchen Sie es erneut."
+    }
   },
   "review": {
     "title": "App gefällt Ihnen?",

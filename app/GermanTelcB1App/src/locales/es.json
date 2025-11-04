@@ -204,6 +204,17 @@
     "privacyPolicy": "Política de privacidad",
     "termsOfService": "Términos del servicio",
     "rateApp": "Valorar la app",
+    "deleteAccount": "Eliminar cuenta",
+    "deleteAccountModal": {
+      "title": "Eliminar cuenta",
+      "message": "¿Está seguro de que desea eliminar su cuenta? Esta acción no se puede deshacer. Todo su progreso y datos se eliminarán permanentemente dentro de 7 días.",
+      "confirm": "Eliminar mi cuenta",
+      "successTitle": "Solicitud enviada",
+      "successMessage": "Se ha recibido su solicitud de eliminación de cuenta. Su cuenta y todos los datos asociados se eliminarán permanentemente dentro de 7 días.",
+      "inProgressTitle": "Eliminación en curso",
+      "inProgressMessage": "Su solicitud de eliminación de cuenta ya está siendo procesada. Su cuenta se eliminará dentro de 7 días desde la fecha de solicitud original.",
+      "error": "No se pudo enviar la solicitud de eliminación. Inténtelo de nuevo."
+    },
     "loginProviders": {
       "google": "Continuar con Google",
       "facebook": "Continuar con Facebook",

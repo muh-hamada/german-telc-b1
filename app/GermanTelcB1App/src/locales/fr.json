@@ -204,6 +204,17 @@
     "privacyPolicy": "Politique de confidentialité",
     "termsOfService": "Conditions d'utilisation",
     "rateApp": "Noter l'application",
+    "deleteAccount": "Supprimer le compte",
+    "deleteAccountModal": {
+      "title": "Supprimer le compte",
+      "message": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action ne peut pas être annulée. Toutes vos données et votre progression seront définitivement supprimées dans les 7 jours.",
+      "confirm": "Supprimer mon compte",
+      "successTitle": "Demande soumise",
+      "successMessage": "Votre demande de suppression de compte a été reçue. Votre compte et toutes les données associées seront définitivement supprimés dans les 7 jours.",
+      "inProgressTitle": "Suppression en cours",
+      "inProgressMessage": "Votre demande de suppression de compte est déjà en cours de traitement. Votre compte sera supprimé dans les 7 jours suivant la date de demande initiale.",
+      "error": "Échec de l'envoi de la demande de suppression. Veuillez réessayer."
+    },
     "loginProviders": {
       "google": "Continuer avec Google",
       "facebook": "Continuer avec Facebook",

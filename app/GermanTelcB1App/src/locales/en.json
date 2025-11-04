@@ -233,7 +233,18 @@
       "couldNotOpenStore": "We couldn't open the app store",
       "iosRatingComingSoon": "The iOS app is coming soon"
     },
-    "rateApp": "Rate our App"
+    "rateApp": "Rate our App",
+    "deleteAccount": "Delete Account",
+    "deleteAccountModal": {
+      "title": "Delete Account",
+      "message": "Are you sure you want to delete your account? This action cannot be undone. All your progress and data will be permanently deleted within 7 days.",
+      "confirm": "Delete My Account",
+      "successTitle": "Request Submitted",
+      "successMessage": "Your account deletion request has been received. Your account and all associated data will be permanently deleted within 7 days.",
+      "inProgressTitle": "Deletion in Progress",
+      "inProgressMessage": "Your account deletion request is already being processed. Your account will be deleted within 7 days from the original request date.",
+      "error": "Failed to submit deletion request. Please try again."
+    }
   },
   "settings": {
     "title": "Settings",

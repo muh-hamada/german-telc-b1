@@ -5,8 +5,6 @@ import ReactAppDependencyProvider
 import FirebaseCore
 import FBSDKCoreKit
 import GoogleSignIn
-import AppTrackingTransparency
-import AdSupport
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var reactNativeFactory: RCTReactNativeFactory?
 
   func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+  _ application: UIApplication,
+  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     let delegate = ReactNativeDelegate()
     let factory = RCTReactNativeFactory(delegate: delegate)
@@ -36,37 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     FirebaseApp.configure()
     
-    // Request tracking authorization for iOS 14+ (no delay; request early but contextually)
-    if #available(iOS 14, *) {
-      ATTrackingManager.requestTrackingAuthorization { status in
-        let trackingEnabled = (status == .authorized)
-        
-        // Set Facebook settings based on ATT status
-        Settings.shared.isAdvertiserIDCollectionEnabled = trackingEnabled
-        Settings.shared.isAutoLogAppEventsEnabled = trackingEnabled
-        Settings.shared.isAdvertiserTrackingEnabled = trackingEnabled  // Deprecated in SDK 17+ on iOS 17+, but safe to set
-        
-        // Log for debugging
-        print("ATT status: \(status), Tracking enabled: \(trackingEnabled)")
-        
-        // Initialize Facebook SDK after settings are updated
-        ApplicationDelegate.shared.application(
-          application,
-          didFinishLaunchingWithOptions: launchOptions
-        )
-      }
-    } else {
-      // For pre-iOS 14, enable by default (or handle Limit Ad Tracking if needed)
-      Settings.shared.isAdvertiserIDCollectionEnabled = true
-      Settings.shared.isAutoLogAppEventsEnabled = true
-      Settings.shared.isAdvertiserTrackingEnabled = true
-      
-      // Initialize Facebook SDK
-      ApplicationDelegate.shared.application(
-        application,
-        didFinishLaunchingWithOptions: launchOptions
-      )
-    }
+    // Initialize Facebook SDK (no tracking)
+    Settings.shared.isAdvertiserIDCollectionEnabled = false
+    Settings.shared.isAutoLogAppEventsEnabled = true
+    Settings.shared.isAdvertiserTrackingEnabled = false
+    
+    ApplicationDelegate.shared.application(
+      application,
+      didFinishLaunchingWithOptions: launchOptions
+    )
 
     return true
   }

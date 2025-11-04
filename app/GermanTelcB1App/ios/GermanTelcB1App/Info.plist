@@ -107,7 +107,7 @@
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<true/>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<true/>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -120,7 +120,5 @@
 	<true/>
 	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
 	<false/>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Your data will be used to deliver personalized ads to you and improve your experience</string>
 </dict>
 </plist>

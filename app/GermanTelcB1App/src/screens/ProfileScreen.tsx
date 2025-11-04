@@ -21,11 +21,14 @@ import Button from '../components/Button';
 import ProgressCard from '../components/ProgressCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
+import DeleteAccountModal from '../components/DeleteAccountModal';
+import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import FirestoreService from '../services/firestore.service';
 
 const ProfileScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -34,6 +37,9 @@ const ProfileScreen: React.FC = () => {
   const { user, signOut, isLoading: authLoading } = useAuth();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
+  const [showDeletionInProgressModal, setShowDeletionInProgressModal] = useState(false);
+  const [isDeletingAccount, setIsDeletingAccount] = useState(false);
 
   const handleRateApp = async () => {
     if (Platform.OS === 'android') {
@@ -104,6 +110,53 @@ const ProfileScreen: React.FC = () => {
     Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
   };
 
+  const handleDeleteAccount = async () => {
+    if (!user) return;
+
+    logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CLICKED);
+
+    try {
+      // Check if a deletion request already exists
+      const requestExists = await FirestoreService.checkDeletionRequestExists(user.uid);
+
+      if (requestExists) {
+        // Show in-progress modal
+        setShowDeletionInProgressModal(true);
+      } else {
+        // Show confirmation modal
+        setShowDeleteAccountModal(true);
+      }
+    } catch (error) {
+      console.error('Error checking deletion request:', error);
+      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
+    }
+  };
+
+  const handleConfirmDeleteAccount = async () => {
+    if (!user) return;
+
+    setIsDeletingAccount(true);
+    try {
+      await FirestoreService.createDeletionRequest(user.uid, user.email || '');
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CONFIRMED);
+      // Modal will show success step automatically
+    } catch (error) {
+      console.error('Error creating deletion request:', error);
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
+      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
+      setShowDeleteAccountModal(false);
+    } finally {
+      setIsDeletingAccount(false);
+    }
+  };
+
+  const handleCloseDeleteModal = () => {
+    if (!isDeletingAccount) {
+      setShowDeleteAccountModal(false);
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -161,13 +214,22 @@ const ProfileScreen: React.FC = () => {
           <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
 
           {user ? (
-            <Button
-              title={t('profile.signOut')}
-              onPress={handleSignOut}
-              variant="outline"
-              style={{ ...styles.settingButton, ...styles.dangerButton }}
-              disabled={authLoading}
-            />
+            <>
+              <Button
+                title={t('profile.signOut')}
+                onPress={handleSignOut}
+                variant="outline"
+                style={{ ...styles.settingButton, ...styles.dangerButton }}
+                disabled={authLoading}
+              />
+              <Button
+                title={t('profile.deleteAccount')}
+                onPress={handleDeleteAccount}
+                variant="outline"
+                style={{ ...styles.settingButton, ...styles.deleteAccountButton }}
+                disabled={authLoading}
+              />
+            </>
           ) : (
             <Button
               title={t('profile.signIn')}
@@ -205,6 +267,20 @@ const ProfileScreen: React.FC = () => {
         onClose={() => setShowLoginModal(false)}
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
+      />
+
+      {/* Delete Account Modal */}
+      <DeleteAccountModal
+        visible={showDeleteAccountModal}
+        onClose={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteAccount}
+        isLoading={isDeletingAccount}
+      />
+
+      {/* Account Deletion In Progress Modal */}
+      <AccountDeletionInProgressModal
+        visible={showDeletionInProgressModal}
+        onClose={() => setShowDeletionInProgressModal(false)}
       />
     </SafeAreaView>
   );
@@ -249,6 +325,10 @@ const styles = StyleSheet.create({
   },
   dangerButton: {
     borderColor: colors.error[500],
+  },
+  deleteAccountButton: {
+    borderColor: colors.error[500],
+    marginTop: spacing.margin.xs,
   },
   aboutText: {
     ...typography.textStyles.body,
