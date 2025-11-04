@@ -208,7 +208,7 @@
     "deleteAccountModal": {
       "title": "Eliminar cuenta",
       "message": "¿Está seguro de que desea eliminar su cuenta? Esta acción no se puede deshacer. Todo su progreso y datos se eliminarán permanentemente dentro de 7 días.",
-      "confirm": "Eliminar mi cuenta",
+      "confirm": "Borrar",
       "successTitle": "Solicitud enviada",
       "successMessage": "Se ha recibido su solicitud de eliminación de cuenta. Su cuenta y todos los datos asociados se eliminarán permanentemente dentro de 7 días.",
       "inProgressTitle": "Eliminación en curso",

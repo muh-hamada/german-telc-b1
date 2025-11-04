@@ -236,7 +236,7 @@
     "deleteAccountModal": {
       "title": "Konto löschen",
       "message": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Fortschritte und Daten werden innerhalb von 7 Tagen endgültig gelöscht.",
-      "confirm": "Mein Konto löschen",
+      "confirm": "Löschen",
       "successTitle": "Anfrage eingereicht",
       "successMessage": "Ihre Anfrage zur Kontolöschung wurde empfangen. Ihr Konto und alle zugehörigen Daten werden innerhalb von 7 Tagen endgültig gelöscht.",
       "inProgressTitle": "Löschung in Bearbeitung",
@@ -636,7 +636,7 @@
       "cacheInfo": "ℹ️ Gecachtes Ergebnis (Antwort unverändert)"
     },
     "rewardedAdModal": {
-      "title": "KI-Bewertungsunterstützung",
+      "title": "AI Evaluation Support",
       "message": "Wir verwenden fortschrittliche KI, um Ihre Texte zu bewerten und umfassendes Feedback ähnlich der echten Telc-Prüfung zu geben. Dieser Prozess verursacht Kosten. Das Ansehen dieser kurzen Werbung hilft, unseren Service für alle kostenlos zu halten.",
       "watchAdButton": "Werbung ansehen und bewerten",
       "maybeLaterButton": "Vielleicht später",

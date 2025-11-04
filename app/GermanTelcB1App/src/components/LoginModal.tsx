@@ -168,11 +168,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       loading={isLoading}
                     />
                     
-                    {Platform.OS === 'android' && <SocialLoginButton
+                    {/* {Platform.OS === 'android' && <SocialLoginButton
                       provider="facebook"
                       onPress={() => handleSocialLogin('facebook')}
                       loading={isLoading}
-                    />}
+                    />} */}
                     
                     {/* <SocialLoginButton
                       provider="twitter"

@@ -95,7 +95,6 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   // Get completion status for a specific exam
   const getCompletionStatus = (examType: string, partNumber: number, examId: number): CompletionData | null => {
     const key = createKey(examType, partNumber, examId);
-    console.log('[CompletionContext] Getting completion status for key:', key, completionData.has(key));
     return completionData.get(key) || null;
   };
 

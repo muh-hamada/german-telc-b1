@@ -63,10 +63,7 @@ class FirebaseCompletionService {
   ): Promise<void> {
     try {
       const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
-      
       await firestore().doc(docPath).delete();
-      
-      console.log('[CompletionService] Unmarked exam as completed:', { examType, partNumber, examId });
     } catch (error) {
       console.error('[CompletionService] Error unmarking exam:', error);
       throw error;
@@ -84,11 +81,9 @@ class FirebaseCompletionService {
   ): Promise<CompletionData | null> {
     try {
       const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
-      console.log('[CompletionService] Getting completion status for:', { docPath, examType, partNumber, examId });
       const doc = await firestore().doc(docPath).get();
       
       const data = doc.data();
-      console.log('[CompletionService] Got data:', data ? 'exists' : 'null', data);
       if (data) {
         return data as CompletionData;
       }
@@ -111,15 +106,12 @@ class FirebaseCompletionService {
   ): Promise<CompletionStats> {
     try {
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
-      console.log('[CompletionService] Getting stats for:', { collectionPath, totalExams });
       const snapshot = await firestore().collection(collectionPath).get();
       
       // Cap completed count to not exceed total (in case exams were removed)
       const completedCount = snapshot.size;
       const completed = Math.min(completedCount, totalExams);
       const percentage = totalExams > 0 ? Math.round((completed / totalExams) * 100) : 0;
-      
-      console.log('[CompletionService] Stats:', { completedCount, completed, total: totalExams, percentage });
       
       return {
         completed,
@@ -146,13 +138,10 @@ class FirebaseCompletionService {
   ): Promise<CompletionData[]> {
     try {
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
-      console.log('[CompletionService] Getting all completions for:', collectionPath);
       const snapshot = await firestore().collection(collectionPath).get();
       
-      console.log('[CompletionService] Found', snapshot.size, 'completions');
       const completions = snapshot.docs.map(doc => {
         const data = doc.data() as CompletionData;
-        console.log('[CompletionService] Completion:', doc.id, data);
         return data;
       });
       return completions;
@@ -220,14 +209,11 @@ class FirebaseCompletionService {
     try {
       const current = await this.getCompletionStatus(userId, examType, partNumber, examId);
 
-      console.log('[CompletionService] getCompletionStatus:', current);
-      
       if (current?.completed) {
         await this.unmarkExamCompleted(userId, examType, partNumber, examId);
         return false;
       } else {
-        await this.markExamCompleted(userId, examType, partNumber, examId, score);
-        console.log('[CompletionService] Exam marked as completed:', { userId, examType, partNumber, examId, score });
+        await this.markExamCompleted(userId, examType, partNumber, examId, score); 
         return true;
       }
     } catch (error) {

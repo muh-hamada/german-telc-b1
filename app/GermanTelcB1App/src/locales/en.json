@@ -238,7 +238,7 @@
     "deleteAccountModal": {
       "title": "Delete Account",
       "message": "Are you sure you want to delete your account? This action cannot be undone. All your progress and data will be permanently deleted within 7 days.",
-      "confirm": "Delete My Account",
+      "confirm": "Delete",
       "successTitle": "Request Submitted",
       "successMessage": "Your account deletion request has been received. Your account and all associated data will be permanently deleted within 7 days.",
       "inProgressTitle": "Deletion in Progress",

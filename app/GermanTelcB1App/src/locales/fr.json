@@ -208,7 +208,7 @@
     "deleteAccountModal": {
       "title": "Supprimer le compte",
       "message": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action ne peut pas être annulée. Toutes vos données et votre progression seront définitivement supprimées dans les 7 jours.",
-      "confirm": "Supprimer mon compte",
+      "confirm": "Supprimer",
       "successTitle": "Demande soumise",
       "successMessage": "Votre demande de suppression de compte a été reçue. Votre compte et toutes les données associées seront définitivement supprimés dans les 7 jours.",
       "inProgressTitle": "Suppression en cours",

@@ -133,7 +133,7 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
   const apiKey = getOpenAIApiKey();
   
   if (!apiKey || apiKey === '') {
-    throw new Error('OpenAI API key is not configured. Please set the API key in openai.service.ts');
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
   }
 
   try {
@@ -158,9 +158,7 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        `OpenAI API error: ${response.status} ${response.statusText}. ${
-          errorData.error?.message || ''
-        }`
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
       );
     }
 
@@ -168,16 +166,20 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
     const content = data.choices[0]?.message?.content;
 
     if (!content) {
-      throw new Error('No response from OpenAI');
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
     }
 
     const assessment: WritingAssessment = JSON.parse(content);
     return assessment;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`OpenAI API call failed: ${error.message}`);
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
     }
-    throw new Error('OpenAI API call failed with unknown error');
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
   }
 }
 
@@ -202,7 +204,7 @@ async function imageUriToBase64(uri: string): Promise<string> {
       reader.readAsDataURL(blob);
     });
   } catch (error) {
-    throw new Error(`Failed to convert image to base64: ${error}`);
+    throw new Error('Das Bild konnte nicht gelesen werden. Bitte versuchen Sie es erneut.');
   }
 }
 
@@ -240,7 +242,7 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
   const apiKey = getOpenAIApiKey();
   
   if (!apiKey || apiKey === '') {
-    throw new Error('OpenAI API key is not configured. Please set the API key in openai.service.ts');
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
   }
 
   try {
@@ -277,9 +279,7 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        `OpenAI API error: ${response.status} ${response.statusText}. ${
-          errorData.error?.message || ''
-        }`
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
       );
     }
 
@@ -287,16 +287,20 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
     const content = data.choices[0]?.message?.content;
 
     if (!content) {
-      throw new Error('No response from OpenAI');
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
     }
 
     const assessment: WritingAssessment = JSON.parse(content);
     return assessment;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`OpenAI API call failed: ${error.message}`);
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung') || error.message.includes('Bild')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
     }
-    throw new Error('OpenAI API call failed with unknown error');
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
   }
 }
 
@@ -325,7 +329,7 @@ export async function evaluateWritingWithImage(
   } else if (request.imageUri) {
     imageBase64 = await imageUriToBase64(request.imageUri);
   } else {
-    throw new Error('Either imageUri or imageBase64 must be provided');
+    throw new Error('Kein Bild gefunden. Bitte laden Sie ein Bild hoch.');
   }
   
   const userPrompt = createImageUserPrompt(request);

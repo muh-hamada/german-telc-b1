@@ -22,9 +22,8 @@ import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
   evaluateWriting,
   evaluateWritingWithImage,
-  getMockAssessment,
-  isOpenAIConfigured,
   WritingAssessment,
+  isOpenAIConfigured,
 } from '../../services/openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
@@ -68,6 +67,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
+  const adEarnedRewardRef = useRef<boolean>(false);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -84,6 +84,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       RewardedAdEventType.EARNED_REWARD,
       reward => {
         console.log('User earned reward:', reward);
+        adEarnedRewardRef.current = true;
         logEvent(AnalyticsEvents.REWARDED_AD_EARNED_REWARD, { ad_unit_id: REWARDED_AD_UNIT_ID });
         // Proceed with evaluation after ad is watched
         const evaluationType = pendingEvaluationTypeRef.current;
@@ -99,9 +100,18 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
       console.log('Rewarded ad closed');
       logEvent(AnalyticsEvents.REWARDED_AD_CLOSED, { ad_unit_id: REWARDED_AD_UNIT_ID });
-      // Reset pending evaluation
-      setPendingEvaluationType(null);
-      pendingEvaluationTypeRef.current = null;
+      
+      // Check if user actually earned the reward
+      // If not, they closed the ad without watching - reset the state
+      if (!adEarnedRewardRef.current) {
+        console.log('Ad closed without earning reward - resetting state');
+        setPendingEvaluationType(null);
+        pendingEvaluationTypeRef.current = null;
+      }
+      
+      // Reset the flag for next time
+      adEarnedRewardRef.current = false;
+      
       // Reload ad for next time
       setIsAdLoaded(false);
       ad.load();
@@ -247,7 +257,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
 
-    if (SKIP_REWARDED_ADS) {
+    if (SKIP_REWARDED_ADS || Platform.OS === 'ios') {
       await proceedWithImageEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -266,51 +276,49 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       const imageBase64 = capturedImageBase64Ref.current;
       const imageUri = capturedImageUriRef.current;
 
-      if (isOpenAIConfigured()) {
-        // Use base64 if available, otherwise use URI
-        if (imageBase64) {
-          result = await evaluateWritingWithImage({
-            imageBase64: imageBase64,
-            incomingEmail: exam.incomingEmail,
-            writingPoints: exam.writingPoints,
-            examTitle: exam.title,
-          });
-        } else if (imageUri) {
-          result = await evaluateWritingWithImage({
-            imageUri: imageUri,
-            incomingEmail: exam.incomingEmail,
-            writingPoints: exam.writingPoints,
-            examTitle: exam.title,
-          });
-        } else {
-          throw new Error('No image available');
-        }
+      if (!isOpenAIConfigured()) {
+        throw new Error('OpenAI API key is not configured');
+      }
+
+      // Call OpenAI API for image evaluation
+      // Use base64 if available, otherwise use URI
+      if (imageBase64) {
+        result = await evaluateWritingWithImage({
+          imageBase64: imageBase64,
+          incomingEmail: exam.incomingEmail,
+          writingPoints: exam.writingPoints,
+          examTitle: exam.title,
+        });
+      } else if (imageUri) {
+        result = await evaluateWritingWithImage({
+          imageUri: imageUri,
+          incomingEmail: exam.incomingEmail,
+          writingPoints: exam.writingPoints,
+          examTitle: exam.title,
+        });
       } else {
-        console.log('OpenAI API key not configured. Using mock assessment.');
-        await new Promise<void>(resolve => setTimeout(() => resolve(), 1000));
-        result = getMockAssessment();
+        throw new Error('No image available');
       }
 
       setLastEvaluatedAnswer(`[IMAGE:${imageUri}]`);
       setAssessment(result);
       setIsResultsModalOpen(true);
+      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
     } catch (error) {
       console.error('Evaluation error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      // Log error to analytics
+      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { 
+        error_message: errorMessage,
+        evaluation_type: 'image'
+      });
+      
       Alert.alert(
         t('writing.alerts.evaluationError'),
         error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
         [
-          {
-            text: t('writing.alerts.useMockData'),
-            onPress: () => {
-              const mockResult = getMockAssessment();
-              setLastEvaluatedAnswer(`[IMAGE:${capturedImageUriRef.current}]`);
-              setAssessment(mockResult);
-              setIsUsingCachedResult(false); // This is not cached, it's a fresh mock evaluation
-              setIsResultsModalOpen(true);
-            },
-          },
-          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('writing.alerts.ok'), style: 'default' },
         ]
       );
     } finally {
@@ -339,7 +347,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
 
-    if (SKIP_REWARDED_ADS) {
+    if (SKIP_REWARDED_ADS || Platform.OS === 'ios') {
       await proceedWithTextEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -354,18 +362,17 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     try {
       let result: WritingAssessment;
 
-      if (isOpenAIConfigured()) {
-        result = await evaluateWriting({
-          userAnswer: userAnswer,
-          incomingEmail: exam.incomingEmail,
-          writingPoints: exam.writingPoints,
-          examTitle: exam.title,
-        });
-      } else {
-        console.log('OpenAI API key not configured. Using mock assessment.');
-        await new Promise<void>(resolve => setTimeout(() => resolve(), 1000));
-        result = getMockAssessment();
+      if (!isOpenAIConfigured()) {
+        throw new Error('OpenAI API key is not configured');
       }
+
+      // Call OpenAI API for text evaluation
+      result = await evaluateWriting({
+        userAnswer: userAnswer,
+        incomingEmail: exam.incomingEmail,
+        writingPoints: exam.writingPoints,
+        examTitle: exam.title,
+      });
 
       setLastEvaluatedAnswer(userAnswer);
       setAssessment(result);
@@ -373,22 +380,19 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
     } catch (error) {
       console.error('Evaluation error:', error);
-      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { error_code: error instanceof Error ? error.message : 'unknown' });
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      // Log error to analytics
+      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { 
+        error_message: errorMessage,
+        evaluation_type: 'text'
+      });
+      
       Alert.alert(
         t('writing.alerts.evaluationError'),
         error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
         [
-          {
-            text: t('writing.alerts.useMockData'),
-            onPress: () => {
-              const mockResult = getMockAssessment();
-              setLastEvaluatedAnswer(userAnswer);
-              setAssessment(mockResult);
-              setIsUsingCachedResult(false); // This is not cached, it's a fresh mock evaluation
-              setIsResultsModalOpen(true);
-            },
-          },
-          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('writing.alerts.ok'), style: 'default' },
         ]
       );
     } finally {
@@ -411,7 +415,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setShowRewardedAdModal(false);
 
     try {
+      console.log('Showing rewarded ad...');
       logEvent(AnalyticsEvents.REWARDED_AD_OPENED, { ad_unit_id: REWARDED_AD_UNIT_ID });
+      adEarnedRewardRef.current = false; // Reset flag before showing ad
       rewardedAd.show();
     } catch (error) {
       console.error('Error showing rewarded ad:', error);
@@ -424,6 +430,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       // Reset state if ad fails to show
       setPendingEvaluationType(null);
       pendingEvaluationTypeRef.current = null;
+      adEarnedRewardRef.current = false;
     }
   };
 
@@ -1137,7 +1144,7 @@ const styles = StyleSheet.create({
     maxHeight: '90%',
   },
   imagePreviewTitle: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.primary[600],
     textAlign: 'center',
     marginBottom: spacing.margin.sm,
@@ -1146,20 +1153,14 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     textAlign: 'center',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.sm,
   },
   imageContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.sm,
-    marginBottom: spacing.margin.lg,
-    borderWidth: 1,
-    borderColor: colors.border.light,
+    marginBottom: spacing.margin.sm,
   },
   previewImage: {
     width: '100%',
-    height: 400,
-    borderRadius: spacing.borderRadius.sm,
+    height: 200,
   },
   imagePreviewButtonsContainer: {
     flexDirection: 'row',
@@ -1185,6 +1186,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
+    textAlign: 'center',
   },
   cancelImageButton: {
     backgroundColor: colors.error[100],
@@ -1203,7 +1205,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.xl,
   },
   rewardedAdModalTitle: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.md,
@@ -1238,6 +1240,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
+    textAlign: 'center',
   },
   maybeLaterButtonText: {
     color: colors.text.secondary,
