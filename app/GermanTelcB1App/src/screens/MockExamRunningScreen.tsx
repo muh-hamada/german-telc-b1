@@ -8,7 +8,6 @@ import {
   Alert,
   ActivityIndicator,
   I18nManager,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -69,10 +68,6 @@ const MockExamRunningScreen: React.FC = () => {
   if (isLoading || !examProgress) {
     return (
       <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.primary[500]}
-        />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
@@ -298,10 +293,6 @@ const MockExamRunningScreen: React.FC = () => {
   if (examProgress.isCompleted) {
     return (
       <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.primary[500]}
-        />
         {renderResults()}
         {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>

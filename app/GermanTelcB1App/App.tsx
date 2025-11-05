@@ -35,7 +35,7 @@ const App: React.FC = () => {
         <AuthProvider>
           <ProgressProvider>
             <CompletionProvider>
-              <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
+              <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
               <RootNavigator />
               <ReviewModalContainer />
             </CompletionProvider>

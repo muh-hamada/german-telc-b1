@@ -7,7 +7,6 @@ import {
   Alert,
   Image,
   I18nManager,
-  StatusBar,
   Platform,
   Linking,
 } from 'react-native';
