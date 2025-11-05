@@ -79,6 +79,13 @@
       "es": "Español",
       "fr": "Français",
       "ru": "Русский"
+    },
+    "disclaimer": {
+      "title": "Aviso Importante",
+      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con TELC GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de alemán TELC B1.",
+      "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen TELC real.",
+      "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen TELC real. \nEsta es sólo una herramienta de práctica y preparación.",
+      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC B1 real."
     }
   },
   "navigation": {

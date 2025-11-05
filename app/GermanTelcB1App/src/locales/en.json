@@ -79,6 +79,13 @@
       "es": "Español",
       "fr": "Français",
       "ru": "Русский"
+    },
+    "disclaimer": {
+      "title": "Important Notice",
+      "text1": "This app is NOT affiliated with, endorsed by, or connected to TELC GmbH. We are an independent educational tool created to help students prepare for the TELC B1 German language examination.",
+      "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real TELC exam.",
+      "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only.",
+      "checkboxLabel": "I understand that this app is only a simulation tool for exam preparation and is not an official TELC application. I acknowledge that using this app does not guarantee any specific results in the actual TELC B1 exam."
     }
   },
   "navigation": {

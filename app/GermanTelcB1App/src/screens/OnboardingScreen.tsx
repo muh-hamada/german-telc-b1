@@ -23,34 +23,17 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: lang });
   };
 
-  const handleGoPress = async () => {
-    try {
-      logEvent(AnalyticsEvents.ONBOARDING_GO_PRESSED, { first_launch: true });
-      await AsyncStorage.setItem('hasLaunched', 'true');
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Main' }],
-      });
-    } catch (error) {
-      console.log('Error saving launch state:', error);
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Main' }],
-      });
-    }
+  const handleGoPress = () => {
+    logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: selectedLanguage });
+    navigation.navigate('OnboardingDisclaimer');
   };
 
   return (
     <SafeAreaView style={[styles.container]}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.welcomeText} numberOfLines={2}>
-          {t('onboarding.welcome')}
-        </Text>
-      </View>
       <LanguageSelector
         onLanguageSelect={handleLanguageChange}
       />
-      <Button title={t('common.go')} onPress={handleGoPress} style={styles.goButton} />
+      <Button title={t('common.next')} onPress={handleGoPress} style={styles.goButton} />
     </SafeAreaView>
   );
 };
@@ -60,21 +43,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.background.primary,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.lg,
-  },
-  titleContainer: {
-    height: 80, // Fixed height to prevent layout shifts
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  welcomeText: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    textAlign: 'center',
-    paddingHorizontal: spacing.md,
+
   },
   goButton: {
     marginTop: spacing.margin.md,

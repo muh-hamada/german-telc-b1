@@ -45,11 +45,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{t('onboarding.selectLanguage')}</Text>
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
+      <View style={styles.scrollContent}>
         {languages.map((language) => (
           <TouchableOpacity
             key={language.code}
@@ -87,7 +83,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             )}
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -97,6 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: spacing.padding.lg,
     width: '100%',
+    justifyContent: 'flex-end',
   },
   title: {
     ...typography.textStyles.h4,
@@ -104,12 +101,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: spacing.margin.md,
   },
-  scrollView: {
-    flex: 1,
-  },
   scrollContent: {
     paddingBottom: spacing.padding.lg,
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   languageItem: {
     width: '90%',

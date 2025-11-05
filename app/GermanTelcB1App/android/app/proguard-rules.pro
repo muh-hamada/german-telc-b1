@@ -8,3 +8,20 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# Keep react-native-gesture-handler
+-keep class com.swmansion.gesturehandler.** { *; }
+-keep class com.facebook.react.turbomodule.** { *; }
+
+# Keep React Native Animated nodes
+-keep class com.facebook.react.animated.** { *; }
+-keep class com.facebook.react.bridge.** { *; }
+-keep class com.facebook.react.uimanager.** { *; }
+
+# Keep Fabric/New Architecture
+-keep class com.facebook.react.fabric.** { *; }
+-keep class com.facebook.react.modules.** { *; }
+
+# Keep Hermes
+-keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }

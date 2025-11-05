@@ -48,6 +48,8 @@ export const AnalyticsEvents = {
   AUTH_LOGOUT: 'auth_logout',
   ONBOARDING_LANGUAGE_SELECTED: 'onboarding_language_selected',
   ONBOARDING_GO_PRESSED: 'onboarding_go_pressed',
+  ONBOARDING_DISCLAIMER_TOGGLED: 'onboarding_disclaimer_toggled',
+  ONBOARDING_DISCLAIMER_ACCEPTED: 'onboarding_disclaimer_accepted',
   PROFILE_LOGIN_MODAL_OPENED: 'profile_login_modal_opened',
   PROFILE_LOGIN_SUCCESS: 'profile_login_success',
   PROFILE_LOGIN_FAILED: 'profile_login_failed',
