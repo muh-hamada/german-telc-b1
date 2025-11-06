@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     borderRadius: 12,
     padding: spacing.lg,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: colors.primary[200],
   },
   disclaimerText: {
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   bottomContainer: {
     padding: spacing.lg,
     borderTopWidth: 1,
-    borderTopColor: colors.border.default,
+    borderTopColor: colors.border.light,
     backgroundColor: colors.white,
   },
   checkboxContainer: {

@@ -8,6 +8,7 @@ import {
   Modal,
   TextInput,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -762,6 +763,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 26,
     marginBottom: spacing.margin.md,
+    direction: 'ltr' as 'ltr',
   },
   questionCard: {
     backgroundColor: colors.white,
@@ -846,10 +848,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     fontWeight: typography.fontWeight.medium,
     color: colors.text.primary,
+    direction: 'ltr' as 'ltr',
   },
   vocabEnglish: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    direction: 'ltr' as 'ltr',
   },
   // Modal styles
   modalOverlay: {
