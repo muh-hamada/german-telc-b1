@@ -240,32 +240,43 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
 
 /**
  * Main Cloud Function to evaluate writing
- * This is a callable function that can be invoked from the mobile app
+ * This is an HTTP endpoint that can be invoked from the mobile app
  */
-export const evaluateWriting = functions.https.onCall(
-  async (data: EvaluationRequest, context) => {
-    // Optional: Enforce authentication
-    // if (!context.auth) {
-    //   throw new functions.https.HttpsError(
-    //     'unauthenticated',
-    //     'Must be authenticated to evaluate writing'
-    //   );
-    // }
+export const evaluateWriting = functions.https.onRequest(
+  async (req, res) => {
+    // Enable CORS
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+
+    // Only allow POST
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
 
     try {
+      const data: EvaluationRequest = req.body;
+
       // Validate input
       if (!data.incomingEmail || !data.writingPoints || !data.examTitle) {
-        throw new functions.https.HttpsError(
-          'invalid-argument',
-          'Missing required fields: incomingEmail, writingPoints, or examTitle'
-        );
+        res.status(400).json({
+          error: 'Missing required fields: incomingEmail, writingPoints, or examTitle'
+        });
+        return;
       }
 
       if (!data.userAnswer && !data.imageBase64) {
-        throw new functions.https.HttpsError(
-          'invalid-argument',
-          'Either userAnswer or imageBase64 must be provided'
-        );
+        res.status(400).json({
+          error: 'Either userAnswer or imageBase64 must be provided'
+        });
+        return;
       }
 
       let userPrompt: string;
@@ -283,24 +294,17 @@ export const evaluateWriting = functions.https.onCall(
 
       // Log successful evaluation (optional)
       console.log('Writing evaluation completed', {
-        userId: context.auth?.uid || 'anonymous',
         score: assessment.overallScore,
         examTitle: data.examTitle,
         hasImage: !!data.imageBase64,
       });
 
-      return assessment;
+      res.status(200).json(assessment);
     } catch (error) {
       console.error('Error in evaluateWriting function:', error);
-      
-      if (error instanceof functions.https.HttpsError) {
-        throw error;
-      }
-      
-      throw new functions.https.HttpsError(
-        'internal',
-        error instanceof Error ? error.message : 'Unknown error occurred'
-      );
+      res.status(500).json({
+        error: error instanceof Error ? error.message : 'Unknown error occurred'
+      });
     }
   }
 );

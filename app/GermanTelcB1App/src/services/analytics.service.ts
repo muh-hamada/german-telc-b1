@@ -11,7 +11,6 @@
  * analyticsService.logScreenView('Home');
  */
 
-import { Platform } from 'react-native';
 import analytics from '@react-native-firebase/analytics';
 
 // Check if we're in development mode

@@ -47,7 +47,7 @@ const RootNavigator: React.FC = () => {
       }}
     >
       <Stack.Navigator
-        initialRouteName={!isFirstLaunch ? 'Onboarding' : 'Main'}
+        initialRouteName={isFirstLaunch ? 'Onboarding' : 'Main'}
         screenOptions={{
           headerShown: false,
           cardStyle: { backgroundColor: colors.background.primary },

@@ -23,8 +23,7 @@ import {
   evaluateWriting,
   evaluateWritingWithImage,
   WritingAssessment,
-  isOpenAIConfigured,
-} from '../../services/openai.service';
+} from '../../services/http.openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -50,7 +49,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useTranslation();
-  const [userAnswer, setUserAnswer] = useState('');
+  const [userAnswer, setUserAnswer] = useState('Hallo zuzammen. Ich freue mich auf deine Hilfe, Vielen Dank und lass bald mal die Gelegenheit kommen.');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
@@ -276,10 +275,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       const imageBase64 = capturedImageBase64Ref.current;
       const imageUri = capturedImageUriRef.current;
 
-      if (!isOpenAIConfigured()) {
-        throw new Error('OpenAI API key is not configured');
-      }
-
       // Call OpenAI API for image evaluation
       // Use base64 if available, otherwise use URI
       if (imageBase64) {
@@ -361,10 +356,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     try {
       let result: WritingAssessment;
-
-      if (!isOpenAIConfigured()) {
-        throw new Error('OpenAI API key is not configured');
-      }
 
       // Call OpenAI API for text evaluation
       result = await evaluateWriting({
@@ -533,8 +524,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const renderResultsModal = () => {
     if (!assessment) return null;
 
-    const isUsingMock = !isOpenAIConfigured();
-
     return (
       <Modal
         visible={isResultsModalOpen}
@@ -548,14 +537,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
               <Text style={styles.resultsTitle}>
                 {t('writing.evaluation.title')}
               </Text>
-
-              {isUsingMock && (
-                <View style={styles.mockWarning}>
-                  <Text style={styles.mockWarningText}>
-                    {t('writing.mock.warning')}
-                  </Text>
-                </View>
-              )}
 
               {isUsingCachedResult && (
                 <View style={styles.cacheInfo}>
