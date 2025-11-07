@@ -11,7 +11,7 @@ import * as admin from 'firebase-admin';
 admin.initializeApp();
 
 // OpenAI API Configuration
-const OPENAI_API_KEY = '';
+const OPENAI_API_KEY = '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';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o';
 
