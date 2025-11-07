@@ -1,0 +1,252 @@
+.legal-page {
+  padding: 4rem 0;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.legal-page .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.legal-page h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #667eea;
+}
+
+.last-updated {
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.legal-page section {
+  margin-bottom: 3rem;
+}
+
+.legal-page h2 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.legal-page h3 {
+  font-size: 1.25rem;
+  color: #34495e;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.legal-page h4 {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.legal-page p {
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.legal-page ul, .legal-page ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  line-height: 1.8;
+}
+
+.legal-page li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.legal-page a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.legal-page a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.important-note {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.note {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.contact-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+/* Data Deletion Page Specific Styles */
+.method-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.method-box ol {
+  margin: 1rem 0;
+}
+
+.email-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 1rem 0;
+  border: 2px dashed #667eea;
+}
+
+.email-box a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.example {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.timeline-box {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.timeline-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.timeline-item h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.timeline-item p {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-section h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.cta-button.primary {
+  background: white;
+  color: #667eea;
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .legal-page .container {
+    padding: 2rem 1.5rem;
+    border-radius: 0;
+  }
+
+  .legal-page h1 {
+    font-size: 2rem;
+  }
+
+  .legal-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+}
+

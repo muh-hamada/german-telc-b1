@@ -1,0 +1,166 @@
+.editor-container {
+  height: 100vh;
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-header {
+  background: white;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.editor-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.unsaved-indicator {
+  background-color: #ff9800;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-format,
+.btn-validate,
+.btn-save,
+.btn-cancel {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-format {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.btn-format:hover:not(:disabled) {
+  background-color: #7b1fa2;
+}
+
+.btn-validate {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-validate:hover:not(:disabled) {
+  background-color: #1976d2;
+}
+
+.btn-save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.btn-save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.validation-errors {
+  background-color: #ffebee;
+  border-left: 4px solid #f44336;
+  padding: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.validation-errors h3 {
+  margin: 0 0 10px 0;
+  color: #c62828;
+  font-size: 16px;
+}
+
+.validation-errors ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.validation-errors li {
+  color: #d32f2f;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.editor-wrapper {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-wrapper > div {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #666;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-actions button {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .editor-wrapper {
+    padding: 10px;
+  }
+}
+

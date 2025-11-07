@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1 Sprachbausteine Teil 1 Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .exam-tab { transition: all 0.2s; }
+        .exam-active { background-color: #0077B6; color: white; }
+        .modal { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            visibility: hidden; 
+            opacity: 0; 
+            transition: visibility 0s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .modal.open { 
+            visibility: visible; 
+            opacity: 1; 
+            pointer-events: auto;
+        }
+        .text-gap {
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+            border-bottom: 2px solid #0077B6;
+            margin: 0 4px;
+            padding: 0 2px;
+            font-weight: 600;
+        }
+        .question-text {
+            line-height: 2.2; /* Increased line-height for readability around inline elements */
+            white-space: pre-wrap;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8 lg:p-12">
+        
+        <header class="text-center mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#0077B6]">Telc B1 Sprachbausteine Teil 1</h1>
+            <p class="text-lg text-[#757575] mt-1">Lückentext-Übung (Aufgaben 21-30)</p>
+        </header>
+
+        <section id="exam-selection" class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Prüfung auswählen:</h2>
+            <div id="exam-tabs" class="flex flex-wrap gap-2 md:gap-4 justify-center bg-gray-200 p-2 rounded-lg shadow-inner">
+                <button data-exam-id="0" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 1 (Original)</button>
+                <button data-exam-id="1" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 2</button>
+                <button data-exam-id="2" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 3</button>
+                <button data-exam-id="3" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 4</button>
+                <button data-exam-id="4" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 5</button>
+            </div>
+        </section>
+
+        <main class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            
+            <h2 class="text-2xl font-bold text-[#0077B6] mb-4">Aufgabe: Lückentext</h2>
+            <p class="mb-6 text-gray-700">Lesen Sie den folgenden Text und wählen Sie für jede Lücke (21-30) die richtige Lösung (a, b oder c).</p>
+            
+            <!-- TEXT BLOCK WITH GAPS -->
+            <div id="text-container" class="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-300">
+                <!-- Text with gaps will be rendered here -->
+            </div>
+
+            <h3 class="text-xl font-semibold mb-4 border-b pb-2 text-[#0077B6]">Wahlmöglichkeiten (a, b oder c)</h3>
+            
+            <!-- OPTIONS CONTAINER -->
+            <div id="options-container" class="space-y-6">
+                <!-- Options for each gap will be rendered here -->
+            </div>
+
+            <button id="check-answers-button" class="mt-8 w-full bg-[#0077B6] text-white py-3 rounded-lg text-lg font-semibold hover:bg-[#005F92] transition-colors duration-200 shadow-md">
+                Antworten prüfen
+            </button>
+        </main>
+    </div>
+
+    <!-- Modal for Results -->
+    <div id="results-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 md:p-8 transform transition-all duration-300 scale-95 modal-content">
+            <h3 class="text-2xl font-bold text-[#0077B6] mb-4 border-b pb-2">Ihre Testergebnisse (Sprachbausteine Teil 1)</h3>
+            
+            <p id="final-score" class="text-xl font-semibold mb-4"></p>
+            
+            <div id="results-summary" class="space-y-3 mb-6 max-h-96 overflow-y-auto">
+            </div>
+
+            <button id="close-modal-button" class="w-full bg-gray-500 text-white py-2 rounded-lg font-semibold hover:bg-gray-700">
+                Schließen
+            </button>
+        </div>
+    </div>
+
+<script>
+    // --- EXAM DATA ---
+    const allExams = [
+        // --- Test 1: Original PDF Example (Praktikum) ---
+        {
+            id: 0,
+            title: "Test 1 (Original PDF)",
+            text: "Liebe Karin,\n\nnach meinem Praktikum in Frankreich bin ich jetzt wieder zu Hause. Wie du ja weißt, wollte ich eigentlich nach Paris, [21] das hat dann leider nicht geklappt. Doch dann habe ich eine Stelle als Praktikant bei [22] Firma in Straßburg gefunden.\n\nDort [23] ich drei Monate geblieben. Die Arbeit war sehr [24], ich musste schon um 8.00 Uhr im Büro sein, hat mir aber [25] sehr gut gefallen.\nIch habe [26] dieser Zeit in verschiedenen Abteilungen gearbeitet und so nicht nur etwas über die Herstellung von Fernsehgeräten [27], sondern auch über den Verkauf. Und die Kollegen, mit [28] ich am meisten zu tun hatte, waren wirklich sehr nett.\n\nNach dem Praktikum habe ich noch zwei Wochen Urlaub bei [29] Freunden gemacht. Darüber erzähle ich [30] bald mehr – für heute muss ich Schluss machen.\n\nLiebe Grüße\nFritz",
+            questions: [
+                { id: 21, answers: [{ text: "aber", correct: true }, { text: "denn", correct: false }, { text: "sondern", correct: false }] },
+                { id: 22, answers: [{ text: "eine", correct: false }, { text: "einen", correct: false }, { text: "einer", correct: true }] },
+                { id: 23, answers: [{ text: "bin", correct: true }, { text: "habe", correct: false }, { text: "wurde", correct: false }] },
+                { id: 24, answers: [{ text: "anstrengend", correct: true }, { text: "anstrengende", correct: false }, { text: "anstrengendes", correct: false }] },
+                { id: 25, answers: [{ text: "trotzdem", correct: true }, { text: "wegen", correct: false }, { text: "weshalb", correct: false }] },
+                { id: 26, answers: [{ text: "bis", correct: false }, { text: "in", correct: true }, { text: "nach", correct: false }] },
+                { id: 27, answers: [{ text: "gelernt", correct: true }, { text: "lernen", correct: false }, { text: "lernte", correct: false }] },
+                { id: 28, answers: [{ text: "dem", correct: false }, { text: "denen", correct: true }, { text: "die", correct: false }] },
+                { id: 29, answers: [{ text: "meine", correct: false }, { text: "meinen", correct: true }, { text: "meiner", correct: false }] },
+                { id: 30, answers: [{ text: "dir", correct: true }, { text: "Ihnen", correct: false }, { text: "uns", correct: false }] }
+            ]
+        },
+        // --- Test 2: New topics - Eine neue Stadt ---
+        {
+            id: 1,
+            title: "Test 2 (Neue Stadt)",
+            text: "Hallo Max,\n\nich bin gut in München angekommen. Die Wohnungssuche war zwar stressig, aber die Stadt ist wirklich toll! Ich wohne jetzt in einem schönen Viertel, [21] der Park in der Nähe ist.\n\nIch habe mich schnell [22] die neue Umgebung eingelebt. Am Anfang habe ich mich oft verlaufen, [23] es gibt so viele kleine Gassen! Aber jetzt kenne ich mich besser aus und habe sogar schon eine nette Sportgruppe [24].\n\nLetzte Woche [25] ich im Zentrum einen [26] Brief gefunden. Ich [27] die ganze Zeit, wem er gehört.\n\nMorgen bringe ich ihn zur Post, [28] ich keine Adresse finde.\n\nIch hoffe, wir sehen uns bald! Du kannst mir [29] eine E-Mail schreiben.\n\nDie neue Sportgruppe ist sehr [30].\n\nViele Grüße, Lena",
+            questions: [
+                { id: 21, answers: [{ text: "weshalb", correct: false }, { text: "wo", correct: true }, { text: "damit", correct: false }] }, // Relativpronomen Ort
+                { id: 22, answers: [{ text: "in", correct: true }, { text: "an", correct: false }, { text: "auf", correct: false }] }, // sich einleben in + Akkusativ/Dativ
+                { id: 23, answers: [{ text: "trotz", correct: false }, { text: "weil", correct: true }, { text: "obwohl", correct: false }] }, // Kausaler Nebensatz
+                { id: 24, answers: [{ text: "gefahren", correct: false }, { text: "gefunden", correct: true }, { text: "gesehen", correct: false }] }, // Verb im Perfekt
+                { id: 25, answers: [{ text: "habe mich gefragt", correct: true }, { text: "fragte", correct: false }, { text: "fragte mich", correct: false }] }, // Reflexives Verb + Perfekt
+                { id: 26, answers: [{ text: "diesem", correct: false }, { text: "diese", correct: true }, { text: "diesen", correct: false }] }, // Demonstrativpronomen
+                { id: 27, answers: [{ text: "da", correct: true }, { text: "deshalb", correct: false }, { text: "trotzdem", correct: false }] }, // Konnektor (Kausal)
+                { id: 28, answers: [{ text: "ihr", correct: false }, { text: "mir", correct: true }, { text: "dich", correct: false }] }, // Pronomen Dativ
+                { id: 29, answers: [{ text: "noch", correct: true }, { text: "schon", correct: false }, { text: "erst", correct: false }] }, // Adverb (noch)
+                { id: 30, answers: [{ text: "aufmerksam", correct: false }, { text: "interessant", correct: true }, { text: "interessante", correct: false }] } // Adjektiv (predikativ)
+            ]
+        },
+        // --- Test 3: New topics - Die Wohnungssuche ---
+        {
+            id: 2,
+            title: "Test 3 (Wohnungssuche)",
+            text: "Liebe Frau Müller,\n\nvielen Dank für Ihre E-Mail. Ich habe die Fotos der Wohnung gesehen und sie gefallen mir sehr. [21] ich habe noch einige Fragen [22] die Nebenkosten.\n\nDie Wohnung ist zwar etwas älter, [23] sie in einer ruhigen Gegend liegt, ist sie perfekt für mich. Ich habe gelesen, dass Sie ein [24] Büro im Haus haben. Könnte ich bitte wissen, [25] der Kellerraum auch [26] den Mietern zur Verfügung steht?\n\nIch muss leider [27] dass meine Möbel etwas größer sind, [28] die Maße, die ich in der Anzeige [29].\n\nWäre es möglich, die Wohnung am nächsten Samstag [30]?\n\nIch freue mich auf Ihrer Antwort.\n\nMit freundlichen Grüßen, S. Schmidt",
+            questions: [
+                { id: 21, answers: [{ text: "darüber", correct: false }, { text: "bezüglich", correct: true }, { text: "gegen", correct: false }] }, // Präposition (bezüglich + Genitiv, hier ersetzt durch Dativ)
+                { id: 22, answers: [{ text: "weil", correct: false }, { text: "deshalb", correct: false }, { text: "aber", correct: true }] }, // Konjunktion (kontrastierend)
+                { id: 23, answers: [{ text: "kleinen", correct: true }, { text: "kleine", correct: false }, { text: "kleiner", correct: false }] }, // Adjektivdeklination (Akk. Singular)
+                { id: 24, answers: [{ text: "ob", correct: true }, { text: "wann", correct: false }, { text: "dass", correct: false }] }, // Ob-Satz (indirekte Frage)
+                { id: 25, answers: [{ text: "alle", correct: true }, { text: "jeden", correct: false }, { text: "manche", correct: false }] }, // Indefinitpronomen
+                { id: 26, answers: [{ text: "zugeben", correct: true }, { text: "eingeben", correct: false }, { text: "angeben", correct: false }] }, // trennbare Verben (zu-geben)
+                { id: 27, answers: [{ text: "als", correct: false }, { text: "wie", correct: true }, { text: "denn", correct: false }] }, // Komparation (wie)
+                { id: 28, answers: [{ text: "angeben", correct: true }, { text: "gegeben", correct: false }, { text: "gaben", correct: false }] }, // Verbform (angeben im Perfekt)
+                { id: 29, answers: [{ text: "besichtigen", correct: true }, { text: "besichtigend", correct: false }, { text: "besichtigt", correct: false }] }, // Infinitiv mit zu
+                { id: 30, answers: [{ text: "ihrer", correct: true }, { text: "ihre", correct: false }, { text: "ihren", correct: false }] } // Possessivpronomen + Genitiv (weiblich)
+            ]
+        },
+        // --- Test 4: New topics - Die erste Arbeitswoche ---
+        {
+            id: 3,
+            title: "Test 4 (Arbeitswoche)",
+            text: "Liebes Team,\n\nmeine erste Woche in der Marketingabteilung ist [21] und ich möchte mich kurz bei Ihnen melden. Es ist eine [22] Erfahrung, hier zu arbeiten. Am ersten Tag war ich sehr nervös, [23] alle waren so freundlich und haben mir sofort geholfen.\n\nIch [24] mich schnell mit den Programmen vertraut machen, aber das war gar nicht so leicht. Ich [25] noch einiges lernen, besonders in Bezug auf [26] neuen Projekte.\n\nIch habe viel Unterstützung von meinem direkten Kollegen bekommen, [27] ich mich sehr bedanken möchte. Ich [28] noch ein paar Unterlagen vorbereiten, [29] ich in der Besprechung präsentieren muss.\n\nIch freue mich auf die kommende Zeit in [30] Firma.\n\nMit besten Grüßen, Anna Schmidt",
+            questions: [
+                { id: 21, answers: [{ text: "vorbei", correct: true }, { text: "beendet", correct: false }, { text: "fertig", correct: false }] }, // Adverb/Adjektiv (vorbei sein)
+                { id: 22, answers: [{ text: "tolle", correct: true }, { text: "toll", correct: false }, { text: "tollem", correct: false }] }, // Adjektivdeklination (Akk. weibl.)
+                { id: 23, answers: [{ text: "denn", correct: true }, { text: "deshalb", correct: false }, { text: "obwohl", correct: false }] }, // Kausale Konjunktion
+                { id: 24, answers: [{ text: "kann", correct: false }, { text: "sollte", correct: true }, { text: "wollte", correct: false }] }, // Modalverb (Empfehlung/Notwendigkeit)
+                { id: 25, answers: [{ text: "muss", correct: true }, { text: "will", correct: false }, { text: "dürfe", correct: false }] }, // Modalverb (Notwendigkeit)
+                { id: 26, answers: [{ text: "der", correct: false }, { text: "die", correct: false }, { text: "die", correct: true }] }, // Attributiv (Plural)
+                { id: 27, answers: [{ text: "dem", correct: false }, { text: "für den", correct: false }, { text: "bei dem", correct: true }] }, // Präpositionalphrase (sich bedanken bei)
+                { id: 28, answers: [{ text: "nachdem", correct: false }, { text: "bevor", correct: false }, { text: "die", correct: true }] }, // Relativpronomen (Akk. Plural)
+                { id: 29, answers: [{ text: "in", correct: true }, { text: "an", correct: false }, { text: "mit", correct: false }] }, // Präposition (in der Firma)
+                { id: 30, answers: [{ text: "weitere", correct: true }, { text: "weiteres", correct: false }, { text: "weiteren", correct: false }] } // Adjektivdeklination (Attr. Plural)
+            ]
+        },
+        // --- Test 5: New topics - Ein Ausflug in die Natur ---
+        {
+            id: 4,
+            title: "Test 5 (Ausflug)",
+            text: "Liebe Hanna, ich schreibe dir schnell aus dem Zug. Der Ausflug in die Berge war wirklich schön, [21] es hat gestern Abend sehr stark geregnet. Ich habe [22] einen kleinen Schreck bekommen, [23] ich das Zelt aufbauen wollte. Aber danach hat sich die Sonne gezeigt und die [24] Aussicht war fantastisch.\n\nIch bin den ganzen Tag am Berg gewandert und habe mich dabei gut [25]. Jetzt fühle ich mich ein bisschen müde, [26] aber sehr entspannt.\n\nIch habe viele Fotos von den [27] Bergbächen gemacht. Die Stille dort ist ganz anders als [28] der Stadt. Das einzige Problem war die Rückreise. Der Zug hat eine Stunde Verspätung, [29] ich erst später zu Hause sein werde.\n\nSchreib mir, wie es [30] geht, wenn du Zeit hast.\n\nViele Grüße, Stefan",
+            questions: [
+                { id: 21, answers: [{ text: "obwohl", correct: true }, { text: "denn", correct: false }, { text: "trotzdem", correct: false }] }, // Konjunktion (obwohl)
+                { id: 22, answers: [{ text: "als", correct: true }, { text: "wann", correct: false }, { text: "wenn", correct: false }] }, // Temporale Konjunktion (einmaliges Ereignis in der Vergangenheit)
+                { id: 23, answers: [{ text: "schön", correct: false }, { text: "schönen", correct: true }, { text: "schöne", correct: false }] }, // Adjektivdeklination (Nominativ weibl.)
+                { id: 24, answers: [{ text: "gefühlt", correct: true }, { text: "fühlen", correct: false }, { text: "fuhlen", correct: false }] }, // Reflexives Verb (sich fühlen)
+                { id: 25, answers: [{ text: "und", correct: true }, { text: "sondern", correct: false }, { text: "doch", correct: false }] }, // Koordinierende Konjunktion
+                { id: 26, answers: [{ text: "kaltem", correct: false }, { text: "kalte", correct: true }, { text: "kalten", correct: false }] }, // Adjektivdeklination (Akkusativ Plural)
+                { id: 27, answers: [{ text: "zu", correct: false }, { text: "wie", correct: true }, { text: "mit", correct: false }] }, // Komparativ (anders als)
+                { id: 28, answers: [{ text: "sodass", correct: true }, { text: "obwohl", correct: false }, { text: "weil", correct: false }] }, // Konsequente Konjunktion (Folge)
+                { id: 29, answers: [{ text: "Ihnen", correct: false }, { text: "dich", correct: false }, { text: "dir", correct: true }] }, // Pronomen Dativ
+                { id: 30, answers: [{ text: "gemütlich", correct: false }, { text: "ruhige", correct: false }, { text: "einsame", correct: true }] } // Adjektiv/Wortschatz
+            ]
+        }
+    ];
+
+    let activeExamId = 0; // Start with Test 1
+
+    function getExam() {
+        return allExams[activeExamId];
+    }
+
+    // Function to sanitize text for display
+    function sanitizeText(text) {
+        return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function renderExamTabs() {
+        const tabs = document.querySelectorAll('.exam-tab');
+        tabs.forEach(tab => {
+            const id = parseInt(tab.dataset.examId); // Correction: Use 'examId' from HTML, not 'exam-id'
+            const isActive = id === activeExamId;
+            tab.classList.toggle('exam-active', isActive);
+            
+            tab.onclick = () => {
+                activeExamId = id;
+                render();
+                closeModal();
+            };
+        });
+    }
+
+    function renderContent() {
+        const exam = getExam();
+        const textContainer = document.getElementById('text-container');
+        const optionsContainer = document.getElementById('options-container');
+        
+        textContainer.innerHTML = '';
+        optionsContainer.innerHTML = '';
+
+        // --- 1. Render Text with Gaps ---
+        const textWrapper = document.createElement('p');
+        textWrapper.className = 'question-text text-gray-800';
+        
+        let processedText = exam.text;
+        
+        // Use a regular expression to find all [ID] placeholders and replace them with the interactive span
+        processedText = processedText.replace(/\[(\d{2})\]/g, (match, id) => {
+            return `<span class="text-gap">${id}</span>`;
+        });
+        
+        textWrapper.innerHTML = sanitizeText(processedText);
+        textContainer.appendChild(textWrapper);
+
+
+        // --- 2. Render Options ---
+        exam.questions.forEach(q => {
+            const questionBlock = document.createElement('div');
+            questionBlock.className = 'p-4 rounded-lg bg-gray-50 shadow-sm border border-gray-300';
+            
+            const qHeader = document.createElement('p');
+            qHeader.className = 'text-lg font-bold mb-3 text-[#0077B6]';
+            qHeader.textContent = `Aufgabe ${q.id}:`;
+            questionBlock.appendChild(qHeader);
+
+            const optionsContainerInner = document.createElement('div');
+            optionsContainerInner.className = 'flex flex-col space-y-2';
+            
+            const options = ['a', 'b', 'c'];
+            q.answers.forEach((ans, index) => {
+                const optionLabel = document.createElement('label');
+                optionLabel.className = 'flex items-center space-x-2 text-gray-800 cursor-pointer hover:bg-gray-100 p-2 rounded-md transition-colors';
+                
+                const radioInput = document.createElement('input');
+                radioInput.type = 'radio';
+                radioInput.name = `question-${q.id}`;
+                radioInput.value = options[index];
+                radioInput.className = 'form-radio text-[#0077B6] h-4 w-4';
+                
+                // Load saved answer
+                if (exam.answers && exam.answers[q.id] === options[index]) {
+                    radioInput.checked = true;
+                }
+
+                radioInput.addEventListener('change', (e) => {
+                    if (!exam.answers) exam.answers = {};
+                    exam.answers[q.id] = e.target.value;
+                });
+                
+                const optionText = document.createElement('span');
+                optionText.innerHTML = `<span class="font-medium mr-1">(${options[index]})</span> ${sanitizeText(ans.text)}`;
+
+                optionLabel.appendChild(radioInput);
+                optionLabel.appendChild(optionText);
+                optionsContainerInner.appendChild(optionLabel);
+            });
+
+            questionBlock.appendChild(optionsContainerInner);
+            optionsContainer.appendChild(questionBlock);
+        });
+    }
+
+    function checkAnswers() {
+        const exam = getExam();
+        let correctCount = 0;
+        const results = [];
+        
+        exam.questions.forEach(q => {
+            // Determine user answer from radio inputs
+            let userAnswer = null;
+            const radios = document.querySelectorAll(`input[name="question-${q.id}"]:checked`);
+            if (radios.length > 0) {
+                userAnswer = radios[0].value;
+                if (!exam.answers) exam.answers = {};
+                exam.answers[q.id] = userAnswer;
+            } else {
+                if (exam.answers) delete exam.answers[q.id];
+            }
+
+            let correctAnswer = null;
+            let correctText = '';
+            
+            q.answers.forEach((ans, index) => {
+                if (ans.correct) {
+                    correctAnswer = ['a', 'b', 'c'][index];
+                    correctText = ans.text;
+                }
+            });
+
+            const isCorrect = userAnswer === correctAnswer;
+            if (isCorrect) {
+                correctCount++;
+            }
+            
+            results.push({
+                id: q.id,
+                isCorrect: isCorrect,
+                userAnswer: userAnswer ? userAnswer.toUpperCase() : 'Nichts gewählt',
+                correctAnswer: correctAnswer.toUpperCase(),
+                correctText: correctText
+            });
+        });
+
+        displayResults(correctCount, results);
+    }
+
+    function displayResults(score, results) {
+        const modal = document.getElementById('results-modal');
+        const finalScoreEl = document.getElementById('final-score');
+        const resultsSummaryEl = document.getElementById('results-summary');
+        
+        finalScoreEl.textContent = `Ihr Ergebnis: ${score} von 10 Punkten.`;
+        finalScoreEl.classList.toggle('text-green-600', score >= 8);
+        finalScoreEl.classList.toggle('text-yellow-600', score >= 5 && score < 8);
+        finalScoreEl.classList.toggle('text-red-600', score < 5);
+
+        resultsSummaryEl.innerHTML = '';
+        
+        results.forEach(res => {
+            const item = document.createElement('div');
+            const statusClass = res.isCorrect ? 'bg-green-100 border-green-500 text-green-700' : 'bg-red-100 border-red-500 text-red-700';
+            const statusText = res.isCorrect ? 'Korrekt' : 'Falsch';
+            
+            item.className = `p-3 rounded-lg border-l-4 ${statusClass}`;
+            
+            item.innerHTML = `
+                <p class="font-semibold">Frage ${res.id}:</p>
+                <p class="text-sm mt-1">Status: <span class="font-bold">${statusText}</span></p>
+                ${!res.isCorrect ? `<p class="text-xs italic">Ihre Antwort: ${res.userAnswer}</p>` : ''}
+                <p class="text-sm mt-1">Richtig: <span class="font-bold">(${res.correctAnswer})</span> ${sanitizeText(res.correctText)}</p>
+            `;
+            resultsSummaryEl.appendChild(item);
+        });
+
+        modal.classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('results-modal').classList.remove('open');
+    }
+
+    function render() {
+        renderExamTabs();
+        renderContent();
+    }
+
+    document.getElementById('check-answers-button').addEventListener('click', checkAnswers);
+    document.getElementById('close-modal-button').addEventListener('click', closeModal);
+    document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

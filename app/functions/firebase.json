@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "predeploy": [
+      "npm run build"
+    ],
+    "source": "."
+  }
+}
+

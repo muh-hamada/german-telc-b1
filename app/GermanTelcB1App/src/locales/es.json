@@ -1,0 +1,722 @@
+{
+  "common": {
+    "continue": "Continuar",
+    "go": "Ir",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "close": "Cerrar",
+    "done": "Hecho",
+    "retry": "Reintentar",
+    "user": "Usuario",
+    "labels": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "age": "Edad",
+      "birthCity": "Ciudad de nacimiento",
+      "origin": "Origen (País)",
+      "livingSince": "Viviendo en Alemania desde",
+      "maritalStatus": "Estado civil",
+      "familySize": "Tamaño de familia",
+      "location": "Ubicación en Alemania",
+      "child1Age": "Edad del niño 1",
+      "child1Grade": "Grado del niño 1",
+      "child2Age": "Edad del niño 2",
+      "profession": "Profesión",
+      "company": "Empresa",
+      "hobbies": "Pasatiempos y tiempo libre"
+    },
+    "placeholders": {
+      "enterName": "Ingrese su nombre",
+      "enterEmail": "Ingrese su correo electrónico",
+      "enterPassword": "Ingrese su contraseña",
+      "confirmPassword": "Confirme su contraseña",
+      "exampleMuhammad": "ej., Muhammad",
+      "example35": "ej., 35",
+      "exampleKairo": "ej., Kairo",
+      "exampleEgypt": "ej., Ägypten",
+      "example2016": "ej., 2016",
+      "exampleMarried": "ej., verheiratet",
+      "exampleFamily": "ej., eine kleine Familie: meine Frau und zwei Töchter",
+      "exampleCharlottenburg": "ej., Charlottenburg",
+      "exampleEight": "ej., acht",
+      "exampleThirdGrade": "ej., dritte Klasse",
+      "exampleThree": "ej., drei",
+      "exampleEngineer": "ej., Ingenieur",
+      "exampleHelloFresh": "ej., HelloFresh",
+      "exampleHobbies": "ej., treibe ich gerne Sport, gehe ins Fitnessstudio..."
+    },
+    "alerts": {
+      "requiredFields": "Campos obligatorios",
+      "fillRequiredFields": "Por favor complete todos los campos obligatorios",
+      "enterName": "Por favor ingrese su nombre",
+      "passwordsNoMatch": "Las contraseñas no coinciden",
+      "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+      "enterEmailFirst": "Por favor ingrese su correo electrónico primero",
+      "fillNameOriginLiving": "Por favor complete al menos Nombre, Origen y Viviendo desde.",
+      "infoSaved": "¡Información personal guardada!",
+      "failedToSave": "Error al guardar la información personal",
+      "retryExam": "Reintentar examen",
+      "retryExamConfirm": "¿Está seguro de que desea reintentar este examen? Sus respuestas anteriores se perderán."
+    },
+    "ok": "DE ACUERDO"
+  },
+  "onboarding": {
+    "welcome": "Preparemos juntos para el examen alemán TELC B1",
+    "selectLanguage": "Selecciona tu idioma de interfaz",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "disclaimer": {
+      "title": "Aviso Importante",
+      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con TELC GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de alemán TELC B1.",
+      "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen TELC real.",
+      "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen TELC real. Esta es sólo una herramienta de práctica y preparación.",
+      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC B1 real."
+    }
+  },
+  "navigation": {
+    "home": "Inicio",
+    "mockExam": "Examen de Práctica",
+    "profile": "Perfil"
+  },
+  "home": {
+    "title": "Preparémonos juntos para el examen telc",
+    "examStructure": "Estructura del Examen",
+    "practice": "Practicar",
+    "practiceSections": {
+      "reading": "Comprensión Lectora",
+      "listening": "Comprensión Auditiva",
+      "writing": "Expresión Escrita",
+      "speaking": "Expresión Oral"
+    },
+    "descriptions": {
+      "examStructure": "Aprende sobre el formato y puntuación del examen TELC B1",
+      "practice": "Practica todas las secciones del examen: Lectura, Audición, Escritura y Habla"
+    }
+  },
+  "examStructure": {
+    "title": "Estructura del Examen",
+    "description": "Aprende sobre el formato y puntuación del examen TELC B1",
+    "comingSoon": "Contenido próximamente...",
+    "cefrLevel": "Nivel MCER:",
+    "totalDuration": "Duración total:",
+    "minutes": "Minutos",
+    "maxPoints": "Puntuación máxima:",
+    "points": "Puntos",
+    "passingThreshold": "Umbral de aprobación:",
+    "preparation": "Preparación",
+    "passingScore": "Puntaje de aprobación",
+    "important": "Importante",
+    "totalMaxPoints": "Puntos máximos totales"
+  },
+  "practice": {
+    "reading": {
+      "title": "Comprensión Lectora",
+      "part1": "Parte 1: Relacionar títulos",
+      "part2": "Parte 2: Opción múltiple",
+      "part3": "Parte 3: Relacionar anuncios",
+      "descriptions": {
+        "main": "Practica comprensión lectora con varios tipos de texto",
+        "part1": "Relaciona títulos con textos",
+        "part2": "Preguntas de opción múltiple sobre un texto",
+        "part3": "Relaciona situaciones con anuncios"
+      }
+    },
+    "listening": {
+      "title": "Comprensión Auditiva",
+      "part1": "Parte 1: Diálogos cortos",
+      "part1Description": "Escucharás cinco diálogos cortos y deberás resolver cinco tareas.",
+      "part2": "Parte 2: Conversaciones largas",
+      "part2Description": "Escucharás una conversación larga y deberás resolver 10 tareas.",
+      "part3": "Parte 3: Monólogos",
+      "part3Description": "Escucharás cinco monólogos y deberás resolver cinco tareas.",
+      "comingSoon": "Ejercicios de audición próximamente"
+    },
+    "writing": {
+      "title": "Expresión Escrita",
+      "description": "Escribe un correo electrónico formal o semiformal."
+    },
+    "speaking": {
+      "title": "Expresión Oral",
+      "part1": "Parte 1: Presentación personal",
+      "part2": "Parte 2: Presentación de tema",
+      "part3": "Parte 3: Planificar juntos",
+      "descriptions": {
+        "main": "Practica expresión oral y habilidades de conversación"
+      },
+      "part4": "Estudio: frases importantes"
+    },
+    "grammar": {
+      "title": "Bloques de construcción del idioma",
+      "part1": "Parte 1: Rellenar espacios (Opción múltiple)",
+      "part2": "Parte 2: Rellenar espacios (Lista de palabras)",
+      "descriptions": {
+        "main": "Practica gramática alemana con ejercicios de completar espacios"
+      },
+      "study": {
+        "title": "150 Preguntas de Gramática",
+        "description": "Domina la gramática alemana con 150 preguntas de práctica sobre varios temas",
+        "progress": "Pregunta {{current}} de {{total}}",
+        "currentProgress": "Progreso actual",
+        "progressFound": "Progreso anterior encontrado",
+        "progressMessage": "Tienes progreso anterior en la pregunta {{current}} de {{total}}. ¿Te gustaría continuar desde donde lo dejaste o empezar de nuevo?",
+        "continue": "Continuar",
+        "startOver": "Empezar de nuevo",
+        "restart": "Reiniciar",
+        "confirmRestart": "Confirmar reinicio",
+        "restartWarning": "Esto borrará tu progreso actual y empezará desde el principio. ¿Estás seguro?",
+        "correct": "¡Correcto!",
+        "incorrect": "Incorrecto",
+        "tryAgain": "Intentar de nuevo",
+        "skip": "Saltar",
+        "finish": "Terminar",
+        "congratulations": "¡Felicitaciones!",
+        "allCompleted": "¡Has completado todas las 150 preguntas de gramática! ¿Te gustaría reiniciar o volver atrás?",
+        "close": "Cerrar"
+      },
+      "separator": "Estudiar"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "settings": "Configuración",
+    "language": "Idioma de interfaz",
+    "clearProgress": "Borrar progreso",
+    "about": "Acerca de",
+    "legal": "Legal",
+    "authentication": "Autenticación",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "account": "Cuenta",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "changeLanguage": "Cambiar idioma",
+    "signedInWith": "Sesión iniciada con",
+    "appName": "Aplicación de preparación para el examen alemán TELC B1",
+    "version": "Versión",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos del servicio",
+    "rateApp": "Valorar la app",
+    "deleteAccount": "Eliminar cuenta",
+    "deleteAccountModal": {
+      "title": "Eliminar cuenta",
+      "message": "¿Está seguro de que desea eliminar su cuenta? Esta acción no se puede deshacer. Todo su progreso y datos se eliminarán permanentemente dentro de 7 días.",
+      "confirm": "Borrar",
+      "successTitle": "Solicitud enviada",
+      "successMessage": "Se ha recibido su solicitud de eliminación de cuenta. Su cuenta y todos los datos asociados se eliminarán permanentemente dentro de 7 días.",
+      "inProgressTitle": "Eliminación en curso",
+      "inProgressMessage": "Su solicitud de eliminación de cuenta ya está siendo procesada. Su cuenta se eliminará dentro de 7 días desde la fecha de solicitud original.",
+      "error": "No se pudo enviar la solicitud de eliminación. Inténtelo de nuevo."
+    },
+    "loginProviders": {
+      "google": "Continuar con Google",
+      "facebook": "Continuar con Facebook",
+      "twitter": "Continuar con Twitter",
+      "apple": "Continuar con Apple"
+    },
+    "userInfo": {
+      "welcome": "Bienvenido",
+      "notLoggedIn": "No ha iniciado sesión"
+    },
+    "alerts": {
+      "clearProgressTitle": "Borrar progreso",
+      "clearProgressMessage": "¿Está seguro de que desea borrar todo su progreso? Esta acción no se puede deshacer.",
+      "clear": "Borrar",
+      "progressCleared": "Su progreso ha sido borrado.",
+      "clearFailed": "Error al borrar el progreso. Por favor inténtelo de nuevo.",
+      "languageChanged": "¡Idioma cambiado exitosamente!",
+      "languageChangeFailed": "Error al cambiar el idioma. Por favor inténtelo de nuevo.",
+      "signOutTitle": "Cerrar sesión",
+      "signOutMessage": "¿Está seguro de que desea cerrar sesión?",
+      "signedOut": "Ha cerrado sesión.",
+      "signOutFailed": "Error al cerrar sesión. Por favor inténtelo de nuevo.",
+      "signedInSuccess": "¡Ha iniciado sesión exitosamente!",
+      "signInFailed": "Error al iniciar sesión. Por favor inténtelo de nuevo.",
+      "couldNotOpenStore": "No pudimos abrir la tienda de aplicaciones.",
+      "iosRatingComingSoon": "El enlace de valoración en iOS se añadirá más tarde."
+    }
+  },
+  "review": {
+    "title": "¿Disfrutando la aplicación?",
+    "message": "Tu feedback nos ayuda a mejorar y llegar a más estudiantes como tú. ¡Comparte tu experiencia con una calificación rápida!",
+    "rateButton": "⭐ Calificar la aplicación",
+    "laterButton": "Tal vez más tarde"
+  },
+  "mockExam": {
+    "title": "Examen de prueba",
+    "subtitle": "Examen completo Telc Alemán B1",
+    "overview": "Resumen del examen",
+    "totalDuration": "Duración total",
+    "totalPoints": "Puntos totales",
+    "passingScore": "Puntuación mínima",
+    "minutes": "Minutos",
+    "points": "Puntos",
+    "importantNote": "Nota importante:",
+    "importantNoteText": "Antes de comenzar el examen, le recomendamos encarecidamente revisar la estructura del examen para familiarizarse con el formato y los requisitos.",
+    "viewStructure": "Ver estructura del examen",
+    "aboutMockExam": "Acerca de este examen de prueba",
+    "disclaimerText1": "Este examen de prueba le da una evaluación aproximada de su conocimiento actual y preparación. Sin embargo, es",
+    "disclaimerText2": "no es garantía",
+    "disclaimerText3": "de que aprobará el examen real Telc B1.",
+    "disclaimerText4": "El examen real se realiza bajo condiciones controladas y es evaluado por examinadores certificados. Use este examen de prueba como herramienta de práctica para identificar sus debilidades y mejorarlas específicamente.",
+    "examSections": "Partes del examen:",
+    "readingComprehension": "Comprensión lectora (3 partes)",
+    "languageElements": "Elementos del idioma (2 partes)",
+    "listeningComprehension": "Comprensión auditiva (3 partes)",
+    "writtenExpression": "Expresión escrita",
+    "oralExpression": "Expresión oral (3 partes)",
+    "practiceRecommended": "Práctica recomendada",
+    "speakingNote": "Nota sobre el examen oral:",
+    "speakingNoteText": "El examen oral requiere interacción humana y no se puede simular en este examen de prueba. Le recomendamos usar el área de práctica y practicar con un amigo, compañero de idioma o tutor.",
+    "startExam": "Comenzar examen de prueba",
+    "goodLuck": "¡Buena suerte! Tómese su tiempo y lea todas las instrucciones cuidadosamente.",
+    "examInProgress": "Examen en progreso",
+    "resumeOrRestart": "Ya ha comenzado un examen de prueba. ¿Desea continuar o comenzar uno nuevo?",
+    "resume": "Continuar",
+    "startNew": "Comenzar nuevo",
+    "confirm": "Confirmar",
+    "confirmRestart": "¿Está seguro de que desea comenzar un nuevo examen? Su progreso actual se eliminará.",
+    "yesStartNew": "Sí, comenzar nuevo",
+    "examNotFound": "No se encontró el examen.",
+    "couldNotLoadProgress": "No se pudo cargar el progreso del examen.",
+    "couldNotStartExam": "No se pudo iniciar el examen. Por favor, inténtelo de nuevo.",
+    "examLoading": "Cargando examen...",
+    "exitExam": "¿Salir del examen?",
+    "exitExamMessage": "¿Realmente desea salir? Su progreso se guardará y puede continuar más tarde.",
+    "stay": "Permanecer",
+    "exit": "Salir",
+    "couldNotSaveProgress": "No se pudo guardar el progreso.",
+    "finishExam": "Finalizar examen",
+    "finishExamMessage": "¿Está seguro de que desea finalizar el examen? Puede revisar sus resultados después.",
+    "finish": "Finalizar",
+    "completeAllSections": "Por favor complete todas las secciones requeridas antes de finalizar el examen.",
+    "congratulations": "¡Felicidades!",
+    "examCompleted": "¡Ha completado el examen de prueba!",
+    "yourScore": "Su puntuación",
+    "passed": "Aprobado",
+    "failed": "No aprobado",
+    "viewResults": "Ver resultados",
+    "backToHome": "Volver al inicio",
+    "exitExamButton": "Salir",
+    "exitExamTitle": "Salir del examen",
+    "speakingTitle": "Sección de habla",
+    "skipAndContinue": "Saltar y continuar",
+    "writtenExam": "Examen escrito",
+    "speakingCardTitle": "Sección de habla",
+    "oralExam": "examen oral",
+    "examResultsNote": "ℹ️ Este es un examen simulado para practicar. \nLos resultados reales del examen pueden variar. \nUtilice estos resultados para identificar sus fortalezas y debilidades."
+  },
+  "questions": {
+    "checkAnswers": "Verificar respuestas",
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "score": "Puntuación",
+    "results": "Resultados",
+    "tryAgain": "Intentar de nuevo"
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "createAccount": "Crear cuenta",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "alreadyHaveAccount": "¿Ya tiene una cuenta? Iniciar sesión",
+    "noAccount": "¿No tiene una cuenta? Crear cuenta",
+    "loginModal": {
+      "welcomeBack": "Bienvenido de nuevo",
+      "signInCreateAccount": "Iniciar sesión / Crear cuenta",
+      "subtitle": "Inicie sesión para guardar su progreso y sincronizarlo entre dispositivos",
+      "orDivider": "o",
+      "continueWithEmail": "Continuar con correo electrónico",
+      "backToSocialLogin": "← Volver al inicio de sesión social",
+      "passwordReset": "Restablecer contraseña",
+      "passwordResetMessage": "Se ha enviado un correo electrónico de restablecimiento de contraseña a su dirección de correo electrónico."
+    },
+    "errors": {
+      "invalidCredential": "El correo electrónico o la contraseña que ingresó es incorrecta. Por favor, inténtelo de nuevo.",
+      "userNotFound": "No se encontró ninguna cuenta con esta dirección de correo electrónico.",
+      "wrongPassword": "Contraseña incorrecta. Por favor, inténtelo de nuevo.",
+      "emailInUse": "Ya existe una cuenta con este correo electrónico.",
+      "weakPassword": "La contraseña debe tener al menos 6 caracteres.",
+      "invalidEmail": "Por favor, ingrese una dirección de correo electrónico válida.",
+      "userDisabled": "Esta cuenta ha sido deshabilitada.",
+      "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtelo más tarde.",
+      "networkError": "Error de red. Por favor, verifique su conexión a internet.",
+      "unknownError": "Ocurrió un error inesperado. Por favor, inténtelo de nuevo."
+    }
+  },
+  "speaking": {
+    "part1": {
+      "title": "Habla Parte 1",
+      "subtitle": "Presentación personal",
+      "tabs": {
+        "myIntro": "Mi presentación",
+        "example": "Ejemplo",
+        "vocabulary": "Vocabulario",
+        "questions": "Preguntas"
+      },
+      "sections": {
+        "myProfile": "Mi perfil",
+        "personalIntro": "Presentación personal",
+        "keyVocabulary": "Vocabulario clave",
+        "completeExample": "Ejemplo completo",
+        "questions": "Pregunta y respuesta"
+      },
+      "buttons": {
+        "viewInfo": "Ver información personal",
+        "editInfo": "Editar información",
+        "saveInfo": "Guardar información"
+      },
+      "modal": {
+        "personalInfo": "Información personal",
+        "yourPersonalInfo": "Su información personal"
+      },
+      "help": {
+        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC B1. Puede usarlo como referencia para crear el suyo propio.",
+        "enterInfoPrompt": "Por favor ingrese su información personal para generar su texto de presentación.",
+        "questionsNote": "Importante: esta parte del examen probablemente tendrá un estilo de conversación. \nUsted y su pareja se turnarán para hacer preguntas para conocerse. \nEs importante practicar cómo hacer y responder preguntas."
+      },
+      "infoLabels": {
+        "name": "Nombre:",
+        "age": "Edad:",
+        "birthCity": "Ciudad de nacimiento:",
+        "origin": "Origen:",
+        "livingSince": "Viviendo desde:",
+        "maritalStatus": "Estado civil:",
+        "family": "Familia:",
+        "location": "Ubicación:",
+        "profession": "Profesión:",
+        "company": "Empresa:",
+        "hobbies": "Pasatiempos:"
+      },
+      "questions": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "answer": "Respuesta"
+      }
+    },
+    "part2": {
+      "title": "Habla Parte 2",
+      "subtitle": "Presentación de tema",
+      "selectTopic": "Seleccione un tema",
+      "topicSelection": "Selección de tema",
+      "sections": {
+        "topicSelectionLabel": "Selección de tema:",
+        "presentationExample": "Ejemplo de presentación",
+        "discussion": "Discusión (Después de la presentación)",
+        "discussionNote": "Use estas preguntas para continuar la conversación con su compañero, expresar su opinión y compartir sus propias experiencias."
+      },
+      "tabs": {
+        "yourRole": "Participante A",
+        "partnerRole": "Participante B"
+      },
+      "buttons": {
+        "hideExample": "Ocultar ejemplo",
+        "showExample": "Vista de la persona presente (tercera persona)"
+      },
+      "instructions": {
+        "taskDescription": "Su tarea: Informe a su compañero de conversación sobre el siguiente texto y luego discutan sobre el tema.",
+        "startingText": "Su texto inicial para la presentación:"
+      }
+    },
+    "part3": {
+      "title": "Habla Parte 3",
+      "subtitle": "Planificar juntos",
+      "selectScenario": "Seleccione un escenario",
+      "scenarioSelection": "Selección de escenario",
+      "sections": {
+        "scenarioSelectionLabel": "Selección de escenario:"
+      },
+      "tabs": {
+        "dialog": "Diálogo",
+        "vocabulary": "Vocabulario",
+        "phrases": "Frases"
+      },
+      "tableHeaders": {
+        "german": "Alemán",
+        "english": "Inglés",
+        "suggestion": "Sugerencia / Tarea",
+        "response": "Respuesta de ejemplo"
+      }
+    },
+    "part4": {
+      "subtitle": "Frases comunes que puedes utilizar en muchas situaciones.",
+      "itemType": "Parte"
+    }
+  },
+  "results": {
+    "title": "Resultados del examen",
+    "detailedResults": "Resultados detallados",
+    "question": "Pregunta",
+    "yourAnswer": "Su respuesta:",
+    "correctAnswer": "Respuesta correcta:",
+    "outOf": "de",
+    "points": "puntos",
+    "feedback": {
+      "excellent": "¡Excelente!",
+      "goodJob": "¡Buen trabajo!",
+      "keepPracticing": "¡Sigue practicando!",
+      "tryAgain": "¡Inténtalo de nuevo!"
+    }
+  },
+  "progress": {
+    "yourProgress": "Tu progreso",
+    "loginRequired": "Inicio de sesión requerido",
+    "loginPrompt": "Por favor inicie sesión para guardar y ver su progreso en todos los dispositivos",
+    "startTracking": "Comenzar seguimiento",
+    "trackingPrompt": "Inicie sesión para sincronizar su progreso en todos los dispositivos y nunca perder su trabajo",
+    "examsCompleted": "Exámenes completados",
+    "completionRate": "Tasa de finalización",
+    "totalScore": "Puntuación total",
+    "performance": "Rendimiento",
+    "startPracticing": "¡Comienza a practicar para seguir tu progreso!",
+    "performanceLevels": {
+      "excellent": "Excelente",
+      "good": "Bueno",
+      "fair": "Aceptable",
+      "needsImprovement": "Necesita mejorar"
+    },
+    "login": "Acceso"
+  },
+  "exam": {
+    "selectExam": "Seleccionar examen:",
+    "test": "Test",
+    "loadingExam": "Cargando examen...",
+    "failedToLoad": "Error al cargar los datos del examen",
+    "selectAnExam": "Seleccionar un examen",
+    "selectTask": "Seleccionar tarea",
+    "markedCompleted": "¡Examen marcado como completado!",
+    "markedIncomplete": "¡Examen marcado como incompleto!",
+    "completionFailed": "Error al actualizar el estado de finalización",
+    "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso"
+  },
+  "grammar": {
+    "part1": {
+      "title": "Gramática Parte 1",
+      "subtitle": "Completar espacios (Gramática)",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el texto y elija la respuesta correcta de las tres opciones para cada espacio.",
+      "questions": "Preguntas:",
+      "select": "Seleccionar",
+      "selectAnswer": "Elija la respuesta para el espacio [{{gap}}]:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+    },
+    "part2": {
+      "title": "Gramática Parte 2",
+      "subtitle": "Completar espacios (Léxico)",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el texto y elija la palabra apropiada del banco de palabras para cada espacio.",
+      "wordBank": "Banco de palabras:",
+      "select": "Seleccionar",
+      "selectWord": "Elegir palabra para espacio [{{gap}}]:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} espacio(s) restante(s)."
+    }
+  },
+  "reading": {
+    "part1": {
+      "title": "Comprensión lectora Parte 1",
+      "subtitle": "Relacionar títulos con textos",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea los siguientes cinco textos y asigne un título adecuado a cada texto. Hay más títulos que textos. Cada título solo se puede usar una vez.",
+      "headings": "Títulos (a-j):",
+      "texts": "Textos (1-{{count}}):",
+      "text": "Texto",
+      "selectHeading": "Seleccionar título:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor asigne un título a todos los textos antes de continuar.",
+      "duplicateAnswers": "Respuestas Duplicadas",
+      "duplicateAnswersMessage": "Ha usado el mismo título para múltiples textos. Por favor verifique sus respuestas."
+    },
+    "part2": {
+      "title": "Comprensión lectora Parte 2",
+      "subtitle": "Preguntas de opción múltiple",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea el siguiente texto y responda las preguntas seleccionando la respuesta correcta.",
+      "questions": "Preguntas ({{first}}-{{last}}):",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+    },
+    "part3": {
+      "title": "Comprensión lectora Parte 3",
+      "subtitle": "Relacionar anuncios",
+      "taskTitle": "Tarea:",
+      "taskDescription": "Lea los anuncios y las situaciones. ¿Qué anuncio se ajusta a qué situación? No hay un anuncio adecuado para cada situación.",
+      "advertisements": "Anuncios:",
+      "situations": "Situaciones:",
+      "selectAdvertisement": "Seleccionar anuncio:",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las situaciones antes de enviar. {{count}} situación(es) restante(s)."
+    }
+  },
+  "writing": {
+    "title": "Expresión escrita",
+    "subtitle": "Escribir un correo personal",
+    "instructions": {
+      "title": "Tarea:",
+      "description": "Lea el correo electrónico entrante y respóndalo. Tenga en cuenta los puntos de escritura proporcionados."
+    },
+    "sections": {
+      "incomingEmail": "Correo electrónico entrante:",
+      "writingPoints": "Puntos de escritura:",
+      "yourAnswer": "Tu respuesta:"
+    },
+    "input": {
+      "placeholder": "Escribe tu correo aquí...",
+      "characterCount": "caracteres",
+      "minCharactersWarning": "⚠️ Por favor, escribe al menos 50 caracteres."
+    },
+    "camera": {
+      "orText": "o",
+      "buttonText": "📷 Fotografiar respuesta escrita a mano",
+      "hint": "Toma una foto de tu respuesta escrita a mano"
+    },
+    "buttons": {
+      "evaluate": "Evaluar respuesta",
+      "nextSection": "Continuar a la siguiente parte"
+    },
+    "evaluation": {
+      "title": "Tu evaluación (Expresión escrita)",
+      "totalScore": "Puntuación total:",
+      "criteriaTitle": "Criterios de evaluación:",
+      "criteria": {
+        "taskCompletion": "1. Cumplimiento de la tarea",
+        "communicativeDesign": "2. Diseño comunicativo",
+        "formalCorrectness": "3. Corrección formal"
+      },
+      "grade": "Nota:",
+      "correctedAnswer": "✏️ Respuesta corregida:",
+      "closeButton": "Cerrar",
+      "loading": "La evaluación está en progreso, esto tomará unos segundos.",
+      "userInput": "Tu respuesta",
+      "noUserInput": "No se ha reconocido ninguna respuesta. \nIntenta mejorar tu letra."
+    },
+    "imagePreview": {
+      "title": "Revisar imagen capturada",
+      "subtitle": "Por favor, verifica que la imagen sea clara y legible.",
+      "retakeButton": "🔄 Volver a tomar",
+      "evaluateButton": "✓ Evaluar imagen",
+      "cancelButton": "Cancelar"
+    },
+    "alerts": {
+      "cameraNotAvailable": "Cámara no disponible",
+      "cameraNotAvailableMessage": "La función de cámara aún no está inicializada. Por favor, reinicia la aplicación después de recompilarla.",
+      "permissionDenied": "Permiso denegado",
+      "permissionDeniedMessage": "Se requiere permiso de cámara para tomar fotos.",
+      "cameraError": "Error",
+      "cameraErrorMessage": "No se pudo abrir la cámara: ",
+      "imageLoadError": "No se pudo cargar la imagen",
+      "imageNotAvailable": "No hay imagen disponible",
+      "evaluationError": "Error de evaluación",
+      "evaluationErrorMessage": "Ocurrió un error inesperado.",
+      "useMockData": "Usar datos de prueba",
+      "noEvaluation": "Sin evaluación",
+      "noEvaluationMessage": "Por favor, evalúa tu respuesta antes de continuar.",
+      "cameraPermissionTitle": "Permiso de cámara requerido",
+      "cameraPermissionMessage": "Esta aplicación necesita acceso a tu cámara para tomar fotos.",
+      "askLater": "Preguntar más tarde",
+      "ok": "OK"
+    },
+    "mock": {
+      "warning": "⚠️ Datos de prueba: clave API no configurada",
+      "cacheInfo": "ℹ️ Resultado en caché (respuesta sin cambios)"
+    },
+    "rewardedAdModal": {
+      "title": "Soporte de Evaluación por IA",
+      "message": "Utilizamos IA avanzada para evaluar tu escritura, proporcionando comentarios integrales similares al examen real de Telc. Este proceso genera costos. Ver este breve anuncio ayuda a mantener nuestro servicio gratuito para todos.",
+      "watchAdButton": "Ver Anuncio y Evaluar",
+      "maybeLaterButton": "Tal vez más tarde",
+      "adLoadingError": "Error al cargar el anuncio. Por favor, inténtelo de nuevo.",
+      "adNotReady": "El anuncio aún no está listo. Por favor, espere un momento e inténtelo de nuevo."
+    }
+  },
+  "listening": {
+    "part1": {
+      "title": "Comprensión auditiva Parte 1",
+      "subtitle": "Diálogos cortos",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: En el examen real, no puede pausar o detener el archivo de audio. Escuchará cada texto solo una vez.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+    },
+    "part2": {
+      "title": "Comprensión auditiva Parte 2",
+      "subtitle": "Conversación más larga",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: Este archivo de audio contiene tiempo de preparación y se reproducirá dos veces. En el examen real, no puede pausar o detener el archivo.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+    },
+    "part3": {
+      "title": "Comprensión auditiva Parte 3",
+      "subtitle": "Monólogos",
+      "minutes": "Minutos",
+      "tasks": "Tareas",
+      "instructions": "Instrucciones:",
+      "examWarning": "⚠️ Nota: Este archivo de audio contiene cinco textos cortos, cada uno se reproducirá dos veces. En el examen real, no puede pausar o detener el archivo.",
+      "audioFile": "🎧 Archivo de Audio",
+      "readyToPlay": "Listo para reproducir",
+      "playing": "▶️ Reproduciendo...",
+      "completed": "✓ Completado",
+      "playAudio": "▶️ Reproducir Audio",
+      "audioPlaying": "Audio reproduciéndose... (no se puede detener)",
+      "statements": "Declaraciones:",
+      "statement": "Declaración",
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
+      "audioError": "Error de Audio",
+      "audioErrorMessage": "No se pudo cargar el archivo de audio.",
+      "incomplete": "Incompleto",
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+    }
+  }
+}
