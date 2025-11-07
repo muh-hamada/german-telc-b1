@@ -49,7 +49,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useTranslation();
-  const [userAnswer, setUserAnswer] = useState('Hallo zuzammen. Ich freue mich auf deine Hilfe, Vielen Dank und lass bald mal die Gelegenheit kommen.');
+  const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [assessment, setAssessment] = useState<WritingAssessment | null>(null);

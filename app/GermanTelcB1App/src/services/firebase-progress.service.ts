@@ -1,7 +1,13 @@
 import { UserProgress, ExamResult, ExamType } from '../types/exam.types';
 import FirestoreService from './firestore.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 class FirebaseProgressService {
+  // Lazy-loaded to avoid initialization order issues
+  private get examId(): string {
+    return activeExamConfig.id;
+  }
+  
   // Sync progress to Firebase (no-op since we save directly to Firebase now)
   async syncProgressToFirebase(userId?: string): Promise<boolean> {
     // Progress is now saved directly to Firebase when exams are completed

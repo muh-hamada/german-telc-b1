@@ -1,5 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import { dataService } from './data.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 export interface CompletionData {
   examId: number;
@@ -23,8 +24,14 @@ export interface AllCompletionStats {
 }
 
 class FirebaseCompletionService {
+  // Lazy-loaded to avoid initialization order issues
+  private get examId(): string {
+    return activeExamConfig.id;
+  }
+
   /**
    * Mark an exam as completed
+   * Note: For backward compatibility, keeping the same path structure for german-b1
    */
   async markExamCompleted(
     userId: string,
@@ -34,6 +41,7 @@ class FirebaseCompletionService {
     score: number
   ): Promise<void> {
     try {
+      // Keep backward compatible path for german-b1
       const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
       
       await firestore().doc(docPath).set({
@@ -130,6 +138,7 @@ class FirebaseCompletionService {
 
   /**
    * Get all completion data for a specific exam type and part
+   * Note: For backward compatibility, keeping the same path structure for german-b1
    */
   async getAllCompletionsForPart(
     userId: string,
@@ -137,6 +146,7 @@ class FirebaseCompletionService {
     partNumber: number
   ): Promise<CompletionData[]> {
     try {
+      // Keep backward compatible path for german-b1
       const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
       const snapshot = await firestore().collection(collectionPath).get();
       

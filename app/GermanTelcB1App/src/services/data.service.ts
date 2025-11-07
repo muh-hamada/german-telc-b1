@@ -8,10 +8,12 @@
  * - Falls back to local JSON if Firestore is unavailable
  * - Caches data for 24 hours to reduce Firestore reads
  * - Supports cache clearing and force refresh
+ * - Dynamically uses collection names based on active exam configuration
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
+import { activeExamConfig } from '../config/active-exam.config';
 import {
   GrammarPart1Exam,
   GrammarPart2Exam,
@@ -41,7 +43,6 @@ import listeningPart3DataLocal from '../data/listening-part3.json';
 import examInfoDataLocal from '../data/exam-info.json';
 import grammarStudyQuestionsDataLocal from '../data/grammer-study-questions.json';
 
-const COLLECTION_NAME = 'b1_telc_exam_data';
 // TODO: Change to 24 hours in milliseconds once the data is stable
 const CACHE_EXPIRATION = 60 * 1000; // 1 minute in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
@@ -53,6 +54,11 @@ interface CachedData {
 
 class DataService {
   private useFirebase = true; // Set to false to always use local data
+  
+  // Lazy-loaded to avoid initialization order issues
+  private get collectionName(): string {
+    return activeExamConfig.firebaseCollections.examData;
+  }
 
   /**
    * Fetch data from Firestore with caching
@@ -71,10 +77,10 @@ class DataService {
         return cachedData;
       }
 
-      // Fetch from Firestore
-      console.log(`[DataService] Fetching ${docId} from Firestore...`);
+      // Fetch from Firestore using dynamic collection name
+      console.log(`[DataService] Fetching ${docId} from Firestore collection: ${this.collectionName}...`);
       const docSnapshot = await firestore()
-        .collection(COLLECTION_NAME)
+        .collection(this.collectionName)
         .doc(docId)
         .get();
 

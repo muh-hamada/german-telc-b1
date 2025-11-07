@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GermanTelcB1App</string>
-    <string name="facebook_app_id">1507568217229301</string>
-    <string name="fb_login_protocol_scheme">fb1507568217229301</string>
-    <string name="facebook_client_token">c1f3d10c6a4054707078aae7a71dd580</string>
+    <string name="app_name">German TELC B1</string>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+    <string name="facebook_client_token">YOUR_FACEBOOK_CLIENT_TOKEN</string>
+    <string name="fb_login_protocol_scheme">fbYOUR_FACEBOOK_APP_ID</string>
 </resources>

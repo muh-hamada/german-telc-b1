@@ -7,7 +7,22 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build:android:german-b1": "./build-android.sh german-b1",
+    "build:android:german-b2": "./build-android.sh german-b2",
+    "build:android:english-b1": "./build-android.sh english-b1",
+    "build:android:apk:german-b1": "./build-android.sh german-b1 apk",
+    "build:android:apk:german-b2": "./build-android.sh german-b2 apk",
+    "build:android:apk:english-b1": "./build-android.sh english-b1 apk",
+    "build:ios:german-b1": "./build-ios.sh german-b1",
+    "build:ios:german-b2": "./build-ios.sh german-b2",
+    "build:ios:english-b1": "./build-ios.sh english-b1",
+    "config:german-b1:android": "./scripts/build-config.sh german-b1 android",
+    "config:german-b1:ios": "./scripts/build-config.sh german-b1 ios",
+    "config:german-b2:android": "./scripts/build-config.sh german-b2 android",
+    "config:german-b2:ios": "./scripts/build-config.sh german-b2 ios",
+    "config:english-b1:android": "./scripts/build-config.sh english-b1 android",
+    "config:english-b1:ios": "./scripts/build-config.sh english-b1 ios"
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.4.1",

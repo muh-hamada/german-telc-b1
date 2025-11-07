@@ -1,6 +1,7 @@
 import firestore, { Timestamp } from '@react-native-firebase/firestore';
 import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import { User } from './auth.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 class FirestoreService {
   private readonly COLLECTIONS = {
@@ -9,6 +10,12 @@ class FirestoreService {
     EXAM_RESULTS: 'examResults',
     ACCOUNT_DELETION_REQUESTS: 'account_deletion_requests',
   };
+  
+  // Exam-specific collection prefix for future multi-app support
+  // Lazy-loaded to avoid initialization order issues
+  private get examId(): string {
+    return activeExamConfig.id;
+  }
 
   // User Management
   async createUserProfile(user: User): Promise<void> {
