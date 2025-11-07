@@ -62,7 +62,7 @@ try {
       id: 'german-b2',
       language: 'german',
       level: 'B2',
-      appName: 'GermanTelcB2',
+      appName: 'GermanTelcB2App',
       displayName: 'German TELC B2',
       bundleId: {
         android: 'com.mhamada.telcb2german',
@@ -77,7 +77,7 @@ try {
       id: 'english-b1',
       language: 'english',
       level: 'B1',
-      appName: 'EnglishTelcB1',
+      appName: 'EnglishTelcB1App',
       displayName: 'English TELC B1',
       bundleId: {
         android: 'com.mhamada.telcb1english',
@@ -207,6 +207,114 @@ function updateiOSConfig(config) {
   }
 }
 
+function updateAndroidNativeFiles(config) {
+  // Update MainActivity.kt
+  const mainActivityPath = path.join(__dirname, '../android/app/src/main/java/com/mhamada/telcb1german/MainActivity.kt');
+  if (fs.existsSync(mainActivityPath)) {
+    try {
+      let mainActivity = fs.readFileSync(mainActivityPath, 'utf8');
+      mainActivity = mainActivity.replace(
+        /override fun getMainComponentName\(\): String = "[^"]+"/,
+        `override fun getMainComponentName(): String = "${config.appName}"`
+      );
+      fs.writeFileSync(mainActivityPath, mainActivity);
+      console.log('✅ Updated MainActivity.kt');
+    } catch (error) {
+      console.error('❌ Failed to update MainActivity.kt:', error.message);
+      throw error;
+    }
+  }
+
+  // Update settings.gradle
+  const settingsGradlePath = path.join(__dirname, '../android/settings.gradle');
+  if (fs.existsSync(settingsGradlePath)) {
+    try {
+      let settingsGradle = fs.readFileSync(settingsGradlePath, 'utf8');
+      settingsGradle = settingsGradle.replace(
+        /rootProject\.name = '[^']+'/,
+        `rootProject.name = '${config.appName}'`
+      );
+      fs.writeFileSync(settingsGradlePath, settingsGradle);
+      console.log('✅ Updated settings.gradle');
+    } catch (error) {
+      console.error('❌ Failed to update settings.gradle:', error.message);
+      throw error;
+    }
+  }
+}
+
+function updateiOSNativeFiles(config) {
+  // Update Podfile
+  const podfilePath = path.join(__dirname, '../ios/Podfile');
+  if (fs.existsSync(podfilePath)) {
+    try {
+      let podfile = fs.readFileSync(podfilePath, 'utf8');
+      podfile = podfile.replace(
+        /target '[^']+' do/,
+        `target '${config.appName}' do`
+      );
+      fs.writeFileSync(podfilePath, podfile);
+      console.log('✅ Updated Podfile');
+    } catch (error) {
+      console.error('❌ Failed to update Podfile:', error.message);
+      throw error;
+    }
+  }
+
+  // Update AppDelegate.swift
+  const appDelegatePath = path.join(__dirname, '../ios/GermanTelcB1App/AppDelegate.swift');
+  if (fs.existsSync(appDelegatePath)) {
+    try {
+      let appDelegate = fs.readFileSync(appDelegatePath, 'utf8');
+      appDelegate = appDelegate.replace(
+        /withModuleName: "[^"]+"/,
+        `withModuleName: "${config.appName}"`
+      );
+      fs.writeFileSync(appDelegatePath, appDelegate);
+      console.log('✅ Updated AppDelegate.swift');
+    } catch (error) {
+      console.error('❌ Failed to update AppDelegate.swift:', error.message);
+      throw error;
+    }
+  }
+
+  // Update project.pbxproj (Xcode project file)
+  const pbxprojPath = path.join(__dirname, '../ios/GermanTelcB1App.xcodeproj/project.pbxproj');
+  if (fs.existsSync(pbxprojPath)) {
+    try {
+      let pbxproj = fs.readFileSync(pbxprojPath, 'utf8');
+      // Replace all occurrences of app name (match pattern: GermanTelcB1App, GermanTelcB2App, EnglishTelcB1App, etc.)
+      pbxproj = pbxproj.replace(
+        /\w+TelcB\d+App/g,
+        config.appName
+      );
+      fs.writeFileSync(pbxprojPath, pbxproj);
+      console.log('✅ Updated project.pbxproj');
+    } catch (error) {
+      console.error('❌ Failed to update project.pbxproj:', error.message);
+      throw error;
+    }
+  }
+
+  // Update xcscheme
+  const xcschemePath = path.join(__dirname, '../ios/GermanTelcB1App.xcodeproj/xcshareddata/xcschemes/GermanTelcB1App.xcscheme');
+  if (fs.existsSync(xcschemePath)) {
+    try {
+      let xcscheme = fs.readFileSync(xcschemePath, 'utf8');
+      // Replace all occurrences of app name
+      xcscheme = xcscheme.replace(
+        /\w+TelcB\d+App/g,
+        config.appName
+      );
+      fs.writeFileSync(xcschemePath, xcscheme);
+      console.log('✅ Updated GermanTelcB1App.xcscheme');
+    } catch (error) {
+      console.error('❌ Failed to update xcscheme:', error.message);
+      throw error;
+    }
+  }
+}
+
 function generateActiveExamConfig(config, examId) {
   const configContent = `/**
  * Active Exam Configuration
@@ -274,8 +382,10 @@ try {
   if (platform === 'android') {
     updateAndroidConfig(config);
     updateAndroidStrings(config);
+    updateAndroidNativeFiles(config);
   } else if (platform === 'ios') {
     updateiOSConfig(config);
+    updateiOSNativeFiles(config);
   }
   
   // 3. Generate active exam configuration

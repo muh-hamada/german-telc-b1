@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		75F9B1D271156E1FEA9832D1 /* Pods_GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A4272D7E5EEE334C649CC /* Pods_GermanTelcB1App.framework */; };
+		75F9B1D271156E1FEA9832D1 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B71D2EDD5DD90C6AADF702F1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
@@ -23,7 +23,7 @@
 		3B4392A12AC88292D35C810B /* Pods-GermanTelcB1App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB1App.debug.xcconfig"; path = "Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-GermanTelcB1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB1App.release.xcconfig"; path = "Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GermanTelcB1App/AppDelegate.swift; sourceTree = "<group>"; };
-		7E1A4272D7E5EEE334C649CC /* Pods_GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GermanTelcB1App/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EADD4CD82EB1870A003DB545 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EADD4CDA2EB2B8CB003DB545 /* GermanTelcB1App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GermanTelcB1App.entitlements; path = GermanTelcB1App/GermanTelcB1App.entitlements; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F9B1D271156E1FEA9832D1 /* Pods_GermanTelcB1App.framework in Frameworks */,
+				75F9B1D271156E1FEA9832D1 /* GermanTelcB1App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				7E1A4272D7E5EEE334C649CC /* Pods_GermanTelcB1App.framework */,
+				7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
