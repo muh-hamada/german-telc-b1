@@ -16,8 +16,77 @@
 .migration-panel p {
   margin: 0 0 20px 0;
   color: #666;
-  line-height: 1.6;
 }
+
+.migration-panel .no-data {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.file-selection {
+  margin: 20px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.file-selection-header {
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.file-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.checkbox-label span {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.file-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-item:hover:not(:has(input:disabled)) {
+  background-color: #f8f9fa;
+}
+
+.file-name {
+  font-family: 'Courier New', monospace;
+  color: #555 !important;
+  font-weight: 400 !important;
+}
+
 
 .btn-migrate {
   padding: 12px 24px;

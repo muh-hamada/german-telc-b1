@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import './MigrationPanel.css';
-
-// Import all JSON files from local data folder
-import examInfoData from '../data/exam-info.json';
-import grammarPart1Data from '../data/grammar-part1.json';
-import grammarPart2Data from '../data/grammar-part2.json';
-import listeningPart1Data from '../data/listening-part1.json';
-import listeningPart2Data from '../data/listening-part2.json';
-import listeningPart3Data from '../data/listening-part3.json';
-import readingPart1Data from '../data/reading-part1.json';
-import readingPart2Data from '../data/reading-part2.json';
-import readingPart3Data from '../data/reading-part3.json';
-import speakingPart1Data from '../data/speaking-part1.json';
-import speakingPart2Data from '../data/speaking-part2.json';
-import speakingPart3Data from '../data/speaking-part3.json';
-import writingData from '../data/writing.json';
+import { useParams } from 'react-router-dom';
+import { getAppConfig } from '../config/apps.config';
 import { firestoreService } from '../services/firestore.service';
+import { appDataMap } from '../data/data-files';
 
 interface MigrationPanelProps {
   onComplete: () => void;
@@ -25,25 +13,56 @@ interface MigrationPanelProps {
 export const MigrationPanel: React.FC<MigrationPanelProps> = ({ onComplete }) => {
   const [migrating, setMigrating] = useState(false);
   const [progress, setProgress] = useState<string[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<Set<string>>(new Set());
+  const { appId } = useParams<{ appId: string }>();
+  const appConfig = getAppConfig(appId || '');
+  const data = appDataMap[appConfig?.id || ''];
 
-  const dataFiles = [
-    { id: 'exam-info', data: examInfoData },
-    { id: 'grammar-part1', data: grammarPart1Data },
-    { id: 'grammar-part2', data: grammarPart2Data },
-    { id: 'listening-part1', data: listeningPart1Data },
-    { id: 'listening-part2', data: listeningPart2Data },
-    { id: 'listening-part3', data: listeningPart3Data },
-    { id: 'reading-part1', data: readingPart1Data },
-    { id: 'reading-part2', data: readingPart2Data },
-    { id: 'reading-part3', data: readingPart3Data },
-    { id: 'speaking-part1', data: speakingPart1Data },
-    { id: 'speaking-part2', data: speakingPart2Data },
-    { id: 'speaking-part3', data: speakingPart3Data },
-    { id: 'writing', data: writingData },
-  ];
+  const dataFiles = data ? Object.entries(data).map(([key, value]) => ({
+    id: key,
+    data: value,
+  })) : [];
+
+  // Initialize all files as selected
+  React.useEffect(() => {
+    if (dataFiles.length > 0) {
+      setSelectedFiles(new Set());
+    }
+  }, [dataFiles.length]);
+
+  if (!data) {
+    return <div className="migration-panel">
+      <p className="no-data">Data not found</p>
+    </div>;
+  }
+
+  const toggleFileSelection = (fileId: string) => {
+    setSelectedFiles(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(fileId)) {
+        newSet.delete(fileId);
+      } else {
+        newSet.add(fileId);
+      }
+      return newSet;
+    });
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedFiles.size === dataFiles.length) {
+      setSelectedFiles(new Set());
+    } else {
+      setSelectedFiles(new Set(dataFiles.map(f => f.id)));
+    }
+  };
 
   const handleMigration = async () => {
-    if (!window.confirm('This will initialize the Firestore collection with data from local JSON files. Continue?')) {
+    if (selectedFiles.size === 0) {
+      toast.error('Please select at least one file to migrate');
+      return;
+    }
+
+    if (!window.confirm(`This will migrate ${selectedFiles.size} file(s) to the Firestore collection. Continue?`)) {
       return;
     }
 
@@ -52,7 +71,9 @@ export const MigrationPanel: React.FC<MigrationPanelProps> = ({ onComplete }) =>
     let successCount = 0;
     let errorCount = 0;
 
-    for (const file of dataFiles) {
+    const filesToMigrate = dataFiles.filter(f => selectedFiles.has(f.id));
+
+    for (const file of filesToMigrate) {
       try {
         setProgress(prev => [...prev, `Migrating ${file.id}...`]);
         await firestoreService.initializeDocument(file.id, file.data);
@@ -83,14 +104,42 @@ export const MigrationPanel: React.FC<MigrationPanelProps> = ({ onComplete }) =>
   return (
     <div className="migration-panel">
       <h2>Data Migration</h2>
-      <p>Initialize the Firestore collection with data from the React Native app's JSON files.</p>
+      <p>Select which files to migrate to the Firestore collection.</p>
       
+      <div className="file-selection">
+        <div className="file-selection-header">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={selectedFiles.size === dataFiles.length}
+              onChange={toggleSelectAll}
+              disabled={migrating}
+            />
+            <span>Select All ({selectedFiles.size}/{dataFiles.length} selected)</span>
+          </label>
+        </div>
+
+        <div className="file-list">
+          {dataFiles.map(file => (
+            <label key={file.id} className="checkbox-label file-item">
+              <input
+                type="checkbox"
+                checked={selectedFiles.has(file.id)}
+                onChange={() => toggleFileSelection(file.id)}
+                disabled={migrating}
+              />
+              <span className="file-name">{file.id}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
       <button
         onClick={handleMigration}
-        disabled={migrating}
+        disabled={migrating || selectedFiles.size === 0}
         className="btn-migrate"
       >
-        {migrating ? 'Migrating...' : 'Start Migration'}
+        {migrating ? 'Migrating...' : `Migrate ${selectedFiles.size} File${selectedFiles.size !== 1 ? 's' : ''}`}
       </button>
 
       {progress.length > 0 && (

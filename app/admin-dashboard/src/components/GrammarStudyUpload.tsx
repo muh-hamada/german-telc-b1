@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { firestoreService } from '../services/firestore.service';
-import grammarStudyQuestionsData from '../data/grammer-study-questions.json';
+import grammarStudyQuestionsData from '../data/german-b1/grammer-study-questions.json';
 import './MigrationPanel.css';
 
 interface GrammarStudyUploadProps {

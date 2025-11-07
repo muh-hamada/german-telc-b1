@@ -115,6 +115,9 @@ export const DashboardPage: React.FC = () => {
           <button onClick={loadDocuments} className="btn-refresh" disabled={loading}>
             {loading ? 'Loading...' : 'Refresh'}
           </button>
+          <button onClick={() => setShowMigration(true)} className="btn-migrate">
+            Migrate Data
+          </button>
           <button onClick={handleLogout} className="btn-logout">
             Logout
           </button>

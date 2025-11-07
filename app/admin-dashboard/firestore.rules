@@ -1,12 +1,20 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // B1 Telc Exam Data Collection
+    // B1 German Telc Exam Data Collection
     match /b1_telc_exam_data/{document} {
       allow read: if true
       
       // Only authenticated users can write
-      allow write: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    // B2 German Telc Exam Data Collection
+    match /german_b2_telc_exam_data/{document} {
+      allow read: if true
+      
+      // Only authenticated users can write
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
     
     // User progress collection (top-level)

@@ -12,6 +12,7 @@ export interface AppConfig {
   displayName: string;
   collectionName: string;
   description: string;
+  dataFolder: string;
 }
 
 export const APP_CONFIGS: Record<string, AppConfig> = {
@@ -22,6 +23,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     displayName: 'German TELC B1',
     collectionName: 'b1_telc_exam_data', // Existing collection for backward compatibility
     description: 'German language exam preparation for TELC B1 level',
+    dataFolder: 'german-b1',
   },
   'german-b2': {
     id: 'german-b2',
@@ -30,6 +32,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     displayName: 'German TELC B2',
     collectionName: 'german_b2_telc_exam_data',
     description: 'German language exam preparation for TELC B2 level',
+    dataFolder: 'german-b2',
   },
   'english-b1': {
     id: 'english-b1',
@@ -38,6 +41,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     displayName: 'English TELC B1',
     collectionName: 'english_b1_telc_exam_data',
     description: 'English language exam preparation for TELC B1 level',
+    dataFolder: 'english-b1',
   },
 };
 
