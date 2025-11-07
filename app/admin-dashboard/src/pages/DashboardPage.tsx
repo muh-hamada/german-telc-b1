@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { firestoreService, DocumentMetadata } from '../services/firestore.service';
+import { getAppConfig, AppConfig } from '../config/apps.config';
 import { MigrationPanel } from '../components/MigrationPanel';
 import { GrammarStudyUpload } from '../components/GrammarStudyUpload';
 import { toast } from 'react-toastify';
 import './DashboardPage.css';
 
 export const DashboardPage: React.FC = () => {
+  const { appId } = useParams<{ appId: string }>();
+  const [appConfig, setAppConfig] = useState<AppConfig | null>(null);
   const [documents, setDocuments] = useState<DocumentMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const [showMigration, setShowMigration] = useState(false);
@@ -16,8 +19,24 @@ export const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    loadDocuments();
-  }, []);
+    // Validate and load app config
+    if (!appId) {
+      toast.error('No app selected');
+      navigate('/apps');
+      return;
+    }
+
+    try {
+      const config = getAppConfig(appId);
+      setAppConfig(config);
+      // Set the Firestore collection for this app
+      firestoreService.setCollection(config.collectionName);
+      loadDocuments();
+    } catch (error: any) {
+      toast.error(error.message || 'Invalid app configuration');
+      navigate('/apps');
+    }
+  }, [appId, navigate]);
 
   const loadDocuments = async () => {
     try {
@@ -41,7 +60,7 @@ export const DashboardPage: React.FC = () => {
   };
 
   const handleEdit = (docId: string) => {
-    navigate(`/editor/${docId}`);
+    navigate(`/editor/${appId}/${docId}`);
   };
 
   const handleDelete = async (docId: string) => {
@@ -74,12 +93,23 @@ export const DashboardPage: React.FC = () => {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
+  if (!appConfig) {
+    return <div className="loading-state">Loading...</div>;
+  }
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div>
-          <h1>B1 Telc Exam Data Management</h1>
-          <p className="user-info">Logged in as: {currentUser?.email}</p>
+          <div className="breadcrumb">
+            <Link to="/apps" className="breadcrumb-link">← All Apps</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span className="breadcrumb-current">{appConfig.displayName}</span>
+          </div>
+          <h1>{appConfig.displayName} - Content Management</h1>
+          <p className="user-info">
+            Logged in as: {currentUser?.email} | Collection: <code>{appConfig.collectionName}</code>
+          </p>
         </div>
         <div className="header-actions">
           <button onClick={loadDocuments} className="btn-refresh" disabled={loading}>
@@ -108,7 +138,7 @@ export const DashboardPage: React.FC = () => {
           <>
             {documents.length === 0 ? (
               <div className="empty-state">
-                <p>No documents found</p>
+                <p>No documents found in {appConfig.displayName}</p>
                 <p className="empty-state-hint">
                   You may need to run the data migration to initialize the collection.
                 </p>

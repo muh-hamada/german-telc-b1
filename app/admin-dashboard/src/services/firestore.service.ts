@@ -11,7 +11,8 @@ import {
 } from 'firebase/firestore';
 import { firebaseService } from './firebase.service';
 
-const COLLECTION_NAME = 'b1_telc_exam_data';
+// Default collection for backward compatibility
+const DEFAULT_COLLECTION = 'b1_telc_exam_data';
 
 export interface DocumentMetadata {
   id: string;
@@ -23,13 +24,29 @@ export interface DocumentMetadata {
 
 class FirestoreService {
   private db = firebaseService.getFirestore();
+  private currentCollection: string = DEFAULT_COLLECTION;
 
   /**
-   * Get all documents from the collection
+   * Set the current collection to work with
+   */
+  setCollection(collectionName: string): void {
+    this.currentCollection = collectionName;
+    console.log(`Firestore service now using collection: ${collectionName}`);
+  }
+
+  /**
+   * Get the current collection name
+   */
+  getCurrentCollection(): string {
+    return this.currentCollection;
+  }
+
+  /**
+   * Get all documents from the current collection
    */
   async getAllDocuments(): Promise<DocumentMetadata[]> {
     try {
-      const collectionRef = collection(this.db, COLLECTION_NAME);
+      const collectionRef = collection(this.db, this.currentCollection);
       const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(collectionRef);
       
       const documents: DocumentMetadata[] = [];
@@ -56,7 +73,7 @@ class FirestoreService {
    */
   async getDocument(docId: string): Promise<any> {
     try {
-      const docRef = doc(this.db, COLLECTION_NAME, docId);
+      const docRef = doc(this.db, this.currentCollection, docId);
       const docSnap = await getDoc(docRef);
       
       if (docSnap.exists()) {
@@ -76,7 +93,7 @@ class FirestoreService {
    */
   async saveDocument(docId: string, data: any): Promise<void> {
     try {
-      const docRef = doc(this.db, COLLECTION_NAME, docId);
+      const docRef = doc(this.db, this.currentCollection, docId);
       const existingDoc = await getDoc(docRef);
       
       const now = Timestamp.now();
@@ -99,7 +116,7 @@ class FirestoreService {
    */
   async deleteDocument(docId: string): Promise<void> {
     try {
-      const docRef = doc(this.db, COLLECTION_NAME, docId);
+      const docRef = doc(this.db, this.currentCollection, docId);
       await deleteDoc(docRef);
     } catch (error) {
       console.error(`Error deleting document ${docId}:`, error);
@@ -113,7 +130,7 @@ class FirestoreService {
    */
   async initializeDocument(docId: string, data: any): Promise<void> {
     try {
-      const docRef = doc(this.db, COLLECTION_NAME, docId);
+      const docRef = doc(this.db, this.currentCollection, docId);
       const existingDoc = await getDoc(docRef);
       
       if (!existingDoc.exists()) {
@@ -124,9 +141,9 @@ class FirestoreService {
           updatedAt: now,
           version: 1,
         });
-        console.log(`Initialized document: ${docId}`);
+        console.log(`Initialized document: ${docId} in collection: ${this.currentCollection}`);
       } else {
-        console.log(`Document ${docId} already exists, skipping...`);
+        console.log(`Document ${docId} already exists in ${this.currentCollection}, skipping...`);
       }
     } catch (error) {
       console.error(`Error initializing document ${docId}:`, error);

@@ -1,15 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { firestoreService } from '../services/firestore.service';
+import { getAppConfig, AppConfig } from '../config/apps.config';
 import { validateDocument } from '../utils/validators';
 import { toast } from 'react-toastify';
 import './EditorPage.css';
 
 export const EditorPage: React.FC = () => {
-  const { documentId } = useParams<{ documentId: string }>();
+  const { appId, documentId } = useParams<{ appId: string; documentId: string }>();
   const navigate = useNavigate();
   
+  const [appConfig, setAppConfig] = useState<AppConfig | null>(null);
   const [content, setContent] = useState('');
   const [originalContent, setOriginalContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -19,25 +21,7 @@ export const EditorPage: React.FC = () => {
   
   const editorRef = useRef<any>(null);
 
-  useEffect(() => {
-    if (documentId) {
-      loadDocument();
-    }
-  }, [documentId]);
-
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (hasChanges) {
-        e.preventDefault();
-        e.returnValue = '';
-      }
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-  }, [hasChanges]);
-
-  const loadDocument = async () => {
+  const loadDocument = useCallback(async () => {
     if (!documentId) return;
 
     try {
@@ -50,11 +34,46 @@ export const EditorPage: React.FC = () => {
       setValidationErrors([]);
     } catch (error: any) {
       toast.error(error.message || 'Failed to load document');
-      navigate('/dashboard');
+      navigate(`/dashboard/${appId}`);
     } finally {
       setLoading(false);
     }
-  };
+  }, [documentId, appId, navigate]);
+
+  useEffect(() => {
+    // Validate and load app config
+    if (!appId) {
+      toast.error('No app selected');
+      navigate('/apps');
+      return;
+    }
+
+    try {
+      const config = getAppConfig(appId);
+      setAppConfig(config);
+      // Set the Firestore collection for this app
+      firestoreService.setCollection(config.collectionName);
+      
+      if (documentId) {
+        loadDocument();
+      }
+    } catch (error: any) {
+      toast.error(error.message || 'Invalid app configuration');
+      navigate('/apps');
+    }
+  }, [appId, documentId, navigate, loadDocument]);
+
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (hasChanges) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [hasChanges]);
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) {
@@ -129,7 +148,7 @@ export const EditorPage: React.FC = () => {
         return;
       }
     }
-    navigate('/dashboard');
+    navigate(`/dashboard/${appId}`);
   };
 
   const handleFormat = () => {
@@ -147,7 +166,7 @@ export const EditorPage: React.FC = () => {
     editorRef.current = editor;
   };
 
-  if (loading) {
+  if (loading || !appConfig) {
     return (
       <div className="editor-container">
         <div className="loading-state">Loading document...</div>
@@ -159,6 +178,13 @@ export const EditorPage: React.FC = () => {
     <div className="editor-container">
       <header className="editor-header">
         <div>
+          <div className="breadcrumb">
+            <Link to="/apps" className="breadcrumb-link">← All Apps</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to={`/dashboard/${appId}`} className="breadcrumb-link">{appConfig.displayName}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span className="breadcrumb-current">{documentId}</span>
+          </div>
           <h1>Editing: {documentId}
           {hasChanges && <span className="unsaved-indicator">Unsaved changes</span>}
           </h1>
