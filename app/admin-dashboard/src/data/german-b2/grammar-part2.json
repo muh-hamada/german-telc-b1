@@ -1,0 +1,106 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Modelltest 1 - Sprachbausteine Teil 2",
+      "words": [
+        { "key": "A", "word": "aber" },
+        { "key": "B", "word": "als" },
+        { "key": "C", "word": "dafür" },
+        { "key": "D", "word": "danach" },
+        { "key": "E", "word": "daran" },
+        { "key": "F", "word": "darum" },
+        { "key": "G", "word": "dafür" },
+        { "key": "H", "word": "mag" },
+        { "key": "I", "word": "möchte" },
+        { "key": "J", "word": "oder" },
+        { "key": "K", "word": "sei" },
+        { "key": "L", "word": "würde" },
+        { "key": "M", "word": "wäre" },
+        { "key": "N", "word": "wie" },
+        { "key": "O", "word": "zwar" }
+      ],
+      "text": "Schnell und schneller\nVon der Schnelligkeit des Lebens\n\nSo schnell wie Michael Schumacher fahren, das würde mancher deutscher Autofahrer gern. Eine Geschwindigkeitsbegrenzung auf den Autobahnen _31_ Deutschland aber eine fast undenkbare Idee. Schnell ist modern, schnell ist ein Muss: Man geht ins Schnell-Restaurant, um Fastfood zu essen, man geht auf einen schnellen Kaffee ins Bistro und besucht am Abend einen Schnellkurs in Spanisch. Schnell, schneller, am schnellsten.\n\nEin Grund _32_ , dass das Leben hierzulande so schnell geworden ist, _33_ die moderne Technik sein. Kommunikationsmittel wie E-Mail oder das Handy machen fast jeden sofort erreichbar. Autos und Züge werden immer schneller und sogar die Nahrungsmittelindustrie preist die Vorteile der fixen „5-Minuten-Produkte“.\n\nDabei stellt sich die Frage, ob denn tatsächlich alles schneller geworden ist. E-Mails erreichen den Empfän-ger _34_ schnell als ein Brief, _35_ die Information nur im Internet beiegt, auch, dass es länger dauert, bis man die wirklich benötigte Information überhaupt findet. Das Mobiltelefon macht natürlich sofort erreichbar, das andauernde Klingeln stört jedoch _36_ bei anderen Tätigkeiten, die man dann unterbricht. Und obwohl moderne Autos oft schneller als 200 km/h fahren können, kostet die steigende Anzahl der Staus auf den Autobahnen mehr Zeit _37_ man möchte. Viele zweifeln inzwischen _38_ , ob die theoretisch mögliche Schnelligkeit und die reale Geschwindigkeit noch übereinstimmen.\n\nForscher haben nun herausgefunden, warum alles immer schneller zu werden scheint: Die Gleichförmigkeit unseres Lebens hat einen starken Einfluss _39_ , wie das Lebenstempo empfunden wird. Bei immer mehr Routine bei der Arbeit und in der Freizeit und wenig Abwechslung im Leben _40_ , so die Forscher, der Ein-druck von Schnelligkeit entstehen. Das Gedächtnis blendet Lebenszeiten, in denen nichts Ungewöhnliches passiert ist, einfach aus und bringt so das Zeitempfinden des Menschen durcheinander.\n\nDen Gegenbeweis erbringt das Zeitempfinden im Urlaub. Hier wird die Routine durchbrochen und man tut Dinge, die sonst keinen Platz im Leben haben. Und siehe da: _40_ langsam, wie war es so richtig entspannend! Vielleicht sollten wir deshalb einfach öfter raus aus der Routine und schnell mal etwas anderes machen.",
+      "answers": {
+        "31": "M",
+        "32": "C",
+        "33": "H",
+        "34": "O",
+        "35": "A",
+        "36": "B",
+        "37": "E",
+        "38": "F",
+        "39": "J",
+        "40": "D"
+      }
+    },
+    {
+      "id": 1,
+      "title": "Modelltest 2 - Sprachbausteine Teil 2",
+      "words": [
+        { "key": "A", "word": "aber" },
+        { "key": "B", "word": "auf" },
+        { "key": "C", "word": "bis" },
+        { "key": "D", "word": "damit" },
+        { "key": "E", "word": "darauf" },
+        { "key": "F", "word": "darum" },
+        { "key": "G", "word": "dass" },
+        { "key": "H", "word": "darauf" },
+        { "key": "I", "word": "denn" },
+        { "key": "J", "word": "doch" },
+        { "key": "K", "word": "gern" },
+        { "key": "L", "word": "hätte" },
+        { "key": "M", "word": "so" },
+        { "key": "N", "word": "weil" },
+        { "key": "O", "word": "von" }
+      ],
+      "text": "Weg mit dem Dreck\nStudie beweist: Sauberkeit macht Städte sicherer\n\nHeruntergekommene Häuser, schmutzige Straßen, wilde Sperrmüllhaufen: überall, das zieht Personen mit unerwünschtem oder kriminellem Verhalten geradezu magisch an. Wird dieser Prozess nicht rechtzeitig gestoppt, führt er unweigerlich zum Verfall des ganzen Stadtviertels. Das jedenfalls ist das Ergebnis einer amerikanischen Langzeitstudie _31_ Zusammenhang zwischen Sauberkeit und Sicherheit in Großstädten.\n\nIn Deutschland hat sich die hessische Landeshauptstadt Wiesbaden die Ergebnisse _32_ der erwähn-ten Studie zu Herzen genommen und im Sommer 2004 die ersten „Dreck-weg-Tage“ organisiert. Viele Tausend Wiesbadener und Wiesbadenerinnen sind dem Aufruf der Stadtverwaltung gefolgt und haben mit großem Engagement zu Besen und Schaufeln gegriffen und _33_ die Gehsteige vor ihren Häu-sern, _34_ auch öffentliche Straßen und Plätze der Stadt gereinigt und _35_ Müll und Unrat befreit.\n\nAuch Kindergärten, Schulen und Vereine beteiligten sich tatkräftig _36_ der Aktion und sogar Politi-ker wurden mit hochgekrempelten Ärmeln gesichtet. Viele Bürgerinnen und Bürger fragten allerdings: „Wie _37_ kann es denn sein, dass, obwohl die Stadt täglich von den städtischen Entsorgungsbetrieben ELW gesäubert wird, _38_ in kurzer Zeit so viel Dreck ansammelt?“\n\nGedenkenlosigkeit und Achtlosigkeit mögen zwei der Hauptgründe dafür sein, dass sich auf allen Wegen Zigarettenkippen, Hundehaufen und Verpackungsreste finden. Das größte Problem stellt aber der illegal hingestellte Sperrmüll dar. Kaputte Möbel, leere Autobatterien, nicht mehr benötigte Matratzen werden einfach auf den Gehweg vor die Häuser gestellt. Andere Anwohner stellen ihre ausgedienten Gebrauchs-gegenstände dazu und das führt manchmal sogar _39_ , dass auf den Gehsteigen für Fußgänger kein Durchkommen mehr ist.\n\nDie ELW haben daher eine „Schnelle Eingreiftruppe“ eingerichtet, die diesen wilden Sperrmüll innerhalb kürzester Zeit beseitigen _40_ . Wer nicht mehr gebrauchte große Gegenstände loswerden will, kann au-ßerdem den ELW Sperrmüllservice anrufen, der den Sperrmüll kostenlos beim Anrufer abholt.",
+      "answers": {
+        "31": "N",
+        "32": "C",
+        "33": "J",
+        "34": "L",
+        "35": "O",
+        "36": "B",
+        "37": "I",
+        "38": "M",
+        "39": "G",
+        "40": "K"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Modelltest 3 - Sprachbausteine Teil 2",
+      "words": [
+        { "key": "A", "word": "zwar" },
+        { "key": "B", "word": "auf" },
+        { "key": "C", "word": "bis" },
+        { "key": "D", "word": "damit" },
+        { "key": "E", "word": "darauf" },
+        { "key": "F", "word": "darum" },
+        { "key": "G", "word": "dass" },
+        { "key": "H", "word": "darauf" },
+        { "key": "I", "word": "denn" },
+        { "key": "J", "word": "doch" },
+        { "key": "K", "word": "gern" },
+        { "key": "L", "word": "hätte" },
+        { "key": "M", "word": "so" },
+        { "key": "N", "word": "weil" },
+        { "key": "O", "word": "wie" }
+      ],
+      "text": "Der Kippel-Philipp\nNeuer genialer Stuhl macht gesundes Sitzen zum Vergnügen\n\nWer kennt nicht die Geschichte vom Zappelphilipp, der auf dem Stuhl hin und her wippt, _31_ er nach hinten kippt und das Tischtuch mit allen Speisen und dem Geschirr herunterreißt. Sitzen ist langweilig, _32_ dachten die Erfinder des Zappelphilipps und wollten für sein Zappeln ausgerechnet einen Stuhl entwickeln, _33_ er wüsste definitiv wissen. Langes Sit-zen macht krank, _34_ es ist anstrengend und führt oft zu Rückenproblemen.\n\nDer normale Büro- oder Schulstuhl lädt zur Passivität ein. Lehnen und Polster stützen den Körper, der Rücken wird rund, die Rückenmuskulatur verkümmert. Es ist also ganz selbstver-ständlich, _35_ Arbeitsmediziner und Hersteller immer weiter nach neuen Stuhlformen for-schen.\n\nOb Hockerstuhl oder Sitzball, heute findet man im Büro schon die verschiedensten Sitzgeräte. Sie sehen _36_ alle lustig aus und sollen die Arbeit am Schreibtisch erträglicher machen. _37_ auch bei diesen Sitzmöbeln sitzt man relativ still und benutzt die Rückenmuskulatur nur wenig.\n\nDas kann jetzt anders werden. „Die Bewegung fehlt ihnen einfach, _38_ wackeln alle Kinder so gern auf den Stühlen hin und her“, überlegte die Designerin Simone Kielhorn und erfand kurzerhand den Kippelstuhl. Sie nahm einen Hocker, sägte die zwei vorderen Beine kürzer und drehte ihn dann zum Sitzen um 90°. _39_ kippelt der „Sitzer“ auf den zwei seitlichen Stuhlbeinen und entlastet die Wirbel-säule. Ein einfaches und darum genialen Sitzgerät: Der Kippel-Philipp fördert die Balance und das wirkt sich auch positiv _40_ das Konzentrationsvermögen aus, denn der Gleichgewichtssinn mobilisiert die Gehirnaktivität.\n\nDer Zappelphilipp war also gar nicht so dumm, _39_ wir immer dachten. Das Fazit des Kip-pel-Philipps: Viele Benutzer sitzen jetzt richtig am Schreibtisch – und dürfen nach Herzenslust hin und her wippen. Und von Rückenschmerzen keine Spur. _40_ hätte man wirklich schon früher kommen können.",
+      "answers": {
+        "31": "C",
+        "32": "L",
+        "33": "G",
+        "34": "A",
+        "35": "J",
+        "36": "D",
+        "37": "M",
+        "38": "B",
+        "39": "O",
+        "40": "E"
+      }
+    }
+  ]
+}

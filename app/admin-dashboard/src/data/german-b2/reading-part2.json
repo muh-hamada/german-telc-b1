@@ -1,0 +1,158 @@
+{
+  "exams": [{
+    "id": 1,
+    "title": "Modelltest 1 - Leseverstehen Teil 2",
+    "text": "Lernen will gelernt sein – Falsches Lernen bringt schlechte Noten – trotz fleißiger Vorbereitung.\n\nFalsches Lernen und falsche Vorbereitung sind oft Gründe, weshalb Schüler und Studenten trotz fleißigen und ausführlichen Memorierens des Lernstoffes in Prüfungen versagen und schlechte Noten bekommen. Experten raten, Lernstrategien zu verwenden, und Lerninhalte nicht nur zu lesen, sondern sie mehrfach wiederzugeben.\n\nDas menschliche Gedächtnis neigt dazu, unwichtige Information zu vergessen. Lernregel Nummer 1 ist: Stoff nach dem Lesen des Buchs wegle-gen und das Gelesene in eigenen Worten nacherzählen.\n\nLernregel Nummer 2: Man soll sich Zeit für neue Informationen nehmen, da das Gehirn überfordert wird, wenn man zu viel auf einmal lernt. Eine 45-minütige Pause soll zwischen den Lerneinheiten gemacht werden.\n\nLernregel Nummer 3: Rechtzeitig mit dem Lernen beginnen, nicht nur kurz vor der Prüfung. Man soll mit dem neuen Stoff an Bekanntes anknüpfen. Der Text handelt auch von Lernstrategien, die trainiert werden sollen, und betont, dass Lernen Zeit, Mut und Fleiß erfordert.",
+    "questions": [
+      {
+        "id": 6,
+        "question": "Manche Schüler oder Studenten erzielen in Prüfungen schlechte Ergebnisse,",
+        "answers": [
+          { "text": "a) weil sie viel lernen.", "correct": false },
+          { "text": "b) falls sie viel lernen.", "correct": false },
+          { "text": "c) obwohl sie viel lernen.", "correct": true }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Zum richtigen Lernen",
+        "answers": [
+          { "text": "a) braucht man keine Bücher.", "correct": false },
+          { "text": "b) soll man nicht nur pausenlos Bücher lesen.", "correct": true },
+          { "text": "c) muss man kleine Bildchen in die Bücher zeichnen.", "correct": false }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "Menschen vergessen mit der Zeit,",
+        "answers": [
+          { "text": "a) was sie in der Schule gut verstanden haben.", "correct": false },
+          { "text": "b) was für ihr Leben wichtig ist.", "correct": false },
+          { "text": "c) was sie nicht angewendet haben.", "correct": true }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Beim Lernen braucht man Pausen,",
+        "answers": [
+          { "text": "a) um das Gelernte mental zu verarbeiten.", "correct": true },
+          { "text": "b) um sich zu setzen.", "correct": false },
+          { "text": "c) um das Gehirn zu überfordern.", "correct": false }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "Wer zu lange mit dem Lernen wartet,",
+        "answers": [
+          { "text": "a) besteht Prüfungen oft nicht mit den besten Noten.", "correct": true },
+          { "text": "b) hat keine Zeit, Kontakt mit seinen Bekannten zu knüpfen.", "correct": false },
+          { "text": "c) geht nach der Prüfung gleich weg.", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Modelltest 2 - Leseverstehen Teil 2",
+    "text": "Generation XXL ist out.\n\n**Viel versprechendes Schulprojekt für gesunde Ernährung kommt an**\n\nDie Schülerinnen und Schüler der Klasse 2a einer Grundschule stehen um vier zusammengeschobene Tische in ihrem Klassenzimmer. Unter Anleitung ihrer Lehrerin Isolde Reich legen sie Vollkornbrotscheiben mit Tomaten und Gurken und rühren Magerquark an. Die 7-Jährigen Jana betreut die fertigen Brotscheiben mit frischer Kresse. In der Tischnitte stehen zwei Kannen mit warmem Kräutertee.\n\n„Viele unserer Kinder kannten weder Quark noch Kresse und hielten Gurke für ein exotisches Nah-rungsmittel“, berichtet Isolde Reich. Nicht nur deutsche Schulkinder, auch viele ausländische Kinder aus türkischen, italienischen, polnischen oder vietnamesischen Familien haben offenbar keine Zeit mehr für ein gesundes Frühstück. Auf dem Weg zur Schule, zumeist im Auto der Eltern, nempelten sich die Kinder satt an Keksen oder Schokoriegeln und stillten ihren Durst mit süßen Limonadegetränken. Alle diese Nahrungsmittel enthalten viel Fett und Zucker und führen dazu, dass die Kinder verglichen mit früheren Generationen immer dicker werden: Generation XXL.\n\nAus diesem Grund haben mehrere Schulen Projekte zum Thema „Gesundes Essen“ gestartet und beginnen den Schultag mit einem gemeinsamen und gesunden Frühstück. „Es hat lange Zeit gedauert“, so Isolde Reich, „aber wir haben schließlich alle Eltern überzeugt, die Süßigkeiten dort zu lassen, wo sie hingehören: nämlich in den Supermarkt. Dafür beteiligen sie sich jetzt mit einem geringen monatlichen Beitrag am gemeinsamen Frühstück.“\n\nDoch nicht nur die falschen Ernährungsggewohnheiten tragen zum Übergewicht der Kleinen bei. Entscheidend für die republikübergreifende Kilo-Vermeihung bei den Kleinsten ist die fehlende Bewegung. Aktivitäten wie Fernsehen oder Computerspiel haben das Herumtoben oder Ballspielen im Freien und sportliche Aktivitäten abgelöst.\n\nBewegung und Sport sind daher auch zweite Säule des Gesundheitsprojekts an der Schule von Isolde Reich. Die Kinder haben jetzt täglich Sportstunden, nicht nur einmal pro Woche wie früher, und sogar in den Mathe- und Englischunterricht gehören Bewegungsphasen.\n\nNur in einem gesunden Körper wohnt auch ein gesunder Geist. Deshalb ist es nur zu begrüßen, dass an Grundschulen jetzt auch gesundes Essen und Bewegung in den Lehrplänen ein großes Gewicht bekommen.",
+    "questions": [
+      {
+        "id": 6,
+        "question": "Der Unterricht an der Grundschule von Frau Reich beginnt mit",
+        "answers": [
+          { "text": "a) der Präsentation exotischer Gemüsesorten.", "correct": false },
+          { "text": "b) einem gemeinsamen Frühstück der Kinder mit ihrer Lehrerin.", "correct": true },
+          { "text": "c) Keksen und Schokoriegeln.", "correct": false }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Als Problem vieler Grundschulkinder wird im Text",
+        "answers": [
+          { "text": "a) Übergewicht genannt.", "correct": true },
+          { "text": "b) gesundes Essen genannt.", "correct": false },
+          { "text": "c) der Vergleich mit früheren Generationen genannt.", "correct": false }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "Die Eltern müssen das gemeinsame Frühstück ihrer Kinder",
+        "answers": [
+          { "text": "a) besorgen.", "correct": false },
+          { "text": "b) vorbereiten.", "correct": false },
+          { "text": "c) bezahlen.", "correct": true }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Das Übergewicht der Kinder wird",
+        "answers": [
+          { "text": "a) nur von Fertiggerichten verursacht.", "correct": false },
+          { "text": "b) wird in ganz Deutschland im Fernsehen gezeigt.", "correct": false },
+          { "text": "c) durch fehlende Bewegung noch größer.", "correct": true }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "Im Mathematik- oder Sprachunterricht wird das Lernen der Kinder",
+        "answers": [
+          { "text": "a) auf die Sportstunden verlegt.", "correct": false },
+          { "text": "b) mit körperlicher Aktivität unterstützt.", "correct": true },
+          { "text": "c) in ein Gesundheitsprojekt miteinbezogen.", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Modelltest 3 - Leseverstehen Teil 2",
+    "text": "Wenn es an der Tür geklingelt hat\n\n**Trickdiebe nutzen die Gutgläubigkeit ihrer Opfer schamlos aus**\n\nEs hat geklingelt, die Rentnerin Anna B. geht zur Wohnungstür und öffnet vorsichtig. „Haben Sie ein Glas Wasser für mein Kind?“ fragt eine junge Frau, auf ihrem Arm trägt sie ein verschwitztes Kleinkind. Frau B. hat ein Herz für Kinder, sie zögert aber trotzdem, eine Fremde in die Wohnung zu lassen. „Warten Sie“, sagt sie schließlich und geht in die Küche, um ein Glas Wasser zu holen. Am Abend stellt Anna B. fest, dass ihre Geldbörse fehlt.\n\nTrickdiebe sind dreist und geschickt. Blitzschnell hatte die junge Frau, vielleicht auch gemeinsam mit anderen Mittätern, die Wohnung der alten Frau durchsucht, als Frau B. in der Küche ein Glas mit Wasser füllte. Meist werden gutgläubige ältere Menschen Opfer von Trickdiebstein. Die Liste ihrer Vorgehensweisen ist lang: Es ist der „Telefon-Trick“, ähnlich dem Wasser-Trick, bei dem eine fremde Person an der Haustür klingelt, sagt, man habe gerade einen Unfall gehabt und müsse dringend telefonieren. So wird an das Mitgefühl des Opfers appelliert und dessen Misstrauen abgebaut. Um Zeit zu haben, sich in der Wohnung nach Wertgegenständen umzusehen, bitten die Täter dann um einen Zettel zum Notieren oder etwas zu trinken.\n\nAber nicht nur ältere Menschen werden von Trickdieben heimgesucht, niemand ist vor ihnen sicher. Wenn plötzlich zwei Männer an der Haustür klingeln und sich als Polizisten ausgeben, wird ihnen oft ohne zu zögern Einlass gewährt. Die Herren strahlen Autorität aus und müssen auch ihre Aufgabe erfüllen: z. B. überprüfen, ob in dieser Wohnung Diebesgut von einem Einbruch in der Wohnung drüber gelagert wird oder etwa auch in die eigene Wohnung eingebrochen wurde. Die seriös wirkenden Täter stellen sich auch gern als Handwerker vor, die vom Vermieter geschickt wurden.\n\nEine weitere beliebte Masche ist der Zettel-Trick. Wiederum das Klingeln an der Haustür, zwei fremde Menschen stehen im Hausflur, einer der beiden bittet um einen Zettel und einen Stift, um dem Nachbarn eine Nachricht zu hinterlassen. Während das Opfer einen Zettel holt, lenkt einer der Täter weiterhin ab, indem er das Opfer in ein Gespräch verwickelt oder ein Geschenk für den Nachbarn präsentiert. Diese Zeit der Unaufmerksamkeit nutzt der Komplize und durchsucht blitzschnell die Wohnung nach Wertgegenständen.\n\nOft ist nicht der Verlust des Geldes, des Schmuckes oder anderer Habseligkeiten das Schlimmste für die Opfer. Am meisten betroffen sind sie davon, dass ihr Vertrauen missbraucht wurde. Sie sind verunsichert und haben Angst, wieder Opfer zu werden. Was Sie nun brauchen ist Betreuung, die ihnen ihre Ängste nimmt, Aufklärung über die Vorgehensweisen der Täter sowie Verhaltensregeln für die Zukunft. Hilfe finden sie dann bei den Opferschutzbeauftragten in den Polizeipräsidien, die sie an Organisatio-nen wie den Weißen Ring verweisen.",
+    "questions": [
+      {
+        "id": 6,
+        "question": "Frau B. bittet die junge Frau nicht in die Wohnung,",
+        "answers": [
+          { "text": "a) weil sie fremd ist.", "correct": true },
+          { "text": "b) weil sie kein Herz für Kinder hat.", "correct": false },
+          { "text": "c) weil sie ein Glas Wasser aus der Küche holt.", "correct": false }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Ältere Menschen werden Opfer, weil",
+        "answers": [
+          { "text": "a) die Diebe geschickt vorgehen.", "correct": false },
+          { "text": "b) ihre Gutgläubigkeit ausgenutzt wird.", "correct": true },
+          { "text": "c) es viele Tricks gibt.", "correct": false }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "Trickdiebe",
+        "answers": [
+          { "text": "a) arbeiten oft auch als Handwerker.", "correct": false },
+          { "text": "b) suchen in der Wohnung nach Diebesgut.", "correct": true },
+          { "text": "c) sind manchmal als Polizisten verkleidet.", "correct": false }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Bei der Zettel-Masche wird das Opfer durch ein Gespräch abgelenkt,",
+        "answers": [
+          { "text": "a) um eine Nachricht an den Nachbarn zu übergeben.", "correct": false },
+          { "text": "b) um dem Komplizen Zeit zu geben.", "correct": true },
+          { "text": "c) um zu erfahren, wo Wertgegenstände in der Wohnung sind.", "correct": false }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "Die Opfer sind oft am meisten betroffen darüber,",
+        "answers": [
+          { "text": "a) dass oft mehr gestohlen wurde.", "correct": false },
+          { "text": "b) dass sich ein ähnlicher Vorfall wiederholte.", "correct": false },
+          { "text": "c) dass sie nicht mehr wissen, wem sie glauben können.", "correct": true }
+        ]
+      }
+    ]
+  }]
+}

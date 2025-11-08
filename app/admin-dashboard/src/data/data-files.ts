@@ -18,6 +18,13 @@ import germanB1GrammarStudyQuestions from './german-b1/grammer-study-questions.j
 
 // German B2
 import germanB2ExamInfo from './german-b2/exam-info.json';
+import germanB2ReadingPart1 from './german-b2/reading-part1.json';
+import germanB2ReadingPart2 from './german-b2/reading-part2.json';
+import germanB2ReadingPart3 from './german-b2/reading-part3.json';
+import germanB2GrammarPart1 from './german-b2/grammar-part1.json';
+import germanB2GrammarPart2 from './german-b2/grammar-part2.json';
+import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
+
 
 
 interface AppData {
@@ -60,5 +67,11 @@ export const appDataMap: AppDataMap = {
     },
     [APP_CONFIGS['german-b2'].id]: {
         'exam-info': germanB2ExamInfo,
+        'grammar-study-questions': germanB2GrammarStudyQuestions,
+        'reading-part1': germanB2ReadingPart1,
+        'reading-part2': germanB2ReadingPart2,
+        'reading-part3': germanB2ReadingPart3,
+        'grammar-part1': germanB2GrammarPart1,
+        'grammar-part2': germanB2GrammarPart2,
     },
 }

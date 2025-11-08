@@ -1,0 +1,265 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "title": "Modelltest 1 - Sprachbausteine Teil 1",
+      "text": "Liebe Lara,\nseit drei Wochen bin ich jetzt schon in Deutschland. Mein Praktikum bei der Firma Intermar-keting macht mir großen Spaß und ich habe schon viele Dinge gelernt. Von _21_ man an der Berufsschule ebenfalls am Rand von Rom. Mein Chef ist sehr geduldig mit mir. Besonders in den ersten beiden Wochen war _22_ etwas mühevoll, an einem fremden Computer zu sitzen und mit all den neuen unbekannten Programmen zu arbeiten. Aber nun habe ich mich _23_ gewöhnt und muss meinen Chef kaum noch um Rat fragen.\n\nAn das Wetter hier in Wilhelmshaven muss ich mich aber noch gewöhnen. Denn obwohl wir Sommer haben, bläst hier immer ein ordentlicher Wind, eine steife Brise, wie man hier sagt – von der Nordsee her. Man muss ständig _24_ Pullover dabei haben, sonst kann man hier auch im August eine Gänsehaut bekommen. Mein Chef sagt dann immer, gegen die steife Brise _25_ man einen Grog trinken, das ist heißer Tee mit Rum, aber das mag ich nicht.\n\nIn der Firma habe ich Marion kennen gelernt. Sie ist wie ich Praktikantin, aber sie ist Deut-sche und kommt aus _26_ Wilhelmshaven. Sie hat mir schon ein bisschen von den Gegend gezeigt und mir die Sehenswürdigkeiten der Stadt vorgestellt. Besonders den Hafen mit _27_ Containerschiffen und den vielen Seemöven, die unerlässlich zu _28_ Herrenhäusern, hat es mir angetan. Nach der Arbeit verbringen wir hier oft ein oder zwei Stunden in _29_ der Cafés – oder Teehäuser, denn die Leute hier trinken viel mehr Tee als Kaffee.\n\nManchmal bekomme ich aber schon Heimweh. Dann denke ich auch an dich und daran, dass wir uns bald _30_ . Es gibt so viel zu erzählen. Melde dich. Warte nicht so lange wie ich, bis du mir schreibst.\n\nHerzliche Grüße\nAlexandra",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "a) dem", "correct": false },
+            { "text": "b) denen", "correct": true },
+            { "text": "c) deren", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "a) man", "correct": false },
+            { "text": "b) ---", "correct": false },
+            { "text": "c) es", "correct": true }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "a) darauf", "correct": false },
+            { "text": "b) dazu", "correct": false },
+            { "text": "c) daran", "correct": true }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "a) einen", "correct": true },
+            { "text": "b) ein", "correct": false },
+            { "text": "c) einem", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "a) müsse", "correct": true },
+            { "text": "b) müsste", "correct": false },
+            { "text": "c) brauche", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "a) der Nähe", "correct": false },
+            { "text": "b) die Nähe", "correct": false },
+            { "text": "c) der Nähe von", "correct": true }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "a) den großen", "correct": true },
+            { "text": "b) großem", "correct": false },
+            { "text": "c) dem großen", "correct": false }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "a) den Schiffen", "correct": false },
+            { "text": "b) die Schiffe", "correct": true },
+            { "text": "c) die Schiffen", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "a) eins", "correct": false },
+            { "text": "b) einem", "correct": true },
+            { "text": "c) ein", "correct": false }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "a) wiederzusehen brauchen", "correct": false },
+            { "text": "b) wiedersehen", "correct": false },
+            { "text": "c) wiedersehen müssen", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Modelltest 2 - Sprachbausteine Teil 1",
+      "text": "Liebe Angelika,\nich grüße _21_ aus Deutschland. Seit zwei Monaten bin ich jetzt als Au-pair-Mädchen bei der Familie Schwarz in Nürnberg. Vormittags lerne ich Deutsch, nachmittags muss ich _22_ die beiden Kinder der Familie Schwarz aufpassen. Das Mädchen heißt Jana und ist fünf Jahre alt, der Junge heißt Nils und ist drei.\n\nDer Deutschunterricht ist sehr interessant, die anderen Teilnehmer kommen aus _24_ Welt, z. B. aus Ghana, Ungarn, oder Venezuela. Vier Mitschülerinnen sind auch Au-pair-mädchen, _25_ die meisten wollen hier studieren.\n\nIn der Familie zu helfen ist manchmal ziemlich _26_ . Die Kinder räumen nie ihre Spiel-sachen auf und Nils trödelt fürchterlich. Meinetwegen kommt Frau Schwarz morgens oft in Zeitdruck und dann _27_ sie arbeitet von 9 bis 17 Uhr bei der Sparkasse. Wenn sie dann nach Hause kommt, ist sie oft müde und will von den Kindern erst einmal nichts hören und sehen. Herr Schwarz arbeitet bei einer Computerfirma. Er ist selten zu Hause, meistens nur am Wochenende. Die Kinder _28_ ich am Nachmittag und Abend zusammen bin, hören jetzt schon besser auf mich als früher.\n\nDoch jetzt freue ich mich auf das Wochenende. Ich habe frei und Marta, _29_ ich auch in den Deutschkurs gehe, und ich fahren nach München. Dort wollen wir _30_ , uns möglichst viele der bekannten Sehenswürdigkeiten anschauen und uns so richtig ent-spannen.\n\nBis bald hoffentlich!\nDeine Freundin\nSylwia",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "a) sich", "correct": false },
+            { "text": "b) dir", "correct": false },
+            { "text": "c) dich", "correct": true }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "a) bei", "correct": true },
+            { "text": "b) in", "correct": false },
+            { "text": "c) an", "correct": false }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "a) an", "correct": false },
+            { "text": "b) auf", "correct": true },
+            { "text": "c) für", "correct": false }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "a) dem ganzen", "correct": false },
+            { "text": "b) der ganzen", "correct": true },
+            { "text": "c) die ganze", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "a) doch", "correct": true },
+            { "text": "b) dagegen", "correct": false },
+            { "text": "c) während", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "a) anzustrengen", "correct": false },
+            { "text": "b) anstrengt", "correct": false },
+            { "text": "c) anstrengend", "correct": true }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "a) sie fängt an zu schimpfen", "correct": false },
+            { "text": "b) sie anfängt zu schimpfen", "correct": false },
+            { "text": "c) fängt sie an zu schimpfen", "correct": true }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "a) mit denen", "correct": true },
+            { "text": "b) deren", "correct": false },
+            { "text": "c) bei denen", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "a) zu der", "correct": false },
+            { "text": "b) dir", "correct": false },
+            { "text": "c) mit der", "correct": true }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "a) uns machen zwei schöne Tage", "correct": false },
+            { "text": "b) uns zwei schöne Tage machen", "correct": true },
+            { "text": "c) uns zwei schöne Tage machen", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Modelltest 3 - Sprachbausteine Teil 1",
+      "text": "Sehr geehrter Herr Steinmann,\nnun bin ich schon seit zwei Wochen, _21_ ich nichts getan habe außer lesen, faulenzen und essen, hier auf Mallorca und erhole mich von den anstrengenden letzten Wochen vor meiner Prüfung. Ich möchte mich noch einmal ganz herzlich bei Ihnen für Ihre großartige Hilfe bei der Prüfungsvorbereitung bedanken. Ohne Sie _22_ ich es sicher nicht geschafft. Vielen Dank für alles!\n\nLangsam muss ich auch _23_ denken, dass der Alltag bald wieder beginnt. Vor meiner Rück-kehr graut mir _24_ schon ein wenig. _25_ freue ich mich auch, ich habe einen Studienplatz in Berlin bekommen und ich will mich gleich nach meiner Ankunft in Deutschland um ein Zimmer kümmern. Aber Berlin ist so groß und so weit weg von zu Hause! Es heißt, man kann sehr einsam in _25_ Großstadt sein. Ich kenne noch niemanden dort und es fällt mir außer-dem nicht sehr leicht, neue Kontakte zu knüpfen. Hinzu kommen schwere Herzklopfen und feuchte Hände, _26_ ich an den Herbst und den Semesterbeginn denke.\n\nDa fällt mir ein: Ich habe von Christopher erfahren, dass auch Sylvia in Berlin studieren wird. Das finde ich toll, denn wir haben uns im Kurs so gut verstanden, dass wir uns bestimmt gegenseitig eine große Hilfe _27_ .\n\nSo, es wird Zeit fürs Essen. Doch bevor ich _28_ verabschiede, möchte ich Ihnen schon einmal sagen, dass sich unser Kurs Anfang Oktober noch einmal treffen will. Wir würden uns natürlich alle sehr freuen, wenn Sie auch dabei _29_ , denn wir alle werden die wunderbare Zeit mit Ihnen im Kurs nicht vergessen. _30_ genauen Termin für das Treffen schreibe ich Ihnen aus Berlin.\n\nBis dahin herzliche Grüße von Ihrem dankbaren Schüler\nEric Stephenson",
+      "questions": [
+        {
+          "id": 21,
+          "answers": [
+            { "text": "a) in denen", "correct": true },
+            { "text": "b) in deren", "correct": false },
+            { "text": "c) in denen", "correct": false }
+          ]
+        },
+        {
+          "id": 22,
+          "answers": [
+            { "text": "a) würde", "correct": false },
+            { "text": "b) hätte", "correct": true },
+            { "text": "c) hatte", "correct": false }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            { "text": "a) darauf", "correct": false },
+            { "text": "b) darüber", "correct": false },
+            { "text": "c) daran", "correct": true }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            { "text": "a) einerseits", "correct": true },
+            { "text": "b) sowohl ... als auch", "correct": false },
+            { "text": "c) zwar ... aber", "correct": false }
+          ]
+        },
+        {
+          "id": 25,
+          "answers": [
+            { "text": "a) solch einer", "correct": true },
+            { "text": "b) solch einem", "correct": false },
+            { "text": "c) solch einem", "correct": false }
+          ]
+        },
+        {
+          "id": 26,
+          "answers": [
+            { "text": "a) dass", "correct": true },
+            { "text": "b) wenn", "correct": false },
+            { "text": "c) als", "correct": false }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            { "text": "a) werden sein", "correct": false },
+            { "text": "b) sein", "correct": false },
+            { "text": "c) sein werden", "correct": true }
+          ]
+        },
+        {
+          "id": 28,
+          "answers": [
+            { "text": "a) mir", "correct": false },
+            { "text": "b) mich", "correct": true },
+            { "text": "c) sich", "correct": false }
+          ]
+        },
+        {
+          "id": 29,
+          "answers": [
+            { "text": "a) sein würde", "correct": false },
+            { "text": "b) wären", "correct": false },
+            { "text": "c) waren", "correct": true }
+          ]
+        },
+        {
+          "id": 30,
+          "answers": [
+            { "text": "a) Der", "correct": false },
+            { "text": "b) Den", "correct": true },
+            { "text": "c) Das", "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

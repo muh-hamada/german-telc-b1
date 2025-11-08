@@ -136,11 +136,9 @@ function updateAndroidConfig(config) {
   try {
     let buildGradle = fs.readFileSync(buildGradlePath, 'utf8');
     
-    // Update namespace
-    buildGradle = buildGradle.replace(
-      /namespace\s+"[^"]+"/,
-      `namespace "${config.bundleId.android}"`
-    );
+    // DO NOT Update namespace
+    // Updating the namespace will cause the app to crash because
+    // the namespace is used to understand the directory structure of the app.
     
     // Update applicationId
     buildGradle = buildGradle.replace(
