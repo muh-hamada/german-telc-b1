@@ -30,12 +30,30 @@ if [ "$BUILD_TYPE" != "apk" ] && [ "$BUILD_TYPE" != "aab" ]; then
   exit 1
 fi
 
+# Map exam ID to flavor name
+case "$EXAM_ID" in
+  "german-b1")
+    FLAVOR="germanB1"
+    ;;
+  "german-b2")
+    FLAVOR="germanB2"
+    ;;
+  "english-b1")
+    FLAVOR="englishB1"
+    ;;
+  *)
+    echo "❌ Error: Unknown exam ID '$EXAM_ID'"
+    exit 1
+    ;;
+esac
+
 echo "================================================"
 echo "Building Android App: $EXAM_ID ($BUILD_TYPE)"
+echo "Flavor: $FLAVOR"
 echo "================================================"
 echo ""
 
-# Apply configuration
+# Apply configuration (for iOS builds and app.json)
 ./scripts/build-config.sh "$EXAM_ID" android
 
 # Run version check and exit if it fails
@@ -49,7 +67,7 @@ export EXAM_ID="$EXAM_ID"
 
 # Build based on type
 if [ "$BUILD_TYPE" = "apk" ]; then
-  echo "Building APK..."
+  echo "Building APK with flavor: ${FLAVOR}Release..."
   echo "Bundling JavaScript with dev=false..."
   npx react-native bundle \
     --platform android \
@@ -59,10 +77,10 @@ if [ "$BUILD_TYPE" = "apk" ]; then
     --assets-dest android/app/src/main/res
   
   cd android
-  ./gradlew assembleRelease
+  ./gradlew assemble${FLAVOR}Release
   cd ..
   
-  OUTPUT_FILE=$(find android/app/build/outputs/apk/release -name "*.apk" | head -n 1)
+  OUTPUT_FILE=$(find android/app/build/outputs/apk/${FLAVOR}/release -name "*.apk" | head -n 1)
   
   echo ""
   echo "================================================"
@@ -74,10 +92,12 @@ if [ "$BUILD_TYPE" = "apk" ]; then
   echo "   adb install \"$OUTPUT_FILE\""
   echo ""
 else
-  echo "Building App Bundle (AAB)..."
-  npx react-native build-android --mode=release
+  echo "Building App Bundle (AAB) with flavor: ${FLAVOR}Release..."
+  cd android
+  ./gradlew bundle${FLAVOR}Release
+  cd ..
   
-  OUTPUT_FILE=$(find android/app/build/outputs/bundle/release -name "*.aab" | head -n 1)
+  OUTPUT_FILE=$(find android/app/build/outputs/bundle/${FLAVOR}Release -name "*.aab" | head -n 1)
   
   echo ""
   echo "================================================"

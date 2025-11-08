@@ -23,7 +23,7 @@ react {
     //   The list of variants to that are debuggable. For those we're going to
     //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.
     //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
-    // debuggableVariants = ["liteDebug", "prodDebug"]
+    debuggableVariants = ["germanB1Debug", "germanB2Debug", "englishB1Debug"]
 
     /* Bundling */
     //   A list containing the node command and its flags. Default is just 'node'.
@@ -83,7 +83,8 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.mhamada.telcb2german"
+    namespace "com.mhamada.telcb1german"
+    
     defaultConfig {
         applicationId "com.mhamada.telcb2german"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -91,6 +92,26 @@ android {
         versionCode 22
         versionName "1.0.22"
     }
+    
+    flavorDimensions "exam"
+    productFlavors {
+        germanB1 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb1german"
+            resValue "string", "app_name", "German TELC B1"
+        }
+        germanB2 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb2german"
+            resValue "string", "app_name", "German TELC B2"
+        }
+        englishB1 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb1english"
+            resValue "string", "app_name", "English TELC B1"
+        }
+    }
+    
     signingConfigs {
         debug {
             storeFile file('debug.keystore')

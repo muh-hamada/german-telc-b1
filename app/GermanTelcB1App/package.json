@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "cd android && ./gradlew clean && cd .. && react-native run-android",
+    "android": "react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
+    "android:german-b1": "react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
+    "android:german-b2": "react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
+    "android:english-b1": "react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",
     "ios": "cd ios && pod install && cd .. && react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",

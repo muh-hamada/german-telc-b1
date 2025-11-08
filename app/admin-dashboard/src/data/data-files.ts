@@ -14,6 +14,7 @@ import germanB1SpeakingPart1 from './german-b1/speaking-part1.json';
 import germanB1SpeakingPart2 from './german-b1/speaking-part2.json';
 import germanB1SpeakingPart3 from './german-b1/speaking-part3.json';
 import germanB1Writing from './german-b1/writing.json';
+import germanB1SpeakingImportantPhrases from './german-b1/speaking-important-phrases.json';
 import germanB1GrammarStudyQuestions from './german-b1/grammer-study-questions.json';
 
 // German B2
@@ -23,6 +24,7 @@ import germanB2ReadingPart2 from './german-b2/reading-part2.json';
 import germanB2ReadingPart3 from './german-b2/reading-part3.json';
 import germanB2GrammarPart1 from './german-b2/grammar-part1.json';
 import germanB2GrammarPart2 from './german-b2/grammar-part2.json';
+import germanB2SpeakingImportantPhrases from './german-b2/speaking-important-phrases.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
 
 
@@ -41,6 +43,7 @@ interface AppData {
     'speaking-part2'?: any;
     'speaking-part3'?: any;
     'writing'?: any;
+    'speaking-important-phrases'?: any;
     'grammar-study-questions'?: any;
 }
 
@@ -64,6 +67,7 @@ export const appDataMap: AppDataMap = {
         'speaking-part3': germanB1SpeakingPart3,
         'writing': germanB1Writing,
         'grammar-study-questions': germanB1GrammarStudyQuestions,
+        'speaking-important-phrases': germanB1SpeakingImportantPhrases,
     },
     [APP_CONFIGS['german-b2'].id]: {
         'exam-info': germanB2ExamInfo,
@@ -73,5 +77,6 @@ export const appDataMap: AppDataMap = {
         'reading-part3': germanB2ReadingPart3,
         'grammar-part1': germanB2GrammarPart1,
         'grammar-part2': germanB2GrammarPart2,
+        'speaking-important-phrases': germanB2SpeakingImportantPhrases,
     },
 }

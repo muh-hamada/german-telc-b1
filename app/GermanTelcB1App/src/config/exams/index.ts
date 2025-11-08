@@ -7,6 +7,7 @@
 
 import { ExamConfig } from '../exam-config.types';
 import { germanB1Config } from './german-b1.config';
+import { germanB2Config } from './german-b2.config';
 
 /**
  * Registry of all available exam configurations
@@ -15,8 +16,8 @@ import { germanB1Config } from './german-b1.config';
  */
 export const EXAM_CONFIGS: Record<string, ExamConfig> = {
   'german-b1': germanB1Config,
+  'german-b2': germanB2Config,
   // Add more exam configurations here as needed:
-  // 'german-b2': germanB2Config,
   // 'english-b1': englishB1Config,
 };
 

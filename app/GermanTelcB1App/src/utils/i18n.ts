@@ -21,6 +21,14 @@ import germanB1Es from '../locales/exam-content/german-b1/es.json';
 import germanB1Fr from '../locales/exam-content/german-b1/fr.json';
 import germanB1Ru from '../locales/exam-content/german-b1/ru.json';
 
+import germanB2En from '../locales/exam-content/german-b2/en.json';
+import germanB2De from '../locales/exam-content/german-b2/de.json';
+import germanB2Ar from '../locales/exam-content/german-b2/ar.json';
+import germanB2Es from '../locales/exam-content/german-b2/es.json';
+import germanB2Fr from '../locales/exam-content/german-b2/fr.json';
+import germanB2Ru from '../locales/exam-content/german-b2/ru.json';
+
+
 // TODO: Add imports for other exams when they're created:
 // import germanB2En from '../locales/exam-content/german-b2/en.json';
 // import germanB2De from '../locales/exam-content/german-b2/de.json';
@@ -39,15 +47,14 @@ const examTranslations: Record<string, Record<string, any>> = {
     fr: germanB1Fr,
     ru: germanB1Ru,
   },
-  // TODO: Add other exams here when ready:
-  // 'german-b2': {
-  //   en: germanB2En,
-  //   de: germanB2De,
-  //   ar: germanB2Ar,
-  //   es: germanB2Es,
-  //   fr: germanB2Fr,
-  //   ru: germanB2Ru,
-  // },
+  'german-b2': {
+    en: germanB2En,
+    de: germanB2De,
+    ar: germanB2Ar,
+    es: germanB2Es,
+    fr: germanB2Fr,
+    ru: germanB2Ru,
+  },
   // 'english-b1': {
   //   en: englishB1En,
   //   de: englishB1De,
