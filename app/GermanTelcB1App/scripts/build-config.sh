@@ -52,6 +52,35 @@ if [ "$PLATFORM" = "android" ]; then
     echo "⚠️  Warning: $GOOGLE_SERVICES_SOURCE not found"
     echo "   Using existing google-services.json (if any)"
   fi
+  
+  echo ""
+  echo "Copying app icon logo for Android..."
+  
+  # Extract level from exam ID (e.g., german-b1 -> b1)
+  LEVEL=$(echo "$EXAM_ID" | grep -o 'b[12]')
+  
+  if [ -n "$LEVEL" ]; then
+    LOGO_SOURCE="../../logo-${LEVEL}.png"
+    
+    if [ -f "$LOGO_SOURCE" ]; then
+      # Copy logo to all Android mipmap directories
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/mipmap-ldpi/ic_launcher_foreground.png"
+      cp "$LOGO_SOURCE" "android/app/src/main/res/drawable/ic_launcher_foreground.png"
+      
+      echo "✅ Copied $LOGO_SOURCE to all Android app icon directories"
+    else
+      echo "⚠️  Warning: $LOGO_SOURCE not found"
+      echo "   Skipping app icon update"
+    fi
+  else
+    echo "⚠️  Warning: Could not determine level from exam ID: $EXAM_ID"
+    echo "   Skipping app icon update"
+  fi
 fi
 
 if [ "$PLATFORM" = "ios" ]; then
