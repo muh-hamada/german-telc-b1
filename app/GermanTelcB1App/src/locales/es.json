@@ -454,6 +454,29 @@
     "part4": {
       "subtitle": "Frases comunes que puedes utilizar en muchas situaciones.",
       "itemType": "Parte"
+    },
+    "b2Structure": {
+      "title": "Estructura del examen oral",
+      "menuTitle": "Estructura y guía del examen oral",
+      "menuDescription": "Aprende sobre la estructura, partes y requisitos del examen oral B2",
+      "tabs": {
+        "overview": "Visión general",
+        "examParts": "Partes del examen",
+        "hints": "Consejos"
+      },
+      "sections": {
+        "howItWorks": "Cómo funciona",
+        "expectations": "Qué se espera",
+        "hints": "Consejos importantes"
+      },
+      "labels": {
+        "duration": "Duración",
+        "participants": "Participantes",
+        "description": "Descripción",
+        "sample": "Tarea de ejemplo",
+        "topics": "Temas disponibles",
+        "exampleArticle": "Artículo de ejemplo"
+      }
     }
   },
   "results": {

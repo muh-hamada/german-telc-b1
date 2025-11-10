@@ -245,6 +245,11 @@ class DataService {
     return data;
   }
 
+  // Oral Exam Structure (B2)
+  async getOralExamStructure(): Promise<any> {
+    return await this.fetchFromFirestore('oral-exam-structure', {});
+  }
+
   // Listening Part 1
   async getListeningPart1Content(): Promise<any> {
     return await this.fetchFromFirestore('listening-part1', { exams: [] });

@@ -384,6 +384,29 @@
     "part4": {
       "subtitle": "Phrases courantes que vous pouvez utiliser dans de nombreuses situations",
       "itemType": "Partie"
+    },
+    "b2Structure": {
+      "title": "Structure de l'examen oral",
+      "menuTitle": "Structure et guide de l'examen oral",
+      "menuDescription": "Découvrez la structure, les parties et les exigences de l'examen oral B2",
+      "tabs": {
+        "overview": "Aperçu",
+        "examParts": "Parties de l'examen",
+        "hints": "Conseils"
+      },
+      "sections": {
+        "howItWorks": "Comment ça fonctionne",
+        "expectations": "Ce qui est attendu",
+        "hints": "Conseils importants"
+      },
+      "labels": {
+        "duration": "Durée",
+        "participants": "Participants",
+        "description": "Description",
+        "sample": "Tâche d'exemple",
+        "topics": "Sujets disponibles",
+        "exampleArticle": "Article d'exemple"
+      }
     }
   },
   "results": {

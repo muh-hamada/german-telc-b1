@@ -65,6 +65,20 @@ if [ "$PLATFORM" = "ios" ]; then
     echo "⚠️  Warning: $GOOGLE_PLIST_SOURCE not found"
     echo "   Using existing GoogleService-Info.plist (if any)"
   fi
+  
+  echo ""
+  echo "Cleaning Xcode build cache..."
+  rm -rf ~/Library/Developer/Xcode/DerivedData/GermanTelc*
+  rm -rf ios/build
+  echo "✅ Cleaned Xcode DerivedData and build folder"
+  
+  echo ""
+  echo "Running pod install to update iOS dependencies..."
+  cd ios
+  export LANG=en_US.UTF-8
+  pod install
+  cd ..
+  echo "✅ Pod install completed"
 fi
 
 echo ""

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
     "android:german-b1": "react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
     "android:german-b2": "react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
     "android:english-b1": "react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",

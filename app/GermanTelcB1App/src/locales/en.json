@@ -470,6 +470,29 @@
     "part4": {
       "subtitle": "Common phrases that you can use in many situations",
       "itemType": "Part"
+    },
+    "b2Structure": {
+      "title": "Oral Exam Structure",
+      "menuTitle": "Oral Exam Structure & Guide",
+      "menuDescription": "Learn about the B2 oral exam structure, parts, and requirements",
+      "tabs": {
+        "overview": "Overview",
+        "examParts": "Exam Parts",
+        "hints": "Hints"
+      },
+      "sections": {
+        "howItWorks": "How It Works",
+        "expectations": "What Is Expected",
+        "hints": "Important Hints"
+      },
+      "labels": {
+        "duration": "Duration",
+        "participants": "Participants",
+        "description": "Description",
+        "sample": "Sample Task",
+        "topics": "Available Topics",
+        "exampleArticle": "Example Article"
+      }
     }
   },
   "results": {

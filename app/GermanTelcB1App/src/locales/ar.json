@@ -454,6 +454,29 @@
     "part4": {
       "subtitle": "عبارات شائعة يمكنك استخدامها في العديد من المواقف",
       "itemType": "جزء"
+    },
+    "b2Structure": {
+      "title": "هيكل الامتحان الشفوي",
+      "menuTitle": "هيكل ودليل الامتحان الشفوي",
+      "menuDescription": "تعرف على هيكل وأجزاء ومتطلبات الامتحان الشفوي B2",
+      "tabs": {
+        "overview": "نظرة عامة",
+        "examParts": "أجزاء الامتحان",
+        "hints": "تلميحات"
+      },
+      "sections": {
+        "howItWorks": "كيف يعمل",
+        "expectations": "ما هو متوقع",
+        "hints": "تلميحات مهمة"
+      },
+      "labels": {
+        "duration": "المدة",
+        "participants": "المشاركون",
+        "description": "الوصف",
+        "sample": "مهمة نموذجية",
+        "topics": "المواضيع المتاحة",
+        "exampleArticle": "مقال نموذجي"
+      }
     }
   },
   "results": {

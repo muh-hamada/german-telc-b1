@@ -34,12 +34,18 @@ fi
 # Set environment variable
 export EXAM_ID="$EXAM_ID"
 
-# Get app name from configuration
-APP_NAME="GermanTelcB1App"
+# Get app name from iOS folder structure (dynamically detect the current app folder)
+APP_NAME=$(ls ios | grep -E "^\w+App$" | grep -v ".xcode" | head -n 1)
 
+if [ -z "$APP_NAME" ]; then
+  echo "❌ Error: Could not detect iOS app folder"
+  exit 1
+fi
+
+echo "Detected app name: $APP_NAME"
 echo "Starting iOS archive for $APP_NAME..."
-xcodebuild -workspace ios/GermanTelcB1App.xcworkspace \
-           -scheme GermanTelcB1App \
+xcodebuild -workspace ios/${APP_NAME}.xcworkspace \
+           -scheme ${APP_NAME} \
            -configuration Release \
            -sdk iphoneos \
            -archivePath ios/build/${APP_NAME}.xcarchive archive
@@ -51,7 +57,7 @@ fi
 
 echo "Exporting archive..."
 xcodebuild -exportArchive \
-           -archivePath ios/build/GermanTelcB1App.xcarchive \
+           -archivePath ios/build/${APP_NAME}.xcarchive \
            -exportOptionsPlist ios/exportOptions.plist \
            -exportPath ios/build
 

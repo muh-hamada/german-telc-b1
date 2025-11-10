@@ -11,6 +11,7 @@ import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const SpeakingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -70,25 +71,44 @@ const SpeakingMenuScreen: React.FC = () => {
     navigation.navigate('SpeakingPart4', { groupIndex });
   };
 
+  const handleB2StructurePress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'b2-structure' });
+    navigation.navigate('B2SpeakingStructure');
+  };
+
+  const isB1 = activeExamConfig.level === 'B1';
+  const isB2 = activeExamConfig.level === 'B2';
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
-          <Text style={styles.cardDescription}>{t('speaking.part1.subtitle')}</Text>
-        </Card>
-        <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>{t('practice.speaking.part2')}</Text>
-          <Text style={styles.cardDescription}>{t('speaking.part2.subtitle')}</Text>
-        </Card>
-        <Card style={styles.card} onPress={handlePart3Press}>
-          <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
-          <Text style={styles.cardDescription}>{t('speaking.part3.subtitle')}</Text>
-        </Card>
-        <Card style={styles.card} onPress={handlePart4Press}>
-          <Text style={styles.cardTitle}>{t('practice.speaking.part4')}</Text>
-          <Text style={styles.cardDescription}>{t('speaking.part4.subtitle')}</Text>
-        </Card>
+        {isB2 && (
+          <Card style={styles.card} onPress={handleB2StructurePress}>
+            <Text style={styles.cardTitle}>{t('speaking.b2Structure.menuTitle')}</Text>
+            <Text style={styles.cardDescription}>{t('speaking.b2Structure.menuDescription')}</Text>
+          </Card>
+        )}
+        
+        {isB1 && (
+          <>
+            <Card style={styles.card} onPress={handlePart1Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.part1.subtitle')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handlePart2Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part2')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.part2.subtitle')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handlePart3Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.part3.subtitle')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handlePart4Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part4')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.part4.subtitle')}</Text>
+            </Card>
+          </>
+        )}
       <ExamSelectionModal
         visible={showPart4Modal}
         onClose={() => setShowPart4Modal(false)}

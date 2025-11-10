@@ -455,6 +455,29 @@
     "part4": {
       "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können",
       "itemType": "Teil"
+    },
+    "b2Structure": {
+      "title": "Mündliche Prüfungsstruktur",
+      "menuTitle": "Struktur & Leitfaden der mündlichen Prüfung",
+      "menuDescription": "Lernen Sie die Struktur, Teile und Anforderungen der mündlichen B2-Prüfung kennen",
+      "tabs": {
+        "overview": "Überblick",
+        "examParts": "Prüfungsteile",
+        "hints": "Hinweise"
+      },
+      "sections": {
+        "howItWorks": "Wie es funktioniert",
+        "expectations": "Was wird erwartet",
+        "hints": "Wichtige Hinweise"
+      },
+      "labels": {
+        "duration": "Dauer",
+        "participants": "Teilnehmer",
+        "description": "Beschreibung",
+        "sample": "Beispielaufgabe",
+        "topics": "Verfügbare Themen",
+        "exampleArticle": "Beispielartikel"
+      }
     }
   },
   "results": {

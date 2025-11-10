@@ -34,6 +34,7 @@ export type HomeStackParamList = {
   SpeakingPart2: { topicId: number };
   SpeakingPart3: { scenarioId: number };
   SpeakingPart4: { groupIndex: number };
+  B2SpeakingStructure: undefined;
   ListeningMenu: undefined;
   ListeningPart1: undefined;
   ListeningPart2: undefined;

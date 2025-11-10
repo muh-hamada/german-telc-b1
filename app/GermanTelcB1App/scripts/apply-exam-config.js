@@ -174,8 +174,21 @@ function updateAndroidStrings(config) {
   }
 }
 
+function getCurrentiOSAppFolderName() {
+  const iosPath = path.join(__dirname, '../ios');
+  const folders = fs.readdirSync(iosPath);
+  // Find the app folder (ends with App and is a directory, but not xcodeproj or xcworkspace)
+  const appFolder = folders.find(f => 
+    f.match(/\w+App$/) && 
+    !f.includes('.xcode') && 
+    fs.statSync(path.join(iosPath, f)).isDirectory()
+  );
+  return appFolder || 'GermanTelcB1App'; // fallback
+}
+
 function updateiOSConfig(config) {
-  const infoPlistPath = path.join(__dirname, '../ios/GermanTelcB1App/Info.plist');
+  const currentAppFolder = getCurrentiOSAppFolderName();
+  const infoPlistPath = path.join(__dirname, `../ios/${currentAppFolder}/Info.plist`);
   
   if (!fs.existsSync(infoPlistPath)) {
     console.warn('⚠️  Info.plist not found, skipping iOS config update');
@@ -198,7 +211,7 @@ function updateiOSConfig(config) {
     );
     
     fs.writeFileSync(infoPlistPath, infoPlist);
-    console.log('✅ Updated ios/GermanTelcB1App/Info.plist');
+    console.log(`✅ Updated ios/${currentAppFolder}/Info.plist`);
   } catch (error) {
     console.error('❌ Failed to update Info.plist:', error.message);
     throw error;
@@ -242,6 +255,9 @@ function updateAndroidNativeFiles(config) {
 }
 
 function updateiOSNativeFiles(config) {
+  const currentAppFolder = getCurrentiOSAppFolderName();
+  const currentProjectName = currentAppFolder; // Assume project name matches folder name initially
+  
   // Update Podfile
   const podfilePath = path.join(__dirname, '../ios/Podfile');
   if (fs.existsSync(podfilePath)) {
@@ -260,7 +276,7 @@ function updateiOSNativeFiles(config) {
   }
 
   // Update AppDelegate.swift
-  const appDelegatePath = path.join(__dirname, '../ios/GermanTelcB1App/AppDelegate.swift');
+  const appDelegatePath = path.join(__dirname, `../ios/${currentAppFolder}/AppDelegate.swift`);
   if (fs.existsSync(appDelegatePath)) {
     try {
       let appDelegate = fs.readFileSync(appDelegatePath, 'utf8');
@@ -276,39 +292,152 @@ function updateiOSNativeFiles(config) {
     }
   }
 
-  // Update project.pbxproj (Xcode project file)
-  const pbxprojPath = path.join(__dirname, '../ios/GermanTelcB1App.xcodeproj/project.pbxproj');
-  if (fs.existsSync(pbxprojPath)) {
-    try {
-      let pbxproj = fs.readFileSync(pbxprojPath, 'utf8');
-      // Replace all occurrences of app name (match pattern: GermanTelcB1App, GermanTelcB2App, EnglishTelcB1App, etc.)
-      pbxproj = pbxproj.replace(
-        /\w+TelcB\d+App/g,
-        config.appName
-      );
-      fs.writeFileSync(pbxprojPath, pbxproj);
-      console.log('✅ Updated project.pbxproj');
-    } catch (error) {
-      console.error('❌ Failed to update project.pbxproj:', error.message);
-      throw error;
+  // Find and update project.pbxproj (Xcode project file)
+  const iosPath = path.join(__dirname, '../ios');
+  const xcodeprojs = fs.readdirSync(iosPath).filter(f => f.endsWith('.xcodeproj'));
+  
+  if (xcodeprojs.length > 0) {
+    const pbxprojPath = path.join(iosPath, xcodeprojs[0], 'project.pbxproj');
+    if (fs.existsSync(pbxprojPath)) {
+      try {
+        let pbxproj = fs.readFileSync(pbxprojPath, 'utf8');
+        
+        // Replace all occurrences of app name (match pattern: GermanTelcB1App, GermanTelcB2App, EnglishTelcB1App, etc.)
+        pbxproj = pbxproj.replace(
+          /\w+TelcB\d+App/g,
+          config.appName
+        );
+        
+        // Update PRODUCT_BUNDLE_IDENTIFIER for both Debug and Release
+        pbxproj = pbxproj.replace(
+          /PRODUCT_BUNDLE_IDENTIFIER = [^;]+;/g,
+          `PRODUCT_BUNDLE_IDENTIFIER = ${config.bundleId.ios};`
+        );
+        
+        // Update INFOPLIST_KEY_CFBundleDisplayName for both Debug and Release
+        pbxproj = pbxproj.replace(
+          /INFOPLIST_KEY_CFBundleDisplayName = "[^"]*";/g,
+          `INFOPLIST_KEY_CFBundleDisplayName = "${config.displayName}";`
+        );
+        
+        fs.writeFileSync(pbxprojPath, pbxproj);
+        console.log('✅ Updated project.pbxproj (app name, bundle ID, and display name)');
+      } catch (error) {
+        console.error('❌ Failed to update project.pbxproj:', error.message);
+        throw error;
+      }
+    }
+    
+    // Update xcscheme - find existing scheme file
+    const xcschemesPath = path.join(iosPath, xcodeprojs[0], 'xcshareddata/xcschemes');
+    if (fs.existsSync(xcschemesPath)) {
+      const schemes = fs.readdirSync(xcschemesPath).filter(f => f.endsWith('.xcscheme'));
+      if (schemes.length > 0) {
+        const oldSchemePath = path.join(xcschemesPath, schemes[0]);
+        const newSchemePath = path.join(xcschemesPath, `${config.appName}.xcscheme`);
+        
+        try {
+          let xcscheme = fs.readFileSync(oldSchemePath, 'utf8');
+          // Replace all occurrences of app name
+          xcscheme = xcscheme.replace(
+            /\w+TelcB\d+App/g,
+            config.appName
+          );
+          fs.writeFileSync(newSchemePath, xcscheme);
+          
+          // Delete old scheme file if it's different
+          if (oldSchemePath !== newSchemePath) {
+            fs.unlinkSync(oldSchemePath);
+          }
+          
+          console.log(`✅ Updated ${config.appName}.xcscheme`);
+        } catch (error) {
+          console.error('❌ Failed to update xcscheme:', error.message);
+          throw error;
+        }
+      }
     }
   }
-
-  // Update xcscheme
-  const xcschemePath = path.join(__dirname, '../ios/GermanTelcB1App.xcodeproj/xcshareddata/xcschemes/GermanTelcB1App.xcscheme');
-  if (fs.existsSync(xcschemePath)) {
-    try {
-      let xcscheme = fs.readFileSync(xcschemePath, 'utf8');
-      // Replace all occurrences of app name
-      xcscheme = xcscheme.replace(
-        /\w+TelcB\d+App/g,
-        config.appName
-      );
-      fs.writeFileSync(xcschemePath, xcscheme);
-      console.log('✅ Updated GermanTelcB1App.xcscheme');
-    } catch (error) {
-      console.error('❌ Failed to update xcscheme:', error.message);
-      throw error;
+  
+  // Update workspace file - rewrite it completely to avoid duplicates
+  const workspaces = fs.readdirSync(iosPath).filter(f => f.endsWith('.xcworkspace'));
+  if (workspaces.length > 0) {
+    const workspaceDataPath = path.join(iosPath, workspaces[0], 'contents.xcworkspacedata');
+    if (fs.existsSync(workspaceDataPath)) {
+      try {
+        // Rewrite the workspace file with correct structure
+        const workspaceContent = `<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:${config.appName}.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
+`;
+        fs.writeFileSync(workspaceDataPath, workspaceContent);
+        console.log('✅ Updated workspace contents');
+      } catch (error) {
+        console.error('❌ Failed to update workspace:', error.message);
+        throw error;
+      }
+    }
+  }
+  
+  // Rename folders and files at the end after all content updates
+  console.log('\n📦 Renaming iOS folders and files...');
+  
+  // Rename app folder
+  const newAppFolderPath = path.join(iosPath, config.appName);
+  const currentAppFolderPath = path.join(iosPath, currentAppFolder);
+  if (currentAppFolder !== config.appName && fs.existsSync(currentAppFolderPath)) {
+    // Remove target if it exists
+    if (fs.existsSync(newAppFolderPath)) {
+      fs.rmSync(newAppFolderPath, { recursive: true, force: true });
+    }
+    fs.renameSync(currentAppFolderPath, newAppFolderPath);
+    console.log(`✅ Renamed ${currentAppFolder} → ${config.appName}`);
+  }
+  
+  // Rename entitlements file
+  const oldEntitlementsPath = path.join(newAppFolderPath, `${currentAppFolder}.entitlements`);
+  const newEntitlementsPath = path.join(newAppFolderPath, `${config.appName}.entitlements`);
+  if (fs.existsSync(oldEntitlementsPath) && oldEntitlementsPath !== newEntitlementsPath) {
+    // Remove target if it exists
+    if (fs.existsSync(newEntitlementsPath)) {
+      fs.unlinkSync(newEntitlementsPath);
+    }
+    fs.renameSync(oldEntitlementsPath, newEntitlementsPath);
+    console.log(`✅ Renamed entitlements file`);
+  }
+  
+  // Rename xcodeproj
+  if (xcodeprojs.length > 0) {
+    const oldProjPath = path.join(iosPath, xcodeprojs[0]);
+    const newProjPath = path.join(iosPath, `${config.appName}.xcodeproj`);
+    if (oldProjPath !== newProjPath && fs.existsSync(oldProjPath)) {
+      // Remove target if it exists
+      if (fs.existsSync(newProjPath)) {
+        fs.rmSync(newProjPath, { recursive: true, force: true });
+      }
+      fs.renameSync(oldProjPath, newProjPath);
+      console.log(`✅ Renamed ${xcodeprojs[0]} → ${config.appName}.xcodeproj`);
+    }
+  }
+  
+  // Rename xcworkspace
+  if (workspaces.length > 0) {
+    const oldWorkspacePath = path.join(iosPath, workspaces[0]);
+    const newWorkspacePath = path.join(iosPath, `${config.appName}.xcworkspace`);
+    if (oldWorkspacePath !== newWorkspacePath && fs.existsSync(oldWorkspacePath)) {
+      // Remove target if it exists
+      if (fs.existsSync(newWorkspacePath)) {
+        fs.rmSync(newWorkspacePath, { recursive: true, force: true });
+      }
+      fs.renameSync(oldWorkspacePath, newWorkspacePath);
+      console.log(`✅ Renamed ${workspaces[0]} → ${config.appName}.xcworkspace`);
     }
   }
 }
