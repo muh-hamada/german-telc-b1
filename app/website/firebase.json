@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "site": "telc-exam-preperation",
     "ignore": [
       "firebase.json",
       "**/.*",

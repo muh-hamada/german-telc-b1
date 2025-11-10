@@ -60,7 +60,7 @@ if [ "$PLATFORM" = "android" ]; then
   LEVEL=$(echo "$EXAM_ID" | grep -o 'b[12]')
   
   if [ -n "$LEVEL" ]; then
-    LOGO_SOURCE="../../logo-${LEVEL}.png"
+    LOGO_SOURCE="../../launcher-icon-${LEVEL}.png"
     
     if [ -f "$LOGO_SOURCE" ]; then
       # Copy logo to all Android mipmap directories

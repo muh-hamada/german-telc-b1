@@ -43,7 +43,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'GermanTelcB1App' do
+target 'GermanTelcB2App' do
   config = use_native_modules!
 
   # Firebase requires static frameworks

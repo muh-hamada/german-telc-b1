@@ -11,20 +11,21 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>1. Acceptance of Terms</h2>
           <p>
-            Welcome to German TELC B1. By accessing or using our mobile application, you agree to be bound 
-            by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our app.
+            Welcome to TELC Exam Preparation. By accessing or using our mobile applications, you agree to be bound 
+            by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our apps.
           </p>
           <p>
-            These Terms constitute a legally binding agreement between you and German TELC B1 ("we," "us," or "our") 
-            regarding your use of the application.
+            These Terms constitute a legally binding agreement between you and TELC Exam Preparation ("we," "us," or "our") 
+            regarding your use of our applications across different levels (B1, B2) and languages (German, English, and others).
           </p>
         </section>
 
         <section>
           <h2>2. Description of Service</h2>
           <p>
-            German TELC B1 is a mobile application designed to help users prepare for the TELC B1 German 
-            language examination. The app provides:
+            TELC Exam Preparation offers a suite of mobile applications designed to help users prepare for TELC 
+            language examinations across different levels (B1, B2) and languages (German, English, and others). 
+            Our apps provide:
           </p>
           <ul>
             <li>Reading comprehension exercises</li>
@@ -34,6 +35,7 @@ const TermsOfService: React.FC = () => {
             <li>Grammar exercises</li>
             <li>Progress tracking and statistics</li>
             <li>Mock exam simulations</li>
+            <li>Level-specific content for B1, B2, and more</li>
           </ul>
         </section>
 
@@ -84,18 +86,18 @@ const TermsOfService: React.FC = () => {
           <h2>5. Intellectual Property Rights</h2>
           <h3>5.1 Our Content</h3>
           <p>
-            All content in the app, including but not limited to text, graphics, logos, audio clips, and 
-            software, is the property of German TELC B1 or its content suppliers and is protected by 
+            All content in our apps, including but not limited to text, graphics, logos, audio clips, and 
+            software, is the property of TELC Exam Preparation or its content suppliers and is protected by 
             international copyright, trademark, and other intellectual property laws.
           </p>
 
           <h3>5.2 License to Use</h3>
           <p>
-            We grant you a limited, non-exclusive, non-transferable license to access and use the app 
+            We grant you a limited, non-exclusive, non-transferable license to access and use our apps 
             for personal, non-commercial purposes. This license does not include:
           </p>
           <ul>
-            <li>Resale or commercial use of the app or its content</li>
+            <li>Resale or commercial use of the apps or their content</li>
             <li>Collection and use of product listings or descriptions</li>
             <li>Making derivative works</li>
             <li>Downloading or copying account information for the benefit of another party</li>
@@ -105,24 +107,24 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>6. Educational Content Disclaimer</h2>
           <p className="important-note">
-            <strong>Important:</strong> German TELC B1 is a preparation tool and is not affiliated with, 
+            <strong>Important:</strong> TELC Exam Preparation apps are preparation tools and are not affiliated with, 
             endorsed by, or officially connected to TELC GmbH or any official TELC examination body.
           </p>
           <p>
-            While we strive to provide accurate and helpful preparation materials:
+            While we strive to provide accurate and helpful preparation materials across all levels and languages:
           </p>
           <ul>
             <li>We do not guarantee exam success</li>
             <li>We do not issue official certifications</li>
             <li>Practice materials may not exactly reflect actual exam content</li>
-            <li>Results in the app do not predict actual exam performance</li>
+            <li>Results in our apps do not predict actual exam performance</li>
           </ul>
         </section>
 
         <section>
           <h2>7. Payment and Subscriptions</h2>
           <p>
-            Currently, German TELC B1 is free to use. If we introduce paid features or subscriptions 
+            Currently, our TELC Exam Preparation apps are free to use. If we introduce paid features or subscriptions 
             in the future:
           </p>
           <ul>
@@ -136,14 +138,14 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>8. Data and Privacy</h2>
           <p>
-            Your use of the app is also governed by our Privacy Policy. By using the app, you consent 
+            Your use of our apps is also governed by our Privacy Policy. By using our apps, you consent 
             to our collection and use of personal data as outlined in the Privacy Policy.
           </p>
           <p>
             We collect and use your data solely for:
           </p>
           <ul>
-            <li>Saving your exam preparation progress</li>
+            <li>Saving your exam preparation progress across different apps and levels</li>
             <li>Providing personalized learning experiences</li>
             <li>Improving app functionality</li>
             <li>Providing customer support</li>
@@ -154,7 +156,7 @@ const TermsOfService: React.FC = () => {
           <h2>9. Disclaimers and Limitations of Liability</h2>
           <h3>9.1 "As Is" Basis</h3>
           <p>
-            The app is provided on an "as is" and "as available" basis without warranties of any kind, 
+            Our apps are provided on an "as is" and "as available" basis without warranties of any kind, 
             either express or implied, including but not limited to:
           </p>
           <ul>
@@ -166,12 +168,12 @@ const TermsOfService: React.FC = () => {
 
           <h3>9.2 Limitation of Liability</h3>
           <p>
-            To the fullest extent permitted by law, German TELC B1 shall not be liable for:
+            To the fullest extent permitted by law, TELC Exam Preparation shall not be liable for:
           </p>
           <ul>
             <li>Any indirect, incidental, special, consequential, or punitive damages</li>
             <li>Loss of profits, data, use, or other intangible losses</li>
-            <li>Damages resulting from your use or inability to use the app</li>
+            <li>Damages resulting from your use or inability to use our apps</li>
             <li>Unauthorized access to or alteration of your data</li>
           </ul>
         </section>
@@ -179,12 +181,12 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>10. Indemnification</h2>
           <p>
-            You agree to indemnify, defend, and hold harmless German TELC B1 and its affiliates, officers, 
+            You agree to indemnify, defend, and hold harmless TELC Exam Preparation and its affiliates, officers, 
             directors, employees, and agents from any claims, liabilities, damages, losses, and expenses 
             arising out of or related to:
           </p>
           <ul>
-            <li>Your use or misuse of the app</li>
+            <li>Your use or misuse of our apps</li>
             <li>Your violation of these Terms</li>
             <li>Your violation of any rights of another party</li>
             <li>Your violation of any applicable laws or regulations</li>
@@ -197,13 +199,13 @@ const TermsOfService: React.FC = () => {
             We reserve the right to:
           </p>
           <ul>
-            <li>Modify or discontinue the app (or any part) at any time</li>
+            <li>Modify or discontinue any of our apps (or any part) at any time</li>
             <li>Change these Terms at any time</li>
             <li>Impose limits on certain features</li>
-            <li>Restrict access to parts or all of the app</li>
+            <li>Restrict access to parts or all of our apps</li>
           </ul>
           <p>
-            We will provide notice of significant changes to these Terms. Your continued use of the app 
+            We will provide notice of significant changes to these Terms. Your continued use of our apps 
             after such notice constitutes acceptance of the modified Terms.
           </p>
         </section>
@@ -216,7 +218,7 @@ const TermsOfService: React.FC = () => {
           </p>
           <ul>
             <li>Contacting us at muhammad.aref.ali.hamada@gmail.com</li>
-            <li>Following the account deletion process in the app</li>
+            <li>Following the account deletion process in any of our apps</li>
           </ul>
 
           <h3>12.2 By Us</h3>
@@ -268,7 +270,7 @@ const TermsOfService: React.FC = () => {
           <h2>16. Entire Agreement</h2>
           <p>
             These Terms, together with our Privacy Policy, constitute the entire agreement between you and 
-            German TELC B1 regarding the use of the app, superseding any prior agreements.
+            TELC Exam Preparation regarding the use of our apps, superseding any prior agreements.
           </p>
         </section>
       </div>

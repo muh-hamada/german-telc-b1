@@ -1,21 +1,23 @@
-# German TELC B1 - Website
+# TELC Exam Preparation - Website
 
-Beautiful, modern landing page for the German TELC B1 exam preparation app.
+Beautiful, modern landing page for the TELC Exam Preparation apps suite, supporting multiple levels (B1, B2) and languages (German, English).
 
 ## 🚀 Features
 
 - **Modern Design**: Inspired by top app landing pages with gradient backgrounds and smooth animations
 - **Responsive**: Fully responsive design that works on all devices
 - **Complete Legal Pages**: Privacy Policy, Terms of Service, and Data Deletion instructions
+- **Multi-Level Support**: Showcases apps for different TELC levels (B1, B2)
+- **Multi-Language Support**: Highlights German, English, and upcoming language apps
 - **SEO Optimized**: Built with best practices for search engine optimization
 - **Fast Loading**: Optimized for performance with lazy loading and caching
 
 ## 📱 Pages
 
-1. **Home** - Hero section with app features and download buttons
-2. **Privacy Policy** - Comprehensive privacy information
+1. **Home** - Hero section with app features, available apps showcase, and download buttons
+2. **Privacy Policy** - Comprehensive privacy information for all apps
 3. **Terms of Service** - Legal terms and user agreements
-4. **Data Deletion** - Instructions for requesting data deletion
+4. **Data Deletion** - Instructions for requesting data deletion across all apps
 
 ## 🛠️ Technology Stack
 
@@ -63,18 +65,24 @@ npm run build
 firebase deploy
 ```
 
-3. Your website will be live at: `https://telc-b1-german.web.app`
+3. Your website will be live at: `https://telc-exam-preperation.web.app`
 
 ## 📝 Customization
 
 ### Update App Store Links
 
-Edit `src/pages/Home.tsx` and replace the `#android` and `#ios` href values with your actual app store URLs:
+Edit `src/pages/Home.tsx` and `src/components/Footer.tsx` to add or update app store URLs for new apps:
 
 ```tsx
 <a href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME" ...>
 <a href="https://apps.apple.com/app/YOUR_APP_ID" ...>
 ```
+
+### Add New Apps
+
+To add support for new levels or languages, update:
+- `src/pages/Home.tsx` - Add new app cards in the "Available Apps" section
+- `src/components/Footer.tsx` - Add links to new app stores
 
 ### Add App Screenshots
 
@@ -137,4 +145,4 @@ For questions or issues, contact: muhammad.aref.ali.hamada@gmail.com
 
 ## 📄 License
 
-All rights reserved. This website is for the German TELC B1 app.
+All rights reserved. This website is for the TELC Exam Preparation apps suite.

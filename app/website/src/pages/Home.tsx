@@ -8,10 +8,10 @@ const Home: React.FC = () => {
       <section className="hero">
         <div className="container hero-container">
           <div className="hero-content">
-            <h1 className="hero-title">Master Your German TELC B1 Exam.</h1>
+            <h1 className="hero-title">Master Your TELC Exam.</h1>
             <p className="hero-subtitle">
-              Get the best of exam preparation, all in one place. 
-              Practice reading, writing, listening, and speaking with our comprehensive app.
+              Comprehensive exam preparation for all levels and languages. 
+              Practice reading, writing, listening, and speaking with our specialized apps designed for B1, B2, and more.
             </p>
             <div className="download-buttons">
               <a 
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/hero-image.png" alt="German TELC B1" />
+            <img src="/hero-image.png" alt="TELC Exam Preparation" />
           </div>
         </div>
       </section>
@@ -90,26 +90,26 @@ const Home: React.FC = () => {
       {/* About Section */}
       <section className="about">
         <div className="container">
-          <h2 className="section-title">About the App</h2>
+          <h2 className="section-title">About Our Apps</h2>
           <div className="about-content">
             <p>
-              German TELC B1 is your comprehensive preparation tool for the TELC B1 exam. 
-              Our app provides structured practice for all exam sections including reading, 
+              Our TELC Exam Preparation apps are comprehensive tools designed to help you succeed in your language certification journey. 
+              We offer specialized apps for different levels and languages, providing structured practice for all exam sections including reading, 
               writing, listening, and speaking components.
             </p>
             <p>
               With authentic exam-style questions, detailed explanations, and AI-powered 
-              feedback, you'll be fully prepared to achieve your B1 certification. Practice 
+              feedback, you'll be fully prepared to achieve your certification. Practice 
               anytime, anywhere, and track your progress as you prepare for success.
             </p>
             <div className="stats">
               <div className="stat-item">
-                <h3>4 Sections</h3>
-                <p>Complete Exam Coverage</p>
+                <h3>Multiple Levels</h3>
+                <p>B1, B2 & More</p>
               </div>
               <div className="stat-item">
-                <h3>100+ Exercises</h3>
-                <p>Practice Questions</p>
+                <h3>Multiple Languages</h3>
+                <p>German, English & More</p>
               </div>
               <div className="stat-item">
                 <h3>Track Progress</h3>
@@ -120,13 +120,46 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Available Apps Section */}
+      <section className="features">
+        <div className="container">
+          <h2 className="section-title">Available Apps</h2>
+          <div className="features-grid">
+            <div className="feature-item">
+              <div className="feature-icon">🇩🇪</div>
+              <h3>German B1</h3>
+              <p>Now available on Android! Complete preparation for TELC German B1 exam with all sections covered.</p>
+              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" style={{color: '#667eea', textDecoration: 'none', fontWeight: 'bold'}}>Download Now →</a>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">🇩🇪</div>
+              <h3>German B2</h3>
+              <p>Coming soon! Advanced level preparation for TELC German B2 exam.</p>
+              <span style={{color: '#999'}}>Coming Soon</span>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">🇬🇧</div>
+              <h3>English B1</h3>
+              <p>Coming soon! Comprehensive preparation for TELC English B1 exam.</p>
+              <span style={{color: '#999'}}>Coming Soon</span>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">🇬🇧</div>
+              <h3>English B2</h3>
+              <p>Coming soon! Advanced level preparation for TELC English B2 exam.</p>
+              <span style={{color: '#999'}}>Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta">
         <div className="container">
           <h2>Start Your Preparation Today</h2>
-          <p>Download the app and begin your journey to TELC B1 certification</p>
+          <p>Download our apps and begin your journey to TELC certification</p>
           <div className="download-buttons">
-            <a href="#android" className="download-btn android-btn">
+            <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" className="download-btn android-btn">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
               </svg>

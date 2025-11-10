@@ -11,9 +11,9 @@ const DataDeletion: React.FC = () => {
         <section>
           <h2>1. Your Right to Data Deletion</h2>
           <p>
-            At German TELC B1, we respect your privacy and your right to control your personal data. 
+            At TELC Exam Preparation, we respect your privacy and your right to control your personal data. 
             You have the right to request the deletion of your account and all associated personal data 
-            at any time.
+            from any of our apps (German B1, B2, English B1, B2, etc.) at any time.
           </p>
         </section>
 
@@ -42,22 +42,24 @@ const DataDeletion: React.FC = () => {
             </div>
             <p>Please include the following information:</p>
             <ul>
-              <li>Subject line: "Data Deletion Request - German TELC B1"</li>
+              <li>Subject line: "Data Deletion Request - TELC Exam Preparation"</li>
               <li>Your registered email address</li>
               <li>Your display name (if applicable)</li>
+              <li>Which app(s) you're using (German B1, B2, English B1, B2, etc.)</li>
               <li>Confirmation that you want to permanently delete your account</li>
             </ul>
             <p className="example">
               <strong>Example Email:</strong><br />
               <em>
-                Subject: Data Deletion Request - German TELC B1<br />
+                Subject: Data Deletion Request - TELC Exam Preparation<br />
                 <br />
                 Hello,<br />
                 <br />
-                I would like to request the permanent deletion of my German TELC B1 account and all associated data.<br />
+                I would like to request the permanent deletion of my TELC Exam Preparation account and all associated data across all apps.<br />
                 <br />
                 Registered Email: [your-email@example.com]<br />
                 Display Name: [Your Name]<br />
+                App(s): German B1<br />
                 <br />
                 I understand this action is irreversible.<br />
                 <br />
@@ -113,14 +115,14 @@ const DataDeletion: React.FC = () => {
           <h3>For Google:</h3>
           <ol>
             <li>Go to your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account Permissions</a></li>
-            <li>Find "German TELC B1"</li>
+            <li>Find "TELC Exam Preparation" or the specific app name (e.g., "German TELC B1")</li>
             <li>Click "Remove Access"</li>
           </ol>
 
           <h3>For Facebook:</h3>
           <ol>
             <li>Go to Facebook Settings → Apps and Websites</li>
-            <li>Find "German TELC B1"</li>
+            <li>Find "TELC Exam Preparation" or the specific app name (e.g., "German TELC B1")</li>
             <li>Click "Remove"</li>
           </ol>
         </section>
@@ -167,7 +169,7 @@ const DataDeletion: React.FC = () => {
           <p>Please choose one of the methods above to submit your request.</p>
           <div className="cta-buttons">
             <a 
-              href="mailto:muhammad.aref.ali.hamada@gmail.com?subject=Data%20Deletion%20Request%20-%20German%20TELC%20B1" 
+              href="mailto:muhammad.aref.ali.hamada@gmail.com?subject=Data%20Deletion%20Request%20-%20TELC%20Exam%20Preparation" 
               className="cta-button primary"
             >
               Send Deletion Request Email

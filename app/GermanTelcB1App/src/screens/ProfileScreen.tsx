@@ -22,7 +22,6 @@ import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
-import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { ProfileStackParamList } from '../types/navigation.types';

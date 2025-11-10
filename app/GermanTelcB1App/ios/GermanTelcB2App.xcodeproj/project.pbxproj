@@ -7,53 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01538EEFDBF7A76BFE2AF2B1 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D12920AD7D41DC5F98A2D1B1 /* GermanTelcB1App.framework */; };
-		0C079A0265000EB5CD17C9D1 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E4199054A0017F838D09E /* GermanTelcB1App.framework */; };
-		0DFC3C83996888A1A62F7C2D /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ED97B290D990A151C75FD4 /* GermanTelcB1App.framework */; };
+		01538EEFDBF7A76BFE2AF2B1 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D12920AD7D41DC5F98A2D1B1 /* GermanTelcB2App.framework */; };
+		0C079A0265000EB5CD17C9D1 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E4199054A0017F838D09E /* GermanTelcB2App.framework */; };
+		0DFC3C83996888A1A62F7C2D /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ED97B290D990A151C75FD4 /* GermanTelcB2App.framework */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2D37368A93F57F7A73730184 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A9B32FC2593F5EC106481 /* GermanTelcB1App.framework */; };
-		42023255D61B1A4D1C59795B /* Pods_GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912CECC8BF9BFEE399D4B9EF /* Pods_GermanTelcB1App.framework */; };
-		51EE0251C5B300BABC37E40C /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB6E298B75B40B310AF888 /* GermanTelcB1App.framework */; };
-		6C7C5DABD156932395065E52 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6344D98064412B1F3469D6 /* GermanTelcB1App.framework */; };
-		75F9B1D271156E1FEA9832D1 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */; };
+		2D37368A93F57F7A73730184 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A9B32FC2593F5EC106481 /* GermanTelcB2App.framework */; };
+		42023255D61B1A4D1C59795B /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912CECC8BF9BFEE399D4B9EF /* GermanTelcB2App.framework */; };
+		51EE0251C5B300BABC37E40C /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB6E298B75B40B310AF888 /* GermanTelcB2App.framework */; };
+		67B8B77372D1F6570680C904 /* Pods_GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */; };
+		6C7C5DABD156932395065E52 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6344D98064412B1F3469D6 /* GermanTelcB2App.framework */; };
+		75F9B1D271156E1FEA9832D1 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A4272D7E5EEE334C649CC /* GermanTelcB2App.framework */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
-		7B2F3F030B95DD162B574488 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F2B94A9FCA71115FD50E04 /* GermanTelcB1App.framework */; };
-		7DACAA6F96BB1775F88FEEAE /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503EAF87281FB22A5816DF80 /* GermanTelcB1App.framework */; };
+		7B2F3F030B95DD162B574488 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F2B94A9FCA71115FD50E04 /* GermanTelcB2App.framework */; };
+		7DACAA6F96BB1775F88FEEAE /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503EAF87281FB22A5816DF80 /* GermanTelcB2App.framework */; };
+		7FA946E94AC4713F5DA30938 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B19F9ECF52788AB4D6E0F1 /* GermanTelcB2App.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		ACF7E3D7F688A58E0BBE924F /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB1App.framework */; };
+		8A224728DBE33C34FF7DA995 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B311BF6471508DC91E51C2 /* GermanTelcB2App.framework */; };
+		8B69D786410430FCA064918F /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4043C2E9E1ADE301CB4C205 /* GermanTelcB2App.framework */; };
+		ACF7E3D7F688A58E0BBE924F /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB2App.framework */; };
+		AF4444EDEA12F47956F37342 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC252409D42814D56B2BCAC /* GermanTelcB2App.framework */; };
 		B71D2EDD5DD90C6AADF702F1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		BC340A75883FB3A2A175A4FA /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC7417B01D0C32DF23A6C87 /* GermanTelcB1App.framework */; };
-		CBBC13E18AC1E638455B0CF0 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5072B647BB8353F4C72312 /* GermanTelcB1App.framework */; };
+		BC340A75883FB3A2A175A4FA /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC7417B01D0C32DF23A6C87 /* GermanTelcB2App.framework */; };
+		CBBC13E18AC1E638455B0CF0 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5072B647BB8353F4C72312 /* GermanTelcB2App.framework */; };
 		EADD4CD92EB1870A003DB545 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EADD4CD82EB1870A003DB545 /* GoogleService-Info.plist */; };
-		EE2D2ECB1EAF27E308E95B14 /* GermanTelcB1App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9C2DECFAA88BC0D3F88062 /* GermanTelcB1App.framework */; };
+		EE2D2ECB1EAF27E308E95B14 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9C2DECFAA88BC0D3F88062 /* GermanTelcB2App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* GermanTelcB1App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GermanTelcB1App.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GermanTelcB1App/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GermanTelcB1App/Info.plist; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = GermanTelcB1App/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		2A9C2DECFAA88BC0D3F88062 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E7A9B32FC2593F5EC106481 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-GermanTelcB1App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB1App.debug.xcconfig"; path = "Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App.debug.xcconfig"; sourceTree = "<group>"; };
-		503EAF87281FB22A5816DF80 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5709B34CF0A7D63546082F79 /* Pods-GermanTelcB1App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB1App.release.xcconfig"; path = "Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App.release.xcconfig"; sourceTree = "<group>"; };
-		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GermanTelcB1App/AppDelegate.swift; sourceTree = "<group>"; };
-		7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB6E298B75B40B310AF888 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GermanTelcB1App/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8CC7417B01D0C32DF23A6C87 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		912CECC8BF9BFEE399D4B9EF /* Pods_GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99ED97B290D990A151C75FD4 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA5072B647BB8353F4C72312 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D12920AD7D41DC5F98A2D1B1 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09B311BF6471508DC91E51C2 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* GermanTelcB2App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GermanTelcB2App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GermanTelcB2App/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GermanTelcB2App/Info.plist; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = GermanTelcB2App/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2A9C2DECFAA88BC0D3F88062 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7A9B32FC2593F5EC106481 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4392A12AC88292D35C810B /* Pods-GermanTelcB2App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB2App.debug.xcconfig"; path = "Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App.debug.xcconfig"; sourceTree = "<group>"; };
+		4FC252409D42814D56B2BCAC /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		503EAF87281FB22A5816DF80 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5709B34CF0A7D63546082F79 /* Pods-GermanTelcB2App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GermanTelcB2App.release.xcconfig"; path = "Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App.release.xcconfig"; sourceTree = "<group>"; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GermanTelcB2App/AppDelegate.swift; sourceTree = "<group>"; };
+		7E1A4272D7E5EEE334C649CC /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB6E298B75B40B310AF888 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GermanTelcB2App/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82B19F9ECF52788AB4D6E0F1 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC7417B01D0C32DF23A6C87 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		912CECC8BF9BFEE399D4B9EF /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99ED97B290D990A151C75FD4 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA5072B647BB8353F4C72312 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D12920AD7D41DC5F98A2D1B1 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4043C2E9E1ADE301CB4C205 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADD4CD82EB1870A003DB545 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EADD4CDA2EB2B8CB003DB545 /* GermanTelcB1App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GermanTelcB1App.entitlements; path = GermanTelcB1App/GermanTelcB1App.entitlements; sourceTree = "<group>"; };
+		EADD4CDA2EB2B8CB003DB545 /* GermanTelcB2App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GermanTelcB2App.entitlements; path = GermanTelcB2App/GermanTelcB2App.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		EF9E4199054A0017F838D09E /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2F2B94A9FCA71115FD50E04 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE6344D98064412B1F3469D6 /* GermanTelcB1App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB1App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF9E4199054A0017F838D09E /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F2B94A9FCA71115FD50E04 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6344D98064412B1F3469D6 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,30 +71,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F9B1D271156E1FEA9832D1 /* GermanTelcB1App.framework in Frameworks */,
-				CBBC13E18AC1E638455B0CF0 /* GermanTelcB1App.framework in Frameworks */,
-				7B2F3F030B95DD162B574488 /* GermanTelcB1App.framework in Frameworks */,
-				ACF7E3D7F688A58E0BBE924F /* GermanTelcB1App.framework in Frameworks */,
-				7DACAA6F96BB1775F88FEEAE /* GermanTelcB1App.framework in Frameworks */,
-				0DFC3C83996888A1A62F7C2D /* GermanTelcB1App.framework in Frameworks */,
-				51EE0251C5B300BABC37E40C /* GermanTelcB1App.framework in Frameworks */,
-				0C079A0265000EB5CD17C9D1 /* GermanTelcB1App.framework in Frameworks */,
-				EE2D2ECB1EAF27E308E95B14 /* GermanTelcB1App.framework in Frameworks */,
-				BC340A75883FB3A2A175A4FA /* GermanTelcB1App.framework in Frameworks */,
-				6C7C5DABD156932395065E52 /* GermanTelcB1App.framework in Frameworks */,
-				01538EEFDBF7A76BFE2AF2B1 /* GermanTelcB1App.framework in Frameworks */,
-				2D37368A93F57F7A73730184 /* GermanTelcB1App.framework in Frameworks */,
-				42023255D61B1A4D1C59795B /* Pods_GermanTelcB1App.framework in Frameworks */,
+				75F9B1D271156E1FEA9832D1 /* GermanTelcB2App.framework in Frameworks */,
+				CBBC13E18AC1E638455B0CF0 /* GermanTelcB2App.framework in Frameworks */,
+				7B2F3F030B95DD162B574488 /* GermanTelcB2App.framework in Frameworks */,
+				ACF7E3D7F688A58E0BBE924F /* GermanTelcB2App.framework in Frameworks */,
+				7DACAA6F96BB1775F88FEEAE /* GermanTelcB2App.framework in Frameworks */,
+				0DFC3C83996888A1A62F7C2D /* GermanTelcB2App.framework in Frameworks */,
+				51EE0251C5B300BABC37E40C /* GermanTelcB2App.framework in Frameworks */,
+				0C079A0265000EB5CD17C9D1 /* GermanTelcB2App.framework in Frameworks */,
+				EE2D2ECB1EAF27E308E95B14 /* GermanTelcB2App.framework in Frameworks */,
+				BC340A75883FB3A2A175A4FA /* GermanTelcB2App.framework in Frameworks */,
+				6C7C5DABD156932395065E52 /* GermanTelcB2App.framework in Frameworks */,
+				01538EEFDBF7A76BFE2AF2B1 /* GermanTelcB2App.framework in Frameworks */,
+				2D37368A93F57F7A73730184 /* GermanTelcB2App.framework in Frameworks */,
+				42023255D61B1A4D1C59795B /* GermanTelcB2App.framework in Frameworks */,
+				8A224728DBE33C34FF7DA995 /* GermanTelcB2App.framework in Frameworks */,
+				7FA946E94AC4713F5DA30938 /* GermanTelcB2App.framework in Frameworks */,
+				8B69D786410430FCA064918F /* GermanTelcB2App.framework in Frameworks */,
+				AF4444EDEA12F47956F37342 /* GermanTelcB2App.framework in Frameworks */,
+				67B8B77372D1F6570680C904 /* Pods_GermanTelcB2App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* GermanTelcB1App */ = {
+		13B07FAE1A68108700A75B9A /* GermanTelcB2App */ = {
 			isa = PBXGroup;
 			children = (
-				EADD4CDA2EB2B8CB003DB545 /* GermanTelcB1App.entitlements */,
+				EADD4CDA2EB2B8CB003DB545 /* GermanTelcB2App.entitlements */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -92,27 +107,32 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = GermanTelcB1App;
+			name = GermanTelcB2App;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				7E1A4272D7E5EEE334C649CC /* GermanTelcB1App.framework */,
-				CA5072B647BB8353F4C72312 /* GermanTelcB1App.framework */,
-				F2F2B94A9FCA71115FD50E04 /* GermanTelcB1App.framework */,
-				F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB1App.framework */,
-				503EAF87281FB22A5816DF80 /* GermanTelcB1App.framework */,
-				99ED97B290D990A151C75FD4 /* GermanTelcB1App.framework */,
-				81AB6E298B75B40B310AF888 /* GermanTelcB1App.framework */,
-				EF9E4199054A0017F838D09E /* GermanTelcB1App.framework */,
-				2A9C2DECFAA88BC0D3F88062 /* GermanTelcB1App.framework */,
-				8CC7417B01D0C32DF23A6C87 /* GermanTelcB1App.framework */,
-				FE6344D98064412B1F3469D6 /* GermanTelcB1App.framework */,
-				D12920AD7D41DC5F98A2D1B1 /* GermanTelcB1App.framework */,
-				2E7A9B32FC2593F5EC106481 /* GermanTelcB1App.framework */,
-				912CECC8BF9BFEE399D4B9EF /* Pods_GermanTelcB1App.framework */,
+				7E1A4272D7E5EEE334C649CC /* GermanTelcB2App.framework */,
+				CA5072B647BB8353F4C72312 /* GermanTelcB2App.framework */,
+				F2F2B94A9FCA71115FD50E04 /* GermanTelcB2App.framework */,
+				F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB2App.framework */,
+				503EAF87281FB22A5816DF80 /* GermanTelcB2App.framework */,
+				99ED97B290D990A151C75FD4 /* GermanTelcB2App.framework */,
+				81AB6E298B75B40B310AF888 /* GermanTelcB2App.framework */,
+				EF9E4199054A0017F838D09E /* GermanTelcB2App.framework */,
+				2A9C2DECFAA88BC0D3F88062 /* GermanTelcB2App.framework */,
+				8CC7417B01D0C32DF23A6C87 /* GermanTelcB2App.framework */,
+				FE6344D98064412B1F3469D6 /* GermanTelcB2App.framework */,
+				D12920AD7D41DC5F98A2D1B1 /* GermanTelcB2App.framework */,
+				2E7A9B32FC2593F5EC106481 /* GermanTelcB2App.framework */,
+				912CECC8BF9BFEE399D4B9EF /* GermanTelcB2App.framework */,
+				09B311BF6471508DC91E51C2 /* GermanTelcB2App.framework */,
+				82B19F9ECF52788AB4D6E0F1 /* GermanTelcB2App.framework */,
+				D4043C2E9E1ADE301CB4C205 /* GermanTelcB2App.framework */,
+				4FC252409D42814D56B2BCAC /* GermanTelcB2App.framework */,
+				ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,7 +147,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* GermanTelcB1App */,
+				13B07FAE1A68108700A75B9A /* GermanTelcB2App */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -141,7 +161,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* GermanTelcB1App.app */,
+				13B07F961A680F5B00A75B9A /* GermanTelcB2App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,8 +169,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-GermanTelcB1App.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-GermanTelcB1App.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-GermanTelcB2App.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-GermanTelcB2App.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -158,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* GermanTelcB1App */ = {
+		13B07F861A680F5B00A75B9A /* GermanTelcB2App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GermanTelcB1App" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GermanTelcB2App" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -176,9 +196,9 @@
 			);
 			dependencies = (
 			);
-			name = GermanTelcB1App;
-			productName = GermanTelcB1App;
-			productReference = 13B07F961A680F5B00A75B9A /* GermanTelcB1App.app */;
+			name = GermanTelcB2App;
+			productName = GermanTelcB2App;
+			productReference = 13B07F961A680F5B00A75B9A /* GermanTelcB2App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -194,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GermanTelcB1App" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GermanTelcB2App" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -207,7 +227,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* GermanTelcB1App */,
+				13B07F861A680F5B00A75B9A /* GermanTelcB2App */,
 			);
 		};
 /* End PBXProject section */
@@ -249,15 +269,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5532A9EBFCDE6D6C82C3E719 /* [CP-User] [RNGoogleMobileAds] Configuration */ = {
@@ -301,7 +321,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GermanTelcB1App-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-GermanTelcB2App-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -314,15 +334,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB1App/Pods-GermanTelcB1App-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GermanTelcB2App/Pods-GermanTelcB2App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -341,16 +361,16 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-GermanTelcB1App.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-GermanTelcB2App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = GermanTelcB1App/GermanTelcB1App.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GermanTelcB2App/GermanTelcB2App.entitlements;
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = GermanTelcB1App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B1";
+				INFOPLIST_FILE = GermanTelcB2App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B2";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,8 +383,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mhamada.telcb1german;
-				PRODUCT_NAME = GermanTelcB1App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mhamada.telcb2german;
+				PRODUCT_NAME = GermanTelcB2App;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -373,15 +393,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-GermanTelcB1App.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-GermanTelcB2App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = GermanTelcB1App/GermanTelcB1App.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GermanTelcB2App/GermanTelcB2App.entitlements;
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
-				INFOPLIST_FILE = GermanTelcB1App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B1";
+				INFOPLIST_FILE = GermanTelcB2App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B2";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -394,8 +414,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mhamada.telcb1german;
-				PRODUCT_NAME = GermanTelcB1App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mhamada.telcb2german;
+				PRODUCT_NAME = GermanTelcB2App;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -574,7 +594,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GermanTelcB1App" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GermanTelcB2App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -583,7 +603,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GermanTelcB1App" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "GermanTelcB2App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
