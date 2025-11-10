@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "title": "Modelltest 1 - Leseverstehen Teil 1",
+    "headings": [
+      "a) Edelsteinminen in Idar-Oberstein erfolgreich",
+      "b) Moderner Männerschmuck hat rituelle Gründe",
+      "c) Feiner über 100-jähriger Schmuck mit naturhaften Motiven",
+      "d) Volkshochschule Idar-Oberstein bietet Kurs für Hobby-Schmuckdesigner an",
+      "e) Hautschmuck wieder sehr modern",
+      "f) Wirkung des Glasschmucks vom Licht abhängig",
+      "g) Lichtschein verändert Farben von Fensterscheiben",
+      "h) Ein Ort für Edelsucher",
+      "i) Junger Schmuck, der krank macht",
+      "j) Schmuck herstellen als Freizeitbeschäftigung"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "text": "Seinen schönsten und größten Erfolg feierte der Jugendstil in der Schmuckkunst. Aus verschiedenen kostbaren Metallen, Edelsteinen, Gold, Silber und Emaille wurden Broschen, Ringe oder Ketten mit feinen Details und von großer Farbenfreude hergestellt. Beliebte Motive waren weibliche Profile oder insekten- bzw. Pflanzenhafte Formen. Eine 1901 von dem französischen Künstler R. Lalique stammte eine Gürtelschließe, die einen Frauenkopf umrahmt, von Blüten zeigt. Zentren des Jugendstils in Deutschland waren München und Darmstadt.",
+        "correct": "c"
+      },
+      {
+        "id": 2,
+        "text": "Im 20. Jahrhundert trugen die jungen Leute am liebsten Schmuck, der sich von dem ihrer Eltern unterschied. Heute sind T-Shirts, Armreifen oder Ohrringe beliebt. In Europa hat Männerschmuck seit Jahrhunderten mehr rituelle Gründe als schmückende. Die Tätowierung ist nicht nur Schmuck oder Ausdruck des Glaubens, sondern stellt den Stechen des Körperschmucks zum persönlichen Ritual einer Mutprobe.",
+        "correct": "e"
+      },
+      {
+        "id": 3,
+        "text": "Ein wahres Schmuckstück im Nahetal ist die Stadt Idar-Oberstein, Deutschlands Hauptstadt der Edelsteine. Dort gibt es keinen Edelsteinabbau mehr, aber man kann hier dem Handwerkern bei ihrer Arbeit zusehen. Mit über 9.000 Exponaten erhält man einen Überblick über die Geschichte der Edelsteingewinnung, deren Verarbeitung und dem Handwerkern bei ihrer Arbeit zusehen.",
+        "correct": "h"
+      },
+      {
+        "id": 4,
+        "text": "Deutsche Volkshochschulen bieten zur Schmuckherstellung schon Programme an. Hier lernen Sie, mit Goldschmiede- oder Schmuckdesignerwerkzeugen umzugehen. In einem Kurs von etwa 20 Wochenstunden lernen Sie, wie man einfache Gold- oder Silberschmiedegegenstände herstellt. Die Absolventen sind in der Lage, Schmuck als Geschenk herzustellen.",
+        "correct": "j"
+      },
+      {
+        "id": 5,
+        "text": "Farbig bemaltes Glas ist das Material, das am eindrucksvollsten die Wirkung eines Gebäudes beeinflusst. Es ist das Medium, das das Tageslicht in das Gebäude eindringt und die Atmosphäre eines Innenraums verstärkt. Viele Glasscheiben und Fenster betrachten im Lauf eines Tages oder eines Jahres die Witterung und verändern ihre Farben. Heutige Fenster mit künstlerischen Ornamenten gehören zu den Fenstern und Scheiben im Büro- und Wohnhaus.",
+        "correct": "f"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Modelltest 2 - Leseverstehen Teil 1",
+    "headings": [
+      "a) [Heading a for MT2]",
+      "b) [Heading b for MT2]",
+      "c) [Heading c for MT2]",
+      "d) [Heading d for MT2]",
+      "e) [Heading e for MT2]",
+      "f) [Heading f for MT2]",
+      "g) [Heading g for MT2]",
+      "h) [Heading h for MT2]",
+      "i) [Heading i for MT2]",
+      "j) [Heading j for MT2]"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "text": "Lesetext 1 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "i"
+      },
+      {
+        "id": 2,
+        "text": "Lesetext 2 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "j"
+      },
+      {
+        "id": 3,
+        "text": "Lesetext 3 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "h"
+      },
+      {
+        "id": 4,
+        "text": "Lesetext 4 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "g"
+      },
+      {
+        "id": 5,
+        "text": "Lesetext 5 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "e"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Modelltest 3 - Leseverstehen Teil 1",
+    "headings": [
+      "a) Immer mehr Kinder reagieren allergisch",
+      "b) Bewegungsmangel macht Kinder krank",
+      "c) Dicke Kinder bewegen sich nicht",
+      "d) Gründe für Gesundheitsstörungen bei Jugendlichen",
+      "e) Kinder lernen gesund essen",
+      "f) Volkskrankheit Nr. 1: Allergie",
+      "g) Wenn Kinder und Jugendliche falsch essen",
+      "h) Einseitige Ernährung macht Kinder krank",
+      "i) Unsere Jugend wird immer dicker",
+      "j) Gesund genießen lernen"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "text": "Die 'Sturm-und-Drang-Zeit' des Menschen wird immer kürzer. Viele Jugendliche sitzen heute zu lange: in der Schule, am Ausbildungsplatz oder zu Hause. Der Mangel an Bewegung zeigt sich bei vielen Jugendlichen in Form von Fehlentwicklungen am Bewegungsapparat, Übergewicht, erhöhtem Blutdruck und einem kon-trollbedürftigen Cholesterinspiegel – den typischen Zivilisationskrankheiten.",
+        "correct": "b"
+      },
+      {
+        "id": 2,
+        "text": "Zwei Studien widersprechen sich über Übergewicht bei Jugendlichen in Deutschland. Die Zahl der Übergewichtigen nimmt zu. Die Folge sind hohe Kosten für die Gesundheitsversorgung: 71 Milliarden Euro jährlich. Übergewicht stellt die häufigste ernährungsbedingte Gesundheitsstörung bei Jugendlichen dar. Dies liegt an veränderten Lebensumständen, Übergewicht der Eltern, niedrigem Bildungsniveau und Rauchen.",
+        "correct": "i"
+      },
+      {
+        "id": 3,
+        "text": "Der schnelle Hamburger an der Ecke nach der Schule, genügend Taschengeld für Süßigkeiten, das fehlende Mittagessen zu Hause führen zu einer Veränderung des Ernährungsverhaltens von Jugendlichen. Die Kinder entwickeln oft Mängel an Eisen, Calcium und Vitaminen, sowie allergische Erkrankungen aufgrund einer falschen Ernährung.",
+        "correct": "g"
+      },
+      {
+        "id": 4,
+        "text": "Kinder für Allergien sind heute stärker betroffen, da ihr Immunsystem nicht ausreichend mit natürlichen Stoffen konfrontiert wird. Das Einatmen von Pollen, Haaren und Speichel von Tieren sind die Ursachen für Allergien, Heuschnupfen und Ekzeme. Chemikalien aus Medikamenten können Allergien bei jungen Menschen auslösen.",
+        "correct": "a"
+      },
+      {
+        "id": 5,
+        "text": "Viele Kinder und Jugendliche bewegen sich zu wenig und ernähren sich falsch, was zu Diabetes und Herzkreislauf-Erkrankungen führen kann. Das Gesundheitsministerium alarmiert die Bevölkerung und fördert gesunde Ernährung. Man sollte viel Obst, Gemüse, Fisch und Getreide essen, um Krankheiten vorzubeugen. Gesunde Ernährung muss den Jugendlichen von klein auf beigebracht werden.",
+        "correct": "e"
+      }
+    ]
+  }
+]

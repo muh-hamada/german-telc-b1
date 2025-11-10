@@ -1,0 +1,825 @@
+{
+  "common": {
+    "continue": "Continue",
+    "go": "Go",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "done": "Done",
+    "retry": "Retry",
+    "user": "User",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "age": "Age",
+      "birthCity": "Birth City",
+      "origin": "Origin (Country)",
+      "livingSince": "Living in Germany Since",
+      "maritalStatus": "Marital Status",
+      "familySize": "Family Size",
+      "location": "Location in Germany",
+      "child1Age": "Child 1 Age",
+      "child1Grade": "Child 1 Grade",
+      "child2Age": "Child 2 Age",
+      "profession": "Profession",
+      "company": "Company",
+      "hobbies": "Hobbies & Free Time"
+    },
+    "placeholders": {
+      "enterName": "Enter your name",
+      "enterEmail": "Enter your email",
+      "enterPassword": "Enter your password",
+      "confirmPassword": "Confirm your password",
+      "exampleMuhammad": "e.g., Muhammad",
+      "example35": "e.g., 35",
+      "exampleKairo": "e.g., Kairo",
+      "exampleEgypt": "e.g., Ägypten",
+      "example2016": "e.g., 2016",
+      "exampleMarried": "e.g., verheiratet",
+      "exampleFamily": "e.g., eine kleine Familie: meine Frau und zwei Töchter",
+      "exampleCharlottenburg": "e.g., Charlottenburg",
+      "exampleEight": "e.g., acht",
+      "exampleThirdGrade": "e.g., dritte Klasse",
+      "exampleThree": "e.g., drei",
+      "exampleEngineer": "e.g., Ingenieur",
+      "exampleHelloFresh": "e.g., HelloFresh",
+      "exampleHobbies": "e.g., treibe ich gerne Sport, gehe ins Fitnessstudio..."
+    },
+    "alerts": {
+      "requiredFields": "Required Fields",
+      "fillRequiredFields": "Please fill in all required fields",
+      "enterName": "Please enter your name",
+      "passwordsNoMatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "enterEmailFirst": "Please enter your email address first",
+      "fillNameOriginLiving": "Please fill in at least Name, Origin, and Living Since fields.",
+      "infoSaved": "Personal information saved!",
+      "failedToSave": "Failed to save personal information",
+      "retryExam": "Retry Exam",
+      "retryExamConfirm": "Are you sure you want to retry this exam? Your previous answers will be lost."
+    },
+    "ok": "OK"
+  },
+  "onboarding": {
+    "selectLanguage": "Select your interface language",
+    "languages": {
+      "en": "English",
+      "de": "Deutsch",
+      "ar": "العربية",
+      "es": "Español",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "disclaimer": {
+      "title": "Important Notice",
+      "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real TELC exam.",
+      "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only."
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "mockExam": "Mock Exam",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Let's Prepare for the telc Exam Together",
+    "examStructure": "Exam Structure",
+    "practice": "Practice",
+    "practiceSections": {
+      "reading": "Reading",
+      "listening": "Listening",
+      "writing": "Writing",
+      "speaking": "Speaking"
+    },
+    "descriptions": {
+      "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
+    }
+  },
+  "examStructure": {
+    "title": "Exam Structure",
+    "comingSoon": "Content coming soon...",
+    "cefrLevel": "CEFR Level:",
+    "totalDuration": "Total Duration:",
+    "minutes": "Minutes",
+    "maxPoints": "Maximum Points:",
+    "points": "Points",
+    "passingThreshold": "Passing Threshold:",
+    "preparation": "Preparation",
+    "passingScore": "Passing Score",
+    "important": "Important",
+    "totalMaxPoints": "Total Max Points"
+  },
+  "practice": {
+    "reading": {
+      "title": "Reading Comprehension",
+      "part1": "Part 1: Matching Headings",
+      "part2": "Part 2: Multiple Choice",
+      "part3": "Part 3: Advertisement Matching",
+      "descriptions": {
+        "main": "Practice reading comprehension with various text types",
+        "part1": "Match headings to texts",
+        "part2": "Multiple choice questions about a text",
+        "part3": "Match situations to advertisements"
+      }
+    },
+    "listening": {
+      "title": "Listening Comprehension",
+      "part1": "Part 1: Short Dialogues",
+      "part1Description": "You will hear five short dialogues and you should solve five tasks.",
+      "part2": "Part 2: Longer Conversations",
+      "part2Description": "You will hear a long conversation and you should solve 10 tasks.",
+      "part3": "Part 3: Monologues",
+      "part3Description": "You will hear five monologues and you should solve five tasks.",
+      "comingSoon": "Listening exercises coming soon"
+    },
+    "writing": {
+      "title": "Written Expression",
+      "description": "Write a formal or semi-formal email"
+    },
+    "speaking": {
+      "title": "Oral Expression",
+      "part1": "Part 1: Personal Introduction",
+      "part2": "Part 2: Topic Presentation",
+      "part3": "Part 3: Planning Together",
+      "descriptions": {
+        "main": "Practice oral expression and conversation skills"
+      },
+      "part4": "Study: Important Phrases"
+    },
+    "grammar": {
+      "title": "Language Building Blocks",
+      "part1": "Part 1: Gap Fill (Multiple Choice)",
+      "part2": "Part 2: Gap Fill (Word List)",
+      "descriptions": {
+        "main": "Practice German grammar with gap-fill exercises"
+      },
+      "study": {
+        "title": "150 Grammar Questions",
+        "description": "Master German grammar with 150 practice questions from various topics",
+        "progress": "Question {{current}} of {{total}}",
+        "currentProgress": "Current Progress",
+        "progressFound": "Previous Progress Found",
+        "progressMessage": "You have previous progress on question {{current}} of {{total}}. Would you like to continue from where you left off or start over?",
+        "continue": "Continue",
+        "startOver": "Start Over",
+        "restart": "Restart",
+        "confirmRestart": "Confirm Restart",
+        "restartWarning": "This will clear your current progress and start from the beginning. Are you sure?",
+        "correct": "Correct!",
+        "incorrect": "Incorrect",
+        "tryAgain": "Try Again",
+        "skip": "Skip",
+        "next": "Next",
+        "finish": "Finish",
+        "congratulations": "Congratulations!",
+        "allCompleted": "You have completed all 150 grammar questions! Would you like to restart or go back?",
+        "close": "Close"
+      },
+      "separator": "Study"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "settings": "Settings",
+    "language": "Interface Language",
+    "clearProgress": "Clear Progress",
+    "about": "About",
+    "authentication": "Authentication",
+    "login": "Login",
+    "logout": "Logout",
+    "account": "Account",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "changeLanguage": "Change Language",
+    "signedInWith": "Signed in with",
+    "version": "Version",
+    "completionStats": "Completion Statistics",
+    "totalProgress": "Total Progress",
+    "seeAllStats": "See All Stats",
+    "quickActions": "Quick Actions",
+    "noCompletedExams": "No completed exams yet. Start practicing!",
+    "loginProviders": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook",
+      "twitter": "Continue with Twitter",
+      "apple": "Continue with Apple"
+    },
+    "userInfo": {
+      "welcome": "Welcome",
+      "notLoggedIn": "Not logged in"
+    },
+    "alerts": {
+      "clearProgressTitle": "Clear Progress",
+      "clearProgressMessage": "Are you sure you want to clear all your progress? This action cannot be undone.",
+      "clear": "Clear",
+      "progressCleared": "Your progress has been cleared.",
+      "clearFailed": "Failed to clear progress. Please try again.",
+      "languageChanged": "Language changed successfully!",
+      "languageChangeFailed": "Failed to change language. Please try again.",
+      "signOutTitle": "Sign Out",
+      "signOutMessage": "Are you sure you want to sign out?",
+      "signedOut": "You have been signed out.",
+      "signOutFailed": "Failed to sign out. Please try again.",
+      "signedInSuccess": "You have been signed in successfully!",
+      "signInFailed": "Failed to sign in. Please try again.",
+      "couldNotOpenStore": "We couldn't open the app store",
+      "iosRatingComingSoon": "The iOS app is coming soon"
+    },
+    "rateApp": "Rate our App",
+    "deleteAccount": "Delete Account",
+    "deleteAccountModal": {
+      "title": "Delete Account",
+      "message": "Are you sure you want to delete your account? This action cannot be undone. All your progress and data will be permanently deleted within 7 days.",
+      "confirm": "Delete",
+      "successTitle": "Request Submitted",
+      "successMessage": "Your account deletion request has been received. Your account and all associated data will be permanently deleted within 7 days.",
+      "inProgressTitle": "Deletion in Progress",
+      "inProgressMessage": "Your account deletion request is already being processed. Your account will be deleted within 7 days from the original request date.",
+      "error": "Failed to submit deletion request. Please try again."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "dailyNotification": "Daily Notification",
+    "notificationTime": "Notification Time",
+    "selectHour": "Select Hour",
+    "popularTimes": "Popular Times",
+    "notificationPermission": "Notification Permission",
+    "notificationPermissionMessage": "We'll send you daily reminders to practice your German. You can change this anytime in settings.",
+    "permissionDenied": "Permission Denied",
+    "permissionDeniedMessage": "To receive notifications, please enable them in your device settings.",
+    "permissionError": "Unable to request notification permission. Please check your device settings.",
+    "openSettings": "Open Settings",
+    "saveSettingsError": "Failed to save settings. Please try again.",
+    "signInToSaveSettings": "Sign in to save your notification preferences",
+    "data": "Data"
+  },
+  "stats": {
+    "title": "Statistics",
+    "subtitle": "Detailed view of your progress across all exam sections"
+  },
+  "review": {
+    "title": "Enjoying the App?",
+    "message": "Your feedback helps us improve and reach more learners like you. Share your experience with a quick rating!",
+    "rateButton": "⭐ Rate the App",
+    "laterButton": "Maybe Later"
+  },
+  "mockExam": {
+    "title": "Mock Exam",
+    "overview": "Exam Overview",
+    "totalDuration": "Total Duration",
+    "totalPoints": "Total Points",
+    "passingScore": "Passing Score",
+    "minutes": "Minutes",
+    "points": "Points",
+    "importantNote": "Important Note:",
+    "importantNoteText": "Before starting the exam, we strongly recommend reviewing the exam structure to familiarize yourself with the format and requirements.",
+    "viewStructure": "View Exam Structure",
+    "aboutMockExam": "About this Mock Exam",
+    "disclaimerText1": "This mock exam gives you a rough assessment of your current knowledge and preparation. However, it is",
+    "disclaimerText2": "no guarantee",
+    "disclaimerText4": "The real exam is conducted under controlled conditions and evaluated by certified examiners. Use this mock exam as a practice tool to identify your weaknesses and improve them specifically.",
+    "examSections": "Exam Sections:",
+    "readingComprehension": "Reading Comprehension (3 Parts)",
+    "languageElements": "Language Building Blocks (2 Parts)",
+    "listeningComprehension": "Listening Comprehension (3 Parts)",
+    "writtenExpression": "Written Expression",
+    "oralExpression": "Oral Expression (3 Parts)",
+    "practiceRecommended": "Practice recommended",
+    "speakingNote": "Note on Oral Exam:",
+    "speakingNoteText": "The oral exam requires human interaction and cannot be simulated in this mock exam. We recommend using the practice area and practicing with a friend, language partner, or tutor.",
+    "startExam": "Start Mock Exam",
+    "goodLuck": "Good luck! Take your time and read all instructions carefully.",
+    "examInProgress": "Exam in Progress",
+    "resumeOrRestart": "You have already started a mock exam. Would you like to continue or start a new exam?",
+    "resume": "Resume",
+    "startNew": "Start New",
+    "confirm": "Confirm",
+    "confirmRestart": "Are you sure you want to start a new exam? Your current progress will be deleted.",
+    "yesStartNew": "Yes, Start New",
+    "examNotFound": "No exam found.",
+    "couldNotLoadProgress": "Could not load exam progress.",
+    "couldNotStartExam": "Could not start exam. Please try again.",
+    "examLoading": "Exam is loading...",
+    "exitExam": "Exit Exam?",
+    "exitExamMessage": "Do you really want to exit? Your progress will be saved and you can continue later.",
+    "stay": "Stay",
+    "exit": "Exit",
+    "couldNotSaveProgress": "Progress could not be saved.",
+    "finishExam": "Finish Exam",
+    "finishExamMessage": "Are you sure you want to finish the exam? You can review your results afterwards.",
+    "finish": "Finish",
+    "completeAllSections": "Please complete all required sections before finishing the exam.",
+    "congratulations": "Congratulations!",
+    "examCompleted": "You have completed the mock exam!",
+    "yourScore": "Your Score",
+    "passed": "Passed",
+    "failed": "Failed",
+    "viewResults": "View Results",
+    "backToHome": "Back to Home",
+    "exitExamButton": "Exit",
+    "exitExamTitle": "Exit Exam",
+    "speakingTitle": "Speaking Section",
+    "skipAndContinue": "Skip and Continue",
+    "writtenExam": "Written Exam",
+    "speakingCardTitle": "Speaking Section",
+    "oralExam": "Oral Exam",
+    "examResultsNote": "ℹ️ This is a mock exam for practice. Actual exam results may vary. Use these results to identify your strengths and weaknesses."
+  },
+  "questions": {
+    "checkAnswers": "Check Answers",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "score": "Score",
+    "results": "Results",
+    "tryAgain": "Try Again"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "forgotPassword": "Forgot Password?",
+    "alreadyHaveAccount": "Already have an account? Sign In",
+    "noAccount": "Don't have an account? Create Account",
+    "loginModal": {
+      "welcomeBack": "Welcome Back",
+      "signInCreateAccount": "Sign In / Create Account",
+      "subtitle": "Sign in to save your progress and sync across devices",
+      "orDivider": "or",
+      "continueWithEmail": "Continue with Email",
+      "backToSocialLogin": "← Back to social login",
+      "passwordReset": "Password Reset",
+      "passwordResetMessage": "A password reset email has been sent to your email address."
+    },
+    "errors": {
+      "invalidCredential": "The email or password you entered is incorrect. Please try again.",
+      "userNotFound": "No account found with this email address.",
+      "wrongPassword": "Incorrect password. Please try again.",
+      "emailInUse": "An account with this email already exists.",
+      "weakPassword": "Password must be at least 6 characters long.",
+      "invalidEmail": "Please enter a valid email address.",
+      "userDisabled": "This account has been disabled.",
+      "tooManyRequests": "Too many failed attempts. Please try again later.",
+      "networkError": "Network error. Please check your internet connection.",
+      "unknownError": "An unexpected error occurred. Please try again."
+    }
+  },
+  "speaking": {
+    "part1": {
+      "title": "Speaking Part 1",
+      "subtitle": "Personal Introduction",
+      "tabs": {
+        "myIntro": "My Intro",
+        "example": "Example",
+        "vocabulary": "Vocabulary",
+        "questions": "Questions"
+      },
+      "sections": {
+        "myProfile": "My Profile",
+        "personalIntro": "Personal Introduction",
+        "keyVocabulary": "Key Vocabulary",
+        "completeExample": "Complete Example",
+        "questions": "Question and Answer"
+      },
+      "buttons": {
+        "viewInfo": "View Personal Info",
+        "editInfo": "Edit Info",
+        "saveInfo": "Save Information"
+      },
+      "modal": {
+        "personalInfo": "Personal Information",
+        "yourPersonalInfo": "Your Personal Information"
+      },
+      "help": {
+        "enterInfoPrompt": "Please enter your personal information to generate your introduction text.",
+        "questionsNote": "Important: This part of the exam will likely be in a conversation style. You and your partner will take turns asking questions to get to know each other. It's important to practice asking and answering questions."
+      },
+      "infoLabels": {
+        "name": "Name:",
+        "age": "Age:",
+        "birthCity": "Birth City:",
+        "origin": "Origin:",
+        "livingSince": "Living Since:",
+        "maritalStatus": "Marital Status:",
+        "family": "Family:",
+        "location": "Location:",
+        "profession": "Profession:",
+        "company": "Company:",
+        "hobbies": "Hobbies:"
+      },
+      "questions": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "answer": "Answer"
+      }
+    },
+    "part2": {
+      "title": "Speaking Part 2",
+      "subtitle": "Topic Presentation",
+      "selectTopic": "Select a topic",
+      "topicSelection": "Topic Selection",
+      "sections": {
+        "topicSelectionLabel": "Topic Selection:",
+        "presentationExample": "Presentation Example",
+        "discussion": "Discussion (After the Presentation)",
+        "discussionNote": "Use these questions to continue the conversation with your partner, express your opinion, and share your own experiences."
+      },
+      "tabs": {
+        "yourRole": "Participant A",
+        "partnerRole": "Participant B"
+      },
+      "buttons": {
+        "hideExample": "Hide Example",
+        "showExample": "Present person's view (third person)"
+      },
+      "instructions": {
+        "taskDescription": "Your task: Tell your conversation partner about the following text and then discuss the topic.",
+        "startingText": "Your starting text for presentation:"
+      }
+    },
+    "part3": {
+      "title": "Speaking Part 3",
+      "subtitle": "Planning Together",
+      "selectScenario": "Select a scenario",
+      "scenarioSelection": "Scenario Selection",
+      "sections": {
+        "scenarioSelectionLabel": "Scenario Selection:"
+      },
+      "tabs": {
+        "dialog": "Dialog",
+        "vocabulary": "Vocabulary",
+        "phrases": "Phrases"
+      },
+      "tableHeaders": {
+        "german": "German",
+        "english": "English",
+        "suggestion": "Suggestion / Task",
+        "response": "Example Response"
+      }
+    },
+    "part4": {
+      "subtitle": "Common phrases that you can use in many situations",
+      "itemType": "Part"
+    },
+    "b2Structure": {
+      "title": "Oral Exam Structure",
+      "menuTitle": "Oral Exam Structure & Guide",
+      "menuDescription": "Learn about the B2 oral exam structure, parts, and requirements",
+      "tabs": {
+        "overview": "Overview",
+        "examParts": "Exam Parts",
+        "hints": "Hints"
+      },
+      "sections": {
+        "howItWorks": "How It Works",
+        "expectations": "What Is Expected",
+        "hints": "Important Hints"
+      },
+      "labels": {
+        "duration": "Duration",
+        "participants": "Participants",
+        "description": "Description",
+        "sample": "Sample Task",
+        "topics": "Available Topics",
+        "exampleArticle": "Example Article"
+      }
+    },
+    "b2Part1": {
+      "title": "Speaking Part 1: Presentation",
+      "menuTitle": "Part 1: Topic Presentation",
+      "menuDescription": "Present a topic and discuss it",
+      "tabs": {
+        "presentation": "Presentation",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "topicTitle": "Topic",
+        "examplePresentation": "Example Presentation",
+        "discussionQuestions": "Discussion Questions"
+      },
+      "labels": {
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "help": {
+        "discussionNote": "After your presentation, your partner will ask you questions about the topic. Practice answering these types of questions."
+      }
+    },
+    "b2Part2": {
+      "title": "Speaking Part 2: Discussion",
+      "menuTitle": "Part 2: Article Discussion",
+      "menuDescription": "Discuss controversial topics from magazine articles",
+      "tabs": {
+        "article": "Article",
+        "summary": "Summary",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "article": "Magazine Article",
+        "summary": "Text Summary",
+        "discussion": "Example Discussion"
+      },
+      "labels": {
+        "speaker": "Speaker"
+      },
+      "help": {
+        "summaryNote": "First, summarize the main points of the article briefly. Focus on the key arguments and facts.",
+        "discussionNote": "Discuss the topic with your partner. Bring in your experiences, express your opinion, justify your arguments, and talk about possible solutions."
+      }
+    },
+    "b2Part3": {
+      "title": "Speaking Part 3: Problem Solving",
+      "menuTitle": "Part 3: Planning Together",
+      "menuDescription": "Plan something together with your partner",
+      "tabs": {
+        "task": "Task",
+        "dialogue": "Example"
+      },
+      "sections": {
+        "task": "Planning Task",
+        "dialogue": "Example Dialogue"
+      },
+      "labels": {
+        "speaker": "Speaker"
+      },
+      "help": {
+        "dialogueNote": "Work together with your partner to plan something. Consider what needs to be done, bring in your ideas and suggestions, and respond to your partner's proposals."
+      }
+    }
+  },
+  "results": {
+    "title": "Exam Results",
+    "detailedResults": "Detailed Results",
+    "question": "Question",
+    "yourAnswer": "Your answer:",
+    "correctAnswer": "Correct answer:",
+    "outOf": "out of",
+    "points": "points",
+    "feedback": {
+      "excellent": "Excellent!",
+      "goodJob": "Good job!",
+      "keepPracticing": "Keep practicing!",
+      "tryAgain": "Try again!"
+    }
+  },
+  "progress": {
+    "yourProgress": "Your Progress",
+    "loginRequired": "Login Required",
+    "loginPrompt": "Please login to save and view your progress across all devices",
+    "startTracking": "Start Tracking Progress",
+    "trackingPrompt": "Login to sync your progress across all devices and never lose your work",
+    "examsCompleted": "Exams Completed",
+    "completionRate": "Completion Rate",
+    "totalScore": "Total Score",
+    "performance": "Performance",
+    "startPracticing": "Start practicing to track your progress!",
+    "performanceLevels": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "fair": "Fair",
+      "needsImprovement": "Needs Improvement"
+    },
+    "login": "Login"
+  },
+  "exam": {
+    "selectExam": "Select Exam:",
+    "test": "Test",
+    "loadingExam": "Loading exam...",
+    "failedToLoad": "Failed to load exam data",
+    "selectAnExam": "Select an exam",
+    "selectTask": "Select Task",
+    "completed": "Completed",
+    "completedCount": "{{completed}}/{{total}} completed",
+    "markedCompleted": "Exam marked as completed!",
+    "markedIncomplete": "Exam marked as incomplete!",
+    "completionFailed": "Failed to update completion status",
+    "loginToSaveProgress": "You need to log in to save your progress"
+  },
+  "grammar": {
+    "part1": {
+      "title": "Grammar Part 1",
+      "subtitle": "Fill in the blanks (Grammar)",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the text and choose the correct answer from the three options for each gap.",
+      "questions": "Questions:",
+      "select": "Select",
+      "selectAnswer": "Choose answer for gap [{{gap}}]:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+    },
+    "part2": {
+      "title": "Grammar Part 2",
+      "subtitle": "Fill in the blanks (Lexical)",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the text and choose the appropriate word from the word bank for each gap.",
+      "wordBank": "Word Bank:",
+      "select": "Select",
+      "selectWord": "Choose word for gap [{{gap}}]:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} gap(s) remaining."
+    }
+  },
+  "reading": {
+    "part1": {
+      "title": "Reading Part 1",
+      "subtitle": "Match headings to texts",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the following five texts and assign a suitable heading to each text. There are more headings than texts. Each heading can only be used once.",
+      "headings": "Headings (a-j):",
+      "texts": "Texts (1-{{count}}):",
+      "text": "Text",
+      "selectHeading": "Select heading:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please assign a heading to all texts before continuing.",
+      "duplicateAnswers": "Duplicate Answers",
+      "duplicateAnswersMessage": "You have used the same heading for multiple texts. Please check your answers."
+    },
+    "part2": {
+      "title": "Reading Part 2",
+      "subtitle": "Multiple choice questions",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the following text and answer the questions by selecting the correct answer.",
+      "questions": "Questions ({{first}}-{{last}}):",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+    },
+    "part3": {
+      "title": "Reading Part 3",
+      "subtitle": "Match advertisements",
+      "taskTitle": "Task:",
+      "taskDescription": "Read the advertisements and the situations. Which advertisement fits which situation? There is not a suitable advertisement for every situation.",
+      "advertisements": "Advertisements:",
+      "situations": "Situations:",
+      "selectAdvertisement": "Select advertisement:",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all situations before submitting. {{count}} situation(s) remaining."
+    }
+  },
+  "writing": {
+    "title": "Writing",
+    "subtitle": "Write a personal email",
+    "instructions": {
+      "title": "Task:",
+      "description": "Read the incoming email and respond to it. Consider the writing points provided."
+    },
+    "sections": {
+      "incomingEmail": "Incoming Email:",
+      "writingPoints": "Writing Points:",
+      "yourAnswer": "Your Answer:"
+    },
+    "input": {
+      "placeholder": "Write your email here...",
+      "characterCount": "characters",
+      "minCharactersWarning": "⚠️ Please write at least 50 characters."
+    },
+    "camera": {
+      "orText": "or",
+      "buttonText": "📷 Take Photo of Handwritten Answer",
+      "hint": "Take a photo of your handwritten response"
+    },
+    "buttons": {
+      "evaluate": "Evaluate Answer",
+      "nextSection": "Continue to Next Section"
+    },
+    "evaluation": {
+      "title": "Your Assessment (Written Expression)",
+      "totalScore": "Total Score:",
+      "criteriaTitle": "Assessment Criteria:",
+      "criteria": {
+        "taskCompletion": "1. Task Completion",
+        "communicativeDesign": "2. Communicative Design",
+        "formalCorrectness": "3. Formal Correctness"
+      },
+      "grade": "Grade:",
+      "correctedAnswer": "✏️ Corrected Answer:",
+      "closeButton": "Close",
+      "loading": "Evaluation is in progress, this will take a few seconds",
+      "userInput": "Your Answer",
+      "noUserInput": "No answer has been recognized. Try improving your handwriting."
+    },
+    "imagePreview": {
+      "title": "Review Captured Image",
+      "subtitle": "Please check if the image is clear and readable.",
+      "retakeButton": "🔄 Retake",
+      "evaluateButton": "✓ Evaluate Image",
+      "cancelButton": "Cancel"
+    },
+    "alerts": {
+      "cameraNotAvailable": "Camera Not Available",
+      "cameraNotAvailableMessage": "The camera feature is not yet initialized. Please restart the app after recompiling.",
+      "permissionDenied": "Permission Denied",
+      "permissionDeniedMessage": "Camera permission is required to take photos.",
+      "cameraError": "Error",
+      "cameraErrorMessage": "Could not open camera: ",
+      "imageLoadError": "Could not load image",
+      "imageNotAvailable": "No image available",
+      "evaluationError": "Evaluation Error",
+      "evaluationErrorMessage": "An unexpected error occurred.",
+      "useMockData": "Use Mock Data",
+      "noEvaluation": "No Evaluation",
+      "noEvaluationMessage": "Please evaluate your answer before continuing.",
+      "cameraPermissionTitle": "Camera Permission Required",
+      "cameraPermissionMessage": "This app needs access to your camera to take photos.",
+      "askLater": "Ask Later",
+      "ok": "OK"
+    },
+    "mock": {
+      "warning": "⚠️ Mock Data: API key not configured",
+      "cacheInfo": "ℹ️ Cached result (answer unchanged)"
+    },
+    "rewardedAdModal": {
+      "title": "AI Evaluation Support",
+      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real Telc exam. This process incurs costs. Watching this short ad helps keep our service free for everyone.",
+      "watchAdButton": "Watch Ad and Evaluate",
+      "maybeLaterButton": "Maybe Later",
+      "adLoadingError": "Failed to load ad. Please try again.",
+      "adNotReady": "Ad is not ready yet. Please wait a moment and try again."
+    }
+  },
+  "listening": {
+    "part1": {
+      "title": "Listening Part 1",
+      "subtitle": "Short dialogues",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: In the real exam, you cannot pause or stop the audio file. You will hear each text only once.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+    },
+    "part2": {
+      "title": "Listening Part 2",
+      "subtitle": "Longer conversation",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: This audio file contains preparation time. In the real exam, you cannot pause or stop the file.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+    },
+    "part3": {
+      "title": "Listening Part 3",
+      "subtitle": "Monologues",
+      "minutes": "Minutes",
+      "tasks": "Tasks",
+      "instructions": "Instructions:",
+      "examWarning": "⚠️ Note: This audio file contains five short texts. In the real exam, you cannot pause or stop the file.",
+      "audioFile": "🎧 Audio File",
+      "readyToPlay": "Ready to play",
+      "playing": "▶️ Playing...",
+      "completed": "✓ Completed",
+      "playAudio": "▶️ Play Audio",
+      "audioPlaying": "Audio playing... (cannot be stopped)",
+      "statements": "Statements:",
+      "statement": "Statement",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
+      "audioError": "Audio Error",
+      "audioErrorMessage": "The audio file could not be loaded.",
+      "incomplete": "Incomplete",
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+    }
+  }
+}

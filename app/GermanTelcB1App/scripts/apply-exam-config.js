@@ -1,0 +1,542 @@
+#!/usr/bin/env node
+
+/**
+ * Apply Exam Configuration Script
+ * 
+ * This script applies the selected exam configuration to the project by:
+ * 1. Updating app.json with app name and display name
+ * 2. Updating Android configuration (bundle ID, app name)
+ * 3. Updating iOS configuration (bundle ID, display name)
+ * 4. Generating the active exam configuration file
+ * 
+ * Usage: node apply-exam-config.js <exam-id> <platform>
+ * Example: node apply-exam-config.js german-b1 android
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Parse arguments
+const examId = process.argv[2];
+const platform = process.argv[3];
+
+if (!examId || !platform) {
+  console.error('❌ Error: Missing required arguments');
+  console.error('Usage: node apply-exam-config.js <exam-id> <platform>');
+  console.error('Example: node apply-exam-config.js german-b1 android');
+  console.error('');
+  console.error('Available exam IDs: german-b1, german-b2, english-b1');
+  console.error('Available platforms: android, ios');
+  process.exit(1);
+}
+
+if (!['android', 'ios'].includes(platform)) {
+  console.error(`❌ Error: Invalid platform "${platform}". Must be "android" or "ios"`);
+  process.exit(1);
+}
+
+// Load exam configurations (we need to read the TypeScript config files)
+const configPath = path.join(__dirname, '../src/config/exams');
+let config;
+
+try {
+  // For simplicity, we'll define the configs here
+  // In a production setup, you might want to compile TypeScript or use a different approach
+  const configs = {
+    'german-b1': {
+      id: 'german-b1',
+      language: 'german',
+      level: 'B1',
+      appName: 'GermanTelcB1App',
+      displayName: 'German TELC B1',
+      bundleId: {
+        android: 'com.mhamada.telcb1german',
+        ios: 'com.mhamada.telcb1german',
+      },
+      firebaseCollections: {
+        examData: 'b1_telc_exam_data',
+        userProgress: 'users/{uid}/progress',
+      },
+    },
+    'german-b2': {
+      id: 'german-b2',
+      language: 'german',
+      level: 'B2',
+      appName: 'GermanTelcB2App',
+      displayName: 'German TELC B2',
+      bundleId: {
+        android: 'com.mhamada.telcb2german',
+        ios: 'com.mhamada.telcb2german',
+      },
+      firebaseCollections: {
+        examData: 'german_b2_telc_exam_data',
+        userProgress: 'users/{uid}/german_b2_progress',
+      },
+    },
+    'english-b1': {
+      id: 'english-b1',
+      language: 'english',
+      level: 'B1',
+      appName: 'EnglishTelcB1App',
+      displayName: 'English TELC B1',
+      bundleId: {
+        android: 'com.mhamada.telcb1english',
+        ios: 'com.mhamada.telcb1english',
+      },
+      firebaseCollections: {
+        examData: 'english_b1_telc_exam_data',
+        userProgress: 'users/{uid}/english_b1_progress',
+      },
+    },
+  };
+
+  config = configs[examId];
+  
+  if (!config) {
+    console.error(`❌ Error: Exam configuration not found for "${examId}"`);
+    console.error('Available configurations:', Object.keys(configs).join(', '));
+    process.exit(1);
+  }
+} catch (error) {
+  console.error(`❌ Error loading configuration:`, error.message);
+  process.exit(1);
+}
+
+console.log('');
+console.log('================================================');
+console.log(`📝 Applying Configuration: ${config.displayName}`);
+console.log('================================================');
+console.log(`   Exam ID: ${config.id}`);
+console.log(`   Language: ${config.language}`);
+console.log(`   Level: ${config.level}`);
+console.log(`   Platform: ${platform}`);
+console.log(`   Bundle ID: ${config.bundleId[platform]}`);
+console.log('');
+
+// ==================== Helper Functions ====================
+
+function updateAppJson(config) {
+  const appJsonPath = path.join(__dirname, '../app.json');
+  try {
+    const appJson = JSON.parse(fs.readFileSync(appJsonPath, 'utf8'));
+    
+    appJson.name = config.appName;
+    appJson.displayName = config.displayName;
+    
+    fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2) + '\n');
+    console.log('✅ Updated app.json');
+  } catch (error) {
+    console.error('❌ Failed to update app.json:', error.message);
+    throw error;
+  }
+}
+
+function updateAndroidConfig(config) {
+  const buildGradlePath = path.join(__dirname, '../android/app/build.gradle');
+  try {
+    let buildGradle = fs.readFileSync(buildGradlePath, 'utf8');
+    
+    // DO NOT Update namespace
+    // Updating the namespace will cause the app to crash because
+    // the namespace is used to understand the directory structure of the app.
+    
+    // Update applicationId
+    buildGradle = buildGradle.replace(
+      /applicationId\s+"[^"]+"/,
+      `applicationId "${config.bundleId.android}"`
+    );
+    
+    fs.writeFileSync(buildGradlePath, buildGradle);
+    console.log('✅ Updated android/app/build.gradle');
+  } catch (error) {
+    console.error('❌ Failed to update build.gradle:', error.message);
+    throw error;
+  }
+}
+
+function updateAndroidStrings(config) {
+  const stringsPath = path.join(__dirname, '../android/app/src/main/res/values/strings.xml');
+  try {
+    const stringsXml = `<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">${config.displayName}</string>
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+    <string name="facebook_client_token">YOUR_FACEBOOK_CLIENT_TOKEN</string>
+    <string name="fb_login_protocol_scheme">fbYOUR_FACEBOOK_APP_ID</string>
+</resources>
+`;
+    
+    fs.writeFileSync(stringsPath, stringsXml);
+    console.log('✅ Updated android/app/src/main/res/values/strings.xml');
+  } catch (error) {
+    console.error('❌ Failed to update strings.xml:', error.message);
+    throw error;
+  }
+}
+
+function getCurrentiOSAppFolderName() {
+  const iosPath = path.join(__dirname, '../ios');
+  const folders = fs.readdirSync(iosPath);
+  // Find the app folder (ends with App and is a directory, but not xcodeproj or xcworkspace)
+  const appFolder = folders.find(f => 
+    f.match(/\w+App$/) && 
+    !f.includes('.xcode') && 
+    fs.statSync(path.join(iosPath, f)).isDirectory()
+  );
+  return appFolder || 'GermanTelcB1App'; // fallback
+}
+
+function updateiOSConfig(config) {
+  const currentAppFolder = getCurrentiOSAppFolderName();
+  const infoPlistPath = path.join(__dirname, `../ios/${currentAppFolder}/Info.plist`);
+  
+  if (!fs.existsSync(infoPlistPath)) {
+    console.warn('⚠️  Info.plist not found, skipping iOS config update');
+    return;
+  }
+  
+  try {
+    let infoPlist = fs.readFileSync(infoPlistPath, 'utf8');
+    
+    // Update CFBundleDisplayName
+    infoPlist = infoPlist.replace(
+      /<key>CFBundleDisplayName<\/key>\s*<string>[^<]*<\/string>/,
+      `<key>CFBundleDisplayName</key>\n\t<string>${config.displayName}</string>`
+    );
+    
+    // Update CFBundleIdentifier
+    infoPlist = infoPlist.replace(
+      /<key>CFBundleIdentifier<\/key>\s*<string>[^<]*<\/string>/,
+      `<key>CFBundleIdentifier</key>\n\t<string>${config.bundleId.ios}</string>`
+    );
+    
+    fs.writeFileSync(infoPlistPath, infoPlist);
+    console.log(`✅ Updated ios/${currentAppFolder}/Info.plist`);
+  } catch (error) {
+    console.error('❌ Failed to update Info.plist:', error.message);
+    throw error;
+  }
+}
+
+function updateAndroidNativeFiles(config) {
+  // Update MainActivity.kt
+  const mainActivityPath = path.join(__dirname, '../android/app/src/main/java/com/mhamada/telcb1german/MainActivity.kt');
+  if (fs.existsSync(mainActivityPath)) {
+    try {
+      let mainActivity = fs.readFileSync(mainActivityPath, 'utf8');
+      mainActivity = mainActivity.replace(
+        /override fun getMainComponentName\(\): String = "[^"]+"/,
+        `override fun getMainComponentName(): String = "${config.appName}"`
+      );
+      fs.writeFileSync(mainActivityPath, mainActivity);
+      console.log('✅ Updated MainActivity.kt');
+    } catch (error) {
+      console.error('❌ Failed to update MainActivity.kt:', error.message);
+      throw error;
+    }
+  }
+
+  // Update settings.gradle
+  const settingsGradlePath = path.join(__dirname, '../android/settings.gradle');
+  if (fs.existsSync(settingsGradlePath)) {
+    try {
+      let settingsGradle = fs.readFileSync(settingsGradlePath, 'utf8');
+      settingsGradle = settingsGradle.replace(
+        /rootProject\.name = '[^']+'/,
+        `rootProject.name = '${config.appName}'`
+      );
+      fs.writeFileSync(settingsGradlePath, settingsGradle);
+      console.log('✅ Updated settings.gradle');
+    } catch (error) {
+      console.error('❌ Failed to update settings.gradle:', error.message);
+      throw error;
+    }
+  }
+}
+
+function updateiOSNativeFiles(config) {
+  const currentAppFolder = getCurrentiOSAppFolderName();
+  const currentProjectName = currentAppFolder; // Assume project name matches folder name initially
+  
+  // Update Podfile
+  const podfilePath = path.join(__dirname, '../ios/Podfile');
+  if (fs.existsSync(podfilePath)) {
+    try {
+      let podfile = fs.readFileSync(podfilePath, 'utf8');
+      podfile = podfile.replace(
+        /target '[^']+' do/,
+        `target '${config.appName}' do`
+      );
+      fs.writeFileSync(podfilePath, podfile);
+      console.log('✅ Updated Podfile');
+    } catch (error) {
+      console.error('❌ Failed to update Podfile:', error.message);
+      throw error;
+    }
+  }
+
+  // Update AppDelegate.swift
+  const appDelegatePath = path.join(__dirname, `../ios/${currentAppFolder}/AppDelegate.swift`);
+  if (fs.existsSync(appDelegatePath)) {
+    try {
+      let appDelegate = fs.readFileSync(appDelegatePath, 'utf8');
+      appDelegate = appDelegate.replace(
+        /withModuleName: "[^"]+"/,
+        `withModuleName: "${config.appName}"`
+      );
+      fs.writeFileSync(appDelegatePath, appDelegate);
+      console.log('✅ Updated AppDelegate.swift');
+    } catch (error) {
+      console.error('❌ Failed to update AppDelegate.swift:', error.message);
+      throw error;
+    }
+  }
+
+  // Find and update project.pbxproj (Xcode project file)
+  const iosPath = path.join(__dirname, '../ios');
+  const xcodeprojs = fs.readdirSync(iosPath).filter(f => f.endsWith('.xcodeproj'));
+  
+  if (xcodeprojs.length > 0) {
+    const pbxprojPath = path.join(iosPath, xcodeprojs[0], 'project.pbxproj');
+    if (fs.existsSync(pbxprojPath)) {
+      try {
+        let pbxproj = fs.readFileSync(pbxprojPath, 'utf8');
+        
+        // Replace all occurrences of app name (match pattern: GermanTelcB1App, GermanTelcB2App, EnglishTelcB1App, etc.)
+        pbxproj = pbxproj.replace(
+          /\w+TelcB\d+App/g,
+          config.appName
+        );
+        
+        // Update PRODUCT_BUNDLE_IDENTIFIER for both Debug and Release
+        pbxproj = pbxproj.replace(
+          /PRODUCT_BUNDLE_IDENTIFIER = [^;]+;/g,
+          `PRODUCT_BUNDLE_IDENTIFIER = ${config.bundleId.ios};`
+        );
+        
+        // Update INFOPLIST_KEY_CFBundleDisplayName for both Debug and Release
+        pbxproj = pbxproj.replace(
+          /INFOPLIST_KEY_CFBundleDisplayName = "[^"]*";/g,
+          `INFOPLIST_KEY_CFBundleDisplayName = "${config.displayName}";`
+        );
+        
+        fs.writeFileSync(pbxprojPath, pbxproj);
+        console.log('✅ Updated project.pbxproj (app name, bundle ID, and display name)');
+      } catch (error) {
+        console.error('❌ Failed to update project.pbxproj:', error.message);
+        throw error;
+      }
+    }
+    
+    // Update xcscheme - find existing scheme file
+    const xcschemesPath = path.join(iosPath, xcodeprojs[0], 'xcshareddata/xcschemes');
+    if (fs.existsSync(xcschemesPath)) {
+      const schemes = fs.readdirSync(xcschemesPath).filter(f => f.endsWith('.xcscheme'));
+      if (schemes.length > 0) {
+        const oldSchemePath = path.join(xcschemesPath, schemes[0]);
+        const newSchemePath = path.join(xcschemesPath, `${config.appName}.xcscheme`);
+        
+        try {
+          let xcscheme = fs.readFileSync(oldSchemePath, 'utf8');
+          // Replace all occurrences of app name
+          xcscheme = xcscheme.replace(
+            /\w+TelcB\d+App/g,
+            config.appName
+          );
+          fs.writeFileSync(newSchemePath, xcscheme);
+          
+          // Delete old scheme file if it's different
+          if (oldSchemePath !== newSchemePath) {
+            fs.unlinkSync(oldSchemePath);
+          }
+          
+          console.log(`✅ Updated ${config.appName}.xcscheme`);
+        } catch (error) {
+          console.error('❌ Failed to update xcscheme:', error.message);
+          throw error;
+        }
+      }
+    }
+  }
+  
+  // Update workspace file - rewrite it completely to avoid duplicates
+  const workspaces = fs.readdirSync(iosPath).filter(f => f.endsWith('.xcworkspace'));
+  if (workspaces.length > 0) {
+    const workspaceDataPath = path.join(iosPath, workspaces[0], 'contents.xcworkspacedata');
+    if (fs.existsSync(workspaceDataPath)) {
+      try {
+        // Rewrite the workspace file with correct structure
+        const workspaceContent = `<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:${config.appName}.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
+`;
+        fs.writeFileSync(workspaceDataPath, workspaceContent);
+        console.log('✅ Updated workspace contents');
+      } catch (error) {
+        console.error('❌ Failed to update workspace:', error.message);
+        throw error;
+      }
+    }
+  }
+  
+  // Rename folders and files at the end after all content updates
+  console.log('\n📦 Renaming iOS folders and files...');
+  
+  // Rename app folder
+  const newAppFolderPath = path.join(iosPath, config.appName);
+  const currentAppFolderPath = path.join(iosPath, currentAppFolder);
+  if (currentAppFolder !== config.appName && fs.existsSync(currentAppFolderPath)) {
+    // Remove target if it exists
+    if (fs.existsSync(newAppFolderPath)) {
+      fs.rmSync(newAppFolderPath, { recursive: true, force: true });
+    }
+    fs.renameSync(currentAppFolderPath, newAppFolderPath);
+    console.log(`✅ Renamed ${currentAppFolder} → ${config.appName}`);
+  }
+  
+  // Rename entitlements file
+  const oldEntitlementsPath = path.join(newAppFolderPath, `${currentAppFolder}.entitlements`);
+  const newEntitlementsPath = path.join(newAppFolderPath, `${config.appName}.entitlements`);
+  if (fs.existsSync(oldEntitlementsPath) && oldEntitlementsPath !== newEntitlementsPath) {
+    // Remove target if it exists
+    if (fs.existsSync(newEntitlementsPath)) {
+      fs.unlinkSync(newEntitlementsPath);
+    }
+    fs.renameSync(oldEntitlementsPath, newEntitlementsPath);
+    console.log(`✅ Renamed entitlements file`);
+  }
+  
+  // Rename xcodeproj
+  if (xcodeprojs.length > 0) {
+    const oldProjPath = path.join(iosPath, xcodeprojs[0]);
+    const newProjPath = path.join(iosPath, `${config.appName}.xcodeproj`);
+    if (oldProjPath !== newProjPath && fs.existsSync(oldProjPath)) {
+      // Remove target if it exists
+      if (fs.existsSync(newProjPath)) {
+        fs.rmSync(newProjPath, { recursive: true, force: true });
+      }
+      fs.renameSync(oldProjPath, newProjPath);
+      console.log(`✅ Renamed ${xcodeprojs[0]} → ${config.appName}.xcodeproj`);
+    }
+  }
+  
+  // Rename xcworkspace
+  if (workspaces.length > 0) {
+    const oldWorkspacePath = path.join(iosPath, workspaces[0]);
+    const newWorkspacePath = path.join(iosPath, `${config.appName}.xcworkspace`);
+    if (oldWorkspacePath !== newWorkspacePath && fs.existsSync(oldWorkspacePath)) {
+      // Remove target if it exists
+      if (fs.existsSync(newWorkspacePath)) {
+        fs.rmSync(newWorkspacePath, { recursive: true, force: true });
+      }
+      fs.renameSync(oldWorkspacePath, newWorkspacePath);
+      console.log(`✅ Renamed ${workspaces[0]} → ${config.appName}.xcworkspace`);
+    }
+  }
+}
+
+function generateActiveExamConfig(config, examId) {
+  const configContent = `/**
+ * Active Exam Configuration
+ * 
+ * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
+ * Generated at: ${new Date().toISOString()}
+ * Exam: ${config.displayName}
+ * 
+ * This file determines which exam configuration is active for the current build.
+ * To change the active exam, run the build script with a different exam ID.
+ */
+
+import { ExamConfig } from './exam-config.types';
+import { getExamConfig } from './exams';
+
+const ACTIVE_EXAM_ID = '${examId}';
+
+/**
+ * Get the active exam configuration
+ * @returns The currently active ExamConfig
+ */
+export const getActiveExamConfig = (): ExamConfig => {
+  return getExamConfig(ACTIVE_EXAM_ID);
+};
+
+/**
+ * The currently active exam configuration
+ * This is a cached instance of the active config for convenience
+ */
+export const activeExamConfig = getActiveExamConfig();
+
+/**
+ * Get the active exam ID
+ * @returns The ID of the currently active exam
+ */
+export const getActiveExamId = (): string => {
+  return ACTIVE_EXAM_ID;
+};
+
+// Log the active configuration in development mode
+if (__DEV__) {
+  console.log('[ExamConfig] Active exam:', activeExamConfig.displayName);
+  console.log('[ExamConfig] Exam ID:', activeExamConfig.id);
+  console.log('[ExamConfig] Firebase collection:', activeExamConfig.firebaseCollections.examData);
+}
+`;
+  
+  const configPath = path.join(__dirname, '../src/config/active-exam.config.ts');
+  try {
+    fs.writeFileSync(configPath, configContent);
+    console.log('✅ Generated src/config/active-exam.config.ts');
+  } catch (error) {
+    console.error('❌ Failed to generate active-exam.config.ts:', error.message);
+    throw error;
+  }
+}
+
+// ==================== Main Execution ====================
+
+try {
+  // 1. Update app.json (both platforms)
+  updateAppJson(config);
+  
+  // 2. Platform-specific updates
+  if (platform === 'android') {
+    updateAndroidConfig(config);
+    updateAndroidStrings(config);
+    updateAndroidNativeFiles(config);
+  } else if (platform === 'ios') {
+    updateiOSConfig(config);
+    updateiOSNativeFiles(config);
+  }
+  
+  // 3. Generate active exam configuration
+  generateActiveExamConfig(config, examId);
+  
+  console.log('');
+  console.log('================================================');
+  console.log('✅ Configuration Applied Successfully!');
+  console.log('================================================');
+  console.log('');
+  console.log('Next steps:');
+  console.log('  - Review the changes');
+  console.log('  - Build the app for', platform);
+  console.log('');
+  
+  process.exit(0);
+} catch (error) {
+  console.log('');
+  console.log('================================================');
+  console.log('❌ Configuration Failed');
+  console.log('================================================');
+  console.log('');
+  console.error('Error:', error.message);
+  console.log('');
+  process.exit(1);
+}
+

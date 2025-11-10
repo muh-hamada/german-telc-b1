@@ -1,0 +1,299 @@
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Abschiedsparty",
+      "scenario": "Sie planen eine Abschiedsparty für nette Bekannte, bevor sie aus der Stadt abreisen.",
+      "dialogue": [
+        { "speaker": "A", "line": "Hallo! Schön, dass wir uns treffen. Also, wir müssen die Abschiedsparty für unsere Freunde planen. Hast du schon Ideen, wann wir sie machen sollen?" },
+        { "speaker": "B", "line": "Ja, hallo! Was denkst du, nächsten Freitag oder Samstag? Freitagabend wäre besser, da haben die meisten am Samstag frei." },
+        { "speaker": "A", "line": "Das ist eine gute Idee. Freitagabend, so gegen 19:00 Uhr. Wo sollen wir feiern? Vielleicht in meinem Garten?" },
+        { "speaker": "B", "line": "Super! In einem Restaurant wäre es zu teuer. Wie wäre es mit Grillen? Ich kann mich um die Salate kümmern." },
+        { "speaker": "A", "line": "Grillen ist perfekt! Ich kaufe das Fleisch und die Getränke – Wein, Bier und Wasser. Wer kümmert sich um die Einladungen?" },
+        { "speaker": "B", "line": "Ich mache die Einladungen und schicke sie per E-Mail. Und wer bezahlt wofür?" },
+        { "speaker": "A", "line": "Ich übernehme die Kosten für das Fleisch und die Getränke, und du für die Salate." },
+        { "speaker": "B", "line": "Das ist fair! Dann treffen wir uns am Freitagabend. Toll, dass wir das geklärt haben!" },
+        { "speaker": "A", "line": "Perfekt! Bis dann!" }
+      ],
+      "vocabulary": [
+        { "german": "die Abschiedsparty", "english": "farewell party" },
+        { "german": "die Einladung", "english": "invitation" },
+        { "german": "die Getränke", "english": "drinks" },
+        { "german": "die Kosten übernehmen", "english": "to cover the costs" },
+        { "german": "sich einigen auf", "english": "to agree upon" },
+        { "german": "der Garten", "english": "garden" },
+        { "german": "die Aufgabe", "english": "task" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wie wäre es mit Freitagabend?", "response": "Das ist eine gute Idee!" },
+        { "type": "suggestion", "german": "Was hältst du von Grillen?", "response": "Das gefällt mir gut." },
+        { "type": "delegation", "german": "Wer kann das übernehmen?", "response": "Ich kümmere mich darum." },
+        { "type": "conclusion", "german": "Haben wir alles besprochen?", "response": "Ich denke schon." }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Städtereise",
+      "scenario": "Sie möchten gemeinsam einen zweitägigen Ausflug in eine deutsche Stadt planen.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hallo Anna, wir müssen unsere Städtereise nach Hamburg planen. Ich freue mich schon!" },
+        { "speaker": "A", "line": "Ich mich auch! In welche Stadt wollten wir fahren? Ach ja, Hamburg! Wann genau?" },
+        { "speaker": "B", "line": "Wie wäre es, wenn wir am ersten Wochenende im nächsten Monat fahren? Samstags und sonntags." },
+        { "speaker": "A", "line": "Das passt mir gut. Aber wie kommen wir hin? Fahren wir mit dem Zug oder mit dem Auto?" },
+        { "speaker": "B", "line": "Ich schlage vor, wir nehmen den ICE. Das ist schneller und entspannter, und wir sparen das Geld für das Parkhaus." },
+        { "speaker": "A", "line": "Gute Idee. Wir brauchen auch eine Übernachtung. Ich habe ein zentrales Hotel gefunden, das nicht zu teuer ist. Ich kann es buchen." },
+        { "speaker": "B", "line": "Perfekt! Was wollen wir besichtigen? Ich möchte unbedingt die Elbphilharmonie sehen." },
+        { "speaker": "A", "line": "Das ist ein Muss! Und am Abend könnten wir in einem Fischrestaurant essen. Ich suche das Restaurant und du kaufst die Zugtickets." },
+        { "speaker": "B", "line": "Einverstanden! Dann buche ich die Tickets und du das Hotel und das Restaurant." }
+      ],
+      "vocabulary": [
+        { "german": "die Städtereise", "english": "city trip" },
+        { "german": "die Übernachtung", "english": "accommodation/stay" },
+        { "german": "die Sehenswürdigkeit", "english": "sight / point of interest" },
+        { "german": "der Zug", "english": "train" },
+        { "german": "zentral", "english": "central" },
+        { "german": "besichtigen", "english": "to visit/sightsee" },
+        { "german": "buchen", "english": "to book" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Ich hätte eine Idee: Wir nehmen den Zug.", "response": "Das ist schneller und entspannter." },
+        { "type": "suggestion", "german": "Ich möchte unbedingt die Elbphilharmonie sehen.", "response": "Das ist ein Muss!" },
+        { "type": "delegation", "german": "Wer kauft die Zugtickets?", "response": "Ich kann das machen." },
+        { "type": "delegation", "german": "Ich kann mich um das Buchen kümmern.", "response": "Das ist sehr nett von dir." }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Umzug",
+      "scenario": "Ein gemeinsamer Freund zieht bald um, und Sie sollen die Hilfe organisieren.",
+      "dialogue": [
+        { "speaker": "A", "line": "Tina, Thomas zieht nächste Woche um. Wir müssen ihm helfen, alles zu organisieren." },
+        { "speaker": "B", "line": "Stimmt! Lass uns das besprechen. Zuerst: Wann genau zieht er um? Wir brauchen einen genauen Termin." },
+        { "speaker": "A", "line": "Am nächsten Samstagmorgen. Wir sollten um 9:00 Uhr beginnen. Wer kann alles helfen? Ich frage noch Lukas und Sarah." },
+        { "speaker": "B", "line": "Gut. Ich kann mich um das Transportmittel kümmern. Ich rufe eine Firma an, die einen Transporter vermietet." },
+        { "speaker": "A", "line": "Hervorragend! Und wir brauchen Umzugskartons. Ich habe noch ein paar, aber nicht genug. Ich kaufe neue." },
+        { "speaker": "B", "line": "Perfekt. Und wir müssen die Helfer verpflegen. Ich schlage vor, ich mache belegte Brote und kaufe Kaffee." },
+        { "speaker": "A", "line": "Das ist toll, ich kaufe dann Pizza für das Abendessen. Ich schreibe alle Helfer auf eine Liste und du reservierst den Transporter, okay?" },
+        { "speaker": "B", "line": "Abgemacht! Dann ist alles organisiert." }
+      ],
+      "vocabulary": [
+        { "german": "der Umzug", "english": "the move / relocation" },
+        { "german": "der Transporter", "english": "delivery van" },
+        { "german": "die Umzugskartons", "english": "moving boxes" },
+        { "german": "helfen bei", "english": "to help with" },
+        { "german": "das Transportmittel", "english": "means of transport" },
+        { "german": "die Verpflegung", "english": "catering / food supply" },
+        { "german": "der Helfer", "english": "helper" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wir sollten am Samstag um 9:00 Uhr beginnen.", "response": "Einverstanden!" },
+        { "type": "delegation", "german": "Was ist mit den Umzugskartons?", "response": "Ich besorge neue." },
+        { "type": "suggestion", "german": "Was machen wir mit dem Essen?", "response": "Ich kann belegte Brote vorbereiten." },
+        { "type": "conclusion", "german": "Damit hätten wir alles.", "response": "Der Plan steht." }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sommerfest",
+      "scenario": "Sie und Ihr Kollege planen das jährliche Sommerfest für die Firma.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hallo Max, wir müssen das Sommerfest planen. Wann passt es am besten? Ende Juli oder Anfang August?" },
+        { "speaker": "A", "line": "Anfang August ist besser, finde ich. Und wo können wir feiern? Ich schlage den Park beim Büro vor." },
+        { "speaker": "B", "line": "Das ist eine gute Idee. Es ist groß genug. Was machen wir mit dem Essen? Wir brauchen etwas Einfaches." },
+        { "speaker": "A", "line": "Wir könnten einen Partyservice bestellen. Sie bringen Essen und Geschirr mit. Ich hole Angebote ein." },
+        { "speaker": "B", "line": "Super! Und wir brauchen Musik und Tanz. Ich habe eine gute Playlist mit Sommerhits. Ich kümmere mich um die Musikanlage." },
+        { "speaker": "A", "line": "Toll! Ich organisiere das Essen und die Tische. Kannst du die Einladungen an alle Kollegen schicken?" },
+        { "speaker": "B", "line": "Ja, das mache ich sofort. Ich schreibe auch eine Liste für die Getränke. Brauchen wir noch etwas?" },
+        { "speaker": "A", "line": "Nein, ich denke, das Wichtigste haben wir besprochen. Ich freue mich auf das Fest!" }
+      ],
+      "vocabulary": [
+        { "german": "das Sommerfest", "english": "summer festival" },
+        { "german": "der Kollege", "english": "colleague" },
+        { "german": "die Musikanlage", "english": "sound system" },
+        { "german": "der Partyservice", "english": "catering service" },
+        { "german": "ein Angebot einholen", "english": "to get a quote" },
+        { "german": "das Geschirr", "english": "crockery / dishes" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Ich schlage vor, wir holen Angebote ein.", "response": "Das ist sehr praktisch." },
+        { "type": "delegation", "german": "Kannst du vielleicht die Einladungen schicken?", "response": "Gerne, mache ich!" },
+        { "type": "suggestion", "german": "Was machen wir zur Unterhaltung?", "response": "Wir brauchen Musik." },
+        { "type": "conclusion", "german": "Ich denke, wir haben alles.", "response": "Ja, wir sind fertig." }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Fahrradausflug",
+      "scenario": "Sie möchten am Wochenende zusammen einen Fahrrad-Tagesausflug machen.",
+      "dialogue": [
+        { "speaker": "A", "line": "Lena, dieses Wochenende soll das Wetter toll sein! Wollen wir unseren Fahrradausflug machen?" },
+        { "speaker": "B", "line": "Ja, unbedingt! Wann wollen wir starten? Vormittags, gegen 10 Uhr?" },
+        { "speaker": "A", "line": "10 Uhr ist gut. Aber wohin fahren wir? Ich kenne eine schöne Route am Fluss. Das sind ungefähr 30 Kilometer." },
+        { "speaker": "B", "line": "30 Kilometer sind gut. Wir müssen aber auch eine Pause machen. Gibt es ein Restaurant auf der Strecke?" },
+        { "speaker": "A", "line": "Ich weiß nicht genau. Wir könnten ein Picknick machen. Ich bringe Brot und Käse mit." },
+        { "speaker": "B", "line": "Das ist besser! Ich mache frischen Saft und bringe Obst mit. Und jeder muss seine Fahrräder überprüfen!" },
+        { "speaker": "A", "line": "Stimmt! Ich schaue nach dem Reifendruck und du nach den Bremsen. Wir treffen uns um 10 Uhr an der Brücke." },
+        { "speaker": "B", "line": "Perfekt! Dann bis Samstag! Ich freue mich auf die frische Luft." }
+      ],
+      "vocabulary": [
+        { "german": "der Fahrradausflug", "english": "bike tour" },
+        { "german": "die Route", "english": "route" },
+        { "german": "das Picknick", "english": "picnic" },
+        { "german": "die Bremse", "english": "brake" },
+        { "german": "der Reifendruck", "english": "tire pressure" },
+        { "german": "überprüfen", "english": "to check / inspect" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wann wollen wir starten?", "response": "10 Uhr ist gut." },
+        { "type": "suggestion", "german": "Wir könnten ein Picknick machen.", "response": "Das ist besser!" },
+        { "type": "delegation", "german": "Jeder muss seine Fahrräder überprüfen!", "response": "Stimmt!" },
+        { "type": "conclusion", "german": "Perfekt! Dann bis Samstag!", "response": "" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Spendenaktion",
+      "scenario": "Sie möchten eine Spendenaktion für Kinder in der Nachbarschaft organisieren.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hallo Martin. Wir wollen eine Spendenaktion starten, um den Kindern in unserer Gegend zu helfen. Wie fangen wir an?" },
+        { "speaker": "A", "line": "Hallo! Zuerst müssen wir klären, welche Organisation wir unterstützen wollen. Kennst du das Kinderheim in der Schillerstraße?" },
+        { "speaker": "B", "line": "Ja, das ist eine gute Wahl. Wir sollten Sachspenden sammeln, keine Kleidung, sondern Spielzeug und Bücher." },
+        { "speaker": "A", "line": "Gute Idee. Wo können wir die Spenden sammeln? Ich habe einen Kellerraum, den wir nutzen können." },
+        { "speaker": "B", "line": "Super. Ich erstelle Flyer und hänge sie in den Supermärkten auf. Und ich informiere die lokale Zeitung." },
+        { "speaker": "A", "line": "Prima! Ich mache eine Liste mit Dingen, die wir dringend brauchen, und organisiere die Abgabezeiten." },
+        { "speaker": "B", "line": "Und wir brauchen Freiwillige, die beim Sortieren helfen. Ich frage meine Nachbarn." },
+        { "speaker": "A", "line": "Einverstanden. Ich mache die Liste, du die Flyer und wir fragen Freiwillige. Ich denke, das ist ein guter Plan!" }
+      ],
+      "vocabulary": [
+        { "german": "die Spendenaktion", "english": "donation drive" },
+        { "german": "das Kinderheim", "english": "children's home" },
+        { "german": "die Sachspende", "english": "non-monetary donation" },
+        { "german": "sammeln", "english": "to collect" },
+        { "german": "der Flyer", "english": "flyer" },
+        { "german": "der Freiwillige", "english": "volunteer" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Welche Organisation unterstützen wir?", "response": "Das ist eine gute Wahl." },
+        { "type": "suggestion", "german": "Wo können wir die Spenden sammeln?", "response": "Ich habe einen Kellerraum." },
+        { "type": "delegation", "german": "Wir brauchen Freiwillige.", "response": "Ich frage meine Nachbarn." },
+        { "type": "conclusion", "german": "Das ist ein guter Plan!", "response": "" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Kindergeburtstag",
+      "scenario": "Ihre Kinder sind befreundet und planen eine gemeinsame Feier.",
+      "dialogue": [
+        { "speaker": "A", "line": "Susi, unsere Kinder haben ja bald Geburtstag. Wollen wir eine gemeinsame Feier machen?" },
+        { "speaker": "B", "line": "Ja, das wird einfacher! Wen sollen wir einladen? Nur die Kinder aus der Schule oder auch die Eltern?" },
+        { "speaker": "A", "line": "Nur die Kinder. Ich denke, 15 Kinder sind genug. Wo feiern wir? Bei mir zu Hause ist es zu klein." },
+        { "speaker": "B", "line": "Wie wäre es, wenn wir in den Zoo gehen und dort picknicken? Oder wir mieten einen Raum in der Sporthalle?" },
+        { "speaker": "A", "line": "Die Sporthalle ist gut, wenn das Wetter schlecht ist. Ich rufe dort an und reserviere den Raum." },
+        { "speaker": "B", "line": "Sehr gut. Was machen wir mit dem Kuchen und den Süßigkeiten? Ich kann den Kuchen backen." },
+        { "speaker": "A", "line": "Toll! Ich kümmere mich um die Spiele und die Getränke. Wir brauchen auch ein kleines Geschenk von uns." },
+        { "speaker": "B", "line": "Abgemacht. Ich backe den Kuchen und du reservierst den Raum. Und wir kaufen ein Geschenk zusammen." }
+      ],
+      "vocabulary": [
+        { "german": "die Feier", "english": "celebration" },
+        { "german": "reservieren", "english": "to reserve" },
+        { "german": "der Kuchen", "english": "cake" },
+        { "german": "die Süßigkeiten", "english": "sweets" },
+        { "german": "die Sporthalle", "english": "sports hall" },
+        { "german": "das Geschenk", "english": "gift" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wen sollen wir einladen?", "response": "Nur die Kinder." },
+        { "type": "suggestion", "german": "Wo feiern wir?", "response": "Wie wäre es im Zoo?" },
+        { "type": "delegation", "german": "Was machen wir mit dem Kuchen?", "response": "Ich kann den Kuchen backen." },
+        { "type": "conclusion", "german": "Abgemacht.", "response": "" }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Fitness-Routine",
+      "scenario": "Sie wollen zusammen mit einem gesunden Sportprogramm starten.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hallo Alex! Wir wollten ja mehr für unsere Gesundheit tun. Was schlagen wir vor? Joggen oder Schwimmen?" },
+        { "speaker": "A", "line": "Hallo! Ich denke, Joggen ist einfacher, weil wir keine Mitgliedschaft im Fitnessstudio brauchen." },
+        { "speaker": "B", "line": "Stimmt. Wie oft wollen wir trainieren? Ich kann dreimal pro Woche." },
+        { "speaker": "A", "line": "Dreimal ist gut. Und wann genau? Ich kann nur abends nach 18:00 Uhr." },
+        { "speaker": "B", "line": "18:30 Uhr? Wir könnten im Park joggen, das ist näher. Und wer sucht einen guten Trainingsplan im Internet?" },
+        { "speaker": "A", "line": "Das kann ich übernehmen! Ich suche einen Plan für Anfänger und schreibe eine Liste mit Aufwärmübungen." },
+        { "speaker": "B", "line": "Super. Ich kaufe uns neue Sportschuhe und suche eine gute Laufstrecke im Park." },
+        { "speaker": "A", "line": "Perfekt! Lass uns am Montagabend mit dem Training beginnen." }
+      ],
+      "vocabulary": [
+        { "german": "die Gesundheit", "english": "health" },
+        { "german": "joggen", "english": "to jog" },
+        { "german": "die Mitgliedschaft", "english": "membership" },
+        { "german": "der Trainingsplan", "english": "training schedule" },
+        { "german": "der Anfänger", "english": "beginner" },
+        { "german": "die Laufstrecke", "english": "running route" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Was schlagen wir vor?", "response": "Joggen ist einfacher." },
+        { "type": "suggestion", "german": "Wie oft wollen wir trainieren?", "response": "Dreimal ist gut." },
+        { "type": "delegation", "german": "Wer sucht einen guten Trainingsplan?", "response": "Das kann ich übernehmen!" },
+        { "type": "conclusion", "german": "Perfekt! Lass uns beginnen.", "response": "" }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Klassentreffen",
+      "scenario": "Sie wollen nach 10 Jahren ein Treffen mit ehemaligen Schulkameraden organisieren.",
+      "dialogue": [
+        { "speaker": "A", "line": "Hey, es ist 10 Jahre her, dass wir die Schule beendet haben! Wir müssen ein Klassentreffen organisieren!" },
+        { "speaker": "B", "line": "Ja, das ist eine tolle Idee! Aber das ist viel Arbeit. Wen laden wir ein? Nur unsere Klasse oder auch die Lehrer?" },
+        { "speaker": "A", "line": "Nur die Schüler der Klasse. Wann passt es am besten? Vielleicht im Herbst? Ende Oktober?" },
+        { "speaker": "B", "line": "Oktober ist gut. Und wo treffen wir uns? Im alten Schulgebäude? Oder in einem Café?" },
+        { "speaker": "A", "line": "Das alte Schulgebäude ist nostalgisch, aber ein Café ist bequemer. Ich kann ein Café im Zentrum reservieren." },
+        { "speaker": "B", "line": "Mach das! Wir müssen auch die Adressen von allen finden. Ich habe noch eine alte Liste. Ich schreibe alle an." },
+        { "speaker": "A", "line": "Perfekt! Ich mache das Café und du die Einladungen. Und jeder bezahlt sein Essen selbst, das ist einfacher." },
+        { "speaker": "B", "line": "Absolut! Dann teilen wir uns die Aufgaben so auf." }
+      ],
+      "vocabulary": [
+        { "german": "das Klassentreffen", "english": "class reunion" },
+        { "german": "ehemalig", "english": "former" },
+        { "german": "das Schulgebäude", "english": "school building" },
+        { "german": "bequem", "english": "convenient" },
+        { "german": "die Adresse", "english": "address" },
+        { "german": "die Liste", "english": "list" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wen laden wir ein?", "response": "Nur die Schüler der Klasse." },
+        { "type": "suggestion", "german": "Wo treffen wir uns?", "response": "Ein Café ist bequemer." },
+        { "type": "delegation", "german": "Wir müssen die Adressen finden.", "response": "Ich habe noch eine alte Liste." },
+        { "type": "conclusion", "german": "Dann teilen wir uns die Aufgaben so auf.", "response": "" }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Besuch für einen Gast",
+      "scenario": "Ein Freund aus dem Ausland kommt zu Besuch und Sie planen seinen Aufenthalt.",
+      "dialogue": [
+        { "speaker": "B", "line": "Tina, unser Freund Marco kommt nächstes Wochenende! Wir müssen seinen Aufenthalt planen." },
+        { "speaker": "A", "line": "Stimmt! Wann kommt er an? Ich kann ihn vom Flughafen abholen." },
+        { "speaker": "B", "line": "Das ist lieb von dir. Er landet am Freitag um 15:00 Uhr. Wo soll er übernachten? Bei mir ist Platz." },
+        { "speaker": "A", "line": "Gut, dann bleibt er bei dir. Was wollen wir ihm zeigen? Er mag Kunst und Geschichte." },
+        { "speaker": "B", "line": "Dann besuchen wir am Samstag das Historische Museum und machen eine Stadtführung. Ich kaufe die Tickets." },
+        { "speaker": "A", "line": "Super! Und abends gehen wir in mein Lieblingsrestaurant. Ich reserviere einen Tisch für uns drei." },
+        { "speaker": "B", "line": "Perfekt. Dann hole ich ihn ab, du machst die Reservierung und ich kümmere mich um die Tickets für das Museum." },
+        { "speaker": "A", "line": "Wunderbar! Ich freue mich schon sehr auf seinen Besuch!" }
+      ],
+      "vocabulary": [
+        { "german": "der Aufenthalt", "english": "stay / visit" },
+        { "german": "der Flughafen", "english": "airport" },
+        { "german": "abholen", "english": "to pick up" },
+        { "german": "die Stadtführung", "english": "city tour" },
+        { "german": "die Geschichte", "english": "history" },
+        { "german": "die Kunst", "english": "art" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Wann kommt er an?", "response": "Ich kann ihn abholen." },
+        { "type": "suggestion", "german": "Was wollen wir ihm zeigen?", "response": "Er mag Kunst und Geschichte." },
+        { "type": "delegation", "german": "Ich kaufe die Tickets.", "response": "Super!" },
+        { "type": "conclusion", "german": "Wunderbar!", "response": "" }
+      ]
+    }
+  ]
+}

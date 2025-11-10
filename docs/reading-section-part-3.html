@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1 Leseverstehen Teil 3: Anzeigen-Matching</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .exam-tab { transition: all 0.2s; }
+        .exam-active { background-color: #0077B6; color: white; }
+        .modal { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            visibility: hidden; 
+            opacity: 0; 
+            transition: visibility 0s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .modal.open { 
+            visibility: visible; 
+            opacity: 1; 
+            pointer-events: auto;
+        }
+        .text-box {
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            min-height: 100px;
+            background-color: #fff;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8 lg:p-12">
+        
+        <header class="text-center mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#0077B6]">Telc B1 Leseverstehen Teil 3</h1>
+            <p class="text-lg text-[#757575] mt-1">Übung: Situationen und Anzeigen zuordnen</p>
+        </header>
+
+        <section id="exam-selection" class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Prüfung auswählen:</h2>
+            <div id="exam-tabs" class="flex flex-wrap gap-2 md:gap-4 justify-center bg-gray-200 p-2 rounded-lg shadow-inner">
+                <button data-exam-id="0" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 1 (PDF)</button>
+                <button data-exam-id="1" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 2 (Neu)</button>
+                <button data-exam-id="2" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 3 (Neu)</button>
+                <button data-exam-id="3" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 4 (Neu)</button>
+                <button data-exam-id="4" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 5 (Neu)</button>
+            </div>
+        </section>
+
+        <main class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            
+            <h2 class="text-2xl font-bold text-[#0077B6] mb-4">Aufgabe: Situationen und Anzeigen</h2>
+            <p class="mb-6 text-gray-700">Lesen Sie die Situationen (11-20) und die Anzeigen (a-l). Finden Sie für jede Situation die passende Anzeige. Sie können jede Anzeige nur einmal benutzen. Wenn Sie keine Anzeige finden, markieren Sie **x**.</p>
+            
+            <div id="exam-content-container">
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-3 border-b pb-2">Die Anzeigen (a - l)</h3>
+                    <div id="advertisements-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-3 border-b pb-2">Die Situationen (11 - 20)</h3>
+                    <div id="situations-container" class="space-y-4">
+                        </div>
+                </div>
+            </div>
+
+            <button id="check-answers-button" class="mt-8 w-full bg-[#0077B6] text-white py-3 rounded-lg text-lg font-semibold hover:bg-[#005F92] transition-colors duration-200 shadow-md">
+                Antworten prüfen
+            </button>
+        </main>
+    </div>
+
+    <div id="results-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 md:p-8 transform transition-all duration-300 scale-95 modal-content">
+            <h3 class="text-2xl font-bold text-[#0077B6] mb-4 border-b pb-2">Ihre Testergebnisse (Teil 3)</h3>
+            
+            <p id="final-score" class="text-xl font-semibold mb-4"></p>
+            
+            <div id="results-summary" class="space-y-3 mb-6 max-h-96 overflow-y-auto">
+            </div>
+
+            <button id="close-modal-button" class="w-full bg-gray-500 text-white py-2 rounded-lg font-semibold hover:bg-gray-700">
+                Schließen
+            </button>
+        </div>
+    </div>
+
+<script>
+    // --- EXAM DATA ---
+    const allExams = [
+        // --- Test 1: Original PDF Example ---
+        {
+            id: 0,
+            title: "Test 1 (Original PDF)",
+            advertisements: {
+                a: "Thai-China-Vietnam Asiatisches Spezialitäten-Restaurant **Bong - Hong**. Alle Gerichte auch zum **Mitnehmen** und Heimservice.",
+                b: "Ristorante **OLINDO**. Italienisches Restaurant. Bei schönem Wetter **Gartenbetrieb**.",
+                c: "Wir wünschen unseren Kunden... schöne Ferien und gute Erholung. ... sind Sie für den Urlaub auch gut versichert? Fragen Sie: **Helmut Schwabe** (Versicherungen).",
+                d: "**SEATOP Reisen**. Der Flug- und Hotelspezialist **WELTWEIT REISEN**. Sommertermine nach USA noch Plätze frei.",
+                e: "**COUNCIL TRAVEL** Für **Studenten/Jugendliche** (Flugpreise, z.B. New York/Boston 329,-). **Alle Preise zzgl. Sicherheitsgebühr u. Steuern**.",
+                f: "**Kreittmayr** Kneipe mit **Biergarten**.",
+                g: "**Internationaler Stammtisch**. Deutsche und ausländische Jugendliche in München diskutieren über die Probleme.",
+                h: "**Nachprüfung**. Lehrerin bereitet intensiv vor in: Latein, Englisch, Französisch, Deutsch.",
+                i: "**Unterricht**. **Nachhilfe in Mathe-Physik** mit viel Geduld u. Erfahrung von Gymnasiallehrer. ***Erf. Dipl.-Math. gibt*** **MATHE** (alles für Abi u. Studium) **PHYSIK** (für ABI).",
+                j: "**City-Reisebüro**. Campmobile **USA/CANADA** z.B. San Francisco/Los Angeles **ab € 35,- pro Tag**. Früh buchen lohnt!",
+                k: "**Kurse** Für Erwachsene und Kinder mit **(Sprach-)Schwierigkeiten**.",
+                l: "**SPRACHBÖRSE**. **Deutsch als Fremdsprache** | Fremdsprachen | Kindersprachkurse. **muttersprachl. Lehrkräfte**, Minigruppen.",
+                x: "Keine passende Anzeige"
+            },
+            situations: [
+                { id: 11, text: "Sie möchten mit Freunden in einem Restaurant essen. Da das Wetter schön ist, möchten Sie gerne **draußen sitzen**.", answer: 'b' },
+                { id: 12, text: "Sie möchten heute nicht selbst kochen, sondern lieber ein warmes Essen kaufen und **mit nach Hause nehmen**.", answer: 'a' },
+                { id: 13, text: "In den Sommerferien möchten Sie gerne in die USA fliegen. Sie brauchen dort auch eine **Unterkunft**.", answer: 'j' },
+                { id: 14, text: "Reisebüros bieten billigere Flüge an, wenn man in **letzter Minute** bucht. Sie suchen so einen Flug.", answer: 'd' },
+                { id: 15, text: "Ihre Tochter, die **studiert**, möchte in die USA fliegen. Sie suchen einen **billigen Flug** für sie.", answer: 'e' },
+                { id: 16, text: "Ihr Sohn ist schlecht in **Mathematik** und braucht deshalb noch **Unterricht** außerhalb der Schule.", answer: 'i' },
+                { id: 17, text: "Das Kind Ihrer Freunde hat Probleme beim **Sprechen** und braucht deshalb Hilfe.", answer: 'k' },
+                { id: 18, text: "Sie haben einen jungen Franzosen zu Besuch. Sie möchten, dass er in einen **Deutschkurs** geht.", answer: 'l' },
+                { id: 19, text: "Sie möchten, dass Ihr Sohn in einen **Jugendclub** geht.", answer: 'x' },
+                { id: 20, text: "Sie interessieren sich für die Probleme **ausländischer Jugendlicher** in Deutschland.", answer: 'g' }
+            ]
+        },
+        // --- Test 2: New topics - Housing/Health/Hobbies/Shopping ---
+        {
+            id: 1,
+            title: "Test 2 (Neu)",
+            advertisements: {
+                a: "**Fahrrad-Flohmarkt**. Große Auswahl an **gebrauchten** Damen- und Herrenrädern. Nur am Samstag.",
+                b: "**WG-Zimmer frei** in München-Sendling. Kleines, möbliertes Zimmer. Ideal für Studenten/Pendler. **Mindestmietdauer 6 Monate**.",
+                c: "**Kochkurs: Basics** für Anfänger. 4 Abende, lernen Sie schnell die Grundlagen der gesunden Küche. Jetzt anmelden!",
+                d: "**Stress-Atem-Yoga**. Sanfte Kurse für **Anfänger** und Wiedereinsteiger. Weniger Stress, mehr Energie.",
+                e: "**Minijob-Zentrale**. Wir vermitteln **studentische Aushilfen** für Büros und Gastronomie. Flexible Arbeitszeiten.",
+                f: "**Schuh- und Schlüsselservice**. Auch **Handy-Reparatur** (Displays, Akkus) zum Festpreis. Sofort-Service.",
+                g: "**Zahnarztpraxis Dr. Weiss**. Auch **kurzfristige Termine** für Kontrollen und Schmerzfälle. Wir nehmen uns Zeit für Sie.",
+                h: "**Wanderträume**. Organisierte **Zugreisen** in die bayerischen Alpen. Mit Übernachtung in gemütlichen Hütten.",
+                i: "**Second-Hand-Möbel**. Günstige Tische, Stühle, Regale. Perfekt für die **erste eigene Wohnung**.",
+                j: "**Fotoclub 'Blende Auf'**. Regelmäßige Treffen, Ausflüge, Bildbesprechungen. Jetzt Mitglied werden und **Techniken lernen**.",
+                k: "**Sprachschule Polyglott**. Deutschkurse A1-C2. Auch spezielle **Wirtschaftsdeutsch**-Kurse.",
+                l: "**Immobilienscout**. Hunderte von kleinen **1- bis 2-Zimmer-Wohnungen** zur Miete in München. Mit aktuellen Fotos.",
+                x: "Keine passende Anzeige"
+            },
+            situations: [
+                { id: 11, text: "Sie möchten eine **kleine Wohnung** zur Miete in München finden.", answer: 'l' },
+                { id: 12, text: "Sie brauchen dringend ein **gebrauchtes Fahrrad** für den Weg zur Arbeit.", answer: 'a' },
+                { id: 13, text: "Sie planen einen **Wochenendausflug** in die Berge und wollen **mit dem Zug** fahren.", answer: 'h' },
+                { id: 14, text: "Sie wollen in Ihrer neuen Wohnung **kochen lernen** und suchen einen **Anfängerkurs**.", answer: 'c' },
+                { id: 15, text: "Ihr Bruder, ein **Student**, sucht einen **Job** für ein paar Stunden pro Woche.", answer: 'e' },
+                { id: 16, text: "Sie sind oft gestresst und möchten einen entspannenden **Yogakurs für Anfänger** besuchen.", answer: 'd' },
+                { id: 17, text: "Das **Display** Ihres **Smartphones** ist kaputt und Sie suchen eine **Reparaturmöglichkeit**.", answer: 'f' },
+                { id: 18, text: "Sie ziehen in ein neues Zimmer und suchen **günstige Möbel**.", answer: 'i' },
+                { id: 19, text: "Sie möchten schnell einen **Termin beim Zahnarzt** für eine **Kontrolle** bekommen.", answer: 'g' },
+                { id: 20, text: "Sie machen gerne Fotos und möchten sich einer **Gruppe** zum Austausch und Lernen **anschließen**.", answer: 'j' }
+            ]
+        },
+        // --- Test 3: New topics - Culture/Finance/Family/Mobility ---
+        {
+            id: 2,
+            title: "Test 3 (Neu)",
+            advertisements: {
+                a: "**Mietwagen-Zentrale**. Fahrzeuge für ein **Wochenende** oder länger. Inklusive aller Kilometer. Sofort buchen.",
+                b: "**Die Partylöwen**. Professionelles **Catering** für Geburtstage, Firmenfeiern und Events. Kalte und warme Buffets.",
+                c: "**Bank 123**. Jetzt Ihr **erstes Girokonto** eröffnen! Kostenlose Kontoführung für alle unter 25 Jahren. 24/7-Service.",
+                d: "**E-Gitarren-Schule**. Unterricht für Anfänger und Fortgeschrittene. **Lernen Sie Ihren Lieblingssong!** Kostenlose Probestunde.",
+                e: "**Kindermuseum 'Kleine Entdecker'**. Spezielle Führungen und Workshops für **Kindergarten- und Grundschulkinder**.",
+                f: "**Elektro-Sofortdienst**. Wir reparieren **Haushaltsgeräte** und helfen bei **Stromausfällen** im Haus. Rufen Sie uns an!",
+                g: "**Tierheim München**. Wir suchen ehrenamtliche Helfer, die uns beim **Spazierengehen** mit den Hunden unterstützen.",
+                h: "**Kindergarten 'Sonnenschein'**. Plätze frei für **Kinder ab 3 Jahren**. Ganztagsbetreuung mit Fokus auf Bewegung und Sprache.",
+                i: "**Mode-Outlet**. Große Auswahl an **Wintermänteln** und -jacken. **50% Rabatt** auf die gesamte Kollektion. Nur diese Woche.",
+                j: "**Festival-Tickets**. Tickets für alle großen Musikfestivals des Sommers. Jetzt **online bestellen** und von Frühbucher-Rabatten profitieren.",
+                k: "**Musikschule 'Taktvoll'**. Wir bieten Klavier-, Flöten- und **Gesangsunterricht** an.",
+                l: "**Handwerkerservice**. Reparaturen rund ums Haus. Sanitär, Heizung und **Gartenarbeit**.",
+                x: "Keine passende Anzeige"
+            },
+            situations: [
+                { id: 11, text: "Ihr Sohn wird 18. Er braucht ein **Bankkonto** ohne Gebühren.", answer: 'c' },
+                { id: 12, text: "Sie möchten in der Freizeit **Gitarre spielen lernen**.", answer: 'd' },
+                { id: 13, text: "Sie möchten mit Ihrer **Familie** und **kleinen Kindern** ein **Museum** besuchen.", answer: 'e' },
+                { id: 14, text: "Sie benötigen für einen **Wochenendausflug** ein Auto.", answer: 'a' },
+                { id: 15, text: "Sie organisieren eine große Feier und brauchen jemanden, der das **Essen liefert**.", answer: 'b' },
+                { id: 16, text: "In Ihrer Küche funktioniert der Herd nicht mehr. Sie suchen einen **Elektriker**.", answer: 'f' },
+                { id: 17, text: "Sie suchen **Eintrittskarten** für ein **großes Musik-Event** im Sommer.", answer: 'j' },
+                { id: 18, text: "Sie suchen für Ihre **dreijährige Tochter** einen Platz in einer **Kindereinrichtung**.", answer: 'h' },
+                { id: 19, text: "Sie möchten in Ihrer Freizeit **Tieren** helfen, besonders **Hunden**.", answer: 'g' },
+                { id: 20, text: "Sie möchten jetzt im Herbst einen **Wintermantel** **günstig kaufen**.", answer: 'i' }
+            ]
+        },
+        // --- Test 4: New topics - Technology/Career/Fitness/Home ---
+        {
+            id: 3,
+            title: "Test 4 (Neu)",
+            advertisements: {
+                a: "**Sprachclub Horizonte**. Spanisch-Anfängerkurs in 4 Wochen. Ideal zur **Vorbereitung auf den Urlaub**.",
+                b: "**Fit & Gesund**. **Personal Trainer** hilft Ihnen, Ihre Fitnessziele zu erreichen. Individuelle Trainingspläne.",
+                c: "**Steuerberatung Clever**. Wir helfen bei der **Einkommensteuererklärung**. Auch für Studenten und Angestellte.",
+                d: "**Internet-Turbo**. Installation und Einrichtung Ihres **DSL/Kabelanschlusses** bei Ihnen zu Hause. Techniker-Service.",
+                e: "**Waschmaschinen-König**. Große Auswahl an **langlebigen** Markengeräten. 5 Jahre Garantie. Wir liefern und installieren.",
+                f: "**Job-Coaching**. Professionelle **Bewerbungsberatung** und **CV-Check**. So klappt es mit dem neuen Job!",
+                g: "**Book & Media Exchange**. Kaufen und Verkaufen Sie **gebrauchte Bücher**, DVDs und CDs zum Festpreis. Online-Plattform.",
+                h: "**Der Bio-Gärtner**. Frisches, **saisonales Gemüse** aus ökologischem Anbau. **Lieferservice** direkt zu Ihnen nach Hause.",
+                i: "**Tierfreunde im Einsatz**. **Gassi-Service** für Ihren Hund, wenn Sie wenig Zeit haben. Zuverlässig und erfahren.",
+                j: "**Videobearbeitung leicht gemacht**. Online-Kurs für Einsteiger. **Lernen Sie, Ihre Urlaubsvideos zu schneiden**.",
+                k: "**Sprachschule Plus**. Englisch für den Beruf. Konversationskurse für alle Niveaus.",
+                l: "**Handy-Shop**. Die neuesten Smartphones und Tablets. Mit günstigen Verträgen.",
+                x: "Keine passende Anzeige"
+            },
+            situations: [
+                { id: 11, text: "Sie sind umgezogen und brauchen Hilfe bei der **Installation** des **Internetanschlusses**.", answer: 'd' },
+                { id: 12, text: "Sie bewerben sich für eine neue Stelle und wollen Ihren **Lebenslauf** **prüfen** lassen.", answer: 'f' },
+                { id: 13, text: "Sie wollen vor Ihrem **Urlaub** nach Madrid noch schnell **Spanisch lernen**.", answer: 'a' },
+                { id: 14, text: "Sie brauchen einen **Coach**, der Ihnen beim **Sport** hilft und einen **Trainingsplan** erstellt.", answer: 'b' },
+                { id: 15, text: "Sie möchten Ihre **alten Bücher** und **CDs** loswerden und **verkaufen**.", answer: 'g' },
+                { id: 16, text: "Sie möchten frisches **Bio-Gemüse** bestellen und es sich **nach Hause liefern** lassen.", answer: 'h' },
+                { id: 17, text: "Sie benötigen Hilfe bei der **Erstellung der Steuererklärung** für das letzte Jahr.", answer: 'c' },
+                { id: 18, text: "Sie haben viele Videos von Ihrem letzten Urlaub und möchten **lernen, wie man sie bearbeitet**.", answer: 'j' },
+                { id: 19, text: "Sie sind lange im Büro und suchen jemanden, der Ihren **Hund spazieren führt**.", answer: 'i' },
+                { id: 20, text: "Ihre Waschmaschine ist kaputt. Sie suchen ein **neues Gerät mit langer Garantie**.", answer: 'e' }
+            ]
+        },
+        // --- Test 5: New topics - Travel/Learning/Food/Services ---
+        {
+            id: 4,
+            title: "Test 5 (Neu)",
+            advertisements: {
+                a: "**Italien-Spezialist**. **Busreisen** und organisierte **Gruppen-Rundreisen** durch die Toskana. Inklusive Reiseleitung.",
+                b: "**Juristen-Hotline**. **Erste Rechtsberatung** zu Mietrecht, Arbeitsrecht und Kaufverträgen. Jetzt anrufen.",
+                c: "**Schuhmacherei Meister**. Reparaturservice für Schuhe und Lederwaren. Auch **Express-Reparaturen** möglich.",
+                d: "**Fahrschule 'Grünes Licht'**. Alle Führerscheinklassen (Auto, Motorrad). Mit **intensiver Theorie-Vorbereitung**.",
+                e: "**Wohnungsbörse WG-Zimmer**. Wir vermitteln **freie Zimmer** in Wohngemeinschaften in ganz München. Mit Fotos und Besichtigungsterminen.",
+                f: "**Marathon-Training**. Wir bereiten Sie in 12 Wochen auf Ihren ersten **Lauf über 42 km** vor. Mit Ernährungsplan.",
+                g: "**Blumenparadies**. Frische **Schnittblumen** für jeden Anlass. Sträuße nach Wunsch gebunden. **Lieferung möglich**.",
+                h: "**Theater-Abo**. **Günstige Tickets** für alle Vorstellungen im Staatstheater. **20% Rabatt** für Studenten.",
+                i: "**Bistro 'Mittagspause'**. **Täglich wechselndes Gericht** für **unter 8 Euro**. Ideal für die schnelle **Pause im Büro**.",
+                j: "**Deutsch-Stammtisch**. Treffen Sie Muttersprachler und üben Sie die **deutsche Konversation** in lockerer Atmosphäre.",
+                k: "**Sprachlabor**. Intensive Grammatik-Kurse für B1/B2-Niveau.",
+                l: "**Café & Kuchen**. Große Auswahl an hausgemachten Kuchen und Kaffeespezialitäten.",
+                x: "Keine passende Anzeige"
+            },
+            situations: [
+                { id: 11, text: "Sie möchten mit einer **Gruppe** in den nächsten Ferien nach **Italien** reisen.", answer: 'a' },
+                { id: 12, text: "Sie müssen Ihre **kaputten Schuhe** **schnell** reparieren lassen.", answer: 'c' },
+                { id: 13, text: "Sie ziehen nach München und suchen ein **Zimmer in einer Wohngemeinschaft**.", answer: 'e' },
+                { id: 14, text: "Ihr Sohn möchte den **Führerschein** für das Auto machen.", answer: 'd' },
+                { id: 15, text: "Sie arbeiten im Büro und suchen in der **Mittagspause** ein **schnelles, billiges Essen**.", answer: 'i' },
+                { id: 16, text: "Sie haben Probleme mit Ihrem Vermieter und suchen **telefonische Rechtsberatung**.", answer: 'b' },
+                { id: 17, text: "Sie möchten **Blumen** kaufen und sie direkt an eine Freundin **schicken** lassen.", answer: 'g' },
+                { id: 18, text: "Sie wollen an einem **Marathonlauf** teilnehmen und suchen einen **Trainingsplan**.", answer: 'f' },
+                { id: 19, text: "Sie möchten außerhalb des Kurses **Deutsch sprechen üben**.", answer: 'j' },
+                { id: 20, text: "Sie gehen gerne ins **Theater** und suchen eine **günstige Möglichkeit**.", answer: 'h' }
+            ]
+        }
+    ];
+
+    const allOptions = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'x'];
+    let activeExamId = 0; // Start with Test 1
+
+    function getExam() {
+        return allExams[activeExamId];
+    }
+
+    function renderExamTabs() {
+        const tabs = document.querySelectorAll('.exam-tab');
+        tabs.forEach(tab => {
+            const id = parseInt(tab.dataset.examId);
+            tab.classList.toggle('exam-active', id === activeExamId);
+            
+            tab.onclick = () => {
+                activeExamId = id;
+                render();
+                closeModal();
+            };
+        });
+    }
+
+    function renderContent() {
+        const exam = getExam();
+        
+        // --- 1. Render Advertisements ---
+        const advContainer = document.getElementById('advertisements-container');
+        advContainer.innerHTML = '';
+        
+        Object.keys(exam.advertisements).filter(key => key !== 'x').forEach(key => {
+            const advText = exam.advertisements[key];
+            const advBlock = document.createElement('div');
+            advBlock.className = 'text-box p-3 border-l-4 border-[#0077B6]';
+            advBlock.innerHTML = `<span class="font-bold text-[#0077B6] text-xl">${key.toUpperCase()}</span>: ${advText}`;
+            advContainer.appendChild(advBlock);
+        });
+
+        // --- 2. Render Situations with Dropdowns ---
+        const sitContainer = document.getElementById('situations-container');
+        sitContainer.innerHTML = '';
+
+        exam.situations.forEach(sit => {
+            const sitBlock = document.createElement('div');
+            sitBlock.className = 'flex flex-col md:flex-row items-start md:items-center p-4 rounded-lg bg-gray-50 shadow-sm border border-gray-300';
+            
+            const sitText = document.createElement('p');
+            sitText.className = 'text-gray-800 flex-grow mb-2 md:mb-0';
+            sitText.innerHTML = `<span class="font-bold text-[#0077B6]">${sit.id}.</span> ${sit.text}`;
+            
+            const selectContainer = document.createElement('div');
+            selectContainer.className = 'flex-shrink-0 w-full md:w-32';
+
+            const select = document.createElement('select');
+            select.name = `situation-${sit.id}`;
+            select.className = 'form-select block w-full px-3 py-2 text-base border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#0077B6] focus:border-[#0077B6]';
+            
+            // Add a default prompt option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Wählen Sie...';
+            select.appendChild(defaultOption);
+
+            // Add all letter options (a-l) and 'x'
+            allOptions.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt.toUpperCase();
+                select.appendChild(option);
+            });
+            
+            // Load saved answer
+            if (exam.answers && exam.answers[sit.id] !== undefined) {
+                select.value = exam.answers[sit.id];
+            }
+
+            select.addEventListener('change', (e) => {
+                if (!exam.answers) exam.answers = {};
+                exam.answers[sit.id] = e.target.value;
+            });
+
+            selectContainer.appendChild(select);
+            sitBlock.appendChild(sitText);
+            sitBlock.appendChild(selectContainer);
+            sitContainer.appendChild(sitBlock);
+        });
+    }
+
+    function checkAnswers() {
+        const exam = getExam();
+        let correctCount = 0;
+        const results = [];
+        
+        exam.situations.forEach(sit => {
+            const userAnswer = exam.answers ? exam.answers[sit.id] : '';
+            const correctAnswer = sit.answer;
+
+            const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+            if (isCorrect) {
+                correctCount++;
+            }
+            
+            results.push({
+                id: sit.id,
+                isCorrect: isCorrect,
+                userAnswer: userAnswer.toUpperCase() || 'Nichts gewählt',
+                correctAnswer: correctAnswer.toUpperCase(),
+                situationText: sit.text
+            });
+        });
+
+        displayResults(correctCount, results);
+    }
+
+    function displayResults(score, results) {
+        const modal = document.getElementById('results-modal');
+        const finalScoreEl = document.getElementById('final-score');
+        const resultsSummaryEl = document.getElementById('results-summary');
+        
+        finalScoreEl.textContent = `Ihr Ergebnis: ${score} von 10 Punkten.`;
+        finalScoreEl.classList.toggle('text-green-600', score >= 8);
+        finalScoreEl.classList.toggle('text-yellow-600', score >= 5 && score < 8);
+        finalScoreEl.classList.toggle('text-red-600', score < 5);
+
+        resultsSummaryEl.innerHTML = '';
+        
+        results.forEach(res => {
+            const item = document.createElement('div');
+            const statusClass = res.isCorrect ? 'bg-green-100 border-green-500 text-green-700' : 'bg-red-100 border-red-500 text-red-700';
+            const statusText = res.isCorrect ? 'Korrekt' : 'Falsch';
+            
+            item.className = `p-3 rounded-lg border-l-4 ${statusClass}`;
+            
+            item.innerHTML = `
+                <p class="font-semibold">Situation ${res.id}: ${res.situationText}</p>
+                <p class="text-sm mt-1">Status: <span class="font-bold">${statusText}</span></p>
+                ${!res.isCorrect ? `<p class="text-xs italic">Ihre Antwort: ${res.userAnswer}</p>` : ''}
+                <p class="text-sm mt-1">Richtig: <span class="font-bold">${res.correctAnswer}</span></p>
+            `;
+            resultsSummaryEl.appendChild(item);
+        });
+
+        modal.classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('results-modal').classList.remove('open');
+    }
+
+    function render() {
+        renderExamTabs();
+        renderContent();
+    }
+
+    document.getElementById('check-answers-button').addEventListener('click', checkAnswers);
+    document.getElementById('close-modal-button').addEventListener('click', closeModal);
+    document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

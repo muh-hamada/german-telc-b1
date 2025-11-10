@@ -1,0 +1,179 @@
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  I18nManager,
+} from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { colors, spacing, typography } from '../theme';
+
+interface Language {
+  code: string;
+  name: string;
+  nativeName: string;
+  flag: string;
+}
+
+const languages: Language[] = [
+  { code: 'en', name: 'English', nativeName: 'English', flag: '🇬🇧' },
+  { code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
+  { code: 'fr', name: 'French', nativeName: 'Français', flag: '🇫🇷' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
+];
+
+interface LanguageSelectorProps {
+  onLanguageSelect?: (languageCode: string) => void;
+}
+
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({
+  onLanguageSelect,
+}) => {
+  const { t, i18n } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+
+  const handleLanguageSelect = (languageCode: string) => {
+    setSelectedLanguage(languageCode);
+    i18n.changeLanguage(languageCode);
+    onLanguageSelect?.(languageCode);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{t('onboarding.selectLanguage')}</Text>
+      <View style={styles.scrollContent}>
+        {languages.map((language) => (
+          <TouchableOpacity
+            key={language.code}
+            style={[
+              styles.languageItem,
+              selectedLanguage === language.code && styles.selectedLanguageItem,
+            ]}
+            onPress={() => handleLanguageSelect(language.code)}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.flag}>{language.flag}</Text>
+            <View style={styles.languageContent}>
+              <Text
+                style={[
+                  styles.languageName,
+                  selectedLanguage === language.code && styles.selectedLanguageName,
+                ]}
+              >
+                {language.nativeName}
+              </Text>
+              <Text style={styles.languageNameSeparator}> • </Text>
+              <Text
+                style={[
+                  styles.languageCode,
+                  selectedLanguage === language.code && styles.selectedLanguageCode,
+                ]}
+              >
+                {language.name}
+              </Text>
+            </View>
+            {selectedLanguage === language.code && (
+              <View style={styles.checkmark}>
+                <Text style={styles.checkmarkText}>✓</Text>
+              </View>
+            )}
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: spacing.padding.lg,
+    width: '100%',
+    justifyContent: 'flex-end',
+  },
+  title: {
+    ...typography.textStyles.h4,
+    color: colors.text.primary,
+    textAlign: 'center',
+    marginBottom: spacing.margin.md,
+  },
+  scrollContent: {
+    paddingBottom: spacing.padding.lg,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  languageItem: {
+    width: '90%',
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.padding.md,
+    paddingHorizontal: spacing.padding.lg,
+    marginBottom: spacing.margin.sm,
+    backgroundColor: colors.white,
+    borderRadius: spacing.borderRadius.lg,
+    borderWidth: 2,
+    borderColor: colors.border.light,
+    gap: spacing.margin.sm,
+    position: 'relative',
+  },
+  flag: {
+    fontSize: 32,
+    marginRight: spacing.margin.xs,
+  },
+  selectedLanguageItem: {
+    borderColor: colors.primary[500],
+    backgroundColor: colors.primary[50],
+  },
+  languageContent: {
+    flex: 1,
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  languageName: {
+    ...typography.textStyles.bodyLarge,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.semibold,
+    marginBottom: 0,
+  },
+  languageNameSeparator: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginBottom: 0,
+  },
+  selectedLanguageName: {
+    color: colors.primary[700],
+  },
+  languageCode: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginBottom: 0,
+  },
+  selectedLanguageCode: {
+    color: colors.primary[600],
+  },
+  checkmark: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.primary[500],
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -12,
+    top: '50%',
+    transform: [{ translateY: 4 }],
+  },
+  checkmarkText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: typography.fontWeight.bold,
+  },
+});
+
+export default LanguageSelector;

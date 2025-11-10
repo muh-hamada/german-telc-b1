@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telc B1: Leseverstehen Teil 1 Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .exam-tab { transition: all 0.2s; }
+        .exam-active { background-color: #0077B6; color: white; }
+        .text-box { border-left: 4px solid #0077B6; }
+        .select-box { padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #ccc; width: 100%; max-width: 100px; }
+        .modal { 
+            background-color: rgba(0, 0, 0, 0.5); 
+            visibility: hidden; 
+            opacity: 0; 
+            transition: visibility 0s, opacity 0.3s;
+            pointer-events: none; /* Crucial: Allows clicks underneath when hidden */
+        }
+        .modal.open { 
+            visibility: visible; 
+            opacity: 1; 
+            pointer-events: auto; /* Re-enable pointer events when open */
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5F5] text-[#212121]">
+    <!-- Chosen Palette: Professional Blues and Neutrals -->
+    <!-- Application Structure Plan: The SPA is a single-page tool for the Telc B1 Reading Comprehension Part 1 (Matching Headings). It features a top navigation bar for selecting one of five practice exams. The main content displays the list of A-J headings and five numbered texts. Each text has a corresponding <select> box for the user to input their answer. A footer button triggers a modal for checking answers and displaying the score. The structure is designed to mimic the exam format (Headings vs. Texts) for focused practice. -->
+    <!-- Visualization & Content Choices: Report Info -> Telc B1 Leseverstehen Teil 1 content (10 headings, 5 texts, 5 correct answers). Goal -> Organize, Inform. Viz/Presentation Method -> Interactive Tabs (for exam selection), ordered list (for headings), numbered text blocks, and a controlled <select> input for matching. Interaction -> User selects answers via dropdowns, results displayed via a JavaScript modal on button click. Justification -> This directly replicates the task flow (read, match, check) within an interactive web environment. Library/Method -> HTML/CSS with Tailwind for layout, Vanilla JS for state management (active exam, answers) and modal functionality. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8 lg:p-12">
+        
+        <header class="text-center mb-8 p-4 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#0077B6]">Telc B1 Leseverstehen Teil 1</h1>
+            <p class="text-lg text-[#757575] mt-1">Übung: Überschriften den Texten zuordnen</p>
+        </header>
+
+        <section id="exam-selection" class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Prüfung auswählen:</h2>
+            <div id="exam-tabs" class="flex flex-wrap gap-2 md:gap-4 justify-center bg-gray-200 p-2 rounded-lg shadow-inner">
+                <button data-exam-id="0" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 1 (Original)</button>
+                <button data-exam-id="1" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 2</button>
+                <button data-exam-id="2" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 3</button>
+                <button data-exam-id="3" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 4</button>
+                <button data-exam-id="4" class="exam-tab px-4 py-2 rounded-lg text-sm font-semibold">Test 5</button>
+            </div>
+        </section>
+
+        <main class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-[#0077B6] mb-4">Überschriften (a-j)</h2>
+            <div class="mb-8 p-4 bg-gray-50 rounded-lg border">
+                <ul id="headings-list" class="grid grid-cols-2 gap-x-6 gap-y-2 text-gray-700">
+                </ul>
+            </div>
+
+            <h2 class="text-2xl font-bold text-[#0077B6] mb-4">Texte (1-5)</h2>
+            <div id="texts-container" class="space-y-6">
+            </div>
+
+            <button id="check-answers-button" class="mt-8 w-full bg-[#0077B6] text-white py-3 rounded-lg text-lg font-semibold hover:bg-[#005F92] transition-colors duration-200 shadow-md">
+                Antworten prüfen
+            </button>
+        </main>
+    </div>
+
+    <!-- Modal for Results -->
+    <div id="results-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 md:p-8 transform transition-all duration-300 scale-95 modal-content">
+            <h3 class="text-2xl font-bold text-[#0077B6] mb-4 border-b pb-2">Ihre Testergebnisse</h3>
+            
+            <p id="final-score" class="text-xl font-semibold mb-4"></p>
+            
+            <div id="results-summary" class="space-y-3 mb-6">
+            </div>
+
+            <button id="close-modal-button" class="w-full bg-gray-500 text-white py-2 rounded-lg font-semibold hover:bg-gray-700">
+                Schließen
+            </button>
+        </div>
+    </div>
+
+<script>
+    const allExams = [
+        // --- Test 1: Original PDF Example ---
+        {
+            headings: [
+                "Immer mehr deutsche Familien reisen mit der Bahn", // a
+                "Buchtipp: Hilfe bei Schlafproblemen", // b -> 3
+                "Der Computer: Liebstes Hobby von Deutschlands Frauen", // c
+                "Neu bei der Bahn: Spezielle Informationen und Angebote für Radfahrer", // d -> 2
+                "Neu am Markt: Billige Schlaftabletten", // e
+                "Familien reisen billiger", // f -> 4
+                "Urlaub mit dem Fahrrad in Deutschland immer beliebter", // g
+                "Kultur im Urlaub: Interessen je nach Alter unterschiedlich", // h -> 5
+                "Umfrage: Wer verwendet den Computer am häufigsten?", // i -> 1
+                "Deutschland: Immer mehr Touristen reisen in den Westen" // j
+            ],
+            texts: [
+                { id: 1, text: "Wer ist der typische Computerfan? Das B.A.T. Freizeitforschungsinstitut Hamburg ermittelte einige Eigenschaften: Er ist männlich, jung und hat einen höheren Schulabschluss. Bei der Beschäftigung am heimischen Computer stehen Textverarbeitung und Spiele ganz oben, es folgen private Buchhaltung, Grafikprogramme und Tabellenkalkulation.", correct: 'i' },
+                { id: 2, text: "„Bahn&Bike\" heißt ein 222-seitiger Prospekt, den die Deutsche Bahn AG in Zusammenarbeit mit der Deutschen Zentrale für Tourismus herausgebracht hat und der wichtige Informationen für jene bereitstellt, die ihren Radurlaub mit Bahnfahren verbinden wollen. Das Motto lautet: Hin mit der Bahn - das Rad vor Ort mieten. Der Prospekt enthält Angaben zur Streckenlänge und Wegbeschaffenheit, Adressen von Verleihstationen, verweist auf Sehenswürdigkeiten sowie Unterkünfte und wird durch Karten ergänzt. Die Broschüre kostet 5 Euro und ist im Buchhandel beziehungsweise an Fahrkartenschaltern zu beziehen.", correct: 'd' },
+                { id: 3, text: "Ausführliche Informationen zum Thema „Schlafstörungen\" finden Sie im gleichnamigen Patientenratgeber von Dr. med. Fritz Hohagen. Sie erfahren, was den Schlaf stört und was Sie dagegen unternehmen können. Für 9,95 Euro erhalten Sie das Buch in Apotheken oder direkt beim Wort&Bild Verlag, 82065 Baierbrunn.", correct: 'b' },
+                { id: 4, text: "Jetzt wird für Familien Reisen mit der Bahn zwischen Österreich und Deutschland noch ein gutes Stück günstiger. Denn ab 6. Oktober gibt es den Familien-Super-Sparpreis. Ein echter Traumpreis für die ganze Familie vom Baby bis zum Großpapa da kann man wirklich sparen. Der Familien-Super-Sparpreis gilt für Familien, bestehend aus ein oder zwei Erwachsenen (Eltern, auch Großeltern) und deren Kindern/Enkelkindern bis zum vollendeten 17. Lebensjahr, wobei mindestens ein Kind/Enkelkind an der Reise teilnehmen muss.", correct: 'f' },
+                { id: 5, text: "Touristen zwischen 14 und 29 Jahren sowie zwischen 40 und 49 Jahren haben ein besonders großes Interesse an der Kultur des jeweiligen Reiselandes, während die Gruppe der 30- bis 39-jährigen im Urlaub eine Kulturpause einlegt. Dies geht aus der neuesten Analyse der Forschungsgemeinschaft Urlaub und Reisen e. V. hervor. Urlauber aus Ostdeutschland, so die Studie, zeigen wiederum mehr Kulturinteresse als Reisende aus dem Westen. Grundsätzlich gelte: Je höher das Einkommen und die Schulbildung sind, umso mehr besteht im Urlaub der Wunsch, Land und Leute kennenzulernen.", correct: 'h' }
+            ],
+            answers: {} 
+        },
+        // --- Test 2: New topics - Work & Lifestyle ---
+        {
+            headings: [
+                "Steigende Nachfrage nach Teilzeit-Jobs", // a -> 3
+                "Umweltbewusstsein: Die beliebtesten nachhaltigen Verkehrsmittel", // b
+                "Achtung: Gefahr beim mobilen Arbeiten", // c -> 4
+                "Die Rente: Wie viel Geld man sparen muss", // d
+                "Tipps für das Bewerbungsgespräch", // e -> 1
+                "Die besten Strategien für das frühe Aufstehen", // f
+                "Neuer Trend: Mittagspause für die Gesundheit nutzen", // g -> 5
+                "Karriere: Ist ein Auslandsaufenthalt wirklich nötig?", // h -> 2
+                "Die Vorteile des digitalen Lesens", // i
+                "Arbeitgeber suchen flexible Mitarbeiter" // j
+            ],
+            texts: [
+                { id: 1, text: "Ein perfektes Bewerbungsgespräch beginnt lange vor dem Termin. Informieren Sie sich gründlich über das Unternehmen und die Stelle. Seien Sie pünktlich und achten Sie auf angemessene Kleidung. Denken Sie daran: Ihre Körpersprache ist genauso wichtig wie Ihre Worte. Zeigen Sie echtes Interesse und stellen Sie eigene Fragen.", correct: 'e' },
+                { id: 2, text: "Viele junge Berufstätige fragen sich, ob sie für eine internationale Karriere ins Ausland gehen sollen. Experten sind sich einig: Ein längerer Aufenthalt in einem fremden Land verbessert nicht nur die Sprachkenntnisse, sondern auch die interkulturelle Kompetenz, was bei großen Firmen sehr geschätzt wird.", correct: 'h' },
+                { id: 3, text: "Immer mehr Beschäftigte wünschen sich, ihre Wochenarbeitszeit zu reduzieren, um mehr Zeit für die Familie oder Hobbys zu haben. Besonders in sozialen Berufen und im öffentlichen Dienst gibt es einen deutlichen Anstieg der Nachfragen nach halben oder reduzierten Stellen.", correct: 'a' },
+                { id: 4, text: "Das Arbeiten mit Laptop und Handy im Zug oder Café birgt Risiken. Viele Netzwerke sind nicht ausreichend gesichert, was sensible Unternehmensdaten gefährden kann. Experten raten dazu, immer ein VPN zu nutzen und keine wichtigen Passwörter über öffentliche Verbindungen einzugeben.", correct: 'c' },
+                { id: 5, text: "Die klassische Mittagspause im Büro oder an der Kantine wird neu erfunden. Ärzte empfehlen, die 30 Minuten für einen kurzen Spaziergang an der frischen Luft zu nutzen, um den Kreislauf in Schwung zu bringen. Das steigert die Produktivität am Nachmittag und hilft gegen Kopfschmerzen.", correct: 'g' }
+            ],
+            answers: {} 
+        },
+        // --- Test 3: New topics - Media & Education ---
+        {
+            headings: [
+                "E-Mails im Beruf: Klare Regeln für die Kommunikation", // a
+                "Achtung: Was Sie beim Kauf eines neuen Laptops beachten müssen", // b
+                "Digitale Medien: Die beliebtesten Nachrichtenquellen der Jugendlichen", // c -> 5
+                "Weniger Leser: Die Zukunft der Printmedien", // d -> 2
+                "Die besten Methoden, Vokabeln schnell zu lernen", // e -> 4
+                "Studiengebühren: Wird das Studium in Deutschland teurer?", // f
+                "Kostenlose Online-Kurse erleben einen Boom", // g
+                "Die Wichtigkeit von Pausen beim Lernen", // h
+                "Warum Sprachen lernen im Alter einfacher ist", // i
+                "Schule: Wie man eine gute Präsentation hält" // j -> 1
+            ],
+            texts: [
+                { id: 1, text: "Eine überzeugende Präsentation braucht mehr als nur gute Inhalte. Üben Sie Ihren Vortrag mehrmals und sprechen Sie frei, ohne nur vom Blatt abzulesen. Achten Sie auf deutliche Aussprache und Blickkontakt zum Publikum. Nutzen Sie visuelle Hilfsmittel wie Bilder oder kurze Videos, um die Zuhörer zu fesseln.", correct: 'j' },
+                { id: 2, text: "Die Verkaufszahlen für Zeitungen und Magazine sinken seit Jahren kontinuierlich. Viele Verlage reagieren darauf mit der Entwicklung von digitalen Abonnements und Apps. Dennoch sehen Experten eine schwierige Zukunft für gedruckte Zeitungen, besonders in der jüngeren Generation.", correct: 'd' },
+                { id: 3, text: "In vielen Firmen fehlt es an einer klaren E-Mail-Kultur. Vermeiden Sie lange Sätze und nutzen Sie Betreffzeilen, die den Inhalt sofort erkennen lassen. Stellen Sie sicher, dass Ihre Nachricht nur die notwendigen Empfänger enthält, um die Postfächer nicht unnötig zu überlasten.", correct: 'a' },
+                { id: 4, text: "Um eine neue Sprache zu lernen, ist Vokabular entscheidend. Versuchen Sie nicht, lange Listen auswendig zu lernen. Effektiver ist es, die neuen Wörter in Kontexten zu sehen (z.B. in Sätzen oder Geschichten) und sie mehrmals zu wiederholen, idealerweise mit Lernkarten.", correct: 'e' },
+                { id: 5, text: "Soziale Medien und Internetplattformen haben traditionelle Nachrichtenquellen wie das Fernsehen bei jungen Menschen abgelöst. Studien zeigen, dass Jugendliche politische und globale Informationen primär über Kanäle wie Instagram, TikTok oder YouTube konsumieren.", correct: 'c' }
+            ],
+            answers: {} 
+        },
+        // --- Test 4: New topics - Travel & Transportation ---
+        {
+            headings: [
+                "Neue Regeln für E-Scooter in der Stadt", // a -> 5
+                "Flugreisen: Das Handgepäck wird strenger kontrolliert", // b
+                "Camping: Die beliebteste Urlaubsform der Deutschen", // c -> 2
+                "Hotel-Sterne: Was die Klassifizierung wirklich bedeutet", // d
+                "Mietwagen im Urlaub: Worauf Sie achten müssen", // e -> 3
+                "Die schönsten Wanderrouten in den Alpen", // f
+                "Kurztrips: Beliebteste Ziele am Wochenende", // g
+                "Günstige Flüge nur noch außerhalb der Saison", // h
+                "Bahnfahren: Ein neues Ticket für Pendler", // i -> 1
+                "Umfrage: Deutschland plant mehr Urlaub im eigenen Land" // j -> 4
+            ],
+            texts: [
+                { id: 1, text: "Die Deutsche Bahn führt eine neue Monatskarte ein, die speziell für Berufspendler konzipiert ist. Das neue Ticket gilt nicht nur für die Zugstrecke, sondern bietet auch die freie Nutzung des Nahverkehrs in der jeweiligen Zielstadt. Es soll den täglichen Weg zur Arbeit einfacher und günstiger gestalten.", correct: 'i' },
+                { id: 2, text: "Weg vom Hotel und hin zur Natur: Der Camping-Boom hält an. Die Deutschen verbringen ihren Urlaub immer häufiger im eigenen Wohnwagen oder Zelt. Besonders beliebt sind Stellplätze an Seen und in den Bergen. Der Wunsch nach Freiheit und Unabhängigkeit spielt hierbei eine große Rolle.", correct: 'c' },
+                { id: 3, text: "Bevor Sie im Urlaubsland ein Auto mieten, sollten Sie die Versicherung genau prüfen. Achten Sie darauf, dass eine Vollkaskoversicherung ohne Selbstbeteiligung enthalten ist. Machen Sie Fotos vom Fahrzeug, bevor Sie losfahren, um spätere Streitigkeiten über Schäden zu vermeiden.", correct: 'e' },
+                { id: 4, text: "Eine aktuelle Tourismusstudie zeigt: Die Mehrheit der Befragten plant, dieses Jahr ihre Ferien innerhalb der deutschen Grenzen zu verbringen. Gründe dafür sind die einfache Anreise, die vielfältige Natur und die Unterstützung der regionalen Wirtschaft. Nord- und Ostsee sind dabei die Top-Ziele.", correct: 'j' },
+                { id: 5, text: "Für die kleinen Elektro-Roller, die immer häufiger in den Städten zu sehen sind, gelten neue Vorschriften. Das Fahren auf dem Bürgersteig ist strikt verboten. Außerdem muss jeder E-Scooter eine gültige Versicherungsplakette haben und darf nur von Personen über 14 Jahren gefahren werden.", correct: 'a' }
+            ],
+            answers: {} 
+        },
+        // --- Test 5: New topics - Health & Community ---
+        {
+            headings: [
+                "Einfache Übungen für das Büro: Fit am Schreibtisch", // a -> 1
+                "Rauchverbot in der Gastronomie wird ausgeweitet", // b
+                "Klimawandel: So können Bürger aktiv werden", // c
+                "Gesunde Ernährung: Die Rolle von regionalen Produkten", // d -> 4
+                "Tipps: So finden Sie den richtigen Hausarzt", // e
+                "Lärmschutz: Neue Regeln für laute Partys", // f -> 5
+                "Freiwilligenarbeit: Senioren engagieren sich in Schulen", // g
+                "Der beste Weg, um Schlafstörungen zu vermeiden", // h -> 2
+                "Sportvereine suchen dringend Nachwuchs", // i -> 3
+                "Wochenmärkte: Die Wiederbelebung des Einkaufserlebnisses" // j
+            ],
+            texts: [
+                { id: 1, text: "Wer acht Stunden am Schreibtisch sitzt, sollte regelmäßig kurze Pausen einlegen. Bereits einfache Dehnübungen für Nacken und Schultern können Verspannungen vermeiden. Eine Minute lang aufstehen und strecken bringt den Kreislauf in Schwung und beugt Rückenschmerzen vor.", correct: 'a' },
+                { id: 2, text: "Experten betonen: Regelmäßige Schlafzeiten sind das A und O für eine gute Nachtruhe. Vermeiden Sie helles Licht (besonders von Bildschirmen) und schwere Mahlzeiten kurz vor dem Zubettgehen. Ein entspannendes Abendritual hilft dem Körper, sich auf das Einschlafen einzustellen.", correct: 'h' },
+                { id: 3, text: "Viele lokale Sportvereine haben Schwierigkeiten, junge Mitglieder zu gewinnen. Sie bieten daher kostenlose Probetrainings an und arbeiten verstärkt mit Schulen zusammen, um Kinder und Jugendliche für Sportarten wie Fußball, Handball oder Leichtathletik zu begeistern.", correct: 'i' },
+                { id: 4, text: "Der Trend geht klar zu Lebensmitteln aus der Region. Produkte, die kurze Transportwege haben, sind frischer und enthalten mehr Vitamine. Außerdem unterstützt der Kauf direkt beim Bauern die lokale Landwirtschaft und reduziert den CO2-Fußabdruck.", correct: 'd' },
+                { id: 5, text: "In Deutschland gibt es klare Ruhezeiten, die besonders ab 22 Uhr gelten. Laute Musik oder Feiern, die die Nachbarn stören, können zu Beschwerden führen. Bei größeren Veranstaltungen sollte man die Nachbarschaft vorher informieren, um Ärger zu vermeiden.", correct: 'f' }
+            ],
+            answers: {} 
+        }
+    ];
+
+    let activeExamId = 0; // Start with Test 1
+
+    const headingsMap = {
+        'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D', 'e': 'E', 'f': 'F', 'g': 'G', 'h': 'H', 'i': 'I', 'j': 'J'
+    };
+
+    function renderHeadings() {
+        const exam = allExams[activeExamId];
+        const headingsList = document.getElementById('headings-list');
+        headingsList.innerHTML = '';
+        
+        exam.headings.forEach((heading, index) => {
+            const letter = String.fromCharCode(97 + index); // a, b, c...
+            const listItem = document.createElement('li');
+            listItem.className = 'flex items-start';
+            listItem.innerHTML = `<span class="font-bold text-[#0077B6] mr-2">${headingsMap[letter]}.</span> ${heading}`;
+            headingsList.appendChild(listItem);
+        });
+    }
+
+    function createSelectOptions() {
+        let options = '<option value="">---</option>';
+        for (let i = 0; i < allExams[activeExamId].headings.length; i++) {
+            const letter = String.fromCharCode(97 + i);
+            options += `<option value="${letter}">${headingsMap[letter]}</option>`;
+        }
+        return options;
+    }
+
+    function renderTexts() {
+        const exam = allExams[activeExamId];
+        const textsContainer = document.getElementById('texts-container');
+        textsContainer.innerHTML = '';
+        const selectOptions = createSelectOptions();
+
+        exam.texts.forEach(textData => {
+            const textBlock = document.createElement('div');
+            textBlock.className = 'p-4 rounded-lg bg-gray-50 shadow-sm flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 text-box';
+            
+            textBlock.innerHTML = `
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-xl font-bold text-[#0077B6] w-6 mr-2">${textData.id}.</span>
+                    <select id="answer-${textData.id}" class="select-box" data-text-id="${textData.id}">
+                        ${selectOptions}
+                    </select>
+                </div>
+                <p class="text-gray-700 flex-grow leading-relaxed">${textData.text}</p>
+            `;
+            textsContainer.appendChild(textBlock);
+            
+            // Set saved answer if available
+            const savedAnswer = exam.answers[textData.id];
+            if (savedAnswer) {
+                textBlock.querySelector(`#answer-${textData.id}`).value = savedAnswer;
+            }
+        });
+
+        // Add event listeners to save answers dynamically
+        textsContainer.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', (e) => {
+                const textId = e.target.dataset.textId;
+                allExams[activeExamId].answers[textId] = e.target.value;
+            });
+        });
+    }
+
+    function renderExamTabs() {
+        const tabs = document.querySelectorAll('.exam-tab');
+        tabs.forEach(tab => {
+            const id = parseInt(tab.dataset.examId);
+            tab.classList.toggle('exam-active', id === activeExamId);
+            
+            tab.onclick = () => {
+                activeExamId = id;
+                render();
+            };
+        });
+    }
+
+    function checkAnswers() {
+        const exam = allExams[activeExamId];
+        let correctCount = 0;
+        const results = [];
+        const usedAnswers = new Set();
+        let error = false;
+
+        // 1. Check for double use of headings
+        for (const key in exam.answers) {
+            const answer = exam.answers[key];
+            if (answer && usedAnswers.has(answer)) {
+                error = true;
+                break;
+            }
+            if (answer) {
+                usedAnswers.add(answer);
+            }
+        }
+
+        if (error) {
+            alert('Achtung: Sie haben mindestens eine Überschrift doppelt verwendet! Bitte prüfen Sie Ihre Auswahl.');
+            return;
+        }
+
+        // 2. Evaluate answers
+        exam.texts.forEach(text => {
+            const userAnswer = exam.answers[text.id];
+            const isCorrect = userAnswer === text.correct;
+            
+            if (isCorrect) {
+                correctCount++;
+            }
+            
+            const correctHeading = exam.headings[text.correct.charCodeAt(0) - 97];
+            const userHeading = userAnswer ? exam.headings[userAnswer.charCodeAt(0) - 97] : 'Nicht gewählt';
+            
+            results.push({
+                id: text.id,
+                isCorrect: isCorrect,
+                userAnswer: userAnswer,
+                correctAnswer: text.correct,
+                correctHeading: correctHeading,
+                userHeading: userAnswer ? userHeading : 'Nicht gewählt'
+            });
+        });
+
+        displayResults(correctCount, results);
+    }
+
+    function displayResults(score, results) {
+        const modal = document.getElementById('results-modal');
+        const finalScoreEl = document.getElementById('final-score');
+        const resultsSummaryEl = document.getElementById('results-summary');
+        
+        finalScoreEl.textContent = `Ihr Ergebnis: ${score} von 5 Punkten.`;
+        finalScoreEl.classList.toggle('text-green-600', score >= 3);
+        finalScoreEl.classList.toggle('text-red-600', score < 3);
+
+        resultsSummaryEl.innerHTML = '';
+        
+        results.forEach(res => {
+            const item = document.createElement('div');
+            const statusClass = res.isCorrect ? 'bg-green-100 border-green-500' : 'bg-red-100 border-red-500';
+            const statusText = res.isCorrect ? 'Korrekt' : 'Falsch';
+            
+            item.className = `p-3 rounded-lg border-l-4 ${statusClass}`;
+            
+            item.innerHTML = `
+                <p class="font-semibold">Text ${res.id}: <span class="text-sm font-normal">(${statusText})</span></p>
+                ${res.isCorrect ? '' : `<p class="text-sm mt-1">Ihre Antwort: ${res.userAnswer ? headingsMap[res.userAnswer] : '-'} (${res.userHeading})</p>`}
+                <p class="text-sm mt-1 ${res.isCorrect ? 'text-green-700' : 'text-red-700'}">Richtige Antwort: ${headingsMap[res.correctAnswer]} (${res.correctHeading})</p>
+            `;
+            resultsSummaryEl.appendChild(item);
+        });
+
+        modal.classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('results-modal').classList.remove('open');
+    }
+
+    function render() {
+        renderHeadings();
+        renderTexts();
+        renderExamTabs();
+    }
+
+    document.getElementById('check-answers-button').addEventListener('click', checkAnswers);
+    document.getElementById('close-modal-button').addEventListener('click', closeModal);
+    document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

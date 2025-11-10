@@ -1,0 +1,37 @@
+{
+  "exam": {
+    "name": "Allemand TELC B1",
+    "shortName": "Allemand B1",
+    "description": "Préparez-vous pour l'examen d'Allemand TELC B1"
+  },
+  "onboarding": {
+    "welcome": "Préparons-nous ensemble pour l'examen d'Allemand TELC B1",
+    "disclaimer": {
+      "text1": "Cette application N'est PAS affiliée, approuvée ou connectée à TELC GmbH. Nous sommes un outil éducatif indépendant créé pour aider les étudiants à se préparer à l'examen de langue allemande TELC B1.",
+      "checkboxLabel": "Je comprends que cette application n'est qu'un outil de simulation pour la préparation aux examens et n'est pas une application officielle TELC. Je reconnais que l'utilisation de cette application ne garantit aucun résultat spécifique à l'examen TELC B1 réel."
+    }
+  },
+  "examStructure": {
+    "description": "Découvrez le format et la notation de l'examen TELC B1"
+  },
+  "home": {
+    "descriptions": {
+      "examStructure": "Découvrez le format et la notation de l'examen TELC B1"
+    }
+  },
+  "profile": {
+    "appName": "Application de Préparation à l'Examen d'Allemand TELC B1"
+  },
+  "mockExam": {
+    "subtitle": "Examen Complet d'Allemand Telc B1",
+    "disclaimerText3": "que vous réussirez l'examen Telc B1 réel."
+  },
+  "speaking": {
+    "part1": {
+      "help": {
+        "exampleNote": "Ceci est un exemple complet d'une introduction personnelle pour l'examen oral TELC B1. Vous pouvez l'utiliser comme référence pour créer le vôtre."
+      }
+    }
+  }
+}
+

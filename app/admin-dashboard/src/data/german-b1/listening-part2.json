@@ -1,0 +1,71 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 2: Detailverstehen (Detail Comprehension)",
+        "instructions_de": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch zweimal. Entscheiden Sie beim Hören, ob die Aussagen 46-55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46-55. Markieren Sie PLUS (+) gleich richtig und MINUS (–) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46-55. Sie haben dazu eine Minute Zeit.",
+        "instructions_en": "You will now hear a conversation. You should solve ten tasks. You will hear the conversation twice. Decide while listening whether the statements 46-55 are correct or false. Mark your solutions on the answer sheet at tasks 46-55. Mark PLUS (+) as correct and MINUS (–) as false on the answer sheet. Read now the tasks 46-55. You have one minute to do this.",
+        "instructions_ar": "ستسمع الآن حوارًا. يجب أن تحل عشرة عمليات. ستسمع الحوار مرتين. قرر أثناء الاستماع إذا كانت البيانات 46-55 صحيحة أو خاطئة. حدد حلولك على ورقة الإجابة عند المهام 46-55. حدد PLUS (+) كصحيح و MINUS (–) كخاطئ على ورقة الإجابة. قرأ الآن المهام 46-55. لديك دقيقة لفعل هذا.",
+        "instructions_ru": "Вы сейчас услышите разговор. Вы должны решить десять задач. Вы услышите разговор дважды. Решите, слушая, являются ли утверждения 46-55 правильными или неправильными. Отметьте свои решения на листе ответов на задачи 46-55. Отметьте PLUS (+) как правильное и MINUS (–) как неправильное на листе ответов. Прочитайте теперь задачи 46-55. У вас есть одна минута, чтобы сделать это.",
+        "instructions_fr": "Vous entendrez maintenant une conversation. Vous devez résoudre dix tâches. Vous entendrez la conversation deux fois. Décidez en écoutant si les affirmations 46-55 sont correctes ou incorrectes. Marquez vos solutions sur le formulaire de réponses aux tâches 46-55. Marquez PLUS (+) comme correct et MINUS (–) comme incorrect sur le formulaire de réponses. Lisez maintenant les tâches 46-55. Vous avez une minute pour faire cela.",
+        "instructions_es": "Escucharás ahora una conversación. Debes resolver diez tareas. Escucharás la conversación dos veces. Decide mientras escuchas si las afirmaciones 46-55 son correctas o incorrectas. Marca tus soluciones en el formulario de respuestas en las tareas 46-55. Marca PLUS (+) como correcto y MINUS (–) como incorrecto en el formulario de respuestas. Lee ahora las tareas 46-55. Tienes un minuto para hacer esto.",
+        "duration_minutes": 10,
+        "prep_time_seconds": 60
+    },
+    "exams": [
+        {
+            "id": 0,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/telc-deutsch-b1-test1-part2.mp3?alt=media&token=5a754a57-e1eb-4622-b534-88e7aa18b84e",
+            "statements": [
+                {
+                    "id": 46,
+                    "statement": "Der Sportverein plant eine große Feier.",
+                    "is_correct": true
+                },
+                {
+                    "id": 47,
+                    "statement": "Der Journalist unterhält sich mit einer Vertreterin des Sportvereins.",
+                    "is_correct": true
+                },
+                {
+                    "id": 48,
+                    "statement": "Viele Papiere aus den Anfängen des Vereins sind im Krieg verloren gegangen.",
+                    "is_correct": false
+                },
+                {
+                    "id": 49,
+                    "statement": "Der Verein veröffentlicht jedes Jahr eine Festzeitung.",
+                    "is_correct": false
+                },
+                {
+                    "id": 50,
+                    "statement": "Der Verein hatte von Anfang an auch Frauen als Mitglieder.",
+                    "is_correct": false
+                },
+                {
+                    "id": 51,
+                    "statement": "Heute gibt es im Verein mehr Frauen als Männer.",
+                    "is_correct": true
+                },
+                {
+                    "id": 52,
+                    "statement": "Im Verein kann man Sport im Freien und in der Halle treiben.",
+                    "is_correct": true
+                },
+                {
+                    "id": 53,
+                    "statement": "Die Mitglieder müssen die Kosten für ihren Verein alleine tragen.",
+                    "is_correct": false
+                },
+                {
+                    "id": 54,
+                    "statement": "Der Sportverein bietet auch Schwimmkurse an.",
+                    "is_correct": false
+                },
+                {
+                    "id": 55,
+                    "statement": "Einige Leute, die im Verein ausgebildet wurden, arbeiten dort heute als Lehrer.",
+                    "is_correct": true
+                }
+            ]
+        }
+    ]
+}

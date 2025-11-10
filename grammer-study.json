@@ -1,0 +1,1756 @@
+[
+  {
+    "name": "Main Clause Structure (V2 Frame with Final Prefix)",
+    "description": {
+      "de": "Demonstriert die Standardtrennung des Präfixes bei trennbaren Verben (Trennbare Verben) in einem deklarativen Hauptsatz. Der konjugierte Verbstamm steht an der zweiten Position (V2), während das Präfix ans absolute Satzende verschoben wird und einen syntaktischen Rahmen bildet.",
+      "ar": "يوضح الفصل القياسي للبادئة في الأفعال القابلة للفصل (Trennbare Verben) في جملة رئيسية إخبارية. يقع جذر الفعل المصرف في الموضع الثاني (V2)، بينما تنتقل البادئة إلى نهاية الجملة المطلقة، مما يخلق إطارًا نحويًا.",
+      "en": "Demonstrates the standard separation of the prefix in separable verbs (Trennbare Verben) within a declarative main clause. The conjugated verb stem occupies the second position (V2), while the prefix moves to the absolute end of the sentence, creating a syntactic frame.",
+      "Fr": "Démontre la séparation standard du préfixe dans les verbes séparables (Trennbare Verben) au sein d'une proposition principale déclarative. Le radical du verbe conjugué occupe la deuxième position (V2), tandis que le préfixe se déplace à la fin absolue de la phrase, créant un cadre syntaxique.",
+      "ru": "Демонстрирует стандартное отделение приставки у отделяемых глаголов (Trennbare Verben) в повествовательном главном предложении. Спрягаемая основа глагола занимает вторую позицию (V2), в то время как приставка перемещается в самый конец предложения, создавая синтаксическую рамку.",
+      "es": "Demuestra la separación estándar del prefijo en verbos separables (Trennbare Verben) dentro de una cláusula principal declarativa. El tema del verbo conjugado ocupa la segunda posición (V2), mientras que el prefijo se mueve al final absoluto de la oración, creando un marco sintáctico."
+    },
+    "sentences": [
+      {
+        "text": "Ich hole dich morgen vom Bahnhof **ab**.",
+        "translations": {
+          "de": "Ich hole dich morgen vom Bahnhof ab.",
+          "ar": "سأصطحبك من المحطة غدًا.",
+          "en": "I will pick you up from the train station tomorrow.",
+          "Fr": "Je viendrai te chercher à la gare demain.",
+          "ru": "Я заберу тебя завтра с вокзала.",
+          "es": "Te recogeré de la estación mañana."
+        }
+      },
+      {
+        "text": "Rufst du mich bitte später **an**?",
+        "translations": {
+          "de": "Rufst du mich bitte später an?",
+          "ar": "هل تتصل بي لاحقًا من فضلك؟",
+          "en": "Will you please call me later?",
+          "Fr": "Peux-tu me téléphoner plus tard, s'il te plaît ?",
+          "ru": "Позвонишь мне, пожалуйста, позже?",
+          "es": "¿Me llamas más tarde, por favor?"
+        }
+      },
+      {
+        "text": "Der Film fängt jetzt gleich **an**.",
+        "translations": {
+          "de": "Der Film fängt jetzt gleich an.",
+          "ar": "سيبدأ الفيلم الآن.",
+          "en": "The film is starting right now.",
+          "Fr": "Le film commence tout de suite.",
+          "ru": "Фильм начнется прямо сейчас.",
+          "es": "La película empieza ahora mismo."
+        }
+      },
+      {
+        "text": "Er zieht seine Jacke **an**.",
+        "translations": {
+          "de": "Er zieht seine Jacke an.",
+          "ar": "إنه يرتدي سترته.",
+          "en": "He is putting on his jacket.",
+          "Fr": "Il met sa veste.",
+          "ru": "Он надевает свою куртку.",
+          "es": "Él se está poniendo su chaqueta."
+        }
+      },
+      {
+        "text": "Wir machen das Fenster **auf**.",
+        "translations": {
+          "de": "Wir machen das Fenster auf.",
+          "ar": "نحن نفتح النافذة.",
+          "en": "We are opening the window.",
+          "Fr": "Nous ouvrons la fenêtre.",
+          "ru": "Мы открываем окно.",
+          "es": "Nosotros abrimos la ventana."
+        }
+      },
+      {
+        "text": "Er steht jeden Tag um sieben Uhr **auf**.",
+        "translations": {
+          "de": "Er steht jeden Tag um sieben Uhr auf.",
+          "ar": "يستيقظ كل يوم في الساعة السابعة.",
+          "en": "He gets up every day at seven o'clock.",
+          "Fr": "Il se lève tous les jours à sept heures.",
+          "ru": "Он встает каждый день в семь часов.",
+          "es": "Él se levanta todos los días a las siete."
+        }
+      },
+      {
+        "text": "Bitte passen Sie gut **auf**!",
+        "translations": {
+          "de": "Bitte passen Sie gut auf!",
+          "ar": "من فضلك انتبه جيدًا!",
+          "en": "Please pay close attention!",
+          "Fr": "Veuillez faire bien attention !",
+          "ru": "Пожалуйста, будьте внимательны!",
+          "es": "¡Por favor, preste mucha atención!"
+        }
+      },
+      {
+        "text": "Das Haus sieht sehr schön **aus**.",
+        "translations": {
+          "de": "Das Haus sieht sehr schön aus.",
+          "ar": "يبدو المنزل جميلًا جدًا.",
+          "en": "The house looks very nice.",
+          "Fr": "La maison a l'air très belle.",
+          "ru": "Дом выглядит очень красиво.",
+          "es": "La casa se ve muy bonita."
+        }
+      },
+      {
+        "text": "Sie gibt das Geld schnell **aus**.",
+        "translations": {
+          "de": "Sie gibt das Geld schnell aus.",
+          "ar": "إنها تنفق المال بسرعة.",
+          "en": "She spends the money quickly.",
+          "Fr": "Elle dépense l'argent rapidement.",
+          "ru": "Она быстро тратит деньги.",
+          "es": "Ella gasta el dinero rápidamente."
+        }
+      },
+      {
+        "text": "Er nimmt an dem Kurs **teil**.",
+        "translations": {
+          "de": "Er nimmt an dem Kurs teil.",
+          "ar": "يشارك في الدورة.",
+          "en": "He is participating in the course.",
+          "Fr": "Il participe au cours.",
+          "ru": "Он участвует в курсе.",
+          "es": "Él participa en el curso."
+        }
+      },
+      {
+        "text": "Am Abend sehen wir oft **fern**.",
+        "translations": {
+          "de": "Am Abend sehen wir oft fern.",
+          "ar": "في المساء، نشاهد التلفزيون غالبًا.",
+          "en": "In the evening, we often watch television.",
+          "Fr": "Le soir, nous regardons souvent la télévision.",
+          "ru": "Вечером мы часто смотрим телевизор.",
+          "es": "Por la noche, a menudo vemos la televisión."
+        }
+      },
+      {
+        "text": "Ich schlage einen neuen Plan **vor**.",
+        "translations": {
+          "de": "Ich schlage einen neuen Plan vor.",
+          "ar": "أقترح خطة جديدة.",
+          "en": "I suggest a new plan.",
+          "Fr": "Je propose un nouveau plan.",
+          "ru": "Я предлагаю новый план.",
+          "es": "Yo sugiero un nuevo plan."
+        }
+      },
+      {
+        "text": "Sie bereitet das Abendessen **zu**.",
+        "translations": {
+          "de": "Sie bereitet das Abendessen zu.",
+          "ar": "إنها تُعد العشاء.",
+          "en": "She is preparing dinner.",
+          "Fr": "Elle prépare le dîner.",
+          "ru": "Она готовит ужин.",
+          "es": "Ella está preparando la cena."
+        }
+      },
+      {
+        "text": "Machst du die Tür bitte **zu**?",
+        "translations": {
+          "de": "Machst du die Tür bitte zu?",
+          "ar": "هل تغلق الباب من فضلك؟",
+          "en": "Will you close the door, please?",
+          "Fr": "Peux-tu fermer la porte, s'il te plaît ?",
+          "ru": "Закроешь дверь, пожалуйста?",
+          "es": "¿Cierras la puerta, por favor?"
+        }
+      },
+      {
+        "text": "Er kommt erst morgen **zurück**.",
+        "translations": {
+          "de": "Er kommt erst morgen zurück.",
+          "ar": "لن يعود حتى الغد.",
+          "en": "He will only come back tomorrow.",
+          "Fr": "Il ne reviendra que demain.",
+          "ru": "Он вернется только завтра.",
+          "es": "Él solo volverá mañana."
+        }
+      },
+      {
+        "text": "Die Lampe brennt leider nicht **an**.",
+        "translations": {
+          "de": "Die Lampe brennt leider nicht an.",
+          "ar": "للأسف، لا تشتعل اللمبة.",
+          "en": "Unfortunately, the lamp won't turn on (ignite).",
+          "Fr": "Malheureusement, la lampe ne s'allume pas.",
+          "ru": "К сожалению, лампа не зажигается.",
+          "es": "Lamentablemente, la lámpara no enciende."
+        }
+      },
+      {
+        "text": "Sie probiert die Schuhe **an**.",
+        "translations": {
+          "de": "Sie probiert die Schuhe an.",
+          "ar": "إنها تقيس الأحذية.",
+          "en": "She is trying on the shoes.",
+          "Fr": "Elle essaie les chaussures.",
+          "ru": "Она примеряет туфли.",
+          "es": "Ella se está probando los zapatos."
+        }
+      },
+      {
+        "text": "Die Studenten geben ihre Arbeiten **ab**.",
+        "translations": {
+          "de": "Die Studenten geben ihre Arbeiten ab.",
+          "ar": "يسلم الطلاب أعمالهم.",
+          "en": "The students are handing in their work.",
+          "Fr": "Les étudiants rendent leurs travaux.",
+          "ru": "Студенты сдают свои работы.",
+          "es": "Los estudiantes entregan sus trabajos."
+        }
+      },
+      {
+        "text": "Wir laden unsere Freunde heute **ein**.",
+        "translations": {
+          "de": "Wir laden unsere Freunde heute ein.",
+          "ar": "ندعو أصدقاءنا اليوم.",
+          "en": "We are inviting our friends today.",
+          "Fr": "Nous invitons nos amis aujourd'hui.",
+          "ru": "Мы приглашаем наших друзей сегодня.",
+          "es": "Nosotros invitamos a nuestros amigos hoy."
+        }
+      },
+      {
+        "text": "Ich kaufe die Lebensmittel heute **ein**.",
+        "translations": {
+          "de": "Ich kaufe die Lebensmittel heute ein.",
+          "ar": "أنا أتسوّق البقالة اليوم.",
+          "en": "I am shopping for groceries today.",
+          "Fr": "J'achète les provisions aujourd'hui.",
+          "ru": "Я покупаю продукты сегодня.",
+          "es": "Yo compro los alimentos hoy."
+        }
+      },
+      {
+        "text": "Wir gehen jetzt nach Hause **aus**.",
+        "translations": {
+          "de": "Wir gehen jetzt nach Hause aus.",
+          "ar": "نحن نخرج الآن إلى المنزل.",
+          "en": "We are going out to go home now. (A less common usage of *ausgehen*.)",
+          "Fr": "Nous sortons de chez nous maintenant.",
+          "ru": "Мы уходим из дома сейчас.",
+          "es": "Salimos para ir a casa ahora."
+        }
+      },
+      {
+        "text": "Der Zug kommt pünktlich **an**.",
+        "translations": {
+          "de": "Der Zug kommt pünktlich an.",
+          "ar": "يصل القطار في الموعد المحدد.",
+          "en": "The train is arriving on time.",
+          "Fr": "Le train arrive à l'heure.",
+          "ru": "Поезд прибывает вовремя.",
+          "es": "El tren llega a tiempo."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Subordinate Clause Structure (Prefix Reintegration)",
+    "description": {
+      "de": "Im Gegensatz zu Hauptsätzen zwingt die Anwesenheit einer **unterordnenden Konjunktion** (z.B. dass, weil) das konjugierte Verb an die **letzte Position** des abhängigen Nebensatzes, wodurch das Präfix und der Stamm des trennbaren Verbs wieder vereinigt werden.",
+      "ar": "على عكس الجمل الرئيسية، فإن وجود **أداة ربط فرعية** (مثل dass, weil) يجبر الفعل المصرف على أن يكون في **الموضع الأخير** من الجملة التابعة، مما يؤدي إلى إعادة دمج البادئة وجذر الفعل القابل للفصل.",
+      "en": "In contrast to main clauses, the presence of a **subordinating conjunction** (e.g., dass, weil) forces the conjugated verb to the **final position** of the dependent clause, thus reintegrating the prefix and the stem of the separable verb.",
+      "Fr": "Contrairement aux propositions principales, la présence d'une **conjonction de subordination** (par ex. dass, weil) force le verbe conjugué à la **position finale** de la proposition subordonnée, réunissant ainsi le préfixe et le radical du verbe séparable.",
+      "ru": "В отличие от главных предложений, наличие **подчинительного союза** (например, dass, weil) вынуждает спрягаемый глагол переместиться на **конечную позицию** зависимого придаточного предложения, тем самым воссоединяя приставку и основу отделяемого глагола.",
+      "es": "A diferencia de las cláusulas principales, la presencia de una **conjunción subordinante** (p. ej., dass, weil) fuerza al verbo conjugado a la **posición final** de la cláusula dependiente, reintegrando así el prefijo y el tema del verbo separable."
+    },
+    "sentences": [
+      {
+        "text": "Ich weiß, dass er heute **zurückkommt**.",
+        "translations": {
+          "de": "Ich weiß, dass er heute zurückkommt.",
+          "ar": "أعلم أنه سيعود اليوم.",
+          "en": "I know that he is coming back today.",
+          "Fr": "Je sais qu'il revient aujourd'hui.",
+          "ru": "Я знаю, что он сегодня вернется.",
+          "es": "Yo sé que él vuelve hoy."
+        }
+      },
+      {
+        "text": "Er sagte, dass er nicht **mitkommen kann**.",
+        "translations": {
+          "de": "Er sagte, dass er nicht mitkommen kann.",
+          "ar": "قال إنه لا يستطيع أن يأتي معنا.",
+          "en": "He said that he cannot come along. (Modal verb last)",
+          "Fr": "Il a dit qu'il ne peut pas venir.",
+          "ru": "Он сказал, что не может пойти с нами.",
+          "es": "Él dijo que no puede venir."
+        }
+      },
+      {
+        "text": "Wir gehen spazieren, wenn die Sonne **scheint**.",
+        "translations": {
+          "de": "Wir gehen spazieren, wenn die Sonne scheint.",
+          "ar": "سنذهب للتنزه عندما تشرق الشمس.",
+          "en": "We go for a walk when the sun shines.",
+          "Fr": "Nous allons nous promener quand le soleil brille.",
+          "ru": "Мы пойдем гулять, когда светит солнце.",
+          "es": "Nosotros vamos a pasear cuando el sol brille."
+        }
+      },
+      {
+        "text": "Ich frage mich, ob er wirklich **anruft**.",
+        "translations": {
+          "de": "Ich frage mich, ob er wirklich anruft.",
+          "ar": "أنا أتساءل ما إذا كان سيتصل حقًا.",
+          "en": "I wonder whether he will really call.",
+          "Fr": "Je me demande s'il va vraiment appeler.",
+          "ru": "Мне интересно, позвонит ли он на самом деле.",
+          "es": "Me pregunto si realmente llamará."
+        }
+      },
+      {
+        "text": "Sie glaubt, dass wir morgen früh **aufstehen müssen**.",
+        "translations": {
+          "de": "Sie glaubt, dass wir morgen früh aufstehen müssen.",
+          "ar": "إنها تعتقد أن علينا الاستيقاظ مبكرًا غدًا.",
+          "en": "She believes that we must get up early tomorrow. (Modal verb last)",
+          "Fr": "Elle croit que nous devons nous lever tôt demain.",
+          "ru": "Она считает, что мы должны встать рано утром.",
+          "es": "Ella cree que debemos levantarnos temprano mañana."
+        }
+      },
+      {
+        "text": "Er lernt Deutsch, weil er bald nach Berlin **ziehen möchte**.",
+        "translations": {
+          "de": "Er lernt Deutsch, weil er bald nach Berlin ziehen möchte.",
+          "ar": "إنه يتعلم الألمانية لأنه يريد الانتقال إلى برلين قريبًا.",
+          "en": "He is learning German because he would like to move to Berlin soon. (Modal verb last)",
+          "Fr": "Il apprend l'allemand parce qu'il aimerait déménager à Berlin bientôt.",
+          "ru": "Он изучает немецкий, потому что хочет скоро переехать в Берлин.",
+          "es": "Él aprende alemán porque le gustaría mudarse a Berlín pronto."
+        }
+      },
+      {
+        "text": "Sie weiß, dass sie die Regeln **anwenden soll**.",
+        "translations": {
+          "de": "Sie weiß, dass sie die Regeln anwenden soll.",
+          "ar": "إنها تعلم أنه يجب عليها تطبيق القواعد.",
+          "en": "She knows that she should apply the rules.",
+          "Fr": "Elle sait qu'elle doit appliquer les règles.",
+          "ru": "Она знает, что должна применять правила.",
+          "es": "Ella sabe que debe aplicar las reglas."
+        }
+      },
+      {
+        "text": "Wir wissen nicht, ob er die Ware **abgeholt hat**.",
+        "translations": {
+          "de": "Wir wissen nicht, ob er die Ware abgeholt hat.",
+          "ar": "لا نعرف ما إذا كان قد استلم البضائع.",
+          "en": "We don't know whether he has picked up the goods. (Auxiliary verb last)",
+          "Fr": "Nous ne savons pas s'il a récupéré la marchandise.",
+          "ru": "Мы не знаем, забрал ли он товар.",
+          "es": "No sabemos si él recogió la mercancía."
+        }
+      },
+      {
+        "text": "Es ist wichtig, dass ihr gut **aufpasst**.",
+        "translations": {
+          "de": "Es ist wichtig, dass ihr gut aufpasst.",
+          "ar": "من المهم أن تنتبهوا جيدًا.",
+          "en": "It is important that you (plural) pay close attention.",
+          "Fr": "Il est important que vous fassiez bien attention.",
+          "ru": "Важно, чтобы вы были внимательны.",
+          "es": "Es importante que prestéis mucha atención."
+        }
+      },
+      {
+        "text": "Er hofft, dass sie ihm bald **vorschlagen kann**.",
+        "translations": {
+          "de": "Er hofft, dass sie ihm bald vorschlagen kann.",
+          "ar": "يأمل أن تتمكن من أن تقترح عليه قريبًا.",
+          "en": "He hopes that she can suggest something to him soon.",
+          "Fr": "Il espère qu'elle pourra lui proposer quelque chose bientôt.",
+          "ru": "Он надеется, что она сможет скоро ему что-то предложить.",
+          "es": "Él espera que ella pueda proponerle algo pronto."
+        }
+      },
+      {
+        "text": "Sie ärgerte sich, weil der Zug spät **ankam**.",
+        "translations": {
+          "de": "Sie ärgerte sich, weil der Zug spät ankam.",
+          "ar": "انزعجت لأن القطار وصل متأخرًا.",
+          "en": "She got annoyed because the train arrived late.",
+          "Fr": "Elle s'est énervée parce que le train est arrivé en retard.",
+          "ru": "Она рассердилась, потому что поезд прибыл поздно.",
+          "es": "Ella se enfadó porque el tren llegó tarde."
+        }
+      },
+      {
+        "text": "Ich sehe zu, wenn du das Essen **zubereitest**.",
+        "translations": {
+          "de": "Ich sehe zu, wenn du das Essen zubereitest.",
+          "ar": "أنا أشاهد بينما أنت تُعد الطعام.",
+          "en": "I watch when you prepare the food.",
+          "Fr": "Je regarde quand tu prépares la nourriture.",
+          "ru": "Я смотрю, как ты готовишь еду.",
+          "es": "Yo miro cuando preparas la comida."
+        }
+      },
+      {
+        "text": "Die Kinder freuen sich, wenn die Schule **anfängt**.",
+        "translations": {
+          "de": "Die Kinder freuen sich, wenn die Schule anfängt.",
+          "ar": "يفرح الأطفال عندما تبدأ المدرسة.",
+          "en": "The children are happy when school begins.",
+          "Fr": "Les enfants se réjouissent quand l'école commence.",
+          "ru": "Дети радуются, когда начинается школа.",
+          "es": "Los niños se alegran cuando la escuela empieza."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Accusative Reflexive Pronouns (True Reflexive Verbs)",
+    "description": {
+      "de": "Bei **echten reflexiven Verben** fungiert das Reflexivpronomen als einziges Objekt und steht daher im **Akkusativ**.",
+      "ar": "في **الأفعال الانعكاسية الحقيقية**، يعمل الضمير الانعكاسي ككائن وحيد، وبالتالي يوضع في حالة **النصب (Accusative)**.",
+      "en": "For **true reflexive verbs**, the reflexive pronoun functions as the sole object and is therefore placed in the **Accusative** case.",
+      "Fr": "Pour les **vrais verbes réfléchis**, le pronom réfléchi fonctionne comme le seul objet et est donc placé à l'**Accusatif**.",
+      "ru": "Для **истинно возвратных глаголов** возвратное местоимение функционирует как единственное дополнение и поэтому ставится в **винительном** падеже (Accusative).",
+      "es": "Para los **verbos reflexivos verdaderos**, el pronombre reflexivo funciona como el único objeto y, por lo tanto, se coloca en caso **Acusativo**."
+    },
+    "sentences": [
+      {
+        "text": "Ich ruhe **mich** jeden Sonntag aus.",
+        "translations": {
+          "de": "Ich ruhe mich jeden Sonntag aus.",
+          "ar": "أنا أستريح كل يوم أحد.",
+          "en": "I rest every Sunday.",
+          "Fr": "Je me repose tous les dimanches.",
+          "ru": "Я отдыхаю каждое воскресенье.",
+          "es": "Yo descanso todos los domingos."
+        }
+      },
+      {
+        "text": "Du musst **dich** beeilen!",
+        "translations": {
+          "de": "Du musst dich beeilen!",
+          "ar": "يجب عليك الإسراع!",
+          "en": "You must hurry!",
+          "Fr": "Tu dois te dépêcher !",
+          "ru": "Ты должен поторопиться!",
+          "es": "¡Tienes que darte prisa!"
+        }
+      },
+      {
+        "text": "Er hat **sich** schlecht benommen.",
+        "translations": {
+          "de": "Er hat sich schlecht benommen.",
+          "ar": "لقد تصرف بشكل سيئ.",
+          "en": "He has behaved badly.",
+          "Fr": "Il s'est mal comporté.",
+          "ru": "Он плохо себя вел.",
+          "es": "Él se ha portado mal."
+        }
+      },
+      {
+        "text": "Wir wollen **uns** entschuldigen.",
+        "translations": {
+          "de": "Wir wollen uns entschuldigen.",
+          "ar": "نريد أن نعتذر.",
+          "en": "We want to apologize.",
+          "Fr": "Nous voulons nous excuser.",
+          "ru": "Мы хотим извиниться.",
+          "es": "Queremos disculparnos."
+        }
+      },
+      {
+        "text": "Habt **ihr euch** erkältet?",
+        "translations": {
+          "de": "Habt ihr euch erkältet?",
+          "ar": "هل أصبتما بالبرد؟",
+          "en": "Did you (plural) catch a cold?",
+          "Fr": "Avez-vous attrapé froid ?",
+          "ru": "Вы простудились?",
+          "es": "¿Os habéis resfriado?"
+        }
+      },
+      {
+        "text": "Sie langweilen **sich** beim Theater.",
+        "translations": {
+          "de": "Sie langweilen sich beim Theater.",
+          "ar": "يشعرون بالملل في المسرح.",
+          "en": "They are bored at the theater.",
+          "Fr": "Ils s'ennuient au théâtre.",
+          "ru": "Им скучно в театре.",
+          "es": "Ellos se aburren en el teatro."
+        }
+      },
+      {
+        "text": "Ich amüsiere **mich** über den Witz.",
+        "translations": {
+          "de": "Ich amüsiere mich über den Witz.",
+          "ar": "أنا أستمتع بالنكتة.",
+          "en": "I am amused by the joke.",
+          "Fr": "Je m'amuse de la blague.",
+          "ru": "Меня забавляет эта шутка.",
+          "es": "Me divierte el chiste."
+        }
+      },
+      {
+        "text": "Sie fühlt **sich** heute sehr gut.",
+        "translations": {
+          "de": "Sie fühlt sich heute sehr gut.",
+          "ar": "إنها تشعر أنها بحالة جيدة جدًا اليوم.",
+          "en": "She feels very good today.",
+          "Fr": "Elle se sent très bien aujourd'hui.",
+          "ru": "Она чувствует себя сегодня очень хорошо.",
+          "es": "Ella se siente muy bien hoy."
+        }
+      },
+      {
+        "text": "Der Autofahrer hat **sich** verfahren.",
+        "translations": {
+          "de": "Der Autofahrer hat sich verfahren.",
+          "ar": "لقد ضل السائق الطريق بالسيارة.",
+          "en": "The car driver has gotten lost (by car).",
+          "Fr": "Le conducteur s'est perdu.",
+          "ru": "Водитель заблудился.",
+          "es": "El conductor se ha perdido."
+        }
+      },
+      {
+        "text": "Warum habt **ihr euch** verspätet?",
+        "translations": {
+          "de": "Warum habt ihr euch verspätet?",
+          "ar": "لماذا تأخرتما؟",
+          "en": "Why were you (plural) late?",
+          "Fr": "Pourquoi avez-vous été en retard ?",
+          "ru": "Почему вы опоздали?",
+          "es": "¿Por qué os habéis retrasado?"
+        }
+      },
+      {
+        "text": "Wir müssen **uns** erst umsehen.",
+        "translations": {
+          "de": "Wir müssen uns erst umsehen.",
+          "ar": "يجب أن ننظر حولنا أولاً.",
+          "en": "We must first look around.",
+          "Fr": "Nous devons d'abord regarder autour de nous.",
+          "ru": "Мы должны сначала осмотреться.",
+          "es": "Primero debemos mirar alrededor."
+        }
+      },
+      {
+        "text": "Ich erhole **mich** im Urlaub.",
+        "translations": {
+          "de": "Ich erhole mich im Urlaub.",
+          "ar": "أنا أستعيد عافيتي في العطلة.",
+          "en": "I recover on vacation.",
+          "Fr": "Je me repose en vacances.",
+          "ru": "Я восстанавливаюсь в отпуске.",
+          "es": "Me recupero en vacaciones."
+        }
+      },
+      {
+        "text": "Die Kinder ziehen **sich** schnell an.",
+        "translations": {
+          "de": "Die Kinder ziehen sich schnell an.",
+          "ar": "يرتدي الأطفال ملابسهم بسرعة.",
+          "en": "The children dress quickly.",
+          "Fr": "Les enfants s'habillent rapidement.",
+          "ru": "Дети быстро одеваются.",
+          "es": "Los niños se visten rápidamente."
+        }
+      },
+      {
+        "text": "Er wäscht **sich** nach dem Sport.",
+        "translations": {
+          "de": "Er wäscht sich nach dem Sport.",
+          "ar": "إنه يغسل نفسه بعد الرياضة.",
+          "en": "He washes himself after sports.",
+          "Fr": "Il se lave après le sport.",
+          "ru": "Он моется после спорта.",
+          "es": "Él se lava después del deporte."
+        }
+      },
+      {
+        "text": "Sie verabschieden **sich** von ihrer Tante.",
+        "translations": {
+          "de": "Sie verabschieden sich von ihrer Tante.",
+          "ar": "إنهم يودعون خالتهم.",
+          "en": "They are saying goodbye to their aunt.",
+          "Fr": "Ils disent au revoir à leur tante.",
+          "ru": "Они прощаются со своей тетей.",
+          "es": "Ellos se despiden de su tía."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Dative Reflexive Pronouns (Dative of Reference)",
+    "description": {
+      "de": "Wenn der Satz ein **eigenes direktes Objekt im Akkusativ** enthält, verschiebt sich das Reflexivpronomen in den **Dativ** (Dativ des Interesses), um anzuzeigen, dass die Handlung 'zu Gunsten' oder 'für' das Subjekt ausgeführt wird.",
+      "ar": "عندما تتضمن الجملة **مفعولًا به مباشرًا منفصلًا في حالة النصب**، ينتقل الضمير الانعكاسي إلى حالة **الجر (Dative)**، مشيرًا إلى أن الفعل يتم 'لصالح' أو 'لأجل' الفاعل.",
+      "en": "When the sentence includes a **distinct direct object in the Accusative case**, the reflexive pronoun shifts to the **Dative** case (Dative of Reference) to indicate the action is done 'to' or 'for' the subject.",
+      "Fr": "Lorsqu'une phrase comprend un **objet direct distinct à l'Accusatif**, le pronom réfléchi passe au **Datif** (Datif de Référence) pour indiquer que l'action est faite 'à' ou 'pour' le sujet.",
+      "ru": "Когда предложение содержит **отдельное прямое дополнение в винительном падеже (Accusative)**, возвратное местоимение переходит в **дательный** падеж (Dative of Reference), чтобы указать, что действие совершается 'для' или 'в пользу' подлежащего.",
+      "es": "Cuando la oración incluye un **objeto directo distinto en caso Acusativo**, el pronombre reflexivo pasa al caso **Dativo** (Dativo de Referencia) para indicar que la acción se realiza 'para' o 'en beneficio de' el sujeto."
+    },
+    "sentences": [
+      {
+        "text": "Ich wasche **mir** (Dativ) die Haare (Akkusativ).",
+        "translations": {
+          "de": "Ich wasche mir die Haare.",
+          "ar": "أنا أغسل شعري.",
+          "en": "I am washing my hair.",
+          "Fr": "Je me lave les cheveux.",
+          "ru": "Я мою себе волосы.",
+          "es": "Yo me lavo el pelo."
+        }
+      },
+      {
+        "text": "Du ziehst **dir** (Dativ) einen Mantel (Akkusativ) an.",
+        "translations": {
+          "de": "Du ziehst dir einen Mantel an.",
+          "ar": "أنت ترتدي معطفًا.",
+          "en": "You are putting on a coat.",
+          "Fr": "Tu mets un manteau.",
+          "ru": "Ты надеваешь себе пальто.",
+          "es": "Tú te pones un abrigo."
+        }
+      },
+      {
+        "text": "Er putzt **sich** (Dativ) die Zähne (Akkusativ).",
+        "translations": {
+          "de": "Er putzt sich die Zähne.",
+          "ar": "إنه ينظف أسنانه.",
+          "en": "He is brushing his teeth.",
+          "Fr": "Il se brosse les dents.",
+          "ru": "Он чистит себе зубы.",
+          "es": "Él se cepilla los dientes."
+        }
+      },
+      {
+        "text": "Wir haben **uns** (Dativ) einen großen Projekt (Akkusativ) vorgenommen.",
+        "translations": {
+          "de": "Wir haben uns einen großen Projekt vorgenommen.",
+          "ar": "لقد تعهدنا بمشروع كبير.",
+          "en": "We have undertaken a large project.",
+          "Fr": "Nous avons entrepris un grand projet.",
+          "ru": "Мы запланировали себе большой проект.",
+          "es": "Hemos emprendido un gran proyecto."
+        }
+      },
+      {
+        "text": "Sie stellt **sich** (Dativ) das Essen (Akkusativ) vor.",
+        "translations": {
+          "de": "Sie stellt sich das Essen vor.",
+          "ar": "إنها تتخيل الطعام.",
+          "en": "She is imagining the food.",
+          "Fr": "Elle s'imagine la nourriture.",
+          "ru": "Она представляет себе еду.",
+          "es": "Ella se imagina la comida."
+        }
+      },
+      {
+        "text": "Wäschst du **dir** (Dativ) deine Hände (Akkusativ)?",
+        "translations": {
+          "de": "Wäschst du dir deine Hände?",
+          "ar": "هل تغسل يديك؟",
+          "en": "Are you washing your hands?",
+          "Fr": "Te laves-tu les mains ?",
+          "ru": "Ты моешь себе руки?",
+          "es": "¿Te lavas las manos?"
+        }
+      },
+      {
+        "text": "Ich kaufe **mir** (Dativ) ein neues Buch (Akkusativ).",
+        "translations": {
+          "de": "Ich kaufe mir ein neues Buch.",
+          "ar": "أنا أشتري لنفسي كتابًا جديدًا.",
+          "en": "I am buying myself a new book.",
+          "Fr": "Je m'achète un nouveau livre.",
+          "ru": "Я покупаю себе новую книгу.",
+          "es": "Yo me compro un libro nuevo."
+        }
+      },
+      {
+        "text": "Er hat **sich** (Dativ) eine Erkältung (Akkusativ) zugezogen.",
+        "translations": {
+          "de": "Er hat sich eine Erkältung zugezogen.",
+          "ar": "لقد أصيب بنزلة برد.",
+          "en": "He has contracted a cold.",
+          "Fr": "Il a attrapé un rhume.",
+          "ru": "Он подхватил простуду.",
+          "es": "Él ha contraído un resfriado."
+        }
+      },
+      {
+        "text": "Wir kämmen **uns** (Dativ) die nassen Haare (Akkusativ).",
+        "translations": {
+          "de": "Wir kämmen uns die nassen Haare.",
+          "ar": "نحن نمشط شعرنا المبلل.",
+          "en": "We are combing our wet hair.",
+          "Fr": "Nous nous coiffons les cheveux mouillés.",
+          "ru": "Мы расчесываем себе мокрые волосы.",
+          "es": "Nosotros nos peinamos el pelo mojado."
+        }
+      },
+      {
+        "text": "Ich muss **mir** (Dativ) ein Ziel (Akkusativ) setzen.",
+        "translations": {
+          "de": "Ich muss mir ein Ziel setzen.",
+          "ar": "يجب أن أضع لنفسي هدفًا.",
+          "en": "I must set myself a goal.",
+          "Fr": "Je dois me fixer un objectif.",
+          "ru": "Я должен поставить себе цель.",
+          "es": "Debo ponerme una meta."
+        }
+      },
+      {
+        "text": "Er bildet **sich** (Dativ) diese Geschichten (Akkusativ) nur ein.",
+        "translations": {
+          "de": "Er bildet sich diese Geschichten nur ein.",
+          "ar": "إنه يتخيل هذه القصص فقط.",
+          "en": "He is just imagining/making up these stories.",
+          "Fr": "Il n'imagine que ces histoires.",
+          "ru": "Он только выдумывает эти истории.",
+          "es": "Él solo se imagina estas historias."
+        }
+      },
+      {
+        "text": "Die Kinder suchen **sich** (Dativ) ihre Kleidung (Akkusativ) aus.",
+        "translations": {
+          "de": "Die Kinder suchen sich ihre Kleidung aus.",
+          "ar": "يختار الأطفال ملابسهم.",
+          "en": "The children are choosing their clothes.",
+          "Fr": "Les enfants choisissent leurs vêtements.",
+          "ru": "Дети выбирают себе одежду.",
+          "es": "Los niños eligen su ropa."
+        }
+      },
+      {
+        "text": "Ich schneide **mir** (Dativ) die Fingernägel (Akkusativ).",
+        "translations": {
+          "de": "Ich schneide mir die Fingernägel.",
+          "ar": "أنا أقص أظافري.",
+          "en": "I am cutting my fingernails.",
+          "Fr": "Je me coupe les ongles.",
+          "ru": "Я стригу себе ногти.",
+          "es": "Yo me corto las uñas."
+        }
+      },
+      {
+        "text": "Sie hat **sich** (Dativ) eine libertäre Philosophie (Akkusativ) angeeignet.",
+        "translations": {
+          "de": "Sie hat sich eine libertäre Philosophie angeeignet.",
+          "ar": "لقد اكتسبت فلسفة ليبرالية.",
+          "en": "She has acquired a libertarian philosophy.",
+          "Fr": "Elle s'est approprié une philosophie libertaire.",
+          "ru": "Она усвоила либертарианскую философию.",
+          "es": "Ella ha adquirido una filosofía libertaria."
+        }
+      },
+      {
+        "text": "Wir verbitten **uns** (Dativ) solche Bemerkungen (Akkusativ).",
+        "translations": {
+          "de": "Wir verbitten uns solche Bemerkungen.",
+          "ar": "نحن نرفض التسامح مع مثل هذه الملاحظات.",
+          "en": "We refuse to tolerate such remarks.",
+          "Fr": "Nous nous interdisons de tolérer de telles remarques.",
+          "ru": "Мы не потерпим таких замечаний.",
+          "es": "Nosotros nos prohibimos tales comentarios."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Verbs Governing the Accusative Case (Fixed Prepositions)",
+    "description": {
+      "de": "Diese Verben sind lexikalisch an eine bestimmte Präposition gebunden, die wiederum zwingend den **Akkusativ** für das folgende Objekt vorschreibt.",
+      "ar": "هذه الأفعال مرتبطة معجميًا بحرف جر معين، والذي يفرض بدوره حتمًا حالة **النصب (Accusative)** على الاسم الذي يليه.",
+      "en": "These verbs are lexically bound to a specific preposition, which, in turn, mandates the **Accusative** case for the object that follows.",
+      "Fr": "Ces verbes sont liés lexicalement à une préposition spécifique, qui, à son tour, exige obligatoirement le cas **Accusatif** pour l'objet qui suit.",
+      "ru": "Эти глаголы лексически связаны с определенным предлогом, который, в свою очередь, обязательно требует **винительного** падежа (Accusative) для следующего дополнения.",
+      "es": "Estos verbos están ligados léxicamente a una preposición específica, que, a su vez, exige obligatoriamente el caso **Acusativo** para el objeto que le sigue."
+    },
+    "sentences": [
+      {
+        "text": "Ich warte **auf** den Bus (Akkusativ).",
+        "translations": {
+          "de": "Ich warte auf den Bus.",
+          "ar": "أنا أنتظر الحافلة.",
+          "en": "I am waiting for the bus.",
+          "Fr": "J'attends le bus.",
+          "ru": "Я жду автобус.",
+          "es": "Yo espero el autobús."
+        }
+      },
+      {
+        "text": "Wir freuen **uns über** die Fortschritte (Akkusativ).",
+        "translations": {
+          "de": "Wir freuen uns über die Fortschritte.",
+          "ar": "نحن سعداء بالتقدم.",
+          "en": "We are happy about the progress.",
+          "Fr": "Nous sommes contents des progrès.",
+          "ru": "Мы радуемся прогрессу.",
+          "es": "Nos alegramos por el progreso."
+        }
+      },
+      {
+        "text": "Alle hoffen **auf** eine bessere Zukunft (Akkusativ).",
+        "translations": {
+          "de": "Alle hoffen auf eine bessere Zukunft.",
+          "ar": "الجميع يأملون في مستقبل أفضل.",
+          "en": "Everyone is hoping for a better future.",
+          "Fr": "Tout le monde espère un avenir meilleur.",
+          "ru": "Все надеются на лучшее будущее.",
+          "es": "Todos esperan un futuro mejor."
+        }
+      },
+      {
+        "text": "Er ärgert **sich über** seine Kollegen (Akkusativ).",
+        "translations": {
+          "de": "Er ärgert sich über seine Kollegen.",
+          "ar": "إنه غاضب من زملائه.",
+          "en": "He is angry about his colleagues.",
+          "Fr": "Il s'énerve à cause de ses collègues.",
+          "ru": "Он злится на своих коллег.",
+          "es": "Él está enojado con sus colegas."
+        }
+      },
+      {
+        "text": "Ich danke dir **für** deine Hilfe (Akkusativ).",
+        "translations": {
+          "de": "Ich danke dir für deine Hilfe.",
+          "ar": "أشكرك على مساعدتك.",
+          "en": "I am thanking you for your help.",
+          "Fr": "Je te remercie pour ton aide.",
+          "ru": "Я благодарю тебя за твою помощь.",
+          "es": "Te doy las gracias por tu ayuda."
+        }
+      },
+      {
+        "text": "Sie kämpfen **für** die Gerechtigkeit (Akkusativ).",
+        "translations": {
+          "de": "Sie kämpfen für die Gerechtigkeit.",
+          "ar": "إنهم يقاتلون من أجل العدالة.",
+          "en": "They are fighting for justice.",
+          "Fr": "Ils se battent pour la justice.",
+          "ru": "Они борются за справедливость.",
+          "es": "Ellos luchan por la justicia."
+        }
+      },
+      {
+        "text": "Viele wundern **sich über** die hohen Kosten (Akkusativ).",
+        "translations": {
+          "de": "Viele wundern sich über die hohen Kosten.",
+          "ar": "يتعجب الكثيرون من التكاليف الباهظة.",
+          "en": "Many people wonder about the high costs.",
+          "Fr": "Beaucoup s'étonnent des coûts élevés.",
+          "ru": "Многие удивляются высоким ценам.",
+          "es": "Muchos se sorprenden de los altos costos."
+        }
+      },
+      {
+        "text": "Ich denke **an** dich (Akkusativ) den ganzen Tag.",
+        "translations": {
+          "de": "Ich denke an dich den ganzen Tag.",
+          "ar": "أفكر فيك طوال اليوم.",
+          "en": "I think of you all day long.",
+          "Fr": "Je pense à toi toute la journée.",
+          "ru": "Я думаю о тебе весь день.",
+          "es": "Yo pienso en ti todo el día."
+        }
+      },
+      {
+        "text": "Er erinnert **sich an** seine Kindheit (Akkusativ).",
+        "translations": {
+          "de": "Er erinnert sich an seine Kindheit.",
+          "ar": "يتذكر طفولته.",
+          "en": "He remembers his childhood.",
+          "Fr": "Il se souvient de son enfance.",
+          "ru": "Он помнит свое детство.",
+          "es": "Él recuerda su infancia."
+        }
+      },
+      {
+        "text": "Wir konzentrieren **uns auf** die Aufgabe (Akkusativ).",
+        "translations": {
+          "de": "Wir konzentrieren uns auf die Aufgabe.",
+          "ar": "نحن نركز على المهمة.",
+          "en": "We are concentrating on the task.",
+          "Fr": "Nous nous concentrons sur la tâche.",
+          "ru": "Мы концентрируемся на задаче.",
+          "es": "Nosotros nos concentramos en la tarea."
+        }
+      },
+      {
+        "text": "Bitte antworten Sie **auf** meine Frage (Akkusativ).",
+        "translations": {
+          "de": "Bitte antworten Sie auf meine Frage.",
+          "ar": "من فضلك أجب على سؤالي.",
+          "en": "Please answer my question.",
+          "Fr": "Veuillez répondre à ma question.",
+          "ru": "Пожалуйста, ответьте на мой вопрос.",
+          "es": "Por favor, responda a mi pregunta."
+        }
+      },
+      {
+        "text": "Es kommt **auf** deine Entscheidung (Akkusativ) an.",
+        "translations": {
+          "de": "Es kommt auf deine Entscheidung an.",
+          "ar": "الأمر يعتمد على قرارك.",
+          "en": "It depends on your decision.",
+          "Fr": "Cela dépend de ta décision.",
+          "ru": "Это зависит от твоего решения.",
+          "es": "Depende de tu decisión."
+        }
+      },
+      {
+        "text": "Er besteht **auf** der Pünktlichkeit (Akkusativ).",
+        "translations": {
+          "de": "Er besteht auf der Pünktlichkeit.",
+          "ar": "إنه يصر على الالتزام بالمواعيد.",
+          "en": "He insists on punctuality.",
+          "Fr": "Il insiste sur la ponctualité.",
+          "ru": "Он настаивает на пунктуальности.",
+          "es": "Él insiste en la puntualidad."
+        }
+      },
+      {
+        "text": "Ich bin **für** den Vorschlag (Akkusativ).",
+        "translations": {
+          "de": "Ich bin für den Vorschlag.",
+          "ar": "أنا مع الاقتراح.",
+          "en": "I am for the proposal.",
+          "Fr": "Je suis pour la proposition.",
+          "ru": "Я за предложение.",
+          "es": "Yo estoy a favor de la propuesta."
+        }
+      },
+      {
+        "text": "Wir sprechen **über** das aktuelle Thema (Akkusativ).",
+        "translations": {
+          "de": "Wir sprechen über das aktuelle Thema.",
+          "ar": "نحن نتحدث عن الموضوع الحالي.",
+          "en": "We are talking about the current topic.",
+          "Fr": "Nous parlons du sujet actuel.",
+          "ru": "Мы говорим о текущей теме.",
+          "es": "Nosotros hablamos sobre el tema actual."
+        }
+      },
+      {
+        "text": "Die Eltern sorgen **für** ihre Kinder (Akkusativ).",
+        "translations": {
+          "de": "Die Eltern sorgen für ihre Kinder.",
+          "ar": "الوالدان يعتنيان بأطفالهما.",
+          "en": "The parents are caring for their children.",
+          "Fr": "Les parents s'occupent de leurs enfants.",
+          "ru": "Родители заботятся о своих детях.",
+          "es": "Los padres cuidan de sus hijos."
+        }
+      },
+      {
+        "text": "Sie klagt **über** Kopfschmerzen (Akkusativ).",
+        "translations": {
+          "de": "Sie klagt über Kopfschmerzen.",
+          "ar": "إنها تشكو من الصداع.",
+          "en": "She is complaining about headaches.",
+          "Fr": "Elle se plaint de maux de tête.",
+          "ru": "Она жалуется на головные боли.",
+          "es": "Ella se queja de dolores de cabeza."
+        }
+      },
+      {
+        "text": "Ich halte ihn **für** einen guten Freund (Akkusativ).",
+        "translations": {
+          "de": "Ich halte ihn für einen guten Freund.",
+          "ar": "أعتبره صديقًا جيدًا.",
+          "en": "I take him for a good friend.",
+          "Fr": "Je le tiens pour un bon ami.",
+          "ru": "Я считаю его хорошим другом.",
+          "es": "Yo lo considero un buen amigo."
+        }
+      },
+      {
+        "text": "Wir geben Geld **für** Essen (Akkusativ) aus.",
+        "translations": {
+          "de": "Wir geben Geld für Essen aus.",
+          "ar": "نحن ننفق المال على الطعام.",
+          "en": "We are spending money on food.",
+          "Fr": "Nous dépensons de l'argent pour la nourriture.",
+          "ru": "Мы тратим деньги на еду.",
+          "es": "Nosotros gastamos dinero en comida."
+        }
+      },
+      {
+        "text": "Die Studenten bemühen **sich um** gute Noten (Akkusativ).",
+        "translations": {
+          "de": "Die Studenten bemühen sich um gute Noten.",
+          "ar": "يسعى الطلاب للحصول على درجات جيدة.",
+          "en": "The students are striving for good grades.",
+          "Fr": "Les étudiants s'efforcent d'obtenir de bonnes notes.",
+          "ru": "Студенты стремятся к хорошим оценкам.",
+          "es": "Los estudiantes se esfuerzan por buenas notas."
+        }
+      },
+      {
+        "text": "Sie erschrecken **über** die Nachrichten (Akkusativ).",
+        "translations": {
+          "de": "Sie erschrecken über die Nachrichten.",
+          "ar": "لقد خافوا من الأخبار.",
+          "en": "They get frightened by the news.",
+          "Fr": "Ils sont effrayés par les nouvelles.",
+          "ru": "Они пугаются новостей.",
+          "es": "Ellos se asustan por las noticias."
+        }
+      },
+      {
+        "text": "Er denkt **über** die Folgen (Akkusativ) nach.",
+        "translations": {
+          "de": "Er denkt über die Folgen nach.",
+          "ar": "إنه يفكر في العواقب.",
+          "en": "He is thinking about the consequences.",
+          "Fr": "Il réfléchit aux conséquences.",
+          "ru": "Он размышляет о последствиях.",
+          "es": "Él reflexiona sobre las consecuencias."
+        }
+      },
+      {
+        "text": "Die Firma warnt **vor** hohen Kosten (Akkusativ).",
+        "translations": {
+          "de": "Die Firma warnt vor hohen Kosten.",
+          "ar": "تحذر الشركة من التكاليف الباهظة.",
+          "en": "The company is warning about high costs.",
+          "Fr": "L'entreprise avertit des coûts élevés.",
+          "ru": "Компания предупреждает о высоких расходах.",
+          "es": "La empresa advierte sobre los altos costos."
+        }
+      },
+      {
+        "text": "Ich erinnere **mich an** den Moment (Akkusativ).",
+        "translations": {
+          "de": "Ich erinnere mich an den Moment.",
+          "ar": "أتذكر اللحظة.",
+          "en": "I remember the moment.",
+          "Fr": "Je me souviens du moment.",
+          "ru": "Я помню тот момент.",
+          "es": "Yo recuerdo el momento."
+        }
+      },
+      {
+        "text": "Sie unterhält **sich mit** dem Kollegen (Dativ) **über** das Projekt (Akkusativ).",
+        "translations": {
+          "de": "Sie unterhält sich mit dem Kollegen über das Projekt.",
+          "ar": "إنها تتحادث مع الزميل حول المشروع.",
+          "en": "She is conversing with the colleague (Dative) about the project (Accusative).",
+          "Fr": "Elle s'entretient avec le collègue (Datif) à propos du projet (Accusatif).",
+          "ru": "Она разговаривает с коллегой (Dativ) о проекте (Akkusativ).",
+          "es": "Ella conversa con el colega (Dativo) sobre el proyecto (Acusativo)."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Verbs Governing the Dative Case (Fixed Prepositions)",
+    "description": {
+      "de": "Diese Verben sind lexikalisch an eine bestimmte Präposition gebunden, die wiederum zwingend den **Dativ** für das folgende Objekt vorschreibt.",
+      "ar": "هذه الأفعال مرتبطة معجميًا بحرف جر معين، والذي يفرض بدوره حتمًا حالة **الجر (Dative)** على الاسم الذي يليه.",
+      "en": "These verbs are lexically bound to a specific preposition, which, in turn, mandates the **Dative** case for the object that follows.",
+      "Fr": "Ces verbes sont liés lexicalement à une préposition spécifique, qui, à son tour, exige obligatoirement le cas **Datif** pour l'objet qui suit.",
+      "ru": "Эти глаголы лексически связаны с определенным предлогом, который, в свою очередь, обязательно требует **дательного** падежа (Dative) для следующего дополнения.",
+      "es": "Estos verbos están ligados léxicamente a una preposición específica, que, a su vez, exige obligatoriamente el caso **Dativo** para el objeto que le sigue."
+    },
+    "sentences": [
+      {
+        "text": "Ich spreche **mit** meinem Chef (Dativ).",
+        "translations": {
+          "de": "Ich spreche mit meinem Chef.",
+          "ar": "أنا أتحدث مع رئيسي.",
+          "en": "I am speaking with my boss.",
+          "Fr": "Je parle avec mon chef.",
+          "ru": "Я говорю со своим начальником.",
+          "es": "Yo hablo con mi jefe."
+        }
+      },
+      {
+        "text": "Er bedankt **sich bei** der Sekretärin (Dativ).",
+        "translations": {
+          "de": "Er bedankt sich bei der Sekretärin.",
+          "ar": "إنه يشكر السكرتيرة.",
+          "en": "He is thanking the secretary (a person).",
+          "Fr": "Il remercie la secrétaire.",
+          "ru": "Он благодарит секретаршу.",
+          "es": "Él da las gracias a la secretaria."
+        }
+      },
+      {
+        "text": "Sie zweifeln **an** seiner Ehrlichkeit (Dativ).",
+        "translations": {
+          "de": "Sie zweifeln an seiner Ehrlichkeit.",
+          "ar": "إنهم يشكون في صدقه.",
+          "en": "They doubt his honesty.",
+          "Fr": "Ils doutent de son honnêteté.",
+          "ru": "Они сомневаются в его честности.",
+          "es": "Ellos dudan de su honestidad."
+        }
+      },
+      {
+        "text": "Ich weiß nichts **von** diesen neuen Regeln (Dativ).",
+        "translations": {
+          "de": "Ich weiß nichts von diesen neuen Regeln.",
+          "ar": "لا أعرف شيئًا عن هذه القواعد الجديدة.",
+          "en": "I know nothing of these new rules.",
+          "Fr": "Je ne sais rien de ces nouvelles règles.",
+          "ru": "Я ничего не знаю об этих новых правилах.",
+          "es": "Yo no sé nada de estas nuevas reglas."
+        }
+      },
+      {
+        "text": "Er schaut uns **bei** der Reparatur (Dativ) zu.",
+        "translations": {
+          "de": "Er schaut uns bei der Reparatur zu.",
+          "ar": "إنه يشاهدنا أثناء الإصلاح.",
+          "en": "He is watching us during the repair.",
+          "Fr": "Il nous regarde pendant la réparation.",
+          "ru": "Он наблюдает за нами во время ремонта.",
+          "es": "Él nos mira durante la reparación."
+        }
+      },
+      {
+        "text": "Willst du **mir bei** dem Kochen (Dativ) zusehen?",
+        "translations": {
+          "de": "Willst du mir beim Kochen zusehen?",
+          "ar": "هل تريد أن تشاهدني وأنا أطبخ؟",
+          "en": "Do you want to watch me while cooking?",
+          "Fr": "Veux-tu me regarder cuisiner ?",
+          "ru": "Хочешь посмотреть, как я готовлю?",
+          "es": "¿Quieres verme cocinar?"
+        }
+      },
+      {
+        "text": "Wir nehmen **an** der Konferenz (Dativ) teil.",
+        "translations": {
+          "de": "Wir nehmen an der Konferenz teil.",
+          "ar": "نحن نشارك في المؤتمر.",
+          "en": "We are participating in the conference.",
+          "Fr": "Nous participons à la conférence.",
+          "ru": "Мы участвуем в конференции.",
+          "es": "Nosotros participamos en la conferencia."
+        }
+      },
+      {
+        "text": "Ich unterhalte **mich mit** meinen Eltern (Dativ).",
+        "translations": {
+          "de": "Ich unterhalte mich mit meinen Eltern.",
+          "ar": "أنا أتحدث مع والدي.",
+          "en": "I am conversing with my parents.",
+          "Fr": "Je m'entretiens avec mes parents.",
+          "ru": "Я разговариваю со своими родителями.",
+          "es": "Yo converso con mis padres."
+        }
+      },
+      {
+        "text": "Das gehört **zu** den wichtigsten Aufgaben (Dativ).",
+        "translations": {
+          "de": "Das gehört zu den wichtigsten Aufgaben.",
+          "ar": "هذا ينتمي إلى أهم المهام.",
+          "en": "That belongs to the most important tasks.",
+          "Fr": "Cela fait partie des tâches les plus importantes.",
+          "ru": "Это относится к самым важным задачам.",
+          "es": "Eso pertenece a las tareas más importantes."
+        }
+      },
+      {
+        "text": "Er träumt **von** einem Urlaub (Dativ) am Meer.",
+        "translations": {
+          "de": "Er träumt von einem Urlaub am Meer.",
+          "ar": "إنه يحلم بعطلة على البحر.",
+          "en": "He is dreaming of a vacation by the sea.",
+          "Fr": "Il rêve de vacances à la mer.",
+          "ru": "Он мечтает об отпуске на море.",
+          "es": "Él sueña con unas vacaciones en el mar."
+        }
+      },
+      {
+        "text": "Die Frau verabschiedet **sich von** ihrem Mann (Dativ).",
+        "translations": {
+          "de": "Die Frau verabschiedet sich von ihrem Mann.",
+          "ar": "المرأة تودع زوجها.",
+          "en": "The woman is saying goodbye to her husband.",
+          "Fr": "La femme fait ses adieux à son mari.",
+          "ru": "Женщина прощается со своим мужем.",
+          "es": "La mujer se despide de su marido."
+        }
+      },
+      {
+        "text": "Ich wohne **bei** meinen Großeltern (Dativ).",
+        "translations": {
+          "de": "Ich wohne bei meinen Großeltern.",
+          "ar": "أنا أعيش مع أجدادي.",
+          "en": "I am living with my grandparents.",
+          "Fr": "J'habite chez mes grands-parents.",
+          "ru": "Я живу у своих бабушки и дедушки.",
+          "es": "Yo vivo con mis abuelos."
+        }
+      },
+      {
+        "text": "Sie hilft **ihm bei** der Arbeit (Dativ).",
+        "translations": {
+          "de": "Sie hilft ihm bei der Arbeit.",
+          "ar": "إنها تساعده في العمل.",
+          "en": "She is helping him with the work.",
+          "Fr": "Elle l'aide au travail.",
+          "ru": "Она помогает ему с работой.",
+          "es": "Ella le ayuda con el trabajo."
+        }
+      },
+      {
+        "text": "Wir beginnen **mit** der Besprechung (Dativ).",
+        "translations": {
+          "de": "Wir beginnen mit der Besprechung.",
+          "ar": "نحن نبدأ بالاجتماع.",
+          "en": "We are beginning with the discussion.",
+          "Fr": "Nous commençons la réunion.",
+          "ru": "Мы начинаем совещание.",
+          "es": "Nosotros comenzamos con la reunión."
+        }
+      },
+      {
+        "text": "Er gratuliert **mir zu** meinem Geburtstag (Dativ).",
+        "translations": {
+          "de": "Er gratuliert mir zu meinem Geburtstag.",
+          "ar": "إنه يهنئني بعيد ميلادي.",
+          "en": "He is congratulating me on my birthday.",
+          "Fr": "Il me félicite pour mon anniversaire.",
+          "ru": "Он поздравляет меня с моим днем рождения.",
+          "es": "Él me felicita por mi cumpleaños."
+        }
+      },
+      {
+        "text": "Sie stammt **aus** einer großen Familie (Dativ).",
+        "translations": {
+          "de": "Sie stammt aus einer großen Familie.",
+          "ar": "إنها تنحدر من عائلة كبيرة.",
+          "en": "She originates from a large family.",
+          "Fr": "Elle est issue d'une grande famille.",
+          "ru": "Она родом из большой семьи.",
+          "es": "Ella proviene de una familia grande."
+        }
+      },
+      {
+        "text": "Wir fahren **seit** letztem Jahr (Dativ) in die Alpen.",
+        "translations": {
+          "de": "Wir fahren seit letztem Jahr in die Alpen.",
+          "ar": "نحن نسافر إلى جبال الألب منذ العام الماضي.",
+          "en": "We have been traveling to the Alps since last year.",
+          "Fr": "Nous voyageons dans les Alpes depuis l'année dernière.",
+          "ru": "Мы ездим в Альпы с прошлого года.",
+          "es": "Viajamos a los Alpes desde el año pasado."
+        }
+      },
+      {
+        "text": "Der Zug fährt **von** Berlin (Dativ) **nach** Hamburg (Dativ).",
+        "translations": {
+          "de": "Der Zug fährt von Berlin nach Hamburg.",
+          "ar": "القطار يسير من برلين إلى هامبورغ.",
+          "en": "The train is traveling from Berlin to Hamburg.",
+          "Fr": "Le train va de Berlin à Hambourg.",
+          "ru": "Поезд едет из Берлина в Гамбург.",
+          "es": "El tren viaja de Berlín a Hamburgo."
+        }
+      },
+      {
+        "text": "Er ist **mit** dem Auto (Dativ) gekommen.",
+        "translations": {
+          "de": "Er ist mit dem Auto gekommen.",
+          "ar": "لقد جاء بالسيارة.",
+          "en": "He came by car.",
+          "Fr": "Il est venu en voiture.",
+          "ru": "Он приехал на машине.",
+          "es": "Él vino en coche."
+        }
+      },
+      {
+        "text": "Ich bin **gegenüber** dem Bahnhof (Dativ).",
+        "translations": {
+          "de": "Ich bin gegenüber dem Bahnhof.",
+          "ar": "أنا مقابل المحطة.",
+          "en": "I am opposite the train station.",
+          "Fr": "Je suis en face de la gare.",
+          "ru": "Я нахожусь напротив вокзала.",
+          "es": "Yo estoy enfrente de la estación."
+        }
+      },
+      {
+        "text": "Wir reden **von** der Vergangenheit (Dativ).",
+        "translations": {
+          "de": "Wir reden von der Vergangenheit.",
+          "ar": "نحن نتحدث عن الماضي.",
+          "en": "We are talking about the past.",
+          "Fr": "Nous parlons du passé.",
+          "ru": "Мы говорим о прошлом.",
+          "es": "Nosotros hablamos del pasado."
+        }
+      },
+      {
+        "text": "Er schreibt **mir von** seinem Erlebnis (Dativ).",
+        "translations": {
+          "de": "Er schreibt mir von seinem Erlebnis.",
+          "ar": "إنه يكتب لي عن تجربته.",
+          "en": "He is writing to me about his experience.",
+          "Fr": "Il m'écrit à propos de son expérience.",
+          "ru": "Он пишет мне о своем опыте.",
+          "es": "Él me escribe sobre su experiencia."
+        }
+      },
+      {
+        "text": "Sie bedankt **sich für** das Geschenk (Akkusativ) **bei** ihr (Dativ).",
+        "translations": {
+          "de": "Sie bedankt sich für das Geschenk bei ihr.",
+          "ar": "إنها تشكرها على الهدية.",
+          "en": "She is thanking her (Dative) for the gift (Accusative). (Dual case structure)",
+          "Fr": "Elle la remercie (Datif) pour le cadeau (Accusatif).",
+          "ru": "Она благодарит ее (Dativ) за подарок (Akkusativ).",
+          "es": "Ella le agradece (Dativo) el regalo (Acusativo)."
+        }
+      },
+      {
+        "text": "Man hat **ihn vor** den hohen Kosten (Dativ) gewarnt.",
+        "translations": {
+          "de": "Man hat ihn vor den hohen Kosten gewarnt.",
+          "ar": "لقد حذروه من التكاليف الباهظة.",
+          "en": "He was warned about the high costs.",
+          "Fr": "On l'a averti des coûts élevés.",
+          "ru": "Его предупредили о высоких расходах.",
+          "es": "Se le advirtió de los altos costos."
+        }
+      },
+      {
+        "text": "Das Wasser wird **zu** Eis (Dativ) unter null Grad.",
+        "translations": {
+          "de": "Das Wasser wird zu Eis unter null Grad.",
+          "ar": "يتحول الماء إلى ثلج تحت الصفر.",
+          "en": "The water is turning into ice below zero degrees.",
+          "Fr": "L'eau se transforme en glace sous zéro degré.",
+          "ru": "Вода превращается в лед ниже нуля градусов.",
+          "es": "El agua se convierte en hielo bajo cero grados."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Contrasting Pairs for Location (Dative) vs. Direction (Accusative)",
+    "description": {
+      "de": "Diese Sektion kontrastiert die Verwendung von **Wechselpräpositionen** (an, auf, hinter, in, neben, über, unter, vor, zwischen): **Dativ** für **statische Position/Ort** (Wo?) und **Akkusativ** für **Richtung/Bewegung** (Wohin?).",
+      "ar": "يتناقض هذا القسم مع استخدام **حروف الجر المزدوجة** (Wechselpräpositionen): **حالة الجر (Dative)** لـ **الموقع/الثبات** (Wo?) و**حالة النصب (Accusative)** لـ **الاتجاه/الحركة** (Wohin?).",
+      "en": "This section contrasts the usage of **two-way prepositions** (Wechselpräpositionen): **Dative** for **static location/position** (Wo? / Where?) and **Accusative** for **direction/movement** (Wohin? / Whither?).",
+      "Fr": "Cette section oppose l'utilisation des **prépositions à double cas** (Wechselpräpositionen): le **Datif** pour la **localisation/position statique** (Wo?) et l'**Accusatif** pour la **direction/le mouvement** (Wohin?).",
+      "ru": "Этот раздел сопоставляет использование **предлогов двойного управления** (Wechselpräpositionen): **дательный** падеж (Dative) для **статического местоположения/позиции** (Wo?) и **винительный** падеж (Accusative) для **направления/движения** (Wohin?).",
+      "es": "Esta sección contrasta el uso de **preposiciones de doble caso** (Wechselpräpositionen): **Dativo** para **ubicación/posición estática** (Wo?) y **Acusativo** para **dirección/movimiento** (Wohin?)."
+    },
+    "sentences": [
+      {
+        "text": "Direction (Accusative): Ich hänge das Bild **an** die Wand (Akkusativ).",
+        "translations": {
+          "de": "Ich hänge das Bild an die Wand.",
+          "ar": "أنا أعلق الصورة على الحائط.",
+          "en": "I am hanging the picture on the wall. (Change of position)",
+          "Fr": "J'accroche le tableau au mur.",
+          "ru": "Я вешаю картину на стену.",
+          "es": "Yo cuelgo el cuadro en la pared."
+        }
+      },
+      {
+        "text": "Location (Dative): Das Bild hängt **an** der Wand (Dativ).",
+        "translations": {
+          "de": "Das Bild hängt an der Wand.",
+          "ar": "الصورة معلقة على الحائط.",
+          "en": "The picture is hanging on the wall. (Static position)",
+          "Fr": "Le tableau est accroché au mur.",
+          "ru": "Картина висит на стене.",
+          "es": "El cuadro está colgado en la pared."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Sie stellt die Tasse **auf** den Tisch (Akkusativ).",
+        "translations": {
+          "de": "Sie stellt die Tasse auf den Tisch.",
+          "ar": "إنها تضع الكوب على الطاولة.",
+          "en": "She is putting the cup on the table. (Movement/Placement)",
+          "Fr": "Elle pose la tasse sur la table.",
+          "ru": "Она ставит чашку на стол.",
+          "es": "Ella pone la taza sobre la mesa."
+        }
+      },
+      {
+        "text": "Location (Dative): Die Tasse steht **auf** dem Tisch (Dativ).",
+        "translations": {
+          "de": "Die Tasse steht auf dem Tisch.",
+          "ar": "الكوب موضوع على الطاولة.",
+          "en": "The cup is standing on the table. (Static location)",
+          "Fr": "La tasse est posée sur la table.",
+          "ru": "Чашка стоит на столе.",
+          "es": "La taza está sobre la mesa."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Wir gehen **hinter** die Kulissen (Akkusativ).",
+        "translations": {
+          "de": "Wir gehen hinter die Kulissen.",
+          "ar": "نحن نذهب خلف الكواليس.",
+          "en": "We are going behind the scenes. (Movement from A to B)",
+          "Fr": "Nous allons derrière la scène.",
+          "ru": "Мы идем за кулисы.",
+          "es": "Nosotros vamos detrás del escenario."
+        }
+      },
+      {
+        "text": "Location (Dative): Wir sind **hinter** den Kulissen (Dativ).",
+        "translations": {
+          "de": "Wir sind hinter den Kulissen.",
+          "ar": "نحن خلف الكواليس.",
+          "en": "We are behind the scenes. (Static location)",
+          "Fr": "Nous sommes derrière la scène.",
+          "ru": "Мы находимся за кулисами.",
+          "es": "Nosotros estamos detrás del escenario."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Ich gehe **in** das Haus (Akkusativ) hinein.",
+        "translations": {
+          "de": "Ich gehe in das Haus hinein.",
+          "ar": "أنا أدخل إلى المنزل.",
+          "en": "I am going into the house. (Movement from outside to inside)",
+          "Fr": "J'entre dans la maison.",
+          "ru": "Я захожу в дом.",
+          "es": "Yo entro en la casa."
+        }
+      },
+      {
+        "text": "Location (Dative): Ich bin **im** (in dem) kleinen Haus (Dativ).",
+        "translations": {
+          "de": "Ich bin im (in dem) kleinen Haus.",
+          "ar": "أنا في المنزل الصغير.",
+          "en": "I am in the small house. (Static location)",
+          "Fr": "Je suis dans la petite maison.",
+          "ru": "Я нахожусь в маленьком доме.",
+          "es": "Yo estoy en la casa pequeña."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Ich parke das Auto **neben** große Zentren (Akkusativ).",
+        "translations": {
+          "de": "Ich parke das Auto neben große Zentren.",
+          "ar": "أنا أوقف السيارة بجوار مراكز كبيرة.",
+          "en": "I am parking the car next to large centers. (Changing position relative to the centers)",
+          "Fr": "Je gare la voiture à côté de grands centres.",
+          "ru": "Я паркую машину рядом с большими центрами.",
+          "es": "Yo aparco el coche al lado de grandes centros."
+        }
+      },
+      {
+        "text": "Location (Dative): Das Auto steht **neben** dem Eingang (Dativ).",
+        "translations": {
+          "de": "Das Auto steht neben dem Eingang.",
+          "ar": "السيارة متوقفة بجوار المدخل.",
+          "en": "The car is standing next to the entrance. (Static location)",
+          "Fr": "La voiture est garée à côté de l'entrée.",
+          "ru": "Машина стоит рядом с входом.",
+          "es": "El coche está al lado de la entrada."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Ich lege den Spiegel **über** das Bett (Akkusativ).",
+        "translations": {
+          "de": "Ich lege den Spiegel über das Bett.",
+          "ar": "أنا أضع المرآة فوق السرير.",
+          "en": "I am laying the mirror above the bed. (Movement/Placement)",
+          "Fr": "Je place le miroir au-dessus du lit.",
+          "ru": "Я кладу зеркало над кроватью.",
+          "es": "Yo pongo el espejo sobre la cama."
+        }
+      },
+      {
+        "text": "Location (Dative): Der Spiegel hängt **über** dem Bett (Dativ).",
+        "translations": {
+          "de": "Der Spiegel hängt über dem Bett.",
+          "ar": "المرآة معلقة فوق السرير.",
+          "en": "The mirror is hanging above the bed. (Static location)",
+          "Fr": "Le miroir est suspendu au-dessus du lit.",
+          "ru": "Зеркало висит над кроватью.",
+          "es": "El espejo está colgado sobre la cama."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Das Kind kroch **unter** das Bett (Akkusativ).",
+        "translations": {
+          "de": "Das Kind kroch unter das Bett.",
+          "ar": "زحف الطفل تحت السرير.",
+          "en": "The child crawled under the bed. (Movement from A to B)",
+          "Fr": "L'enfant a rampé sous le lit.",
+          "ru": "Ребенок заполз под кровать.",
+          "es": "El niño gateó debajo de la cama."
+        }
+      },
+      {
+        "text": "Location (Dative): Das Kind versteckt **sich unter** dem Bett (Dativ).",
+        "translations": {
+          "de": "Das Kind versteckt sich unter dem Bett.",
+          "ar": "يختبئ الطفل تحت السرير.",
+          "en": "The child is hiding under the bed. (Static location)",
+          "Fr": "L'enfant se cache sous le lit.",
+          "ru": "Ребенок прячется под кроватью.",
+          "es": "El niño se esconde debajo de la cama."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Ich gehe **vor** das Haus (Akkusativ).",
+        "translations": {
+          "de": "Ich gehe vor das Haus.",
+          "ar": "أنا أذهب أمام المنزل.",
+          "en": "I am going in front of the house. (Movement to the front of the house)",
+          "Fr": "Je vais devant la maison.",
+          "ru": "Я иду перед домом.",
+          "es": "Yo voy delante de la casa."
+        }
+      },
+      {
+        "text": "Location (Dative): Ich warte **vor** dem Haus (Dativ).",
+        "translations": {
+          "de": "Ich warte vor dem Haus.",
+          "ar": "أنا أنتظر أمام المنزل.",
+          "en": "I am waiting in front of the house. (Static location)",
+          "Fr": "J'attends devant la maison.",
+          "ru": "Я жду перед домом.",
+          "es": "Yo espero delante de la casa."
+        }
+      },
+      {
+        "text": "Direction (Accusative): Wir fahren **zwischen** zwei Berge (Akkusativ).",
+        "translations": {
+          "de": "Wir fahren zwischen zwei Berge.",
+          "ar": "نحن نسافر بين جبلين.",
+          "en": "We are driving between two mountains. (Movement between objects)",
+          "Fr": "Nous conduisons entre deux montagnes.",
+          "ru": "Мы едем между двумя горами.",
+          "es": "Nosotros conducimos entre dos montañas."
+        }
+      },
+      {
+        "text": "Location (Dative): Das Dorf liegt **zwischen** zwei Bergen (Dativ).",
+        "translations": {
+          "de": "Das Dorf liegt zwischen zwei Bergen.",
+          "ar": "تقع القرية بين جبلين.",
+          "en": "The village lies between two mountains. (Static location)",
+          "Fr": "Le village se situe entre deux montagnes.",
+          "ru": "Деревня расположена между двумя горами.",
+          "es": "El pueblo se encuentra entre dos montañas."
+        }
+      },
+      {
+        "text": "Special Case (Entlang/Accusative): Wir gehen ein Stückchen diese Straße **entlang** (Akkusativ).",
+        "translations": {
+          "de": "Wir gehen ein Stückchen diese Straße entlang.",
+          "ar": "نحن نسير جزءًا من هذا الشارع.",
+          "en": "We walk a little way along this street. (Post-nominal Accusative usage for direction)",
+          "Fr": "Nous marchons un peu le long de cette rue.",
+          "ru": "Мы идем немного вдоль этой улицы.",
+          "es": "Caminamos un poco a lo largo de esta calle."
+        }
+      },
+      {
+        "text": "Special Case (Entlang/Dative): **Entlang** der Straße (Dativ) protestieren Demonstranten.",
+        "translations": {
+          "de": "Entlang der Straße protestieren Demonstranten.",
+          "ar": "يتظاهر المتظاهرون على طول الشارع.",
+          "en": "Demonstrators are protesting along the street. (Pre-nominal Dative usage for static location along a path)",
+          "Fr": "Des manifestants protestent le long de la rue.",
+          "ru": "Вдоль улицы протестуют демонстранты.",
+          "es": "Los manifestantes protestan a lo largo de la calle."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Clause Linkage and Verb-Last Positioning (Subordinate Clauses)",
+    "description": {
+      "de": "Nebensätze, verbunden durch unterordnende Konjunktionen (dass, weil, ob), erfordern die **Verb-Letzt-Position**: Das konjugierte Verb muss ans Ende des Satzes verschoben werden. Dies gilt auch für komplexe Verbketten (Modalverben, Perfekt-Hilfsverben).",
+      "ar": "تتطلب الجمل الفرعية، المرتبطة بأدوات ربط فرعية (dass, weil, ob)، **موقع الفعل الأخير**: يجب نقل الفعل المصرف إلى نهاية الجملة. ينطبق هذا أيضًا على سلاسل الأفعال المعقدة (الأفعال الشكلية، الأفعال المساعدة في الزمن الماضي التام).",
+      "en": "Subordinate clauses, linked by subordinating conjunctions (dass, weil, ob), require the **verb-last position**: the conjugated verb must move to the end of the clause. This also applies to complex verb chains (modal verbs, perfect tense auxiliaries).",
+      "Fr": "Les propositions subordonnées, liées par des conjonctions de subordination (dass, weil, ob), nécessitent la **position finale du verbe**: le verbe conjugué doit se déplacer à la fin de la proposition. Cela s'applique également aux chaînes verbales complexes (verbes modaux, auxiliaires du temps parfait).",
+      "ru": "Придаточные предложения, связанные подчинительными союзами (dass, weil, ob), требуют **конечной позиции глагола**: спрягаемый глагол должен переместиться в конец предложения. Это также относится к сложным глагольным цепочкам (модальные глаголы, вспомогательные глаголы перфекта).",
+      "es": "Las cláusulas subordinadas, unidas por conjunciones subordinantes (dass, weil, ob), requieren la **posición final del verbo**: el verbo conjugado debe moverse al final de la cláusula. Esto también se aplica a las cadenas verbales complejas (verbos modales, auxiliares de tiempo perfecto)."
+    },
+    "sentences": [
+      {
+        "text": "Ich weiß, dass er heute Abend **kommt**.",
+        "translations": {
+          "de": "Ich weiß, dass er heute Abend kommt.",
+          "ar": "أعلم أنه سيأتي هذا المساء.",
+          "en": "I know that he is coming this evening.",
+          "Fr": "Je sais qu'il vient ce soir.",
+          "ru": "Я знаю, что он придет сегодня вечером.",
+          "es": "Yo sé que él viene esta noche."
+        }
+      },
+      {
+        "text": "Sie ist glücklich, weil sie die Prüfung **bestanden hat**.",
+        "translations": {
+          "de": "Sie ist glücklich, weil sie die Prüfung bestanden hat.",
+          "ar": "إنها سعيدة لأنها نجحت في الامتحان.",
+          "en": "She is happy because she has passed the exam. (Perfect tense auxiliary last)",
+          "Fr": "Elle est heureuse parce qu'elle a réussi l'examen.",
+          "ru": "Она счастлива, потому что сдала экзамен.",
+          "es": "Ella está feliz porque ha aprobado el examen."
+        }
+      },
+      {
+        "text": "Er fragt, ob du ihm helfen **kannst**.",
+        "translations": {
+          "de": "Er fragt, ob du ihm helfen kannst.",
+          "ar": "إنه يسأل ما إذا كان بإمكانك مساعدته.",
+          "en": "He is asking if you can help him. (Modal verb last)",
+          "Fr": "Il demande si tu peux l'aider.",
+          "ru": "Он спрашивает, можешь ли ты ему помочь.",
+          "es": "Él pregunta si puedes ayudarle."
+        }
+      },
+      {
+        "text": "Wenn es **regnet**, bleibe ich zu Hause.",
+        "translations": {
+          "de": "Wenn es regnet, bleibe ich zu Hause.",
+          "ar": "إذا أمطرت، سأبقى في المنزل.",
+          "en": "If it rains, I stay at home. (Subordinate clause first, forcing main clause verb to V2 position)",
+          "Fr": "S'il pleut, je reste à la maison.",
+          "ru": "Если идет дождь, я остаюсь дома.",
+          "es": "Si llueve, me quedo en casa."
+        }
+      },
+      {
+        "text": "Wir gehen spazieren, wenn die Sonne **scheint**.",
+        "translations": {
+          "de": "Wir gehen spazieren, wenn die Sonne scheint.",
+          "ar": "نحن نذهب للتنزه عندما تشرق الشمس.",
+          "en": "We go for a walk when the sun shines.",
+          "Fr": "Nous allons nous promener quand le soleil brille.",
+          "ru": "Мы идем гулять, когда светит солнце.",
+          "es": "Nosotros vamos a pasear cuando el sol brilla."
+        }
+      },
+      {
+        "text": "Obwohl es kalt **war**, sind wir schwimmen gegangen.",
+        "translations": {
+          "de": "Obwohl es kalt war, sind wir schwimmen gegangen.",
+          "ar": "على الرغم من أن الجو كان باردًا، ذهبنا للسباحة.",
+          "en": "Although it was cold, we went swimming.",
+          "Fr": "Bien qu'il fasse froid, nous sommes allés nager.",
+          "ru": "Несмотря на то, что было холодно, мы пошли купаться.",
+          "es": "Aunque hacía frío, fuimos a nadar."
+        }
+      },
+      {
+        "text": "Als ich ein Kind **war**, lebte ich in München.",
+        "translations": {
+          "de": "Als ich ein Kind war, lebte ich in München.",
+          "ar": "عندما كنت طفلاً، عشت في ميونيخ.",
+          "en": "When I was a child, I lived in Munich. (For a one-time past event)",
+          "Fr": "Quand j'étais enfant, je vivais à Munich.",
+          "ru": "Когда я был ребенком, я жил в Мюнхене.",
+          "es": "Cuando yo era un niño, viví en Múnich."
+        }
+      },
+      {
+        "text": "Er weiß, dass er Deutsch lernen **will**.",
+        "translations": {
+          "de": "Er weiß, dass er Deutsch lernen will.",
+          "ar": "إنه يعلم أنه يريد تعلم الألمانية.",
+          "en": "He knows that he wants to learn German. (Modal verb last)",
+          "Fr": "Il sait qu'il veut apprendre l'allemand.",
+          "ru": "Он знает, что хочет учить немецкий.",
+          "es": "Él sabe que quiere aprender alemán."
+        }
+      },
+      {
+        "text": "Wir glauben, dass sie in Berlin **gewohnt hat**.",
+        "translations": {
+          "de": "Wir glauben, dass sie in Berlin gewohnt hat.",
+          "ar": "نحن نعتقد أنها عاشت في برلين.",
+          "en": "We believe that she has lived in Berlin. (Perfect tense auxiliary last)",
+          "Fr": "Nous croyons qu'elle a vécu à Berlin.",
+          "ru": "Мы считаем, что она жила в Берлине.",
+          "es": "Nosotros creemos que ella ha vivido en Berlín."
+        }
+      },
+      {
+        "text": "Ich frage mich, ob er die Wahrheit **sagt**.",
+        "translations": {
+          "de": "Ich frage mich, ob er die Wahrheit sagt.",
+          "ar": "أنا أتساءل ما إذا كان يقول الحقيقة.",
+          "en": "I wonder whether he is telling the truth.",
+          "Fr": "Je me demande s'il dit la vérité.",
+          "ru": "Мне интересно, говорит ли он правду.",
+          "es": "Me pregunto si él dice la verdad."
+        }
+      },
+      {
+        "text": "Er kommt später, weil er einen Arzttermin **hat**.",
+        "translations": {
+          "de": "Er kommt später, weil er einen Arzttermin hat.",
+          "ar": "إنه سيأتي لاحقًا لأن لديه موعدًا مع الطبيب.",
+          "en": "He is coming later because he has a doctor's appointment.",
+          "Fr": "Il vient plus tard parce qu'il a un rendez-vous chez le médecin.",
+          "ru": "Он придет позже, потому что у него запись к врачу.",
+          "es": "Él viene más tarde porque tiene una cita médica."
+        }
+      },
+      {
+        "text": "Sie bedauert, dass er **weggefahren ist**.",
+        "translations": {
+          "de": "Sie bedauert, dass er weggefahren ist.",
+          "ar": "إنها تأسف لأنه قد غادر.",
+          "en": "She regrets that he has driven away. (Compound separable verb, auxiliary last)",
+          "Fr": "Elle regrette qu'il soit parti en voiture.",
+          "ru": "Она сожалеет, что он уехал.",
+          "es": "Ella lamenta que él se haya ido."
+        }
+      },
+      {
+        "text": "Wir lernen, damit wir die Kultur besser **verstehen**.",
+        "translations": {
+          "de": "Wir lernen, damit wir die Kultur besser verstehen.",
+          "ar": "نحن نتعلم لكي نفهم الثقافة بشكل أفضل.",
+          "en": "We are learning so that we understand the culture better.",
+          "Fr": "Nous apprenons afin de mieux comprendre la culture.",
+          "ru": "Мы учимся, чтобы лучше понимать культуру.",
+          "es": "Nosotros aprendemos para que comprendamos mejor la cultura."
+        }
+      },
+      {
+        "text": "Ich bin mir sicher, dass das Projekt funktionieren **wird**.",
+        "translations": {
+          "de": "Ich bin mir sicher, dass das Projekt funktionieren wird.",
+          "ar": "أنا متأكد من أن المشروع سينجح.",
+          "en": "I am sure that the project will work. (Future tense auxiliary last)",
+          "Fr": "Je suis sûr que le projet fonctionnera.",
+          "ru": "Я уверен, что проект будет работать.",
+          "es": "Estoy seguro de que el proyecto funcionará."
+        }
+      },
+      {
+        "text": "Wir freuen uns, wenn ihr uns bald wieder **besucht**.",
+        "translations": {
+          "de": "Wir freuen uns, wenn ihr uns bald wieder besucht.",
+          "ar": "نحن سعداء إذا قمتم بزيارتنا مرة أخرى قريبًا.",
+          "en": "We are happy when you visit us again soon.",
+          "Fr": "Nous nous réjouissons quand vous nous rendez visite bientôt.",
+          "ru": "Мы рады, если вы скоро снова нас навестите.",
+          "es": "Nos alegramos si nos visitáis de nuevo pronto."
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // B1 German Telc Exam Data Collection
+    match /b1_telc_exam_data/{document} {
+      allow read: if true
+      
+      // Only authenticated users can write
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    // B2 German Telc Exam Data Collection
+    match /german_b2_telc_exam_data/{document} {
+      allow read: if true
+      
+      // Only authenticated users can write
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+    
+    // User progress collection (top-level)
+    // Users can only read/write their own progress
+    match /progress/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Exam results collection (top-level)
+    // Users can only read/write their own exam results
+    match /examResults/{document} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+    }
+    
+    // User profiles
+    // Users can only read/write their own profile
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      
+      // User progress data (legacy - nested under users)
+      match /progress/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // User exam results (legacy - nested under users)
+      match /examResults/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // User completions
+      // Allow users to read/write their own completion data
+      match /completions/{examType}/{partNumber}/{examId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // Account deletion requests
+    // Users can only read and create their own deletion request
+    match /account_deletion_requests/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null 
+                    && request.auth.uid == userId
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.status == 'pending';
+    }
+  }
+}
+

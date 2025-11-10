@@ -1,0 +1,388 @@
+/**
+ * OpenAI Service for German Telc B1 Writing Assessment
+ * 
+ * This service integrates with OpenAI's API to evaluate user's writing responses
+ * based on Telc B1 exam criteria.
+ */
+
+// API Configuration
+// IMPORTANT: Set your OpenAI API key using setOpenAIApiKey() function before calling evaluation functions
+// Example: setOpenAIApiKey('your-api-key-here');
+const OPENAI_API_KEY = ''; // DO NOT hardcode keys here - use setOpenAIApiKey() instead
+const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' for cost efficiency
+
+export interface WritingAssessment {
+  overallScore: number;
+  maxScore: number;
+  userInput: string;
+  criteria: {
+    taskCompletion: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+    communicativeDesign: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+    formalCorrectness: {
+      grade: 'A' | 'B' | 'C' | 'D';
+      feedback: string;
+    };
+  };
+  correctedAnswer: string;
+}
+
+export interface EvaluationRequest {
+  userAnswer: string;
+  incomingEmail: string;
+  writingPoints: string[];
+  examTitle: string;
+}
+
+export interface ImageEvaluationRequest {
+  imageUri?: string;
+  imageBase64?: string;
+  incomingEmail: string;
+  writingPoints: string[];
+  examTitle: string;
+}
+
+/**
+ * System prompt that defines the AI's role as a Telc B1 German examiner
+ */
+const SYSTEM_PROMPT = `Du bist ein erfahrener Prüfer für die Telc B1 Deutschprüfung, spezialisiert auf den schriftlichen Ausdruck.
+
+Deine Aufgabe ist es, E-Mail-Antworten nach den offiziellen Telc B1 Kriterien zu bewerten:
+
+**Kriterium I: Aufgabenbewältigung (5 Punkte)**
+- A (5 Punkte): Alle vier Leitpunkte sind sinnvoll und verständlich bearbeitet
+- B (4 Punkte): Drei Leitpunkte sind sinnvoll und verständlich bearbeitet
+- C (2-3 Punkte): Zwei Leitpunkte sind sinnvoll und verständlich bearbeitet
+- D (0-1 Punkte): Nur ein Leitpunkt oder kein Leitpunkt ist bearbeitet
+
+**Kriterium II: Kommunikative Gestaltung (5 Punkte)**
+- A (5 Punkte): Anrede und Schluss sind passend; die Sätze sind gut verbunden; das Register ist durchgehend angemessen
+- B (4 Punkte): Anrede und Schluss sind passend; es gibt eine erkennbare Gliederung; das Register schwankt leicht
+- C (2-3 Punkte): Anrede oder Schluss fehlt; die Verbindung der Sätze ist nicht immer klar; das Register ist teilweise unangemessen
+- D (0-1 Punkte): Anrede und Schluss fehlen; es gibt keine erkennbare Struktur
+
+**Kriterium III: Formale Richtigkeit (5 Punkte)**
+- A (5 Punkte): Die Syntax ist korrekt; es gibt einige Fehler bei Orthografie/Interpunktion, die das Verständnis nicht behindern
+- B (4 Punkte): Die Syntax ist meist korrekt; Fehler behindern das Verständnis stellenweise
+- C (2-3 Punkte): Viele Syntax-/Morphologiefehler; das Verständnis ist deutlich erschwert
+- D (0-1 Punkte): Die Syntax ist überwiegend inkorrekt; der Text ist kaum verständlich
+
+WICHTIG: Das Feld "userInput" muss EXAKT die Antwort des Teilnehmers enthalten, wie sie bereitgestellt wurde. Bei Bildern: Extrahiere den Text GENAU wie geschrieben, ohne Änderungen, Ergänzungen oder Korrekturen. Erfinde NIEMALS eine Beispielantwort.
+
+Gib deine Bewertung als JSON zurück mit folgendem Format:
+{
+  "overallScore": <Gesamtpunkte>,
+  "userInput": "<EXAKTE Antwort des Teilnehmers - bei Bildern: der extrahierte Text ohne Änderungen>",
+  "maxScore": 15,
+  "criteria": {
+    "taskCompletion": {
+      "grade": "<A/B/C/D>",
+      "feedback": "<Detailliertes Feedback>"
+    },
+    "communicativeDesign": {
+      "grade": "<A/B/C/D>",
+      "feedback": "<Detailliertes Feedback>"
+    },
+    "formalCorrectness": {
+      "grade": "<A/B/C/D>",
+      "feedback": "<Detailliertes Feedback>"
+    }
+  },
+  "correctedAnswer": "<Die korrigierte Antwort mit Markdown-Hervorhebungen>"
+}
+
+WICHTIG für "correctedAnswer":
+- Nimm die EXAKTE Antwort des Teilnehmers und korrigiere NUR die Fehler
+- Erstelle KEINE neue Antwort - behalte den originalen Text bei
+- Verwende Markdown zur Hervorhebung der Korrekturen:
+  * **fett** für korrigierte Wörter/Phrasen
+  * ~~durchgestrichen~~ für entfernte/falsche Teile (optional, falls nötig)
+- Wenn es keine Fehler gibt, gib die originale Antwort zurück
+- Beispiel: "Ich **habe** gestern ins Kino gegangen" → "Ich **bin** gestern ins Kino gegangen"`;
+
+/**
+ * Creates a user prompt for the OpenAI API
+ */
+function createUserPrompt(request: EvaluationRequest): string {
+  return `Bitte bewerte folgende E-Mail-Antwort für die Telc B1 Prüfung:
+
+**Prüfungsaufgabe:** ${request.examTitle}
+
+**Eingegangene E-Mail:**
+${request.incomingEmail}
+
+**Zu bearbeitende Leitpunkte:**
+${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n')}
+
+**Antwort des Teilnehmers:**
+${request.userAnswer}
+
+---
+
+Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
+}
+
+/**
+ * Calls OpenAI API to assess the writing
+ */
+async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
+  const apiKey = getOpenAIApiKey();
+  
+  if (!apiKey || apiKey === '') {
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
+  }
+
+  try {
+    const response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: userPrompt },
+        ],
+        temperature: 0.7,
+        max_tokens: 1500,
+        response_format: { type: 'json_object' },
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
+      );
+    }
+
+    const data = await response.json();
+    const content = data.choices[0]?.message?.content;
+
+    if (!content) {
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
+    }
+
+    const assessment: WritingAssessment = JSON.parse(content);
+    return assessment;
+  } catch (error) {
+    if (error instanceof Error) {
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+    }
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+  }
+}
+
+/**
+ * Converts an image URI to base64
+ */
+async function imageUriToBase64(uri: string): Promise<string> {
+  try {
+    // For React Native, we need to use fetch to get the blob
+    const response = await fetch(uri);
+    const blob = await response.blob();
+    
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64data = reader.result as string;
+        // Remove the data:image/...;base64, prefix if it exists
+        const base64 = base64data.split(',')[1] || base64data;
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    throw new Error('Das Bild konnte nicht gelesen werden. Bitte versuchen Sie es erneut.');
+  }
+}
+
+/**
+ * Creates a user prompt for image evaluation
+ */
+function createImageUserPrompt(request: ImageEvaluationRequest): string {
+  return `Bitte bewerte die handschriftliche E-Mail-Antwort im Bild für die Telc B1 Prüfung:
+
+**Prüfungsaufgabe:** ${request.examTitle}
+
+**Eingegangene E-Mail:**
+${request.incomingEmail}
+
+**Zu bearbeitende Leitpunkte:**
+${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n')}
+
+---
+
+WICHTIGE ANWEISUNGEN:
+1. Lese zuerst den GESAMTEN handschriftlichen Text im Bild sorgfältig
+2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern
+3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
+4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
+5. Bewerte dann diese extrahierte Antwort nach den Telc B1 Kriterien
+6. Für "correctedAnswer": Nimm den extrahierten Text und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.
+
+Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
+}
+
+/**
+ * Calls OpenAI Vision API to assess handwritten text in an image
+ */
+async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Promise<WritingAssessment> {
+  const apiKey = getOpenAIApiKey();
+  
+  if (!apiKey || apiKey === '') {
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
+  }
+
+  try {
+    const response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { 
+            role: 'user', 
+            content: [
+              { type: 'text', text: userPrompt },
+              { 
+                type: 'image_url', 
+                image_url: {
+                  url: `data:image/jpeg;base64,${imageBase64}`,
+                  detail: 'high'
+                }
+              }
+            ]
+          },
+        ],
+        temperature: 0.7,
+        max_tokens: 1500,
+        response_format: { type: 'json_object' },
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
+      );
+    }
+
+    const data = await response.json();
+    const content = data.choices[0]?.message?.content;
+
+    if (!content) {
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
+    }
+
+    const assessment: WritingAssessment = JSON.parse(content);
+    return assessment;
+  } catch (error) {
+    if (error instanceof Error) {
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung') || error.message.includes('Bild')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+    }
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+  }
+}
+
+/**
+ * Main function to evaluate writing using OpenAI
+ */
+export async function evaluateWriting(
+  request: EvaluationRequest
+): Promise<WritingAssessment> {
+  const userPrompt = createUserPrompt(request);
+  const assessment = await callOpenAI(userPrompt);
+  return assessment;
+}
+
+/**
+ * Main function to evaluate handwritten text from an image using OpenAI Vision
+ */
+export async function evaluateWritingWithImage(
+  request: ImageEvaluationRequest
+): Promise<WritingAssessment> {
+  let imageBase64: string;
+  
+  // Use provided base64 or convert from URI
+  if (request.imageBase64) {
+    imageBase64 = request.imageBase64;
+  } else if (request.imageUri) {
+    imageBase64 = await imageUriToBase64(request.imageUri);
+  } else {
+    throw new Error('Kein Bild gefunden. Bitte laden Sie ein Bild hoch.');
+  }
+  
+  const userPrompt = createImageUserPrompt(request);
+  const assessment = await callOpenAIWithImage(userPrompt, imageBase64);
+  return assessment;
+}
+
+/**
+ * Mock assessment for testing when API key is not available
+ */
+export function getMockAssessment(): WritingAssessment {
+  return {
+    overallScore: 13,
+    userInput: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein mit.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\nDein Thomas',
+    maxScore: 15,
+    criteria: {
+      taskCompletion: {
+        grade: 'A',
+        feedback: 'Alle vier Leitpunkte wurden sinnvoll und verständlich bearbeitet. Die Antwort geht auf alle Fragen der eingegangenen E-Mail ein.',
+      },
+      communicativeDesign: {
+        grade: 'B',
+        feedback: 'Anrede und Schluss sind passend. Es gibt eine gute Verbindung der Sätze, aber das Register schwankt leicht zwischen formell und informell.',
+      },
+      formalCorrectness: {
+        grade: 'C',
+        feedback: 'Viele Genusfehler und einige falsche Verbpositionen behindern das zügige Verständnis stellenweise. Achten Sie besonders auf die Artikel (der/die/das).',
+      },
+    },
+    correctedAnswer: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein **mit**.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\n**Dein** Thomas',
+  };
+}
+
+/**
+ * Set OpenAI API key (for runtime configuration)
+ */
+let runtimeApiKey: string | null = null;
+
+export function setOpenAIApiKey(apiKey: string): void {
+  runtimeApiKey = apiKey;
+}
+
+export function getOpenAIApiKey(): string {
+  return runtimeApiKey || OPENAI_API_KEY;
+}
+
+/**
+ * Check if OpenAI API is configured
+ */
+export function isOpenAIConfigured(): boolean {
+  const apiKey = getOpenAIApiKey();
+  return apiKey !== '' && apiKey !== null && apiKey !== undefined;
+}
+
