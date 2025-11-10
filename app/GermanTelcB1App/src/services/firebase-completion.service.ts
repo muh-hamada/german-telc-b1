@@ -30,8 +30,16 @@ class FirebaseCompletionService {
   }
 
   /**
+   * Get the completions path for a specific user
+   * Replaces {uid} placeholder with actual userId
+   */
+  private getCompletionsPath(userId: string): string {
+    return activeExamConfig.firebaseCollections.completions.replace('{uid}', userId);
+  }
+
+  /**
    * Mark an exam as completed
-   * Note: For backward compatibility, keeping the same path structure for german-b1
+   * Uses the completions path from exam config
    */
   async markExamCompleted(
     userId: string,
@@ -41,8 +49,8 @@ class FirebaseCompletionService {
     score: number
   ): Promise<void> {
     try {
-      // Keep backward compatible path for german-b1
-      const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
+      const completionsBasePath = this.getCompletionsPath(userId);
+      const docPath = `${completionsBasePath}/${examType}/${partNumber}/${examId}`;
       
       await firestore().doc(docPath).set({
         examId,
@@ -70,7 +78,8 @@ class FirebaseCompletionService {
     examId: number
   ): Promise<void> {
     try {
-      const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
+      const completionsBasePath = this.getCompletionsPath(userId);
+      const docPath = `${completionsBasePath}/${examType}/${partNumber}/${examId}`;
       await firestore().doc(docPath).delete();
     } catch (error) {
       console.error('[CompletionService] Error unmarking exam:', error);
@@ -88,7 +97,8 @@ class FirebaseCompletionService {
     examId: number
   ): Promise<CompletionData | null> {
     try {
-      const docPath = `users/${userId}/completions/${examType}/${partNumber}/${examId}`;
+      const completionsBasePath = this.getCompletionsPath(userId);
+      const docPath = `${completionsBasePath}/${examType}/${partNumber}/${examId}`;
       const doc = await firestore().doc(docPath).get();
       
       const data = doc.data();
@@ -113,7 +123,8 @@ class FirebaseCompletionService {
     totalExams: number
   ): Promise<CompletionStats> {
     try {
-      const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
+      const completionsBasePath = this.getCompletionsPath(userId);
+      const collectionPath = `${completionsBasePath}/${examType}/${partNumber}`;
       const snapshot = await firestore().collection(collectionPath).get();
       
       // Cap completed count to not exceed total (in case exams were removed)
@@ -138,7 +149,6 @@ class FirebaseCompletionService {
 
   /**
    * Get all completion data for a specific exam type and part
-   * Note: For backward compatibility, keeping the same path structure for german-b1
    */
   async getAllCompletionsForPart(
     userId: string,
@@ -146,8 +156,8 @@ class FirebaseCompletionService {
     partNumber: number
   ): Promise<CompletionData[]> {
     try {
-      // Keep backward compatible path for german-b1
-      const collectionPath = `users/${userId}/completions/${examType}/${partNumber}`;
+      const completionsBasePath = this.getCompletionsPath(userId);
+      const collectionPath = `${completionsBasePath}/${examType}/${partNumber}`;
       const snapshot = await firestore().collection(collectionPath).get();
       
       const completions = snapshot.docs.map(doc => {

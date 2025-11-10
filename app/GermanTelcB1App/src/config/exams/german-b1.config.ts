@@ -25,6 +25,7 @@ export const germanB1Config: ExamConfig = {
   firebaseCollections: {
     examData: 'b1_telc_exam_data',              // Existing collection
     userProgress: 'users/{uid}/progress',        // Existing structure
+    completions: 'users/{uid}/completions',      // Backward compatible path
   },
   
   // Exam Metadata (from existing exam-info.json)
@@ -48,6 +49,18 @@ export const germanB1Config: ExamConfig = {
   storeIds: {
     android: 'com.mhamada.telcb1german',
     ios: '',  // Will be filled when iOS app is published
+  },
+
+  ads: {
+    appID: 'ca-app-pub-5101905792101482~1016049874',
+    banner: {
+      android: 'ca-app-pub-5101905792101482/4385105786',
+      ios: '',
+    },
+    rewarded: {
+      android: 'ca-app-pub-5101905792101482/1207745272',
+      ios: '',
+    },
   },
 };
 

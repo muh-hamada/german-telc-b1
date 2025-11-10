@@ -26,6 +26,7 @@ export interface ExamConfig {
   firebaseCollections: {
     examData: string;         // e.g., "b1_telc_exam_data" or "german_b1_exam_data"
     userProgress: string;     // e.g., "users/{uid}/progress" or "users/{uid}/german_b1_progress"
+    completions: string;      // e.g., "users/{uid}/completions" or "users/{uid}/completions/german_b2"
   };
   
   // Exam Metadata
@@ -50,5 +51,17 @@ export interface ExamConfig {
     android?: string;
     ios?: string;
   };
+
+  ads: {
+    appID: string;
+    banner: {
+      android: string;
+      ios: string;
+    },
+    rewarded: {
+      android: string;
+      ios: string;
+    },
+  }
 }
 

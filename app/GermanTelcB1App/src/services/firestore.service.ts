@@ -6,7 +6,6 @@ import { activeExamConfig } from '../config/active-exam.config';
 class FirestoreService {
   private readonly COLLECTIONS = {
     USERS: 'users',
-    PROGRESS: 'progress',
     EXAM_RESULTS: 'examResults',
     ACCOUNT_DELETION_REQUESTS: 'account_deletion_requests',
   };
@@ -15,6 +14,16 @@ class FirestoreService {
   // Lazy-loaded to avoid initialization order issues
   private get examId(): string {
     return activeExamConfig.id;
+  }
+
+  /**
+   * Get the user progress document path for a specific user
+   * Replaces {uid} placeholder with actual userId
+   * e.g., "users/{uid}/progress" -> "users/abc123/progress"
+   * e.g., "users/{uid}/german_b2_progress" -> "users/abc123/german_b2_progress"
+   */
+  private getUserProgressPath(uid: string): string {
+    return activeExamConfig.firebaseCollections.userProgress.replace('{uid}', uid);
   }
 
   // User Management
@@ -109,9 +118,9 @@ class FirestoreService {
         })),
       };
 
+      const progressPath = this.getUserProgressPath(uid);
       await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .set(progressData, { merge: true });
     } catch (error) {
       console.error('Error saving user progress:', error);
@@ -121,9 +130,9 @@ class FirestoreService {
 
   async getUserProgress(uid: string): Promise<UserProgress | null> {
     try {
+      const progressPath = this.getUserProgressPath(uid);
       const doc = await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .get();
 
       const data = doc.data();
@@ -172,9 +181,8 @@ class FirestoreService {
       const now = Timestamp.fromDate(new Date());
       
       // Update progress document
-      const progressRef = firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid);
+      const progressPath = this.getUserProgressPath(uid);
+      const progressRef = firestore().doc(progressPath);
 
       const progressDoc = await progressRef.get();
       const rawData = progressDoc.data();
@@ -409,9 +417,9 @@ class FirestoreService {
         .delete();
 
       // Delete progress
+      const progressPath = this.getUserProgressPath(uid);
       await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .delete();
 
       // Delete exam results

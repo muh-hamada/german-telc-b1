@@ -44,8 +44,8 @@ interface WritingUIProps {
 const REWARDED_AD_UNIT_ID = __DEV__
   ? TestIds.REWARDED
   : Platform.select({
-    ios: 'todo-ios-ad-unit-id', // Replace with iOS Ad Unit ID if different
-    android: 'ca-app-pub-5101905792101482/1207745272',
+    ios: activeExamConfig.ads.rewarded.ios,
+    android: activeExamConfig.ads.rewarded.android,
   }) || TestIds.REWARDED;
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {

@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { activeExamConfig } from '../config/active-exam.config';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
   ? TestIds.ADAPTIVE_BANNER // Use test ads in development
   : Platform.select({
-      ios: 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyy', // Replace with your iOS Ad Unit ID
-      android: 'ca-app-pub-5101905792101482/4385105786',
+      ios: activeExamConfig.ads.banner.ios,
+      android: activeExamConfig.ads.banner.android,
     }) || TestIds.ADAPTIVE_BANNER;
 
 interface AdBannerProps {

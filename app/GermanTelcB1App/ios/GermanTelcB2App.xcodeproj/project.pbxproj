@@ -14,7 +14,8 @@
 		2D37368A93F57F7A73730184 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A9B32FC2593F5EC106481 /* GermanTelcB2App.framework */; };
 		42023255D61B1A4D1C59795B /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912CECC8BF9BFEE399D4B9EF /* GermanTelcB2App.framework */; };
 		51EE0251C5B300BABC37E40C /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB6E298B75B40B310AF888 /* GermanTelcB2App.framework */; };
-		67B8B77372D1F6570680C904 /* Pods_GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */; };
+		67B8B77372D1F6570680C904 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDF5C370BC67D156D0CE176 /* GermanTelcB2App.framework */; };
+		69193CC25DB2D3590CF473FD /* Pods_GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A2EC36CB2846A6AAD2303F /* Pods_GermanTelcB2App.framework */; };
 		6C7C5DABD156932395065E52 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6344D98064412B1F3469D6 /* GermanTelcB2App.framework */; };
 		75F9B1D271156E1FEA9832D1 /* GermanTelcB2App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1A4272D7E5EEE334C649CC /* GermanTelcB2App.framework */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
@@ -53,7 +54,7 @@
 		8CC7417B01D0C32DF23A6C87 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		912CECC8BF9BFEE399D4B9EF /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99ED97B290D990A151C75FD4 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABDF5C370BC67D156D0CE176 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA5072B647BB8353F4C72312 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12920AD7D41DC5F98A2D1B1 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4043C2E9E1ADE301CB4C205 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +64,7 @@
 		EF9E4199054A0017F838D09E /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2B94A9FCA71115FD50E04 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C99F4BAF5980DEE2D4DD86 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A2EC36CB2846A6AAD2303F /* Pods_GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6344D98064412B1F3469D6 /* GermanTelcB2App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GermanTelcB2App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +91,8 @@
 				7FA946E94AC4713F5DA30938 /* GermanTelcB2App.framework in Frameworks */,
 				8B69D786410430FCA064918F /* GermanTelcB2App.framework in Frameworks */,
 				AF4444EDEA12F47956F37342 /* GermanTelcB2App.framework in Frameworks */,
-				67B8B77372D1F6570680C904 /* Pods_GermanTelcB2App.framework in Frameworks */,
+				67B8B77372D1F6570680C904 /* GermanTelcB2App.framework in Frameworks */,
+				69193CC25DB2D3590CF473FD /* Pods_GermanTelcB2App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +135,8 @@
 				82B19F9ECF52788AB4D6E0F1 /* GermanTelcB2App.framework */,
 				D4043C2E9E1ADE301CB4C205 /* GermanTelcB2App.framework */,
 				4FC252409D42814D56B2BCAC /* GermanTelcB2App.framework */,
-				ABDF5C370BC67D156D0CE176 /* Pods_GermanTelcB2App.framework */,
+				ABDF5C370BC67D156D0CE176 /* GermanTelcB2App.framework */,
+				F7A2EC36CB2846A6AAD2303F /* Pods_GermanTelcB2App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
