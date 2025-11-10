@@ -478,6 +478,68 @@
         "topics": "Verfügbare Themen",
         "exampleArticle": "Beispielartikel"
       }
+    },
+    "b2Part1": {
+      "title": "Sprechen Teil 1: Präsentation",
+      "menuTitle": "Teil 1: Themenpräsentation",
+      "menuDescription": "Präsentieren Sie ein Thema und diskutieren Sie darüber",
+      "tabs": {
+        "presentation": "Präsentation",
+        "discussion": "Diskussion"
+      },
+      "sections": {
+        "topicTitle": "Thema",
+        "examplePresentation": "Beispielpräsentation",
+        "discussionQuestions": "Diskussionsfragen"
+      },
+      "labels": {
+        "question": "Frage",
+        "answer": "Antwort"
+      },
+      "help": {
+        "discussionNote": "Nach Ihrer Präsentation wird Ihr Partner Ihnen Fragen zum Thema stellen. Üben Sie, diese Art von Fragen zu beantworten."
+      }
+    },
+    "b2Part2": {
+      "title": "Sprechen Teil 2: Diskussion",
+      "menuTitle": "Teil 2: Artikeldiskussion",
+      "menuDescription": "Diskutieren Sie kontroverse Themen aus Zeitschriftenartikeln",
+      "tabs": {
+        "article": "Artikel",
+        "summary": "Zusammenfassung",
+        "discussion": "Diskussion"
+      },
+      "sections": {
+        "article": "Zeitschriftenartikel",
+        "summary": "Textzusammenfassung",
+        "discussion": "Beispieldiskussion"
+      },
+      "labels": {
+        "speaker": "Sprecher"
+      },
+      "help": {
+        "summaryNote": "Fassen Sie zunächst die Hauptpunkte des Artikels kurz zusammen. Konzentrieren Sie sich auf die wichtigsten Argumente und Fakten.",
+        "discussionNote": "Diskutieren Sie das Thema mit Ihrem Partner. Bringen Sie Ihre Erfahrungen ein, äußern Sie Ihre Meinung, begründen Sie Ihre Argumente und sprechen Sie über mögliche Lösungen."
+      }
+    },
+    "b2Part3": {
+      "title": "Sprechen Teil 3: Problemlösung",
+      "menuTitle": "Teil 3: Gemeinsam planen",
+      "menuDescription": "Planen Sie etwas gemeinsam mit Ihrem Partner",
+      "tabs": {
+        "task": "Aufgabe",
+        "dialogue": "Beispiel"
+      },
+      "sections": {
+        "task": "Planungsaufgabe",
+        "dialogue": "Beispieldialog"
+      },
+      "labels": {
+        "speaker": "Sprecher"
+      },
+      "help": {
+        "dialogueNote": "Arbeiten Sie mit Ihrem Partner zusammen, um etwas zu planen. Überlegen Sie, was alles zu beachten ist, bringen Sie Ihre Ideen und Vorschläge ein und gehen Sie auf das ein, was Ihnen vorgeschlagen wird."
+      }
     }
   },
   "results": {

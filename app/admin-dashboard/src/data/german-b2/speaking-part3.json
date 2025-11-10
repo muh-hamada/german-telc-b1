@@ -1,0 +1,156 @@
+{
+    "teil": "3: Problemlösung",
+    "instruction": "Sie sollen gemeinsam etwas planen. Nur die Situation wird Ihnen vorgegeben, die Details der Planung liegen bei Ihnen. Überlegen Sie, was Sie alles beachten müssen, bringen Sie Ihre Ideen und Vorschläge ein und gehen Sie auf das ein, was Ihnen vorgeschlagen wird.",
+    "questions": [
+        {
+            "title": "Planung einer kulturellen Veranstaltung",
+            "question": "Entwickeln Sie einen Plan für ein kulturelles Treffen junger Leute zwischen Ihren Heimatstädten und einer deutschen/österreichischen/schweizerischen Stadt. Ein Sponsor hat Ihnen € 4.000 zur Verfügung gestellt.",
+            "exampleDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "Also, wir müssen ein kulturelles Treffen für junge Leute planen, zwischen unseren Heimatstädten und einer Stadt in Deutschland, Österreich oder der Schweiz. Wir haben 4.000 Euro vom Sponsor. Zuerst sollten wir die Stadt auswählen. Was denkst du, vielleicht Berlin, weil es kulturell vielfältig ist?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "Berlin klingt gut, aber vielleicht Wien, das ist näher an manchen Heimatstädten und hat tolle Museen. Das Treffen sollte zwei Tage dauern, mit Workshops und Ausflügen. Wie viele Teilnehmer planen wir? Sagen wir 20 junge Leute?"
+                },
+                {
+                    "speaker": "A",
+                    "text": "20 klingt machbar. Für den ersten Tag: Ankunft und ein Workshop zu kulturellem Austausch, z.B. über Musik oder Kunst. Am zweiten Tag eine Stadtführung und ein Abschlussabend mit Essen. Budget: 1.000 Euro für Unterkunft, 1.000 für Essen, 1.000 für Aktivitäten und 1.000 für Transport."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Gute Aufteilung. Für Unterkunft: Ein Hostel in Wien kostet ca. 50 Euro pro Person pro Nacht, das passt. Aktivitäten: Ein Besuch im Belvedere-Museum und ein Konzert. Wie werben wir? Über Social Media und Schulen in unseren Städten."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Ja, und Themen: Kulturelle Unterschiede diskutieren. Um es interaktiv zu machen, Gruppenarbeiten. Was ist mit Essen? Vegetarische Optionen einplanen. Das Budget scheint ausreichend, vielleicht sparen wir bei Transport durch Gruppentickets."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Perfekt. Zeitplan: Freitag Ankunft, Samstag Programm, Sonntag Abreise. So haben wir einen soliden Plan."
+                }
+            ]
+        },
+        {
+            "title": "Planung eines Schüleraustausches",
+            "question": "Entwickeln Sie einen Plan für einen Schüleraustausch zwischen Ihrer Schule und einer Partnerschule in einem europäischen Land. Sie haben € 3.000 für die Organisation zur Verfügung.",
+            "exampleDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "Wir planen einen Schüleraustausch mit einer Schule in Frankreich, sagen wir Paris. Dauer: Eine Woche. 10 Schüler von jeder Seite. Budget: 3.000 Euro. Zuerst: Aktivitäten wie Sprachkurse und Ausflüge."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Frankreich ist super für Kultur. Gastfamilien für Unterkunft, um Kosten zu sparen. Programm: Montag Ankunft und Willkommensparty, Dienstag Schulbesuch, Mittwoch Ausflug zum Eiffelturm. Budget: 1.000 für Transport, 800 für Essen, 1.200 für Aktivitäten."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Ja, und kulturelle Workshops, z.B. Französisch kochen lernen. Bewerbung: Interessierte Schüler bewerben sich mit Motivationsbrief. Was mit Sicherheit? Versicherung einplanen."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Guter Punkt. Lehrer als Begleiter. Für den Rückaustausch: Ähnliches Programm in unserer Stadt. So fördern wir Sprachenlernen und Freundschaften."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Genau. Finanziell: Sponsoren suchen, falls mehr nötig. Das Budget reicht für Basics. Zeit: Nächstes Frühjahr."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Einverstanden. Der Plan ist rund."
+                }
+            ]
+        },
+        {
+            "title": "Planung einer Umweltaktion",
+            "question": "Entwickeln Sie einen Plan für eine Umweltaktion in Ihrer Stadt, um Müll zu reduzieren. Ein Förderprogramm stellt Ihnen € 2.500 zur Verfügung.",
+            "exampleDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "Thema: Müllreduktion in der Stadt. Aktion: Ein Cleanup-Tag mit Workshops. Ort: Zentraler Park. Teilnehmer: 50 Freiwillige. Budget: 2.500 Euro. Zuerst: Materialien wie Handschuhe und Säcke kaufen."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Ja, und Workshops zu Recycling. Dauer: Ein Samstag. Programm: Vormittag Aufräumen, Nachmittag Vorträge. Budget: 800 für Material, 700 für Werbung, 1.000 für Verpflegung und Preise."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Werbung über Plakate und Social Media. Kooperation mit Schulen und Vereinen. Nachhaltigkeit: Infos zu weniger Plastik nutzen. Was mit Wetter? Alternativplan indoor."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Richtig. Erfolgsmessung: Gewicht des gesammelten Mülls. Das motiviert. Budget passt, vielleicht Sponsoren für mehr."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Super. Ziel: Bewusstsein schaffen. Nächster Schritt: Team bilden für Organisation."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Der Plan ist umsetzbar."
+                }
+            ]
+        },
+        {
+            "title": "Planung eines Charity-Events",
+            "question": "Entwickeln Sie einen Plan für ein Charity-Event, um Geld für bedürftige Kinder zu sammeln. Sie haben € 5.000 Startkapital von einem Spender.",
+            "exampleDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "Event: Benefizkonzert für Kinder. Ort: Lokale Halle. Ziel: 10.000 Euro sammeln. Budget: 5.000 Euro. Bands einladen, Eintritt 10 Euro."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Gute Idee. Programm: Musik, Tombola, Essenstände. Dauer: Abends vier Stunden. Budget: 2.000 für Bands, 1.000 für Werbung, 1.500 für Location, 500 für Preise."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Werbung: Flyer, Online. Partner: Lokale Firmen für Sponsoring. Sicherheit: Helfer für Einlass. Was mit Spenden? Transparenz zeigen."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Ja, Bericht am Ende. Für Kinder: Spielbereich. Das Budget nutzen wir effizient."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Einverstanden. Datum: Nächster Sommer. Team: Wir organisieren."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Perfekter Plan."
+                }
+            ]
+        },
+        {
+            "title": "Planung eines Sportturniers",
+            "question": "Entwickeln Sie einen Plan für ein Sportturnier für Amateure in Ihrer Region. Ein Verein gibt Ihnen € 3.500 für die Durchführung.",
+            "exampleDialogue": [
+                {
+                    "speaker": "A",
+                    "text": "Turnier: Fußball für Amateure. Ort: Lokaler Sportplatz. Teams: 8. Budget: 3.500 Euro. Preise und Schiedsrichter."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Ja, Ein-Tages-Event. Programm: Vorrunden, Finale. Budget: 1.000 für Preise, 800 für Schiedsrichter, 1.000 für Verpflegung, 700 für Werbung."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Anmeldung online. Zuschauer einladen, Eintritt frei. Wetterplan: Halle als Backup. Inklusion: Mixed-Teams."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Toll. Sponsoren für Trikots. Erfolg: Spaß und Fairplay betonen."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Genau. Datum: Frühling. Das Budget reicht."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Der Plan ist fertig."
+                }
+            ]
+        }
+    ]
+}

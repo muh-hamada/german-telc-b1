@@ -90,7 +90,8 @@ export const EditorPage: React.FC = () => {
   const handleValidate = () => {
     try {
       const parsedData = JSON.parse(content);
-      const validation = validateDocument(documentId!, parsedData);
+      const level = (appConfig?.level || 'B1') as 'B1' | 'B2';
+      const validation = validateDocument(documentId!, parsedData, level);
       
       if (validation.valid) {
         toast.success('Validation passed! No errors found.');
@@ -120,7 +121,8 @@ export const EditorPage: React.FC = () => {
       }
 
       // Validate structure
-      const validation = validateDocument(documentId, parsedData);
+      const level = (appConfig?.level || 'B1') as 'B1' | 'B2';
+      const validation = validateDocument(documentId, parsedData, level);
       if (!validation.valid) {
         toast.error('Cannot save: Validation failed');
         setValidationErrors(validation.errors);

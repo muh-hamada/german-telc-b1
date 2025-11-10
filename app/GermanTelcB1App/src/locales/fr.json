@@ -407,6 +407,68 @@
         "topics": "Sujets disponibles",
         "exampleArticle": "Article d'exemple"
       }
+    },
+    "b2Part1": {
+      "title": "Partie orale 1 : Présentation",
+      "menuTitle": "Partie 1 : Présentation du sujet",
+      "menuDescription": "Présentez un sujet et discutez-en",
+      "tabs": {
+        "presentation": "Présentation",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "topicTitle": "Sujet",
+        "examplePresentation": "Présentation exemple",
+        "discussionQuestions": "Questions de discussion"
+      },
+      "labels": {
+        "question": "Question",
+        "answer": "Réponse"
+      },
+      "help": {
+        "discussionNote": "Après votre présentation, votre partenaire vous posera des questions sur le sujet. Entraînez-vous à répondre à ce type de questions."
+      }
+    },
+    "b2Part2": {
+      "title": "Partie orale 2 : Discussion",
+      "menuTitle": "Partie 2 : Discussion d'article",
+      "menuDescription": "Discutez de sujets controversés tirés d'articles de magazines",
+      "tabs": {
+        "article": "Article",
+        "summary": "Résumé",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "article": "Article de magazine",
+        "summary": "Résumé du texte",
+        "discussion": "Discussion exemple"
+      },
+      "labels": {
+        "speaker": "Intervenant"
+      },
+      "help": {
+        "summaryNote": "Résumez d'abord brièvement les points principaux de l'article. Concentrez-vous sur les arguments et les faits clés.",
+        "discussionNote": "Discutez du sujet avec votre partenaire. Apportez vos expériences, exprimez votre opinion, justifiez vos arguments et parlez de solutions possibles."
+      }
+    },
+    "b2Part3": {
+      "title": "Partie orale 3 : Résolution de problèmes",
+      "menuTitle": "Partie 3 : Planifier ensemble",
+      "menuDescription": "Planifiez quelque chose avec votre partenaire",
+      "tabs": {
+        "task": "Tâche",
+        "dialogue": "Exemple"
+      },
+      "sections": {
+        "task": "Tâche de planification",
+        "dialogue": "Dialogue exemple"
+      },
+      "labels": {
+        "speaker": "Intervenant"
+      },
+      "help": {
+        "dialogueNote": "Travaillez avec votre partenaire pour planifier quelque chose. Réfléchissez à ce qui doit être pris en compte, apportez vos idées et suggestions, et répondez aux propositions de votre partenaire."
+      }
     }
   },
   "results": {

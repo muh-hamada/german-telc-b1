@@ -18,9 +18,12 @@ import ResultsModal from '../../components/ResultsModal';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { HomeStackParamList } from '../../types/navigation.types';
+
+type ListeningPart2RouteProp = RouteProp<HomeStackParamList, 'ListeningPart2'>;
 
 interface Statement {
   id: number;
@@ -36,6 +39,8 @@ interface Exam {
 
 const ListeningPart2Screen: React.FC = () => {
   const navigation = useNavigation();
+  const route = useRoute<ListeningPart2RouteProp>();
+  const { examId } = route.params;
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
@@ -45,14 +50,13 @@ const ListeningPart2Screen: React.FC = () => {
   const { updateExamProgress } = useProgress();
   const sectionDetails = listeningData?.section_details || {};
   const exams = listeningData?.exams as Exam[] || [];
-  const currentExam = exams[0] || null;
-  const examId = currentExam ? currentExam.id : -1;
+  const currentExam = exams.find(exam => exam.id === examId) || null;
 
   const { isCompleted, toggleCompletion } = useExamCompletion('listening', 2, examId);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [examId]);
 
   // Set up header button
   useEffect(() => {

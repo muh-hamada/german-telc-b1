@@ -22,6 +22,9 @@ import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
 import SpeakingPart4Screen from '../screens/practice/SpeakingPart4Screen';
 import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
+import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
+import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
+import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
 import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
@@ -192,6 +195,27 @@ const HomeStackNavigator: React.FC = () => {
         component={SpeakingB2StructureScreen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="speaking.b2Structure.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart1"
+        component={SpeakingB2Part1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part1.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart2"
+        component={SpeakingB2Part2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part2.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart3"
+        component={SpeakingB2Part3Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part3.title" />,
         }}
       />
       <Stack.Screen

@@ -19,21 +19,57 @@ const SpeakingMenuScreen: React.FC = () => {
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
   const [showPart4Modal, setShowPart4Modal] = useState(false);
+  const [showB2Part1Modal, setShowB2Part1Modal] = useState(false);
+  const [showB2Part2Modal, setShowB2Part2Modal] = useState(false);
+  const [showB2Part3Modal, setShowB2Part3Modal] = useState(false);
   const [part2Topics, setPart2Topics] = useState<any[]>([]);
   const [part3Scenarios, setPart3Scenarios] = useState<any[]>([]);
   const [part4Groups, setPart4Groups] = useState<any[]>([]);
+  const [b2Part1Topics, setB2Part1Topics] = useState<any[]>([]);
+  const [b2Part2Topics, setB2Part2Topics] = useState<any[]>([]);
+  const [b2Part3Questions, setB2Part3Questions] = useState<any[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const [part2Data, part3Data, part4Data] = await Promise.all([
-        dataService.getSpeakingPart2Content(),
-        dataService.getSpeakingPart3Content(),
-        dataService.getSpeakingImportantPhrases().catch(() => ({ groups: [] }))
-      ]);
-      setPart2Topics(part2Data.topics || []);
-      setPart3Scenarios(part3Data.scenarios || []);
-      const groups = (part4Data.groups || []).map((g: any, index: number) => ({ id: index, title: g.name }));
-      setPart4Groups(groups);
+      const isB2 = activeExamConfig.level === 'B2';
+      
+      if (isB2) {
+        // Load B2 data
+        const [b2Part1Data, b2Part2Data, b2Part3Data] = await Promise.all([
+          dataService.getSpeakingB2Part1Content(),
+          dataService.getSpeakingB2Part2Content(),
+          dataService.getSpeakingB2Part3Content(),
+        ]);
+        
+        const part1Topics = (b2Part1Data.topics || []).map((t: any, index: number) => ({ 
+          id: index, 
+          title: t.title 
+        }));
+        setB2Part1Topics(part1Topics);
+        
+        const part2Topics = (b2Part2Data.questions || []).map((q: any, index: number) => ({ 
+          id: index, 
+          title: q.title 
+        }));
+        setB2Part2Topics(part2Topics);
+        
+        const part3Questions = (b2Part3Data.questions || []).map((q: any, index: number) => ({ 
+          id: index, 
+          title: q.title 
+        }));
+        setB2Part3Questions(part3Questions);
+      } else {
+        // Load B1 data
+        const [part2Data, part3Data, part4Data] = await Promise.all([
+          dataService.getSpeakingPart2Content(),
+          dataService.getSpeakingPart3Content(),
+          dataService.getSpeakingImportantPhrases().catch(() => ({ groups: [] }))
+        ]);
+        setPart2Topics(part2Data.topics || []);
+        setPart3Scenarios(part3Data.scenarios || []);
+        const groups = (part4Data.groups || []).map((g: any, index: number) => ({ id: index, title: g.name }));
+        setPart4Groups(groups);
+      }
     };
     loadData();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
@@ -76,6 +112,36 @@ const SpeakingMenuScreen: React.FC = () => {
     navigation.navigate('B2SpeakingStructure');
   };
 
+  const handleB2Part1Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 'b2-part1' });
+    setShowB2Part1Modal(true);
+  };
+
+  const handleSelectB2Part1Topic = (topicId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'b2-part1', exam_id: topicId });
+    navigation.navigate('B2SpeakingPart1', { topicId });
+  };
+
+  const handleB2Part2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 'b2-part2' });
+    setShowB2Part2Modal(true);
+  };
+
+  const handleSelectB2Part2Topic = (topicId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'b2-part2', exam_id: topicId });
+    navigation.navigate('B2SpeakingPart2', { topicId });
+  };
+
+  const handleB2Part3Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'speaking', part: 'b2-part3' });
+    setShowB2Part3Modal(true);
+  };
+
+  const handleSelectB2Part3Question = (questionId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'b2-part3', exam_id: questionId });
+    navigation.navigate('B2SpeakingPart3', { questionId });
+  };
+
   const isB1 = activeExamConfig.level === 'B1';
   const isB2 = activeExamConfig.level === 'B2';
 
@@ -83,10 +149,24 @@ const SpeakingMenuScreen: React.FC = () => {
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {isB2 && (
-          <Card style={styles.card} onPress={handleB2StructurePress}>
-            <Text style={styles.cardTitle}>{t('speaking.b2Structure.menuTitle')}</Text>
-            <Text style={styles.cardDescription}>{t('speaking.b2Structure.menuDescription')}</Text>
-          </Card>
+          <>
+            <Card style={styles.card} onPress={handleB2StructurePress}>
+              <Text style={styles.cardTitle}>{t('speaking.b2Structure.menuTitle')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.b2Structure.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleB2Part1Press}>
+              <Text style={styles.cardTitle}>{t('speaking.b2Part1.menuTitle')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.b2Part1.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleB2Part2Press}>
+              <Text style={styles.cardTitle}>{t('speaking.b2Part2.menuTitle')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.b2Part2.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleB2Part3Press}>
+              <Text style={styles.cardTitle}>{t('speaking.b2Part3.menuTitle')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.b2Part3.menuDescription')}</Text>
+            </Card>
+          </>
         )}
         
         {isB1 && (
@@ -139,6 +219,36 @@ const SpeakingMenuScreen: React.FC = () => {
         examType="speaking"
         partNumber={3}
         title={t('practice.speaking.part3')}
+      />
+
+      <ExamSelectionModal
+        visible={showB2Part1Modal}
+        onClose={() => setShowB2Part1Modal(false)}
+        exams={b2Part1Topics}
+        onSelectExam={handleSelectB2Part1Topic}
+        examType="speaking"
+        partNumber={1}
+        title={t('speaking.b2Part1.title')}
+      />
+
+      <ExamSelectionModal
+        visible={showB2Part2Modal}
+        onClose={() => setShowB2Part2Modal(false)}
+        exams={b2Part2Topics}
+        onSelectExam={handleSelectB2Part2Topic}
+        examType="speaking"
+        partNumber={2}
+        title={t('speaking.b2Part2.title')}
+      />
+
+      <ExamSelectionModal
+        visible={showB2Part3Modal}
+        onClose={() => setShowB2Part3Modal(false)}
+        exams={b2Part3Questions}
+        onSelectExam={handleSelectB2Part3Question}
+        examType="speaking"
+        partNumber={3}
+        title={t('speaking.b2Part3.title')}
       />
 
       {!HIDE_ADS && <AdBanner />}

@@ -35,10 +35,13 @@ export type HomeStackParamList = {
   SpeakingPart3: { scenarioId: number };
   SpeakingPart4: { groupIndex: number };
   B2SpeakingStructure: undefined;
+  B2SpeakingPart1: { topicId: number };
+  B2SpeakingPart2: { topicId: number };
+  B2SpeakingPart3: { questionId: number };
   ListeningMenu: undefined;
-  ListeningPart1: undefined;
-  ListeningPart2: undefined;
-  ListeningPart3: undefined;
+  ListeningPart1: { examId: number };
+  ListeningPart2: { examId: number };
+  ListeningPart3: { examId: number };
 };
 
 // Profile Stack Navigator

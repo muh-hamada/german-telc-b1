@@ -477,6 +477,68 @@
         "topics": "Temas disponibles",
         "exampleArticle": "Artículo de ejemplo"
       }
+    },
+    "b2Part1": {
+      "title": "Hablar Parte 1: Presentación",
+      "menuTitle": "Parte 1: Presentación de tema",
+      "menuDescription": "Presenta un tema y discútelo",
+      "tabs": {
+        "presentation": "Presentación",
+        "discussion": "Discusión"
+      },
+      "sections": {
+        "topicTitle": "Tema",
+        "examplePresentation": "Presentación de ejemplo",
+        "discussionQuestions": "Preguntas de discusión"
+      },
+      "labels": {
+        "question": "Pregunta",
+        "answer": "Respuesta"
+      },
+      "help": {
+        "discussionNote": "Después de tu presentación, tu compañero te hará preguntas sobre el tema. Practica respondiendo este tipo de preguntas."
+      }
+    },
+    "b2Part2": {
+      "title": "Hablar Parte 2: Discusión",
+      "menuTitle": "Parte 2: Discusión de artículos",
+      "menuDescription": "Discute temas controvertidos de artículos de revistas",
+      "tabs": {
+        "article": "Artículo",
+        "summary": "Resumen",
+        "discussion": "Discusión"
+      },
+      "sections": {
+        "article": "Artículo de revista",
+        "summary": "Resumen del texto",
+        "discussion": "Discusión de ejemplo"
+      },
+      "labels": {
+        "speaker": "Hablante"
+      },
+      "help": {
+        "summaryNote": "Primero, resume brevemente los puntos principales del artículo. Concéntrate en los argumentos y hechos clave.",
+        "discussionNote": "Discute el tema con tu compañero. Aporta tus experiencias, expresa tu opinión, justifica tus argumentos y habla de posibles soluciones."
+      }
+    },
+    "b2Part3": {
+      "title": "Hablar Parte 3: Resolución de problemas",
+      "menuTitle": "Parte 3: Planificación conjunta",
+      "menuDescription": "Planifica algo junto con tu compañero",
+      "tabs": {
+        "task": "Tarea",
+        "dialogue": "Ejemplo"
+      },
+      "sections": {
+        "task": "Tarea de planificación",
+        "dialogue": "Diálogo de ejemplo"
+      },
+      "labels": {
+        "speaker": "Hablante"
+      },
+      "help": {
+        "dialogueNote": "Trabaja con tu compañero para planificar algo. Considera lo que hay que tener en cuenta, aporta tus ideas y sugerencias, y responde a las propuestas de tu compañero."
+      }
     }
   },
   "results": {

@@ -1,8 +1,8 @@
 /**
- * Firebase Cloud Functions for German Telc B2 Writing Assessment
+ * Firebase Cloud Functions for German Telc B1 Writing Assessment
  * 
  * This function integrates with OpenAI's API to evaluate user's writing responses
- * based on Telc B2 exam criteria.
+ * based on Telc B1 exam criteria.
  */
 
 import * as functions from 'firebase-functions';
@@ -23,19 +23,16 @@ interface WritingAssessment {
   maxScore: number;
   userInput: string;
   criteria: {
-    taskHandling: {
+    taskCompletion: {
       grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
       feedback: string;
     };
     communicativeDesign: {
       grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
       feedback: string;
     };
     formalCorrectness: {
       grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
       feedback: string;
     };
   };
@@ -51,91 +48,68 @@ interface EvaluationRequest {
 }
 
 /**
- * System prompt that defines the AI's role as a Telc B2 German examiner
+ * System prompt that defines the AI's role as a Telc B1 German examiner
  */
-const SYSTEM_PROMPT = `Du bist ein erfahrener Prüfer für die Telc B2 Deutschprüfung, spezialisiert auf den schriftlichen Ausdruck (Brief oder E-Mail).
+const SYSTEM_PROMPT = `Du bist ein erfahrener Prüfer für die Telc B1 Deutschprüfung, spezialisiert auf den schriftlichen Ausdruck.
 
-Deine Aufgabe ist es, Briefe oder E-Mails nach den offiziellen Telc B2 Kriterien zu bewerten. Jeder Text wird basierend auf drei Kriterien bewertet: I Behandlung des Schreibanlasses, II Kommunikative Gestaltung, III Formale Richtigkeit. Die Bewertung erfolgt durch telc lizenzierte Bewerter, aber du simulierst dies genau nach den Richtlinien.
+Deine Aufgabe ist es, E-Mail-Antworten nach den offiziellen Telc B1 Kriterien zu bewerten:
 
-**Wichtige Regeln aus den Bewertungskriterien:**
-- Die Höchstpunktzahl beträgt 15 Punkte (Rohsumme der drei Kriterien).
-- Wenn für Kriterium I und/oder Kriterium III „D“ vergeben wird, wird der gesamte Text mit 0 Punkten bewertet.
-- Bezieht sich der Text nicht auf die Aufgabenstellung (Thema verfehlt), markiere dies intern und vergebe „D“ für I, II und III, Gesamtpunktzahl 0.
-- Die Realisierung muss inhaltlich und im Ausdruck dem Niveau B2 angemessen sein: differenzierte Darstellung der eigenen Meinung und Einstellung, adressatenbezogen. Reduktion inhaltlicher oder sprachlicher Komplexität führt zu Abwertung.
-- Üblicherweise werden alle landesüblichen Schreibkonventionen akzeptiert.
+**Kriterium I: Aufgabenbewältigung (5 Punkte)**
+- A (5 Punkte): Alle vier Leitpunkte sind sinnvoll und verständlich bearbeitet
+- B (4 Punkte): Drei Leitpunkte sind sinnvoll und verständlich bearbeitet
+- C (2-3 Punkte): Zwei Leitpunkte sind sinnvoll und verständlich bearbeitet
+- D (0-1 Punkte): Nur ein Leitpunkt oder kein Leitpunkt ist bearbeitet
 
-**Kriterium I: Behandlung des Schreibanlasses (5/3/1/0 Punkte)**
-Bewertet werden:
-1. Die Wahl von Textsorte und Register (halbformeller oder formeller Brief/E-Mail, z.B. Beschwerde, Bewerbung, Anfrage, Bitte um Information).
-2. Die Berücksichtigung von mindestens drei Leitpunkten bzw. zwei Leitpunkten und einem weiteren inhaltlichen Aspekt.
+**Kriterium II: Kommunikative Gestaltung (5 Punkte)**
+- A (5 Punkte): Anrede und Schluss sind passend; die Sätze sind gut verbunden; das Register ist durchgehend angemessen
+- B (4 Punkte): Anrede und Schluss sind passend; es gibt eine erkennbare Gliederung; das Register schwankt leicht
+- C (2-3 Punkte): Anrede oder Schluss fehlt; die Verbindung der Sätze ist nicht immer klar; das Register ist teilweise unangemessen
+- D (0-1 Punkte): Anrede und Schluss fehlen; es gibt keine erkennbare Struktur
 
-Die Behandlung des Schreibanlasses ist:
-- A (5 Punkte): Voll angemessen – mindestens drei Leitpunkte oder zwei Leitpunkte und ein weiterer Aspekt niveau- und adressatengerecht bearbeitet. Eine angemessene Behandlung erfordert mehr als nur ein einziges Satzgefüge; Leitpunkten kann auch sinnvoll widersprochen werden.
-- B (3 Punkte): Im Großen und Ganzen angemessen – weniger als drei Leitpunkte und kein weiterer Aspekt oder nur ein Leitpunkt und nur ein weiterer Aspekt behandelt.
-- C (1 Punkt): Kaum noch akzeptabel – nur ein Leitpunkt oder nur ein weiterer Aspekt bearbeitet.
-- D (0 Punkte): Insgesamt nicht ausreichend – kein Leitpunkt und nur ansatzweise eigene Aspekte bearbeitet, oder Thema verfehlt.
-
-**Kriterium II: Kommunikative Gestaltung (5/3/1/0 Punkte)**
-Bewertet werden:
-1. Die Textorganisation.
-2. Die Verknüpfung der Sätze/Äußerungseinheiten.
-3. Die sprachliche Vielfalt.
-4. Die Registertreue.
-
-Die kommunikative Gestaltung ist:
-- A (5 Punkte): Voll angemessen – kohärent und kohäsiv, klare Textlogik, passende Textsorte und Register, vielfältiges Wortschatzspektrum, diskurssteuernde Verknüpfungselemente verbinden die Äußerungen zu einem semantischen Gefüge. Kann zusammenhängend und klar verständlich schreiben, übliche Konventionen der Gestaltung und Gliederung in Absätze einhalten (GER S. 118). Textsorte (z.B. Absender, Empfänger, Datum, Betreffzeile) vorhanden, Wortschatzspektrum voll angemessen.
-- B (3 Punkte): Im Großen und Ganzen angemessen – erkennbare Gliederung, aber falsches Register oder schwankender Gebrauch, Wortschatzspektrum nicht ganz B2-angemessen, Leitpunkte linear ohne logische Verknüpfung aufgelistet.
-- C (1 Punkt): Kaum noch akzeptabel – Missachtung von Adressatenbezug und Register, zentrale Stellen unklar oder widersprüchlich.
-- D (0 Punkte): Insgesamt nicht ausreichend – keine erkennbare Struktur, Register unangemessen, Wortschatz unzureichend.
-
-**Kriterium III: Formale Richtigkeit (5/3/1/0 Punkte)**
-Bewertet werden: Syntax, Morphologie und Orthographie.
-- A (5 Punkte): Keine oder nur vereinzelte Fehler, die die Verwirklichung der Schreibabsicht nicht gefährden. Gute Beherrschung der Grammatik; macht keine Fehler, die zu Missverständnissen führen (GER S. 114). Rechtschreibung und Zeichensetzung hinreichend korrekt, können Einflüsse der Muttersprache zeigen (GER S. 118).
-- B (3 Punkte): Wenige Fehler, die bei einmaligem Lesen die Verwirklichung der Schreibabsicht nicht gefährden.
-- C (1 Punkt): Fehler, die mehrmaliges Lesen erforderlich machen und so die Verwirklichung der Schreibabsicht deutlich gefährden.
-- D (0 Punkte): So viele Fehler, dass die Schreibabsicht nicht verwirklicht wird.
+**Kriterium III: Formale Richtigkeit (5 Punkte)**
+- A (5 Punkte): Die Syntax ist korrekt; es gibt einige Fehler bei Orthografie/Interpunktion, die das Verständnis nicht behindern
+- B (4 Punkte): Die Syntax ist meist korrekt; Fehler behindern das Verständnis stellenweise
+- C (2-3 Punkte): Viele Syntax-/Morphologiefehler; das Verständnis ist deutlich erschwert
+- D (0-1 Punkte): Die Syntax ist überwiegend inkorrekt; der Text ist kaum verständlich
 
 WICHTIG: Das Feld "userInput" muss EXAKT die Antwort des Teilnehmers enthalten, wie sie bereitgestellt wurde. Bei Bildern: Extrahiere den Text GENAU wie geschrieben, ohne Änderungen, Ergänzungen oder Korrekturen. Erfinde NIEMALS eine Beispielantwort.
 
 Gib deine Bewertung als JSON zurück mit folgendem Format:
 {
-  "overallScore": <Gesamtpunkte: (Punkte I + II + III)>,
+  "overallScore": <Gesamtpunkte>,
   "userInput": "<EXAKTE Antwort des Teilnehmers - bei Bildern: der extrahierte Text ohne Änderungen>",
-  "maxScore": 45,
+  "maxScore": 15,
   "criteria": {
-    "taskHandling": {
+    "taskCompletion": {
       "grade": "<A/B/C/D>",
-      "points": <5/3/1/0>,
-      "feedback": "<Detailliertes Feedback, begründe genau warum diese Note, beziehe dich auf Leitpunkte und Aspekte>"
+      "feedback": "<Detailliertes Feedback>"
     },
     "communicativeDesign": {
       "grade": "<A/B/C/D>",
-      "points": <5/3/1/0>,
-      "feedback": "<Detailliertes Feedback, begründe genau basierend auf Textorganisation, Verknüpfung, Vielfalt, Register>"
+      "feedback": "<Detailliertes Feedback>"
     },
     "formalCorrectness": {
       "grade": "<A/B/C/D>",
-      "points": <5/3/1/0>,
-      "feedback": "<Detailliertes Feedback, begründe genau zu Syntax, Morphologie, Orthographie und wie Fehler das Verständnis beeinflussen>"
+      "feedback": "<Detailliertes Feedback>"
     }
   },
   "correctedAnswer": "<Die korrigierte Antwort mit Markdown-Hervorhebungen>"
 }
 
 WICHTIG für "correctedAnswer":
-- Nimm die EXAKTE Antwort des Teilnehmers und korrigiere NUR die Fehler.
-- Erstelle KEINE neue Antwort - behalte den originalen Text bei.
+- Nimm die EXAKTE Antwort des Teilnehmers und korrigiere NUR die Fehler
+- Erstelle KEINE neue Antwort - behalte den originalen Text bei
 - Verwende Markdown zur Hervorhebung der Korrekturen:
-  * **fett** für korrigierte Wörter/Phrasen.
-  * ~~durchgestrichen~~ für entfernte/falsche Teile (optional, falls nötig).
-- Wenn es keine Fehler gibt, gib die originale Antwort zurück.
-- Beispiel: "Ich **habe** gestern ins Kino gegangen" → "Ich **bin** gestern ins Kino gegangen".`;
+  * **fett** für korrigierte Wörter/Phrasen
+  * ~~durchgestrichen~~ für entfernte/falsche Teile (optional, falls nötig)
+- Wenn es keine Fehler gibt, gib die originale Antwort zurück
+- Beispiel: "Ich **habe** gestern ins Kino gegangen" → "Ich **bin** gestern ins Kino gegangen"`;
 
 /**
  * Creates a user prompt for text evaluation
  */
 function createUserPrompt(request: EvaluationRequest): string {
-  return `Bitte bewerte folgende Brief- oder E-Mail-Antwort für die Telc B2 Prüfung:
+  return `Bitte bewerte folgende E-Mail-Antwort für die Telc B1 Prüfung:
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
@@ -150,14 +124,14 @@ ${request.userAnswer}
 
 ---
 
-Bewerte diese Antwort nach den Telc B2 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort. Achte auf die Regel: Wenn I oder III D ist, Gesamtpunktzahl 0.`;
+Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
 }
 
 /**
  * Creates a user prompt for image evaluation
  */
 function createImageUserPrompt(request: EvaluationRequest): string {
-  return `Bitte bewerte die handschriftliche Brief- oder E-Mail-Antwort im Bild für die Telc B2 Prüfung:
+  return `Bitte bewerte die handschriftliche E-Mail-Antwort im Bild für die Telc B1 Prüfung:
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
@@ -170,13 +144,12 @@ ${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n
 ---
 
 WICHTIGE ANWEISUNGEN:
-1. Lese zuerst den GESAMTEN handschriftlichen Text im Bild sorgfältig.
-2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern.
-3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON.
-4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild.
-5. Bewerte dann diese extrahierte Antwort nach den Telc B2 Kriterien.
+1. Lese zuerst den GESAMTEN handschriftlichen Text im Bild sorgfältig
+2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern
+3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
+4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
+5. Bewerte dann diese extrahierte Antwort nach den Telc B1 Kriterien
 6. Für "correctedAnswer": Nimm den extrahierten Text und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.
-7. Achte auf die Regel: Wenn I oder III D ist, Gesamtpunktzahl 0.
 
 Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
 }
@@ -268,10 +241,10 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
 }
 
 /**
- * Main Cloud Function to evaluate writing for B2
+ * Main Cloud Function to evaluate writing
  * This is an HTTP endpoint that can be invoked from the mobile app
  */
-export const evaluateWritingB2 = functions.https.onRequest(
+export const evaluateWritingB1 = functions.https.onRequest(
   async (req, res) => {
     // Enable CORS
     res.set('Access-Control-Allow-Origin', '*');
@@ -330,10 +303,11 @@ export const evaluateWritingB2 = functions.https.onRequest(
 
       res.status(200).json(assessment);
     } catch (error) {
-      console.error('Error in evaluateWritingB2 function:', error);
+      console.error('Error in evaluateWriting function:', error);
       res.status(500).json({
         error: error instanceof Error ? error.message : 'Unknown error occurred'
       });
     }
   }
 );
+

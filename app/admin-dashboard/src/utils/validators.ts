@@ -566,47 +566,250 @@ export const validateGrammarStudyQuestions = (data: any): ValidationResult => {
 };
 
 /**
- * Main validator that routes to specific validators based on document ID
+ * Validate B2 Speaking Part 1 structure
  */
-export const validateDocument = (docId: string, data: any): ValidationResult => {
+export const validateB2SpeakingPart1 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.topics || !Array.isArray(data.topics)) {
+    errors.push('Missing or invalid "topics" array');
+    return { valid: false, errors };
+  }
+
+  data.topics.forEach((topic: any, index: number) => {
+    if (typeof topic.title !== 'string') {
+      errors.push(`Topic ${index}: Missing or invalid "title"`);
+    }
+    if (typeof topic.examplePresentation !== 'string') {
+      errors.push(`Topic ${index}: Missing or invalid "examplePresentation"`);
+    }
+    if (!Array.isArray(topic.exampleDiscussion)) {
+      errors.push(`Topic ${index}: Missing or invalid "exampleDiscussion" array`);
+    } else {
+      topic.exampleDiscussion.forEach((item: any, qIndex: number) => {
+        if (typeof item.question !== 'string') {
+          errors.push(`Topic ${index}, Discussion ${qIndex}: Missing "question"`);
+        }
+        if (typeof item.answer !== 'string') {
+          errors.push(`Topic ${index}, Discussion ${qIndex}: Missing "answer"`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate B2 Speaking Part 2 structure
+ */
+export const validateB2SpeakingPart2 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.questions || !Array.isArray(data.questions)) {
+    errors.push('Missing or invalid "questions" array');
+    return { valid: false, errors };
+  }
+
+  data.questions.forEach((question: any, index: number) => {
+    if (typeof question.title !== 'string') {
+      errors.push(`Question ${index}: Missing or invalid "title"`);
+    }
+    if (typeof question.content !== 'string') {
+      errors.push(`Question ${index}: Missing or invalid "content"`);
+    }
+    if (typeof question.source !== 'string') {
+      errors.push(`Question ${index}: Missing or invalid "source"`);
+    }
+    if (!Array.isArray(question.summary)) {
+      errors.push(`Question ${index}: Missing or invalid "summary" array`);
+    } else {
+      question.summary.forEach((item: any, sIndex: number) => {
+        if (typeof item.speaker !== 'string') {
+          errors.push(`Question ${index}, Summary ${sIndex}: Missing "speaker"`);
+        }
+        if (typeof item.text !== 'string') {
+          errors.push(`Question ${index}, Summary ${sIndex}: Missing "text"`);
+        }
+      });
+    }
+    if (!Array.isArray(question.exampleDiscussion)) {
+      errors.push(`Question ${index}: Missing or invalid "exampleDiscussion" array`);
+    } else {
+      question.exampleDiscussion.forEach((item: any, dIndex: number) => {
+        if (typeof item.speaker !== 'string') {
+          errors.push(`Question ${index}, Discussion ${dIndex}: Missing "speaker"`);
+        }
+        if (typeof item.text !== 'string') {
+          errors.push(`Question ${index}, Discussion ${dIndex}: Missing "text"`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate B2 Speaking Part 3 structure
+ */
+export const validateB2SpeakingPart3 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.questions || !Array.isArray(data.questions)) {
+    errors.push('Missing or invalid "questions" array');
+    return { valid: false, errors };
+  }
+
+  data.questions.forEach((question: any, index: number) => {
+    if (typeof question.question !== 'string') {
+      errors.push(`Question ${index}: Missing or invalid "question" text`);
+    }
+    if (!Array.isArray(question.exampleDialogue)) {
+      errors.push(`Question ${index}: Missing or invalid "exampleDialogue" array`);
+    } else {
+      question.exampleDialogue.forEach((item: any, dIndex: number) => {
+        if (typeof item.speaker !== 'string') {
+          errors.push(`Question ${index}, Dialogue ${dIndex}: Missing "speaker"`);
+        }
+        if (typeof item.text !== 'string') {
+          errors.push(`Question ${index}, Dialogue ${dIndex}: Missing "text"`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate B2 Oral Exam Structure
+ */
+export const validateB2OralExamStructure = (data: any): ValidationResult => {
+  const errors: string[] = [];
+  const requiredLanguages = ['en', 'ar', 'ru', 'fr', 'es', 'de'];
+
+  if (!data.title || typeof data.title !== 'object') {
+    errors.push('Missing or invalid "title" multilingual object');
+  } else {
+    requiredLanguages.forEach((lang) => {
+      if (typeof data.title[lang] !== 'string') {
+        errors.push(`Missing "${lang}" translation in title`);
+      }
+    });
+  }
+
+  if (!data.general || typeof data.general !== 'object') {
+    errors.push('Missing or invalid "general" object');
+  } else {
+    if (!data.general.howItWorks || typeof data.general.howItWorks !== 'object') {
+      errors.push('Missing or invalid "general.howItWorks" multilingual object');
+    }
+    if (!data.general.expectations || typeof data.general.expectations !== 'object') {
+      errors.push('Missing or invalid "general.expectations" multilingual object');
+    }
+  }
+
+  if (!data.parts || !Array.isArray(data.parts)) {
+    errors.push('Missing or invalid "parts" array');
+  } else {
+    data.parts.forEach((part: any, index: number) => {
+      if (!part.name || typeof part.name !== 'object') {
+        errors.push(`Part ${index}: Missing or invalid "name" multilingual object`);
+      }
+      if (!part.duration || typeof part.duration !== 'object') {
+        errors.push(`Part ${index}: Missing or invalid "duration" multilingual object`);
+      }
+    });
+  }
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Main validator that routes to specific validators based on document ID and level
+ * @param docId - The document identifier (e.g., 'speaking-part1', 'grammar-part1')
+ * @param data - The parsed JSON data to validate
+ * @param level - The exam level ('B1' or 'B2'), defaults to 'B1' for backward compatibility
+ * @returns ValidationResult with valid flag and any errors found
+ */
+export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' = 'B1'): ValidationResult => {
   try {
     // First check if data is valid JSON
     if (typeof data !== 'object' || data === null) {
       return { valid: false, errors: ['Invalid JSON structure'] };
     }
 
-    // Route to specific validator based on document ID
-    switch (docId) {
-      case 'grammar-part1':
-        return validateGrammarPart1(data);
-      case 'grammar-part2':
-        return validateGrammarPart2(data);
-      case 'grammar-study-questions':
-        return validateGrammarStudyQuestions(data);
-      case 'reading-part1':
-        return validateReadingPart1(data);
-      case 'reading-part2':
-        return validateReadingPart2(data);
-      case 'reading-part3':
-        return validateReadingPart3(data);
-      case 'listening-part1':
-      case 'listening-part2':
-      case 'listening-part3':
-        return validateListeningPart(data);
-      case 'speaking-part1':
-        return validateSpeakingPart1(data);
-      case 'speaking-part2':
-        return validateSpeakingPart2(data);
-      case 'speaking-part3':
-        return validateSpeakingPart3(data);
-      case 'speaking-important-phrases':
-        return validateSpeakingImportantPhrases(data);
-      case 'writing':
-        return validateWriting(data);
-      case 'exam-info':
-        return validateExamInfo(data);
-      default:
-        return { valid: false, errors: [`Unknown document type: ${docId}`] };
+    // Route to specific validator based on document ID and level
+    if (level === 'B2') {
+      switch (docId) {
+        case 'speaking-part1':
+          return validateB2SpeakingPart1(data);
+        case 'speaking-part2':
+          return validateB2SpeakingPart2(data);
+        case 'speaking-part3':
+          return validateB2SpeakingPart3(data);
+        case 'oral-exam-structure':
+          return validateB2OralExamStructure(data);
+        case 'speaking-important-phrases':
+          return validateSpeakingImportantPhrases(data);
+        case 'writing':
+          return validateWriting(data);
+        case 'listening-part1':
+        case 'listening-part2':
+        case 'listening-part3':
+          return validateListeningPart(data);
+        case 'grammar-part1':
+          return validateGrammarPart1(data);
+        case 'grammar-part2':
+          return validateGrammarPart2(data);
+        case 'reading-part1':
+          return validateReadingPart1(data);
+        case 'reading-part2':
+          return validateReadingPart2(data);
+        case 'reading-part3':
+          return validateReadingPart3(data);
+        case 'exam-info':
+          return validateExamInfo(data);
+        case 'grammar-study-questions':
+          return validateGrammarStudyQuestions(data);
+        default:
+          return { valid: false, errors: [`Unknown B2 document type: ${docId}`] };
+      }
+    } else {
+      // B1 validation
+      switch (docId) {
+        case 'grammar-part1':
+          return validateGrammarPart1(data);
+        case 'grammar-part2':
+          return validateGrammarPart2(data);
+        case 'grammar-study-questions':
+          return validateGrammarStudyQuestions(data);
+        case 'reading-part1':
+          return validateReadingPart1(data);
+        case 'reading-part2':
+          return validateReadingPart2(data);
+        case 'reading-part3':
+          return validateReadingPart3(data);
+        case 'listening-part1':
+        case 'listening-part2':
+        case 'listening-part3':
+          return validateListeningPart(data);
+        case 'speaking-part1':
+          return validateSpeakingPart1(data);
+        case 'speaking-part2':
+          return validateSpeakingPart2(data);
+        case 'speaking-part3':
+          return validateSpeakingPart3(data);
+        case 'speaking-important-phrases':
+          return validateSpeakingImportantPhrases(data);
+        case 'writing':
+          return validateWriting(data);
+        case 'exam-info':
+          return validateExamInfo(data);
+        default:
+          return { valid: false, errors: [`Unknown B1 document type: ${docId}`] };
+      }
     }
   } catch (error: any) {
     return { valid: false, errors: [error.message || 'Validation error'] };

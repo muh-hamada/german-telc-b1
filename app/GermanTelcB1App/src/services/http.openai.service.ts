@@ -7,12 +7,15 @@
 
 import axios from "axios";
 import { Platform } from "react-native";
+import { activeExamConfig } from "../config/active-exam.config";
 
 // API Configuration
 const IS_DEV = __DEV__;
+const isB2Exam = activeExamConfig.level === 'B2';
+const evaluateWritingFunctionName = isB2Exam ? 'evaluateWritingB2' : 'evaluateWriting'; // evaluateWriting is the old function name for B1
 
 const testPath = (Platform.OS === 'android' ? 'http://10.0.2.2' : 'http://localhost') + ':5001/telc-b1-german/us-central1';
-const CLOUD_FUNCTIONS_API_URL = IS_DEV ? testPath + '/evaluateWriting' : 'https://us-central1-telc-b1-german.cloudfunctions.net/evaluateWriting';
+const CLOUD_FUNCTIONS_API_URL = IS_DEV ? testPath + '/' + evaluateWritingFunctionName : 'https://us-central1-telc-b1-german.cloudfunctions.net/' + evaluateWritingFunctionName;
 
 export interface WritingAssessment {
   overallScore: number;

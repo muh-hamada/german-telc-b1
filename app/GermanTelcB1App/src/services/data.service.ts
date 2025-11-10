@@ -250,6 +250,21 @@ class DataService {
     return await this.fetchFromFirestore('oral-exam-structure', {});
   }
 
+  // Speaking B2 Part 1
+  async getSpeakingB2Part1Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part1', { topics: [] });
+  }
+
+  // Speaking B2 Part 2
+  async getSpeakingB2Part2Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part2', { questions: [] });
+  }
+
+  // Speaking B2 Part 3
+  async getSpeakingB2Part3Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part3', { questions: [] });
+  }
+
   // Listening Part 1
   async getListeningPart1Content(): Promise<any> {
     return await this.fetchFromFirestore('listening-part1', { exams: [] });

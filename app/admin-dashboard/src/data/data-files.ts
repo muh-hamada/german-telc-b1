@@ -31,6 +31,8 @@ import germanB2Writing from './german-b2/writing.json';
 import germanB2SpeakingImportantPhrases from './german-b2/speaking-important-phrases.json';
 import germanB2OralExamStructure from './german-b2/oral-exam-structure.json';
 import germanB2SpeakingPart1 from './german-b2/speaking-part1.json';
+import germanB2SpeakingPart2 from './german-b2/speaking-part2.json';
+import germanB2SpeakingPart3 from './german-b2/speaking-part3.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
 
 
@@ -91,5 +93,7 @@ export const appDataMap: AppDataMap = {
         'writing': germanB2Writing,
         'oral-exam-structure': germanB2OralExamStructure,
         'speaking-part1': germanB2SpeakingPart1,
+        'speaking-part2': germanB2SpeakingPart2,
+        'speaking-part3': germanB2SpeakingPart3,
     },
 }
