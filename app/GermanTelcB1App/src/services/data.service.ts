@@ -26,6 +26,7 @@ import {
   SpeakingPart3Content,
   SpeakingImportantPhrasesContent,
 } from '../types/exam.types';
+import { DISABLE_DATA_CACHE } from '../config/development.config';
 
 const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
@@ -88,6 +89,11 @@ class DataService {
    * Get cached data if still valid
    */
   private async getCachedData(docId: string): Promise<any | null> {
+    if (DISABLE_DATA_CACHE) {
+      console.log(`[DataService] Data cache is disabled, returning null for ${docId}`);
+      return null;
+    }
+
     try {
       const cacheKey = CACHE_KEY_PREFIX + docId;
       const cachedStr = await AsyncStorage.getItem(cacheKey);

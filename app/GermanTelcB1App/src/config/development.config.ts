@@ -17,6 +17,8 @@ export const SKIP_REWARDED_ADS = false; // Set to false for production
 
 export const ALWAYS_SHOW_REVIEW_MODAL = false; // Set to false for production
 
+export const DISABLE_DATA_CACHE = true; // Set to true to disable data cache
+
 /**
  * Demo progress statistics shown in ProgressCard
  */

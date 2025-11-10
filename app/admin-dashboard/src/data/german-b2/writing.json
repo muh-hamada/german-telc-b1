@@ -1,0 +1,118 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "themeNumber": 1,
+      "themeName": "Bewerbungsschreiben",
+      "title": "Bewerbungsschreiben für ein Praktikum bei Germanwings im Bereich Online Marketing & E-Commerce",
+      "incomingEmail": "germanwings\nFly High, pay low.\n\nGermanwings GmbH\nOnline Marketing & E-Commerce\nTerminalstrasse 10\n51147 Köln.",
+      "writingPoints": [
+        "Ihre Ausbildung/Ihre Berufsausbildung",
+        "Ihre Interessen und Vorlieben",
+        "Grund für die Berufsrichtung",
+        "Grund für Praktikantenstelle in Deutschland"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Sie möchten in Deutschland ein Berufspraktikum machen. Bei folgender Firma oder Institution können Sie sich bewerbe:",
+        "taskDescription": "Schreiben Sie einen Bewerbungsbrief um eine Praktikantenstelle an die oben aufgeführte Firma bzw. Institution. Behandeln Sie darin entweder\na) mindestens drei der folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    },
+    {
+      "id": 1,
+      "themeNumber": 2,
+      "themeName": "Anmeldung",
+      "title": "Bewerbungsschreiben für ein Praktikum bei der Bundesagentur für Arbeit im Bereich Job Center",
+      "incomingEmail": "Erste internationale Begegnung der Nationen in Leipzig vom 1. bis 3. September\n\nDer 'Verein für Internationale Begegnung' lädt junge Leute aus der ganzen Welt ein zum miteinander Reden, Tanzen, Musizieren und Kennenlernen!\n\nWir suchen noch Einzelpersonen oder Gruppen, die:\n- Ihr Heimatland in Kurzreferaten vorstellen (Power-Point-Präsentationen möglich)\n- Musik aus ihren Heimatländern vorspielen\n- Volkstänze vorführen\n- Typisches Essen vorbereiten\n- Amateurkünstler (Theaterspiel, Zauberei etc.) sind\n\nDie Teilnahme an dem Fest ist kostenlos.\nUnterkünfte können wir organisieren:\nCampingplatz € 10,- pro Übernachtung, Jugendherberge € 18-,\nHotel zwischen € 20,- und € 50,-\n\nWeitere Informationen unter www.interbeg.de\nWer teilnehmen möchte, bitte melden unter:\nVerein für Internationale Begegnung\nPostfach 12345, 60013 Frankfurt am Main, E-mail: vfib@t-online.de",
+      "writingPoints": [
+        "Ihr Angebot zur Teilnahme am Programm",
+        "Ihr Unterkunftswunsch",
+        "Ihre Daten für die An- und Abreise",
+        "Weitere Vorschläge"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Lesen Sie folgende Werbeanzeige:",
+        "taskDescription": "Sie haben die oben stehende Anzeige gelesen und möchten an dem Fest teilnehmen.\n\nSchreiben Sie einen Brief an den Verein für Internationale Begegnungen, in dem Sie Ihr Interesse an dem Fest und an Ihrer Mithilfe bekunden. Behandeln Sie darin entweder\n\na) mindestens drei der folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    },
+    {
+      "id": 2,
+      "themeNumber": 1,
+      "themeName": "Bewerbungsschreiben",
+      "title": "Bewerbungsschreiben für ein Praktikum bei der Bundesagentur für Arbeit im Bereich Job Center",
+      "incomingEmail": "DAIMLER\nDaimler AG\nForschung und Technologie\nEP/MEE\n70546 Stuttgart.",
+      "writingPoints": [
+        "Ihre Ausbildung/Ihre Berufsausbildung",
+        "Ihre Interessen und Vorlieben",
+        "Grund für die Berufsrichtung",
+        "Grund für Praktikantenstelle in Deutschland"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Sie möchten in Deutschland ein Berufspraktikum machen. Bei folgender Firma oder Institution können Sie sich bewerbe:",
+        "taskDescription": "Schreiben Sie einen Bewerbungsbrief um eine Praktikantenstelle an die oben aufgeführte Firma bzw. Institution. Behandeln Sie darin entweder\na) mindestens drei der folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    },
+    {
+      "id": 3,
+      "themeNumber": 2,
+      "themeName": "Beschwerdebrief",
+      "title": "Bewerbungsschreiben für ein Praktikum bei der Bundesagentur für Arbeit im Bereich Job Center",
+      "incomingEmail": "Deutsch in 14 Tagen\n\nKeine Angst mehr vor der deutschen Sprache! Mit unserer Accelerations-Methode sprechen, schreiben und verstehen Sie sicher und mühelos die alltägliche deutsche Sprache!\n\nUnsere erfahrenen Lehrkräfte haben eine spezielle Ausbildung\nUnsere Kursteilnehmer sind international\nUnsere Gastfamilien und Pensionen sind sorgfältig ausgewählt\nUnterricht montags bis freitags, 9.00 bis 16.00 Uhr, dazu Freizeitprogramm\n\nWenn Sie jetzt buchen, bekommen Sie 10% Rabatt auf alle Kurse und Unterkünfte:\n14 Tage Kurs + Gastfamilie statt € 1200 nur € 1080,--\n14 Tage Kurs + Pension statt € 1800 nur € 1620,--\n\nBuchen Sie also jetzt!\n\nFast-Deutsch Schule\nSchellingperplatz 3\n80025 München\n\nTel.: 089 / 12345687\nwww.fast-deutsch.de",
+      "writingPoints": [
+        "Beispiele für den schlechten Unterricht, Lehrkräfte/Methode",
+        "Beispiele für die Unterkunft",
+        "Fordern Sie eine Entschädigung",
+        "Beispiele für das Freizeitprogramm"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Lesen Sie folgende Werbeanzeige:",
+        "taskDescription": "Sie haben die oben stehende Anzeige gelesen und möchten an dem Fest teilnehmen.\n\nSchreiben Sie einen Brief an den Verein für Internationale Begegnungen, in dem Sie Ihr Interesse an dem Fest und an Ihrer Mithilfe bekunden. Behandeln Sie darin entweder\n\na) mindestens drei der folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    },
+    {
+      "id": 4,
+      "themeNumber": 1,
+      "themeName": "Bewerbungsschreiben",
+      "title": "Party-Service Fischer",
+      "incomingEmail": "Party-Service Fischer\nFrisch und lecker - entfüllen Sie Ihre Gäste ins Land des guten Geschmacks!\n\nOb Hochzeit, Geburtstag, Taufe ... ganz egal, was order wie Sie feiern wollen, pivat order berufliche ... es gibt immer einen Grund zum Feiern.\n\nUnd wir bieten den passenden Service:\n\n- ab 30 Gäste\n-hochwertige Speisen und Getränke\n- auch besondere Wünsche order Mietkock am Ort\n- Service von A wie Aufbau bis Z wie zusammenPacken\n- alles aus einer Hand\n\nWir freuen uns auf Ihre Anfrage!\n\nPartyservice Fischer\nHildegard Fischer-Dalau\nKleiner Feldweg 57\n69221 Doessenheim",
+      "writingPoints": [
+        "Informationen zu Ihrer Feier",
+        "Essgewohnheiten Ihrer Gäste (Gerichte vorschlagen)",
+        "offene Fragen zum Service",
+        "Was Sie sonst noch wissen wollen"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Brief an Party-Service Fischer",
+        "taskDescription": "Sie wollen eine Feier mit ca. 70 Gästen veranstalten und haben noch Fragen. Sie haben Gäste mit besonderen Essgewohnheiten. Schreiben Sie einen Brief, in dem Sie um mehr Informationen bitten.\n\nBehandeln Sie darin entweder\na) mindestens drei der folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    },
+    {
+      "id": 5,
+      "themeNumber": 2,
+      "themeName": "Beschwerdebrief",
+      "title": "Internationaler Ski-Spaß in den Tiroler Alpen",
+      "incomingEmail": "Internationaler Ski-Spaß in den Tiroler Alpen\n\nSkiclub 2100\nDer Urlaubsspaß für junge Leute!\n\nAll-inclusive-Aufenthalt:\n- im großen 4-Bett-Zimmer mit Bad und TV\n- 3 Mahlzeiten und freie Getränke\n- Skilift, Skischule, Bobbahn, Animation, Disco\n- Glühweinpartys im Schnee\n- Ausflüge nach Innsbruck und zum „Skizirkus Arlberg“\n- Pferdeschlittenfahrten\n- Transfer vom und zum Bahnhof\n\n1 Woche ab € 250,--\n2 Wochen ab € 460,--\n\nSkiclub 2100, Postfach 101, Seefeld/Tirol, www.ski2100info.at",
+      "writingPoints": [
+        "Grund für Ihre Beschwerde",
+        "Fordern Sie einen Teil des Reisepreises zurück",
+        "Beispiele für Ihre schlechten Erfahrungen im Skiurlaub",
+        "Vorschläge zur Verbesserung des Skiurlaubs"
+      ],
+      "uiStrings": {
+        "instructionTitle": "Situation",
+        "instructionDescription": "Lesen Sie folgende Werbeanzeige:",
+        "taskDescription": "Sie haben die oben stehende Anzeige gelesen und eine Woche im Skiclub 2100 verbracht. Leider stimmte vieles nicht mit den Versprechungen in der Werbung überein: Es gab nur kleine Zimmer mit mehr als vier Betten und eine Etagendusche statt ein eigenes Bad, das Essen war schlecht und viel zu wenig, die Animation war langweilig und die Skischule geschlossen.\n\nSchreiben Sie einen Brief an den Club, in dem Sie sich über die Unannehmlichkeiten während Ihres Aufenthaltes beschweren. Behandeln Sie darin entweder\na) mindestens drei de folgenden Punkte oder\nb) mindestens zwei der folgenden Punkte und einen weiteren Aspekt Ihrer Wahl.",
+        "taskFooter": "Bevor Sie den Brief schreiben, überlegen Sie sich eine passende Reihenfolge der Punkte, eine passende Einleitung und einen passenden Schluss. Vergessen Sie nicht Ihre Adresse, Adresse des Empfängers, Datum, Betreffzeile, Anrede und Schlussformel."
+      }
+    }
+  ]
+}

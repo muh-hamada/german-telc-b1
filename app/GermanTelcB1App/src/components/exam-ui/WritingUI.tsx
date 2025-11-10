@@ -28,6 +28,7 @@ import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-nat
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../MarkdownText';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 // In the Telc exam, the initiatial evaluation if from 15
 // Then we multiply by 3 to reach a max score of 45
@@ -43,9 +44,9 @@ interface WritingUIProps {
 const REWARDED_AD_UNIT_ID = __DEV__
   ? TestIds.REWARDED
   : Platform.select({
-      ios: 'todo-ios-ad-unit-id', // Replace with iOS Ad Unit ID if different
-      android: 'ca-app-pub-5101905792101482/1207745272',
-    }) || TestIds.REWARDED;
+    ios: 'todo-ios-ad-unit-id', // Replace with iOS Ad Unit ID if different
+    android: 'ca-app-pub-5101905792101482/1207745272',
+  }) || TestIds.REWARDED;
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useTranslation();
@@ -67,6 +68,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
   const adEarnedRewardRef = useRef<boolean>(false);
+  const isB2Exam = activeExamConfig.level === 'B2';
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -99,7 +101,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
       console.log('Rewarded ad closed');
       logEvent(AnalyticsEvents.REWARDED_AD_CLOSED, { ad_unit_id: REWARDED_AD_UNIT_ID });
-      
+
       // Check if user actually earned the reward
       // If not, they closed the ad without watching - reset the state
       if (!adEarnedRewardRef.current) {
@@ -107,10 +109,10 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         setPendingEvaluationType(null);
         pendingEvaluationTypeRef.current = null;
       }
-      
+
       // Reset the flag for next time
       adEarnedRewardRef.current = false;
-      
+
       // Reload ad for next time
       setIsAdLoaded(false);
       ad.load();
@@ -302,13 +304,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      
+
       // Log error to analytics
-      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { 
+      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, {
         error_message: errorMessage,
         evaluation_type: 'image'
       });
-      
+
       Alert.alert(
         t('writing.alerts.evaluationError'),
         error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
@@ -372,13 +374,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      
+
       // Log error to analytics
-      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, { 
+      logEvent(AnalyticsEvents.WRITING_EVAL_FAILED, {
         error_message: errorMessage,
         evaluation_type: 'text'
       });
-      
+
       Alert.alert(
         t('writing.alerts.evaluationError'),
         error instanceof Error ? error.message : t('writing.alerts.evaluationErrorMessage'),
@@ -589,7 +591,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
               <View style={styles.correctedAnswerSection}>
                 <Text style={styles.correctedAnswerTitle}>{t('writing.evaluation.correctedAnswer')}</Text>
                 <View style={styles.correctedAnswerContainer}>
-                  <MarkdownText text={assessment.correctedAnswer}/>
+                  <MarkdownText text={assessment.correctedAnswer} />
                 </View>
               </View>
             </ScrollView>
@@ -689,37 +691,82 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     );
   };
 
+  const renderExamContent = () => {
+    if (isB2Exam) {
+
+        return renderB2Theme1Question();
+      
+      return null
+    }
+
+    return renderB1Question();
+  }
+
+  const renderB1Question = () => {
+    return (
+      <>
+        <View style={styles.instructionsCard}>
+          <Text style={styles.instructionsTitle}>{t('writing.instructions.title')}</Text>
+          <Text style={styles.instructionsText}>{t('writing.instructions.description')}</Text>
+        </View>
+
+        {/* Incoming Email */}
+        <View style={styles.emailSection}>
+          <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
+          <View style={styles.emailCard}>
+            <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+          </View>
+        </View>
+
+        {/* Writing Points */}
+        <View style={styles.pointsSection}>
+          <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
+          {exam.writingPoints.map((point, index) => (
+            <View key={index} style={styles.pointItem}>
+              <Text style={styles.pointBullet}>•</Text>
+              <Text style={styles.pointText}>{point}</Text>
+            </View>
+          ))}
+        </View>
+      </>
+    )
+  }
+
+  const renderB2Theme1Question = () => {
+    return (
+      <>
+        <View style={[styles.instructionsCard, styles.b2Theme1InstructionsCard]}>
+          <Text style={styles.instructionsTitle}>{exam.uiStrings?.instructionTitle}</Text>
+          <Text style={styles.instructionsText}>{exam.uiStrings?.instructionDescription}</Text>
+        </View>
+
+        {/* Incoming Email */}
+        <View style={styles.emailSection}>
+          <View style={styles.emailCard}>
+            <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+          </View>
+        </View>
+
+        {/* Writing Points */}
+        <View style={styles.pointsSection}>
+        <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskDescription}</Text>
+          {exam.writingPoints.map((point, index) => (
+            <View key={index} style={styles.pointItem}>
+              <Text style={styles.pointBullet}>•</Text>
+              <Text style={styles.pointText}>{point}</Text>
+            </View>
+          ))}
+          <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskFooter}</Text>
+        </View>
+      </>
+    )
+  }
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      {/* Instructions */}
-      <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>{t('writing.instructions.title')}</Text>
-        <Text style={styles.instructionsText}>
-          {t('writing.instructions.description')}
-        </Text>
-      </View>
-
       {renderFullScreenLoading()}
       {renderRewardedAdModal()}
-
-      {/* Incoming Email */}
-      <View style={styles.emailSection}>
-        <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
-        <View style={styles.emailCard}>
-          <Text style={styles.emailText}>{exam.incomingEmail}</Text>
-        </View>
-      </View>
-
-      {/* Writing Points */}
-      <View style={styles.pointsSection}>
-        <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
-        {exam.writingPoints.map((point, index) => (
-          <View key={index} style={styles.pointItem}>
-            <Text style={styles.pointBullet}>•</Text>
-            <Text style={styles.pointText}>{point}</Text>
-          </View>
-        ))}
-      </View>
+      {renderExamContent()}
 
       {/* Answer Input */}
       <View style={styles.answerSection}>
@@ -820,6 +867,13 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: colors.primary[500],
   },
+  b2Theme1InstructionsCard: {
+    padding: 0,
+    borderLeftWidth: 0,
+    borderLeftColor: 'transparent',
+    backgroundColor: 'transparent',
+    marginBottom: spacing.margin.sm,
+  },
   instructionsTitle: {
     ...typography.textStyles.h4,
     color: colors.primary[700],
@@ -835,9 +889,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xl,
   },
   sectionTitle: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.h5,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+  },
+  b2Theme1SectionTitle: {
+    ...typography.textStyles.body,
   },
   emailCard: {
     backgroundColor: colors.background.secondary,
@@ -852,11 +909,11 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   pointsSection: {
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.lg,
   },
   pointItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    marginBottom: spacing.margin.sm,
+    flexDirection: 'row',
+    marginBottom: spacing.margin.xs,
     paddingLeft: spacing.padding.sm,
   },
   pointBullet: {

@@ -73,6 +73,14 @@ export interface WritingExam {
   title: string;
   incomingEmail: string;
   writingPoints: string[];
+  themeNumber?: number;
+  themeName?: string;
+  uiStrings?: {
+    instructionTitle?: string;
+    instructionDescription?: string;
+    taskDescription?: string;
+    taskFooter?: string;
+  };
 }
 
 // Speaking Part 1 (Personal Introduction)
