@@ -23,7 +23,7 @@ interface WritingAssessment {
   maxScore: number;
   userInput: string;
   criteria: {
-    taskHandling: {
+    taskCompletion: {
       grade: 'A' | 'B' | 'C' | 'D';
       points: number;
       feedback: string;
@@ -101,9 +101,9 @@ Gib deine Bewertung als JSON zurück mit folgendem Format:
 {
   "overallScore": <Gesamtpunkte: (Punkte I + II + III)>,
   "userInput": "<EXAKTE Antwort des Teilnehmers - bei Bildern: der extrahierte Text ohne Änderungen>",
-  "maxScore": 45,
+  "maxScore": 15,
   "criteria": {
-    "taskHandling": {
+    "taskCompletion": {
       "grade": "<A/B/C/D>",
       "points": <5/3/1/0>,
       "feedback": "<Detailliertes Feedback, begründe genau warum diese Note, beziehe dich auf Leitpunkte und Aspekte>"
