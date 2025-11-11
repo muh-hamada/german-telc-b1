@@ -72,7 +72,7 @@ const MockExamRunningScreen: React.FC = () => {
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="mock-exam-loading" />}
       </SafeAreaView>
     );
   }
@@ -294,7 +294,7 @@ const MockExamRunningScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
         {renderResults()}
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="mock-exam-results" />}
       </SafeAreaView>
     );
   }
@@ -321,7 +321,7 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="mock-exam-running" />}
     </SafeAreaView>
   );
 };

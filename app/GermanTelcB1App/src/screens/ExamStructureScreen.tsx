@@ -42,7 +42,7 @@ const ExamStructureScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
       </SafeAreaView>
     );

@@ -120,7 +120,7 @@ const SpeakingPart4Screen: React.FC = () => {
           </View>
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-part4" />}
     </SafeAreaView>
   );
 };

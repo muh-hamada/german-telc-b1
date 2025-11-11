@@ -129,7 +129,7 @@ const ListeningMenuScreen: React.FC = () => {
         title={t('practice.listening.part3')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="listening-menu" />}
     </SafeAreaView>
   );
 };

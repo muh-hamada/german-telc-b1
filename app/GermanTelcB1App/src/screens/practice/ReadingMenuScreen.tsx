@@ -127,7 +127,7 @@ const ReadingMenuScreen: React.FC = () => {
         title={t('practice.reading.part3')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="reading-menu" />}
     </SafeAreaView>
   );
 };

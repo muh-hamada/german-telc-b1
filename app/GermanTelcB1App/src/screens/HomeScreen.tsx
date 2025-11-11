@@ -69,7 +69,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="home" />}
     </SafeAreaView>
   );
 };

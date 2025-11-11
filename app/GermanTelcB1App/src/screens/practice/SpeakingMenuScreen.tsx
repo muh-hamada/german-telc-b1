@@ -251,7 +251,7 @@ const SpeakingMenuScreen: React.FC = () => {
         title={t('speaking.b2Part3.title')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-menu" />}
     </SafeAreaView>
   );
 };

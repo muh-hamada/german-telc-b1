@@ -222,7 +222,7 @@ const MockExamScreen: React.FC = () => {
           {t('mockExam.goodLuck')}
         </Text>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="mock-exam" />}
     </SafeAreaView>
   );
 };

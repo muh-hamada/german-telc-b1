@@ -480,7 +480,7 @@ const GrammarStudyScreen: React.FC = () => {
         onClose={() => setShowProgressModal(false)}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="grammar-study" />}
     </SafeAreaView>
   );
 };

@@ -190,7 +190,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
       {activeTab === 'parts' && renderPartsTab()}
       {activeTab === 'hints' && renderHintsTab()}
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-b2-structure" />}
     </SafeAreaView>
   );
 };

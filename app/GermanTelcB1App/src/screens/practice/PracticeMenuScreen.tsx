@@ -112,7 +112,7 @@ const PracticeMenuScreen: React.FC = () => {
         title={t('practice.writing.title')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="practice-menu" />}
     </SafeAreaView>
   );
 };

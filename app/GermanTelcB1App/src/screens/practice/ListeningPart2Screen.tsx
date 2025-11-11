@@ -159,7 +159,7 @@ const ListeningPart2Screen: React.FC = () => {
         examTitle={`Listening Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="listening-part2" />}
     </SafeAreaView>
   );
 };

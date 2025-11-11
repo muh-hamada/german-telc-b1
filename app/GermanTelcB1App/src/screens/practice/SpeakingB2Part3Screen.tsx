@@ -185,7 +185,7 @@ const SpeakingB2Part3Screen: React.FC = () => {
       {activeTab === 'task' && renderTaskTab()}
       {activeTab === 'dialogue' && renderDialogueTab()}
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-b2-part3" />}
     </SafeAreaView>
   );
 };

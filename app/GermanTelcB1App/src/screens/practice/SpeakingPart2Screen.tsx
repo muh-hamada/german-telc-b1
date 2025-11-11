@@ -245,7 +245,7 @@ const SpeakingPart2Screen: React.FC = () => {
           {renderDiscussion()}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-part2" />}
     </SafeAreaView>
   );
 };

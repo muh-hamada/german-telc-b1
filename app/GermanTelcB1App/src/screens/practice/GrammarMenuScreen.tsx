@@ -116,7 +116,7 @@ const GrammarMenuScreen: React.FC = () => {
         title={t('practice.grammar.part2')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="grammar-menu" />}
     </SafeAreaView>
   );
 };

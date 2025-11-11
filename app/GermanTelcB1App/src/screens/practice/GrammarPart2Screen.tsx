@@ -121,7 +121,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="grammar-part2-loading" />}
       </SafeAreaView>
     );
   }
@@ -132,7 +132,7 @@ const GrammarPart2Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="grammar-part2-error" />}
       </SafeAreaView>
     );
   }
@@ -147,7 +147,7 @@ const GrammarPart2Screen: React.FC = () => {
         examTitle={`Grammar Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="grammar-part2" />}
     </SafeAreaView>
   );
 };

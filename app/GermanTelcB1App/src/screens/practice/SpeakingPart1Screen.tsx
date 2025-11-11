@@ -658,7 +658,7 @@ const SpeakingPart1Screen: React.FC = () => {
 
       {renderEditModal()}
       {renderInfoModal()}
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="speaking-part1" />}
     </SafeAreaView>
   );
 };

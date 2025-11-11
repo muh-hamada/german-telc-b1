@@ -121,7 +121,7 @@ const ReadingPart2Screen: React.FC = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="reading-part2-loading" />}
       </SafeAreaView>
     );
   }
@@ -132,7 +132,7 @@ const ReadingPart2Screen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
+        {!HIDE_ADS && <AdBanner screen="reading-part2-error" />}
       </SafeAreaView>
     );
   }
@@ -147,7 +147,7 @@ const ReadingPart2Screen: React.FC = () => {
         examTitle={`Reading Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="reading-part2" />}
     </SafeAreaView>
   );
 };
