@@ -82,6 +82,7 @@ const GrammarStudyScreen: React.FC = () => {
         // Fetch grammar study questions from Firebase
         console.log('[GrammarStudyScreen] Loading grammar study questions from Firebase...');
         const grammarQuestions = await dataService.getGrammarStudyQuestions();
+        console.log('[GrammarStudyScreen] Grammar questions:', grammarQuestions);
         console.log('[GrammarStudyScreen] Loaded', grammarQuestions.length, 'question groups');
         
         // Initialize questions

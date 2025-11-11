@@ -38,7 +38,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
-          requestNonPersonalizedAdsOnly: false,
+          requestNonPersonalizedAdsOnly: true, // TODO: serve personalized ads in the future
           networkExtras: {
             // TODO: enabled collapsible again but in specific screens only
             // Today it's disabled globally because it's very annoying in some screens

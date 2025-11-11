@@ -12,6 +12,7 @@
  */
 
 import analytics from '@react-native-firebase/analytics';
+import { activeExamConfig } from '../config/active-exam.config';
 
 // Check if we're in development mode
 const isDevelopment = __DEV__;
@@ -27,11 +28,13 @@ class AnalyticsService {
   private isEnabled: boolean;
   private recentEvents: Map<string, number>;
   private readonly dedupeWindowMs = 750; // drop exact duplicates within this window
+  private readonly appName: string;
 
   constructor() {
     this.isEnabled = ANALYTICS_ENABLED;
     this.recentEvents = new Map();
-    
+    this.appName = activeExamConfig.appName;
+
     if (!this.isEnabled) {
       console.log('[Analytics] Disabled in development mode');
     } else {
@@ -96,6 +99,12 @@ class AnalyticsService {
       console.log(`[Analytics] (DEV) Event: ${eventName}`, params);
       return;
     }
+
+    // Add app name to the event params
+    params = {
+      ...params,
+      app_name: this.appName,
+    };
 
     try {
       analytics().logEvent(eventName, params);

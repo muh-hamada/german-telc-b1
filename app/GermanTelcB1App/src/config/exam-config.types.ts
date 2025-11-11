@@ -47,9 +47,9 @@ export interface ExamConfig {
   };
   
   // Optional: App Store IDs for reviews and deep linking
-  storeIds?: {
-    android?: string;
-    ios?: string;
+  storeIds: {
+    android: string;
+    ios: string;
   };
 
   ads: {

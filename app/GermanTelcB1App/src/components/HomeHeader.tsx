@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface HomeHeaderProps {
   // You can add props here if needed in the future
@@ -11,7 +12,12 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
   const { t } = useTranslation();
 
   return (
-    <View style={styles.header}>
+    <LinearGradient
+      colors={[colors.primary[800], colors.primary[600]]} // Adjust colors as needed
+      start={{ x: 0, y: 1 }}
+      end={{ x: 0, y: 0 }} // 10-degree angle
+      style={styles.header}
+    >
       <View style={styles.textContainer}>
         <Text style={styles.title}>{t('home.title')}</Text>
       </View>
@@ -23,14 +29,14 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
           />
         </View>
       </View> */}
-    </View>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: colors.primary[500],
-    paddingTop: spacing.padding['3xl'],
+    // backgroundColor: colors.primary[500],
+    paddingTop: spacing.padding['2xl'],
     paddingBottom: spacing.padding.md,
     paddingHorizontal: spacing.padding.md,
     flexDirection: 'row',
@@ -48,7 +54,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 24,
     textAlign: 'center',
-    paddingHorizontal: spacing.padding.lg,
+    paddingHorizontal: spacing.padding.xl,
   },
   imageContainer: {
     flex: 0.4,

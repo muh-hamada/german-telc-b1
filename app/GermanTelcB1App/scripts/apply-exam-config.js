@@ -49,6 +49,10 @@ try {
       level: 'B1',
       appName: 'GermanTelcB1App',
       displayName: 'German TELC B1',
+      admob: {
+        androidAppId: 'ca-app-pub-5101905792101482~1016049874',
+        iosAppId: '',
+      },
       bundleId: {
         android: 'com.mhamada.telcb1german',
         ios: 'com.mhamada.telcb1german',
@@ -64,6 +68,10 @@ try {
       level: 'B2',
       appName: 'GermanTelcB2App',
       displayName: 'German TELC B2',
+      admob: {
+        androidAppId: 'ca-app-pub-5101905792101482~5846015787',
+        iosAppId: '',
+      },
       bundleId: {
         android: 'com.mhamada.telcb2german',
         ios: 'com.mhamada.telcb2german',
@@ -79,6 +87,10 @@ try {
       level: 'B1',
       appName: 'EnglishTelcB1App',
       displayName: 'English TELC B1',
+      admob: {
+        androidAppId: '',
+        iosAppId: '',
+      },
       bundleId: {
         android: 'com.mhamada.telcb1english',
         ios: 'com.mhamada.telcb1english',
@@ -111,6 +123,8 @@ console.log(`   Language: ${config.language}`);
 console.log(`   Level: ${config.level}`);
 console.log(`   Platform: ${platform}`);
 console.log(`   Bundle ID: ${config.bundleId[platform]}`);
+console.log(`   Admob Android App ID: ${config.admob.androidAppId}`);
+console.log(`   Admob iOS App ID: ${config.admob.iosAppId}`);
 console.log('');
 
 // ==================== Helper Functions ====================
@@ -122,6 +136,8 @@ function updateAppJson(config) {
     
     appJson.name = config.appName;
     appJson.displayName = config.displayName;
+    appJson["react-native-google-mobile-ads"].android_app_id = config.admob.androidAppId;
+    appJson["react-native-google-mobile-ads"].ios_app_id = config.admob.iosAppId;
     
     fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2) + '\n');
     console.log('✅ Updated app.json');

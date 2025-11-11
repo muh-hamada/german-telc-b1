@@ -5,10 +5,11 @@
  */
 
 import { Platform, Linking } from 'react-native';
+import { activeExamConfig } from '../config/active-exam.config';
 
 // Replace these with your actual app IDs
-const APP_STORE_ID = '6754566955';
-const PLAY_STORE_ID = 'com.mhamada.telcb1german';
+const APP_STORE_ID = activeExamConfig.storeIds.ios;
+const PLAY_STORE_ID = activeExamConfig.storeIds.android;
 
 export const openAppRating = async (): Promise<boolean> => {
   try {
