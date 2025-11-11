@@ -3,6 +3,7 @@ import { StyleSheet, View, Platform } from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { activeExamConfig } from '../config/active-exam.config';
+import DeviceInfo from 'react-native-device-info';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -32,6 +33,8 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
     return null;
   }
 
+  const appVersion = DeviceInfo.getVersion();
+
   return (
     <View style={[styles.container, style]}>
       <BannerAd
@@ -47,11 +50,11 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
         }}
         onAdLoaded={() => {
           console.log('Banner ad loaded');
-          logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen });
+          logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen, version: appVersion });
         }}
         onAdFailedToLoad={(error) => {
           console.error('Banner ad failed to load:', error);
-          logEvent(AnalyticsEvents.BANNER_AD_FAILED, { screen, error_code: String((error as any)?.code || 'unknown') });
+          logEvent(AnalyticsEvents.BANNER_AD_FAILED, { screen, version: appVersion, error_code: String((error as any)?.code || 'unknown') });
         }}
       />
     </View>

@@ -215,7 +215,7 @@ const ExamStructureScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
+      {!HIDE_ADS && <AdBanner screen="exam-structure" />}
     </SafeAreaView>
   );
 };
