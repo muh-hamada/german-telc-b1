@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
@@ -33,7 +33,7 @@ interface Question {
 }
 
 const SpeakingB2Part3Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const route = useRoute<B2SpeakingPart3RouteProp>();
   const { questionId } = route.params;

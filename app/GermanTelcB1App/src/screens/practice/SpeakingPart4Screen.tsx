@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
@@ -16,7 +16,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 type SpeakingPart4RouteProp = RouteProp<HomeStackParamList, 'SpeakingPart4'>;
 
 const SpeakingPart4Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart4RouteProp>();
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(true);

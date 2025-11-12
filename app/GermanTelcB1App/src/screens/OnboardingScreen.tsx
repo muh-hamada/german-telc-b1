@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { StyleSheet } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { RootStackParamList } from '../types/navigation.types';
-import { colors, spacing, typography } from '../theme';
+import { spacing } from '../theme';
 import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
 import i18n from '../utils/i18n';
@@ -14,7 +13,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const handleLanguageChange = (lang: string) => {

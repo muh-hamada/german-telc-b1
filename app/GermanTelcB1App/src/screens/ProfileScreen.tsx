@@ -11,7 +11,7 @@ import {
   Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import DeviceInfo from 'react-native-device-info';
@@ -30,7 +30,7 @@ import FirestoreService from '../services/firestore.service';
 import { activeExamConfig } from '../config/active-exam.config';
 
 const ProfileScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<RouteProp<ProfileStackParamList, 'Profile'>>();
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList>>();
   const { user, signOut, isLoading: authLoading } = useAuth();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { colors, typography } from '../theme';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -10,7 +10,7 @@ import CompletionStatsScreen from '../screens/CompletionStatsScreen';
 const Stack = createStackNavigator<ProfileStackParamList>();
 
 const ProfileStackNavigator: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   return (
     <Stack.Navigator

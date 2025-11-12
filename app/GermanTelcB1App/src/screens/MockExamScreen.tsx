@@ -9,8 +9,8 @@ import {
   I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
 import { 
@@ -24,7 +24,7 @@ import { HIDE_ADS } from '../config/development.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const navigation = useNavigation<any>();
   const [isLoading, setIsLoading] = useState(true);
 

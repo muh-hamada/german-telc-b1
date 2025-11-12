@@ -11,7 +11,7 @@ import {
   I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -44,7 +44,7 @@ const STORAGE_KEY = '@speaking_part1_personal_info';
 const mandatoryFields = ['name', 'origin', 'livingSince'] as const;
 
 const SpeakingPart1Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
   

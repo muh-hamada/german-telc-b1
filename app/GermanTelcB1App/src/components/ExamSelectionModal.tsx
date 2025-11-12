@@ -8,7 +8,7 @@ import {
   ScrollView,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
 import { useCompletion } from '../contexts/CompletionContext';
@@ -40,7 +40,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   title,
   itemType,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const { getCompletionStatus, getStatsForPart } = useCompletion();
   
   const stats = getStatsForPart(examType, partNumber);

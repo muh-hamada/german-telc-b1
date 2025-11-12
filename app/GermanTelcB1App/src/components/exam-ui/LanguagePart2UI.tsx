@@ -9,7 +9,8 @@ import {
   I18nManager,
   Modal,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import { GrammarPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -20,7 +21,7 @@ interface LanguagePart2UIProps {
 }
 
 const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [gapId: number]: string }>({});
   const [showWordBank, setShowWordBank] = useState(false);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);

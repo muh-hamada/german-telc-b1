@@ -6,9 +6,9 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
-  SafeAreaView,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '../theme';
 import Button from './Button';
 
@@ -25,7 +25,7 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
   onClose,
   onHourSelect,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   // Popular notification times
   const popularHours = [

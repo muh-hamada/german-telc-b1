@@ -8,14 +8,16 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import dataService from '../services/data.service';
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
+import { useTranslation } from 'react-i18next';
 
 const ExamStructureScreen: React.FC = () => {
-  const { i18n, t } = useTranslation();
+  const { t } = useCustomTranslation();
+  const { i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [examInfoData, setExamInfoData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -123,7 +125,7 @@ const ExamStructureScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>📝 {getLocalizedText(examInfo.title)}</Text>
+          <Text style={styles.title}>📝 {removeTelcFromText(getLocalizedText(examInfo.title))}</Text>
           <View style={styles.overviewCard}>
             <View style={styles.overviewRow}>
               <Text style={styles.overviewLabel}>{t('examStructure.cefrLevel')}:</Text>

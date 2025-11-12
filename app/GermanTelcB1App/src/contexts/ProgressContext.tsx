@@ -415,12 +415,35 @@ export const useProgress = (): ProgressContextType => {
 
 // Utility hooks for specific progress data
 export const useExamProgress = (examType: string, examId: number) => {
-  const { getExamProgress, userProgress } = useProgress();
+  // Use useContext directly to handle cases where provider might not be ready during hot reload
+  const context = useContext(ProgressContext);
+  
+  // Return null if context is not available (e.g., during hot reload)
+  if (!context) {
+    return null;
+  }
+  
+  const { getExamProgress } = context;
   return getExamProgress(examType, examId);
 };
 
 export const useUserStats = () => {
-  const { userProgress } = useProgress();
+  // Use useContext directly to handle cases where provider might not be ready during hot reload
+  const context = useContext(ProgressContext);
+  
+  // Return default stats if context is not available (e.g., during hot reload)
+  if (!context) {
+    return {
+      totalExams: 0,
+      completedExams: 0,
+      totalScore: 0,
+      totalMaxScore: 0,
+      averageScore: 0,
+      completionRate: 0,
+    };
+  }
+  
+  const { userProgress } = context;
   
   if (!userProgress) {
     return {

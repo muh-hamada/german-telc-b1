@@ -9,7 +9,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
@@ -29,7 +29,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   onRetry,
   examTitle,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   if (!result) return null;
 
   console.log('-------------> result', result);

@@ -8,7 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-sound';
 import { colors, spacing, typography } from '../../theme';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -34,7 +34,7 @@ interface ListeningPart2UIProps {
 }
 
 const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetails, onComplete }) => {
-  const { i18n, t } = useTranslation();
+  const { i18n, t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);

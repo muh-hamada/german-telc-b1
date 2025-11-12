@@ -9,7 +9,7 @@ import {
   SafeAreaView,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
 interface LanguageSelectorModalProps {
@@ -39,7 +39,7 @@ const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
   onClose,
   onLanguageSelect,
 }) => {
-  const { i18n } = useTranslation();
+  const { i18n } = useCustomTranslation();
   const currentLanguage = i18n.language;
 
   const handleLanguageSelect = (languageCode: string) => {

@@ -21,7 +21,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { HomeStackParamList } from '../../types/navigation.types';
 
 type ListeningPart1RouteProp = RouteProp<HomeStackParamList, 'ListeningPart1'>;
@@ -42,7 +42,7 @@ const ListeningPart1Screen: React.FC = () => {
   const navigation = useNavigation();
   const route = useRoute<ListeningPart1RouteProp>();
   const { examId } = route.params;
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);

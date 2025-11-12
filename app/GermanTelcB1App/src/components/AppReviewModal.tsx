@@ -12,10 +12,8 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Platform,
-  Linking,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors } from '../theme';
 
 interface AppReviewModalProps {
@@ -31,7 +29,7 @@ const AppReviewModal: React.FC<AppReviewModalProps> = ({
   onRate,
   onDismiss,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   const handleRate = () => {
     onRate();
@@ -136,7 +134,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: colors.gray[900],
+    color: colors.gray[600],
     textAlign: 'center',
     marginBottom: 12,
   },

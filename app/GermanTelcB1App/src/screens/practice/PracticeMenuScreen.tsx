@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
@@ -18,14 +18,13 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showWritingModal, setShowWritingModal] = useState(false);
   const [writingExams, setWritingExams] = useState<any[]>([]);
 
   useEffect(() => {
     const loadWritingExams = async () => {
       const exams = await dataService.getWritingExams();
-      console.log('-----------------------', {exams})
       setWritingExams(exams);
     };
     loadWritingExams();

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
@@ -14,7 +14,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ListeningMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);

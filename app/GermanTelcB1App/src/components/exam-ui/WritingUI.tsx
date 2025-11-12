@@ -16,7 +16,8 @@ import {
   Dimensions,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
@@ -49,7 +50,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
   }) || TestIds.REWARDED;
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);

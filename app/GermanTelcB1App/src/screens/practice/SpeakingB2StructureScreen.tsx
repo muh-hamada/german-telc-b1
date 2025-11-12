@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import AdBanner from '../../components/AdBanner';
@@ -15,7 +15,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HIDE_ADS } from '../../config/development.config';
 
 const SpeakingB2StructureScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useCustomTranslation();
   
   const [activeTab, setActiveTab] = useState<'overview' | 'parts' | 'hints'>('overview');
   const [isLoading, setIsLoading] = useState(true);

@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
@@ -22,7 +22,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
 
 const WritingScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'Writing'>>();
   const navigation = useNavigation();
   const examId = route.params?.examId ?? 0;

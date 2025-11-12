@@ -8,7 +8,8 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import { ReadingPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -19,7 +20,7 @@ interface ReadingPart2UIProps {
 }
 
 const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {

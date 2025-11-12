@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { Text, I18nManager } from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
@@ -34,7 +34,7 @@ const Stack = createStackNavigator<HomeStackParamList>();
 
 // Header component for dynamic translations
 const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   return (
     <Text 
       style={{ 
@@ -52,7 +52,7 @@ const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
 };
 
 const HomeStackNavigator: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   
   // Common screen options for RTL support
   const screenOptions = {

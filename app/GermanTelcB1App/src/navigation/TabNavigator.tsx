@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MainTabParamList } from '../types/navigation.types';
-import { colors, spacing } from '../theme';
+import { colors } from '../theme';
 import HomeStackNavigator from './HomeStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
 import MockExamScreen from '../screens/MockExamScreen';
@@ -38,7 +38,7 @@ const HIDE_TAB_SCREENS = [
 ];
 
 const TabNavigator: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   const getTabBarStyle = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, I18nManager } from 'react-native';
-import { useTranslation } from 'react-i18next';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -9,11 +8,12 @@ import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 type OnboardingDisclaimerScreenProps = StackScreenProps<RootStackParamList, 'OnboardingDisclaimer'>;
 
 const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({ navigation }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [isChecked, setIsChecked] = useState(false);
 
   const handleContinue = async () => {

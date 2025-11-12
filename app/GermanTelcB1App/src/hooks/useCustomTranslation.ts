@@ -36,7 +36,7 @@ export function useCustomTranslation(): UseTranslationResponse<'translation', un
 /**
  * Removes "Telc" (case-insensitive) from text and cleans up extra spaces
  */
-function removeTelcFromText(text: string): string {
+export function removeTelcFromText(text: string): string {
     const withoutTelc = text.replace(/telc/ig, '');
     return withoutTelc.replace(/\s{2,}/g, ' ').trim();
 }

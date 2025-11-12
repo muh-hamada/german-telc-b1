@@ -11,8 +11,7 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import RNRestart from 'react-native-restart';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { colors, spacing, typography } from '../theme';
@@ -27,7 +26,7 @@ import FirestoreService from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 
 const SettingsScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useCustomTranslation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user } = useAuth();
   const [isClearing, setIsClearing] = useState(false);

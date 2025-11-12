@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  View,
   Text,
   StyleSheet,
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
@@ -27,7 +26,7 @@ type HomeScreenNavigationProp = CompositeNavigationProp<
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   const handleExamStructurePress = () => {
     logEvent(AnalyticsEvents.EXAM_STRUCTURE_OPENED);

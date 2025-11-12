@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
@@ -50,7 +50,7 @@ type ViewType = 'dialog' | 'vocab' | 'phrases';
 type SpeakingPart3ScreenRouteProp = RouteProp<{ params: { scenarioId: number } }, 'params'>;
 
 const SpeakingPart3Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart3ScreenRouteProp>();
   const navigation = useNavigation();
   const scenarioId = route.params?.scenarioId ?? 0;

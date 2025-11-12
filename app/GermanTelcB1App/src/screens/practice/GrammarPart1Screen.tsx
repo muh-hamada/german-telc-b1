@@ -7,7 +7,7 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
@@ -23,7 +23,7 @@ import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const GrammarPart1Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'GrammarPart1'>>();
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();

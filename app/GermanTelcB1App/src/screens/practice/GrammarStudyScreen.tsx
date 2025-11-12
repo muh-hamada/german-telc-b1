@@ -7,12 +7,10 @@ import {
   TouchableOpacity,
   Alert,
   ActivityIndicator,
-  ViewStyle,
-  TextStyle,
   I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import StorageService from '../../services/storage.service';
@@ -22,6 +20,7 @@ import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
 import dataService from '../../services/data.service';
+import { useTranslation } from 'react-i18next';
 
 interface GrammarQuestion {
   choice: string;
@@ -59,7 +58,9 @@ interface QuestionGroup {
 }
 
 const GrammarStudyScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useCustomTranslation();
+  const { i18n } = useTranslation();
+  
   const navigation = useNavigation();
 
   // Flatten all questions from all groups

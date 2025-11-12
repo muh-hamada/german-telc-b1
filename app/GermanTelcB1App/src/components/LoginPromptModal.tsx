@@ -8,7 +8,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import { useProgress } from '../contexts/ProgressContext';
@@ -25,7 +25,7 @@ const LoginPromptModal: React.FC<LoginPromptModalProps> = ({
   onClose,
   onLoginSuccess,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const { user } = useAuth();
   const { hasUnsyncedProgress } = useProgress();
   const [showLoginModal, setShowLoginModal] = useState(false);

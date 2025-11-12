@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
@@ -15,7 +15,7 @@ import { activeExamConfig } from '../../config/active-exam.config';
 
 const SpeakingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
   const [showPart4Modal, setShowPart4Modal] = useState(false);

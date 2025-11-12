@@ -4,10 +4,9 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
 interface Language {
@@ -33,7 +32,7 @@ interface LanguageSelectorProps {
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   onLanguageSelect,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const handleLanguageSelect = (languageCode: string) => {

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import Button from './Button';
 
@@ -24,7 +24,7 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
   onForgotPassword,
   loading = false,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

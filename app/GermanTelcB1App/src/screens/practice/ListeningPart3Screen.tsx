@@ -17,7 +17,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -41,7 +41,7 @@ const ListeningPart3Screen: React.FC = () => {
   const navigation = useNavigation();
   const route = useRoute<ListeningPart3RouteProp>();
   const { examId } = route.params;
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);

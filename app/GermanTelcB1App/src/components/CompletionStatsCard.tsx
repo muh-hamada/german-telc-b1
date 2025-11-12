@@ -5,7 +5,7 @@ import {
   StyleSheet,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
 import Button from './Button';
@@ -32,7 +32,7 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({
   showOnlyTop = false,
   onSeeAllStats 
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   const examSections: ExamSection[] = [
     { key: 'grammar', titleKey: 'practice.grammar.title', parts: [1, 2] },

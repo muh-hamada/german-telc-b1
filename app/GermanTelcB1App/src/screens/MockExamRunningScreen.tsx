@@ -33,7 +33,7 @@ import {
 } from '../services/mock-exam.service';
 import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { UserAnswer } from '../types/exam.types';
 
@@ -41,7 +41,7 @@ const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
   const [examProgress, setExamProgress] = useState<MockExamProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   
   useEffect(() => {
     loadProgress();

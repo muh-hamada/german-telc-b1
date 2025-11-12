@@ -10,7 +10,7 @@ import {
   Platform,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import SocialLoginButton from './SocialLoginButton';
@@ -29,7 +29,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   onSuccess,
   onFailure,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const {
     signInWithGoogle,
     signInWithFacebook,

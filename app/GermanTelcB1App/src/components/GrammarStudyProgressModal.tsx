@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
 interface GrammarStudyProgressModalProps {
@@ -27,7 +27,7 @@ const GrammarStudyProgressModal: React.FC<GrammarStudyProgressModalProps> = ({
   onStartOver,
   onClose,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   const handleStartOver = () => {
     Alert.alert(

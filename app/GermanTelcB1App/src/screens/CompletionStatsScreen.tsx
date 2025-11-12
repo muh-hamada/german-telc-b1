@@ -6,14 +6,14 @@ import {
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const CompletionStatsScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const { allStats, isLoading } = useCompletion();
   const { user } = useAuth();
 

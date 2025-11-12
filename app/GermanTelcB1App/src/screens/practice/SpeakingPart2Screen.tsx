@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Markdown from 'react-native-markdown-display';
@@ -42,7 +42,7 @@ interface Topic {
 type SpeakingPart2ScreenRouteProp = RouteProp<{ params: { topicId: number } }, 'params'>;
 
 const SpeakingPart2Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart2ScreenRouteProp>();
   const navigation = useNavigation();
   const topicId = route.params?.topicId ?? 0;

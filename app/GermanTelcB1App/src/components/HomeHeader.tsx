@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -36,19 +35,17 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
 
 const styles = StyleSheet.create({
   header: {
-    // backgroundColor: colors.primary[500],
-    paddingTop: spacing.padding['2xl'],
-    paddingBottom: spacing.padding.md,
-    paddingHorizontal: spacing.padding.md,
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    // minHeight: 80,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
+    paddingTop: spacing.padding[Platform.OS === 'ios' ? '3xl' : '2xl'],
+    paddingBottom: spacing.padding.md,
+    paddingHorizontal: spacing.padding.md,
   },
   title: {
     ...typography.textStyles.h3,

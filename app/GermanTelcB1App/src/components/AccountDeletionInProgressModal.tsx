@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import Button from './Button';
 
@@ -20,7 +20,7 @@ const AccountDeletionInProgressModal: React.FC<AccountDeletionInProgressModalPro
   visible,
   onClose,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   return (
     <Modal
