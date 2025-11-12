@@ -84,6 +84,10 @@ if [ "$PLATFORM" = "android" ]; then
 fi
 
 if [ "$PLATFORM" = "ios" ]; then
+  echo "✅ iOS configuration will be handled by scheme build settings"
+  echo "   Scheme-based configuration is active"
+  
+  # Copy the appropriate GoogleService-Info.plist for the build
   GOOGLE_PLIST_SOURCE="ios/GoogleService-Info.${EXAM_ID}.plist"
   GOOGLE_PLIST_TARGET="ios/GoogleService-Info.plist"
   
@@ -94,20 +98,6 @@ if [ "$PLATFORM" = "ios" ]; then
     echo "⚠️  Warning: $GOOGLE_PLIST_SOURCE not found"
     echo "   Using existing GoogleService-Info.plist (if any)"
   fi
-  
-  echo ""
-  echo "Cleaning Xcode build cache..."
-  rm -rf ~/Library/Developer/Xcode/DerivedData/GermanTelc*
-  rm -rf ios/build
-  echo "✅ Cleaned Xcode DerivedData and build folder"
-  
-  echo ""
-  echo "Running pod install to update iOS dependencies..."
-  cd ios
-  export LANG=en_US.UTF-8
-  pod install
-  cd ..
-  echo "✅ Pod install completed"
 fi
 
 echo ""

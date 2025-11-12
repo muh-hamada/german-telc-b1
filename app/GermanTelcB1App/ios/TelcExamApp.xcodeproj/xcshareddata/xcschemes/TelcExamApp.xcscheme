@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "GermanTelcB1App.app"
-               BlueprintName = "GermanTelcB1App"
-               ReferencedContainer = "container:GermanTelcB1App.xcodeproj">
+               BuildableName = "TelcExamApp.app"
+               BlueprintName = "TelcExamApp"
+               ReferencedContainer = "container:TelcExamApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GermanTelcB1AppTests.xctest"
-               BlueprintName = "GermanTelcB1AppTests"
-               ReferencedContainer = "container:GermanTelcB1App.xcodeproj">
+               BuildableName = "TelcExamAppTests.xctest"
+               BlueprintName = "TelcExamAppTests"
+               ReferencedContainer = "container:TelcExamApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GermanTelcB1App.app"
-            BlueprintName = "GermanTelcB1App"
-            ReferencedContainer = "container:GermanTelcB1App.xcodeproj">
+            BuildableName = "TelcExamApp.app"
+            BlueprintName = "TelcExamApp"
+            ReferencedContainer = "container:TelcExamApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GermanTelcB1App.app"
-            BlueprintName = "GermanTelcB1App"
-            ReferencedContainer = "container:GermanTelcB1App.xcodeproj">
+            BuildableName = "TelcExamApp.app"
+            BlueprintName = "TelcExamApp"
+            ReferencedContainer = "container:TelcExamApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -94,9 +94,9 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "GermanTelcB1App.app"
-                     BlueprintName = "GermanTelcB1App"
-                     ReferencedContainer = "container:GermanTelcB1App.xcodeproj">
+                     BuildableName = "TelcExamApp.app"
+                     BlueprintName = "TelcExamApp"
+                     ReferencedContainer = "container:TelcExamApp.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>

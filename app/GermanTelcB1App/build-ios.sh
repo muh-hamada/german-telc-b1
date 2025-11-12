@@ -17,12 +17,15 @@ if [ -z "$EXAM_ID" ]; then
   exit 1
 fi
 
+SCHEME_NAME="TelcExamApp"
+
 echo "================================================"
 echo "Building iOS App: $EXAM_ID"
+echo "Scheme: $SCHEME_NAME"
 echo "================================================"
 echo ""
 
-# Apply configuration
+# Apply configuration (generates active-exam.config.ts)
 ./scripts/build-config.sh "$EXAM_ID" ios
 
 # Run version check and exit if it fails
@@ -34,19 +37,12 @@ fi
 # Set environment variable
 export EXAM_ID="$EXAM_ID"
 
-# Get app name from iOS folder structure (dynamically detect the current app folder)
-APP_NAME=$(ls ios | grep -E "^\w+App$" | grep -v ".xcode" | head -n 1)
+APP_NAME="TelcExamApp"
 
-if [ -z "$APP_NAME" ]; then
-  echo "❌ Error: Could not detect iOS app folder"
-  exit 1
-fi
-
-echo "Detected app name: $APP_NAME"
-echo "Starting iOS archive for $APP_NAME..."
+echo "Starting iOS archive using scheme: $SCHEME_NAME..."
 xcodebuild -workspace ios/${APP_NAME}.xcworkspace \
-           -scheme ${APP_NAME} \
-           -configuration Release \
+           -scheme ${SCHEME_NAME} \
+           -configuration ${SCHEME_NAME}-Release \
            -sdk iphoneos \
            -archivePath ios/build/${APP_NAME}.xcarchive archive
 
@@ -75,8 +71,10 @@ fi
 
 echo ""
 echo "================================================"
-echo "✅ iOS build completed successfully for $EXAM_ID!"
+echo "✅ iOS build completed successfully!"
 echo "================================================"
+echo "   Exam: $EXAM_ID"
+echo "   Scheme: $SCHEME_NAME"
 echo "   IPA location: $IPA_PATH"
 echo ""
 echo "To upload to App Store Connect, run:"
