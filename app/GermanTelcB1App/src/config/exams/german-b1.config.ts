@@ -24,7 +24,7 @@ export const germanB1Config: ExamConfig = {
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'b1_telc_exam_data',              // Existing collection
-    userProgress: 'users/{uid}/progress',        // Existing structure
+    userProgress: 'users/{uid}/progress/data',   // Fixed: Must be 4 segments for .doc() to work
     completions: 'users/{uid}/completions',      // Backward compatible path
   },
   

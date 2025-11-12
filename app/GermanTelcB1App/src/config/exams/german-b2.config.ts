@@ -24,8 +24,8 @@ export const germanB2Config: ExamConfig = {
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'german_b2_telc_exam_data',              // Existing collection
-    userProgress: 'users/{uid}/german_b2_progress',        // Existing structure
-    completions: 'users/{uid}/completions/german_b2',      // Lang and level in path
+    userProgress: 'users/{uid}/german_b2_progress/data',   // Fixed: Must be 4 segments for .doc() to work
+    completions: 'users/{uid}/completions/german_b2',      // Lang and level in path (already 4 segments, correct)
   },
   
   // Exam Metadata (from existing exam-info.json)

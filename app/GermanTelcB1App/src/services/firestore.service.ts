@@ -131,6 +131,7 @@ class FirestoreService {
   async getUserProgress(uid: string): Promise<UserProgress | null> {
     try {
       const progressPath = this.getUserProgressPath(uid);
+      console.log('[FirestoreService] getUserProgress: Getting user progress for uid:', uid, 'progressPath:', progressPath);
       const doc = await firestore()
         .doc(progressPath)
         .get();
