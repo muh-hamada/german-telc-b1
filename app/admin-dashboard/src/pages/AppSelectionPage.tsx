@@ -37,32 +37,53 @@ export const AppSelectionPage: React.FC = () => {
 
       <main className="app-selection-main">
         <div className="selection-content">
-          <h2>Select an App to Manage</h2>
-          <p className="selection-subtitle">Choose which app's content you want to edit</p>
+          <div className="apps-section">
+            <h2>Select an App to Manage</h2>
+            <p className="selection-subtitle">Choose which app's content you want to edit</p>
 
-          <div className="apps-grid">
-            {apps.map((app: AppConfig) => (
-              <div
-                key={app.id}
-                className="app-card"
-                onClick={() => handleSelectApp(app.id)}
-              >
-                <div className="app-card-header">
-                  <h3>{app.displayName}</h3>
+            <div className="apps-grid">
+              {apps.map((app: AppConfig) => (
+                <div
+                  key={app.id}
+                  className="app-card"
+                  onClick={() => handleSelectApp(app.id)}
+                >
+                  <div className="app-card-header">
+                    <h3>{app.displayName}</h3>
+                  </div>
+                  <p className="app-description">{app.description}</p>
+                  <div className="app-collection-info">
+                    <span className="collection-label">Collection:</span>
+                    <code className="collection-name">{app.collectionName}</code>
+                  </div>
+                  <button className="btn-select">
+                    Manage Content →
+                  </button>
                 </div>
-                <p className="app-description">{app.description}</p>
-                <div className="app-collection-info">
-                  <span className="collection-label">Collection:</span>
-                  <code className="collection-name">{app.collectionName}</code>
-                </div>
-                <button className="btn-select">
-                  Manage Content →
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </main>
+
+      <hr className="separator" />
+
+      <div className="admin-actions-section">
+        <h2>Admin Actions</h2>
+        <div className="admin-actions-grid">
+          <div
+            className="admin-action-card deletion-requests"
+            onClick={() => navigate('/deletion-requests')}
+          >
+            <div className="admin-action-icon">🗑️</div>
+            <h3>Account Deletion Requests</h3>
+            <p>Manage user account deletion requests</p>
+            <button className="btn-action-select">
+              View Requests →
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

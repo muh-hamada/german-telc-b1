@@ -10,9 +10,9 @@ export type ExamLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 
 export interface ExamConfig {
   // Basic Identity
-  id: string;
-  language: ExamLanguage;
-  level: ExamLevel;
+  id: string; // e.g., "german-b1"
+  language: ExamLanguage; // e.g., "german"
+  level: ExamLevel; // e.g., "B1"
   
   // App Identity (for build configuration)
   appName: string;           // e.g., "GermanTelcB1"

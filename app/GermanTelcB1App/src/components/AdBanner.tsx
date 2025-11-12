@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -26,6 +26,9 @@ interface AdBannerProps {
  * AdBanner Component
  * Displays a Google AdMob banner ad
  * Uses test ads in development and should use real ads in production
+ * 
+ * Optimized with React.memo and useMemo to prevent unnecessary re-renders
+ * and reduce excessive ad requests that can cause "no-fill" errors.
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   // Hide ads in ios until the first version is released
@@ -33,29 +36,42 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
     return null;
   }
 
-  const appVersion = DeviceInfo.getVersion();
+  // Memoize app version to prevent recalculation on every render
+  const appVersion = useMemo(() => DeviceInfo.getVersion(), []);
+
+  // Memoize callbacks to prevent BannerAd from re-rendering unnecessarily
+  const handleAdLoaded = useMemo(() => {
+    return () => {
+      console.log('Banner ad loaded');
+      logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen, version: appVersion });
+    };
+  }, [screen, appVersion]);
+
+  const handleAdFailedToLoad = useMemo(() => {
+    return (error: any) => {
+      console.error('Banner ad failed to load:', error);
+      logEvent(AnalyticsEvents.BANNER_AD_FAILED, { 
+        screen, 
+        version: appVersion, 
+        error_code: String(error?.code || 'unknown') 
+      });
+    };
+  }, [screen, appVersion]);
 
   return (
     <View style={[styles.container, style]}>
       <BannerAd
+        key={`banner-${screen || 'default'}`}
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true, // TODO: serve personalized ads in the future
-          networkExtras: {
-            // TODO: enabled collapsible again but in specific screens only
-            // Today it's disabled globally because it's very annoying in some screens
-            // collapsible: 'bottom',
-          },
+          // TODO: enabled collapsible again but in specific screens only
+          // Today it's disabled globally because it's very annoying in some screens
+          networkExtras: {},
         }}
-        onAdLoaded={() => {
-          console.log('Banner ad loaded');
-          logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen, version: appVersion });
-        }}
-        onAdFailedToLoad={(error) => {
-          console.error('Banner ad failed to load:', error);
-          logEvent(AnalyticsEvents.BANNER_AD_FAILED, { screen, version: appVersion, error_code: String((error as any)?.code || 'unknown') });
-        }}
+        onAdLoaded={handleAdLoaded}
+        onAdFailedToLoad={handleAdFailedToLoad}
       />
     </View>
   );
@@ -69,5 +85,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdBanner;
+// Wrap with React.memo to prevent re-renders when props haven't changed
+export default React.memo(AdBanner);
 

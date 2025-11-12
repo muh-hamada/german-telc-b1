@@ -24,10 +24,10 @@ import { useAuth } from '../contexts/AuthContext';
 import { checkRTLChange } from '../utils/i18n';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
+import FCMService from '../services/fcm.service';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const navigation = useNavigation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user } = useAuth();
   const [isClearing, setIsClearing] = useState(false);
@@ -261,11 +261,37 @@ const SettingsScreen: React.FC = () => {
   };
 
   const handleNotificationToggle = async (value: boolean) => {
+    if (!user?.uid) {
+      Alert.alert(t('common.error'), t('settings.signInToSaveSettings'));
+      return;
+    }
+
     if (value) {
       // Request permission first
       const hasPermission = await requestNotificationPermission();
       if (!hasPermission) {
         return; // Don't enable if permission denied
+      }
+
+      // Register FCM token
+      try {
+        await FCMService.initialize(user.uid);
+        console.log('FCM token registered successfully');
+      } catch (error) {
+        console.error('Error registering FCM token:', error);
+        Alert.alert(
+          t('common.error'),
+          'Failed to register device for notifications. Please try again.'
+        );
+        return;
+      }
+    } else {
+      // Unregister FCM token
+      try {
+        await FCMService.unregisterToken(user.uid);
+        console.log('FCM token unregistered successfully');
+      } catch (error) {
+        console.error('Error unregistering FCM token:', error);
       }
     }
 

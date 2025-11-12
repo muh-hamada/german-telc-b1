@@ -6,6 +6,7 @@ import { LoginPage } from './pages/LoginPage';
 import { AppSelectionPage } from './pages/AppSelectionPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { EditorPage } from './pages/EditorPage';
+import { DeletionRequestsPage } from './pages/DeletionRequestsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -37,6 +38,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <EditorPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/deletion-requests"
+            element={
+              <ProtectedRoute>
+                <DeletionRequestsPage />
               </ProtectedRoute>
             }
           />

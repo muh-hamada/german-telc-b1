@@ -72,7 +72,6 @@ const MockExamRunningScreen: React.FC = () => {
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner screen="mock-exam-loading" />}
       </SafeAreaView>
     );
   }

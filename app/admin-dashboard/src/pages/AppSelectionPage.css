@@ -21,7 +21,6 @@
 }
 
 .app-selection-main {
-  flex: 1;
   padding: 3rem 2rem;
   display: flex;
   justify-content: center;
@@ -31,6 +30,89 @@
 .selection-content {
   max-width: 1200px;
   width: 100%;
+}
+
+.admin-actions-section {
+  margin-bottom: 4rem;
+}
+
+.admin-actions-section h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.admin-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.admin-action-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.admin-action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.admin-action-card.deletion-requests {
+  border-top: 4px solid #f44336;
+}
+
+.admin-action-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.admin-action-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.admin-action-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.btn-action-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action-select:hover {
+  background: #da190b;
+  transform: scale(1.02);
+}
+
+.apps-section h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
 }
 
 .selection-content h2 {
@@ -147,6 +229,12 @@
 .btn-select:hover {
   opacity: 0.9;
   transform: scale(1.02);
+}
+
+.separator {
+  border-top: 1px solid #6505a5;
+  border-bottom: 1px solid #c670ff;
+  margin: 2rem 20%;
 }
 
 /* Responsive */

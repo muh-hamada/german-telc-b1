@@ -33,35 +33,61 @@ service cloud.firestore {
     
     // User profiles
     // Users can only read/write their own profile
+    // Admin can read all profiles
     match /users/{userId} {
-      allow read: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && 
+                    (request.auth.uid == userId || 
+                     request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
       allow write: if request.auth != null && request.auth.uid == userId;
       
-      // User progress data (legacy - nested under users)
+      // User progress data (B1 - nested under users)
       match /progress/{document=**} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // User progress data (B2 - nested under users)
+      match /german_b2_progress/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
       }
       
       // User exam results (legacy - nested under users)
       match /examResults/{document=**} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
       }
       
-      // User completions
+      // User completions (B1)
       // Allow users to read/write their own completion data
-      match /completions/{examType}/{partNumber}/{examId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Admin can read all completions
+      match /completions/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
       }
     }
     
     // Account deletion requests
     // Users can only read and create their own deletion request
+    // Admin can read and update all deletion requests
     match /account_deletion_requests/{userId} {
-      allow read: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && 
+                    (request.auth.uid == userId || 
+                     request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
       allow create: if request.auth != null 
                     && request.auth.uid == userId
                     && request.auth.uid == request.resource.data.uid
                     && request.resource.data.status == 'pending';
+      allow update: if request.auth != null && 
+                      request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
   }
 }

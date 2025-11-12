@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, ReactNode } fr
 import { User, AuthError } from '../services/auth.service';
 import AuthService from '../services/auth.service';
 import FirestoreService from '../services/firestore.service';
+import FCMService from '../services/fcm.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 // Auth Context Types
@@ -86,6 +87,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         try {
           // Create or update user profile in Firestore
           await FirestoreService.createUserProfile(user);
+          
+          // Check if user has notifications enabled and register FCM token
+          const userSettings = await FirestoreService.getUserSettings(user.uid);
+          if (userSettings?.notificationSettings?.enabled) {
+            try {
+              await FCMService.initialize(user.uid);
+              console.log('[AuthContext] FCM token registered for user');
+            } catch (fcmError) {
+              console.error('[AuthContext] Error registering FCM token:', fcmError);
+              // Don't block auth flow if FCM fails
+            }
+          }
         } catch (error) {
           console.error('[AuthContext] Error creating user profile:', error);
         }

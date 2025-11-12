@@ -112,7 +112,6 @@ const WritingScreen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner screen="writing-loading" />}
       </SafeAreaView>
     );
   }
@@ -123,7 +122,6 @@ const WritingScreen: React.FC = () => {
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner screen="writing-error" />}
       </SafeAreaView>
     );
   }

@@ -3,13 +3,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { colors, spacing, typography } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 interface HomeHeaderProps {
   // You can add props here if needed in the future
 }
 
 const HomeHeader: React.FC<HomeHeaderProps> = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
 
   return (
     <LinearGradient

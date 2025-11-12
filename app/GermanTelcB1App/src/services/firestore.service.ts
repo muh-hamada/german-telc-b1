@@ -470,7 +470,7 @@ class FirestoreService {
   }
 
   // Account Deletion Requests
-  async createDeletionRequest(uid: string, email: string): Promise<void> {
+  async createDeletionRequest(uid: string, email: string, appId: string, appName: string): Promise<void> {
     try {
       await firestore()
         .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
@@ -478,6 +478,8 @@ class FirestoreService {
         .set({
           uid,
           email,
+          appId,
+          appName,
           requestedAt: Timestamp.fromDate(new Date()),
           status: 'pending',
         });
@@ -494,9 +496,58 @@ class FirestoreService {
         .doc(uid)
         .get();
 
-      return doc.exists && doc.data()?.status === 'pending';
+      return doc.exists() && doc.data()?.status === 'pending';
     } catch (error) {
       console.error('Error checking deletion request:', error);
+      throw error;
+    }
+  }
+
+  // FCM Token Management
+  async saveFCMToken(uid: string, token: string, platform: 'ios' | 'android'): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .set({
+          fcmToken: {
+            token,
+            updatedAt: Timestamp.fromDate(new Date()),
+            platform,
+          },
+        }, { merge: true });
+      console.log('FCM token saved successfully');
+    } catch (error) {
+      console.error('Error saving FCM token:', error);
+      throw error;
+    }
+  }
+
+  async removeFCMToken(uid: string): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .update({
+          fcmToken: firestore.FieldValue.delete(),
+        });
+      console.log('FCM token removed successfully');
+    } catch (error) {
+      console.error('Error removing FCM token:', error);
+      throw error;
+    }
+  }
+
+  async getFCMToken(uid: string): Promise<string | null> {
+    try {
+      const doc = await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .get();
+
+      return doc.data()?.fcmToken?.token || null;
+    } catch (error) {
+      console.error('Error getting FCM token:', error);
       throw error;
     }
   }

@@ -27,6 +27,7 @@ import { useCompletion } from '../contexts/CompletionContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const ProfileScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -133,9 +134,13 @@ const ProfileScreen: React.FC = () => {
   const handleConfirmDeleteAccount = async () => {
     if (!user) return;
 
+
+    const appId = activeExamConfig.id;
+    const appName = activeExamConfig.appName;
+
     setIsDeletingAccount(true);
     try {
-      await FirestoreService.createDeletionRequest(user.uid, user.email || '');
+      await FirestoreService.createDeletionRequest(user.uid, user.email || '', appId, appName);
       logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CONFIRMED);
       // Modal will show success step automatically
     } catch (error) {
@@ -343,6 +348,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
+    ...spacing.shadow.sm,
   },
   avatar: {
     width: 60,
