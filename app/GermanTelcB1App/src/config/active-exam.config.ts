@@ -2,7 +2,7 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2025-11-12T15:58:29.638Z
+ * Generated at: 2025-11-12T17:31:48.903Z
  * Exam: German TELC B1
  * 
  * This file determines which exam configuration is active for the current build.
@@ -41,6 +41,4 @@ if (__DEV__) {
   console.log('[ExamConfig] Active exam:', activeExamConfig.displayName);
   console.log('[ExamConfig] Exam ID:', activeExamConfig.id);
   console.log('[ExamConfig] Firebase collection:', activeExamConfig.firebaseCollections.examData);
-  console.log('[ExamConfig] User progress path template:', activeExamConfig.firebaseCollections.userProgress);
-  console.log('[ExamConfig] Completions path template:', activeExamConfig.firebaseCollections.completions);
 }

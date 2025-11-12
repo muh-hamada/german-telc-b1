@@ -16,10 +16,10 @@
 	<string>automatic</string>
 	<key>destination</key>
 	<string>export</string>
-	<key>provisioningProfiles</key>
-	<dict/>
 	<key>signingCertificate</key>
 	<string>Apple Distribution</string>
+	<key>teamID</key>
+	<string>5UXC4BSKQ7</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>thinning</key>
