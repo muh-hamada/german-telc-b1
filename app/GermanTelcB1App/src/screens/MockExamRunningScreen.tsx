@@ -35,6 +35,7 @@ import { HIDE_ADS } from '../config/development.config';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { UserAnswer } from '../types/exam.types';
+import AdBanner from '../components/AdBanner';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -289,15 +290,20 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   if (examProgress.isCompleted) {
-    return (
-      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-        {renderResults()}
+  return (
+    <SafeAreaView style={styles.container} edges={['top']}>
+      {renderResults()}
+      
+      {/* Persistent Banner at Bottom */}
+      <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
+        <AdBanner screen="mock-exam-results" />
       </SafeAreaView>
-    );
-  }
+    </SafeAreaView>
+  );
+}
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Fixed Stepper at Top */}
       <ExamStepper steps={examProgress.steps} currentStepId={examProgress.currentStepId} />
 
@@ -318,6 +324,11 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
+
+      {/* Persistent Banner at Bottom */}
+      <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
+        <AdBanner screen="mock-exam-running" />
+      </SafeAreaView>
     </SafeAreaView>
   );
 };
@@ -585,6 +596,11 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.background.secondary,
     fontWeight: typography.fontWeight.bold,
+  },
+  bannerContainer: {
+    backgroundColor: colors.background.primary,
+    borderTopWidth: 1,
+    borderTopColor: colors.secondary[100],
   },
 });
 
