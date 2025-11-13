@@ -6,9 +6,9 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
-  SafeAreaView,
   I18nManager,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
