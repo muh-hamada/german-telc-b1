@@ -288,6 +288,14 @@
     "rateButton": "⭐ App bewerten",
     "laterButton": "Vielleicht später"
   },
+  "notificationReminder": {
+    "title": "Bleiben Sie mit täglichen Erinnerungen auf Kurs",
+    "message": "Erhalten Sie eine freundliche tägliche Benachrichtigung, die Ihnen hilft, regelmäßig zu üben und Ihre deutschen Sprachziele zu erreichen!",
+    "enableButton": "Benachrichtigungen aktivieren",
+    "maybeLaterButton": "Vielleicht später",
+    "hourPickerTitle": "Wählen Sie Ihre bevorzugte Erinnerungszeit",
+    "enabledSuccessMessage": "Benachrichtigungen aktiviert! Sie erhalten tägliche Erinnerungen zu Ihrer gewählten Zeit."
+  },
   "mockExam": {
     "title": "Probe-Prüfung",
     "subtitle": "Telc Deutsch B1 Vollständige Prüfung",

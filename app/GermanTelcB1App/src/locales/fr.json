@@ -511,6 +511,14 @@
     "rateButton": "⭐ Noter l'application",
     "laterButton": "Peut-être plus tard"
   },
+  "notificationReminder": {
+    "title": "Restez sur la bonne voie avec des rappels quotidiens",
+    "message": "Recevez une notification quotidienne amicale pour vous aider à pratiquer régulièrement et atteindre vos objectifs en allemand!",
+    "enableButton": "Activer les notifications",
+    "maybeLaterButton": "Peut-être plus tard",
+    "hourPickerTitle": "Choisissez votre heure de rappel préférée",
+    "enabledSuccessMessage": "Notifications activées! Vous recevrez des rappels quotidiens à l'heure choisie."
+  },
   "mockExam": {
     "title": "Examen blanc",
     "subtitle": "Examen complet Telc Allemand B1",

@@ -86,6 +86,12 @@ export const AnalyticsEvents = {
   SETTINGS_NOTIFICATION_TIME_CHANGED: 'settings_notification_time_changed',
   SETTINGS_AD_CONSENT_OPENED: 'settings_ad_consent_opened',
   SETTINGS_AD_CONSENT_UPDATED: 'settings_ad_consent_updated',
+  
+  // Notification Reminder
+  NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',
+  NOTIFICATION_REMINDER_ENABLED: 'notification_reminder_enabled',
+  NOTIFICATION_REMINDER_MAYBE_LATER: 'notification_reminder_maybe_later',
+  NOTIFICATION_REMINDER_PERMISSION_DENIED: 'notification_reminder_permission_denied',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

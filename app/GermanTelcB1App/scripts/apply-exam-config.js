@@ -48,6 +48,7 @@ try {
       language: 'german',
       level: 'B1',
       appName: 'GermanTelcB1App',
+      iosAppName: 'TelcExamApp',
       displayName: 'German TELC B1',
       admob: {
         androidAppId: 'ca-app-pub-5101905792101482~1016049874',
@@ -67,6 +68,7 @@ try {
       language: 'german',
       level: 'B2',
       appName: 'GermanTelcB2App',
+      iosAppName: 'TelcExamApp',
       displayName: 'German TELC B2',
       admob: {
         androidAppId: 'ca-app-pub-5101905792101482~5846015787',
@@ -86,6 +88,7 @@ try {
       language: 'english',
       level: 'B1',
       appName: 'EnglishTelcB1App',
+      iosAppName: 'TelcExamApp',
       displayName: 'English TELC B1',
       admob: {
         androidAppId: '',
@@ -134,7 +137,7 @@ function updateAppJson(config) {
   try {
     const appJson = JSON.parse(fs.readFileSync(appJsonPath, 'utf8'));
     
-    appJson.name = config.appName;
+    appJson.name = platform === 'android' ? config.appName : config.iosAppName;
     appJson.displayName = config.displayName;
     appJson["react-native-google-mobile-ads"].android_app_id = config.admob.androidAppId;
     appJson["react-native-google-mobile-ads"].ios_app_id = config.admob.iosAppId;

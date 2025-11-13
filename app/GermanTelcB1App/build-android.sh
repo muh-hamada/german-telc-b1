@@ -53,7 +53,7 @@ echo "Flavor: $FLAVOR"
 echo "================================================"
 echo ""
 
-# Apply configuration (for iOS builds and app.json)
+# Apply configuration (for Android builds and app.json)
 ./scripts/build-config.sh "$EXAM_ID" android
 
 # Run version check and exit if it fails

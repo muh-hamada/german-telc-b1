@@ -8,7 +8,9 @@ import { ProgressProvider } from './src/contexts/ProgressContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
+import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
 import ReviewModalContainer from './src/components/ReviewModalContainer';
+import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
@@ -66,13 +68,16 @@ const App: React.FC = () => {
     <SafeAreaProvider>
       <ReviewProvider>
         <AuthProvider>
-          <ProgressProvider>
-            <CompletionProvider>
-              <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-              <RootNavigator />
-              <ReviewModalContainer />
-            </CompletionProvider>
-          </ProgressProvider>
+          <NotificationReminderProvider>
+            <ProgressProvider>
+              <CompletionProvider>
+                <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                <RootNavigator />
+                <ReviewModalContainer />
+                <NotificationReminderModalContainer />
+              </CompletionProvider>
+            </ProgressProvider>
+          </NotificationReminderProvider>
         </AuthProvider>
       </ReviewProvider>
     </SafeAreaProvider>

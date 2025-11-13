@@ -34,7 +34,7 @@ interface AdBannerProps {
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   // Hide ads in ios until the first version is released
   if (Platform.OS === 'ios') {
-    return null;
+    // return null;
   }
 
   // Memoize app version to prevent recalculation on every render

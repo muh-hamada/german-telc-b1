@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, StyleSheet, AppState } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -11,6 +11,8 @@ import HomeStackNavigator from './HomeStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
 import MockExamScreen from '../screens/MockExamScreen';
 import AdBanner from '../components/AdBanner';
+import { useNotificationReminder } from '../contexts/NotificationReminderContext';
+import notificationReminderService from '../services/notification-reminder.service';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -71,6 +73,55 @@ const CustomTabBar = (props: any) => {
 
 const TabNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
+  const { checkAndShowReminder } = useNotificationReminder();
+  const appState = useRef(AppState.currentState);
+
+  // Check for notification reminder triggers on mount and app foreground
+  useEffect(() => {
+    // Check on mount (handles onboarding completion and app launch)
+    const checkReminder = async () => {
+      try {
+        // Get first launch date to determine which trigger to use
+        const stats = await notificationReminderService.getReminderStats();
+        
+        if (!stats.firstLaunchDate) {
+          // First time ever - check if coming from onboarding
+          await checkAndShowReminder('onboarding');
+        } else {
+          // Not first time - check if 2 days have passed or cooldown expired
+          const daysSinceInstall = stats.daysSinceInstall || 0;
+          
+          if (daysSinceInstall >= 2) {
+            // It's been 2+ days since install, use that trigger
+            await checkAndShowReminder('two_days_after_install');
+          } else {
+            // Check regular app launch trigger (respects cooldown)
+            await checkAndShowReminder('app_launch');
+          }
+        }
+      } catch (error) {
+        console.error('[TabNavigator] Error checking notification reminder:', error);
+      }
+    };
+
+    checkReminder();
+
+    // Listen for app state changes (foreground/background)
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === 'active'
+      ) {
+        // App came to foreground, check reminder again
+        checkReminder();
+      }
+      appState.current = nextAppState;
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, [checkAndShowReminder]);
 
   return (
     <Tab.Navigator

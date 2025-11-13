@@ -288,6 +288,14 @@
     "rateButton": "⭐ Rate the App",
     "laterButton": "Maybe Later"
   },
+  "notificationReminder": {
+    "title": "Stay on Track with Daily Reminders",
+    "message": "Get a friendly daily notification to help you practice regularly and achieve your German language goals!",
+    "enableButton": "Enable Notifications",
+    "maybeLaterButton": "Maybe Later",
+    "hourPickerTitle": "Choose your preferred reminder time",
+    "enabledSuccessMessage": "Notifications enabled! You'll receive daily reminders at your chosen time."
+  },
   "mockExam": {
     "title": "Mock Exam",
     "overview": "Exam Overview",

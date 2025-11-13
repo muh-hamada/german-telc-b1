@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android:german-b1": "react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
-    "android:german-b2": "react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
-    "android:english-b1": "react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",
+    "android:german-b1": "./scripts/build-config.sh german-b1 android && react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
+    "android:german-b2": "./scripts/build-config.sh german-b2 android && react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
+    "android:english-b1": "./scripts/build-config.sh english-b1 android && react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",
     "ios:pods": "cd ios && rm -rf build && rm -rf ~/Library/Developer/Xcode/DerivedData/TelcExamApp-* && pod install && cd ..",
     "ios:german-b1": "./scripts/build-config.sh german-b1 ios && react-native run-ios --scheme TelcExamApp",
     "ios:german-b2": "./scripts/build-config.sh german-b2 ios && react-native run-ios --scheme TelcExamApp",
@@ -21,10 +21,7 @@
     "build:android:apk:english-b1": "./build-android.sh english-b1 apk",
     "build:ios:german-b1": "./build-ios.sh german-b1",
     "build:ios:german-b2": "./build-ios.sh german-b2",
-    "build:ios:english-b1": "./build-ios.sh english-b1",
-    "config:german-b1": "./scripts/build-config.sh german-b1 android && ./scripts/build-config.sh german-b1 ios",
-    "config:german-b2": "./scripts/build-config.sh german-b2 android && ./scripts/build-config.sh german-b2 ios",
-    "config:english-b1": "./scripts/build-config.sh english-b1 android && ./scripts/build-config.sh english-b1 ios"
+    "build:ios:english-b1": "./build-ios.sh english-b1"
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.4.1",
