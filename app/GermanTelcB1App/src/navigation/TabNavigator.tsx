@@ -38,6 +38,10 @@ const HIDE_TAB_SCREENS = [
   'ExamStructure',
   'Settings',
   'CompletionStats',
+  'B2SpeakingStructure',
+  'B2SpeakingPart1',
+  'B2SpeakingPart2',
+  'B2SpeakingPart3',
 ];
 
 /**

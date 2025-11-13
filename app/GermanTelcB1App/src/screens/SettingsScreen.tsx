@@ -10,7 +10,6 @@ import {
   Linking,
   PermissionsAndroid,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import RNRestart from 'react-native-restart';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
@@ -413,7 +412,7 @@ const SettingsScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Language Section */}
         <View style={styles.section}>
@@ -537,7 +536,7 @@ const SettingsScreen: React.FC = () => {
         onClose={() => setShowHourPicker(false)}
         onHourSelect={handleHourSelect}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
