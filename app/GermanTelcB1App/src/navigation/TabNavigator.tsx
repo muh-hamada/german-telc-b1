@@ -1,5 +1,7 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -8,6 +10,7 @@ import { colors } from '../theme';
 import HomeStackNavigator from './HomeStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
 import MockExamScreen from '../screens/MockExamScreen';
+import AdBanner from '../components/AdBanner';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -37,21 +40,41 @@ const HIDE_TAB_SCREENS = [
   'CompletionStats',
 ];
 
+/**
+ * Custom Tab Bar component with persistent banner above it
+ * This is the clean, proper way using React Navigation's tabBar prop
+ */
+const CustomTabBar = (props: any) => {
+  // Check if current route should hide the tab bar
+  const routeName = props.state?.routes[props.state.index]?.state?.routes?.[
+    props.state.routes[props.state.index]?.state?.index ?? 0
+  ]?.name;
+  
+  const shouldHide = routeName && HIDE_TAB_SCREENS.includes(routeName);
+  
+  // Hide both banner and tab bar together
+  if (shouldHide) {
+    return null;
+  }
+  
+  return (
+    <View>
+      {/* Banner above tab bar */}
+      <View style={styles.bannerContainer}>
+        <AdBanner screen="main-tabs" />
+      </View>
+      {/* Standard React Navigation tab bar */}
+      <BottomTabBar {...props} />
+    </View>
+  );
+};
+
 const TabNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
 
-  const getTabBarStyle = (route: any) => {
-    const routeName = getFocusedRouteNameFromRoute(route);
-    
-    if (routeName && HIDE_TAB_SCREENS.includes(routeName)) {
-      return { display: 'none' as 'none' };
-    }
-
-    return {};
-  };
-
   return (
     <Tab.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.primary[500],
@@ -65,13 +88,12 @@ const TabNavigator: React.FC = () => {
       <Tab.Screen
         name="HomeStack"
         component={HomeStackNavigator}
-        options={({ route }) => ({
+        options={{
           tabBarLabel: t('navigation.home'),
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" size={size} color={color} />
           ),
-          tabBarStyle: getTabBarStyle(route),
-        })}
+        }}
       />
       <Tab.Screen
         name="MockExam"
@@ -86,16 +108,23 @@ const TabNavigator: React.FC = () => {
       <Tab.Screen
         name="ProfileStack"
         component={ProfileStackNavigator}
-        options={({ route }) => ({
+        options={{
           tabBarLabel: t('navigation.profile'),
           tabBarIcon: ({ color, size }) => (
             <Icon name="person" size={size} color={color} />
           ),
-          tabBarStyle: getTabBarStyle(route),
-        })}
+        }}
       />
     </Tab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  bannerContainer: {
+    backgroundColor: colors.background.primary,
+    borderTopWidth: 4,
+    borderTopColor: colors.secondary[100],
+  },
+});
 
 export default TabNavigator;

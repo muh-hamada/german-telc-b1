@@ -12,7 +12,6 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
@@ -126,7 +125,6 @@ const ReadingMenuScreen: React.FC = () => {
         title={t('practice.reading.part3')}
       />
 
-      {!HIDE_ADS && <AdBanner screen="reading-menu" />}
     </SafeAreaView>
   );
 };

@@ -16,7 +16,6 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -145,7 +144,6 @@ const ReadingPart2Screen: React.FC = () => {
         examTitle={`Reading Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner screen="reading-part2" />}
     </SafeAreaView>
   );
 };

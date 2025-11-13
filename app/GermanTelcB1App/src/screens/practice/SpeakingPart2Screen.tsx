@@ -16,7 +16,6 @@ import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
@@ -245,7 +244,6 @@ const SpeakingPart2Screen: React.FC = () => {
           {renderDiscussion()}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner screen="speaking-part2" />}
     </SafeAreaView>
   );
 };

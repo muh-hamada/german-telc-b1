@@ -16,7 +16,6 @@ import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -129,7 +128,6 @@ const WritingScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <WritingUI exam={currentExam} onComplete={handleComplete} />
-      {!HIDE_ADS && <AdBanner screen="writing" />}
     </SafeAreaView>
   );
 };

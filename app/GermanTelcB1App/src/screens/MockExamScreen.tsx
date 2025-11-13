@@ -19,7 +19,6 @@ import {
   createInitialMockExamProgress,
   saveMockExamProgress,
 } from '../services/mock-exam.service';
-import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
@@ -222,7 +221,6 @@ const MockExamScreen: React.FC = () => {
           {t('mockExam.goodLuck')}
         </Text>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner screen="mock-exam" />}
     </SafeAreaView>
   );
 };

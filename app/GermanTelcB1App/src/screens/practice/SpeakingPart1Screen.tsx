@@ -18,7 +18,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HIDE_ADS } from '../../config/development.config';
 
@@ -658,7 +657,6 @@ const SpeakingPart1Screen: React.FC = () => {
 
       {renderEditModal()}
       {renderInfoModal()}
-      {!HIDE_ADS && <AdBanner screen="speaking-part1" />}
     </SafeAreaView>
   );
 };

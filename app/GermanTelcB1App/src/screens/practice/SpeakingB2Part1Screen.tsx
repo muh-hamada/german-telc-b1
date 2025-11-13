@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackParamList } from '../../types/navigation.types';
@@ -194,7 +193,6 @@ const SpeakingB2Part1Screen: React.FC = () => {
       {activeTab === 'presentation' && renderPresentationTab()}
       {activeTab === 'discussion' && renderDiscussionTab()}
 
-      {!HIDE_ADS && <AdBanner screen="speaking-b2-part1" />}
     </SafeAreaView>
   );
 };

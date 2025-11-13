@@ -8,7 +8,6 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
@@ -251,7 +250,6 @@ const SpeakingMenuScreen: React.FC = () => {
         title={t('speaking.b2Part3.title')}
       />
 
-      {!HIDE_ADS && <AdBanner screen="speaking-menu" />}
     </SafeAreaView>
   );
 };

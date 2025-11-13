@@ -10,7 +10,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HIDE_ADS } from '../../config/development.config';
 
@@ -190,7 +189,6 @@ const SpeakingB2StructureScreen: React.FC = () => {
       {activeTab === 'parts' && renderPartsTab()}
       {activeTab === 'hints' && renderHintsTab()}
 
-      {!HIDE_ADS && <AdBanner screen="speaking-b2-structure" />}
     </SafeAreaView>
   );
 };

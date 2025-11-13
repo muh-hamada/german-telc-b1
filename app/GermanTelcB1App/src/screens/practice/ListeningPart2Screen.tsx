@@ -10,7 +10,6 @@ import {
 import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -159,7 +158,6 @@ const ListeningPart2Screen: React.FC = () => {
         examTitle={`Listening Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner screen="listening-part2" />}
     </SafeAreaView>
   );
 };

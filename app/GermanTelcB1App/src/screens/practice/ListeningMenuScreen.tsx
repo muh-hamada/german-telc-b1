@@ -8,7 +8,6 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
@@ -129,7 +128,6 @@ const ListeningMenuScreen: React.FC = () => {
         title={t('practice.listening.part3')}
       />
 
-      {!HIDE_ADS && <AdBanner screen="listening-menu" />}
     </SafeAreaView>
   );
 };

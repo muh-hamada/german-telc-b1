@@ -11,7 +11,6 @@ import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserAnswer } from '../../types/exam.types';
@@ -161,7 +160,6 @@ const ListeningPart1Screen: React.FC = () => {
         examTitle={`Listening Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner screen="listening-part1" />}
     </SafeAreaView>
   );
 };

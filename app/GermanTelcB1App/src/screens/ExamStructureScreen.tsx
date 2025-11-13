@@ -11,7 +11,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import dataService from '../services/data.service';
-import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
 import { useTranslation } from 'react-i18next';
 
@@ -217,7 +216,6 @@ const ExamStructureScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner screen="exam-structure" />}
     </SafeAreaView>
   );
 };

@@ -31,7 +31,6 @@ import {
   clearMockExamProgress,
   getTestIdForStep,
 } from '../services/mock-exam.service';
-import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -293,7 +292,6 @@ const MockExamRunningScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
         {renderResults()}
-        {!HIDE_ADS && <AdBanner screen="mock-exam-results" />}
       </SafeAreaView>
     );
   }
@@ -320,7 +318,6 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
-      {!HIDE_ADS && <AdBanner screen="mock-exam-running" />}
     </SafeAreaView>
   );
 };

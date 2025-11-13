@@ -15,7 +15,6 @@ import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import StorageService from '../../services/storage.service';
 import GrammarStudyProgressModal from '../../components/GrammarStudyProgressModal';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
@@ -481,7 +480,6 @@ const GrammarStudyScreen: React.FC = () => {
         onClose={() => setShowProgressModal(false)}
       />
 
-      {!HIDE_ADS && <AdBanner screen="grammar-study" />}
     </SafeAreaView>
   );
 };

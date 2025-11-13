@@ -17,7 +17,6 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart1UI from '../../components/exam-ui/LanguagePart1UI';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -145,7 +144,6 @@ const GrammarPart1Screen: React.FC = () => {
         examTitle={`Grammar Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner screen="grammar-part1" />}
     </SafeAreaView>
   );
 };

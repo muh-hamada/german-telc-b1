@@ -6,7 +6,6 @@ import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { SpeakingImportantPhrasesContent, SpeakingImportantPhrasesGroup } from '../../types/exam.types';
-import AdBanner from '../../components/AdBanner';
 import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackParamList } from '../../types/navigation.types';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -120,7 +119,6 @@ const SpeakingPart4Screen: React.FC = () => {
           </View>
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner screen="speaking-part4" />}
     </SafeAreaView>
   );
 };

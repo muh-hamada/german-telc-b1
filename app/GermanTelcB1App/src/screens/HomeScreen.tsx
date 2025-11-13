@@ -12,7 +12,6 @@ import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
 import HomeHeader from '../components/HomeHeader';
 import { HomeStackNavigationProp } from '../types/navigation.types';
-import AdBanner from '../components/AdBanner';
 import { HIDE_ADS } from '../config/development.config';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
@@ -68,7 +67,6 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner screen="home" />}
     </SafeAreaView>
   );
 };
