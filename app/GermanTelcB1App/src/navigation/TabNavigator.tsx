@@ -53,7 +53,7 @@ const CustomTabBar = (props: any) => {
   const shouldHideTabBar = routeName && HIDE_TAB_SCREENS.includes(routeName);
   
   return (
-    <View>
+    <SafeAreaView edges={shouldHideTabBar ? ['bottom'] : []} style={styles.tabBarWrapper}>
       {/* Banner is ALWAYS visible - persistent across all screens */}
       <View style={styles.bannerContainer}>
         <AdBanner screen="main-tabs" />
@@ -61,7 +61,7 @@ const CustomTabBar = (props: any) => {
       
       {/* Tab bar only shown when not on a hidden screen */}
       {!shouldHideTabBar && <BottomTabBar {...props} />}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -116,6 +116,9 @@ const TabNavigator: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  tabBarWrapper: {
+    backgroundColor: colors.background.primary,
+  },
   bannerContainer: {
     backgroundColor: colors.background.primary,
     borderTopWidth: 1,
