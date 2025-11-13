@@ -4,6 +4,7 @@ import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { activeExamConfig } from '../config/active-exam.config';
 import DeviceInfo from 'react-native-device-info';
+import consentService from '../services/consent.service';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -39,13 +40,24 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   // Memoize app version to prevent recalculation on every render
   const appVersion = useMemo(() => DeviceInfo.getVersion(), []);
 
+  // Determine if we should request non-personalized ads based on consent
+  const requestNonPersonalizedAdsOnly = useMemo(() => {
+    const shouldRequestNonPersonalized = consentService.shouldRequestNonPersonalizedAds();
+    console.log(`[AdBanner] Requesting ${shouldRequestNonPersonalized ? 'NON-PERSONALIZED' : 'PERSONALIZED'} ads for screen: ${screen || 'default'}`);
+    return shouldRequestNonPersonalized;
+  }, [screen]);
+
   // Memoize callbacks to prevent BannerAd from re-rendering unnecessarily
   const handleAdLoaded = useMemo(() => {
     return () => {
       console.log('Banner ad loaded');
-      logEvent(AnalyticsEvents.BANNER_AD_LOADED, { screen, version: appVersion });
+      logEvent(AnalyticsEvents.BANNER_AD_LOADED, { 
+        screen, 
+        version: appVersion,
+        personalized: !requestNonPersonalizedAdsOnly 
+      });
     };
-  }, [screen, appVersion]);
+  }, [screen, appVersion, requestNonPersonalizedAdsOnly]);
 
   const handleAdFailedToLoad = useMemo(() => {
     return (error: any) => {
@@ -53,10 +65,11 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
       logEvent(AnalyticsEvents.BANNER_AD_FAILED, { 
         screen, 
         version: appVersion, 
-        error_code: String(error?.code || 'unknown') 
+        error_code: String(error?.code || 'unknown'),
+        personalized: !requestNonPersonalizedAdsOnly
       });
     };
-  }, [screen, appVersion]);
+  }, [screen, appVersion, requestNonPersonalizedAdsOnly]);
 
   return (
     <View style={[styles.container, style]}>
@@ -65,7 +78,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
-          requestNonPersonalizedAdsOnly: true, // TODO: serve personalized ads in the future
+          requestNonPersonalizedAdsOnly: requestNonPersonalizedAdsOnly,
           // TODO: enabled collapsible again but in specific screens only
           // Today it's disabled globally because it's very annoying in some screens
           networkExtras: {},

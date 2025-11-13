@@ -12,22 +12,55 @@ import ReviewModalContainer from './src/components/ReviewModalContainer';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
+import consentService from './src/services/consent.service';
 
 const App: React.FC = () => {
   useEffect(() => {
     // Apply RTL layout based on saved language
     applyRTLLayout();
     
-    // Initialize Google Mobile Ads SDK
-    mobileAds()
-      .initialize()
-      .then(adapterStatuses => {
-        console.log('Mobile Ads initialized:', adapterStatuses);
-      })
-      .catch(error => {
-        console.error('Failed to initialize Mobile Ads:', error);
-      });
+    // Initialize ads with consent flow
+    initializeAdsWithConsent();
   }, []);
+
+  /**
+   * Initialize Google Mobile Ads with UMP consent flow
+   * Consent must be obtained before initializing the ads SDK
+   */
+  const initializeAdsWithConsent = async () => {
+    try {
+      // Step 1: Request and handle user consent (GDPR/US Privacy)
+      console.log('[App] Starting consent flow...');
+      
+      // Optional: Add test device IDs for development/testing
+      // Get your test device ID from console logs on first run
+      // Example: await consentService.requestConsent(['YOUR_TEST_DEVICE_ID']);
+      const consentStatus = await consentService.requestConsent();
+      
+      console.log('[App] Consent flow completed with status:', consentStatus);
+      
+      // Step 2: Initialize Google Mobile Ads SDK after consent
+      console.log('[App] Initializing Google Mobile Ads...');
+      const adapterStatuses = await mobileAds().initialize();
+      console.log('[App] Mobile Ads initialized:', adapterStatuses);
+      
+      // Log whether we can show personalized ads
+      if (consentService.canShowPersonalizedAds()) {
+        console.log('[App] ✓ Personalized ads enabled - user has given consent');
+      } else {
+        console.log('[App] ⚠ Non-personalized ads only - no consent obtained');
+      }
+    } catch (error) {
+      console.error('[App] Error during ads initialization:', error);
+      // Even if consent fails, try to initialize ads (will use non-personalized)
+      try {
+        await mobileAds().initialize();
+        console.log('[App] Mobile Ads initialized without consent');
+      } catch (adsError) {
+        console.error('[App] Failed to initialize Mobile Ads:', adsError);
+      }
+    }
+  };
 
   return (
     <SafeAreaProvider>

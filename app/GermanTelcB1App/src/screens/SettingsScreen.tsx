@@ -24,6 +24,7 @@ import { checkRTLChange } from '../utils/i18n';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
+import consentService, { AdsConsentStatus } from '../services/consent.service';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -36,12 +37,21 @@ const SettingsScreen: React.FC = () => {
   const [showHourPicker, setShowHourPicker] = useState(false);
   const [isLoadingSettings, setIsLoadingSettings] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<string>('');
+  const [consentStatus, setConsentStatus] = useState<AdsConsentStatus>(AdsConsentStatus.UNKNOWN);
+  const [isLoadingConsent, setIsLoadingConsent] = useState(false);
 
   // Load settings and check permissions when component mounts
   useEffect(() => {
     loadNotificationSettings();
     checkNotificationPermission();
+    loadConsentStatus();
   }, [user]);
+
+  // Load current consent status
+  const loadConsentStatus = () => {
+    const status = consentService.getConsentStatus();
+    setConsentStatus(status);
+  };
 
   // Load notification settings from Firebase
   const loadNotificationSettings = async () => {
@@ -324,6 +334,84 @@ const SettingsScreen: React.FC = () => {
     return `${hour - 12}:00 pm`;
   };
 
+  // Handle ad consent settings
+  const handleManageAdConsent = async () => {
+    try {
+      setIsLoadingConsent(true);
+      logEvent(AnalyticsEvents.SETTINGS_AD_CONSENT_OPENED);
+      
+      Alert.alert(
+        t('settings.adConsent'),
+        t('settings.adConsentDescription'),
+        [
+          {
+            text: t('common.cancel'),
+            style: 'cancel',
+            onPress: () => setIsLoadingConsent(false),
+          },
+          {
+            text: t('settings.reviewChoices'),
+            onPress: async () => {
+              try {
+                const newStatus = await consentService.showConsentForm();
+                setConsentStatus(newStatus);
+                logEvent(AnalyticsEvents.SETTINGS_AD_CONSENT_UPDATED, { 
+                  status: newStatus 
+                });
+                
+                // Show result to user
+                if (newStatus === AdsConsentStatus.OBTAINED) {
+                  Alert.alert(
+                    t('common.success'),
+                    t('settings.personalizedAdsEnabled')
+                  );
+                } else {
+                  Alert.alert(
+                    t('common.success'),
+                    t('settings.adPreferencesUpdated')
+                  );
+                }
+              } catch (error) {
+                console.error('Error showing consent form:', error);
+                Alert.alert(
+                  t('common.error'),
+                  t('settings.adConsentError')
+                );
+              } finally {
+                setIsLoadingConsent(false);
+              }
+            },
+          },
+        ]
+      );
+      
+      // If user cancels the first alert, reset loading state
+      setTimeout(() => {
+        if (isLoadingConsent) {
+          setIsLoadingConsent(false);
+        }
+      }, 100);
+    } catch (error) {
+      console.error('Error managing ad consent:', error);
+      setIsLoadingConsent(false);
+    }
+  };
+
+  // Get consent status text
+  const getConsentStatusText = (): string => {
+    switch (consentStatus) {
+      case AdsConsentStatus.OBTAINED:
+        return t('settings.consentStatusObtained');
+      case AdsConsentStatus.NOT_REQUIRED:
+        return t('settings.consentStatusNotRequired');
+      case AdsConsentStatus.REQUIRED:
+        return t('settings.consentStatusRequired');
+      case AdsConsentStatus.UNKNOWN:
+      default:
+        return t('settings.consentStatusUnknown');
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -397,6 +485,29 @@ const SettingsScreen: React.FC = () => {
           )}
 
           {/* Custom Hour Picker Modal */}
+        </View>
+
+        {/* Privacy Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('settings.privacy')}</Text>
+          
+          {/* Ad Consent */}
+          <View style={styles.consentContainer}>
+            <View style={styles.consentHeader}>
+              <Text style={styles.consentTitle}>{t('settings.adConsent')}</Text>
+              <Text style={styles.consentStatus}>{getConsentStatusText()}</Text>
+            </View>
+            <Text style={styles.consentDescription}>
+              {t('settings.adConsentInfo')}
+            </Text>
+            <Button
+              title={t('settings.manageAdConsent')}
+              onPress={handleManageAdConsent}
+              variant="outline"
+              style={styles.settingButton}
+              disabled={isLoadingConsent}
+            />
+          </View>
         </View>
 
         {/* Data Section */}
@@ -507,6 +618,32 @@ const styles = StyleSheet.create({
   openSettingsButton: {
     borderColor: colors.warning[500],
     marginTop: spacing.margin.xs,
+  },
+  consentContainer: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.md,
+    marginBottom: spacing.margin.sm,
+  },
+  consentHeader: {
+    marginBottom: spacing.margin.xs,
+  },
+  consentTitle: {
+    ...typography.textStyles.bodyBold,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.xxs,
+  },
+  consentStatus: {
+    ...typography.textStyles.caption,
+    color: colors.text.secondary,
+    fontStyle: 'italic',
+  },
+  consentDescription: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    fontSize: 13,
+    marginBottom: spacing.margin.md,
+    lineHeight: 18,
   },
 });
 

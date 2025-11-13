@@ -84,6 +84,8 @@ export const AnalyticsEvents = {
   SETTINGS_NOTIFICATIONS_ENABLED: 'settings_notifications_enabled',
   SETTINGS_NOTIFICATIONS_DISABLED: 'settings_notifications_disabled',
   SETTINGS_NOTIFICATION_TIME_CHANGED: 'settings_notification_time_changed',
+  SETTINGS_AD_CONSENT_OPENED: 'settings_ad_consent_opened',
+  SETTINGS_AD_CONSENT_UPDATED: 'settings_ad_consent_updated',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];
