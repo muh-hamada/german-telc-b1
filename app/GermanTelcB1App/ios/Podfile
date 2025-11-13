@@ -74,6 +74,13 @@ target 'TelcExamApp' do
           config.build_settings['STRIP_INSTALLED_PRODUCT'] = 'NO'
         end
       end
+      
+      # Remove provisioning profile from all Pod targets
+      target.build_configurations.each do |config|
+        config.build_settings.delete('PROVISIONING_PROFILE_SPECIFIER')
+        config.build_settings.delete('CODE_SIGN_IDENTITY')
+        config.build_settings.delete('CODE_SIGN_STYLE')
+      end
     end
   end
 end

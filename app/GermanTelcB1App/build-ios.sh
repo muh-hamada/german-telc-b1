@@ -77,6 +77,17 @@ echo "   Exam: $EXAM_ID"
 echo "   Scheme: $SCHEME_NAME"
 echo "   IPA location: $IPA_PATH"
 echo ""
-echo "To upload to App Store Connect, run:"
-echo "   xcrun altool --upload-app --type ios --file \"$IPA_PATH\" --username YOUR_APPLE_ID --password YOUR_APP_PASSWORD"
+echo "================================================"
+echo "Uploading to App Store Connect..."
+echo "================================================"
 echo ""
+xcrun altool --upload-app --type ios --file "$IPA_PATH" --username "muhammad.aref.ali.hamada@gmail.com" --password "yuur-innd-jamw-ahpg"
+
+if [ $? -ne 0 ]; then
+    echo "Upload failed!"
+    exit 1
+fi
+
+echo "================================================"
+echo "✅ iOS build and upload completed successfully!"
+echo "================================================"
