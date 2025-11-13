@@ -7,11 +7,9 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart3UI from '../../components/exam-ui/ListeningPart3UI';
-import { HIDE_ADS } from '../../config/development.config';
 import { useProgress } from '../../contexts/ProgressContext';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
@@ -127,26 +125,26 @@ const ListeningPart3Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !listeningData) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ListeningPart3UI
         exam={currentExam}
         sectionDetails={sectionDetails}
@@ -158,7 +156,7 @@ const ListeningPart3Screen: React.FC = () => {
         examTitle={`Listening Part 3 - Test ${examId + 1}`}
         result={examResult}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

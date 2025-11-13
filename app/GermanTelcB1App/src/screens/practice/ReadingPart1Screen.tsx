@@ -16,9 +16,7 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
-import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ReadingPart1Screen: React.FC = () => {
@@ -112,26 +110,26 @@ const ReadingPart1Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ReadingPart1UI exam={currentExam} onComplete={handleComplete} />
 
       <ResultsModal
@@ -140,7 +138,7 @@ const ReadingPart1Screen: React.FC = () => {
         examTitle={`Reading Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

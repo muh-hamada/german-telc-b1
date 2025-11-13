@@ -3,6 +3,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -62,7 +63,7 @@ const PracticeMenuScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handleReadingPress}>
           <Text style={styles.cardTitle}>{t('practice.reading.title')}</Text>
@@ -110,7 +111,7 @@ const PracticeMenuScreen: React.FC = () => {
         title={t('practice.writing.title')}
       />
 
-    </SafeAreaView>
+    </View>
   );
 };
 

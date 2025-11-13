@@ -8,7 +8,6 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -16,7 +15,6 @@ import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface Topic {
@@ -104,21 +102,21 @@ const SpeakingPart2Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentTopic) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>Failed to load speaking data</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -203,7 +201,7 @@ const SpeakingPart2Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.mainCard}>
           <Text style={styles.topicTitle}>{currentTopic.title}</Text>
@@ -244,7 +242,7 @@ const SpeakingPart2Screen: React.FC = () => {
           {renderDiscussion()}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

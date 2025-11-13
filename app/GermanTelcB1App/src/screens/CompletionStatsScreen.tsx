@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import CompletionStatsCard from '../components/CompletionStatsCard';
@@ -18,7 +17,7 @@ const CompletionStatsScreen: React.FC = () => {
   const { user } = useAuth();
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.subtitle}>{t('stats.subtitle')}</Text>
 
@@ -29,7 +28,7 @@ const CompletionStatsScreen: React.FC = () => {
           showOnlyTop={false}
         />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -3,8 +3,8 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -12,7 +12,6 @@ import Card from '../components/Card';
 import ProgressCard from '../components/ProgressCard';
 import HomeHeader from '../components/HomeHeader';
 import { HomeStackNavigationProp } from '../types/navigation.types';
-import { HIDE_ADS } from '../config/development.config';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { MainTabParamList } from '../types/navigation.types';
@@ -43,7 +42,7 @@ const HomeScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={[]}>
+    <View style={styles.container}>
       <HomeHeader />
       
       <ScrollView
@@ -67,7 +66,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

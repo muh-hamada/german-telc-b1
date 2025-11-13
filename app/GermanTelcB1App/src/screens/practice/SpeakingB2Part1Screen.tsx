@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -15,7 +14,6 @@ import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackParamList } from '../../types/navigation.types';
 
 type B2SpeakingPart1RouteProp = RouteProp<HomeStackParamList, 'B2SpeakingPart1'>;
@@ -147,26 +145,26 @@ const SpeakingB2Part1Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={[]}>
+      <View style={styles.container}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('common.loading')}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!topic) {
     return (
-      <SafeAreaView style={styles.container} edges={[]}>
+      <View style={styles.container}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.failedToLoad')}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={[]}>
+    <View style={styles.container}>
       <View style={styles.tabsContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'presentation' && styles.activeTab]}
@@ -193,7 +191,7 @@ const SpeakingB2Part1Screen: React.FC = () => {
       {activeTab === 'presentation' && renderPresentationTab()}
       {activeTab === 'discussion' && renderDiscussionTab()}
 
-    </SafeAreaView>
+    </View>
   );
 };
 

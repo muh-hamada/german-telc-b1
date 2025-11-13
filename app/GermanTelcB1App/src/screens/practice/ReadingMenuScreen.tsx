@@ -3,8 +3,8 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
@@ -12,7 +12,6 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ReadingMenuScreen: React.FC = () => {
@@ -71,7 +70,7 @@ const ReadingMenuScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part1')}</Text>
@@ -125,7 +124,7 @@ const ReadingMenuScreen: React.FC = () => {
         title={t('practice.reading.part3')}
       />
 
-    </SafeAreaView>
+    </View>
   );
 };
 

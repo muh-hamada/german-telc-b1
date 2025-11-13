@@ -50,21 +50,17 @@ const CustomTabBar = (props: any) => {
     props.state.routes[props.state.index]?.state?.index ?? 0
   ]?.name;
   
-  const shouldHide = routeName && HIDE_TAB_SCREENS.includes(routeName);
-  
-  // Hide both banner and tab bar together
-  if (shouldHide) {
-    return null;
-  }
+  const shouldHideTabBar = routeName && HIDE_TAB_SCREENS.includes(routeName);
   
   return (
     <View>
-      {/* Banner above tab bar */}
+      {/* Banner is ALWAYS visible - persistent across all screens */}
       <View style={styles.bannerContainer}>
         <AdBanner screen="main-tabs" />
       </View>
-      {/* Standard React Navigation tab bar */}
-      <BottomTabBar {...props} />
+      
+      {/* Tab bar only shown when not on a hidden screen */}
+      {!shouldHideTabBar && <BottomTabBar {...props} />}
     </View>
   );
 };
@@ -122,7 +118,7 @@ const TabNavigator: React.FC = () => {
 const styles = StyleSheet.create({
   bannerContainer: {
     backgroundColor: colors.background.primary,
-    borderTopWidth: 4,
+    borderTopWidth: 1,
     borderTopColor: colors.secondary[100],
   },
 });

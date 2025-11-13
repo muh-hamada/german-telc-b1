@@ -7,11 +7,9 @@ import {
   I18nManager,
   ActivityIndicator,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import dataService from '../services/data.service';
-import { HIDE_ADS } from '../config/development.config';
 import { useTranslation } from 'react-i18next';
 
 const ExamStructureScreen: React.FC = () => {
@@ -41,21 +39,21 @@ const ExamStructureScreen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !examInfoData) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load exam structure'}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -120,7 +118,7 @@ const ExamStructureScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
@@ -216,7 +214,7 @@ const ExamStructureScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

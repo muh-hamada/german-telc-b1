@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
-import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
 
@@ -145,7 +143,7 @@ const SpeakingMenuScreen: React.FC = () => {
   const isB2 = activeExamConfig.level === 'B2';
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {isB2 && (
           <>
@@ -250,7 +248,7 @@ const SpeakingMenuScreen: React.FC = () => {
         title={t('speaking.b2Part3.title')}
       />
 
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { SpeakingImportantPhrasesContent, SpeakingImportantPhrasesGroup } from '../../types/exam.types';
-import { HIDE_ADS } from '../../config/development.config';
 import { HomeStackParamList } from '../../types/navigation.types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useExamCompletion } from '../../contexts/CompletionContext';
@@ -80,26 +78,26 @@ const SpeakingPart4Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !content) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load data'}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.mainCard}>
           <View style={styles.headerContainer}>
@@ -119,7 +117,7 @@ const SpeakingPart4Screen: React.FC = () => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

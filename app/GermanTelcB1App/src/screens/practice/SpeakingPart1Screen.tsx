@@ -8,9 +8,7 @@ import {
   Modal,
   TextInput,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -19,7 +17,6 @@ import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { HIDE_ADS } from '../../config/development.config';
 
 interface PersonalInfo {
   name: string;
@@ -606,7 +603,7 @@ const SpeakingPart1Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <View style={styles.tabsContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'introduction' && styles.activeTab]}
@@ -657,7 +654,7 @@ const SpeakingPart1Screen: React.FC = () => {
 
       {renderEditModal()}
       {renderInfoModal()}
-    </SafeAreaView>
+    </View>
   );
 };
 

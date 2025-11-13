@@ -11,8 +11,6 @@ import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { HIDE_ADS } from '../../config/development.config';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserAnswer } from '../../types/exam.types';
 import { ExamResult } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
@@ -129,26 +127,26 @@ const ListeningPart1Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !listeningData) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ListeningPart1UI
         exam={currentExam}
         sectionDetails={sectionDetails}
@@ -160,7 +158,7 @@ const ListeningPart1Screen: React.FC = () => {
         examTitle={`Listening Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

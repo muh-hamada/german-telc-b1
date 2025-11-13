@@ -15,7 +15,6 @@ import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import StorageService from '../../services/storage.service';
 import GrammarStudyProgressModal from '../../components/GrammarStudyProgressModal';
-import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
 import dataService from '../../services/data.service';
