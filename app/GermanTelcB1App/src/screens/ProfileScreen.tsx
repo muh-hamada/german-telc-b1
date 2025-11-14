@@ -28,6 +28,7 @@ import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
 import { activeExamConfig } from '../config/active-exam.config';
+import { openAppRating } from '../utils/appRating';
 
 const ProfileScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -41,21 +42,7 @@ const ProfileScreen: React.FC = () => {
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
 
   const handleRateApp = async () => {
-    if (Platform.OS === 'android') {
-      const url = 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1german';
-      try {
-        const supported = await Linking.canOpenURL(url);
-        if (supported) {
-          await Linking.openURL(url);
-        } else {
-          Alert.alert(t('common.error'), t('profile.alerts.couldNotOpenStore'));
-        }
-      } catch (e) {
-        Alert.alert(t('common.error'), t('profile.alerts.couldNotOpenStore'));
-      }
-    } else if (Platform.OS === 'ios') {
-      Alert.alert(t('common.success'), t('profile.alerts.iosRatingComingSoon'));
-    }
+    openAppRating('profile_screen');
   };
 
   // Auto-open login modal if parameter is passed

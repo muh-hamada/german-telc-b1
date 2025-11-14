@@ -105,7 +105,7 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
       setShowReviewModal(false);
       
       // Open the app store for rating
-      const success = await openAppRating();
+      const success = await openAppRating('review_provider');
       
       // Log analytics event
       logEvent(AnalyticsEvents.REVIEW_COMPLETED, {

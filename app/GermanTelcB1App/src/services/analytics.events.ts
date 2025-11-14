@@ -79,6 +79,11 @@ export const AnalyticsEvents = {
   REVIEW_PROMPT_SHOWN: 'review_prompt_shown',
   REVIEW_PROMPT_DISMISSED: 'review_prompt_dismissed',
   REVIEW_COMPLETED: 'review_completed',
+
+  // App Rating
+  APP_RATING_OPENED: 'app_rating_opened',
+  APP_RATING_COMPLETED: 'app_rating_completed',
+  APP_RATING_FAILED: 'app_rating_failed',
   
   // Settings
   SETTINGS_NOTIFICATIONS_ENABLED: 'settings_notifications_enabled',

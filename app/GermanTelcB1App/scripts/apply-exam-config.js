@@ -50,6 +50,7 @@ try {
       appName: 'GermanTelcB1App',
       iosAppName: 'TelcExamApp',
       displayName: 'German TELC B1',
+      iosDisplayName: 'German B1 Exam',
       admob: {
         androidAppId: 'ca-app-pub-5101905792101482~1016049874',
         iosAppId: '',
@@ -70,6 +71,7 @@ try {
       appName: 'GermanTelcB2App',
       iosAppName: 'TelcExamApp',
       displayName: 'German TELC B2',
+      iosDisplayName: 'German B2 Exam',
       admob: {
         androidAppId: 'ca-app-pub-5101905792101482~5846015787',
         iosAppId: '',
@@ -90,6 +92,7 @@ try {
       appName: 'EnglishTelcB1App',
       iosAppName: 'TelcExamApp',
       displayName: 'English TELC B1',
+      iosDisplayName: 'English B1 Exam',
       admob: {
         androidAppId: '',
         iosAppId: '',

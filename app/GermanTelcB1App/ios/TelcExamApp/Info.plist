@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>German TELC B1</string>
+	<string>German B1 Exam</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,7 +27,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g</string>
+				<string>com.googleusercontent.apps.494473710301-vupub13bepirfq9ekn0mtd1ft204teda</string>
 			</array>
 		</dict>
 		<dict>
@@ -52,7 +52,7 @@
 	<key>FacebookClientToken</key>
 	<string>c1f3d10c6a4054707078aae7a71dd580</string>
 	<key>FacebookDisplayName</key>
-	<string>German TELC B1 App</string>
+	<string>German B1 App</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>LSApplicationQueriesSchemes</key>
