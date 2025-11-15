@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   totalProgressSection: {
-    marginBottom: spacing.md,
+    marginBottom: spacing.lg,
   },
   totalProgressHeader: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
