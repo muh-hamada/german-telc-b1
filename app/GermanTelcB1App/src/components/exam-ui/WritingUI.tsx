@@ -259,7 +259,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
 
-    if (SKIP_REWARDED_ADS || Platform.OS === 'ios') {
+    if (SKIP_REWARDED_ADS) {
       await proceedWithImageEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -345,7 +345,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
 
-    if (SKIP_REWARDED_ADS || Platform.OS === 'ios') {
+    if (SKIP_REWARDED_ADS) {
       await proceedWithTextEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
