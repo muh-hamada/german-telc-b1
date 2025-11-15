@@ -29,6 +29,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
 import { activeExamConfig } from '../config/active-exam.config';
 import { openAppRating } from '../utils/appRating';
+import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
 
 const ProfileScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -40,6 +41,9 @@ const ProfileScreen: React.FC = () => {
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
   const [showDeletionInProgressModal, setShowDeletionInProgressModal] = useState(false);
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
+
+  // Use demo stats if demo mode is enabled
+  const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
 
   const handleRateApp = async () => {
     openAppRating('profile_screen');
@@ -179,7 +183,7 @@ const ProfileScreen: React.FC = () => {
         {/* Completion Statistics Section */}
         <View style={styles.section}>
           <CompletionStatsCard 
-            stats={allStats} 
+            stats={displayCompletionStats} 
             isLoading={statsLoading} 
             showLoggedOutMessage={!user}
             showOnlyTop={true}

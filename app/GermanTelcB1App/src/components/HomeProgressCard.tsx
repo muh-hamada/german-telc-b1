@@ -4,7 +4,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
-import { DEMO_MODE, DEMO_STATS } from '../config/development.config';
+import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 import Button from './Button';
 import { useCompletion } from '../contexts/CompletionContext';
 
@@ -32,6 +32,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
 
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_STATS : stats;
+  const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
   const hasUser = DEMO_MODE ? true : !!user;
 
   // Calculate total progress from completion stats
@@ -39,7 +40,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
     let totalCompleted = 0;
     let totalExams = 0;
 
-    Object.values(allStats).forEach(examType => {
+    Object.values(displayCompletionStats).forEach(examType => {
       Object.values(examType).forEach(partStats => {
         totalCompleted += partStats.completed;
         totalExams += partStats.total;
