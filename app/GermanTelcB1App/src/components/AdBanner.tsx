@@ -5,6 +5,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { activeExamConfig } from '../config/active-exam.config';
 import DeviceInfo from 'react-native-device-info';
 import consentService from '../services/consent.service';
+import { HIDE_ADS } from '../config/development.config';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -32,8 +33,7 @@ interface AdBannerProps {
  * and reduce excessive ad requests that can cause "no-fill" errors.
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
-  // Hide ads in ios until the first version is released
-  if (Platform.OS === 'ios') {
+  if (HIDE_ADS) {
     return null;
   }
 

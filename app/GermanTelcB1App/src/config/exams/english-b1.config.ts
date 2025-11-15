@@ -53,7 +53,10 @@ export const englishB1Config: ExamConfig = {
   },
 
   ads: {
-    appID: '',
+    appID: {
+      android: '',
+      ios: '',
+    },
     banner: {
       android: '',
       ios: '',

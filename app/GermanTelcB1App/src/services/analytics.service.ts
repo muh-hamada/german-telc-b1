@@ -2,7 +2,8 @@
  * Analytics Service
  * 
  * This service provides a safe wrapper around Firebase Analytics
- * that automatically disables tracking in development mode.
+ * that automatically disables tracking in development mode and
+ * respects App Tracking Transparency (ATT) permissions on iOS.
  * 
  * Usage:
  * import { analyticsService } from './services/analytics.service';
@@ -11,8 +12,23 @@
  * analyticsService.logScreenView('Home');
  */
 
+import { Platform } from 'react-native';
 import analytics from '@react-native-firebase/analytics';
 import { activeExamConfig } from '../config/active-exam.config';
+
+// Dynamic import to avoid circular dependencies
+let attService: any = null;
+const loadAttService = async () => {
+  if (!attService) {
+    try {
+      const module = await import('./app-tracking-transparency.service');
+      attService = module.default || module.attService;
+    } catch (error) {
+      console.warn('[Analytics] ATT service not available:', error);
+    }
+  }
+  return attService;
+};
 
 // Check if we're in development mode
 const isDevelopment = __DEV__;
@@ -39,6 +55,38 @@ class AnalyticsService {
       console.log('[Analytics] Disabled in development mode');
     } else {
       console.log('[Analytics] Enabled in production mode');
+      // Initialize ATT check
+      this.checkAttPermission();
+    }
+  }
+
+  /**
+   * Check ATT permission and adjust analytics accordingly
+   * This should be called on app start and when ATT status changes
+   */
+  private async checkAttPermission(): Promise<void> {
+    if (Platform.OS !== 'ios') {
+      return; // ATT is iOS only
+    }
+
+    try {
+      const att = await loadAttService();
+      if (!att) {
+        console.log('[Analytics] ATT service not available, continuing with analytics');
+        return;
+      }
+
+      const isAuthorized = await att.isTrackingAuthorized();
+      
+      if (!isAuthorized) {
+        console.log('[Analytics] ATT not authorized, analytics may be limited');
+        // Note: Firebase Analytics can still work with ATT denied
+        // It just won't use IDFA for tracking
+      } else {
+        console.log('[Analytics] ATT authorized, full analytics enabled');
+      }
+    } catch (error) {
+      console.error('[Analytics] Error checking ATT permission:', error);
     }
   }
 
@@ -177,9 +225,22 @@ class AnalyticsService {
     try {
       analytics().setAnalyticsCollectionEnabled(this.isEnabled);
       console.log(`[Analytics] Collection ${this.isEnabled ? 'enabled' : 'disabled'}`);
+      
+      // Recheck ATT permission when enabling analytics
+      if (this.isEnabled) {
+        this.checkAttPermission();
+      }
     } catch (error) {
       console.error('[Analytics] Error toggling analytics:', error);
     }
+  }
+
+  /**
+   * Refresh ATT status
+   * Call this after user changes ATT permission in settings
+   */
+  async refreshAttStatus(): Promise<void> {
+    await this.checkAttPermission();
   }
 
   /**

@@ -52,14 +52,17 @@ export const germanB1Config: ExamConfig = {
   },
 
   ads: {
-    appID: 'ca-app-pub-5101905792101482~1016049874',
+    appID: {
+      android: 'ca-app-pub-5101905792101482~1016049874',
+      ios: 'ca-app-pub-5101905792101482~3306771911',
+    },
     banner: {
       android: 'ca-app-pub-5101905792101482/4385105786',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/1993690243',
     },
     rewarded: {
       android: 'ca-app-pub-5101905792101482/1207745272',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/5268814171',
     },
   },
 };

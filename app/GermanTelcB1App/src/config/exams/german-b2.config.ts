@@ -53,7 +53,10 @@ export const germanB2Config: ExamConfig = {
   },
 
   ads: {
-    appID: 'ca-app-pub-5101905792101482~5846015787',
+    appID: {
+      android: 'ca-app-pub-5101905792101482~5846015787',
+      ios: '',
+    },
     banner: {
       android: 'ca-app-pub-5101905792101482/4713607959',
       ios: '',

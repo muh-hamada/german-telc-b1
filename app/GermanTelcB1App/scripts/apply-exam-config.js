@@ -74,7 +74,7 @@ try {
       iosDisplayName: 'German B2 Exam',
       admob: {
         androidAppId: 'ca-app-pub-5101905792101482~5846015787',
-        iosAppId: '',
+        iosAppId: 'ca-app-pub-5101905792101482~3306771911',
       },
       bundleId: {
         android: 'com.mhamada.telcb2german',

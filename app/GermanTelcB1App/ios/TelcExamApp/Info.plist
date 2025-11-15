@@ -86,6 +86,8 @@
 	<string>Diese App benötigt Zugriff, um Fotos in Ihrer Fotobibliothek zu speichern.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Diese App benötigt Zugriff auf Ihre Fotobibliothek, um Fotos zu speichern und zu laden.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This app uses tracking to provide personalized ads and improve your learning experience. Your privacy is important to us.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>SKAdNetworkItems</key>

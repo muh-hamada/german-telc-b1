@@ -31,7 +31,6 @@ import {
   clearMockExamProgress,
   getTestIdForStep,
 } from '../services/mock-exam.service';
-import { HIDE_ADS } from '../config/development.config';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { UserAnswer } from '../types/exam.types';

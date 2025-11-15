@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "attTitle": "App Tracking Transparency",
+    "attInfo": "Control whether apps can track your activity across other companies' apps and websites. When tracking is enabled, we can provide more personalized ads.",
+    "attNotAvailable": "Not available",
+    "attNotAvailableMessage": "App Tracking Transparency is only available on iOS 14 and later.",
+    "attDescription": "Allow tracking to enable personalized ads and improve your experience?",
+    "attAlreadyDetermined": "Tracking permission is already set to: {{status}}. You can change it in iOS Settings.",
+    "attAuthorized": "Tracking enabled. Thank you for helping us improve your experience!",
+    "attDenied": "Tracking disabled. We respect your privacy choice.",
+    "attError": "Unable to request tracking permission. Please try again.",
+    "manageAttPermission": "Manage Tracking Permission",
+    "requestPermission": "Request Permission"
+  }
+}
+

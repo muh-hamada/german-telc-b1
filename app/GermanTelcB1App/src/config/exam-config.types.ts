@@ -53,7 +53,10 @@ export interface ExamConfig {
   };
 
   ads: {
-    appID: string;
+    appID: {
+      android: string;
+      ios: string;
+    };
     banner: {
       android: string;
       ios: string;

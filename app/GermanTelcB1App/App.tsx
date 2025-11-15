@@ -15,6 +15,7 @@ import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
 import consentService from './src/services/consent.service';
+import attService from './src/services/app-tracking-transparency.service';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -26,32 +27,51 @@ const App: React.FC = () => {
   }, []);
 
   /**
-   * Initialize Google Mobile Ads with UMP consent flow
-   * Consent must be obtained before initializing the ads SDK
+   * Initialize Google Mobile Ads with ATT and UMP consent flow
+   * 
+   * Order of operations (CRITICAL for Apple compliance):
+   * 1. Request App Tracking Transparency (ATT) permission (iOS only)
+   * 2. Request GDPR/CCPA consent (UMP)
+   * 3. Initialize ads SDK
    */
   const initializeAdsWithConsent = async () => {
     try {
-      // Step 1: Request and handle user consent (GDPR/US Privacy)
-      console.log('[App] Starting consent flow...');
+      // Step 1: Request App Tracking Transparency (ATT) permission first (iOS 14+)
+      // This MUST be requested before any tracking or data collection
+      console.log('[App] Requesting App Tracking Transparency permission...');
+      const attStatus = await attService.requestPermission();
+      console.log('[App] ATT permission status:', attStatus);
+
+      // Step 2: Request and handle user consent (GDPR/US Privacy)
+      console.log('[App] Starting UMP consent flow...');
       
       // Optional: Add test device IDs for development/testing
       // Get your test device ID from console logs on first run
       // Example: await consentService.requestConsent(['YOUR_TEST_DEVICE_ID']);
       const consentStatus = await consentService.requestConsent();
       
-      console.log('[App] Consent flow completed with status:', consentStatus);
+      console.log('[App] UMP consent flow completed with status:', consentStatus);
       
-      // Step 2: Initialize Google Mobile Ads SDK after consent
+      // Step 3: Initialize Google Mobile Ads SDK after all consents
       console.log('[App] Initializing Google Mobile Ads...');
       const adapterStatuses = await mobileAds().initialize();
       console.log('[App] Mobile Ads initialized:', adapterStatuses);
       
-      // Log whether we can show personalized ads
-      if (consentService.canShowPersonalizedAds()) {
-        console.log('[App] ✓ Personalized ads enabled - user has given consent');
+      // Log tracking and personalization status
+      console.log('[App] === Privacy Status Summary ===');
+      console.log(`[App] ATT Status: ${attStatus}`);
+      console.log(`[App] UMP Status: ${consentStatus}`);
+      
+      if (consentService.canShowPersonalizedAds() && attStatus === 'authorized') {
+        console.log('[App] ✓ Full tracking enabled - personalized ads allowed');
+      } else if (consentService.canShowPersonalizedAds() && attStatus !== 'authorized') {
+        console.log('[App] ⚠ Partial tracking - UMP consented but ATT not authorized');
+      } else if (attStatus === 'authorized' && !consentService.canShowPersonalizedAds()) {
+        console.log('[App] ⚠ Partial tracking - ATT authorized but UMP not consented');
       } else {
-        console.log('[App] ⚠ Non-personalized ads only - no consent obtained');
+        console.log('[App] ⚠ Non-personalized ads only - no tracking consent');
       }
+      console.log('[App] ================================');
     } catch (error) {
       console.error('[App] Error during ads initialization:', error);
       // Even if consent fails, try to initialize ads (will use non-personalized)

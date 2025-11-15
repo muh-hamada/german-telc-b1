@@ -92,6 +92,8 @@ export const AnalyticsEvents = {
   SETTINGS_NOTIFICATION_TIME_CHANGED: 'settings_notification_time_changed',
   SETTINGS_AD_CONSENT_OPENED: 'settings_ad_consent_opened',
   SETTINGS_AD_CONSENT_UPDATED: 'settings_ad_consent_updated',
+  SETTINGS_ATT_OPENED: 'settings_att_opened',
+  SETTINGS_ATT_UPDATED: 'settings_att_updated',
   
   // Notification Reminder
   NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',

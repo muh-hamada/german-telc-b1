@@ -24,6 +24,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import FirestoreService from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
+import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -38,18 +39,30 @@ const SettingsScreen: React.FC = () => {
   const [permissionStatus, setPermissionStatus] = useState<string>('');
   const [consentStatus, setConsentStatus] = useState<AdsConsentStatus>(AdsConsentStatus.UNKNOWN);
   const [isLoadingConsent, setIsLoadingConsent] = useState(false);
+  const [attStatus, setAttStatus] = useState<TrackingStatus>('unavailable');
 
   // Load settings and check permissions when component mounts
   useEffect(() => {
     loadNotificationSettings();
     checkNotificationPermission();
     loadConsentStatus();
+    loadAttStatus();
   }, [user]);
 
   // Load current consent status
   const loadConsentStatus = () => {
     const status = consentService.getConsentStatus();
     setConsentStatus(status);
+  };
+
+  // Load ATT status
+  const loadAttStatus = async () => {
+    try {
+      const status = await attService.getStatus();
+      setAttStatus(status);
+    } catch (error) {
+      console.error('Error loading ATT status:', error);
+    }
   };
 
   // Load notification settings from Firebase
@@ -411,6 +424,106 @@ const SettingsScreen: React.FC = () => {
     }
   };
 
+  // Get ATT status text
+  const getAttStatusText = (): string => {
+    if (Platform.OS !== 'ios') {
+      return t('settings.attNotAvailable');
+    }
+    
+    return attService.getStatusDescription(attStatus);
+  };
+
+  // Handle ATT permission management
+  const handleManageAttPermission = async () => {
+    if (Platform.OS !== 'ios') {
+      Alert.alert(
+        t('settings.attTitle'),
+        t('settings.attNotAvailableMessage')
+      );
+      return;
+    }
+
+    try {
+      setIsLoadingConsent(true);
+      logEvent(AnalyticsEvents.SETTINGS_ATT_OPENED);
+
+      // Check if we can request permission
+      const canRequest = await attService.canRequestPermission();
+      
+      if (!canRequest) {
+        // Permission already determined, show info and link to settings
+        Alert.alert(
+          t('settings.attTitle'),
+          t('settings.attAlreadyDetermined', { status: getAttStatusText() }),
+          [
+            {
+              text: t('common.cancel'),
+              style: 'cancel',
+            },
+            {
+              text: t('settings.openSettings'),
+              onPress: () => {
+                Linking.openURL('app-settings:');
+              },
+            },
+          ]
+        );
+        return;
+      }
+
+      // Request permission
+      Alert.alert(
+        t('settings.attTitle'),
+        t('settings.attDescription'),
+        [
+          {
+            text: t('common.cancel'),
+            style: 'cancel',
+          },
+          {
+            text: t('settings.requestPermission'),
+            onPress: async () => {
+              try {
+                const newStatus = await attService.requestPermission();
+                setAttStatus(newStatus);
+                logEvent(AnalyticsEvents.SETTINGS_ATT_UPDATED, { 
+                  status: newStatus 
+                });
+                
+                // Show result to user
+                if (newStatus === 'authorized') {
+                  Alert.alert(
+                    t('common.success'),
+                    t('settings.attAuthorized')
+                  );
+                } else {
+                  Alert.alert(
+                    t('common.info'),
+                    t('settings.attDenied')
+                  );
+                }
+              } catch (error) {
+                console.error('Error requesting ATT permission:', error);
+                Alert.alert(
+                  t('common.error'),
+                  t('settings.attError')
+                );
+              }
+            },
+          },
+        ]
+      );
+    } catch (error) {
+      console.error('Error managing ATT permission:', error);
+      Alert.alert(
+        t('common.error'),
+        t('settings.attError')
+      );
+    } finally {
+      setIsLoadingConsent(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -490,7 +603,27 @@ const SettingsScreen: React.FC = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('settings.privacy')}</Text>
           
-          {/* Ad Consent */}
+          {/* App Tracking Transparency (ATT) - iOS only */}
+          {Platform.OS === 'ios' && (
+            <View style={styles.consentContainer}>
+              <View style={styles.consentHeader}>
+                <Text style={styles.consentTitle}>{t('settings.attTitle')}</Text>
+                <Text style={styles.consentStatus}>{getAttStatusText()}</Text>
+              </View>
+              <Text style={styles.consentDescription}>
+                {t('settings.attInfo')}
+              </Text>
+              <Button
+                title={t('settings.manageAttPermission')}
+                onPress={handleManageAttPermission}
+                variant="outline"
+                style={styles.settingButton}
+                disabled={isLoadingConsent}
+              />
+            </View>
+          )}
+          
+          {/* Ad Consent (GDPR/CCPA) */}
           <View style={styles.consentContainer}>
             <View style={styles.consentHeader}>
               <Text style={styles.consentTitle}>{t('settings.adConsent')}</Text>
@@ -628,9 +761,10 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   consentTitle: {
-    ...typography.textStyles.bodyBold,
+    ...typography.textStyles.body,
+    fontWeight: '700',
     color: colors.text.primary,
-    marginBottom: spacing.margin.xxs,
+    marginBottom: spacing.margin.xs,
   },
   consentStatus: {
     ...typography.textStyles.caption,
