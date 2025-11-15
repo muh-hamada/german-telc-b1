@@ -64,6 +64,7 @@ This directory contains automation scripts for managing multi-app configurations
 1. Runs `apply-exam-config.js` to update app configuration
 2. Copies Firebase `google-services.json` for the specific exam
 3. Copies app icon logo to all Android mipmap directories
+4. **Copies launcher background (language-specific) to all Android mipmap directories**
 
 #### For iOS:
 1. Runs `apply-exam-config.js` to update app configuration
@@ -183,6 +184,20 @@ Examples:
 Examples:
 - `launcher-icon-b1.png`
 - `launcher-icon-b2.png`
+
+### Android Launcher Backgrounds
+- **Location**: `logos/android/`
+- **Format**: PNG
+- **Recommended size**: 1024x1024px
+- **Naming convention**: `ic_launcher_background-{language}.png`
+
+Examples:
+- `logos/android/ic_launcher_background-german.png`
+- `logos/android/ic_launcher_background-english.png`
+
+**Note**: The background is language-specific (german, english), while the foreground icon is level-specific (b1, b2). This allows you to:
+- Use the same background for both B1 and B2 apps of the same language
+- Use different foreground icons to distinguish between B1 and B2 levels
 
 ---
 

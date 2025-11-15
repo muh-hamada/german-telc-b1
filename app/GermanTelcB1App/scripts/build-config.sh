@@ -58,6 +58,8 @@ if [ "$PLATFORM" = "android" ]; then
   
   # Extract level from exam ID (e.g., german-b1 -> b1)
   LEVEL=$(echo "$EXAM_ID" | grep -o 'b[12]')
+  # Extract language from exam ID (e.g., german-b1 -> german)
+  LANGUAGE=$(echo "$EXAM_ID" | sed 's/-b[12]$//')
   
   if [ -n "$LEVEL" ]; then
     LOGO_SOURCE="../../logos/android/launcher-icon-${LEVEL}.png"
@@ -80,6 +82,32 @@ if [ "$PLATFORM" = "android" ]; then
   else
     echo "⚠️  Warning: Could not determine level from exam ID: $EXAM_ID"
     echo "   Skipping app icon update"
+  fi
+  
+  echo ""
+  echo "Copying launcher background for Android..."
+  
+  if [ -n "$LANGUAGE" ]; then
+    BACKGROUND_SOURCE="../../logos/android/ic_launcher_background-${LANGUAGE}.png"
+    
+    if [ -f "$BACKGROUND_SOURCE" ]; then
+      # Copy background to all Android mipmap directories
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-hdpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-mdpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-xhdpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/mipmap-ldpi/ic_launcher_background.png"
+      cp "$BACKGROUND_SOURCE" "android/app/src/main/res/drawable/ic_launcher_background.png"
+      
+      echo "✅ Copied $BACKGROUND_SOURCE to all Android launcher background directories"
+    else
+      echo "⚠️  Warning: $BACKGROUND_SOURCE not found"
+      echo "   Skipping launcher background update"
+    fi
+  else
+    echo "⚠️  Warning: Could not determine language from exam ID: $EXAM_ID"
+    echo "   Skipping launcher background update"
   fi
 fi
 
