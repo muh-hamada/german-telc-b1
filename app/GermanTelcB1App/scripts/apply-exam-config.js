@@ -197,10 +197,39 @@ function updateAndroidStrings(config) {
 }
 
 function updateiOSConfig(config) {
-  // iOS configuration is now handled by Xcode schemes and build settings
-  // No file modifications needed - everything is controlled by the scheme selection
+  // Update Info.plist with the display name
+  const infoPlistPath = path.join(__dirname, '../ios/TelcExamApp/Info.plist');
+  
+  if (fs.existsSync(infoPlistPath)) {
+    try {
+      let infoPlist = fs.readFileSync(infoPlistPath, 'utf8');
+      
+      // Update CFBundleDisplayName
+      infoPlist = infoPlist.replace(
+        /(<key>CFBundleDisplayName<\/key>\s*<string>)[^<]*(<\/string>)/,
+        `$1${config.iosDisplayName}$2`
+      );
+      
+      // Update CFBundleIdentifier
+      infoPlist = infoPlist.replace(
+        /(<key>CFBundleIdentifier<\/key>\s*<string>)[^<]*(<\/string>)/,
+        `$1${config.bundleId.ios}$2`
+      );
+      
+      fs.writeFileSync(infoPlistPath, infoPlist);
+      console.log('✅ Updated ios/TelcExamApp/Info.plist');
+      console.log(`   Display Name: ${config.iosDisplayName}`);
+      console.log(`   Bundle ID: ${config.bundleId.ios}`);
+    } catch (error) {
+      console.error('❌ Failed to update Info.plist:', error.message);
+      throw error;
+    }
+  } else {
+    console.warn('⚠️  Warning: Info.plist not found at', infoPlistPath);
+  }
+  
   console.log('✅ iOS configuration will be applied via scheme build settings');
-  console.log(`   Scheme will control: Bundle ID, Display Name, and Firebase config`);
+  console.log(`   Scheme will control: Firebase config`);
 }
 
 function updateAndroidNativeFiles(config) {

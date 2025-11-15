@@ -579,8 +579,8 @@
     "examsCompleted": "الامتحانات المكتملة",
     "completionRate": "معدل الإكمال",
     "totalScore": "النتيجة الإجمالية",
-    "score": "النتيجة",
-    "performance": "الأداء",
+    "score": " النتيجة الإجمالية",
+    "performance": "الأداء الإجمالي",
     "startPracticing": "ابدأ التدريب لتتبع تقدمك!",
     "viewFullStats": "عرض الإحصائيات الكاملة",
     "performanceLevels": {

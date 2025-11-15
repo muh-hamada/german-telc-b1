@@ -60,7 +60,7 @@ if [ "$PLATFORM" = "android" ]; then
   LEVEL=$(echo "$EXAM_ID" | grep -o 'b[12]')
   
   if [ -n "$LEVEL" ]; then
-    LOGO_SOURCE="../../launcher-icon-${LEVEL}.png"
+    LOGO_SOURCE="../../logos/android/launcher-icon-${LEVEL}.png"
     
     if [ -f "$LOGO_SOURCE" ]; then
       # Copy logo to all Android mipmap directories
@@ -97,6 +97,24 @@ if [ "$PLATFORM" = "ios" ]; then
   else
     echo "⚠️  Warning: $GOOGLE_PLIST_SOURCE not found"
     echo "   Using existing GoogleService-Info.plist (if any)"
+  fi
+  
+  echo ""
+  echo "Generating iOS app icons..."
+  
+  # Run the iOS icon generation script
+  if [ -f "scripts/generate-ios-icons.sh" ]; then
+    bash scripts/generate-ios-icons.sh "$EXAM_ID"
+    
+    if [ $? -eq 0 ]; then
+      echo "✅ iOS app icons generated successfully"
+    else
+      echo "⚠️  Warning: iOS icon generation failed"
+      echo "   Continuing with existing icons"
+    fi
+  else
+    echo "⚠️  Warning: scripts/generate-ios-icons.sh not found"
+    echo "   Skipping iOS icon generation"
   fi
 fi
 

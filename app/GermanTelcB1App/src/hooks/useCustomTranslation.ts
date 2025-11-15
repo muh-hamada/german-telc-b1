@@ -37,6 +37,14 @@ export function useCustomTranslation(): UseTranslationResponse<'translation', un
  * Removes "Telc" (case-insensitive) from text and cleans up extra spaces
  */
 export function removeTelcFromText(text: string): string {
-    const withoutTelc = text.replace(/telc/ig, '');
+    // In german for example, the text contains "-" like Telc-Prüfung, so we need to remove the "-"
+    // We only need to remove the "-" after "telc". Keep all other "-"
+    const telcWithDash = text.match(/telc-.*?/ig);
+
+    let textToReplace = "telc";
+    if (telcWithDash) {
+        textToReplace = "telc-";
+    }
+    const withoutTelc = text.replace(new RegExp(textToReplace, 'ig'), '');
     return withoutTelc.replace(/\s{2,}/g, ' ').trim();
 }

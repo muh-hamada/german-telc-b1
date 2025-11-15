@@ -113,21 +113,21 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
       {displayStats.totalExams > 0 && (
         <>
           <View style={styles.statsGrid}>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>{displayStats.completedExams}/{displayStats.totalExams}</Text>
+            {/* <View style={styles.statItem}>
+              <Text style={styles.statValue}>{displayStats.completedExams}</Text>
               <Text style={styles.statLabel}>{t('progress.examsCompleted')}</Text>
-            </View>
+            </View> */}
             <View style={styles.statItem}>
               <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
                 {displayStats.averageScore}%
               </Text>
-              <Text style={styles.statLabel}>{t('progress.score')}</Text>
+              <Text style={styles.statLabel}>{t('progress.score').split(' ').join('\n')}</Text>
             </View>
             <View style={styles.statItem}>
               <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
                 {getScoreText(displayStats.averageScore)}
               </Text>
-              <Text style={styles.statLabel}>{t('progress.performance')}</Text>
+              <Text style={styles.statLabel}>{t('progress.performance').split(' ').join('\n')}</Text>
             </View>
           </View>
         </>
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   totalProgressSection: {
-    marginBottom: spacing.lg,
+    marginBottom: spacing.sm,
   },
   totalProgressHeader: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary[200],
     borderRadius: 4,
     overflow: 'hidden',
-    marginBottom: spacing.xs,
+    marginVertical: spacing.xs,
   },
   progressBarFill: {
     height: '100%',
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.text.secondary,
     textAlign: 'center',
+    lineHeight: 16,
   },
   viewFullStatsButton: {
     marginTop: spacing.md,
