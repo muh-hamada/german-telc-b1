@@ -605,8 +605,10 @@
     "examsCompleted": "Abgeschlossene Prüfungen",
     "completionRate": "Abschlussquote",
     "totalScore": "Gesamtpunktzahl",
+    "score": "Punktzahl",
     "performance": "Leistung",
     "startPracticing": "Beginnen Sie zu üben, um Ihren Fortschritt zu verfolgen!",
+    "viewFullStats": "Vollständige Statistik anzeigen",
     "performanceLevels": {
       "excellent": "Ausgezeichnet",
       "good": "Gut",

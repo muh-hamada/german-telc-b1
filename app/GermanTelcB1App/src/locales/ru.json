@@ -573,8 +573,10 @@
     "examsCompleted": "Завершенные экзамены",
     "completionRate": "Процент завершения",
     "totalScore": "Общий балл",
+    "score": "Балл",
     "performance": "Производительность",
     "startPracticing": "Начните практиковаться, чтобы отслеживать свой прогресс!",
+    "viewFullStats": "Просмотреть полную статистику",
     "performanceLevels": {
       "excellent": "Отлично",
       "good": "Хорошо",

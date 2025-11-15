@@ -573,8 +573,10 @@
     "examsCompleted": "Exámenes completados",
     "completionRate": "Tasa de finalización",
     "totalScore": "Puntuación total",
+    "score": "Puntuación",
     "performance": "Rendimiento",
     "startPracticing": "¡Comienza a practicar para seguir tu progreso!",
+    "viewFullStats": "Ver estadísticas completas",
     "performanceLevels": {
       "excellent": "Excelente",
       "good": "Bueno",

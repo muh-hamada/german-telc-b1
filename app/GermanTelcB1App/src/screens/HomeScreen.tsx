@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
-import ProgressCard from '../components/ProgressCard';
+import HomeProgressCard from '../components/HomeProgressCard';
 import HomeHeader from '../components/HomeHeader';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import { CompositeNavigationProp } from '@react-navigation/native';
@@ -41,6 +41,11 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('ProfileStack', { screen: 'Profile', params: { openLoginModal: true } });
   };
 
+  const handleViewFullStats = () => {
+    logEvent(AnalyticsEvents.PROGRESS_CARD_VIEW_FULL_STATS);
+    navigation.navigate('ProfileStack', { screen: 'Profile' });
+  };
+
   return (
     <View style={styles.container}>
       <HomeHeader />
@@ -50,7 +55,10 @@ const HomeScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ProgressCard onLoginPress={handleLoginPress} />
+        <HomeProgressCard 
+          onLoginPress={handleLoginPress} 
+          onViewFullStats={handleViewFullStats}
+        />
         
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>

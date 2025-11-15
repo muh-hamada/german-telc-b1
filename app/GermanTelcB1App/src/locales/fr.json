@@ -495,8 +495,10 @@
     "examsCompleted": "Examens terminés",
     "completionRate": "Taux de réussite",
     "totalScore": "Score total",
+    "score": "Score",
     "performance": "Performance",
     "startPracticing": "Commencez à pratiquer pour suivre vos progrès !",
+    "viewFullStats": "Voir toutes les statistiques",
     "performanceLevels": {
       "excellent": "Excellent",
       "good": "Bien",

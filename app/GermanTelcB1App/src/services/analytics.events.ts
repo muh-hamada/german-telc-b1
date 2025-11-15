@@ -36,6 +36,7 @@ export const AnalyticsEvents = {
 
   // Progress
   PROGRESS_CARD_LOGIN_NAVIGATED: 'progress_card_login_navigated',
+  PROGRESS_CARD_VIEW_FULL_STATS: 'progress_card_view_full_stats',
 
   // Ads
   BANNER_AD_LOADED: 'banner_ad_loaded',

@@ -72,6 +72,17 @@ export const AppSelectionPage: React.FC = () => {
         <h2>Admin Actions</h2>
         <div className="admin-actions-grid">
           <div
+            className="admin-action-card analytics"
+            onClick={() => navigate('/analytics')}
+          >
+            <div className="admin-action-icon">📊</div>
+            <h3>Analytics Dashboard</h3>
+            <p>View user statistics and app analytics</p>
+            <button className="btn-action-select">
+              View Analytics →
+            </button>
+          </div>
+          <div
             className="admin-action-card deletion-requests"
             onClick={() => navigate('/deletion-requests')}
           >

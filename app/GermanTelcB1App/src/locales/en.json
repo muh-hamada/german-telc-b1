@@ -602,8 +602,10 @@
     "examsCompleted": "Exams Completed",
     "completionRate": "Completion Rate",
     "totalScore": "Total Score",
+    "score": "Score",
     "performance": "Performance",
     "startPracticing": "Start practicing to track your progress!",
+    "viewFullStats": "View Full Stats",
     "performanceLevels": {
       "excellent": "Excellent",
       "good": "Good",

@@ -459,6 +459,30 @@ class FirestoreService {
   }
 
   /**
+   * Get all users from the users collection
+   */
+  async getAllUsers(): Promise<any[]> {
+    try {
+      const usersRef = collection(this.db, 'users');
+      const querySnapshot = await getDocs(usersRef);
+      
+      const users: any[] = [];
+      querySnapshot.forEach((docSnapshot) => {
+        users.push({
+          uid: docSnapshot.id,
+          ...docSnapshot.data(),
+        });
+      });
+      
+      console.log(`[FirestoreService] Fetched ${users.length} users`);
+      return users;
+    } catch (error) {
+      console.error('Error getting all users:', error);
+      throw new Error('Failed to fetch users');
+    }
+  }
+
+  /**
    * Call the cloud function to delete a user account
    */
   async callDeleteUserAccount(uid: string, email: string): Promise<any> {
