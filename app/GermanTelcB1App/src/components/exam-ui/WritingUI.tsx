@@ -69,6 +69,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
   const adEarnedRewardRef = useRef<boolean>(false);
+  const userAnswerRef = useRef<string>('');
   const isB2Exam = activeExamConfig.level === 'B2';
 
   // Initialize and load rewarded ad
@@ -78,58 +79,91 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     });
 
     const unsubscribeLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
-      console.log('Rewarded ad loaded');
+      console.log('[WritingScreen] ✅ Rewarded ad loaded successfully');
       setIsAdLoaded(true);
     });
 
     const unsubscribeEarned = ad.addAdEventListener(
       RewardedAdEventType.EARNED_REWARD,
       reward => {
-        console.log('User earned reward:', reward);
+        console.log('[WritingScreen] 🎁 User earned reward:', reward);
         adEarnedRewardRef.current = true;
         logEvent(AnalyticsEvents.REWARDED_AD_EARNED_REWARD, { ad_unit_id: REWARDED_AD_UNIT_ID });
-        // Proceed with evaluation after ad is watched
+        // Don't start evaluation yet - wait for CLOSED event
+        console.log('[WritingScreen] 💾 Reward earned, waiting for ad to close before starting evaluation');
+      }
+    );
+
+    const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
+      console.log('[WritingScreen] ❌ Rewarded ad closed', {
+        earnedReward: adEarnedRewardRef.current,
+        pendingEvaluationType: pendingEvaluationTypeRef.current
+      });
+      logEvent(AnalyticsEvents.REWARDED_AD_CLOSED, { ad_unit_id: REWARDED_AD_UNIT_ID });
+
+      // Check if user actually earned the reward
+      if (!adEarnedRewardRef.current) {
+        // User closed the ad without watching - reset everything
+        console.log('[WritingScreen] ⚠️ Ad closed without earning reward - resetting state');
+        setPendingEvaluationType(null);
+        pendingEvaluationTypeRef.current = null;
+        setShowRewardedAdModal(false);
+        setIsEvaluating(false);
+      } else {
+        // User earned the reward - NOW start the evaluation
+        console.log('[WritingScreen] ✅ Ad closed after earning reward - starting evaluation NOW');
+        setShowRewardedAdModal(false);
+        
+        // Start evaluation now that ad is closed
         const evaluationType = pendingEvaluationTypeRef.current;
-        console.log('Pending evaluation type:', evaluationType);
+        console.log('[WritingScreen] 📝 Starting evaluation type:', evaluationType);
         if (evaluationType === 'text') {
           proceedWithTextEvaluation();
         } else if (evaluationType === 'image') {
           proceedWithImageEvaluation();
         }
       }
-    );
 
-    const unsubscribeClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
-      console.log('Rewarded ad closed');
-      logEvent(AnalyticsEvents.REWARDED_AD_CLOSED, { ad_unit_id: REWARDED_AD_UNIT_ID });
-
-      // Check if user actually earned the reward
-      // If not, they closed the ad without watching - reset the state
-      if (!adEarnedRewardRef.current) {
-        console.log('Ad closed without earning reward - resetting state');
-        setPendingEvaluationType(null);
-        pendingEvaluationTypeRef.current = null;
-      }
-
-      // Reset the flag for next time
+      // Reset the flag for next time (after we've checked it above)
+      const hadEarnedReward = adEarnedRewardRef.current;
       adEarnedRewardRef.current = false;
 
       // Reload ad for next time
       setIsAdLoaded(false);
+      console.log('[WritingScreen] 🔄 Reloading ad for next time');
       ad.load();
+
+      // Clean up pending evaluation type after a delay (only if reward wasn't earned)
+      if (!hadEarnedReward) {
+        setTimeout(() => {
+          setPendingEvaluationType(null);
+          pendingEvaluationTypeRef.current = null;
+        }, 100);
+      }
     });
 
     const unsubscribeError = ad.addAdEventListener(AdEventType.ERROR, error => {
-      console.error('Rewarded ad error:', error);
+      console.error('💥 Rewarded ad error:', error);
       logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: String((error as any)?.code || 'unknown') });
+      
+      // Reset all modal and loading states on error
+      console.log('[WritingScreen] 🧹 Error cleanup - resetting all states');
       setIsAdLoaded(false);
+      setShowRewardedAdModal(false);
+      setIsEvaluating(false);
+      setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
+      adEarnedRewardRef.current = false;
+      
       // Retry loading after a delay
       setTimeout(() => {
+        console.log('[WritingScreen] 🔄 Retrying ad load after error');
         ad.load();
       }, 5000);
     });
 
     // Load the ad
+    console.log('[WritingScreen] 📱 Initializing rewarded ad');
     ad.load();
     setRewardedAd(ad);
 
@@ -148,8 +182,21 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     }
   }, [pendingEvaluationType, isAdLoaded, rewardedAd]);
 
+  // Debug: Log modal states
+  useEffect(() => {
+    console.log('[WritingScreen] 📊 Modal States:', {
+      showRewardedAdModal,
+      isImagePreviewModalOpen,
+      isResultsModalOpen,
+      isEvaluating,
+      pendingEvaluationType,
+      isAdLoaded
+    });
+  }, [showRewardedAdModal, isImagePreviewModalOpen, isResultsModalOpen, isEvaluating, pendingEvaluationType, isAdLoaded]);
+
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);
+    userAnswerRef.current = text; // Keep ref in sync
     if (showWarning && text.trim().length >= 50) {
       setShowWarning(false);
     }
@@ -209,7 +256,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     launchCamera(options, (response) => {
       if (response.didCancel) {
-        console.log('User cancelled camera');
+        console.log('[WritingScreen] User cancelled camera');
       } else if (response.errorCode) {
         Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.cameraErrorMessage') + response.errorMessage);
       } else if (response.assets && response.assets.length > 0) {
@@ -247,7 +294,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     // Check if answer hasn't changed since last evaluation
     if (imageIdentifier === lastEvaluatedAnswer && assessment) {
-      console.log('Image unchanged, showing cached assessment directly');
+      console.log('[WritingScreen] Image unchanged, showing cached assessment directly');
       setIsImagePreviewModalOpen(false);
       setIsUsingCachedResult(true);
       setIsResultsModalOpen(true);
@@ -335,11 +382,14 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
     // Check if answer hasn't changed since last evaluation
     if (userAnswer === lastEvaluatedAnswer && assessment) {
-      console.log('Answer unchanged, showing cached assessment directly');
+      console.log('[WritingScreen] Answer unchanged, showing cached assessment directly');
       setIsUsingCachedResult(true);
       setIsResultsModalOpen(true);
       return;
     }
+
+    // Store the current answer in ref so it's available in the closure
+    userAnswerRef.current = userAnswer;
 
     // Show rewarded ad modal before evaluation
     setPendingEvaluationType('text');
@@ -360,15 +410,19 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     try {
       let result: WritingAssessment;
 
+      // Use ref value which persists even if state is stale in closure
+      const answerToEvaluate = userAnswerRef.current;
+      console.log('[WritingScreen] Evaluating text:', answerToEvaluate.substring(0, 50) + '...');
+
       // Call OpenAI API for text evaluation
       result = await evaluateWriting({
-        userAnswer: userAnswer,
+        userAnswer: answerToEvaluate,
         incomingEmail: exam.incomingEmail,
         writingPoints: exam.writingPoints,
         examTitle: exam.title,
       });
 
-      setLastEvaluatedAnswer(userAnswer);
+      setLastEvaluatedAnswer(answerToEvaluate);
       setAssessment(result);
       setIsResultsModalOpen(true);
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
@@ -392,40 +446,59 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     } finally {
       setIsEvaluating(false);
       setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
     }
   };
 
   const handleWatchAdAndEvaluate = () => {
+    console.log('[WritingScreen] handleWatchAdAndEvaluate called', { 
+      hasAd: !!rewardedAd, 
+      isAdLoaded,
+      pendingEvaluationType 
+    });
+    
     if (!rewardedAd || !isAdLoaded) {
+      console.log('[WritingScreen] Ad not ready, showing alert');
       Alert.alert(
         t('writing.rewardedAdModal.adNotReady'),
         '',
         [{ text: t('writing.alerts.ok') }]
       );
+      // Reset states since we can't show the ad
+      setShowRewardedAdModal(false);
+      setPendingEvaluationType(null);
+      pendingEvaluationTypeRef.current = null;
       return;
     }
 
-    // Close the modal before showing the ad
+    console.log('[WritingScreen] Preparing to show rewarded ad...');
+    logEvent(AnalyticsEvents.REWARDED_AD_OPENED, { ad_unit_id: REWARDED_AD_UNIT_ID });
+    adEarnedRewardRef.current = false; // Reset flag before showing ad
+    
+    // Close the modal first
     setShowRewardedAdModal(false);
-
-    try {
-      console.log('Showing rewarded ad...');
-      logEvent(AnalyticsEvents.REWARDED_AD_OPENED, { ad_unit_id: REWARDED_AD_UNIT_ID });
-      adEarnedRewardRef.current = false; // Reset flag before showing ad
-      rewardedAd.show();
-    } catch (error) {
-      console.error('Error showing rewarded ad:', error);
-      logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: 'show_failed' });
-      Alert.alert(
-        t('writing.rewardedAdModal.adLoadingError'),
-        '',
-        [{ text: t('writing.alerts.ok') }]
-      );
-      // Reset state if ad fails to show
-      setPendingEvaluationType(null);
-      pendingEvaluationTypeRef.current = null;
-      adEarnedRewardRef.current = false;
-    }
+    
+    // Wait longer to ensure modal is fully dismissed on native side before showing ad
+    // iOS requires time to dismiss the modal's view controller before presenting another one
+    setTimeout(() => {
+      console.log('[WritingScreen] Calling rewardedAd.show()');
+      try {
+        rewardedAd.show();
+      } catch (showError) {
+        console.error('[WritingScreen] Error calling show():', showError);
+        logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: 'show_failed' });
+        
+        // If showing the ad fails, the error event listener will handle cleanup
+        // But we also need to clean up here in case the error event doesn't fire
+        setTimeout(() => {
+          setShowRewardedAdModal(false);
+          setIsEvaluating(false);
+          setPendingEvaluationType(null);
+          pendingEvaluationTypeRef.current = null;
+          adEarnedRewardRef.current = false;
+        }, 100);
+      }
+    }, 600);
   };
 
   const handleMaybeLater = () => {
