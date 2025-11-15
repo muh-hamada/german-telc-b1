@@ -107,13 +107,11 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
             ]}
           />
         </View>
-        <Text style={styles.percentageText}>{totalProgress.percentage}%</Text>
       </View>
 
       {/* Your Progress Stats */}
       {displayStats.totalExams > 0 && (
         <>
-          <View style={styles.divider} />
           <View style={styles.statsGrid}>
             <View style={styles.statItem}>
               <Text style={styles.statValue}>{displayStats.completedExams}/{displayStats.totalExams}</Text>
@@ -153,7 +151,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   totalProgressSection: {
-    marginBottom: spacing.xs,
+    marginBottom: spacing.md,
   },
   totalProgressHeader: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
@@ -192,7 +190,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: colors.border,
+    backgroundColor: colors.border.light,
     marginVertical: spacing.sm,
   },
   statsGrid: {
@@ -203,6 +201,10 @@ const styles = StyleSheet.create({
   statItem: {
     flex: 1,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border.light,
+    padding: spacing.sm,
+    borderRadius: spacing.borderRadius.md,
   },
   statValue: {
     ...typography.textStyles.h4,
@@ -218,8 +220,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   viewFullStatsButton: {
-    marginTop: spacing.sm,
-    paddingVertical: spacing.xs,
+    marginTop: spacing.md,
     alignItems: 'center',
   },
   viewFullStatsText: {

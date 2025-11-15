@@ -210,6 +210,9 @@
     "version": "Version",
     "completionStats": "Abschlussstatistiken",
     "totalProgress": "Gesamtfortschritt",
+    "questions": "Fragen",
+    "seeAllStats": "Alle Statistiken anzeigen",
+    "quickActions": "Schnellzugriffe",
     "noCompletedExams": "Noch keine abgeschlossenen Prüfungen. Beginnen Sie zu üben!",
     "loginProviders": {
       "google": "Mit Google fortfahren",

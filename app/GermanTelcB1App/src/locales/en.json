@@ -204,6 +204,7 @@
     "version": "Version",
     "completionStats": "Completion Statistics",
     "totalProgress": "Total Progress",
+    "questions": "Questions",
     "seeAllStats": "See All Stats",
     "quickActions": "Quick Actions",
     "noCompletedExams": "No completed exams yet. Start practicing!",
