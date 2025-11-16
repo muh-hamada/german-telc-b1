@@ -27,6 +27,7 @@ export const englishB1Config: ExamConfig = {
     examData: 'english_b1_telc_exam_data',              // Existing collection
     userProgress: 'users/{uid}/english_b1_progress/data',   // Fixed: Must be 4 segments for .doc() to work
     completions: 'users/{uid}/completions/english_b1',      // Lang and level in path (already 4 segments, correct)
+    streaks: 'users/{uid}/streaks/english-b1',              // Daily streaks tracking per exam
   },
   
   // Exam Metadata (from existing exam-info.json)

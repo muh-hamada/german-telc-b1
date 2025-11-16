@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
   statItem: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: colors.border.light,
     padding: spacing.sm,
@@ -212,7 +213,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
-    marginBottom: spacing.xs,
+    marginBottom: spacing.sm,
+    lineHeight: 20,
+    textAlign: 'center',
   },
   statLabel: {
     ...typography.textStyles.bodySmall,

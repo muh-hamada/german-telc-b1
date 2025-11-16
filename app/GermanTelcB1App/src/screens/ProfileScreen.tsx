@@ -24,10 +24,30 @@ import CompletionStatsCard from '../components/CompletionStatsCard';
 import { useAuth } from '../contexts/AuthContext';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useCompletion } from '../contexts/CompletionContext';
+import { useStreak } from '../contexts/StreakContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
-import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
+import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS, ENABLE_STREAKS } from '../config/development.config';
+
+// Helper function to format time remaining
+const formatTimeRemaining = (expiresAt: number | null): string => {
+  if (!expiresAt) return '';
+  
+  const now = Date.now();
+  const remaining = expiresAt - now;
+  
+  if (remaining <= 0) return 'Expired';
+  
+  const hours = Math.floor(remaining / (1000 * 60 * 60));
+  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  
+  if (hours > 0) {
+    return `${hours}h ${minutes}m`;
+  } else {
+    return `${minutes}m`;
+  }
+};
 
 const ProfileScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -36,6 +56,7 @@ const ProfileScreen: React.FC = () => {
   const { user, signOut, isLoading: authLoading } = useAuth();
   const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
+  const { adFreeStatus } = useStreak();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
@@ -203,7 +224,22 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Daily Streaks Card */}
-        {user && <DailyStreaksCard />}
+        {ENABLE_STREAKS && user && <DailyStreaksCard />}
+        
+        {/* Ad-Free Badge */}
+        {ENABLE_STREAKS && user && adFreeStatus.isActive && (
+          <View style={styles.adFreeBadge}>
+            <Text style={styles.adFreeIcon}>🎉</Text>
+            <View style={styles.adFreeContent}>
+              <Text style={styles.adFreeTitle}>{t('streaks.reward.activated')}</Text>
+              <Text style={styles.adFreeExpiry}>
+                {t('streaks.reward.expires', { 
+                  time: formatTimeRemaining(adFreeStatus.expiresAt) 
+                })}
+              </Text>
+            </View>
+          </View>
+        )}
 
         {/* Completion Statistics Section */}
         <View style={styles.section}>
@@ -429,6 +465,35 @@ const styles = StyleSheet.create({
   versionText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.tertiary,
+  },
+  adFreeBadge: {
+    backgroundColor: colors.success[50],
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    marginBottom: spacing.margin.lg,
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: colors.success[100],
+    ...spacing.shadow.sm,
+  },
+  adFreeIcon: {
+    fontSize: 40,
+    marginRight: I18nManager.isRTL ? 0 : spacing.margin.md,
+    marginLeft: I18nManager.isRTL ? spacing.margin.md : 0,
+  },
+  adFreeContent: {
+    flex: 1,
+  },
+  adFreeTitle: {
+    ...typography.textStyles.h4,
+    color: colors.success[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.xs,
+  },
+  adFreeExpiry: {
+    ...typography.textStyles.bodySmall,
+    color: colors.success[600],
   },
 });
 

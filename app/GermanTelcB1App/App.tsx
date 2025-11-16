@@ -9,8 +9,10 @@ import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
 import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
+import { StreakProvider } from './src/contexts/StreakContext';
 import ReviewModalContainer from './src/components/ReviewModalContainer';
 import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
+import StreakModalContainer from './src/components/StreakModalContainer';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
@@ -88,16 +90,19 @@ const App: React.FC = () => {
     <SafeAreaProvider>
       <ReviewProvider>
         <AuthProvider>
-          <NotificationReminderProvider>
-            <ProgressProvider>
-              <CompletionProvider>
-                <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                <RootNavigator />
-                <ReviewModalContainer />
-                <NotificationReminderModalContainer />
-              </CompletionProvider>
-            </ProgressProvider>
-          </NotificationReminderProvider>
+          <StreakProvider>
+            <NotificationReminderProvider>
+              <ProgressProvider>
+                <CompletionProvider>
+                  <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                  <RootNavigator />
+                  <ReviewModalContainer />
+                  <NotificationReminderModalContainer />
+                  <StreakModalContainer />
+                </CompletionProvider>
+              </ProgressProvider>
+            </NotificationReminderProvider>
+          </StreakProvider>
         </AuthProvider>
       </ReviewProvider>
     </SafeAreaProvider>

@@ -4,36 +4,54 @@ import {
   Text,
   StyleSheet,
   I18nManager,
+  ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
+import { useStreak } from '../contexts/StreakContext';
 
 interface DailyStreaksCardProps {
-  data?: number[];
+  // No props needed anymore, will use context
 }
 
-// Mock data for demonstration - will be replaced with real data later
-const MOCK_DATA = [25, 30, 20, 18, 22, 27, 15];
-
-const DailyStreaksCard: React.FC<DailyStreaksCardProps> = ({ data = MOCK_DATA }) => {
+const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   const { t } = useCustomTranslation();
+  const { weeklyActivity, streakData, isLoading } = useStreak();
 
+  // Map activity data to activity count for visualization
+  const data = weeklyActivity.map(day => day.activitiesCount);
+
+  console.log('weeklyActivity', weeklyActivity);
+  
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   
   // Calculate max value for scaling
-  const maxValue = Math.max(...data, 30); // Minimum max of 30 for better visualization
+  const maxValue = Math.max(...data, 10); // Minimum max of 10 for better visualization
   
   // Get total for the week
   const totalActivity = data.reduce((sum, val) => sum + val, 0);
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color={colors.primary[500]} />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View>
-          <Text style={styles.title}>{t('profile.weeklyActivity')}</Text>
+          <Text style={styles.title}>{t('streaks.weeklyActivity')}</Text>
           <Text style={styles.subtitle}>
-            {totalActivity} {t('profile.totalXP')}
+            {totalActivity} {t('streaks.totalActivities')}
           </Text>
+          {streakData && (
+            <Text style={styles.subtitle}>
+              {t('streaks.longestStreak', { count: streakData.longestStreak })}
+            </Text>
+          )}
         </View>
         <View style={styles.totalBadge}>
           <Text style={styles.totalValue}>{totalActivity}</Text>

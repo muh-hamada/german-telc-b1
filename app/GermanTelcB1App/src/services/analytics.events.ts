@@ -100,6 +100,15 @@ export const AnalyticsEvents = {
   NOTIFICATION_REMINDER_ENABLED: 'notification_reminder_enabled',
   NOTIFICATION_REMINDER_MAYBE_LATER: 'notification_reminder_maybe_later',
   NOTIFICATION_REMINDER_PERMISSION_DENIED: 'notification_reminder_permission_denied',
+  
+  // Streaks
+  STREAK_ACTIVITY_RECORDED: 'streak_activity_recorded',
+  STREAK_MODAL_SHOWN: 'streak_modal_shown',
+  STREAK_REWARD_EARNED: 'streak_reward_earned',
+  STREAK_REWARD_CLAIMED: 'streak_reward_claimed',
+  STREAK_BROKEN: 'streak_broken',
+  AD_FREE_ACTIVATED: 'ad_free_activated',
+  AD_FREE_EXPIRED: 'ad_free_expired',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

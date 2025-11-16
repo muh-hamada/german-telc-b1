@@ -14,6 +14,7 @@
     "close": "Schließen",
     "done": "Fertig",
     "retry": "Wiederholen",
+    "later": "Später",
     "user": "Benutzer",
     "labels": {
       "name": "Name",
@@ -860,6 +861,29 @@
       "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie einreichen. {{count}} Aussage(n) verbleiben."
+    }
+  },
+  "streaks": {
+    "title": "Tägliche Streaks",
+    "currentStreak": "{{count}} Tage-Streak!",
+    "longestStreak": "Längste: {{count}} Tage",
+    "weeklyActivity": "Wöchentliche Aktivität",
+    "totalActivities": "Aktivitäten gesamt",
+    "perfectWeek": "Du bist auf halbem Weg zu deiner perfekten Woche und werbefreien Tag!",
+    "perfectWeekComplete": "Perfekte Woche! Du hast alle 7 Tage abgeschlossen!",
+    "greatStart": "Großartiger Start! Baue deinen Streak weiter auf!",
+    "keepGoing": "Weiter so! Du machst das großartig!",
+    "days": "Tage",
+    "reward": {
+      "title": "7-Tage-Streak erreicht!",
+      "description": "Genieße 24 Stunden werbefreie Erfahrung",
+      "claim": "Belohnung einlösen",
+      "activated": "24h werbefrei aktiviert!",
+      "enjoyAdFree": "Genieße deine werbefreie Erfahrung!",
+      "expires": "Läuft ab in {{time}}",
+      "streakResetNote": "Hinweis: Dein Streak-Zähler wird nach dem Einlösen zurückgesetzt, damit du eine weitere Belohnung verdienen kannst.",
+      "adFreeTitle": "24-Stunden werbefreies Erlebnis",
+      "rewardHint": "Noch {{days}} Tag(e) bis du einen werbefreien Tag verdienst!"
     }
   }
 }

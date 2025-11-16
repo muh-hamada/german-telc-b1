@@ -19,6 +19,9 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
 import dataService from '../../services/data.service';
 import { useTranslation } from 'react-i18next';
+import firebaseStreaksService from '../../services/firebase-streaks.service';
+import { useAuth } from '../../contexts/AuthContext';
+import { ENABLE_STREAKS } from '../../config/development.config';
 
 interface GrammarQuestion {
   choice: string;
@@ -58,6 +61,7 @@ interface QuestionGroup {
 const GrammarStudyScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { i18n } = useTranslation();
+  const { user } = useAuth();
   
   const navigation = useNavigation();
 
@@ -133,7 +137,7 @@ const GrammarStudyScreen: React.FC = () => {
     }
   };
 
-  const handleAnswerSelect = (choice: string) => {
+  const handleAnswerSelect = async (choice: string) => {
     if (showResult) return; // Prevent changing answer after showing result
     
     setSelectedAnswer(choice);
@@ -144,12 +148,31 @@ const GrammarStudyScreen: React.FC = () => {
     newCompleted.add(currentQuestionIndex);
     setCompletedQuestions(newCompleted);
     
+    const isCorrect = allQuestions[currentQuestionIndex]?.question.question.options.find(opt => opt.choice === choice)?.is_correct || false;
+    
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, {
       section: 'grammar_study',
       question_index: currentQuestionIndex,
       selected_answer: choice,
-      is_correct: allQuestions[currentQuestionIndex]?.question.question.options.find(opt => opt.choice === choice)?.is_correct || false
+      is_correct: isCorrect
     });
+    
+    // Record streak activity (if enabled and user is logged in)
+    if (ENABLE_STREAKS && user?.uid) {
+      try {
+        const questionId = `grammar-study-${currentQuestionIndex}`;
+        await firebaseStreaksService.recordActivity(
+          user.uid,
+          'grammar_study',
+          [questionId],
+          isCorrect ? 1 : 0
+        );
+        console.log('[GrammarStudyScreen] Streak activity recorded');
+      } catch (streakError) {
+        console.error('[GrammarStudyScreen] Error recording streak:', streakError);
+        // Don't fail the whole operation if streak recording fails
+      }
+    }
   };
 
   const handleNext = async () => {

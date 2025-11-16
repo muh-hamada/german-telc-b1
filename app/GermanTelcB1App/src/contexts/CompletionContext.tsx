@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect, ReactNode, useCa
 import { useAuth } from './AuthContext';
 import firebaseCompletionService, { CompletionData, CompletionStats, AllCompletionStats } from '../services/firebase-completion.service';
 import { reviewTrigger } from '../utils/reviewTrigger';
+import firebaseStreaksService from '../services/firebase-streaks.service';
+import { ENABLE_STREAKS } from '../config/development.config';
 
 interface CompletionContextType {
   // State
@@ -157,6 +159,23 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         console.log('[CompletionContext] Triggering review prompt for score:', score);
         // We use 100% to indicate completion
         reviewTrigger.trigger(100, 100);
+        
+        // Record streak activity (if enabled and user is logged in)
+        if (ENABLE_STREAKS && user?.uid) {
+          try {
+            const questionId = `${examType}-${partNumber}-${examId}`;
+            await firebaseStreaksService.recordActivity(
+              user.uid,
+              'completion',
+              [questionId],
+              score
+            );
+            console.log('[CompletionContext] Streak activity recorded for completion');
+          } catch (streakError) {
+            console.error('[CompletionContext] Error recording streak:', streakError);
+            // Don't fail the whole operation if streak recording fails
+          }
+        }
       } else {
         console.log('[CompletionContext] Not triggering review prompt for score:', score);
       }

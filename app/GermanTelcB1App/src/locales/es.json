@@ -14,6 +14,7 @@
     "close": "Cerrar",
     "done": "Hecho",
     "retry": "Reintentar",
+    "later": "Más tarde",
     "user": "Usuario",
     "labels": {
       "name": "Nombre",
@@ -860,6 +861,29 @@
       "audioErrorMessage": "No se pudo cargar el archivo de audio.",
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+    }
+  },
+  "streaks": {
+    "title": "Rachas Diarias",
+    "currentStreak": "¡{{count}} días de racha!",
+    "longestStreak": "Más larga: {{count}} días",
+    "weeklyActivity": "Actividad Semanal",
+    "totalActivities": "actividades totales",
+    "perfectWeek": "¡Estás a mitad de camino de tu semana perfecta y día sin anuncios!",
+    "perfectWeekComplete": "¡Semana perfecta! ¡Has completado los 7 días!",
+    "greatStart": "¡Gran comienzo! ¡Sigue construyendo tu racha!",
+    "keepGoing": "¡Sigue así! ¡Lo estás haciendo genial!",
+    "days": "días",
+    "reward": {
+      "title": "¡Racha de 7 Días Alcanzada!",
+      "description": "Disfruta 24 horas de experiencia sin anuncios",
+      "claim": "Reclamar Recompensa",
+      "activated": "¡24h Sin Anuncios Activado!",
+      "enjoyAdFree": "¡Disfruta tu experiencia sin anuncios!",
+      "expires": "Expira en {{time}}",
+      "streakResetNote": "Nota: Tu contador de racha se reiniciará después de reclamar para que puedas ganar otra recompensa.",
+      "adFreeTitle": "Experiencia de 24 Horas Sin Anuncios",
+      "rewardHint": "¡{{days}} día(s) más hasta que ganes un día sin anuncios!"
     }
   }
 }

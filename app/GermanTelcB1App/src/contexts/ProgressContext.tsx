@@ -5,6 +5,8 @@ import firebaseProgressService from '../services/firebase-progress.service';
 import { AuthContext } from './AuthContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { reviewTrigger } from '../utils/reviewTrigger';
+import firebaseStreaksService from '../services/firebase-streaks.service';
+import { ENABLE_STREAKS } from '../config/development.config';
 
 // Progress Context Types
 interface ProgressState {
@@ -281,6 +283,23 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           // Trigger review prompt if score is provided
           if (score !== undefined && maxScore !== undefined) {
             reviewTrigger.trigger(score, maxScore);
+          }
+          
+          // Record streak activity (if enabled and user is logged in)
+          if (ENABLE_STREAKS && user?.uid) {
+            try {
+              const questionIds = answers.map(a => `${examType}-${examId}-${a.questionId}`);
+              await firebaseStreaksService.recordActivity(
+                user.uid,
+                'exam',
+                questionIds,
+                score || 0
+              );
+              console.log('[ProgressContext] Streak activity recorded');
+            } catch (streakError) {
+              console.error('[ProgressContext] Error recording streak:', streakError);
+              // Don't fail the whole operation if streak recording fails
+            }
           }
           
           dispatch({ type: 'SET_LOADING', payload: false });

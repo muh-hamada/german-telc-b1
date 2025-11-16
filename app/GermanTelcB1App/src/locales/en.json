@@ -14,6 +14,7 @@
     "close": "Close",
     "done": "Done",
     "retry": "Retry",
+    "later": "Later",
     "user": "User",
     "labels": {
       "name": "Name",
@@ -872,6 +873,29 @@
       "audioErrorMessage": "The audio file could not be loaded.",
       "incomplete": "Incomplete",
       "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+    }
+  },
+  "streaks": {
+    "title": "Daily Streaks",
+    "currentStreak": "{{count}} day streak!",
+    "longestStreak": "Longest: {{count}} days",
+    "weeklyActivity": "Weekly Activity",
+    "totalActivities": "total activities",
+    "perfectWeek": "You're halfway to your perfect week and ad-free day!",
+    "perfectWeekComplete": "Perfect week! You've completed all 7 days!",
+    "greatStart": "Great start! Keep building your streak!",
+    "keepGoing": "Keep going! You're doing great!",
+    "days": "days",
+    "reward": {
+      "title": "7 Days Streak Achieved!",
+      "description": "Enjoy 24 hours of ad-free experience",
+      "claim": "Claim Reward",
+      "activated": "24h Ad-Free Activated!",
+      "enjoyAdFree": "Enjoy your ad-free experience!",
+      "expires": "Expires in {{time}}",
+      "streakResetNote": "Note: Your streak counter will reset after claiming to let you earn another reward.",
+      "adFreeTitle": "24-Hour Ad-Free Experience",
+      "rewardHint": "{{days}} more day(s) until you earn an ad-free day!"
     }
   }
 }

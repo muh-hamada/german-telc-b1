@@ -27,6 +27,7 @@ export interface ExamConfig {
     examData: string;         // e.g., "b1_telc_exam_data" or "german_b1_exam_data"
     userProgress: string;     // e.g., "users/{uid}/progress" or "users/{uid}/german_b1_progress"
     completions: string;      // e.g., "users/{uid}/completions" or "users/{uid}/completions/german_b2"
+    streaks: string;          // e.g., "users/{uid}/streaks" for daily streaks tracking
   };
   
   // Exam Metadata

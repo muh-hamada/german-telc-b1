@@ -27,6 +27,7 @@ export const germanB2Config: ExamConfig = {
     examData: 'german_b2_telc_exam_data',              // Existing collection
     userProgress: 'users/{uid}/german_b2_progress/data',   // Fixed: Must be 4 segments for .doc() to work
     completions: 'users/{uid}/completions/german_b2',      // Lang and level in path (already 4 segments, correct)
+    streaks: 'users/{uid}/streaks/german-b2',              // Daily streaks tracking per exam
   },
   
   // Exam Metadata (from existing exam-info.json)

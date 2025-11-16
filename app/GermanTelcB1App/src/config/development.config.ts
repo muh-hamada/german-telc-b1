@@ -9,7 +9,7 @@
  * ⚠️ CRITICAL: Set to FALSE before production release!
  */
 
-export const DEMO_MODE = true; // Set to false for production
+export const DEMO_MODE = false; // Set to false for production
 
 export const HIDE_ADS = false; // Set to false for production
 
@@ -18,6 +18,15 @@ export const SKIP_REWARDED_ADS = false; // Set to false for production
 export const ALWAYS_SHOW_REVIEW_MODAL = false; // Set to false for production
 
 export const DISABLE_DATA_CACHE = false; // Set to true to disable data cache
+
+/**
+ * Streak Feature Flags
+ */
+export const ENABLE_STREAKS = true; // Global feature flag for streak system
+
+export const FORCE_SHOW_STREAK_MODAL = false; // Force show streak modal for testing
+
+export const SIMULATE_7_DAY_STREAK = false; // Simulate 7-day streak for reward testing
 
 /**
  * Demo progress statistics shown in ProgressCard

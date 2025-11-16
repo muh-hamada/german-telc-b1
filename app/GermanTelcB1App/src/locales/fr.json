@@ -14,6 +14,7 @@
     "close": "Fermer",
     "done": "Terminé",
     "retry": "Réessayer",
+    "later": "Plus tard",
     "user": "Utilisateur",
     "labels": {
       "name": "Nom",
@@ -860,6 +861,29 @@
       "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
       "incomplete": "Incomplet",
       "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
+    }
+  },
+  "streaks": {
+    "title": "Séries Quotidiennes",
+    "currentStreak": "Série de {{count}} jours!",
+    "longestStreak": "Plus longue: {{count}} jours",
+    "weeklyActivity": "Activité Hebdomadaire",
+    "totalActivities": "activités totales",
+    "perfectWeek": "Vous êtes à mi-chemin de votre semaine parfaite et jour sans publicité!",
+    "perfectWeekComplete": "Semaine parfaite! Vous avez complété tous les 7 jours!",
+    "greatStart": "Excellent début! Continuez à construire votre série!",
+    "keepGoing": "Continuez! Vous vous débrouillez très bien!",
+    "days": "jours",
+    "reward": {
+      "title": "Série de 7 Jours Atteinte!",
+      "description": "Profitez de 24 heures d'expérience sans publicité",
+      "claim": "Réclamer la Récompense",
+      "activated": "24h Sans Publicité Activé!",
+      "enjoyAdFree": "Profitez de votre expérience sans publicité!",
+      "expires": "Expire dans {{time}}",
+      "streakResetNote": "Note: Votre compteur de série se réinitialisera après réclamation pour vous permettre de gagner une autre récompense.",
+      "adFreeTitle": "Expérience de 24 Heures Sans Publicité",
+      "rewardHint": "Encore {{days}} jour(s) avant de gagner un jour sans publicité!"
     }
   }
 }
