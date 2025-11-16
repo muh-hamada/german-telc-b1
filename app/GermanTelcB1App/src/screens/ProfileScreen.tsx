@@ -8,41 +8,38 @@ import {
   Image,
   I18nManager,
   Platform,
-  Linking,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import DeviceInfo from 'react-native-device-info';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
-import ProgressCard from '../components/ProgressCard';
-import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
-import DeleteAccountModal from '../components/DeleteAccountModal';
-import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
+import DailyStreaksCard from '../components/DailyStreaksCard';
+import CompletionStatsCard from '../components/CompletionStatsCard';
 import { useAuth } from '../contexts/AuthContext';
+import { useUserStats } from '../contexts/ProgressContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import FirestoreService from '../services/firestore.service';
-import { activeExamConfig } from '../config/active-exam.config';
 import { openAppRating } from '../utils/appRating';
-import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
+import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 
 const ProfileScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<RouteProp<ProfileStackParamList, 'Profile'>>();
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList>>();
   const { user, signOut, isLoading: authLoading } = useAuth();
+  const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
-  const [showDeletionInProgressModal, setShowDeletionInProgressModal] = useState(false);
-  const [isDeletingAccount, setIsDeletingAccount] = useState(false);
 
   // Use demo stats if demo mode is enabled
+  const displayStats = DEMO_MODE ? DEMO_STATS : stats;
   const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
 
   const handleRateApp = async () => {
@@ -100,85 +97,113 @@ const ProfileScreen: React.FC = () => {
     Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
   };
 
-  const handleDeleteAccount = async () => {
-    if (!user) return;
-
-    logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CLICKED);
-
-    try {
-      // Check if a deletion request already exists
-      const requestExists = await FirestoreService.checkDeletionRequestExists(user.uid);
-
-      if (requestExists) {
-        // Show in-progress modal
-        setShowDeletionInProgressModal(true);
-      } else {
-        // Show confirmation modal
-        setShowDeleteAccountModal(true);
-      }
-    } catch (error) {
-      console.error('Error checking deletion request:', error);
-      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
-    }
-  };
-
-  const handleConfirmDeleteAccount = async () => {
-    if (!user) return;
-
-
-    const appId = activeExamConfig.id;
-    const appName = activeExamConfig.appName;
-
-    setIsDeletingAccount(true);
-    try {
-      await FirestoreService.createDeletionRequest(user.uid, user.email || '', appId, appName);
-      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CONFIRMED);
-      // Modal will show success step automatically
-    } catch (error) {
-      console.error('Error creating deletion request:', error);
-      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
-      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
-      setShowDeleteAccountModal(false);
-    } finally {
-      setIsDeletingAccount(false);
-    }
-  };
-
-  const handleCloseDeleteModal = () => {
-    if (!isDeletingAccount) {
-      setShowDeleteAccountModal(false);
-      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
-    }
+  const handleNavigateBack = () => {
+    navigation.goBack();
   };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>{t('profile.title')}</Text>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <TouchableOpacity onPress={handleNavigateBack} style={styles.headerButton}>
+            <Icon name="chevron-left" size={20} color={colors.text.primary} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>{t('profile.title')}</Text>
+        </View>
+        <TouchableOpacity onPress={handleNavigateToSettings} style={styles.headerButton}>
+          <Icon name="cog" size={24} color={colors.text.primary} />
+        </TouchableOpacity>
+      </View>
 
-        {/* User Info Section */}
-        {user && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
-            <View style={styles.userInfo}>
-              {user.photoURL && (
-                <Image source={{ uri: user.photoURL }} style={styles.avatar} />
-              )}
-              <View style={styles.userDetails}>
-                <Text style={styles.userName}>{user.displayName || t('common.user')}</Text>
-                <Text style={styles.userEmail}>{user.email}</Text>
-                <Text style={styles.userProvider}>
-                  {t('profile.signedInWith')} {user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}
-                </Text>
+      <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
+        {/* Login Prompt for Logged Out Users */}
+        {!user && (
+          <View style={styles.loginPromptCard}>
+            <Icon name="user-circle" size={60} color={colors.primary[500]} />
+            <Text style={styles.loginPromptTitle}>{t('profile.loginPrompt.title')}</Text>
+            <Text style={styles.loginPromptMessage}>{t('profile.loginPrompt.message')}</Text>
+            <View style={styles.benefitsList}>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit1')}</Text>
               </View>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit2')}</Text>
+              </View>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit3')}</Text>
+              </View>
+            </View>
+            <Button
+              title={t('profile.signIn')}
+              onPress={() => setShowLoginModal(true)}
+              variant="primary"
+              style={styles.loginPromptButton}
+            />
+          </View>
+        )}
+
+        {/* User Profile Card */}
+        {user && (
+          <View style={styles.userCard}>
+            {user.photoURL ? (
+              <Image source={{ uri: user.photoURL }} style={styles.avatar} />
+            ) : (
+              <View style={[styles.avatar, styles.avatarPlaceholder]}>
+                <Icon name="user" size={40} color={colors.text.tertiary} />
+              </View>
+            )}
+            <View style={styles.userDetails}>
+              <Text style={styles.userName}>{user.displayName || t('common.user')}</Text>
+              <Text style={styles.userEmail}>{user.email}</Text>
             </View>
           </View>
         )}
 
-        {/* Progress Section */}
-        <View style={styles.section}>
-          <ProgressCard showDetails={true} />
+        {/* Stats Grid */}
+        <View style={styles.statsGrid}>
+          {/* Exams Completed */}
+          <View style={styles.statCard}>
+            <View style={[styles.statIconContainer, { backgroundColor: colors.warning[100] }]}>
+              <Icon name="star" size={20} color={colors.warning[600]} />
+            </View>
+            <Text style={styles.statValue}>{user ? displayStats.completedExams : 0}</Text>
+            <Text style={styles.statLabel}>{t('profile.stats.examsCompleted')}</Text>
+          </View>
+
+          {/* Average Score */}
+          <View style={styles.statCard}>
+            <View style={[styles.statIconContainer, { backgroundColor: colors.success[100] }]}>
+              <Icon name="trophy" size={20} color={colors.success[600]} />
+            </View>
+            <Text style={styles.statValue}>{user ? displayStats.averageScore : 0}%</Text>
+            <Text style={styles.statLabel}>{t('profile.stats.averageScore')}</Text>
+          </View>
+
+          {/* Total Score */}
+          <View style={styles.statCard}>
+            <View style={[styles.statIconContainer, { backgroundColor: colors.primary[100] }]}>
+              <Icon name="file-text" size={20} color={colors.primary[600]} />
+            </View>
+            <Text style={styles.statValue}>{user ? displayStats.totalScore : 0}</Text>
+            <Text style={styles.statLabel}>{t('profile.stats.totalScore')}</Text>
+          </View>
+
+          {/* Completion Rate */}
+          <View style={styles.statCard}>
+            <View style={[styles.statIconContainer, { backgroundColor: colors.secondary[100] }]}>
+              <Icon name="bolt" size={20} color={colors.secondary[600]} />
+            </View>
+            <Text style={styles.statValue}>{user ? displayStats.completionRate : 0}%</Text>
+            <Text style={styles.statLabel}>{t('profile.stats.completionRate')}</Text>
+          </View>
         </View>
+
+        {/* Daily Streaks Card */}
+        {user && <DailyStreaksCard />}
 
         {/* Completion Statistics Section */}
         <View style={styles.section}>
@@ -191,64 +216,28 @@ const ProfileScreen: React.FC = () => {
           />
         </View>
 
-        {/* Quick Actions Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.quickActions')}</Text>
-
-          <Button
-            title={t('settings.title')}
-            onPress={handleNavigateToSettings}
-            variant="outline"
-            style={styles.settingButton}
-          />
-        </View>
-
-        {/* Authentication Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
-
-          {user ? (
-            <>
-              <Button
-                title={t('profile.signOut')}
-                onPress={handleSignOut}
-                variant="outline"
-                style={{ ...styles.settingButton, ...styles.dangerButton }}
-                disabled={authLoading}
-              />
-              <Button
-                title={t('profile.deleteAccount')}
-                onPress={handleDeleteAccount}
-                variant="outline"
-                style={{ ...styles.settingButton, ...styles.deleteAccountButton }}
-                disabled={authLoading}
-              />
-            </>
-          ) : (
+        {/* Actions Section */}
+        <View style={styles.actionsSection}>
+          {user && (
             <Button
-              title={t('profile.signIn')}
-              onPress={() => setShowLoginModal(true)}
+              title={t('profile.signOut')}
+              onPress={handleSignOut}
               variant="outline"
-              style={styles.settingButton}
+              style={styles.actionButton}
+              disabled={authLoading}
             />
           )}
-        </View>
-
-        <View style={styles.rateAppSection}>
           <Button
             title={t('profile.rateApp')}
             onPress={handleRateApp}
             variant="primary"
-            style={styles.rateAppButton}
+            style={styles.actionButton}
           />
         </View>
 
         {/* About Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.about')}</Text>
-          <Text style={styles.aboutText}>
-            {t('profile.appName')}
-          </Text>
+        <View style={styles.aboutSection}>
+          <Text style={styles.aboutText}>{t('profile.appName')}</Text>
           <Text style={styles.versionText}>
             {t('profile.version')} {DeviceInfo.getVersion()}
           </Text>
@@ -262,20 +251,6 @@ const ProfileScreen: React.FC = () => {
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
       />
-
-      {/* Delete Account Modal */}
-      <DeleteAccountModal
-        visible={showDeleteAccountModal}
-        onClose={handleCloseDeleteModal}
-        onConfirm={handleConfirmDeleteAccount}
-        isLoading={isDeletingAccount}
-      />
-
-      {/* Account Deletion In Progress Modal */}
-      <AccountDeletionInProgressModal
-        visible={showDeletionInProgressModal}
-        onClose={() => setShowDeletionInProgressModal(false)}
-      />
     </SafeAreaView>
   );
 };
@@ -284,84 +259,174 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
-
+  },
+  header: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
+    backgroundColor: colors.background.primary,
+  },
+  headerLeft: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  headerTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+  },
+  headerButton: {
+    width: 44,
+    height: 44,
+    borderRadius: spacing.borderRadius.full,
+    backgroundColor: colors.background.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...spacing.shadow.sm,
   },
   content: {
     flex: 1,
   },
   scrollContent: {
     padding: spacing.padding.lg,
+    paddingTop: 0,
   },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
+  loginPromptCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.xl,
+    alignItems: 'center',
     marginBottom: spacing.margin.lg,
+    ...spacing.shadow.sm,
   },
-  section: {
-    marginBottom: spacing.margin.sm,
-  },
-  sectionTitle: {
-    ...typography.textStyles.h4,
+  loginPromptTitle: {
+    ...typography.textStyles.h3,
     color: colors.text.primary,
+    marginTop: spacing.margin.md,
     marginBottom: spacing.margin.sm,
+    textAlign: 'center',
   },
-  settingButton: {
-    marginBottom: spacing.margin.sm,
-  },
-  rateAppSection: {
-    paddingTop: spacing.padding.lg,
-    marginTop: spacing.margin.sm,
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-  },
-  rateAppButton: {
-    marginBottom: spacing.margin.lg,
-  },
-  dangerButton: {
-    borderColor: colors.error[500],
-  },
-  deleteAccountButton: {
-    borderColor: colors.error[500],
-    marginTop: spacing.margin.xs,
-  },
-  aboutText: {
+  loginPromptMessage: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
-    marginBottom: spacing.margin.xs,
+    textAlign: 'center',
+    marginBottom: spacing.margin.lg,
+    lineHeight: 22,
   },
-  versionText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.tertiary,
+  benefitsList: {
+    width: '100%',
+    marginBottom: spacing.margin.lg,
   },
-  userInfo: {
+  benefitItem: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
+    marginBottom: spacing.margin.sm,
+    paddingHorizontal: spacing.padding.sm,
+  },
+  benefitText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    marginLeft: spacing.margin.sm,
+    flex: 1,
+  },
+  loginPromptButton: {
+    width: '100%',
+  },
+  userCard: {
     backgroundColor: colors.background.secondary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    alignItems: 'center',
+    marginBottom: spacing.margin.md,
     ...spacing.shadow.sm,
   },
   avatar: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    marginRight: spacing.margin.md,
+    marginRight: I18nManager.isRTL ? 0 : spacing.margin.md,
+    marginLeft: I18nManager.isRTL ? spacing.margin.md : 0,
+  },
+  avatarPlaceholder: {
+    backgroundColor: colors.secondary[100],
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   userDetails: {
     flex: 1,
+    justifyContent: 'center',
   },
   userName: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    lineHeight: 22,
   },
   userEmail: {
-    ...typography.textStyles.body,
-    fontSize: typography.fontSize.sm,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+  },
+  section: {
+    marginBottom: spacing.margin.sm,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: spacing.margin.lg,
+    gap: spacing.md,
+  },
+  statCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    alignItems: 'center',
+    width: '47%',
+    ...spacing.shadow.sm,
+  },
+  statIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: spacing.borderRadius.lg,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: spacing.margin.md,
+  },
+  statValue: {
+    ...typography.textStyles.h2,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
   },
-  userProvider: {
+  statLabel: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    textAlign: 'center',
+  },
+  actionsSection: {
+    marginTop: spacing.margin.lg,
+  },
+  actionButton: {
+    marginBottom: spacing.margin.sm,
+  },
+  aboutSection: {
+    alignItems: 'center',
+    paddingTop: spacing.padding.lg,
+    paddingBottom: spacing.padding.md,
+    borderTopWidth: 1,
+    borderTopColor: colors.border.light,
+    marginTop: spacing.margin.lg,
+  },
+  aboutText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    marginBottom: spacing.margin.xs,
+  },
+  versionText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.tertiary,
   },

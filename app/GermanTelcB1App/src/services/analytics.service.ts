@@ -49,7 +49,7 @@ class AnalyticsService {
   constructor() {
     this.isEnabled = ANALYTICS_ENABLED;
     this.recentEvents = new Map();
-    this.appName = activeExamConfig.appName;
+    this.appName = activeExamConfig.appName + '_' + Platform.OS;
 
     if (!this.isEnabled) {
       console.log('[Analytics] Disabled in development mode');

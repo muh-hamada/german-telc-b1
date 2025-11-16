@@ -218,6 +218,13 @@
       "welcome": "Welcome",
       "notLoggedIn": "Not logged in"
     },
+    "loginPrompt": {
+      "title": "Sign in to unlock all features",
+      "message": "Create a free account or sign in to save your progress and get the most out of your exam preparation.",
+      "benefit1": "Track your progress across all devices",
+      "benefit2": "Receive daily practice reminders",
+      "benefit3": "Save your exam scores and statistics"
+    },
     "alerts": {
       "clearProgressTitle": "Clear Progress",
       "clearProgressMessage": "Are you sure you want to clear all your progress? This action cannot be undone.",
@@ -237,6 +244,15 @@
     },
     "rateApp": "Rate our App",
     "deleteAccount": "Delete Account",
+    "appName": "German TELC B1 Exam Preparation App",
+    "weeklyActivity": "Weekly Activity",
+    "totalXP": "XP",
+    "stats": {
+      "examsCompleted": "Exams Completed",
+      "averageScore": "Average Score",
+      "totalScore": "Total Score",
+      "completionRate": "Completion Rate"
+    },
     "deleteAccountModal": {
       "title": "Delete Account",
       "message": "Are you sure you want to delete your account? This action cannot be undone. All your progress and data will be permanently deleted within 7 days.",
@@ -288,7 +304,8 @@
     "consentStatusNotRequired": "Not required in your region",
     "consentStatusRequired": "Consent required",
     "consentStatusUnknown": "Status unknown",
-    "data": "Data"
+    "data": "Data",
+    "accountManagement": "Account Management"
   },
   "stats": {
     "title": "Statistics",

@@ -17,6 +17,8 @@ import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import HourPickerModal from '../components/HourPickerModal';
+import DeleteAccountModal from '../components/DeleteAccountModal';
+import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { checkRTLChange } from '../utils/i18n';
@@ -25,11 +27,12 @@ import FirestoreService from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   const { clearUserProgress, isLoading } = useProgress();
-  const { user } = useAuth();
+  const { user, isLoading: authLoading } = useAuth();
   const [isClearing, setIsClearing] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
@@ -40,6 +43,9 @@ const SettingsScreen: React.FC = () => {
   const [consentStatus, setConsentStatus] = useState<AdsConsentStatus>(AdsConsentStatus.UNKNOWN);
   const [isLoadingConsent, setIsLoadingConsent] = useState(false);
   const [attStatus, setAttStatus] = useState<TrackingStatus>('unavailable');
+  const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
+  const [showDeletionInProgressModal, setShowDeletionInProgressModal] = useState(false);
+  const [isDeletingAccount, setIsDeletingAccount] = useState(false);
 
   // Load settings and check permissions when component mounts
   useEffect(() => {
@@ -433,6 +439,57 @@ const SettingsScreen: React.FC = () => {
     return attService.getStatusDescription(attStatus);
   };
 
+  // Handle delete account
+  const handleDeleteAccount = async () => {
+    if (!user) return;
+
+    logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CLICKED);
+
+    try {
+      // Check if a deletion request already exists
+      const requestExists = await FirestoreService.checkDeletionRequestExists(user.uid);
+
+      if (requestExists) {
+        // Show in-progress modal
+        setShowDeletionInProgressModal(true);
+      } else {
+        // Show confirmation modal
+        setShowDeleteAccountModal(true);
+      }
+    } catch (error) {
+      console.error('Error checking deletion request:', error);
+      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
+    }
+  };
+
+  const handleConfirmDeleteAccount = async () => {
+    if (!user) return;
+
+    const appId = activeExamConfig.id;
+    const appName = activeExamConfig.appName;
+
+    setIsDeletingAccount(true);
+    try {
+      await FirestoreService.createDeletionRequest(user.uid, user.email || '', appId, appName);
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CONFIRMED);
+      // Modal will show success step automatically
+    } catch (error) {
+      console.error('Error creating deletion request:', error);
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
+      Alert.alert(t('common.error'), t('profile.deleteAccountModal.error'));
+      setShowDeleteAccountModal(false);
+    } finally {
+      setIsDeletingAccount(false);
+    }
+  };
+
+  const handleCloseDeleteModal = () => {
+    if (!isDeletingAccount) {
+      setShowDeleteAccountModal(false);
+      logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CANCELLED);
+    }
+  };
+
   // Handle ATT permission management
   const handleManageAttPermission = async () => {
     if (Platform.OS !== 'ios') {
@@ -548,8 +605,8 @@ const SettingsScreen: React.FC = () => {
               {t('settings.signInToSaveSettings')}
             </Text>
           ) : (
-            <>
-              <View style={styles.settingRow}>
+            <View style={styles.notificationsContainer}>
+              <View style={styles.notificationsRow}>
                 <Text style={styles.settingLabel}>{t('settings.dailyNotification')}</Text>
                 <Switch
                   value={notificationsEnabled}
@@ -582,18 +639,19 @@ const SettingsScreen: React.FC = () => {
               )}
 
               {notificationsEnabled && permissionStatus === 'granted' && (
-                <View style={styles.timeSection}> 
-                  <Text style={styles.timeLabel}>{t('settings.notificationTime')}</Text>
+                <View style={[styles.notificationsRow, styles.timeSection]}> 
+                  <Text style={styles.settingLabel}>{t('settings.notificationTime')}</Text>
                   <Button
                     title={formatHour(notificationHour)}
                     onPress={() => setShowHourPicker(true)}
                     variant="outline"
+                    size='small'
                     style={styles.timeButton}
                     disabled={isLoadingSettings}
                   />
                 </View>
               )}
-            </>
+            </View>
           )}
 
           {/* Custom Hour Picker Modal */}
@@ -653,6 +711,20 @@ const SettingsScreen: React.FC = () => {
             disabled={isClearing || isLoading}
           />
         </View>
+
+        {/* Account Management Section */}
+        {user && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>{t('settings.accountManagement')}</Text>
+            <Button
+              title={t('profile.deleteAccount')}
+              onPress={handleDeleteAccount}
+              variant="outline"
+              style={{ ...styles.settingButton, ...styles.deleteAccountButton }}
+              disabled={authLoading}
+            />
+          </View>
+        )}
       </ScrollView>
 
       {/* Language Selector Modal */}
@@ -668,6 +740,20 @@ const SettingsScreen: React.FC = () => {
         selectedHour={notificationHour}
         onClose={() => setShowHourPicker(false)}
         onHourSelect={handleHourSelect}
+      />
+
+      {/* Delete Account Modal */}
+      <DeleteAccountModal
+        visible={showDeleteAccountModal}
+        onClose={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteAccount}
+        isLoading={isDeletingAccount}
+      />
+
+      {/* Account Deletion In Progress Modal */}
+      <AccountDeletionInProgressModal
+        visible={showDeletionInProgressModal}
+        onClose={() => setShowDeletionInProgressModal(false)}
       />
     </View>
   );
@@ -711,7 +797,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   timeSection: {
-    marginTop: spacing.margin.sm,
+    marginTop: spacing.margin.md,
   },
   timeLabel: {
     ...typography.textStyles.body,
@@ -732,6 +818,9 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.md,
   },
   dangerButton: {
+    borderColor: colors.error[500],
+  },
+  deleteAccountButton: {
     borderColor: colors.error[500],
   },
   permissionWarning: {
@@ -777,6 +866,17 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginBottom: spacing.margin.md,
     lineHeight: 18,
+  },
+  notificationsContainer: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.md,
+    marginBottom: spacing.margin.sm,
+  },
+  notificationsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 

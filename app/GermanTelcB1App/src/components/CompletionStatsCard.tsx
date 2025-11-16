@@ -187,11 +187,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.lg,
     marginBottom: spacing.margin.lg,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    ...spacing.shadow.sm,
   },
   loadingText: {
     ...typography.textStyles.body,
