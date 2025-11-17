@@ -5,8 +5,9 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { activeExamConfig } from '../config/active-exam.config';
 import DeviceInfo from 'react-native-device-info';
 import consentService from '../services/consent.service';
-import { HIDE_ADS, ENABLE_STREAKS } from '../config/development.config';
+import { HIDE_ADS } from '../config/development.config';
 import { useStreak } from '../contexts/StreakContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -35,6 +36,7 @@ interface AdBannerProps {
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   const { adFreeStatus } = useStreak();
+  const { config } = useRemoteConfig();
   
   // Check if ads should be hidden
   if (HIDE_ADS) {
@@ -42,7 +44,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   }
   
   // Check if user has active ad-free period from streaks
-  if (ENABLE_STREAKS && adFreeStatus.isActive) {
+  if (config?.enableStreaks && adFreeStatus.isActive) {
     console.log('[AdBanner] Ad-free period active, hiding ad');
     return null;
   }

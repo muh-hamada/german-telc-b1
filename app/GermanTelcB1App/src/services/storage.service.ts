@@ -8,6 +8,8 @@ class StorageService {
     ONBOARDING_COMPLETED: 'onboarding_completed',
     USER_SETTINGS: 'user_settings',
     GRAMMAR_STUDY_PROGRESS: 'grammar_study_progress',
+    GRAMMAR_STUDY_SESSION_COUNTER: 'grammar_study_session_counter',
+    REMOTE_CONFIG: 'remote_config',
   };
 
   // User Progress Methods
@@ -240,6 +242,7 @@ class StorageService {
         StorageService.KEYS.ONBOARDING_COMPLETED,
         StorageService.KEYS.USER_SETTINGS,
         StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
+        StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER,
       ]);
       return true;
     } catch (error) {
@@ -313,6 +316,66 @@ class StorageService {
     } catch (error) {
       console.error('Error clearing grammar study progress:', error);
       return false;
+    }
+  }
+
+  // Grammar Study Session Counter Methods
+  async getGrammarStudySessionCounter(): Promise<number> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER);
+      return data ? parseInt(data, 10) : 0;
+    } catch (error) {
+      console.error('Error getting grammar study session counter:', error);
+      return 0;
+    }
+  }
+
+  async saveGrammarStudySessionCounter(count: number): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER,
+        count.toString()
+      );
+    } catch (error) {
+      console.error('Error saving grammar study session counter:', error);
+    }
+  }
+
+  async clearGrammarStudySessionCounter(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER);
+    } catch (error) {
+      console.error('Error clearing grammar study session counter:', error);
+    }
+  }
+
+  // Remote Config Cache Methods
+  async getRemoteConfig(): Promise<any | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.REMOTE_CONFIG);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting remote config from cache:', error);
+      return null;
+    }
+  }
+
+  async saveRemoteConfig(config: any): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.REMOTE_CONFIG,
+        JSON.stringify(config)
+      );
+    } catch (error) {
+      console.error('Error saving remote config to cache:', error);
+    }
+  }
+
+  async clearRemoteConfig(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.REMOTE_CONFIG);
+    } catch (error) {
+      console.error('Error clearing remote config from cache:', error);
     }
   }
 }

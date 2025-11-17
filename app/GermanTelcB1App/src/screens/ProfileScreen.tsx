@@ -25,10 +25,11 @@ import { useAuth } from '../contexts/AuthContext';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useStreak } from '../contexts/StreakContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
-import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS, ENABLE_STREAKS } from '../config/development.config';
+import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 
 // Helper function to format time remaining
 const formatTimeRemaining = (expiresAt: number | null): string => {
@@ -57,6 +58,7 @@ const ProfileScreen: React.FC = () => {
   const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const { adFreeStatus } = useStreak();
+  const { config } = useRemoteConfig();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
@@ -224,10 +226,10 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Daily Streaks Card */}
-        {ENABLE_STREAKS && user && <DailyStreaksCard />}
+        {config?.enableStreaks && user && <DailyStreaksCard />}
         
         {/* Ad-Free Badge */}
-        {ENABLE_STREAKS && user && adFreeStatus.isActive && (
+        {config?.enableStreaks && user && adFreeStatus.isActive && (
           <View style={styles.adFreeBadge}>
             <Text style={styles.adFreeIcon}>🎉</Text>
             <View style={styles.adFreeContent}>

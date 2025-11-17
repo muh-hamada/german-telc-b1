@@ -6,7 +6,7 @@ import { AuthContext } from './AuthContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { reviewTrigger } from '../utils/reviewTrigger';
 import { useStreak } from './StreakContext';
-import { ENABLE_STREAKS } from '../config/development.config';
+import { useRemoteConfig } from './RemoteConfigContext';
 
 // Progress Context Types
 interface ProgressState {
@@ -132,6 +132,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   const authContext = useContext(AuthContext);
   const user = authContext?.user || null;
   const { recordActivity } = useStreak();
+  const { config } = useRemoteConfig();
 
   // Load user progress function
   const loadUserProgress = React.useCallback(async (): Promise<void> => {
@@ -287,7 +288,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           }
           
           // Record streak activity (if enabled and user is logged in)
-          if (ENABLE_STREAKS && user?.uid) {
+          if (config?.enableStreaks && user?.uid) {
             try {
               const activityId = `${examType}-${examId}`;
               await recordActivity('exam', activityId, score || 0);

@@ -11,6 +11,7 @@ import {
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { StreakData } from '../services/firebase-streaks.service';
+import { STREAK_REWARD_THRESHOLD } from '../constants/streak.constants';
 
 interface StreakModalProps {
   visible: boolean;
@@ -125,7 +126,7 @@ const StreakModal: React.FC<StreakModalProps> = ({
             </Text>
 
             {/* Reward info - Always show if not yet earned */}
-            {currentStreak < 7 && (
+            {currentStreak < STREAK_REWARD_THRESHOLD && (
               <View style={styles.rewardInfoBox}>
                 <Text style={styles.rewardInfoTitle}>
                   🎁 {t('streaks.rewardTitle')}
@@ -136,7 +137,7 @@ const StreakModal: React.FC<StreakModalProps> = ({
 
                 {currentStreak >= 3 ? (
                   <Text style={styles.rewardHintTextStrong}>
-                    {t('streaks.almostThere', { days: 7 - currentStreak })}
+                    {t('streaks.almostThere', { days: STREAK_REWARD_THRESHOLD - currentStreak })}
                   </Text>
                 ) : (
                   <Text style={styles.rewardHintText}>

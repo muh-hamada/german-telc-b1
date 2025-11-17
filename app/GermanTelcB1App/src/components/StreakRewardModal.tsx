@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   View,
@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
+import { REWARD_MODAL_SUCCESS_DURATION } from '../constants/streak.constants';
 
 interface StreakRewardModalProps {
   visible: boolean;
@@ -35,13 +36,20 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
     
     if (success) {
       setClaimed(true);
-      // Auto close after 2 seconds
-      setTimeout(() => {
-        setClaimed(false);
-        onClose();
-      }, 2000);
     }
   };
+
+  // Auto-close effect when claimed
+  useEffect(() => {
+    if (claimed) {
+      const timer = setTimeout(() => {
+        setClaimed(false);
+        onClose();
+      }, REWARD_MODAL_SUCCESS_DURATION);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [claimed, onClose]);
 
   const handleClose = () => {
     if (!isClaiming) {

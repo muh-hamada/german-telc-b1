@@ -9,6 +9,7 @@ import {
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useStreak } from '../contexts/StreakContext';
+import { STREAK_REWARD_THRESHOLD } from '../constants/streak.constants';
 
 interface DailyStreaksCardProps {
   // No props needed anymore, will use context
@@ -23,7 +24,12 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
 
   console.log('weeklyActivity', weeklyActivity);
   
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  // Generate day labels from actual dates (last 7 days, today on right)
+  const days = weeklyActivity.map((activity, index) => {
+    const date = new Date(activity.date);
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return dayNames[date.getDay()];
+  });
   
   // Calculate max value for scaling
   const maxDataValue = Math.max(...data); // Minimum max of 10 for better visualization
@@ -61,14 +67,14 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
       </View>
 
       {/* Reward Progress Indicator */}
-      {streakData && streakData.currentStreak < 7 && !streakData.adFreeReward.claimed && (
+      {streakData && streakData.currentStreak < STREAK_REWARD_THRESHOLD && !streakData.adFreeReward.claimed && (
         <View style={styles.rewardProgressContainer}>
           <View style={styles.rewardProgressHeader}>
             <Text style={styles.rewardProgressTitle}>
               🎁 {t('streaks.rewardProgress')}
             </Text>
             <Text style={styles.rewardProgressDays}>
-              {streakData.currentStreak}/7 {t('streaks.days')}
+              {streakData.currentStreak}/{STREAK_REWARD_THRESHOLD} {t('streaks.days')}
             </Text>
           </View>
           
@@ -77,14 +83,14 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
             <View 
               style={[
                 styles.progressBarFill, 
-                { width: `${(streakData.currentStreak / 7) * 100}%` }
+                { width: `${(streakData.currentStreak / STREAK_REWARD_THRESHOLD) * 100}%` }
               ]} 
             />
           </View>
           
           <Text style={styles.rewardProgressMessage}>
             {t('streaks.rewardProgressMessage', { 
-              days: 7 - streakData.currentStreak 
+              days: STREAK_REWARD_THRESHOLD - streakData.currentStreak 
             })}
           </Text>
         </View>
@@ -102,7 +108,9 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
         <View style={styles.barsContainer}>
           {data.map((value, index) => {
             const heightPercentage = (value / maxValue) * 100;
-            const isToday = index === 6; // Last day is today for demo purposes
+            // Check if this bar represents today by comparing dates
+            const today = new Date().toISOString().split('T')[0];
+            const isToday = weeklyActivity[index]?.date === today;
             
             return (
               <View key={index} style={styles.barWrapper}>

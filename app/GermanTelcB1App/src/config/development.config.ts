@@ -24,9 +24,9 @@ export const DISABLE_DATA_CACHE = false; // Set to true to disable data cache
  */
 export const ENABLE_STREAKS = true; // Global feature flag for streak system
 
-export const FORCE_SHOW_STREAK_MODAL = true; // Force show streak modal for testing
+export const FORCE_SHOW_STREAK_MODAL = false; // Force show streak modal for testing
 
-export const SIMULATE_7_DAY_STREAK = true; // Simulate 7-day streak for reward testing
+export const SIMULATE_7_DAY_STREAK = false; // Simulate 7-day streak for reward testing
 
 /**
  * Demo progress statistics shown in ProgressCard

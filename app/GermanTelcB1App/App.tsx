@@ -10,6 +10,7 @@ import { CompletionProvider } from './src/contexts/CompletionContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
 import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
 import { StreakProvider } from './src/contexts/StreakContext';
+import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
 import ReviewModalContainer from './src/components/ReviewModalContainer';
 import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
 import StreakModalContainer from './src/components/StreakModalContainer';
@@ -88,23 +89,25 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaProvider>
-      <ReviewProvider>
-        <AuthProvider>
-          <StreakProvider>
-            <NotificationReminderProvider>
-              <ProgressProvider>
-                <CompletionProvider>
-                  <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                  <RootNavigator />
-                  <ReviewModalContainer />
-                  <NotificationReminderModalContainer />
-                  <StreakModalContainer />
-                </CompletionProvider>
-              </ProgressProvider>
-            </NotificationReminderProvider>
-          </StreakProvider>
-        </AuthProvider>
-      </ReviewProvider>
+      <RemoteConfigProvider>
+        <ReviewProvider>
+          <AuthProvider>
+            <StreakProvider>
+              <NotificationReminderProvider>
+                <ProgressProvider>
+                  <CompletionProvider>
+                    <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                    <RootNavigator />
+                    <ReviewModalContainer />
+                    <NotificationReminderModalContainer />
+                    <StreakModalContainer />
+                  </CompletionProvider>
+                </ProgressProvider>
+              </NotificationReminderProvider>
+            </StreakProvider>
+          </AuthProvider>
+        </ReviewProvider>
+      </RemoteConfigProvider>
     </SafeAreaProvider>
   );
 };

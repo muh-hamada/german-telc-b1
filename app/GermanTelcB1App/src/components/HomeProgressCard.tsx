@@ -19,7 +19,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
   const { user } = useAuth();
   const { allStats } = useCompletion();
   const [isUserLoaded, setIsUserLoaded] = useState(false);
-  
+
   useEffect(() => {
     // Simulate loading state for 1 second
     // We do this to avoid the loading state flashing when the user is logged in
@@ -79,12 +79,13 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
     return (
       <View style={styles.container}>
         <View style={styles.loginPrompt}>
-          <Text style={styles.loginPromptIcon}>📊</Text>
-          <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
-          <Text style={styles.loginPromptText}>
-            {t('progress.trackingPrompt')}
-          </Text>
-          {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' style={styles.loginButton} />}
+          <View style={styles.loginPromptTextContainer}>
+            <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
+            <Text style={styles.loginPromptText}>
+              {t('progress.trackingPrompt')}
+            </Text>
+          </View>
+          {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' />}
         </View>
       </View>
     );
@@ -235,29 +236,28 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
   },
   loginPrompt: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: I18nManager.isRTL ? 'flex-start' : 'flex-end',
     alignItems: 'center',
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.sm,
-    paddingHorizontal: spacing.sm,
+    gap: spacing.md,
+    flex: 1,
   },
-  loginPromptIcon: {
-    fontSize: 48,
-    marginBottom: spacing.md,
+  loginPromptTextContainer: {
+    flex: 1,
+    flexShrink: 1,
   },
   loginPromptTitle: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.h5,
     color: colors.text.primary,
     marginBottom: spacing.sm,
-    textAlign: 'center',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    flexWrap: 'wrap',
   },
   loginPromptText: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-  loginButton: {
-    marginTop: spacing.md,
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    flexWrap: 'wrap',
   },
 });
 

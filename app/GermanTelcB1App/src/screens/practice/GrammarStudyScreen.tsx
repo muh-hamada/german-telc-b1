@@ -21,7 +21,8 @@ import dataService from '../../services/data.service';
 import { useTranslation } from 'react-i18next';
 import { useStreak } from '../../contexts/StreakContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { ENABLE_STREAKS } from '../../config/development.config';
+import { useRemoteConfig } from '../../contexts/RemoteConfigContext';
+import { QUESTIONS_PER_ACTIVITY } from '../../constants/streak.constants';
 
 interface GrammarQuestion {
   choice: string;
@@ -63,6 +64,7 @@ const GrammarStudyScreen: React.FC = () => {
   const { i18n } = useTranslation();
   const { user } = useAuth();
   const { recordActivity } = useStreak();
+  const { config } = useRemoteConfig();
   
   const navigation = useNavigation();
 
@@ -117,10 +119,16 @@ const GrammarStudyScreen: React.FC = () => {
           setShowProgressModal(true);
         }
         
+        // Load persistent session counter
+        const savedCounter = await StorageService.getGrammarStudySessionCounter();
+        setSessionQuestionsAnswered(savedCounter);
+        console.log('[GrammarStudyScreen] Loaded session counter:', savedCounter);
+        
         logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { 
           section: 'grammar_study',
           total_questions: totalQuestions,
-          current_progress: progress?.currentQuestionIndex || 0
+          current_progress: progress?.currentQuestionIndex || 0,
+          session_counter: savedCounter
         });
       } catch (error) {
         console.error('[GrammarStudyScreen] Error loading grammar study questions:', error);
@@ -165,12 +173,29 @@ const GrammarStudyScreen: React.FC = () => {
     const newSessionCount = sessionQuestionsAnswered + 1;
     setSessionQuestionsAnswered(newSessionCount);
     
-    // Record streak activity every 15 questions (if enabled and user is logged in)
-    if (ENABLE_STREAKS && user?.uid && newSessionCount % 15 === 0) {
+    // Save counter to storage
+    await StorageService.saveGrammarStudySessionCounter(newSessionCount);
+    
+    // Record streak activity every QUESTIONS_PER_ACTIVITY questions (if enabled and user is logged in)
+    if (config?.enableStreaks && user?.uid && newSessionCount % QUESTIONS_PER_ACTIVITY === 0) {
       try {
         const activityId = `grammar-study-session-${Date.now()}`;
-        await recordActivity('grammar_study', activityId, 1);
+        
+        // Log analytics event for reaching threshold
+        logEvent(AnalyticsEvents.GRAMMAR_STUDY_ACTIVITY_THRESHOLD, {
+          questions_answered: newSessionCount,
+          threshold: QUESTIONS_PER_ACTIVITY,
+        });
+        
+        const result = await recordActivity('grammar_study', activityId, 1);
         console.log(`[GrammarStudyScreen] Streak activity recorded after ${newSessionCount} questions`);
+        
+        // Reset counter after successfully recording streak activity
+        if (result.success) {
+          setSessionQuestionsAnswered(0);
+          await StorageService.clearGrammarStudySessionCounter();
+          console.log('[GrammarStudyScreen] Session counter reset after streak activity');
+        }
       } catch (streakError) {
         console.error('[GrammarStudyScreen] Error recording streak:', streakError);
         // Don't fail the whole operation if streak recording fails

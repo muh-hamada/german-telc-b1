@@ -104,11 +104,15 @@ export const AnalyticsEvents = {
   // Streaks
   STREAK_ACTIVITY_RECORDED: 'streak_activity_recorded',
   STREAK_MODAL_SHOWN: 'streak_modal_shown',
+  STREAK_MODAL_DISMISSED: 'streak_modal_dismissed',
   STREAK_REWARD_EARNED: 'streak_reward_earned',
   STREAK_REWARD_CLAIMED: 'streak_reward_claimed',
+  STREAK_REWARD_MODAL_DISMISSED: 'streak_reward_modal_dismissed',
   STREAK_BROKEN: 'streak_broken',
+  GRAMMAR_STUDY_ACTIVITY_THRESHOLD: 'grammar_study_activity_threshold',
   AD_FREE_ACTIVATED: 'ad_free_activated',
   AD_FREE_EXPIRED: 'ad_free_expired',
+  AD_FREE_STATUS_CHECKED: 'ad_free_status_checked',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

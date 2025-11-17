@@ -1,6 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from './analytics.events';
+import { STREAK_REWARD_THRESHOLD, AD_FREE_DURATION_HOURS } from '../constants/streak.constants';
 
 // Type Definitions
 export interface DailyActivity {
@@ -267,11 +268,11 @@ class FirebaseStreaksService {
 
         streakData.lastActivityDate = today;
 
-        // Check if user earned the 7-day reward
-        if (streakData.currentStreak >= 7 && !streakData.adFreeReward.earned) {
+        // Check if user earned the reward
+        if (streakData.currentStreak >= STREAK_REWARD_THRESHOLD && !streakData.adFreeReward.earned) {
           streakData.adFreeReward.earned = true;
           streakData.adFreeReward.earnedAt = Date.now();
-          console.log('[StreaksService] User earned 7-day reward!');
+          console.log(`[StreaksService] User earned ${STREAK_REWARD_THRESHOLD}-day reward!`);
           logEvent(AnalyticsEvents.STREAK_REWARD_EARNED, {
             streak: streakData.currentStreak,
           });
@@ -362,7 +363,7 @@ class FirebaseStreaksService {
 
       // Claim the reward
       const now = Date.now();
-      const expiresAt = now + (24 * 60 * 60 * 1000); // 24 hours from now
+      const expiresAt = now + (AD_FREE_DURATION_HOURS * 60 * 60 * 1000);
 
       streakData.adFreeReward.claimed = true;
       streakData.adFreeReward.expiresAt = expiresAt;
@@ -379,7 +380,7 @@ class FirebaseStreaksService {
       });
 
       logEvent(AnalyticsEvents.AD_FREE_ACTIVATED, {
-        duration_hours: 24,
+        duration_hours: AD_FREE_DURATION_HOURS,
       });
 
       console.log('[StreaksService] Reward claimed successfully');

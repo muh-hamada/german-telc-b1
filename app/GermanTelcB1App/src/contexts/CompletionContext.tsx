@@ -3,7 +3,7 @@ import { useAuth } from './AuthContext';
 import firebaseCompletionService, { CompletionData, CompletionStats, AllCompletionStats } from '../services/firebase-completion.service';
 import { reviewTrigger } from '../utils/reviewTrigger';
 import { useStreak } from './StreakContext';
-import { ENABLE_STREAKS } from '../config/development.config';
+import { useRemoteConfig } from './RemoteConfigContext';
 
 interface CompletionContextType {
   // State
@@ -27,6 +27,7 @@ interface CompletionProviderProps {
 export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const { recordActivity } = useStreak();
+  const { config } = useRemoteConfig();
   const [completionData, setCompletionData] = useState<Map<string, CompletionData>>(new Map());
   const [allStats, setAllStats] = useState<AllCompletionStats>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -162,7 +163,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         reviewTrigger.trigger(100, 100);
         
         // Record streak activity (if enabled and user is logged in)
-        if (ENABLE_STREAKS && user?.uid) {
+        if (config?.enableStreaks && user?.uid) {
           try {
             const activityId = `${examType}-${partNumber}-${examId}`;
             await recordActivity('completion', activityId, score);
