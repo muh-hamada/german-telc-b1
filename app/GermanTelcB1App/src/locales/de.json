@@ -865,7 +865,7 @@
   },
   "streaks": {
     "title": "Tägliche Streaks",
-    "currentStreak": "{{count}} Tage-Streak!",
+    "currentStreak": "Tage-Streak!",
     "longestStreak": "Längste: {{count}} Tage",
     "weeklyActivity": "Wöchentliche Aktivität",
     "totalActivities": "Aktivitäten gesamt",
@@ -874,6 +874,13 @@
     "greatStart": "Großartiger Start! Baue deinen Streak weiter auf!",
     "keepGoing": "Weiter so! Du machst das großartig!",
     "days": "Tage",
+    "rewardProgress": "7-Tage-Streak-Belohnung",
+    "rewardProgressMessage": "Schließe noch {{days}} Tag(e) ab, um 24 Stunden werbefrei zu erhalten!",
+    "rewardTitle": "Exklusive Belohnung",
+    "rewardDescription": "Schließe 7 aufeinanderfolgende Lerntage ab, um 24 Stunden werbefreies Erlebnis freizuschalten!",
+    "progress": "Fortschritt",
+    "almostThere": "Nur noch {{days}} Tag(e)! Du bist fast da!",
+    "keepComingBack": "Komm jeden Tag zurück, um deine Belohnung freizuschalten!",
     "reward": {
       "title": "7-Tage-Streak erreicht!",
       "description": "Genieße 24 Stunden werbefreie Erfahrung",

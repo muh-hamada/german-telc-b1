@@ -865,7 +865,7 @@
   },
   "streaks": {
     "title": "Rachas Diarias",
-    "currentStreak": "¡{{count}} días de racha!",
+    "currentStreak": "¡Racha de días!",
     "longestStreak": "Más larga: {{count}} días",
     "weeklyActivity": "Actividad Semanal",
     "totalActivities": "actividades totales",

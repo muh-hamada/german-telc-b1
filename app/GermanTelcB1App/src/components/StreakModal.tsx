@@ -32,22 +32,23 @@ const StreakModal: React.FC<StreakModalProps> = ({
   }
 
   const currentStreak = streakData.currentStreak;
-  
+
   // Get last 7 days to show in calendar
   const getWeekDays = () => {
     const days = [];
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    
+
     for (let i = 6; i >= 0; i--) {
       const date = new Date();
       date.setDate(date.getDate() - i);
       const dateString = date.toISOString().split('T')[0];
       const dayName = dayNames[date.getDay()];
-      
+
       const hasActivity = streakData.dailyActivities[dateString] !== undefined;
       const activity = streakData.dailyActivities[dateString];
-      const meetsThreshold = activity && (activity.totalQuestions >= 10 || activity.examsCompleted >= 1);
-      
+      // Any activity counts toward the streak
+      const meetsThreshold = activity && activity.activitiesCount > 0;
+
       days.push({
         name: dayName,
         date: dateString,
@@ -55,13 +56,13 @@ const StreakModal: React.FC<StreakModalProps> = ({
         isToday: i === 0,
       });
     }
-    
+
     return days;
   };
 
   const weekDays = getWeekDays();
   const completedDaysThisWeek = weekDays.filter(d => d.hasActivity).length;
-  
+
   // Calculate progress message
   const getProgressMessage = () => {
     if (completedDaysThisWeek === 7) {
@@ -88,9 +89,11 @@ const StreakModal: React.FC<StreakModalProps> = ({
             {/* Fire icon with streak number */}
             <View style={styles.iconContainer}>
               <Text style={styles.fireIcon}>🔥</Text>
-              <Text style={styles.streakNumber}>{currentStreak}</Text>
+              <View style={styles.streakNumberContainer}>
+                <Text style={styles.streakNumberText}>{currentStreak}</Text>
+              </View>
             </View>
-            
+
             {/* Streak title */}
             <Text style={styles.title}>
               {t('streaks.currentStreak', { count: currentStreak })}
@@ -121,12 +124,25 @@ const StreakModal: React.FC<StreakModalProps> = ({
               {getProgressMessage()}
             </Text>
 
-            {/* Reward info if close to 7 days */}
-            {currentStreak >= 3 && currentStreak < 7 && (
-              <View style={styles.rewardHint}>
-                <Text style={styles.rewardHintText}>
-                  {t('streaks.rewardHint', { days: 7 - currentStreak })}
+            {/* Reward info - Always show if not yet earned */}
+            {currentStreak < 7 && (
+              <View style={styles.rewardInfoBox}>
+                <Text style={styles.rewardInfoTitle}>
+                  🎁 {t('streaks.rewardTitle')}
                 </Text>
+                <Text style={styles.rewardInfoDescription}>
+                  {t('streaks.rewardDescription')}
+                </Text>
+
+                {currentStreak >= 3 ? (
+                  <Text style={styles.rewardHintTextStrong}>
+                    {t('streaks.almostThere', { days: 7 - currentStreak })}
+                  </Text>
+                ) : (
+                  <Text style={styles.rewardHintText}>
+                    {t('streaks.keepComingBack')}
+                  </Text>
+                )}
               </View>
             )}
 
@@ -173,19 +189,22 @@ const styles = StyleSheet.create({
   fireIcon: {
     fontSize: 80,
   },
-  streakNumber: {
+  streakNumberContainer: {
     position: 'absolute',
-    bottom: -25,
+    bottom: -10,
     right: 0,
-    ...typography.textStyles.h1,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-    backgroundColor: colors.warning[500],
-    paddingHorizontal: spacing.padding.sm,
-    paddingVertical: spacing.padding.xs,
-    borderRadius: spacing.borderRadius.full,
-    minWidth: 40,
+    left: 0,
+    alignItems: 'center',
+  },
+  streakNumberText: {
     textAlign: 'center',
+    borderRadius: spacing.borderRadius.full,
+    backgroundColor: colors.error[500],
+    padding: spacing.padding.xs,
+    ...typography.textStyles.h4,
+    color: colors.white,
+    minWidth: 30,
+    lineHeight: 22,
   },
   title: {
     ...typography.textStyles.h2,
@@ -244,18 +263,40 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
     lineHeight: 22,
   },
-  rewardHint: {
+  rewardInfoBox: {
     backgroundColor: colors.success[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
     marginBottom: spacing.margin.lg,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.success[500],
+    width: '100%',
+    borderWidth: 2,
+    borderColor: colors.primary[500],
+  },
+  rewardInfoTitle: {
+    ...typography.textStyles.h4,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.bold,
+    textAlign: 'center',
+    marginBottom: spacing.margin.sm,
+  },
+  rewardInfoDescription: {
+    ...typography.textStyles.bodySmall,
+    color: 'black',
+    textAlign: 'center',
+    marginBottom: spacing.margin.md,
+    lineHeight: 20,
   },
   rewardHintText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
+    ...typography.textStyles.caption,
+    color: 'black',
     textAlign: 'center',
+    fontWeight: typography.fontWeight.medium,
+  },
+  rewardHintTextStrong: {
+    ...typography.textStyles.bodySmall,
+    color: 'black',
+    textAlign: 'center',
+    fontWeight: typography.fontWeight.bold,
   },
   continueButton: {
     backgroundColor: colors.primary[500],

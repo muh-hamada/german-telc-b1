@@ -865,7 +865,7 @@
   },
   "streaks": {
     "title": "Ежедневные Серии",
-    "currentStreak": "Серия {{count}} дней!",
+    "currentStreak": "Дней-Серия!",
     "longestStreak": "Самая длинная: {{count}} дней",
     "weeklyActivity": "Недельная Активность",
     "totalActivities": "всего активностей",

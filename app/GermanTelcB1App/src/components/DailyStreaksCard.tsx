@@ -26,7 +26,8 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   
   // Calculate max value for scaling
-  const maxValue = Math.max(...data, 10); // Minimum max of 10 for better visualization
+  const maxDataValue = Math.max(...data); // Minimum max of 10 for better visualization
+  const maxValue = maxDataValue + 2; // Minimum max of 10 for better visualization
   
   // Get total for the week
   const totalActivity = data.reduce((sum, val) => sum + val, 0);
@@ -42,7 +43,7 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={styles.title}>{t('streaks.weeklyActivity')}</Text>
           <Text style={styles.subtitle}>
             {totalActivity} {t('streaks.totalActivities')}
@@ -58,6 +59,36 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
           <Text style={styles.totalIcon}>⚡</Text>
         </View>
       </View>
+
+      {/* Reward Progress Indicator */}
+      {streakData && streakData.currentStreak < 7 && !streakData.adFreeReward.claimed && (
+        <View style={styles.rewardProgressContainer}>
+          <View style={styles.rewardProgressHeader}>
+            <Text style={styles.rewardProgressTitle}>
+              🎁 {t('streaks.rewardProgress')}
+            </Text>
+            <Text style={styles.rewardProgressDays}>
+              {streakData.currentStreak}/7 {t('streaks.days')}
+            </Text>
+          </View>
+          
+          {/* Progress Bar */}
+          <View style={styles.progressBarContainer}>
+            <View 
+              style={[
+                styles.progressBarFill, 
+                { width: `${(streakData.currentStreak / 7) * 100}%` }
+              ]} 
+            />
+          </View>
+          
+          <Text style={styles.rewardProgressMessage}>
+            {t('streaks.rewardProgressMessage', { 
+              days: 7 - streakData.currentStreak 
+            })}
+          </Text>
+        </View>
+      )}
 
       <View style={styles.chartContainer}>
         {/* Y-axis labels */}
@@ -124,7 +155,7 @@ const styles = StyleSheet.create({
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   title: {
     ...typography.textStyles.h4,
@@ -158,13 +189,13 @@ const styles = StyleSheet.create({
   },
   yAxis: {
     justifyContent: 'space-between',
-    alignItems: I18nManager.isRTL ? 'flex-start' : 'flex-end',
-    paddingRight: I18nManager.isRTL ? 0 : spacing.padding.sm,
-    paddingLeft: I18nManager.isRTL ? spacing.padding.sm : 0,
-    width: 35,
+    paddingHorizontal: spacing.padding.sm,
+    marginBottom: spacing.margin.md,
+    borderRadius: spacing.borderRadius.md,
   },
   yAxisLabel: {
     ...typography.textStyles.bodySmall,
+    textAlign: 'center',
     color: colors.text.tertiary,
     fontSize: 10,
   },
@@ -194,7 +225,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     borderTopWidth: 1,
-    borderTopColor: colors.secondary[100],
+    borderTopColor: colors.border.light,
     opacity: 0.3,
   },
   bar: {
@@ -220,6 +251,47 @@ const styles = StyleSheet.create({
   dayLabelToday: {
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
+  },
+  rewardProgressContainer: {
+    backgroundColor: colors.success[50],
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.md,
+    marginBottom: spacing.margin.md,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.success[500],
+  },
+  rewardProgressHeader: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.margin.sm,
+  },
+  rewardProgressTitle: {
+    ...typography.textStyles.bodySmall,
+    color: colors.success[700],
+    fontWeight: typography.fontWeight.semibold,
+  },
+  rewardProgressDays: {
+    ...typography.textStyles.bodySmall,
+    color: colors.success[600],
+    fontWeight: typography.fontWeight.bold,
+  },
+  progressBarContainer: {
+    height: 8,
+    backgroundColor: colors.success[100],
+    borderRadius: spacing.borderRadius.full,
+    overflow: 'hidden',
+    marginBottom: spacing.margin.xs,
+  },
+  progressBarFill: {
+    height: '100%',
+    backgroundColor: colors.success[500],
+    borderRadius: spacing.borderRadius.full,
+  },
+  rewardProgressMessage: {
+    ...typography.textStyles.caption,
+    color: colors.success[700],
+    textAlign: 'center',
   },
 });
 

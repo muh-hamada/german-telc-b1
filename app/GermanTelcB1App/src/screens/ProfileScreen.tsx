@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     alignItems: 'center',
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.lg,
     ...spacing.shadow.sm,
   },
   avatar: {

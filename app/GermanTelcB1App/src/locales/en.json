@@ -877,7 +877,7 @@
   },
   "streaks": {
     "title": "Daily Streaks",
-    "currentStreak": "{{count}} day streak!",
+    "currentStreak": "day streak!",
     "longestStreak": "Longest: {{count}} days",
     "weeklyActivity": "Weekly Activity",
     "totalActivities": "total activities",
@@ -886,6 +886,13 @@
     "greatStart": "Great start! Keep building your streak!",
     "keepGoing": "Keep going! You're doing great!",
     "days": "days",
+    "rewardProgress": "7-Day Streak Reward",
+    "rewardProgressMessage": "Complete {{days}} more day(s) to earn 24 hours ad-free!",
+    "rewardTitle": "Exclusive Reward",
+    "rewardDescription": "Complete 7 consecutive days of study to unlock 24 hours of ad-free experience!",
+    "progress": "Progress",
+    "almostThere": "Only {{days}} more day(s)! You're almost there!",
+    "keepComingBack": "Keep coming back every day to unlock your reward!",
     "reward": {
       "title": "7 Days Streak Achieved!",
       "description": "Enjoy 24 hours of ad-free experience",

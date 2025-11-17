@@ -19,7 +19,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
 import dataService from '../../services/data.service';
 import { useTranslation } from 'react-i18next';
-import firebaseStreaksService from '../../services/firebase-streaks.service';
+import { useStreak } from '../../contexts/StreakContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { ENABLE_STREAKS } from '../../config/development.config';
 
@@ -62,6 +62,7 @@ const GrammarStudyScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { i18n } = useTranslation();
   const { user } = useAuth();
+  const { recordActivity } = useStreak();
   
   const navigation = useNavigation();
 
@@ -160,13 +161,8 @@ const GrammarStudyScreen: React.FC = () => {
     // Record streak activity (if enabled and user is logged in)
     if (ENABLE_STREAKS && user?.uid) {
       try {
-        const questionId = `grammar-study-${currentQuestionIndex}`;
-        await firebaseStreaksService.recordActivity(
-          user.uid,
-          'grammar_study',
-          [questionId],
-          isCorrect ? 1 : 0
-        );
+        const activityId = `grammar-study-${currentQuestionIndex}`;
+        await recordActivity('grammar_study', activityId, isCorrect ? 1 : 0);
         console.log('[GrammarStudyScreen] Streak activity recorded');
       } catch (streakError) {
         console.error('[GrammarStudyScreen] Error recording streak:', streakError);

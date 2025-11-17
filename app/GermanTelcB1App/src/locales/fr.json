@@ -865,7 +865,7 @@
   },
   "streaks": {
     "title": "Séries Quotidiennes",
-    "currentStreak": "Série de {{count}} jours!",
+    "currentStreak": "Série quotidienne!",
     "longestStreak": "Plus longue: {{count}} jours",
     "weeklyActivity": "Activité Hebdomadaire",
     "totalActivities": "activités totales",

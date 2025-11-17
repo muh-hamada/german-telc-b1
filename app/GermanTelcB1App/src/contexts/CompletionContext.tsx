@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode, useCa
 import { useAuth } from './AuthContext';
 import firebaseCompletionService, { CompletionData, CompletionStats, AllCompletionStats } from '../services/firebase-completion.service';
 import { reviewTrigger } from '../utils/reviewTrigger';
-import firebaseStreaksService from '../services/firebase-streaks.service';
+import { useStreak } from './StreakContext';
 import { ENABLE_STREAKS } from '../config/development.config';
 
 interface CompletionContextType {
@@ -26,6 +26,7 @@ interface CompletionProviderProps {
 
 export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children }) => {
   const { user } = useAuth();
+  const { recordActivity } = useStreak();
   const [completionData, setCompletionData] = useState<Map<string, CompletionData>>(new Map());
   const [allStats, setAllStats] = useState<AllCompletionStats>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -163,13 +164,8 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         // Record streak activity (if enabled and user is logged in)
         if (ENABLE_STREAKS && user?.uid) {
           try {
-            const questionId = `${examType}-${partNumber}-${examId}`;
-            await firebaseStreaksService.recordActivity(
-              user.uid,
-              'completion',
-              [questionId],
-              score
-            );
+            const activityId = `${examType}-${partNumber}-${examId}`;
+            await recordActivity('completion', activityId, score);
             console.log('[CompletionContext] Streak activity recorded for completion');
           } catch (streakError) {
             console.error('[CompletionContext] Error recording streak:', streakError);

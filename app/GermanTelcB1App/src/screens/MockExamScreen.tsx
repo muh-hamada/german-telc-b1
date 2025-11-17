@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   speakingNote: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.white,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.xl,

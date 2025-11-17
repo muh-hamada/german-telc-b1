@@ -865,7 +865,7 @@
   },
   "streaks": {
     "title": "السلاسل اليومية",
-    "currentStreak": "سلسلة {{count}} يوم!",
+    "currentStreak": "سلسلة يومية!",
     "longestStreak": "الأطول: {{count}} يوم",
     "weeklyActivity": "النشاط الأسبوعي",
     "totalActivities": "إجمالي الأنشطة",
@@ -874,6 +874,13 @@
     "greatStart": "بداية رائعة! استمر في بناء سلسلتك!",
     "keepGoing": "استمر! أنت تقوم بعمل رائع!",
     "days": "أيام",
+    "rewardProgress": "مكافأة سلسلة 7 أيام",
+    "rewardProgressMessage": "أكمل {{days}} يوم (أيام) أخرى لتحصل على 24 ساعة بدون إعلانات!",
+    "rewardTitle": "مكافأة حصرية",
+    "rewardDescription": "أكمل 7 أيام متتالية من الدراسة لفتح تجربة 24 ساعة بدون إعلانات!",
+    "progress": "التقدم",
+    "almostThere": "فقط {{days}} يوم (أيام) أخرى! أنت على وشك الوصول!",
+    "keepComingBack": "استمر في العودة كل يوم لفتح مكافأتك!",
     "reward": {
       "title": "تم تحقيق سلسلة 7 أيام!",
       "description": "استمتع بتجربة 24 ساعة بدون إعلانات",

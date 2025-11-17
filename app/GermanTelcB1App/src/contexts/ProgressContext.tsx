@@ -5,7 +5,7 @@ import firebaseProgressService from '../services/firebase-progress.service';
 import { AuthContext } from './AuthContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { reviewTrigger } from '../utils/reviewTrigger';
-import firebaseStreaksService from '../services/firebase-streaks.service';
+import { useStreak } from './StreakContext';
 import { ENABLE_STREAKS } from '../config/development.config';
 
 // Progress Context Types
@@ -131,6 +131,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   const [state, dispatch] = useReducer(progressReducer, initialState);
   const authContext = useContext(AuthContext);
   const user = authContext?.user || null;
+  const { recordActivity } = useStreak();
 
   // Load user progress function
   const loadUserProgress = React.useCallback(async (): Promise<void> => {
@@ -288,13 +289,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           // Record streak activity (if enabled and user is logged in)
           if (ENABLE_STREAKS && user?.uid) {
             try {
-              const questionIds = answers.map(a => `${examType}-${examId}-${a.questionId}`);
-              await firebaseStreaksService.recordActivity(
-                user.uid,
-                'exam',
-                questionIds,
-                score || 0
-              );
+              const activityId = `${examType}-${examId}`;
+              await recordActivity('exam', activityId, score || 0);
               console.log('[ProgressContext] Streak activity recorded');
             } catch (streakError) {
               console.error('[ProgressContext] Error recording streak:', streakError);
