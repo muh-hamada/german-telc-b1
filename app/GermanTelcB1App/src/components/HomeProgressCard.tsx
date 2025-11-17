@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   statsGrid: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-around',
-    gap: spacing.xs,
+    gap: spacing.md,
   },
   statItem: {
     flex: 1,

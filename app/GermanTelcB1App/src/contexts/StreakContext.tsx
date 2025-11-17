@@ -15,12 +15,14 @@ interface StreakContextType {
   adFreeStatus: AdFreeStatus;
   isLoading: boolean;
   hasPendingReward: boolean;
+  shouldShowStreakModal: boolean; // NEW: Flag to trigger modal display
   
   // Actions
   recordActivity: (activityType: 'exam' | 'completion' | 'grammar_study', activityId?: string, score?: number) => Promise<{ success: boolean; shouldShowModal: boolean }>;
   claimReward: () => Promise<boolean>;
   refreshStreakData: () => Promise<void>;
   checkAdFreeStatus: () => Promise<boolean>;
+  dismissStreakModal: () => void; // NEW: Mark modal as shown
 }
 
 const StreakContext = createContext<StreakContextType | undefined>(undefined);
@@ -36,6 +38,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   const [adFreeStatus, setAdFreeStatus] = useState<AdFreeStatus>({ isActive: false, expiresAt: null });
   const [isLoading, setIsLoading] = useState(false);
   const [hasPendingReward, setHasPendingReward] = useState(false);
+  const [shouldShowStreakModal, setShouldShowStreakModal] = useState(false);
 
   // Load streak data
   const loadStreakData = useCallback(async () => {
@@ -117,6 +120,11 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
         const pending = await firebaseStreaksService.hasPendingReward(user.uid);
         setHasPendingReward(pending);
         
+        // Set flag to show modal if needed
+        if (result.shouldShowModal) {
+          setShouldShowStreakModal(true);
+        }
+        
         console.log('[StreakContext] Activity recorded successfully, shouldShowModal:', result.shouldShowModal);
       }
       
@@ -125,6 +133,11 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
       console.error('[StreakContext] Error recording activity:', error);
       return { success: false, shouldShowModal: false };
     }
+  };
+
+  // Dismiss streak modal (mark as shown)
+  const dismissStreakModal = () => {
+    setShouldShowStreakModal(false);
   };
 
   // Claim reward
@@ -182,10 +195,12 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     adFreeStatus,
     isLoading,
     hasPendingReward,
+    shouldShowStreakModal,
     recordActivity,
     claimReward,
     refreshStreakData,
     checkAdFreeStatus,
+    dismissStreakModal,
   };
 
   return (

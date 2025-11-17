@@ -76,6 +76,9 @@ const GrammarStudyScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [randomizedOptions, setRandomizedOptions] = useState<Array<{ option: GrammarQuestion; letter: string }>>([]);
   const [loadError, setLoadError] = useState<string | null>(null);
+  
+  // Track questions answered in this session for streak activity
+  const [sessionQuestionsAnswered, setSessionQuestionsAnswered] = useState(0);
 
   useEffect(() => {
     const loadAndInitialize = async () => {
@@ -158,12 +161,16 @@ const GrammarStudyScreen: React.FC = () => {
       is_correct: isCorrect
     });
     
-    // Record streak activity (if enabled and user is logged in)
-    if (ENABLE_STREAKS && user?.uid) {
+    // Increment session question counter
+    const newSessionCount = sessionQuestionsAnswered + 1;
+    setSessionQuestionsAnswered(newSessionCount);
+    
+    // Record streak activity every 15 questions (if enabled and user is logged in)
+    if (ENABLE_STREAKS && user?.uid && newSessionCount % 15 === 0) {
       try {
-        const activityId = `grammar-study-${currentQuestionIndex}`;
-        await recordActivity('grammar_study', activityId, isCorrect ? 1 : 0);
-        console.log('[GrammarStudyScreen] Streak activity recorded');
+        const activityId = `grammar-study-session-${Date.now()}`;
+        await recordActivity('grammar_study', activityId, 1);
+        console.log(`[GrammarStudyScreen] Streak activity recorded after ${newSessionCount} questions`);
       } catch (streakError) {
         console.error('[GrammarStudyScreen] Error recording streak:', streakError);
         // Don't fail the whole operation if streak recording fails

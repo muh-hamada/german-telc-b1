@@ -7,68 +7,40 @@ import { ENABLE_STREAKS } from '../config/development.config';
 
 /**
  * Container component that manages the display of streak modals
- * - Shows streak modal after first activity of the day
- * - Shows reward modal when 7-day streak is achieved
- * - Persists reward modal if not claimed
+ * - Shows streak modal when shouldShowStreakModal flag is set in StreakContext
+ * - Shows reward modal when user has pending reward
+ * - All state management is handled by StreakContext (no local state needed)
  */
 const StreakModalContainer: React.FC = () => {
   const { user } = useAuth();
-  const { streakData, hasPendingReward, claimReward } = useStreak();
-  const [showStreakModal, setShowStreakModal] = useState(false);
+  const { 
+    streakData, 
+    hasPendingReward, 
+    shouldShowStreakModal,
+    claimReward,
+    dismissStreakModal 
+  } = useStreak();
   const [showRewardModal, setShowRewardModal] = useState(false);
-  const [hasShownStreakToday, setHasShownStreakToday] = useState(false);
 
-  // Check for pending reward on mount and when user/pending status changes
+  // Show reward modal when user has pending reward
   useEffect(() => {
     if (!ENABLE_STREAKS || !user) {
       return;
     }
 
-    // Show reward modal if user has pending reward
     if (hasPendingReward) {
       console.log('[StreakModalContainer] User has pending reward, showing modal');
       setShowRewardModal(true);
     }
   }, [user, hasPendingReward]);
 
-  // Listen for streak data changes that indicate modal should be shown
-  useEffect(() => {
-    if (!ENABLE_STREAKS || !user || !streakData) {
-      return;
-    }
-
-    const today = new Date().toISOString().split('T')[0];
-    
-    // Check if modal should be shown today
-    if (streakData.streakModalShownToday && 
-        streakData.lastStreakModalDate === today && 
-        !hasShownStreakToday) {
-      console.log('[StreakModalContainer] Showing streak modal for today');
-      setShowStreakModal(true);
-      setHasShownStreakToday(true);
-    }
-  }, [streakData, user, hasShownStreakToday]);
-
-  // Reset daily flag when date changes
-  useEffect(() => {
-    const checkDate = () => {
-      const today = new Date().toISOString().split('T')[0];
-      if (streakData && streakData.lastStreakModalDate !== today) {
-        setHasShownStreakToday(false);
-      }
-    };
-
-    // Check every minute for date change
-    const interval = setInterval(checkDate, 60000);
-    return () => clearInterval(interval);
-  }, [streakData]);
-
   const handleCloseStreakModal = () => {
-    setShowStreakModal(false);
+    console.log('[StreakModalContainer] Dismissing streak modal');
+    dismissStreakModal();
   };
 
   const handleCloseRewardModal = () => {
-    // Don't close reward modal - it should persist until claimed
+    // Don't close reward modal permanently - it should persist until claimed
     // User can dismiss it with "Later" button but it will show again
     console.log('[StreakModalContainer] Reward modal dismissed, will show again next time');
     setShowRewardModal(false);
@@ -86,7 +58,7 @@ const StreakModalContainer: React.FC = () => {
   return (
     <>
       <StreakModal
-        visible={showStreakModal}
+        visible={shouldShowStreakModal}
         streakData={streakData}
         onContinue={handleCloseStreakModal}
         onClose={handleCloseStreakModal}
