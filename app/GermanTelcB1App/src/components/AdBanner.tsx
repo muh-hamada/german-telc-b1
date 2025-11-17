@@ -8,6 +8,7 @@ import consentService from '../services/consent.service';
 import { HIDE_ADS } from '../config/development.config';
 import { useStreak } from '../contexts/StreakContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { useAuth } from '../contexts/AuthContext';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -35,8 +36,9 @@ interface AdBannerProps {
  * and reduce excessive ad requests that can cause "no-fill" errors.
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
+  const { user } = useAuth();
   const { adFreeStatus } = useStreak();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   
   // Check if ads should be hidden
   if (HIDE_ADS) {
@@ -44,7 +46,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   }
   
   // Check if user has active ad-free period from streaks
-  if (config?.enableStreaks && adFreeStatus.isActive) {
+  if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
     console.log('[AdBanner] Ad-free period active, hiding ad');
     return null;
   }

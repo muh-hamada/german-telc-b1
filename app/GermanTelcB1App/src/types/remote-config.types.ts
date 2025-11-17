@@ -6,7 +6,8 @@
 
 export interface RemoteConfig {
   appId: string;
-  enableStreaks: boolean;
+  enableStreaksForAllUsers: boolean;
+  streaksWhitelistedUserIDs: string[];
   updatedAt: number;
 }
 
@@ -15,11 +16,13 @@ export interface RemoteConfigContextType {
   isLoading: boolean;
   error: string | null;
   refreshConfig: () => Promise<void>;
+  isStreaksEnabledForUser: (userId?: string) => boolean;
 }
 
 export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   appId: '',
-  enableStreaks: true, // Default fallback value
+  enableStreaksForAllUsers: false,
+  streaksWhitelistedUserIDs: [],
   updatedAt: Date.now(),
 };
 

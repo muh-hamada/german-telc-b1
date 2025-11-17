@@ -58,7 +58,7 @@ const ProfileScreen: React.FC = () => {
   const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const { adFreeStatus } = useStreak();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
@@ -226,10 +226,10 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Daily Streaks Card */}
-        {config?.enableStreaks && user && <DailyStreaksCard />}
+        {isStreaksEnabledForUser(user?.uid) && user && <DailyStreaksCard />}
         
         {/* Ad-Free Badge */}
-        {config?.enableStreaks && user && adFreeStatus.isActive && (
+        {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
           <View style={styles.adFreeBadge}>
             <Text style={styles.adFreeIcon}>🎉</Text>
             <View style={styles.adFreeContent}>

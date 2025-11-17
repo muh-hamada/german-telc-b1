@@ -27,7 +27,7 @@ interface CompletionProviderProps {
 export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const { recordActivity } = useStreak();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const [completionData, setCompletionData] = useState<Map<string, CompletionData>>(new Map());
   const [allStats, setAllStats] = useState<AllCompletionStats>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -163,7 +163,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         reviewTrigger.trigger(100, 100);
         
         // Record streak activity (if enabled and user is logged in)
-        if (config?.enableStreaks && user?.uid) {
+        if (isStreaksEnabledForUser(user?.uid) && user?.uid) {
           try {
             const activityId = `${examType}-${partNumber}-${examId}`;
             await recordActivity('completion', activityId, score);

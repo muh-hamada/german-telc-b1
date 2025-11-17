@@ -42,7 +42,12 @@ class FirebaseRemoteConfigService {
 
       const config: RemoteConfig = {
         appId: data.appId || appId,
-        enableStreaks: data.enableStreaks !== undefined ? data.enableStreaks : DEFAULT_REMOTE_CONFIG.enableStreaks,
+        enableStreaksForAllUsers: data.enableStreaksForAllUsers !== undefined 
+          ? data.enableStreaksForAllUsers 
+          : DEFAULT_REMOTE_CONFIG.enableStreaksForAllUsers,
+        streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
+          ? data.streaksWhitelistedUserIDs
+          : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
         updatedAt: data.updatedAt || Date.now(),
       };
 
@@ -96,7 +101,12 @@ class FirebaseRemoteConfigService {
 
           const config: RemoteConfig = {
             appId: data.appId || appId,
-            enableStreaks: data.enableStreaks !== undefined ? data.enableStreaks : DEFAULT_REMOTE_CONFIG.enableStreaks,
+            enableStreaksForAllUsers: data.enableStreaksForAllUsers !== undefined 
+              ? data.enableStreaksForAllUsers 
+              : DEFAULT_REMOTE_CONFIG.enableStreaksForAllUsers,
+            streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
+              ? data.streaksWhitelistedUserIDs
+              : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
             updatedAt: data.updatedAt || Date.now(),
           };
 

@@ -54,7 +54,7 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
       const fallbackConfig: RemoteConfig = {
         ...DEFAULT_REMOTE_CONFIG,
         appId,
-        enableStreaks: ENABLE_STREAKS,
+        enableStreaksForAllUsers: ENABLE_STREAKS,
       };
       setConfig(fallbackConfig);
     } finally {
@@ -100,11 +100,39 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     await loadConfig();
   }, [loadConfig]);
 
+  /**
+   * Check if streaks are enabled for a specific user
+   * Logic:
+   * - If enableStreaksForAllUsers is true, return true for everyone
+   * - If enableStreaksForAllUsers is false, check if userId is in whitelist
+   * - If no userId provided, return enableStreaksForAllUsers value
+   */
+  const isStreaksEnabledForUser = useCallback((userId?: string): boolean => {
+    if (!config) {
+      return false; // No config loaded yet
+    }
+
+    // If enabled for all users, return true
+    if (config.enableStreaksForAllUsers) {
+      return true;
+    }
+
+    // If not enabled for all, check whitelist
+    if (userId && config.streaksWhitelistedUserIDs.includes(userId)) {
+      console.log('[RemoteConfigContext] Streaks enabled for whitelisted user:', userId);
+      return true;
+    }
+
+    // Not enabled for this user
+    return false;
+  }, [config]);
+
   const value: RemoteConfigContextType = {
     config,
     isLoading,
     error,
     refreshConfig,
+    isStreaksEnabledForUser,
   };
 
   return (

@@ -34,7 +34,7 @@ interface StreakProviderProps {
 
 export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   const { user } = useAuth();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const [streakData, setStreakData] = useState<StreakData | null>(null);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivityData[]>([]);
   const [adFreeStatus, setAdFreeStatus] = useState<AdFreeStatus>({ isActive: false, expiresAt: null });
@@ -44,7 +44,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
 
   // Load streak data
   const loadStreakData = useCallback(async () => {
-    if (!user?.uid || !config?.enableStreaks) {
+    if (!user?.uid || !isStreaksEnabledForUser(user?.uid)) {
       console.log('[StreakContext] No user or streaks disabled, clearing data');
       setStreakData(null);
       setWeeklyActivity([]);
@@ -82,7 +82,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [user?.uid, config?.enableStreaks]);
+  }, [user?.uid, isStreaksEnabledForUser]);
 
   // Load data when user changes
   useEffect(() => {
@@ -95,7 +95,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     activityId: string = '',
     score: number = 0
   ): Promise<{ success: boolean; shouldShowModal: boolean }> => {
-    if (!user?.uid || !config?.enableStreaks) {
+    if (!user?.uid || !isStreaksEnabledForUser(user?.uid)) {
       console.log('[StreakContext] Cannot record activity: no user or streaks disabled');
       return { success: false, shouldShowModal: false };
     }
@@ -144,7 +144,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
 
   // Claim reward
   const claimReward = async (): Promise<boolean> => {
-    if (!user?.uid || !config?.enableStreaks) {
+    if (!user?.uid || !isStreaksEnabledForUser(user?.uid)) {
       console.log('[StreakContext] Cannot claim reward: no user or streaks disabled');
       return false;
     }
@@ -174,7 +174,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
 
   // Check ad-free status
   const checkAdFreeStatus = async (): Promise<boolean> => {
-    if (!user?.uid || !config?.enableStreaks) {
+    if (!user?.uid || !isStreaksEnabledForUser(user?.uid)) {
       return false;
     }
 

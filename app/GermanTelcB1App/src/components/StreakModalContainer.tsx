@@ -15,7 +15,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
  */
 const StreakModalContainer: React.FC = () => {
   const { user } = useAuth();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const { 
     streakData, 
     hasPendingReward, 
@@ -28,7 +28,7 @@ const StreakModalContainer: React.FC = () => {
 
   // Show reward modal when user has pending reward
   useEffect(() => {
-    if (!config?.enableStreaks || !user) {
+    if (!isStreaksEnabledForUser(user?.uid) || !user) {
       return;
     }
 
@@ -43,7 +43,7 @@ const StreakModalContainer: React.FC = () => {
     if (!hasPendingReward) {
       setHasShownRewardModalThisSession(false);
     }
-  }, [user, hasPendingReward, hasShownRewardModalThisSession]);
+  }, [user, hasPendingReward, hasShownRewardModalThisSession, isStreaksEnabledForUser]);
 
   const handleCloseStreakModal = () => {
     console.log('[StreakModalContainer] Dismissing streak modal');
@@ -70,7 +70,7 @@ const StreakModalContainer: React.FC = () => {
     return success;
   };
 
-  if (!config?.enableStreaks || !user) {
+  if (!isStreaksEnabledForUser(user?.uid) || !user) {
     return null;
   }
 

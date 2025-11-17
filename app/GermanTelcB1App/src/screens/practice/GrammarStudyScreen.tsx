@@ -64,7 +64,7 @@ const GrammarStudyScreen: React.FC = () => {
   const { i18n } = useTranslation();
   const { user } = useAuth();
   const { recordActivity } = useStreak();
-  const { config } = useRemoteConfig();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   
   const navigation = useNavigation();
 
@@ -177,7 +177,7 @@ const GrammarStudyScreen: React.FC = () => {
     await StorageService.saveGrammarStudySessionCounter(newSessionCount);
     
     // Record streak activity every QUESTIONS_PER_ACTIVITY questions (if enabled and user is logged in)
-    if (config?.enableStreaks && user?.uid && newSessionCount % QUESTIONS_PER_ACTIVITY === 0) {
+    if (isStreaksEnabledForUser(user?.uid) && user?.uid && newSessionCount % QUESTIONS_PER_ACTIVITY === 0) {
       try {
         const activityId = `grammar-study-session-${Date.now()}`;
         
