@@ -30,8 +30,8 @@ interface VocabularyContextType {
   
   // Actions
   loadProgress: () => Promise<void>;
-  markWordAsLearned: (wordId: number) => Promise<void>;
-  reviewWord: (wordId: number, rating: Rating) => Promise<void>;
+  markWordAsLearned: (wordId: string) => Promise<void>;
+  reviewWord: (wordId: string, rating: Rating) => Promise<void>;
   setUserPersona: (persona: UserPersona) => Promise<void>;
   getNewWords: (limit: number) => Promise<VocabularyWord[]>;
   getDueWords: () => Promise<VocabularyWord[]>;
@@ -112,7 +112,7 @@ export const VocabularyProvider: React.FC<VocabularyProviderProps> = ({ children
   /**
    * Mark a new word as learned
    */
-  const markWordAsLearned = useCallback(async (wordId: number) => {
+  const markWordAsLearned = useCallback(async (wordId: string) => {
     if (!user?.uid) {
       throw new Error('User not authenticated');
     }
@@ -134,7 +134,7 @@ export const VocabularyProvider: React.FC<VocabularyProviderProps> = ({ children
   /**
    * Review a word with rating
    */
-  const reviewWord = useCallback(async (wordId: number, rating: Rating) => {
+  const reviewWord = useCallback(async (wordId: string, rating: Rating) => {
     if (!user?.uid) {
       throw new Error('User not authenticated');
     }

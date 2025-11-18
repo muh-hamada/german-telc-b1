@@ -470,7 +470,7 @@ const SettingsScreen: React.FC = () => {
 
     setIsDeletingAccount(true);
     try {
-      await FirestoreService.createDeletionRequest(user.uid, user.email || '', appId, appName);
+      await FirestoreService.createDeletionRequest(user.uid, user.email || '', appId, appName, Platform.OS);
       logEvent(AnalyticsEvents.PROFILE_DELETE_ACCOUNT_CONFIRMED);
       // Modal will show success step automatically
     } catch (error) {

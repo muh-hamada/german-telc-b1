@@ -10,7 +10,6 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -56,6 +55,7 @@ const VocabularyHomeScreen: React.FC = () => {
   if (isLoading || !stats || !progress) {
     return (
       <View style={styles.loadingContainer}>
+      <Text>{JSON.stringify({isLoading, stats, progress, newWordsCount, dueReviewsCount})}</Text>
         <ActivityIndicator size="large" color={colors.primary[500]} />
       </View>
     );

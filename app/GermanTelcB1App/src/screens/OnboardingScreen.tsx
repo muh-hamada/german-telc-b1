@@ -19,7 +19,6 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
     setSelectedLanguage(lang);
-    logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: lang });
   };
 
   const handleGoPress = () => {

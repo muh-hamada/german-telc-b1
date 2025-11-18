@@ -2,6 +2,8 @@ import firestore, { Timestamp } from '@react-native-firebase/firestore';
 import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import { User } from './auth.service';
 import { activeExamConfig } from '../config/active-exam.config';
+import { Platform } from 'react-native';
+import i18n from '../utils/i18n';
 
 class FirestoreService {
   private readonly COLLECTIONS = {
@@ -29,36 +31,52 @@ class FirestoreService {
   // User Management
   async createUserProfile(user: User): Promise<void> {
     try {
-      const userData = {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        provider: user.provider,
-        createdAt: Timestamp.fromDate(user.createdAt),
-        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
-        preferences: {
-          language: 'en',
-          notifications: true,
-          darkMode: false,
-        },
-        stats: {
-          totalExams: 0,
-          completedExams: 0,
-          totalScore: 0,
-          totalMaxScore: 0,
-          averageScore: 0,
-          streak: 0,
-          lastActivity: Timestamp.fromDate(new Date()),
-        },
-      };
-
-      await firestore()
+      const userRef = firestore()
         .collection(this.COLLECTIONS.USERS)
-        .doc(user.uid)
-        .set(userData, { merge: true });
+        .doc(user.uid);
+      
+      const userDoc = await userRef.get();
+      
+      if (!userDoc.exists) {
+        // New user - create full profile
+        const userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          provider: user.provider,
+          createdAt: Timestamp.fromDate(user.createdAt),
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+          preferences: {
+            language: i18n.language || 'en',
+            notifications: true,
+            darkMode: false,
+            platform: Platform.OS,
+          },
+          stats: {
+            totalExams: 0,
+            completedExams: 0,
+            totalScore: 0,
+            totalMaxScore: 0,
+            averageScore: 0,
+            streak: 0,
+            lastActivity: Timestamp.fromDate(new Date()),
+          },
+        };
+        await userRef.set(userData);
+        console.log('[FirestoreService] Created new user profile for:', user.uid);
+      } else {
+        // Existing user - only update basic auth fields that can change
+        await userRef.update({
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+        });
+        console.log('[FirestoreService] Updated existing user profile for:', user.uid);
+      }
     } catch (error) {
-      console.error('Error creating user profile:', error);
+      console.error('Error creating/updating user profile:', error);
       throw error;
     }
   }
@@ -471,7 +489,7 @@ class FirestoreService {
   }
 
   // Account Deletion Requests
-  async createDeletionRequest(uid: string, email: string, appId: string, appName: string): Promise<void> {
+  async createDeletionRequest(uid: string, email: string, appId: string, appName: string, platform: string): Promise<void> {
     try {
       await firestore()
         .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
@@ -481,6 +499,7 @@ class FirestoreService {
           email,
           appId,
           appName,
+          platform,
           requestedAt: Timestamp.fromDate(new Date()),
           status: 'pending',
         });
