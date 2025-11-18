@@ -45,10 +45,22 @@
 
 .admin-actions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .admin-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-actions-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .admin-action-card {
@@ -67,6 +79,14 @@
 .admin-action-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.admin-action-card.vocabulary-upload {
+  border-top: 4px solid #4caf50;
+}
+
+.admin-action-card.analytics {
+  border-top: 4px solid #2196F3;
 }
 
 .admin-action-card.deletion-requests {
@@ -106,6 +126,22 @@
 .btn-action-select:hover {
   background: #da190b;
   transform: scale(1.02);
+}
+
+.admin-action-card.vocabulary-upload .btn-action-select {
+  background: #4caf50;
+}
+
+.admin-action-card.vocabulary-upload .btn-action-select:hover {
+  background: #45a049;
+}
+
+.admin-action-card.analytics .btn-action-select {
+  background: #2196F3;
+}
+
+.admin-action-card.analytics .btn-action-select:hover {
+  background: #0b7dda;
 }
 
 .apps-section h2 {

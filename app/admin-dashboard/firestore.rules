@@ -23,6 +23,31 @@ service cloud.firestore {
       // Only authenticated users can write
       allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
+
+    // English B1 Telc Exam Data Collection
+    match /english_b1_telc_exam_data/{document} {
+      allow read: if true
+      
+      // Only authenticated users can write
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    // Vocabulary Data Collections
+    // All users can read vocabulary, only admin can write
+    match /vocabulary_data_german_a1/{wordId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    match /vocabulary_data_german_b2/{wordId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    match /vocabulary_data_english_a1/{wordId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
     
     // User progress collection (top-level)
     // Users can only read/write their own progress
@@ -85,6 +110,30 @@ service cloud.firestore {
       // Allow users to read/write their own streak data
       // Admin can read all streaks
       match /streaks/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User vocabulary progress (German A1)
+      match /vocabulary_progress_german_a1/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User vocabulary progress (German B2)
+      match /vocabulary_progress_german_b2/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User vocabulary progress (English A1)
+      match /vocabulary_progress_english_a1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");

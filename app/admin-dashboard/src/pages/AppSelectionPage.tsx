@@ -72,6 +72,17 @@ export const AppSelectionPage: React.FC = () => {
         <h2>Admin Actions</h2>
         <div className="admin-actions-grid">
           <div
+            className="admin-action-card vocabulary-upload"
+            onClick={() => navigate('/vocabulary-upload')}
+          >
+            <div className="admin-action-icon">📚</div>
+            <h3>Vocabulary Upload</h3>
+            <p>Upload vocabulary words from JSON files to Firebase</p>
+            <button className="btn-action-select">
+              Upload Vocabulary →
+            </button>
+          </div>
+          <div
             className="admin-action-card analytics"
             onClick={() => navigate('/analytics')}
           >

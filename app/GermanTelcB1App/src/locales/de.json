@@ -98,6 +98,7 @@
     "title": "Bereiten wir uns gemeinsam auf die telc-Prüfung vor",
     "examStructure": "Prüfungsstruktur",
     "practice": "Üben",
+    "vocabulary": "Vokabeltrainer",
     "practiceSections": {
       "reading": "Leseverstehen",
       "listening": "Hörverstehen",
@@ -106,8 +107,73 @@
     },
     "descriptions": {
       "examStructure": "Erfahren Sie mehr über das TELC B1 Prüfungsformat und die Bewertung",
-      "practice": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen"
+      "practice": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen",
+      "vocabulary": "Vokabeln mit Lernwiederholung lernen"
     }
+  },
+  "vocabulary": {
+    "title": "Vokabeltrainer",
+    "studyNew": "Neue Wörter lernen",
+    "review": "Wiederholen",
+    "newWordsAvailable": "{{count}} neue Wörter verfügbar",
+    "dueReviews": "{{count}} Wiederholungen fällig",
+    "wordsMastered": "Wörter gelernt",
+    "dailyGoal": "Tagesziel",
+    "currentStreak": "Aktuelle Serie",
+    "dayStreak": "Tage Serie 🔥",
+    "viewProgress": "Fortschritt anzeigen",
+    "viewProgressDesc": "Sehen Sie Ihre Statistiken und Lernfortschritt",
+    "showAnswer": "Antwort zeigen",
+    "markAsLearned": "Als gelernt markieren",
+    "dueToday": "Heute fällig",
+    "learning": "Am Lernen",
+    "noNewWords": "Keine neuen Wörter",
+    "noNewWordsDesc": "Sie haben Ihr Tagesziel erreicht. Kommen Sie morgen wieder!",
+    "noDueReviews": "Alles geschafft!",
+    "noDueReviewsDesc": "Heute sind keine Wiederholungen fällig. Großartig!",
+    "errorLoadingWords": "Fehler beim Laden der Wörter",
+    "errorSavingProgress": "Fehler beim Speichern des Fortschritts",
+    "celebration": "Ausgezeichnete Arbeit!",
+    "celebrationMessage": "Sie haben heute {{count}} Wörter gelernt!",
+    "reviewComplete": "Wiederholung abgeschlossen!",
+    "reviewCompleteMessage": "Sie haben {{count}} Wörter wiederholt!",
+    "onboarding": {
+      "title": "Wählen Sie Ihr Lerntempo",
+      "subtitle": "Wie viele neue Wörter möchten Sie jeden Tag lernen?",
+      "casualDesc": "Perfekt für entspannte Lerner",
+      "beginnerDesc": "Gut für den Aufbau eines soliden Wortschatzes",
+      "seriousDesc": "Ideal für engagierte Lerner mit schnellem Fortschritt",
+      "dailyWords": "{{count}} Wörter pro Tag",
+      "info": "Sie können Ihr Tempo später in den Einstellungen ändern. Die App nutzt Lernwiederholung, um Ihnen zu helfen, Wörter effektiv zu behalten."
+    },
+    "persona": {
+      "casual": "Entspannter Lerner",
+      "beginner": "Anfänger",
+      "serious": "Ernsthafter Student"
+    },
+    "ratings": {
+      "again": "Nochmal",
+      "hard": "Schwer",
+      "good": "Gut",
+      "easy": "Einfach"
+    },
+    "stats": {
+      "title": "Ihr Fortschritt"
+    },
+    "progress": {
+      "title": "Vokabelfortschritt",
+      "breakdown": "Wörter Übersicht",
+      "newWords": "Neue Wörter",
+      "learning": "Am Lernen",
+      "reviewing": "Wiederholen",
+      "mastered": "Gelernt",
+      "learningPace": "Lerntempo",
+      "dailyLimit": "{{count}} neue Wörter pro Tag",
+      "streakInfo": "Serien-Information",
+      "currentStreak": "Aktuell",
+      "longestStreak": "Längste"
+    },
+    "forecast": "Sie werden ungefähr {{count}} Wörter diesen Monat lernen!"
   },
   "examStructure": {
     "title": "Prüfungsstruktur",

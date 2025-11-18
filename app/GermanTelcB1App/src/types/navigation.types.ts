@@ -42,6 +42,11 @@ export type HomeStackParamList = {
   ListeningPart1: { examId: number };
   ListeningPart2: { examId: number };
   ListeningPart3: { examId: number };
+  VocabularyHome: undefined;
+  VocabularyOnboarding: undefined;
+  VocabularyStudyNew: undefined;
+  VocabularyReview: undefined;
+  VocabularyProgress: undefined;
 };
 
 // Profile Stack Navigator

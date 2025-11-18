@@ -36,6 +36,13 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('PracticeMenu');
   };
 
+  const handleVocabularyPress = () => {
+    logEvent(AnalyticsEvents.VOCABULARY_HOME_OPENED);
+    // Check if user has completed onboarding (has persona set)
+    // For now, navigate directly to VocabularyHome
+    navigation.navigate('VocabularyHome');
+  };
+
   const handleLoginPress = () => {
     logEvent(AnalyticsEvents.PROGRESS_CARD_LOGIN_NAVIGATED);
     navigation.navigate('ProfileStack', { screen: 'Profile', params: { openLoginModal: true } });
@@ -71,6 +78,13 @@ const HomeScreen: React.FC = () => {
           <Text style={styles.cardTitle}>{t('home.practice')}</Text>
           <Text style={styles.cardDescription}>
             {t('home.descriptions.practice')}
+          </Text>
+        </Card>
+
+        <Card style={styles.card} onPress={handleVocabularyPress}>
+          <Text style={styles.cardTitle}>{t('home.vocabulary')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('home.descriptions.vocabulary')}
           </Text>
         </Card>
       </ScrollView>

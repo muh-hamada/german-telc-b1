@@ -91,7 +91,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
 
   // Record activity
   const recordActivity = async (
-    activityType: 'exam' | 'completion' | 'grammar_study',
+    activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study',
     activityId: string = '',
     score: number = 0
   ): Promise<{ success: boolean; shouldShowModal: boolean }> => {

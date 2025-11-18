@@ -29,6 +29,11 @@ import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
 import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
+import VocabularyHomeScreen from '../screens/VocabularyHomeScreen';
+import VocabularyOnboardingScreen from '../screens/VocabularyOnboardingScreen';
+import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
+import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
+import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -244,6 +249,41 @@ const HomeStackNavigator: React.FC = () => {
         component={ListeningPart3Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyHome"
+        component={VocabularyHomeScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyOnboarding"
+        component={VocabularyOnboardingScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.onboarding.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyStudyNew"
+        component={VocabularyStudyNewScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.studyNew" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyReview"
+        component={VocabularyReviewScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.review" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyProgress"
+        component={VocabularyProgressScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.progress.title" />,
         }}
       />
     </Stack.Navigator>

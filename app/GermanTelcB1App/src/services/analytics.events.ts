@@ -95,6 +95,16 @@ export const AnalyticsEvents = {
   SETTINGS_ATT_OPENED: 'settings_att_opened',
   SETTINGS_ATT_UPDATED: 'settings_att_updated',
   
+  // Vocabulary Builder
+  VOCABULARY_HOME_OPENED: 'vocabulary_home_opened',
+  VOCABULARY_STUDY_NEW_STARTED: 'vocabulary_study_new_started',
+  VOCABULARY_NEW_WORD_STUDIED: 'vocabulary_new_word_studied',
+  VOCABULARY_REVIEW_STARTED: 'vocabulary_review_started',
+  VOCABULARY_WORD_REVIEWED: 'vocabulary_word_reviewed',
+  VOCABULARY_DAILY_GOAL_COMPLETED: 'vocabulary_daily_goal_completed',
+  VOCABULARY_PERSONA_SELECTED: 'vocabulary_persona_selected',
+  VOCABULARY_PROGRESS_OPENED: 'vocabulary_progress_opened',
+
   // Notification Reminder
   NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',
   NOTIFICATION_REMINDER_ENABLED: 'notification_reminder_enabled',

@@ -28,6 +28,8 @@ export interface ExamConfig {
     userProgress: string;     // e.g., "users/{uid}/progress" or "users/{uid}/german_b1_progress"
     completions: string;      // e.g., "users/{uid}/completions" or "users/{uid}/completions/german_b2"
     streaks: string;          // e.g., "users/{uid}/streaks" for daily streaks tracking
+    vocabularyData: string;   // e.g., "vocabulary_data_german_a1"
+    vocabularyProgress: string; // e.g., "users/{uid}/vocabulary_progress_german_a1/data"
   };
   
   // Exam Metadata

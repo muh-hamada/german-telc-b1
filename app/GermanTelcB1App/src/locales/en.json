@@ -95,6 +95,7 @@
     "title": "Let's Prepare for the telc Exam Together",
     "examStructure": "Exam Structure",
     "practice": "Practice",
+    "vocabulary": "Vocabulary Builder",
     "practiceSections": {
       "reading": "Reading",
       "listening": "Listening",
@@ -102,8 +103,73 @@
       "speaking": "Speaking"
     },
     "descriptions": {
-      "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
+      "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking",
+      "vocabulary": "Learn vocabulary with spaced repetition"
     }
+  },
+  "vocabulary": {
+    "title": "Vocabulary Builder",
+    "studyNew": "Study New Words",
+    "review": "Review",
+    "newWordsAvailable": "{{count}} new words available",
+    "dueReviews": "{{count}} reviews due",
+    "wordsMastered": "Words Mastered",
+    "dailyGoal": "Daily Goal",
+    "currentStreak": "Current Streak",
+    "dayStreak": "day streak 🔥",
+    "viewProgress": "View Progress",
+    "viewProgressDesc": "See your statistics and learning progress",
+    "showAnswer": "Show Answer",
+    "markAsLearned": "Mark as Learned",
+    "dueToday": "Due Today",
+    "learning": "Learning",
+    "noNewWords": "No New Words",
+    "noNewWordsDesc": "You've reached your daily limit. Come back tomorrow!",
+    "noDueReviews": "All Done!",
+    "noDueReviewsDesc": "No reviews due today. Great job!",
+    "errorLoadingWords": "Failed to load vocabulary words",
+    "errorSavingProgress": "Failed to save your progress",
+    "celebration": "Excellent Work!",
+    "celebrationMessage": "You've studied {{count}} words today!",
+    "reviewComplete": "Review Complete!",
+    "reviewCompleteMessage": "You've reviewed {{count}} words!",
+    "onboarding": {
+      "title": "Choose Your Learning Pace",
+      "subtitle": "How many new words do you want to learn each day?",
+      "casualDesc": "Perfect for casual learners who want to take it easy",
+      "beginnerDesc": "Great for building a steady vocabulary foundation",
+      "seriousDesc": "Ideal for dedicated learners who want quick progress",
+      "dailyWords": "{{count}} words per day",
+      "info": "You can always change your pace later in settings. The app uses spaced repetition to help you remember words effectively."
+    },
+    "persona": {
+      "casual": "Casual Learner",
+      "beginner": "Beginner",
+      "serious": "Serious Student"
+    },
+    "ratings": {
+      "again": "Again",
+      "hard": "Hard",
+      "good": "Good",
+      "easy": "Easy"
+    },
+    "stats": {
+      "title": "Your Progress"
+    },
+    "progress": {
+      "title": "Vocabulary Progress",
+      "breakdown": "Words Breakdown",
+      "newWords": "New Words",
+      "learning": "Learning",
+      "reviewing": "Reviewing",
+      "mastered": "Mastered",
+      "learningPace": "Learning Pace",
+      "dailyLimit": "{{count}} new words per day",
+      "streakInfo": "Streak Information",
+      "currentStreak": "Current",
+      "longestStreak": "Longest"
+    },
+    "forecast": "You'll master approximately {{count}} words this month!"
   },
   "examStructure": {
     "title": "Exam Structure",

@@ -8,6 +8,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { EditorPage } from './pages/EditorPage';
 import { DeletionRequestsPage } from './pages/DeletionRequestsPage';
 import { AnalyticsPage } from './pages/AnalyticsPage';
+import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -55,6 +56,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AnalyticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/vocabulary-upload"
+            element={
+              <ProtectedRoute>
+                <VocabularyUploadPage />
               </ProtectedRoute>
             }
           />
