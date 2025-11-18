@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Anrufbeantworter",
+    "article": "der",
+    "translations": {
+      "en": "answering machine",
+      "es": "contestador automático",
+      "fr": "répondeur",
+      "ru": "автоответчик",
+      "ar": "الرد الآلي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir sind im Moment nicht da. Sprechen Sie bitte auf den Anrufbeantworter.",
+        "translations": {
+          "en": "We're not here at the moment. Please speak on the answering machine.",
+          "es": "No estamos en este momento. Por favor, deje un mensaje en el contestador automático.",
+          "fr": "Nous ne sommes pas là pour le moment. Veuillez parler sur le répondeur.",
+          "ru": "Нас сейчас нет. Пожалуйста, оставьте сообщение на автоответчике.",
+          "ar": "نحن غير متواجدين في الوقت الحالي. يرجى التحدث على الرد الآلي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ansage",
+    "article": "die",
+    "translations": {
+      "en": "announcement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "الإعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hören Sie die Ansagen.",
+        "translations": {
+          "en": "Listen to the announcements.",
+          "es": "Escuche los anuncios.",
+          "fr": "Écoutez les annonces.",
+          "ru": "Слушайте объявления.",
+          "ar": "استمع إلى الإعلانات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anschluss",
+    "article": "der",
+    "translations": {
+      "en": "connection",
+      "es": "conexión",
+      "fr": "correspondance",
+      "ru": "соединение",
+      "ar": "الاتصال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In Mannheim haben Sie Anschluss nach Saarbrücken.",
+        "translations": {
+          "en": "In Mannheim you have a connection to Saarbrücken.",
+          "es": "En Mannheim tiene conexión a Saarbrücken.",
+          "fr": "À Mannheim, vous avez une correspondance pour Sarrebruck.",
+          "ru": "В Мангейме у вас есть пересадка на Саарбрюккен.",
+          "ar": "في مانهايم لديك اتصال إلى ساربروكن."
+        }
+      },
+      {
+        "text": "Ist das die Anmeldung für einen Telefonanschluss?",
+        "translations": {
+          "en": "Is this the registration for a telephone connection?",
+          "es": "¿Es esta la inscripción para una conexión telefónica?",
+          "fr": "Est-ce l'inscription pour un raccordement téléphonique ?",
+          "ru": "Это регистрация для телефонного подключения?",
+          "ar": "هل هذا التسجيل لتوصيل الهاتف؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "an sein",
+    "article": "",
+    "translations": {
+      "en": "to be on",
+      "es": "estar encendido",
+      "fr": "être allumé",
+      "ru": "быть включенным",
+      "ar": "يكون مشغّلاً"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Heute Nacht war das Licht an.",
+        "translations": {
+          "en": "The light was on tonight.",
+          "es": "La luz estuvo encendida esta noche.",
+          "fr": "La lumière était allumée ce soir.",
+          "ru": "Сегодня ночью свет был включен.",
+          "ar": "كان الضوء مشغّلاً الليلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "antworten",
+    "article": "",
+    "translations": {
+      "en": "to answer",
+      "es": "responder",
+      "fr": "répondre",
+      "ru": "отвечать",
+      "ar": "يجيب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er antwortet nicht.",
+        "translations": {
+          "en": "He doesn't answer.",
+          "es": "Él no responde.",
+          "fr": "Il ne répond pas.",
+          "ru": "Он не отвечает.",
+          "ar": "إنه لا يجيب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Antwort",
+    "article": "die",
+    "translations": {
+      "en": "answer",
+      "es": "respuesta",
+      "fr": "réponse",
+      "ru": "ответ",
+      "ar": "الجواب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er gibt leider keine Antwort.",
+        "translations": {
+          "en": "Unfortunately, he doesn't give an answer.",
+          "es": "Desafortunadamente, no da una respuesta.",
+          "fr": "Malheureusement, il ne donne pas de réponse.",
+          "ru": "К сожалению, он не даёт ответа.",
+          "ar": "للأسف، إنه لا يعطي جوابًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anzeige",
+    "article": "die",
+    "translations": {
+      "en": "advertisement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "الإعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Ihre Anzeige in der Zeitung gelesen.",
+        "translations": {
+          "en": "I read your advertisement in the newspaper.",
+          "es": "Leí su anuncio en el periódico.",
+          "fr": "J'ai lu votre annonce dans le journal.",
+          "ru": "Я прочитал ваше объявление в газете.",
+          "ar": "قرأت إعلانك في الصحيفة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anziehen",
+    "article": "",
+    "translations": {
+      "en": "to put on",
+      "es": "ponerse",
+      "fr": "mettre",
+      "ru": "надевать",
+      "ar": "يرتدي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss mich noch anziehen.",
+        "translations": {
+          "en": "I still have to get dressed.",
+          "es": "Todavía tengo que vestirme.",
+          "fr": "Je dois encore m'habiller.",
+          "ru": "Мне еще нужно одеться.",
+          "ar": "لا يزال علي أن أرتدي ملابسي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apartment",
+    "article": "das",
+    "translations": {
+      "en": "apartment",
+      "es": "apartamento",
+      "fr": "appartement",
+      "ru": "апартаменты",
+      "ar": "الشقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben ein Apartment gemietet.",
+        "translations": {
+          "en": "We have rented an apartment.",
+          "es": "Hemos alquilado un apartamento.",
+          "fr": "Nous avons loué un appartement.",
+          "ru": "Мы арендовали апартаменты.",
+          "ar": "استأجرنا شقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apfel",
+    "article": "der",
+    "translations": {
+      "en": "apple",
+      "es": "manzana",
+      "fr": "pomme",
+      "ru": "яблоко",
+      "ar": "التفاحة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Pfund Äpfel bitte.",
+        "translations": {
+          "en": "A pound of apples please.",
+          "es": "Un kilo de manzanas, por favor.",
+          "fr": "Une livre de pommes, s'il vous plaît.",
+          "ru": "Фунт яблок, пожалуйста.",
+          "ar": "رطل من التفاح من فضلك."
+        }
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,4282 @@
+[
+  {
+    "word": "ab",
+    "sentences": [
+      "Ab morgen muss ich arbeiten."
+    ]
+  },
+  {
+    "word": "aber",
+    "sentences": [
+      "Ich bin oft im Büro, aber nur für wenige Stunden."
+    ]
+  },
+  {
+    "word": "abfahren",
+    "sentences": [
+      "Wir fahren um zwölf Uhr ab."
+    ]
+  },
+  {
+    "word": "die Abfahrt",
+    "sentences": [
+      "Vor der Abfahrt rufe ich an."
+    ]
+  },
+  {
+    "word": "abgeben",
+    "sentences": [
+      "Ich muss meine Schlüssel abgeben."
+    ]
+  },
+  {
+    "word": "abholen",
+    "sentences": [
+      "Wann kann ich den Schrank bei dir abholen?",
+      "Wir müssen noch meinen Bruder abholen."
+    ]
+  },
+  {
+    "word": "der Absender",
+    "sentences": [
+      "Da ist ein Brief für dich ohne Absender."
+    ]
+  },
+  {
+    "word": "Achtung",
+    "sentences": [
+      "Achtung! Das dürfen Sie nicht tun."
+    ]
+  },
+  {
+    "word": "die Adresse,-en",
+    "sentences": [
+      "Können Sie mir seine Adresse sagen?"
+    ]
+  },
+  {
+    "word": "all-",
+    "sentences": [
+      "Alles Gute!",
+      "Das ist alles.",
+      "Sind alle da?",
+      "Alle Freunde kommen.",
+      "Hast du alles?"
+    ]
+  },
+  {
+    "word": "allein",
+    "sentences": [
+      "Er kommt allein."
+    ]
+  },
+  {
+    "word": "also",
+    "sentences": [
+      "Also, es ist so: ...",
+      "Er hat Zeit, also muss er uns helfen."
+    ]
+  },
+  {
+    "word": "alt",
+    "sentences": [
+      "Wie alt sind Sie?",
+      "Sie sehen aber nicht so alt aus.",
+      "Mein Auto ist schon sehr alt.",
+      "Wir wohnen in einem sehr alten Haus.",
+      "Köln ist eine alte Stadt."
+    ]
+  },
+  {
+    "word": "das Alter",
+    "sentences": [
+      "Alter: 26 Jahre."
+    ]
+  },
+  {
+    "word": "an",
+    "sentences": [
+      "Fahren Sie an der nächsten Straße nach rechts.",
+      "Wir treffen uns am Bahnhof.",
+      "Am nächsten Montag geht es leider nicht."
+    ]
+  },
+  {
+    "word": "anbieten",
+    "sentences": [
+      "Was darf ich dir anbieten?"
+    ]
+  },
+  {
+    "word": "das Angebot, -e",
+    "sentences": [
+      "Heute sind Sportschuhe im Angebot."
+    ]
+  },
+  {
+    "word": "ander-",
+    "sentences": [
+      "WiIlst du diese Jacke?",
+      "– Nein, ich möchte die andere."
+    ]
+  },
+  {
+    "word": "anfangen",
+    "sentences": [
+      "Hier fängt die Bahnhofstraße an.",
+      "Der Unterricht fängt gleich an."
+    ]
+  },
+  {
+    "word": "der Anfang",
+    "sentences": [
+      "Sie wohnt am Anfang der Straße.",
+      "Wir machen Anfang Juli Urlaub."
+    ]
+  },
+  {
+    "word": "anklicken",
+    "sentences": [
+      "Da musst du dieses Wort anklicken."
+    ]
+  },
+  {
+    "word": "ankommen",
+    "sentences": [
+      "Wann kommt dieser Zug in Hamburg an?"
+    ]
+  },
+  {
+    "word": "die Ankunft",
+    "sentences": [
+      "Auf diesem Plan steht nur die Ankunft(-szeit) der",
+      "Züge."
+    ]
+  },
+  {
+    "word": "ankreuzen",
+    "sentences": [
+      "Auf dem Formular müssen Sie an mehreren Stellen",
+      "etwas ankreuzen."
+    ]
+  },
+  {
+    "word": "anmachen",
+    "sentences": [
+      "Mach bitte das Licht an!"
+    ]
+  },
+  {
+    "word": "(sich) anmelden",
+    "sentences": [
+      "Wo kann ich mich anmelden?"
+    ]
+  },
+  {
+    "word": "die Anmeldung",
+    "sentences": [
+      "Eine Anmeldung für diesen Kurs ist nicht mehr möglich."
+    ]
+  },
+  {
+    "word": "die Anrede",
+    "sentences": [
+      "Schreiben Sie auch eine Anrede und einen Gruß."
+    ]
+  },
+  {
+    "word": "anrufen",
+    "sentences": [
+      "Kann man Sie anrufen?",
+      "Peter ruft kurz seine Freundin an."
+    ]
+  },
+  {
+    "word": "der Anruf, -e",
+    "sentences": [
+      "Sie bekommt viele Anrufe auf ihrem Handy."
+    ]
+  },
+  {
+    "word": "der Anruf-",
+    "sentences": [
+      "Wir sind im Moment nicht da. Sprechen Sie bitte auf"
+    ]
+  },
+  {
+    "word": "beantworter",
+    "sentences": [
+      "den Anrufbeantworter."
+    ]
+  },
+  {
+    "word": "die Ansage, -n",
+    "sentences": [
+      "Hören Sie die Ansagen."
+    ]
+  },
+  {
+    "word": "der Anschluss",
+    "sentences": [
+      "In Mannheim haben Sie Anschluss nach Saarbrücken.",
+      "Ist das die Anmeldung für einen Telefonanschluss?"
+    ]
+  },
+  {
+    "word": "an sein",
+    "sentences": [
+      "Heute Nacht war das Licht an."
+    ]
+  },
+  {
+    "word": "antworten",
+    "sentences": [
+      "Er antwortet nicht."
+    ]
+  },
+  {
+    "word": "die Antwort, -en",
+    "sentences": [
+      "Er gibt leider keine Antwort."
+    ]
+  },
+  {
+    "word": "die Anzeige, -n",
+    "sentences": [
+      "Ich habe Ihre Anzeige in der Zeitung gelesen."
+    ]
+  },
+  {
+    "word": "(sich) anziehen",
+    "sentences": [
+      "Ich muss mich noch anziehen."
+    ]
+  },
+  {
+    "word": "das Apartment, -s",
+    "sentences": [
+      "Wir haben ein Apartment gemietet."
+    ]
+  },
+  {
+    "word": "der Apfel, -Ä",
+    "sentences": [
+      "Ein Pfund Äpfel bitte."
+    ]
+  },
+  {
+    "word": "der Appetit",
+    "sentences": [
+      "Guten Appetit!"
+    ]
+  },
+  {
+    "word": "arbeiten",
+    "sentences": [
+      "Wo arbeiten Sie?"
+    ]
+  },
+  {
+    "word": "die Arbeit, -en",
+    "sentences": [
+      "Mein Bruder sucht Arbeit."
+    ]
+  },
+  {
+    "word": "arbeitslos",
+    "sentences": [
+      "Es gibt bei uns viele Leute, die schon lange arbeitslos",
+      "sind.",
+      "der Arbeitsplatz, -ä, e An meinem Arbeitsplatz fehlt ein Drucker."
+    ]
+  },
+  {
+    "word": "der Arm, -e",
+    "sentences": [
+      "Mein Arm tut weh."
+    ]
+  },
+  {
+    "word": "der Arzt, -Ä, e",
+    "sentences": [
+      "Morgen habe ich einen Termin bei meiner Ärztin."
+    ]
+  },
+  {
+    "word": "auch",
+    "sentences": [
+      "Ich bin auch Spanier."
+    ]
+  },
+  {
+    "word": "auf",
+    "sentences": [
+      "Die Kinder spielen auf der Straße.",
+      "Auf Wiedersehen.",
+      "Wie heißt das auf Deutsch?"
+    ]
+  },
+  {
+    "word": "die Aufgabe, -n",
+    "sentences": [
+      "Das ist eine schwere Aufgabe."
+    ]
+  },
+  {
+    "word": "aufhören",
+    "sentences": [
+      "Der Kurs hört in einer Woche auf.",
+      "Hier hört die Bahnhofstraße auf."
+    ]
+  },
+  {
+    "word": "auf sein",
+    "sentences": [
+      "Du brauchst den Schlüssel nicht. Die Wohnung ist auf."
+    ]
+  },
+  {
+    "word": "aufstehen",
+    "sentences": [
+      "Ich muss immer um vier Uhr aufstehen.",
+      "Soll ich aufstehen?"
+    ]
+  },
+  {
+    "word": "der Aufzug, -ü, e",
+    "sentences": [
+      "In diesem Haus gibt es keinen Aufzug."
+    ]
+  },
+  {
+    "word": "das Auge, -n",
+    "sentences": [
+      "Er hat blaue Augen."
+    ]
+  },
+  {
+    "word": "aus",
+    "sentences": [
+      "Er kommt aus Brasilien."
+    ]
+  },
+  {
+    "word": "der Ausflug",
+    "sentences": [
+      "Morgen machen wir einen Ausflug nach Heidelberg."
+    ]
+  },
+  {
+    "word": "ausfüllen",
+    "sentences": [
+      "Füllen Sie bitte dieses Formular aus."
+    ]
+  },
+  {
+    "word": "der Ausgang",
+    "sentences": [
+      "Wo ist der Ausgang?"
+    ]
+  },
+  {
+    "word": "die Auskunft, -ü, e",
+    "sentences": [
+      "Können Sie mir eine Auskunft geben?"
+    ]
+  },
+  {
+    "word": "das Ausland",
+    "sentences": [
+      "Fahren Sie ins Ausland?"
+    ]
+  },
+  {
+    "word": "der Ausländer, -",
+    "sentences": [
+      "SInd Sie Ausländerin?"
+    ]
+  },
+  {
+    "word": "ausländisch",
+    "sentences": [
+      "Leider habe ich nur ausländisches Geld."
+    ]
+  },
+  {
+    "word": "ausmachen",
+    "sentences": [
+      "Mach bitte das Licht aus!"
+    ]
+  },
+  {
+    "word": "die Aussage, -n",
+    "sentences": [
+      "Ist die Aussage richtig oder falsch?"
+    ]
+  },
+  {
+    "word": "aussehen",
+    "sentences": [
+      "Das sieht schön aus."
+    ]
+  },
+  {
+    "word": "aus sein",
+    "sentences": [
+      "Das Licht ist aus.",
+      "Die Schule ist aus."
+    ]
+  },
+  {
+    "word": "aussteigen",
+    "sentences": [
+      "Wo muss ich aussteigen?"
+    ]
+  },
+  {
+    "word": "der Ausweis",
+    "sentences": [
+      "Hier ist mein Ausweis."
+    ]
+  },
+  {
+    "word": "(sich) ausziehen",
+    "sentences": [
+      "Zieh die Schuhe aus, bitte!"
+    ]
+  },
+  {
+    "word": "das Auto, -s",
+    "sentences": [
+      "Er kommt mit dem Auto."
+    ]
+  },
+  {
+    "word": "die Autobahn, -en",
+    "sentences": [
+      "Wo geht‘s hier bitte zur Autobahn?"
+    ]
+  },
+  {
+    "word": "der Automat",
+    "sentences": [
+      "Die Fahrkarten gibt es nur am Automaten."
+    ]
+  },
+  {
+    "word": "automatisch",
+    "sentences": [
+      "Du musst nichts machen. Das geht automatisch."
+    ]
+  },
+  {
+    "word": "das Baby, -s",
+    "sentences": [
+      "Mein Kind ist noch ein Baby."
+    ]
+  },
+  {
+    "word": "die Bäckerei",
+    "sentences": [
+      "Ich geh mal schnell zur Bäckerei."
+    ]
+  },
+  {
+    "word": "das Bad",
+    "sentences": [
+      "Wir haben kein großes Bad."
+    ]
+  },
+  {
+    "word": "baden",
+    "sentences": [
+      "Ich bade nicht so gern, ich dusche lieber."
+    ]
+  },
+  {
+    "word": "die Bahn",
+    "sentences": [
+      "Wir fahren lieber mit der Bahn.",
+      "Ich nehme die nächste Bahn."
+    ]
+  },
+  {
+    "word": "der Bahnhof",
+    "sentences": [
+      "Komme ich hier zum Bahnhof?"
+    ]
+  },
+  {
+    "word": "der Bahnsteig",
+    "sentences": [
+      "Auf welchem Bahnsteig fährt der Zug?"
+    ]
+  },
+  {
+    "word": "bald",
+    "sentences": [
+      "Ich komme bald."
+    ]
+  },
+  {
+    "word": "der Balkon",
+    "sentences": [
+      "Die Wohnung hat auch einen kleinen Balkon."
+    ]
+  },
+  {
+    "word": "die Banane, -n",
+    "sentences": [
+      "Drei Bananen, bitte!"
+    ]
+  },
+  {
+    "word": "die Bank",
+    "sentences": [
+      "Die Bank schließt schon um vier Uhr.",
+      "Er sitzt im Park auf einer Bank und liest."
+    ]
+  },
+  {
+    "word": "bar",
+    "sentences": [
+      "Muss ich bar zahlen oder geht‘s auch mit Karte?"
+    ]
+  },
+  {
+    "word": "der Bauch",
+    "sentences": [
+      "Seit gestern tut mir der Bauch weh."
+    ]
+  },
+  {
+    "word": "der Baum, -ä, e",
+    "sentences": [
+      "Vorsicht, fahr nicht an den Baum!"
+    ]
+  },
+  {
+    "word": "der Beamte, -n",
+    "sentences": [
+      "Fragen Sie die Beamtin an Schalter acht!"
+    ]
+  },
+  {
+    "word": "bedeuten",
+    "sentences": [
+      "Was bedeutet das Wort?"
+    ]
+  },
+  {
+    "word": "beginnen",
+    "sentences": [
+      "Das Spiel beginnt um 15.30 Uhr."
+    ]
+  },
+  {
+    "word": "bei",
+    "sentences": [
+      "Offenbach liegt bei Frankfurt.",
+      "Ich wohne bei meinen Eltern.",
+      "Bei uns regnet es heute.",
+      "Er arbeitet bei der Polizei."
+    ]
+  },
+  {
+    "word": "beide",
+    "sentences": [
+      "Beide Eltern arbeiten.",
+      "Wir kommen beide."
+    ]
+  },
+  {
+    "word": "das Bein, -e",
+    "sentences": [
+      "Mein rechtes Bein tut weh."
+    ]
+  },
+  {
+    "word": "das Beispiel, -e",
+    "sentences": [
+      "Kannst du mir ein Beispiel sagen?"
+    ]
+  },
+  {
+    "word": "zum Beispiel/z. B.",
+    "sentences": [
+      "Viele meiner Verwandten, z. B. meine beiden",
+      "Brüder, arbeiten auch hier."
+    ]
+  },
+  {
+    "word": "bekannt",
+    "sentences": [
+      "Picasso ist sehr bekannt."
+    ]
+  },
+  {
+    "word": "der/die Bekannte, -n",
+    "sentences": [
+      "Ein Bekannter von mir heißt Klaus."
+    ]
+  },
+  {
+    "word": "bekommen",
+    "sentences": [
+      "Haben Sie meinen Brief bekommen?",
+      "Was bekommen Sie?",
+      "Dieses Medikament bekommen Sie in der Apotheke."
+    ]
+  },
+  {
+    "word": "benutzen",
+    "sentences": [
+      "Die Aufzüge bitte nicht benutzen!"
+    ]
+  },
+  {
+    "word": "der Beruf, -e",
+    "sentences": [
+      "Was sind Sie von Beruf?",
+      "Was ist Ihr Beruf?"
+    ]
+  },
+  {
+    "word": "besetzt",
+    "sentences": [
+      "Die Nummer ist immer besetzt.",
+      "Der Platz ist besetzt."
+    ]
+  },
+  {
+    "word": "besichtigen",
+    "sentences": [
+      "Ich möchte gern den Dom besichtigen."
+    ]
+  },
+  {
+    "word": "besser",
+    "sentences": [
+      "Es geht mir schon besser."
+    ]
+  },
+  {
+    "word": "best-",
+    "sentences": [
+      "Am besten treffen wir uns morgen."
+    ]
+  },
+  {
+    "word": "bestellen",
+    "sentences": [
+      "Wir möchten bestellen, bitte.",
+      "Dieses Buch haben wir nicht – sollen wir es für Sie",
+      "bestellen?"
+    ]
+  },
+  {
+    "word": "besuchen",
+    "sentences": [
+      "Darf ich dich besuchen?"
+    ]
+  },
+  {
+    "word": "das Bett, -en",
+    "sentences": [
+      "Wir brauchen noch ein Kinderbett."
+    ]
+  },
+  {
+    "word": "bezahlen",
+    "sentences": [
+      "Wo muss ich bezahlen?"
+    ]
+  },
+  {
+    "word": "das Bier",
+    "sentences": [
+      "Noch ein Bier bitte."
+    ]
+  },
+  {
+    "word": "das Bild, -er",
+    "sentences": [
+      "Hast du ein Bild von deinem Sohn?"
+    ]
+  },
+  {
+    "word": "die Birne, -n",
+    "sentences": [
+      "Ein Kilo Birnen, bitte!"
+    ]
+  },
+  {
+    "word": "bis",
+    "sentences": [
+      "Ich fahre nur bis Stuttgart.",
+      "Ich warte bis morgen."
+    ]
+  },
+  {
+    "word": "bisschen",
+    "sentences": [
+      "Ich spreche Englisch, Französisch und ein bisschen",
+      "Deutsch."
+    ]
+  },
+  {
+    "word": "bitte",
+    "sentences": [
+      "Eine Tasse Kaffee, bitte!",
+      "Sprechen Sie bitte leise!"
+    ]
+  },
+  {
+    "word": "die Bitte, -n",
+    "sentences": [
+      "Ich habe noch eine Bitte."
+    ]
+  },
+  {
+    "word": "bitten",
+    "sentences": [
+      "Darf ich Sie um etwas bitten?"
+    ]
+  },
+  {
+    "word": "bitter",
+    "sentences": [
+      "Der Kaffee schmeckt bitter."
+    ]
+  },
+  {
+    "word": "bleiben",
+    "sentences": [
+      "Ich bleibe heute zu Hause.",
+      "Wir bleiben nur bis morgen."
+    ]
+  },
+  {
+    "word": "der Bleistift, -e",
+    "sentences": [
+      "Hast du einen Bleistift?"
+    ]
+  },
+  {
+    "word": "der Blick",
+    "sentences": [
+      "Von diesem Hotel hat man einen guten Blick auf den",
+      "Rhein."
+    ]
+  },
+  {
+    "word": "die Blume, -n",
+    "sentences": [
+      "Gefallen dir die Blumen?"
+    ]
+  },
+  {
+    "word": "der Bogen",
+    "sentences": [
+      "Schreiben Sie Ihre Lösungen bitte auf den Antwortbogen."
+    ]
+  },
+  {
+    "word": "böse",
+    "sentences": [
+      "Sie ist böse auf mich."
+    ]
+  },
+  {
+    "word": "brauchen",
+    "sentences": [
+      "Brauchst du die Zeitung noch?"
+    ]
+  },
+  {
+    "word": "breit",
+    "sentences": [
+      "Wie breit ist der Schrank?"
+    ]
+  },
+  {
+    "word": "der Brief, -e",
+    "sentences": [
+      "Haben Sie einen Brief für mich?"
+    ]
+  },
+  {
+    "word": "die Briefmarke, -n",
+    "sentences": [
+      "Kaufst du bitte Briefmarken bei der Post."
+    ]
+  },
+  {
+    "word": "bringen",
+    "sentences": [
+      "Bringen Sie mir bitte noch einen Kaffee!",
+      "Wir müssen ihn zum Arzt bringen."
+    ]
+  },
+  {
+    "word": "das Brot, -e",
+    "sentences": [
+      "Haben Sie auch Weißbrot?",
+      "Nimm noch ein paar Brote für die Fahrt mit."
+    ]
+  },
+  {
+    "word": "das Brötchen, –",
+    "sentences": [
+      "Möchtest du Brötchen zum Frühstück?"
+    ]
+  },
+  {
+    "word": "der Bruder, -ü",
+    "sentences": [
+      "Sein Bruder arbeitet auch hier."
+    ]
+  },
+  {
+    "word": "das Buch, -ü, er",
+    "sentences": [
+      "Gute Bücher sind oft sehr teuer.",
+      "In diesem Wörterbuch finden Sie mehr als 20.000 Wörter."
+    ]
+  },
+  {
+    "word": "der Buchstabe, -n",
+    "sentences": [
+      "Diesen Buchstaben gibt es in meiner Sprache nicht."
+    ]
+  },
+  {
+    "word": "buchstabieren",
+    "sentences": [
+      "Bitte buchstabieren Sie Ihren Namen."
+    ]
+  },
+  {
+    "word": "der Bus, -se",
+    "sentences": [
+      "Wann kommt der nächste Bus?"
+    ]
+  },
+  {
+    "word": "die Butter",
+    "sentences": [
+      "Für mich bitte ein Brötchen mit Butter und Käse."
+    ]
+  },
+  {
+    "word": "das Café, -s",
+    "sentences": [
+      "Sollen wir uns im Café treffen?"
+    ]
+  },
+  {
+    "word": "die CD, -s",
+    "sentences": [
+      "Bring bitte deine Lieblings-CD mit."
+    ]
+  },
+  {
+    "word": "der Chef",
+    "sentences": [
+      "Wir haben eine neue Chefin."
+    ]
+  },
+  {
+    "word": "circa/ca.",
+    "sentences": [
+      "Von Mainz nach Frankfurt sind es circa fünfzig",
+      "Kilometer."
+    ]
+  },
+  {
+    "word": "der Computer, –",
+    "sentences": [
+      "Wann bekommst du deinen neuen Computer?"
+    ]
+  },
+  {
+    "word": "da",
+    "sentences": [
+      "Da hinten ist er ja.",
+      "Wir sprechen gerade über Paul. Da kommt er ja gerade.",
+      "Ich nehme das da.",
+      "Ist Herr Klein schon da?"
+    ]
+  },
+  {
+    "word": "die Dame, -n",
+    "sentences": [
+      "Damen (an der Toilette)"
+    ]
+  },
+  {
+    "word": "daneben",
+    "sentences": [
+      "Du kennst doch die Post. Daneben ist die Bank."
+    ]
+  },
+  {
+    "word": "danken",
+    "sentences": [
+      "Ich danke Ihnen für die Einladung."
+    ]
+  },
+  {
+    "word": "der Dank",
+    "sentences": [
+      "Vielen Dank!",
+      "Herzlichen Dank!"
+    ]
+  },
+  {
+    "word": "danke",
+    "sentences": [
+      "Soll ich Ihnen helfen? - Nein, danke!"
+    ]
+  },
+  {
+    "word": "dann",
+    "sentences": [
+      "Ich muss noch schnell zur Post, dann komme ich."
+    ]
+  },
+  {
+    "word": "das Datum",
+    "sentences": [
+      "Bitte schreiben Sie noch das Datum auf das Formular."
+    ]
+  },
+  {
+    "word": "dauern",
+    "sentences": [
+      "Wie lange dauert der Film?"
+    ]
+  },
+  {
+    "word": "dein-",
+    "sentences": [
+      "Ist das dein Auto?",
+      "Ist das deins?"
+    ]
+  },
+  {
+    "word": "denn",
+    "sentences": [
+      "Ich kann nicht kommen, denn ich bin krank."
+    ]
+  },
+  {
+    "word": "der, die, das",
+    "sentences": [
+      "Ich nehme das da.",
+      "Hier ist der Brief, den du suchst.",
+      "Die Fahrkarte bekommst du am Bahnhof."
+    ]
+  },
+  {
+    "word": "dich",
+    "sentences": [
+      "Die Blumen sind für dich."
+    ]
+  },
+  {
+    "word": "dies-",
+    "sentences": [
+      "Ich nehme lieber diesen Kuchen."
+    ]
+  },
+  {
+    "word": "dir",
+    "sentences": [
+      "Gefallen dir die Blumen?"
+    ]
+  },
+  {
+    "word": "die Disco",
+    "sentences": [
+      "Heute abend gehen wir in die Disco tanzen."
+    ]
+  },
+  {
+    "word": "der Doktor",
+    "sentences": [
+      "Meine Tochter ist krank. Wir gehen zum Doktor."
+    ]
+  },
+  {
+    "word": "das Doppelzimmer",
+    "sentences": [
+      "Wollen Sie ein Doppelzimmer oder ein Einzelzimmer?"
+    ]
+  },
+  {
+    "word": "das Dorf, -ö, er",
+    "sentences": [
+      "Meine Familie lebt in einem Dorf."
+    ]
+  },
+  {
+    "word": "dort, -her, -hin",
+    "sentences": [
+      "Deine Tasche kannst du dorthin stellen.",
+      "Dort ist unser Haus."
+    ]
+  },
+  {
+    "word": "draußen",
+    "sentences": [
+      "Wollen wir draußen sitzen?"
+    ]
+  },
+  {
+    "word": "drucken",
+    "sentences": [
+      "Bitte drucke das Formular für mich."
+    ]
+  },
+  {
+    "word": "der Drucker, –",
+    "sentences": [
+      "Mein Drucker ist kaputt."
+    ]
+  },
+  {
+    "word": "drücken",
+    "sentences": [
+      "Drück hier, dann geht der Computer an."
+    ]
+  },
+  {
+    "word": "durch",
+    "sentences": [
+      "Am besten gehen Sie durch die Breite Straße."
+    ]
+  },
+  {
+    "word": "die Durchsage, -n",
+    "sentences": [
+      "Ich habe die Durchsage nicht verstanden."
+    ]
+  },
+  {
+    "word": "dürfen",
+    "sentences": [
+      "Sie dürfen hier nicht rauchen.",
+      "Darf ich Sie zu einem Kaffee einladen?",
+      "Es darf nicht mehr als 15 Euro kosten."
+    ]
+  },
+  {
+    "word": "der Durst",
+    "sentences": [
+      "Hast du etwas zu trinken? Ich habe großen Durst."
+    ]
+  },
+  {
+    "word": "(sich) duschen",
+    "sentences": [
+      "Ich bade nicht so gern, ich dusche lieber."
+    ]
+  },
+  {
+    "word": "die Dusche",
+    "sentences": [
+      "Unsere Wohnung hat nur eine Dusche."
+    ]
+  },
+  {
+    "word": "die Ecke, -n",
+    "sentences": [
+      "An der nächsten Ecke links.",
+      "die Ehefrau, -en/"
+    ]
+  },
+  {
+    "word": "der Ehemann, ä, er",
+    "sentences": [
+      "Das ist mein (Ehe-) Mann/meine (Ehe-) Frau."
+    ]
+  },
+  {
+    "word": "das Ei, -er",
+    "sentences": [
+      "Möchtest du ein Ei zum Frühstück?"
+    ]
+  },
+  {
+    "word": "eilig",
+    "sentences": [
+      "Hast du es eilig?"
+    ]
+  },
+  {
+    "word": "ein-",
+    "sentences": [
+      "Ich nehme ein Bier. Willst du auch eins?",
+      "Ist hier einer, der das kann?"
+    ]
+  },
+  {
+    "word": "einfach",
+    "sentences": [
+      "Die Prüfung ist ganz einfach.",
+      "Hin und zurück? – Nein, bitte nur einfach.",
+      "Ich brauche nur ein einfaches Zimmer."
+    ]
+  },
+  {
+    "word": "der Eingang",
+    "sentences": [
+      "Der Eingang ist um die Ecke."
+    ]
+  },
+  {
+    "word": "einkaufen",
+    "sentences": [
+      "Ich muss noch für morgen einkaufen."
+    ]
+  },
+  {
+    "word": "einladen",
+    "sentences": [
+      "Darf ich Sie zu einem Kaffee einladen?"
+    ]
+  },
+  {
+    "word": "die Einladung",
+    "sentences": [
+      "Danke für die Einladung!"
+    ]
+  },
+  {
+    "word": "einmal",
+    "sentences": [
+      "Diese Prüfung mache ich nicht noch einmal."
+    ]
+  },
+  {
+    "word": "einsteigen",
+    "sentences": [
+      "Schnell, steig ein, der Zug fährt gleich."
+    ]
+  },
+  {
+    "word": "der Eintritt",
+    "sentences": [
+      "Der Preis für den Eintritt ist 5 Euro."
+    ]
+  },
+  {
+    "word": "das Einzelzimmer",
+    "sentences": [
+      "Haben Sie noch ein Einzelzimmer?"
+    ]
+  },
+  {
+    "word": "die Eltern (pl.)",
+    "sentences": [
+      "Meine Eltern leben in Spanien."
+    ]
+  },
+  {
+    "word": "die E-Mail, -s",
+    "sentences": [
+      "Ich habe Ihre E-Mail nicht bekommen."
+    ]
+  },
+  {
+    "word": "der Empfänger, –",
+    "sentences": [
+      "Auf dem Brief steht dein Name, also bist du der",
+      "Empfänger."
+    ]
+  },
+  {
+    "word": "empfehlen",
+    "sentences": [
+      "Welchen Wein können Sie mir empfehlen?"
+    ]
+  },
+  {
+    "word": "enden",
+    "sentences": [
+      "Die Straße endet hier."
+    ]
+  },
+  {
+    "word": "das Ende",
+    "sentences": [
+      "Sie wohnt am Ende der Straße.",
+      "Er bekommt sein Geld am Ende des Monats."
+    ]
+  },
+  {
+    "word": "entschuldigen",
+    "sentences": [
+      "Entschuldigen Sie bitte!"
+    ]
+  },
+  {
+    "word": "die Entschuldigung",
+    "sentences": [
+      "Entschuldigung! – Bitte."
+    ]
+  },
+  {
+    "word": "er",
+    "sentences": [
+      "Er heißt Ali."
+    ]
+  },
+  {
+    "word": "das Ergebnis, -se",
+    "sentences": [
+      "Das Ergebnis des Tests bekommen Sie in zwei Wochen."
+    ]
+  },
+  {
+    "word": "erklären",
+    "sentences": [
+      "Kannst du mir das erklären?"
+    ]
+  },
+  {
+    "word": "erlauben",
+    "sentences": [
+      "Rauchen ist hier nicht erlaubt."
+    ]
+  },
+  {
+    "word": "der Erwachsene, -n",
+    "sentences": [
+      "Dieser Film ist nur für Erwachsene."
+    ]
+  },
+  {
+    "word": "erzählen",
+    "sentences": [
+      "Wir müssen euch etwas erzählen!"
+    ]
+  },
+  {
+    "word": "es",
+    "sentences": [
+      "Es regnet."
+    ]
+  },
+  {
+    "word": "essen",
+    "sentences": [
+      "Was gibt es zu essen?"
+    ]
+  },
+  {
+    "word": "das Essen",
+    "sentences": [
+      "Das Essen ist heute sehr gut."
+    ]
+  },
+  {
+    "word": "euer",
+    "sentences": [
+      "Euer Kurs beginnt heute."
+    ]
+  },
+  {
+    "word": "fahren",
+    "sentences": [
+      "Ich fahre mit dem Auto zur Arbeit."
+    ]
+  },
+  {
+    "word": "der Fahrer",
+    "sentences": [
+      "Bitte nicht mit dem Fahrer sprechen!"
+    ]
+  },
+  {
+    "word": "die Fahrkarte, -n",
+    "sentences": [
+      "Hast du schon eine Fahrkarte?"
+    ]
+  },
+  {
+    "word": "das Fahrrad, -ä, er",
+    "sentences": [
+      "Fährst du mit dem Fahrrad oder mit dem Auto?"
+    ]
+  },
+  {
+    "word": "falsch",
+    "sentences": [
+      "Das ist falsch."
+    ]
+  },
+  {
+    "word": "die Familie, -n",
+    "sentences": [
+      "Meine Familie lebt in Spanien."
+    ]
+  },
+  {
+    "word": "der Familienname",
+    "sentences": [
+      "Meine Familiennamen sind García González."
+    ]
+  },
+  {
+    "word": "der Familienstand",
+    "sentences": [
+      "Bei „Familienstand“ musst du „ledig“ ankreuzen."
+    ]
+  },
+  {
+    "word": "die Farbe, -n",
+    "sentences": [
+      "Die Farbe gefällt mir gut."
+    ]
+  },
+  {
+    "word": "das Fax, -e",
+    "sentences": [
+      "Schicken Sie uns einfach ein Fax!"
+    ]
+  },
+  {
+    "word": "Feier-",
+    "sentences": [
+      "z. B. Feierabend, Feiertag",
+      "Am Montag ist Feiertag."
+    ]
+  },
+  {
+    "word": "feiern",
+    "sentences": [
+      "Wir feiern heute meinen Geburtstag."
+    ]
+  },
+  {
+    "word": "fehlen",
+    "sentences": [
+      "Herr Müller ist nicht da, er fehlt schon seit drei Tagen.",
+      "Was fehlt Ihnen?"
+    ]
+  },
+  {
+    "word": "der Fehler, –",
+    "sentences": [
+      "Diesen Fehler mache ich immer."
+    ]
+  },
+  {
+    "word": "fernsehen",
+    "sentences": [
+      "Wollen wir heute Abend mal fernsehen?"
+    ]
+  },
+  {
+    "word": "fertig",
+    "sentences": [
+      "Bist du fertig?",
+      "Ist mein Auto schon fertig?"
+    ]
+  },
+  {
+    "word": "das Feuer",
+    "sentences": [
+      "Haben Sie Feuer?"
+    ]
+  },
+  {
+    "word": "das Fieber",
+    "sentences": [
+      "Mein Mann hat noch immer Fieber."
+    ]
+  },
+  {
+    "word": "der Film, -e",
+    "sentences": [
+      "Ich möchte gern diesen Film sehen."
+    ]
+  },
+  {
+    "word": "finden",
+    "sentences": [
+      "Wir müssen den Schlüssel finden."
+    ]
+  },
+  {
+    "word": "die Firma",
+    "sentences": [
+      "Er arbeitet jetzt bei einer anderen Firma."
+    ]
+  },
+  {
+    "word": "der Fisch, -e",
+    "sentences": [
+      "Ich esse gern Fisch. Fleisch mag ich nicht."
+    ]
+  },
+  {
+    "word": "die Flasche, -n",
+    "sentences": [
+      "Eine Flasche Bier, bitte."
+    ]
+  },
+  {
+    "word": "das Fleisch",
+    "sentences": [
+      "Fleisch mag ich nicht."
+    ]
+  },
+  {
+    "word": "fliegen",
+    "sentences": [
+      "Ich fliege nicht gern. Deshalb fahre ich mit dem Zug."
+    ]
+  },
+  {
+    "word": "abfliegen",
+    "sentences": [
+      "Wann fliegst du ab?"
+    ]
+  },
+  {
+    "word": "der Abflug",
+    "sentences": [
+      "Der Abflug ist um 11.20 Uhr."
+    ]
+  },
+  {
+    "word": "der Flughafen",
+    "sentences": [
+      "Kannst du mich zum Flughafen bringen?"
+    ]
+  },
+  {
+    "word": "das Flugzeug",
+    "sentences": [
+      "Das Flugzeug aus Berlin kommt heute später an."
+    ]
+  },
+  {
+    "word": "das Formular, -e",
+    "sentences": [
+      "Sie müssen dieses Formular ausfüllen."
+    ]
+  },
+  {
+    "word": "das Foto, -s",
+    "sentences": [
+      "Darf ich ein Foto machen?"
+    ]
+  },
+  {
+    "word": "fragen",
+    "sentences": [
+      "Er möchte Sie etwas fragen. Wann kommen Sie?"
+    ]
+  },
+  {
+    "word": "die Frage, -n",
+    "sentences": [
+      "Ich habe eine Frage."
+    ]
+  },
+  {
+    "word": "die Frau, -en",
+    "sentences": [
+      "Das ist Frau Becker.",
+      "Guten Tag, Frau Schmitt!",
+      "Hier arbeiten mehr Frauen als Männer."
+    ]
+  },
+  {
+    "word": "frei",
+    "sentences": [
+      "Ist der Platz noch frei?"
+    ]
+  },
+  {
+    "word": "die Freizeit",
+    "sentences": [
+      "In meiner Freizeit spiele ich oft Fußball."
+    ]
+  },
+  {
+    "word": "fremd",
+    "sentences": [
+      "Das weiß ich nicht; ich bin fremd hier."
+    ]
+  },
+  {
+    "word": "(sich) freuen",
+    "sentences": [
+      "Ich freue mich auf den Urlaub."
+    ]
+  },
+  {
+    "word": "der Freund, -e",
+    "sentences": [
+      "Das ist ein Freund von mir.",
+      "Das ist meine Freundin."
+    ]
+  },
+  {
+    "word": "früher",
+    "sentences": [
+      "Früher waren wir oft zusammen im Kino."
+    ]
+  },
+  {
+    "word": "frühstücken",
+    "sentences": [
+      "Am Sonntag frühstücke ich gern im Bett."
+    ]
+  },
+  {
+    "word": "das Frühstück",
+    "sentences": [
+      "Möchtest du ein Ei zum Frühstück?"
+    ]
+  },
+  {
+    "word": "die Führung",
+    "sentences": [
+      "Die Führung durch das Haus beginnt in 3 Minuten."
+    ]
+  },
+  {
+    "word": "für",
+    "sentences": [
+      "Das ist für Sie.",
+      "Das ist der Schlüssel für die Haustür.",
+      "Das ist das Brot für morgen."
+    ]
+  },
+  {
+    "word": "der Fuß, -ü, e",
+    "sentences": [
+      "Der linke Fuß tut mir weh."
+    ]
+  },
+  {
+    "word": "der Fußball",
+    "sentences": [
+      "Spielt ihr gerne Fußball?"
+    ]
+  },
+  {
+    "word": "der Garten",
+    "sentences": [
+      "Wir haben leider keinen Garten."
+    ]
+  },
+  {
+    "word": "der Gast, -ä, e",
+    "sentences": [
+      "Am Wochenende haben wir mehrere Gäste."
+    ]
+  },
+  {
+    "word": "geben",
+    "sentences": [
+      "Kannst du mir bitte deinen Kugelschreiber geben?",
+      "Es gibt keine Karten mehr."
+    ]
+  },
+  {
+    "word": "geboren",
+    "sentences": [
+      "Ich bin in Zagreb geboren."
+    ]
+  },
+  {
+    "word": "das Geburtsjahr",
+    "sentences": [
+      "Das Geburtsjahr Ihres Sohnes, bitte?"
+    ]
+  },
+  {
+    "word": "der Geburtsort",
+    "sentences": [
+      "Bitte schreiben Sie Ihren Geburtsort auf das Formular."
+    ]
+  },
+  {
+    "word": "der Geburtstag",
+    "sentences": [
+      "Herzlichen Glückwunsch zum Geburtstag!"
+    ]
+  },
+  {
+    "word": "gefallen",
+    "sentences": [
+      "Das gefällt mir."
+    ]
+  },
+  {
+    "word": "gegen",
+    "sentences": [
+      "Fahr nicht gegen den Baum!",
+      "Ich bin gegen diese Lösung.",
+      "Wer spielt gegen wen?"
+    ]
+  },
+  {
+    "word": "gehen",
+    "sentences": [
+      "Ich weiß nicht, wie das geht.",
+      "Wie geht‘s?",
+      "Jetzt muss ich (aber) leider gehen.",
+      "Ich muss zum Arzt gehen.",
+      "Das geht nicht!"
+    ]
+  },
+  {
+    "word": "gehören",
+    "sentences": [
+      "Wem gehört das?"
+    ]
+  },
+  {
+    "word": "das Geld",
+    "sentences": [
+      "Hast du noch Geld?"
+    ]
+  },
+  {
+    "word": "das Gemüse",
+    "sentences": [
+      "Gemüse brauchen wir auch noch."
+    ]
+  },
+  {
+    "word": "das Gepäck",
+    "sentences": [
+      "Wollen Sie Ihr Gepäck mitnehmen?"
+    ]
+  },
+  {
+    "word": "gerade",
+    "sentences": [
+      "Da kommt er ja gerade."
+    ]
+  },
+  {
+    "word": "geradeaus",
+    "sentences": [
+      "Gehen Sie immer geradeaus!"
+    ]
+  },
+  {
+    "word": "gern(e)",
+    "sentences": [
+      "Ich gehe gerne einkaufen."
+    ]
+  },
+  {
+    "word": "das Geschäft, -e",
+    "sentences": [
+      "Die Geschäfte schließen um 18.30 Uhr."
+    ]
+  },
+  {
+    "word": "das Geschenk, -e",
+    "sentences": [
+      "Danke für das schöne Geschenk."
+    ]
+  },
+  {
+    "word": "die Geschwister (pl.)",
+    "sentences": [
+      "Ich habe leider keine Geschwister."
+    ]
+  },
+  {
+    "word": "das Gespräch, -e",
+    "sentences": [
+      "Das Gespräch mit Frau Kunz ist um 14 Uhr."
+    ]
+  },
+  {
+    "word": "gestern",
+    "sentences": [
+      "Gestern war ich krank."
+    ]
+  },
+  {
+    "word": "gestorben",
+    "sentences": [
+      "Meine Frau ist gestern gestorben."
+    ]
+  },
+  {
+    "word": "das Getränk, -e",
+    "sentences": [
+      "Mein Lieblingsgetränk ist Tomatensaft."
+    ]
+  },
+  {
+    "word": "das Gewicht",
+    "sentences": [
+      "Bei „Gewicht“ schreibst du: 62 Kilo."
+    ]
+  },
+  {
+    "word": "gewinnen",
+    "sentences": [
+      "Wer gewinnt das Spiel?"
+    ]
+  },
+  {
+    "word": "das Glas, -ä, er",
+    "sentences": [
+      "Bitte noch ein Glas Wein!",
+      "Wir brauchen noch drei Gläser."
+    ]
+  },
+  {
+    "word": "glauben",
+    "sentences": [
+      "Sie können mir glauben, es ist so.",
+      "Ich glaube, er kommt gleich."
+    ]
+  },
+  {
+    "word": "gleich",
+    "sentences": [
+      "Das ist mir gleich.",
+      "Das ist der gleiche Preis.",
+      "Ich komme gleich."
+    ]
+  },
+  {
+    "word": "das Gleis, -e",
+    "sentences": [
+      "Der ICE nach Berlin hält heute an Gleis 12."
+    ]
+  },
+  {
+    "word": "das Glück",
+    "sentences": [
+      "Viel Glück!"
+    ]
+  },
+  {
+    "word": "glücklich",
+    "sentences": [
+      "Meine Kinder sind glücklich verheiratet."
+    ]
+  },
+  {
+    "word": "der Glückwunsch",
+    "sentences": [
+      "Herzlichen Glückwunsch zum Geburtstag."
+    ]
+  },
+  {
+    "word": "Grad (Celsius)",
+    "sentences": [
+      "Heute haben wir dreißig Grad."
+    ]
+  },
+  {
+    "word": "gratulieren",
+    "sentences": [
+      "Ich gratuliere dir!"
+    ]
+  },
+  {
+    "word": "grillen",
+    "sentences": [
+      "Heute grillen wir im Garten."
+    ]
+  },
+  {
+    "word": "groß",
+    "sentences": [
+      "Mein Bruder und ich sind gleich groß.",
+      "Frankfurt ist eine große Stadt."
+    ]
+  },
+  {
+    "word": "die Größe",
+    "sentences": [
+      "Haben Sie das auch in Größe 40?"
+    ]
+  },
+  {
+    "word": "die Großeltern (pl.)",
+    "sentences": [
+      "Meine Großeltern leben in Japan."
+    ]
+  },
+  {
+    "word": "die Großmutter",
+    "sentences": [
+      "Meine Großmutter heißt Eva."
+    ]
+  },
+  {
+    "word": "der Großvater",
+    "sentences": [
+      "Mein Großvater ist schon 80."
+    ]
+  },
+  {
+    "word": "die Gruppe, -n",
+    "sentences": [
+      "Die erste Gruppe beginnt um 16 Uhr."
+    ]
+  },
+  {
+    "word": "der Gruß, -ü, e",
+    "sentences": [
+      "Viele Grüße an Ihre Frau.",
+      "Mit freundlichen Grüßen"
+    ]
+  },
+  {
+    "word": "gültig",
+    "sentences": [
+      "Der Pass ist nicht mehr gültig."
+    ]
+  },
+  {
+    "word": "günstig",
+    "sentences": [
+      "Dort gibt es günstige Angebote."
+    ]
+  },
+  {
+    "word": "gut",
+    "sentences": [
+      "Das finde ich gut.",
+      "Ich komme um 13 Uhr. – Gut!",
+      "Guten Morgen!",
+      "Ein gutes neues Jahr!",
+      "Guten Appetit!"
+    ]
+  },
+  {
+    "word": "das Haar, -e",
+    "sentences": [
+      "Sie hat lange Haare."
+    ]
+  },
+  {
+    "word": "haben",
+    "sentences": [
+      "Ich habe ein neues Auto."
+    ]
+  },
+  {
+    "word": "das Hähnchen, -",
+    "sentences": [
+      "Ein Hähnchen mit Pommes bitte!"
+    ]
+  },
+  {
+    "word": "die Halbpension",
+    "sentences": [
+      "Möchten Sie Vollpension oder Halbpension?"
+    ]
+  },
+  {
+    "word": "die Halle",
+    "sentences": [
+      "Wir treffen uns in Halle B"
+    ]
+  },
+  {
+    "word": "hallo",
+    "sentences": [
+      "Hallo Inge! Wie geht’s?"
+    ]
+  },
+  {
+    "word": "halten",
+    "sentences": [
+      "Dieser Zug hält nicht in Rüdesheim."
+    ]
+  },
+  {
+    "word": "die Haltestelle",
+    "sentences": [
+      "An der nächsten Haltestelle müssen Sie aussteigen."
+    ]
+  },
+  {
+    "word": "die Hand, -ä, e",
+    "sentences": [
+      "Er gibt mir die Hand."
+    ]
+  },
+  {
+    "word": "das Handy, -s",
+    "sentences": [
+      "In der Schule bitte die Handys ausmachen!"
+    ]
+  },
+  {
+    "word": "das Haus, -ä, er",
+    "sentences": [
+      "In welchem Haus wohnst du?",
+      "Ich gehe jetzt nach Hause.",
+      "Paul ist nicht zu Hause."
+    ]
+  },
+  {
+    "word": "die Hausaufgabe,-n",
+    "sentences": [
+      "Kannst du mir bei den Hausaufgaben helfen?",
+      "die Hausfrau, -en/"
+    ]
+  },
+  {
+    "word": "der Hausmann",
+    "sentences": [
+      "Die Hausfrau/der Hausmann wäscht, kocht und kauft",
+      "ein."
+    ]
+  },
+  {
+    "word": "die Heimat",
+    "sentences": [
+      "Ich komme aus der Schweiz. Das ist meine Heimat."
+    ]
+  },
+  {
+    "word": "heiraten",
+    "sentences": [
+      "Meine Schwester heiratet einen Japaner."
+    ]
+  },
+  {
+    "word": "heißen",
+    "sentences": [
+      "Ich heiße Charlotte Meier.",
+      "Wie heißt das auf Deutsch?"
+    ]
+  },
+  {
+    "word": "helfen",
+    "sentences": [
+      "Können Sie mir helfen, bitte?"
+    ]
+  },
+  {
+    "word": "hell",
+    "sentences": [
+      "Im Sommer ist es bis 21 Uhr hell."
+    ]
+  },
+  {
+    "word": "der Herd",
+    "sentences": [
+      "In der neuen Küche fehlt noch der Herd."
+    ]
+  },
+  {
+    "word": "der Herr, -en",
+    "sentences": [
+      "Guten Tag, Herr Sommer!"
+    ]
+  },
+  {
+    "word": "herzlich",
+    "sentences": [
+      "Herzlichen Glückwunsch!"
+    ]
+  },
+  {
+    "word": "heute",
+    "sentences": [
+      "Heute ist ein schöner Tag."
+    ]
+  },
+  {
+    "word": "hier",
+    "sentences": [
+      "Hier ist 06131-553221, Pamela Linke.",
+      "Hier wohne ich."
+    ]
+  },
+  {
+    "word": "die Hilfe",
+    "sentences": [
+      "Hilfe! Bitte helfen Sie mir!",
+      "Brauchen Sie meine Hilfe?"
+    ]
+  },
+  {
+    "word": "hinten",
+    "sentences": [
+      "Die Tür zum Aussteigen ist hinten."
+    ]
+  },
+  {
+    "word": "das Hobby, -s",
+    "sentences": [
+      "Meine Hobbys sind Wandern und Schwimmen."
+    ]
+  },
+  {
+    "word": "hoch",
+    "sentences": [
+      "Der Mount Everest ist 8.880 Meter hoch."
+    ]
+  },
+  {
+    "word": "die Hochzeit",
+    "sentences": [
+      "Zur dieser Hochzeit kommen mehr als fünfzig Gäste."
+    ]
+  },
+  {
+    "word": "holen",
+    "sentences": [
+      "Ich hole zwei Flaschen Wasser aus der Küche."
+    ]
+  },
+  {
+    "word": "hören",
+    "sentences": [
+      "Hör mal! Was ist das?",
+      "Ich habe das Lied schon mal gehört."
+    ]
+  },
+  {
+    "word": "das Hotel, -s",
+    "sentences": [
+      "Im Urlaub sind wir in einem Hotel am Meer."
+    ]
+  },
+  {
+    "word": "der Hund, -e",
+    "sentences": [
+      "Der Hund ist noch jung."
+    ]
+  },
+  {
+    "word": "der Hunger",
+    "sentences": [
+      "Ich habe Hunger! Wann ist das Essen fertig?"
+    ]
+  },
+  {
+    "word": "ich",
+    "sentences": [
+      "Ich heiße Veronika."
+    ]
+  },
+  {
+    "word": "ihr/ihm/ihn",
+    "sentences": [
+      "Gib ihr/ihm bitte das Buch.",
+      "Ruf ihn bitte an."
+    ]
+  },
+  {
+    "word": "immer",
+    "sentences": [
+      "Frau Bast kommt immer zu spät."
+    ]
+  },
+  {
+    "word": "in",
+    "sentences": [
+      "Ich wohne in Wiesbaden.",
+      "Der Zug kommt in fünf Minuten.",
+      "Frau Rausch arbeitet in einem Geschäft.",
+      "Komm, wir gehen ins Kino."
+    ]
+  },
+  {
+    "word": "die Information, -en",
+    "sentences": [
+      "Wenn Sie Fragen haben, gehen Sie zur Information.",
+      "Wir haben hier wichtige Informationen für Sie."
+    ]
+  },
+  {
+    "word": "international",
+    "sentences": [
+      "Unser Deutschkurs ist international: Silvana kommt",
+      "aus Italien, Conchi aus Spanien, Yin aus China ..."
+    ]
+  },
+  {
+    "word": "das Internet",
+    "sentences": [
+      "Das findest du im Internet."
+    ]
+  },
+  {
+    "word": "ja",
+    "sentences": [
+      "Sind Sie Herr Watanabe? – Ja."
+    ]
+  },
+  {
+    "word": "die Jacke, -n",
+    "sentences": [
+      "Zieh dir eine Jacke an. Es ist kalt."
+    ]
+  },
+  {
+    "word": "jed-",
+    "sentences": [
+      "Blumen kannst du in jedem Bahnhof kaufen."
+    ]
+  },
+  {
+    "word": "jetzt",
+    "sentences": [
+      "Jetzt machen wir eine Pause."
+    ]
+  },
+  {
+    "word": "der Job, -s",
+    "sentences": [
+      "Jenny hat einen neuen Job bei der Post."
+    ]
+  },
+  {
+    "word": "der Jugendliche, -n",
+    "sentences": [
+      "Viele Jugendliche kaufen gern ein."
+    ]
+  },
+  {
+    "word": "jung",
+    "sentences": [
+      "Claudia ist 21. – Was? Noch so jung?"
+    ]
+  },
+  {
+    "word": "der Junge, -n",
+    "sentences": [
+      "Ich habe zwei Kinder. Einen Jungen und ein Mädchen."
+    ]
+  },
+  {
+    "word": "der Kaffee",
+    "sentences": [
+      "Zum Frühstück trinke ich immer Kaffee."
+    ]
+  },
+  {
+    "word": "kaputt",
+    "sentences": [
+      "Das Glas war teuer. Es geht sehr leicht kaputt."
+    ]
+  },
+  {
+    "word": "die Karte, -n",
+    "sentences": [
+      "Ich schreibe meinen Bekannten eine Karte aus dem",
+      "Urlaub.",
+      "Wollen wir Karten spielen?",
+      "Ich möchte auch etwas essen. Bringen Sie mir die Karte,",
+      "bitte."
+    ]
+  },
+  {
+    "word": "(Kredit)-Karte, -n",
+    "sentences": [
+      "Kann ich auch mit Karte (be-) zahlen?"
+    ]
+  },
+  {
+    "word": "die Kartoffel, -n",
+    "sentences": [
+      "Für Pommes frites braucht man Kartoffeln."
+    ]
+  },
+  {
+    "word": "die Kasse",
+    "sentences": [
+      "Zahlen Sie bitte an der Kasse."
+    ]
+  },
+  {
+    "word": "kaufen",
+    "sentences": [
+      "Tim kauft sich ein neues Auto."
+    ]
+  },
+  {
+    "word": "kein",
+    "sentences": [
+      "Es gibt keine Eintrittskarten mehr."
+    ]
+  },
+  {
+    "word": "kennen",
+    "sentences": [
+      "Kennen Sie diese Frau? – Nein, leider nicht."
+    ]
+  },
+  {
+    "word": "kennenlernen",
+    "sentences": [
+      "Wir sind neu hier. Wir möchten Sie kennenlernen."
+    ]
+  },
+  {
+    "word": "das Kind, -er",
+    "sentences": [
+      "Wie viele Kinder haben Sie?"
+    ]
+  },
+  {
+    "word": "der Kindergarten",
+    "sentences": [
+      "Die kleine Laura geht schon in den Kindergarten."
+    ]
+  },
+  {
+    "word": "das Kino, -s",
+    "sentences": [
+      "Wir sehen heute Abend im Kino einen schönen Film."
+    ]
+  },
+  {
+    "word": "der Kiosk",
+    "sentences": [
+      "Am Kiosk bekommen Sie Getränke, Zigaretten und",
+      "Zeitungen."
+    ]
+  },
+  {
+    "word": "klar",
+    "sentences": [
+      "Kommst du mit? – Klar!"
+    ]
+  },
+  {
+    "word": "die Klasse",
+    "sentences": [
+      "In unserer Klasse sind fünfundzwanzig Schüler.",
+      "Im Zug fahre ich immer 2. Klasse."
+    ]
+  },
+  {
+    "word": "die Kleidung",
+    "sentences": [
+      "Wo finde ich Kleidung? – Jacken im ersten, Jeans im",
+      "zweiten Stock."
+    ]
+  },
+  {
+    "word": "klein",
+    "sentences": [
+      "Eltville ist eine kleine Stadt am Rhein."
+    ]
+  },
+  {
+    "word": "kochen",
+    "sentences": [
+      "Herr Georgi kann gut kochen."
+    ]
+  },
+  {
+    "word": "der Koffer, –",
+    "sentences": [
+      "Ist das Ihr Koffer?"
+    ]
+  },
+  {
+    "word": "der Kollege, -n",
+    "sentences": [
+      "Wie heißt die neue Kollegin?"
+    ]
+  },
+  {
+    "word": "kommen",
+    "sentences": [
+      "Woher kommen Sie? – Aus Frankreich.",
+      "Kommst du mit ins Schwimmbad?"
+    ]
+  },
+  {
+    "word": "können",
+    "sentences": [
+      "Ich kann Deutsch und Russisch.",
+      "Können Sie mir helfen?"
+    ]
+  },
+  {
+    "word": "das Konto",
+    "sentences": [
+      "Das Geld überweisen wir am ersten März auf Ihr Konto."
+    ]
+  },
+  {
+    "word": "der Kopf",
+    "sentences": [
+      "Mein Kopf tut weh!"
+    ]
+  },
+  {
+    "word": "kosten",
+    "sentences": [
+      "Wie viel kostet das? – 10 Euro."
+    ]
+  },
+  {
+    "word": "krank",
+    "sentences": [
+      "Ich kann heute nicht zur Arbeit kommen, ich bin krank",
+      "und liege im Bett."
+    ]
+  },
+  {
+    "word": "kriegen",
+    "sentences": [
+      "Ich kriege 15 Euro in der Stunde für meine Arbeit."
+    ]
+  },
+  {
+    "word": "die Küche",
+    "sentences": [
+      "Der neue Herd kommt in die Küche."
+    ]
+  },
+  {
+    "word": "der Kuchen",
+    "sentences": [
+      "Ich nehme ein Stück Kuchen."
+    ]
+  },
+  {
+    "word": "der Kugelschreiber",
+    "sentences": [
+      "Hast du einen Kugelschreiber für mich?"
+    ]
+  },
+  {
+    "word": "der Kühlschrank",
+    "sentences": [
+      "Haben wir noch Milch? – Ja, im Kühlschrank."
+    ]
+  },
+  {
+    "word": "kulturell",
+    "sentences": [
+      "Ich bin kulturell interessiert. Ich gehe oft ins Museum."
+    ]
+  },
+  {
+    "word": "sich kümmern",
+    "sentences": [
+      "Jede Mutter kümmert sich um ihre kleinen Kinder."
+    ]
+  },
+  {
+    "word": "der Kunde, -n",
+    "sentences": [
+      "Einen Moment, bitte. Ich habe eine Kundin."
+    ]
+  },
+  {
+    "word": "der Kurs, -e",
+    "sentences": [
+      "Der Deutschkurs geht bis zum Sommer."
+    ]
+  },
+  {
+    "word": "kurz",
+    "sentences": [
+      "Ricardo hat kurzes Haar."
+    ]
+  },
+  {
+    "word": "lachen",
+    "sentences": [
+      "Die Kinder lachen viel."
+    ]
+  },
+  {
+    "word": "der Laden, -ä",
+    "sentences": [
+      "Im Buchladen können Sie Bücher kaufen."
+    ]
+  },
+  {
+    "word": "das Land, -ä, er",
+    "sentences": [
+      "Italien ist ein schönes Land."
+    ]
+  },
+  {
+    "word": "lang",
+    "sentences": [
+      "Die Jeans ist zu lang."
+    ]
+  },
+  {
+    "word": "lange",
+    "sentences": [
+      "Wie lange fährt der Zug von Hamburg nach Berlin?"
+    ]
+  },
+  {
+    "word": "langsam",
+    "sentences": [
+      "Könnten Sie bitte etwas langsamer sprechen?"
+    ]
+  },
+  {
+    "word": "laufen",
+    "sentences": [
+      "Ich möchte nicht Auto fahren, ich möchte laufen."
+    ]
+  },
+  {
+    "word": "laut",
+    "sentences": [
+      "Nicht so laut! Das Baby schläft."
+    ]
+  },
+  {
+    "word": "leben",
+    "sentences": [
+      "Sie lebt bei ihrer Schwester.",
+      "Ihre Eltern leben nicht mehr."
+    ]
+  },
+  {
+    "word": "das Leben",
+    "sentences": [
+      "Das Leben in diesem Land ist teuer.",
+      "die Lebens-"
+    ]
+  },
+  {
+    "word": "mittel (pl.)",
+    "sentences": [
+      "Lebensmittel bekommen Sie im Supermarkt."
+    ]
+  },
+  {
+    "word": "ledig",
+    "sentences": [
+      "Sind Sie verheiratet? – Nein. Ledig."
+    ]
+  },
+  {
+    "word": "legen",
+    "sentences": [
+      "Legen Sie das Buch auf den Tisch."
+    ]
+  },
+  {
+    "word": "der Lehrer, –",
+    "sentences": [
+      "Unsere Deutschlehrerin heißt Frau Müller."
+    ]
+  },
+  {
+    "word": "leicht",
+    "sentences": [
+      "Der Koffer ist leicht.",
+      "Deutsch ist nicht leicht."
+    ]
+  },
+  {
+    "word": "leider",
+    "sentences": [
+      "Leider kann ich nicht kommen. Ich muss zum Arzt."
+    ]
+  },
+  {
+    "word": "leise",
+    "sentences": [
+      "Seid leise. Die anderen schlafen schon."
+    ]
+  },
+  {
+    "word": "lernen",
+    "sentences": [
+      "Wie lange lernen Sie schon Deutsch?"
+    ]
+  },
+  {
+    "word": "lesen",
+    "sentences": [
+      "Ich lese ein Buch von García Márquez."
+    ]
+  },
+  {
+    "word": "letzt-",
+    "sentences": [
+      "Morgen ist der letzte Kurstag."
+    ]
+  },
+  {
+    "word": "die Leute (pl.)",
+    "sentences": [
+      "In der Disko sind viele Leute."
+    ]
+  },
+  {
+    "word": "das Licht",
+    "sentences": [
+      "Wo macht man hier das Licht an?"
+    ]
+  },
+  {
+    "word": "lieb-",
+    "sentences": [
+      "Liebe Susanne, lieber Hans,"
+    ]
+  },
+  {
+    "word": "lieben",
+    "sentences": [
+      "Ich liebe dich!"
+    ]
+  },
+  {
+    "word": "lieber",
+    "sentences": [
+      "Sie fährt lieber mit der Bahn."
+    ]
+  },
+  {
+    "word": "Lieblings-",
+    "sentences": [
+      "Mein Lieblingsfilm ist „Schwarze Augen“."
+    ]
+  },
+  {
+    "word": "das Lied, -er",
+    "sentences": [
+      "Welches ist dein Lieblingslied?"
+    ]
+  },
+  {
+    "word": "liegen",
+    "sentences": [
+      "Um neun Uhr liegt Judith noch im Bett.",
+      "Frankfurt liegt am Main."
+    ]
+  },
+  {
+    "word": "links",
+    "sentences": [
+      "Gehen Sie die nächste Straße links."
+    ]
+  },
+  {
+    "word": "der Lkw, -s",
+    "sentences": [
+      "Dieser Lastkraftwagen ist sehr groß."
+    ]
+  },
+  {
+    "word": "das Lokal",
+    "sentences": [
+      "In unserer Straße gibt es ein neues Lokal."
+    ]
+  },
+  {
+    "word": "die Lösung, -en",
+    "sentences": [
+      "Die Lösung ist ganz einfach."
+    ]
+  },
+  {
+    "word": "lustig",
+    "sentences": [
+      "Frau Mertens ist lustig. Sie lacht immer."
+    ]
+  },
+  {
+    "word": "machen",
+    "sentences": [
+      "Was machst du heute Abend?",
+      "Ich muss jetzt das Essen machen.",
+      "Das macht 5 Euro 95.",
+      "Das macht nichts."
+    ]
+  },
+  {
+    "word": "das Mädchen, –",
+    "sentences": [
+      "Familie Kurz bekommt ein Baby. – Junge oder Mädchen?"
+    ]
+  },
+  {
+    "word": "man",
+    "sentences": [
+      "Hier darf man nicht rauchen."
+    ]
+  },
+  {
+    "word": "der Mann, -ä, er",
+    "sentences": [
+      "Mein Mann arbeitet bei der Polizei."
+    ]
+  },
+  {
+    "word": "männlich",
+    "sentences": [
+      "Kreuzen Sie bitte an: „weiblich“ oder „männlich“."
+    ]
+  },
+  {
+    "word": "die Maschine, -n",
+    "sentences": [
+      "Die Waschmaschine ist günstig."
+    ]
+  },
+  {
+    "word": "das Meer",
+    "sentences": [
+      "Wir machen Urlaub am Meer."
+    ]
+  },
+  {
+    "word": "mehr",
+    "sentences": [
+      "Dieses Auto kostet 1.000 Euro mehr als das andere."
+    ]
+  },
+  {
+    "word": "mein",
+    "sentences": [
+      "Mein Vater ist Arzt."
+    ]
+  },
+  {
+    "word": "meist-",
+    "sentences": [
+      "Die meisten Norddeutschen sind sehr groß."
+    ]
+  },
+  {
+    "word": "der Mensch, -en",
+    "sentences": [
+      "Die Menschen sind hier anders als bei uns."
+    ]
+  },
+  {
+    "word": "mieten",
+    "sentences": [
+      "Ich möchte ein Auto mieten."
+    ]
+  },
+  {
+    "word": "die Miete",
+    "sentences": [
+      "Die Miete für diese Wohnung ist 600 Euro."
+    ]
+  },
+  {
+    "word": "die Milch",
+    "sentences": [
+      "Die Milch steht im Kühlschrank."
+    ]
+  },
+  {
+    "word": "mit",
+    "sentences": [
+      "Trinken Sie den Kaffee mit Milch?"
+    ]
+  },
+  {
+    "word": "mitbringen",
+    "sentences": [
+      "Ich gehe einkaufen. Soll ich dir was mitbringen?"
+    ]
+  },
+  {
+    "word": "mitkommen",
+    "sentences": [
+      "Ich gehe ins Kino. Kommst du mit?"
+    ]
+  },
+  {
+    "word": "mitmachen",
+    "sentences": [
+      "Warum macht ihr nicht mit?"
+    ]
+  },
+  {
+    "word": "mitnehmen",
+    "sentences": [
+      "Nehmen wir meine Schwester ins Kino mit?"
+    ]
+  },
+  {
+    "word": "die Mitte",
+    "sentences": [
+      "Der Lehrer steht in der Mitte des Klassenzimmers."
+    ]
+  },
+  {
+    "word": "die Möbel (pl.)",
+    "sentences": [
+      "Sind die Möbel neu?"
+    ]
+  },
+  {
+    "word": "möchten",
+    "sentences": [
+      "Was möchten Sie trinken?"
+    ]
+  },
+  {
+    "word": "mögen",
+    "sentences": [
+      "Magst du Kaffee oder Tee?"
+    ]
+  },
+  {
+    "word": "möglich",
+    "sentences": [
+      "Mit dieser Fahrkarte ist die Fahrt ab 9 Uhr möglich."
+    ]
+  },
+  {
+    "word": "der Moment",
+    "sentences": [
+      "Moment mal bitte!",
+      "Einen Moment bitte."
+    ]
+  },
+  {
+    "word": "morgen",
+    "sentences": [
+      "Morgen beginnt die Schule um 10 Uhr."
+    ]
+  },
+  {
+    "word": "müde",
+    "sentences": [
+      "Ich bin müde. Ich gehe schlafen."
+    ]
+  },
+  {
+    "word": "der Mund",
+    "sentences": [
+      "Öffnen Sie den Mund."
+    ]
+  },
+  {
+    "word": "müssen",
+    "sentences": [
+      "Ich muss jeden Tag von 8 Uhr bis 18 Uhr arbeiten."
+    ]
+  },
+  {
+    "word": "die Mutter, -ü",
+    "sentences": [
+      "Frau Berghäuser ist die Mutter von Michaela."
+    ]
+  },
+  {
+    "word": "nach",
+    "sentences": [
+      "Ich gehe jetzt nach Hause.",
+      "Ich fliege nach München.",
+      "Es ist schon 5 nach 12."
+    ]
+  },
+  {
+    "word": "nächst-",
+    "sentences": [
+      "Sehen wir uns nächste Woche?"
+    ]
+  },
+  {
+    "word": "der Name, -n",
+    "sentences": [
+      "Mein Name ist Thomas Schmidt.",
+      "Mein Vorname ist Thomas; Schmidt ist der Familienname."
+    ]
+  },
+  {
+    "word": "nehmen",
+    "sentences": [
+      "Heute gibt es Hähnchen. Das nehme ich.",
+      "Ich nehme den Bus."
+    ]
+  },
+  {
+    "word": "nein",
+    "sentences": [
+      "Fährst du auch nach München? – Nein, ich habe keine",
+      "Zeit."
+    ]
+  },
+  {
+    "word": "neu",
+    "sentences": [
+      "Ich bin der neue Kollege.",
+      "Wir haben eine neue Wohnung."
+    ]
+  },
+  {
+    "word": "nicht",
+    "sentences": [
+      "Das stimmt nicht.",
+      "Das ist doch schön, nicht?"
+    ]
+  },
+  {
+    "word": "nichts",
+    "sentences": [
+      "Das macht nichts.",
+      "Hier kaufe ich nichts. Der Laden gefällt mir nicht."
+    ]
+  },
+  {
+    "word": "nie",
+    "sentences": [
+      "Er kommt nie pünktlich."
+    ]
+  },
+  {
+    "word": "noch",
+    "sentences": [
+      "Vielleicht kommt er noch.",
+      "Wir warten noch fünf Minuten.",
+      "Ich habe noch 20 Euro."
+    ]
+  },
+  {
+    "word": "normal",
+    "sentences": [
+      "75 kg. Sein Gewicht ist normal."
+    ]
+  },
+  {
+    "word": "die Nummer, -n",
+    "sentences": [
+      "Sie haben Zimmer Nummer zwölf.",
+      "Welche Hausnummer haben Sie?",
+      "Können Sie mir Ihre Nummer geben?"
+    ]
+  },
+  {
+    "word": "nur",
+    "sentences": [
+      "Ich möchte nur ein Glas Wasser."
+    ]
+  },
+  {
+    "word": "oben",
+    "sentences": [
+      "Ich wohne oben."
+    ]
+  },
+  {
+    "word": "das Obst",
+    "sentences": [
+      "Im Sommer ist das Obst billig."
+    ]
+  },
+  {
+    "word": "oder",
+    "sentences": [
+      "Wann können Sie kommen – heute oder morgen?"
+    ]
+  },
+  {
+    "word": "öffnen",
+    "sentences": [
+      "Ich öffne die Tür."
+    ]
+  },
+  {
+    "word": "geöffnet",
+    "sentences": [
+      "Der Laden ist samstags bis 16.00 Uhr geöffnet."
+    ]
+  },
+  {
+    "word": "oft",
+    "sentences": [
+      "Petra treffe ich oft."
+    ]
+  },
+  {
+    "word": "ohne",
+    "sentences": [
+      "Ohne Geld kann er nichts kaufen."
+    ]
+  },
+  {
+    "word": "das Öl",
+    "sentences": [
+      "Den Salat machen wir ohne Öl."
+    ]
+  },
+  {
+    "word": "die Oma, -s",
+    "sentences": [
+      "Meine Oma ist schon tot."
+    ]
+  },
+  {
+    "word": "der Opa, -s",
+    "sentences": [
+      "Mein Opa heißt Hans."
+    ]
+  },
+  {
+    "word": "die Ordnung",
+    "sentences": [
+      "Das ist in Ordnung."
+    ]
+  },
+  {
+    "word": "der Ort, -e",
+    "sentences": [
+      "Der Ort liegt am Meer."
+    ]
+  },
+  {
+    "word": "das Papier",
+    "sentences": [
+      "Hier sind Papier und Bleistift."
+    ]
+  },
+  {
+    "word": "die Papiere (pl.)",
+    "sentences": [
+      "Haben Sie Ihre Papiere dabei?",
+      "der Partner, -/"
+    ]
+  },
+  {
+    "word": "die Partnerin, -nen",
+    "sentences": [
+      "Sie ist meine Partnerin."
+    ]
+  },
+  {
+    "word": "die Party",
+    "sentences": [
+      "Heute Abend machen wir eine Party."
+    ]
+  },
+  {
+    "word": "der Pass, -ä, e",
+    "sentences": [
+      "Im Hotel brauchst du deinen Pass."
+    ]
+  },
+  {
+    "word": "die Pause, -n",
+    "sentences": [
+      "Von 12.00 bis 12.30 Uhr haben wir Mittagspause."
+    ]
+  },
+  {
+    "word": "der Plan, -ä, e",
+    "sentences": [
+      "Ich kaufe mir einen Stadtplan."
+    ]
+  },
+  {
+    "word": "der Platz, -ä, e",
+    "sentences": [
+      "Tut mir leid, der Platz ist besetzt.",
+      "Bitte nehmen Sie Platz!",
+      "Ich wohne Messeplatz 5."
+    ]
+  },
+  {
+    "word": "die Polizei",
+    "sentences": [
+      "Holen Sie die Polizei!",
+      "die Pommes frites (pl.) Die Kinder essen Hähnchen mit Pommes frites."
+    ]
+  },
+  {
+    "word": "die Post",
+    "sentences": [
+      "Wo ist die Post, bitte?",
+      "Ist Post da?"
+    ]
+  },
+  {
+    "word": "die Postleitzahl",
+    "sentences": [
+      "Wie ist Ihre Postleitzahl?"
+    ]
+  },
+  {
+    "word": "das Praktikum",
+    "sentences": [
+      "Ich mache ein Praktikum bei Siemens."
+    ]
+  },
+  {
+    "word": "die Praxis",
+    "sentences": [
+      "Die Praxis ist ab acht Uhr geöffnet."
+    ]
+  },
+  {
+    "word": "der Preis, -e",
+    "sentences": [
+      "Die Preise sind hoch."
+    ]
+  },
+  {
+    "word": "das Problem, -e",
+    "sentences": [
+      "Mein Problem ist die Sprache."
+    ]
+  },
+  {
+    "word": "der Prospekt, -e",
+    "sentences": [
+      "Bitte schicken Sie mir einen Prospekt von Ihrem Hotel."
+    ]
+  },
+  {
+    "word": "die Prüfung",
+    "sentences": [
+      "Die Prüfung ist am Montag um 8.00 Uhr."
+    ]
+  },
+  {
+    "word": "pünktlich",
+    "sentences": [
+      "Der Bus fährt pünktlich um acht Uhr.",
+      "Herr Müller ist immer pünktlich."
+    ]
+  },
+  {
+    "word": "Rad fahren",
+    "sentences": [
+      "Das Kind kann schon Rad fahren."
+    ]
+  },
+  {
+    "word": "rauchen",
+    "sentences": [
+      "Ich rauche nicht."
+    ]
+  },
+  {
+    "word": "der Raum, -ä, e",
+    "sentences": [
+      "Der Unterricht ist in Raum 332."
+    ]
+  },
+  {
+    "word": "die Rechnung, -en",
+    "sentences": [
+      "Die Rechnung, bitte."
+    ]
+  },
+  {
+    "word": "rechts",
+    "sentences": [
+      "Die Schillerstraße ist hier rechts."
+    ]
+  },
+  {
+    "word": "regnen",
+    "sentences": [
+      "Heute regnet es."
+    ]
+  },
+  {
+    "word": "der Regen",
+    "sentences": [
+      "Bei diesem Regen gehe ich nicht raus."
+    ]
+  },
+  {
+    "word": "der Reis",
+    "sentences": [
+      "Ich esse gern Reis."
+    ]
+  },
+  {
+    "word": "reisen",
+    "sentences": [
+      "Ich reise gern."
+    ]
+  },
+  {
+    "word": "die Reise",
+    "sentences": [
+      "Wir machen eine Reise nach Österreich."
+    ]
+  },
+  {
+    "word": "das Reisebüro, -s",
+    "sentences": [
+      "Mein Mann arbeitet im Reisebüro."
+    ]
+  },
+  {
+    "word": "der Reiseführer",
+    "sentences": [
+      "Ich kaufe mir einen Reiseführer von Berlin.",
+      "Unser Reiseführer heißt Peter."
+    ]
+  },
+  {
+    "word": "reparieren",
+    "sentences": [
+      "Er hat das Fahrrad repariert."
+    ]
+  },
+  {
+    "word": "die Reparatur",
+    "sentences": [
+      "Die Reparatur ist sehr teuer."
+    ]
+  },
+  {
+    "word": "das Restaurant, -s",
+    "sentences": [
+      "Wir essen heute in einem Restaurant."
+    ]
+  },
+  {
+    "word": "die Rezeption",
+    "sentences": [
+      "Fragen Sie bitte im Hotel an der Rezeption."
+    ]
+  },
+  {
+    "word": "richtig",
+    "sentences": [
+      "Habe ich das richtig verstanden?",
+      "Das ist richtig."
+    ]
+  },
+  {
+    "word": "riechen",
+    "sentences": [
+      "Dieser Wein riecht gut."
+    ]
+  },
+  {
+    "word": "ruhig",
+    "sentences": [
+      "Ich möchte ein ruhiges Zimmer."
+    ]
+  },
+  {
+    "word": "der Saft",
+    "sentences": [
+      "Möchtest du einen Apfelsaft?"
+    ]
+  },
+  {
+    "word": "sagen",
+    "sentences": [
+      "Sag mal, wie geht es dir denn?"
+    ]
+  },
+  {
+    "word": "der Salat",
+    "sentences": [
+      "Wie schmeckt dir der Salat?"
+    ]
+  },
+  {
+    "word": "das Salz",
+    "sentences": [
+      "Herr Ober, kann ich bitte Salz haben?"
+    ]
+  },
+  {
+    "word": "Satz, -ä, e",
+    "sentences": [
+      "Dieser Satz ist sehr einfach."
+    ]
+  },
+  {
+    "word": "die S-Bahn",
+    "sentences": [
+      "Ich nehme lieber die S-Bahn."
+    ]
+  },
+  {
+    "word": "der Schalter",
+    "sentences": [
+      "Gehen Sie bitte zum Schalter drei!"
+    ]
+  },
+  {
+    "word": "scheinen",
+    "sentences": [
+      "Die Sonne scheint."
+    ]
+  },
+  {
+    "word": "schicken",
+    "sentences": [
+      "Bitte schicken Sie mir eine E-Mail."
+    ]
+  },
+  {
+    "word": "das Schild, -er",
+    "sentences": [
+      "Haben Sie nicht das Schild gesehen?"
+    ]
+  },
+  {
+    "word": "der Schinken, –",
+    "sentences": [
+      "Ich möchte gern ein Schinkenbrot."
+    ]
+  },
+  {
+    "word": "schlafen",
+    "sentences": [
+      "Ich schlafe meistens acht Stunden."
+    ]
+  },
+  {
+    "word": "schlecht",
+    "sentences": [
+      "Mir ist schlecht!",
+      "Sie sehen schlecht aus.",
+      "Wir haben schlechtes Wetter."
+    ]
+  },
+  {
+    "word": "schließen",
+    "sentences": [
+      "Bitte, schließen Sie die Tür."
+    ]
+  },
+  {
+    "word": "geschlossen",
+    "sentences": [
+      "Die Bank hat am Samstag geschlossen."
+    ]
+  },
+  {
+    "word": "der Schluss",
+    "sentences": [
+      "Ich muss jetzt Schluss machen.",
+      "Zum Schluss gibt er uns allen die Hand."
+    ]
+  },
+  {
+    "word": "der Schlüssel, –",
+    "sentences": [
+      "Ich gebe Ihnen noch den Zimmerschlüssel."
+    ]
+  },
+  {
+    "word": "schmecken",
+    "sentences": [
+      "Schmeckt das gut?"
+    ]
+  },
+  {
+    "word": "schnell",
+    "sentences": [
+      "Er fährt schnell."
+    ]
+  },
+  {
+    "word": "schon",
+    "sentences": [
+      "Ist das Essen schon fertig?"
+    ]
+  },
+  {
+    "word": "schön",
+    "sentences": [
+      "Schönen Urlaub!",
+      "Das ist sehr schön."
+    ]
+  },
+  {
+    "word": "der Schrank, -ä, e",
+    "sentences": [
+      "Die Gläser stehen im Schrank."
+    ]
+  },
+  {
+    "word": "schreiben",
+    "sentences": [
+      "Er schreibt jeden Tag fünfzig E-Mails."
+    ]
+  },
+  {
+    "word": "der Schuh, -e",
+    "sentences": [
+      "Zieh die Schuhe aus!"
+    ]
+  },
+  {
+    "word": "die Schule",
+    "sentences": [
+      "Meine Tochter geht schon in die Schule.",
+      "Die Schule ist gleich hier um die Ecke."
+    ]
+  },
+  {
+    "word": "der Schüler, –",
+    "sentences": [
+      "In meinem Kurs sind acht Schülerinnen und fünf",
+      "Schüler."
+    ]
+  },
+  {
+    "word": "schwer",
+    "sentences": [
+      "Ist Ihr Gepäck sehr schwer?",
+      "Das ist eine schwere Arbeit."
+    ]
+  },
+  {
+    "word": "die Schwester, -n",
+    "sentences": [
+      "Meine Schwester kommt am Dienstag."
+    ]
+  },
+  {
+    "word": "schwimmen",
+    "sentences": [
+      "Ich schwimme jeden Tag einen Kilometer."
+    ]
+  },
+  {
+    "word": "das Schwimmbad",
+    "sentences": [
+      "Kommst du mit ins Schwimmbad?"
+    ]
+  },
+  {
+    "word": "der See",
+    "sentences": [
+      "Komm, wir fahren zum Starnberger See."
+    ]
+  },
+  {
+    "word": "sehen",
+    "sentences": [
+      "Ich kann dich nicht sehen.",
+      "Ich habe diesen Jungen schon einmal gesehen.",
+      "die Sehenswürdigkeit, -en",
+      "Welche Sehenswürdigkeiten gibt es in Frankfurt?"
+    ]
+  },
+  {
+    "word": "sehr",
+    "sentences": [
+      "Danke sehr!",
+      "Das ist sehr schwer."
+    ]
+  },
+  {
+    "word": "sein",
+    "sentences": [
+      "Herr Müller ist in seinem Zimmer.",
+      "Mir ist kalt.",
+      "Ich bin dreiundzwanzig."
+    ]
+  },
+  {
+    "word": "an sein",
+    "sentences": [
+      "Das Licht ist noch an."
+    ]
+  },
+  {
+    "word": "auf sein",
+    "sentences": [
+      "Das Fenster ist noch auf."
+    ]
+  },
+  {
+    "word": "weg sein",
+    "sentences": [
+      "Herr Meier ist schon weg."
+    ]
+  },
+  {
+    "word": "zu sein",
+    "sentences": [
+      "Die Tür ist zu."
+    ]
+  },
+  {
+    "word": "seit",
+    "sentences": [
+      "Ich wohne seit drei Jahren in Köln."
+    ]
+  },
+  {
+    "word": "selbstständig",
+    "sentences": [
+      "Er ist selbstständig."
+    ]
+  },
+  {
+    "word": "sich",
+    "sentences": [
+      "Sie müssen sich erst anmelden."
+    ]
+  },
+  {
+    "word": "sie",
+    "sentences": [
+      "Wie heißt sie?"
+    ]
+  },
+  {
+    "word": "Sie",
+    "sentences": [
+      "Wie heißen Sie, bitte?"
+    ]
+  },
+  {
+    "word": "sitzen",
+    "sentences": [
+      "Wo sitzen Sie?"
+    ]
+  },
+  {
+    "word": "so",
+    "sentences": [
+      "Sie müssen das so machen!",
+      "Fahren Sie bitte nicht so schnell!",
+      "Meine Frau ist so groß wie ich.",
+      "So, das war‘s/wär‘s!"
+    ]
+  },
+  {
+    "word": "das Sofa",
+    "sentences": [
+      "Das Sofa ist neu."
+    ]
+  },
+  {
+    "word": "sofort",
+    "sentences": [
+      "Bitte antworten Sie sofort."
+    ]
+  },
+  {
+    "word": "der Sohn, -ö, e",
+    "sentences": [
+      "Das ist Hans, mein Sohn."
+    ]
+  },
+  {
+    "word": "sollen",
+    "sentences": [
+      "Soll ich kommen?",
+      "Was soll ich mitbringen?"
+    ]
+  },
+  {
+    "word": "die Sonne",
+    "sentences": [
+      "Die Sonne scheint."
+    ]
+  },
+  {
+    "word": "spät",
+    "sentences": [
+      "Es ist schon spät, ich muss gehen."
+    ]
+  },
+  {
+    "word": "später",
+    "sentences": [
+      "Das können wir später machen."
+    ]
+  },
+  {
+    "word": "die Speisekarte",
+    "sentences": [
+      "Bringen Sie mir die Speisekarte, bitte."
+    ]
+  },
+  {
+    "word": "spielen",
+    "sentences": [
+      "Die Kinder spielen draußen.",
+      "Spielen Sie Karten?"
+    ]
+  },
+  {
+    "word": "der Sport",
+    "sentences": [
+      "Ich mache viel Sport."
+    ]
+  },
+  {
+    "word": "die Sprache, -n",
+    "sentences": [
+      "Welche Sprachen sprichst du?"
+    ]
+  },
+  {
+    "word": "sprechen",
+    "sentences": [
+      "Kann ich (mit) Herrn Klein sprechen?"
+    ]
+  },
+  {
+    "word": "die Stadt, -ä, e",
+    "sentences": [
+      "Heidelberg ist eine alte Stadt."
+    ]
+  },
+  {
+    "word": "stehen",
+    "sentences": [
+      "Ich glaube es nicht, aber es steht in der Zeitung.",
+      "Der Bus steht schon an der Haltestelle."
+    ]
+  },
+  {
+    "word": "die Stelle, -n",
+    "sentences": [
+      "Ich habe eine neue Stelle."
+    ]
+  },
+  {
+    "word": "stellen",
+    "sentences": [
+      "Stell die Tasche rechts in die Ecke!"
+    ]
+  },
+  {
+    "word": "der Stock",
+    "sentences": [
+      "Unsere Wohnung liegt im ersten Stock."
+    ]
+  },
+  {
+    "word": "die Straße, -n",
+    "sentences": [
+      "In welcher Straße wohnen Sie?"
+    ]
+  },
+  {
+    "word": "die Straßenbahn",
+    "sentences": [
+      "Wo fährt die Straßenbahn ab?"
+    ]
+  },
+  {
+    "word": "studieren",
+    "sentences": [
+      "Ich studiere in Mainz."
+    ]
+  },
+  {
+    "word": "das Studium",
+    "sentences": [
+      "Das Studium beginnt im Oktober."
+    ]
+  },
+  {
+    "word": "der Student, -en",
+    "sentences": [
+      "Ich bin Studentin."
+    ]
+  },
+  {
+    "word": "die Stunde, -n",
+    "sentences": [
+      "Ich bin in einer Stunde zurück."
+    ]
+  },
+  {
+    "word": "suchen",
+    "sentences": [
+      "Suchst du etwas?"
+    ]
+  },
+  {
+    "word": "tanzen",
+    "sentences": [
+      "Tanzen Sie gern?"
+    ]
+  },
+  {
+    "word": "die Tasche, -n",
+    "sentences": [
+      "Ich habe die Schlüssel in der Tasche."
+    ]
+  },
+  {
+    "word": "das Taxi, -s",
+    "sentences": [
+      "Es gibt heute keinen Bus mehr. Er fährt mit dem Taxi."
+    ]
+  },
+  {
+    "word": "der Tee",
+    "sentences": [
+      "Ich trinke morgens immer Tee."
+    ]
+  },
+  {
+    "word": "der Teil, -e",
+    "sentences": [
+      "Lies bitte auch den zweiten Teil."
+    ]
+  },
+  {
+    "word": "telefonieren",
+    "sentences": [
+      "Darf ich mal telefonieren?"
+    ]
+  },
+  {
+    "word": "das Telefon",
+    "sentences": [
+      "Haben Sie Telefon?"
+    ]
+  },
+  {
+    "word": "der Termin, -e",
+    "sentences": [
+      "Am besten machen wir sofort einen Termin."
+    ]
+  },
+  {
+    "word": "der Test",
+    "sentences": [
+      "Der Test war einfach."
+    ]
+  },
+  {
+    "word": "teuer",
+    "sentences": [
+      "Das ist mir zu teuer."
+    ]
+  },
+  {
+    "word": "der Text, -e",
+    "sentences": [
+      "Lesen Sie bitte diesen Text."
+    ]
+  },
+  {
+    "word": "das Thema",
+    "sentences": [
+      "Wir sprechen heute über das Thema „Essen und",
+      "Trinken“."
+    ]
+  },
+  {
+    "word": "das Ticket, -s",
+    "sentences": [
+      "Wie viel kostet das Ticket?"
+    ]
+  },
+  {
+    "word": "der Tisch, -e",
+    "sentences": [
+      "Die Fotos liegen auf dem Tisch."
+    ]
+  },
+  {
+    "word": "die Tochter, -ö",
+    "sentences": [
+      "Das ist meine Tochter Katharina."
+    ]
+  },
+  {
+    "word": "die Toilette, -en",
+    "sentences": [
+      "Wo ist die Toilette, bitte?"
+    ]
+  },
+  {
+    "word": "die Tomate, -n",
+    "sentences": [
+      "Die Tomate ist noch grün."
+    ]
+  },
+  {
+    "word": "tot",
+    "sentences": [
+      "Sein Vater ist schon lange tot."
+    ]
+  },
+  {
+    "word": "(sich) treffen",
+    "sentences": [
+      "Ich treffe in der Stadt einen Kollegen.",
+      "Wir treffen uns immer freitags."
+    ]
+  },
+  {
+    "word": "die Treppe, -n",
+    "sentences": [
+      "Die Toilette? Die Treppe hoch und dann links."
+    ]
+  },
+  {
+    "word": "trinken",
+    "sentences": [
+      "Möchtest du etwas trinken?"
+    ]
+  },
+  {
+    "word": "tschüss",
+    "sentences": [
+      "Junge Leute sagen meistens „tschüss!“ und nicht",
+      "„auf Wiedersehen“."
+    ]
+  },
+  {
+    "word": "tun",
+    "sentences": [
+      "Ich habe noch etwas zu tun.",
+      "Was tut Ihr Mann?"
+    ]
+  },
+  {
+    "word": "über",
+    "sentences": [
+      "Gehen Sie hier über die Straße.",
+      "Er wohnt im zweiten Stock über Familie Meier.",
+      "Sind Sie über 18?"
+    ]
+  },
+  {
+    "word": "übernachten",
+    "sentences": [
+      "Du kannst bei mir übernachten."
+    ]
+  },
+  {
+    "word": "überweisen",
+    "sentences": [
+      "Sie können das Geld auch überweisen."
+    ]
+  },
+  {
+    "word": "die Uhr",
+    "sentences": [
+      "Es ist vier Uhr."
+    ]
+  },
+  {
+    "word": "um",
+    "sentences": [
+      "Er kommt um sieben Uhr.",
+      "Da kommt er gerade um die Ecke."
+    ]
+  },
+  {
+    "word": "umziehen",
+    "sentences": [
+      "Nächsten Monat ziehen wir um."
+    ]
+  },
+  {
+    "word": "und",
+    "sentences": [
+      "Peter und Helmut sind meine Söhne."
+    ]
+  },
+  {
+    "word": "unser-",
+    "sentences": [
+      "Das ist unsere Lehrerin."
+    ]
+  },
+  {
+    "word": "unten",
+    "sentences": [
+      "Er wohnt ganz unten im Haus."
+    ]
+  },
+  {
+    "word": "unter",
+    "sentences": [
+      "Unter uns wohnt eine Familie mit drei Kindern."
+    ]
+  },
+  {
+    "word": "der Unterricht",
+    "sentences": [
+      "Wir haben Unterricht von 8.00 bis 12.00 Uhr."
+    ]
+  },
+  {
+    "word": "unterschreiben",
+    "sentences": [
+      "Wo muss ich unterschreiben?"
+    ]
+  },
+  {
+    "word": "die Unterschrift",
+    "sentences": [
+      "Hier fehlt noch Ihre Unterschrift."
+    ]
+  },
+  {
+    "word": "der Urlaub",
+    "sentences": [
+      "Ich nehme im September Urlaub."
+    ]
+  },
+  {
+    "word": "der Vater, -ä",
+    "sentences": [
+      "Mein Vater ist Arbeiter."
+    ]
+  },
+  {
+    "word": "verboten",
+    "sentences": [
+      "Hier ist Rauchen verboten."
+    ]
+  },
+  {
+    "word": "verdienen",
+    "sentences": [
+      "Ich verdiene 1.500 Euro im Monat."
+    ]
+  },
+  {
+    "word": "der Verein",
+    "sentences": [
+      "Es gibt einen neuen Sportverein in der Stadt."
+    ]
+  },
+  {
+    "word": "verheiratet",
+    "sentences": [
+      "Ich bin verheiratet und habe drei Kinder."
+    ]
+  },
+  {
+    "word": "verkaufen",
+    "sentences": [
+      "Er verkauft sein altes Auto."
+    ]
+  },
+  {
+    "word": "der Verkäufer, –",
+    "sentences": [
+      "Meine Mutter ist Verkäuferin im Kaufhaus."
+    ]
+  },
+  {
+    "word": "vermieten",
+    "sentences": [
+      "Die Wohnung ist schon vermietet."
+    ]
+  },
+  {
+    "word": "der Vermieter",
+    "sentences": [
+      "Unser Vermieter heißt Huber. Er wohnt auch hier."
+    ]
+  },
+  {
+    "word": "verstehen",
+    "sentences": [
+      "Können Sie mich verstehen?"
+    ]
+  },
+  {
+    "word": "der Verwandte, -n",
+    "sentences": [
+      "Peter besucht seine Verwandten in Polen."
+    ]
+  },
+  {
+    "word": "viel",
+    "sentences": [
+      "Hier regnet es viel."
+    ]
+  },
+  {
+    "word": "vielleicht",
+    "sentences": [
+      "Ich komme vielleicht mit dem Bus."
+    ]
+  },
+  {
+    "word": "von",
+    "sentences": [
+      "Das Auto von Felix ist kaputt.",
+      "Er kommt gerade von Köln/von zu Hause."
+    ]
+  },
+  {
+    "word": "vor",
+    "sentences": [
+      "Der Termin war vor einer Stunde.",
+      "Das Auto steht vor der Tür."
+    ]
+  },
+  {
+    "word": "der Vorname, -n",
+    "sentences": [
+      "Ich heiße Müller, mein Vorname ist Eva."
+    ]
+  },
+  {
+    "word": "die Vorsicht",
+    "sentences": [
+      "Vorsicht! Da kommt ein Auto."
+    ]
+  },
+  {
+    "word": "(sich) vorstellen",
+    "sentences": [
+      "Wir wollen uns kennenlernen. Können Sie sich bitte",
+      "vorstellen?"
+    ]
+  },
+  {
+    "word": "die Vorwahl",
+    "sentences": [
+      "Wie ist die Vorwahl von München?"
+    ]
+  },
+  {
+    "word": "wandern",
+    "sentences": [
+      "Wir wandern um den Chiemsee."
+    ]
+  },
+  {
+    "word": "wann",
+    "sentences": [
+      "Wann bist du fertig?",
+      "Wann kann ich Sie anrufen?",
+      "Wann sind Sie geboren?"
+    ]
+  },
+  {
+    "word": "warten",
+    "sentences": [
+      "Können Sie ein paar Minuten warten?",
+      "Auf wen warten Sie?"
+    ]
+  },
+  {
+    "word": "warum",
+    "sentences": [
+      "Warum kommt er nicht?"
+    ]
+  },
+  {
+    "word": "was",
+    "sentences": [
+      "Was ist das?",
+      "Was möchten Sie?"
+    ]
+  },
+  {
+    "word": "was für ein",
+    "sentences": [
+      "Was für eine Farbe möchten Sie?"
+    ]
+  },
+  {
+    "word": "(sich) waschen",
+    "sentences": [
+      "Wo kann ich mir die Hände waschen?",
+      "Ich muss morgen waschen."
+    ]
+  },
+  {
+    "word": "das Wasser",
+    "sentences": [
+      "Ein Glas Wasser, bitte."
+    ]
+  },
+  {
+    "word": "weh tun",
+    "sentences": [
+      "Ich muss zum Arzt. Mein Bein tut weh."
+    ]
+  },
+  {
+    "word": "weiblich",
+    "sentences": [
+      "Kreuzen Sie bitte an: „weiblich“ oder „männlich“."
+    ]
+  },
+  {
+    "word": "der Wein",
+    "sentences": [
+      "Nein danke, ich möchte keinen Wein."
+    ]
+  },
+  {
+    "word": "weit",
+    "sentences": [
+      "Zum Bahnhof ist es nicht weit."
+    ]
+  },
+  {
+    "word": "weiter",
+    "sentences": [
+      "Der Bus fährt nicht weiter."
+    ]
+  },
+  {
+    "word": "welch-",
+    "sentences": [
+      "Welches Buch möchtest du?"
+    ]
+  },
+  {
+    "word": "die Welt",
+    "sentences": [
+      "Es gibt viele Probleme auf der Welt."
+    ]
+  },
+  {
+    "word": "wenig",
+    "sentences": [
+      "Ich habe leider nur wenig verstanden.",
+      "Er verdient wenig."
+    ]
+  },
+  {
+    "word": "wer",
+    "sentences": [
+      "Wer ist das?"
+    ]
+  },
+  {
+    "word": "werden",
+    "sentences": [
+      "Mein Sohn will Arzt werden."
+    ]
+  },
+  {
+    "word": "das Wetter",
+    "sentences": [
+      "Wir hatten schlechtes Wetter."
+    ]
+  },
+  {
+    "word": "wichtig",
+    "sentences": [
+      "Dieses Formular ist sehr wichtig."
+    ]
+  },
+  {
+    "word": "wie",
+    "sentences": [
+      "Wie heißt du?",
+      "Er schreibt wie ein Kind.",
+      "Meine Frau ist so groß wie ich.",
+      "Wie soll ich das machen?",
+      "Wie groß ist die Wohnung?",
+      "Wie bitte?",
+      "Wie lange bist du schon hier?"
+    ]
+  },
+  {
+    "word": "wiederholen",
+    "sentences": [
+      "Können Sie das bitte wiederholen?"
+    ]
+  },
+  {
+    "word": "das Wiederhören",
+    "sentences": [
+      "Wir müssen jetzt Schluss machen.",
+      "Also auf Wiederhören!"
+    ]
+  },
+  {
+    "word": "das Wiedersehen",
+    "sentences": [
+      "Auf Wiedersehen!"
+    ]
+  },
+  {
+    "word": "wie viel",
+    "sentences": [
+      "Wie viel Milch nehmen Sie?"
+    ]
+  },
+  {
+    "word": "willkommen",
+    "sentences": [
+      "Herzlich willkommen!"
+    ]
+  },
+  {
+    "word": "der Wind",
+    "sentences": [
+      "Der Wind kommt aus Osten."
+    ]
+  },
+  {
+    "word": "wir",
+    "sentences": [
+      "Wir lernen Deutsch."
+    ]
+  },
+  {
+    "word": "wissen",
+    "sentences": [
+      "Weißt du, wie er heißt?"
+    ]
+  },
+  {
+    "word": "wo",
+    "sentences": [
+      "Wo waren Sie im Urlaub?",
+      "Wo ist die Post?",
+      "Wo sind Sie geboren?"
+    ]
+  },
+  {
+    "word": "woher",
+    "sentences": [
+      "Woher kommen Sie?"
+    ]
+  },
+  {
+    "word": "wohin",
+    "sentences": [
+      "Wohin fährt dieser Bus?",
+      "Wohin wollen Sie am Wochenende?"
+    ]
+  },
+  {
+    "word": "wohnen",
+    "sentences": [
+      "Ich wohne in München."
+    ]
+  },
+  {
+    "word": "die Wohnung, -en",
+    "sentences": [
+      "Seit wann haben Sie diese Wohnung?"
+    ]
+  },
+  {
+    "word": "wollen",
+    "sentences": [
+      "Wollen Sie einen Kaffee trinken?"
+    ]
+  },
+  {
+    "word": "das Wort, -ö, er/-e",
+    "sentences": [
+      "Ich kenne das Wort nicht."
+    ]
+  },
+  {
+    "word": "wunderbar",
+    "sentences": [
+      "Das Essen schmeckt wunderbar."
+    ]
+  },
+  {
+    "word": "zahlen",
+    "sentences": [
+      "Zahlen, bitte!"
+    ]
+  },
+  {
+    "word": "die Zeit",
+    "sentences": [
+      "Ich habe heute keine Zeit."
+    ]
+  },
+  {
+    "word": "zurzeit",
+    "sentences": [
+      "Zurzeit habe ich sehr viel zu tun."
+    ]
+  },
+  {
+    "word": "die Zeitung, -en",
+    "sentences": [
+      "Ich lese gern Zeitung."
+    ]
+  },
+  {
+    "word": "die Zigarette, -n",
+    "sentences": [
+      "Wie teuer sind die Zigaretten?"
+    ]
+  },
+  {
+    "word": "das Zimmer, –",
+    "sentences": [
+      "Das Zimmer ist groß.",
+      "Öffne im Schlafzimmer das Fenster, bitte!",
+      "Die Wohnung hat drei Zimmer.",
+      "Ich habe ein Zimmer bestellt."
+    ]
+  },
+  {
+    "word": "der Zoll",
+    "sentences": [
+      "Wir müssen noch durch den Zoll."
+    ]
+  },
+  {
+    "word": "zu",
+    "sentences": [
+      "Der Bus fährt zum Bahnhof.",
+      "Ich gehe zu Fuß.",
+      "Ich bin zu Hause."
+    ]
+  },
+  {
+    "word": "zufrieden",
+    "sentences": [
+      "Ich bin mit der Wohnung zufrieden."
+    ]
+  },
+  {
+    "word": "der Zug, -ü, e",
+    "sentences": [
+      "Ich fahre gern mit dem Zug."
+    ]
+  },
+  {
+    "word": "zurück",
+    "sentences": [
+      "Einmal Frankfurt und zurück.",
+      "Wann kommst du zurück?"
+    ]
+  },
+  {
+    "word": "zusammen",
+    "sentences": [
+      "Sollen wir zusammen essen gehen?",
+      "Das macht zusammen 2 Euro 80."
+    ]
+  },
+  {
+    "word": "zwischen",
+    "sentences": [
+      "Heidelberg liegt zwischen Frankfurt und Stuttgart.",
+      "Zwischen 8 und 10 Uhr bin ich zu Hause."
+    ]
+  }
+]

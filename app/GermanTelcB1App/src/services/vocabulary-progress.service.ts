@@ -48,12 +48,13 @@ class VocabularyProgressService {
 
   /**
    * Create default progress object for new users
+   * Note: Don't set persona - let onboarding set it
    */
-  private createDefaultProgress(persona: UserPersona = 'serious'): VocabularyUserProgress {
+  private createDefaultProgress(persona?: UserPersona): VocabularyUserProgress {
     const now = Date.now();
     return {
       cards: {},
-      persona,
+      persona: persona || null as any, // null indicates needs onboarding
       dailyStats: {},
       lastStudyDate: null,
       streak: 0,

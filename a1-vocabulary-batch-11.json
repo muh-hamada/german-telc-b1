@@ -1,0 +1,273 @@
+[
+  {
+    "word": "Beruf",
+    "article": "der",
+    "translations": {
+      "en": "profession",
+      "es": "profesión",
+      "fr": "profession",
+      "ru": "профессия",
+      "ar": "المهنة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Was sind Sie von Beruf?",
+        "translations": {
+          "en": "What's your profession?",
+          "es": "¿Cuál es su profesión?",
+          "fr": "Quelle est votre profession ?",
+          "ru": "Кто вы по профессии?",
+          "ar": "ما هي مهنتك؟"
+        }
+      },
+      {
+        "text": "Was ist Ihr Beruf?",
+        "translations": {
+          "en": "What is your profession?",
+          "es": "¿Cuál es su profesión?",
+          "fr": "Quelle est votre profession ?",
+          "ru": "Какая у вас профессия?",
+          "ar": "ما هي مهنتك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "besetzt",
+    "article": "",
+    "translations": {
+      "en": "occupied",
+      "es": "ocupado",
+      "fr": "occupé",
+      "ru": "занято",
+      "ar": "مشغول"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Nummer ist immer besetzt.",
+        "translations": {
+          "en": "The number is always busy.",
+          "es": "El número siempre está ocupado.",
+          "fr": "Le numéro est toujours occupé.",
+          "ru": "Номер всегда занят.",
+          "ar": "الرقم مشغول دائمًا."
+        }
+      },
+      {
+        "text": "Der Platz ist besetzt.",
+        "translations": {
+          "en": "The seat is taken.",
+          "es": "El asiento está ocupado.",
+          "fr": "La place est occupée.",
+          "ru": "Место занято.",
+          "ar": "المقعد مشغول."
+        }
+      }
+    ]
+  },
+  {
+    "word": "besichtigen",
+    "article": "",
+    "translations": {
+      "en": "to visit",
+      "es": "visitar",
+      "fr": "visiter",
+      "ru": "осматривать",
+      "ar": "يزور"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte gern den Dom besichtigen.",
+        "translations": {
+          "en": "I'd like to visit the cathedral.",
+          "es": "Me gustaría visitar la catedral.",
+          "fr": "J'aimerais visiter la cathédrale.",
+          "ru": "Я хотел бы осмотреть собор.",
+          "ar": "أود زيارة الكاتدرائية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "besser",
+    "article": "",
+    "translations": {
+      "en": "better",
+      "es": "mejor",
+      "fr": "mieux",
+      "ru": "лучше",
+      "ar": "أفضل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es geht mir schon besser.",
+        "translations": {
+          "en": "I'm feeling better already.",
+          "es": "Ya me siento mejor.",
+          "fr": "Je me sens déjà mieux.",
+          "ru": "Мне уже лучше.",
+          "ar": "أشعر بتحسن الآن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "best-",
+    "article": "",
+    "translations": {
+      "en": "best",
+      "es": "mejor",
+      "fr": "meilleur",
+      "ru": "лучший",
+      "ar": "الأفضل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Am besten treffen wir uns morgen.",
+        "translations": {
+          "en": "It would be best if we meet tomorrow.",
+          "es": "Lo mejor es que nos encontremos mañana.",
+          "fr": "Le mieux serait de nous rencontrer demain.",
+          "ru": "Лучше всего встретимся завтра.",
+          "ar": "من الأفضل أن نلتقي غدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bestellen",
+    "article": "",
+    "translations": {
+      "en": "to order",
+      "es": "pedir",
+      "fr": "commander",
+      "ru": "заказывать",
+      "ar": "يطلب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir möchten bestellen, bitte.",
+        "translations": {
+          "en": "We'd like to order, please.",
+          "es": "Nos gustaría pedir, por favor.",
+          "fr": "Nous voudrions commander, s'il vous plaît.",
+          "ru": "Мы хотели бы заказать, пожалуйста.",
+          "ar": "نود أن نطلب، من فضلك."
+        }
+      },
+      {
+        "text": "Dieses Buch haben wir nicht – sollen wir es für Sie bestellen?",
+        "translations": {
+          "en": "We don't have this book – should we order it for you?",
+          "es": "No tenemos este libro – ¿debemos pedirlo para usted?",
+          "fr": "Nous n'avons pas ce livre – devons-nous le commander pour vous ?",
+          "ru": "У нас нет этой книги – заказать её для вас?",
+          "ar": "ليس لدينا هذا الكتاب – هل نطلبه لك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "besuchen",
+    "article": "",
+    "translations": {
+      "en": "to visit",
+      "es": "visitar",
+      "fr": "rendre visite",
+      "ru": "посещать",
+      "ar": "يزور"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich dich besuchen?",
+        "translations": {
+          "en": "May I visit you?",
+          "es": "¿Puedo visitarte?",
+          "fr": "Puis-je te rendre visite ?",
+          "ru": "Могу я навестить тебя?",
+          "ar": "هل يمكنني زيارتك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bett",
+    "article": "das",
+    "translations": {
+      "en": "bed",
+      "es": "cama",
+      "fr": "lit",
+      "ru": "кровать",
+      "ar": "السرير"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir brauchen noch ein Kinderbett.",
+        "translations": {
+          "en": "We still need a crib.",
+          "es": "Todavía necesitamos una cuna.",
+          "fr": "Nous avons encore besoin d'un lit d'enfant.",
+          "ru": "Нам ещё нужна детская кроватка.",
+          "ar": "لا نزال بحاجة إلى سرير أطفال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bezahlen",
+    "article": "",
+    "translations": {
+      "en": "to pay",
+      "es": "pagar",
+      "fr": "payer",
+      "ru": "платить",
+      "ar": "يدفع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo muss ich bezahlen?",
+        "translations": {
+          "en": "Where do I have to pay?",
+          "es": "¿Dónde tengo que pagar?",
+          "fr": "Où dois-je payer ?",
+          "ru": "Где мне нужно платить?",
+          "ar": "أين يجب أن أدفع؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bier",
+    "article": "das",
+    "translations": {
+      "en": "beer",
+      "es": "cerveza",
+      "fr": "bière",
+      "ru": "пиво",
+      "ar": "البيرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Noch ein Bier bitte.",
+        "translations": {
+          "en": "Another beer please.",
+          "es": "Otra cerveza por favor.",
+          "fr": "Encore une bière s'il vous plaît.",
+          "ru": "Ещё одно пиво, пожалуйста.",
+          "ar": "بيرة أخرى من فضلك."
+        }
+      }
+    ]
+  }
+]
+

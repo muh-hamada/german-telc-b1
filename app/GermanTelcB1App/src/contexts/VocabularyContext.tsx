@@ -76,16 +76,22 @@ export const VocabularyProvider: React.FC<VocabularyProviderProps> = ({ children
 
       console.log('[VocabularyContext] Loading progress for user:', user.uid);
 
-      // Fetch progress and total word count in parallel
-      const [userProgress, wordCount] = await Promise.all([
-        vocabularyProgressService.getUserProgress(user.uid),
-        vocabularyDataService.getTotalWordCount(),
-      ]);
-
+      // Fetch progress first
+      const userProgress = await vocabularyProgressService.getUserProgress(user.uid);
       setProgress(userProgress);
-      setTotalWords(wordCount);
+      
+      // Fetch total word count
+      let wordCount = 0;
+      try {
+        wordCount = await vocabularyDataService.getTotalWordCount();
+        setTotalWords(wordCount);
+      } catch (countError) {
+        console.warn('[VocabularyContext] Could not get word count, defaulting to 0:', countError);
+        wordCount = 0;
+        setTotalWords(0);
+      }
 
-      // Calculate stats
+      // Calculate stats even if wordCount is 0
       const vocabularyStats = vocabularyProgressService.getVocabularyStats(userProgress, wordCount);
       setStats(vocabularyStats);
 
@@ -93,10 +99,28 @@ export const VocabularyProvider: React.FC<VocabularyProviderProps> = ({ children
         totalWords: wordCount,
         studied: userProgress.totalWordsStudied,
         dueToday: vocabularyStats.dueToday,
+        persona: userProgress.persona,
       });
     } catch (err) {
       console.error('[VocabularyContext] Error loading progress:', err);
       setError('Failed to load vocabulary progress');
+      
+      // Still set default progress to avoid blocking UI
+      const defaultProgress = {
+        cards: {},
+        persona: null as any,
+        dailyStats: {},
+        lastStudyDate: null,
+        streak: 0,
+        longestStreak: 0,
+        totalWordsStudied: 0,
+        wordsInReview: 0,
+        wordsMastered: 0,
+        createdAt: Date.now(),
+        lastUpdated: Date.now(),
+      };
+      setProgress(defaultProgress);
+      setStats(vocabularyProgressService.getVocabularyStats(defaultProgress, 0));
     } finally {
       setIsLoading(false);
     }

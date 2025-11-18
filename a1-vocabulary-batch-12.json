@@ -1,0 +1,273 @@
+[
+  {
+    "word": "Bild",
+    "article": "das",
+    "translations": {
+      "en": "picture",
+      "es": "imagen",
+      "fr": "image",
+      "ru": "картина",
+      "ar": "الصورة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du ein Bild von deinem Sohn?",
+        "translations": {
+          "en": "Do you have a picture of your son?",
+          "es": "¿Tienes una foto de tu hijo?",
+          "fr": "As-tu une photo de ton fils ?",
+          "ru": "У тебя есть фото твоего сына?",
+          "ar": "هل لديك صورة لابنك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Birne",
+    "article": "die",
+    "translations": {
+      "en": "pear",
+      "es": "pera",
+      "fr": "poire",
+      "ru": "груша",
+      "ar": "الكمثرى"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Kilo Birnen, bitte!",
+        "translations": {
+          "en": "A kilo of pears, please!",
+          "es": "¡Un kilo de peras, por favor!",
+          "fr": "Un kilo de poires, s'il vous plaît !",
+          "ru": "Килограмм груш, пожалуйста!",
+          "ar": "كيلو من الكمثرى، من فضلك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "bis",
+    "article": "",
+    "translations": {
+      "en": "until",
+      "es": "hasta",
+      "fr": "jusqu'à",
+      "ru": "до",
+      "ar": "حتى"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ich fahre nur bis Stuttgart.",
+        "translations": {
+          "en": "I'm only going as far as Stuttgart.",
+          "es": "Solo voy hasta Stuttgart.",
+          "fr": "Je vais seulement jusqu'à Stuttgart.",
+          "ru": "Я еду только до Штутгарта.",
+          "ar": "أذهب فقط حتى شتوتغارت."
+        }
+      },
+      {
+        "text": "Ich warte bis morgen.",
+        "translations": {
+          "en": "I'll wait until tomorrow.",
+          "es": "Esperaré hasta mañana.",
+          "fr": "J'attendrai jusqu'à demain.",
+          "ru": "Я подожду до завтра.",
+          "ar": "سأنتظر حتى الغد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bisschen",
+    "article": "",
+    "translations": {
+      "en": "a little",
+      "es": "un poco",
+      "fr": "un peu",
+      "ru": "немного",
+      "ar": "قليلاً"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich spreche Englisch, Französisch und ein bisschen Deutsch.",
+        "translations": {
+          "en": "I speak English, French and a little German.",
+          "es": "Hablo inglés, francés y un poco de alemán.",
+          "fr": "Je parle anglais, français et un peu allemand.",
+          "ru": "Я говорю по-английски, по-французски и немного по-немецки.",
+          "ar": "أتحدث الإنجليزية والفرنسية وقليلاً من الألمانية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bitte",
+    "article": "",
+    "translations": {
+      "en": "please",
+      "es": "por favor",
+      "fr": "s'il vous plaît",
+      "ru": "пожалуйста",
+      "ar": "من فضلك"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Eine Tasse Kaffee, bitte!",
+        "translations": {
+          "en": "A cup of coffee, please!",
+          "es": "¡Una taza de café, por favor!",
+          "fr": "Une tasse de café, s'il vous plaît !",
+          "ru": "Чашку кофе, пожалуйста!",
+          "ar": "فنجان قهوة، من فضلك!"
+        }
+      },
+      {
+        "text": "Sprechen Sie bitte leise!",
+        "translations": {
+          "en": "Please speak quietly!",
+          "es": "¡Por favor, hable en voz baja!",
+          "fr": "Parlez doucement, s'il vous plaît !",
+          "ru": "Пожалуйста, говорите тихо!",
+          "ar": "من فضلك، تحدث بهدوء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bitte",
+    "article": "die",
+    "translations": {
+      "en": "request",
+      "es": "petición",
+      "fr": "demande",
+      "ru": "просьба",
+      "ar": "الطلب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe noch eine Bitte.",
+        "translations": {
+          "en": "I have one more request.",
+          "es": "Tengo una petición más.",
+          "fr": "J'ai encore une demande.",
+          "ru": "У меня есть ещё одна просьба.",
+          "ar": "لدي طلب آخر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bitten",
+    "article": "",
+    "translations": {
+      "en": "to ask",
+      "es": "pedir",
+      "fr": "demander",
+      "ru": "просить",
+      "ar": "يطلب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich Sie um etwas bitten?",
+        "translations": {
+          "en": "May I ask you for something?",
+          "es": "¿Puedo pedirle algo?",
+          "fr": "Puis-je vous demander quelque chose ?",
+          "ru": "Могу я вас о чём-то попросить?",
+          "ar": "هل يمكنني أن أطلب منك شيئًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "bitter",
+    "article": "",
+    "translations": {
+      "en": "bitter",
+      "es": "amargo",
+      "fr": "amer",
+      "ru": "горький",
+      "ar": "مر"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Kaffee schmeckt bitter.",
+        "translations": {
+          "en": "The coffee tastes bitter.",
+          "es": "El café sabe amargo.",
+          "fr": "Le café a un goût amer.",
+          "ru": "Кофе горький на вкус.",
+          "ar": "القهوة مذاقها مر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bleiben",
+    "article": "",
+    "translations": {
+      "en": "to stay",
+      "es": "quedarse",
+      "fr": "rester",
+      "ru": "оставаться",
+      "ar": "يبقى"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich bleibe heute zu Hause.",
+        "translations": {
+          "en": "I'm staying home today.",
+          "es": "Me quedo en casa hoy.",
+          "fr": "Je reste à la maison aujourd'hui.",
+          "ru": "Я сегодня остаюсь дома.",
+          "ar": "سأبقى في المنزل اليوم."
+        }
+      },
+      {
+        "text": "Wir bleiben nur bis morgen.",
+        "translations": {
+          "en": "We're only staying until tomorrow.",
+          "es": "Solo nos quedamos hasta mañana.",
+          "fr": "Nous restons seulement jusqu'à demain.",
+          "ru": "Мы останемся только до завтра.",
+          "ar": "سنبقى فقط حتى الغد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bleistift",
+    "article": "der",
+    "translations": {
+      "en": "pencil",
+      "es": "lápiz",
+      "fr": "crayon",
+      "ru": "карандаш",
+      "ar": "القلم الرصاص"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du einen Bleistift?",
+        "translations": {
+          "en": "Do you have a pencil?",
+          "es": "¿Tienes un lápiz?",
+          "fr": "As-tu un crayon ?",
+          "ru": "У тебя есть карандаш?",
+          "ar": "هل لديك قلم رصاص؟"
+        }
+      }
+    ]
+  }
+]
+

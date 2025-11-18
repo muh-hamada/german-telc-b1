@@ -4,32 +4,45 @@
  * Main hub for vocabulary learning with study and review options.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
+import { useAuth } from '../contexts/AuthContext';
 import Card from '../components/Card';
 import VocabularyProgressCircle from '../components/VocabularyProgressCircle';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import LoginModal from '../components/LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import type { HomeStackNavigationProp } from '../types/navigation.types';
 
 const VocabularyHomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useCustomTranslation();
-  const { stats, progress, isLoading, newWordsCount, dueReviewsCount } = useVocabulary();
+  const { user } = useAuth();
+  const { stats, progress, isLoading, newWordsCount, dueReviewsCount, loadProgress } = useVocabulary();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   React.useEffect(() => {
     logEvent(AnalyticsEvents.VOCABULARY_HOME_OPENED);
   }, []);
+
+  // Check if user needs onboarding
+  React.useEffect(() => {
+    if (!isLoading && progress && !progress.persona) {
+      // User hasn't completed onboarding, redirect to onboarding
+      navigation.replace('VocabularyOnboarding');
+    }
+  }, [isLoading, progress, navigation]);
 
   const handleStudyNew = () => {
     if (newWordsCount === 0) {
@@ -52,11 +65,87 @@ const VocabularyHomeScreen: React.FC = () => {
     navigation.navigate('VocabularyProgress');
   };
 
-  if (isLoading || !stats || !progress) {
+  const handleViewStudiedWords = () => {
+    navigation.navigate('VocabularyStudiedList');
+  };
+
+  const handleSignIn = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleLoginSuccess = async () => {
+    setShowLoginModal(false);
+    // Reload progress after successful login
+    if (loadProgress) {
+      await loadProgress();
+    }
+  };
+
+  const handleLoginClose = () => {
+    setShowLoginModal(false);
+  };
+
+  if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
-      <Text>{JSON.stringify({isLoading, stats, progress, newWordsCount, dueReviewsCount})}</Text>
         <ActivityIndicator size="large" color={colors.primary[500]} />
+      </View>
+    );
+  }
+
+  // Show sign-in prompt if user is not authenticated
+  if (!user) {
+    return (
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.centerContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <Icon name="book" size={80} color={colors.primary[300]} />
+          <Text style={styles.signInTitle}>{t('vocabulary.signInRequired')}</Text>
+          <Text style={styles.signInMessage}>{t('vocabulary.signInMessage')}</Text>
+          
+          <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
+            <Icon name="login" size={24} color={colors.white} />
+            <Text style={styles.signInButtonText}>{t('vocabulary.signInButton')}</Text>
+          </TouchableOpacity>
+
+          <View style={styles.featuresList}>
+            <View style={styles.featureItem}>
+              <Icon name="check-circle" size={24} color={colors.success[500]} />
+              <Text style={styles.featureText}>{t('vocabulary.features.saveProgress')}</Text>
+            </View>
+            <View style={styles.featureItem}>
+              <Icon name="check-circle" size={24} color={colors.success[500]} />
+              <Text style={styles.featureText}>{t('vocabulary.features.trackWords')}</Text>
+            </View>
+            <View style={styles.featureItem}>
+              <Icon name="check-circle" size={24} color={colors.success[500]} />
+              <Text style={styles.featureText}>{t('vocabulary.features.spacedRepetition')}</Text>
+            </View>
+            <View style={styles.featureItem}>
+              <Icon name="check-circle" size={24} color={colors.success[500]} />
+              <Text style={styles.featureText}>{t('vocabulary.features.syncDevices')}</Text>
+            </View>
+          </View>
+        </ScrollView>
+
+        {/* Login Modal */}
+        <LoginModal
+          visible={showLoginModal}
+          onClose={handleLoginClose}
+          onSuccess={handleLoginSuccess}
+        />
+      </View>
+    );
+  }
+
+  // Show error state if data failed to load
+  if (!stats || !progress) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.errorText}>{t('vocabulary.errorLoading')}</Text>
       </View>
     );
   }
@@ -70,25 +159,25 @@ const VocabularyHomeScreen: React.FC = () => {
       >
         {/* Header with Progress Circle */}
         <View style={styles.header}>
-          <Text style={styles.title}>{t('vocabulary.title')}</Text>
           <VocabularyProgressCircle
             current={stats.masteredWords}
             total={stats.totalWords}
             size={140}
           />
-          <View style={styles.streakContainer}>
-            <Text style={styles.streakText}>
-              {progress.streak} {t('vocabulary.dayStreak')}
-            </Text>
-          </View>
+          <Text style={styles.progressDescription}>
+            {t('vocabulary.masteredProgress', { 
+              mastered: stats.masteredWords, 
+              total: stats.totalWords 
+            })}
+          </Text>
         </View>
 
         {/* Study New Words Card */}
         <Card
-          style={[
+          style={StyleSheet.flatten([
             styles.actionCard,
             newWordsCount === 0 && styles.disabledCard,
-          ]}
+          ])}
           onPress={handleStudyNew}
         >
           <View style={styles.cardContent}>
@@ -111,10 +200,10 @@ const VocabularyHomeScreen: React.FC = () => {
 
         {/* Review Card */}
         <Card
-          style={[
+          style={StyleSheet.flatten([
             styles.actionCard,
             dueReviewsCount === 0 && styles.disabledCard,
-          ]}
+          ])}
           onPress={handleReview}
         >
           <View style={styles.cardContent}>
@@ -150,7 +239,30 @@ const VocabularyHomeScreen: React.FC = () => {
             <Icon name="chevron-right" size={24} color={colors.text.tertiary} />
           </View>
         </Card>
+
+        {/* Studied Words Card */}
+        <Card style={styles.actionCard} onPress={handleViewStudiedWords}>
+          <View style={styles.cardContent}>
+            <View style={[styles.iconContainer, { backgroundColor: colors.secondary[100] }]}>
+              <Icon name="menu-book" size={32} color={colors.secondary[500]} />
+            </View>
+            <View style={styles.cardText}>
+              <Text style={styles.cardTitle}>{t('vocabulary.studiedWordsList')}</Text>
+              <Text style={styles.cardDescription}>
+                {t('vocabulary.studiedWordsListDesc')}
+              </Text>
+            </View>
+            <Icon name="chevron-right" size={24} color={colors.text.tertiary} />
+          </View>
+        </Card>
       </ScrollView>
+
+      {/* Login Modal */}
+      <LoginModal
+        visible={showLoginModal}
+        onClose={handleLoginClose}
+        onSuccess={handleLoginSuccess}
+      />
     </View>
   );
 };
@@ -166,6 +278,62 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.background.primary,
   },
+  errorText: {
+    ...typography.textStyles.body,
+    color: colors.error[500],
+    textAlign: 'center',
+    paddingHorizontal: spacing.padding.xl,
+  },
+  centerContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: spacing.padding.xl,
+  },
+  signInTitle: {
+    ...typography.textStyles.h2,
+    color: colors.text.primary,
+    marginTop: spacing.margin.lg,
+    marginBottom: spacing.margin.sm,
+    textAlign: 'center',
+  },
+  signInMessage: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    marginBottom: spacing.margin.xl,
+    paddingHorizontal: spacing.padding.md,
+  },
+  signInButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.primary[500],
+    paddingHorizontal: spacing.padding.xl,
+    paddingVertical: spacing.padding.md,
+    borderRadius: 12,
+    gap: spacing.margin.sm,
+    marginBottom: spacing.margin.xl,
+  },
+  signInButtonText: {
+    ...typography.textStyles.body,
+    color: colors.white,
+    fontWeight: 'bold',
+  },
+  featuresList: {
+    width: '100%',
+    marginTop: spacing.margin.lg,
+  },
+  featureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.margin.md,
+    marginBottom: spacing.margin.md,
+  },
+  featureText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+  },
   scrollView: {
     flex: 1,
   },
@@ -175,7 +343,6 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: spacing.margin.lg,
     paddingVertical: spacing.padding.lg,
   },
   title: {
@@ -183,20 +350,13 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     marginBottom: spacing.margin.lg,
   },
-  streakContainer: {
+  progressDescription: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    textAlign: 'center',
     marginTop: spacing.margin.md,
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.sm,
-    backgroundColor: colors.warning[50],
-    borderRadius: 20,
-  },
-  streakText: {
-    ...typography.textStyles.body,
-    color: colors.warning[700],
-    fontWeight: '600',
   },
   actionCard: {
-    marginBottom: spacing.margin.md,
   },
   disabledCard: {
     opacity: 0.5,

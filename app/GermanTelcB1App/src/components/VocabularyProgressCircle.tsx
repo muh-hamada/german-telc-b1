@@ -6,6 +6,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 import { colors, spacing, typography } from '../theme';
 
 interface VocabularyProgressCircleProps {
@@ -26,9 +27,9 @@ const VocabularyProgressCircle: React.FC<VocabularyProgressCircleProps> = ({
 
   return (
     <View style={[styles.container, { width: size, height: size }]}>
-      <svg width={size} height={size} style={styles.svg}>
+      <Svg width={size} height={size} style={styles.svg}>
         {/* Background circle */}
-        <circle
+        <Circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
@@ -37,7 +38,7 @@ const VocabularyProgressCircle: React.FC<VocabularyProgressCircleProps> = ({
           fill="none"
         />
         {/* Progress circle */}
-        <circle
+        <Circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
@@ -47,9 +48,10 @@ const VocabularyProgressCircle: React.FC<VocabularyProgressCircleProps> = ({
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          rotation="-90"
+          origin={`${size / 2}, ${size / 2}`}
         />
-      </svg>
+      </Svg>
       <View style={styles.textContainer}>
         <Text style={styles.currentText}>{current}</Text>
         <Text style={styles.totalText}>/ {total}</Text>

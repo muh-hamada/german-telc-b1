@@ -1,0 +1,333 @@
+[
+  {
+    "word": "allein",
+    "article": "",
+    "translations": {
+      "en": "alone",
+      "es": "solo",
+      "fr": "seul",
+      "ru": "один",
+      "ar": "وحده"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Er kommt allein.",
+        "translations": {
+          "en": "He's coming alone.",
+          "es": "Él viene solo.",
+          "fr": "Il vient seul.",
+          "ru": "Он приходит один.",
+          "ar": "إنه يأتي وحده."
+        }
+      }
+    ]
+  },
+  {
+    "word": "also",
+    "article": "",
+    "translations": {
+      "en": "so",
+      "es": "entonces",
+      "fr": "donc",
+      "ru": "итак",
+      "ar": "إذن"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Also, es ist so: ...",
+        "translations": {
+          "en": "So, it's like this: ...",
+          "es": "Entonces, es así: ...",
+          "fr": "Donc, c'est comme ça : ...",
+          "ru": "Итак, всё так: ...",
+          "ar": "إذن، الأمر هكذا: ..."
+        }
+      },
+      {
+        "text": "Er hat Zeit, also muss er uns helfen.",
+        "translations": {
+          "en": "He has time, so he has to help us.",
+          "es": "Él tiene tiempo, entonces debe ayudarnos.",
+          "fr": "Il a du temps, donc il doit nous aider.",
+          "ru": "У него есть время, поэтому он должен нам помочь.",
+          "ar": "لديه وقت، إذن يجب عليه مساعدتنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "alt",
+    "article": "",
+    "translations": {
+      "en": "old",
+      "es": "viejo",
+      "fr": "vieux",
+      "ru": "старый",
+      "ar": "قديم"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wie alt sind Sie?",
+        "translations": {
+          "en": "How old are you?",
+          "es": "¿Cuántos años tiene?",
+          "fr": "Quel âge avez-vous ?",
+          "ru": "Сколько вам лет?",
+          "ar": "كم عمرك؟"
+        }
+      },
+      {
+        "text": "Sie sehen aber nicht so alt aus.",
+        "translations": {
+          "en": "But you don't look that old.",
+          "es": "Pero no parece tan viejo.",
+          "fr": "Mais vous ne paraissez pas si vieux.",
+          "ru": "Но вы не выглядите так старо.",
+          "ar": "لكنك لا تبدو كبيرًا في السن."
+        }
+      },
+      {
+        "text": "Mein Auto ist schon sehr alt.",
+        "translations": {
+          "en": "My car is already very old.",
+          "es": "Mi coche ya es muy viejo.",
+          "fr": "Ma voiture est déjà très vieille.",
+          "ru": "Моя машина уже очень старая.",
+          "ar": "سيارتي قديمة جدًا بالفعل."
+        }
+      },
+      {
+        "text": "Wir wohnen in einem sehr alten Haus.",
+        "translations": {
+          "en": "We live in a very old house.",
+          "es": "Vivimos en una casa muy vieja.",
+          "fr": "Nous habitons dans une très vieille maison.",
+          "ru": "Мы живём в очень старом доме.",
+          "ar": "نحن نعيش في منزل قديم جدًا."
+        }
+      },
+      {
+        "text": "Köln ist eine alte Stadt.",
+        "translations": {
+          "en": "Cologne is an old city.",
+          "es": "Colonia es una ciudad vieja.",
+          "fr": "Cologne est une vieille ville.",
+          "ru": "Кёльн — старый город.",
+          "ar": "كولونيا مدينة قديمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alter",
+    "article": "das",
+    "translations": {
+      "en": "age",
+      "es": "edad",
+      "fr": "âge",
+      "ru": "возраст",
+      "ar": "العمر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alter: 26 Jahre.",
+        "translations": {
+          "en": "Age: 26 years.",
+          "es": "Edad: 26 años.",
+          "fr": "Âge : 26 ans.",
+          "ru": "Возраст: 26 лет.",
+          "ar": "العمر: 26 عامًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "an",
+    "article": "",
+    "translations": {
+      "en": "at",
+      "es": "en",
+      "fr": "à",
+      "ru": "у",
+      "ar": "عند"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Fahren Sie an der nächsten Straße nach rechts.",
+        "translations": {
+          "en": "Turn right at the next street.",
+          "es": "Gire a la derecha en la siguiente calle.",
+          "fr": "Tournez à droite à la prochaine rue.",
+          "ru": "Поверните направо на следующей улице.",
+          "ar": "انعطف يمينًا عند الشارع التالي."
+        }
+      },
+      {
+        "text": "Wir treffen uns am Bahnhof.",
+        "translations": {
+          "en": "We'll meet at the train station.",
+          "es": "Nos encontramos en la estación de tren.",
+          "fr": "On se retrouve à la gare.",
+          "ru": "Мы встретимся на вокзале.",
+          "ar": "سنلتقي عند محطة القطار."
+        }
+      },
+      {
+        "text": "Am nächsten Montag geht es leider nicht.",
+        "translations": {
+          "en": "Unfortunately, next Monday doesn't work.",
+          "es": "Desafortunadamente, el próximo lunes no es posible.",
+          "fr": "Malheureusement, lundi prochain ce n'est pas possible.",
+          "ru": "К сожалению, в следующий понедельник не получится.",
+          "ar": "لسوء الحظ، يوم الاثنين القادم غير ممكن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anbieten",
+    "article": "",
+    "translations": {
+      "en": "to offer",
+      "es": "ofrecer",
+      "fr": "offrir",
+      "ru": "предлагать",
+      "ar": "يعرض"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was darf ich dir anbieten?",
+        "translations": {
+          "en": "What can I offer you?",
+          "es": "¿Qué puedo ofrecerte?",
+          "fr": "Que puis-je t'offrir ?",
+          "ru": "Что я могу тебе предложить?",
+          "ar": "ما الذي يمكنني أن أقدمه لك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Angebot",
+    "article": "das",
+    "translations": {
+      "en": "offer",
+      "es": "oferta",
+      "fr": "offre",
+      "ru": "предложение",
+      "ar": "العرض"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute sind Sportschuhe im Angebot.",
+        "translations": {
+          "en": "Sports shoes are on sale today.",
+          "es": "Hoy las zapatillas deportivas están en oferta.",
+          "fr": "Aujourd'hui, les chaussures de sport sont en promotion.",
+          "ru": "Сегодня спортивная обувь в продаже.",
+          "ar": "الأحذية الرياضية معروضة للبيع اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ander-",
+    "article": "",
+    "translations": {
+      "en": "other",
+      "es": "otro",
+      "fr": "autre",
+      "ru": "другой",
+      "ar": "آخر"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Willst du diese Jacke? – Nein, ich möchte die andere.",
+        "translations": {
+          "en": "Do you want this jacket? – No, I want the other one.",
+          "es": "¿Quieres esta chaqueta? – No, quiero la otra.",
+          "fr": "Tu veux cette veste ? – Non, je veux l'autre.",
+          "ru": "Ты хочешь эту куртку? – Нет, я хочу другую.",
+          "ar": "هل تريد هذا الجاكيت؟ – لا، أريد الآخر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anfangen",
+    "article": "",
+    "translations": {
+      "en": "to begin",
+      "es": "comenzar",
+      "fr": "commencer",
+      "ru": "начинать",
+      "ar": "يبدأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Hier fängt die Bahnhofstraße an.",
+        "translations": {
+          "en": "The Bahnhofstrasse begins here.",
+          "es": "Aquí comienza la Bahnhofstraße.",
+          "fr": "La Bahnhofstraße commence ici.",
+          "ru": "Здесь начинается Банхофштрассе.",
+          "ar": "تبدأ شارع Bahnhofstraße هنا."
+        }
+      },
+      {
+        "text": "Der Unterricht fängt gleich an.",
+        "translations": {
+          "en": "The lesson is starting soon.",
+          "es": "La clase comienza pronto.",
+          "fr": "Le cours commence bientôt.",
+          "ru": "Урок скоро начнётся.",
+          "ar": "سيبدأ الدرس قريبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anfang",
+    "article": "der",
+    "translations": {
+      "en": "beginning",
+      "es": "comienzo",
+      "fr": "début",
+      "ru": "начало",
+      "ar": "البداية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie wohnt am Anfang der Straße.",
+        "translations": {
+          "en": "She lives at the beginning of the street.",
+          "es": "Ella vive al principio de la calle.",
+          "fr": "Elle habite au début de la rue.",
+          "ru": "Она живёт в начале улицы.",
+          "ar": "إنها تعيش في بداية الشارع."
+        }
+      },
+      {
+        "text": "Wir machen Anfang Juli Urlaub.",
+        "translations": {
+          "en": "We're going on vacation at the beginning of July.",
+          "es": "Nos vamos de vacaciones a principios de julio.",
+          "fr": "Nous partons en vacances début juillet.",
+          "ru": "Мы идём в отпуск в начале июля.",
+          "ar": "سنذهب في إجازة في بداية يوليو."
+        }
+      }
+    ]
+  }
+]
+

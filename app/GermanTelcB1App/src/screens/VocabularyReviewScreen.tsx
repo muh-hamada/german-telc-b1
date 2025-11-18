@@ -10,7 +10,6 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
-  Alert,
   Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -20,6 +19,7 @@ import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyRatingButtons from '../components/VocabularyRatingButtons';
+import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
 import Button from '../components/Button';
 import { VocabularyWord, Rating } from '../types/vocabulary.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -36,6 +36,7 @@ const VocabularyReviewScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [reviewsCompleted, setReviewsCompleted] = useState(0);
   const [fadeAnim] = useState(new Animated.Value(1));
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
 
   useEffect(() => {
     loadDueWords();
@@ -48,15 +49,12 @@ const VocabularyReviewScreen: React.FC = () => {
       setWords(dueWords);
       
       if (dueWords.length === 0) {
-        Alert.alert(
-          t('vocabulary.noDueReviews'),
-          t('vocabulary.noDueReviewsDesc'),
-          [{ text: t('common.ok'), onPress: () => navigation.goBack() }]
-        );
+        // No words due, go back
+        navigation.goBack();
       }
     } catch (error) {
       console.error('[VocabularyReviewScreen] Error loading due words:', error);
-      Alert.alert(t('common.error'), t('vocabulary.errorLoadingWords'));
+      navigation.goBack();
     } finally {
       setIsLoading(false);
     }
@@ -77,13 +75,15 @@ const VocabularyReviewScreen: React.FC = () => {
         useNativeDriver: true,
       }).start(async () => {
         await reviewWord(currentWord.id, rating);
-        setReviewsCompleted(prev => prev + 1);
         
         logEvent(AnalyticsEvents.VOCABULARY_WORD_REVIEWED, {
           wordId: currentWord.id,
           word: currentWord.word,
           rating,
         });
+
+        const newReviewsCompleted = reviewsCompleted + 1;
+        setReviewsCompleted(newReviewsCompleted);
 
         // Move to next word or complete
         if (currentIndex < words.length - 1) {
@@ -97,41 +97,35 @@ const VocabularyReviewScreen: React.FC = () => {
             useNativeDriver: true,
           }).start();
         } else {
-          handleComplete();
+          handleComplete(newReviewsCompleted);
         }
       });
     } catch (error) {
       console.error('[VocabularyReviewScreen] Error reviewing word:', error);
-      Alert.alert(t('common.error'), t('vocabulary.errorSavingProgress'));
       
       // Reset animation
       fadeAnim.setValue(1);
     }
   };
 
-  const handleComplete = async () => {
+  const handleComplete = async (totalReviews: number) => {
     logEvent(AnalyticsEvents.VOCABULARY_DAILY_GOAL_COMPLETED, {
-      reviewsCompleted,
+      reviewsCompleted: totalReviews,
     });
 
     // Record streak activity for completing daily reviews (10+ reviews)
-    if (reviewsCompleted >= 10) {
-      await recordActivity('vocabulary_study', `vocab_review_${getLocalDateString()}`, reviewsCompleted);
+    if (totalReviews >= 10) {
+      await recordActivity('vocabulary_study', `vocab_review_${getLocalDateString()}`, totalReviews);
     }
 
-    Alert.alert(
-      t('vocabulary.reviewComplete'),
-      t('vocabulary.reviewCompleteMessage', { count: reviewsCompleted }),
-      [
-        {
-          text: t('common.done'),
-          onPress: () => {
-            loadProgress();
-            navigation.goBack();
-          },
-        },
-      ]
-    );
+    // Show completion modal
+    setShowCompletionModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowCompletionModal(false);
+    loadProgress();
+    navigation.goBack();
   };
 
   const getLocalDateString = (): string => {
@@ -195,6 +189,14 @@ const VocabularyReviewScreen: React.FC = () => {
           <VocabularyRatingButtons onRate={handleRate} />
         )}
       </View>
+
+      {/* Completion Modal */}
+      <VocabularyCompletionModal
+        visible={showCompletionModal}
+        wordsCount={reviewsCompleted}
+        type="review"
+        onClose={handleModalClose}
+      />
     </View>
   );
 };

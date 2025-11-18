@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Bahnsteig",
+    "article": "der",
+    "translations": {
+      "en": "platform",
+      "es": "andén",
+      "fr": "quai",
+      "ru": "платформа",
+      "ar": "الرصيف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf welchem Bahnsteig fährt der Zug?",
+        "translations": {
+          "en": "Which platform does the train leave from?",
+          "es": "¿De qué andén sale el tren?",
+          "fr": "De quel quai part le train ?",
+          "ru": "С какой платформы отправляется поезд?",
+          "ar": "من أي رصيف يغادر القطار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "bald",
+    "article": "",
+    "translations": {
+      "en": "soon",
+      "es": "pronto",
+      "fr": "bientôt",
+      "ru": "скоро",
+      "ar": "قريبًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich komme bald.",
+        "translations": {
+          "en": "I'm coming soon.",
+          "es": "Vendré pronto.",
+          "fr": "Je viens bientôt.",
+          "ru": "Я скоро приду.",
+          "ar": "سآتي قريبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Balkon",
+    "article": "der",
+    "translations": {
+      "en": "balcony",
+      "es": "balcón",
+      "fr": "balcon",
+      "ru": "балкон",
+      "ar": "الشرفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wohnung hat auch einen kleinen Balkon.",
+        "translations": {
+          "en": "The apartment also has a small balcony.",
+          "es": "El apartamento también tiene un pequeño balcón.",
+          "fr": "L'appartement a aussi un petit balcon.",
+          "ru": "В квартире также есть небольшой балкон.",
+          "ar": "الشقة لديها أيضًا شرفة صغيرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Banane",
+    "article": "die",
+    "translations": {
+      "en": "banana",
+      "es": "plátano",
+      "fr": "banane",
+      "ru": "банан",
+      "ar": "الموز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Drei Bananen, bitte!",
+        "translations": {
+          "en": "Three bananas, please!",
+          "es": "¡Tres plátanos, por favor!",
+          "fr": "Trois bananes, s'il vous plaît !",
+          "ru": "Три банана, пожалуйста!",
+          "ar": "ثلاثة موزات، من فضلك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bank",
+    "article": "die",
+    "translations": {
+      "en": "bank",
+      "es": "banco",
+      "fr": "banque",
+      "ru": "банк",
+      "ar": "البنك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bank schließt schon um vier Uhr.",
+        "translations": {
+          "en": "The bank closes at four o'clock.",
+          "es": "El banco cierra a las cuatro.",
+          "fr": "La banque ferme à quatre heures.",
+          "ru": "Банк закрывается в четыре часа.",
+          "ar": "يُغلق البنك في الساعة الرابعة."
+        }
+      },
+      {
+        "text": "Er sitzt im Park auf einer Bank und liest.",
+        "translations": {
+          "en": "He's sitting on a bench in the park reading.",
+          "es": "Está sentado en un banco del parque leyendo.",
+          "fr": "Il est assis sur un banc dans le parc et lit.",
+          "ru": "Он сидит на скамейке в парке и читает.",
+          "ar": "إنه يجلس على مقعد في الحديقة ويقرأ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bar",
+    "article": "",
+    "translations": {
+      "en": "cash",
+      "es": "en efectivo",
+      "fr": "en espèces",
+      "ru": "наличными",
+      "ar": "نقدًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Muss ich bar zahlen oder geht's auch mit Karte?",
+        "translations": {
+          "en": "Do I have to pay cash or can I use a card?",
+          "es": "¿Tengo que pagar en efectivo o puedo pagar con tarjeta?",
+          "fr": "Dois-je payer en espèces ou puis-je payer par carte ?",
+          "ru": "Мне нужно платить наличными или можно картой?",
+          "ar": "هل يجب أن أدفع نقدًا أم يمكنني الدفع بالبطاقة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bauch",
+    "article": "der",
+    "translations": {
+      "en": "stomach",
+      "es": "estómago",
+      "fr": "ventre",
+      "ru": "живот",
+      "ar": "البطن"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Seit gestern tut mir der Bauch weh.",
+        "translations": {
+          "en": "My stomach has been hurting since yesterday.",
+          "es": "Me duele el estómago desde ayer.",
+          "fr": "J'ai mal au ventre depuis hier.",
+          "ru": "У меня болит живот со вчерашнего дня.",
+          "ar": "بطني يؤلمني منذ الأمس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Baum",
+    "article": "der",
+    "translations": {
+      "en": "tree",
+      "es": "árbol",
+      "fr": "arbre",
+      "ru": "дерево",
+      "ar": "الشجرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Vorsicht, fahr nicht an den Baum!",
+        "translations": {
+          "en": "Careful, don't drive into the tree!",
+          "es": "¡Cuidado, no choques con el árbol!",
+          "fr": "Attention, ne rentre pas dans l'arbre !",
+          "ru": "Осторожно, не врежься в дерево!",
+          "ar": "احذر، لا تصطدم بالشجرة!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Beamte",
+    "article": "der",
+    "translations": {
+      "en": "official",
+      "es": "funcionario",
+      "fr": "fonctionnaire",
+      "ru": "чиновник",
+      "ar": "الموظف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fragen Sie die Beamtin an Schalter acht!",
+        "translations": {
+          "en": "Ask the official at counter eight!",
+          "es": "¡Pregunte a la funcionaria en la ventanilla ocho!",
+          "fr": "Demandez à la fonctionnaire au guichet huit !",
+          "ru": "Спросите чиновницу у окна восемь!",
+          "ar": "اسأل الموظفة في الشباك الثامن!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "bedeuten",
+    "article": "",
+    "translations": {
+      "en": "to mean",
+      "es": "significar",
+      "fr": "signifier",
+      "ru": "означать",
+      "ar": "يعني"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was bedeutet das Wort?",
+        "translations": {
+          "en": "What does the word mean?",
+          "es": "¿Qué significa la palabra?",
+          "fr": "Que signifie ce mot ?",
+          "ru": "Что означает это слово?",
+          "ar": "ماذا تعني هذه الكلمة؟"
+        }
+      }
+    ]
+  }
+]
+

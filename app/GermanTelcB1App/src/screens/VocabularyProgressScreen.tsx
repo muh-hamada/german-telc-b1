@@ -51,10 +51,9 @@ const VocabularyProgressScreen: React.FC = () => {
           />
         }
       >
-        <Text style={styles.title}>{t('vocabulary.progress.title')}</Text>
 
         {/* Stats Card */}
-        <VocabularyStatsCard stats={stats} streak={progress.streak} />
+        <VocabularyStatsCard stats={stats} />
 
         {/* Breakdown Card */}
         <Card style={styles.card}>
@@ -99,22 +98,6 @@ const VocabularyProgressScreen: React.FC = () => {
             </Text>
           </View>
         </Card>
-
-        {/* Streak Info */}
-        <Card style={styles.card}>
-          <Text style={styles.cardTitle}>{t('vocabulary.progress.streakInfo')}</Text>
-          <View style={styles.streakInfo}>
-            <View style={styles.streakItem}>
-              <Text style={styles.streakValue}>{progress.streak}</Text>
-              <Text style={styles.streakLabel}>{t('vocabulary.progress.currentStreak')}</Text>
-            </View>
-            <View style={styles.streakDivider} />
-            <View style={styles.streakItem}>
-              <Text style={styles.streakValue}>{progress.longestStreak}</Text>
-              <Text style={styles.streakLabel}>{t('vocabulary.progress.longestStreak')}</Text>
-            </View>
-          </View>
-        </Card>
       </ScrollView>
     </View>
   );
@@ -137,11 +120,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
     gap: spacing.margin.md,
-  },
-  title: {
-    ...typography.textStyles.h1,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.md,
   },
   card: {
     padding: spacing.padding.lg,
@@ -185,31 +163,6 @@ const styles = StyleSheet.create({
   personaDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
-  },
-  streakInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  streakItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  streakValue: {
-    ...typography.textStyles.h1,
-    color: colors.warning[500],
-    fontWeight: 'bold',
-    marginBottom: spacing.margin.xs,
-  },
-  streakLabel: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  streakDivider: {
-    width: 1,
-    height: 60,
-    backgroundColor: colors.secondary[200],
   },
 });
 

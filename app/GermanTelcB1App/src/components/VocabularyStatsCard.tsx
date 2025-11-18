@@ -13,10 +13,9 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 interface VocabularyStatsCardProps {
   stats: VocabularyStats;
-  streak: number;
 }
 
-const VocabularyStatsCard: React.FC<VocabularyStatsCardProps> = ({ stats, streak }) => {
+const VocabularyStatsCard: React.FC<VocabularyStatsCardProps> = ({ stats }) => {
   const { t } = useCustomTranslation();
 
   return (
@@ -30,14 +29,6 @@ const VocabularyStatsCard: React.FC<VocabularyStatsCardProps> = ({ stats, streak
         <View style={styles.statItem}>
           <Text style={styles.statValue}>{stats.masteredWords}</Text>
           <Text style={styles.statLabel}>{t('vocabulary.wordsMastered')}</Text>
-        </View>
-
-        {/* Current Streak */}
-        <View style={styles.statItem}>
-          <Text style={[styles.statValue, { color: colors.warning[500] }]}>
-            {streak}🔥
-          </Text>
-          <Text style={styles.statLabel}>{t('vocabulary.currentStreak')}</Text>
         </View>
 
         {/* Due Today */}
@@ -54,6 +45,14 @@ const VocabularyStatsCard: React.FC<VocabularyStatsCardProps> = ({ stats, streak
             {stats.learningWords}
           </Text>
           <Text style={styles.statLabel}>{t('vocabulary.learning')}</Text>
+        </View>
+
+        {/* Total Words */}
+        <View style={styles.statItem}>
+          <Text style={[styles.statValue, { color: colors.primary[500] }]}>
+            {stats.totalWords}
+          </Text>
+          <Text style={styles.statLabel}>{t('vocabulary.totalWords')}</Text>
         </View>
       </View>
 

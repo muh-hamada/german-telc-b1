@@ -1,0 +1,303 @@
+[
+  {
+    "word": "beginnen",
+    "article": "",
+    "translations": {
+      "en": "to begin",
+      "es": "comenzar",
+      "fr": "commencer",
+      "ru": "начинать",
+      "ar": "يبدأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Spiel beginnt um 15.30 Uhr.",
+        "translations": {
+          "en": "The game begins at 3:30 PM.",
+          "es": "El juego comienza a las 15:30.",
+          "fr": "Le match commence à 15h30.",
+          "ru": "Игра начинается в 15:30.",
+          "ar": "تبدأ المباراة في الساعة 3:30 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bei",
+    "article": "",
+    "translations": {
+      "en": "at",
+      "es": "en",
+      "fr": "chez",
+      "ru": "у",
+      "ar": "عند"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Offenbach liegt bei Frankfurt.",
+        "translations": {
+          "en": "Offenbach is located near Frankfurt.",
+          "es": "Offenbach está cerca de Fráncfort.",
+          "fr": "Offenbach est situé près de Francfort.",
+          "ru": "Оффенбах находится рядом с Франкфуртом.",
+          "ar": "تقع أوفنباخ بالقرب من فرانكفورت."
+        }
+      },
+      {
+        "text": "Ich wohne bei meinen Eltern.",
+        "translations": {
+          "en": "I live with my parents.",
+          "es": "Vivo con mis padres.",
+          "fr": "J'habite chez mes parents.",
+          "ru": "Я живу у родителей.",
+          "ar": "أنا أعيش مع والديّ."
+        }
+      },
+      {
+        "text": "Bei uns regnet es heute.",
+        "translations": {
+          "en": "It's raining here today.",
+          "es": "Hoy llueve en nuestro lugar.",
+          "fr": "Chez nous, il pleut aujourd'hui.",
+          "ru": "У нас сегодня дождь.",
+          "ar": "عندنا تمطر اليوم."
+        }
+      },
+      {
+        "text": "Er arbeitet bei der Polizei.",
+        "translations": {
+          "en": "He works for the police.",
+          "es": "Trabaja en la policía.",
+          "fr": "Il travaille dans la police.",
+          "ru": "Он работает в полиции.",
+          "ar": "إنه يعمل في الشرطة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "beide",
+    "article": "",
+    "translations": {
+      "en": "both",
+      "es": "ambos",
+      "fr": "tous les deux",
+      "ru": "оба",
+      "ar": "كلاهما"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Beide Eltern arbeiten.",
+        "translations": {
+          "en": "Both parents work.",
+          "es": "Ambos padres trabajan.",
+          "fr": "Les deux parents travaillent.",
+          "ru": "Оба родителя работают.",
+          "ar": "كلا الوالدين يعمل."
+        }
+      },
+      {
+        "text": "Wir kommen beide.",
+        "translations": {
+          "en": "We're both coming.",
+          "es": "Ambos venimos.",
+          "fr": "Nous venons tous les deux.",
+          "ru": "Мы оба приходим.",
+          "ar": "نحن كلانا نأتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bein",
+    "article": "das",
+    "translations": {
+      "en": "leg",
+      "es": "pierna",
+      "fr": "jambe",
+      "ru": "нога",
+      "ar": "الساق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein rechtes Bein tut weh.",
+        "translations": {
+          "en": "My right leg hurts.",
+          "es": "Me duele la pierna derecha.",
+          "fr": "Ma jambe droite me fait mal.",
+          "ru": "У меня болит правая нога.",
+          "ar": "ساقي اليمنى تؤلمني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Beispiel",
+    "article": "das",
+    "translations": {
+      "en": "example",
+      "es": "ejemplo",
+      "fr": "exemple",
+      "ru": "пример",
+      "ar": "المثال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir ein Beispiel sagen?",
+        "translations": {
+          "en": "Can you give me an example?",
+          "es": "¿Puedes darme un ejemplo?",
+          "fr": "Peux-tu me donner un exemple ?",
+          "ru": "Можешь привести мне пример?",
+          "ar": "هل يمكنك إعطائي مثالاً؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "zum Beispiel",
+    "article": "",
+    "translations": {
+      "en": "for example",
+      "es": "por ejemplo",
+      "fr": "par exemple",
+      "ru": "например",
+      "ar": "على سبيل المثال"
+    },
+    "type": "phrase",
+    "exampleSentences": [
+      {
+        "text": "Viele meiner Verwandten, z. B. meine beiden Brüder, arbeiten auch hier.",
+        "translations": {
+          "en": "Many of my relatives, for example my two brothers, also work here.",
+          "es": "Muchos de mis parientes, por ejemplo mis dos hermanos, también trabajan aquí.",
+          "fr": "Beaucoup de mes parents, par exemple mes deux frères, travaillent aussi ici.",
+          "ru": "Многие мои родственники, например мои два брата, тоже работают здесь.",
+          "ar": "العديد من أقاربي، على سبيل المثال أخوي، يعملون أيضًا هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bekannt",
+    "article": "",
+    "translations": {
+      "en": "known",
+      "es": "conocido",
+      "fr": "connu",
+      "ru": "известный",
+      "ar": "معروف"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Picasso ist sehr bekannt.",
+        "translations": {
+          "en": "Picasso is very well known.",
+          "es": "Picasso es muy conocido.",
+          "fr": "Picasso est très connu.",
+          "ru": "Пикассо очень известен.",
+          "ar": "بيكاسو معروف جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bekannte",
+    "article": "der/die",
+    "translations": {
+      "en": "acquaintance",
+      "es": "conocido",
+      "fr": "connaissance",
+      "ru": "знакомый",
+      "ar": "المعرفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Bekannter von mir heißt Klaus.",
+        "translations": {
+          "en": "An acquaintance of mine is named Klaus.",
+          "es": "Un conocido mío se llama Klaus.",
+          "fr": "Une de mes connaissances s'appelle Klaus.",
+          "ru": "Мой знакомый по имени Клаус.",
+          "ar": "أحد معارفي اسمه كلاوس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bekommen",
+    "article": "",
+    "translations": {
+      "en": "to get",
+      "es": "recibir",
+      "fr": "recevoir",
+      "ru": "получать",
+      "ar": "يحصل على"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie meinen Brief bekommen?",
+        "translations": {
+          "en": "Did you receive my letter?",
+          "es": "¿Recibió mi carta?",
+          "fr": "Avez-vous reçu ma lettre ?",
+          "ru": "Вы получили моё письмо?",
+          "ar": "هل تلقيت رسالتي؟"
+        }
+      },
+      {
+        "text": "Was bekommen Sie?",
+        "translations": {
+          "en": "What would you like?",
+          "es": "¿Qué desea?",
+          "fr": "Que désirez-vous ?",
+          "ru": "Что вы будете?",
+          "ar": "ماذا تريد؟"
+        }
+      },
+      {
+        "text": "Dieses Medikament bekommen Sie in der Apotheke.",
+        "translations": {
+          "en": "You can get this medication at the pharmacy.",
+          "es": "Puede conseguir este medicamento en la farmacia.",
+          "fr": "Vous pouvez obtenir ce médicament à la pharmacie.",
+          "ru": "Это лекарство вы можете получить в аптеке.",
+          "ar": "يمكنك الحصول على هذا الدواء من الصيدلية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "benutzen",
+    "article": "",
+    "translations": {
+      "en": "to use",
+      "es": "usar",
+      "fr": "utiliser",
+      "ru": "использовать",
+      "ar": "يستخدم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Aufzüge bitte nicht benutzen!",
+        "translations": {
+          "en": "Please don't use the elevators!",
+          "es": "¡Por favor, no use los ascensores!",
+          "fr": "Ne pas utiliser les ascenseurs, s'il vous plaît !",
+          "ru": "Пожалуйста, не используйте лифты!",
+          "ar": "من فضلك، لا تستخدم المصاعد!"
+        }
+      }
+    ]
+  }
+]
+

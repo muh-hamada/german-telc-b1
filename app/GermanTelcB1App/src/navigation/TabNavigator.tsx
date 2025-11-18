@@ -44,6 +44,12 @@ const HIDE_TAB_SCREENS = [
   'B2SpeakingPart1',
   'B2SpeakingPart2',
   'B2SpeakingPart3',
+  'VocabularyHome',
+  'VocabularyStudyNew',
+  'VocabularyReview',
+  'VocabularyProgress',
+  'VocabularyOnboarding',
+  'VocabularyStudiedList',
 ];
 
 /**

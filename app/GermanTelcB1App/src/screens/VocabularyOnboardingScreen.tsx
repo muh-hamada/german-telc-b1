@@ -78,7 +78,7 @@ const VocabularyOnboardingScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
       >
         <View style={styles.header}>
-          <Text style={styles.title}>{t('vocabulary.onboarding.title')}</Text>
+          {/* <Text style={styles.title}>{t('vocabulary.onboarding.title')}</Text> */}
           <Text style={styles.subtitle}>{t('vocabulary.onboarding.subtitle')}</Text>
         </View>
 
@@ -94,6 +94,12 @@ const VocabularyOnboardingScreen: React.FC = () => {
               onPress={() => setSelectedPersona(persona.type)}
               activeOpacity={0.7}
             >
+              {selectedPersona === persona.type && (
+                <View style={styles.checkmark}>
+                  <Icon name="check-circle" size={20} color={colors.primary[500]} />
+                </View>
+              )}
+              
               <View
                 style={[
                   styles.iconContainer,
@@ -102,7 +108,7 @@ const VocabularyOnboardingScreen: React.FC = () => {
               >
                 <Icon
                   name={persona.icon}
-                  size={36}
+                  size={24}
                   color={
                     selectedPersona === persona.type
                       ? colors.white
@@ -110,19 +116,16 @@ const VocabularyOnboardingScreen: React.FC = () => {
                   }
                 />
               </View>
-              <Text style={styles.personaTitle}>
-                {t(`vocabulary.persona.${persona.type}`)}
-              </Text>
-              <Text style={styles.dailyWords}>
-                {t('vocabulary.onboarding.dailyWords', { count: persona.dailyWords })}
-              </Text>
-              <Text style={styles.personaDescription}>{persona.description}</Text>
               
-              {selectedPersona === persona.type && (
-                <View style={styles.checkmark}>
-                  <Icon name="check-circle" size={24} color={colors.primary[500]} />
-                </View>
-              )}
+              <View style={styles.personaContent}>
+                <Text style={styles.personaTitle}>
+                  {t(`vocabulary.persona.${persona.type}`)}
+                </Text>
+                <Text style={styles.dailyWords}>
+                  {t('vocabulary.onboarding.dailyWords', { count: persona.dailyWords })}
+                </Text>
+                <Text style={styles.personaDescription}>{persona.description}</Text>
+              </View>
             </TouchableOpacity>
           ))}
         </View>
@@ -160,80 +163,89 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   header: {
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.lg,
   },
   title: {
-    ...typography.textStyles.h1,
+    ...typography.textStyles.h2,
+    fontSize: 22,
     color: colors.text.primary,
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
     textAlign: 'center',
   },
   subtitle: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
+    ...typography.textStyles.h6,
+    color: colors.black,
     textAlign: 'center',
   },
   personaContainer: {
-    gap: spacing.margin.md,
-    marginBottom: spacing.margin.xl,
+    gap: spacing.margin.sm,
+    marginBottom: spacing.margin.lg,
   },
   personaCard: {
-    padding: spacing.padding.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: spacing.padding.md,
     backgroundColor: colors.background.secondary,
-    borderRadius: 16,
+    borderRadius: 12,
     borderWidth: 2,
     borderColor: colors.secondary[200],
-    alignItems: 'center',
     position: 'relative',
+    minHeight: 80,
   },
   personaCardSelected: {
     borderColor: colors.primary[500],
     backgroundColor: colors.primary[50],
   },
   iconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
     backgroundColor: colors.primary[100],
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: spacing.margin.md,
+    marginRight: spacing.margin.md,
   },
   iconContainerSelected: {
     backgroundColor: colors.primary[500],
   },
+  personaContent: {
+    flex: 1,
+  },
   personaTitle: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.body,
+    fontSize: 16,
+    fontWeight: '600',
     color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
+    marginBottom: 2,
   },
   dailyWords: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.primary[500],
     fontWeight: '600',
-    marginBottom: spacing.margin.sm,
+    marginBottom: 2,
   },
   personaDescription: {
     ...typography.textStyles.caption,
+    fontSize: 12,
     color: colors.text.secondary,
-    textAlign: 'center',
   },
   checkmark: {
     position: 'absolute',
-    top: spacing.padding.md,
-    right: spacing.padding.md,
+    top: spacing.padding.sm,
+    right: spacing.padding.sm,
   },
   infoBox: {
     flexDirection: 'row',
-    padding: spacing.padding.md,
+    padding: spacing.padding.sm,
     backgroundColor: colors.primary[50],
-    borderRadius: 12,
-    borderLeftWidth: 4,
+    borderRadius: 8,
+    borderLeftWidth: 3,
     borderLeftColor: colors.primary[500],
     gap: spacing.margin.sm,
   },
   infoText: {
     ...typography.textStyles.caption,
+    fontSize: 12,
     color: colors.text.secondary,
     flex: 1,
   },

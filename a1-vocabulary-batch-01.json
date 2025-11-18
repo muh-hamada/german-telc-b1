@@ -1,0 +1,293 @@
+[
+  {
+    "word": "ab",
+    "article": "",
+    "translations": {
+      "en": "from",
+      "es": "desde",
+      "fr": "à partir de",
+      "ru": "с",
+      "ar": "من"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ab morgen muss ich arbeiten.",
+        "translations": {
+          "en": "I have to work from tomorrow.",
+          "es": "Tengo que trabajar desde mañana.",
+          "fr": "Je dois travailler à partir de demain.",
+          "ru": "С завтрашнего дня я должен работать.",
+          "ar": "يجب أن أعمل من الغد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aber",
+    "article": "",
+    "translations": {
+      "en": "but",
+      "es": "pero",
+      "fr": "mais",
+      "ru": "но",
+      "ar": "لكن"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Ich bin oft im Büro, aber nur für wenige Stunden.",
+        "translations": {
+          "en": "I'm often in the office, but only for a few hours.",
+          "es": "Estoy a menudo en la oficina, pero solo por unas pocas horas.",
+          "fr": "Je suis souvent au bureau, mais seulement pour quelques heures.",
+          "ru": "Я часто в офисе, но только на несколько часов.",
+          "ar": "أنا غالبًا في المكتب، ولكن لبضع ساعات فقط."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abfahren",
+    "article": "",
+    "translations": {
+      "en": "to depart",
+      "es": "salir",
+      "fr": "partir",
+      "ru": "отправляться",
+      "ar": "يغادر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir fahren um zwölf Uhr ab.",
+        "translations": {
+          "en": "We depart at twelve o'clock.",
+          "es": "Salimos a las doce en punto.",
+          "fr": "Nous partons à midi.",
+          "ru": "Мы отправляемся в двенадцать часов.",
+          "ar": "نغادر في الساعة الثانية عشرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "die Abfahrt",
+    "article": "die",
+    "translations": {
+      "en": "departure",
+      "es": "salida",
+      "fr": "départ",
+      "ru": "отъезд",
+      "ar": "المغادرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Vor der Abfahrt rufe ich an.",
+        "translations": {
+          "en": "I'll call before departure.",
+          "es": "Llamaré antes de la salida.",
+          "fr": "J'appelle avant le départ.",
+          "ru": "Я позвоню перед отъездом.",
+          "ar": "سأتصل قبل المغادرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abgeben",
+    "article": "",
+    "translations": {
+      "en": "to hand in",
+      "es": "entregar",
+      "fr": "remettre",
+      "ru": "сдавать",
+      "ar": "يسلم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss meine Schlüssel abgeben.",
+        "translations": {
+          "en": "I have to hand in my keys.",
+          "es": "Tengo que entregar mis llaves.",
+          "fr": "Je dois remettre mes clés.",
+          "ru": "Я должен сдать свои ключи.",
+          "ar": "يجب أن أسلم مفاتيحي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abholen",
+    "article": "",
+    "translations": {
+      "en": "to pick up",
+      "es": "recoger",
+      "fr": "aller chercher",
+      "ru": "забирать",
+      "ar": "يستلم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wann kann ich den Schrank bei dir abholen?",
+        "translations": {
+          "en": "When can I pick up the cupboard from you?",
+          "es": "¿Cuándo puedo recoger el armario de ti?",
+          "fr": "Quand puis-je venir chercher l'armoire chez toi ?",
+          "ru": "Когда я могу забрать у тебя шкаф?",
+          "ar": "متى يمكنني استلام الخزانة منك؟"
+        }
+      },
+      {
+        "text": "Wir müssen noch meinen Bruder abholen.",
+        "translations": {
+          "en": "We still have to pick up my brother.",
+          "es": "Todavía tenemos que recoger a mi hermano.",
+          "fr": "Nous devons encore aller chercher mon frère.",
+          "ru": "Нам еще нужно забрать моего брата.",
+          "ar": "لا يزال علينا أن نستلم أخي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "der Absender",
+    "article": "der",
+    "translations": {
+      "en": "sender",
+      "es": "remitente",
+      "fr": "expéditeur",
+      "ru": "отправитель",
+      "ar": "المرسل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Da ist ein Brief für dich ohne Absender.",
+        "translations": {
+          "en": "There's a letter for you without a sender.",
+          "es": "Hay una carta para ti sin remitente.",
+          "fr": "Il y a une lettre pour toi sans expéditeur.",
+          "ru": "Здесь письмо для тебя без отправителя.",
+          "ar": "هناك رسالة لك بدون مرسل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Achtung",
+    "article": "",
+    "translations": {
+      "en": "attention",
+      "es": "atención",
+      "fr": "attention",
+      "ru": "внимание",
+      "ar": "انتباه"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Achtung! Das dürfen Sie nicht tun.",
+        "translations": {
+          "en": "Attention! You must not do that.",
+          "es": "¡Atención! No debe hacer eso.",
+          "fr": "Attention ! Vous ne devez pas faire ça.",
+          "ru": "Внимание! Вы не должны этого делать.",
+          "ar": "انتباه! لا يجب عليك فعل ذلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "die Adresse",
+    "article": "die",
+    "translations": {
+      "en": "address",
+      "es": "dirección",
+      "fr": "adresse",
+      "ru": "адрес",
+      "ar": "العنوان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Können Sie mir seine Adresse sagen?",
+        "translations": {
+          "en": "Can you tell me his address?",
+          "es": "¿Puede decirme su dirección?",
+          "fr": "Pouvez-vous me dire son adresse ?",
+          "ru": "Можете ли вы сказать мне его адрес?",
+          "ar": "هل يمكنك إخباري بعنوانه؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "all-",
+    "article": "",
+    "translations": {
+      "en": "all",
+      "es": "todo",
+      "fr": "tout",
+      "ru": "все",
+      "ar": "كل"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Alles Gute!",
+        "translations": {
+          "en": "All the best!",
+          "es": "¡Todo lo mejor!",
+          "fr": "Bonne chance !",
+          "ru": "Всего наилучшего!",
+          "ar": "كل التوفيق!"
+        }
+      },
+      {
+        "text": "Das ist alles.",
+        "translations": {
+          "en": "That's all.",
+          "es": "Eso es todo.",
+          "fr": "C'est tout.",
+          "ru": "Это всё.",
+          "ar": "هذا كل شيء."
+        }
+      },
+      {
+        "text": "Sind alle da?",
+        "translations": {
+          "en": "Is everyone here?",
+          "es": "¿Están todos?",
+          "fr": "Est-ce que tout le monde est là ?",
+          "ru": "Все здесь?",
+          "ar": "هل الجميع هنا؟"
+        }
+      },
+      {
+        "text": "Alle Freunde kommen.",
+        "translations": {
+          "en": "All friends are coming.",
+          "es": "Todos los amigos vienen.",
+          "fr": "Tous les amis viennent.",
+          "ru": "Все друзья приходят.",
+          "ar": "كل الأصدقاء قادمون."
+        }
+      },
+      {
+        "text": "Hast du alles?",
+        "translations": {
+          "en": "Do you have everything?",
+          "es": "¿Tienes todo?",
+          "fr": "As-tu tout ?",
+          "ru": "У тебя всё есть?",
+          "ar": "هل لديك كل شيء؟"
+        }
+      }
+    ]
+  }
+]
+

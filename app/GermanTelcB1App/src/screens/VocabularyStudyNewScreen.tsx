@@ -11,7 +11,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
-  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
@@ -19,6 +18,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
 import VocabularyCard from '../components/VocabularyCard';
+import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
 import Button from '../components/Button';
 import { VocabularyWord } from '../types/vocabulary.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -35,6 +35,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [wordsStudiedToday, setWordsStudiedToday] = useState(0);
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
 
   const dailyLimit = progress ? vocabularyProgressService.getDailyLimit(progress.persona) : 20;
 
@@ -49,15 +50,12 @@ const VocabularyStudyNewScreen: React.FC = () => {
       setWords(newWords);
       
       if (newWords.length === 0) {
-        Alert.alert(
-          t('vocabulary.noNewWords'),
-          t('vocabulary.noNewWordsDesc'),
-          [{ text: t('common.ok'), onPress: () => navigation.goBack() }]
-        );
+        // No new words available, go back
+        navigation.goBack();
       }
     } catch (error) {
       console.error('[VocabularyStudyNewScreen] Error loading words:', error);
-      Alert.alert(t('common.error'), t('vocabulary.errorLoadingWords'));
+      navigation.goBack();
     } finally {
       setIsLoading(false);
     }
@@ -72,12 +70,14 @@ const VocabularyStudyNewScreen: React.FC = () => {
     
     try {
       await markWordAsLearned(currentWord.id);
-      setWordsStudiedToday(prev => prev + 1);
       
       logEvent(AnalyticsEvents.VOCABULARY_NEW_WORD_STUDIED, {
         wordId: currentWord.id,
         word: currentWord.word,
       });
+
+      const newWordsStudied = wordsStudiedToday + 1;
+      setWordsStudiedToday(newWordsStudied);
 
       // Move to next word
       if (currentIndex < words.length - 1) {
@@ -85,37 +85,31 @@ const VocabularyStudyNewScreen: React.FC = () => {
         setIsFlipped(false);
       } else {
         // Completed all words
-        handleComplete();
+        handleComplete(newWordsStudied);
       }
     } catch (error) {
       console.error('[VocabularyStudyNewScreen] Error marking word as learned:', error);
-      Alert.alert(t('common.error'), t('vocabulary.errorSavingProgress'));
     }
   };
 
-  const handleComplete = async () => {
+  const handleComplete = async (totalWordsStudied: number) => {
     logEvent(AnalyticsEvents.VOCABULARY_DAILY_GOAL_COMPLETED, {
-      wordsStudied: wordsStudiedToday,
+      wordsStudied: totalWordsStudied,
     });
 
     // Record streak activity for completing daily vocabulary goal
-    if (wordsStudiedToday >= 10) {
-      await recordActivity('vocabulary_study', `vocab_daily_${getLocalDateString()}`, wordsStudiedToday);
+    if (totalWordsStudied >= 10) {
+      await recordActivity('vocabulary_study', `vocab_daily_${getLocalDateString()}`, totalWordsStudied);
     }
 
-    Alert.alert(
-      t('vocabulary.celebration'),
-      t('vocabulary.celebrationMessage', { count: wordsStudiedToday }),
-      [
-        {
-          text: t('common.done'),
-          onPress: () => {
-            loadProgress();
-            navigation.goBack();
-          },
-        },
-      ]
-    );
+    // Show completion modal
+    setShowCompletionModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowCompletionModal(false);
+    loadProgress();
+    navigation.goBack();
   };
 
   const getLocalDateString = (): string => {
@@ -185,6 +179,14 @@ const VocabularyStudyNewScreen: React.FC = () => {
           </View>
         )}
       </View>
+
+      {/* Completion Modal */}
+      <VocabularyCompletionModal
+        visible={showCompletionModal}
+        wordsCount={wordsStudiedToday}
+        type="study"
+        onClose={handleModalClose}
+      />
     </View>
   );
 };

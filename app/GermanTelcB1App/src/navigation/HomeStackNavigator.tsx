@@ -34,6 +34,7 @@ import VocabularyOnboardingScreen from '../screens/VocabularyOnboardingScreen';
 import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
 import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
+import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -284,6 +285,13 @@ const HomeStackNavigator: React.FC = () => {
         component={VocabularyProgressScreen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="vocabulary.progress.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyStudiedList"
+        component={VocabularyStudiedListScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.studiedWordsList" />,
         }}
       />
     </Stack.Navigator>

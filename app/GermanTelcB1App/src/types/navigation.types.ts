@@ -47,6 +47,7 @@ export type HomeStackParamList = {
   VocabularyStudyNew: undefined;
   VocabularyReview: undefined;
   VocabularyProgress: undefined;
+  VocabularyStudiedList: undefined;
 };
 
 // Profile Stack Navigator
