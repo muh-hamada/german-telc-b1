@@ -3,7 +3,6 @@ import { RemoteConfig, RemoteConfigContextType, DEFAULT_REMOTE_CONFIG } from '..
 import firebaseRemoteConfigService from '../services/firebase-remote-config.service';
 import StorageService from '../services/storage.service';
 import { activeExamConfig } from '../config/active-exam.config';
-import { ENABLE_STREAKS } from '../config/development.config';
 
 const RemoteConfigContext = createContext<RemoteConfigContextType | undefined>(undefined);
 
@@ -54,7 +53,6 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
       const fallbackConfig: RemoteConfig = {
         ...DEFAULT_REMOTE_CONFIG,
         appId,
-        enableStreaksForAllUsers: ENABLE_STREAKS,
       };
       setConfig(fallbackConfig);
     } finally {
