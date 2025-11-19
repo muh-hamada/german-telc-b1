@@ -1,0 +1,698 @@
+================================================================================
+DEDUPLICATION REPORT - 2025-11-19T12:36:19.198Z
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Original entries:      1218
+Cleaned entries:       1149
+Removed duplicates:    69
+
+REMOVED DUPLICATES
+--------------------------------------------------------------------------------
+Found 69 exact duplicate(s)
+
+1. Word: "Land"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 527] das Land (noun)
+   Sentences: 2
+     1. Deutschland ist ein schönes Land.
+     2. Möchten Sie lieber auf dem Land oder in der Stadt wohnen?
+
+   REMOVED: [Index 561] (duplicate of index 527)
+
+2. Word: "Landschaft"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 528] die Landschaft (noun)
+   Sentences: 1
+     1. Die Landschaft ist sehr schön.
+
+   REMOVED: [Index 562] (duplicate of index 528)
+
+3. Word: "Kiosk"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 529] der Kiosk (noun)
+   Sentences: 1
+     1. Zeitungen kannst du am Kiosk kaufen.
+
+   REMOVED: [Index 563] (duplicate of index 529)
+
+4. Word: "Kirche"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 530] die Kirche (noun)
+   Sentences: 1
+     1. Diese Kirche ist fast 800 Jahre alt.
+
+   REMOVED: [Index 564] (duplicate of index 530)
+
+5. Word: "klappen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 531] klappen (verb)
+   Sentences: 2
+     1. Können wir uns heute Mittag treffen? – Ja, das klappt.
+     2. Wie war die Reise? - Gut, es hat alles super geklappt.
+
+   REMOVED: [Index 565] (duplicate of index 531)
+
+6. Word: "klar"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 532] klar (adjective/adverb)
+   Sentences: 2
+     1. Kommst du mit? – Klar!
+     2. Ich komme morgen zu deiner Party, das ist doch klar.
+
+   REMOVED: [Index 566] (duplicate of index 532)
+
+7. Word: "Klavier"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 533] das Klavier (noun)
+   Sentences: 1
+     1. Jakob kann sehr gut Klavier spielen.
+
+   REMOVED: [Index 567] (duplicate of index 533)
+
+8. Word: "Kleid"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 534] das Kleid (noun)
+   Sentences: 1
+     1. Julia möchte ein rotes Kleid kaufen.
+
+   REMOVED: [Index 568] (duplicate of index 534)
+
+9. Word: "Kleidung"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 535] die (Sg.) Kleidung (noun)
+   Sentences: 1
+     1. Wo finde ich Kleidung? – Hosen im ersten, Kleider und Röcke im zweiten...
+
+   REMOVED: [Index 569] (duplicate of index 535)
+
+10. Word: "klein"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 536] klein (adjective)
+   Sentences: 3
+     1. Unsere Wohnung ist sehr klein.
+     2. Unsere Tochter ist noch klein. Sie ist erst zwei Jahre alt.
+     3. Wir machen am Wochenende einen kleinen Ausflug.
+
+   REMOVED: [Index 570] (duplicate of index 536)
+
+11. Word: "klug"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 537] klug (adjective)
+   Sentences: 3
+     1. Molly ist ein kluges Mädchen.
+     2. Lisa ist sehr klug. Sie bekommt immer gute Noten.
+     3. Das ist klug von dir.
+
+   REMOVED: [Index 571] (duplicate of index 537)
+
+12. Word: "kochen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 538] kochen (verb)
+   Sentences: 2
+     1. Herr Georgi kann gut kochen.
+     2. Das Wasser kocht.
+
+   REMOVED: [Index 572] (duplicate of index 538)
+
+13. Word: "Koffer"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 539] der Koffer (noun)
+   Sentences: 1
+     1. Hast du den Koffer schon gepackt?
+
+   REMOVED: [Index 573] (duplicate of index 539)
+
+14. Word: "Kollege/Kollegin"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 540] der/die Kollege/Kollegin (noun)
+   Sentences: 1
+     1. Wie heißt die neue Kollegin?
+
+   REMOVED: [Index 574] (duplicate of index 540)
+
+15. Word: "komisch"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 541] komisch (adjective)
+   Sentences: 3
+     1. Der Film war sehr komisch. Wir haben viel gelacht.
+     2. Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus.
+     3. Das Essen schmeckt komisch. Probier mal!
+
+   REMOVED: [Index 575] (duplicate of index 541)
+
+16. Word: "kommen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 542] kommen (verb)
+   Sentences: 2
+     1. Woher kommen Sie? – Aus Frankreich.
+     2. Er wird bald kommen.
+
+   REMOVED: [Index 576] (duplicate of index 542)
+
+17. Word: "können"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 543] können (verb (modal))
+   Sentences: 5
+     1. Ich kann Deutsch und Russisch. Aber Englisch kann ich nicht.
+     2. Können Sie mir helfen?
+     3. Du kannst durch den Park laufen, das ist am schnellsten.
+     4. Kann ich jetzt nach Hause gehen?
+     5. Sie können mit dem Bus an den Bahnhof fahren.
+
+   REMOVED: [Index 577] (duplicate of index 543)
+
+18. Word: "Kontakt"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 544] der Kontakt (noun)
+   Sentences: 2
+     1. Ich habe wenig Kontakt zu meinen Kollegen.
+     2. Bitte schicken Sie mir Ihre Kontaktdaten!
+
+   REMOVED: [Index 578] (duplicate of index 544)
+
+19. Word: "Konto"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 545] das Konto (noun)
+   Sentences: 1
+     1. Das Geld überweisen wir am ersten März auf Ihr Konto.
+
+   REMOVED: [Index 579] (duplicate of index 545)
+
+20. Word: "kontrollieren"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 546] kontrollieren (verb)
+   Sentences: 2
+     1. Können Sie bei meinem Auto bitte das Öl kontrollieren?
+     2. Bitte öffnen Sie Ihren Koffer, wir müssen Ihr Gepäck kontrollieren.
+
+   REMOVED: [Index 580] (duplicate of index 546)
+
+21. Word: "Konzert"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 547] das Konzert (noun)
+   Sentences: 1
+     1. Für das Konzert am Sonntag gibt es noch Karten.
+
+   REMOVED: [Index 581] (duplicate of index 547)
+
+22. Word: "Kopf"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 548] der Kopf (noun)
+   Sentences: 1
+     1. Mein Kopf tut weh!
+
+   REMOVED: [Index 582] (duplicate of index 548)
+
+23. Word: "Körper"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 549] der Körper (noun)
+   Sentences: 1
+     1. Der Arzt sagt, ich muss etwas für meinen Körper tun, z. B. schwimmen o...
+
+   REMOVED: [Index 583] (duplicate of index 549)
+
+24. Word: "Kosmetik"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 550] die (Sg.) Kosmetik (noun)
+   Sentences: 1
+     1. Kosmetik können Sie im Erdgeschoss kaufen.
+
+   REMOVED: [Index 584] (duplicate of index 550)
+
+25. Word: "kosten"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 551] kosten (verb)
+   Sentences: 1
+     1. Wie viel kostet das Buch? – 20 Euro.
+
+   REMOVED: [Index 585] (duplicate of index 551)
+
+26. Word: "Link"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 552] der Link (noun)
+   Sentences: 1
+     1. Ich schicke dir einen Link zu Deutschübungen.
+
+   REMOVED: [Index 586] (duplicate of index 552)
+
+27. Word: "links"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 553] links (adverb)
+   Sentences: 1
+     1. Gehen Sie die nächste Straße links.
+
+   REMOVED: [Index 587] (duplicate of index 553)
+
+28. Word: "Löffel"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 554] der Löffel (noun)
+   Sentences: 1
+     1. Bitte bringen Sie mir einen Löffel.
+
+   REMOVED: [Index 588] (duplicate of index 554)
+
+29. Word: "Lokal"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 555] das Lokal (noun)
+   Sentences: 1
+     1. Gibt es hier in der Nähe ein gutes Lokal?
+
+   REMOVED: [Index 589] (duplicate of index 555)
+
+30. Word: "Lüge"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 556] die Lüge (noun)
+   Sentences: 1
+     1. Das stimmt nicht! Das ist eine Lüge!
+
+   REMOVED: [Index 590] (duplicate of index 556)
+
+31. Word: "lügen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 557] lügen (verb)
+   Sentences: 2
+     1. Du sollst nicht lügen.
+     2. Glaub ihm nicht, er lügt.
+
+   REMOVED: [Index 591] (duplicate of index 557)
+
+32. Word: "Lust"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 558] die (Sg.) Lust (noun)
+   Sentences: 2
+     1. Gehen wir heute Abend ins Kino? - Nein, ich habe keine Lust.
+     2. Ich habe Lust auf Schokolade.
+
+   REMOVED: [Index 592] (duplicate of index 558)
+
+33. Word: "lustig"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 559] lustig (adjective)
+   Sentences: 2
+     1. Warum lacht ihr? Was ist so lustig?
+     2. Ich mag lustige Filme.
+
+   REMOVED: [Index 593] (duplicate of index 559)
+
+34. Word: "machen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 560] machen (verb)
+   Sentences: 4
+     1. Was machst du heute Abend?
+     2. Ich muss jetzt das Essen machen.
+     3. Das macht 5 Euro 95.
+     4. Entschuldigung! - Das macht doch nichts.
+
+   REMOVED: [Index 594] (duplicate of index 560)
+
+35. Word: "wollen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1143] wollen (verb (modal))
+   Sentences: 1
+     1. Wollen Sie einen Kaffee trinken?
+
+   REMOVED: [Index 1182] (duplicate of index 1143)
+
+36. Word: "der Workshop, -s"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1144] der Workshop, -s (noun)
+   Sentences: 2
+     1. Das war ein toller Workshop. Ich habe viel gelernt.
+     2. Am Freitag gibt es einen Computer-Workshop in meiner Firma.
+
+   REMOVED: [Index 1183] (duplicate of index 1144)
+
+37. Word: "das Wort,¨-er"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1145] das Wort,¨-er (noun)
+   Sentences: 2
+     1. Ich kenne das Wort nicht.
+     2. Ich muss das Wort im Wörterbuch suchen.
+
+   REMOVED: [Index 1184] (duplicate of index 1145)
+
+38. Word: "wunderbar"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1146] wunderbar (adjective)
+   Sentences: 2
+     1. Diese Schokolade schmeckt wunderbar.
+     2. Wir hatten im Urlaub wunderbares Wetter.
+
+   REMOVED: [Index 1185] (duplicate of index 1146)
+
+39. Word: "der Wunsch, ¨-e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1147] der Wunsch, ¨-e (noun)
+   Sentences: 4
+     1. Ich wünsche Ihnen alles Gute!
+     2. Sie wünschen? – Ich möchte ein halbes Kilo Äpfel, bitte.
+     3. Haben Sie noch einen Wunsch?
+     4. Was ist dein größter Wunsch?
+
+   REMOVED: [Index 1186] (duplicate of index 1147)
+
+40. Word: "wünschen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1148] wünschen (verb)
+   Sentences: 1
+     1. Ich wünsche mir eine Kamera zum Geburtstag.
+
+   REMOVED: [Index 1187] (duplicate of index 1148)
+
+41. Word: "die Wurst, ¨-e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1149] die Wurst, ¨-e (noun)
+   Sentences: 1
+     1. Eine Wurst mit Pommes, bitte.
+
+   REMOVED: [Index 1188] (duplicate of index 1149)
+
+42. Word: "die Zahl, -en"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1150] die Zahl, -en (noun)
+   Sentences: 1
+     1. Können Sie die Zahl bitte wiederholen?
+
+   REMOVED: [Index 1189] (duplicate of index 1150)
+
+43. Word: "zahlen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1151] zahlen (verb)
+   Sentences: 1
+     1. Entschuldigung, zahlen bitte!
+
+   REMOVED: [Index 1190] (duplicate of index 1151)
+
+44. Word: "der Zahn, ¨-e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1152] der Zahn, ¨-e (noun)
+   Sentences: 1
+     1. Der Zahn tut mir schon seit einer Woche weh.
+
+   REMOVED: [Index 1191] (duplicate of index 1152)
+
+45. Word: "zeichnen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1153] zeichnen (verb)
+   Sentences: 2
+     1. Caterina kann gut zeichnen.
+     2. Sieh mal das Bild hier.
+
+   REMOVED: [Index 1192] (duplicate of index 1153)
+
+46. Word: "die Zeit, -en"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1155] die Zeit, -en (noun)
+   Sentences: 1
+     1. Ich habe heute keine Zeit.
+
+   REMOVED: [Index 1194] (duplicate of index 1155)
+
+47. Word: "die Zeitschrift, -en"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1156] die Zeitschrift, -en (noun)
+   Sentences: 1
+     1. Diese Zeitschrift kauft Andrea jede Woche.
+
+   REMOVED: [Index 1195] (duplicate of index 1156)
+
+48. Word: "die Zeitung, -en"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1157] die Zeitung, -en (noun)
+   Sentences: 2
+     1. Ich lese manchmal Zeitung.
+     2. Wo ist die Zeitung von heute?
+
+   REMOVED: [Index 1196] (duplicate of index 1157)
+
+49. Word: "das Zelt, -e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1158] das Zelt, -e (noun)
+   Sentences: 1
+     1. Im Sommer schlafen wir manchmal im Zelt.
+
+   REMOVED: [Index 1197] (duplicate of index 1158)
+
+50. Word: "das Zentrum, -en"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1159] das Zentrum, -en (noun)
+   Sentences: 2
+     1. Der Bahnhof ist im Stadtzentrum.
+     2. Wohnst du im Zentrum? - Nein, ich wohne nicht direkt in der Stadt.
+
+   REMOVED: [Index 1198] (duplicate of index 1159)
+
+51. Word: "der Zettel, -"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1160] der Zettel, - (noun)
+   Sentences: 2
+     1. Hast du einen Zettel für mich? Ich muss etwas notieren.
+     2. Schreiben Sie Ihre Telefonnummer bitte auf den Zettel.
+
+   REMOVED: [Index 1199] (duplicate of index 1160)
+
+52. Word: "das Zeugnis, -se"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1161] das Zeugnis, -se (noun)
+   Sentences: 1
+     1. Morgen bekommen die Kinder ihr Zeugnis.
+
+   REMOVED: [Index 1200] (duplicate of index 1161)
+
+53. Word: "(an-)/(aus)ziehen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1162] (an-)/(aus)ziehen (verb)
+   Sentences: 3
+     1. Ich ziehe (mir) eine Jacke an.
+     2. Er hat sein T-Shirt ausgezogen und ein Hemd angezogen.
+     3. Die Nachbarn sind am Wochenende ausgezogen.
+
+   REMOVED: [Index 1201] (duplicate of index 1162)
+
+54. Word: "das Ziel, -e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1163] das Ziel, -e (noun)
+   Sentences: 2
+     1. John läuft sehr schnell. Er war als erster am Ziel.
+     2. Was ist dein Ziel im Leben?
+
+   REMOVED: [Index 1202] (duplicate of index 1163)
+
+55. Word: "das Zimmer, -"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1164] das Zimmer, - (noun)
+   Sentences: 4
+     1. Das Zimmer ist am größten.
+     2. Mach im Schlafzimmer das Fenster zu!
+     3. Die Wohnung hat drei Zimmer.
+     4. Ich habe im Hotel ein Zimmer bestellt.
+
+   REMOVED: [Index 1203] (duplicate of index 1164)
+
+56. Word: "der Zirkus, -se"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1165] der Zirkus, -se (noun)
+   Sentences: 1
+     1. Heute gehen wir mit den Kindern in den Zirkus.
+
+   REMOVED: [Index 1204] (duplicate of index 1165)
+
+57. Word: "die Zitrone, -n"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1166] die Zitrone, -n (noun)
+   Sentences: 2
+     1. Ich trinke den Tee mit Zitrone.
+     2. Lucia mag Zitroneneis.
+
+   REMOVED: [Index 1205] (duplicate of index 1166)
+
+58. Word: "der Zoo, -s"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1167] der Zoo, -s (noun)
+   Sentences: 1
+     1. Am Sonntag gehen wir in den Zoo.
+
+   REMOVED: [Index 1206] (duplicate of index 1167)
+
+59. Word: "zu"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1168] zu (preposition/adverb)
+   Sentences: 5
+     1. Der Bus fährt zum Bahnhof.
+     2. Ich gehe zu Fuß.
+     3. Ich bin zu Hause.
+     4. Das Kleid ist mir zu teuer.
+     5. Ich trinke zum Essen ein Bier.
+
+   REMOVED: [Index 1207] (duplicate of index 1168)
+
+60. Word: "der Zucker (Sg.)"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1169] der Zucker (Sg.) (noun)
+   Sentences: 1
+     1. Trinken Sie den Tee mit oder ohne Zucker?
+
+   REMOVED: [Index 1208] (duplicate of index 1169)
+
+61. Word: "zuerst"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1170] zuerst (adverb)
+   Sentences: 2
+     1. Zuerst müsst ihr die Hausaufgaben machen, dann könnt ihr spielen.
+     2. Zuerst hat mir die Arbeit gar nicht gefallen. Jetzt geht es besser.
+
+   REMOVED: [Index 1209] (duplicate of index 1170)
+
+62. Word: "zufrieden"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1171] zufrieden (adjective)
+   Sentences: 1
+     1. Ich bin mit der Wohnung zufrieden. Sie ist nicht groß, aber sie hat ei...
+
+   REMOVED: [Index 1210] (duplicate of index 1171)
+
+63. Word: "der Zug, ¨-e"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1172] der Zug, ¨-e (noun)
+   Sentences: 1
+     1. Ich fahre gern mit dem Zug.
+
+   REMOVED: [Index 1211] (duplicate of index 1172)
+
+64. Word: "zuhören"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1173] zuhören (verb)
+   Sentences: 1
+     1. Hör mir doch mal zu! Ich rede mit dir.
+
+   REMOVED: [Index 1212] (duplicate of index 1173)
+
+65. Word: "zuletzt"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1174] zuletzt (adverb)
+   Sentences: 2
+     1. Wir haben uns vor drei Jahren zuletzt gesehen.
+     2. Diese Aufgabe machen wir zuletzt.
+
+   REMOVED: [Index 1213] (duplicate of index 1174)
+
+66. Word: "zum Beispiel"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1175] zum Beispiel (expression)
+   Sentences: 1
+     1. Mein Freund hat viele Hobbys, zum Beispiel Kochen, Lesen und Tanzen.
+
+   REMOVED: [Index 1214] (duplicate of index 1175)
+
+67. Word: "zumachen"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1176] zumachen (verb)
+   Sentences: 1
+     1. Machst du bitte das Fenster zu?
+
+   REMOVED: [Index 1215] (duplicate of index 1176)
+
+68. Word: "zurück"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1177] zurück (adverb)
+   Sentences: 1
+     1. Eine Fahrkarte nach Frankfurt und zurück, bitte.
+
+   REMOVED: [Index 1216] (duplicate of index 1177)
+
+69. Word: "zurück- (fahren, geben, gehen, kommen, laufen)"
+   Occurrences: 2 (kept 1, removed 1)
+
+   KEPT: [Index 1178] zurück- (fahren, geben, gehen, kommen, laufen) (prefix/verb phrase)
+   Sentences: 5
+     1. Fahrt ihr nach der Party zurück nach Hause?
+     2. Wann muss ich das Buch zurückgeben?
+     3. Wir gehen wieder zurück.
+     4. Wann kommst du zurück?
+     5. Ich habe mein Buch vergessen. Ich laufe schnell nach Hause zurück.
+
+   REMOVED: [Index 1217] (duplicate of index 1178)
+
+
+================================================================================
+VERIFICATION
+================================================================================
+
+The following words appear multiple times in the cleaned data:
+(These are NOT exact duplicates - they differ in sentences or other fields)
+--------------------------------------------------------------------------------
+Found 1 word(s) that still appear multiple times:
+
+1. "zeigen" appears 2 times at indices: 1120, 1148
+   [1120] zeigen (verb) - 1 sentence(s)
+   [1148] zeigen (verb) - 1 sentence(s)
