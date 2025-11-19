@@ -79,13 +79,13 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
     return (
       <View style={styles.container}>
         <View style={styles.loginPrompt}>
+          <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
           <View style={styles.loginPromptTextContainer}>
-            <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
             <Text style={styles.loginPromptText}>
               {t('progress.trackingPrompt')}
             </Text>
+            {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' />}
           </View>
-          {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' />}
         </View>
       </View>
     );
@@ -236,19 +236,20 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
   },
   loginPrompt: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: I18nManager.isRTL ? 'flex-start' : 'flex-end',
-    alignItems: 'center',
-    gap: spacing.md,
+    alignItems: I18nManager.isRTL ? 'flex-end' : 'flex-start',
     flex: 1,
   },
   loginPromptTextContainer: {
     flex: 1,
     flexShrink: 1,
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    justifyContent: I18nManager.isRTL ? 'flex-start' : 'flex-end',
+    gap: spacing.md,
   },
   loginPromptTitle: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
+    ...typography.textStyles.h3,
+    color: colors.primary[500],
+    fontWeight: typography.fontWeight.semibold,
     marginBottom: spacing.sm,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
     flexWrap: 'wrap',

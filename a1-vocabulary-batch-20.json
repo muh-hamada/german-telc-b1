@@ -1,0 +1,253 @@
+[
+  {
+    "word": "enden",
+    "article": "",
+    "translations": {
+      "en": "to end",
+      "es": "terminar",
+      "fr": "se terminer",
+      "ru": "заканчиваться",
+      "ar": "ينتهي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Straße endet hier.",
+        "translations": {
+          "en": "The street ends here.",
+          "es": "La calle termina aquí.",
+          "fr": "La rue se termine ici.",
+          "ru": "Улица заканчивается здесь.",
+          "ar": "ينتهي الشارع هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ende",
+    "article": "das",
+    "translations": {
+      "en": "end",
+      "es": "final",
+      "fr": "fin",
+      "ru": "конец",
+      "ar": "النهاية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie wohnt am Ende der Straße.",
+        "translations": {
+          "en": "She lives at the end of the street.",
+          "es": "Ella vive al final de la calle.",
+          "fr": "Elle habite au bout de la rue.",
+          "ru": "Она живёт в конце улицы.",
+          "ar": "إنها تعيش في نهاية الشارع."
+        }
+      },
+      {
+        "text": "Er bekommt sein Geld am Ende des Monats.",
+        "translations": {
+          "en": "He gets his money at the end of the month.",
+          "es": "Recibe su dinero a fin de mes.",
+          "fr": "Il reçoit son argent à la fin du mois.",
+          "ru": "Он получает свои деньги в конце месяца.",
+          "ar": "يحصل على أمواله في نهاية الشهر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "entschuldigen",
+    "article": "",
+    "translations": {
+      "en": "to excuse",
+      "es": "disculpar",
+      "fr": "excuser",
+      "ru": "извинять",
+      "ar": "يعتذر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Entschuldigen Sie bitte!",
+        "translations": {
+          "en": "Excuse me, please!",
+          "es": "¡Disculpe, por favor!",
+          "fr": "Excusez-moi, s'il vous plaît !",
+          "ru": "Извините, пожалуйста!",
+          "ar": "المعذرة، من فضلك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Entschuldigung",
+    "article": "die",
+    "translations": {
+      "en": "excuse",
+      "es": "disculpa",
+      "fr": "excuse",
+      "ru": "извинение",
+      "ar": "الاعتذار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Entschuldigung! – Bitte.",
+        "translations": {
+          "en": "Excuse me! – You're welcome.",
+          "es": "¡Disculpe! – De nada.",
+          "fr": "Excusez-moi ! – Je vous en prie.",
+          "ru": "Извините! – Пожалуйста.",
+          "ar": "المعذرة! – على الرحب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "er",
+    "article": "",
+    "translations": {
+      "en": "he",
+      "es": "él",
+      "fr": "il",
+      "ru": "он",
+      "ar": "هو"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Er heißt Ali.",
+        "translations": {
+          "en": "His name is Ali.",
+          "es": "Se llama Ali.",
+          "fr": "Il s'appelle Ali.",
+          "ru": "Его зовут Али.",
+          "ar": "اسمه علي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ergebnis",
+    "article": "das",
+    "translations": {
+      "en": "result",
+      "es": "resultado",
+      "fr": "résultat",
+      "ru": "результат",
+      "ar": "النتيجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Ergebnis des Tests bekommen Sie in zwei Wochen.",
+        "translations": {
+          "en": "You'll get the test results in two weeks.",
+          "es": "Recibirá el resultado del examen en dos semanas.",
+          "fr": "Vous recevrez le résultat du test dans deux semaines.",
+          "ru": "Вы получите результаты теста через две недели.",
+          "ar": "ستحصل على نتيجة الاختبار خلال أسبوعين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "erklären",
+    "article": "",
+    "translations": {
+      "en": "to explain",
+      "es": "explicar",
+      "fr": "expliquer",
+      "ru": "объяснять",
+      "ar": "يشرح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir das erklären?",
+        "translations": {
+          "en": "Can you explain that to me?",
+          "es": "¿Puedes explicarme eso?",
+          "fr": "Peux-tu m'expliquer ça ?",
+          "ru": "Ты можешь мне это объяснить?",
+          "ar": "هل يمكنك شرح ذلك لي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "erlauben",
+    "article": "",
+    "translations": {
+      "en": "to allow",
+      "es": "permitir",
+      "fr": "permettre",
+      "ru": "разрешать",
+      "ar": "يسمح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Rauchen ist hier nicht erlaubt.",
+        "translations": {
+          "en": "Smoking is not allowed here.",
+          "es": "Fumar no está permitido aquí.",
+          "fr": "Il n'est pas permis de fumer ici.",
+          "ru": "Курение здесь не разрешено.",
+          "ar": "التدخين غير مسموح به هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Erwachsene",
+    "article": "der",
+    "translations": {
+      "en": "adult",
+      "es": "adulto",
+      "fr": "adulte",
+      "ru": "взрослый",
+      "ar": "البالغ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dieser Film ist nur für Erwachsene.",
+        "translations": {
+          "en": "This film is only for adults.",
+          "es": "Esta película es solo para adultos.",
+          "fr": "Ce film est uniquement pour adultes.",
+          "ru": "Этот фильм только для взрослых.",
+          "ar": "هذا الفيلم للبالغين فقط."
+        }
+      }
+    ]
+  },
+  {
+    "word": "erzählen",
+    "article": "",
+    "translations": {
+      "en": "to tell",
+      "es": "contar",
+      "fr": "raconter",
+      "ru": "рассказывать",
+      "ar": "يحكي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen euch etwas erzählen!",
+        "translations": {
+          "en": "We have to tell you something!",
+          "es": "¡Tenemos que contarte algo!",
+          "fr": "Nous devons vous raconter quelque chose !",
+          "ru": "Мы должны вам кое-что рассказать!",
+          "ar": "يجب أن نخبرك بشيء ما!"
+        }
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,253 @@
+[
+  {
+    "word": "hinten",
+    "article": "",
+    "translations": {
+      "en": "at the back",
+      "es": "atrás",
+      "fr": "à l'arrière",
+      "ru": "сзади",
+      "ar": "في الخلف"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Die Tür zum Aussteigen ist hinten.",
+        "translations": {
+          "en": "The exit door is at the back.",
+          "es": "La puerta de salida está atrás.",
+          "fr": "La porte de sortie est à l'arrière.",
+          "ru": "Дверь для выхода сзади.",
+          "ar": "باب الخروج في الخلف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hobby",
+    "article": "das",
+    "translations": {
+      "en": "hobby",
+      "es": "pasatiempo",
+      "fr": "passe-temps",
+      "ru": "хобби",
+      "ar": "الهواية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Hobbys sind Wandern und Schwimmen.",
+        "translations": {
+          "en": "My hobbies are hiking and swimming.",
+          "es": "Mis pasatiempos son caminar y nadar.",
+          "fr": "Mes passe-temps sont la randonnée et la natation.",
+          "ru": "Мои хобби — походы и плавание.",
+          "ar": "هواياتي هي المشي والسباحة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "hoch",
+    "article": "",
+    "translations": {
+      "en": "high",
+      "es": "alto",
+      "fr": "haut",
+      "ru": "высокий",
+      "ar": "عالي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Mount Everest ist 8.880 Meter hoch.",
+        "translations": {
+          "en": "Mount Everest is 8,880 meters high.",
+          "es": "El Monte Everest tiene 8.880 metros de altura.",
+          "fr": "Le Mont Everest fait 8 880 mètres de haut.",
+          "ru": "Высота Эвереста 8 880 метров.",
+          "ar": "جبل إيفرست يبلغ ارتفاعه 8,880 مترًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hochzeit",
+    "article": "die",
+    "translations": {
+      "en": "wedding",
+      "es": "boda",
+      "fr": "mariage",
+      "ru": "свадьба",
+      "ar": "الزفاف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zu dieser Hochzeit kommen mehr als fünfzig Gäste.",
+        "translations": {
+          "en": "More than fifty guests are coming to this wedding.",
+          "es": "A esta boda vienen más de cincuenta invitados.",
+          "fr": "Plus de cinquante invités viennent à ce mariage.",
+          "ru": "На эту свадьбу придёт более пятидесяти гостей.",
+          "ar": "سيأتي أكثر من خمسين ضيفًا إلى هذا الزفاف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "holen",
+    "article": "",
+    "translations": {
+      "en": "to fetch",
+      "es": "traer",
+      "fr": "aller chercher",
+      "ru": "брать",
+      "ar": "يحضر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich hole zwei Flaschen Wasser aus der Küche.",
+        "translations": {
+          "en": "I'll fetch two bottles of water from the kitchen.",
+          "es": "Traigo dos botellas de agua de la cocina.",
+          "fr": "Je vais chercher deux bouteilles d'eau dans la cuisine.",
+          "ru": "Я принесу две бутылки воды из кухни.",
+          "ar": "سأحضر زجاجتين من الماء من المطبخ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "hören",
+    "article": "",
+    "translations": {
+      "en": "to hear",
+      "es": "oír",
+      "fr": "entendre",
+      "ru": "слышать",
+      "ar": "يسمع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Hör mal! Was ist das?",
+        "translations": {
+          "en": "Listen! What is that?",
+          "es": "¡Escucha! ¿Qué es eso?",
+          "fr": "Écoute ! Qu'est-ce que c'est ?",
+          "ru": "Послушай! Что это?",
+          "ar": "استمع! ما هذا؟"
+        }
+      },
+      {
+        "text": "Ich habe das Lied schon mal gehört.",
+        "translations": {
+          "en": "I've heard that song before.",
+          "es": "Ya he escuchado esa canción.",
+          "fr": "J'ai déjà entendu cette chanson.",
+          "ru": "Я уже слышал эту песню.",
+          "ar": "لقد سمعت هذه الأغنية من قبل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hotel",
+    "article": "das",
+    "translations": {
+      "en": "hotel",
+      "es": "hotel",
+      "fr": "hôtel",
+      "ru": "отель",
+      "ar": "الفندق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Urlaub sind wir in einem Hotel am Meer.",
+        "translations": {
+          "en": "On vacation we're in a hotel by the sea.",
+          "es": "De vacaciones estamos en un hotel junto al mar.",
+          "fr": "En vacances, nous sommes dans un hôtel au bord de la mer.",
+          "ru": "В отпуске мы в отеле у моря.",
+          "ar": "في الإجازة نحن في فندق على البحر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hund",
+    "article": "der",
+    "translations": {
+      "en": "dog",
+      "es": "perro",
+      "fr": "chien",
+      "ru": "собака",
+      "ar": "الكلب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Hund ist noch jung.",
+        "translations": {
+          "en": "The dog is still young.",
+          "es": "El perro todavía es joven.",
+          "fr": "Le chien est encore jeune.",
+          "ru": "Собака ещё молодая.",
+          "ar": "الكلب لا يزال صغيرًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hunger",
+    "article": "der",
+    "translations": {
+      "en": "hunger",
+      "es": "hambre",
+      "fr": "faim",
+      "ru": "голод",
+      "ar": "الجوع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Hunger! Wann ist das Essen fertig?",
+        "translations": {
+          "en": "I'm hungry! When is the food ready?",
+          "es": "¡Tengo hambre! ¿Cuándo está lista la comida?",
+          "fr": "J'ai faim ! Quand est-ce que le repas est prêt ?",
+          "ru": "Я голоден! Когда еда будет готова?",
+          "ar": "أنا جائع! متى سيكون الطعام جاهزًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "ich",
+    "article": "",
+    "translations": {
+      "en": "I",
+      "es": "yo",
+      "fr": "je",
+      "ru": "я",
+      "ar": "أنا"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Ich heiße Veronika.",
+        "translations": {
+          "en": "My name is Veronika.",
+          "es": "Me llamo Veronika.",
+          "fr": "Je m'appelle Veronika.",
+          "ru": "Меня зовут Вероника.",
+          "ar": "اسمي فيرونيكا."
+        }
+      }
+    ]
+  }
+]
+

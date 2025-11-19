@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: spacing.padding.lg,
+    paddingTop: 0,
     gap: spacing.margin.md,
   },
   card: {

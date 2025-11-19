@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Familienname",
+    "article": "der",
+    "translations": {
+      "en": "family name",
+      "es": "apellido",
+      "fr": "nom de famille",
+      "ru": "фамилия",
+      "ar": "اسم العائلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Familiennamen sind García González.",
+        "translations": {
+          "en": "My family names are García González.",
+          "es": "Mis apellidos son García González.",
+          "fr": "Mes noms de famille sont García González.",
+          "ru": "Мои фамилии — Гарсия Гонсалес.",
+          "ar": "أسماء عائلتي هي غارسيا غونزاليس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Familienstand",
+    "article": "der",
+    "translations": {
+      "en": "marital status",
+      "es": "estado civil",
+      "fr": "état civil",
+      "ru": "семейное положение",
+      "ar": "الحالة الاجتماعية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bei \\\"Familienstand\\\" musst du \\\"ledig\\\" ankreuzen.",
+        "translations": {
+          "en": "For \"marital status\" you have to check \"single\".",
+          "es": "En \"estado civil\" debes marcar \"soltero\".",
+          "fr": "Pour \"état civil\", tu dois cocher \"célibataire\".",
+          "ru": "В графе «семейное положение» нужно отметить «холост».",
+          "ar": "في \"الحالة الاجتماعية\" يجب أن تضع علامة على \"أعزب\"."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Farbe",
+    "article": "die",
+    "translations": {
+      "en": "color",
+      "es": "color",
+      "fr": "couleur",
+      "ru": "цвет",
+      "ar": "اللون"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Farbe gefällt mir gut.",
+        "translations": {
+          "en": "I like the color.",
+          "es": "Me gusta el color.",
+          "fr": "La couleur me plaît bien.",
+          "ru": "Мне нравится цвет.",
+          "ar": "يعجبني اللون."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fax",
+    "article": "das",
+    "translations": {
+      "en": "fax",
+      "es": "fax",
+      "fr": "fax",
+      "ru": "факс",
+      "ar": "الفاكس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schicken Sie uns einfach ein Fax!",
+        "translations": {
+          "en": "Just send us a fax!",
+          "es": "¡Simplemente envíenos un fax!",
+          "fr": "Envoyez-nous simplement un fax !",
+          "ru": "Просто отправьте нам факс!",
+          "ar": "فقط أرسل لنا فاكسًا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Feier-",
+    "article": "",
+    "translations": {
+      "en": "celebration",
+      "es": "celebración",
+      "fr": "fête",
+      "ru": "праздник",
+      "ar": "احتفال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Am Montag ist Feiertag.",
+        "translations": {
+          "en": "Monday is a holiday.",
+          "es": "El lunes es día festivo.",
+          "fr": "Lundi est un jour férié.",
+          "ru": "В понедельник праздник.",
+          "ar": "يوم الاثنين عطلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "feiern",
+    "article": "",
+    "translations": {
+      "en": "to celebrate",
+      "es": "celebrar",
+      "fr": "fêter",
+      "ru": "праздновать",
+      "ar": "يحتفل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir feiern heute meinen Geburtstag.",
+        "translations": {
+          "en": "We're celebrating my birthday today.",
+          "es": "Hoy celebramos mi cumpleaños.",
+          "fr": "Nous fêtons mon anniversaire aujourd'hui.",
+          "ru": "Сегодня мы празднуем мой день рождения.",
+          "ar": "نحتفل بعيد ميلادي اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "fehlen",
+    "article": "",
+    "translations": {
+      "en": "to be missing",
+      "es": "faltar",
+      "fr": "manquer",
+      "ru": "отсутствовать",
+      "ar": "ينقص"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Herr Müller ist nicht da, er fehlt schon seit drei Tagen.",
+        "translations": {
+          "en": "Mr. Müller isn't here, he's been absent for three days.",
+          "es": "El señor Müller no está, falta desde hace tres días.",
+          "fr": "Monsieur Müller n'est pas là, il est absent depuis trois jours.",
+          "ru": "Господина Мюллера нет, он отсутствует уже три дня.",
+          "ar": "السيد مولر ليس هنا، إنه غائب منذ ثلاثة أيام."
+        }
+      },
+      {
+        "text": "Was fehlt Ihnen?",
+        "translations": {
+          "en": "What's wrong with you?",
+          "es": "¿Qué le pasa?",
+          "fr": "Qu'est-ce qui ne va pas ?",
+          "ru": "Что с вами?",
+          "ar": "ما الخطب؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fehler",
+    "article": "der",
+    "translations": {
+      "en": "mistake",
+      "es": "error",
+      "fr": "erreur",
+      "ru": "ошибка",
+      "ar": "الخطأ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diesen Fehler mache ich immer.",
+        "translations": {
+          "en": "I always make this mistake.",
+          "es": "Siempre cometo este error.",
+          "fr": "Je fais toujours cette erreur.",
+          "ru": "Я всегда делаю эту ошибку.",
+          "ar": "أرتكب هذا الخطأ دائمًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "fernsehen",
+    "article": "",
+    "translations": {
+      "en": "to watch TV",
+      "es": "ver televisión",
+      "fr": "regarder la télévision",
+      "ru": "смотреть телевизор",
+      "ar": "يشاهد التلفاز"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wollen wir heute Abend mal fernsehen?",
+        "translations": {
+          "en": "Should we watch TV tonight?",
+          "es": "¿Queremos ver televisión esta noche?",
+          "fr": "Voulons-nous regarder la télévision ce soir ?",
+          "ru": "Хотим посмотреть телевизор сегодня вечером?",
+          "ar": "هل نريد مشاهدة التلفاز الليلة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "fertig",
+    "article": "",
+    "translations": {
+      "en": "ready",
+      "es": "listo",
+      "fr": "prêt",
+      "ru": "готовый",
+      "ar": "جاهز"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Bist du fertig?",
+        "translations": {
+          "en": "Are you ready?",
+          "es": "¿Estás listo?",
+          "fr": "Es-tu prêt ?",
+          "ru": "Ты готов?",
+          "ar": "هل أنت جاهز؟"
+        }
+      },
+      {
+        "text": "Ist mein Auto schon fertig?",
+        "translations": {
+          "en": "Is my car ready yet?",
+          "es": "¿Ya está listo mi coche?",
+          "fr": "Ma voiture est-elle déjà prête ?",
+          "ru": "Моя машина уже готова?",
+          "ar": "هل سيارتي جاهزة بالفعل؟"
+        }
+      }
+    ]
+  }
+]
+

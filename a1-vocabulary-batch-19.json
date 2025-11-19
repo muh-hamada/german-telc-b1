@@ -1,0 +1,243 @@
+[
+  {
+    "word": "einladen",
+    "article": "",
+    "translations": {
+      "en": "to invite",
+      "es": "invitar",
+      "fr": "inviter",
+      "ru": "приглашать",
+      "ar": "يدعو"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich Sie zu einem Kaffee einladen?",
+        "translations": {
+          "en": "May I invite you for a coffee?",
+          "es": "¿Puedo invitarle a un café?",
+          "fr": "Puis-je vous inviter à prendre un café ?",
+          "ru": "Могу я пригласить вас на кофе?",
+          "ar": "هل يمكنني دعوتك لتناول قهوة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Einladung",
+    "article": "die",
+    "translations": {
+      "en": "invitation",
+      "es": "invitación",
+      "fr": "invitation",
+      "ru": "приглашение",
+      "ar": "الدعوة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Danke für die Einladung!",
+        "translations": {
+          "en": "Thanks for the invitation!",
+          "es": "¡Gracias por la invitación!",
+          "fr": "Merci pour l'invitation !",
+          "ru": "Спасибо за приглашение!",
+          "ar": "شكرًا على الدعوة!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "einmal",
+    "article": "",
+    "translations": {
+      "en": "once",
+      "es": "una vez",
+      "fr": "une fois",
+      "ru": "однажды",
+      "ar": "مرة واحدة"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Diese Prüfung mache ich nicht noch einmal.",
+        "translations": {
+          "en": "I'm not taking this exam again.",
+          "es": "No voy a hacer este examen otra vez.",
+          "fr": "Je ne refais pas cet examen.",
+          "ru": "Я не буду сдавать этот экзамен снова.",
+          "ar": "لن أجري هذا الامتحان مرة أخرى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "einsteigen",
+    "article": "",
+    "translations": {
+      "en": "to get in",
+      "es": "subir",
+      "fr": "monter",
+      "ru": "садиться",
+      "ar": "يركب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Schnell, steig ein, der Zug fährt gleich.",
+        "translations": {
+          "en": "Quick, get in, the train is leaving soon.",
+          "es": "Rápido, sube, el tren sale pronto.",
+          "fr": "Vite, monte, le train part bientôt.",
+          "ru": "Быстро, садись, поезд скоро отправляется.",
+          "ar": "بسرعة، اركب، القطار سيغادر قريبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Eintritt",
+    "article": "der",
+    "translations": {
+      "en": "admission",
+      "es": "entrada",
+      "fr": "entrée",
+      "ru": "вход",
+      "ar": "الدخول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Preis für den Eintritt ist 5 Euro.",
+        "translations": {
+          "en": "The admission price is 5 euros.",
+          "es": "El precio de entrada es 5 euros.",
+          "fr": "Le prix d'entrée est de 5 euros.",
+          "ru": "Цена входа 5 евро.",
+          "ar": "سعر الدخول 5 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Einzelzimmer",
+    "article": "das",
+    "translations": {
+      "en": "single room",
+      "es": "habitación individual",
+      "fr": "chambre simple",
+      "ru": "одноместный номер",
+      "ar": "غرفة مفردة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie noch ein Einzelzimmer?",
+        "translations": {
+          "en": "Do you still have a single room?",
+          "es": "¿Todavía tiene una habitación individual?",
+          "fr": "Avez-vous encore une chambre simple ?",
+          "ru": "У вас ещё есть одноместный номер?",
+          "ar": "هل لا تزال لديك غرفة مفردة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Eltern",
+    "article": "die",
+    "translations": {
+      "en": "parents",
+      "es": "padres",
+      "fr": "parents",
+      "ru": "родители",
+      "ar": "الوالدان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Eltern leben in Spanien.",
+        "translations": {
+          "en": "My parents live in Spain.",
+          "es": "Mis padres viven en España.",
+          "fr": "Mes parents vivent en Espagne.",
+          "ru": "Мои родители живут в Испании.",
+          "ar": "والداي يعيشان في إسبانيا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "E-Mail",
+    "article": "die",
+    "translations": {
+      "en": "email",
+      "es": "correo electrónico",
+      "fr": "e-mail",
+      "ru": "электронная почта",
+      "ar": "البريد الإلكتروني"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Ihre E-Mail nicht bekommen.",
+        "translations": {
+          "en": "I didn't receive your email.",
+          "es": "No recibí su correo electrónico.",
+          "fr": "Je n'ai pas reçu votre e-mail.",
+          "ru": "Я не получил ваше электронное письмо.",
+          "ar": "لم أتلق بريدك الإلكتروني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Empfänger",
+    "article": "der",
+    "translations": {
+      "en": "recipient",
+      "es": "destinatario",
+      "fr": "destinataire",
+      "ru": "получатель",
+      "ar": "المستلم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf dem Brief steht dein Name, also bist du der Empfänger.",
+        "translations": {
+          "en": "Your name is on the letter, so you're the recipient.",
+          "es": "Tu nombre está en la carta, así que eres el destinatario.",
+          "fr": "Ton nom est sur la lettre, donc tu es le destinataire.",
+          "ru": "На письме твоё имя, значит ты получатель.",
+          "ar": "اسمك على الرسالة، إذن أنت المستلم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "empfehlen",
+    "article": "",
+    "translations": {
+      "en": "to recommend",
+      "es": "recomendar",
+      "fr": "recommander",
+      "ru": "рекомендовать",
+      "ar": "يوصي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Welchen Wein können Sie mir empfehlen?",
+        "translations": {
+          "en": "Which wine can you recommend to me?",
+          "es": "¿Qué vino me puede recomendar?",
+          "fr": "Quel vin pouvez-vous me recommander ?",
+          "ru": "Какое вино вы можете мне порекомендовать?",
+          "ar": "أي نبيذ يمكنك أن توصيني به؟"
+        }
+      }
+    ]
+  }
+]
+

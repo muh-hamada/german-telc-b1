@@ -1,0 +1,293 @@
+[
+  {
+    "word": "ihr/ihm/ihn",
+    "article": "",
+    "translations": {
+      "en": "her/him/him",
+      "es": "le/le/lo",
+      "fr": "lui/lui/le",
+      "ru": "ей/ему/его",
+      "ar": "لها/له/إياه"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Gib ihr/ihm bitte das Buch.",
+        "translations": {
+          "en": "Please give her/him the book.",
+          "es": "Dale el libro, por favor.",
+          "fr": "Donne-lui le livre, s'il te plaît.",
+          "ru": "Дай ей/ему книгу, пожалуйста.",
+          "ar": "أعطها/أعطه الكتاب من فضلك."
+        }
+      },
+      {
+        "text": "Ruf ihn bitte an.",
+        "translations": {
+          "en": "Please call him.",
+          "es": "Llámalo, por favor.",
+          "fr": "Appelle-le, s'il te plaît.",
+          "ru": "Позвони ему, пожалуйста.",
+          "ar": "اتصل به من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "immer",
+    "article": "",
+    "translations": {
+      "en": "always",
+      "es": "siempre",
+      "fr": "toujours",
+      "ru": "всегда",
+      "ar": "دائمًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Frau Bast kommt immer zu spät.",
+        "translations": {
+          "en": "Mrs. Bast always comes late.",
+          "es": "La señora Bast siempre llega tarde.",
+          "fr": "Madame Bast arrive toujours en retard.",
+          "ru": "Госпожа Баст всегда приходит поздно.",
+          "ar": "السيدة باست تأتي متأخرة دائمًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "in",
+    "article": "",
+    "translations": {
+      "en": "in",
+      "es": "en",
+      "fr": "dans",
+      "ru": "в",
+      "ar": "في"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ich wohne in Wiesbaden.",
+        "translations": {
+          "en": "I live in Wiesbaden.",
+          "es": "Vivo en Wiesbaden.",
+          "fr": "J'habite à Wiesbaden.",
+          "ru": "Я живу в Висбадене.",
+          "ar": "أعيش في فيسبادن."
+        }
+      },
+      {
+        "text": "Der Zug kommt in fünf Minuten.",
+        "translations": {
+          "en": "The train arrives in five minutes.",
+          "es": "El tren llega en cinco minutos.",
+          "fr": "Le train arrive dans cinq minutes.",
+          "ru": "Поезд прибывает через пять минут.",
+          "ar": "يصل القطار خلال خمس دقائق."
+        }
+      },
+      {
+        "text": "Frau Rausch arbeitet in einem Geschäft.",
+        "translations": {
+          "en": "Mrs. Rausch works in a store.",
+          "es": "La señora Rausch trabaja en una tienda.",
+          "fr": "Madame Rausch travaille dans un magasin.",
+          "ru": "Госпожа Рауш работает в магазине.",
+          "ar": "السيدة راوش تعمل في متجر."
+        }
+      },
+      {
+        "text": "Komm, wir gehen ins Kino.",
+        "translations": {
+          "en": "Come, let's go to the cinema.",
+          "es": "Ven, vamos al cine.",
+          "fr": "Viens, allons au cinéma.",
+          "ru": "Пойдём, пойдём в кино.",
+          "ar": "تعال، لنذهب إلى السينما."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Information",
+    "article": "die",
+    "translations": {
+      "en": "information",
+      "es": "información",
+      "fr": "information",
+      "ru": "информация",
+      "ar": "المعلومات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wenn Sie Fragen haben, gehen Sie zur Information.",
+        "translations": {
+          "en": "If you have questions, go to information.",
+          "es": "Si tiene preguntas, vaya a información.",
+          "fr": "Si vous avez des questions, allez à l'information.",
+          "ru": "Если у вас есть вопросы, обращайтесь на информацию.",
+          "ar": "إذا كانت لديك أسئلة، اذهب إلى المعلومات."
+        }
+      },
+      {
+        "text": "Wir haben hier wichtige Informationen für Sie.",
+        "translations": {
+          "en": "We have important information for you here.",
+          "es": "Tenemos información importante para usted aquí.",
+          "fr": "Nous avons des informations importantes pour vous ici.",
+          "ru": "У нас здесь важная информация для вас.",
+          "ar": "لدينا معلومات مهمة لك هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "international",
+    "article": "",
+    "translations": {
+      "en": "international",
+      "es": "internacional",
+      "fr": "international",
+      "ru": "международный",
+      "ar": "دولي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Unser Deutschkurs ist international: Silvana kommt aus Italien, Conchi aus Spanien, Yin aus China ...",
+        "translations": {
+          "en": "Our German course is international: Silvana comes from Italy, Conchi from Spain, Yin from China ...",
+          "es": "Nuestro curso de alemán es internacional: Silvana viene de Italia, Conchi de España, Yin de China ...",
+          "fr": "Notre cours d'allemand est international : Silvana vient d'Italie, Conchi d'Espagne, Yin de Chine ...",
+          "ru": "Наш курс немецкого языка международный: Сильвана из Италии, Кончи из Испании, Инь из Китая ...",
+          "ar": "دورتنا الألمانية دولية: سيلفانا من إيطاليا، كونشي من إسبانيا، ين من الصين ..."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Internet",
+    "article": "das",
+    "translations": {
+      "en": "internet",
+      "es": "internet",
+      "fr": "internet",
+      "ru": "интернет",
+      "ar": "الإنترنت"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das findest du im Internet.",
+        "translations": {
+          "en": "You can find that on the internet.",
+          "es": "Puedes encontrar eso en internet.",
+          "fr": "Tu peux trouver ça sur internet.",
+          "ru": "Ты можешь найти это в интернете.",
+          "ar": "يمكنك أن تجد ذلك على الإنترنت."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ja",
+    "article": "",
+    "translations": {
+      "en": "yes",
+      "es": "sí",
+      "fr": "oui",
+      "ru": "да",
+      "ar": "نعم"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Sind Sie Herr Watanabe? – Ja.",
+        "translations": {
+          "en": "Are you Mr. Watanabe? – Yes.",
+          "es": "¿Es usted el señor Watanabe? – Sí.",
+          "fr": "Êtes-vous Monsieur Watanabe ? – Oui.",
+          "ru": "Вы господин Ватанабэ? – Да.",
+          "ar": "هل أنت السيد واتانابي؟ – نعم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Jacke",
+    "article": "die",
+    "translations": {
+      "en": "jacket",
+      "es": "chaqueta",
+      "fr": "veste",
+      "ru": "куртка",
+      "ar": "السترة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zieh dir eine Jacke an. Es ist kalt.",
+        "translations": {
+          "en": "Put on a jacket. It's cold.",
+          "es": "Ponte una chaqueta. Hace frío.",
+          "fr": "Mets une veste. Il fait froid.",
+          "ru": "Надень куртку. Холодно.",
+          "ar": "ارتدِ سترة. الجو بارد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "jed-",
+    "article": "",
+    "translations": {
+      "en": "every",
+      "es": "cada",
+      "fr": "chaque",
+      "ru": "каждый",
+      "ar": "كل"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Blumen kannst du in jedem Bahnhof kaufen.",
+        "translations": {
+          "en": "You can buy flowers at every train station.",
+          "es": "Puedes comprar flores en cada estación de tren.",
+          "fr": "Tu peux acheter des fleurs dans chaque gare.",
+          "ru": "Ты можешь купить цветы на каждом вокзале.",
+          "ar": "يمكنك شراء الزهور في كل محطة قطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "jetzt",
+    "article": "",
+    "translations": {
+      "en": "now",
+      "es": "ahora",
+      "fr": "maintenant",
+      "ru": "сейчас",
+      "ar": "الآن"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Jetzt machen wir eine Pause.",
+        "translations": {
+          "en": "Now we're taking a break.",
+          "es": "Ahora hacemos una pausa.",
+          "fr": "Maintenant, nous faisons une pause.",
+          "ru": "Сейчас мы делаем перерыв.",
+          "ar": "الآن نأخذ استراحة."
+        }
+      }
+    ]
+  }
+]
+

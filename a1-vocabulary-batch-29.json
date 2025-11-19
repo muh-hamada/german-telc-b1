@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Glück",
+    "article": "das",
+    "translations": {
+      "en": "luck",
+      "es": "suerte",
+      "fr": "chance",
+      "ru": "удача",
+      "ar": "الحظ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viel Glück!",
+        "translations": {
+          "en": "Good luck!",
+          "es": "¡Buena suerte!",
+          "fr": "Bonne chance !",
+          "ru": "Удачи!",
+          "ar": "حظ سعيد!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "glücklich",
+    "article": "",
+    "translations": {
+      "en": "happy",
+      "es": "feliz",
+      "fr": "heureux",
+      "ru": "счастливый",
+      "ar": "سعيد"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Meine Kinder sind glücklich verheiratet.",
+        "translations": {
+          "en": "My children are happily married.",
+          "es": "Mis hijos están felizmente casados.",
+          "fr": "Mes enfants sont heureusement mariés.",
+          "ru": "Мои дети счастливо женаты.",
+          "ar": "أطفالي متزوجون بسعادة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Glückwunsch",
+    "article": "der",
+    "translations": {
+      "en": "congratulations",
+      "es": "felicitaciones",
+      "fr": "félicitations",
+      "ru": "поздравления",
+      "ar": "التهاني"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Herzlichen Glückwunsch zum Geburtstag.",
+        "translations": {
+          "en": "Happy birthday.",
+          "es": "Feliz cumpleaños.",
+          "fr": "Joyeux anniversaire.",
+          "ru": "С днём рождения.",
+          "ar": "عيد ميلاد سعيد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Grad",
+    "article": "",
+    "translations": {
+      "en": "degree",
+      "es": "grado",
+      "fr": "degré",
+      "ru": "градус",
+      "ar": "درجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute haben wir dreißig Grad.",
+        "translations": {
+          "en": "Today we have thirty degrees.",
+          "es": "Hoy tenemos treinta grados.",
+          "fr": "Aujourd'hui, nous avons trente degrés.",
+          "ru": "Сегодня у нас тридцать градусов.",
+          "ar": "اليوم لدينا ثلاثون درجة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gratulieren",
+    "article": "",
+    "translations": {
+      "en": "to congratulate",
+      "es": "felicitar",
+      "fr": "féliciter",
+      "ru": "поздравлять",
+      "ar": "يهنئ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich gratuliere dir!",
+        "translations": {
+          "en": "I congratulate you!",
+          "es": "¡Te felicito!",
+          "fr": "Je te félicite !",
+          "ru": "Я тебя поздравляю!",
+          "ar": "أهنئك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "grillen",
+    "article": "",
+    "translations": {
+      "en": "to grill",
+      "es": "asar",
+      "fr": "griller",
+      "ru": "жарить на гриле",
+      "ar": "يشوي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Heute grillen wir im Garten.",
+        "translations": {
+          "en": "Today we're grilling in the garden.",
+          "es": "Hoy asamos en el jardín.",
+          "fr": "Aujourd'hui, nous grillons dans le jardin.",
+          "ru": "Сегодня мы жарим на гриле в саду.",
+          "ar": "اليوم نشوي في الحديقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "groß",
+    "article": "",
+    "translations": {
+      "en": "big",
+      "es": "grande",
+      "fr": "grand",
+      "ru": "большой",
+      "ar": "كبير"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mein Bruder und ich sind gleich groß.",
+        "translations": {
+          "en": "My brother and I are the same height.",
+          "es": "Mi hermano y yo somos igual de altos.",
+          "fr": "Mon frère et moi sommes de la même taille.",
+          "ru": "Мы с братом одинакового роста.",
+          "ar": "أخي وأنا بنفس الطول."
+        }
+      },
+      {
+        "text": "Frankfurt ist eine große Stadt.",
+        "translations": {
+          "en": "Frankfurt is a large city.",
+          "es": "Frankfurt es una ciudad grande.",
+          "fr": "Francfort est une grande ville.",
+          "ru": "Франкфурт — большой город.",
+          "ar": "فرانكفورت مدينة كبيرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Größe",
+    "article": "die",
+    "translations": {
+      "en": "size",
+      "es": "talla",
+      "fr": "taille",
+      "ru": "размер",
+      "ar": "الحجم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie das auch in Größe 40?",
+        "translations": {
+          "en": "Do you also have this in size 40?",
+          "es": "¿También tiene esto en talla 40?",
+          "fr": "Avez-vous aussi cela en taille 40 ?",
+          "ru": "У вас это есть также в размере 40?",
+          "ar": "هل لديك هذا أيضًا بحجم 40؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Großeltern",
+    "article": "die",
+    "translations": {
+      "en": "grandparents",
+      "es": "abuelos",
+      "fr": "grands-parents",
+      "ru": "бабушка и дедушка",
+      "ar": "الأجداد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Großeltern leben in Japan.",
+        "translations": {
+          "en": "My grandparents live in Japan.",
+          "es": "Mis abuelos viven en Japón.",
+          "fr": "Mes grands-parents vivent au Japon.",
+          "ru": "Мои бабушка и дедушка живут в Японии.",
+          "ar": "يعيش أجدادي في اليابان."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Großmutter",
+    "article": "die",
+    "translations": {
+      "en": "grandmother",
+      "es": "abuela",
+      "fr": "grand-mère",
+      "ru": "бабушка",
+      "ar": "الجدة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Großmutter heißt Eva.",
+        "translations": {
+          "en": "My grandmother's name is Eva.",
+          "es": "Mi abuela se llama Eva.",
+          "fr": "Ma grand-mère s'appelle Eva.",
+          "ru": "Мою бабушку зовут Ева.",
+          "ar": "اسم جدتي إيفا."
+        }
+      }
+    ]
+  }
+]
+

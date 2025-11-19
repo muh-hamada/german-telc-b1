@@ -9,7 +9,7 @@ import {
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useStreak } from '../contexts/StreakContext';
-import { STREAK_REWARD_THRESHOLD } from '../constants/streak.constants';
+import RewardProgressIndicator from './RewardProgressIndicator';
 
 interface DailyStreaksCardProps {
   // No props needed anymore, will use context
@@ -21,8 +21,6 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
 
   // Map activity data to activity count for visualization
   const data = weeklyActivity.map(day => day.activitiesCount);
-
-  console.log('weeklyActivity', weeklyActivity);
   
   // Generate day labels from actual dates (last 7 days, today on right)
   const days = weeklyActivity.map((activity, index) => {
@@ -67,33 +65,8 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
       </View>
 
       {/* Reward Progress Indicator */}
-      {streakData && streakData.currentStreak < STREAK_REWARD_THRESHOLD && !streakData.adFreeReward.claimed && (
-        <View style={styles.rewardProgressContainer}>
-          <View style={styles.rewardProgressHeader}>
-            <Text style={styles.rewardProgressTitle}>
-              🎁 {t('streaks.rewardProgress')}
-            </Text>
-            <Text style={styles.rewardProgressDays}>
-              {streakData.currentStreak}/{STREAK_REWARD_THRESHOLD} {t('streaks.days')}
-            </Text>
-          </View>
-          
-          {/* Progress Bar */}
-          <View style={styles.progressBarContainer}>
-            <View 
-              style={[
-                styles.progressBarFill, 
-                { width: `${(streakData.currentStreak / STREAK_REWARD_THRESHOLD) * 100}%` }
-              ]} 
-            />
-          </View>
-          
-          <Text style={styles.rewardProgressMessage}>
-            {t('streaks.rewardProgressMessage', { 
-              days: STREAK_REWARD_THRESHOLD - streakData.currentStreak 
-            })}
-          </Text>
-        </View>
+      {streakData && !streakData.adFreeReward.claimed && (
+        <RewardProgressIndicator currentStreak={streakData.currentStreak} />
       )}
 
       <View style={styles.chartContainer}>
@@ -259,47 +232,6 @@ const styles = StyleSheet.create({
   dayLabelToday: {
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
-  },
-  rewardProgressContainer: {
-    backgroundColor: colors.success[50],
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.md,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.success[500],
-  },
-  rewardProgressHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  rewardProgressTitle: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  rewardProgressDays: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[600],
-    fontWeight: typography.fontWeight.bold,
-  },
-  progressBarContainer: {
-    height: 8,
-    backgroundColor: colors.success[100],
-    borderRadius: spacing.borderRadius.full,
-    overflow: 'hidden',
-    marginBottom: spacing.margin.xs,
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.success[500],
-    borderRadius: spacing.borderRadius.full,
-  },
-  rewardProgressMessage: {
-    ...typography.textStyles.caption,
-    color: colors.success[700],
-    textAlign: 'center',
   },
 });
 

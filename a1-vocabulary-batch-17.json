@@ -1,0 +1,273 @@
+[
+  {
+    "word": "Dorf",
+    "article": "das",
+    "translations": {
+      "en": "village",
+      "es": "pueblo",
+      "fr": "village",
+      "ru": "деревня",
+      "ar": "القرية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Familie lebt in einem Dorf.",
+        "translations": {
+          "en": "My family lives in a village.",
+          "es": "Mi familia vive en un pueblo.",
+          "fr": "Ma famille vit dans un village.",
+          "ru": "Моя семья живёт в деревне.",
+          "ar": "تعيش عائلتي في قرية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "dort",
+    "article": "",
+    "translations": {
+      "en": "there",
+      "es": "allí",
+      "fr": "là",
+      "ru": "там",
+      "ar": "هناك"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Deine Tasche kannst du dorthin stellen.",
+        "translations": {
+          "en": "You can put your bag there.",
+          "es": "Puedes poner tu bolso allí.",
+          "fr": "Tu peux mettre ton sac là.",
+          "ru": "Ты можешь поставить свою сумку туда.",
+          "ar": "يمكنك وضع حقيبتك هناك."
+        }
+      },
+      {
+        "text": "Dort ist unser Haus.",
+        "translations": {
+          "en": "There is our house.",
+          "es": "Allí está nuestra casa.",
+          "fr": "Là est notre maison.",
+          "ru": "Там наш дом.",
+          "ar": "هناك منزلنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "draußen",
+    "article": "",
+    "translations": {
+      "en": "outside",
+      "es": "afuera",
+      "fr": "dehors",
+      "ru": "снаружи",
+      "ar": "خارج"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wollen wir draußen sitzen?",
+        "translations": {
+          "en": "Should we sit outside?",
+          "es": "¿Queremos sentarnos afuera?",
+          "fr": "Voulons-nous nous asseoir dehors ?",
+          "ru": "Хотим посидеть снаружи?",
+          "ar": "هل نريد أن نجلس بالخارج؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "drucken",
+    "article": "",
+    "translations": {
+      "en": "to print",
+      "es": "imprimir",
+      "fr": "imprimer",
+      "ru": "печатать",
+      "ar": "يطبع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bitte drucke das Formular für mich.",
+        "translations": {
+          "en": "Please print the form for me.",
+          "es": "Por favor, imprime el formulario para mí.",
+          "fr": "Imprime le formulaire pour moi, s'il te plaît.",
+          "ru": "Пожалуйста, распечатай для меня форму.",
+          "ar": "من فضلك، اطبع النموذج لي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Drucker",
+    "article": "der",
+    "translations": {
+      "en": "printer",
+      "es": "impresora",
+      "fr": "imprimante",
+      "ru": "принтер",
+      "ar": "الطابعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Drucker ist kaputt.",
+        "translations": {
+          "en": "My printer is broken.",
+          "es": "Mi impresora está rota.",
+          "fr": "Mon imprimante est cassée.",
+          "ru": "Мой принтер сломан.",
+          "ar": "طابعتي معطلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "drücken",
+    "article": "",
+    "translations": {
+      "en": "to press",
+      "es": "presionar",
+      "fr": "appuyer",
+      "ru": "нажимать",
+      "ar": "يضغط"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Drück hier, dann geht der Computer an.",
+        "translations": {
+          "en": "Press here, then the computer will turn on.",
+          "es": "Presiona aquí, entonces la computadora se encenderá.",
+          "fr": "Appuie ici, puis l'ordinateur s'allumera.",
+          "ru": "Нажми здесь, и компьютер включится.",
+          "ar": "اضغط هنا، ثم سيشتغل الكمبيوتر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "durch",
+    "article": "",
+    "translations": {
+      "en": "through",
+      "es": "por",
+      "fr": "par",
+      "ru": "через",
+      "ar": "من خلال"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Am besten gehen Sie durch die Breite Straße.",
+        "translations": {
+          "en": "It's best to go through Breite Street.",
+          "es": "Es mejor ir por la calle Breite.",
+          "fr": "Il vaut mieux passer par la rue Breite.",
+          "ru": "Лучше всего идти через Брайте-штрассе.",
+          "ar": "من الأفضل أن تذهب عبر شارع Breite."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Durchsage",
+    "article": "die",
+    "translations": {
+      "en": "announcement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "الإعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe die Durchsage nicht verstanden.",
+        "translations": {
+          "en": "I didn't understand the announcement.",
+          "es": "No entendí el anuncio.",
+          "fr": "Je n'ai pas compris l'annonce.",
+          "ru": "Я не понял объявление.",
+          "ar": "لم أفهم الإعلان."
+        }
+      }
+    ]
+  },
+  {
+    "word": "dürfen",
+    "article": "",
+    "translations": {
+      "en": "may",
+      "es": "poder",
+      "fr": "avoir le droit",
+      "ru": "мочь",
+      "ar": "يسمح له"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sie dürfen hier nicht rauchen.",
+        "translations": {
+          "en": "You may not smoke here.",
+          "es": "No puede fumar aquí.",
+          "fr": "Vous n'avez pas le droit de fumer ici.",
+          "ru": "Вам нельзя здесь курить.",
+          "ar": "لا يُسمح لك بالتدخين هنا."
+        }
+      },
+      {
+        "text": "Darf ich Sie zu einem Kaffee einladen?",
+        "translations": {
+          "en": "May I invite you for a coffee?",
+          "es": "¿Puedo invitarle a un café?",
+          "fr": "Puis-je vous inviter à prendre un café ?",
+          "ru": "Могу я пригласить вас на кофе?",
+          "ar": "هل يمكنني دعوتك لتناول قهوة؟"
+        }
+      },
+      {
+        "text": "Es darf nicht mehr als 15 Euro kosten.",
+        "translations": {
+          "en": "It may not cost more than 15 euros.",
+          "es": "No debe costar más de 15 euros.",
+          "fr": "Cela ne doit pas coûter plus de 15 euros.",
+          "ru": "Это не должно стоить более 15 евро.",
+          "ar": "يجب ألا يكلف أكثر من 15 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Durst",
+    "article": "der",
+    "translations": {
+      "en": "thirst",
+      "es": "sed",
+      "fr": "soif",
+      "ru": "жажда",
+      "ar": "العطش"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du etwas zu trinken? Ich habe großen Durst.",
+        "translations": {
+          "en": "Do you have something to drink? I'm very thirsty.",
+          "es": "¿Tienes algo para beber? Tengo mucha sed.",
+          "fr": "As-tu quelque chose à boire ? J'ai très soif.",
+          "ru": "У тебя есть что-нибудь выпить? Я очень хочу пить.",
+          "ar": "هل لديك شيء للشرب؟ أنا عطشان جدًا."
+        }
+      }
+    ]
+  }
+]
+

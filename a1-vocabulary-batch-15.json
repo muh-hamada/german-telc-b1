@@ -1,0 +1,283 @@
+[
+  {
+    "word": "circa",
+    "article": "",
+    "translations": {
+      "en": "approximately",
+      "es": "aproximadamente",
+      "fr": "environ",
+      "ru": "примерно",
+      "ar": "تقريبًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Von Mainz nach Frankfurt sind es circa fünfzig Kilometer.",
+        "translations": {
+          "en": "From Mainz to Frankfurt is approximately fifty kilometers.",
+          "es": "De Maguncia a Fráncfort son aproximadamente cincuenta kilómetros.",
+          "fr": "De Mayence à Francfort, c'est environ cinquante kilomètres.",
+          "ru": "От Майнца до Франкфурта примерно пятьдесят километров.",
+          "ar": "من ماينز إلى فرانكفورت حوالي خمسين كيلومترًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Computer",
+    "article": "der",
+    "translations": {
+      "en": "computer",
+      "es": "computadora",
+      "fr": "ordinateur",
+      "ru": "компьютер",
+      "ar": "الكمبيوتر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wann bekommst du deinen neuen Computer?",
+        "translations": {
+          "en": "When are you getting your new computer?",
+          "es": "¿Cuándo recibes tu nueva computadora?",
+          "fr": "Quand reçois-tu ton nouvel ordinateur ?",
+          "ru": "Когда ты получишь свой новый компьютер?",
+          "ar": "متى ستحصل على جهاز الكمبيوتر الجديد؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "da",
+    "article": "",
+    "translations": {
+      "en": "there",
+      "es": "ahí",
+      "fr": "là",
+      "ru": "там",
+      "ar": "هناك"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Da hinten ist er ja.",
+        "translations": {
+          "en": "There he is, at the back.",
+          "es": "Ahí está, al fondo.",
+          "fr": "Le voilà, là-bas.",
+          "ru": "Вон он там сзади.",
+          "ar": "ها هو هناك في الخلف."
+        }
+      },
+      {
+        "text": "Wir sprechen gerade über Paul. Da kommt er ja gerade.",
+        "translations": {
+          "en": "We're just talking about Paul. There he comes now.",
+          "es": "Estamos hablando de Paul. Ahí viene ahora.",
+          "fr": "On parle justement de Paul. Le voilà qui arrive.",
+          "ru": "Мы как раз говорим о Пауле. Вот он идёт.",
+          "ar": "نحن نتحدث عن بول. ها هو يأتي الآن."
+        }
+      },
+      {
+        "text": "Ich nehme das da.",
+        "translations": {
+          "en": "I'll take that one there.",
+          "es": "Tomaré ese de ahí.",
+          "fr": "Je prends celui-là.",
+          "ru": "Я возьму вот это.",
+          "ar": "سآخذ ذاك هناك."
+        }
+      },
+      {
+        "text": "Ist Herr Klein schon da?",
+        "translations": {
+          "en": "Is Mr. Klein here already?",
+          "es": "¿Ya está el señor Klein?",
+          "fr": "Monsieur Klein est-il déjà là ?",
+          "ru": "Господин Кляйн уже здесь?",
+          "ar": "هل السيد كلاين هنا بالفعل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Dame",
+    "article": "die",
+    "translations": {
+      "en": "lady",
+      "es": "señora",
+      "fr": "dame",
+      "ru": "дама",
+      "ar": "السيدة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Damen (an der Toilette)",
+        "translations": {
+          "en": "Ladies (at the restroom)",
+          "es": "Damas (en el baño)",
+          "fr": "Dames (aux toilettes)",
+          "ru": "Дамы (в туалете)",
+          "ar": "السيدات (في الحمام)"
+        }
+      }
+    ]
+  },
+  {
+    "word": "daneben",
+    "article": "",
+    "translations": {
+      "en": "next to it",
+      "es": "al lado",
+      "fr": "à côté",
+      "ru": "рядом",
+      "ar": "بجانبه"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Du kennst doch die Post. Daneben ist die Bank.",
+        "translations": {
+          "en": "You know the post office. The bank is next to it.",
+          "es": "Conoces la oficina de correos. El banco está al lado.",
+          "fr": "Tu connais la poste. La banque est à côté.",
+          "ru": "Ты знаешь почту. Рядом банк.",
+          "ar": "أنت تعرف مكتب البريد. البنك بجانبه."
+        }
+      }
+    ]
+  },
+  {
+    "word": "danken",
+    "article": "",
+    "translations": {
+      "en": "to thank",
+      "es": "agradecer",
+      "fr": "remercier",
+      "ru": "благодарить",
+      "ar": "يشكر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich danke Ihnen für die Einladung.",
+        "translations": {
+          "en": "I thank you for the invitation.",
+          "es": "Le agradezco la invitación.",
+          "fr": "Je vous remercie pour l'invitation.",
+          "ru": "Я благодарю вас за приглашение.",
+          "ar": "أشكرك على الدعوة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Dank",
+    "article": "der",
+    "translations": {
+      "en": "thanks",
+      "es": "gracias",
+      "fr": "merci",
+      "ru": "благодарность",
+      "ar": "الشكر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Vielen Dank!",
+        "translations": {
+          "en": "Many thanks!",
+          "es": "¡Muchas gracias!",
+          "fr": "Merci beaucoup !",
+          "ru": "Большое спасибо!",
+          "ar": "شكرًا جزيلاً!"
+        }
+      },
+      {
+        "text": "Herzlichen Dank!",
+        "translations": {
+          "en": "Many thanks!",
+          "es": "¡Muchas gracias!",
+          "fr": "Merci infiniment !",
+          "ru": "Сердечное спасибо!",
+          "ar": "شكرًا جزيلاً!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "danke",
+    "article": "",
+    "translations": {
+      "en": "thank you",
+      "es": "gracias",
+      "fr": "merci",
+      "ru": "спасибо",
+      "ar": "شكرًا"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Soll ich Ihnen helfen? - Nein, danke!",
+        "translations": {
+          "en": "Should I help you? - No, thank you!",
+          "es": "¿Debo ayudarle? - ¡No, gracias!",
+          "fr": "Dois-je vous aider ? - Non, merci !",
+          "ru": "Мне вам помочь? - Нет, спасибо!",
+          "ar": "هل أساعدك؟ - لا، شكرًا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "dann",
+    "article": "",
+    "translations": {
+      "en": "then",
+      "es": "entonces",
+      "fr": "alors",
+      "ru": "тогда",
+      "ar": "ثم"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss noch schnell zur Post, dann komme ich.",
+        "translations": {
+          "en": "I still have to quickly go to the post office, then I'll come.",
+          "es": "Todavía tengo que ir rápidamente a correos, luego vengo.",
+          "fr": "Je dois encore aller vite à la poste, puis je viens.",
+          "ru": "Мне ещё нужно быстро сходить на почту, потом приду.",
+          "ar": "لا يزال يتعين علي الذهاب بسرعة إلى البريد، ثم سآتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Datum",
+    "article": "das",
+    "translations": {
+      "en": "date",
+      "es": "fecha",
+      "fr": "date",
+      "ru": "дата",
+      "ar": "التاريخ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte schreiben Sie noch das Datum auf das Formular.",
+        "translations": {
+          "en": "Please also write the date on the form.",
+          "es": "Por favor, escriba también la fecha en el formulario.",
+          "fr": "Veuillez aussi écrire la date sur le formulaire.",
+          "ru": "Пожалуйста, напишите также дату на бланке.",
+          "ar": "يرجى كتابة التاريخ أيضًا على النموذج."
+        }
+      }
+    ]
+  }
+]
+

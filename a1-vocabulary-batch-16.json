@@ -1,0 +1,273 @@
+[
+  {
+    "word": "dauern",
+    "article": "",
+    "translations": {
+      "en": "to last",
+      "es": "durar",
+      "fr": "durer",
+      "ru": "длиться",
+      "ar": "يستمر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wie lange dauert der Film?",
+        "translations": {
+          "en": "How long does the movie last?",
+          "es": "¿Cuánto dura la película?",
+          "fr": "Combien de temps dure le film ?",
+          "ru": "Сколько длится фильм?",
+          "ar": "كم يستمر الفيلم؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "dein",
+    "article": "",
+    "translations": {
+      "en": "your",
+      "es": "tu",
+      "fr": "ton",
+      "ru": "твой",
+      "ar": "لك"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Ist das dein Auto?",
+        "translations": {
+          "en": "Is that your car?",
+          "es": "¿Es ese tu coche?",
+          "fr": "Est-ce ta voiture ?",
+          "ru": "Это твоя машина?",
+          "ar": "هل هذه سيارتك؟"
+        }
+      },
+      {
+        "text": "Ist das deins?",
+        "translations": {
+          "en": "Is that yours?",
+          "es": "¿Es tuyo?",
+          "fr": "C'est le tien ?",
+          "ru": "Это твоё?",
+          "ar": "هل هذا لك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "denn",
+    "article": "",
+    "translations": {
+      "en": "because",
+      "es": "porque",
+      "fr": "car",
+      "ru": "потому что",
+      "ar": "لأن"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Ich kann nicht kommen, denn ich bin krank.",
+        "translations": {
+          "en": "I can't come because I'm sick.",
+          "es": "No puedo venir porque estoy enfermo.",
+          "fr": "Je ne peux pas venir car je suis malade.",
+          "ru": "Я не могу прийти, потому что я болен.",
+          "ar": "لا أستطيع القدوم لأنني مريض."
+        }
+      }
+    ]
+  },
+  {
+    "word": "der, die, das",
+    "article": "",
+    "translations": {
+      "en": "the",
+      "es": "el/la",
+      "fr": "le/la",
+      "ru": "тот/та/то",
+      "ar": "الـ"
+    },
+    "type": "article",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme das da.",
+        "translations": {
+          "en": "I'll take that one.",
+          "es": "Tomaré ese.",
+          "fr": "Je prends celui-là.",
+          "ru": "Я возьму это.",
+          "ar": "سآخذ ذاك."
+        }
+      },
+      {
+        "text": "Hier ist der Brief, den du suchst.",
+        "translations": {
+          "en": "Here is the letter you're looking for.",
+          "es": "Aquí está la carta que buscas.",
+          "fr": "Voici la lettre que tu cherches.",
+          "ru": "Вот письмо, которое ты ищешь.",
+          "ar": "هنا الرسالة التي تبحث عنها."
+        }
+      },
+      {
+        "text": "Die Fahrkarte bekommst du am Bahnhof.",
+        "translations": {
+          "en": "You can get the ticket at the train station.",
+          "es": "Puedes conseguir el billete en la estación de tren.",
+          "fr": "Tu peux obtenir le billet à la gare.",
+          "ru": "Билет можно получить на вокзале.",
+          "ar": "يمكنك الحصول على التذكرة في محطة القطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "dich",
+    "article": "",
+    "translations": {
+      "en": "you",
+      "es": "te",
+      "fr": "toi",
+      "ru": "тебя",
+      "ar": "أنت"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Die Blumen sind für dich.",
+        "translations": {
+          "en": "The flowers are for you.",
+          "es": "Las flores son para ti.",
+          "fr": "Les fleurs sont pour toi.",
+          "ru": "Цветы для тебя.",
+          "ar": "الزهور لك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "dies-",
+    "article": "",
+    "translations": {
+      "en": "this",
+      "es": "este",
+      "fr": "ce",
+      "ru": "этот",
+      "ar": "هذا"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme lieber diesen Kuchen.",
+        "translations": {
+          "en": "I'd rather have this cake.",
+          "es": "Prefiero este pastel.",
+          "fr": "Je préfère ce gâteau.",
+          "ru": "Я предпочту этот торт.",
+          "ar": "أفضل هذه الكعكة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "dir",
+    "article": "",
+    "translations": {
+      "en": "you",
+      "es": "te",
+      "fr": "toi",
+      "ru": "тебе",
+      "ar": "لك"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Gefallen dir die Blumen?",
+        "translations": {
+          "en": "Do you like the flowers?",
+          "es": "¿Te gustan las flores?",
+          "fr": "Aimes-tu les fleurs ?",
+          "ru": "Тебе нравятся цветы?",
+          "ar": "هل تعجبك الزهور؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Disco",
+    "article": "die",
+    "translations": {
+      "en": "disco",
+      "es": "discoteca",
+      "fr": "discothèque",
+      "ru": "дискотека",
+      "ar": "الديسكو"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute abend gehen wir in die Disco tanzen.",
+        "translations": {
+          "en": "Tonight we're going dancing at the disco.",
+          "es": "Esta noche vamos a bailar a la discoteca.",
+          "fr": "Ce soir, nous allons danser en discothèque.",
+          "ru": "Сегодня вечером мы идём танцевать на дискотеку.",
+          "ar": "سنذهب للرقص في الديسكو الليلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Doktor",
+    "article": "der",
+    "translations": {
+      "en": "doctor",
+      "es": "doctor",
+      "fr": "docteur",
+      "ru": "доктор",
+      "ar": "الدكتور"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter ist krank. Wir gehen zum Doktor.",
+        "translations": {
+          "en": "My daughter is sick. We're going to the doctor.",
+          "es": "Mi hija está enferma. Vamos al doctor.",
+          "fr": "Ma fille est malade. Nous allons chez le docteur.",
+          "ru": "Моя дочь больна. Мы идём к доктору.",
+          "ar": "ابنتي مريضة. سنذهب إلى الطبيب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Doppelzimmer",
+    "article": "das",
+    "translations": {
+      "en": "double room",
+      "es": "habitación doble",
+      "fr": "chambre double",
+      "ru": "двухместный номер",
+      "ar": "غرفة مزدوجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wollen Sie ein Doppelzimmer oder ein Einzelzimmer?",
+        "translations": {
+          "en": "Do you want a double room or a single room?",
+          "es": "¿Quiere una habitación doble o una habitación individual?",
+          "fr": "Voulez-vous une chambre double ou une chambre simple ?",
+          "ru": "Вы хотите двухместный или одноместный номер?",
+          "ar": "هل تريد غرفة مزدوجة أم غرفة فردية؟"
+        }
+      }
+    ]
+  }
+]
+

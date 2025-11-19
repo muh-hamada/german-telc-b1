@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Job",
+    "article": "der",
+    "translations": {
+      "en": "job",
+      "es": "trabajo",
+      "fr": "emploi",
+      "ru": "работа",
+      "ar": "الوظيفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Jenny hat einen neuen Job bei der Post.",
+        "translations": {
+          "en": "Jenny has a new job at the post office.",
+          "es": "Jenny tiene un nuevo trabajo en correos.",
+          "fr": "Jenny a un nouvel emploi à la poste.",
+          "ru": "У Дженни новая работа на почте.",
+          "ar": "لدى جيني وظيفة جديدة في مكتب البريد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Jugendliche",
+    "article": "der",
+    "translations": {
+      "en": "teenager",
+      "es": "adolescente",
+      "fr": "adolescent",
+      "ru": "подросток",
+      "ar": "المراهق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Jugendliche kaufen gern ein.",
+        "translations": {
+          "en": "Many teenagers like to shop.",
+          "es": "A muchos adolescentes les gusta ir de compras.",
+          "fr": "Beaucoup d'adolescents aiment faire du shopping.",
+          "ru": "Многие подростки любят делать покупки.",
+          "ar": "العديد من المراهقين يحبون التسوق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "jung",
+    "article": "",
+    "translations": {
+      "en": "young",
+      "es": "joven",
+      "fr": "jeune",
+      "ru": "молодой",
+      "ar": "شاب"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Claudia ist 21. – Was? Noch so jung?",
+        "translations": {
+          "en": "Claudia is 21. – What? Still so young?",
+          "es": "Claudia tiene 21 años. – ¿Qué? ¿Todavía tan joven?",
+          "fr": "Claudia a 21 ans. – Quoi ? Encore si jeune ?",
+          "ru": "Клаудии 21. – Что? Ещё так молода?",
+          "ar": "كلوديا عمرها 21. – ماذا؟ لا تزال صغيرة جدًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Junge",
+    "article": "der",
+    "translations": {
+      "en": "boy",
+      "es": "niño",
+      "fr": "garçon",
+      "ru": "мальчик",
+      "ar": "الصبي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe zwei Kinder. Einen Jungen und ein Mädchen.",
+        "translations": {
+          "en": "I have two children. A boy and a girl.",
+          "es": "Tengo dos hijos. Un niño y una niña.",
+          "fr": "J'ai deux enfants. Un garçon et une fille.",
+          "ru": "У меня двое детей. Мальчик и девочка.",
+          "ar": "لدي طفلان. صبي وفتاة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kaffee",
+    "article": "der",
+    "translations": {
+      "en": "coffee",
+      "es": "café",
+      "fr": "café",
+      "ru": "кофе",
+      "ar": "القهوة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zum Frühstück trinke ich immer Kaffee.",
+        "translations": {
+          "en": "I always drink coffee for breakfast.",
+          "es": "Siempre bebo café en el desayuno.",
+          "fr": "Je bois toujours du café au petit déjeuner.",
+          "ru": "Я всегда пью кофе на завтрак.",
+          "ar": "أشرب القهوة دائمًا على الإفطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kaputt",
+    "article": "",
+    "translations": {
+      "en": "broken",
+      "es": "roto",
+      "fr": "cassé",
+      "ru": "сломанный",
+      "ar": "معطل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Glas war teuer. Es geht sehr leicht kaputt.",
+        "translations": {
+          "en": "The glass was expensive. It breaks very easily.",
+          "es": "El vaso era caro. Se rompe muy fácilmente.",
+          "fr": "Le verre était cher. Il se casse très facilement.",
+          "ru": "Стакан был дорогой. Он очень легко ломается.",
+          "ar": "كان الكأس غاليًا. إنه ينكسر بسهولة شديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Karte",
+    "article": "die",
+    "translations": {
+      "en": "card",
+      "es": "tarjeta",
+      "fr": "carte",
+      "ru": "карта",
+      "ar": "البطاقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich schreibe meinen Bekannten eine Karte aus dem Urlaub.",
+        "translations": {
+          "en": "I'm writing my acquaintances a postcard from vacation.",
+          "es": "Escribo una postal a mis conocidos desde las vacaciones.",
+          "fr": "J'écris une carte à mes connaissances depuis les vacances.",
+          "ru": "Я пишу открытку своим знакомым из отпуска.",
+          "ar": "أكتب بطاقة إلى معارفي من العطلة."
+        }
+      },
+      {
+        "text": "Wollen wir Karten spielen?",
+        "translations": {
+          "en": "Should we play cards?",
+          "es": "¿Queremos jugar a las cartas?",
+          "fr": "Voulons-nous jouer aux cartes ?",
+          "ru": "Хотим поиграть в карты?",
+          "ar": "هل نريد أن نلعب الورق؟"
+        }
+      },
+      {
+        "text": "Ich möchte auch etwas essen. Bringen Sie mir die Karte, bitte.",
+        "translations": {
+          "en": "I'd also like to eat something. Bring me the menu, please.",
+          "es": "También me gustaría comer algo. Tráigame la carta, por favor.",
+          "fr": "J'aimerais aussi manger quelque chose. Apportez-moi la carte, s'il vous plaît.",
+          "ru": "Я бы тоже хотел что-нибудь поесть. Принесите мне меню, пожалуйста.",
+          "ar": "أود أيضًا أن آكل شيئًا. أحضر لي القائمة، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kreditkarte",
+    "article": "die",
+    "translations": {
+      "en": "credit card",
+      "es": "tarjeta de crédito",
+      "fr": "carte de crédit",
+      "ru": "кредитная карта",
+      "ar": "بطاقة الائتمان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kann ich auch mit Karte (be-) zahlen?",
+        "translations": {
+          "en": "Can I also pay by card?",
+          "es": "¿Puedo pagar también con tarjeta?",
+          "fr": "Puis-je aussi payer par carte ?",
+          "ru": "Могу я также заплатить картой?",
+          "ar": "هل يمكنني الدفع بالبطاقة أيضًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kartoffel",
+    "article": "die",
+    "translations": {
+      "en": "potato",
+      "es": "patata",
+      "fr": "pomme de terre",
+      "ru": "картофель",
+      "ar": "البطاطس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für Pommes frites braucht man Kartoffeln.",
+        "translations": {
+          "en": "You need potatoes for French fries.",
+          "es": "Se necesitan patatas para las papas fritas.",
+          "fr": "Il faut des pommes de terre pour les frites.",
+          "ru": "Для картофеля фри нужен картофель.",
+          "ar": "تحتاج إلى البطاطس للبطاطس المقلية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kasse",
+    "article": "die",
+    "translations": {
+      "en": "cash register",
+      "es": "caja",
+      "fr": "caisse",
+      "ru": "касса",
+      "ar": "الصندوق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zahlen Sie bitte an der Kasse.",
+        "translations": {
+          "en": "Please pay at the cash register.",
+          "es": "Pague en la caja, por favor.",
+          "fr": "Veuillez payer à la caisse.",
+          "ru": "Пожалуйста, оплатите в кассе.",
+          "ar": "من فضلك، ادفع في الصندوق."
+        }
+      }
+    ]
+  }
+]
+

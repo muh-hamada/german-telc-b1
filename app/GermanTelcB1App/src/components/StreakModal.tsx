@@ -11,7 +11,7 @@ import {
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { StreakData } from '../services/firebase-streaks.service';
-import { STREAK_REWARD_THRESHOLD } from '../constants/streak.constants';
+import RewardProgressIndicator from './RewardProgressIndicator';
 
 interface StreakModalProps {
   visible: boolean;
@@ -125,27 +125,8 @@ const StreakModal: React.FC<StreakModalProps> = ({
               {getProgressMessage()}
             </Text>
 
-            {/* Reward info - Always show if not yet earned */}
-            {currentStreak < STREAK_REWARD_THRESHOLD && (
-              <View style={styles.rewardInfoBox}>
-                <Text style={styles.rewardInfoTitle}>
-                  🎁 {t('streaks.rewardTitle')}
-                </Text>
-                <Text style={styles.rewardInfoDescription}>
-                  {t('streaks.rewardDescription')}
-                </Text>
-
-                {currentStreak >= 3 ? (
-                  <Text style={styles.rewardHintTextStrong}>
-                    {t('streaks.almostThere', { days: STREAK_REWARD_THRESHOLD - currentStreak })}
-                  </Text>
-                ) : (
-                  <Text style={styles.rewardHintText}>
-                    {t('streaks.keepComingBack')}
-                  </Text>
-                )}
-              </View>
-            )}
+            {/* Reward Progress Indicator */}
+            <RewardProgressIndicator currentStreak={currentStreak} />
 
             {/* Continue button */}
             <TouchableOpacity
@@ -218,7 +199,7 @@ const styles = StyleSheet.create({
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
     justifyContent: 'space-between',
     width: '100%',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
     paddingHorizontal: spacing.padding.sm,
   },
   dayColumn: {
@@ -258,46 +239,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   message: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     textAlign: 'center',
-    marginBottom: spacing.margin.lg,
-    lineHeight: 22,
-  },
-  rewardInfoBox: {
-    backgroundColor: colors.success[50],
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    marginBottom: spacing.margin.lg,
-    width: '100%',
-    borderWidth: 2,
-    borderColor: colors.primary[500],
-  },
-  rewardInfoTitle: {
-    ...typography.textStyles.h4,
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.bold,
-    textAlign: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  rewardInfoDescription: {
-    ...typography.textStyles.bodySmall,
-    color: 'black',
-    textAlign: 'center',
     marginBottom: spacing.margin.md,
-    lineHeight: 20,
-  },
-  rewardHintText: {
-    ...typography.textStyles.caption,
-    color: 'black',
-    textAlign: 'center',
-    fontWeight: typography.fontWeight.medium,
-  },
-  rewardHintTextStrong: {
-    ...typography.textStyles.bodySmall,
-    color: 'black',
-    textAlign: 'center',
-    fontWeight: typography.fontWeight.bold,
+    lineHeight: 22,
   },
   continueButton: {
     backgroundColor: colors.primary[500],
