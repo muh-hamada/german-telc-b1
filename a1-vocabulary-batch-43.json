@@ -1,0 +1,242 @@
+[
+  {
+    "word": "Mädchen",
+    "article": "das",
+    "translations": {
+      "en": "girl",
+      "es": "niña",
+      "fr": "fille",
+      "ru": "девочка",
+      "ar": "الفتاة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Familie Kurz bekommt ein Baby. – Junge oder Mädchen?",
+        "translations": {
+          "en": "The Kurz family is having a baby. – Boy or girl?",
+          "es": "La familia Kurz va a tener un bebé. – ¿Niño o niña?",
+          "fr": "La famille Kurz va avoir un bébé. – Garçon ou fille?",
+          "ru": "Семья Курц ждёт ребёнка. – Мальчик или девочка?",
+          "ar": "عائلة كورتس سترزق بطفل. – صبي أم فتاة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "man",
+    "article": "",
+    "translations": {
+      "en": "one",
+      "es": "uno",
+      "fr": "on",
+      "ru": "люди",
+      "ar": "المرء"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Hier darf man nicht rauchen.",
+        "translations": {
+          "en": "Smoking is not allowed here.",
+          "es": "Aquí no se puede fumar.",
+          "fr": "Il est interdit de fumer ici.",
+          "ru": "Здесь нельзя курить.",
+          "ar": "لا يُسمح بالتدخين هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Mann",
+    "article": "der",
+    "translations": {
+      "en": "man",
+      "es": "hombre",
+      "fr": "homme",
+      "ru": "мужчина",
+      "ar": "الرجل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Mann arbeitet bei der Polizei.",
+        "translations": {
+          "en": "My husband works for the police.",
+          "es": "Mi marido trabaja en la policía.",
+          "fr": "Mon mari travaille à la police.",
+          "ru": "Мой муж работает в полиции.",
+          "ar": "زوجي يعمل في الشرطة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "männlich",
+    "article": "",
+    "translations": {
+      "en": "male",
+      "es": "masculino",
+      "fr": "masculin",
+      "ru": "мужской",
+      "ar": "ذكر"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Kreuzen Sie bitte an: „weiblich" oder „männlich".",
+        "translations": {
+          "en": "Please check: \"female\" or \"male\".",
+          "es": "Por favor marque: \"femenino\" o \"masculino\".",
+          "fr": "Veuillez cocher: \"féminin\" ou \"masculin\".",
+          "ru": "Пожалуйста, отметьте: «женский» или «мужской».",
+          "ar": "يرجى التحديد: \"أنثى\" أو \"ذكر\"."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Maschine",
+    "article": "die",
+    "translations": {
+      "en": "machine",
+      "es": "máquina",
+      "fr": "machine",
+      "ru": "машина",
+      "ar": "الآلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Waschmaschine ist günstig.",
+        "translations": {
+          "en": "The washing machine is cheap.",
+          "es": "La lavadora es barata.",
+          "fr": "La machine à laver est bon marché.",
+          "ru": "Стиральная машина недорогая.",
+          "ar": "الغسالة رخيصة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Meer",
+    "article": "das",
+    "translations": {
+      "en": "sea",
+      "es": "mar",
+      "fr": "mer",
+      "ru": "море",
+      "ar": "البحر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir machen Urlaub am Meer.",
+        "translations": {
+          "en": "We're on vacation at the sea.",
+          "es": "Estamos de vacaciones en el mar.",
+          "fr": "Nous sommes en vacances à la mer.",
+          "ru": "Мы отдыхаем на море.",
+          "ar": "نحن في إجازة على البحر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "mehr",
+    "article": "",
+    "translations": {
+      "en": "more",
+      "es": "más",
+      "fr": "plus",
+      "ru": "больше",
+      "ar": "أكثر"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Dieses Auto kostet 1.000 Euro mehr als das andere.",
+        "translations": {
+          "en": "This car costs 1,000 euros more than the other one.",
+          "es": "Este coche cuesta 1.000 euros más que el otro.",
+          "fr": "Cette voiture coûte 1 000 euros de plus que l'autre.",
+          "ru": "Эта машина стоит на 1000 евро больше, чем другая.",
+          "ar": "تكلف هذه السيارة 1000 يورو أكثر من الأخرى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "mein",
+    "article": "",
+    "translations": {
+      "en": "my",
+      "es": "mi",
+      "fr": "mon",
+      "ru": "мой",
+      "ar": "خاصتي"
+    },
+    "type": "determiner",
+    "exampleSentences": [
+      {
+        "text": "Mein Vater ist Arzt.",
+        "translations": {
+          "en": "My father is a doctor.",
+          "es": "Mi padre es médico.",
+          "fr": "Mon père est médecin.",
+          "ru": "Мой отец - врач.",
+          "ar": "والدي طبيب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "meist-",
+    "article": "",
+    "translations": {
+      "en": "most",
+      "es": "la mayoría",
+      "fr": "la plupart",
+      "ru": "большинство",
+      "ar": "معظم"
+    },
+    "type": "determiner",
+    "exampleSentences": [
+      {
+        "text": "Die meisten Norddeutschen sind sehr groß.",
+        "translations": {
+          "en": "Most North Germans are very tall.",
+          "es": "La mayoría de los alemanes del norte son muy altos.",
+          "fr": "La plupart des Allemands du Nord sont très grands.",
+          "ru": "Большинство северных немцев очень высокие.",
+          "ar": "معظم الألمان الشماليين طوال القامة جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Mensch",
+    "article": "der",
+    "translations": {
+      "en": "person",
+      "es": "persona",
+      "fr": "personne",
+      "ru": "человек",
+      "ar": "الإنسان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Menschen sind hier anders als bei uns.",
+        "translations": {
+          "en": "The people here are different from those in our country.",
+          "es": "La gente aquí es diferente a la de nuestro país.",
+          "fr": "Les gens ici sont différents de ceux de chez nous.",
+          "ru": "Люди здесь другие, чем у нас.",
+          "ar": "الناس هنا مختلفون عن بلدنا."
+        }
+      }
+    ]
+  }
+]

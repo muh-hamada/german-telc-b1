@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Reis",
+    "article": "der",
+    "translations": {
+      "en": "rice",
+      "es": "arroz",
+      "fr": "riz",
+      "ru": "рис",
+      "ar": "الأرز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich esse gern Reis.",
+        "translations": {
+          "en": "I like to eat rice.",
+          "es": "Me gusta comer arroz.",
+          "fr": "J'aime manger du riz.",
+          "ru": "Я люблю есть рис.",
+          "ar": "أحب أن آكل الأرز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "reisen",
+    "article": "",
+    "translations": {
+      "en": "to travel",
+      "es": "viajar",
+      "fr": "voyager",
+      "ru": "путешествовать",
+      "ar": "يسافر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich reise gern.",
+        "translations": {
+          "en": "I like to travel.",
+          "es": "Me gusta viajar.",
+          "fr": "J'aime voyager.",
+          "ru": "Я люблю путешествовать.",
+          "ar": "أحب السفر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Reise",
+    "article": "die",
+    "translations": {
+      "en": "trip",
+      "es": "viaje",
+      "fr": "voyage",
+      "ru": "поездка",
+      "ar": "الرحلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir machen eine Reise nach Österreich.",
+        "translations": {
+          "en": "We're taking a trip to Austria.",
+          "es": "Hacemos un viaje a Austria.",
+          "fr": "Nous faisons un voyage en Autriche.",
+          "ru": "Мы едем в Австрию.",
+          "ar": "نقوم برحلة إلى النمسا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Reisebüro",
+    "article": "das",
+    "translations": {
+      "en": "travel agency",
+      "es": "agencia de viajes",
+      "fr": "agence de voyages",
+      "ru": "турагентство",
+      "ar": "وكالة السفر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Mann arbeitet im Reisebüro.",
+        "translations": {
+          "en": "My husband works at a travel agency.",
+          "es": "Mi marido trabaja en una agencia de viajes.",
+          "fr": "Mon mari travaille dans une agence de voyages.",
+          "ru": "Мой муж работает в турагентстве.",
+          "ar": "زوجي يعمل في وكالة سفر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Reiseführer",
+    "article": "der",
+    "translations": {
+      "en": "travel guide",
+      "es": "guía de viaje",
+      "fr": "guide de voyage",
+      "ru": "путеводитель",
+      "ar": "الدليل السياحي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich kaufe mir einen Reiseführer von Berlin.",
+        "translations": {
+          "en": "I'm buying a travel guide of Berlin.",
+          "es": "Me compro una guía de viaje de Berlín.",
+          "fr": "J'achète un guide de voyage de Berlin.",
+          "ru": "Я покупаю путеводитель по Берлину.",
+          "ar": "سأشتري دليل سفر لبرلين."
+        }
+      },
+      {
+        "text": "Unser Reiseführer heißt Peter.",
+        "translations": {
+          "en": "Our tour guide is called Peter.",
+          "es": "Nuestro guía turístico se llama Peter.",
+          "fr": "Notre guide touristique s'appelle Peter.",
+          "ru": "Нашего гида зовут Петер.",
+          "ar": "مرشدنا السياحي يدعى بيتر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "reparieren",
+    "article": "",
+    "translations": {
+      "en": "to repair",
+      "es": "reparar",
+      "fr": "réparer",
+      "ru": "ремонтировать",
+      "ar": "يصلح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat das Fahrrad repariert.",
+        "translations": {
+          "en": "He repaired the bicycle.",
+          "es": "Él reparó la bicicleta.",
+          "fr": "Il a réparé le vélo.",
+          "ru": "Он отремонтировал велосипед.",
+          "ar": "لقد أصلح الدراجة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Reparatur",
+    "article": "die",
+    "translations": {
+      "en": "repair",
+      "es": "reparación",
+      "fr": "réparation",
+      "ru": "ремонт",
+      "ar": "الإصلاح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Reparatur ist sehr teuer.",
+        "translations": {
+          "en": "The repair is very expensive.",
+          "es": "La reparación es muy cara.",
+          "fr": "La réparation est très chère.",
+          "ru": "Ремонт очень дорогой.",
+          "ar": "الإصلاح مكلف جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Restaurant",
+    "article": "das",
+    "translations": {
+      "en": "restaurant",
+      "es": "restaurante",
+      "fr": "restaurant",
+      "ru": "ресторан",
+      "ar": "المطعم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir essen heute in einem Restaurant.",
+        "translations": {
+          "en": "We're eating at a restaurant today.",
+          "es": "Hoy comemos en un restaurante.",
+          "fr": "Nous mangeons au restaurant aujourd'hui.",
+          "ru": "Сегодня мы едим в ресторане.",
+          "ar": "نأكل في مطعم اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Rezeption",
+    "article": "die",
+    "translations": {
+      "en": "reception",
+      "es": "recepción",
+      "fr": "réception",
+      "ru": "ресепшен",
+      "ar": "الاستقبال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fragen Sie bitte im Hotel an der Rezeption.",
+        "translations": {
+          "en": "Please ask at the hotel reception.",
+          "es": "Por favor pregunte en la recepción del hotel.",
+          "fr": "Veuillez demander à la réception de l'hôtel.",
+          "ru": "Пожалуйста, спросите на ресепшене отеля.",
+          "ar": "من فضلك، اسأل في استقبال الفندق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "richtig",
+    "article": "",
+    "translations": {
+      "en": "correct",
+      "es": "correcto",
+      "fr": "correct",
+      "ru": "правильный",
+      "ar": "صحيح"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Habe ich das richtig verstanden?",
+        "translations": {
+          "en": "Did I understand that correctly?",
+          "es": "¿He entendido eso correctamente?",
+          "fr": "Ai-je bien compris?",
+          "ru": "Я правильно понял?",
+          "ar": "هل فهمت ذلك بشكل صحيح؟"
+        }
+      },
+      {
+        "text": "Das ist richtig.",
+        "translations": {
+          "en": "That's correct.",
+          "es": "Eso es correcto.",
+          "fr": "C'est correct.",
+          "ru": "Это правильно.",
+          "ar": "هذا صحيح."
+        }
+      }
+    ]
+  }
+]
+

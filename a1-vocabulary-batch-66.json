@@ -1,0 +1,313 @@
+[
+  {
+    "word": "weiter",
+    "article": "",
+    "translations": {
+      "en": "further",
+      "es": "más",
+      "fr": "plus loin",
+      "ru": "дальше",
+      "ar": "أبعد"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Der Bus fährt nicht weiter.",
+        "translations": {
+          "en": "The bus isn't going any further.",
+          "es": "El autobús no va más lejos.",
+          "fr": "Le bus ne va pas plus loin.",
+          "ru": "Автобус не едет дальше.",
+          "ar": "الحافلة لا تذهب أبعد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "welch-",
+    "article": "",
+    "translations": {
+      "en": "which",
+      "es": "cuál",
+      "fr": "quel",
+      "ru": "который",
+      "ar": "أي"
+    },
+    "type": "determiner",
+    "exampleSentences": [
+      {
+        "text": "Welches Buch möchtest du?",
+        "translations": {
+          "en": "Which book would you like?",
+          "es": "¿Qué libro quieres?",
+          "fr": "Quel livre veux-tu?",
+          "ru": "Какую книгу ты хочешь?",
+          "ar": "أي كتاب تريد؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Welt",
+    "article": "die",
+    "translations": {
+      "en": "world",
+      "es": "mundo",
+      "fr": "monde",
+      "ru": "мир",
+      "ar": "العالم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gibt viele Probleme auf der Welt.",
+        "translations": {
+          "en": "There are many problems in the world.",
+          "es": "Hay muchos problemas en el mundo.",
+          "fr": "Il y a beaucoup de problèmes dans le monde.",
+          "ru": "В мире много проблем.",
+          "ar": "يوجد العديد من المشاكل في العالم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wenig",
+    "article": "",
+    "translations": {
+      "en": "little",
+      "es": "poco",
+      "fr": "peu",
+      "ru": "мало",
+      "ar": "قليل"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe leider nur wenig verstanden.",
+        "translations": {
+          "en": "Unfortunately, I only understood a little.",
+          "es": "Lamentablemente, solo entendí un poco.",
+          "fr": "Malheureusement, je n'ai compris que peu.",
+          "ru": "К сожалению, я понял только немного.",
+          "ar": "للأسف، فهمت القليل فقط."
+        }
+      },
+      {
+        "text": "Er verdient wenig.",
+        "translations": {
+          "en": "He earns little.",
+          "es": "Él gana poco.",
+          "fr": "Il gagne peu.",
+          "ru": "Он мало зарабатывает.",
+          "ar": "يكسب قليلاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wer",
+    "article": "",
+    "translations": {
+      "en": "who",
+      "es": "quién",
+      "fr": "qui",
+      "ru": "кто",
+      "ar": "من"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Wer ist das?",
+        "translations": {
+          "en": "Who is that?",
+          "es": "¿Quién es ese?",
+          "fr": "Qui est-ce?",
+          "ru": "Кто это?",
+          "ar": "من هذا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "werden",
+    "article": "",
+    "translations": {
+      "en": "to become",
+      "es": "convertirse",
+      "fr": "devenir",
+      "ru": "становиться",
+      "ar": "يصبح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Mein Sohn will Arzt werden.",
+        "translations": {
+          "en": "My son wants to become a doctor.",
+          "es": "Mi hijo quiere ser médico.",
+          "fr": "Mon fils veut devenir médecin.",
+          "ru": "Мой сын хочет стать врачом.",
+          "ar": "يريد ابني أن يصبح طبيبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wetter",
+    "article": "das",
+    "translations": {
+      "en": "weather",
+      "es": "tiempo",
+      "fr": "temps",
+      "ru": "погода",
+      "ar": "الطقس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir hatten schlechtes Wetter.",
+        "translations": {
+          "en": "We had bad weather.",
+          "es": "Tuvimos mal tiempo.",
+          "fr": "Nous avons eu mauvais temps.",
+          "ru": "У нас была плохая погода.",
+          "ar": "كان لدينا طقس سيء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wichtig",
+    "article": "",
+    "translations": {
+      "en": "important",
+      "es": "importante",
+      "fr": "important",
+      "ru": "важный",
+      "ar": "مهم"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Dieses Formular ist sehr wichtig.",
+        "translations": {
+          "en": "This form is very important.",
+          "es": "Este formulario es muy importante.",
+          "fr": "Ce formulaire est très important.",
+          "ru": "Эта форма очень важна.",
+          "ar": "هذا النموذج مهم جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wie",
+    "article": "",
+    "translations": {
+      "en": "how",
+      "es": "cómo",
+      "fr": "comment",
+      "ru": "как",
+      "ar": "كيف"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wie heißt du?",
+        "translations": {
+          "en": "What's your name?",
+          "es": "¿Cómo te llamas?",
+          "fr": "Comment t'appelles-tu?",
+          "ru": "Как тебя зовут?",
+          "ar": "ما اسمك؟"
+        }
+      },
+      {
+        "text": "Er schreibt wie ein Kind.",
+        "translations": {
+          "en": "He writes like a child.",
+          "es": "Escribe como un niño.",
+          "fr": "Il écrit comme un enfant.",
+          "ru": "Он пишет как ребёнок.",
+          "ar": "يكتب مثل الطفل."
+        }
+      },
+      {
+        "text": "Meine Frau ist so groß wie ich.",
+        "translations": {
+          "en": "My wife is as tall as I am.",
+          "es": "Mi esposa es tan alta como yo.",
+          "fr": "Ma femme est aussi grande que moi.",
+          "ru": "Моя жена такая же высокая, как я.",
+          "ar": "زوجتي بطول مثلي."
+        }
+      },
+      {
+        "text": "Wie soll ich das machen?",
+        "translations": {
+          "en": "How should I do that?",
+          "es": "¿Cómo debo hacer eso?",
+          "fr": "Comment dois-je faire cela?",
+          "ru": "Как мне это сделать?",
+          "ar": "كيف يجب أن أفعل ذلك؟"
+        }
+      },
+      {
+        "text": "Wie groß ist die Wohnung?",
+        "translations": {
+          "en": "How big is the apartment?",
+          "es": "¿Qué tan grande es el apartamento?",
+          "fr": "Quelle est la taille de l'appartement?",
+          "ru": "Какого размера квартира?",
+          "ar": "ما حجم الشقة؟"
+        }
+      },
+      {
+        "text": "Wie bitte?",
+        "translations": {
+          "en": "Pardon?",
+          "es": "¿Cómo dice?",
+          "fr": "Comment?",
+          "ru": "Простите?",
+          "ar": "عفوًا؟"
+        }
+      },
+      {
+        "text": "Wie lange bist du schon hier?",
+        "translations": {
+          "en": "How long have you been here?",
+          "es": "¿Cuánto tiempo llevas aquí?",
+          "fr": "Depuis combien de temps es-tu ici?",
+          "ru": "Как долго ты здесь?",
+          "ar": "منذ متى وأنت هنا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wiederholen",
+    "article": "",
+    "translations": {
+      "en": "to repeat",
+      "es": "repetir",
+      "fr": "répéter",
+      "ru": "повторять",
+      "ar": "يكرر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie das bitte wiederholen?",
+        "translations": {
+          "en": "Can you please repeat that?",
+          "es": "¿Puede repetir eso, por favor?",
+          "fr": "Pouvez-vous répéter cela, s'il vous plaît?",
+          "ru": "Можете повторить, пожалуйста?",
+          "ar": "هل يمكنك تكرار ذلك من فضلك؟"
+        }
+      }
+    ]
+  }
+]
+

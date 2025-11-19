@@ -1,0 +1,273 @@
+[
+  {
+    "word": "zu sein",
+    "article": "",
+    "translations": {
+      "en": "to be closed",
+      "es": "estar cerrado",
+      "fr": "être fermé",
+      "ru": "быть закрытым",
+      "ar": "يكون مغلقًا"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Tür ist zu.",
+        "translations": {
+          "en": "The door is closed.",
+          "es": "La puerta está cerrada.",
+          "fr": "La porte est fermée.",
+          "ru": "Дверь закрыта.",
+          "ar": "الباب مغلق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "seit",
+    "article": "",
+    "translations": {
+      "en": "since",
+      "es": "desde",
+      "fr": "depuis",
+      "ru": "с",
+      "ar": "منذ"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ich wohne seit drei Jahren in Köln.",
+        "translations": {
+          "en": "I've been living in Cologne for three years.",
+          "es": "Vivo en Colonia desde hace tres años.",
+          "fr": "J'habite à Cologne depuis trois ans.",
+          "ru": "Я живу в Кёльне три года.",
+          "ar": "أعيش في كولونيا منذ ثلاث سنوات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "selbstständig",
+    "article": "",
+    "translations": {
+      "en": "self-employed",
+      "es": "autónomo",
+      "fr": "indépendant",
+      "ru": "самозанятый",
+      "ar": "يعمل لحسابه الخاص"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er ist selbstständig.",
+        "translations": {
+          "en": "He is self-employed.",
+          "es": "Él es autónomo.",
+          "fr": "Il est indépendant.",
+          "ru": "Он самозанятый.",
+          "ar": "إنه يعمل لحسابه الخاص."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sich",
+    "article": "",
+    "translations": {
+      "en": "oneself",
+      "es": "se",
+      "fr": "se",
+      "ru": "себя",
+      "ar": "نفسه"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Sie müssen sich erst anmelden.",
+        "translations": {
+          "en": "You have to register first.",
+          "es": "Primero debe registrarse.",
+          "fr": "Vous devez d'abord vous inscrire.",
+          "ru": "Вы должны сначала зарегистрироваться.",
+          "ar": "يجب أن تسجل أولاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sie",
+    "article": "",
+    "translations": {
+      "en": "she",
+      "es": "ella",
+      "fr": "elle",
+      "ru": "она",
+      "ar": "هي"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Wie heißt sie?",
+        "translations": {
+          "en": "What's her name?",
+          "es": "¿Cómo se llama ella?",
+          "fr": "Comment s'appelle-t-elle?",
+          "ru": "Как её зовут?",
+          "ar": "ما اسمها؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sie",
+    "article": "",
+    "translations": {
+      "en": "you",
+      "es": "usted",
+      "fr": "vous",
+      "ru": "Вы",
+      "ar": "أنت"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Wie heißen Sie, bitte?",
+        "translations": {
+          "en": "What's your name, please?",
+          "es": "¿Cómo se llama usted, por favor?",
+          "fr": "Comment vous appelez-vous, s'il vous plaît?",
+          "ru": "Как вас зовут, пожалуйста?",
+          "ar": "ما اسمك، من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "sitzen",
+    "article": "",
+    "translations": {
+      "en": "to sit",
+      "es": "sentarse",
+      "fr": "être assis",
+      "ru": "сидеть",
+      "ar": "يجلس"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo sitzen Sie?",
+        "translations": {
+          "en": "Where are you sitting?",
+          "es": "¿Dónde está sentado?",
+          "fr": "Où êtes-vous assis?",
+          "ru": "Где вы сидите?",
+          "ar": "أين أنت جالس؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "so",
+    "article": "",
+    "translations": {
+      "en": "so",
+      "es": "así",
+      "fr": "ainsi",
+      "ru": "так",
+      "ar": "هكذا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Sie müssen das so machen!",
+        "translations": {
+          "en": "You have to do it like this!",
+          "es": "¡Tiene que hacerlo así!",
+          "fr": "Vous devez le faire ainsi!",
+          "ru": "Вы должны сделать это так!",
+          "ar": "يجب أن تفعل ذلك هكذا!"
+        }
+      },
+      {
+        "text": "Fahren Sie bitte nicht so schnell!",
+        "translations": {
+          "en": "Please don't drive so fast!",
+          "es": "¡Por favor, no conduzca tan rápido!",
+          "fr": "Ne conduisez pas si vite, s'il vous plaît!",
+          "ru": "Пожалуйста, не ездите так быстро!",
+          "ar": "من فضلك، لا تقد بسرعة كبيرة!"
+        }
+      },
+      {
+        "text": "Meine Frau ist so groß wie ich.",
+        "translations": {
+          "en": "My wife is as tall as I am.",
+          "es": "Mi esposa es tan alta como yo.",
+          "fr": "Ma femme est aussi grande que moi.",
+          "ru": "Моя жена такая же высокая, как я.",
+          "ar": "زوجتي بطول مثلي."
+        }
+      },
+      {
+        "text": "So, das war's/wär's!",
+        "translations": {
+          "en": "Well, that's it!",
+          "es": "¡Bueno, eso es todo!",
+          "fr": "Bon, c'est tout!",
+          "ru": "Ну вот, это всё!",
+          "ar": "حسنًا، هذا كل شيء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sofa",
+    "article": "das",
+    "translations": {
+      "en": "sofa",
+      "es": "sofá",
+      "fr": "canapé",
+      "ru": "диван",
+      "ar": "الأريكة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Sofa ist neu.",
+        "translations": {
+          "en": "The sofa is new.",
+          "es": "El sofá es nuevo.",
+          "fr": "Le canapé est neuf.",
+          "ru": "Диван новый.",
+          "ar": "الأريكة جديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sofort",
+    "article": "",
+    "translations": {
+      "en": "immediately",
+      "es": "inmediatamente",
+      "fr": "immédiatement",
+      "ru": "немедленно",
+      "ar": "فورًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Bitte antworten Sie sofort.",
+        "translations": {
+          "en": "Please answer immediately.",
+          "es": "Por favor, responda inmediatamente.",
+          "fr": "Veuillez répondre immédiatement.",
+          "ru": "Пожалуйста, ответьте немедленно.",
+          "ar": "من فضلك، أجب فورًا."
+        }
+      }
+    ]
+  }
+]
+

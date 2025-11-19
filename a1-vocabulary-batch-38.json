@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Konto",
+    "article": "das",
+    "translations": {
+      "en": "account",
+      "es": "cuenta",
+      "fr": "compte",
+      "ru": "счёт",
+      "ar": "الحساب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Geld überweisen wir am ersten März auf Ihr Konto.",
+        "translations": {
+          "en": "We will transfer the money to your account on March first.",
+          "es": "Transferiremos el dinero a su cuenta el primero de marzo.",
+          "fr": "Nous transférerons l'argent sur votre compte le premier mars.",
+          "ru": "Мы переведём деньги на ваш счёт первого марта.",
+          "ar": "سنحول المال إلى حسابك في الأول من مارس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kopf",
+    "article": "der",
+    "translations": {
+      "en": "head",
+      "es": "cabeza",
+      "fr": "tête",
+      "ru": "голова",
+      "ar": "الرأس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mir tut der Kopf weh.",
+        "translations": {
+          "en": "My head hurts.",
+          "es": "Me duele la cabeza.",
+          "fr": "J'ai mal à la tête.",
+          "ru": "У меня болит голова.",
+          "ar": "رأسي يؤلمني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kosten",
+    "article": "",
+    "translations": {
+      "en": "to cost",
+      "es": "costar",
+      "fr": "coûter",
+      "ru": "стоить",
+      "ar": "يكلف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was kostet ein Kilo Tomaten? – 2 Euro.",
+        "translations": {
+          "en": "How much does a kilo of tomatoes cost? – 2 euros.",
+          "es": "¿Cuánto cuesta un kilo de tomates? – 2 euros.",
+          "fr": "Combien coûte un kilo de tomates? – 2 euros.",
+          "ru": "Сколько стоит килограмм помидоров? – 2 евро.",
+          "ar": "كم يكلف كيلو من الطماطم؟ – 2 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "krank",
+    "article": "",
+    "translations": {
+      "en": "sick",
+      "es": "enfermo",
+      "fr": "malade",
+      "ru": "больной",
+      "ar": "مريض"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter ist krank. Ich muss leider zu Hause bleiben.",
+        "translations": {
+          "en": "My daughter is sick. Unfortunately, I have to stay at home.",
+          "es": "Mi hija está enferma. Lamentablemente, tengo que quedarme en casa.",
+          "fr": "Ma fille est malade. Malheureusement, je dois rester à la maison.",
+          "ru": "Моя дочь больна. К сожалению, мне нужно остаться дома.",
+          "ar": "ابنتي مريضة. للأسف، يجب أن أبقى في المنزل."
+        }
+      },
+      {
+        "text": "Peter ist krank. Er hat Fieber.",
+        "translations": {
+          "en": "Peter is sick. He has a fever.",
+          "es": "Peter está enfermo. Tiene fiebre.",
+          "fr": "Peter est malade. Il a de la fièvre.",
+          "ru": "Петер болен. У него температура.",
+          "ar": "بيتر مريض. لديه حمى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kriegen",
+    "article": "",
+    "translations": {
+      "en": "to get",
+      "es": "conseguir",
+      "fr": "obtenir",
+      "ru": "получать",
+      "ar": "يحصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie schon die Einladung für die Hochzeit gekriegt?",
+        "translations": {
+          "en": "Have you already gotten the invitation to the wedding?",
+          "es": "¿Ya has recibido la invitación para la boda?",
+          "fr": "Avez-vous déjà reçu l'invitation au mariage?",
+          "ru": "Вы уже получили приглашение на свадьбу?",
+          "ar": "هل حصلت بالفعل على دعوة الزفاف؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Küche",
+    "article": "die",
+    "translations": {
+      "en": "kitchen",
+      "es": "cocina",
+      "fr": "cuisine",
+      "ru": "кухня",
+      "ar": "المطبخ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Küche in unserer neuen Wohnung ist klein.",
+        "translations": {
+          "en": "The kitchen in our new apartment is small.",
+          "es": "La cocina de nuestro nuevo apartamento es pequeña.",
+          "fr": "La cuisine de notre nouvel appartement est petite.",
+          "ru": "Кухня в нашей новой квартире маленькая.",
+          "ar": "المطبخ في شقتنا الجديدة صغير."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kuchen",
+    "article": "der",
+    "translations": {
+      "en": "cake",
+      "es": "pastel",
+      "fr": "gâteau",
+      "ru": "пирог",
+      "ar": "الكعكة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zum Geburtstag gibt es Kaffee und Kuchen.",
+        "translations": {
+          "en": "For the birthday there's coffee and cake.",
+          "es": "Para el cumpleaños hay café y pastel.",
+          "fr": "Pour l'anniversaire, il y a du café et du gâteau.",
+          "ru": "На день рождения будет кофе и пирог.",
+          "ar": "في عيد الميلاد، هناك قهوة وكعكة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kugelschreiber",
+    "article": "der",
+    "translations": {
+      "en": "ballpoint pen",
+      "es": "bolígrafo",
+      "fr": "stylo à bille",
+      "ru": "шариковая ручка",
+      "ar": "القلم الجاف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kann ich deinen Kugelschreiber haben?",
+        "translations": {
+          "en": "Can I have your ballpoint pen?",
+          "es": "¿Puedo tener tu bolígrafo?",
+          "fr": "Puis-je avoir ton stylo à bille?",
+          "ru": "Можно взять твою шариковую ручку?",
+          "ar": "هل يمكنني الحصول على قلمك الجاف؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "kümmern",
+    "article": "sich",
+    "translations": {
+      "en": "to take care of",
+      "es": "ocuparse",
+      "fr": "s'occuper",
+      "ru": "заботиться",
+      "ar": "يعتني"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wer kümmert sich um die Kinder?",
+        "translations": {
+          "en": "Who takes care of the children?",
+          "es": "¿Quién se ocupa de los niños?",
+          "fr": "Qui s'occupe des enfants?",
+          "ru": "Кто заботится о детях?",
+          "ar": "من يعتني بالأطفال؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kunde",
+    "article": "der",
+    "translations": {
+      "en": "customer",
+      "es": "cliente",
+      "fr": "client",
+      "ru": "клиент",
+      "ar": "العميل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Kunde ist König.",
+        "translations": {
+          "en": "The customer is king.",
+          "es": "El cliente es el rey.",
+          "fr": "Le client est roi.",
+          "ru": "Клиент — король.",
+          "ar": "العميل هو الملك."
+        }
+      }
+    ]
+  }
+]
+

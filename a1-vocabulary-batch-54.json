@@ -1,0 +1,273 @@
+[
+  {
+    "word": "schnell",
+    "article": "",
+    "translations": {
+      "en": "fast",
+      "es": "rápido",
+      "fr": "rapide",
+      "ru": "быстро",
+      "ar": "سريع"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er fährt schnell.",
+        "translations": {
+          "en": "He drives fast.",
+          "es": "Él conduce rápido.",
+          "fr": "Il conduit vite.",
+          "ru": "Он едет быстро.",
+          "ar": "يقود بسرعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schon",
+    "article": "",
+    "translations": {
+      "en": "already",
+      "es": "ya",
+      "fr": "déjà",
+      "ru": "уже",
+      "ar": "بالفعل"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ist das Essen schon fertig?",
+        "translations": {
+          "en": "Is the food already ready?",
+          "es": "¿Ya está lista la comida?",
+          "fr": "Le repas est-il déjà prêt?",
+          "ru": "Еда уже готова?",
+          "ar": "هل الطعام جاهز بالفعل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "schön",
+    "article": "",
+    "translations": {
+      "en": "beautiful",
+      "es": "hermoso",
+      "fr": "beau",
+      "ru": "красивый",
+      "ar": "جميل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Schönen Urlaub!",
+        "translations": {
+          "en": "Have a nice vacation!",
+          "es": "¡Felices vacaciones!",
+          "fr": "Bonnes vacances!",
+          "ru": "Хорошего отпуска!",
+          "ar": "إجازة سعيدة!"
+        }
+      },
+      {
+        "text": "Das ist sehr schön.",
+        "translations": {
+          "en": "That's very beautiful.",
+          "es": "Eso es muy hermoso.",
+          "fr": "C'est très beau.",
+          "ru": "Это очень красиво.",
+          "ar": "هذا جميل جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schrank",
+    "article": "der",
+    "translations": {
+      "en": "cupboard",
+      "es": "armario",
+      "fr": "armoire",
+      "ru": "шкаф",
+      "ar": "الخزانة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Gläser stehen im Schrank.",
+        "translations": {
+          "en": "The glasses are in the cupboard.",
+          "es": "Los vasos están en el armario.",
+          "fr": "Les verres sont dans l'armoire.",
+          "ru": "Стаканы стоят в шкафу.",
+          "ar": "الأكواب في الخزانة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schreiben",
+    "article": "",
+    "translations": {
+      "en": "to write",
+      "es": "escribir",
+      "fr": "écrire",
+      "ru": "писать",
+      "ar": "يكتب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er schreibt jeden Tag fünfzig E-Mails.",
+        "translations": {
+          "en": "He writes fifty emails every day.",
+          "es": "Él escribe cincuenta correos electrónicos cada día.",
+          "fr": "Il écrit cinquante courriels chaque jour.",
+          "ru": "Он пишет пятьдесят электронных писем каждый день.",
+          "ar": "يكتب خمسين رسالة إلكترونية كل يوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schuh",
+    "article": "der",
+    "translations": {
+      "en": "shoe",
+      "es": "zapato",
+      "fr": "chaussure",
+      "ru": "обувь",
+      "ar": "الحذاء"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zieh die Schuhe aus!",
+        "translations": {
+          "en": "Take off your shoes!",
+          "es": "¡Quítate los zapatos!",
+          "fr": "Enlève tes chaussures!",
+          "ru": "Сними обувь!",
+          "ar": "اخلع حذاءك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schule",
+    "article": "die",
+    "translations": {
+      "en": "school",
+      "es": "escuela",
+      "fr": "école",
+      "ru": "школа",
+      "ar": "المدرسة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter geht schon in die Schule.",
+        "translations": {
+          "en": "My daughter already goes to school.",
+          "es": "Mi hija ya va a la escuela.",
+          "fr": "Ma fille va déjà à l'école.",
+          "ru": "Моя дочь уже ходит в школу.",
+          "ar": "ابنتي تذهب إلى المدرسة بالفعل."
+        }
+      },
+      {
+        "text": "Die Schule ist gleich hier um die Ecke.",
+        "translations": {
+          "en": "The school is right here around the corner.",
+          "es": "La escuela está justo aquí a la vuelta de la esquina.",
+          "fr": "L'école est juste ici au coin de la rue.",
+          "ru": "Школа прямо здесь за углом.",
+          "ar": "المدرسة هنا على الفور عند الزاوية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schüler",
+    "article": "der",
+    "translations": {
+      "en": "student",
+      "es": "estudiante",
+      "fr": "élève",
+      "ru": "ученик",
+      "ar": "التلميذ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In meinem Kurs sind acht Schülerinnen und fünf Schüler.",
+        "translations": {
+          "en": "In my course there are eight female students and five male students.",
+          "es": "En mi curso hay ocho estudiantes mujeres y cinco hombres.",
+          "fr": "Dans mon cours, il y a huit étudiantes et cinq étudiants.",
+          "ru": "В моём курсе восемь учениц и пять учеников.",
+          "ar": "في دورتي ثماني طالبات وخمسة طلاب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schwer",
+    "article": "",
+    "translations": {
+      "en": "heavy",
+      "es": "pesado",
+      "fr": "lourd",
+      "ru": "тяжёлый",
+      "ar": "ثقيل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ist Ihr Gepäck sehr schwer?",
+        "translations": {
+          "en": "Is your luggage very heavy?",
+          "es": "¿Es muy pesado su equipaje?",
+          "fr": "Vos bagages sont-ils très lourds?",
+          "ru": "Ваш багаж очень тяжёлый?",
+          "ar": "هل أمتعتك ثقيلة جدًا؟"
+        }
+      },
+      {
+        "text": "Das ist eine schwere Arbeit.",
+        "translations": {
+          "en": "That's hard work.",
+          "es": "Es un trabajo duro.",
+          "fr": "C'est un travail difficile.",
+          "ru": "Это тяжёлая работа.",
+          "ar": "هذا عمل شاق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schwester",
+    "article": "die",
+    "translations": {
+      "en": "sister",
+      "es": "hermana",
+      "fr": "sœur",
+      "ru": "сестра",
+      "ar": "الأخت"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Schwester kommt am Dienstag.",
+        "translations": {
+          "en": "My sister is coming on Tuesday.",
+          "es": "Mi hermana viene el martes.",
+          "fr": "Ma sœur vient mardi.",
+          "ru": "Моя сестра приезжает во вторник.",
+          "ar": "أختي ستأتي يوم الثلاثاء."
+        }
+      }
+    ]
+  }
+]
+

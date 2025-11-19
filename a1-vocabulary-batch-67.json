@@ -1,0 +1,273 @@
+[
+  {
+    "word": "Wiederhören",
+    "article": "das",
+    "translations": {
+      "en": "goodbye (on phone)",
+      "es": "adiós (por teléfono)",
+      "fr": "au revoir (au téléphone)",
+      "ru": "до свидания (по телефону)",
+      "ar": "وداعًا (عبر الهاتف)"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen jetzt Schluss machen. Also auf Wiederhören!",
+        "translations": {
+          "en": "We have to finish now. So goodbye!",
+          "es": "Tenemos que terminar ahora. ¡Hasta luego!",
+          "fr": "Nous devons terminer maintenant. Alors au revoir!",
+          "ru": "Нам нужно заканчивать. До свидания!",
+          "ar": "يجب أن ننتهي الآن. إذن وداعًا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wiedersehen",
+    "article": "das",
+    "translations": {
+      "en": "goodbye",
+      "es": "adiós",
+      "fr": "au revoir",
+      "ru": "до свидания",
+      "ar": "وداعًا"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf Wiedersehen!",
+        "translations": {
+          "en": "Goodbye!",
+          "es": "¡Adiós!",
+          "fr": "Au revoir!",
+          "ru": "До свидания!",
+          "ar": "وداعًا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wie viel",
+    "article": "",
+    "translations": {
+      "en": "how much",
+      "es": "cuánto",
+      "fr": "combien",
+      "ru": "сколько",
+      "ar": "كم"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wie viel Milch nehmen Sie?",
+        "translations": {
+          "en": "How much milk do you take?",
+          "es": "¿Cuánta leche toma?",
+          "fr": "Combien de lait prenez-vous?",
+          "ru": "Сколько молока вы берёте?",
+          "ar": "كم من الحليب تأخذ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "willkommen",
+    "article": "",
+    "translations": {
+      "en": "welcome",
+      "es": "bienvenido",
+      "fr": "bienvenue",
+      "ru": "добро пожаловать",
+      "ar": "مرحبًا"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Herzlich willkommen!",
+        "translations": {
+          "en": "Welcome!",
+          "es": "¡Bienvenido!",
+          "fr": "Bienvenue!",
+          "ru": "Добро пожаловать!",
+          "ar": "مرحبًا بك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wind",
+    "article": "der",
+    "translations": {
+      "en": "wind",
+      "es": "viento",
+      "fr": "vent",
+      "ru": "ветер",
+      "ar": "الرياح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Wind kommt aus Osten.",
+        "translations": {
+          "en": "The wind comes from the east.",
+          "es": "El viento viene del este.",
+          "fr": "Le vent vient de l'est.",
+          "ru": "Ветер дует с востока.",
+          "ar": "الرياح تأتي من الشرق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wir",
+    "article": "",
+    "translations": {
+      "en": "we",
+      "es": "nosotros",
+      "fr": "nous",
+      "ru": "мы",
+      "ar": "نحن"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Wir lernen Deutsch.",
+        "translations": {
+          "en": "We're learning German.",
+          "es": "Aprendemos alemán.",
+          "fr": "Nous apprenons l'allemand.",
+          "ru": "Мы учим немецкий.",
+          "ar": "نتعلم الألمانية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wissen",
+    "article": "",
+    "translations": {
+      "en": "to know",
+      "es": "saber",
+      "fr": "savoir",
+      "ru": "знать",
+      "ar": "يعرف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Weißt du, wie er heißt?",
+        "translations": {
+          "en": "Do you know what his name is?",
+          "es": "¿Sabes cómo se llama?",
+          "fr": "Sais-tu comment il s'appelle?",
+          "ru": "Ты знаешь, как его зовут?",
+          "ar": "هل تعرف ما اسمه؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wo",
+    "article": "",
+    "translations": {
+      "en": "where",
+      "es": "dónde",
+      "fr": "où",
+      "ru": "где",
+      "ar": "أين"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wo waren Sie im Urlaub?",
+        "translations": {
+          "en": "Where were you on vacation?",
+          "es": "¿Dónde estuvo de vacaciones?",
+          "fr": "Où étiez-vous en vacances?",
+          "ru": "Где вы были в отпуске?",
+          "ar": "أين كنت في الإجازة؟"
+        }
+      },
+      {
+        "text": "Wo ist die Post?",
+        "translations": {
+          "en": "Where is the post office?",
+          "es": "¿Dónde está el correo?",
+          "fr": "Où est la poste?",
+          "ru": "Где почта?",
+          "ar": "أين مكتب البريد؟"
+        }
+      },
+      {
+        "text": "Wo sind Sie geboren?",
+        "translations": {
+          "en": "Where were you born?",
+          "es": "¿Dónde nació?",
+          "fr": "Où êtes-vous né?",
+          "ru": "Где вы родились?",
+          "ar": "أين ولدت؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "woher",
+    "article": "",
+    "translations": {
+      "en": "where from",
+      "es": "de dónde",
+      "fr": "d'où",
+      "ru": "откуда",
+      "ar": "من أين"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Woher kommen Sie?",
+        "translations": {
+          "en": "Where do you come from?",
+          "es": "¿De dónde viene?",
+          "fr": "D'où venez-vous?",
+          "ru": "Откуда вы?",
+          "ar": "من أين أنت؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wohin",
+    "article": "",
+    "translations": {
+      "en": "where to",
+      "es": "adónde",
+      "fr": "où",
+      "ru": "куда",
+      "ar": "إلى أين"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wohin fährt dieser Bus?",
+        "translations": {
+          "en": "Where does this bus go?",
+          "es": "¿Adónde va este autobús?",
+          "fr": "Où va ce bus?",
+          "ru": "Куда идёт этот автобус?",
+          "ar": "إلى أين تذهب هذه الحافلة؟"
+        }
+      },
+      {
+        "text": "Wohin wollen Sie am Wochenende?",
+        "translations": {
+          "en": "Where do you want to go on the weekend?",
+          "es": "¿Adónde quiere ir el fin de semana?",
+          "fr": "Où voulez-vous aller le week-end?",
+          "ru": "Куда вы хотите поехать на выходных?",
+          "ar": "إلى أين تريد الذهاب في عطلة نهاية الأسبوع؟"
+        }
+      }
+    ]
+  }
+]
+

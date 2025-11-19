@@ -1,0 +1,272 @@
+[
+  {
+    "word": "möchten",
+    "article": "",
+    "translations": {
+      "en": "would like",
+      "es": "quisiera",
+      "fr": "voudrais",
+      "ru": "хотел бы",
+      "ar": "أود"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was möchten Sie trinken?",
+        "translations": {
+          "en": "What would you like to drink?",
+          "es": "¿Qué le gustaría beber?",
+          "fr": "Que voulez-vous boire?",
+          "ru": "Что бы вы хотели выпить?",
+          "ar": "ماذا تريد أن تشرب؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "mögen",
+    "article": "",
+    "translations": {
+      "en": "to like",
+      "es": "gustar",
+      "fr": "aimer",
+      "ru": "нравиться",
+      "ar": "يحب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Magst du Kaffee oder Tee?",
+        "translations": {
+          "en": "Do you like coffee or tea?",
+          "es": "¿Te gusta el café o el té?",
+          "fr": "Aimes-tu le café ou le thé?",
+          "ru": "Ты любишь кофе или чай?",
+          "ar": "هل تحب القهوة أم الشاي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "möglich",
+    "article": "",
+    "translations": {
+      "en": "possible",
+      "es": "posible",
+      "fr": "possible",
+      "ru": "возможный",
+      "ar": "ممكن"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mit dieser Fahrkarte ist die Fahrt ab 9 Uhr möglich.",
+        "translations": {
+          "en": "With this ticket, travel is possible from 9 o'clock.",
+          "es": "Con este billete, el viaje es posible a partir de las 9.",
+          "fr": "Avec ce billet, le voyage est possible à partir de 9 heures.",
+          "ru": "С этим билетом можно ехать с 9 часов.",
+          "ar": "بهذه التذكرة، السفر ممكن من الساعة التاسعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Moment",
+    "article": "der",
+    "translations": {
+      "en": "moment",
+      "es": "momento",
+      "fr": "moment",
+      "ru": "момент",
+      "ar": "اللحظة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Moment mal bitte!",
+        "translations": {
+          "en": "Just a moment, please!",
+          "es": "¡Un momento, por favor!",
+          "fr": "Un moment, s'il vous plaît!",
+          "ru": "Минуточку, пожалуйста!",
+          "ar": "لحظة من فضلك!"
+        }
+      },
+      {
+        "text": "Einen Moment bitte.",
+        "translations": {
+          "en": "One moment please.",
+          "es": "Un momento, por favor.",
+          "fr": "Un instant, s'il vous plaît.",
+          "ru": "Один момент, пожалуйста.",
+          "ar": "لحظة من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "morgen",
+    "article": "",
+    "translations": {
+      "en": "tomorrow",
+      "es": "mañana",
+      "fr": "demain",
+      "ru": "завтра",
+      "ar": "غدًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Morgen beginnt die Schule um 10 Uhr.",
+        "translations": {
+          "en": "School starts at 10 o'clock tomorrow.",
+          "es": "La escuela comienza a las 10 mañana.",
+          "fr": "L'école commence à 10 heures demain.",
+          "ru": "Завтра школа начинается в 10 часов.",
+          "ar": "تبدأ المدرسة غدًا في الساعة العاشرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "müde",
+    "article": "",
+    "translations": {
+      "en": "tired",
+      "es": "cansado",
+      "fr": "fatigué",
+      "ru": "уставший",
+      "ar": "متعب"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin müde. Ich gehe schlafen.",
+        "translations": {
+          "en": "I'm tired. I'm going to sleep.",
+          "es": "Estoy cansado. Me voy a dormir.",
+          "fr": "Je suis fatigué. Je vais dormir.",
+          "ru": "Я устал. Я иду спать.",
+          "ar": "أنا متعب. سأذهب للنوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Mund",
+    "article": "der",
+    "translations": {
+      "en": "mouth",
+      "es": "boca",
+      "fr": "bouche",
+      "ru": "рот",
+      "ar": "الفم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Öffnen Sie den Mund.",
+        "translations": {
+          "en": "Open your mouth.",
+          "es": "Abra la boca.",
+          "fr": "Ouvrez la bouche.",
+          "ru": "Откройте рот.",
+          "ar": "افتح فمك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "müssen",
+    "article": "",
+    "translations": {
+      "en": "must",
+      "es": "deber",
+      "fr": "devoir",
+      "ru": "должен",
+      "ar": "يجب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss jeden Tag von 8 Uhr bis 18 Uhr arbeiten.",
+        "translations": {
+          "en": "I have to work every day from 8 am to 6 pm.",
+          "es": "Tengo que trabajar todos los días de 8 a 18 horas.",
+          "fr": "Je dois travailler tous les jours de 8h à 18h.",
+          "ru": "Я должен работать каждый день с 8 до 18 часов.",
+          "ar": "يجب أن أعمل كل يوم من الساعة 8 إلى الساعة 18."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Mutter",
+    "article": "die",
+    "translations": {
+      "en": "mother",
+      "es": "madre",
+      "fr": "mère",
+      "ru": "мать",
+      "ar": "الأم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Frau Berghäuser ist die Mutter von Michaela.",
+        "translations": {
+          "en": "Mrs. Berghäuser is Michaela's mother.",
+          "es": "La señora Berghäuser es la madre de Michaela.",
+          "fr": "Madame Berghäuser est la mère de Michaela.",
+          "ru": "Фрау Бергхойзер - мать Михаэлы.",
+          "ar": "السيدة بيرغهاوزر هي والدة ميكايلا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "nach",
+    "article": "",
+    "translations": {
+      "en": "to",
+      "es": "a",
+      "fr": "à",
+      "ru": "в",
+      "ar": "إلى"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe jetzt nach Hause.",
+        "translations": {
+          "en": "I'm going home now.",
+          "es": "Me voy a casa ahora.",
+          "fr": "Je rentre à la maison maintenant.",
+          "ru": "Я сейчас иду домой.",
+          "ar": "سأذهب إلى المنزل الآن."
+        }
+      },
+      {
+        "text": "Ich fliege nach München.",
+        "translations": {
+          "en": "I'm flying to Munich.",
+          "es": "Voy a volar a Múnich.",
+          "fr": "Je vais à Munich en avion.",
+          "ru": "Я лечу в Мюнхен.",
+          "ar": "سأطير إلى ميونيخ."
+        }
+      },
+      {
+        "text": "Es ist schon 5 nach 12.",
+        "translations": {
+          "en": "It's already 5 past 12.",
+          "es": "Ya son las 12 y 5.",
+          "fr": "Il est déjà 12h05.",
+          "ru": "Уже 5 минут первого.",
+          "ar": "إنها الساعة الثانية عشرة وخمس دقائق."
+        }
+      }
+    ]
+  }
+]

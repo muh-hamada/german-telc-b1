@@ -1,0 +1,262 @@
+[
+  {
+    "word": "Nummer",
+    "article": "die",
+    "translations": {
+      "en": "number",
+      "es": "número",
+      "fr": "numéro",
+      "ru": "номер",
+      "ar": "الرقم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie haben Zimmer Nummer zwölf.",
+        "translations": {
+          "en": "You have room number twelve.",
+          "es": "Tiene la habitación número doce.",
+          "fr": "Vous avez la chambre numéro douze.",
+          "ru": "У вас номер двенадцать.",
+          "ar": "لديك غرفة رقم اثني عشر."
+        }
+      },
+      {
+        "text": "Welche Hausnummer haben Sie?",
+        "translations": {
+          "en": "What house number do you have?",
+          "es": "¿Qué número de casa tiene?",
+          "fr": "Quel est votre numéro de maison?",
+          "ru": "Какой у вас номер дома?",
+          "ar": "ما هو رقم منزلك؟"
+        }
+      },
+      {
+        "text": "Können Sie mir Ihre Nummer geben?",
+        "translations": {
+          "en": "Can you give me your number?",
+          "es": "¿Puede darme su número?",
+          "fr": "Pouvez-vous me donner votre numéro?",
+          "ru": "Можете дать мне свой номер?",
+          "ar": "هل يمكنك إعطائي رقمك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "nur",
+    "article": "",
+    "translations": {
+      "en": "only",
+      "es": "solo",
+      "fr": "seulement",
+      "ru": "только",
+      "ar": "فقط"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte nur ein Glas Wasser.",
+        "translations": {
+          "en": "I only want a glass of water.",
+          "es": "Solo quiero un vaso de agua.",
+          "fr": "Je veux seulement un verre d'eau.",
+          "ru": "Я хочу только стакан воды.",
+          "ar": "أريد فقط كوبًا من الماء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "oben",
+    "article": "",
+    "translations": {
+      "en": "upstairs",
+      "es": "arriba",
+      "fr": "en haut",
+      "ru": "наверху",
+      "ar": "في الأعلى"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich wohne oben.",
+        "translations": {
+          "en": "I live upstairs.",
+          "es": "Vivo arriba.",
+          "fr": "J'habite en haut.",
+          "ru": "Я живу наверху.",
+          "ar": "أعيش في الأعلى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Obst",
+    "article": "das",
+    "translations": {
+      "en": "fruit",
+      "es": "fruta",
+      "fr": "fruits",
+      "ru": "фрукты",
+      "ar": "الفاكهة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Sommer ist das Obst billig.",
+        "translations": {
+          "en": "In summer, fruit is cheap.",
+          "es": "En verano, la fruta es barata.",
+          "fr": "En été, les fruits sont bon marché.",
+          "ru": "Летом фрукты дешёвые.",
+          "ar": "في الصيف، الفاكهة رخيصة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "oder",
+    "article": "",
+    "translations": {
+      "en": "or",
+      "es": "o",
+      "fr": "ou",
+      "ru": "или",
+      "ar": "أو"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Wann können Sie kommen – heute oder morgen?",
+        "translations": {
+          "en": "When can you come – today or tomorrow?",
+          "es": "¿Cuándo puede venir – hoy o mañana?",
+          "fr": "Quand pouvez-vous venir – aujourd'hui ou demain?",
+          "ru": "Когда вы можете прийти – сегодня или завтра?",
+          "ar": "متى يمكنك أن تأتي – اليوم أم غدًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "öffnen",
+    "article": "",
+    "translations": {
+      "en": "to open",
+      "es": "abrir",
+      "fr": "ouvrir",
+      "ru": "открывать",
+      "ar": "يفتح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich öffne die Tür.",
+        "translations": {
+          "en": "I'm opening the door.",
+          "es": "Abro la puerta.",
+          "fr": "J'ouvre la porte.",
+          "ru": "Я открываю дверь.",
+          "ar": "أنا أفتح الباب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "geöffnet",
+    "article": "",
+    "translations": {
+      "en": "open",
+      "es": "abierto",
+      "fr": "ouvert",
+      "ru": "открыт",
+      "ar": "مفتوح"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Laden ist samstags bis 16.00 Uhr geöffnet.",
+        "translations": {
+          "en": "The shop is open until 4:00 pm on Saturdays.",
+          "es": "La tienda está abierta los sábados hasta las 16:00.",
+          "fr": "Le magasin est ouvert le samedi jusqu'à 16h00.",
+          "ru": "Магазин открыт по субботам до 16:00.",
+          "ar": "المتجر مفتوح أيام السبت حتى الساعة 16:00."
+        }
+      }
+    ]
+  },
+  {
+    "word": "oft",
+    "article": "",
+    "translations": {
+      "en": "often",
+      "es": "a menudo",
+      "fr": "souvent",
+      "ru": "часто",
+      "ar": "غالبًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Petra treffe ich oft.",
+        "translations": {
+          "en": "I often meet Petra.",
+          "es": "Me encuentro con Petra a menudo.",
+          "fr": "Je rencontre souvent Petra.",
+          "ru": "Я часто встречаю Петру.",
+          "ar": "أقابل بيترا غالبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ohne",
+    "article": "",
+    "translations": {
+      "en": "without",
+      "es": "sin",
+      "fr": "sans",
+      "ru": "без",
+      "ar": "بدون"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Ohne Geld kann er nichts kaufen.",
+        "translations": {
+          "en": "Without money he can't buy anything.",
+          "es": "Sin dinero no puede comprar nada.",
+          "fr": "Sans argent, il ne peut rien acheter.",
+          "ru": "Без денег он ничего не может купить.",
+          "ar": "بدون نقود لا يستطيع شراء أي شيء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Öl",
+    "article": "das",
+    "translations": {
+      "en": "oil",
+      "es": "aceite",
+      "fr": "huile",
+      "ru": "масло",
+      "ar": "الزيت"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Den Salat machen wir ohne Öl.",
+        "translations": {
+          "en": "We make the salad without oil.",
+          "es": "Hacemos la ensalada sin aceite.",
+          "fr": "Nous faisons la salade sans huile.",
+          "ru": "Мы делаем салат без масла.",
+          "ar": "نصنع السلطة بدون زيت."
+        }
+      }
+    ]
+  }
+]

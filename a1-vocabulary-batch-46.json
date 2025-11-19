@@ -1,0 +1,312 @@
+[
+  {
+    "word": "nächst-",
+    "article": "",
+    "translations": {
+      "en": "next",
+      "es": "próximo",
+      "fr": "prochain",
+      "ru": "следующий",
+      "ar": "القادم"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Sehen wir uns nächste Woche?",
+        "translations": {
+          "en": "Will we see each other next week?",
+          "es": "¿Nos vemos la próxima semana?",
+          "fr": "On se voit la semaine prochaine?",
+          "ru": "Увидимся на следующей неделе?",
+          "ar": "هل نلتقي الأسبوع القادم؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Name",
+    "article": "der",
+    "translations": {
+      "en": "name",
+      "es": "nombre",
+      "fr": "nom",
+      "ru": "имя",
+      "ar": "الاسم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Name ist Thomas Schmidt.",
+        "translations": {
+          "en": "My name is Thomas Schmidt.",
+          "es": "Mi nombre es Thomas Schmidt.",
+          "fr": "Mon nom est Thomas Schmidt.",
+          "ru": "Меня зовут Томас Шмидт.",
+          "ar": "اسمي توماس شميت."
+        }
+      },
+      {
+        "text": "Mein Vorname ist Thomas; Schmidt ist der Familienname.",
+        "translations": {
+          "en": "My first name is Thomas; Schmidt is the last name.",
+          "es": "Mi nombre de pila es Thomas; Schmidt es el apellido.",
+          "fr": "Mon prénom est Thomas; Schmidt est le nom de famille.",
+          "ru": "Моё имя - Томас; Шмидт - это фамилия.",
+          "ar": "اسمي الأول هو توماس؛ شميت هو اسم العائلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "nehmen",
+    "article": "",
+    "translations": {
+      "en": "to take",
+      "es": "tomar",
+      "fr": "prendre",
+      "ru": "брать",
+      "ar": "يأخذ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Heute gibt es Hähnchen. Das nehme ich.",
+        "translations": {
+          "en": "Today there's chicken. I'll take that.",
+          "es": "Hoy hay pollo. Voy a tomar eso.",
+          "fr": "Aujourd'hui il y a du poulet. Je prends ça.",
+          "ru": "Сегодня есть курица. Я возьму это.",
+          "ar": "اليوم يوجد دجاج. سآخذ ذلك."
+        }
+      },
+      {
+        "text": "Ich nehme den Bus.",
+        "translations": {
+          "en": "I'm taking the bus.",
+          "es": "Voy a tomar el autobús.",
+          "fr": "Je prends le bus.",
+          "ru": "Я еду на автобусе.",
+          "ar": "سأخذ الحافلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "nein",
+    "article": "",
+    "translations": {
+      "en": "no",
+      "es": "no",
+      "fr": "non",
+      "ru": "нет",
+      "ar": "لا"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Fährst du auch nach München? – Nein, ich habe keine Zeit.",
+        "translations": {
+          "en": "Are you also going to Munich? – No, I don't have time.",
+          "es": "¿Tú también vas a Múnich? – No, no tengo tiempo.",
+          "fr": "Vas-tu aussi à Munich? – Non, je n'ai pas le temps.",
+          "ru": "Ты тоже едешь в Мюнхен? – Нет, у меня нет времени.",
+          "ar": "هل أنت أيضًا ذاهب إلى ميونيخ؟ – لا، ليس لدي وقت."
+        }
+      }
+    ]
+  },
+  {
+    "word": "neu",
+    "article": "",
+    "translations": {
+      "en": "new",
+      "es": "nuevo",
+      "fr": "nouveau",
+      "ru": "новый",
+      "ar": "جديد"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin der neue Kollege.",
+        "translations": {
+          "en": "I'm the new colleague.",
+          "es": "Soy el nuevo colega.",
+          "fr": "Je suis le nouveau collègue.",
+          "ru": "Я новый коллега.",
+          "ar": "أنا الزميل الجديد."
+        }
+      },
+      {
+        "text": "Wir haben eine neue Wohnung.",
+        "translations": {
+          "en": "We have a new apartment.",
+          "es": "Tenemos un apartamento nuevo.",
+          "fr": "Nous avons un nouvel appartement.",
+          "ru": "У нас новая квартира.",
+          "ar": "لدينا شقة جديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "nicht",
+    "article": "",
+    "translations": {
+      "en": "not",
+      "es": "no",
+      "fr": "ne... pas",
+      "ru": "не",
+      "ar": "ليس"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Das stimmt nicht.",
+        "translations": {
+          "en": "That's not correct.",
+          "es": "Eso no es correcto.",
+          "fr": "Ce n'est pas correct.",
+          "ru": "Это неправильно.",
+          "ar": "هذا ليس صحيحًا."
+        }
+      },
+      {
+        "text": "Das ist doch schön, nicht?",
+        "translations": {
+          "en": "That's nice, isn't it?",
+          "es": "Es bonito, ¿no?",
+          "fr": "C'est beau, n'est-ce pas?",
+          "ru": "Это красиво, не так ли?",
+          "ar": "هذا جميل، أليس كذلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "nichts",
+    "article": "",
+    "translations": {
+      "en": "nothing",
+      "es": "nada",
+      "fr": "rien",
+      "ru": "ничего",
+      "ar": "لا شيء"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Das macht nichts.",
+        "translations": {
+          "en": "That doesn't matter.",
+          "es": "No importa.",
+          "fr": "Ça ne fait rien.",
+          "ru": "Ничего страшного.",
+          "ar": "لا بأس بذلك."
+        }
+      },
+      {
+        "text": "Hier kaufe ich nichts. Der Laden gefällt mir nicht.",
+        "translations": {
+          "en": "I'm not buying anything here. I don't like the shop.",
+          "es": "No compro nada aquí. No me gusta la tienda.",
+          "fr": "Je n'achète rien ici. Je n'aime pas le magasin.",
+          "ru": "Я здесь ничего не покупаю. Мне не нравится этот магазин.",
+          "ar": "لن أشتري شيئًا هنا. لا يعجبني المتجر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "nie",
+    "article": "",
+    "translations": {
+      "en": "never",
+      "es": "nunca",
+      "fr": "jamais",
+      "ru": "никогда",
+      "ar": "أبدًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Er kommt nie pünktlich.",
+        "translations": {
+          "en": "He never comes on time.",
+          "es": "Él nunca llega a tiempo.",
+          "fr": "Il n'arrive jamais à l'heure.",
+          "ru": "Он никогда не приходит вовремя.",
+          "ar": "هو لا يأتي في الوقت المحدد أبدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "noch",
+    "article": "",
+    "translations": {
+      "en": "still",
+      "es": "todavía",
+      "fr": "encore",
+      "ru": "ещё",
+      "ar": "لا يزال"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Vielleicht kommt er noch.",
+        "translations": {
+          "en": "Maybe he'll still come.",
+          "es": "Quizás todavía venga.",
+          "fr": "Peut-être qu'il viendra encore.",
+          "ru": "Может быть, он ещё придёт.",
+          "ar": "ربما سيأتي بعد."
+        }
+      },
+      {
+        "text": "Wir warten noch fünf Minuten.",
+        "translations": {
+          "en": "We're waiting another five minutes.",
+          "es": "Esperamos cinco minutos más.",
+          "fr": "Nous attendons encore cinq minutes.",
+          "ru": "Мы ждём ещё пять минут.",
+          "ar": "سننتظر خمس دقائق أخرى."
+        }
+      },
+      {
+        "text": "Ich habe noch 20 Euro.",
+        "translations": {
+          "en": "I still have 20 euros.",
+          "es": "Todavía tengo 20 euros.",
+          "fr": "J'ai encore 20 euros.",
+          "ru": "У меня ещё есть 20 евро.",
+          "ar": "لا يزال لدي 20 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "normal",
+    "article": "",
+    "translations": {
+      "en": "normal",
+      "es": "normal",
+      "fr": "normal",
+      "ru": "нормальный",
+      "ar": "طبيعي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "75 kg. Sein Gewicht ist normal.",
+        "translations": {
+          "en": "75 kg. His weight is normal.",
+          "es": "75 kg. Su peso es normal.",
+          "fr": "75 kg. Son poids est normal.",
+          "ru": "75 кг. Его вес нормальный.",
+          "ar": "75 كجم. وزنه طبيعي."
+        }
+      }
+    ]
+  }
+]

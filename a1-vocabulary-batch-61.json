@@ -1,0 +1,293 @@
+[
+  {
+    "word": "(sich) treffen",
+    "article": "",
+    "translations": {
+      "en": "to meet",
+      "es": "encontrarse",
+      "fr": "rencontrer",
+      "ru": "встречаться",
+      "ar": "يلتقي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich treffe in der Stadt einen Kollegen.",
+        "translations": {
+          "en": "I'm meeting a colleague in town.",
+          "es": "Me encuentro con un colega en la ciudad.",
+          "fr": "Je rencontre un collègue en ville.",
+          "ru": "Я встречаю коллегу в городе.",
+          "ar": "سألتقي زميلاً في المدينة."
+        }
+      },
+      {
+        "text": "Wir treffen uns immer freitags.",
+        "translations": {
+          "en": "We always meet on Fridays.",
+          "es": "Siempre nos encontramos los viernes.",
+          "fr": "Nous nous rencontrons toujours le vendredi.",
+          "ru": "Мы всегда встречаемся по пятницам.",
+          "ar": "نلتقي دائمًا أيام الجمعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Treppe",
+    "article": "die",
+    "translations": {
+      "en": "stairs",
+      "es": "escalera",
+      "fr": "escalier",
+      "ru": "лестница",
+      "ar": "السلالم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Toilette? Die Treppe hoch und dann links.",
+        "translations": {
+          "en": "The toilet? Up the stairs and then left.",
+          "es": "¿El baño? Sube las escaleras y luego a la izquierda.",
+          "fr": "Les toilettes? En haut de l'escalier, puis à gauche.",
+          "ru": "Туалет? По лестнице вверх, а затем налево.",
+          "ar": "المرحاض؟ اصعد السلالم ثم إلى اليسار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "trinken",
+    "article": "",
+    "translations": {
+      "en": "to drink",
+      "es": "beber",
+      "fr": "boire",
+      "ru": "пить",
+      "ar": "يشرب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Möchtest du etwas trinken?",
+        "translations": {
+          "en": "Would you like something to drink?",
+          "es": "¿Quieres algo de beber?",
+          "fr": "Veux-tu quelque chose à boire?",
+          "ru": "Хочешь что-нибудь выпить?",
+          "ar": "هل تريد شيئًا لتشربه؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "tschüss",
+    "article": "",
+    "translations": {
+      "en": "bye",
+      "es": "adiós",
+      "fr": "au revoir",
+      "ru": "пока",
+      "ar": "وداعًا"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Junge Leute sagen meistens „tschüss!" und nicht „auf Wiedersehen".",
+        "translations": {
+          "en": "Young people usually say \"tschüss!\" and not \"auf Wiedersehen\".",
+          "es": "Los jóvenes suelen decir \"tschüss!\" y no \"auf Wiedersehen\".",
+          "fr": "Les jeunes disent généralement \"tschüss!\" et non \"auf Wiedersehen\".",
+          "ru": "Молодые люди обычно говорят «чюс!» а не «ауф видерзеен».",
+          "ar": "عادة يقول الشباب \"تشوس!\" وليس \"أوف فيدرزين\"."
+        }
+      }
+    ]
+  },
+  {
+    "word": "tun",
+    "article": "",
+    "translations": {
+      "en": "to do",
+      "es": "hacer",
+      "fr": "faire",
+      "ru": "делать",
+      "ar": "يفعل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe noch etwas zu tun.",
+        "translations": {
+          "en": "I still have something to do.",
+          "es": "Todavía tengo algo que hacer.",
+          "fr": "J'ai encore quelque chose à faire.",
+          "ru": "Мне ещё есть что сделать.",
+          "ar": "لا يزال لدي شيء لأفعله."
+        }
+      },
+      {
+        "text": "Was tut Ihr Mann?",
+        "translations": {
+          "en": "What does your husband do?",
+          "es": "¿Qué hace su marido?",
+          "fr": "Que fait votre mari?",
+          "ru": "Чем занимается ваш муж?",
+          "ar": "ماذا يفعل زوجك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "über",
+    "article": "",
+    "translations": {
+      "en": "over",
+      "es": "sobre",
+      "fr": "sur",
+      "ru": "над",
+      "ar": "فوق"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Gehen Sie hier über die Straße.",
+        "translations": {
+          "en": "Cross the street here.",
+          "es": "Cruce la calle aquí.",
+          "fr": "Traversez la rue ici.",
+          "ru": "Переходите улицу здесь.",
+          "ar": "اعبر الشارع هنا."
+        }
+      },
+      {
+        "text": "Er wohnt im zweiten Stock über Familie Meier.",
+        "translations": {
+          "en": "He lives on the second floor above the Meier family.",
+          "es": "Vive en el segundo piso sobre la familia Meier.",
+          "fr": "Il habite au deuxième étage au-dessus de la famille Meier.",
+          "ru": "Он живёт на втором этаже над семьёй Майер.",
+          "ar": "يعيش في الطابق الثاني فوق عائلة ماير."
+        }
+      },
+      {
+        "text": "Sind Sie über 18?",
+        "translations": {
+          "en": "Are you over 18?",
+          "es": "¿Tiene más de 18 años?",
+          "fr": "Avez-vous plus de 18 ans?",
+          "ru": "Вам больше 18?",
+          "ar": "هل عمرك فوق 18؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "übernachten",
+    "article": "",
+    "translations": {
+      "en": "to stay overnight",
+      "es": "pasar la noche",
+      "fr": "passer la nuit",
+      "ru": "ночевать",
+      "ar": "يبيت"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Du kannst bei mir übernachten.",
+        "translations": {
+          "en": "You can stay overnight at my place.",
+          "es": "Puedes pasar la noche en mi casa.",
+          "fr": "Tu peux passer la nuit chez moi.",
+          "ru": "Ты можешь переночевать у меня.",
+          "ar": "يمكنك المبيت عندي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "überweisen",
+    "article": "",
+    "translations": {
+      "en": "to transfer",
+      "es": "transferir",
+      "fr": "virer",
+      "ru": "переводить",
+      "ar": "يحول"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sie können das Geld auch überweisen.",
+        "translations": {
+          "en": "You can also transfer the money.",
+          "es": "También puede transferir el dinero.",
+          "fr": "Vous pouvez aussi virer l'argent.",
+          "ru": "Вы также можете перевести деньги.",
+          "ar": "يمكنك أيضًا تحويل المال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Uhr",
+    "article": "die",
+    "translations": {
+      "en": "clock",
+      "es": "reloj",
+      "fr": "heure",
+      "ru": "часы",
+      "ar": "الساعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es ist vier Uhr.",
+        "translations": {
+          "en": "It's four o'clock.",
+          "es": "Son las cuatro.",
+          "fr": "Il est quatre heures.",
+          "ru": "Сейчас четыре часа.",
+          "ar": "إنها الساعة الرابعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "um",
+    "article": "",
+    "translations": {
+      "en": "at",
+      "es": "a",
+      "fr": "à",
+      "ru": "в",
+      "ar": "في"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Er kommt um sieben Uhr.",
+        "translations": {
+          "en": "He's coming at seven o'clock.",
+          "es": "Él viene a las siete.",
+          "fr": "Il vient à sept heures.",
+          "ru": "Он придёт в семь часов.",
+          "ar": "سيأتي في الساعة السابعة."
+        }
+      },
+      {
+        "text": "Da kommt er gerade um die Ecke.",
+        "translations": {
+          "en": "There he comes around the corner.",
+          "es": "Ahí viene doblando la esquina.",
+          "fr": "Le voilà qui arrive au coin de la rue.",
+          "ru": "Вот он идёт за угол.",
+          "ar": "ها هو يأتي عند الزاوية."
+        }
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,253 @@
+[
+  {
+    "word": "leihen",
+    "article": "",
+    "translations": {
+      "en": "to lend",
+      "es": "prestar",
+      "fr": "prêter",
+      "ru": "одалживать",
+      "ar": "يقرض"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir 10 Euro leihen?",
+        "translations": {
+          "en": "Can you lend me 10 euros?",
+          "es": "¿Puedes prestarme 10 euros?",
+          "fr": "Peux-tu me prêter 10 euros?",
+          "ru": "Можешь одолжить мне 10 евро?",
+          "ar": "هل يمكنك إقراضي 10 يورو؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "lernen",
+    "article": "",
+    "translations": {
+      "en": "to learn",
+      "es": "aprender",
+      "fr": "apprendre",
+      "ru": "учиться",
+      "ar": "يتعلم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich lerne seit zwei Jahren Deutsch.",
+        "translations": {
+          "en": "I've been learning German for two years.",
+          "es": "Llevo dos años aprendiendo alemán.",
+          "fr": "J'apprends l'allemand depuis deux ans.",
+          "ru": "Я изучаю немецкий уже два года.",
+          "ar": "أتعلم الألمانية منذ عامين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "lesen",
+    "article": "",
+    "translations": {
+      "en": "to read",
+      "es": "leer",
+      "fr": "lire",
+      "ru": "читать",
+      "ar": "يقرأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Hast du heute Zeitung gelesen?",
+        "translations": {
+          "en": "Did you read the newspaper today?",
+          "es": "¿Leíste el periódico hoy?",
+          "fr": "As-tu lu le journal aujourd'hui?",
+          "ru": "Ты сегодня читал газету?",
+          "ar": "هل قرأت الصحيفة اليوم؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "letzt-",
+    "article": "",
+    "translations": {
+      "en": "last",
+      "es": "último",
+      "fr": "dernier",
+      "ru": "последний",
+      "ar": "الأخير"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Letzte Woche war ich krank.",
+        "translations": {
+          "en": "Last week I was sick.",
+          "es": "La semana pasada estuve enfermo.",
+          "fr": "La semaine dernière, j'étais malade.",
+          "ru": "На прошлой неделе я был болен.",
+          "ar": "كنت مريضًا الأسبوع الماضي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Leute",
+    "article": "die",
+    "translations": {
+      "en": "people",
+      "es": "gente",
+      "fr": "gens",
+      "ru": "люди",
+      "ar": "الناس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute kommen ein paar Leute zu Besuch.",
+        "translations": {
+          "en": "Some people are coming to visit today.",
+          "es": "Hoy vienen algunas personas de visita.",
+          "fr": "Quelques personnes viennent en visite aujourd'hui.",
+          "ru": "Сегодня придут несколько человек в гости.",
+          "ar": "بعض الناس قادمون للزيارة اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Licht",
+    "article": "das",
+    "translations": {
+      "en": "light",
+      "es": "luz",
+      "fr": "lumière",
+      "ru": "свет",
+      "ar": "الضوء"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mach bitte das Licht aus!",
+        "translations": {
+          "en": "Please turn off the light!",
+          "es": "¡Por favor, apaga la luz!",
+          "fr": "Éteins la lumière, s'il te plaît!",
+          "ru": "Пожалуйста, выключи свет!",
+          "ar": "من فضلك، أطفئ الضوء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "lieb",
+    "article": "",
+    "translations": {
+      "en": "dear",
+      "es": "querido",
+      "fr": "cher",
+      "ru": "дорогой",
+      "ar": "عزيز"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Liebe Tina, lieber Max, ... (am Briefanfang)",
+        "translations": {
+          "en": "Dear Tina, dear Max, ... (at the beginning of a letter)",
+          "es": "Querida Tina, querido Max, ... (al principio de una carta)",
+          "fr": "Chère Tina, cher Max, ... (au début d'une lettre)",
+          "ru": "Дорогая Тина, дорогой Макс, ... (в начале письма)",
+          "ar": "عزيزتي تينا، عزيزي ماكس، ... (في بداية الرسالة)"
+        }
+      }
+    ]
+  },
+  {
+    "word": "lieben",
+    "article": "",
+    "translations": {
+      "en": "to love",
+      "es": "amar",
+      "fr": "aimer",
+      "ru": "любить",
+      "ar": "يحب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich liebe dich.",
+        "translations": {
+          "en": "I love you.",
+          "es": "Te amo.",
+          "fr": "Je t'aime.",
+          "ru": "Я тебя люблю.",
+          "ar": "أنا أحبك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lied",
+    "article": "das",
+    "translations": {
+      "en": "song",
+      "es": "canción",
+      "fr": "chanson",
+      "ru": "песня",
+      "ar": "الأغنية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir singen ein Lied.",
+        "translations": {
+          "en": "We're singing a song.",
+          "es": "Cantamos una canción.",
+          "fr": "Nous chantons une chanson.",
+          "ru": "Мы поём песню.",
+          "ar": "نحن نغني أغنية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "liegen",
+    "article": "",
+    "translations": {
+      "en": "to lie",
+      "es": "estar",
+      "fr": "être couché",
+      "ru": "лежать",
+      "ar": "يستلقي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo liegt denn meine Brille?",
+        "translations": {
+          "en": "Where are my glasses?",
+          "es": "¿Dónde están mis gafas?",
+          "fr": "Où sont mes lunettes?",
+          "ru": "Где же мои очки?",
+          "ar": "أين نظارتي؟"
+        }
+      },
+      {
+        "text": "Ich habe den ganzen Tag im Bett gelegen.",
+        "translations": {
+          "en": "I stayed in bed all day.",
+          "es": "Estuve todo el día en la cama.",
+          "fr": "Je suis resté au lit toute la journée.",
+          "ru": "Я пролежал весь день в постели.",
+          "ar": "بقيت في السرير طوال اليوم."
+        }
+      }
+    ]
+  }
+]
+

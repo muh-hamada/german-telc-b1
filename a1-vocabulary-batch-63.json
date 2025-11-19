@@ -1,0 +1,243 @@
+[
+  {
+    "word": "verboten",
+    "article": "",
+    "translations": {
+      "en": "forbidden",
+      "es": "prohibido",
+      "fr": "interdit",
+      "ru": "запрещено",
+      "ar": "ممنوع"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Hier ist Rauchen verboten.",
+        "translations": {
+          "en": "Smoking is forbidden here.",
+          "es": "Está prohibido fumar aquí.",
+          "fr": "Il est interdit de fumer ici.",
+          "ru": "Здесь курить запрещено.",
+          "ar": "التدخين ممنوع هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "verdienen",
+    "article": "",
+    "translations": {
+      "en": "to earn",
+      "es": "ganar",
+      "fr": "gagner",
+      "ru": "зарабатывать",
+      "ar": "يكسب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich verdiene 1.500 Euro im Monat.",
+        "translations": {
+          "en": "I earn 1,500 euros per month.",
+          "es": "Gano 1.500 euros al mes.",
+          "fr": "Je gagne 1 500 euros par mois.",
+          "ru": "Я зарабатываю 1500 евро в месяц.",
+          "ar": "أكسب 1500 يورو في الشهر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Verein",
+    "article": "der",
+    "translations": {
+      "en": "club",
+      "es": "club",
+      "fr": "club",
+      "ru": "клуб",
+      "ar": "النادي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gibt einen neuen Sportverein in der Stadt.",
+        "translations": {
+          "en": "There's a new sports club in town.",
+          "es": "Hay un nuevo club deportivo en la ciudad.",
+          "fr": "Il y a un nouveau club sportif en ville.",
+          "ru": "В городе появился новый спортивный клуб.",
+          "ar": "يوجد نادٍ رياضي جديد في المدينة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "verheiratet",
+    "article": "",
+    "translations": {
+      "en": "married",
+      "es": "casado",
+      "fr": "marié",
+      "ru": "женат",
+      "ar": "متزوج"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin verheiratet und habe drei Kinder.",
+        "translations": {
+          "en": "I'm married and have three children.",
+          "es": "Estoy casado y tengo tres hijos.",
+          "fr": "Je suis marié et j'ai trois enfants.",
+          "ru": "Я женат и у меня трое детей.",
+          "ar": "أنا متزوج ولدي ثلاثة أطفال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "verkaufen",
+    "article": "",
+    "translations": {
+      "en": "to sell",
+      "es": "vender",
+      "fr": "vendre",
+      "ru": "продавать",
+      "ar": "يبيع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er verkauft sein altes Auto.",
+        "translations": {
+          "en": "He's selling his old car.",
+          "es": "Vende su coche viejo.",
+          "fr": "Il vend sa vieille voiture.",
+          "ru": "Он продаёт свою старую машину.",
+          "ar": "يبيع سيارته القديمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Verkäufer",
+    "article": "der",
+    "translations": {
+      "en": "salesperson",
+      "es": "vendedor",
+      "fr": "vendeur",
+      "ru": "продавец",
+      "ar": "البائع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Mutter ist Verkäuferin im Kaufhaus.",
+        "translations": {
+          "en": "My mother is a saleswoman in a department store.",
+          "es": "Mi madre es vendedora en unos grandes almacenes.",
+          "fr": "Ma mère est vendeuse dans un grand magasin.",
+          "ru": "Моя мама продавщица в универмаге.",
+          "ar": "أمي بائعة في متجر متعدد الأقسام."
+        }
+      }
+    ]
+  },
+  {
+    "word": "vermieten",
+    "article": "",
+    "translations": {
+      "en": "to rent out",
+      "es": "alquilar",
+      "fr": "louer",
+      "ru": "сдавать в аренду",
+      "ar": "يؤجر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Wohnung ist schon vermietet.",
+        "translations": {
+          "en": "The apartment is already rented out.",
+          "es": "El apartamento ya está alquilado.",
+          "fr": "L'appartement est déjà loué.",
+          "ru": "Квартира уже сдана.",
+          "ar": "الشقة مؤجرة بالفعل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Vermieter",
+    "article": "der",
+    "translations": {
+      "en": "landlord",
+      "es": "arrendador",
+      "fr": "propriétaire",
+      "ru": "арендодатель",
+      "ar": "المؤجر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unser Vermieter heißt Huber. Er wohnt auch hier.",
+        "translations": {
+          "en": "Our landlord is called Huber. He also lives here.",
+          "es": "Nuestro arrendador se llama Huber. Él también vive aquí.",
+          "fr": "Notre propriétaire s'appelle Huber. Il habite aussi ici.",
+          "ru": "Нашего арендодателя зовут Хубер. Он тоже живёт здесь.",
+          "ar": "مؤجرنا يدعى هوبر. إنه يعيش هنا أيضًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "verstehen",
+    "article": "",
+    "translations": {
+      "en": "to understand",
+      "es": "entender",
+      "fr": "comprendre",
+      "ru": "понимать",
+      "ar": "يفهم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie mich verstehen?",
+        "translations": {
+          "en": "Can you understand me?",
+          "es": "¿Puede entenderme?",
+          "fr": "Pouvez-vous me comprendre?",
+          "ru": "Вы меня понимаете?",
+          "ar": "هل يمكنك أن تفهمني؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Verwandte",
+    "article": "der",
+    "translations": {
+      "en": "relative",
+      "es": "pariente",
+      "fr": "parent",
+      "ru": "родственник",
+      "ar": "القريب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Peter besucht seine Verwandten in Polen.",
+        "translations": {
+          "en": "Peter is visiting his relatives in Poland.",
+          "es": "Peter visita a sus parientes en Polonia.",
+          "fr": "Peter rend visite à ses parents en Pologne.",
+          "ru": "Петер навещает своих родственников в Польше.",
+          "ar": "بيتر يزور أقاربه في بولندا."
+        }
+      }
+    ]
+  }
+]
+

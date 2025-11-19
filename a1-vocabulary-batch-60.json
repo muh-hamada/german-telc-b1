@@ -1,0 +1,243 @@
+[
+  {
+    "word": "Test",
+    "article": "der",
+    "translations": {
+      "en": "test",
+      "es": "prueba",
+      "fr": "test",
+      "ru": "тест",
+      "ar": "الاختبار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Test war einfach.",
+        "translations": {
+          "en": "The test was easy.",
+          "es": "La prueba fue fácil.",
+          "fr": "Le test était facile.",
+          "ru": "Тест был простой.",
+          "ar": "كان الاختبار سهلاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "teuer",
+    "article": "",
+    "translations": {
+      "en": "expensive",
+      "es": "caro",
+      "fr": "cher",
+      "ru": "дорогой",
+      "ar": "غالي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist mir zu teuer.",
+        "translations": {
+          "en": "That's too expensive for me.",
+          "es": "Eso es demasiado caro para mí.",
+          "fr": "C'est trop cher pour moi.",
+          "ru": "Это для меня слишком дорого.",
+          "ar": "هذا غالٍ جدًا بالنسبة لي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Text",
+    "article": "der",
+    "translations": {
+      "en": "text",
+      "es": "texto",
+      "fr": "texte",
+      "ru": "текст",
+      "ar": "النص"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Lesen Sie bitte diesen Text.",
+        "translations": {
+          "en": "Please read this text.",
+          "es": "Por favor, lea este texto.",
+          "fr": "Veuillez lire ce texte.",
+          "ru": "Пожалуйста, прочитайте этот текст.",
+          "ar": "من فضلك، اقرأ هذا النص."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Thema",
+    "article": "das",
+    "translations": {
+      "en": "topic",
+      "es": "tema",
+      "fr": "sujet",
+      "ru": "тема",
+      "ar": "الموضوع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir sprechen heute über das Thema „Essen und Trinken".",
+        "translations": {
+          "en": "Today we're talking about the topic \"Eating and Drinking\".",
+          "es": "Hoy hablamos sobre el tema \"Comida y bebida\".",
+          "fr": "Nous parlons aujourd'hui du sujet \"Manger et boire\".",
+          "ru": "Сегодня мы говорим на тему «Еда и питьё».",
+          "ar": "نتحدث اليوم عن موضوع \"الأكل والشرب\"."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ticket",
+    "article": "das",
+    "translations": {
+      "en": "ticket",
+      "es": "billete",
+      "fr": "billet",
+      "ru": "билет",
+      "ar": "التذكرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie viel kostet das Ticket?",
+        "translations": {
+          "en": "How much does the ticket cost?",
+          "es": "¿Cuánto cuesta el billete?",
+          "fr": "Combien coûte le billet?",
+          "ru": "Сколько стоит билет?",
+          "ar": "كم تكلف التذكرة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Tisch",
+    "article": "der",
+    "translations": {
+      "en": "table",
+      "es": "mesa",
+      "fr": "table",
+      "ru": "стол",
+      "ar": "الطاولة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Fotos liegen auf dem Tisch.",
+        "translations": {
+          "en": "The photos are on the table.",
+          "es": "Las fotos están en la mesa.",
+          "fr": "Les photos sont sur la table.",
+          "ru": "Фотографии лежат на столе.",
+          "ar": "الصور على الطاولة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Tochter",
+    "article": "die",
+    "translations": {
+      "en": "daughter",
+      "es": "hija",
+      "fr": "fille",
+      "ru": "дочь",
+      "ar": "الابنة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist meine Tochter Katharina.",
+        "translations": {
+          "en": "This is my daughter Katharina.",
+          "es": "Esta es mi hija Katharina.",
+          "fr": "C'est ma fille Katharina.",
+          "ru": "Это моя дочь Катарина.",
+          "ar": "هذه ابنتي كاتارينا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Toilette",
+    "article": "die",
+    "translations": {
+      "en": "toilet",
+      "es": "baño",
+      "fr": "toilettes",
+      "ru": "туалет",
+      "ar": "المرحاض"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo ist die Toilette, bitte?",
+        "translations": {
+          "en": "Where is the toilet, please?",
+          "es": "¿Dónde está el baño, por favor?",
+          "fr": "Où sont les toilettes, s'il vous plaît?",
+          "ru": "Где туалет, пожалуйста?",
+          "ar": "أين المرحاض، من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Tomate",
+    "article": "die",
+    "translations": {
+      "en": "tomato",
+      "es": "tomate",
+      "fr": "tomate",
+      "ru": "помидор",
+      "ar": "الطماطم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Tomate ist noch grün.",
+        "translations": {
+          "en": "The tomato is still green.",
+          "es": "El tomate todavía está verde.",
+          "fr": "La tomate est encore verte.",
+          "ru": "Помидор ещё зелёный.",
+          "ar": "الطماطم لا تزال خضراء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "tot",
+    "article": "",
+    "translations": {
+      "en": "dead",
+      "es": "muerto",
+      "fr": "mort",
+      "ru": "мёртвый",
+      "ar": "ميت"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Sein Vater ist schon lange tot.",
+        "translations": {
+          "en": "His father has been dead for a long time.",
+          "es": "Su padre lleva mucho tiempo muerto.",
+          "fr": "Son père est mort depuis longtemps.",
+          "ru": "Его отец умер уже давно.",
+          "ar": "والده ميت منذ فترة طويلة."
+        }
+      }
+    ]
+  }
+]
+

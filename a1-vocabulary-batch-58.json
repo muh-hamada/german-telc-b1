@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Stadt",
+    "article": "die",
+    "translations": {
+      "en": "city",
+      "es": "ciudad",
+      "fr": "ville",
+      "ru": "город",
+      "ar": "المدينة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heidelberg ist eine alte Stadt.",
+        "translations": {
+          "en": "Heidelberg is an old city.",
+          "es": "Heidelberg es una ciudad antigua.",
+          "fr": "Heidelberg est une vieille ville.",
+          "ru": "Гейдельберг - старый город.",
+          "ar": "هايدلبرغ مدينة قديمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "stehen",
+    "article": "",
+    "translations": {
+      "en": "to stand",
+      "es": "estar de pie",
+      "fr": "être debout",
+      "ru": "стоять",
+      "ar": "يقف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich glaube es nicht, aber es steht in der Zeitung.",
+        "translations": {
+          "en": "I don't believe it, but it's in the newspaper.",
+          "es": "No lo creo, pero está en el periódico.",
+          "fr": "Je ne le crois pas, mais c'est dans le journal.",
+          "ru": "Я не верю, но это написано в газете.",
+          "ar": "لا أصدق ذلك، لكنه مكتوب في الصحيفة."
+        }
+      },
+      {
+        "text": "Der Bus steht schon an der Haltestelle.",
+        "translations": {
+          "en": "The bus is already at the stop.",
+          "es": "El autobús ya está en la parada.",
+          "fr": "Le bus est déjà à l'arrêt.",
+          "ru": "Автобус уже стоит на остановке.",
+          "ar": "الحافلة موجودة بالفعل في الموقف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Stelle",
+    "article": "die",
+    "translations": {
+      "en": "position",
+      "es": "puesto",
+      "fr": "poste",
+      "ru": "место",
+      "ar": "الوظيفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine neue Stelle.",
+        "translations": {
+          "en": "I have a new job.",
+          "es": "Tengo un nuevo puesto.",
+          "fr": "J'ai un nouveau poste.",
+          "ru": "У меня новая работа.",
+          "ar": "لدي وظيفة جديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "stellen",
+    "article": "",
+    "translations": {
+      "en": "to put",
+      "es": "poner",
+      "fr": "mettre",
+      "ru": "ставить",
+      "ar": "يضع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Stell die Tasche rechts in die Ecke!",
+        "translations": {
+          "en": "Put the bag in the corner on the right!",
+          "es": "¡Pon la bolsa en la esquina a la derecha!",
+          "fr": "Mets le sac dans le coin à droite!",
+          "ru": "Поставь сумку в угол справа!",
+          "ar": "ضع الحقيبة في الزاوية على اليمين!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Stock",
+    "article": "der",
+    "translations": {
+      "en": "floor",
+      "es": "piso",
+      "fr": "étage",
+      "ru": "этаж",
+      "ar": "الطابق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unsere Wohnung liegt im ersten Stock.",
+        "translations": {
+          "en": "Our apartment is on the first floor.",
+          "es": "Nuestro apartamento está en el primer piso.",
+          "fr": "Notre appartement est au premier étage.",
+          "ru": "Наша квартира на первом этаже.",
+          "ar": "شقتنا في الطابق الأول."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Straße",
+    "article": "die",
+    "translations": {
+      "en": "street",
+      "es": "calle",
+      "fr": "rue",
+      "ru": "улица",
+      "ar": "الشارع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In welcher Straße wohnen Sie?",
+        "translations": {
+          "en": "On which street do you live?",
+          "es": "¿En qué calle vive?",
+          "fr": "Dans quelle rue habitez-vous?",
+          "ru": "На какой улице вы живёте?",
+          "ar": "في أي شارع تعيش؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Straßenbahn",
+    "article": "die",
+    "translations": {
+      "en": "tram",
+      "es": "tranvía",
+      "fr": "tramway",
+      "ru": "трамвай",
+      "ar": "الترام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo fährt die Straßenbahn ab?",
+        "translations": {
+          "en": "Where does the tram leave from?",
+          "es": "¿De dónde sale el tranvía?",
+          "fr": "D'où part le tramway?",
+          "ru": "Откуда отправляется трамвай?",
+          "ar": "من أين يغادر الترام؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "studieren",
+    "article": "",
+    "translations": {
+      "en": "to study",
+      "es": "estudiar",
+      "fr": "étudier",
+      "ru": "учиться",
+      "ar": "يدرس"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich studiere in Mainz.",
+        "translations": {
+          "en": "I study in Mainz.",
+          "es": "Estudio en Maguncia.",
+          "fr": "J'étudie à Mayence.",
+          "ru": "Я учусь в Майнце.",
+          "ar": "أدرس في ماينز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Studium",
+    "article": "das",
+    "translations": {
+      "en": "studies",
+      "es": "estudios",
+      "fr": "études",
+      "ru": "учёба",
+      "ar": "الدراسة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Studium beginnt im Oktober.",
+        "translations": {
+          "en": "The studies begin in October.",
+          "es": "Los estudios comienzan en octubre.",
+          "fr": "Les études commencent en octobre.",
+          "ru": "Учёба начинается в октябре.",
+          "ar": "تبدأ الدراسة في أكتوبر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Student",
+    "article": "der",
+    "translations": {
+      "en": "student",
+      "es": "estudiante",
+      "fr": "étudiant",
+      "ru": "студент",
+      "ar": "الطالب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin Studentin.",
+        "translations": {
+          "en": "I am a student.",
+          "es": "Soy estudiante.",
+          "fr": "Je suis étudiante.",
+          "ru": "Я студентка.",
+          "ar": "أنا طالبة."
+        }
+      }
+    ]
+  }
+]
+

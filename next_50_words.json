@@ -1,0 +1,310 @@
+[
+  {
+    "word": "das Konto",
+    "sentences": [
+      "Das Geld überweisen wir am ersten März auf Ihr Konto."
+    ]
+  },
+  {
+    "word": "der Kopf",
+    "sentences": [
+      "Mein Kopf tut weh!"
+    ]
+  },
+  {
+    "word": "kosten",
+    "sentences": [
+      "Wie viel kostet das? – 10 Euro."
+    ]
+  },
+  {
+    "word": "krank",
+    "sentences": [
+      "Ich kann heute nicht zur Arbeit kommen, ich bin krank",
+      "und liege im Bett."
+    ]
+  },
+  {
+    "word": "kriegen",
+    "sentences": [
+      "Ich kriege 15 Euro in der Stunde für meine Arbeit."
+    ]
+  },
+  {
+    "word": "die Küche",
+    "sentences": [
+      "Der neue Herd kommt in die Küche."
+    ]
+  },
+  {
+    "word": "der Kuchen",
+    "sentences": [
+      "Ich nehme ein Stück Kuchen."
+    ]
+  },
+  {
+    "word": "der Kugelschreiber",
+    "sentences": [
+      "Hast du einen Kugelschreiber für mich?"
+    ]
+  },
+  {
+    "word": "der Kühlschrank",
+    "sentences": [
+      "Haben wir noch Milch? – Ja, im Kühlschrank."
+    ]
+  },
+  {
+    "word": "kulturell",
+    "sentences": [
+      "Ich bin kulturell interessiert. Ich gehe oft ins Museum."
+    ]
+  },
+  {
+    "word": "sich kümmern",
+    "sentences": [
+      "Jede Mutter kümmert sich um ihre kleinen Kinder."
+    ]
+  },
+  {
+    "word": "der Kunde, -n",
+    "sentences": [
+      "Einen Moment, bitte. Ich habe eine Kundin."
+    ]
+  },
+  {
+    "word": "der Kurs, -e",
+    "sentences": [
+      "Der Deutschkurs geht bis zum Sommer."
+    ]
+  },
+  {
+    "word": "kurz",
+    "sentences": [
+      "Ricardo hat kurzes Haar."
+    ]
+  },
+  {
+    "word": "lachen",
+    "sentences": [
+      "Die Kinder lachen viel."
+    ]
+  },
+  {
+    "word": "der Laden, -ä",
+    "sentences": [
+      "Im Buchladen können Sie Bücher kaufen."
+    ]
+  },
+  {
+    "word": "das Land, -ä, er",
+    "sentences": [
+      "Italien ist ein schönes Land."
+    ]
+  },
+  {
+    "word": "lang",
+    "sentences": [
+      "Die Jeans ist zu lang."
+    ]
+  },
+  {
+    "word": "lange",
+    "sentences": [
+      "Wie lange fährt der Zug von Hamburg nach Berlin?"
+    ]
+  },
+  {
+    "word": "langsam",
+    "sentences": [
+      "Könnten Sie bitte etwas langsamer sprechen?"
+    ]
+  },
+  {
+    "word": "laufen",
+    "sentences": [
+      "Ich möchte nicht Auto fahren, ich möchte laufen."
+    ]
+  },
+  {
+    "word": "laut",
+    "sentences": [
+      "Nicht so laut! Das Baby schläft."
+    ]
+  },
+  {
+    "word": "leben",
+    "sentences": [
+      "Sie lebt bei ihrer Schwester.",
+      "Ihre Eltern leben nicht mehr."
+    ]
+  },
+  {
+    "word": "das Leben",
+    "sentences": [
+      "Das Leben in diesem Land ist teuer.",
+      "die Lebens-"
+    ]
+  },
+  {
+    "word": "mittel (pl.)",
+    "sentences": [
+      "Lebensmittel bekommen Sie im Supermarkt."
+    ]
+  },
+  {
+    "word": "ledig",
+    "sentences": [
+      "Sind Sie verheiratet? – Nein. Ledig."
+    ]
+  },
+  {
+    "word": "legen",
+    "sentences": [
+      "Legen Sie das Buch auf den Tisch."
+    ]
+  },
+  {
+    "word": "der Lehrer, –",
+    "sentences": [
+      "Unsere Deutschlehrerin heißt Frau Müller."
+    ]
+  },
+  {
+    "word": "leicht",
+    "sentences": [
+      "Der Koffer ist leicht.",
+      "Deutsch ist nicht leicht."
+    ]
+  },
+  {
+    "word": "leider",
+    "sentences": [
+      "Leider kann ich nicht kommen. Ich muss zum Arzt."
+    ]
+  },
+  {
+    "word": "leise",
+    "sentences": [
+      "Seid leise. Die anderen schlafen schon."
+    ]
+  },
+  {
+    "word": "lernen",
+    "sentences": [
+      "Wie lange lernen Sie schon Deutsch?"
+    ]
+  },
+  {
+    "word": "lesen",
+    "sentences": [
+      "Ich lese ein Buch von García Márquez."
+    ]
+  },
+  {
+    "word": "letzt-",
+    "sentences": [
+      "Morgen ist der letzte Kurstag."
+    ]
+  },
+  {
+    "word": "die Leute (pl.)",
+    "sentences": [
+      "In der Disko sind viele Leute."
+    ]
+  },
+  {
+    "word": "das Licht",
+    "sentences": [
+      "Wo macht man hier das Licht an?"
+    ]
+  },
+  {
+    "word": "lieb-",
+    "sentences": [
+      "Liebe Susanne, lieber Hans,"
+    ]
+  },
+  {
+    "word": "lieben",
+    "sentences": [
+      "Ich liebe dich!"
+    ]
+  },
+  {
+    "word": "lieber",
+    "sentences": [
+      "Sie fährt lieber mit der Bahn."
+    ]
+  },
+  {
+    "word": "Lieblings-",
+    "sentences": [
+      "Mein Lieblingsfilm ist „Schwarze Augen“."
+    ]
+  },
+  {
+    "word": "das Lied, -er",
+    "sentences": [
+      "Welches ist dein Lieblingslied?"
+    ]
+  },
+  {
+    "word": "liegen",
+    "sentences": [
+      "Um neun Uhr liegt Judith noch im Bett.",
+      "Frankfurt liegt am Main."
+    ]
+  },
+  {
+    "word": "links",
+    "sentences": [
+      "Gehen Sie die nächste Straße links."
+    ]
+  },
+  {
+    "word": "der Lkw, -s",
+    "sentences": [
+      "Dieser Lastkraftwagen ist sehr groß."
+    ]
+  },
+  {
+    "word": "das Lokal",
+    "sentences": [
+      "In unserer Straße gibt es ein neues Lokal."
+    ]
+  },
+  {
+    "word": "die Lösung, -en",
+    "sentences": [
+      "Die Lösung ist ganz einfach."
+    ]
+  },
+  {
+    "word": "lustig",
+    "sentences": [
+      "Frau Mertens ist lustig. Sie lacht immer."
+    ]
+  },
+  {
+    "word": "machen",
+    "sentences": [
+      "Was machst du heute Abend?",
+      "Ich muss jetzt das Essen machen.",
+      "Das macht 5 Euro 95.",
+      "Das macht nichts."
+    ]
+  },
+  {
+    "word": "das Mädchen, –",
+    "sentences": [
+      "Familie Kurz bekommt ein Baby. – Junge oder Mädchen?"
+    ]
+  },
+  {
+    "word": "man",
+    "sentences": [
+      "Hier darf man nicht rauchen."
+    ]
+  }
+]

@@ -1,0 +1,243 @@
+[
+  {
+    "word": "wohnen",
+    "article": "",
+    "translations": {
+      "en": "to live",
+      "es": "vivir",
+      "fr": "habiter",
+      "ru": "жить",
+      "ar": "يعيش"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich wohne in München.",
+        "translations": {
+          "en": "I live in Munich.",
+          "es": "Vivo en Múnich.",
+          "fr": "J'habite à Munich.",
+          "ru": "Я живу в Мюнхене.",
+          "ar": "أعيش في ميونيخ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wohnung",
+    "article": "die",
+    "translations": {
+      "en": "apartment",
+      "es": "apartamento",
+      "fr": "appartement",
+      "ru": "квартира",
+      "ar": "الشقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Seit wann haben Sie diese Wohnung?",
+        "translations": {
+          "en": "How long have you had this apartment?",
+          "es": "¿Desde cuándo tiene este apartamento?",
+          "fr": "Depuis quand avez-vous cet appartement?",
+          "ru": "Как давно у вас эта квартира?",
+          "ar": "منذ متى لديك هذه الشقة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wollen",
+    "article": "",
+    "translations": {
+      "en": "to want",
+      "es": "querer",
+      "fr": "vouloir",
+      "ru": "хотеть",
+      "ar": "يريد"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wollen Sie einen Kaffee trinken?",
+        "translations": {
+          "en": "Do you want to drink a coffee?",
+          "es": "¿Quiere tomar un café?",
+          "fr": "Voulez-vous boire un café?",
+          "ru": "Хотите выпить кофе?",
+          "ar": "هل تريد شرب قهوة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wort",
+    "article": "das",
+    "translations": {
+      "en": "word",
+      "es": "palabra",
+      "fr": "mot",
+      "ru": "слово",
+      "ar": "الكلمة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich kenne das Wort nicht.",
+        "translations": {
+          "en": "I don't know the word.",
+          "es": "No conozco la palabra.",
+          "fr": "Je ne connais pas le mot.",
+          "ru": "Я не знаю это слово.",
+          "ar": "لا أعرف الكلمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wunderbar",
+    "article": "",
+    "translations": {
+      "en": "wonderful",
+      "es": "maravilloso",
+      "fr": "merveilleux",
+      "ru": "замечательный",
+      "ar": "رائع"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Essen schmeckt wunderbar.",
+        "translations": {
+          "en": "The food tastes wonderful.",
+          "es": "La comida sabe maravillosa.",
+          "fr": "La nourriture a un goût merveilleux.",
+          "ru": "Еда замечательна на вкус.",
+          "ar": "الطعام رائع المذاق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zahlen",
+    "article": "",
+    "translations": {
+      "en": "to pay",
+      "es": "pagar",
+      "fr": "payer",
+      "ru": "платить",
+      "ar": "يدفع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Zahlen, bitte!",
+        "translations": {
+          "en": "The bill, please!",
+          "es": "¡La cuenta, por favor!",
+          "fr": "L'addition, s'il vous plaît!",
+          "ru": "Счёт, пожалуйста!",
+          "ar": "الفاتورة، من فضلك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Zeit",
+    "article": "die",
+    "translations": {
+      "en": "time",
+      "es": "tiempo",
+      "fr": "temps",
+      "ru": "время",
+      "ar": "الوقت"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe heute keine Zeit.",
+        "translations": {
+          "en": "I don't have time today.",
+          "es": "No tengo tiempo hoy.",
+          "fr": "Je n'ai pas de temps aujourd'hui.",
+          "ru": "У меня сегодня нет времени.",
+          "ar": "ليس لدي وقت اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zurzeit",
+    "article": "",
+    "translations": {
+      "en": "currently",
+      "es": "actualmente",
+      "fr": "actuellement",
+      "ru": "в настоящее время",
+      "ar": "حاليًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Zurzeit habe ich sehr viel zu tun.",
+        "translations": {
+          "en": "Currently I have a lot to do.",
+          "es": "Actualmente tengo mucho que hacer.",
+          "fr": "Actuellement, j'ai beaucoup à faire.",
+          "ru": "В настоящее время у меня много дел.",
+          "ar": "لدي الكثير لأفعله حاليًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Zeitung",
+    "article": "die",
+    "translations": {
+      "en": "newspaper",
+      "es": "periódico",
+      "fr": "journal",
+      "ru": "газета",
+      "ar": "الصحيفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich lese gern Zeitung.",
+        "translations": {
+          "en": "I like reading the newspaper.",
+          "es": "Me gusta leer el periódico.",
+          "fr": "J'aime lire le journal.",
+          "ru": "Я люблю читать газету.",
+          "ar": "أحب قراءة الصحيفة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Zigarette",
+    "article": "die",
+    "translations": {
+      "en": "cigarette",
+      "es": "cigarrillo",
+      "fr": "cigarette",
+      "ru": "сигарета",
+      "ar": "السيجارة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie teuer sind die Zigaretten?",
+        "translations": {
+          "en": "How expensive are the cigarettes?",
+          "es": "¿Qué tan caros son los cigarrillos?",
+          "fr": "Combien coûtent les cigarettes?",
+          "ru": "Сколько стоят сигареты?",
+          "ar": "كم سعر السجائر؟"
+        }
+      }
+    ]
+  }
+]
+

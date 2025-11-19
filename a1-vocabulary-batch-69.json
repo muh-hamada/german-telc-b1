@@ -1,0 +1,275 @@
+[
+  {
+    "word": "Zimmer",
+    "article": "das",
+    "translations": {
+      "en": "room",
+      "es": "habitación",
+      "fr": "chambre",
+      "ru": "комната",
+      "ar": "الغرفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Zimmer ist groß.",
+        "translations": {
+          "en": "The room is big.",
+          "es": "La habitación es grande.",
+          "fr": "La chambre est grande.",
+          "ru": "Комната большая.",
+          "ar": "الغرفة كبيرة."
+        }
+      },
+      {
+        "text": "Öffne im Schlafzimmer das Fenster, bitte!",
+        "translations": {
+          "en": "Open the window in the bedroom, please!",
+          "es": "¡Abre la ventana del dormitorio, por favor!",
+          "fr": "Ouvre la fenêtre dans la chambre, s'il te plaît!",
+          "ru": "Открой окно в спальне, пожалуйста!",
+          "ar": "افتح النافذة في غرفة النوم، من فضلك!"
+        }
+      },
+      {
+        "text": "Die Wohnung hat drei Zimmer.",
+        "translations": {
+          "en": "The apartment has three rooms.",
+          "es": "El apartamento tiene tres habitaciones.",
+          "fr": "L'appartement a trois pièces.",
+          "ru": "В квартире три комнаты.",
+          "ar": "الشقة بها ثلاث غرف."
+        }
+      },
+      {
+        "text": "Ich habe ein Zimmer bestellt.",
+        "translations": {
+          "en": "I've booked a room.",
+          "es": "He reservado una habitación.",
+          "fr": "J'ai réservé une chambre.",
+          "ru": "Я забронировал комнату.",
+          "ar": "لقد حجزت غرفة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Zoll",
+    "article": "der",
+    "translations": {
+      "en": "customs",
+      "es": "aduana",
+      "fr": "douane",
+      "ru": "таможня",
+      "ar": "الجمارك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen noch durch den Zoll.",
+        "translations": {
+          "en": "We still have to go through customs.",
+          "es": "Todavía tenemos que pasar por la aduana.",
+          "fr": "Nous devons encore passer par la douane.",
+          "ru": "Нам ещё нужно пройти таможню.",
+          "ar": "يجب أن نمر عبر الجمارك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zu",
+    "article": "",
+    "translations": {
+      "en": "to",
+      "es": "a",
+      "fr": "à",
+      "ru": "к",
+      "ar": "إلى"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Der Bus fährt zum Bahnhof.",
+        "translations": {
+          "en": "The bus goes to the station.",
+          "es": "El autobús va a la estación.",
+          "fr": "Le bus va à la gare.",
+          "ru": "Автобус едет к вокзалу.",
+          "ar": "الحافلة تذهب إلى المحطة."
+        }
+      },
+      {
+        "text": "Ich gehe zu Fuß.",
+        "translations": {
+          "en": "I'm walking.",
+          "es": "Voy a pie.",
+          "fr": "Je vais à pied.",
+          "ru": "Я иду пешком.",
+          "ar": "أنا أمشي."
+        }
+      },
+      {
+        "text": "Ich bin zu Hause.",
+        "translations": {
+          "en": "I'm at home.",
+          "es": "Estoy en casa.",
+          "fr": "Je suis à la maison.",
+          "ru": "Я дома.",
+          "ar": "أنا في المنزل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zufrieden",
+    "article": "",
+    "translations": {
+      "en": "satisfied",
+      "es": "satisfecho",
+      "fr": "satisfait",
+      "ru": "довольный",
+      "ar": "راضٍ"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin mit der Wohnung zufrieden.",
+        "translations": {
+          "en": "I'm satisfied with the apartment.",
+          "es": "Estoy satisfecho con el apartamento.",
+          "fr": "Je suis satisfait de l'appartement.",
+          "ru": "Я доволен квартирой.",
+          "ar": "أنا راضٍ عن الشقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Zug",
+    "article": "der",
+    "translations": {
+      "en": "train",
+      "es": "tren",
+      "fr": "train",
+      "ru": "поезд",
+      "ar": "القطار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich fahre gern mit dem Zug.",
+        "translations": {
+          "en": "I like traveling by train.",
+          "es": "Me gusta viajar en tren.",
+          "fr": "J'aime voyager en train.",
+          "ru": "Я люблю ездить на поезде.",
+          "ar": "أحب السفر بالقطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zurück",
+    "article": "",
+    "translations": {
+      "en": "back",
+      "es": "de vuelta",
+      "fr": "retour",
+      "ru": "обратно",
+      "ar": "عودة"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Einmal Frankfurt und zurück.",
+        "translations": {
+          "en": "One way to Frankfurt and back.",
+          "es": "Una vez a Fráncfort y de vuelta.",
+          "fr": "Un aller-retour pour Francfort.",
+          "ru": "В Франкфурт и обратно.",
+          "ar": "مرة واحدة إلى فرانكفورت والعودة."
+        }
+      },
+      {
+        "text": "Wann kommst du zurück?",
+        "translations": {
+          "en": "When are you coming back?",
+          "es": "¿Cuándo vuelves?",
+          "fr": "Quand reviens-tu?",
+          "ru": "Когда ты вернёшься?",
+          "ar": "متى ستعود؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "zusammen",
+    "article": "",
+    "translations": {
+      "en": "together",
+      "es": "juntos",
+      "fr": "ensemble",
+      "ru": "вместе",
+      "ar": "معًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Sollen wir zusammen essen gehen?",
+        "translations": {
+          "en": "Should we go eat together?",
+          "es": "¿Vamos a comer juntos?",
+          "fr": "On va manger ensemble?",
+          "ru": "Пойдём поедим вместе?",
+          "ar": "هل نذهب لتناول الطعام معًا؟"
+        }
+      },
+      {
+        "text": "Das macht zusammen 2 Euro 80.",
+        "translations": {
+          "en": "That's 2 euros 80 altogether.",
+          "es": "Son 2 euros 80 en total.",
+          "fr": "Cela fait 2 euros 80 en tout.",
+          "ru": "Всего получается 2 евро 80.",
+          "ar": "هذا يصبح 2 يورو 80 معًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "zwischen",
+    "article": "",
+    "translations": {
+      "en": "between",
+      "es": "entre",
+      "fr": "entre",
+      "ru": "между",
+      "ar": "بين"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Heidelberg liegt zwischen Frankfurt und Stuttgart.",
+        "translations": {
+          "en": "Heidelberg is located between Frankfurt and Stuttgart.",
+          "es": "Heidelberg está entre Fráncfort y Stuttgart.",
+          "fr": "Heidelberg se trouve entre Francfort et Stuttgart.",
+          "ru": "Гейдельберг находится между Франкфуртом и Штутгартом.",
+          "ar": "تقع هايدلبرغ بين فرانكفورت وشتوتغارت."
+        }
+      },
+      {
+        "text": "Zwischen 8 und 10 Uhr bin ich zu Hause.",
+        "translations": {
+          "en": "I'm at home between 8 and 10 o'clock.",
+          "es": "Estoy en casa entre las 8 y las 10.",
+          "fr": "Je suis à la maison entre 8 et 10 heures.",
+          "ru": "Я дома между 8 и 10 часами.",
+          "ar": "أنا في المنزل بين الساعة 8 و10."
+        }
+      }
+    ]
+  }
+]
+

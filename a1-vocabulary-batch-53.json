@@ -1,0 +1,273 @@
+[
+  {
+    "word": "schicken",
+    "article": "",
+    "translations": {
+      "en": "to send",
+      "es": "enviar",
+      "fr": "envoyer",
+      "ru": "посылать",
+      "ar": "يرسل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bitte schicken Sie mir eine E-Mail.",
+        "translations": {
+          "en": "Please send me an email.",
+          "es": "Por favor, envíeme un correo electrónico.",
+          "fr": "Veuillez m'envoyer un courriel.",
+          "ru": "Пожалуйста, пришлите мне электронное письмо.",
+          "ar": "من فضلك، أرسل لي بريدًا إلكترونيًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schild",
+    "article": "das",
+    "translations": {
+      "en": "sign",
+      "es": "letrero",
+      "fr": "panneau",
+      "ru": "табличка",
+      "ar": "اللافتة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie nicht das Schild gesehen?",
+        "translations": {
+          "en": "Didn't you see the sign?",
+          "es": "¿No viste el letrero?",
+          "fr": "Vous n'avez pas vu le panneau?",
+          "ru": "Вы не видели табличку?",
+          "ar": "ألم تر اللافتة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schinken",
+    "article": "der",
+    "translations": {
+      "en": "ham",
+      "es": "jamón",
+      "fr": "jambon",
+      "ru": "ветчина",
+      "ar": "لحم الخنزير"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte gern ein Schinkenbrot.",
+        "translations": {
+          "en": "I would like a ham sandwich.",
+          "es": "Quisiera un bocadillo de jamón.",
+          "fr": "Je voudrais un sandwich au jambon.",
+          "ru": "Я хотел бы бутерброд с ветчиной.",
+          "ar": "أود ساندويتش لحم الخنزير."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schlafen",
+    "article": "",
+    "translations": {
+      "en": "to sleep",
+      "es": "dormir",
+      "fr": "dormir",
+      "ru": "спать",
+      "ar": "ينام"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich schlafe meistens acht Stunden.",
+        "translations": {
+          "en": "I usually sleep eight hours.",
+          "es": "Normalmente duermo ocho horas.",
+          "fr": "Je dors généralement huit heures.",
+          "ru": "Я обычно сплю восемь часов.",
+          "ar": "عادة أنام ثماني ساعات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schlecht",
+    "article": "",
+    "translations": {
+      "en": "bad",
+      "es": "malo",
+      "fr": "mauvais",
+      "ru": "плохой",
+      "ar": "سيء"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mir ist schlecht!",
+        "translations": {
+          "en": "I feel sick!",
+          "es": "¡Me siento mal!",
+          "fr": "Je me sens mal!",
+          "ru": "Мне плохо!",
+          "ar": "أشعر بالمرض!"
+        }
+      },
+      {
+        "text": "Sie sehen schlecht aus.",
+        "translations": {
+          "en": "You look bad.",
+          "es": "Te ves mal.",
+          "fr": "Vous avez mauvaise mine.",
+          "ru": "Вы плохо выглядите.",
+          "ar": "تبدو سيئًا."
+        }
+      },
+      {
+        "text": "Wir haben schlechtes Wetter.",
+        "translations": {
+          "en": "We have bad weather.",
+          "es": "Tenemos mal tiempo.",
+          "fr": "Nous avons mauvais temps.",
+          "ru": "У нас плохая погода.",
+          "ar": "لدينا طقس سيء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schließen",
+    "article": "",
+    "translations": {
+      "en": "to close",
+      "es": "cerrar",
+      "fr": "fermer",
+      "ru": "закрывать",
+      "ar": "يغلق"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bitte, schließen Sie die Tür.",
+        "translations": {
+          "en": "Please close the door.",
+          "es": "Por favor, cierre la puerta.",
+          "fr": "Veuillez fermer la porte.",
+          "ru": "Пожалуйста, закройте дверь.",
+          "ar": "من فضلك، أغلق الباب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "geschlossen",
+    "article": "",
+    "translations": {
+      "en": "closed",
+      "es": "cerrado",
+      "fr": "fermé",
+      "ru": "закрыт",
+      "ar": "مغلق"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Bank hat am Samstag geschlossen.",
+        "translations": {
+          "en": "The bank is closed on Saturday.",
+          "es": "El banco está cerrado el sábado.",
+          "fr": "La banque est fermée le samedi.",
+          "ru": "Банк закрыт в субботу.",
+          "ar": "البنك مغلق يوم السبت."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schluss",
+    "article": "der",
+    "translations": {
+      "en": "end",
+      "es": "final",
+      "fr": "fin",
+      "ru": "конец",
+      "ar": "النهاية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich muss jetzt Schluss machen.",
+        "translations": {
+          "en": "I have to finish now.",
+          "es": "Tengo que terminar ahora.",
+          "fr": "Je dois terminer maintenant.",
+          "ru": "Мне нужно заканчивать.",
+          "ar": "يجب أن أنهي الآن."
+        }
+      },
+      {
+        "text": "Zum Schluss gibt er uns allen die Hand.",
+        "translations": {
+          "en": "At the end he shakes hands with all of us.",
+          "es": "Al final nos da la mano a todos.",
+          "fr": "À la fin, il serre la main à tout le monde.",
+          "ru": "В конце он пожимает руку всем нам.",
+          "ar": "في النهاية، يصافح الجميع."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schlüssel",
+    "article": "der",
+    "translations": {
+      "en": "key",
+      "es": "llave",
+      "fr": "clé",
+      "ru": "ключ",
+      "ar": "المفتاح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich gebe Ihnen noch den Zimmerschlüssel.",
+        "translations": {
+          "en": "I'll give you the room key.",
+          "es": "Le doy la llave de la habitación.",
+          "fr": "Je vous donne la clé de la chambre.",
+          "ru": "Я дам вам ключ от номера.",
+          "ar": "سأعطيك مفتاح الغرفة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "schmecken",
+    "article": "",
+    "translations": {
+      "en": "to taste",
+      "es": "saber",
+      "fr": "avoir un goût",
+      "ru": "быть вкусным",
+      "ar": "يكون طعمه"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Schmeckt das gut?",
+        "translations": {
+          "en": "Does that taste good?",
+          "es": "¿Sabe bien?",
+          "fr": "C'est bon?",
+          "ru": "Это вкусно?",
+          "ar": "هل هذا لذيذ؟"
+        }
+      }
+    ]
+  }
+]
+

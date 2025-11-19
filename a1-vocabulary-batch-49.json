@@ -1,0 +1,273 @@
+[
+  {
+    "word": "Plan",
+    "article": "der",
+    "translations": {
+      "en": "plan",
+      "es": "plan",
+      "fr": "plan",
+      "ru": "план",
+      "ar": "الخطة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich kaufe mir einen Stadtplan.",
+        "translations": {
+          "en": "I'm buying a city map.",
+          "es": "Me compro un plano de la ciudad.",
+          "fr": "J'achète un plan de la ville.",
+          "ru": "Я покупаю план города.",
+          "ar": "سأشتري خريطة المدينة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Platz",
+    "article": "der",
+    "translations": {
+      "en": "place",
+      "es": "lugar",
+      "fr": "place",
+      "ru": "место",
+      "ar": "المكان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Tut mir leid, der Platz ist besetzt.",
+        "translations": {
+          "en": "I'm sorry, the seat is taken.",
+          "es": "Lo siento, el asiento está ocupado.",
+          "fr": "Désolé, la place est occupée.",
+          "ru": "Извините, место занято.",
+          "ar": "آسف، المقعد محجوز."
+        }
+      },
+      {
+        "text": "Bitte nehmen Sie Platz!",
+        "translations": {
+          "en": "Please have a seat!",
+          "es": "¡Por favor, tome asiento!",
+          "fr": "Veuillez vous asseoir!",
+          "ru": "Пожалуйста, садитесь!",
+          "ar": "من فضلك، اجلس!"
+        }
+      },
+      {
+        "text": "Ich wohne Messeplatz 5.",
+        "translations": {
+          "en": "I live at Messeplatz 5.",
+          "es": "Vivo en Messeplatz 5.",
+          "fr": "J'habite Messeplatz 5.",
+          "ru": "Я живу на Мессеплац 5.",
+          "ar": "أعيش في ميسيبلاتز 5."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Polizei",
+    "article": "die",
+    "translations": {
+      "en": "police",
+      "es": "policía",
+      "fr": "police",
+      "ru": "полиция",
+      "ar": "الشرطة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Holen Sie die Polizei!",
+        "translations": {
+          "en": "Call the police!",
+          "es": "¡Llame a la policía!",
+          "fr": "Appelez la police!",
+          "ru": "Вызовите полицию!",
+          "ar": "اتصل بالشرطة!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Pommes frites",
+    "article": "die",
+    "translations": {
+      "en": "french fries",
+      "es": "papas fritas",
+      "fr": "frites",
+      "ru": "картофель фри",
+      "ar": "البطاطس المقلية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder essen Hähnchen mit Pommes frites.",
+        "translations": {
+          "en": "The children are eating chicken with french fries.",
+          "es": "Los niños comen pollo con papas fritas.",
+          "fr": "Les enfants mangent du poulet avec des frites.",
+          "ru": "Дети едят курицу с картофелем фри.",
+          "ar": "الأطفال يأكلون الدجاج مع البطاطس المقلية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Post",
+    "article": "die",
+    "translations": {
+      "en": "post office",
+      "es": "correo",
+      "fr": "poste",
+      "ru": "почта",
+      "ar": "البريد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo ist die Post, bitte?",
+        "translations": {
+          "en": "Where is the post office, please?",
+          "es": "¿Dónde está el correo, por favor?",
+          "fr": "Où est la poste, s'il vous plaît?",
+          "ru": "Где почта, пожалуйста?",
+          "ar": "أين مكتب البريد، من فضلك؟"
+        }
+      },
+      {
+        "text": "Ist Post da?",
+        "translations": {
+          "en": "Is there any mail?",
+          "es": "¿Hay correo?",
+          "fr": "Y a-t-il du courrier?",
+          "ru": "Есть почта?",
+          "ar": "هل هناك بريد؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Postleitzahl",
+    "article": "die",
+    "translations": {
+      "en": "postal code",
+      "es": "código postal",
+      "fr": "code postal",
+      "ru": "почтовый индекс",
+      "ar": "الرمز البريدي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie ist Ihre Postleitzahl?",
+        "translations": {
+          "en": "What is your postal code?",
+          "es": "¿Cuál es su código postal?",
+          "fr": "Quel est votre code postal?",
+          "ru": "Какой ваш почтовый индекс?",
+          "ar": "ما هو رمزك البريدي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Praktikum",
+    "article": "das",
+    "translations": {
+      "en": "internship",
+      "es": "pasantía",
+      "fr": "stage",
+      "ru": "стажировка",
+      "ar": "التدريب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich mache ein Praktikum bei Siemens.",
+        "translations": {
+          "en": "I'm doing an internship at Siemens.",
+          "es": "Estoy haciendo una pasantía en Siemens.",
+          "fr": "Je fais un stage chez Siemens.",
+          "ru": "Я прохожу стажировку в Siemens.",
+          "ar": "أنا أقوم بالتدريب في سيمنز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Praxis",
+    "article": "die",
+    "translations": {
+      "en": "practice",
+      "es": "consulta",
+      "fr": "cabinet",
+      "ru": "практика",
+      "ar": "العيادة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Praxis ist ab acht Uhr geöffnet.",
+        "translations": {
+          "en": "The practice is open from eight o'clock.",
+          "es": "La consulta está abierta desde las ocho.",
+          "fr": "Le cabinet est ouvert à partir de huit heures.",
+          "ru": "Практика открыта с восьми часов.",
+          "ar": "العيادة مفتوحة من الساعة الثامنة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Preis",
+    "article": "der",
+    "translations": {
+      "en": "price",
+      "es": "precio",
+      "fr": "prix",
+      "ru": "цена",
+      "ar": "السعر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Preise sind hoch.",
+        "translations": {
+          "en": "The prices are high.",
+          "es": "Los precios son altos.",
+          "fr": "Les prix sont élevés.",
+          "ru": "Цены высокие.",
+          "ar": "الأسعار مرتفعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Problem",
+    "article": "das",
+    "translations": {
+      "en": "problem",
+      "es": "problema",
+      "fr": "problème",
+      "ru": "проблема",
+      "ar": "المشكلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Problem ist die Sprache.",
+        "translations": {
+          "en": "My problem is the language.",
+          "es": "Mi problema es el idioma.",
+          "fr": "Mon problème est la langue.",
+          "ru": "Моя проблема - это язык.",
+          "ar": "مشكلتي هي اللغة."
+        }
+      }
+    ]
+  }
+]
+
