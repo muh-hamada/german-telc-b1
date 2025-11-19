@@ -1,0 +1,816 @@
+
+================================================================================
+A2 VOCABULARY ANALYSIS REPORT - 2025-11-19T11:18:46.307Z
+================================================================================
+
+Source file: a2-vocabulary.json
+Total entries: 1218
+
+================================================================================
+1. DUPLICATE WORDS ANALYSIS
+================================================================================
+
+Found 70 duplicate words
+
+Complete list of all duplicate words:
+--------------------------------------------------------------------------------
+
+1. Word: "Land" (appears 2 times)
+   Indices: 527, 561
+   [527] das Land (noun)
+       Sentences: 2
+       1. Deutschland ist ein schönes Land.
+       2. Möchten Sie lieber auf dem Land oder in der Stadt wohnen?
+   [561] das Land (noun)
+       Sentences: 2
+       1. Deutschland ist ein schönes Land.
+       2. Möchten Sie lieber auf dem Land oder in der Stadt wohnen?
+
+2. Word: "Landschaft" (appears 2 times)
+   Indices: 528, 562
+   [528] die Landschaft (noun)
+       Sentences: 1
+       1. Die Landschaft ist sehr schön.
+   [562] die Landschaft (noun)
+       Sentences: 1
+       1. Die Landschaft ist sehr schön.
+
+3. Word: "Kiosk" (appears 2 times)
+   Indices: 529, 563
+   [529] der Kiosk (noun)
+       Sentences: 1
+       1. Zeitungen kannst du am Kiosk kaufen.
+   [563] der Kiosk (noun)
+       Sentences: 1
+       1. Zeitungen kannst du am Kiosk kaufen.
+
+4. Word: "Kirche" (appears 2 times)
+   Indices: 530, 564
+   [530] die Kirche (noun)
+       Sentences: 1
+       1. Diese Kirche ist fast 800 Jahre alt.
+   [564] die Kirche (noun)
+       Sentences: 1
+       1. Diese Kirche ist fast 800 Jahre alt.
+
+5. Word: "klappen" (appears 2 times)
+   Indices: 531, 565
+   [531] klappen (verb)
+       Sentences: 2
+       1. Können wir uns heute Mittag treffen? – Ja, das klappt.
+       2. Wie war die Reise? - Gut, es hat alles super geklappt.
+   [565] klappen (verb)
+       Sentences: 2
+       1. Können wir uns heute Mittag treffen? – Ja, das klappt.
+       2. Wie war die Reise? - Gut, es hat alles super geklappt.
+
+6. Word: "klar" (appears 2 times)
+   Indices: 532, 566
+   [532] klar (adjective/adverb)
+       Sentences: 2
+       1. Kommst du mit? – Klar!
+       2. Ich komme morgen zu deiner Party, das ist doch klar.
+   [566] klar (adjective/adverb)
+       Sentences: 2
+       1. Kommst du mit? – Klar!
+       2. Ich komme morgen zu deiner Party, das ist doch klar.
+
+7. Word: "Klavier" (appears 2 times)
+   Indices: 533, 567
+   [533] das Klavier (noun)
+       Sentences: 1
+       1. Jakob kann sehr gut Klavier spielen.
+   [567] das Klavier (noun)
+       Sentences: 1
+       1. Jakob kann sehr gut Klavier spielen.
+
+8. Word: "Kleid" (appears 2 times)
+   Indices: 534, 568
+   [534] das Kleid (noun)
+       Sentences: 1
+       1. Julia möchte ein rotes Kleid kaufen.
+   [568] das Kleid (noun)
+       Sentences: 1
+       1. Julia möchte ein rotes Kleid kaufen.
+
+9. Word: "Kleidung" (appears 2 times)
+   Indices: 535, 569
+   [535] die (Sg.) Kleidung (noun)
+       Sentences: 1
+       1. Wo finde ich Kleidung? – Hosen im ersten, Kleider und Röcke ...
+   [569] die (Sg.) Kleidung (noun)
+       Sentences: 1
+       1. Wo finde ich Kleidung? – Hosen im ersten, Kleider und Röcke ...
+
+10. Word: "klein" (appears 2 times)
+   Indices: 536, 570
+   [536] klein (adjective)
+       Sentences: 3
+       1. Unsere Wohnung ist sehr klein.
+       2. Unsere Tochter ist noch klein. Sie ist erst zwei Jahre alt.
+       3. Wir machen am Wochenende einen kleinen Ausflug.
+   [570] klein (adjective)
+       Sentences: 3
+       1. Unsere Wohnung ist sehr klein.
+       2. Unsere Tochter ist noch klein. Sie ist erst zwei Jahre alt.
+       3. Wir machen am Wochenende einen kleinen Ausflug.
+
+11. Word: "klug" (appears 2 times)
+   Indices: 537, 571
+   [537] klug (adjective)
+       Sentences: 3
+       1. Molly ist ein kluges Mädchen.
+       2. Lisa ist sehr klug. Sie bekommt immer gute Noten.
+       3. Das ist klug von dir.
+   [571] klug (adjective)
+       Sentences: 3
+       1. Molly ist ein kluges Mädchen.
+       2. Lisa ist sehr klug. Sie bekommt immer gute Noten.
+       3. Das ist klug von dir.
+
+12. Word: "kochen" (appears 2 times)
+   Indices: 538, 572
+   [538] kochen (verb)
+       Sentences: 2
+       1. Herr Georgi kann gut kochen.
+       2. Das Wasser kocht.
+   [572] kochen (verb)
+       Sentences: 2
+       1. Herr Georgi kann gut kochen.
+       2. Das Wasser kocht.
+
+13. Word: "Koffer" (appears 2 times)
+   Indices: 539, 573
+   [539] der Koffer (noun)
+       Sentences: 1
+       1. Hast du den Koffer schon gepackt?
+   [573] der Koffer (noun)
+       Sentences: 1
+       1. Hast du den Koffer schon gepackt?
+
+14. Word: "Kollege/Kollegin" (appears 2 times)
+   Indices: 540, 574
+   [540] der/die Kollege/Kollegin (noun)
+       Sentences: 1
+       1. Wie heißt die neue Kollegin?
+   [574] der/die Kollege/Kollegin (noun)
+       Sentences: 1
+       1. Wie heißt die neue Kollegin?
+
+15. Word: "komisch" (appears 2 times)
+   Indices: 541, 575
+   [541] komisch (adjective)
+       Sentences: 3
+       1. Der Film war sehr komisch. Wir haben viel gelacht.
+       2. Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus.
+       3. Das Essen schmeckt komisch. Probier mal!
+   [575] komisch (adjective)
+       Sentences: 3
+       1. Der Film war sehr komisch. Wir haben viel gelacht.
+       2. Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus.
+       3. Das Essen schmeckt komisch. Probier mal!
+
+16. Word: "kommen" (appears 2 times)
+   Indices: 542, 576
+   [542] kommen (verb)
+       Sentences: 2
+       1. Woher kommen Sie? – Aus Frankreich.
+       2. Er wird bald kommen.
+   [576] kommen (verb)
+       Sentences: 2
+       1. Woher kommen Sie? – Aus Frankreich.
+       2. Er wird bald kommen.
+
+17. Word: "können" (appears 2 times)
+   Indices: 543, 577
+   [543] können (verb (modal))
+       Sentences: 5
+       1. Ich kann Deutsch und Russisch. Aber Englisch kann ich nicht.
+       2. Können Sie mir helfen?
+       3. Du kannst durch den Park laufen, das ist am schnellsten.
+       4. Kann ich jetzt nach Hause gehen?
+       5. Sie können mit dem Bus an den Bahnhof fahren.
+   [577] können (verb (modal))
+       Sentences: 5
+       1. Ich kann Deutsch und Russisch. Aber Englisch kann ich nicht.
+       2. Können Sie mir helfen?
+       3. Du kannst durch den Park laufen, das ist am schnellsten.
+       4. Kann ich jetzt nach Hause gehen?
+       5. Sie können mit dem Bus an den Bahnhof fahren.
+
+18. Word: "Kontakt" (appears 2 times)
+   Indices: 544, 578
+   [544] der Kontakt (noun)
+       Sentences: 2
+       1. Ich habe wenig Kontakt zu meinen Kollegen.
+       2. Bitte schicken Sie mir Ihre Kontaktdaten!
+   [578] der Kontakt (noun)
+       Sentences: 2
+       1. Ich habe wenig Kontakt zu meinen Kollegen.
+       2. Bitte schicken Sie mir Ihre Kontaktdaten!
+
+19. Word: "Konto" (appears 2 times)
+   Indices: 545, 579
+   [545] das Konto (noun)
+       Sentences: 1
+       1. Das Geld überweisen wir am ersten März auf Ihr Konto.
+   [579] das Konto (noun)
+       Sentences: 1
+       1. Das Geld überweisen wir am ersten März auf Ihr Konto.
+
+20. Word: "kontrollieren" (appears 2 times)
+   Indices: 546, 580
+   [546] kontrollieren (verb)
+       Sentences: 2
+       1. Können Sie bei meinem Auto bitte das Öl kontrollieren?
+       2. Bitte öffnen Sie Ihren Koffer, wir müssen Ihr Gepäck kontrol...
+   [580] kontrollieren (verb)
+       Sentences: 2
+       1. Können Sie bei meinem Auto bitte das Öl kontrollieren?
+       2. Bitte öffnen Sie Ihren Koffer, wir müssen Ihr Gepäck kontrol...
+
+21. Word: "Konzert" (appears 2 times)
+   Indices: 547, 581
+   [547] das Konzert (noun)
+       Sentences: 1
+       1. Für das Konzert am Sonntag gibt es noch Karten.
+   [581] das Konzert (noun)
+       Sentences: 1
+       1. Für das Konzert am Sonntag gibt es noch Karten.
+
+22. Word: "Kopf" (appears 2 times)
+   Indices: 548, 582
+   [548] der Kopf (noun)
+       Sentences: 1
+       1. Mein Kopf tut weh!
+   [582] der Kopf (noun)
+       Sentences: 1
+       1. Mein Kopf tut weh!
+
+23. Word: "Körper" (appears 2 times)
+   Indices: 549, 583
+   [549] der Körper (noun)
+       Sentences: 1
+       1. Der Arzt sagt, ich muss etwas für meinen Körper tun, z. B. s...
+   [583] der Körper (noun)
+       Sentences: 1
+       1. Der Arzt sagt, ich muss etwas für meinen Körper tun, z. B. s...
+
+24. Word: "Kosmetik" (appears 2 times)
+   Indices: 550, 584
+   [550] die (Sg.) Kosmetik (noun)
+       Sentences: 1
+       1. Kosmetik können Sie im Erdgeschoss kaufen.
+   [584] die (Sg.) Kosmetik (noun)
+       Sentences: 1
+       1. Kosmetik können Sie im Erdgeschoss kaufen.
+
+25. Word: "kosten" (appears 2 times)
+   Indices: 551, 585
+   [551] kosten (verb)
+       Sentences: 1
+       1. Wie viel kostet das Buch? – 20 Euro.
+   [585] kosten (verb)
+       Sentences: 1
+       1. Wie viel kostet das Buch? – 20 Euro.
+
+26. Word: "Link" (appears 2 times)
+   Indices: 552, 586
+   [552] der Link (noun)
+       Sentences: 1
+       1. Ich schicke dir einen Link zu Deutschübungen.
+   [586] der Link (noun)
+       Sentences: 1
+       1. Ich schicke dir einen Link zu Deutschübungen.
+
+27. Word: "links" (appears 2 times)
+   Indices: 553, 587
+   [553] links (adverb)
+       Sentences: 1
+       1. Gehen Sie die nächste Straße links.
+   [587] links (adverb)
+       Sentences: 1
+       1. Gehen Sie die nächste Straße links.
+
+28. Word: "Löffel" (appears 2 times)
+   Indices: 554, 588
+   [554] der Löffel (noun)
+       Sentences: 1
+       1. Bitte bringen Sie mir einen Löffel.
+   [588] der Löffel (noun)
+       Sentences: 1
+       1. Bitte bringen Sie mir einen Löffel.
+
+29. Word: "Lokal" (appears 2 times)
+   Indices: 555, 589
+   [555] das Lokal (noun)
+       Sentences: 1
+       1. Gibt es hier in der Nähe ein gutes Lokal?
+   [589] das Lokal (noun)
+       Sentences: 1
+       1. Gibt es hier in der Nähe ein gutes Lokal?
+
+30. Word: "Lüge" (appears 2 times)
+   Indices: 556, 590
+   [556] die Lüge (noun)
+       Sentences: 1
+       1. Das stimmt nicht! Das ist eine Lüge!
+   [590] die Lüge (noun)
+       Sentences: 1
+       1. Das stimmt nicht! Das ist eine Lüge!
+
+31. Word: "lügen" (appears 2 times)
+   Indices: 557, 591
+   [557] lügen (verb)
+       Sentences: 2
+       1. Du sollst nicht lügen.
+       2. Glaub ihm nicht, er lügt.
+   [591] lügen (verb)
+       Sentences: 2
+       1. Du sollst nicht lügen.
+       2. Glaub ihm nicht, er lügt.
+
+32. Word: "Lust" (appears 2 times)
+   Indices: 558, 592
+   [558] die (Sg.) Lust (noun)
+       Sentences: 2
+       1. Gehen wir heute Abend ins Kino? - Nein, ich habe keine Lust.
+       2. Ich habe Lust auf Schokolade.
+   [592] die (Sg.) Lust (noun)
+       Sentences: 2
+       1. Gehen wir heute Abend ins Kino? - Nein, ich habe keine Lust.
+       2. Ich habe Lust auf Schokolade.
+
+33. Word: "lustig" (appears 2 times)
+   Indices: 559, 593
+   [559] lustig (adjective)
+       Sentences: 2
+       1. Warum lacht ihr? Was ist so lustig?
+       2. Ich mag lustige Filme.
+   [593] lustig (adjective)
+       Sentences: 2
+       1. Warum lacht ihr? Was ist so lustig?
+       2. Ich mag lustige Filme.
+
+34. Word: "machen" (appears 2 times)
+   Indices: 560, 594
+   [560] machen (verb)
+       Sentences: 4
+       1. Was machst du heute Abend?
+       2. Ich muss jetzt das Essen machen.
+       3. Das macht 5 Euro 95.
+       4. Entschuldigung! - Das macht doch nichts.
+   [594] machen (verb)
+       Sentences: 4
+       1. Was machst du heute Abend?
+       2. Ich muss jetzt das Essen machen.
+       3. Das macht 5 Euro 95.
+       4. Entschuldigung! - Das macht doch nichts.
+
+35. Word: "wollen" (appears 2 times)
+   Indices: 1143, 1182
+   [1143] wollen (verb (modal))
+       Sentences: 1
+       1. Wollen Sie einen Kaffee trinken?
+   [1182] wollen (verb (modal))
+       Sentences: 1
+       1. Wollen Sie einen Kaffee trinken?
+
+36. Word: "der Workshop, -s" (appears 2 times)
+   Indices: 1144, 1183
+   [1144] der Workshop, -s (noun)
+       Sentences: 2
+       1. Das war ein toller Workshop. Ich habe viel gelernt.
+       2. Am Freitag gibt es einen Computer-Workshop in meiner Firma.
+   [1183] der Workshop, -s (noun)
+       Sentences: 2
+       1. Das war ein toller Workshop. Ich habe viel gelernt.
+       2. Am Freitag gibt es einen Computer-Workshop in meiner Firma.
+
+37. Word: "das Wort,¨-er" (appears 2 times)
+   Indices: 1145, 1184
+   [1145] das Wort,¨-er (noun)
+       Sentences: 2
+       1. Ich kenne das Wort nicht.
+       2. Ich muss das Wort im Wörterbuch suchen.
+   [1184] das Wort,¨-er (noun)
+       Sentences: 2
+       1. Ich kenne das Wort nicht.
+       2. Ich muss das Wort im Wörterbuch suchen.
+
+38. Word: "wunderbar" (appears 2 times)
+   Indices: 1146, 1185
+   [1146] wunderbar (adjective)
+       Sentences: 2
+       1. Diese Schokolade schmeckt wunderbar.
+       2. Wir hatten im Urlaub wunderbares Wetter.
+   [1185] wunderbar (adjective)
+       Sentences: 2
+       1. Diese Schokolade schmeckt wunderbar.
+       2. Wir hatten im Urlaub wunderbares Wetter.
+
+39. Word: "der Wunsch, ¨-e" (appears 2 times)
+   Indices: 1147, 1186
+   [1147] der Wunsch, ¨-e (noun)
+       Sentences: 4
+       1. Ich wünsche Ihnen alles Gute!
+       2. Sie wünschen? – Ich möchte ein halbes Kilo Äpfel, bitte.
+       3. Haben Sie noch einen Wunsch?
+       4. Was ist dein größter Wunsch?
+   [1186] der Wunsch, ¨-e (noun)
+       Sentences: 4
+       1. Ich wünsche Ihnen alles Gute!
+       2. Sie wünschen? – Ich möchte ein halbes Kilo Äpfel, bitte.
+       3. Haben Sie noch einen Wunsch?
+       4. Was ist dein größter Wunsch?
+
+40. Word: "wünschen" (appears 2 times)
+   Indices: 1148, 1187
+   [1148] wünschen (verb)
+       Sentences: 1
+       1. Ich wünsche mir eine Kamera zum Geburtstag.
+   [1187] wünschen (verb)
+       Sentences: 1
+       1. Ich wünsche mir eine Kamera zum Geburtstag.
+
+41. Word: "die Wurst, ¨-e" (appears 2 times)
+   Indices: 1149, 1188
+   [1149] die Wurst, ¨-e (noun)
+       Sentences: 1
+       1. Eine Wurst mit Pommes, bitte.
+   [1188] die Wurst, ¨-e (noun)
+       Sentences: 1
+       1. Eine Wurst mit Pommes, bitte.
+
+42. Word: "die Zahl, -en" (appears 2 times)
+   Indices: 1150, 1189
+   [1150] die Zahl, -en (noun)
+       Sentences: 1
+       1. Können Sie die Zahl bitte wiederholen?
+   [1189] die Zahl, -en (noun)
+       Sentences: 1
+       1. Können Sie die Zahl bitte wiederholen?
+
+43. Word: "zahlen" (appears 2 times)
+   Indices: 1151, 1190
+   [1151] zahlen (verb)
+       Sentences: 1
+       1. Entschuldigung, zahlen bitte!
+   [1190] zahlen (verb)
+       Sentences: 1
+       1. Entschuldigung, zahlen bitte!
+
+44. Word: "der Zahn, ¨-e" (appears 2 times)
+   Indices: 1152, 1191
+   [1152] der Zahn, ¨-e (noun)
+       Sentences: 1
+       1. Der Zahn tut mir schon seit einer Woche weh.
+   [1191] der Zahn, ¨-e (noun)
+       Sentences: 1
+       1. Der Zahn tut mir schon seit einer Woche weh.
+
+45. Word: "zeichnen" (appears 2 times)
+   Indices: 1153, 1192
+   [1153] zeichnen (verb)
+       Sentences: 2
+       1. Caterina kann gut zeichnen.
+       2. Sieh mal das Bild hier.
+   [1192] zeichnen (verb)
+       Sentences: 2
+       1. Caterina kann gut zeichnen.
+       2. Sieh mal das Bild hier.
+
+46. Word: "zeigen" (appears 2 times)
+   Indices: 1154, 1193
+   [1154] zeigen (verb)
+       Sentences: 1
+       1. Können Sie mir bitte den Weg zum Flughafen zeigen?
+   [1193] zeigen (verb)
+       Sentences: 1
+       1. Können Sie mir bitte den Weg zum Bahnhof zeigen?
+
+47. Word: "die Zeit, -en" (appears 2 times)
+   Indices: 1155, 1194
+   [1155] die Zeit, -en (noun)
+       Sentences: 1
+       1. Ich habe heute keine Zeit.
+   [1194] die Zeit, -en (noun)
+       Sentences: 1
+       1. Ich habe heute keine Zeit.
+
+48. Word: "die Zeitschrift, -en" (appears 2 times)
+   Indices: 1156, 1195
+   [1156] die Zeitschrift, -en (noun)
+       Sentences: 1
+       1. Diese Zeitschrift kauft Andrea jede Woche.
+   [1195] die Zeitschrift, -en (noun)
+       Sentences: 1
+       1. Diese Zeitschrift kauft Andrea jede Woche.
+
+49. Word: "die Zeitung, -en" (appears 2 times)
+   Indices: 1157, 1196
+   [1157] die Zeitung, -en (noun)
+       Sentences: 2
+       1. Ich lese manchmal Zeitung.
+       2. Wo ist die Zeitung von heute?
+   [1196] die Zeitung, -en (noun)
+       Sentences: 2
+       1. Ich lese manchmal Zeitung.
+       2. Wo ist die Zeitung von heute?
+
+50. Word: "das Zelt, -e" (appears 2 times)
+   Indices: 1158, 1197
+   [1158] das Zelt, -e (noun)
+       Sentences: 1
+       1. Im Sommer schlafen wir manchmal im Zelt.
+   [1197] das Zelt, -e (noun)
+       Sentences: 1
+       1. Im Sommer schlafen wir manchmal im Zelt.
+
+51. Word: "das Zentrum, -en" (appears 2 times)
+   Indices: 1159, 1198
+   [1159] das Zentrum, -en (noun)
+       Sentences: 2
+       1. Der Bahnhof ist im Stadtzentrum.
+       2. Wohnst du im Zentrum? - Nein, ich wohne nicht direkt in der ...
+   [1198] das Zentrum, -en (noun)
+       Sentences: 2
+       1. Der Bahnhof ist im Stadtzentrum.
+       2. Wohnst du im Zentrum? - Nein, ich wohne nicht direkt in der ...
+
+52. Word: "der Zettel, -" (appears 2 times)
+   Indices: 1160, 1199
+   [1160] der Zettel, - (noun)
+       Sentences: 2
+       1. Hast du einen Zettel für mich? Ich muss etwas notieren.
+       2. Schreiben Sie Ihre Telefonnummer bitte auf den Zettel.
+   [1199] der Zettel, - (noun)
+       Sentences: 2
+       1. Hast du einen Zettel für mich? Ich muss etwas notieren.
+       2. Schreiben Sie Ihre Telefonnummer bitte auf den Zettel.
+
+53. Word: "das Zeugnis, -se" (appears 2 times)
+   Indices: 1161, 1200
+   [1161] das Zeugnis, -se (noun)
+       Sentences: 1
+       1. Morgen bekommen die Kinder ihr Zeugnis.
+   [1200] das Zeugnis, -se (noun)
+       Sentences: 1
+       1. Morgen bekommen die Kinder ihr Zeugnis.
+
+54. Word: "(an-)/(aus)ziehen" (appears 2 times)
+   Indices: 1162, 1201
+   [1162] (an-)/(aus)ziehen (verb)
+       Sentences: 3
+       1. Ich ziehe (mir) eine Jacke an.
+       2. Er hat sein T-Shirt ausgezogen und ein Hemd angezogen.
+       3. Die Nachbarn sind am Wochenende ausgezogen.
+   [1201] (an-)/(aus)ziehen (verb)
+       Sentences: 3
+       1. Ich ziehe (mir) eine Jacke an.
+       2. Er hat sein T-Shirt ausgezogen und ein Hemd angezogen.
+       3. Die Nachbarn sind am Wochenende ausgezogen.
+
+55. Word: "das Ziel, -e" (appears 2 times)
+   Indices: 1163, 1202
+   [1163] das Ziel, -e (noun)
+       Sentences: 2
+       1. John läuft sehr schnell. Er war als erster am Ziel.
+       2. Was ist dein Ziel im Leben?
+   [1202] das Ziel, -e (noun)
+       Sentences: 2
+       1. John läuft sehr schnell. Er war als erster am Ziel.
+       2. Was ist dein Ziel im Leben?
+
+56. Word: "das Zimmer, -" (appears 2 times)
+   Indices: 1164, 1203
+   [1164] das Zimmer, - (noun)
+       Sentences: 4
+       1. Das Zimmer ist am größten.
+       2. Mach im Schlafzimmer das Fenster zu!
+       3. Die Wohnung hat drei Zimmer.
+       4. Ich habe im Hotel ein Zimmer bestellt.
+   [1203] das Zimmer, - (noun)
+       Sentences: 4
+       1. Das Zimmer ist am größten.
+       2. Mach im Schlafzimmer das Fenster zu!
+       3. Die Wohnung hat drei Zimmer.
+       4. Ich habe im Hotel ein Zimmer bestellt.
+
+57. Word: "der Zirkus, -se" (appears 2 times)
+   Indices: 1165, 1204
+   [1165] der Zirkus, -se (noun)
+       Sentences: 1
+       1. Heute gehen wir mit den Kindern in den Zirkus.
+   [1204] der Zirkus, -se (noun)
+       Sentences: 1
+       1. Heute gehen wir mit den Kindern in den Zirkus.
+
+58. Word: "die Zitrone, -n" (appears 2 times)
+   Indices: 1166, 1205
+   [1166] die Zitrone, -n (noun)
+       Sentences: 2
+       1. Ich trinke den Tee mit Zitrone.
+       2. Lucia mag Zitroneneis.
+   [1205] die Zitrone, -n (noun)
+       Sentences: 2
+       1. Ich trinke den Tee mit Zitrone.
+       2. Lucia mag Zitroneneis.
+
+59. Word: "der Zoo, -s" (appears 2 times)
+   Indices: 1167, 1206
+   [1167] der Zoo, -s (noun)
+       Sentences: 1
+       1. Am Sonntag gehen wir in den Zoo.
+   [1206] der Zoo, -s (noun)
+       Sentences: 1
+       1. Am Sonntag gehen wir in den Zoo.
+
+60. Word: "zu" (appears 2 times)
+   Indices: 1168, 1207
+   [1168] zu (preposition/adverb)
+       Sentences: 5
+       1. Der Bus fährt zum Bahnhof.
+       2. Ich gehe zu Fuß.
+       3. Ich bin zu Hause.
+       4. Das Kleid ist mir zu teuer.
+       5. Ich trinke zum Essen ein Bier.
+   [1207] zu (preposition/adverb)
+       Sentences: 5
+       1. Der Bus fährt zum Bahnhof.
+       2. Ich gehe zu Fuß.
+       3. Ich bin zu Hause.
+       4. Das Kleid ist mir zu teuer.
+       5. Ich trinke zum Essen ein Bier.
+
+61. Word: "der Zucker (Sg.)" (appears 2 times)
+   Indices: 1169, 1208
+   [1169] der Zucker (Sg.) (noun)
+       Sentences: 1
+       1. Trinken Sie den Tee mit oder ohne Zucker?
+   [1208] der Zucker (Sg.) (noun)
+       Sentences: 1
+       1. Trinken Sie den Tee mit oder ohne Zucker?
+
+62. Word: "zuerst" (appears 2 times)
+   Indices: 1170, 1209
+   [1170] zuerst (adverb)
+       Sentences: 2
+       1. Zuerst müsst ihr die Hausaufgaben machen, dann könnt ihr spi...
+       2. Zuerst hat mir die Arbeit gar nicht gefallen. Jetzt geht es ...
+   [1209] zuerst (adverb)
+       Sentences: 2
+       1. Zuerst müsst ihr die Hausaufgaben machen, dann könnt ihr spi...
+       2. Zuerst hat mir die Arbeit gar nicht gefallen. Jetzt geht es ...
+
+63. Word: "zufrieden" (appears 2 times)
+   Indices: 1171, 1210
+   [1171] zufrieden (adjective)
+       Sentences: 1
+       1. Ich bin mit der Wohnung zufrieden. Sie ist nicht groß, aber ...
+   [1210] zufrieden (adjective)
+       Sentences: 1
+       1. Ich bin mit der Wohnung zufrieden. Sie ist nicht groß, aber ...
+
+64. Word: "der Zug, ¨-e" (appears 2 times)
+   Indices: 1172, 1211
+   [1172] der Zug, ¨-e (noun)
+       Sentences: 1
+       1. Ich fahre gern mit dem Zug.
+   [1211] der Zug, ¨-e (noun)
+       Sentences: 1
+       1. Ich fahre gern mit dem Zug.
+
+65. Word: "zuhören" (appears 2 times)
+   Indices: 1173, 1212
+   [1173] zuhören (verb)
+       Sentences: 1
+       1. Hör mir doch mal zu! Ich rede mit dir.
+   [1212] zuhören (verb)
+       Sentences: 1
+       1. Hör mir doch mal zu! Ich rede mit dir.
+
+66. Word: "zuletzt" (appears 2 times)
+   Indices: 1174, 1213
+   [1174] zuletzt (adverb)
+       Sentences: 2
+       1. Wir haben uns vor drei Jahren zuletzt gesehen.
+       2. Diese Aufgabe machen wir zuletzt.
+   [1213] zuletzt (adverb)
+       Sentences: 2
+       1. Wir haben uns vor drei Jahren zuletzt gesehen.
+       2. Diese Aufgabe machen wir zuletzt.
+
+67. Word: "zum Beispiel" (appears 2 times)
+   Indices: 1175, 1214
+   [1175] zum Beispiel (expression)
+       Sentences: 1
+       1. Mein Freund hat viele Hobbys, zum Beispiel Kochen, Lesen und...
+   [1214] zum Beispiel (expression)
+       Sentences: 1
+       1. Mein Freund hat viele Hobbys, zum Beispiel Kochen, Lesen und...
+
+68. Word: "zumachen" (appears 2 times)
+   Indices: 1176, 1215
+   [1176] zumachen (verb)
+       Sentences: 1
+       1. Machst du bitte das Fenster zu?
+   [1215] zumachen (verb)
+       Sentences: 1
+       1. Machst du bitte das Fenster zu?
+
+69. Word: "zurück" (appears 2 times)
+   Indices: 1177, 1216
+   [1177] zurück (adverb)
+       Sentences: 1
+       1. Eine Fahrkarte nach Frankfurt und zurück, bitte.
+   [1216] zurück (adverb)
+       Sentences: 1
+       1. Eine Fahrkarte nach Frankfurt und zurück, bitte.
+
+70. Word: "zurück- (fahren, geben, gehen, kommen, laufen)" (appears 2 times)
+   Indices: 1178, 1217
+   [1178] zurück- (fahren, geben, gehen, kommen, laufen) (prefix/verb phrase)
+       Sentences: 5
+       1. Fahrt ihr nach der Party zurück nach Hause?
+       2. Wann muss ich das Buch zurückgeben?
+       3. Wir gehen wieder zurück.
+       4. Wann kommst du zurück?
+       5. Ich habe mein Buch vergessen. Ich laufe schnell nach Hause z...
+   [1217] zurück- (fahren, geben, gehen, kommen, laufen) (prefix/verb phrase)
+       Sentences: 5
+       1. Fahrt ihr nach der Party zurück nach Hause?
+       2. Wann muss ich das Buch zurückgeben?
+       3. Wir gehen wieder zurück.
+       4. Wann kommst du zurück?
+       5. Ich habe mein Buch vergessen. Ich laufe schnell nach Hause z...
+
+================================================================================
+2. ENTRIES WITHOUT SENTENCES
+================================================================================
+
+Found 0 entries without any sentences
+
+All entries have at least one sentence.
+
+================================================================================
+3. ENTRIES WITH EMPTY SENTENCES
+================================================================================
+
+Found 0 entries with empty sentences
+
+No entries with empty sentences found.
+
+================================================================================
+4. VERY SHORT SENTENCES (< 10 characters)
+================================================================================
+
+Found 0 entries with very short sentences
+
+No very short sentences found.
+
+================================================================================
+5. POTENTIAL GRAMMAR FRAGMENTS IN SENTENCES
+================================================================================
+
+Found 12 entries with potential grammar fragments
+
+Entries that may contain grammar fragments (first 50):
+--------------------------------------------------------------------------------
+1. [Index 75] auf (preposition/adverb)
+   [Sentence 6] Hat das Geschäft noch auf?
+2. [Index 105] besetzt (adjective)
+   [Sentence 0] Ist dieser Platz frei? - Nein, er ist besetzt.
+3. [Index 213] da (adverb)
+   [Sentence 1] Ist Herr Klein schon da?
+4. [Index 258] echt (adjective/adverb)
+   [Sentence 0] Ist das Bild ein echter Picasso?
+5. [Index 290] der Fahrplan (noun)
+   [Sentence 0] Ist das der neue Fahrplan?
+6. [Index 498] jemand (pronoun)
+   [Sentence 0] Hat jemand meinen Stift?
+7. [Index 691] offen (adjective)
+   [Sentence 0] Ist das Fenster im Bad noch offen?
+8. [Index 780] die (Sg.) die Post (noun)
+   [Sentence 1] Ist Post für mich da?
+9. [Index 879] schmecken, schmeckt, hat geschmeckt (verb)
+   [Sentence 1] Hat es Ihnen geschmeckt?
+10. [Index 887] schon (adverb)
+   [Sentence 0] Ist das Essen schon fertig?
+11. [Index 983] der Stuhl, ¨-e (noun)
+   [Sentence 0] Ist der Stuhl frei?
+12. [Index 989] süß (adjective)
+   [Sentence 1] Ist das deine Tochter? Die ist ja süß!
+
+================================================================================
+SUMMARY
+================================================================================
+
+Total entries:                    1218
+Duplicate words:                  70
+Entries without sentences:        0
+Entries with empty sentences:     0
+Entries with short sentences:     0
+Entries with potential fragments: 12
+
+Critical issues (duplicates, no sentences, empty): 70

@@ -6695,12 +6695,6 @@
     ]
   },
   {
-    "word": "M",
-    "article": "",
-    "type": "marker",
-    "exampleSentences": []
-  },
-  {
     "word": "machen",
     "article": "",
     "type": "verb",
@@ -6716,19 +6710,6 @@
       },
       {
         "text": "Entschuldigung! - Das macht doch nichts."
-      }
-    ]
-  },
-  {
-    "word": "Lampe",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Mach bitte die Lampe an."
-      },
-      {
-        "text": "Es ist so dunkel."
       }
     ]
   },
@@ -13628,12 +13609,6 @@
     ]
   },
   {
-    "word": "Z",
-    "article": "",
-    "type": "marker",
-    "exampleSentences": []
-  },
-  {
     "word": "die Zahl, -en",
     "article": "",
     "type": "noun",
@@ -14112,12 +14087,6 @@
         "text": "Eine Wurst mit Pommes, bitte."
       }
     ]
-  },
-  {
-    "word": "Z",
-    "article": "",
-    "type": "marker",
-    "exampleSentences": []
   },
   {
     "word": "die Zahl, -en",

@@ -2,17 +2,31 @@ const fs = require('fs');
 
 /**
  * Analyzes the A2 vocabulary JSON file for quality issues
+ * @param {string} filePath - Path to the vocabulary JSON file
+ * @param {string} outputFile - Path to write the detailed analysis report
  */
-function analyzeVocabulary(filePath) {
+function analyzeVocabulary(filePath, outputFile = 'a2-vocabulary-analysis.txt') {
     console.log('Reading vocabulary file...');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     
-    console.log(`\nTotal entries: ${data.length}\n`);
-    console.log('='.repeat(60));
+    // Prepare the report
+    let report = [];
+    
+    const addLine = (line = '') => report.push(line);
+    const addSection = (title) => {
+        addLine();
+        addLine('='.repeat(80));
+        addLine(title);
+        addLine('='.repeat(80));
+        addLine();
+    };
+    
+    addSection(`A2 VOCABULARY ANALYSIS REPORT - ${new Date().toISOString()}`);
+    addLine(`Source file: ${filePath}`);
+    addLine(`Total entries: ${data.length}`);
     
     // 1. Find duplicates based on "word" key
-    console.log('\n1. DUPLICATE WORDS ANALYSIS');
-    console.log('-'.repeat(60));
+    addSection('1. DUPLICATE WORDS ANALYSIS');
     
     const wordMap = new Map();
     const duplicates = [];
@@ -31,137 +45,239 @@ function analyzeVocabulary(filePath) {
             duplicates.push({
                 word,
                 count: indices.length,
-                indices
+                indices,
+                entries: indices.map(idx => data[idx])
             });
         }
     });
     
-    console.log(`Found ${duplicates.length} duplicate words`);
+    addLine(`Found ${duplicates.length} duplicate words`);
+    addLine();
     
     if (duplicates.length > 0) {
-        console.log('\nDuplicate words (showing first 20):');
-        duplicates.slice(0, 20).forEach(dup => {
-            console.log(`  - "${dup.word}" appears ${dup.count} times at indices: ${dup.indices.join(', ')}`);
-        });
+        addLine('Complete list of all duplicate words:');
+        addLine('-'.repeat(80));
         
-        if (duplicates.length > 20) {
-            console.log(`  ... and ${duplicates.length - 20} more duplicates`);
-        }
+        duplicates.forEach((dup, idx) => {
+            addLine();
+            addLine(`${idx + 1}. Word: "${dup.word}" (appears ${dup.count} times)`);
+            addLine(`   Indices: ${dup.indices.join(', ')}`);
+            
+            dup.entries.forEach((entry, entryIdx) => {
+                const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
+                addLine(`   [${dup.indices[entryIdx]}] ${wordDisplay} (${entry.type})`);
+                addLine(`       Sentences: ${entry.exampleSentences?.length || 0}`);
+                
+                if (entry.exampleSentences && entry.exampleSentences.length > 0) {
+                    entry.exampleSentences.forEach((sent, sentIdx) => {
+                        const preview = sent.text.length > 60 
+                            ? sent.text.substring(0, 60) + '...' 
+                            : sent.text;
+                        addLine(`       ${sentIdx + 1}. ${preview}`);
+                    });
+                }
+            });
+        });
+    } else {
+        addLine('No duplicate words found.');
     }
     
     // 2. Find entries without any sentences
-    console.log('\n\n2. ENTRIES WITHOUT SENTENCES');
-    console.log('-'.repeat(60));
+    addSection('2. ENTRIES WITHOUT SENTENCES');
     
-    const noSentences = data.filter((entry, index) => {
-        return !entry.exampleSentences || entry.exampleSentences.length === 0;
-    }).map((entry, idx, arr) => {
-        const originalIndex = data.indexOf(entry);
-        return { word: entry.word, article: entry.article, index: originalIndex };
+    const noSentences = [];
+    data.forEach((entry, index) => {
+        if (!entry.exampleSentences || entry.exampleSentences.length === 0) {
+            noSentences.push({
+                word: entry.word,
+                article: entry.article,
+                type: entry.type,
+                index
+            });
+        }
     });
     
-    console.log(`Found ${noSentences.length} entries without any sentences`);
+    addLine(`Found ${noSentences.length} entries without any sentences`);
+    addLine();
     
     if (noSentences.length > 0) {
-        console.log('\nEntries without sentences (showing first 20):');
-        noSentences.slice(0, 20).forEach(entry => {
-            const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
-            console.log(`  [${entry.index}] ${wordDisplay}`);
-        });
+        addLine('Complete list of entries without sentences:');
+        addLine('-'.repeat(80));
         
-        if (noSentences.length > 20) {
-            console.log(`  ... and ${noSentences.length - 20} more entries`);
-        }
+        noSentences.forEach((entry, idx) => {
+            const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
+            addLine(`${idx + 1}. [Index ${entry.index}] ${wordDisplay} (${entry.type})`);
+        });
+    } else {
+        addLine('All entries have at least one sentence.');
     }
     
     // 3. Find entries with empty sentences
-    console.log('\n\n3. ENTRIES WITH EMPTY SENTENCES');
-    console.log('-'.repeat(60));
+    addSection('3. ENTRIES WITH EMPTY SENTENCES');
     
     const emptySentences = [];
     
     data.forEach((entry, index) => {
         if (entry.exampleSentences && entry.exampleSentences.length > 0) {
-            const emptyOnes = entry.exampleSentences.filter(s => {
-                return !s.text || s.text.trim().length === 0;
-            });
+            const emptyOnes = entry.exampleSentences
+                .map((s, sIdx) => ({ text: s.text, index: sIdx }))
+                .filter(s => !s.text || s.text.trim().length === 0);
             
             if (emptyOnes.length > 0) {
                 emptySentences.push({
                     word: entry.word,
                     article: entry.article,
+                    type: entry.type,
                     index,
                     emptyCount: emptyOnes.length,
-                    totalSentences: entry.exampleSentences.length
+                    totalSentences: entry.exampleSentences.length,
+                    emptyIndices: emptyOnes.map(e => e.index)
                 });
             }
         }
     });
     
-    console.log(`Found ${emptySentences.length} entries with empty sentences`);
+    addLine(`Found ${emptySentences.length} entries with empty sentences`);
+    addLine();
     
     if (emptySentences.length > 0) {
-        console.log('\nEntries with empty sentences (showing first 20):');
-        emptySentences.slice(0, 20).forEach(entry => {
-            const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
-            console.log(`  [${entry.index}] ${wordDisplay} - ${entry.emptyCount}/${entry.totalSentences} empty`);
-        });
+        addLine('Complete list of entries with empty sentences:');
+        addLine('-'.repeat(80));
         
-        if (emptySentences.length > 20) {
-            console.log(`  ... and ${emptySentences.length - 20} more entries`);
-        }
+        emptySentences.forEach((entry, idx) => {
+            const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
+            addLine(`${idx + 1}. [Index ${entry.index}] ${wordDisplay} (${entry.type})`);
+            addLine(`   Empty: ${entry.emptyCount}/${entry.totalSentences} sentences`);
+            addLine(`   Empty sentence indices: ${entry.emptyIndices.join(', ')}`);
+        });
+    } else {
+        addLine('No entries with empty sentences found.');
     }
     
     // 4. Additional: Check for very short sentences (likely fragments)
-    console.log('\n\n4. ADDITIONAL: VERY SHORT SENTENCES (< 10 chars)');
-    console.log('-'.repeat(60));
+    addSection('4. VERY SHORT SENTENCES (< 10 characters)');
     
     const shortSentences = [];
     
     data.forEach((entry, index) => {
         if (entry.exampleSentences && entry.exampleSentences.length > 0) {
-            const shortOnes = entry.exampleSentences.filter(s => {
-                return s.text && s.text.trim().length > 0 && s.text.trim().length < 10;
-            });
+            const shortOnes = entry.exampleSentences
+                .map((s, sIdx) => ({ text: s.text, index: sIdx }))
+                .filter(s => s.text && s.text.trim().length > 0 && s.text.trim().length < 10);
             
             if (shortOnes.length > 0) {
                 shortSentences.push({
                     word: entry.word,
                     article: entry.article,
+                    type: entry.type,
                     index,
-                    sentences: shortOnes.map(s => s.text)
+                    sentences: shortOnes
                 });
             }
         }
     });
     
-    console.log(`Found ${shortSentences.length} entries with very short sentences`);
+    addLine(`Found ${shortSentences.length} entries with very short sentences`);
+    addLine();
     
     if (shortSentences.length > 0) {
-        console.log('\nEntries with short sentences (showing first 10):');
-        shortSentences.slice(0, 10).forEach(entry => {
+        addLine('Complete list of entries with short sentences:');
+        addLine('-'.repeat(80));
+        
+        shortSentences.forEach((entry, idx) => {
             const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
-            console.log(`  [${entry.index}] ${wordDisplay}:`);
-            entry.sentences.forEach(s => console.log(`    - "${s}"`));
+            addLine(`${idx + 1}. [Index ${entry.index}] ${wordDisplay} (${entry.type})`);
+            entry.sentences.forEach(s => {
+                addLine(`   [Sentence ${s.index}] "${s.text}" (${s.text.length} chars)`);
+            });
+        });
+    } else {
+        addLine('No very short sentences found.');
+    }
+    
+    // 5. Check for entries with grammar fragments in sentences
+    addSection('5. POTENTIAL GRAMMAR FRAGMENTS IN SENTENCES');
+    
+    const fragmentPatterns = [
+        /^(hat|ist|wird|war)\s+[a-zäöüß]+,?\s+/i,
+        /\s+(hat|ist)\s+[a-zäöüß]+\s+(hat|ist)\s+[a-zäöüß]+/i,
+        /[a-zäöüß]+,\s+[a-zäöüß]+,\s+[A-ZÄÖÜ]/,
+    ];
+    
+    const potentialFragments = [];
+    
+    data.forEach((entry, index) => {
+        if (entry.exampleSentences && entry.exampleSentences.length > 0) {
+            const suspicious = entry.exampleSentences
+                .map((s, sIdx) => ({ text: s.text, index: sIdx }))
+                .filter(s => {
+                    return s.text && fragmentPatterns.some(pattern => pattern.test(s.text));
+                });
+            
+            if (suspicious.length > 0) {
+                potentialFragments.push({
+                    word: entry.word,
+                    article: entry.article,
+                    type: entry.type,
+                    index,
+                    sentences: suspicious
+                });
+            }
+        }
+    });
+    
+    addLine(`Found ${potentialFragments.length} entries with potential grammar fragments`);
+    addLine();
+    
+    if (potentialFragments.length > 0) {
+        addLine('Entries that may contain grammar fragments (first 50):');
+        addLine('-'.repeat(80));
+        
+        potentialFragments.slice(0, 50).forEach((entry, idx) => {
+            const wordDisplay = entry.article ? `${entry.article} ${entry.word}` : entry.word;
+            addLine(`${idx + 1}. [Index ${entry.index}] ${wordDisplay} (${entry.type})`);
+            entry.sentences.forEach(s => {
+                const preview = s.text.length > 100 ? s.text.substring(0, 100) + '...' : s.text;
+                addLine(`   [Sentence ${s.index}] ${preview}`);
+            });
         });
         
-        if (shortSentences.length > 10) {
-            console.log(`  ... and ${shortSentences.length - 10} more entries`);
+        if (potentialFragments.length > 50) {
+            addLine(`\n... and ${potentialFragments.length - 50} more entries with potential fragments`);
         }
+    } else {
+        addLine('No obvious grammar fragments detected.');
     }
     
     // Summary
-    console.log('\n\n' + '='.repeat(60));
-    console.log('SUMMARY');
-    console.log('='.repeat(60));
-    console.log(`Total entries:              ${data.length}`);
-    console.log(`Duplicate words:            ${duplicates.length}`);
-    console.log(`Entries without sentences:  ${noSentences.length}`);
-    console.log(`Entries with empty sentences: ${emptySentences.length}`);
-    console.log(`Entries with short sentences: ${shortSentences.length}`);
+    addSection('SUMMARY');
+    addLine(`Total entries:                    ${data.length}`);
+    addLine(`Duplicate words:                  ${duplicates.length}`);
+    addLine(`Entries without sentences:        ${noSentences.length}`);
+    addLine(`Entries with empty sentences:     ${emptySentences.length}`);
+    addLine(`Entries with short sentences:     ${shortSentences.length}`);
+    addLine(`Entries with potential fragments: ${potentialFragments.length}`);
+    addLine();
     
     const issuesCount = duplicates.length + noSentences.length + emptySentences.length;
-    console.log(`\nTotal issues found:         ${issuesCount}`);
+    addLine(`Critical issues (duplicates, no sentences, empty): ${issuesCount}`);
+    
+    // Write to file
+    const reportText = report.join('\n');
+    fs.writeFileSync(outputFile, reportText, 'utf8');
+    
+    // Print summary to console
+    console.log(`\nTotal entries: ${data.length}\n`);
+    console.log('='.repeat(60));
+    console.log('\nSUMMARY');
+    console.log('-'.repeat(60));
+    console.log(`Duplicate words:                  ${duplicates.length}`);
+    console.log(`Entries without sentences:        ${noSentences.length}`);
+    console.log(`Entries with empty sentences:     ${emptySentences.length}`);
+    console.log(`Entries with short sentences:     ${shortSentences.length}`);
+    console.log(`Entries with potential fragments: ${potentialFragments.length}`);
+    console.log(`\nCritical issues:                  ${issuesCount}`);
+    console.log(`\n✓ Detailed analysis written to: ${outputFile}`);
     
     // Return the analysis data
     return {
@@ -169,15 +285,17 @@ function analyzeVocabulary(filePath) {
         duplicates,
         noSentences,
         emptySentences,
-        shortSentences
+        shortSentences,
+        potentialFragments
     };
 }
 
 if (require.main === module) {
     const filePath = process.argv[2] || 'a2-vocabulary.json';
+    const outputFile = process.argv[3] || 'a2-vocabulary-analysis.txt';
     
     try {
-        const analysis = analyzeVocabulary(filePath);
+        const analysis = analyzeVocabulary(filePath, outputFile);
         console.log('\n✓ Analysis complete!\n');
     } catch (error) {
         console.error('✗ Error:', error.message);
