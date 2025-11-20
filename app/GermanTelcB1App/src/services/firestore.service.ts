@@ -48,7 +48,7 @@ class FirestoreService {
           createdAt: Timestamp.fromDate(user.createdAt),
           lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
           preferences: {
-            language: i18n.language || 'en',
+            interfaceLanguage: i18n.language || 'en',
             notifications: false,
             platform: Platform.OS,
           },
