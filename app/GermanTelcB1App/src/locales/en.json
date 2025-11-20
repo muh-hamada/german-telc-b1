@@ -93,6 +93,8 @@
   },
   "home": {
     "title": "Let's Prepare for the telc Exam Together",
+    "welcomeUser": "Welcome, {{name}}!",
+    "welcomeGuest": "Welcome!",
     "examStructure": "Exam Structure",
     "practice": "Practice",
     "vocabulary": "Vocabulary Builder",
@@ -197,7 +199,9 @@
       "dailyLimit": "{{count}} new words per day",
       "streakInfo": "Streak Information",
       "currentStreak": "Current",
-      "longestStreak": "Longest"
+      "longestStreak": "Longest",
+      "selectPersona": "Select Learning Pace",
+      "personaDescription": "Choose your preferred daily learning pace. You can change this anytime."
     },
     "forecast": "You'll master approximately {{count}} words this month!"
   },

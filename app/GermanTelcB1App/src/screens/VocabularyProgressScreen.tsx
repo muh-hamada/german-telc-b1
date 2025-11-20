@@ -12,22 +12,29 @@ import {
   ScrollView,
   RefreshControl,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import VocabularyStatsCard from '../components/VocabularyStatsCard';
 import Card from '../components/Card';
+import PersonaSelectorModal from '../components/PersonaSelectorModal';
 
 const VocabularyProgressScreen: React.FC = () => {
   const { t } = useCustomTranslation();
-  const { stats, progress, isLoading, loadProgress } = useVocabulary();
+  const { stats, progress, isLoading, loadProgress, setUserPersona } = useVocabulary();
   const [refreshing, setRefreshing] = React.useState(false);
+  const [isPersonaModalVisible, setIsPersonaModalVisible] = React.useState(false);
 
   const handleRefresh = async () => {
     setRefreshing(true);
     await loadProgress();
     setRefreshing(false);
+  };
+
+  const handlePersonaChange = async (persona: 'casual' | 'serious' | 'beginner') => {
+    await setUserPersona(persona);
   };
 
   if (isLoading || !stats || !progress) {
@@ -85,20 +92,33 @@ const VocabularyProgressScreen: React.FC = () => {
         </Card>
 
         {/* Persona Card */}
-        <Card style={styles.card}>
-          <Text style={styles.cardTitle}>{t('vocabulary.progress.learningPace')}</Text>
-          <View style={styles.personaContainer}>
-            <Text style={styles.personaLabel}>
-              {t(`vocabulary.persona.${progress.persona}`)}
-            </Text>
-            <Text style={styles.personaDescription}>
-              {t('vocabulary.progress.dailyLimit', {
-                count: progress.persona === 'beginner' ? 10 : progress.persona === 'serious' ? 20 : 5,
-              })}
-            </Text>
-          </View>
-        </Card>
+        <TouchableOpacity 
+          onPress={() => setIsPersonaModalVisible(true)}
+          activeOpacity={0.7}
+        >
+          <Card style={styles.card}>
+            <Text style={styles.cardTitle}>{t('vocabulary.progress.learningPace')}</Text>
+            <View style={styles.personaContainer}>
+              <Text style={styles.personaLabel}>
+                {t(`vocabulary.persona.${progress.persona}`)}
+              </Text>
+              <Text style={styles.personaDescription}>
+                {t('vocabulary.progress.dailyLimit', {
+                  count: progress.persona === 'beginner' ? 10 : progress.persona === 'serious' ? 20 : 5,
+                })}
+              </Text>
+            </View>
+          </Card>
+        </TouchableOpacity>
       </ScrollView>
+
+      {/* Persona Selector Modal */}
+      <PersonaSelectorModal
+        visible={isPersonaModalVisible}
+        onClose={() => setIsPersonaModalVisible(false)}
+        onPersonaSelect={handlePersonaChange}
+        currentPersona={progress.persona}
+      />
     </View>
   );
 };

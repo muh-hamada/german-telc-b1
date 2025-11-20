@@ -2,11 +2,17 @@ import React from 'react';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useAuth } from '../contexts/AuthContext';
 import { useUserStats } from '../contexts/ProgressContext';
-import { colors } from '../theme';
+import { colors, spacing } from '../theme';
 import { DEMO_MODE, DEMO_STATS } from '../config/development.config';
 import StatsGrid, { StatItem } from './StatsGrid';
 
-const ProfileStatsGrid: React.FC = () => {
+interface ProfileStatsGridProps {
+  marginBottom?: number;
+  variant?: 'card' | 'compact';
+  backgroundColor?: string;
+}
+
+const ProfileStatsGrid: React.FC<ProfileStatsGridProps> = ({ variant = 'card', marginBottom = 0, backgroundColor = colors.background.primary }) => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
   const stats = useUserStats();
@@ -45,8 +51,8 @@ const ProfileStatsGrid: React.FC = () => {
     // },
   ];
 
-  return <StatsGrid variant="card" stats={statsConfig} />;
-};
+  return <StatsGrid variant={variant} stats={statsConfig} backgroundColor={backgroundColor} marginBottom={marginBottom} />;
+}
 
 export default ProfileStatsGrid;
 

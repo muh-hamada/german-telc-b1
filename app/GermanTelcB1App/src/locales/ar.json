@@ -96,6 +96,8 @@
   },
   "home": {
     "title": "دعونا نستعد لامتحان telc معًا",
+    "welcomeUser": "مرحبًا، {{name}}!",
+    "welcomeGuest": "مرحبًا!",
     "examStructure": "بنية الامتحان",
     "practice": "التدريب",
     "practiceSections": {

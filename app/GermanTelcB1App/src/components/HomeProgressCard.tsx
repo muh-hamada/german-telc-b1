@@ -117,15 +117,15 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
 
       {/* Your Progress Stats */}
       {displayStats.totalExams > 0 && (
-       <ProfileStatsGrid/>
+       <ProfileStatsGrid variant="compact" />
       )}
 
       {/* View Full Stats Link */}
-      {onViewFullStats && (
+      {/* {onViewFullStats && (
         <TouchableOpacity style={styles.viewFullStatsButton} onPress={onViewFullStats}>
           <Text style={styles.viewFullStatsText}>{t('progress.viewFullStats')}</Text>
         </TouchableOpacity>
-      )}
+      )} */}
     </View>
   );
 };

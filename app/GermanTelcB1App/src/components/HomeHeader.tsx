@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, StyleSheet, Platform, I18nManager } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,13 +18,12 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
     <SafeAreaView edges={['top']} style={styles.header}>
 
       <View style={styles.textContainer} >
-        <Text style={styles.title}>
-
-        {user? t('home.welcomeUser', { name: user.displayName}) : t('home.welcomeGuest')}
+        <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
+          {user ? t('home.welcomeUser', { name: user.displayName }) : t('home.welcomeGuest')}
         </Text>
       </View>
     </SafeAreaView>
-     
+
   );
 };
 
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     ...typography.textStyles.h4,
     color: colors.text.primary,
-    textAlign: 'left',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
   },
   imageContainer: {
     flex: 0.4,

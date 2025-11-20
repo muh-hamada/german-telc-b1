@@ -343,7 +343,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    paddingVertical: spacing.padding.lg,
+    paddingBottom: spacing.padding.lg,
   },
   title: {
     ...typography.textStyles.h1,

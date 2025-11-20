@@ -96,6 +96,8 @@
   },
   "home": {
     "title": "Давайте подготовимся к экзамену telc вместе",
+    "welcomeUser": "Добро пожаловать, {{name}}!",
+    "welcomeGuest": "Добро пожаловать!",
     "examStructure": "Структура экзамена",
     "practice": "Практика",
     "practiceSections": {

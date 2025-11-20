@@ -15,15 +15,17 @@ export interface StatItem {
 interface StatsGridProps {
   stats: StatItem[];
   variant?: 'card' | 'compact';
+  marginBottom?: number;
+  backgroundColor?: string;
 }
 
-const StatsGrid: React.FC<StatsGridProps> = ({ stats, variant = 'card' }) => {
+const StatsGrid: React.FC<StatsGridProps> = ({ stats, variant = 'compact', marginBottom = 0, backgroundColor = colors.background.primary }) => {
   const isCard = variant === 'card';
 
   return (
-    <View style={isCard ? styles.statsGridCard : styles.statsGridCompact}>
+    <View style={[isCard ? styles.statsGridCard : styles.statsGridCompact, { marginBottom }]}>
       {stats.map((stat, index) => (
-        <View key={index} style={isCard ? styles.statCard : styles.statItem}>
+        <View key={index} style={[isCard ? styles.statCard : styles.statItem, { backgroundColor }]}>
           {stat.icon && isCard && (
             <View 
               style={[
@@ -61,7 +63,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     gap: spacing.margin.md,
-    marginBottom: spacing.margin.lg,
   },
   statsGridCompact: {
     flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
   statCard: {
     flex: 1,
     minWidth: '45%',
-    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.md,
     padding: spacing.padding.md,
     alignItems: 'center',
@@ -81,10 +81,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: colors.border.light,
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.md,
+    ...spacing.shadow.sm,
   },
   statIconContainer: {
     width: 40,

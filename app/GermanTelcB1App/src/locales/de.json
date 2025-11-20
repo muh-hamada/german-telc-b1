@@ -96,6 +96,8 @@
   },
   "home": {
     "title": "Bereiten wir uns gemeinsam auf die telc-Prüfung vor",
+    "welcomeUser": "Willkommen, {{name}}!",
+    "welcomeGuest": "Willkommen!",
     "examStructure": "Prüfungsstruktur",
     "practice": "Üben",
     "vocabulary": "Vokabeltrainer",
@@ -201,7 +203,9 @@
       "dailyLimit": "{{count}} neue Wörter pro Tag",
       "streakInfo": "Serien-Information",
       "currentStreak": "Aktuell",
-      "longestStreak": "Längste"
+      "longestStreak": "Längste",
+      "selectPersona": "Lerntempo auswählen",
+      "personaDescription": "Wählen Sie Ihr bevorzugtes tägliches Lerntempo. Sie können dies jederzeit ändern."
     },
     "forecast": "Sie werden ungefähr {{count}} Wörter diesen Monat lernen!"
   },

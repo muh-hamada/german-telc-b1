@@ -196,7 +196,7 @@ const ProfileScreen: React.FC = () => {
         )}
 
         {/* Stats Grid */}
-        <ProfileStatsGrid />
+        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.lg} backgroundColor={colors.background.secondary} />
 
         {/* Ad-Free Badge - ABOVE Streaks Card */}
         {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (

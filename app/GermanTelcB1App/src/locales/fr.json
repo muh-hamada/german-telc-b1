@@ -96,6 +96,8 @@
   },
   "home": {
     "title": "Préparons-nous ensemble pour l'examen telc",
+    "welcomeUser": "Bienvenue, {{name}}!",
+    "welcomeGuest": "Bienvenue!",
     "examStructure": "Structure de l'examen",
     "practice": "Pratiquer",
     "practiceSections": {
