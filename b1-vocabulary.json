@@ -16458,5 +16458,3733 @@
         "text": "Gute Deutschkenntnisse sollen bei der Integration helfen."
       }
     ]
+  },
+  {
+    "word": "intelligent",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mein Neffe ist sehr intelligent."
+      },
+      {
+        "text": "Maria ist sehr intelligent. Sie kann sehr gut rechnen."
+      }
+    ]
+  },
+  {
+    "word": "die Intelligenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hunde haben eine große Intelligenz."
+      },
+      {
+        "text": "Meine Kinder haben in der Schule einen Intelligenztest gemacht."
+      }
+    ]
+  },
+  {
+    "word": "intensiv",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte intensiv Deutsch lernen."
+      }
+    ]
+  },
+  {
+    "word": "der Intensivkurs",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Intensivkurs findet täglich von 9 bis 12 Uhr statt."
+      }
+    ]
+  },
+  {
+    "word": "interessieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich interessiere mich für alte Autos."
+      },
+      {
+        "text": "Ich habe ihn nach seinem Beruf gefragt. Das interessierte mich."
+      },
+      {
+        "text": "Was interessiert dich an dieser Arbeit?"
+      }
+    ]
+  },
+  {
+    "word": "interessant",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe gestern einen interessanten Bericht gelesen."
+      },
+      {
+        "text": "Der Film war sehr interessant."
+      }
+    ]
+  },
+  {
+    "word": "das Interesse",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe großes Interesse an diesem Job."
+      },
+      {
+        "text": "Zeigen Sie doch etwas Interesse an der Arbeit!"
+      }
+    ]
+  },
+  {
+    "word": "interessiert",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Sind Sie an diesem Buch interessiert?"
+      },
+      {
+        "text": "Sind Sie technisch interessiert?"
+      }
+    ]
+  },
+  {
+    "word": "interkulturell",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wir bieten interkulturelle Trainings an."
+      }
+    ]
+  },
+  {
+    "word": "international",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein internationaler Kongress."
+      },
+      {
+        "text": "Der Professor war international bekannt."
+      }
+    ]
+  },
+  {
+    "word": "das Interview",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe im Fernsehen ein interes-santes Interview mit zwei Schauspiel-ern gesehen."
+      }
+    ]
+  },
+  {
+    "word": "inzwischen",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Herr Müller kommt gleich zurück. Sie können inzwischen in seinem Büro warten."
+      }
+    ]
+  },
+  {
+    "word": "irgend-irgendein",
+    "article": "",
+    "type": "prefix/pronoun",
+    "exampleSentences": [
+      {
+        "text": "Was für einen Saft möchten Sie? – Ganz egal, irgendeinen."
+      }
+    ]
+  },
+  {
+    "word": "irgendwann",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Sie irgendwann schon mal gesehen."
+      }
+    ]
+  },
+  {
+    "word": "sich irren",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Du irrst dich. Das Auto war nicht grün, sondern rot."
+      },
+      {
+        "text": "Ich habe mich in der Hausnummer geirrt."
+      }
+    ]
+  },
+  {
+    "word": "J",
+    "article": "",
+    "type": "letter"
+  },
+  {
+    "word": "ja",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Er kommt ja bald wieder."
+      },
+      {
+        "text": "Das ist ja toll!"
+      }
+    ]
+  },
+  {
+    "word": "die Jacke",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zieh dir eine Jacke an. Es ist kalt."
+      }
+    ]
+  },
+  {
+    "word": "die Jause",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es ist Zeit für eine Jause."
+      }
+    ]
+  },
+  {
+    "word": "je",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Mann Urlaub bekommt."
+      }
+    ]
+  },
+  {
+    "word": "je … desto …",
+    "article": "",
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Je länger ich Deutsch lerne, desto besser kann ich es verstehen."
+      }
+    ]
+  },
+  {
+    "word": "die Jeans",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nicht nur junge Leute tragen Jeans."
+      }
+    ]
+  },
+  {
+    "word": "jeder, jedes, jede",
+    "article": "",
+    "type": "pronoun/determiner",
+    "exampleSentences": [
+      {
+        "text": "Das Restaurant hat jeden Tag geöffnet."
+      },
+      {
+        "text": "Jedes Kind bekommt ein Spiel."
+      },
+      {
+        "text": "Die Prospekte bekommen Sie in jedem Reisebüro."
+      },
+      {
+        "text": "Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch jeder."
+      }
+    ]
+  },
+  {
+    "word": "die Insel",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich würde dieses Mal gern auf einer Insel Ferien machen."
+      }
+    ]
+  },
+  {
+    "word": "das Inserat",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Was kostet ein Inserat in der Zeitung?"
+      }
+    ]
+  },
+  {
+    "word": "insgesamt",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Insgesamt haben sich 20 Teilnehmer für die Prüfung angemeldet."
+      }
+    ]
+  },
+  {
+    "word": "installieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann das Programm nicht installieren. Kannst du mir helfen?"
+      },
+      {
+        "text": "Können Sie mir helfen, meinen Computer zu installieren?"
+      }
+    ]
+  },
+  {
+    "word": "das Institut",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Institut für deutsche Sprache ist in Mannheim."
+      },
+      {
+        "text": "Ich besuche einen Sprachkurs in einem kleinen Sprachinstitut."
+      }
+    ]
+  },
+  {
+    "word": "das Instrument",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich spiele ein Musikinstrument, nämlich Flöte."
+      },
+      {
+        "text": "Ich spiele Klavier. Spielen Sie auch ein Musikinstrument?"
+      }
+    ]
+  },
+  {
+    "word": "integrieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter hat sich gut in der Schule integriert."
+      },
+      {
+        "text": "Sie ist schon sehr gut im Team integriert."
+      },
+      {
+        "text": "Die Leute aus dem Ausland sollen besser integriert werden."
+      }
+    ]
+  },
+  {
+    "word": "die Integration",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir bieten Deutschkurse für eine bessere Integration an."
+      },
+      {
+        "text": "Gute Deutschkenntnisse sollen bei der Integration helfen."
+      }
+    ]
+  },
+  {
+    "word": "intelligent",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mein Neffe ist sehr intelligent."
+      },
+      {
+        "text": "Maria ist sehr intelligent. Sie kann sehr gut rechnen."
+      }
+    ]
+  },
+  {
+    "word": "die Intelligenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hunde haben eine große Intelligenz."
+      },
+      {
+        "text": "Meine Kinder haben in der Schule einen Intelligenztest gemacht."
+      }
+    ]
+  },
+  {
+    "word": "intensiv",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte intensiv Deutsch lernen."
+      }
+    ]
+  },
+  {
+    "word": "der Intensivkurs",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Intensivkurs findet täglich von 9 bis 12 Uhr statt."
+      }
+    ]
+  },
+  {
+    "word": "interessieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich interessiere mich für alte Autos."
+      },
+      {
+        "text": "Ich habe ihn nach seinem Beruf gefragt. Das interessierte mich."
+      },
+      {
+        "text": "Was interessiert dich an dieser Arbeit?"
+      }
+    ]
+  },
+  {
+    "word": "interessant",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe gestern einen interessanten Bericht gelesen."
+      },
+      {
+        "text": "Der Film war sehr interessant."
+      }
+    ]
+  },
+  {
+    "word": "das Interesse",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe großes Interesse an diesem Job."
+      },
+      {
+        "text": "Zeigen Sie doch etwas Interesse an der Arbeit!"
+      }
+    ]
+  },
+  {
+    "word": "interessiert",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Sind Sie an diesem Buch interessiert?"
+      },
+      {
+        "text": "Sind Sie technisch interessiert?"
+      }
+    ]
+  },
+  {
+    "word": "interkulturell",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wir bieten interkulturelle Trainings an."
+      }
+    ]
+  },
+  {
+    "word": "international",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein internationaler Kongress."
+      },
+      {
+        "text": "Der Professor war international bekannt."
+      }
+    ]
+  },
+  {
+    "word": "das Interview",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe im Fernsehen ein interes-santes Interview mit zwei Schauspiel-ern gesehen."
+      }
+    ]
+  },
+  {
+    "word": "inzwischen",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Herr Müller kommt gleich zurück. Sie können inzwischen in seinem Büro warten."
+      }
+    ]
+  },
+  {
+    "word": "irgend-irgendein",
+    "article": "",
+    "type": "prefix/pronoun",
+    "exampleSentences": [
+      {
+        "text": "Was für einen Saft möchten Sie? – Ganz egal, irgendeinen."
+      }
+    ]
+  },
+  {
+    "word": "irgendwann",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Sie irgendwann schon mal gesehen."
+      }
+    ]
+  },
+  {
+    "word": "sich irren",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Du irrst dich. Das Auto war nicht grün, sondern rot."
+      },
+      {
+        "text": "Ich habe mich in der Hausnummer geirrt."
+      }
+    ]
+  },
+  {
+    "word": "J",
+    "article": "",
+    "type": "letter"
+  },
+  {
+    "word": "ja",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Er kommt ja bald wieder."
+      },
+      {
+        "text": "Das ist ja toll!"
+      }
+    ]
+  },
+  {
+    "word": "die Jacke",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zieh dir eine Jacke an. Es ist kalt."
+      }
+    ]
+  },
+  {
+    "word": "die Jause",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es ist Zeit für eine Jause."
+      }
+    ]
+  },
+  {
+    "word": "je",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Mann Urlaub bekommt."
+      }
+    ]
+  },
+  {
+    "word": "je … desto …",
+    "article": "",
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Je länger ich Deutsch lerne, desto besser kann ich es verstehen."
+      }
+    ]
+  },
+  {
+    "word": "die Jeans",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nicht nur junge Leute tragen Jeans."
+      }
+    ]
+  },
+  {
+    "word": "jeder, jedes, jede",
+    "article": "",
+    "type": "pronoun/determiner",
+    "exampleSentences": [
+      {
+        "text": "Das Restaurant hat jeden Tag geöffnet."
+      },
+      {
+        "text": "Jedes Kind bekommt ein Spiel."
+      },
+      {
+        "text": "Die Prospekte bekommen Sie in jedem Reisebüro."
+      },
+      {
+        "text": "Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch jeder."
+      }
+    ]
+  },
+  {
+    "word": "jederzeit",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich bin jederzeit bereit, dir zu helfen."
+      }
+    ]
+  },
+  {
+    "word": "jedes Mal",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Jedes Mal, wenn ich Sie anrufe, ist besetzt."
+      }
+    ]
+  },
+  {
+    "word": "jedoch",
+    "article": "",
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Er ist sehr freundlich, jedoch auch sehr streng."
+      }
+    ]
+  },
+  {
+    "word": "jemals",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Waren Sie jemals in Südamerika?"
+      }
+    ]
+  },
+  {
+    "word": "jemand",
+    "article": "",
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Ist jemand da? Ich möchte Sie sprechen."
+      }
+    ]
+  },
+  {
+    "word": "jetzt",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Jetzt ist es 8 Uhr."
+      },
+      {
+        "text": "Ich kann dir jetzt nicht helfen. Ich habe keine Zeit."
+      }
+    ]
+  },
+  {
+    "word": "jeweils",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wir treffen uns jeweils am Montag und am Mittwoch."
+      },
+      {
+        "text": "Die Prüfung dauert jeweils 40 Minuten."
+      }
+    ]
+  },
+  {
+    "word": "der Journalist, -en die Journalistin, -nen",
+    "article": "der/die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Journalist hat einen sehr interessanten Bericht geschrieben."
+      }
+    ]
+  },
+  {
+    "word": "die Jugend",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Jugend liest gerne Bücher."
+      }
+    ]
+  },
+  {
+    "word": "der Jugendliche, -n die Jugendliche, -nen",
+    "article": "der/die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für Jugendliche ist der Eintritt frei."
+      }
+    ]
+  },
+  {
+    "word": "die Jugendherberge, -n",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir übernachten in einer Jugendherberge."
+      }
+    ]
+  },
+  {
+    "word": "jung",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin noch jung. Ich bin erst 18."
+      },
+      {
+        "text": "Meine jüngere Schwester ist 14."
+      }
+    ]
+  },
+  {
+    "word": "der Junge, -n (D) ! A, CH: Bub",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Schulklasse sind 15 Jungen und 10 Mädchen."
+      }
+    ]
+  },
+  {
+    "word": "K",
+    "article": "",
+    "type": "letter"
+  },
+  {
+    "word": "das Kabel, -",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo ist das Kabel für das Aufnahme-gerät?"
+      },
+      {
+        "text": "Mit Kabel bekommen Sie über 30 Fernsehkanäle."
+      }
+    ]
+  },
+  {
+    "word": "die Kabine, -n",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Um zu wählen, gehen Sie bitte in diese Kabine."
+      }
+    ]
+  },
+  {
+    "word": "der Kaffee",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bring bitte noch eine Packung Kaffee mit."
+      },
+      {
+        "text": "Zum Frühstück trinke ich gerne Kaffee."
+      },
+      {
+        "text": "Wir sind bei Müllers zum Kaffee einge-laden."
+      },
+      {
+        "text": "Einen Kaffee, bitte."
+      }
+    ]
+  },
+  {
+    "word": "das Kaffeehaus, ¨-er (A)",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier in der Nähe ist ein Kaffeehaus. Lass uns einen Kaffee trinken."
+      }
+    ]
+  },
+  {
+    "word": "der Kakao, -s",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zum Frühstück trinke ich immer einen Kakao."
+      }
+    ]
+  },
+  {
+    "word": "der Kalender, -",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Termin in meinem Kalender notiert."
+      },
+      {
+        "text": "Haben Sie am Montag Zeit? – Moment. Ich muss erst in meinem Terminkalen-der nachschauen."
+      }
+    ]
+  },
+  {
+    "word": "kalt",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es ist kalt heute."
+      },
+      {
+        "text": "Du hast ja ganz kalte Hände."
+      },
+      {
+        "text": "Das Mittagessen ist kalt geworden."
+      },
+      {
+        "text": "Abends essen wir immer kalt."
+      },
+      {
+        "text": "Wir hatten einen kalten Winter."
+      },
+      {
+        "text": "Mir ist kalt. Mach bitte die Heizung an."
+      }
+    ]
+  },
+  {
+    "word": "die Kälte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bei dieser Kälte fahre ich nicht mit dem Fahrrad."
+      }
+    ]
+  },
+  {
+    "word": "die Kamera",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine ganz neue Kamera."
+      }
+    ]
+  },
+  {
+    "word": "kämpfen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Frauen kämpfen für mehr Rechte."
+      }
+    ]
+  },
+  {
+    "word": "der Kampf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Schulbus gibt es immer einen Kampf um die Sitzplätze."
+      }
+    ]
+  },
+  {
+    "word": "der Kanal",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mit Kabel bekommen Sie über 30 Fernsehkanäle."
+      }
+    ]
+  },
+  {
+    "word": "der Kandidat",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie viele Kandidaten kommen zur Prüfung?"
+      }
+    ]
+  },
+  {
+    "word": "die Kanne",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist aber eine schöne Teekanne. – Ja, die ist aus China."
+      }
+    ]
+  },
+  {
+    "word": "die Kantine",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich esse jeden Tag in der Kantine."
+      }
+    ]
+  },
+  {
+    "word": "das Kapitel",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das letzte Kapitel war sehr spannend."
+      }
+    ]
+  },
+  {
+    "word": "kaputt",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Unsere Waschmaschine ist kaputt."
+      },
+      {
+        "text": "Ich bin noch ganz kaputt von der Reise."
+      }
+    ]
+  },
+  {
+    "word": "kaputtgehen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Pass bitte mit diesem Glas auf. Es geht leicht kaputt."
+      },
+      {
+        "text": "Der Fernseher ist gestern kaputt-gegangen."
+      }
+    ]
+  },
+  {
+    "word": "kaputtmachen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wer hat die Lampe kaputtgemacht?"
+      }
+    ]
+  },
+  {
+    "word": "der Karneval",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dort hängt mein Kostüm für den Karnevals(um)zug."
+      }
+    ]
+  },
+  {
+    "word": "die Karotte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hasen fressen gern Karotten."
+      }
+    ]
+  },
+  {
+    "word": "die Karriere",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Bruder hat große Pläne. Er will Karriere machen."
+      }
+    ]
+  },
+  {
+    "word": "die Karte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie noch Karten für das Konzert?"
+      },
+      {
+        "text": "Haben Sie eine Karte von der Stadt?"
+      },
+      {
+        "text": "Ich schicke meinen Eltern eine Postkarte aus dem Urlaub."
+      }
+    ]
+  },
+  {
+    "word": "die Chipkarte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Manchmal kann man die Chipkarte für den Kopierer kaufen."
+      }
+    ]
+  },
+  {
+    "word": "die Fahrkarte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe meine Fahrkarte verloren."
+      }
+    ]
+  },
+  {
+    "word": "die Kartoffel",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "5 kg Kartoffeln, bitte."
+      },
+      {
+        "text": "Zu Fleisch esse ich am liebsten Kartoffeln."
+      }
+    ]
+  },
+  {
+    "word": "der Käse",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich hätte gern 200 g Käse."
+      }
+    ]
+  },
+  {
+    "word": "die Kasse",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zahlen Sie bitte an der Kasse!"
+      }
+    ]
+  },
+  {
+    "word": "die Kassette",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich höre gern Musikkassetten."
+      }
+    ]
+  },
+  {
+    "word": "der Kasten",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich hätte gern einen Kasten Mineralwasser."
+      }
+    ]
+  },
+  {
+    "word": "der Kasten",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Handtücher liegen im Kasten."
+      }
+    ]
+  },
+  {
+    "word": "der Katalog",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe mir ein Kleid aus dem Katalog bestellt."
+      }
+    ]
+  },
+  {
+    "word": "die Katastrophe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Urlaub war eine Katastrophe. Es hat nur geregnet."
+      }
+    ]
+  },
+  {
+    "word": "kaufen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Im Supermarkt kauft man sehr günstig ein."
+      },
+      {
+        "text": "Ich habe mir einen Pullover gekauft."
+      }
+    ]
+  },
+  {
+    "word": "der Kauf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der neue Esstisch war ein guter Kauf."
+      }
+    ]
+  },
+  {
+    "word": "der Käufer",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe schon einen Käufer für den alten Tisch."
+      }
+    ]
+  },
+  {
+    "word": "kaum",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann Sie kaum verstehen. Bitte sprechen Sie lauter."
+      },
+      {
+        "text": "Es hat letzte Woche kaum geregnet."
+      },
+      {
+        "text": "Die Fahrt hat nicht lange gedauert. Kaum 20 Minuten."
+      }
+    ]
+  },
+  {
+    "word": "kein-",
+    "article": "",
+    "type": "pronoun/determiner",
+    "exampleSentences": [
+      {
+        "text": "Ich habe leider heute keine Zeit."
+      },
+      {
+        "text": "Jetzt habe ich noch keinen Hunger."
+      },
+      {
+        "text": "Ich habe keine Kinder."
+      },
+      {
+        "text": "Was für ein Auto haben Sie? – Ich habe keins."
+      }
+    ]
+  },
+  {
+    "word": "der Keller",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unser Keller ist nicht besonders groß."
+      }
+    ]
+  },
+  {
+    "word": "der Kellner",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin Kellnerin von Beruf."
+      }
+    ]
+  },
+  {
+    "word": "kennen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kennen Sie hier in der Nähe ein gemütliches Café?"
+      },
+      {
+        "text": "Kennen Sie diese Frau? – Nein, leider nicht."
+      },
+      {
+        "text": "Kennen Sie Berlin? – Ja, eine tolle Stadt."
+      }
+    ]
+  },
+  {
+    "word": "kennenlernen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo habt ihr euch kennengelernt?"
+      },
+      {
+        "text": "Ich möchte gern reisen und andere Länder kennenlernen."
+      }
+    ]
+  },
+  {
+    "word": "die Kenntnisse",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In vielen Berufen braucht man heute Sprachkenntnisse."
+      },
+      {
+        "text": "Ich möchte meine Deutschkenntnisse verbessern."
+      }
+    ]
+  },
+  {
+    "word": "das Kennzeichen",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Auto hat ein Schweizer Kennzeichen."
+      }
+    ]
+  },
+  {
+    "word": "die Kerze",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für den Geburtstagstisch brauchen wir viele Blumen und Kerzen."
+      }
+    ]
+  },
+  {
+    "word": "die Kette",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe zum Geburtstag eine goldene Kette bekommen."
+      }
+    ]
+  },
+  {
+    "word": "das Kind",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Bruder hat zwei Kinder."
+      },
+      {
+        "text": "Wir haben ein Kind bekommen."
+      },
+      {
+        "text": "Die Kinder spielen Fußball."
+      }
+    ]
+  },
+  {
+    "word": "der Kindergarten",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Morgens bringe ich meinen Sohn in den Kindergarten."
+      }
+    ]
+  },
+  {
+    "word": "die Kindheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In meiner Kindheit war ich oft auf dem Land bei meinen Großeltern."
+      }
+    ]
+  },
+  {
+    "word": "das Kino",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wollen wir ins Kino gehen?"
+      }
+    ]
+  },
+  {
+    "word": "der Kiosk",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zeitungen bekommst du am Kiosk."
+      }
+    ]
+  },
+  {
+    "word": "die Kirche",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diese Kirche ist aus dem 12. Jahrhundert."
+      }
+    ]
+  },
+  {
+    "word": "die Kiste",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Geschirr ist in der Kiste."
+      }
+    ]
+  },
+  {
+    "word": "das Kissen",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich brauche ein weiches Kissen."
+      }
+    ]
+  },
+  {
+    "word": "klagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Der Patient klagt über starke Schmerzen."
+      }
+    ]
+  },
+  {
+    "word": "klappen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Es freut mich, dass alles so gut geklappt hat."
+      },
+      {
+        "text": "Das hat nicht geklappt. Wir müssen es anders versuchen."
+      }
+    ]
+  },
+  {
+    "word": "klar",
+    "article": "",
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Die Antwort ist klar: nein."
+      },
+      {
+        "text": "Kommst du mit? – Klar!"
+      },
+      {
+        "text": "Ich komme zu deinem Geburtstag, das ist doch klar."
+      },
+      {
+        "text": "Leider haben wir bei der Bahn keine klare Auskunft bekommen."
+      }
+    ]
+  },
+  {
+    "word": "klären",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich hoffe, wir können dieses Problem bald klären."
+      }
+    ]
+  },
+  {
+    "word": "klasse",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich finde unseren Lehrer klasse."
+      }
+    ]
+  },
+  {
+    "word": "die Klasse",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Klasse sind 24 Schülerinnen und Schüler."
+      },
+      {
+        "text": "Im Herbst komme ich in die 7. Klasse."
+      },
+      {
+        "text": "Einmal nach Frankfurt, 1. Klasse, bitte."
+      }
+    ]
+  },
+  {
+    "word": "die Klassenarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Sohn schreibt bei Klassenarbeiten immer gute Noten."
+      }
+    ]
+  },
+  {
+    "word": "das Klavier",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter möchte Klavier spielen lernen."
+      }
+    ]
+  },
+  {
+    "word": "kleben",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Briefmarke klebt nicht mehr."
+      },
+      {
+        "text": "Ich klebe Ihnen ein Pflaster darauf."
+      }
+    ]
+  },
+  {
+    "word": "das Kleid",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe mir ein neues Kleid gekauft."
+      }
+    ]
+  },
+  {
+    "word": "die Kleidung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier brauchen Sie auch im Sommer warme Kleidung."
+      }
+    ]
+  },
+  {
+    "word": "klein",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Unsere Wohnung ist klein."
+      },
+      {
+        "text": "Unser Kind ist noch klein."
+      },
+      {
+        "text": "Wir machen am Sonntag einen kleinen Ausflug."
+      }
+    ]
+  },
+  {
+    "word": "klettern",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder sind auf den Baum geklettert."
+      }
+    ]
+  },
+  {
+    "word": "klicken",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wenn du die Datei öffnen willst, musst du mit der Maus zweimal klicken."
+      }
+    ]
+  },
+  {
+    "word": "der Klick",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Um das Wort zu markieren, genügt ein Doppelklick mit der linken Maustaste."
+      }
+    ]
+  },
+  {
+    "word": "das Klima",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alle sagen, dass sich das Klima ändert."
+      }
+    ]
+  },
+  {
+    "word": "die Klimaanlage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Sommer brauchen wir eine Klimaanlage."
+      }
+    ]
+  },
+  {
+    "word": "klingeln",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich glaube, es hat an der Tür geklingelt."
+      },
+      {
+        "text": "Das Telefon klingelt."
+      }
+    ]
+  },
+  {
+    "word": "die Klingel",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Drück bitte auf die Klingel!"
+      }
+    ]
+  },
+  {
+    "word": "klingen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wollen wir einkaufen gehen und danach zusammen kochen? – Ja, das klingt gut."
+      }
+    ]
+  },
+  {
+    "word": "die Klinik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich muss in die Klinik, um meinen kranken Onkel zu besuchen."
+      }
+    ]
+  },
+  {
+    "word": "klopfen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Da klopft jemand ans Fenster."
+      },
+      {
+        "text": "Hat es nicht eben geklopft?"
+      },
+      {
+        "text": "Bitte klopfen Sie an."
+      }
+    ]
+  },
+  {
+    "word": "der Kloß",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchten Sie zum Fleisch Kartoffeln oder Klöße? – Klöße, bitte."
+      }
+    ]
+  },
+  {
+    "word": "klug",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich halte sie für klug."
+      },
+      {
+        "text": "Er hat sich in der Diskussion nicht besonders klug verhalten."
+      },
+      {
+        "text": "Das ist ein kluger Hund."
+      }
+    ]
+  },
+  {
+    "word": "knapp",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mach schnell. Die Zeit ist knapp."
+      },
+      {
+        "text": "Unser Geld wird knapp. Wir müssen sparen."
+      },
+      {
+        "text": "Die Fahrt war kurz. Nur knapp eine Stunde."
+      },
+      {
+        "text": "Die Wohnung hat nur knapp 30 m²."
+      },
+      {
+        "text": "Der Tisch hat nur knapp 50 Euro gekostet."
+      }
+    ]
+  },
+  {
+    "word": "die Kneipe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gehen wir noch in eine Kneipe ein Bier trinken?"
+      }
+    ]
+  },
+  {
+    "word": "das Knie",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe mich am Knie verletzt. Jetzt kann ich nicht laufen."
+      }
+    ]
+  },
+  {
+    "word": "der Knochen",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin hingefallen. Jetzt tun mir alle Knochen weh."
+      }
+    ]
+  },
+  {
+    "word": "der Knödel",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchten Sie zum Fleisch Erdäpfel oder Knödel? – Knödel bitte."
+      }
+    ]
+  },
+  {
+    "word": "der Knopf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An meiner Jacke fehlt ein Knopf."
+      },
+      {
+        "text": "Der Fahrstuhl kommt nicht. – Sie müssen den Knopf drücken."
+      }
+    ]
+  },
+  {
+    "word": "kochen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wollen wir einkaufen gehen und danach zusammen kochen? – Ja, das klingt gut."
+      },
+      {
+        "text": "Das Wasser kocht schon."
+      }
+    ]
+  },
+  {
+    "word": "der Koch",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin Koch von Beruf."
+      }
+    ]
+  },
+  {
+    "word": "der Koffer",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich kann den schweren Koffer nicht tragen."
+      },
+      {
+        "text": "Haben Sie Ihren Koffer schon gepackt?"
+      }
+    ]
+  },
+  {
+    "word": "der Kollege",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Kollege ist sehr nett."
+      },
+      {
+        "text": "Ich gehe mit einer Kollegin in die Kantine."
+      }
+    ]
+  },
+  {
+    "word": "komisch",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Essen schmeckt komisch. Probier mal."
+      },
+      {
+        "text": "Der Film war sehr komisch. Wir haben viel gelacht."
+      },
+      {
+        "text": "Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus."
+      }
+    ]
+  },
+  {
+    "word": "kommen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Woher kommen Sie? – Aus Frankreich."
+      },
+      {
+        "text": "Wir gehen heute Abend ins Konzert. Kommen Sie auch?"
+      },
+      {
+        "text": "Kommen Sie doch mal wieder zu uns."
+      },
+      {
+        "text": "Wenn Sie mal nach Köln kommen, besuchen Sie uns."
+      },
+      {
+        "text": "Steffi kommt im Herbst in die Schule."
+      },
+      {
+        "text": "Die Straßenbahn muss gleich kommen."
+      },
+      {
+        "text": "Wer kommt als Nächster dran?"
+      },
+      {
+        "text": "Die Handtücher kommen in den Schrank."
+      },
+      {
+        "text": "Wie sind Sie denn auf diese Idee gekommen?"
+      }
+    ]
+  },
+  {
+    "word": "die Kommunikation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kommunikation zwischen den Abteilungen ist gut."
+      }
+    ]
+  },
+  {
+    "word": "komplett",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Termin komplett vergessen."
+      },
+      {
+        "text": "Die Wohnung ist jetzt komplett eingerichtet."
+      }
+    ]
+  },
+  {
+    "word": "kompliziert",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er schreibt viel zu kompliziert."
+      }
+    ]
+  },
+  {
+    "word": "der Kompromiss",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alle wollen etwas anderes. Wir müssen einen Kompromiss finden."
+      }
+    ]
+  },
+  {
+    "word": "die Konferenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Konferenz findet in Raum 19 statt."
+      }
+    ]
+  },
+  {
+    "word": "die Konfitüre",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bring bitte noch ein Glas Konfitüre mit."
+      }
+    ]
+  },
+  {
+    "word": "der Konflikt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein alter Konflikt."
+      },
+      {
+        "text": "Ich habe einen Konflikt mit meinen Eltern."
+      }
+    ]
+  },
+  {
+    "word": "der König",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der spanische König ist in Deutschland zu Besuch."
+      }
+    ]
+  },
+  {
+    "word": "die Konkurrenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Reparatur ist mir hier zu teuer. Bei der Konkurrenz bekomme ich sie für die Hälfte."
+      },
+      {
+        "text": "Es ist schwer, ein Geschäft aufzu-machen. Die Konkurrenz ist groß."
+      }
+    ]
+  },
+  {
+    "word": "können",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann den schweren Koffer nicht tragen."
+      },
+      {
+        "text": "Sie können mit dem Bus zum Bahnhof fahren."
+      },
+      {
+        "text": "Kann ich jetzt nach Hause gehen?"
+      },
+      {
+        "text": "Können Sie mir helfen?"
+      },
+      {
+        "text": "Ich kann sehr gut Englisch und Deutsch."
+      },
+      {
+        "text": "Es kann sein, dass es heute noch regnet."
+      }
+    ]
+  },
+  {
+    "word": "das Konsulat",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Visum bekommst du auch im Konsulat."
+      }
+    ]
+  },
+  {
+    "word": "konsumieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Europäer haben im letzten Jahr mehr Fleisch konsumiert."
+      }
+    ]
+  },
+  {
+    "word": "der Konsum",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Konsum von Lebensmitteln steigt."
+      }
+    ]
+  },
+  {
+    "word": "der Kontakt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe wenig Kontakt zu meinen Kollegen."
+      }
+    ]
+  },
+  {
+    "word": "das Konto",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte ein Konto eröffnen."
+      },
+      {
+        "text": "Das Geld überweisen wir am 1. März auf Ihr Konto."
+      }
+    ]
+  },
+  {
+    "word": "das Girokonto",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Girokonto kostet gar nichts."
+      }
+    ]
+  },
+  {
+    "word": "kontrollieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Beim Auto müssen Sie regelmäßig das Öl kontrollieren."
+      }
+    ]
+  },
+  {
+    "word": "die Kontrolle",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An den Grenzen gibt es kaum noch Kontrollen."
+      },
+      {
+        "text": "Fahrkartenkontrolle! Bitte Ihre Fahrkarten!"
+      }
+    ]
+  },
+  {
+    "word": "sich konzentrieren",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Bitte stör mich jetzt nicht. Ich muss mich auf meine Arbeit konzentrieren."
+      }
+    ]
+  },
+  {
+    "word": "das Konzert",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für das Konzert am Sonntag gibt es noch Karten."
+      }
+    ]
+  },
+  {
+    "word": "der Kopf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe Kopfschmerzen."
+      },
+      {
+        "text": "Michael kann gut im Kopf rechnen."
+      }
+    ]
+  },
+  {
+    "word": "kopieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kann ich mir diesen Artikel kopieren?"
+      },
+      {
+        "text": "Ich kopiere dir die Datei auf die Speicherkarte."
+      },
+      {
+        "text": "Ich kann dir die CD kopieren."
+      }
+    ]
+  },
+  {
+    "word": "die Kopie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Machst du mir bitte eine Kopie?"
+      }
+    ]
+  },
+  {
+    "word": "der Kopierer",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Kopierer ist schon wieder kaputt."
+      }
+    ]
+  },
+  {
+    "word": "der Körper",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Arzt sagt, ich muss etwas für meinen Körper tun, z. B. schwimmen oder Fahrrad fahren."
+      }
+    ]
+  },
+  {
+    "word": "körperlich",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Körperliche Arbeit macht mir nichts aus."
+      }
+    ]
+  },
+  {
+    "word": "korrekt",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe die Rechnung geprüft. Alles ist korrekt."
+      }
+    ]
+  },
+  {
+    "word": "der Korridor",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir warten draußen im Korridor."
+      }
+    ]
+  },
+  {
+    "word": "korrigieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie bitte meinen Brief korrigieren?"
+      },
+      {
+        "text": "Der Lehrer hat meine Fehler korrigiert."
+      }
+    ]
+  },
+  {
+    "word": "komisch",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Essen schmeckt komisch. Probier mal."
+      },
+      {
+        "text": "Der Film war sehr komisch. Wir haben viel gelacht."
+      },
+      {
+        "text": "Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus."
+      }
+    ]
+  },
+  {
+    "word": "kommen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Woher kommen Sie? – Aus Frankreich."
+      },
+      {
+        "text": "Wir gehen heute Abend ins Konzert. Kommen Sie auch?"
+      },
+      {
+        "text": "Kommen Sie doch mal wieder zu uns."
+      },
+      {
+        "text": "Wenn Sie mal nach Köln kommen, besuchen Sie uns."
+      },
+      {
+        "text": "Steffi kommt im Herbst in die Schule."
+      },
+      {
+        "text": "Die Straßenbahn muss gleich kommen."
+      },
+      {
+        "text": "Wer kommt als Nächster dran?"
+      },
+      {
+        "text": "Die Handtücher kommen in den Schrank."
+      },
+      {
+        "text": "Wie sind Sie denn auf diese Idee gekommen?"
+      }
+    ]
+  },
+  {
+    "word": "die Kommunikation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kommunikation zwischen den Abteilungen ist gut."
+      }
+    ]
+  },
+  {
+    "word": "komplett",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Termin komplett vergessen."
+      },
+      {
+        "text": "Die Wohnung ist jetzt komplett eingerichtet."
+      }
+    ]
+  },
+  {
+    "word": "kompliziert",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er schreibt viel zu kompliziert."
+      }
+    ]
+  },
+  {
+    "word": "der Kompromiss",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alle wollen etwas anderes. Wir müssen einen Kompromiss finden."
+      }
+    ]
+  },
+  {
+    "word": "die Konferenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Konferenz findet in Raum 19 statt."
+      }
+    ]
+  },
+  {
+    "word": "die Konfitüre",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bring bitte noch ein Glas Konfitüre mit."
+      }
+    ]
+  },
+  {
+    "word": "der Konflikt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein alter Konflikt."
+      },
+      {
+        "text": "Ich habe einen Konflikt mit meinen Eltern."
+      }
+    ]
+  },
+  {
+    "word": "der König",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der spanische König ist in Deutschland zu Besuch."
+      }
+    ]
+  },
+  {
+    "word": "die Konkurrenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Reparatur ist mir hier zu teuer. Bei der Konkurrenz bekomme ich sie für die Hälfte."
+      },
+      {
+        "text": "Es ist schwer, ein Geschäft aufzu-machen. Die Konkurrenz ist groß."
+      }
+    ]
+  },
+  {
+    "word": "können",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann den schweren Koffer nicht tragen."
+      },
+      {
+        "text": "Sie können mit dem Bus zum Bahnhof fahren."
+      },
+      {
+        "text": "Kann ich jetzt nach Hause gehen?"
+      },
+      {
+        "text": "Können Sie mir helfen?"
+      },
+      {
+        "text": "Ich kann sehr gut Englisch und Deutsch."
+      },
+      {
+        "text": "Es kann sein, dass es heute noch regnet."
+      }
+    ]
+  },
+  {
+    "word": "das Konsulat",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Visum bekommst du auch im Konsulat."
+      }
+    ]
+  },
+  {
+    "word": "konsumieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Europäer haben im letzten Jahr mehr Fleisch konsumiert."
+      }
+    ]
+  },
+  {
+    "word": "der Konsum",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Konsum von Lebensmitteln steigt."
+      }
+    ]
+  },
+  {
+    "word": "der Kontakt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe wenig Kontakt zu meinen Kollegen."
+      }
+    ]
+  },
+  {
+    "word": "das Konto",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte ein Konto eröffnen."
+      },
+      {
+        "text": "Das Geld überweisen wir am 1. März auf Ihr Konto."
+      }
+    ]
+  },
+  {
+    "word": "der Kredit",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Wagen auf Kredit gekauft."
+      },
+      {
+        "text": "Wir haben von der Bank einen Kredit bekommen."
+      }
+    ]
+  },
+  {
+    "word": "die Kreditkarte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kann ich mit Kreditkarte zahlen?"
+      }
+    ]
+  },
+  {
+    "word": "der Kreis",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder sitzen im Kindergarten im Kreis."
+      },
+      {
+        "text": "Bitte malt jetzt alle einen Kreis in euer Heft."
+      },
+      {
+        "text": "Unser Ort gehört zum Kreis Neuss."
+      }
+    ]
+  },
+  {
+    "word": "das Kreuz",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Was bedeutet dieses Kreuz hier?"
+      }
+    ]
+  },
+  {
+    "word": "die Kreuzung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An der nächsten Kreuzung müssen Sie rechts abbiegen."
+      }
+    ]
+  },
+  {
+    "word": "der Krieg",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Menschen fliehen vor dem Krieg."
+      }
+    ]
+  },
+  {
+    "word": "kriegen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was hast du zum Geburtstag gekriegt?"
+      },
+      {
+        "text": "Ich kriege jetzt doch eine Woche Urlaub."
+      }
+    ]
+  },
+  {
+    "word": "Kriminal-",
+    "article": "",
+    "type": "prefix",
+    "exampleSentences": [
+      {
+        "text": "die Kriminalpolizei"
+      }
+    ]
+  },
+  {
+    "word": "der Krimi",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich lese gern Krimis."
+      }
+    ]
+  },
+  {
+    "word": "die Krise",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diese Firma hat eine schwere Krise."
+      }
+    ]
+  },
+  {
+    "word": "kritisieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Meine Kollegen kritisieren meine Arbeit oft."
+      }
+    ]
+  },
+  {
+    "word": "die Kritik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich verstehe die Kritik an meiner Arbeit nicht."
+      }
+    ]
+  },
+  {
+    "word": "kritisch",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin kritisch gegenüber diesen neuen Plänen."
+      }
+    ]
+  },
+  {
+    "word": "die Küche",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben eine neue Küche gekauft."
+      }
+    ]
+  },
+  {
+    "word": "der Kuchen",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe einen Apfelkuchen gebacken."
+      }
+    ]
+  },
+  {
+    "word": "der Kugelschreiber",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe leider keinen Kugelschreiber dabei."
+      }
+    ]
+  },
+  {
+    "word": "der Kuli",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe leider keinen Kuli dabei."
+      }
+    ]
+  },
+  {
+    "word": "kühl",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es ist kühl geworden. Zieh dir etwas an."
+      }
+    ]
+  },
+  {
+    "word": "der Kühlschrank",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Milch steht im Kühlschrank."
+      }
+    ]
+  },
+  {
+    "word": "kosten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wie viel kostet der Pullover?"
+      },
+      {
+        "text": "Die Reise hat mich viel Geld gekostet."
+      }
+    ]
+  },
+  {
+    "word": "die Kosten",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kosten für die Reparatur bezahlen wir."
+      },
+      {
+        "text": "Wer trägt die Kosten?"
+      }
+    ]
+  },
+  {
+    "word": "kostenlos",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Eintritt ins Museum ist kostenlos."
+      }
+    ]
+  },
+  {
+    "word": "kosten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Möchten Sie den Käse mal kosten?"
+      }
+    ]
+  },
+  {
+    "word": "das Kostüm",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In dem Film tragen die Leute bunte Kostüme."
+      }
+    ]
+  },
+  {
+    "word": "die Kraft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für diese Arbeit braucht man viel Kraft."
+      }
+    ]
+  },
+  {
+    "word": "kräftig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Mann ist kräftig. Er macht viel Sport und isst viel."
+      },
+      {
+        "text": "Die Suppe musst du kräftig würzen."
+      }
+    ]
+  },
+  {
+    "word": "das Kraftfahrzeug",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf dieser Straße sind Kraftfahrzeuge nicht erlaubt."
+      }
+    ]
+  },
+  {
+    "word": "das Kraftwerk",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Menschen protestieren gegen das Kraftwerk."
+      }
+    ]
+  },
+  {
+    "word": "krank",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich war zwei Wochen krank."
+      },
+      {
+        "text": "Ich muss mich um meine kranke Großmutter kümmern."
+      }
+    ]
+  },
+  {
+    "word": "der Kranke",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kranke brauchen viel Ruhe."
+      }
+    ]
+  },
+  {
+    "word": "das Krankenhaus",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat sich verletzt und musste ins Krankenhaus."
+      }
+    ]
+  },
+  {
+    "word": "die Krankenkasse",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Krankenkasse bezahlt die Medikamente."
+      }
+    ]
+  },
+  {
+    "word": "der Krankenpfleger",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Bruder arbeitet als Krankenpfleger im Krankenhaus."
+      }
+    ]
+  },
+  {
+    "word": "die Krankenschwester",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Cousine möchte gern Krankenschwester werden."
+      }
+    ]
+  },
+  {
+    "word": "der Krankenwagen",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir mussten einen Krankenwagen rufen."
+      }
+    ]
+  },
+  {
+    "word": "die Krankheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gegen welche Krankheiten sollte ich mich impfen lassen?"
+      },
+      {
+        "text": "Was für eine Krankheit hat Herr Brandner?"
+      }
+    ]
+  },
+  {
+    "word": "kreativ",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder sind beim Basteln sehr kreativ."
+      },
+      {
+        "text": "Wir brauchen eine kreative Lösung für dieses Problem."
+      }
+    ]
+  },
+  {
+    "word": "küssen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er nahm sie in die Arme und küsste sie."
+      },
+      {
+        "text": "Beim Verabschieden haben wir uns alle geküsst."
+      }
+    ]
+  },
+  {
+    "word": "der Kuss",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gib der Mama einen Kuss!"
+      }
+    ]
+  },
+  {
+    "word": "die Küste",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unser Dorf liegt direkt an der Küste."
+      }
+    ]
+  },
+  {
+    "word": "die Kultur",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich interessiere mich für die italienische Kultur."
+      }
+    ]
+  },
+  {
+    "word": "kulturell",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wir bieten auch kulturelle Veranstaltungen an."
+      }
+    ]
+  },
+  {
+    "word": "sich kümmern",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Ich muss mich um die kranke Mutter kümmern."
+      },
+      {
+        "text": "Ich kümmere mich darum."
+      }
+    ]
+  },
+  {
+    "word": "der Kunde",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kunden sind mit dem Service zufrieden."
+      },
+      {
+        "text": "Die Verkäuferin war sehr freundlich zu den Kundinnen."
+      }
+    ]
+  },
+  {
+    "word": "kündigen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe meine Wohnung gekündigt."
+      },
+      {
+        "text": "Mein Chef hat mir gekündigt."
+      }
+    ]
+  },
+  {
+    "word": "die Kündigung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe meine Kündigung bekommen."
+      }
+    ]
+  },
+  {
+    "word": "die Kunst",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich interessiere mich für Kunst."
+      }
+    ]
+  },
+  {
+    "word": "der Künstler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Künstlerin stellt ihre Bilder in einer Galerie aus."
+      }
+    ]
+  },
+  {
+    "word": "künstlich",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich trinke nur Saft ohne künstliche Farbstoffe."
+      }
+    ]
+  },
+  {
+    "word": "der Kunststoff",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diese Verpackungen sind aus Kunststoff."
+      }
+    ]
+  },
+  {
+    "word": "der Kurs",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich besuche einen Deutschkurs."
+      }
+    ]
+  },
+  {
+    "word": "der Kursleiter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Kursleiter ist sehr nett."
+      }
+    ]
+  },
+  {
+    "word": "die Kurve",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Vorsicht, die Kurve ist gefährlich!"
+      },
+      {
+        "text": "Achtung. Das Stauende ist gleich hinter einer Kurve."
+      }
+    ]
+  },
+  {
+    "word": "kurz",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ricardo hat kurze Haare."
+      },
+      {
+        "text": "Kann ich Sie kurz sprechen?"
+      },
+      {
+        "text": "Kurz vor 8 Uhr hat das Telefon geklingelt."
+      },
+      {
+        "text": "Mein Mann ist kurz nach mir gekommen."
+      },
+      {
+        "text": "Ich bin vor Kurzem nach München gezogen."
+      },
+      {
+        "text": "Ich wohne seit Kurzem in München."
+      },
+      {
+        "text": "Ich habe das Kleid kürzer machen lassen."
+      }
+    ]
+  },
+  {
+    "word": "kürzlich",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wir haben doch kürzlich darüber gesprochen, dass wir am Wochenende wegfahren wollen."
+      }
+    ]
+  },
+  {
+    "word": "das Kuvert",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich hätte gern 50 Kuverts und Briefmarken dazu."
+      }
+    ]
+  },
+  {
+    "word": "L",
+    "article": "",
+    "type": "letter"
+  },
+  {
+    "word": "lächeln",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Schauen Sie in die Kamera. Bitte lächeln!"
+      }
+    ]
+  },
+  {
+    "word": "lachen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Lachen ist gesund."
+      },
+      {
+        "text": "Wir haben viel gelacht."
+      },
+      {
+        "text": "Die Kinder haben über den Witz gelacht."
+      }
+    ]
+  },
+  {
+    "word": "der Laden",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dieses Kleid habe ich in einem Laden im Zentrum gekauft."
+      },
+      {
+        "text": "Ich kaufe meine Zeitung immer beim Zeitungsladen am Eck."
+      }
+    ]
+  },
+  {
+    "word": "die Lage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir suchen eine Wohnung an/in zentraler Lage."
+      }
+    ]
+  },
+  {
+    "word": "das Lager",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "die Lampe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "das Land",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "die Landwirtschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "die Landschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "landen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": []
+  },
+  {
+    "word": "die Landung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "lang",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": []
+  },
+  {
+    "word": "die Länge",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": []
+  },
+  {
+    "word": "lange, lang",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": []
+  },
+  {
+    "word": "langsam",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": []
+  },
+  {
+    "word": "längst",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": []
+  },
+  {
+    "word": "langweilig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist langweilig, ich bin fertig."
+      }
+    ]
+  },
+  {
+    "word": "sich langweilen",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Langweilst du dich?"
+      }
+    ]
+  },
+  {
+    "word": "die Langeweile",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es ist aus Langeweile eingeschlafen."
+      }
+    ]
+  },
+  {
+    "word": "der Lärm",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Flugzeuge machen einen schrecklichen Lärm."
+      }
+    ]
+  },
+  {
+    "word": "lassen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe mein Gepäck am Bahnhof gelassen."
+      },
+      {
+        "text": "Am Samstag lasse ich mir die Haare schneiden."
+      },
+      {
+        "text": "Ich lasse meine Kinder abends nur eine Stunde fernsehen."
+      },
+      {
+        "text": "Kann ich mein Auto hier stehen lassen?"
+      },
+      {
+        "text": "Wo habe ich nur meine Brille gelassen?"
+      },
+      {
+        "text": "Ich habe meinen Anzug reinigen lassen."
+      },
+      {
+        "text": "Ich kann meine kleine Tochter noch nicht allein lassen."
+      },
+      {
+        "text": "Lass mich in Ruhe. Ich muss arbeiten."
+      }
+    ]
+  },
+  {
+    "word": "der Laster",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf der Autobahn waren so viele Laster. Deshalb hat es so lange gedauert."
+      }
+    ]
+  },
+  {
+    "word": "laufen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich bin gestern 100 m in 10,4 Sekunden gelaufen."
+      },
+      {
+        "text": "Bist du mit dem Auto hier? – Nein, ich bin gelaufen."
+      },
+      {
+        "text": "Jeden Morgen gehe ich eine halbe Stunde laufen."
+      },
+      {
+        "text": "Wann läuft der Film?"
+      },
+      {
+        "text": "Wie geht´s beruflich? – Danke, das Geschäft läuft gut."
+      }
+    ]
+  },
+  {
+    "word": "das Laufwerk",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für meinen Computer habe ich mir ein neues Laufwerk gekauft."
+      }
+    ]
+  },
+  {
+    "word": "die Laune",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute geht es mir besser, aber gestern hatte ich richtig schlechte Laune."
+      }
+    ]
+  },
+  {
+    "word": "laut",
+    "article": "",
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Lass uns gehen. Hier ist es mir zu laut."
+      },
+      {
+        "text": "Können Sie bitte etwas lauter sprechen?"
+      },
+      {
+        "text": "Laut Wetterbericht gibt es morgen Regen."
+      }
+    ]
+  },
+  {
+    "word": "der Lautsprecher",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte achten Sie auch auf die Lautsprecher-Ansagen am Bahnhof."
+      }
+    ]
+  },
+  {
+    "word": "lecker",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Essen war sehr lecker."
+      }
+    ]
+  },
+  {
+    "word": "leben",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Leben Ihre Großeltern noch?"
+      },
+      {
+        "text": "Herr Müller hat lange im Ausland gelebt."
+      },
+      {
+        "text": "Wir haben getrennt gelebt."
+      }
+    ]
+  },
+  {
+    "word": "das Leben",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Leben auf dem Land ist anders als in der Stadt."
+      },
+      {
+        "text": "Ich bin mit meinem Leben zufrieden."
+      }
+    ]
+  },
+  {
+    "word": "der Lebenslauf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Anlage der E-Mail finden Sie meinen Lebenslauf."
+      }
+    ]
+  },
+  {
+    "word": "die Lebensmittel",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier bekommen Sie Lebensmittel aus aller Welt."
+      }
+    ]
+  },
+  {
+    "word": "das Leder",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Schuhe sind aus Leder."
+      }
+    ]
+  },
+  {
+    "word": "ledig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Bei „Familienstand“ musst du „ledig“ ankreuzen."
+      }
+    ]
+  },
+  {
+    "word": "leer",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Tasse ist leer. Möchten Sie noch einen Kaffee?"
+      },
+      {
+        "text": "Bitte bringen Sie die leeren Flaschen weg."
+      }
+    ]
+  },
+  {
+    "word": "legen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich lege das Buch auf den Tisch."
+      },
+      {
+        "text": "Legen Sie bitte das Formular in den Umschlag."
+      },
+      {
+        "text": "Der Zug hat eine neue Strecke. Die Gleise müssen neu gelegt werden."
+      }
+    ]
+  },
+  {
+    "word": "die Lehre",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nach dem Abitur hat mein Sohn eine Lehre als Elektriker gemacht."
+      }
+    ]
+  },
+  {
+    "word": "die Lehrstelle",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich suche eine Lehrstelle als Krankenpfleger."
+      }
+    ]
+  },
+  {
+    "word": "der Lehrer",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unsere Lehrerin ist sehr nett."
+      }
+    ]
+  },
+  {
+    "word": "der Lehrling",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Als Lehrling verdient man nicht sehr viel Geld."
+      }
+    ]
+  },
+  {
+    "word": "leicht",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Koffer ist ganz leicht. Ich kann ihn allein tragen."
+      },
+      {
+        "text": "Es ist nicht leicht, bei diesem Arzt einen Termin zu bekommen."
+      },
+      {
+        "text": "Das ist ein leichtes Spiel."
+      }
+    ]
+  },
+  {
+    "word": "leid tun",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Frau tut mir leid."
+      },
+      {
+        "text": "Wie komme ich zum Bahnhof? - Tut mir leid, das weiß ich nicht."
+      },
+      {
+        "text": "Es tut mir leid, dass ich Ihnen nicht helfen kann."
+      }
+    ]
+  },
+  {
+    "word": "leiden",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er leidet an einer schweren Krankheit."
+      },
+      {
+        "text": "Sie leidet sehr unter den Verhältnissen."
+      }
+    ]
+  },
+  {
+    "word": "leider",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Da kann ich Ihnen leider nicht helfen."
+      },
+      {
+        "text": "Hast du schon eine Antwort auf deinen Brief? – Leider nicht."
+      },
+      {
+        "text": "Leider kann ich nicht kommen. Ich habe viel zu tun."
+      }
+    ]
+  },
+  {
+    "word": "leihen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir bitte einen Stift leihen?"
+      }
+    ]
+  },
+  {
+    "word": "leise",
+    "article": "",
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Bitte sprich leiser!"
+      },
+      {
+        "text": "Machen Sie die Musik bitte leiser."
+      },
+      {
+        "text": "Stell bitte dein Handy leise oder auf stumm."
+      }
+    ]
+  },
+  {
+    "word": "leisten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Eine Reise nach Amerika kann ich mir nicht leisten."
+      }
+    ]
+  },
+  {
+    "word": "die Leistung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Sportler müssen eine große Leistung zeigen."
+      },
+      {
+        "text": "Ich bin mit deinen Leistungen in der Schule zufrieden."
+      }
+    ]
+  },
+  {
+    "word": "leiten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sie leitet seit zwei Jahren diesen Kurs."
+      }
+    ]
+  },
+  {
+    "word": "der Leiter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der neue Leiter der Schule ist sehr nett."
+      }
+    ]
+  },
+  {
+    "word": "die Leitung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die neue Leitung hat viele gute Ideen."
+      },
+      {
+        "text": "Tut mir leid, alle Leitungen sind besetzt."
+      },
+      {
+        "text": "Wir müssen eine neue Leitung legen lassen."
+      }
+    ]
+  },
+  {
+    "word": "die Leiter",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie eine Leiter für mich? Ich will die Fenster putzen."
+      }
+    ]
+  },
+  {
+    "word": "lernen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wie lange lernen Sie schon Deutsch?"
+      },
+      {
+        "text": "Mein Bruder lernt jetzt Elektriker."
+      },
+      {
+        "text": "Die Kinder lernen Vögel kennen."
+      }
+    ]
+  },
+  {
+    "word": "der Lerner",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist eine fleißige Lernerin."
+      }
+    ]
+  },
+  {
+    "word": "lesen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe gelesen, dass es ab heute Sonderangebote gibt."
+      },
+      {
+        "text": "Deine Schrift kann ich nicht gut lesen."
+      },
+      {
+        "text": "In der Schule lesen wir ein Buch von Goethe."
+      }
+    ]
+  },
+  {
+    "word": "der Leser",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Leserinnen und Leser sind mit der Zeitung zufrieden."
+      },
+      {
+        "text": "Ich werde einen Leserbrief schreiben."
+      }
+    ]
+  },
+  {
+    "word": "letzt-",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Was hast du letzte Woche gemacht?"
+      },
+      {
+        "text": "Ich wohne im letzten Haus auf der rechten Seite."
+      },
+      {
+        "text": "Wann haben Sie Ihre Familie das letzte Mal gesehen?"
+      }
+    ]
+  },
+  {
+    "word": "die Leute",
+    "article": "die (Pl.)",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Leute sind hier sehr nett."
+      },
+      {
+        "text": "Ich habe viele nette Leute kennengelernt."
+      }
+    ]
+  },
+  {
+    "word": "das Lexikon",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Lexikon kann man das Wort nachschlagen."
+      }
+    ]
+  },
+  {
+    "word": "das Licht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mach bitte das Licht an! Es ist dunkel."
+      },
+      {
+        "text": "Der Kühlschrank ist kaputt. Das Licht geht nicht."
+      }
+    ]
+  },
+  {
+    "word": "lieben",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich liebe meine Arbeit."
+      },
+      {
+        "text": "Ich liebe dich."
+      }
+    ]
   }
 ]
