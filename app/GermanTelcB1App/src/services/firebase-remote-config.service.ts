@@ -48,6 +48,12 @@ class FirebaseRemoteConfigService {
         streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
           ? data.streaksWhitelistedUserIDs
           : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
+        minRequiredVersion: data.minRequiredVersion || DEFAULT_REMOTE_CONFIG.minRequiredVersion,
+        latestVersion: data.latestVersion || DEFAULT_REMOTE_CONFIG.latestVersion,
+        forceUpdate: data.forceUpdate !== undefined 
+          ? data.forceUpdate 
+          : DEFAULT_REMOTE_CONFIG.forceUpdate,
+        updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
         updatedAt: data.updatedAt || Date.now(),
       };
 
@@ -107,6 +113,12 @@ class FirebaseRemoteConfigService {
             streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
               ? data.streaksWhitelistedUserIDs
               : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
+            minRequiredVersion: data.minRequiredVersion || DEFAULT_REMOTE_CONFIG.minRequiredVersion,
+            latestVersion: data.latestVersion || DEFAULT_REMOTE_CONFIG.latestVersion,
+            forceUpdate: data.forceUpdate !== undefined 
+              ? data.forceUpdate 
+              : DEFAULT_REMOTE_CONFIG.forceUpdate,
+            updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
             updatedAt: data.updatedAt || Date.now(),
           };
 

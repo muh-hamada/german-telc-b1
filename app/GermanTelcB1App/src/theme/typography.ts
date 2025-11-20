@@ -189,6 +189,14 @@ export const typography = {
         default: 'System',
       }),
     },
+    bold: {
+      fontWeight: '700' as const,
+      fontFamily: Platform.select({
+        ios: 'System',
+        android: 'Roboto-Bold',
+        default: 'System',
+      }),
+    },
   },
 } as const;
 

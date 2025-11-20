@@ -992,5 +992,16 @@
       "adFreeTitle": "{{days}}-Tage werbefreies Erlebnis",
       "rewardHint": "Noch {{days}} Tag(e) bis du {{rewardDays}} Tag(e) werbefrei verdienst!"
     }
+  },
+  "appUpdate": {
+    "requiredTitle": "Update erforderlich",
+    "availableTitle": "Update verfügbar",
+    "requiredMessage": "Diese Version wird nicht mehr unterstützt. Bitte aktualisieren Sie, um die App weiterhin zu verwenden.",
+    "availableMessage": "Eine neue Version mit Verbesserungen und Fehlerbehebungen ist verfügbar!",
+    "currentVersion": "Aktuell:",
+    "newVersion": "Neu:",
+    "updateNow": "Jetzt aktualisieren",
+    "later": "Später",
+    "forcedNote": "Dieses Update ist erforderlich, um fortzufahren"
   }
 }

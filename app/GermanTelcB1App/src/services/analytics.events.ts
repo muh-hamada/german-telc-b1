@@ -123,6 +123,13 @@ export const AnalyticsEvents = {
   AD_FREE_ACTIVATED: 'ad_free_activated',
   AD_FREE_EXPIRED: 'ad_free_expired',
   AD_FREE_STATUS_CHECKED: 'ad_free_status_checked',
+  
+  // App Update
+  APP_UPDATE_MODAL_SHOWN: 'app_update_modal_shown',
+  APP_UPDATE_NOW_CLICKED: 'app_update_now_clicked',
+  APP_UPDATE_LATER_CLICKED: 'app_update_later_clicked',
+  APP_UPDATE_MODAL_DISMISSED: 'app_update_modal_dismissed',
+  APP_UPDATE_STORE_OPENED: 'app_update_store_opened',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

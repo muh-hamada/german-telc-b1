@@ -51,7 +51,7 @@ export const germanB1Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telcb1german',
-    ios: '',  // Will be filled when iOS app is published
+    ios: '6754566955',
   },
 
   ads: {

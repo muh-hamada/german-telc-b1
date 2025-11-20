@@ -894,5 +894,16 @@
       "adFreeTitle": "Experiencia de {{days}} Días Sin Anuncios",
       "rewardHint": "¡{{days}} día(s) más hasta que ganes {{rewardDays}} día(s) sin anuncios!"
     }
+  },
+  "appUpdate": {
+    "requiredTitle": "Actualización requerida",
+    "availableTitle": "Actualización disponible",
+    "requiredMessage": "Esta versión ya no es compatible. Por favor, actualiza para continuar usando la aplicación.",
+    "availableMessage": "¡Hay una nueva versión disponible con mejoras y correcciones de errores!",
+    "currentVersion": "Actual:",
+    "newVersion": "Nueva:",
+    "updateNow": "Actualizar ahora",
+    "later": "Más tarde",
+    "forcedNote": "Esta actualización es necesaria para continuar"
   }
 }

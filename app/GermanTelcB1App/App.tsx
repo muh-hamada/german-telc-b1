@@ -12,9 +12,11 @@ import { NotificationReminderProvider } from './src/contexts/NotificationReminde
 import { StreakProvider } from './src/contexts/StreakContext';
 import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
 import { VocabularyProvider } from './src/contexts/VocabularyContext';
+import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import ReviewModalContainer from './src/components/ReviewModalContainer';
 import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
 import StreakModalContainer from './src/components/StreakModalContainer';
+import AppUpdateModalContainer from './src/components/AppUpdateModalContainer';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 import { colors } from './src/theme/colors';
@@ -91,25 +93,28 @@ const App: React.FC = () => {
   return (
     <SafeAreaProvider>
       <RemoteConfigProvider>
-        <ReviewProvider>
-          <AuthProvider>
-            <VocabularyProvider>
-              <StreakProvider>
-                <NotificationReminderProvider>
-                  <ProgressProvider>
-                    <CompletionProvider>
-                      <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                      <RootNavigator />
-                      <ReviewModalContainer />
-                      <NotificationReminderModalContainer />
-                      <StreakModalContainer />
-                    </CompletionProvider>
-                  </ProgressProvider>
-                </NotificationReminderProvider>
-              </StreakProvider>
-            </VocabularyProvider>
-          </AuthProvider>
-        </ReviewProvider>
+        <AppUpdateProvider>
+          <ReviewProvider>
+            <AuthProvider>
+              <VocabularyProvider>
+                <StreakProvider>
+                  <NotificationReminderProvider>
+                    <ProgressProvider>
+                      <CompletionProvider>
+                        <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                        <RootNavigator />
+                        <AppUpdateModalContainer />
+                        <ReviewModalContainer />
+                        <NotificationReminderModalContainer />
+                        <StreakModalContainer />
+                      </CompletionProvider>
+                    </ProgressProvider>
+                  </NotificationReminderProvider>
+                </StreakProvider>
+              </VocabularyProvider>
+            </AuthProvider>
+          </ReviewProvider>
+        </AppUpdateProvider>
       </RemoteConfigProvider>
     </SafeAreaProvider>
   );

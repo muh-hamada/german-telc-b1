@@ -10,6 +10,7 @@ class StorageService {
     GRAMMAR_STUDY_PROGRESS: 'grammar_study_progress',
     GRAMMAR_STUDY_SESSION_COUNTER: 'grammar_study_session_counter',
     REMOTE_CONFIG: 'remote_config',
+    APP_UPDATE_DISMISSED: 'app_update_dismissed',
   };
 
   // User Progress Methods
@@ -376,6 +377,40 @@ class StorageService {
       await AsyncStorage.removeItem(StorageService.KEYS.REMOTE_CONFIG);
     } catch (error) {
       console.error('Error clearing remote config from cache:', error);
+    }
+  }
+
+  // App Update Dismissal Methods
+  async getAppUpdateDismissedData(): Promise<{ version: string; dismissedAt: number } | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.APP_UPDATE_DISMISSED);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting app update dismissed data:', error);
+      return null;
+    }
+  }
+
+  async saveAppUpdateDismissedData(version: string): Promise<void> {
+    try {
+      const data = {
+        version,
+        dismissedAt: Date.now(),
+      };
+      await AsyncStorage.setItem(
+        StorageService.KEYS.APP_UPDATE_DISMISSED,
+        JSON.stringify(data)
+      );
+    } catch (error) {
+      console.error('Error saving app update dismissed data:', error);
+    }
+  }
+
+  async clearAppUpdateDismissedData(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.APP_UPDATE_DISMISSED);
+    } catch (error) {
+      console.error('Error clearing app update dismissed data:', error);
     }
   }
 }

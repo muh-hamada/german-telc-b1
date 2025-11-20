@@ -17,6 +17,7 @@ export const openAppRating = async (source: string): Promise<boolean> => {
     if (Platform.OS === 'ios') {
       // iOS App Store URL
       const url = `itms-apps://apps.apple.com/app/id${APP_STORE_ID}?action=write-review`;
+      console.log('[AppRating] Opening App Store URL:', url);
       const canOpen = await Linking.canOpenURL(url);
       
       if (canOpen) {
@@ -24,9 +25,12 @@ export const openAppRating = async (source: string): Promise<boolean> => {
         logEvent(AnalyticsEvents.APP_RATING_OPENED, { source });
         return true;
       } else {
-        console.warn('[AppRating] Cannot open App Store URL');
-        logEvent(AnalyticsEvents.APP_RATING_FAILED, { source, error: 'cannot_open_url' });
-        return false;
+        // Fallback to browser if App Store app is not available
+        const browserUrl = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+        console.log('[AppRating] Falling back to browser URL:', browserUrl);
+        await Linking.openURL(browserUrl);
+        logEvent(AnalyticsEvents.APP_RATING_OPENED, { fallback: true, source });
+        return true;
       }
     } else if (Platform.OS === 'android') {
       // Google Play Store URL

@@ -894,5 +894,16 @@
       "adFreeTitle": "Expérience de {{days}} Jour(s) Sans Publicité",
       "rewardHint": "Encore {{days}} jour(s) avant de gagner {{rewardDays}} jour(s) sans publicité!"
     }
+  },
+  "appUpdate": {
+    "requiredTitle": "Mise à jour requise",
+    "availableTitle": "Mise à jour disponible",
+    "requiredMessage": "Cette version n'est plus prise en charge. Veuillez mettre à jour pour continuer à utiliser l'application.",
+    "availableMessage": "Une nouvelle version est disponible avec des améliorations et des corrections de bugs!",
+    "currentVersion": "Actuelle:",
+    "newVersion": "Nouvelle:",
+    "updateNow": "Mettre à jour maintenant",
+    "later": "Plus tard",
+    "forcedNote": "Cette mise à jour est requise pour continuer"
   }
 }

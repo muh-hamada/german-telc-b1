@@ -1004,5 +1004,16 @@
       "adFreeTitle": "{{days}}-Day Ad-Free Experience",
       "rewardHint": "{{days}} more day(s) until you earn {{rewardDays}} day(s) ad-free!"
     }
+  },
+  "appUpdate": {
+    "requiredTitle": "Update Required",
+    "availableTitle": "Update Available",
+    "requiredMessage": "This version is no longer supported. Please update to continue using the app.",
+    "availableMessage": "A new version is available with improvements and bug fixes!",
+    "currentVersion": "Current:",
+    "newVersion": "New:",
+    "updateNow": "Update Now",
+    "later": "Later",
+    "forcedNote": "This update is required to continue"
   }
 }
