@@ -19,7 +19,7 @@ interface StreakContextType {
   shouldShowStreakModal: boolean; // NEW: Flag to trigger modal display
   
   // Actions
-  recordActivity: (activityType: 'exam' | 'completion' | 'grammar_study', activityId?: string, score?: number) => Promise<{ success: boolean; shouldShowModal: boolean }>;
+  recordActivity: (activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study', activityId?: string, score?: number) => Promise<{ success: boolean; shouldShowModal: boolean }>;
   claimReward: () => Promise<boolean>;
   refreshStreakData: () => Promise<void>;
   checkAdFreeStatus: () => Promise<boolean>;

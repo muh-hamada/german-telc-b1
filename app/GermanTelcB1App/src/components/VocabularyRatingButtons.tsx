@@ -10,6 +10,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Platform,
   Vibration,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
@@ -23,8 +24,21 @@ interface VocabularyRatingButtonsProps {
 const VocabularyRatingButtons: React.FC<VocabularyRatingButtonsProps> = ({ onRate }) => {
   const { t } = useCustomTranslation();
 
+  const triggerHapticFeedback = () => {
+    try {
+      // Simple vibration feedback that works on both iOS and Android
+      // With proper permission handling
+      if (Platform.OS === 'android' || Platform.OS === 'ios') {
+        Vibration.vibrate(10);
+      }
+    } catch (error) {
+      // Silently fail if vibration is not available or permission is denied
+      console.warn('Haptic feedback not available:', error);
+    }
+  };
+
   const handleRate = (rating: Rating) => {
-    Vibration.vibrate(10); // Haptic feedback
+    triggerHapticFeedback();
     onRate(rating);
   };
 
