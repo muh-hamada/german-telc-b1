@@ -977,28 +977,28 @@
     "longestStreak": "Longest: {{count}} days",
     "weeklyActivity": "Weekly Activity",
     "totalActivities": "total activities",
-    "perfectWeek": "You're halfway to your perfect week and ad-free day!",
+    "perfectWeek": "You're halfway to your perfect week!",
     "perfectWeekComplete": "Perfect week! You've completed all 7 days!",
     "greatStart": "Great start! Keep building your streak!",
     "keepGoing": "Keep going! You're doing great!",
     "days": "days",
-    "rewardProgress": "7-Day Streak Reward",
-    "rewardProgressMessage": "Complete {{days}} more day(s) to earn 24 hours ad-free!",
+    "rewardProgress": "Streak Reward Progress",
+    "rewardProgressMessage": "Complete {{days}} more day(s) to earn {{rewardDays}} day(s) ad-free!",
     "rewardTitle": "Exclusive Reward",
-    "rewardDescription": "Complete 7 consecutive days of study to unlock 24 hours of ad-free experience!",
+    "rewardDescription": "Complete consecutive days of study to unlock ad-free experience! Every 7 days = 1 day ad-free.",
     "progress": "Progress",
     "almostThere": "Only {{days}} more day(s)! You're almost there!",
     "keepComingBack": "Keep coming back every day to unlock your reward!",
     "reward": {
-      "title": "7 Days Streak Achieved!",
-      "description": "Enjoy 24 hours of ad-free experience",
+      "title": "{{days}} Days Streak Achieved!",
+      "description": "Enjoy {{days}} day(s) of ad-free experience",
       "claim": "Claim Reward",
-      "activated": "24h Ad-Free Activated!",
-      "enjoyAdFree": "Enjoy your ad-free experience!",
+      "activated": "{{days}}-Day Ad-Free Activated!",
+      "enjoyAdFree": "Enjoy your {{days}}-day ad-free experience!",
       "expires": "Expires in {{time}}",
       "streakResetNote": "Note: Your streak counter will reset after claiming to let you earn another reward.",
-      "adFreeTitle": "24-Hour Ad-Free Experience",
-      "rewardHint": "{{days}} more day(s) until you earn an ad-free day!"
+      "adFreeTitle": "{{days}}-Day Ad-Free Experience",
+      "rewardHint": "{{days}} more day(s) until you earn {{rewardDays}} day(s) ad-free!"
     }
   }
 }

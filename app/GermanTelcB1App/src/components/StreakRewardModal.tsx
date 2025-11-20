@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
-import { REWARD_MODAL_SUCCESS_DURATION } from '../constants/streak.constants';
+import { REWARD_MODAL_SUCCESS_DURATION, calculateRewardDays } from '../constants/streak.constants';
 
 interface StreakRewardModalProps {
   visible: boolean;
@@ -29,11 +30,14 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
   const [isClaiming, setIsClaiming] = useState(false);
   const [claimed, setClaimed] = useState(false);
 
+  // Calculate the reward days based on current streak
+  const rewardDays = calculateRewardDays(currentStreak);
+
   const handleClaim = async () => {
     setIsClaiming(true);
     const success = await onClaim();
     setIsClaiming(false);
-    
+
     if (success) {
       setClaimed(true);
     }
@@ -46,7 +50,7 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
         setClaimed(false);
         onClose();
       }, REWARD_MODAL_SUCCESS_DURATION);
-      
+
       return () => clearTimeout(timer);
     }
   }, [claimed, onClose]);
@@ -72,34 +76,14 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
                 {/* Celebration icon */}
                 <View style={styles.iconContainer}>
                   <Text style={styles.celebrationIcon}>🎉</Text>
-                </View>
-                
-                {/* Title */}
-                <Text style={styles.title}>
-                  {t('streaks.reward.title')}
-                </Text>
-
-                {/* Streak achieved */}
-                <View style={styles.streakBadge}>
-                  <Text style={styles.fireIcon}>🔥</Text>
-                  <Text style={styles.streakText}>{currentStreak} {t('streaks.days')}</Text>
+                  <Text style={styles.streakText}>{t('streaks.reward.title', { days: currentStreak })}</Text>
                 </View>
 
                 {/* Reward description */}
                 <View style={styles.rewardCard}>
-                  <Text style={styles.rewardIcon}>🚀</Text>
-                  <Text style={styles.rewardTitle}>
-                    {t('streaks.reward.adFreeTitle')}
-                  </Text>
+                  <Text style={styles.rewardIcon}>🎁</Text>
                   <Text style={styles.rewardDescription}>
-                    {t('streaks.reward.description')}
-                  </Text>
-                </View>
-
-                {/* Note about streak reset */}
-                <View style={styles.noteCard}>
-                  <Text style={styles.noteText}>
-                    {t('streaks.reward.streakResetNote')}
+                    {t('streaks.reward.description', { days: rewardDays })}
                   </Text>
                 </View>
 
@@ -136,10 +120,10 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
                 <View style={styles.successContainer}>
                   <Text style={styles.successIcon}>✨</Text>
                   <Text style={styles.successTitle}>
-                    {t('streaks.reward.activated')}
+                    {t('streaks.reward.activated', { days: rewardDays })}
                   </Text>
                   <Text style={styles.successMessage}>
-                    {t('streaks.reward.enjoyAdFree')}
+                    {t('streaks.reward.enjoyAdFree', { days: rewardDays })}
                   </Text>
                 </View>
               </>
@@ -172,30 +156,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
     marginBottom: spacing.margin.md,
   },
   celebrationIcon: {
     fontSize: 80,
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.lg,
-    textAlign: 'center',
-  },
-  streakBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.warning[100],
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.full,
-    marginBottom: spacing.margin.xl,
-  },
-  fireIcon: {
-    fontSize: 32,
-    marginRight: spacing.margin.sm,
   },
   streakText: {
     ...typography.textStyles.h3,
@@ -203,17 +169,22 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
   },
   rewardCard: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    alignItems: 'center',
     backgroundColor: colors.success[50],
-    padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     width: '100%',
-    alignItems: 'center',
     marginBottom: spacing.margin.lg,
     borderWidth: 2,
-    borderColor: colors.success[200],
+    borderColor: colors.success[100],
+    gap: spacing.md,
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.md,
+    flex: 1,
+    flexShrink: 1,
   },
   rewardIcon: {
-    fontSize: 48,
+    fontSize: 28,
     marginBottom: spacing.margin.sm,
   },
   rewardTitle: {
@@ -224,23 +195,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   rewardDescription: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.h5,
     color: colors.success[600],
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-  noteCard: {
-    backgroundColor: colors.secondary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    width: '100%',
-    marginBottom: spacing.margin.lg,
-  },
-  noteText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    fontStyle: 'italic',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    flexShrink: 1,
   },
   claimButton: {
     backgroundColor: colors.success[500],

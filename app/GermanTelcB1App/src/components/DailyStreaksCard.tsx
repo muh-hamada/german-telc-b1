@@ -17,7 +17,7 @@ interface DailyStreaksCardProps {
 
 const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   const { t } = useCustomTranslation();
-  const { weeklyActivity, streakData, isLoading } = useStreak();
+  const { weeklyActivity, streakData, isLoading, adFreeStatus } = useStreak();
 
   // Map activity data to activity count for visualization
   const data = weeklyActivity.map(day => day.activitiesCount);
@@ -64,8 +64,8 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
         </View>
       </View>
 
-      {/* Reward Progress Indicator */}
-      {streakData && !streakData.adFreeReward.claimed && (
+      {/* Reward Progress Indicator - Only show when NO active ad-free reward */}
+      {streakData && !adFreeStatus.isActive && (
         <RewardProgressIndicator currentStreak={streakData.currentStreak} />
       )}
 

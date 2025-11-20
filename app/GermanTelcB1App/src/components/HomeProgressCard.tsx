@@ -6,7 +6,9 @@ import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 import Button from './Button';
+import StatsGrid, { StatItem } from './StatsGrid';
 import { useCompletion } from '../contexts/CompletionContext';
+import ProfileStatsGrid from './ProfileStatsGrid';
 
 interface HomeProgressCardProps {
   onLoginPress?: () => void;
@@ -115,26 +117,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
 
       {/* Your Progress Stats */}
       {displayStats.totalExams > 0 && (
-        <>
-          <View style={styles.statsGrid}>
-            {/* <View style={styles.statItem}>
-              <Text style={styles.statValue}>{displayStats.completedExams}</Text>
-              <Text style={styles.statLabel}>{t('progress.examsCompleted')}</Text>
-            </View> */}
-            <View style={styles.statItem}>
-              <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
-                {displayStats.averageScore}%
-              </Text>
-              <Text style={styles.statLabel}>{t('progress.score').split(' ').join('\n')}</Text>
-            </View>
-            <View style={styles.statItem}>
-              <Text style={[styles.statValue, { color: getScoreColor(displayStats.averageScore) }]}>
-                {getScoreText(displayStats.averageScore)}
-              </Text>
-              <Text style={styles.statLabel}>{t('progress.performance').split(' ').join('\n')}</Text>
-            </View>
-          </View>
-        </>
+       <ProfileStatsGrid/>
       )}
 
       {/* View Full Stats Link */}
@@ -191,41 +174,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: colors.text.secondary,
     textAlign: 'center',
-  },
-  divider: {
-    height: 1,
-    backgroundColor: colors.border.light,
-    marginVertical: spacing.sm,
-  },
-  statsGrid: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
-    justifyContent: 'space-around',
-    gap: spacing.md,
-  },
-  statItem: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: colors.border.light,
-    padding: spacing.sm,
-    borderRadius: spacing.borderRadius.md,
-  },
-  statValue: {
-    ...typography.textStyles.h4,
-    fontSize: 16,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    marginBottom: spacing.sm,
-    lineHeight: 20,
-    textAlign: 'center',
-  },
-  statLabel: {
-    ...typography.textStyles.bodySmall,
-    fontSize: 11,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 16,
   },
   viewFullStatsButton: {
     marginTop: spacing.md,

@@ -1,8 +1,8 @@
 {
-  "lastProcessedIndex": 274,
+  "lastProcessedIndex": 549,
   "totalWords": 1149,
-  "processedWords": 275,
-  "lastUpdated": "2025-11-19T00:00:00Z",
+  "processedWords": 550,
+  "lastUpdated": "2025-11-20T00:00:00Z",
   "status": "in_progress",
   "notes": [
     "lastProcessedIndex: Index of the last word that was successfully processed and added to a2-vocabulary-complete.json (0-based, -1 means not started)",

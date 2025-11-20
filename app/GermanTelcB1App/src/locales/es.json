@@ -869,21 +869,28 @@
     "longestStreak": "Más larga: {{count}} días",
     "weeklyActivity": "Actividad Semanal",
     "totalActivities": "actividades totales",
-    "perfectWeek": "¡Estás a mitad de camino de tu semana perfecta y día sin anuncios!",
+    "perfectWeek": "¡Estás a mitad de camino de tu semana perfecta!",
     "perfectWeekComplete": "¡Semana perfecta! ¡Has completado los 7 días!",
     "greatStart": "¡Gran comienzo! ¡Sigue construyendo tu racha!",
     "keepGoing": "¡Sigue así! ¡Lo estás haciendo genial!",
     "days": "días",
+    "rewardProgress": "Progreso de Recompensa de Racha",
+    "rewardProgressMessage": "¡Completa {{days}} día(s) más para ganar {{rewardDays}} día(s) sin anuncios!",
+    "rewardTitle": "Recompensa Exclusiva",
+    "rewardDescription": "¡Completa días consecutivos de estudio para desbloquear experiencia sin anuncios! Cada 7 días = 1 día sin anuncios.",
+    "progress": "Progreso",
+    "almostThere": "¡Solo {{days}} día(s) más! ¡Casi lo logras!",
+    "keepComingBack": "¡Sigue regresando cada día para desbloquear tu recompensa!",
     "reward": {
-      "title": "¡Racha de 7 Días Alcanzada!",
-      "description": "Disfruta 24 horas de experiencia sin anuncios",
+      "title": "¡Racha de {{days}} Días Alcanzada!",
+      "description": "Disfruta {{days}} día(s) de experiencia sin anuncios",
       "claim": "Reclamar Recompensa",
-      "activated": "¡24h Sin Anuncios Activado!",
-      "enjoyAdFree": "¡Disfruta tu experiencia sin anuncios!",
+      "activated": "¡{{days}} Días Sin Anuncios Activado!",
+      "enjoyAdFree": "¡Disfruta tu experiencia de {{days}} días sin anuncios!",
       "expires": "Expira en {{time}}",
       "streakResetNote": "Nota: Tu contador de racha se reiniciará después de reclamar para que puedas ganar otra recompensa.",
-      "adFreeTitle": "Experiencia de 24 Horas Sin Anuncios",
-      "rewardHint": "¡{{days}} día(s) más hasta que ganes un día sin anuncios!"
+      "adFreeTitle": "Experiencia de {{days}} Días Sin Anuncios",
+      "rewardHint": "¡{{days}} día(s) más hasta que ganes {{rewardDays}} día(s) sin anuncios!"
     }
   }
 }

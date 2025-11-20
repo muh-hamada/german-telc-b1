@@ -869,21 +869,28 @@
     "longestStreak": "Plus longue: {{count}} jours",
     "weeklyActivity": "Activité Hebdomadaire",
     "totalActivities": "activités totales",
-    "perfectWeek": "Vous êtes à mi-chemin de votre semaine parfaite et jour sans publicité!",
+    "perfectWeek": "Vous êtes à mi-chemin de votre semaine parfaite!",
     "perfectWeekComplete": "Semaine parfaite! Vous avez complété tous les 7 jours!",
     "greatStart": "Excellent début! Continuez à construire votre série!",
     "keepGoing": "Continuez! Vous vous débrouillez très bien!",
     "days": "jours",
+    "rewardProgress": "Progrès de Récompense de Série",
+    "rewardProgressMessage": "Complétez {{days}} jour(s) de plus pour gagner {{rewardDays}} jour(s) sans publicité!",
+    "rewardTitle": "Récompense Exclusive",
+    "rewardDescription": "Complétez des jours consécutifs d'étude pour débloquer une expérience sans publicité! Chaque 7 jours = 1 jour sans publicité.",
+    "progress": "Progrès",
+    "almostThere": "Seulement {{days}} jour(s) de plus! Vous y êtes presque!",
+    "keepComingBack": "Revenez chaque jour pour débloquer votre récompense!",
     "reward": {
-      "title": "Série de 7 Jours Atteinte!",
-      "description": "Profitez de 24 heures d'expérience sans publicité",
+      "title": "Série de {{days}} Jours Atteinte!",
+      "description": "Profitez de {{days}} jour(s) d'expérience sans publicité",
       "claim": "Réclamer la Récompense",
-      "activated": "24h Sans Publicité Activé!",
-      "enjoyAdFree": "Profitez de votre expérience sans publicité!",
+      "activated": "{{days}} Jours Sans Publicité Activé!",
+      "enjoyAdFree": "Profitez de votre expérience de {{days}} jour(s) sans publicité!",
       "expires": "Expire dans {{time}}",
       "streakResetNote": "Note: Votre compteur de série se réinitialisera après réclamation pour vous permettre de gagner une autre récompense.",
-      "adFreeTitle": "Expérience de 24 Heures Sans Publicité",
-      "rewardHint": "Encore {{days}} jour(s) avant de gagner un jour sans publicité!"
+      "adFreeTitle": "Expérience de {{days}} Jour(s) Sans Publicité",
+      "rewardHint": "Encore {{days}} jour(s) avant de gagner {{rewardDays}} jour(s) sans publicité!"
     }
   }
 }

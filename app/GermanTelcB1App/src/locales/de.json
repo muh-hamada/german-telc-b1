@@ -965,28 +965,28 @@
     "longestStreak": "Längste: {{count}} Tage",
     "weeklyActivity": "Wöchentliche Aktivität",
     "totalActivities": "Aktivitäten gesamt",
-    "perfectWeek": "Du bist auf halbem Weg zu deiner perfekten Woche und werbefreien Tag!",
+    "perfectWeek": "Du bist auf halbem Weg zu deiner perfekten Woche!",
     "perfectWeekComplete": "Perfekte Woche! Du hast alle 7 Tage abgeschlossen!",
     "greatStart": "Großartiger Start! Baue deinen Streak weiter auf!",
     "keepGoing": "Weiter so! Du machst das großartig!",
     "days": "Tage",
-    "rewardProgress": "7-Tage-Streak-Belohnung",
-    "rewardProgressMessage": "Schließe noch {{days}} Tag(e) ab, um 24 Stunden werbefrei zu erhalten!",
+    "rewardProgress": "Streak-Belohnungsfortschritt",
+    "rewardProgressMessage": "Schließe noch {{days}} Tag(e) ab, um {{rewardDays}} Tag(e) werbefrei zu erhalten!",
     "rewardTitle": "Exklusive Belohnung",
-    "rewardDescription": "Schließe 7 aufeinanderfolgende Lerntage ab, um 24 Stunden werbefreies Erlebnis freizuschalten!",
+    "rewardDescription": "Schließe aufeinanderfolgende Lerntage ab, um werbefreies Erlebnis freizuschalten! Alle 7 Tage = 1 Tag werbefrei.",
     "progress": "Fortschritt",
     "almostThere": "Nur noch {{days}} Tag(e)! Du bist fast da!",
     "keepComingBack": "Komm jeden Tag zurück, um deine Belohnung freizuschalten!",
     "reward": {
-      "title": "7-Tage-Streak erreicht!",
-      "description": "Genieße 24 Stunden werbefreie Erfahrung",
+      "title": "{{days}}-Tage Streak erreicht!",
+      "description": "Genieße {{days}} Tag(e) werbefreie Erfahrung",
       "claim": "Belohnung einlösen",
-      "activated": "24h werbefrei aktiviert!",
-      "enjoyAdFree": "Genieße deine werbefreie Erfahrung!",
+      "activated": "{{days}}-Tage werbefrei aktiviert!",
+      "enjoyAdFree": "Genieße deine {{days}}-tägige werbefreie Erfahrung!",
       "expires": "Läuft ab in {{time}}",
       "streakResetNote": "Hinweis: Dein Streak-Zähler wird nach dem Einlösen zurückgesetzt, damit du eine weitere Belohnung verdienen kannst.",
-      "adFreeTitle": "24-Stunden werbefreies Erlebnis",
-      "rewardHint": "Noch {{days}} Tag(e) bis du einen werbefreien Tag verdienst!"
+      "adFreeTitle": "{{days}}-Tage werbefreies Erlebnis",
+      "rewardHint": "Noch {{days}} Tag(e) bis du {{rewardDays}} Tag(e) werbefrei verdienst!"
     }
   }
 }

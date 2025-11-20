@@ -7,7 +7,12 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
-import { STREAK_REWARD_THRESHOLD } from '../constants/streak.constants';
+import { 
+  STREAK_REWARD_THRESHOLD,
+  calculateDaysUntilNextReward,
+  calculateNextRewardDays,
+  calculateRewardDays
+} from '../constants/streak.constants';
 
 interface RewardProgressIndicatorProps {
   currentStreak: number;
@@ -20,9 +25,16 @@ const RewardProgressIndicator: React.FC<RewardProgressIndicatorProps> = ({
 }) => {
   const { t } = useCustomTranslation();
 
-  if (currentStreak >= STREAK_REWARD_THRESHOLD) {
-    return null;
-  }
+  // Calculate progress to next reward milestone
+  const daysUntilNextReward = calculateDaysUntilNextReward(currentStreak);
+  const nextRewardDays = calculateNextRewardDays(currentStreak);
+  const currentRewardLevel = calculateRewardDays(currentStreak);
+  
+  // Calculate progress within current milestone period
+  const currentMilestoneStart = currentRewardLevel * STREAK_REWARD_THRESHOLD;
+  const nextMilestoneTarget = (currentRewardLevel + 1) * STREAK_REWARD_THRESHOLD;
+  const progressInCurrentPeriod = currentStreak - currentMilestoneStart;
+  const progressPercentage = (progressInCurrentPeriod / STREAK_REWARD_THRESHOLD) * 100;
 
   return (
     <View style={styles.rewardProgressContainer}>
@@ -31,7 +43,7 @@ const RewardProgressIndicator: React.FC<RewardProgressIndicatorProps> = ({
           🎁 {t('streaks.rewardProgress')}
         </Text>
         <Text style={styles.rewardProgressDays}>
-          {currentStreak}/{STREAK_REWARD_THRESHOLD} {t('streaks.days')}
+          {currentStreak}/{nextMilestoneTarget} {t('streaks.days')}
         </Text>
       </View>
       
@@ -40,14 +52,15 @@ const RewardProgressIndicator: React.FC<RewardProgressIndicatorProps> = ({
         <View 
           style={[
             styles.progressBarFill, 
-            { width: `${(currentStreak / STREAK_REWARD_THRESHOLD) * 100}%` }
+            { width: `${progressPercentage}%` }
           ]} 
         />
       </View>
       
       <Text style={styles.rewardProgressMessage}>
         {t('streaks.rewardProgressMessage', { 
-          days: STREAK_REWARD_THRESHOLD - currentStreak 
+          days: daysUntilNextReward,
+          rewardDays: nextRewardDays
         })}
       </Text>
     </View>

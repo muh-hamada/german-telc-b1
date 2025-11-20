@@ -1,7 +1,11 @@
 import firestore from '@react-native-firebase/firestore';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from './analytics.events';
-import { STREAK_REWARD_THRESHOLD, AD_FREE_DURATION_HOURS } from '../constants/streak.constants';
+import { 
+  STREAK_REWARD_THRESHOLD, 
+  AD_FREE_DURATION_HOURS,
+  calculateRewardDays
+} from '../constants/streak.constants';
 
 // Type Definitions
 export interface DailyActivity {
@@ -268,13 +272,19 @@ class FirebaseStreaksService {
 
         streakData.lastActivityDate = today;
 
-        // Check if user earned the reward
-        if (streakData.currentStreak >= STREAK_REWARD_THRESHOLD && !streakData.adFreeReward.earned) {
+        // Check if user reached a new reward milestone
+        // Reward is earned at every 7-day multiple (7, 14, 21, etc.)
+        const currentRewardLevel = calculateRewardDays(streakData.currentStreak);
+        const previousRewardLevel = calculateRewardDays(streakData.currentStreak - 1);
+        
+        if (currentRewardLevel > previousRewardLevel && currentRewardLevel > 0) {
+          // User just reached a new milestone!
           streakData.adFreeReward.earned = true;
           streakData.adFreeReward.earnedAt = Date.now();
-          console.log(`[StreaksService] User earned ${STREAK_REWARD_THRESHOLD}-day reward!`);
+          console.log(`[StreaksService] User earned ${currentRewardLevel}-day reward at ${streakData.currentStreak} day streak!`);
           logEvent(AnalyticsEvents.STREAK_REWARD_EARNED, {
             streak: streakData.currentStreak,
+            rewardDays: currentRewardLevel,
           });
         }
 
@@ -363,13 +373,15 @@ class FirebaseStreaksService {
 
       // Claim the reward
       const now = Date.now();
-      const expiresAt = now + (AD_FREE_DURATION_HOURS * 60 * 60 * 1000);
+      const rewardDays = calculateRewardDays(streakData.currentStreak);
+      const rewardHours = rewardDays * AD_FREE_DURATION_HOURS;
+      const expiresAt = now + (rewardHours * 60 * 60 * 1000);
 
       streakData.adFreeReward.claimed = true;
       streakData.adFreeReward.expiresAt = expiresAt;
 
-      // Reset streak after claiming
-      streakData.currentStreak = 0;
+      // DON'T reset streak - keep counting to allow continuous progress
+      // Just mark the current reward as claimed so they can earn the next milestone
       streakData.adFreeReward.earned = false;
       streakData.adFreeReward.earnedAt = null;
 
@@ -377,10 +389,14 @@ class FirebaseStreaksService {
 
       logEvent(AnalyticsEvents.STREAK_REWARD_CLAIMED, {
         expires_at: expiresAt,
+        reward_days: rewardDays,
+        reward_hours: rewardHours,
+        current_streak: streakData.currentStreak, // Log the streak they're continuing
       });
 
       logEvent(AnalyticsEvents.AD_FREE_ACTIVATED, {
-        duration_hours: AD_FREE_DURATION_HOURS,
+        duration_hours: rewardHours,
+        duration_days: rewardDays,
       });
 
       console.log('[StreaksService] Reward claimed successfully');

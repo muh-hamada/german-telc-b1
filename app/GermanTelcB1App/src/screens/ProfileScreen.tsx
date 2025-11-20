@@ -21,6 +21,7 @@ import Button from '../components/Button';
 import LoginModal from '../components/LoginModal';
 import DailyStreaksCard from '../components/DailyStreaksCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
+import ProfileStatsGrid from '../components/ProfileStatsGrid';
 import { useAuth } from '../contexts/AuthContext';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useCompletion } from '../contexts/CompletionContext';
@@ -30,6 +31,7 @@ import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
 import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
+import { calculateRewardDays } from '../constants/streak.constants';
 
 // Helper function to format time remaining
 const formatTimeRemaining = (expiresAt: number | null): string => {
@@ -57,13 +59,16 @@ const ProfileScreen: React.FC = () => {
   const { user, signOut, isLoading: authLoading } = useAuth();
   const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
-  const { adFreeStatus } = useStreak();
+  const { adFreeStatus, streakData } = useStreak();
   const { isStreaksEnabledForUser } = useRemoteConfig();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_STATS : stats;
   const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
+  
+  // Calculate ad-free reward days
+  const adFreeRewardDays = streakData ? calculateRewardDays(streakData.currentStreak) : 1;
 
   const handleRateApp = async () => {
     openAppRating('profile_screen');
@@ -180,60 +185,27 @@ const ProfileScreen: React.FC = () => {
               </View>
             )}
             <View style={styles.userDetails}>
-              <Text style={styles.userName}>{user.displayName || t('common.user')}</Text>
-              <Text style={styles.userEmail}>{user.email}</Text>
+              <Text style={styles.userName} numberOfLines={1} ellipsizeMode="tail">
+                {user.displayName || t('common.user')}
+              </Text>
+              <Text style={styles.userEmail} numberOfLines={1} ellipsizeMode="tail">
+                {user.email}
+              </Text>
             </View>
           </View>
         )}
 
         {/* Stats Grid */}
-        <View style={styles.statsGrid}>
-          {/* Exams Completed */}
-          <View style={styles.statCard}>
-            <View style={[styles.statIconContainer, { backgroundColor: colors.warning[100] }]}>
-              <Icon name="star" size={20} color={colors.warning[600]} />
-            </View>
-            <Text style={styles.statValue}>{user ? displayStats.completedExams : 0}</Text>
-            <Text style={styles.statLabel}>{t('profile.stats.examsCompleted')}</Text>
-          </View>
+        <ProfileStatsGrid />
 
-          {/* Average Score */}
-          <View style={styles.statCard}>
-            <View style={[styles.statIconContainer, { backgroundColor: colors.success[100] }]}>
-              <Icon name="trophy" size={20} color={colors.success[600]} />
-            </View>
-            <Text style={styles.statValue}>{user ? displayStats.averageScore : 0}%</Text>
-            <Text style={styles.statLabel}>{t('profile.stats.averageScore')}</Text>
-          </View>
-
-          {/* Total Score */}
-          <View style={styles.statCard}>
-            <View style={[styles.statIconContainer, { backgroundColor: colors.primary[100] }]}>
-              <Icon name="file-text" size={20} color={colors.primary[600]} />
-            </View>
-            <Text style={styles.statValue}>{user ? displayStats.totalScore : 0}</Text>
-            <Text style={styles.statLabel}>{t('profile.stats.totalScore')}</Text>
-          </View>
-
-          {/* Completion Rate */}
-          <View style={styles.statCard}>
-            <View style={[styles.statIconContainer, { backgroundColor: colors.secondary[100] }]}>
-              <Icon name="bolt" size={20} color={colors.secondary[600]} />
-            </View>
-            <Text style={styles.statValue}>{user ? displayStats.completionRate : 0}%</Text>
-            <Text style={styles.statLabel}>{t('profile.stats.completionRate')}</Text>
-          </View>
-        </View>
-
-        {/* Daily Streaks Card */}
-        {isStreaksEnabledForUser(user?.uid) && user && <DailyStreaksCard />}
-        
-        {/* Ad-Free Badge */}
+        {/* Ad-Free Badge - ABOVE Streaks Card */}
         {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
           <View style={styles.adFreeBadge}>
             <Text style={styles.adFreeIcon}>🎉</Text>
             <View style={styles.adFreeContent}>
-              <Text style={styles.adFreeTitle}>{t('streaks.reward.activated')}</Text>
+              <Text style={styles.adFreeTitle}>
+                {t('streaks.reward.activated', { days: adFreeRewardDays })}
+              </Text>
               <Text style={styles.adFreeExpiry}>
                 {t('streaks.reward.expires', { 
                   time: formatTimeRemaining(adFreeStatus.expiresAt) 
@@ -242,6 +214,9 @@ const ProfileScreen: React.FC = () => {
             </View>
           </View>
         )}
+
+        {/* Daily Streaks Card */}
+        {isStreaksEnabledForUser(user?.uid) && user && <DailyStreaksCard />}
 
         {/* Completion Statistics Section */}
         <View style={styles.section}>
@@ -396,13 +371,13 @@ const styles = StyleSheet.create({
   },
   userDetails: {
     flex: 1,
+    flexShrink: 1,
     justifyContent: 'center',
   },
   userName: {
     ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
-    lineHeight: 22,
   },
   userEmail: {
     ...typography.textStyles.bodySmall,
@@ -410,39 +385,6 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: spacing.margin.sm,
-  },
-  statsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: spacing.margin.lg,
-    gap: spacing.md,
-  },
-  statCard: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    alignItems: 'center',
-    width: '47%',
-    ...spacing.shadow.sm,
-  },
-  statIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: spacing.borderRadius.lg,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  statValue: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.xs,
-  },
-  statLabel: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
   },
   actionsSection: {
     marginTop: spacing.margin.lg,
