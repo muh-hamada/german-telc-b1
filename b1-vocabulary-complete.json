@@ -1,0 +1,3332 @@
+[
+  {
+    "word": "abschreiben",
+    "article": "",
+    "translations": {
+      "en": "to copy",
+      "es": "copiar",
+      "fr": "copier",
+      "ru": "списывать",
+      "ar": "يكتب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat die Hausaufgaben von mir abgeschrieben.",
+        "translations": {
+          "en": "He copied the homework from me.",
+          "es": "Él copió la tarea de mí.",
+          "fr": "Il a copié les devoirs de moi.",
+          "ru": "Он списал домашнее задание у меня.",
+          "ar": "لقد كتب الواجب المنزلي مني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abitur",
+    "article": "das",
+    "translations": {
+      "en": "high school diploma",
+      "es": "diploma de bachillerato",
+      "fr": "baccalauréat",
+      "ru": "аттестат зрелости",
+      "ar": "شهادة الثانوية العامة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Tochter hat gerade Abitur gemacht.",
+        "translations": {
+          "en": "My daughter just graduated from high school.",
+          "es": "Mi hija acaba de graduarse del bachillerato.",
+          "fr": "Ma fille vient d'obtenir son baccalauréat.",
+          "ru": "Моя дочь только что получила аттестат зрелости.",
+          "ar": "ابنتي تخرجت للتو من الثانوية العامة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ablehnen",
+    "article": "",
+    "translations": {
+      "en": "to reject",
+      "es": "rechazar",
+      "fr": "rejeter",
+      "ru": "отклонять",
+      "ar": "رفض"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat mein Angebot, ihm zu helfen, abgelehnt.",
+        "translations": {
+          "en": "He rejected my offer to help him.",
+          "es": "Él rechazó mi oferta de ayudarlo.",
+          "fr": "Il a rejeté mon offre de l'aider.",
+          "ru": "Он отклонил мое предложение помочь ему.",
+          "ar": "لقد رفض عرضي لمساعدته."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abmachen",
+    "article": "",
+    "translations": {
+      "en": "to agree",
+      "es": "acordar",
+      "fr": "convenir",
+      "ru": "договориться",
+      "ar": "اتفق"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir hatten doch abgemacht, dass du die Getränke besorgst.",
+        "translations": {
+          "en": "But we agreed that you would get the drinks.",
+          "es": "Pero acordamos que tú conseguirías las bebidas.",
+          "fr": "Mais nous avions convenu que tu t'occupais des boissons.",
+          "ru": "Но мы же договорились, что ты принесешь напитки.",
+          "ar": "لكننا اتفقنا على أن تتولى أنت جلب المشروبات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abnehmen",
+    "article": "",
+    "translations": {
+      "en": "to lose weight",
+      "es": "perder peso",
+      "fr": "perdre du poids",
+      "ru": "похудеть",
+      "ar": "فقدان الوزن"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Morgen können wir den Verband abnehmen.",
+        "translations": {
+          "en": "Tomorrow we can take off the bandage.",
+          "es": "Mañana podemos quitar el vendaje.",
+          "fr": "Demain, nous pouvons enlever le bandage.",
+          "ru": "Завтра мы можем снять повязку.",
+          "ar": "غدًا يمكننا إزالة الضمادة."
+        }
+      },
+      {
+        "text": "Ich habe zehn Kilo abgenommen.",
+        "translations": {
+          "en": "I have lost ten kilos.",
+          "es": "He perdido diez kilos.",
+          "fr": "J'ai perdu dix kilos.",
+          "ru": "Я похудел на десять килограммов.",
+          "ar": "لقد فقدت عشرة كيلوغرامات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abonnieren",
+    "article": "",
+    "translations": {
+      "en": "subscribe",
+      "es": "suscribirse",
+      "fr": "s'abonner",
+      "ru": "подписаться",
+      "ar": "الاشتراك"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Diese Zeitschrift würde ich gerne abonnieren.",
+        "translations": {
+          "en": "I would like to subscribe to this magazine.",
+          "es": "Me gustaría suscribirme a esta revista.",
+          "fr": "J'aimerais m'abonner à ce magazine.",
+          "ru": "Я хотел бы подписаться на этот журнал.",
+          "ar": "أود الاشتراك في هذه المجلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abonnement",
+    "article": "das",
+    "translations": {
+      "en": "subscription",
+      "es": "suscripción",
+      "fr": "abonnement",
+      "ru": "подписка",
+      "ar": "اشتراك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe das Abonnement gekündigt.",
+        "translations": {
+          "en": "I canceled the subscription.",
+          "es": "He cancelado la suscripción.",
+          "fr": "J'ai annulé l'abonnement.",
+          "ru": "Я отменил подписку.",
+          "ar": "لقد ألغيت الاشتراك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "absagen",
+    "article": "",
+    "translations": {
+      "en": "to cancel",
+      "es": "cancelar",
+      "fr": "annuler",
+      "ru": "отменить",
+      "ar": "إلغاء"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss unser Treffen leider absagen, weil ich krank geworden bin.",
+        "translations": {
+          "en": "I unfortunately have to cancel our meeting because I have fallen ill.",
+          "es": "Lamentablemente, tengo que cancelar nuestra reunión porque me he enfermado.",
+          "fr": "Je dois malheureusement annuler notre réunion car je suis tombé malade.",
+          "ru": "К сожалению, мне нужно отменить нашу встречу, потому что я заболел.",
+          "ar": "يجب علي للأسف إلغاء اجتماعنا لأنني مرضت."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abschluss",
+    "article": "der",
+    "translations": {
+      "en": "degree",
+      "es": "título",
+      "fr": "diplôme",
+      "ru": "диплом",
+      "ar": "شهادة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein guter Schulabschluss ist sehr wichtig.",
+        "translations": {
+          "en": "A good school degree is very important.",
+          "es": "Un buen título escolar es muy importante.",
+          "fr": "Un bon diplôme scolaire est très important.",
+          "ru": "Хороший школьный диплом очень важен.",
+          "ar": "شهادة المدرسة الجيدة مهمة جداً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abschnitt",
+    "article": "der",
+    "translations": {
+      "en": "section",
+      "es": "sección",
+      "fr": "section",
+      "ru": "раздел",
+      "ar": "قسم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Lesen Sie bitte den zweiten Abschnitt.",
+        "translations": {
+          "en": "Please read the second section.",
+          "es": "Por favor, lea la segunda sección.",
+          "fr": "Veuillez lire la deuxième section.",
+          "ru": "Пожалуйста, прочитайте второй раздел.",
+          "ar": "يرجى قراءة القسم الثاني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Absender",
+    "article": "der",
+    "translations": {
+      "en": "sender",
+      "es": "remitente",
+      "fr": "expéditeur",
+      "ru": "отправитель",
+      "ar": "المرسل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schicken Sie das Paket an den Absender zurück.",
+        "translations": {
+          "en": "Return the package to the sender.",
+          "es": "Devuelva el paquete al remitente.",
+          "fr": "Renvoie le colis à l'expéditeur.",
+          "ru": "Верните посылку отправителю.",
+          "ar": "أعد الطرد إلى المرسل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Absicht",
+    "article": "die",
+    "translations": {
+      "en": "intention",
+      "es": "intención",
+      "fr": "intention",
+      "ru": "намерение",
+      "ar": "نية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Entschuldigen Sie bitte. Meine Tochter hat das nicht mit Absicht gemacht.",
+        "translations": {
+          "en": "Please excuse me. My daughter did not do that on purpose.",
+          "es": "Por favor, discúlpame. Mi hija no hizo eso a propósito.",
+          "fr": "Veuillez m'excuser. Ma fille n'a pas fait cela intentionnellement.",
+          "ru": "Пожалуйста, извините. Моя дочь не сделала это намеренно.",
+          "ar": "أرجو المعذرة. ابنتي لم تفعل ذلك عن قصد."
+        }
+      },
+      {
+        "text": "Hast du die Absicht zu studieren?",
+        "translations": {
+          "en": "Do you intend to study?",
+          "es": "¿Tienes la intención de estudiar?",
+          "fr": "As-tu l'intention d'étudier ?",
+          "ru": "Ты собираешься учиться?",
+          "ar": "هل لديك نية للدراسة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "absolut",
+    "article": "",
+    "translations": {
+      "en": "absolute",
+      "es": "absoluto",
+      "fr": "absolu",
+      "ru": "абсолютный",
+      "ar": "مطلق"
+    },
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Was Sie da sagen, ist absolut falsch.",
+        "translations": {
+          "en": "What you are saying is absolutely wrong.",
+          "es": "Lo que dices es absolutamente incorrecto.",
+          "fr": "Ce que vous dites est absolument faux.",
+          "ru": "То, что вы говорите, абсолютно неверно.",
+          "ar": "ما تقوله خاطئ تمامًا."
+        }
+      },
+      {
+        "text": "Ich habe absolutes Vertrauen zu dir.",
+        "translations": {
+          "en": "I have absolute trust in you.",
+          "es": "Tengo una confianza absoluta en ti.",
+          "fr": "J'ai une confiance absolue en toi.",
+          "ru": "Я абсолютно доверяю тебе.",
+          "ar": "لدي ثقة مطلقة بك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abstimmen",
+    "article": "",
+    "translations": {
+      "en": "to vote",
+      "es": "votar",
+      "fr": "voter",
+      "ru": "голосовать",
+      "ar": "التصويت"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Lasst uns über diesen Punkt abstimmen.",
+        "translations": {
+          "en": "Let's vote on this point.",
+          "es": "Votemos sobre este punto.",
+          "fr": "Votons sur ce point.",
+          "ru": "Давайте проголосуем по этому вопросу.",
+          "ar": "دعونا نصوت على هذه النقطة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abteilung",
+    "article": "die",
+    "translations": {
+      "en": "department",
+      "es": "departamento",
+      "fr": "département",
+      "ru": "отдел",
+      "ar": "قسم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Freundin arbeitet in der Abteilung von Frau Kaufmann.",
+        "translations": {
+          "en": "My friend works in Ms. Kaufmann's department.",
+          "es": "Mi amiga trabaja en el departamento de la Sra. Kaufmann.",
+          "fr": "Mon amie travaille dans le département de Mme Kaufmann.",
+          "ru": "Моя подруга работает в отделе госпожи Кауфман.",
+          "ar": "صديقتي تعمل في قسم السيدة كوفمان."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abwart",
+    "article": "der",
+    "translations": {
+      "en": "caretaker",
+      "es": "conserje",
+      "fr": "gardien",
+      "ru": "дворник",
+      "ar": "حارس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Abwart hat mir geholfen, den Schrank in die Wohnung zu tragen.",
+        "translations": {
+          "en": "The caretaker helped me carry the wardrobe into the apartment.",
+          "es": "El conserje me ayudó a llevar el armario al apartamento.",
+          "fr": "Le gardien m'a aidé à porter l'armoire dans l'appartement.",
+          "ru": "Дворник помог мне занести шкаф в квартиру.",
+          "ar": "ساعدني الحارس في حمل الخزانة إلى الشقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abwärts",
+    "article": "",
+    "translations": {
+      "en": "downward",
+      "es": "hacia abajo",
+      "fr": "vers le bas",
+      "ru": "вниз",
+      "ar": "إلى الأسفل"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Von dort führt der Weg abwärts ins Tal.",
+        "translations": {
+          "en": "From there, the path leads downward into the valley.",
+          "es": "Desde allí, el camino lleva hacia abajo al valle.",
+          "fr": "De là, le chemin descend vers la vallée.",
+          "ru": "Оттуда тропа ведет вниз в долину.",
+          "ar": "من هناك، يؤدي الطريق إلى الأسفل نحو الوادي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abwaschen",
+    "article": "",
+    "translations": {
+      "en": "to wash up",
+      "es": "lavar los platos",
+      "fr": "faire la vaisselle",
+      "ru": "мыть посуду",
+      "ar": "غسل الصحون"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss noch das Geschirr abwaschen.",
+        "translations": {
+          "en": "I still have to wash the dishes.",
+          "es": "Todavía tengo que lavar los platos.",
+          "fr": "Je dois encore faire la vaisselle.",
+          "ru": "Мне еще нужно помыть посуду.",
+          "ar": "ما زلت بحاجة إلى غسل الصحون."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abwesend",
+    "article": "",
+    "translations": {
+      "en": "absent",
+      "es": "ausente",
+      "fr": "absent",
+      "ru": "отсутствующий",
+      "ar": "غائب"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Herr Huber ist bis zum 25. April abwesend.",
+        "translations": {
+          "en": "Mr. Huber is absent until April 25th.",
+          "es": "El Sr. Huber está ausente hasta el 25 de abril.",
+          "fr": "M. Huber est absent jusqu'au 25 avril.",
+          "ru": "Господин Хубер отсутствует до 25 апреля.",
+          "ar": "السيد هوبر غائب حتى 25 أبريل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "achten",
+    "article": "",
+    "translations": {
+      "en": "to pay attention",
+      "es": "prestar atención",
+      "fr": "faire attention",
+      "ru": "обращать внимание",
+      "ar": "انتبه"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Achten Sie bitte darauf, dass Sie abschließen, wenn Sie gehen.",
+        "translations": {
+          "en": "Please pay attention to lock up when you leave.",
+          "es": "Por favor, preste atención a cerrar con llave cuando se vaya.",
+          "fr": "Veuillez faire attention à verrouiller en partant.",
+          "ru": "Пожалуйста, обратите внимание на то, чтобы закрыть дверь, когда вы уходите.",
+          "ar": "يرجى الانتباه لقفل الباب عند المغادرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ab",
+    "article": "",
+    "translations": {
+      "en": "from",
+      "es": "desde",
+      "fr": "à partir de",
+      "ru": "от",
+      "ar": "من"
+    },
+    "type": "preposition/adverb",
+    "exampleSentences": [
+      {
+        "text": "Die Fahrt kostet ab Hamburg 200 Euro.",
+        "translations": {
+          "en": "The trip costs 200 euros from Hamburg.",
+          "es": "El viaje cuesta 200 euros desde Hamburgo.",
+          "fr": "Le voyage coûte 200 euros à partir de Hambourg.",
+          "ru": "Поездка стоит 200 евро от Гамбурга.",
+          "ar": "تبلغ تكلفة الرحلة 200 يورو من هامبورغ."
+        }
+      },
+      {
+        "text": "Ab nächster Woche bleibt unser Geschäft samstags geschlossen.",
+        "translations": {
+          "en": "From next week, our store will be closed on Saturdays.",
+          "es": "A partir de la próxima semana, nuestra tienda estará cerrada los sábados.",
+          "fr": "À partir de la semaine prochaine, notre magasin sera fermé le samedi.",
+          "ru": "С следующей недели наш магазин будет закрыт по субботам.",
+          "ar": "ابتداءً من الأسبوع المقبل، سيكون متجرنا مغلقًا يوم السبت."
+        }
+      },
+      {
+        "text": "Mein Bruder besucht uns ab und zu.",
+        "translations": {
+          "en": "My brother visits us from time to time.",
+          "es": "Mi hermano nos visita de vez en cuando.",
+          "fr": "Mon frère nous rend visite de temps en temps.",
+          "ru": "Мой брат время от времени навещает нас.",
+          "ar": "يزورنا أخي بين الحين والآخر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abbiegen",
+    "article": "",
+    "translations": {
+      "en": "to turn",
+      "es": "girar",
+      "fr": "tourner",
+      "ru": "поворачивать",
+      "ar": "ينعطف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "An der nächsten Kreuzung müssen Sie links abbiegen.",
+        "translations": {
+          "en": "At the next intersection, you need to turn left.",
+          "es": "En la próxima intersección, debes girar a la izquierda.",
+          "fr": "Au prochain carrefour, vous devez tourner à gauche.",
+          "ru": "На следующем перекрестке вам нужно повернуть налево.",
+          "ar": "عند التقاطع التالي، يجب عليك الانعطاف يسارًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abbildung",
+    "article": "die",
+    "translations": {
+      "en": "illustration",
+      "es": "ilustración",
+      "fr": "illustration",
+      "ru": "иллюстрация",
+      "ar": "توضيح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf der Abbildung sehen Sie, wie man das Gerät einschaltet.",
+        "translations": {
+          "en": "In the illustration, you can see how to turn on the device.",
+          "es": "En la ilustración, puede ver cómo encender el dispositivo.",
+          "fr": "Dans l'illustration, vous pouvez voir comment allumer l'appareil.",
+          "ru": "На иллюстрации вы видите, как включить устройство.",
+          "ar": "في التوضيح، يمكنك أن ترى كيف يتم تشغيل الجهاز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abenteuer",
+    "article": "das",
+    "translations": {
+      "en": "adventure",
+      "es": "aventura",
+      "fr": "aventure",
+      "ru": "приключение",
+      "ar": "مغامرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unser Urlaub war ein tolles Abenteuer.",
+        "translations": {
+          "en": "Our vacation was a great adventure.",
+          "es": "Nuestras vacaciones fueron una gran aventura.",
+          "fr": "Nos vacances étaient une belle aventure.",
+          "ru": "Наш отпуск был отличным приключением.",
+          "ar": "كانت عطلتنا مغامرة رائعة."
+        }
+      },
+      {
+        "text": "Die Kinder lieben Abenteurgeschichten.",
+        "translations": {
+          "en": "The children love adventure stories.",
+          "es": "A los niños les encantan las historias de aventuras.",
+          "fr": "Les enfants adorent les histoires d'aventure.",
+          "ru": "Детям нравятся приключенческие истории.",
+          "ar": "يحب الأطفال قصص المغامرات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aber",
+    "article": "",
+    "translations": {
+      "en": "but",
+      "es": "pero",
+      "fr": "mais",
+      "ru": "но",
+      "ar": "لكن"
+    },
+    "type": "conjunction/adverb",
+    "exampleSentences": [
+      {
+        "text": "Heute kann ich nicht, aber morgen ganz bestimmt.",
+        "translations": {
+          "en": "I can't today, but definitely tomorrow.",
+          "es": "Hoy no puedo, pero mañana seguro.",
+          "fr": "Aujourd'hui, je ne peux pas, mais demain, c'est sûr.",
+          "ru": "Сегодня я не могу, но завтра точно.",
+          "ar": "لا أستطيع اليوم، لكن غدًا بالتأكيد."
+        }
+      },
+      {
+        "text": "Es lag sehr viel Schnee, aber Enzo ist trotzdem mit dem Motorrad gefahren.",
+        "translations": {
+          "en": "There was a lot of snow, but Enzo still rode his motorcycle.",
+          "es": "Había mucha nieve, pero Enzo aún así condujo su motocicleta.",
+          "fr": "Il y avait beaucoup de neige, mais Enzo a quand même pris sa moto.",
+          "ru": "Снега было очень много, но Энцо все равно поехал на мотоцикле.",
+          "ar": "كان هناك الكثير من الثلج، لكن إنزو قاد دراجته النارية على أي حال."
+        }
+      },
+      {
+        "text": "Wir haben nur eine kleine Wohnung, sind aber damit zufrieden.",
+        "translations": {
+          "en": "We only have a small apartment, but we are satisfied with it.",
+          "es": "Solo tenemos un apartamento pequeño, pero estamos satisfechos con él.",
+          "fr": "Nous n'avons qu'un petit appartement, mais nous en sommes satisfaits.",
+          "ru": "У нас только маленькая квартира, но мы довольны ею.",
+          "ar": "لدينا شقة صغيرة فقط، لكننا راضون عنها."
+        }
+      },
+      {
+        "text": "Es war sehr schön. Jetzt muss ich aber gehen.",
+        "translations": {
+          "en": "It was very nice. Now I have to go, though.",
+          "es": "Fue muy bonito. Ahora tengo que irme, sin embargo.",
+          "fr": "C'était très agréable. Maintenant, je dois y aller, cependant.",
+          "ru": "Это было очень приятно. Теперь я должен идти, однако.",
+          "ar": "كان جميلًا جدًا. الآن يجب أن أذهب، مع ذلك."
+        }
+      },
+      {
+        "text": "Ich würde gerne kommen, aber es geht leider nicht.",
+        "translations": {
+          "en": "I would love to come, but unfortunately, I can't.",
+          "es": "Me encantaría ir, pero lamentablemente no puedo.",
+          "fr": "J'aimerais venir, mais malheureusement, je ne peux pas.",
+          "ru": "Я бы с удовольствием пришел, но, к сожалению, не могу.",
+          "ar": "أود أن أتيت، لكن للأسف لا أستطيع."
+        }
+      },
+      {
+        "text": "Darf ich dich zu einem Kaffee einladen? – Aber ja, sehr gern.",
+        "translations": {
+          "en": "May I invite you for a coffee? – But yes, I'd love to.",
+          "es": "¿Puedo invitarte a un café? – Claro que sí, con mucho gusto.",
+          "fr": "Puis-je vous inviter à un café ? – Mais oui, avec plaisir.",
+          "ru": "Могу пригласить тебя на кофе? – Да, с удовольствием.",
+          "ar": "هل يمكنني دعوتك إلى قهوة؟ - بالتأكيد، بكل سرور."
+        }
+      },
+      {
+        "text": "Du spielst aber gut Klavier.",
+        "translations": {
+          "en": "But you play the piano well.",
+          "es": "Pero tocas el piano bien.",
+          "fr": "Mais tu joues bien du piano.",
+          "ru": "Но ты хорошо играешь на пианино.",
+          "ar": "لكن أنت تعزف البيانو جيدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abfahren",
+    "article": "",
+    "translations": {
+      "en": "depart",
+      "es": "salir",
+      "fr": "partir",
+      "ru": "отправляться",
+      "ar": "يغادر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Unser Zug ist pünktlich abgefahren.",
+        "translations": {
+          "en": "Our train has departed on time.",
+          "es": "Nuestro tren ha salido puntualmente.",
+          "fr": "Notre train est parti à l'heure.",
+          "ru": "Наш поезд отправился вовремя.",
+          "ar": "قطارنا غادر في الوقت المحدد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abfahrt",
+    "article": "die",
+    "translations": {
+      "en": "departure",
+      "es": "salida",
+      "fr": "départ",
+      "ru": "отправление",
+      "ar": "مغادرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es bleiben uns noch zwanzig Minuten bis zur Abfahrt.",
+        "translations": {
+          "en": "We have twenty minutes left until departure.",
+          "es": "Nos quedan veinte minutos hasta la salida.",
+          "fr": "Il nous reste vingt minutes avant le départ.",
+          "ru": "У нас осталось двадцать минут до отправления.",
+          "ar": "يتبقى لنا عشرون دقيقة حتى المغادرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abfall",
+    "article": "der",
+    "translations": {
+      "en": "waste",
+      "es": "desperdicio",
+      "fr": "déchet",
+      "ru": "отходы",
+      "ar": "نفايات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Werfen Sie den Bioabfall bitte nicht zum normalen Müll.",
+        "translations": {
+          "en": "Please do not throw the organic waste in with the regular trash.",
+          "es": "Por favor, no tire los residuos orgánicos con la basura normal.",
+          "fr": "Veuillez ne pas jeter les déchets organiques avec les ordures normales.",
+          "ru": "Пожалуйста, не выбрасывайте органические отходы вместе с обычным мусором.",
+          "ar": "يرجى عدم رمي النفايات العضوية مع القمامة العادية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abfalleimer",
+    "article": "der",
+    "translations": {
+      "en": "trash can",
+      "es": "papelera",
+      "fr": "poubelle",
+      "ru": "musорное ведро",
+      "ar": "سلة المهملات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wirf das bitte in den Abfalleimer!",
+        "translations": {
+          "en": "Please throw that in the trash can!",
+          "es": "¡Por favor, tira eso en la papelera!",
+          "fr": "Veuillez jeter cela dans la poubelle !",
+          "ru": "Пожалуйста, выбрось это в мусорное ведро!",
+          "ar": "يرجى رمي ذلك في سلة المهملات!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Abgase",
+    "article": "Pl.",
+    "translations": {
+      "en": "exhaust gases",
+      "es": "gases de escape",
+      "fr": "gaz d'échappement",
+      "ru": "выхлопные газы",
+      "ar": "غازات العادم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Abgase aus Industrie und Haushalten verschmutzen die Luft.",
+        "translations": {
+          "en": "Exhaust gases from industry and households pollute the air.",
+          "es": "Los gases de escape de la industria y los hogares contaminan el aire.",
+          "fr": "Les gaz d'échappement des industries et des ménages polluent l'air.",
+          "ru": "Выхлопные газы из промышленности и домохозяйств загрязняют воздух.",
+          "ar": "غازات العادم من الصناعة والمنازل تلوث الهواء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abgeben",
+    "article": "",
+    "translations": {
+      "en": "to deliver",
+      "es": "entregar",
+      "fr": "remettre",
+      "ru": "сдать",
+      "ar": "تسليم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich soll dieses Päckchen bei Herrn Müller abgeben.",
+        "translations": {
+          "en": "I am supposed to deliver this package to Mr. Müller.",
+          "es": "Se supone que debo entregar este paquete al Sr. Müller.",
+          "fr": "Je suis censé remettre ce colis à M. Müller.",
+          "ru": "Я должен сдать этот пакет господину Мюллеру.",
+          "ar": "يجب أن أسلم هذه الطرد للسيد مولر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abhängen",
+    "article": "",
+    "translations": {
+      "en": "depend",
+      "es": "depender",
+      "fr": "dépendre",
+      "ru": "зависеть",
+      "ar": "يعتمد"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Vielleicht bleiben wir ein paar Tage länger, das hängt vom Wetter ab.",
+        "translations": {
+          "en": "Maybe we'll stay a few days longer, it depends on the weather.",
+          "es": "Quizás nos quedemos unos días más, depende del clima.",
+          "fr": "Peut-être que nous resterons quelques jours de plus, cela dépendra du temps.",
+          "ru": "Может быть, мы останемся на несколько дней дольше, это зависит от погоды.",
+          "ar": "ربما نبقى بضعة أيام إضافية، هذا يعتمد على الطقس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abhängig",
+    "article": "",
+    "translations": {
+      "en": "dependent",
+      "es": "dependiente",
+      "fr": "dépendant",
+      "ru": "зависимый",
+      "ar": "معتمد"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Gregor ist finanziell von seinen Eltern abhängig.",
+        "translations": {
+          "en": "Gregor is financially dependent on his parents.",
+          "es": "Gregor es financieramente dependiente de sus padres.",
+          "fr": "Gregor est financièrement dépendant de ses parents.",
+          "ru": "Грегор финансово зависит от своих родителей.",
+          "ar": "غريغور معتمد مالياً على والديه."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abheben",
+    "article": "",
+    "translations": {
+      "en": "withdraw",
+      "es": "retirar",
+      "fr": "retirer",
+      "ru": "снимать",
+      "ar": "سحب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Für die Reise habe ich 500 Euro von meinem Konto abgehoben.",
+        "translations": {
+          "en": "I withdrew 500 euros from my account for the trip.",
+          "es": "Retiré 500 euros de mi cuenta para el viaje.",
+          "fr": "J'ai retiré 500 euros de mon compte pour le voyage.",
+          "ru": "Я снял 500 евро со своего счета для поездки.",
+          "ar": "سحبت 500 يورو من حسابي للرحلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abholen",
+    "article": "",
+    "translations": {
+      "en": "pick up",
+      "es": "recoger",
+      "fr": "aller chercher",
+      "ru": "забрать",
+      "ar": "استلام"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Meine Freundin hat mich vom Bahnhof abgeholt.",
+        "translations": {
+          "en": "My friend picked me up from the train station.",
+          "es": "Mi amiga me recogió de la estación de tren.",
+          "fr": "Mon amie est venue me chercher à la gare.",
+          "ru": "Моя подруга забрала меня с вокзала.",
+          "ar": "صديقتي استلمتني من محطة القطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Achtung!",
+    "article": "",
+    "translations": {
+      "en": "Attention!",
+      "es": "¡Atención!",
+      "fr": "Attention!",
+      "ru": "Внимание!",
+      "ar": "انتباه!"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Achtung, hier endet die Straße!",
+        "translations": {
+          "en": "Attention, the road ends here!",
+          "es": "¡Atención, aquí termina la carretera!",
+          "fr": "Attention, la route se termine ici !",
+          "ru": "Внимание, дорога заканчивается здесь!",
+          "ar": "انتباه، الطريق ينتهي هنا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Adresse",
+    "article": "die",
+    "translations": {
+      "en": "address",
+      "es": "dirección",
+      "fr": "adresse",
+      "ru": "адрес",
+      "ar": "عنوان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du schon meine neue Adresse?",
+        "translations": {
+          "en": "Have you already got my new address?",
+          "es": "¿Ya tienes mi nueva dirección?",
+          "fr": "As-tu déjà mon nouvelle adresse?",
+          "ru": "Ты уже получил мой новый адрес?",
+          "ar": "هل حصلت على عنواني الجديد بالفعل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "ähnlich",
+    "article": "",
+    "translations": {
+      "en": "similar",
+      "es": "similar",
+      "fr": "semblable",
+      "ru": "похожий",
+      "ar": "مشابه"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Emilia ist in einer ganz ähnlichen Situation wie ich.",
+        "translations": {
+          "en": "Emilia is in a very similar situation to mine.",
+          "es": "Emilia está en una situación muy similar a la mía.",
+          "fr": "Emilia est dans une situation très semblable à la mienne.",
+          "ru": "Эмилия находится в очень похожей ситуации, как и я.",
+          "ar": "إميليا في وضع مشابه جدًا لوضعي."
+        }
+      },
+      {
+        "text": "Oleg sieht seinem Bruder sehr ähnlich.",
+        "translations": {
+          "en": "Oleg looks very similar to his brother.",
+          "es": "Oleg se parece mucho a su hermano.",
+          "fr": "Oleg ressemble beaucoup à son frère.",
+          "ru": "Олег очень похож на своего брата.",
+          "ar": "أوليغ يشبه أخاه كثيرًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ahnung",
+    "article": "die",
+    "translations": {
+      "en": "idea",
+      "es": "idea",
+      "fr": "idée",
+      "ru": "представление",
+      "ar": "فكرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich hatte keine Ahnung, dass du heute Geburtstag hast.",
+        "translations": {
+          "en": "I had no idea that you have a birthday today.",
+          "es": "No tenía idea de que hoy es tu cumpleaños.",
+          "fr": "Je n'avais aucune idée que tu avais ton anniversaire aujourd'hui.",
+          "ru": "Я не имел представления, что у тебя сегодня день рождения.",
+          "ar": "لم يكن لدي أي فكرة أنك تحتفل بعيد ميلادك اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aktion",
+    "article": "die",
+    "translations": {
+      "en": "action",
+      "es": "acción",
+      "fr": "action",
+      "ru": "акция",
+      "ar": "عمل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Stadt sollte eine Aktion für Familien planen.",
+        "translations": {
+          "en": "The city should plan an action for families.",
+          "es": "La ciudad debería planear una acción para las familias.",
+          "fr": "La ville devrait planifier une action pour les familles.",
+          "ru": "Городу следует организовать акцию для семей.",
+          "ar": "يجب على المدينة التخطيط لعمل للعائلات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aktiv",
+    "article": "",
+    "translations": {
+      "en": "active",
+      "es": "activo",
+      "fr": "actif",
+      "ru": "активный",
+      "ar": "نشيط"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin sehr aktiv und mache viel Sport.",
+        "translations": {
+          "en": "I am very active and do a lot of sports.",
+          "es": "Soy muy activo y hago mucho deporte.",
+          "fr": "Je suis très actif et je fais beaucoup de sport.",
+          "ru": "Я очень активен и занимаюсь спортом.",
+          "ar": "أنا نشيط جدًا وأمارس الكثير من الرياضة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aktivität",
+    "article": "die",
+    "translations": {
+      "en": "activity",
+      "es": "actividad",
+      "fr": "activité",
+      "ru": "активность",
+      "ar": "نشاط"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In den Ferien bietet die Stadt für Kinder verschiedene Freizeitaktiv-itäten.",
+        "translations": {
+          "en": "During the holidays, the city offers various recreational activities for children.",
+          "es": "Durante las vacaciones, la ciudad ofrece diversas actividades recreativas para niños.",
+          "fr": "Pendant les vacances, la ville propose diverses activités de loisirs pour les enfants.",
+          "ru": "Во время каникул город предлагает детям различные развлекательные активности.",
+          "ar": "خلال العطلات، تقدم المدينة للأطفال أنشطة ترفيهية متنوعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aktuell",
+    "article": "",
+    "translations": {
+      "en": "current",
+      "es": "actual",
+      "fr": "actuel",
+      "ru": "актуальный",
+      "ar": "حديث"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Umweltschutz ist ein aktuelles Thema.",
+        "translations": {
+          "en": "Environmental protection is a current topic.",
+          "es": "La protección del medio ambiente es un tema actual.",
+          "fr": "La protection de l'environnement est un sujet actuel.",
+          "ru": "Защита окружающей среды - это актуальная тема.",
+          "ar": "حماية البيئة هي موضوع حديث."
+        }
+      }
+    ]
+  },
+  {
+    "word": "akzeptieren",
+    "article": "",
+    "translations": {
+      "en": "accept",
+      "es": "aceptar",
+      "fr": "accepter",
+      "ru": "принимать",
+      "ar": "قبول"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann diese Bedingungen nicht akzeptieren.",
+        "translations": {
+          "en": "I cannot accept these conditions.",
+          "es": "No puedo aceptar estas condiciones.",
+          "fr": "Je ne peux pas accepter ces conditions.",
+          "ru": "Я не могу принять эти условия.",
+          "ar": "لا أستطيع قبول هذه الشروط."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alarm",
+    "article": "der",
+    "translations": {
+      "en": "Alarm",
+      "es": "Alarma",
+      "fr": "Alarme",
+      "ru": "Сигнализация",
+      "ar": "إنذار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bei Feueralarm dürfen Sie die Aufzüge nicht benutzen.",
+        "translations": {
+          "en": "In case of fire alarm, you must not use the elevators.",
+          "es": "En caso de alarma de incendio, no debe usar los ascensores.",
+          "fr": "En cas d'alarme incendie, vous ne devez pas utiliser les ascenseurs.",
+          "ru": "В случае пожарной сигнализации вам нельзя пользоваться лифтами.",
+          "ar": "في حالة إنذار الحريق، لا يجوز لك استخدام المصاعد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alkohol",
+    "article": "der",
+    "translations": {
+      "en": "Alcohol",
+      "es": "Alcohol",
+      "fr": "Alcool",
+      "ru": "Алкоголь",
+      "ar": "الكحول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Du musst die Wunde mit Alkohol reinigen.",
+        "translations": {
+          "en": "You need to clean the wound with alcohol.",
+          "es": "Debes limpiar la herida con alcohol.",
+          "fr": "Vous devez nettoyer la plaie avec de l'alcool.",
+          "ru": "Вам нужно очистить рану спиртом.",
+          "ar": "يجب عليك تنظيف الجرح بالكحول."
+        }
+      },
+      {
+        "text": "Nein, danke! Ich trinke keinen Alkohol.",
+        "translations": {
+          "en": "No, thank you! I don't drink alcohol.",
+          "es": "No, gracias! No bebo alcohol.",
+          "fr": "Non, merci ! Je ne bois pas d'alcool.",
+          "ru": "Нет, спасибо! Я не пью алкоголь.",
+          "ar": "لا، شكرًا! أنا لا أشرب الكحول."
+        }
+      }
+    ]
+  },
+  {
+    "word": "allein",
+    "article": "",
+    "translations": {
+      "en": "alone",
+      "es": "solo",
+      "fr": "seul",
+      "ru": "один",
+      "ar": "وحيد"
+    },
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe nicht gern allein spazieren.",
+        "translations": {
+          "en": "I don't like to walk alone.",
+          "es": "No me gusta pasear solo.",
+          "fr": "Je n'aime pas me promener seul.",
+          "ru": "Мне не нравится гулять одному.",
+          "ar": "لا أحب المشي وحدي."
+        }
+      },
+      {
+        "text": "Soll ich Ihnen helfen? – Danke, ich schaffe es schon allein.",
+        "translations": {
+          "en": "Should I help you? – Thanks, I can manage it alone.",
+          "es": "¿Debería ayudarle? – Gracias, puedo hacerlo solo.",
+          "fr": "Devrais-je vous aider ? – Merci, je peux le faire seul.",
+          "ru": "Мне помочь? – Спасибо, я справлюсь один.",
+          "ar": "هل يجب أن أساعدك؟ - شكرًا، يمكنني القيام بذلك وحدي."
+        }
+      },
+      {
+        "text": "Es war sehr teuer. Allein das Essen hat schon über 50 Euro gekostet.",
+        "translations": {
+          "en": "It was very expensive. Just the food cost over 50 euros.",
+          "es": "Fue muy caro. Solo la comida costó más de 50 euros.",
+          "fr": "C'était très cher. Rien que la nourriture a coûté plus de 50 euros.",
+          "ru": "Это было очень дорого. Только еда стоила более 50 евро.",
+          "ar": "كان ذلك مكلفًا جدًا. فقط الطعام كلف أكثر من 50 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aller-",
+    "article": "",
+    "translations": {
+      "en": "most",
+      "es": "más",
+      "fr": "le plus",
+      "ru": "самый",
+      "ar": "الأكثر"
+    },
+    "type": "prefix",
+    "exampleSentences": [
+      {
+        "text": "Am allerbesten ist es, wenn du dich ins Bett legst und lange schläfst. Dann wirst du schnell wieder gesund.",
+        "translations": {
+          "en": "The best thing is to lie down in bed and sleep for a long time. Then you will recover quickly.",
+          "es": "Lo mejor es que te acuestes en la cama y duermas mucho. Entonces te recuperarás rápidamente.",
+          "fr": "Le mieux est de se coucher et de dormir longtemps. Alors tu te rétabliras rapidement.",
+          "ru": "Лучше всего лечь в постель и долго спать. Тогда ты быстро поправишься.",
+          "ar": "أفضل شيء هو أن تستلقي في السرير وتنام طويلاً. ثم ستتعافى بسرعة."
+        }
+      },
+      {
+        "text": "Das ist das Allerschönste, was ich je gesehen habe.",
+        "translations": {
+          "en": "That is the most beautiful thing I have ever seen.",
+          "es": "Eso es lo más hermoso que he visto jamás.",
+          "fr": "C'est la plus belle chose que j'aie jamais vue.",
+          "ru": "Это самое красивое, что я когда-либо видел.",
+          "ar": "هذا هو أجمل شيء رأيته على الإطلاق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "allerdings",
+    "article": "",
+    "translations": {
+      "en": "however",
+      "es": "sin embargo",
+      "fr": "cependant",
+      "ru": "однако",
+      "ar": "ومع ذلك"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wir können uns morgen treffen, allerdings habe ich erst ab Mittag Zeit.",
+        "translations": {
+          "en": "We can meet tomorrow, however, I am only available from noon.",
+          "es": "Podemos encontrarnos mañana, sin embargo, solo tengo tiempo a partir del mediodía.",
+          "fr": "Nous pouvons nous rencontrer demain, cependant, je ne suis disponible qu'à partir de midi.",
+          "ru": "Мы можем встретиться завтра, однако я свободен только с полудня.",
+          "ar": "يمكننا الاجتماع غدًا، ومع ذلك، أنا متاح فقط من الظهر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "allgemein",
+    "article": "",
+    "translations": {
+      "en": "general",
+      "es": "general",
+      "fr": "général",
+      "ru": "общий",
+      "ar": "عام"
+    },
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Wir haben nur über allgemeine Probleme gesprochen.",
+        "translations": {
+          "en": "We only talked about general issues.",
+          "es": "Solo hablamos de problemas generales.",
+          "fr": "Nous n'avons parlé que de problèmes généraux.",
+          "ru": "Мы говорили только о общих проблемах.",
+          "ar": "لقد تحدثنا فقط عن مشاكل عامة."
+        }
+      },
+      {
+        "text": "Es ist allgemein bekannt, dass man hier gut essen kann.",
+        "translations": {
+          "en": "It is generally known that you can eat well here.",
+          "es": "Es de conocimiento general que aquí se come bien.",
+          "fr": "Il est généralement connu que l'on peut bien manger ici.",
+          "ru": "Общеизвестно, что здесь можно хорошо поесть.",
+          "ar": "من المعروف عمومًا أنه يمكنك تناول الطعام الجيد هنا."
+        }
+      },
+      {
+        "text": "Im Allgemeinen bin ich mit meiner Arbeit sehr zufrieden.",
+        "translations": {
+          "en": "In general, I am very satisfied with my work.",
+          "es": "En general, estoy muy satisfecho con mi trabajo.",
+          "fr": "En général, je suis très satisfait de mon travail.",
+          "ru": "В общем, я очень доволен своей работой.",
+          "ar": "بشكل عام، أنا راضٍ جدًا عن عملي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alltag",
+    "article": "der",
+    "translations": {
+      "en": "everyday life",
+      "es": "vida cotidiana",
+      "fr": "la vie quotidienne",
+      "ru": "повседневная жизнь",
+      "ar": "الحياة اليومية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist mein Alltag: putzen, waschen, kochen.",
+        "translations": {
+          "en": "This is my everyday life: cleaning, washing, cooking.",
+          "es": "Esta es mi vida cotidiana: limpiar, lavar, cocinar.",
+          "fr": "C'est ma vie quotidienne : nettoyer, laver, cuisiner.",
+          "ru": "Это моя повседневная жизнь: уборка, стирка, готовка.",
+          "ar": "هذه هي حياتي اليومية: التنظيف، الغسيل، الطهي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "alltäglich",
+    "article": "",
+    "translations": {
+      "en": "mundane",
+      "es": "cotidiano",
+      "fr": "ordinaire",
+      "ru": "обыденный",
+      "ar": "يومي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das alltägliche Leben ist manchmal langweilig.",
+        "translations": {
+          "en": "Everyday life can be boring sometimes.",
+          "es": "La vida cotidiana a veces puede ser aburrida.",
+          "fr": "La vie quotidienne est parfois ennuyeuse.",
+          "ru": "Обыденная жизнь иногда бывает скучной.",
+          "ar": "الحياة اليومية قد تكون مملة أحيانًا."
+        }
+      },
+      {
+        "text": "Der Roman erzählt eine ganz alltägliche Geschichte.",
+        "translations": {
+          "en": "The novel tells a very mundane story.",
+          "es": "La novela cuenta una historia muy cotidiana.",
+          "fr": "Le roman raconte une histoire tout à fait ordinaire.",
+          "ru": "Роман рассказывает совершенно обыденную историю.",
+          "ar": "الرواية تروي قصة عادية جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alphabet",
+    "article": "das",
+    "translations": {
+      "en": "Alphabet",
+      "es": "Alfabeto",
+      "fr": "Alphabet",
+      "ru": "Алфавит",
+      "ar": "ألفباء"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie viele Buchstaben hat das Alphabet in Ihrer Sprache?",
+        "translations": {
+          "en": "How many letters does the alphabet have in your language?",
+          "es": "¿Cuántas letras tiene el alfabeto en tu idioma?",
+          "fr": "Combien de lettres l'alphabet a-t-il dans votre langue ?",
+          "ru": "Сколько букв в алфавите вашего языка?",
+          "ar": "كم عدد الحروف في الأبجدية في لغتك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "als",
+    "article": "",
+    "translations": {
+      "en": "as",
+      "es": "como",
+      "fr": "comme",
+      "ru": "как",
+      "ar": "كما"
+    },
+    "type": "conjunction/preposition",
+    "exampleSentences": [
+      {
+        "text": "Als mein Mann kam, war die Party schon zu Ende.",
+        "translations": {
+          "en": "When my husband arrived, the party was already over.",
+          "es": "Cuando llegó mi marido, la fiesta ya había terminado.",
+          "fr": "Lorsque mon mari est arrivé, la fête était déjà finie.",
+          "ru": "Когда мой муж пришел, вечеринка уже закончилась.",
+          "ar": "عندما وصل زوجي، كانت الحفلة قد انتهت بالفعل."
+        }
+      },
+      {
+        "text": "Sie können sich sowohl persönlich als auch im Internet anmelden.",
+        "translations": {
+          "en": "You can register both in person and online.",
+          "es": "Puedes registrarte tanto en persona como en línea.",
+          "fr": "Vous pouvez vous inscrire à la fois en personne et en ligne.",
+          "ru": "Вы можете зарегистрироваться как лично, так и онлайн.",
+          "ar": "يمكنك التسجيل شخصيًا وعبر الإنترنت."
+        }
+      },
+      {
+        "text": "Meine Schwester ist älter als ich.",
+        "translations": {
+          "en": "My sister is older than I am.",
+          "es": "Mi hermana es mayor que yo.",
+          "fr": "Ma sœur est plus âgée que moi.",
+          "ru": "Моя сестра старше меня.",
+          "ar": "أختي أكبر مني."
+        }
+      },
+      {
+        "text": "Es ist später, als ich dachte.",
+        "translations": {
+          "en": "It is later than I thought.",
+          "es": "Es más tarde de lo que pensé.",
+          "fr": "Il est plus tard que je ne le pensais.",
+          "ru": "Позже, чем я думал.",
+          "ar": "إنه متأخر أكثر مما كنت أعتقد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "als ob",
+    "article": "",
+    "translations": {
+      "en": "as if",
+      "es": "como si",
+      "fr": "comme si",
+      "ru": "как будто",
+      "ar": "كأن"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Er tut so, als ob wir nie darüber gesprochen hätten.",
+        "translations": {
+          "en": "He acts as if we had never talked about it.",
+          "es": "Él actúa como si nunca hubiéramos hablado de eso.",
+          "fr": "Il agit comme si nous n'en avions jamais parlé.",
+          "ru": "Он ведет себя так, будто мы никогда об этом не говорили.",
+          "ar": "يتصرف كأنه لم نتحدث عن ذلك أبداً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "also",
+    "article": "",
+    "translations": {
+      "en": "so",
+      "es": "así",
+      "fr": "donc",
+      "ru": "итак",
+      "ar": "إذن"
+    },
+    "type": "adverb/interjection",
+    "exampleSentences": [
+      {
+        "text": "Also, die Sache ist so: …",
+        "translations": {
+          "en": "So, the thing is this: …",
+          "es": "Así que, la cosa es así: …",
+          "fr": "Donc, la chose est la suivante : …",
+          "ru": "Итак, дело обстоит так: …",
+          "ar": "إذن، الأمر هو كالتالي: …"
+        }
+      },
+      {
+        "text": "Irina hat Urlaub. Sie kann uns also helfen.",
+        "translations": {
+          "en": "Irina is on vacation. So she can help us.",
+          "es": "Irina está de vacaciones. Así que puede ayudarnos.",
+          "fr": "Irina est en vacances. Donc elle peut nous aider.",
+          "ru": "Ирина в отпуске. Так что она может нам помочь.",
+          "ar": "إيرينا في إجازة. إذن يمكنها مساعدتنا."
+        }
+      },
+      {
+        "text": "Also wirklich, jetzt reicht es.",
+        "translations": {
+          "en": "Really now, that's enough.",
+          "es": "De verdad, ya es suficiente.",
+          "fr": "Vraiment maintenant, ça suffit.",
+          "ru": "Ну правда, хватит.",
+          "ar": "حقًا، يكفي الآن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "alt",
+    "article": "",
+    "translations": {
+      "en": "old",
+      "es": "viejo",
+      "fr": "vieux",
+      "ru": "старый",
+      "ar": "قديم"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wie alt sind Sie?",
+        "translations": {
+          "en": "How old are you?",
+          "es": "¿Cuántos años tiene?",
+          "fr": "Quel âge avez-vous?",
+          "ru": "Сколько вам лет?",
+          "ar": "كم عمرك؟"
+        }
+      },
+      {
+        "text": "Maria ist eine alte Freundin von mir.",
+        "translations": {
+          "en": "Maria is an old friend of mine.",
+          "es": "María es una vieja amiga mía.",
+          "fr": "Maria est une vieille amie à moi.",
+          "ru": "Мария - старая подруга моя.",
+          "ar": "ماريا صديقة قديمة لي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alter",
+    "article": "das",
+    "translations": {
+      "en": "age",
+      "es": "edad",
+      "fr": "âge",
+      "ru": "возраст",
+      "ar": "عمر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir sind etwa im gleichen Alter.",
+        "translations": {
+          "en": "We are about the same age.",
+          "es": "Tenemos aproximadamente la misma edad.",
+          "fr": "Nous avons à peu près le même âge.",
+          "ru": "Мы примерно одного возраста.",
+          "ar": "نحن في نفس العمر تقريبًا."
+        }
+      },
+      {
+        "text": "Alter: 26 Jahre",
+        "translations": {
+          "en": "Age: 26 years",
+          "es": "Edad: 26 años",
+          "fr": "Âge : 26 ans",
+          "ru": "Возраст: 26 лет",
+          "ar": "العمر: 26 سنة"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Altenheim",
+    "article": "das",
+    "translations": {
+      "en": "nursing home",
+      "es": "hogar de ancianos",
+      "fr": "maison de retraite",
+      "ru": "дом престарелых",
+      "ar": "دار المسنين"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Großeltern unserer Nachbarn sind im Altenheim.",
+        "translations": {
+          "en": "The grandparents of our neighbors are in the nursing home.",
+          "es": "Los abuelos de nuestros vecinos están en el hogar de ancianos.",
+          "fr": "Les grands-parents de nos voisins sont dans la maison de retraite.",
+          "ru": "Дедушка и бабушка наших соседей находятся в доме престарелых.",
+          "ar": "أجداد جيراننا في دار المسنين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Altersheim",
+    "article": "das",
+    "translations": {
+      "en": "nursing home",
+      "es": "hogar de ancianos",
+      "fr": "maison de retraite",
+      "ru": "дом престарелых",
+      "ar": "دار المسنين"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Großeltern unserer Nachbarn sind im Altersheim.",
+        "translations": {
+          "en": "The grandparents of our neighbors are in the nursing home.",
+          "es": "Los abuelos de nuestros vecinos están en el hogar de ancianos.",
+          "fr": "Les grands-parents de nos voisins sont dans la maison de retraite.",
+          "ru": " grandparents наших соседей находятся в доме престарелых.",
+          "ar": "أجداد جيراننا في دار المسنين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "alternativ",
+    "article": "",
+    "translations": {
+      "en": "alternative",
+      "es": "alternativo",
+      "fr": "alternatif",
+      "ru": "альтернативный",
+      "ar": "بديل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wir brauchen alternative Energien.",
+        "translations": {
+          "en": "We need alternative energies.",
+          "es": "Necesitamos energías alternativas.",
+          "fr": "Nous avons besoin d'énergies alternatives.",
+          "ru": "Нам нужны альтернативные источники энергии.",
+          "ar": "نحن بحاجة إلى طاقات بديلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Alternative",
+    "article": "die",
+    "translations": {
+      "en": "alternative",
+      "es": "alternativa",
+      "fr": "alternative",
+      "ru": "альтернатива",
+      "ar": "بديل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf dieser Strecke ist der Zug eine gute Alternative zum Flugzeug.",
+        "translations": {
+          "en": "On this route, the train is a good alternative to the airplane.",
+          "es": "En esta ruta, el tren es una buena alternativa al avión.",
+          "fr": "Sur cet itinéraire, le train est une bonne alternative à l'avion.",
+          "ru": "На этом маршруте поезд является хорошей альтернативой самолету.",
+          "ar": "في هذه المسار، القطار هو بديل جيد للطائرة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ampel",
+    "article": "die",
+    "translations": {
+      "en": "traffic light",
+      "es": "semáforo",
+      "fr": "feu de circulation",
+      "ru": "светофор",
+      "ar": "إشارة المرور"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dort an der Ampel kannst du über die Straße gehen.",
+        "translations": {
+          "en": "There at the traffic light you can cross the street.",
+          "es": "Allí en el semáforo puedes cruzar la calle.",
+          "fr": "Là-bas au feu de circulation, tu peux traverser la rue.",
+          "ru": "Там, у светофора, ты можешь перейти улицу.",
+          "ar": "هناك عند إشارة المرور يمكنك عبور الشارع."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Amt",
+    "article": "das",
+    "translations": {
+      "en": "office",
+      "es": "oficina",
+      "fr": "bureau",
+      "ru": "офис",
+      "ar": "مكتب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Arbeitsamt befindet sich neben dem Busbahnhof.",
+        "translations": {
+          "en": "The employment office is located next to the bus station.",
+          "es": "La oficina de empleo se encuentra al lado de la estación de autobuses.",
+          "fr": "L'agence pour l'emploi est située à côté de la gare routière.",
+          "ru": "Центр занятости находится рядом с автовокзалом.",
+          "ar": "مكتب العمل يقع بجوار محطة الحافلات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sich amüsieren",
+    "article": "",
+    "translations": {
+      "en": "to have fun",
+      "es": "divertirse",
+      "fr": "s'amuser",
+      "ru": "развлекаться",
+      "ar": "الاستمتاع"
+    },
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Bei dem Fest haben wir uns sehr gut amüsiert.",
+        "translations": {
+          "en": "We had a great time at the festival.",
+          "es": "Nos divertimos mucho en la fiesta.",
+          "fr": "Nous nous sommes beaucoup amusés à la fête.",
+          "ru": "На празднике мы очень хорошо развлекались.",
+          "ar": "لقد استمتعنا كثيرًا في المهرجان."
+        }
+      }
+    ]
+  },
+  {
+    "word": "an",
+    "article": "",
+    "translations": {
+      "en": "at",
+      "es": "en",
+      "fr": "à",
+      "ru": "на",
+      "ar": "عند"
+    },
+    "type": "preposition/adverb",
+    "exampleSentences": [
+      {
+        "text": "Am Anfang war alles sehr schwierig.",
+        "translations": {
+          "en": "In the beginning, everything was very difficult.",
+          "es": "Al principio, todo era muy difícil.",
+          "fr": "Au début, tout était très difficile.",
+          "ru": "Сначала всё было очень сложно.",
+          "ar": "في البداية، كان كل شيء صعبًا جدًا."
+        }
+      },
+      {
+        "text": "Dann sehen wir uns also am Dienstag.",
+        "translations": {
+          "en": "So we'll see each other on Tuesday.",
+          "es": "Entonces nos veremos el martes.",
+          "fr": "Alors nous nous verrons mardi.",
+          "ru": "Значит, мы увидимся во вторник.",
+          "ar": "إذن سنلتقي يوم الثلاثاء."
+        }
+      },
+      {
+        "text": "Ich warte am Bahnhof auf dich.",
+        "translations": {
+          "en": "I am waiting for you at the train station.",
+          "es": "Te estoy esperando en la estación de tren.",
+          "fr": "Je t'attends à la gare.",
+          "ru": "Я жду тебя на вокзале.",
+          "ar": "أنا أنتظرك في محطة القطار."
+        }
+      },
+      {
+        "text": "Am besten, du gehst zur Information und fragst da.",
+        "translations": {
+          "en": "It's best if you go to the information desk and ask there.",
+          "es": "Lo mejor es que vayas a la información y preguntes allí.",
+          "fr": "Le mieux est que tu ailles au bureau d'information et que tu demandes là-bas.",
+          "ru": "Лучше всего, если ты пойдёшь на информационную стойку и спросишь там.",
+          "ar": "من الأفضل أن تذهب إلى مكتب المعلومات وتسأل هناك."
+        }
+      },
+      {
+        "text": "Das Licht war die ganze Nacht an.",
+        "translations": {
+          "en": "The light was on all night.",
+          "es": "La luz estuvo encendida toda la noche.",
+          "fr": "La lumière était allumée toute la nuit.",
+          "ru": "Свет был включен всю ночь.",
+          "ar": "كانت الأضواء مضاءة طوال الليل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "analysieren",
+    "article": "",
+    "translations": {
+      "en": "analyze",
+      "es": "analizar",
+      "fr": "analyser",
+      "ru": "анализировать",
+      "ar": "تحليل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Politiker analysieren die Situation auf dem Arbeitsmarkt.",
+        "translations": {
+          "en": "The politicians analyze the situation in the labor market.",
+          "es": "Los políticos analizan la situación en el mercado laboral.",
+          "fr": "Les politiciens analysent la situation sur le marché du travail.",
+          "ru": "Политики анализируют ситуацию на рынке труда.",
+          "ar": "يحلل السياسيون الوضع في سوق العمل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anbieten",
+    "article": "",
+    "translations": {
+      "en": "to offer",
+      "es": "ofrecer",
+      "fr": "offrir",
+      "ru": "предлагать",
+      "ar": "يقدم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich Ihnen etwas zu trinken anbieten?",
+        "translations": {
+          "en": "May I offer you something to drink?",
+          "es": "¿Puedo ofrecerle algo de beber?",
+          "fr": "Puis-je vous offrir quelque chose à boire?",
+          "ru": "Могу я предложить вам что-нибудь выпить?",
+          "ar": "هل يمكنني أن أقدم لك شيئًا لتشربه؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anbieter",
+    "article": "der",
+    "translations": {
+      "en": "provider",
+      "es": "proveedor",
+      "fr": "fournisseur",
+      "ru": "поставщик",
+      "ar": "مزود"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ist das ein privater Telefonanbieter?",
+        "translations": {
+          "en": "Is this a private telephone provider?",
+          "es": "¿Es este un proveedor de telefonía privada?",
+          "fr": "Est-ce un fournisseur de téléphonie privée?",
+          "ru": "Это частный телефонный поставщик?",
+          "ar": "هل هذا مزود هاتف خاص؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Angebot",
+    "article": "das",
+    "translations": {
+      "en": "offer",
+      "es": "oferta",
+      "fr": "offre",
+      "ru": "предложение",
+      "ar": "عرض"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe in der Zeitung ein paar günstige Wohnungsangebote gelesen.",
+        "translations": {
+          "en": "I read a few affordable apartment offers in the newspaper.",
+          "es": "Leí algunas ofertas de apartamentos asequibles en el periódico.",
+          "fr": "J'ai lu quelques offres d'appartements abordables dans le journal.",
+          "ru": "Я прочитал несколько доступных предложений по квартирам в газете.",
+          "ar": "قرأت بعض عروض الشقق بأسعار معقولة في الصحيفة."
+        }
+      },
+      {
+        "text": "Der Käse ist heute im Angebot.",
+        "translations": {
+          "en": "The cheese is on sale today.",
+          "es": "El queso está en oferta hoy.",
+          "fr": "Le fromage est en promotion aujourd'hui.",
+          "ru": "Сыр сегодня на распродаже.",
+          "ar": "الجبن معروض للبيع اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ander-",
+    "article": "",
+    "translations": {
+      "en": "other-",
+      "es": "otro-",
+      "fr": "autre-",
+      "ru": "другой-",
+      "ar": "آخر-"
+    },
+    "type": "adjective/pronoun",
+    "exampleSentences": [
+      {
+        "text": "Die anderen sind schon nach Hause gegangen.",
+        "translations": {
+          "en": "The others have already gone home.",
+          "es": "Los otros ya se han ido a casa.",
+          "fr": "Les autres sont déjà rentrés chez eux.",
+          "ru": "Другие уже ушли домой.",
+          "ar": "الآخرون قد ذهبوا إلى المنزل بالفعل."
+        }
+      },
+      {
+        "text": "Bitte nicht alle auf einmal! Einer nach dem anderen.",
+        "translations": {
+          "en": "Please, not all at once! One after the other.",
+          "es": "¡Por favor, no todos a la vez! Uno tras otro.",
+          "fr": "S'il vous plaît, pas tous en même temps ! Un après l'autre.",
+          "ru": "Пожалуйста, не все сразу! Один за другим.",
+          "ar": "من فضلك، ليس الجميع دفعة واحدة! واحد تلو الآخر."
+        }
+      },
+      {
+        "text": "Ich hätte gern ein anderes Auto.",
+        "translations": {
+          "en": "I would like a different car.",
+          "es": "Me gustaría un coche diferente.",
+          "fr": "Je voudrais une autre voiture.",
+          "ru": "Я хотел бы другую машину.",
+          "ar": "أود سيارة مختلفة."
+        }
+      },
+      {
+        "text": "Natascha hat unter anderem Chinesisch und Spanisch gelernt.",
+        "translations": {
+          "en": "Natascha has learned, among other things, Chinese and Spanish.",
+          "es": "Natascha ha aprendido, entre otras cosas, chino y español.",
+          "fr": "Natascha a appris, entre autres, le chinois et l'espagnol.",
+          "ru": "Наташа изучала, среди прочего, китайский и испанский языки.",
+          "ar": "ناتاشا تعلمت، من بين أمور أخرى، اللغة الصينية والإسبانية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "andererseits",
+    "article": "",
+    "translations": {
+      "en": "on the other hand",
+      "es": "por otro lado",
+      "fr": "d'autre part",
+      "ru": "с другой стороны",
+      "ar": "من ناحية أخرى"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Tarek möchte zwar studieren, aber andererseits möchte er auch gleich Geld verdienen.",
+        "translations": {
+          "en": "Tarek wants to study, but on the other hand, he also wants to earn money right away.",
+          "es": "Tarek quiere estudiar, pero por otro lado, también quiere ganar dinero de inmediato.",
+          "fr": "Tarek veut étudier, mais d'autre part, il veut aussi gagner de l'argent tout de suite.",
+          "ru": "Тарек хочет учиться, но с другой стороны, он также хочет сразу зарабатывать деньги.",
+          "ar": "تارك يريد الدراسة، لكن من ناحية أخرى، يريد أيضًا كسب المال على الفور."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ändern",
+    "article": "",
+    "translations": {
+      "en": "change",
+      "es": "cambiar",
+      "fr": "changer",
+      "ru": "изменить",
+      "ar": "تغيير"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Wetter hat sich geändert.",
+        "translations": {
+          "en": "The weather has changed.",
+          "es": "El clima ha cambiado.",
+          "fr": "Le temps a changé.",
+          "ru": "Погода изменилась.",
+          "ar": "لقد تغير الطقس."
+        }
+      },
+      {
+        "text": "Ich habe meine Meinung inzwischen geändert.",
+        "translations": {
+          "en": "I have changed my mind in the meantime.",
+          "es": "He cambiado de opinión entre tanto.",
+          "fr": "J'ai changé d'avis entre-temps.",
+          "ru": "Я изменил свое мнение за это время.",
+          "ar": "لقد غيرت رأيي في هذه الأثناء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Änderung",
+    "article": "die",
+    "translations": {
+      "en": "change",
+      "es": "cambio",
+      "fr": "changement",
+      "ru": "изменение",
+      "ar": "تغيير"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gibt eine Programmänderung.",
+        "translations": {
+          "en": "There is a program change.",
+          "es": "Hay un cambio en el programa.",
+          "fr": "Il y a un changement de programme.",
+          "ru": "Есть изменение в программе.",
+          "ar": "هناك تغيير في البرنامج."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anders",
+    "article": "",
+    "translations": {
+      "en": "different",
+      "es": "diferente",
+      "fr": "différent",
+      "ru": "другой",
+      "ar": "مختلف"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Anders geht das leider nicht.",
+        "translations": {
+          "en": "Unfortunately, it can't be done differently.",
+          "es": "Desafortunadamente, no se puede hacer de otra manera.",
+          "fr": "Malheureusement, cela ne peut pas être fait autrement.",
+          "ru": "К сожалению, иначе это сделать нельзя.",
+          "ar": "للأسف، لا يمكن القيام بذلك بطريقة مختلفة."
+        }
+      },
+      {
+        "text": "Oliver ist anders als seine Freunde.",
+        "translations": {
+          "en": "Oliver is different from his friends.",
+          "es": "Oliver es diferente a sus amigos.",
+          "fr": "Oliver est différent de ses amis.",
+          "ru": "Оливер отличается от своих друзей.",
+          "ar": "أوليفر مختلف عن أصدقائه."
+        }
+      },
+      {
+        "text": "Ich würde das anders machen.",
+        "translations": {
+          "en": "I would do it differently.",
+          "es": "Yo lo haría de manera diferente.",
+          "fr": "Je le ferais différemment.",
+          "ru": "Я бы сделал это по-другому.",
+          "ar": "كنت سأفعل ذلك بشكل مختلف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anerkennen",
+    "article": "",
+    "translations": {
+      "en": "recognize",
+      "es": "reconocer",
+      "fr": "reconnaître",
+      "ru": "признавать",
+      "ar": "الاعتراف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Meine Ausbildung wird hier nicht anerkannt.",
+        "translations": {
+          "en": "My education is not recognized here.",
+          "es": "Mi educación no es reconocida aquí.",
+          "fr": "Ma formation n'est pas reconnue ici.",
+          "ru": "Мое образование здесь не признается.",
+          "ar": "تعليمي غير معترف به هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anfangen",
+    "article": "",
+    "translations": {
+      "en": "to begin",
+      "es": "empezar",
+      "fr": "commencer",
+      "ru": "начинать",
+      "ar": "يبدأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wann fängst du mit der Arbeit an?",
+        "translations": {
+          "en": "When do you start working?",
+          "es": "¿Cuándo empiezas a trabajar?",
+          "fr": "Quand commences-tu à travailler ?",
+          "ru": "Когда ты начинаешь работать?",
+          "ar": "متى تبدأ العمل؟"
+        }
+      },
+      {
+        "text": "Hier fängt die Bahnhofstraße an.",
+        "translations": {
+          "en": "Here begins Bahnhofstraße.",
+          "es": "Aquí comienza la Bahnhofstraße.",
+          "fr": "Ici commence la Bahnhofstraße.",
+          "ru": "Здесь начинается Bahnhofstraße.",
+          "ar": "هنا تبدأ Bahnhofstraße."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anfang",
+    "article": "der",
+    "translations": {
+      "en": "beginning",
+      "es": "comienzo",
+      "fr": "début",
+      "ru": "начало",
+      "ar": "بداية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie war der Film? – Ich habe nur den Anfang gesehen.",
+        "translations": {
+          "en": "How was the movie? – I only saw the beginning.",
+          "es": "¿Cómo fue la película? – Solo vi el comienzo.",
+          "fr": "Comment était le film ? – Je n'ai vu que le début.",
+          "ru": "Какой был фильм? – Я видел только начало.",
+          "ar": "كيف كان الفيلم؟ - لقد رأيت فقط البداية."
+        }
+      },
+      {
+        "text": "Am Anfang habe ich bei der Arbeit viele Fragen gestellt.",
+        "translations": {
+          "en": "At the beginning, I asked a lot of questions at work.",
+          "es": "Al principio, hice muchas preguntas en el trabajo.",
+          "fr": "Au début, j'ai posé beaucoup de questions au travail.",
+          "ru": "Сначала я задал много вопросов на работе.",
+          "ar": "في البداية، طرحت الكثير من الأسئلة في العمل."
+        }
+      },
+      {
+        "text": "Mein Chef ist Anfang fünfzig.",
+        "translations": {
+          "en": "My boss is in his early fifties.",
+          "es": "Mi jefe tiene alrededor de cincuenta años.",
+          "fr": "Mon patron a un peu plus de cinquante ans.",
+          "ru": "Моему начальнику чуть за пятьдесят.",
+          "ar": "مديري في أوائل الخمسينيات من عمره."
+        }
+      },
+      {
+        "text": "Meine Mutter war von Anfang an dagegen, dass ich nach Berlin ziehe.",
+        "translations": {
+          "en": "My mother was against me moving to Berlin from the very beginning.",
+          "es": "Mi madre estaba en contra de que me mudara a Berlín desde el principio.",
+          "fr": "Ma mère était contre le fait que je déménage à Berlin depuis le début.",
+          "ru": "Моя мама была против того, чтобы я переехал в Берлин с самого начала.",
+          "ar": "كانت والدتي ضد أن أنتقل إلى برلين منذ البداية."
+        }
+      },
+      {
+        "text": "Wir machen Anfang Juli Ferien.",
+        "translations": {
+          "en": "We are going on vacation at the beginning of July.",
+          "es": "Nos vamos de vacaciones a principios de julio.",
+          "fr": "Nous partons en vacances début juillet.",
+          "ru": "Мы уезжаем в отпуск в начале июля.",
+          "ar": "نحن نذهب في إجازة في بداية يوليو."
+        }
+      },
+      {
+        "text": "Meine Freundin wohnt am Anfang der Straße.",
+        "translations": {
+          "en": "My friend lives at the beginning of the street.",
+          "es": "Mi amiga vive al principio de la calle.",
+          "fr": "Mon amie habite au début de la rue.",
+          "ru": "Моя подруга живет в начале улицы.",
+          "ar": "تعيش صديقتي في بداية الشارع."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anfangs",
+    "article": "",
+    "translations": {
+      "en": "at first",
+      "es": "al principio",
+      "fr": "au début",
+      "ru": "сначала",
+      "ar": "في البداية"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Anfangs ging alles gut.",
+        "translations": {
+          "en": "At first, everything went well.",
+          "es": "Al principio, todo iba bien.",
+          "fr": "Au début, tout allait bien.",
+          "ru": "Сначала всё шло хорошо.",
+          "ar": "في البداية، كان كل شيء على ما يرام."
+        }
+      }
+    ]
+  },
+  {
+    "word": "angeben",
+    "article": "",
+    "translations": {
+      "en": "to indicate",
+      "es": "indicar",
+      "fr": "indiquer",
+      "ru": "указывать",
+      "ar": "الإشارة إلى"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bitte geben Sie Ihre genaue Adresse an.",
+        "translations": {
+          "en": "Please indicate your exact address.",
+          "es": "Por favor, indique su dirección exacta.",
+          "fr": "Veuillez indiquer votre adresse exacte.",
+          "ru": "Пожалуйста, укажите ваш точный адрес.",
+          "ar": "يرجى الإشارة إلى عنوانك الدقيق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Angabe",
+    "article": "die",
+    "translations": {
+      "en": "information",
+      "es": "información",
+      "fr": "information",
+      "ru": "информация",
+      "ar": "معلومات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir brauchen von Ihnen folgende Angaben: Name, Adresse, Geburtsdatum.",
+        "translations": {
+          "en": "We need the following information from you: name, address, date of birth.",
+          "es": "Necesitamos la siguiente información de usted: nombre, dirección, fecha de nacimiento.",
+          "fr": "Nous avons besoin des informations suivantes de votre part : nom, adresse, date de naissance.",
+          "ru": "Нам нужна следующая информация от вас: имя, адрес, дата рождения.",
+          "ar": "نحتاج إلى المعلومات التالية منك: الاسم، العنوان، تاريخ الميلاد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Angehörige",
+    "article": "der",
+    "translations": {
+      "en": "relatives",
+      "es": "familiares",
+      "fr": "membres de la famille",
+      "ru": "родственники",
+      "ar": "الأقارب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Arzt darf nur Familienangehörigen Auskunft geben.",
+        "translations": {
+          "en": "The doctor is only allowed to provide information to family members.",
+          "es": "El médico solo puede dar información a los familiares.",
+          "fr": "Le médecin ne peut donner d'informations qu'aux membres de la famille.",
+          "ru": "Врач может предоставлять информацию только родственникам.",
+          "ar": "لا يُسمح للطبيب بتقديم معلومات إلا للأقارب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "angenehm",
+    "article": "",
+    "translations": {
+      "en": "pleasant",
+      "es": "agradable",
+      "fr": "agréable",
+      "ru": "приятный",
+      "ar": "ممتع"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wir wünschen Ihnen eine angenehme Reise.",
+        "translations": {
+          "en": "We wish you a pleasant journey.",
+          "es": "Le deseamos un viaje agradable.",
+          "fr": "Nous vous souhaitons un voyage agréable.",
+          "ru": "Мы желаем вам приятного путешествия.",
+          "ar": "نتمنى لك رحلة ممتعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Angst",
+    "article": "die",
+    "translations": {
+      "en": "fear",
+      "es": "miedo",
+      "fr": "peur",
+      "ru": "страх",
+      "ar": "خوف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Du brauchst keine Angst zu haben. Der Hund tut dir nichts.",
+        "translations": {
+          "en": "You don't need to be afraid. The dog won't harm you.",
+          "es": "No necesitas tener miedo. El perro no te hará daño.",
+          "fr": "Tu n'as pas besoin d'avoir peur. Le chien ne te fera rien.",
+          "ru": "Тебе не нужно бояться. Собака тебе не навредит.",
+          "ar": "لا تحتاج إلى الخوف. الكلب لن يؤذيك."
+        }
+      },
+      {
+        "text": "Ich habe Angst, vielleicht ist etwas passiert.",
+        "translations": {
+          "en": "I am afraid, maybe something has happened.",
+          "es": "Tengo miedo, tal vez algo ha pasado.",
+          "fr": "J'ai peur, peut-être que quelque chose est arrivé.",
+          "ru": "Мне страшно, возможно, что-то случилось.",
+          "ar": "أنا خائف، ربما حدث شيء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ängstlich",
+    "article": "",
+    "translations": {
+      "en": "anxious",
+      "es": "ansioso",
+      "fr": "anxieux",
+      "ru": "тревожный",
+      "ar": "قلق"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Meine Mutter ist etwas ängstlich. Sie geht nicht gern allein auf die Straße.",
+        "translations": {
+          "en": "My mother is a bit anxious. She doesn't like to go out alone.",
+          "es": "Mi madre es un poco ansiosa. No le gusta salir sola.",
+          "fr": "Ma mère est un peu anxieuse. Elle n'aime pas sortir seule.",
+          "ru": "Моя мама немного тревожная. Ей не нравится выходить одна.",
+          "ar": "أمي قلقة بعض الشيء. لا تحب الخروج بمفردها."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anhaben",
+    "article": "",
+    "translations": {
+      "en": "to wear",
+      "es": "llevar puesto",
+      "fr": "porter",
+      "ru": "носить",
+      "ar": "يرتدي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Gestern hatte Julia ein rotes Kleid an.",
+        "translations": {
+          "en": "Yesterday, Julia was wearing a red dress.",
+          "es": "Ayer, Julia llevaba un vestido rojo.",
+          "fr": "Hier, Julia portait une robe rouge.",
+          "ru": "Вчера Юлия была в красном платье.",
+          "ar": "أمس، كانت جوليا ترتدي فستانًا أحمر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anklicken",
+    "article": "",
+    "translations": {
+      "en": "click",
+      "es": "hacer clic",
+      "fr": "cliquer",
+      "ru": "нажать",
+      "ar": "النقر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Du musst das Bild anklicken. Dann wird es größer.",
+        "translations": {
+          "en": "You need to click on the image. Then it will become larger.",
+          "es": "Debes hacer clic en la imagen. Entonces se hará más grande.",
+          "fr": "Vous devez cliquer sur l'image. Elle deviendra alors plus grande.",
+          "ru": "Вам нужно нажать на изображение. Тогда оно станет больше.",
+          "ar": "يجب عليك النقر على الصورة. ثم ستصبح أكبر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ankommen",
+    "article": "",
+    "translations": {
+      "en": "to arrive",
+      "es": "llegar",
+      "fr": "arriver",
+      "ru": "прибывать",
+      "ar": "يصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wann kommt der Zug in Hamburg an?",
+        "translations": {
+          "en": "When does the train arrive in Hamburg?",
+          "es": "¿Cuándo llega el tren a Hamburgo?",
+          "fr": "Quand le train arrive-t-il à Hambourg ?",
+          "ru": "Когда поезд прибывает в Гамбург?",
+          "ar": "متى يصل القطار إلى هامبورغ؟"
+        }
+      },
+      {
+        "text": "Bei dem Spiel kommt es darauf an, schneller zu laufen als die anderen.",
+        "translations": {
+          "en": "In the game, it depends on running faster than the others.",
+          "es": "En el juego, depende de correr más rápido que los demás.",
+          "fr": "Dans le jeu, il s'agit de courir plus vite que les autres.",
+          "ru": "В игре важно бегать быстрее, чем другие.",
+          "ar": "في اللعبة، يعتمد الأمر على الجري أسرع من الآخرين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ankunft",
+    "article": "die",
+    "translations": {
+      "en": "arrival",
+      "es": "llegada",
+      "fr": "arrivée",
+      "ru": "прибытие",
+      "ar": "الوصول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Abfahrt ist um 0.55 Uhr, die Ankunft um 8.07 Uhr.",
+        "translations": {
+          "en": "The departure is at 0:55, the arrival at 8:07.",
+          "es": "La salida es a las 0:55, la llegada a las 8:07.",
+          "fr": "Le départ est à 0h55, l'arrivée à 8h07.",
+          "ru": "Отправление в 0:55, прибытие в 8:07.",
+          "ar": "المغادرة في الساعة 0:55، والوصول في الساعة 8:07."
+        }
+      },
+      {
+        "text": "Gleich nach der Ankunft habe ich meine Eltern angerufen.",
+        "translations": {
+          "en": "Right after the arrival, I called my parents.",
+          "es": "Justo después de la llegada, llamé a mis padres.",
+          "fr": "Juste après l'arrivée, j'ai appelé mes parents.",
+          "ru": "Сразу после прибытия я позвонил своим родителям.",
+          "ar": "بالضبط بعد الوصول، اتصلت بوالدي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ankündigen",
+    "article": "",
+    "translations": {
+      "en": "announce",
+      "es": "anunciar",
+      "fr": "annoncer",
+      "ru": "объявлять",
+      "ar": "يعلن"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir sollten unseren Besuch ankündigen.",
+        "translations": {
+          "en": "We should announce our visit.",
+          "es": "Deberíamos anunciar nuestra visita.",
+          "fr": "Nous devrions annoncer notre visite.",
+          "ru": "Мы должны объявить о нашем визите.",
+          "ar": "يجب أن نعلن عن زيارتنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anlage",
+    "article": "die",
+    "translations": {
+      "en": "system",
+      "es": "sistema",
+      "fr": "système",
+      "ru": "система",
+      "ar": "نظام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Musikanlage ist kaputt.",
+        "translations": {
+          "en": "My sound system is broken.",
+          "es": "Mi sistema de sonido está roto.",
+          "fr": "Mon système audio est cassé.",
+          "ru": "Моя звуковая система сломана.",
+          "ar": "نظام الصوت الخاص بي معطل."
+        }
+      },
+      {
+        "text": "In der Anlage der E-Mail finden Sie meinen Lebenslauf.",
+        "translations": {
+          "en": "Attached to the email, you will find my resume.",
+          "es": "En la adjunto del correo electrónico encontrará mi currículum.",
+          "fr": "Dans la pièce jointe de l'e-mail, vous trouverez mon CV.",
+          "ru": "В приложении к электронному письму вы найдете мое резюме.",
+          "ar": "في مرفق البريد الإلكتروني، ستجد سيرتي الذاتية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anleitung",
+    "article": "die",
+    "translations": {
+      "en": "instruction",
+      "es": "instrucción",
+      "fr": "instruction",
+      "ru": "инструкция",
+      "ar": "تعليمات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Anleitung steht, dass bei diesem Spiel der Älteste beginnt.",
+        "translations": {
+          "en": "The instructions state that the oldest player starts in this game.",
+          "es": "En las instrucciones se indica que el jugador más viejo comienza en este juego.",
+          "fr": "Les instructions indiquent que le joueur le plus âgé commence dans ce jeu.",
+          "ru": "В инструкции сказано, что в этой игре начинает самый старший.",
+          "ar": "في التعليمات مكتوب أن الأقدم يبدأ في هذه اللعبة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anmelden",
+    "article": "",
+    "translations": {
+      "en": "register",
+      "es": "registrarse",
+      "fr": "s'inscrire",
+      "ru": "зарегистрироваться",
+      "ar": "تسجيل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Für diesen Kurs müssen Sie sich unbedingt vorher anmelden.",
+        "translations": {
+          "en": "You must register for this course in advance.",
+          "es": "Para este curso, debe registrarse con antelación.",
+          "fr": "Pour ce cours, vous devez vous inscrire à l'avance.",
+          "ru": "Для этого курса вам необходимо зарегистрироваться заранее.",
+          "ar": "يجب عليك التسجيل لهذا الدورة مسبقًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anmeldung",
+    "article": "die",
+    "translations": {
+      "en": "registration",
+      "es": "registro",
+      "fr": "inscription",
+      "ru": "регистрация",
+      "ar": "تسجيل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo bekomme ich die Formulare für die Anmeldung?",
+        "translations": {
+          "en": "Where can I get the forms for registration?",
+          "es": "¿Dónde puedo conseguir los formularios para el registro?",
+          "fr": "Où puis-je obtenir les formulaires pour l'inscription?",
+          "ru": "Где я могу получить формы для регистрации?",
+          "ar": "أين يمكنني الحصول على النماذج للتسجيل؟"
+        }
+      },
+      {
+        "text": "Die Anmeldung ist im Erdgeschoss, Zimmer 55.",
+        "translations": {
+          "en": "The registration is on the ground floor, room 55.",
+          "es": "El registro está en la planta baja, habitación 55.",
+          "fr": "L'inscription est au rez-de-chaussée, chambre 55.",
+          "ru": "Регистрация находится на первом этаже, комната 55.",
+          "ar": "التسجيل في الطابق الأرضي، الغرفة 55."
+        }
+      }
+    ]
+  },
+  {
+    "word": "annehmen",
+    "article": "",
+    "translations": {
+      "en": "accept",
+      "es": "aceptar",
+      "fr": "accepter",
+      "ru": "принимать",
+      "ar": "يقبل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme Ihre Einladung gern an.",
+        "translations": {
+          "en": "I gladly accept your invitation.",
+          "es": "Acepto su invitación con gusto.",
+          "fr": "J'accepte volontiers votre invitation.",
+          "ru": "Я с радостью принимаю ваше приглашение.",
+          "ar": "أقبل دعوتك بسرور."
+        }
+      },
+      {
+        "text": "Ich nehme an, dass Sie mit dem Vorschlag einverstanden sind.",
+        "translations": {
+          "en": "I assume that you agree with the proposal.",
+          "es": "Supongo que está de acuerdo con la propuesta.",
+          "fr": "Je suppose que vous êtes d'accord avec la proposition.",
+          "ru": "Я предполагаю, что вы согласны с предложением.",
+          "ar": "أفترض أنك توافق على الاقتراح."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Annonce",
+    "article": "die",
+    "translations": {
+      "en": "advertisement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "إعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe alle Annoncen gelesen, aber die Wohnungen sind zu teuer.",
+        "translations": {
+          "en": "I have read all the advertisements, but the apartments are too expensive.",
+          "es": "He leído todos los anuncios, pero los apartamentos son demasiado caros.",
+          "fr": "J'ai lu toutes les annonces, mais les appartements sont trop chers.",
+          "ru": "Я прочитал все объявления, но квартиры слишком дорогие.",
+          "ar": "لقد قرأت جميع الإعلانات، لكن الشقق غالية جداً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anrede",
+    "article": "die",
+    "translations": {
+      "en": "salutation",
+      "es": "saludo",
+      "fr": "salutation",
+      "ru": "обращение",
+      "ar": "تحية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Du darfst im Brief die Anrede nicht vergessen.",
+        "translations": {
+          "en": "You must not forget the salutation in the letter.",
+          "es": "No debes olvidar el saludo en la carta.",
+          "fr": "Vous ne devez pas oublier la salutation dans la lettre.",
+          "ru": "Вы не должны забывать обращение в письме.",
+          "ar": "يجب ألا تنسى التحية في الرسالة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anrufen",
+    "article": "",
+    "translations": {
+      "en": "to call",
+      "es": "llamar",
+      "fr": "appeler",
+      "ru": "звонить",
+      "ar": "يتصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich rufe Sie heute Abend an.",
+        "translations": {
+          "en": "I will call you this evening.",
+          "es": "Te llamaré esta noche.",
+          "fr": "Je vous appellerai ce soir.",
+          "ru": "Я позвоню вам сегодня вечером.",
+          "ar": "سأتصل بك هذا المساء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anruf",
+    "article": "der",
+    "translations": {
+      "en": "call",
+      "es": "llamada",
+      "fr": "appel",
+      "ru": "звонок",
+      "ar": "مكالمة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich warte auf einen Anruf aus Berlin.",
+        "translations": {
+          "en": "I am waiting for a call from Berlin.",
+          "es": "Estoy esperando una llamada de Berlín.",
+          "fr": "J'attends un appel de Berlin.",
+          "ru": "Я жду звонка из Берлина.",
+          "ar": "أنتظر مكالمة من برلين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anrufbeantworter",
+    "article": "der",
+    "translations": {
+      "en": "answering machine",
+      "es": "contestador automático",
+      "fr": "répondeur",
+      "ru": "автоответчик",
+      "ar": "جهاز الرد الآلي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe dir eine Nachricht auf den Anrufbeantworter gesprochen.",
+        "translations": {
+          "en": "I left you a message on the answering machine.",
+          "es": "Te dejé un mensaje en el contestador automático.",
+          "fr": "Je t'ai laissé un message sur le répondeur.",
+          "ru": "Я оставил тебе сообщение на автоответчике.",
+          "ar": "لقد تركت لك رسالة على جهاز الرد الآلي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ansage",
+    "article": "die",
+    "translations": {
+      "en": "announcement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "إعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Achten Sie auf die Ansage am Bahnsteig.",
+        "translations": {
+          "en": "Pay attention to the announcement at the platform.",
+          "es": "Presta atención al anuncio en el andén.",
+          "fr": "Faites attention à l'annonce au quai.",
+          "ru": "Обратите внимание на объявление на платформе.",
+          "ar": "انتبه للإعلان على الرصيف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anwalt",
+    "article": "der",
+    "translations": {
+      "en": "lawyer",
+      "es": "abogado",
+      "fr": "avocat",
+      "ru": "адвокат",
+      "ar": "محامي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich werde das nicht bezahlen. Ich möchte zuerst mit meinem Anwalt sprechen.",
+        "translations": {
+          "en": "I will not pay that. I want to speak with my lawyer first.",
+          "es": "No voy a pagar eso. Quiero hablar primero con mi abogado.",
+          "fr": "Je ne vais pas payer ça. Je veux d'abord parler à mon avocat.",
+          "ru": "Я не буду это платить. Сначала я хочу поговорить с моим адвокатом.",
+          "ar": "لن أدفع ذلك. أريد أن أتحدث مع محامي أولاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anzeigen",
+    "article": "",
+    "translations": {
+      "en": "to report",
+      "es": "denunciar",
+      "fr": "signaler",
+      "ru": "сообщить",
+      "ar": "الإبلاغ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wenn Sie hier parken, zeige ich Sie an.",
+        "translations": {
+          "en": "If you park here, I will report you.",
+          "es": "Si aparcas aquí, te denunciaré.",
+          "fr": "Si vous vous garez ici, je vous signalerai.",
+          "ru": "Если вы здесь припаркуетесь, я вас сообщу.",
+          "ar": "إذا كنت هنا، سأقوم بالإبلاغ عنك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anzeige",
+    "article": "die",
+    "translations": {
+      "en": "advertisement",
+      "es": "anuncio",
+      "fr": "annonce",
+      "ru": "объявление",
+      "ar": "إعلان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe alle Anzeigen gelesen, aber die Wohnungen sind zu teuer.",
+        "translations": {
+          "en": "I read all the advertisements, but the apartments are too expensive.",
+          "es": "He leído todos los anuncios, pero los apartamentos son demasiado caros.",
+          "fr": "J'ai lu toutes les annonces, mais les appartements sont trop chers.",
+          "ru": "Я прочитал все объявления, но квартиры слишком дорогие.",
+          "ar": "لقد قرأت جميع الإعلانات، لكن الشقق باهظة الثمن."
+        }
+      },
+      {
+        "text": "Hier dürfen Sie nicht parken, sonst bekommen Sie eine Anzeige.",
+        "translations": {
+          "en": "You are not allowed to park here, otherwise you will get a ticket.",
+          "es": "No se permite estacionar aquí, de lo contrario, recibirá una multa.",
+          "fr": "Vous ne pouvez pas vous garer ici, sinon vous recevrez une amende.",
+          "ru": "Здесь нельзя парковаться, иначе вы получите штраф.",
+          "ar": "لا يُسمح لك بالوقوف هنا، وإلا ستحصل على مخالفة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "(sich) anziehen",
+    "article": "",
+    "translations": {
+      "en": "to get dressed",
+      "es": "vestirse",
+      "fr": "s'habiller",
+      "ru": "одеваться",
+      "ar": "يَلبَس"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Du musst dich wärmer anziehen, sonst erkältest du dich.",
+        "translations": {
+          "en": "You need to dress warmer, otherwise you'll catch a cold.",
+          "es": "Tienes que vestirte más abrigado, de lo contrario te resfriarás.",
+          "fr": "Tu dois t'habiller plus chaudement, sinon tu vas attraper un rhume.",
+          "ru": "Тебе нужно одеться теплее, иначе ты простудишься.",
+          "ar": "يجب عليك أن ترتدي ملابس أكثر دفئًا، وإلا ستصاب بالبرد."
+        }
+      },
+      {
+        "text": "Heute ziehe ich mein neues T-Shirt an.",
+        "translations": {
+          "en": "Today I'm putting on my new T-shirt.",
+          "es": "Hoy me pongo mi nueva camiseta.",
+          "fr": "Aujourd'hui, je mets mon nouveau T-shirt.",
+          "ru": "Сегодня я надеваю свою новую футболку.",
+          "ar": "اليوم سأرتدي قميصي الجديد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anzug",
+    "article": "der",
+    "translations": {
+      "en": "suit",
+      "es": "traje",
+      "fr": "costume",
+      "ru": "костюм",
+      "ar": "بدلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Mann hat sich einen neuen Anzug gekauft.",
+        "translations": {
+          "en": "My husband bought a new suit.",
+          "es": "Mi esposo se compró un traje nuevo.",
+          "fr": "Mon mari a acheté un nouveau costume.",
+          "ru": "Мой муж купил новый костюм.",
+          "ar": "زوجي اشترى بدلة جديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apartment",
+    "article": "das",
+    "translations": {
+      "en": "apartment",
+      "es": "apartamento",
+      "fr": "appartement",
+      "ru": "квартира",
+      "ar": "شقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben ein Ferienapartment gemietet.",
+        "translations": {
+          "en": "We rented a holiday apartment.",
+          "es": "Alquilamos un apartamento de vacaciones.",
+          "fr": "Nous avons loué un appartement de vacances.",
+          "ru": "Мы арендовали Ferienapartment.",
+          "ar": "استأجرنا شقة للعطلات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apfel",
+    "article": "der",
+    "translations": {
+      "en": "apple",
+      "es": "manzana",
+      "fr": "pomme",
+      "ru": "яблоко",
+      "ar": "تفاح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Zum Frühstück esse ich jeden Tag einen Apfel.",
+        "translations": {
+          "en": "I eat an apple every day for breakfast.",
+          "es": "Para el desayuno, como una manzana todos los días.",
+          "fr": "Je mange une pomme tous les jours au petit déjeuner.",
+          "ru": "На завтрак я ем яблоко каждый день.",
+          "ar": "في الإفطار أتناول تفاحة كل يوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apotheke",
+    "article": "die",
+    "translations": {
+      "en": "pharmacy",
+      "es": "farmacia",
+      "fr": "pharmacie",
+      "ru": "аптека",
+      "ar": "صيدلية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ist hier in der Nähe eine Apotheke?",
+        "translations": {
+          "en": "Is there a pharmacy nearby?",
+          "es": "¿Hay una farmacia cerca?",
+          "fr": "Y a-t-il une pharmacie à proximité?",
+          "ru": "Есть ли рядом аптека?",
+          "ar": "هل توجد صيدلية قريبة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Apparat",
+    "article": "der",
+    "translations": {
+      "en": "device",
+      "es": "aparato",
+      "fr": "appareil",
+      "ru": "аппарат",
+      "ar": "جهاز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Können Sie den Apparat bitte etwas leiser stellen?",
+        "translations": {
+          "en": "Could you please turn the device down a bit?",
+          "es": "¿Puede bajar un poco el aparato, por favor?",
+          "fr": "Pouvez-vous baisser un peu l'appareil, s'il vous plaît?",
+          "ru": "Не могли бы вы сделать аппарат немного тише?",
+          "ar": "هل يمكنك خفض الجهاز قليلاً من فضلك؟"
+        }
+      },
+      {
+        "text": "Wo ist mein Fotoapparat?",
+        "translations": {
+          "en": "Where is my camera?",
+          "es": "¿Dónde está mi cámara?",
+          "fr": "Où est mon appareil photo?",
+          "ru": "Где мой фотоаппарат?",
+          "ar": "أين كاميرتي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Appetit",
+    "article": "der",
+    "translations": {
+      "en": "appetite",
+      "es": "apetito",
+      "fr": "appétit",
+      "ru": "аппетит",
+      "ar": "شهية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe heute keinen Appetit. Ich mag nichts essen.",
+        "translations": {
+          "en": "I don't have an appetite today. I don't feel like eating anything.",
+          "es": "No tengo apetito hoy. No tengo ganas de comer nada.",
+          "fr": "Je n'ai pas d'appétit aujourd'hui. Je n'ai envie de rien manger.",
+          "ru": "У меня сегодня нет аппетита. Мне не хочется ничего есть.",
+          "ar": "ليس لدي شهية اليوم. لا أريد أن أكل شيئًا."
+        }
+      },
+      {
+        "text": "Auf was hast du Appetit? Vielleicht auf einen Salat?",
+        "translations": {
+          "en": "What are you in the mood for? Maybe a salad?",
+          "es": "¿Qué te apetece? ¿Quizás una ensalada?",
+          "fr": "Qu'est-ce que tu as envie de manger ? Peut-être une salade ?",
+          "ru": "На что у тебя аппетит? Может быть, на салат?",
+          "ar": "ماذا تريد أن تأكل؟ ربما سلطة؟"
+        }
+      },
+      {
+        "text": "Guten Appetit!",
+        "translations": {
+          "en": "Enjoy your meal!",
+          "es": "¡Buen provecho!",
+          "fr": "Bon appétit !",
+          "ru": "Приятного аппетита!",
+          "ar": "بالهناء والشفاء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aprikose",
+    "article": "die",
+    "translations": {
+      "en": "apricot",
+      "es": "albaricoque",
+      "fr": "abricot",
+      "ru": "абрикос",
+      "ar": "مشمش"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schmecken dir die Aprikosen?",
+        "translations": {
+          "en": "Do you like the apricots?",
+          "es": "¿Te gustan los albaricoques?",
+          "fr": "Aimes-tu les abricots ?",
+          "ru": "Тебе нравятся абрикосы?",
+          "ar": "هل تحب المشمش؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "arbeiten",
+    "article": "",
+    "translations": {
+      "en": "to work",
+      "es": "trabajar",
+      "fr": "travailler",
+      "ru": "работать",
+      "ar": "يعمل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er arbeitet heute bis 16 Uhr.",
+        "translations": {
+          "en": "He works today until 4 PM.",
+          "es": "Él trabaja hoy hasta las 4 PM.",
+          "fr": "Il travaille aujourd'hui jusqu'à 16 heures.",
+          "ru": "Он работает сегодня до 16:00.",
+          "ar": "يعمل اليوم حتى الساعة ٤ مساءً."
+        }
+      },
+      {
+        "text": "Arzu arbeitet als Krankenschwester im Krankenhaus.",
+        "translations": {
+          "en": "Arzu works as a nurse in the hospital.",
+          "es": "Arzu trabaja como enfermera en el hospital.",
+          "fr": "Arzu travaille comme infirmière à l'hôpital.",
+          "ru": "Арзу работает медсестрой в больнице.",
+          "ar": "أرزو تعمل مربية في المستشفى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arbeit",
+    "article": "die",
+    "translations": {
+      "en": "work",
+      "es": "trabajo",
+      "fr": "travail",
+      "ru": "работа",
+      "ar": "عمل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie gefällt dir deine Arbeit?",
+        "translations": {
+          "en": "How do you like your work?",
+          "es": "¿Cómo te gusta tu trabajo?",
+          "fr": "Comment aimes-tu ton travail?",
+          "ru": "Как тебе твоя работа?",
+          "ar": "كيف تعجبك عملك؟"
+        }
+      },
+      {
+        "text": "Nach der Ausbildung hat Mohamed eine Arbeit gefunden.",
+        "translations": {
+          "en": "After the training, Mohamed found a job.",
+          "es": "Después de la formación, Mohamed encontró un trabajo.",
+          "fr": "Après la formation, Mohamed a trouvé un emploi.",
+          "ru": "После обучения Мохамед нашел работу.",
+          "ar": "بعد التدريب، وجد محمد عملاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arbeiter",
+    "article": "der",
+    "translations": {
+      "en": "worker",
+      "es": "trabajador",
+      "fr": "travailleur",
+      "ru": "рабочий",
+      "ar": "عامل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Maria ist seit zwei Jahren Arbeiterin bei Siemens.",
+        "translations": {
+          "en": "Maria has been a worker at Siemens for two years.",
+          "es": "María ha sido trabajadora en Siemens durante dos años.",
+          "fr": "Maria est travailleuse chez Siemens depuis deux ans.",
+          "ru": "Мария работает на Siemens уже два года.",
+          "ar": "ماريا تعمل في سيمنز منذ عامين."
+        }
+      }
+    ]
+  }
+]
