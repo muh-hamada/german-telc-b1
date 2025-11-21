@@ -100,6 +100,7 @@
     "welcomeGuest": "¡Bienvenido!",
     "examStructure": "Estructura del Examen",
     "practice": "Practicar",
+    "vocabulary": "Constructor de Vocabulario",
     "practiceSections": {
       "reading": "Comprensión Lectora",
       "listening": "Comprensión Auditiva",
@@ -107,6 +108,36 @@
       "speaking": "Expresión Oral"
     },
     "descriptions": {
+      "practice": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla",
+      "vocabulary": "Aprende vocabulario con repetición espaciada"
+    }
+  },
+  "vocabulary": {
+    "title": "Constructor de Vocabulario",
+    "yourProgress": "Tu Progreso",
+    "studyNew": "Estudiar Nuevas Palabras",
+    "review": "Revisar",
+    "newWordsAvailable": "{{count}} nuevas palabras disponibles",
+    "dueReviews": "{{count}} revisiones pendientes",
+    "viewProgress": "Ver Progreso",
+    "viewProgressDesc": "Ve tus estadísticas y progreso de aprendizaje",
+    "studiedWordsList": "Palabras Estudiadas",
+    "studiedWordsListDesc": "Revisa todas las palabras que has aprendido",
+    "signInRequired": "Inicio de Sesión Requerido",
+    "signInMessage": "Por favor inicia sesión para usar el Constructor de Vocabulario",
+    "signInButton": "Iniciar Sesión",
+    "features": {
+      "saveProgress": "Guarda tu progreso de aprendizaje",
+      "trackWords": "Rastrea qué palabras has estudiado",
+      "spacedRepetition": "Usa algoritmo de repetición espaciada",
+      "syncDevices": "Sincroniza en todos tus dispositivos"
+    },
+    "progress": {
+      "title": "Progreso de Vocabulario",
+      "mastered": "Dominadas",
+      "learning": "Aprendiendo"
+    }
+  },
       "examStructure": "Aprende sobre el formato y puntuación del examen TELC B1",
       "practice": "Practica todas las secciones del examen: Lectura, Audición, Escritura y Habla"
     }

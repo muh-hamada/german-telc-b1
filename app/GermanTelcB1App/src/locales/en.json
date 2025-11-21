@@ -111,6 +111,7 @@
   },
   "vocabulary": {
     "title": "Vocabulary Builder",
+    "yourProgress": "Your Progress",
     "studyNew": "Study New Words",
     "review": "Review",
     "newWordsAvailable": "{{count}} new words available",

@@ -100,6 +100,7 @@
     "welcomeGuest": "مرحبًا!",
     "examStructure": "بنية الامتحان",
     "practice": "التدريب",
+    "vocabulary": "منشئ المفردات",
     "practiceSections": {
       "reading": "الفهم القرائي",
       "listening": "الفهم السمعي",
@@ -108,7 +109,34 @@
     },
     "descriptions": {
       "examStructure": "تعرف على صيغة ونظام تقييم امتحان TELC B1",
-      "practice": "تدرب على جميع أقسام الامتحان: القراءة والاستماع والكتابة والتحدث"
+      "practice": "تدرب على جميع أقسام الامتحان: القراءة والاستماع والكتابة والتحدث",
+      "vocabulary": "تعلم المفردات مع التكرار المتباعد"
+    }
+  },
+  "vocabulary": {
+    "title": "منشئ المفردات",
+    "yourProgress": "تقدمك",
+    "studyNew": "دراسة كلمات جديدة",
+    "review": "مراجعة",
+    "newWordsAvailable": "{{count}} كلمات جديدة متاحة",
+    "dueReviews": "{{count}} مراجعات مستحقة",
+    "viewProgress": "عرض التقدم",
+    "viewProgressDesc": "شاهد إحصائياتك وتقدم التعلم",
+    "studiedWordsList": "الكلمات المدروسة",
+    "studiedWordsListDesc": "راجع جميع الكلمات التي تعلمتها",
+    "signInRequired": "تسجيل الدخول مطلوب",
+    "signInMessage": "يرجى تسجيل الدخول لاستخدام منشئ المفردات",
+    "signInButton": "تسجيل الدخول",
+    "features": {
+      "saveProgress": "احفظ تقدم التعلم الخاص بك",
+      "trackWords": "تتبع الكلمات التي درستها",
+      "spacedRepetition": "استخدم خوارزمية التكرار المتباعد",
+      "syncDevices": "زامن على جميع أجهزتك"
+    },
+    "progress": {
+      "title": "تقدم المفردات",
+      "mastered": "متقن",
+      "learning": "تعلم"
     }
   },
   "examStructure": {

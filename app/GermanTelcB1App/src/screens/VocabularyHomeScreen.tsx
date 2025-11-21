@@ -19,7 +19,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useAuth } from '../contexts/AuthContext';
 import Card from '../components/Card';
-import VocabularyProgressCircle from '../components/VocabularyProgressCircle';
+import StatsGrid from '../components/StatsGrid';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LoginModal from '../components/LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -157,20 +157,26 @@ const VocabularyHomeScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Header with Progress Circle */}
-        <View style={styles.header}>
-          <VocabularyProgressCircle
-            current={stats.masteredWords}
-            total={stats.totalWords}
-            size={140}
+        {/* Header with Stats */}
+        <Card style={styles.header}>
+          <Text style={styles.headerTitle}>{t('vocabulary.yourProgress')}</Text>
+          <StatsGrid
+            stats={[
+              {
+                value: stats.masteredWords,
+                label: t('vocabulary.progress.mastered'),
+                valueColor: colors.primary[500],
+              },
+              {
+                value: stats.learningWords,
+                label: t('vocabulary.progress.learning'),
+                valueColor: colors.warning[500],
+              },
+            ]}
+            variant="compact"
+            backgroundColor={colors.background.primary}
           />
-          <Text style={styles.progressDescription}>
-            {t('vocabulary.masteredProgress', { 
-              mastered: stats.masteredWords, 
-              total: stats.totalWords 
-            })}
-          </Text>
-        </View>
+        </Card>
 
         {/* Study New Words Card */}
         <Card
@@ -342,19 +348,18 @@ const styles = StyleSheet.create({
     gap: spacing.margin.md,
   },
   header: {
-    alignItems: 'center',
-    paddingBottom: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
+  },
+  headerTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.md,
+    textAlign: 'center',
   },
   title: {
     ...typography.textStyles.h1,
     color: colors.text.primary,
     marginBottom: spacing.margin.lg,
-  },
-  progressDescription: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginTop: spacing.margin.md,
   },
   actionCard: {
   },
@@ -377,7 +382,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cardTitle: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
   },

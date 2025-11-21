@@ -100,6 +100,7 @@
     "welcomeGuest": "Bienvenue!",
     "examStructure": "Structure de l'examen",
     "practice": "Pratiquer",
+    "vocabulary": "Constructeur de vocabulaire",
     "practiceSections": {
       "reading": "Compréhension écrite",
       "listening": "Compréhension orale",
@@ -108,7 +109,34 @@
     },
     "descriptions": {
       "examStructure": "Apprenez le format et le système de notation de l'examen TELC B1",
-      "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale"
+      "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale",
+      "vocabulary": "Apprenez le vocabulaire avec la répétition espacée"
+    }
+  },
+  "vocabulary": {
+    "title": "Constructeur de vocabulaire",
+    "yourProgress": "Votre Progression",
+    "studyNew": "Étudier de nouveaux mots",
+    "review": "Réviser",
+    "newWordsAvailable": "{{count}} nouveaux mots disponibles",
+    "dueReviews": "{{count}} révisions à faire",
+    "viewProgress": "Voir la progression",
+    "viewProgressDesc": "Consultez vos statistiques et vos progrès d'apprentissage",
+    "studiedWordsList": "Mots étudiés",
+    "studiedWordsListDesc": "Révisez tous les mots que vous avez appris",
+    "signInRequired": "Connexion requise",
+    "signInMessage": "Veuillez vous connecter pour utiliser le Constructeur de vocabulaire",
+    "signInButton": "Se connecter",
+    "features": {
+      "saveProgress": "Sauvegardez votre progression d'apprentissage",
+      "trackWords": "Suivez les mots que vous avez étudiés",
+      "spacedRepetition": "Utilisez l'algorithme de répétition espacée",
+      "syncDevices": "Synchronisez sur tous vos appareils"
+    },
+    "progress": {
+      "title": "Progression du vocabulaire",
+      "mastered": "Maîtrisé",
+      "learning": "Apprentissage"
     }
   },
   "examStructure": {

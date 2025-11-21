@@ -115,6 +115,7 @@
   },
   "vocabulary": {
     "title": "Vokabeltrainer",
+    "yourProgress": "Ihr Fortschritt",
     "studyNew": "Neue Wörter lernen",
     "review": "Wiederholen",
     "newWordsAvailable": "{{count}} neue Wörter verfügbar",
