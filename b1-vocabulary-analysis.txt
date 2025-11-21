@@ -1,0 +1,5115 @@
+
+================================================================================
+A2 VOCABULARY ANALYSIS REPORT - 2025-11-20T19:54:37.776Z
+================================================================================
+
+Source file: b1-vocabulary.json
+Total entries: 2825
+
+================================================================================
+1. DUPLICATE WORDS ANALYSIS
+================================================================================
+
+Found 336 duplicate words
+
+Complete list of all duplicate words:
+--------------------------------------------------------------------------------
+
+1. Word: "Ausländer" (appears 2 times)
+   Indices: 195, 226
+   [195] der Ausländer (noun)
+       Sentences: 1
+       1. Viele Ausländer und Ausländerinnen lernen in der Volkshochsc...
+   [226] der Ausländer (noun)
+       Sentences: 1
+       1. Viele Ausländer und Ausländerinnen lernen in der Volkshochsc...
+
+2. Word: "ausländisch" (appears 2 times)
+   Indices: 196, 227
+   [196] ausländisch (adjective)
+       Sentences: 1
+       1. Die ausländischen Studenten müssen zuerst einen Deutschkurs ...
+   [227] ausländisch (adjective)
+       Sentences: 1
+       1. Die ausländischen Studenten müssen zuerst einen Deutschkurs ...
+
+3. Word: "ausmachen" (appears 2 times)
+   Indices: 197, 228
+   [197] ausmachen (verb)
+       Sentences: 4
+       1. Sie müssen leider warten. – Kein Problem. Das macht mir nich...
+       2. Machen Sie bitte das Licht aus!
+       3. Wir hatten doch ausgemacht, dass du die Getränke besorgst.
+       4. Haben Sie einen Termin ausgemacht?
+   [228] ausmachen (verb)
+       Sentences: 4
+       1. Sie müssen leider warten. – Kein Problem. Das macht mir nich...
+       2. Machen Sie bitte das Licht aus!
+       3. Wir hatten doch ausgemacht, dass du die Getränke besorgst.
+       4. Haben Sie einen Termin ausgemacht?
+
+4. Word: "Ausnahme" (appears 2 times)
+   Indices: 198, 229
+   [198] die Ausnahme (noun)
+       Sentences: 1
+       1. Normalerweise muss ich am Wochenende arbeiten. Aber heute is...
+   [229] die Ausnahme (noun)
+       Sentences: 1
+       1. Normalerweise muss ich am Wochenende arbeiten. Aber heute is...
+
+5. Word: "ausreichen" (appears 2 times)
+   Indices: 199, 230
+   [199] ausreichen (verb)
+       Sentences: 2
+       1. Das Geld muss bis März ausreichen.
+       2. Seine Kenntnisse reichen für diese Arbeit aus.
+   [230] ausreichen (verb)
+       Sentences: 2
+       1. Das Geld muss bis März ausreichen.
+       2. Seine Kenntnisse reichen für diese Arbeit aus.
+
+6. Word: "ausreichend" (appears 2 times)
+   Indices: 200, 231
+   [200] ausreichend (adjective)
+       Sentences: 1
+       1. Das Geld ist für die Reise ausreichend.
+   [231] ausreichend (adjective)
+       Sentences: 1
+       1. Das Geld ist für die Reise ausreichend.
+
+7. Word: "ausrichten" (appears 2 times)
+   Indices: 201, 232
+   [201] ausrichten (verb)
+       Sentences: 1
+       1. Mein Mann ist nicht da. Soll ich ihm etwas ausrichten?
+   [232] ausrichten (verb)
+       Sentences: 1
+       1. Mein Mann ist nicht da. Soll ich ihm etwas ausrichten?
+
+8. Word: "ausschließen" (appears 2 times)
+   Indices: 203, 234
+   [203] ausschließen (verb)
+       Sentences: 2
+       1. Das kann man nicht ganz ausschließen.
+       2. So viel kann ich nicht bezahlen. Das ist völlig ausgeschloss...
+   [234] ausschließen (verb)
+       Sentences: 2
+       1. Das kann man nicht ganz ausschließen.
+       2. So viel kann ich nicht bezahlen. Das ist völlig ausgeschloss...
+
+9. Word: "ausschließlich" (appears 2 times)
+   Indices: 204, 235
+   [204] ausschließlich (adverb)
+       Sentences: 1
+       1. Tut mir leid. Wir haben ausschließlich Nichtraucherzimmer.
+   [235] ausschließlich (adverb)
+       Sentences: 1
+       1. Tut mir leid. Wir haben ausschließlich Nichtraucherzimmer.
+
+10. Word: "aussehen" (appears 2 times)
+   Indices: 205, 236
+   [205] aussehen (verb)
+       Sentences: 3
+       1. Sie sehen wieder besser aus. Sind Sie wieder gesund?
+       2. Er sieht genauso aus wie sein Vater.
+       3. Es sieht so aus, als ob es bald regnen würde.
+   [236] aussehen (verb)
+       Sentences: 3
+       1. Sie sehen wieder besser aus. Sind Sie wieder gesund?
+       2. Er sieht genauso aus wie sein Vater.
+       3. Es sieht so aus, als ob es bald regnen würde.
+
+11. Word: "außen" (appears 2 times)
+   Indices: 206, 237
+   [206] außen (adverb)
+       Sentences: 2
+       1. Wir haben das Schloss nur von außen gesehen.
+       2. Außen ist das Haus nicht sehr schön.
+   [237] außen (adverb)
+       Sentences: 2
+       1. Wir haben das Schloss nur von außen gesehen.
+       2. Außen ist das Haus nicht sehr schön.
+
+12. Word: "außerhalb" (appears 2 times)
+   Indices: 207, 238
+   [207] außerhalb (preposition/adverb)
+       Sentences: 1
+       1. Wir wohnen außerhalb von Berlin.
+   [238] außerhalb (preposition/adverb)
+       Sentences: 1
+       1. Wir wohnen außerhalb von Berlin.
+
+13. Word: "äußerlich" (appears 2 times)
+   Indices: 208, 239
+   [208] äußerlich (adjective/adverb)
+       Sentences: 1
+       1. Das Medikament dürfen Sie nur äußerlich anwenden.
+   [239] äußerlich (adjective/adverb)
+       Sentences: 1
+       1. Das Medikament dürfen Sie nur äußerlich anwenden.
+
+14. Word: "außer" (appears 2 times)
+   Indices: 209, 240
+   [209] außer (preposition/conjunction)
+       Sentences: 3
+       1. Außer Lisa hat sich niemand um die Stelle beworben.
+       2. Der Aufzug ist außer Betrieb.
+       3. Wir haben täglich außer Samstag geöffnet.
+   [240] außer (preposition/conjunction)
+       Sentences: 3
+       1. Außer Lisa hat sich niemand um die Stelle beworben.
+       2. Der Aufzug ist außer Betrieb.
+       3. Wir haben täglich außer Samstag geöffnet.
+
+15. Word: "außerdem" (appears 2 times)
+   Indices: 210, 241
+   [210] außerdem (adverb)
+       Sentences: 2
+       1. Möchten Sie außerdem noch etwas?
+       2. Der Film war langweilig, und außerdem haben die Schauspieler...
+   [241] außerdem (adverb)
+       Sentences: 2
+       1. Möchten Sie außerdem noch etwas?
+       2. Der Film war langweilig, und außerdem haben die Schauspieler...
+
+16. Word: "Aussicht" (appears 2 times)
+   Indices: 211, 242
+   [211] die Aussicht (noun)
+       Sentences: 2
+       1. Von diesem Turm hat man eine tolle Aussicht.
+       2. Mit mehreren Fremdsprachen hat man gute Aussichten im Beruf.
+   [242] die Aussicht (noun)
+       Sentences: 2
+       1. Von diesem Turm hat man eine tolle Aussicht.
+       2. Mit mehreren Fremdsprachen hat man gute Aussichten im Beruf.
+
+17. Word: "aussprechen" (appears 2 times)
+   Indices: 212, 243
+   [212] aussprechen (verb)
+       Sentences: 1
+       1. Wie spricht man dieses Wort aus?
+   [243] aussprechen (verb)
+       Sentences: 1
+       1. Wie spricht man dieses Wort aus?
+
+18. Word: "Aussprache" (appears 2 times)
+   Indices: 213, 244
+   [213] die Aussprache (noun)
+       Sentences: 1
+       1. Ali hat eine gute Aussprache.
+   [244] die Aussprache (noun)
+       Sentences: 1
+       1. Ali hat eine gute Aussprache.
+
+19. Word: "ausstellen" (appears 2 times)
+   Indices: 214, 245
+   [214] ausstellen (verb)
+       Sentences: 2
+       1. Im Schaufenster sind Winterschuhe ausgestellt.
+       2. Das Zeugnis wird bis nächste Woche ausgestellt.
+   [245] ausstellen (verb)
+       Sentences: 2
+       1. Im Schaufenster sind Winterschuhe ausgestellt.
+       2. Das Zeugnis wird bis nächste Woche ausgestellt.
+
+20. Word: "Ausstellung" (appears 2 times)
+   Indices: 215, 246
+   [215] die Ausstellung (noun)
+       Sentences: 2
+       1. Wir waren mit der Lehrerin in einer Ausstellung.
+       2. Die Ausstellung eines neuen Passes dauert zwei Wochen.
+   [246] die Ausstellung (noun)
+       Sentences: 2
+       1. Wir waren mit der Lehrerin in einer Ausstellung.
+       2. Die Ausstellung eines neuen Passes dauert zwei Wochen.
+
+21. Word: "auswählen" (appears 2 times)
+   Indices: 217, 248
+   [217] auswählen (verb)
+       Sentences: 1
+       1. Für die Aufgabe können Sie aus drei Themen auswählen.
+   [248] auswählen (verb)
+       Sentences: 1
+       1. Für die Aufgabe können Sie aus drei Themen auswählen.
+
+22. Word: "Auswahl" (appears 2 times)
+   Indices: 218, 249
+   [218] die Auswahl (noun)
+       Sentences: 2
+       1. Wir müssen eine Auswahl aus den Büchern treffen.
+       2. Das Geschäft hat eine große Auswahl.
+   [249] die Auswahl (noun)
+       Sentences: 2
+       1. Wir müssen eine Auswahl aus den Büchern treffen.
+       2. Das Geschäft hat eine große Auswahl.
+
+23. Word: "Ausweis" (appears 2 times)
+   Indices: 219, 250
+   [219] der Ausweis (noun)
+       Sentences: 1
+       1. Darf ich mal Ihren Ausweis sehen?
+   [250] der Ausweis (noun)
+       Sentences: 1
+       1. Darf ich mal Ihren Ausweis sehen?
+
+24. Word: "ausziehen" (appears 2 times)
+   Indices: 220, 251
+   [220] ausziehen (verb)
+       Sentences: 2
+       1. Willst du den Mantel nicht ausziehen?
+       2. Müllers sind schon vor vier Wochen ausgezogen.
+   [251] ausziehen (verb)
+       Sentences: 2
+       1. Willst du den Mantel nicht ausziehen?
+       2. Müllers sind schon vor vier Wochen ausgezogen.
+
+25. Word: "Auto" (appears 2 times)
+   Indices: 221, 252
+   [221] das Auto (noun)
+       Sentences: 1
+       1. Mario fährt mit dem Auto zur Arbeit.
+   [252] das Auto (noun)
+       Sentences: 1
+       1. Mario fährt mit dem Auto zur Arbeit.
+
+26. Word: "Autobahn" (appears 2 times)
+   Indices: 222, 253
+   [222] die Autobahn (noun)
+       Sentences: 1
+       1. Das Dorf liegt direkt an der Autobahn.
+   [253] die Autobahn (noun)
+       Sentences: 1
+       1. Das Dorf liegt direkt an der Autobahn.
+
+27. Word: "Automat" (appears 2 times)
+   Indices: 223, 254
+   [223] der Automat (noun)
+       Sentences: 2
+       1. Zigaretten bekommst du am Automaten.
+       2. Der Fahrkartenautomat ist auf dem Bahnsteig.
+   [254] der Automat (noun)
+       Sentences: 2
+       1. Zigaretten bekommst du am Automaten.
+       2. Der Fahrkartenautomat ist auf dem Bahnsteig.
+
+28. Word: "automatisch" (appears 2 times)
+   Indices: 224, 255
+   [224] automatisch (adjective/adverb)
+       Sentences: 2
+       1. Die Tür schließt automatisch.
+       2. Das Zeugnis bekommen Sie automatisch zugeschickt.
+   [255] automatisch (adjective/adverb)
+       Sentences: 2
+       1. Die Tür schließt automatisch.
+       2. Das Zeugnis bekommen Sie automatisch zugeschickt.
+
+29. Word: "Fahrkarte" (appears 2 times)
+   Indices: 751, 1489
+   [751] die Fahrkarte (noun)
+       Sentences: 1
+       1. Fahrkarten bekommt man am Automaten.
+   [1489] die Fahrkarte (noun)
+       Sentences: 1
+       1. Ich habe meine Fahrkarte verloren.
+
+30. Word: "Fett" (appears 2 times)
+   Indices: 766, 803
+   [766] das Fett (noun)
+       Sentences: 1
+       1. Man soll nicht so viel Fett essen.
+   [803] das Fett (noun)
+       Sentences: 1
+       1. Man soll nicht so viel Fett essen.
+
+31. Word: "feucht" (appears 2 times)
+   Indices: 767, 804
+   [767] feucht (adjective)
+       Sentences: 2
+       1. Die Wäsche ist noch feucht.
+       2. Es ist heute feucht draußen.
+   [804] feucht (adjective)
+       Sentences: 2
+       1. Die Wäsche ist noch feucht.
+       2. Es ist heute feucht draußen.
+
+32. Word: "Feuer" (appears 2 times)
+   Indices: 768, 805
+   [768] das Feuer (noun)
+       Sentences: 2
+       1. Der Schaden durch das Feuer war sehr groß.
+       2. Haben Sie Feuer?
+   [805] das Feuer (noun)
+       Sentences: 2
+       1. Der Schaden durch das Feuer war sehr groß.
+       2. Haben Sie Feuer?
+
+33. Word: "Feuerzeug" (appears 2 times)
+   Indices: 769, 806
+   [769] das Feuerzeug (noun)
+       Sentences: 1
+       1. Ist das Feuerzeug neu?
+   [806] das Feuerzeug (noun)
+       Sentences: 1
+       1. Ist das Feuerzeug neu?
+
+34. Word: "Feuerwehr" (appears 2 times)
+   Indices: 770, 807
+   [770] die Feuerwehr (noun)
+       Sentences: 1
+       1. Schnell! Rufen Sie die Feuerwehr! Die Nummer ist: 112.
+   [807] die Feuerwehr (noun)
+       Sentences: 1
+       1. Schnell! Rufen Sie die Feuerwehr! Die Nummer ist: 112.
+
+35. Word: "Fieber" (appears 2 times)
+   Indices: 771, 808
+   [771] das Fieber (noun)
+       Sentences: 1
+       1. Plötzlich habe ich hohes Fieber bekommen.
+   [808] das Fieber (noun)
+       Sentences: 1
+       1. Plötzlich habe ich hohes Fieber bekommen.
+
+36. Word: "Figur" (appears 2 times)
+   Indices: 772, 809
+   [772] die Figur (noun)
+       Sentences: 2
+       1. Lars hat eine gute Figur.
+       2. Bei diesem Spiel hat jeder Spieler vier Figuren.
+   [809] die Figur (noun)
+       Sentences: 2
+       1. Lars hat eine gute Figur.
+       2. Bei diesem Spiel hat jeder Spieler vier Figuren.
+
+37. Word: "Film" (appears 2 times)
+   Indices: 773, 810
+   [773] der Film (noun)
+       Sentences: 1
+       1. Den Film musst du dir unbedingt ansehen.
+   [810] der Film (noun)
+       Sentences: 1
+       1. Den Film musst du dir unbedingt ansehen.
+
+38. Word: "finanzieren" (appears 2 times)
+   Indices: 774, 811
+   [774] finanzieren (verb)
+       Sentences: 1
+       1. Ich weiß nicht, wie ich das Auto finanzieren soll.
+   [811] finanzieren (verb)
+       Sentences: 1
+       1. Ich weiß nicht, wie ich das Auto finanzieren soll.
+
+39. Word: "finanziell" (appears 2 times)
+   Indices: 775, 812
+   [775] finanziell (adverb)
+       Sentences: 1
+       1. Finanziell geht es meinem Neffen jetzt besser.
+   [812] finanziell (adverb)
+       Sentences: 1
+       1. Finanziell geht es meinem Neffen jetzt besser.
+
+40. Word: "finden" (appears 2 times)
+   Indices: 776, 813
+   [776] finden (verb)
+       Sentences: 3
+       1. Meine Tante hat eine gute Arbeit gefunden.
+       2. Ich kann meinen Schlüssel nicht finden.
+       3. Luigi finde ich sehr nett.
+   [813] finden (verb)
+       Sentences: 3
+       1. Meine Tante hat eine gute Arbeit gefunden.
+       2. Ich kann meinen Schlüssel nicht finden.
+       3. Luigi finde ich sehr nett.
+
+41. Word: "Finger" (appears 2 times)
+   Indices: 777, 814
+   [777] der Finger (noun)
+       Sentences: 1
+       1. Alessandro hat sich in den Finger geschnitten.
+   [814] der Finger (noun)
+       Sentences: 1
+       1. Alessandro hat sich in den Finger geschnitten.
+
+42. Word: "Firma" (appears 2 times)
+   Indices: 778, 815
+   [778] die Firma (noun)
+       Sentences: 1
+       1. Seit wann arbeiten Sie bei dieser Firma?
+   [815] die Firma (noun)
+       Sentences: 1
+       1. Seit wann arbeiten Sie bei dieser Firma?
+
+43. Word: "flach" (appears 2 times)
+   Indices: 779, 816
+   [779] flach (adjective)
+       Sentences: 2
+       1. Für die Arbeit brauche ich flache Schuhe.
+       2. An dieser Stelle ist der See sehr flach.
+   [816] flach (adjective)
+       Sentences: 2
+       1. Für die Arbeit brauche ich flache Schuhe.
+       2. An dieser Stelle ist der See sehr flach.
+
+44. Word: "Fläche" (appears 2 times)
+   Indices: 780, 817
+   [780] die Fläche (noun)
+       Sentences: 1
+       1. Unsere Wohnung hat eine Wohnfläche von 100 m².
+   [817] die Fläche (noun)
+       Sentences: 1
+       1. Unsere Wohnung hat eine Wohnfläche von 100 m².
+
+45. Word: "Flasche" (appears 2 times)
+   Indices: 781, 818
+   [781] die Flasche (noun)
+       Sentences: 2
+       1. Wo kann man die leeren Flaschen zurückgeben?
+       2. Eine Flasche Bier bitte.
+   [818] die Flasche (noun)
+       Sentences: 2
+       1. Wo kann man die leeren Flaschen zurückgeben?
+       2. Eine Flasche Bier bitte.
+
+46. Word: "Fleck" (appears 2 times)
+   Indices: 782, 819
+   [782] der Fleck (noun)
+       Sentences: 1
+       1. Du hast einen Fleck auf der Bluse.
+   [819] der Fleck (noun)
+       Sentences: 1
+       1. Du hast einen Fleck auf der Bluse.
+
+47. Word: "Fleisch" (appears 2 times)
+   Indices: 783, 820
+   [783] das Fleisch (noun)
+       Sentences: 1
+       1. Fleisch mag ich nicht.
+   [820] das Fleisch (noun)
+       Sentences: 1
+       1. Fleisch mag ich nicht.
+
+48. Word: "Fleischhauer" (appears 2 times)
+   Indices: 784, 821
+   [784] der Fleischhauer (noun)
+       Sentences: 1
+       1. Dieser Fleischhauer macht sehr gute Wurst.
+   [821] der Fleischhauer (noun)
+       Sentences: 1
+       1. Dieser Fleischhauer macht sehr gute Wurst.
+
+49. Word: "fleißig" (appears 2 times)
+   Indices: 785, 822
+   [785] fleißig (adjective)
+       Sentences: 1
+       1. Pamela ist wirklich fleißig. Sie macht immer ihre Hausaufgab...
+   [822] fleißig (adjective)
+       Sentences: 1
+       1. Pamela ist wirklich fleißig. Sie macht immer ihre Hausaufgab...
+
+50. Word: "geschieden" (appears 2 times)
+   Indices: 963, 2452
+   [963] geschieden (adjective)
+       Sentences: 1
+       1. Ich bin seit drei Jahren geschieden.
+   [2452] geschieden (adjective)
+       Sentences: 1
+       1. Meine Kollegin ist geschieden.
+
+51. Word: "Halt" (appears 4 times)
+   Indices: 1055, 1086, 1117, 1148
+   [1055] der Halt (noun)
+       Sentences: 1
+       1. Nächster Halt ist am Südbahnhof.
+   [1086] der Halt (noun)
+       Sentences: 1
+       1. Nächster Halt ist am Südbahnhof.
+   [1117] der Halt (noun)
+       Sentences: 1
+       1. Nächster Halt ist am Südbahnhof.
+   [1148] der Halt (noun)
+       Sentences: 1
+       1. Nächster Halt ist am Südbahnhof.
+
+52. Word: "Haltestelle" (appears 4 times)
+   Indices: 1056, 1087, 1118, 1149
+   [1056] die Haltestelle (noun)
+       Sentences: 1
+       1. An der nächsten Haltestelle müssen wir aussteigen.
+   [1087] die Haltestelle (noun)
+       Sentences: 1
+       1. An der nächsten Haltestelle müssen wir aussteigen.
+   [1118] die Haltestelle (noun)
+       Sentences: 1
+       1. An der nächsten Haltestelle müssen wir aussteigen.
+   [1149] die Haltestelle (noun)
+       Sentences: 1
+       1. An der nächsten Haltestelle müssen wir aussteigen.
+
+53. Word: "Hammer" (appears 4 times)
+   Indices: 1057, 1088, 1119, 1150
+   [1057] der Hammer (noun)
+       Sentences: 1
+       1. Ich möchte ein Bild aufhängen. Hast du einen Hammer für mich...
+   [1088] der Hammer (noun)
+       Sentences: 1
+       1. Ich möchte ein Bild aufhängen. Hast du einen Hammer für mich...
+   [1119] der Hammer (noun)
+       Sentences: 1
+       1. Ich möchte ein Bild aufhängen. Hast du einen Hammer für mich...
+   [1150] der Hammer (noun)
+       Sentences: 1
+       1. Ich möchte ein Bild aufhängen. Hast du einen Hammer für mich...
+
+54. Word: "Hand" (appears 4 times)
+   Indices: 1058, 1089, 1120, 1151
+   [1058] die Hand (noun)
+       Sentences: 2
+       1. Wasch dir bitte die Hände vor dem Essen.
+       2. Gib mir bitte deine Hand. Wir gehen jetzt über die Straße.
+   [1089] die Hand (noun)
+       Sentences: 2
+       1. Wasch dir bitte die Hände vor dem Essen.
+       2. Gib mir bitte deine Hand. Wir gehen jetzt über die Straße.
+   [1120] die Hand (noun)
+       Sentences: 2
+       1. Wasch dir bitte die Hände vor dem Essen.
+       2. Gib mir bitte deine Hand. Wir gehen jetzt über die Straße.
+   [1151] die Hand (noun)
+       Sentences: 2
+       1. Wasch dir bitte die Hände vor dem Essen.
+       2. Gib mir bitte deine Hand. Wir gehen jetzt über die Straße.
+
+55. Word: "Handwerker" (appears 4 times)
+   Indices: 1059, 1090, 1121, 1152
+   [1059] der Handwerker (noun)
+       Sentences: 1
+       1. Morgen sind bei uns die Handwerker. Wir bekommen eine neue B...
+   [1090] der Handwerker (noun)
+       Sentences: 1
+       1. Morgen sind bei uns die Handwerker. Wir bekommen eine neue B...
+   [1121] der Handwerker (noun)
+       Sentences: 1
+       1. Morgen sind bei uns die Handwerker. Wir bekommen eine neue B...
+   [1152] der Handwerker (noun)
+       Sentences: 1
+       1. Morgen sind bei uns die Handwerker. Wir bekommen eine neue B...
+
+56. Word: "handeln" (appears 4 times)
+   Indices: 1060, 1091, 1122, 1153
+   [1060] handeln (verb)
+       Sentences: 2
+       1. Die Geschichte handelt von einem alten Mann.
+       2. Sie müssen sofort handeln.
+   [1091] handeln (verb)
+       Sentences: 2
+       1. Die Geschichte handelt von einem alten Mann.
+       2. Sie müssen sofort handeln.
+   [1122] handeln (verb)
+       Sentences: 2
+       1. Die Geschichte handelt von einem alten Mann.
+       2. Sie müssen sofort handeln.
+   [1153] handeln (verb)
+       Sentences: 2
+       1. Die Geschichte handelt von einem alten Mann.
+       2. Sie müssen sofort handeln.
+
+57. Word: "Handel" (appears 4 times)
+   Indices: 1061, 1092, 1123, 1154
+   [1061] der Handel (noun)
+       Sentences: 1
+       1. Er arbeitet im Handel mit Computern.
+   [1092] der Handel (noun)
+       Sentences: 1
+       1. Er arbeitet im Handel mit Computern.
+   [1123] der Handel (noun)
+       Sentences: 1
+       1. Er arbeitet im Handel mit Computern.
+   [1154] der Handel (noun)
+       Sentences: 1
+       1. Er arbeitet im Handel mit Computern.
+
+58. Word: "Händler" (appears 4 times)
+   Indices: 1062, 1093, 1124, 1155
+   [1062] der Händler (noun)
+       Sentences: 1
+       1. Wir kaufen unser Obst immer beim Händler am Markt.
+   [1093] der Händler (noun)
+       Sentences: 1
+       1. Wir kaufen unser Obst immer beim Händler am Markt.
+   [1124] der Händler (noun)
+       Sentences: 1
+       1. Wir kaufen unser Obst immer beim Händler am Markt.
+   [1155] der Händler (noun)
+       Sentences: 1
+       1. Wir kaufen unser Obst immer beim Händler am Markt.
+
+59. Word: "Handy" (appears 4 times)
+   Indices: 1063, 1094, 1125, 1156
+   [1063] das Handy (noun)
+       Sentences: 1
+       1. Du musst dein Handy ausschalten.
+   [1094] das Handy (noun)
+       Sentences: 1
+       1. Du musst dein Handy ausschalten.
+   [1125] das Handy (noun)
+       Sentences: 1
+       1. Du musst dein Handy ausschalten.
+   [1156] das Handy (noun)
+       Sentences: 1
+       1. Du musst dein Handy ausschalten.
+
+60. Word: "hängen" (appears 4 times)
+   Indices: 1064, 1095, 1126, 1157
+   [1064] hängen (verb)
+       Sentences: 2
+       1. Der Schrank hängt an der Wand.
+       2. Ich habe das Bild an die Wand gehängt.
+   [1095] hängen (verb)
+       Sentences: 2
+       1. Der Schrank hängt an der Wand.
+       2. Ich habe das Bild an die Wand gehängt.
+   [1126] hängen (verb)
+       Sentences: 2
+       1. Der Schrank hängt an der Wand.
+       2. Ich habe das Bild an die Wand gehängt.
+   [1157] hängen (verb)
+       Sentences: 2
+       1. Der Schrank hängt an der Wand.
+       2. Ich habe das Bild an die Wand gehängt.
+
+61. Word: "hart" (appears 4 times)
+   Indices: 1065, 1096, 1127, 1158
+   [1065] hart (adjective)
+       Sentences: 2
+       1. Die Arbeit ist hart.
+       2. Das Brot ist schon hart.
+   [1096] hart (adjective)
+       Sentences: 3
+       1. Die Arbeit ist hart.
+       2. Das Brot ist schon hart.
+       3. Wir haben hart gearbeitet, um die Wohnung zu bezahlen.
+   [1127] hart (adjective)
+       Sentences: 3
+       1. Die Arbeit ist hart.
+       2. Das Brot ist schon hart.
+       3. Wir haben hart gearbeitet, um die Wohnung zu bezahlen.
+   [1158] hart (adjective)
+       Sentences: 3
+       1. Die Arbeit ist hart.
+       2. Das Brot ist schon hart.
+       3. Wir haben hart gearbeitet, um die Wohnung zu bezahlen.
+
+62. Word: "hassen" (appears 4 times)
+   Indices: 1066, 1097, 1128, 1159
+   [1066] hassen (verb)
+       Sentences: 1
+       1. Ich hasse es, wenn ich lange warten muss.
+   [1097] hassen (verb)
+       Sentences: 2
+       1. Ich hasse Autofahren.
+       2. Ich hasse es, zu spät zu kommen.
+   [1128] hassen (verb)
+       Sentences: 2
+       1. Ich hasse Autofahren.
+       2. Ich hasse es, zu spät zu kommen.
+   [1159] hassen (verb)
+       Sentences: 2
+       1. Ich hasse Autofahren.
+       2. Ich hasse es, zu spät zu kommen.
+
+63. Word: "hässlich" (appears 4 times)
+   Indices: 1067, 1098, 1129, 1160
+   [1067] hässlich (adjective)
+       Sentences: 1
+       1. Ich finde dieses Kleid hässlich.
+   [1098] hässlich (adjective)
+       Sentences: 2
+       1. Ich finde dieses Kleid hässlich.
+       2. Das ist aber eine hässliche Lampe!
+   [1129] hässlich (adjective)
+       Sentences: 2
+       1. Ich finde dieses Kleid hässlich.
+       2. Das ist aber eine hässliche Lampe!
+   [1160] hässlich (adjective)
+       Sentences: 2
+       1. Ich finde dieses Kleid hässlich.
+       2. Das ist aber eine hässliche Lampe!
+
+64. Word: "häufig" (appears 4 times)
+   Indices: 1068, 1099, 1130, 1161
+   [1068] häufig (adverb)
+       Sentences: 1
+       1. Der Bus fährt hier sehr häufig.
+   [1099] häufig (adverb)
+       Sentences: 2
+       1. Der Bus fährt hier sehr häufig.
+       2. Haben Sie häufig Kopfschmerzen? Dann sollten Sie nicht so la...
+   [1130] häufig (adverb)
+       Sentences: 2
+       1. Der Bus fährt hier sehr häufig.
+       2. Haben Sie häufig Kopfschmerzen? Dann sollten Sie nicht so la...
+   [1161] häufig (adverb)
+       Sentences: 2
+       1. Der Bus fährt hier sehr häufig.
+       2. Haben Sie häufig Kopfschmerzen? Dann sollten Sie nicht so la...
+
+65. Word: "Haupt-" (appears 4 times)
+   Indices: 1069, 1100, 1131, 1162
+   [1069] Haupt- (prefix)
+       Sentences: 1
+       1. z. B. Hauptbahnhof, Hauptstraße
+   [1100] Haupt- (prefix)
+       Sentences: 1
+       1. z. B. Hauptbahnhof, Hauptstraße
+   [1131] Haupt- (prefix)
+       Sentences: 1
+       1. z. B. Hauptbahnhof, Hauptstraße
+   [1162] Haupt- (prefix)
+       Sentences: 1
+       1. z. B. Hauptbahnhof, Hauptstraße
+
+66. Word: "Hauptstadt" (appears 3 times)
+   Indices: 1070, 1101, 1132
+   [1070] die Hauptstadt (noun)
+       Sentences: 1
+       1. Berlin ist die Hauptstadt von Deutschland.
+   [1101] die Hauptstadt (noun)
+       Sentences: 1
+       1. Berlin ist die Hauptstadt von Deutschland.
+   [1132] die Hauptstadt (noun)
+       Sentences: 1
+       1. Berlin ist die Hauptstadt von Deutschland.
+
+67. Word: "Hackfleisch" (appears 3 times)
+   Indices: 1071, 1102, 1133
+   [1071] das Hackfleisch (noun)
+       Sentences: 1
+       1. Ich hätte gern 500 g Hackfleisch.
+   [1102] das Hackfleisch (noun)
+       Sentences: 1
+       1. Ich hätte gern 500g Hackfleisch.
+   [1133] das Hackfleisch (noun)
+       Sentences: 1
+       1. Ich hätte gern 500g Hackfleisch.
+
+68. Word: "Hafen" (appears 3 times)
+   Indices: 1072, 1103, 1134
+   [1072] der Hafen (noun)
+       Sentences: 1
+       1. Das Schiff fährt in den Hafen ein.
+   [1103] der Hafen (noun)
+       Sentences: 2
+       1. Das Schiff fährt in den Hafen ein.
+       2. Wenn du in Hamburg bist, musst du dir unbedingt den Hafen an...
+   [1134] der Hafen (noun)
+       Sentences: 2
+       1. Das Schiff fährt in den Hafen ein.
+       2. Wenn du in Hamburg bist, musst du dir unbedingt den Hafen an...
+
+69. Word: "hageln" (appears 3 times)
+   Indices: 1073, 1104, 1135
+   [1073] hageln (verb)
+       Sentences: 1
+       1. Es hat gehagelt. Jetzt liegen kleine Eisstücke auf der Straß...
+   [1104] hageln (verb)
+       Sentences: 2
+       1. Es hat gehagelt. Jetzt liegen kleine Eisstücke auf der Straß...
+       2. Bei Gewitter kann es auch hageln.
+   [1135] hageln (verb)
+       Sentences: 2
+       1. Es hat gehagelt. Jetzt liegen kleine Eisstücke auf der Straß...
+       2. Bei Gewitter kann es auch hageln.
+
+70. Word: "Hähnchen/Hühnchen" (appears 3 times)
+   Indices: 1074, 1105, 1136
+   [1074] das Hähnchen/Hühnchen (noun)
+       Sentences: 1
+       1. Ich möchte ein halbes Hähnchen mit Pommes frites.
+   [1105] das Hähnchen/Hühnchen (noun)
+       Sentences: 2
+       1. Ich möchte ein halbes Hähnchen mit Pommes frites.
+       2. Zum Mittagessen gibt es Hühnchen mit Reis.
+   [1136] das Hähnchen/Hühnchen (noun)
+       Sentences: 2
+       1. Ich möchte ein halbes Hähnchen mit Pommes frites.
+       2. Zum Mittagessen gibt es Hühnchen mit Reis.
+
+71. Word: "halb" (appears 3 times)
+   Indices: 1075, 1106, 1137
+   [1075] halb (adjective)
+       Sentences: 4
+       1. Treffen wir uns um halb neun?
+       2. Bei dieser Firma habe ich ein halbes Jahr gearbeitet.
+       3. Ich gebe Ihnen die Tomaten zum halben Preis.
+       4. Die Flasche ist ja noch halb voll.
+   [1106] halb (adjective)
+       Sentences: 4
+       1. Treffen wir uns um halb neun?
+       2. Bei dieser Firma habe ich ein halbes Jahr gearbeitet.
+       3. Ich gebe Ihnen die Tomaten zum halben Preis.
+       4. Die Flasche ist ja noch halb voll.
+   [1137] halb (adjective)
+       Sentences: 4
+       1. Treffen wir uns um halb neun?
+       2. Bei dieser Firma habe ich ein halbes Jahr gearbeitet.
+       3. Ich gebe Ihnen die Tomaten zum halben Preis.
+       4. Die Flasche ist ja noch halb voll.
+
+72. Word: "Halbpension" (appears 3 times)
+   Indices: 1076, 1107, 1138
+   [1076] die Halbpension (noun)
+       Sentences: 1
+       1. Wir möchten ein Hotel mit Halbpension.
+   [1107] die Halbpension (noun)
+       Sentences: 1
+       1. Wir möchten ein Hotel mit Halbpension.
+   [1138] die Halbpension (noun)
+       Sentences: 1
+       1. Wir möchten ein Hotel mit Halbpension.
+
+73. Word: "halbtags" (appears 3 times)
+   Indices: 1077, 1108, 1139
+   [1077] halbtags (adverb)
+       Sentences: 1
+       1. Ich habe ein kleines Kind und kann nicht acht Stunden am Tag...
+   [1108] halbtags (adverb)
+       Sentences: 1
+       1. Ich habe ein kleines Kind und kann nicht acht Stunden am Tag...
+   [1139] halbtags (adverb)
+       Sentences: 1
+       1. Ich habe ein kleines Kind und kann nicht acht Stunden am Tag...
+
+74. Word: "Hälfte" (appears 3 times)
+   Indices: 1078, 1109, 1140
+   [1078] die Hälfte (noun)
+       Sentences: 3
+       1. Bitte teilt euch die Schokolade. Jeder bekommt die Hälfte.
+       2. Die Hälfte vom Urlaub ist schon vorbei.
+       3. Was hat der Mann gesagt? Ich habe nur die Hälfte verstanden.
+   [1109] die Hälfte (noun)
+       Sentences: 3
+       1. Bitte teilt euch die Schokolade. Jeder bekommt die Hälfte.
+       2. Die Hälfte vom Urlaub ist schon vorbei.
+       3. Was hat der Mann gesagt? Ich habe nur die Hälfte verstanden.
+   [1140] die Hälfte (noun)
+       Sentences: 3
+       1. Bitte teilt euch die Schokolade. Jeder bekommt die Hälfte.
+       2. Die Hälfte vom Urlaub ist schon vorbei.
+       3. Was hat der Mann gesagt? Ich habe nur die Hälfte verstanden.
+
+75. Word: "Halle" (appears 3 times)
+   Indices: 1079, 1110, 1141
+   [1079] die Halle (noun)
+       Sentences: 1
+       1. Die Stadt baut eine neue Sporthalle.
+   [1110] die Halle (noun)
+       Sentences: 1
+       1. Die Stadt baut eine neue Sporthalle.
+   [1141] die Halle (noun)
+       Sentences: 1
+       1. Die Stadt baut eine neue Sporthalle.
+
+76. Word: "Hallenbad" (appears 3 times)
+   Indices: 1080, 1111, 1142
+   [1080] das Hallenbad (noun)
+       Sentences: 1
+       1. Sie geht jeden Tag zum Schwimmen ins Hallenbad.
+   [1111] das Hallenbad (noun)
+       Sentences: 1
+       1. Sie geht jeden Tag zum Schwimmen ins Hallenbad.
+   [1142] das Hallenbad (noun)
+       Sentences: 1
+       1. Sie geht jeden Tag zum Schwimmen ins Hallenbad.
+
+77. Word: "hallo" (appears 3 times)
+   Indices: 1081, 1112, 1143
+   [1081] hallo (interjection)
+       Sentences: 1
+       1. Hallo, wie geht’s? ! Danke, gut, und dir?
+   [1112] hallo (interjection)
+       Sentences: 1
+       1. Hallo, wie geht’s? ! Danke, gut, und dir?
+   [1143] hallo (interjection)
+       Sentences: 1
+       1. Hallo, wie geht’s? ! Danke, gut, und dir?
+
+78. Word: "Hals" (appears 3 times)
+   Indices: 1082, 1113, 1144
+   [1082] der Hals (noun)
+       Sentences: 2
+       1. Mir tut der Hals weh.
+       2. Ich habe seit gestern Halsschmerzen.
+   [1113] der Hals (noun)
+       Sentences: 2
+       1. Mir tut der Hals weh.
+       2. Ich habe seit gestern Halsschmerzen.
+   [1144] der Hals (noun)
+       Sentences: 2
+       1. Mir tut der Hals weh.
+       2. Ich habe seit gestern Halsschmerzen.
+
+79. Word: "halt" (appears 3 times)
+   Indices: 1083, 1114, 1145
+   [1083] halt (adverb)
+       Sentences: 1
+       1. Es gibt leider keine Karten mehr. – Schade. Da kann man nich...
+   [1114] halt (adverb)
+       Sentences: 1
+       1. Es gibt leider keine Karten mehr. – Schade. Da kann man nich...
+   [1145] halt (adverb)
+       Sentences: 1
+       1. Es gibt leider keine Karten mehr. – Schade. Da kann man nich...
+
+80. Word: "haltbar" (appears 3 times)
+   Indices: 1084, 1115, 1146
+   [1084] haltbar (adjective)
+       Sentences: 1
+       1. Diese Tomaten sind mindestens 2 Wochen haltbar.
+   [1115] haltbar (adjective)
+       Sentences: 1
+       1. Diese Tomaten sind mindestens 2 Wochen haltbar.
+   [1146] haltbar (adjective)
+       Sentences: 1
+       1. Diese Tomaten sind mindestens 2 Wochen haltbar.
+
+81. Word: "halten" (appears 3 times)
+   Indices: 1085, 1116, 1147
+   [1085] halten (verb)
+       Sentences: 7
+       1. Kannst du mal kurz meine Handtasche halten?
+       2. Entschuldigung, hält dieser Zug auch in Darmstadt?
+       3. Halten Sie bitte im Keller die Fenster geschlossen.
+       4. Alle Mieter müssen sich an die Hausordnung halten.
+       5. Die Stadt will einen neuen Flughafen bauen. Was halten Sie d...
+       6. Halt, Polizei! Fahren Sie bitte an den Straßenrand.
+       7. Die Wurst hält sich noch ein paar Tage.
+   [1116] halten (verb)
+       Sentences: 7
+       1. Kannst du mal kurz meine Handtasche halten?
+       2. Entschuldigung, hält dieser Zug auch in Darmstadt?
+       3. Halten Sie bitte im Keller die Fenster geschlossen.
+       4. Alle Mieter müssen sich an die Hausordnung halten.
+       5. Die Stadt will einen neuen Flughafen bauen. Was halten Sie d...
+       6. Halt, Polizei! Fahren Sie bitte an den Straßenrand.
+       7. Die Wurst hält sich noch ein paar Tage.
+   [1147] halten (verb)
+       Sentences: 7
+       1. Kannst du mal kurz meine Handtasche halten?
+       2. Entschuldigung, hält dieser Zug auch in Darmstadt?
+       3. Halten Sie bitte im Keller die Fenster geschlossen.
+       4. Alle Mieter müssen sich an die Hausordnung halten.
+       5. Die Stadt will einen neuen Flughafen bauen. Was halten Sie d...
+       6. Halt, Polizei! Fahren Sie bitte an den Straßenrand.
+       7. Die Wurst hält sich noch ein paar Tage.
+
+82. Word: "Hauptbahnhof" (appears 4 times)
+   Indices: 1163, 1198, 1232, 1267
+   [1163] der Hauptbahnhof (noun)
+       Sentences: 1
+       1. Treffen wir uns am Hauptbahnhof?
+   [1198] der Hauptbahnhof (noun)
+       Sentences: 1
+       1. Treffen wir uns am Hauptbahnhof?
+   [1232] der Hauptbahnhof (noun)
+       Sentences: 1
+       1. Treffen wir uns am Hauptbahnhof?
+   [1267] der Hauptbahnhof (noun)
+       Sentences: 1
+       1. Treffen wir uns am Hauptbahnhof?
+
+83. Word: "Haus" (appears 4 times)
+   Indices: 1164, 1199, 1233, 1268
+   [1164] das Haus (noun)
+       Sentences: 4
+       1. Wir haben ein Haus gemietet.
+       2. Ich komme gerade von zu Hause.
+       3. Ich muss jetzt nach Hause.
+       4. Paul ist nicht zu Hause.
+   [1199] das Haus (noun)
+       Sentences: 4
+       1. Wir haben ein Haus gemietet.
+       2. Ich komme gerade von zu Hause.
+       3. Ich muss jetzt nach Hause.
+       4. Paul ist nicht zu Hause.
+   [1233] das Haus (noun)
+       Sentences: 4
+       1. Wir haben ein Haus gemietet.
+       2. Ich komme gerade von zu Hause.
+       3. Ich muss jetzt nach Hause.
+       4. Paul ist nicht zu Hause.
+   [1268] das Haus (noun)
+       Sentences: 4
+       1. Wir haben ein Haus gemietet.
+       2. Ich komme gerade von zu Hause.
+       3. Ich muss jetzt nach Hause.
+       4. Paul ist nicht zu Hause.
+
+84. Word: "Hausaufgabe" (appears 4 times)
+   Indices: 1165, 1200, 1234, 1269
+   [1165] die Hausaufgabe (noun)
+       Sentences: 1
+       1. Kannst du mir bei den Hausaufgaben helfen?
+   [1200] die Hausaufgabe (noun)
+       Sentences: 1
+       1. Kannst du mir bei den Hausaufgaben helfen?
+   [1234] die Hausaufgabe (noun)
+       Sentences: 1
+       1. Kannst du mir bei den Hausaufgaben helfen?
+   [1269] die Hausaufgabe (noun)
+       Sentences: 1
+       1. Kannst du mir bei den Hausaufgaben helfen?
+
+85. Word: "Hausfrau/der Hausmann" (appears 4 times)
+   Indices: 1166, 1201, 1235, 1270
+   [1166] die/der Hausfrau/der Hausmann (noun)
+       Sentences: 2
+       1. Meine Frau ist Hausfrau und kümmert sich um die Kinder.
+       2. Mein Mann ist Hausmann und kümmert sich um die Kinder.
+   [1201] die/der Hausfrau/der Hausmann (noun)
+       Sentences: 2
+       1. Meine Frau ist Hausfrau und kümmert sich um die Kinder.
+       2. Mein Mann ist Hausmann und kümmert sich um die Kinder.
+   [1235] die/der Hausfrau/der Hausmann (noun)
+       Sentences: 2
+       1. Meine Frau ist Hausfrau und kümmert sich um die Kinder.
+       2. Mein Mann ist Hausmann und kümmert sich um die Kinder.
+   [1270] die/der Hausfrau/der Hausmann (noun)
+       Sentences: 2
+       1. Meine Frau ist Hausfrau und kümmert sich um die Kinder.
+       2. Mein Mann ist Hausmann und kümmert sich um die Kinder.
+
+86. Word: "Haushalt" (appears 4 times)
+   Indices: 1167, 1202, 1236, 1271
+   [1167] der Haushalt (noun)
+       Sentences: 1
+       1. Ich kümmere mich um den Haushalt, d. h. ich putze, wasche, k...
+   [1202] der Haushalt (noun)
+       Sentences: 1
+       1. Ich kümmere mich um den Haushalt, d. h. ich putze, wasche, k...
+   [1236] der Haushalt (noun)
+       Sentences: 1
+       1. Ich kümmere mich um den Haushalt, d. h. ich putze, wasche, k...
+   [1271] der Haushalt (noun)
+       Sentences: 1
+       1. Ich kümmere mich um den Haushalt, d. h. ich putze, wasche, k...
+
+87. Word: "Hausmeister" (appears 3 times)
+   Indices: 1168, 1237, 1272
+   [1168] der Hausmeister (noun)
+       Sentences: 1
+       1. Der Hausmeister hat mir geholfen, den Schrank in die Wohnung...
+   [1237] der Hausmeister (noun)
+       Sentences: 1
+       1. Der Hausmeister hat mir geholfen, den Schrank in die Wohnung...
+   [1272] der Hausmeister (noun)
+       Sentences: 1
+       1. Der Hausmeister hat mir geholfen, den Schrank in die Wohnung...
+
+88. Word: "Haut" (appears 4 times)
+   Indices: 1169, 1203, 1238, 1273
+   [1169] die Haut (noun)
+       Sentences: 1
+       1. Sie hat eine sehr empfindliche Haut.
+   [1203] die Haut (noun)
+       Sentences: 1
+       1. Sie hat eine sehr empfindliche Haut.
+   [1238] die Haut (noun)
+       Sentences: 1
+       1. Sie hat eine sehr empfindliche Haut.
+   [1273] die Haut (noun)
+       Sentences: 1
+       1. Sie hat eine sehr empfindliche Haut.
+
+89. Word: "heben" (appears 4 times)
+   Indices: 1170, 1204, 1239, 1274
+   [1170] heben (verb)
+       Sentences: 1
+       1. Ich kann den schweren Koffer nicht heben.
+   [1204] heben (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Das Paket kann ich allein nicht heben.
+       2. Wenn Sie für diesen Vorschlag sind, heben Sie bitte die Hand...
+   [1239] heben (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Das Paket kann ich allein nicht heben.
+       2. Wenn Sie für diesen Vorschlag sind, heben Sie bitte die Hand...
+   [1274] heben (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Das Paket kann ich allein nicht heben.
+       2. Wenn Sie für diesen Vorschlag sind, heben Sie bitte die Hand...
+
+90. Word: "Heft" (appears 4 times)
+   Indices: 1171, 1205, 1240, 1275
+   [1171] das Heft (noun)
+       Sentences: 1
+       1. Schreib die Sätze ins Heft.
+   [1205] das Heft (noun)
+       Sentences: 1
+       1. Ich hätte gern ein Schreibheft.
+   [1240] das Heft (noun)
+       Sentences: 1
+       1. Ich hätte gern ein Schreibheft.
+   [1275] das Heft (noun)
+       Sentences: 1
+       1. Ich hätte gern ein Schreibheft.
+
+91. Word: "heim" (appears 4 times)
+   Indices: 1172, 1206, 1241, 1276
+   [1172] heim (adverb)
+       Sentences: 1
+       1. Wir wollen so früh wie möglich heim.
+   [1206] heim (adverb)
+       Sentences: 1
+       1. Ich will jetzt heim.
+   [1241] heim (adverb)
+       Sentences: 1
+       1. Ich will jetzt heim.
+   [1276] heim (adverb)
+       Sentences: 1
+       1. Ich will jetzt heim.
+
+92. Word: "Heim" (appears 4 times)
+   Indices: 1173, 1207, 1242, 1277
+   [1173] das Heim (noun)
+       Sentences: 1
+       1. Meine Tante wohnt in einem Altenheim.
+   [1207] das Heim (noun)
+       Sentences: 1
+       1. Meine Oma wohnt in einem Seniorenheim.
+   [1242] das Heim (noun)
+       Sentences: 1
+       1. Meine Oma wohnt in einem Seniorenheim.
+   [1277] das Heim (noun)
+       Sentences: 1
+       1. Meine Oma wohnt in einem Seniorenheim.
+
+93. Word: "Heimat" (appears 4 times)
+   Indices: 1174, 1208, 1243, 1278
+   [1174] die Heimat (noun)
+       Sentences: 1
+       1. Ich lebe jetzt hier in Deutschland. Das ist meine neue Heima...
+   [1208] die Heimat (noun)
+       Sentences: 1
+       1. Ich lebe jetzt hier in Deutschland. Das ist meine neue Heima...
+   [1243] die Heimat (noun)
+       Sentences: 1
+       1. Ich lebe jetzt hier in Deutschland. Das ist meine neue Heima...
+   [1278] die Heimat (noun)
+       Sentences: 1
+       1. Ich lebe jetzt hier in Deutschland. Das ist meine neue Heima...
+
+94. Word: "heimlich" (appears 4 times)
+   Indices: 1175, 1209, 1244, 1279
+   [1175] heimlich (adjective/adverb)
+       Sentences: 1
+       1. Gestern habe ich gehört, dass mein Sohn heimlich raucht.
+   [1209] heimlich (adjective/adverb)
+       Sentences: 1
+       1. Gestern habe ich gehört, dass mein Sohn heimlich raucht.
+   [1244] heimlich (adjective/adverb)
+       Sentences: 1
+       1. Gestern habe ich gehört, dass mein Sohn heimlich raucht.
+   [1279] heimlich (adjective/adverb)
+       Sentences: 1
+       1. Gestern habe ich gehört, dass mein Sohn heimlich raucht.
+
+95. Word: "Heimweh" (appears 3 times)
+   Indices: 1176, 1210, 1245
+   [1176] das Heimweh (noun)
+       Sentences: 1
+       1. Ich habe oft Heimweh nach meiner Familie.
+   [1210] das Heimweh (noun)
+       Sentences: 1
+       1. Ich habe oft Heimweh nach meiner Familie.
+   [1245] das Heimweh (noun)
+       Sentences: 1
+       1. Ich habe oft Heimweh nach meiner Familie.
+
+96. Word: "heiraten" (appears 3 times)
+   Indices: 1177, 1211, 1246
+   [1177] heiraten (verb)
+       Sentences: 3
+       1. Unsere Freunde heiraten nächsten Monat in Italien.
+       2. Wir haben 1980 geheiratet.
+       3. Meine Schwester heiratet einen Japaner.
+   [1211] heiraten (verb)
+       Sentences: 3
+       1. Unsere Freunde heiraten nächsten Monat in Italien.
+       2. Wir haben 1980 geheiratet.
+       3. Meine Schwester heiratet einen Japaner.
+   [1246] heiraten (verb)
+       Sentences: 3
+       1. Unsere Freunde heiraten nächsten Monat in Italien.
+       2. Wir haben 1980 geheiratet.
+       3. Meine Schwester heiratet einen Japaner.
+
+97. Word: "heiß" (appears 3 times)
+   Indices: 1178, 1212, 1247
+   [1178] heiß (adjective)
+       Sentences: 2
+       1. Für die Jahreszeit ist es zu heiß.
+       2. Ich mache dir einen heißen Tee.
+   [1212] heiß (adjective)
+       Sentences: 2
+       1. Für die Jahreszeit ist es zu heiß.
+       2. Ich mache dir einen heißen Tee.
+   [1247] heiß (adjective)
+       Sentences: 2
+       1. Für die Jahreszeit ist es zu heiß.
+       2. Ich mache dir einen heißen Tee.
+
+98. Word: "heißen" (appears 3 times)
+   Indices: 1179, 1213, 1248
+   [1179] heißen (verb)
+       Sentences: 3
+       1. Wie heißen Sie?
+       2. Wie heißt das auf Deutsch?
+       3. Die Erklärung verstehe ich nicht. Was heißt das?
+   [1213] heißen (verb)
+       Sentences: 3
+       1. Wie heißen Sie?
+       2. Wie heißt das auf Deutsch?
+       3. Die Erklärung verstehe ich nicht. Was heißt das?
+   [1248] heißen (verb)
+       Sentences: 3
+       1. Wie heißen Sie?
+       2. Wie heißt das auf Deutsch?
+       3. Die Erklärung verstehe ich nicht. Was heißt das?
+
+99. Word: "heizen" (appears 3 times)
+   Indices: 1180, 1214, 1249
+   [1180] heizen (verb)
+       Sentences: 2
+       1. Wir heizen mit Öl.
+       2. Ziehen Sie sich warm an. In der Halle ist nicht geheizt.
+   [1214] heizen (verb)
+       Sentences: 2
+       1. Wir heizen mit Öl.
+       2. Ziehen Sie sich warm an. In der Halle ist nicht geheizt.
+   [1249] heizen (verb)
+       Sentences: 2
+       1. Wir heizen mit Öl.
+       2. Ziehen Sie sich warm an. In der Halle ist nicht geheizt.
+
+100. Word: "Heizung" (appears 3 times)
+   Indices: 1181, 1215, 1250
+   [1181] die Heizung (noun)
+       Sentences: 1
+       1. Es ist kalt. Ist die Heizung kaputt?
+   [1215] die Heizung (noun)
+       Sentences: 1
+       1. Es ist kalt. Ist die Heizung kaputt?
+   [1250] die Heizung (noun)
+       Sentences: 1
+       1. Es ist kalt. Ist die Heizung kaputt?
+
+101. Word: "Held" (appears 3 times)
+   Indices: 1182, 1216, 1251
+   [1182] der Held (noun)
+       Sentences: 2
+       1. Er spielt gern den Helden.
+       2. Sie ist die Heldin des Tages.
+   [1216] der Held (noun)
+       Sentences: 2
+       1. Er spielt gern den Helden.
+       2. Sie ist die Heldin des Tages.
+   [1251] der Held (noun)
+       Sentences: 2
+       1. Er spielt gern den Helden.
+       2. Sie ist die Heldin des Tages.
+
+102. Word: "helfen" (appears 3 times)
+   Indices: 1183, 1217, 1252
+   [1183] helfen (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Ich muss nächsten Monat umziehen.
+       2. Die Tabletten haben mir gut geholfen.
+   [1217] helfen (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Ich muss nächsten Monat umziehen.
+       2. Die Tabletten haben mir gut geholfen.
+   [1252] helfen (verb)
+       Sentences: 2
+       1. Kannst du mir helfen? Ich muss nächsten Monat umziehen.
+       2. Die Tabletten haben mir gut geholfen.
+
+103. Word: "Hilfe" (appears 3 times)
+   Indices: 1184, 1218, 1253
+   [1184] die Hilfe (noun)
+       Sentences: 3
+       1. Vielen Dank für Ihre Hilfe.
+       2. Haben Sie einen Kurs für Erste Hilfe gemacht? Das müssen Sie...
+       3. Hilfe! Jemand hat mir die Handtasche gestohlen. Bitte helfen...
+   [1218] die Hilfe (noun)
+       Sentences: 3
+       1. Vielen Dank für Ihre Hilfe.
+       2. Haben Sie einen Kurs für Erste Hilfe gemacht? Das müssen Sie...
+       3. Hilfe! Jemand hat mir die Handtasche gestohlen. Bitte helfen...
+   [1253] die Hilfe (noun)
+       Sentences: 3
+       1. Vielen Dank für Ihre Hilfe.
+       2. Haben Sie einen Kurs für Erste Hilfe gemacht? Das müssen Sie...
+       3. Hilfe! Jemand hat mir die Handtasche gestohlen. Bitte helfen...
+
+104. Word: "hell" (appears 3 times)
+   Indices: 1185, 1219, 1254
+   [1185] hell (adjective)
+       Sentences: 3
+       1. Im Sommer wird es um 5 Uhr schon hell.
+       2. Mein Zimmer ist schön hell.
+       3. Ich habe mir einen hellblauen Pullover gekauft.
+   [1219] hell (adjective)
+       Sentences: 3
+       1. Im Sommer wird es um 5 Uhr schon hell.
+       2. Mein Zimmer ist schön hell.
+       3. Ich habe mir einen hellblauen Pullover gekauft.
+   [1254] hell (adjective)
+       Sentences: 3
+       1. Im Sommer wird es um 5 Uhr schon hell.
+       2. Mein Zimmer ist schön hell.
+       3. Ich habe mir einen hellblauen Pullover gekauft.
+
+105. Word: "Hemd" (appears 3 times)
+   Indices: 1186, 1220, 1255
+   [1186] das Hemd (noun)
+       Sentences: 1
+       1. Nikos trägt heute ein weißes Hemd.
+   [1220] das Hemd (noun)
+       Sentences: 1
+       1. Nikos trägt heute ein weißes Hemd.
+   [1255] das Hemd (noun)
+       Sentences: 1
+       1. Nikos trägt heute ein weißes Hemd.
+
+106. Word: "Hend(e)l" (appears 3 times)
+   Indices: 1187, 1221, 1256
+   [1187] das Hend(e)l (noun)
+       Sentences: 1
+       1. Zum Mittagessen gibt es Hendl mit Reis.
+   [1221] das Hend(e)l (noun)
+       Sentences: 1
+       1. Zum Mittagessen gibt es Hendl mit Reis.
+   [1256] das Hend(e)l (noun)
+       Sentences: 1
+       1. Zum Mittagessen gibt es Hendl mit Reis.
+
+107. Word: "her/her-" (appears 3 times)
+   Indices: 1188, 1222, 1257
+   [1188] her/her- (adverb/prefix)
+       Sentences: 2
+       1. Wir haben uns lange nicht gesehen. – Ja, das ist wirklich la...
+       2. Komm her zu mir!
+   [1222] her/her- (adverb/prefix)
+       Sentences: 2
+       1. Wir haben uns lange nicht gesehen. – Ja, das ist wirklich la...
+       2. Komm her zu mir!
+   [1257] her/her- (adverb/prefix)
+       Sentences: 2
+       1. Wir haben uns lange nicht gesehen. – Ja, das ist wirklich la...
+       2. Komm her zu mir!
+
+108. Word: "heraus-, raus-(heraus-) finden" (appears 3 times)
+   Indices: 1189, 1223, 1258
+   [1189] heraus-, raus-(heraus-) finden (verb)
+       Sentences: 1
+       1. Hast du schon rausgefunden, wann und wo man sich für den Kur...
+   [1223] heraus-, raus-(heraus-) finden (verb)
+       Sentences: 1
+       1. Hast du schon rausgefunden, wann und wo man sich für den Kur...
+   [1258] heraus-, raus-(heraus-) finden (verb)
+       Sentences: 1
+       1. Hast du schon rausgefunden, wann und wo man sich für den Kur...
+
+109. Word: "Herausforderung" (appears 3 times)
+   Indices: 1190, 1224, 1259
+   [1190] die Herausforderung (noun)
+       Sentences: 1
+       1. Das Spiel ist eine Herausforderung.
+   [1224] die Herausforderung (noun)
+       Sentences: 1
+       1. Das Spiel ist eine Herausforderung.
+   [1259] die Herausforderung (noun)
+       Sentences: 1
+       1. Das Spiel ist eine Herausforderung.
+
+110. Word: "Herd" (appears 3 times)
+   Indices: 1191, 1225, 1260
+   [1191] der Herd (noun)
+       Sentences: 1
+       1. In der neuen Küche fehlt noch der Herd.
+   [1225] der Herd (noun)
+       Sentences: 1
+       1. In der neuen Küche fehlt noch der Herd.
+   [1260] der Herd (noun)
+       Sentences: 1
+       1. In der neuen Küche fehlt noch der Herd.
+
+111. Word: "herein-, rein-" (appears 3 times)
+   Indices: 1192, 1226, 1261
+   [1192] herein-, rein- (adverb/prefix)
+       Sentences: 1
+       1. Kommt doch herein!
+   [1226] herein-, rein- (adverb/prefix)
+       Sentences: 1
+       1. Kommt doch herein!
+   [1261] herein-, rein- (adverb/prefix)
+       Sentences: 1
+       1. Kommt doch herein!
+
+112. Word: "Herkunft" (appears 3 times)
+   Indices: 1193, 1227, 1262
+   [1193] die Herkunft (noun)
+       Sentences: 1
+       1. Viele Leute fragen mich nach meiner Herkunft.
+   [1227] die Herkunft (noun)
+       Sentences: 1
+       1. Viele Leute fragen mich nach meiner Herkunft.
+   [1262] die Herkunft (noun)
+       Sentences: 1
+       1. Viele Leute fragen mich nach meiner Herkunft.
+
+113. Word: "Herr" (appears 3 times)
+   Indices: 1194, 1228, 1263
+   [1194] der Herr (noun)
+       Sentences: 2
+       1. Da ist ein Herr, der möchte Sie sprechen.
+       2. Guten Tag, Herr Müller!
+   [1228] der Herr (noun)
+       Sentences: 2
+       1. Da ist ein Herr, der möchte Sie sprechen.
+       2. Guten Tag, Herr Müller!
+   [1263] der Herr (noun)
+       Sentences: 2
+       1. Da ist ein Herr, der möchte Sie sprechen.
+       2. Guten Tag, Herr Müller!
+
+114. Word: "herstellen" (appears 3 times)
+   Indices: 1195, 1229, 1264
+   [1195] herstellen (verb)
+       Sentences: 1
+       1. In unserer Firma stellen wir Schokolade her.
+   [1229] herstellen (verb)
+       Sentences: 1
+       1. In unserer Firma stellen wir Schokolade her.
+   [1264] herstellen (verb)
+       Sentences: 1
+       1. In unserer Firma stellen wir Schokolade her.
+
+115. Word: "Hersteller" (appears 3 times)
+   Indices: 1196, 1230, 1265
+   [1196] der Hersteller (noun)
+       Sentences: 1
+       1. Ihr Handy ist kaputt? Wir schicken es an den Hersteller zurü...
+   [1230] der Hersteller (noun)
+       Sentences: 1
+       1. Ihr Handy ist kaputt? Wir schicken es an den Hersteller zurü...
+   [1265] der Hersteller (noun)
+       Sentences: 1
+       1. Ihr Handy ist kaputt? Wir schicken es an den Hersteller zurü...
+
+116. Word: "herunter-, runter-(herunter-)laden" (appears 3 times)
+   Indices: 1197, 1231, 1266
+   [1197] herunter-, runter-(herunter-)laden (verb)
+       Sentences: 1
+       1. Ich habe mir Musik aus dem Internet (he)runtergeladen.
+   [1231] herunter-, runter-(herunter-)laden (verb)
+       Sentences: 1
+       1. Ich habe mir Musik aus dem Internet (he)runtergeladen.
+   [1266] herunter-, runter-(herunter-)laden (verb)
+       Sentences: 1
+       1. Ich habe mir Musik aus dem Internet (he)runtergeladen.
+
+117. Word: "Hinweise" (appears 2 times)
+   Indices: 1280, 1313
+   [1280] der Hinweise (noun)
+       Sentences: 1
+       1. Die Polizei hat viele Hinweise zum Unfall bekommen.
+   [1313] der Hinweise (noun)
+       Sentences: 1
+       1. Die Polizei hat viele Hinweise zum Unfall bekommen.
+
+118. Word: "historisch" (appears 2 times)
+   Indices: 1281, 1314
+   [1281] historisch (adjective)
+       Sentences: 1
+       1. Wir waren mit unserer Klasse im Historischen Museum.
+   [1314] historisch (adjective)
+       Sentences: 1
+       1. Wir waren mit unserer Klasse im Historischen Museum.
+
+119. Word: "Hitze" (appears 2 times)
+   Indices: 1282, 1315
+   [1282] die Hitze (noun)
+       Sentences: 1
+       1. Gestern war eine schreckliche Hitze!
+   [1315] die Hitze (noun)
+       Sentences: 1
+       1. Gestern war eine schreckliche Hitze!
+
+120. Word: "Hobby" (appears 2 times)
+   Indices: 1283, 1316
+   [1283] das Hobby (noun)
+       Sentences: 1
+       1. Ich habe keine Zeit mehr für meine Hobbys.
+   [1316] das Hobby (noun)
+       Sentences: 1
+       1. Ich habe keine Zeit mehr für meine Hobbys.
+
+121. Word: "Interview" (appears 4 times)
+   Indices: 1350, 1380, 1410, 1440
+   [1350] das Interview (noun)
+       Sentences: 1
+       1. Ich habe im Fernsehen ein interes-santes Interview mit zwei ...
+   [1380] das Interview (noun)
+       Sentences: 1
+       1. Ich habe im Fernsehen ein interessantes Interview mit zwei S...
+   [1410] das Interview (noun)
+       Sentences: 1
+       1. Ich habe im Fernsehen ein interes-santes Interview mit zwei ...
+   [1440] das Interview (noun)
+       Sentences: 1
+       1. Ich habe im Fernsehen ein interes-santes Interview mit zwei ...
+
+122. Word: "inzwischen" (appears 4 times)
+   Indices: 1351, 1381, 1411, 1441
+   [1351] inzwischen (adverb)
+       Sentences: 1
+       1. Herr Müller kommt gleich zurück. Sie können inzwischen in se...
+   [1381] inzwischen (adverb)
+       Sentences: 1
+       1. Herr Müller kommt gleich zurück. Sie können inzwischen in se...
+   [1411] inzwischen (adverb)
+       Sentences: 1
+       1. Herr Müller kommt gleich zurück. Sie können inzwischen in se...
+   [1441] inzwischen (adverb)
+       Sentences: 1
+       1. Herr Müller kommt gleich zurück. Sie können inzwischen in se...
+
+123. Word: "irgend-irgendein" (appears 4 times)
+   Indices: 1352, 1382, 1412, 1442
+   [1352] irgend-irgendein (prefix/pronoun)
+       Sentences: 1
+       1. Was für einen Saft möchten Sie? – Ganz egal, irgendeinen.
+   [1382] irgend-irgendein (prefix/pronoun)
+       Sentences: 1
+       1. Was für einen Saft möchten Sie? – Ganz egal, irgendeinen.
+   [1412] irgend-irgendein (prefix/pronoun)
+       Sentences: 1
+       1. Was für einen Saft möchten Sie? – Ganz egal, irgendeinen.
+   [1442] irgend-irgendein (prefix/pronoun)
+       Sentences: 1
+       1. Was für einen Saft möchten Sie? – Ganz egal, irgendeinen.
+
+124. Word: "irgendwann" (appears 4 times)
+   Indices: 1353, 1383, 1413, 1443
+   [1353] irgendwann (adverb)
+       Sentences: 1
+       1. Ich habe Sie irgendwann schon mal gesehen.
+   [1383] irgendwann (adverb)
+       Sentences: 1
+       1. Ich habe Sie irgendwann schon mal gesehen.
+   [1413] irgendwann (adverb)
+       Sentences: 1
+       1. Ich habe Sie irgendwann schon mal gesehen.
+   [1443] irgendwann (adverb)
+       Sentences: 1
+       1. Ich habe Sie irgendwann schon mal gesehen.
+
+125. Word: "sich irren" (appears 4 times)
+   Indices: 1354, 1384, 1414, 1444
+   [1354] sich irren (verb (reflexive))
+       Sentences: 2
+       1. Du irrst dich. Das Auto war nicht grün, sondern rot.
+       2. Ich habe mich in der Hausnummer geirrt.
+   [1384] sich irren (verb (reflexive))
+       Sentences: 2
+       1. Du irrst dich. Das Auto war nicht grün, sondern rot.
+       2. Ich habe mich in der Hausnummer geirrt.
+   [1414] sich irren (verb (reflexive))
+       Sentences: 2
+       1. Du irrst dich. Das Auto war nicht grün, sondern rot.
+       2. Ich habe mich in der Hausnummer geirrt.
+   [1444] sich irren (verb (reflexive))
+       Sentences: 2
+       1. Du irrst dich. Das Auto war nicht grün, sondern rot.
+       2. Ich habe mich in der Hausnummer geirrt.
+
+126. Word: "ja" (appears 4 times)
+   Indices: 1355, 1385, 1415, 1445
+   [1355] ja (adverb)
+       Sentences: 2
+       1. Er kommt ja bald wieder.
+       2. Das ist ja toll!
+   [1385] ja (adverb/interjection)
+       Sentences: 3
+       1. Sind Sie verheiratet? – Ja
+       2. Du bist hier in Berlin? Das ist ja toll!
+       3. Ich würde ja gern kommen, aber es geht wirklich nicht.
+   [1415] ja (adverb)
+       Sentences: 2
+       1. Er kommt ja bald wieder.
+       2. Das ist ja toll!
+   [1445] ja (adverb)
+       Sentences: 2
+       1. Er kommt ja bald wieder.
+       2. Das ist ja toll!
+
+127. Word: "Jacke" (appears 4 times)
+   Indices: 1356, 1386, 1416, 1446
+   [1356] die Jacke (noun)
+       Sentences: 1
+       1. Zieh dir eine Jacke an. Es ist kalt.
+   [1386] die Jacke (noun)
+       Sentences: 1
+       1. Zieh dir eine Jacke an. Es ist kalt.
+   [1416] die Jacke (noun)
+       Sentences: 1
+       1. Zieh dir eine Jacke an. Es ist kalt.
+   [1446] die Jacke (noun)
+       Sentences: 1
+       1. Zieh dir eine Jacke an. Es ist kalt.
+
+128. Word: "Jause" (appears 4 times)
+   Indices: 1357, 1387, 1417, 1447
+   [1357] die Jause (noun)
+       Sentences: 1
+       1. Es ist Zeit für eine Jause.
+   [1387] die Jause (noun)
+       Sentences: 1
+       1. Es ist Zeit für eine Jause.
+   [1417] die Jause (noun)
+       Sentences: 1
+       1. Es ist Zeit für eine Jause.
+   [1447] die Jause (noun)
+       Sentences: 1
+       1. Es ist Zeit für eine Jause.
+
+129. Word: "je" (appears 4 times)
+   Indices: 1358, 1388, 1418, 1448
+   [1358] je (adverb)
+       Sentences: 1
+       1. Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Man...
+   [1388] je (adverb)
+       Sentences: 1
+       1. Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Man...
+   [1418] je (adverb)
+       Sentences: 1
+       1. Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Man...
+   [1448] je (adverb)
+       Sentences: 1
+       1. Fahren Sie im Juni oder im Juli? – Je nachdem, wann mein Man...
+
+130. Word: "je … desto …" (appears 4 times)
+   Indices: 1359, 1389, 1419, 1449
+   [1359] je … desto … (conjunction)
+       Sentences: 1
+       1. Je länger ich Deutsch lerne, desto besser kann ich es verste...
+   [1389] je … desto … (conjunction)
+       Sentences: 1
+       1. Je länger ich Deutsch lerne, desto besser kann ich es verste...
+   [1419] je … desto … (conjunction)
+       Sentences: 1
+       1. Je länger ich Deutsch lerne, desto besser kann ich es verste...
+   [1449] je … desto … (conjunction)
+       Sentences: 1
+       1. Je länger ich Deutsch lerne, desto besser kann ich es verste...
+
+131. Word: "Jeans" (appears 4 times)
+   Indices: 1360, 1390, 1420, 1450
+   [1360] die (Pl.) Jeans (noun)
+       Sentences: 1
+       1. Nicht nur junge Leute tragen Jeans.
+   [1390] die (Pl.) Jeans (noun)
+       Sentences: 1
+       1. Nicht nur junge Leute tragen Jeans.
+   [1420] die (Pl.) Jeans (noun)
+       Sentences: 1
+       1. Nicht nur junge Leute tragen Jeans.
+   [1450] die (Pl.) Jeans (noun)
+       Sentences: 1
+       1. Nicht nur junge Leute tragen Jeans.
+
+132. Word: "jeder, jedes, jede" (appears 4 times)
+   Indices: 1361, 1391, 1421, 1451
+   [1361] jeder, jedes, jede (pronoun/determiner)
+       Sentences: 4
+       1. Das Restaurant hat jeden Tag geöffnet.
+       2. Jedes Kind bekommt ein Spiel.
+       3. Die Prospekte bekommen Sie in jedem Reisebüro.
+       4. Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch ...
+   [1391] jeder, jedes, jede (pronoun/determiner)
+       Sentences: 4
+       1. Das Restaurant hat jeden Tag geöffnet.
+       2. Jedes Kind bekommt ein Spiel.
+       3. Die Prospekte bekommen Sie in jedem Reisebüro.
+       4. Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch ...
+   [1421] jeder, jedes, jede (pronoun/determiner)
+       Sentences: 4
+       1. Das Restaurant hat jeden Tag geöffnet.
+       2. Jedes Kind bekommt ein Spiel.
+       3. Die Prospekte bekommen Sie in jedem Reisebüro.
+       4. Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch ...
+   [1451] jeder, jedes, jede (pronoun/determiner)
+       Sentences: 4
+       1. Das Restaurant hat jeden Tag geöffnet.
+       2. Jedes Kind bekommt ein Spiel.
+       3. Die Prospekte bekommen Sie in jedem Reisebüro.
+       4. Im Supermarkt gibt es keine Schmerztabletten. Das weiß doch ...
+
+133. Word: "Insel" (appears 3 times)
+   Indices: 1362, 1392, 1422
+   [1362] die Insel (noun)
+       Sentences: 1
+       1. Ich würde dieses Mal gern auf einer Insel Ferien machen.
+   [1392] die Insel (noun)
+       Sentences: 1
+       1. Ich würde dieses Mal gern auf einer Insel Ferien machen.
+   [1422] die Insel (noun)
+       Sentences: 1
+       1. Ich würde dieses Mal gern auf einer Insel Ferien machen.
+
+134. Word: "Inserat" (appears 3 times)
+   Indices: 1363, 1393, 1423
+   [1363] das Inserat (noun)
+       Sentences: 1
+       1. Was kostet ein Inserat in der Zeitung?
+   [1393] das Inserat (noun)
+       Sentences: 1
+       1. Was kostet ein Inserat in der Zeitung?
+   [1423] das Inserat (noun)
+       Sentences: 1
+       1. Was kostet ein Inserat in der Zeitung?
+
+135. Word: "insgesamt" (appears 3 times)
+   Indices: 1364, 1394, 1424
+   [1364] insgesamt (adverb)
+       Sentences: 1
+       1. Insgesamt haben sich 20 Teilnehmer für die Prüfung angemelde...
+   [1394] insgesamt (adverb)
+       Sentences: 1
+       1. Insgesamt haben sich 20 Teilnehmer für die Prüfung angemelde...
+   [1424] insgesamt (adverb)
+       Sentences: 1
+       1. Insgesamt haben sich 20 Teilnehmer für die Prüfung angemelde...
+
+136. Word: "installieren" (appears 3 times)
+   Indices: 1365, 1395, 1425
+   [1365] installieren (verb)
+       Sentences: 1
+       1. Ich kann das Programm nicht installieren. Kannst du mir helf...
+   [1395] installieren (verb)
+       Sentences: 2
+       1. Ich kann das Programm nicht installieren. Kannst du mir helf...
+       2. Können Sie mir helfen, meinen Computer zu installieren?
+   [1425] installieren (verb)
+       Sentences: 2
+       1. Ich kann das Programm nicht installieren. Kannst du mir helf...
+       2. Können Sie mir helfen, meinen Computer zu installieren?
+
+137. Word: "Institut" (appears 3 times)
+   Indices: 1366, 1396, 1426
+   [1366] das Institut (noun)
+       Sentences: 1
+       1. Das Institut für deutsche Sprache ist in Mannheim.
+   [1396] das Institut (noun)
+       Sentences: 2
+       1. Das Institut für deutsche Sprache ist in Mannheim.
+       2. Ich besuche einen Sprachkurs in einem kleinen Sprachinstitut...
+   [1426] das Institut (noun)
+       Sentences: 2
+       1. Das Institut für deutsche Sprache ist in Mannheim.
+       2. Ich besuche einen Sprachkurs in einem kleinen Sprachinstitut...
+
+138. Word: "Instrument" (appears 3 times)
+   Indices: 1367, 1397, 1427
+   [1367] das Instrument (noun)
+       Sentences: 1
+       1. Ich spiele ein Musikinstrument, nämlich Flöte.
+   [1397] das Instrument (noun)
+       Sentences: 2
+       1. Ich spiele ein Musikinstrument, nämlich Flöte.
+       2. Ich spiele Klavier. Spielen Sie auch ein Musikinstrument?
+   [1427] das Instrument (noun)
+       Sentences: 2
+       1. Ich spiele ein Musikinstrument, nämlich Flöte.
+       2. Ich spiele Klavier. Spielen Sie auch ein Musikinstrument?
+
+139. Word: "integrieren" (appears 3 times)
+   Indices: 1368, 1398, 1428
+   [1368] integrieren (verb)
+       Sentences: 1
+       1. Meine Tochter hat sich gut in der Schule integriert.
+   [1398] integrieren (verb)
+       Sentences: 3
+       1. Meine Tochter hat sich gut in der Schule integriert.
+       2. Sie ist schon sehr gut im Team integriert.
+       3. Die Leute aus dem Ausland sollen besser integriert werden.
+   [1428] integrieren (verb)
+       Sentences: 3
+       1. Meine Tochter hat sich gut in der Schule integriert.
+       2. Sie ist schon sehr gut im Team integriert.
+       3. Die Leute aus dem Ausland sollen besser integriert werden.
+
+140. Word: "Integration" (appears 3 times)
+   Indices: 1369, 1399, 1429
+   [1369] die Integration (noun)
+       Sentences: 1
+       1. Wir bieten Deutschkurse für eine bessere Integration an.
+   [1399] die Integration (noun)
+       Sentences: 2
+       1. Wir bieten Deutschkurse für eine bessere Integration an.
+       2. Gute Deutschkenntnisse sollen bei der Integration helfen.
+   [1429] die Integration (noun)
+       Sentences: 2
+       1. Wir bieten Deutschkurse für eine bessere Integration an.
+       2. Gute Deutschkenntnisse sollen bei der Integration helfen.
+
+141. Word: "intelligent" (appears 3 times)
+   Indices: 1370, 1400, 1430
+   [1370] intelligent (adjective)
+       Sentences: 1
+       1. Mein Neffe ist sehr intelligent.
+   [1400] intelligent (adjective)
+       Sentences: 2
+       1. Mein Neffe ist sehr intelligent.
+       2. Maria ist sehr intelligent. Sie kann sehr gut rechnen.
+   [1430] intelligent (adjective)
+       Sentences: 2
+       1. Mein Neffe ist sehr intelligent.
+       2. Maria ist sehr intelligent. Sie kann sehr gut rechnen.
+
+142. Word: "Intelligenz" (appears 3 times)
+   Indices: 1371, 1401, 1431
+   [1371] die Intelligenz (noun)
+       Sentences: 1
+       1. Hunde haben eine große Intelligenz.
+   [1401] die Intelligenz (noun)
+       Sentences: 2
+       1. Hunde haben eine große Intelligenz.
+       2. Meine Kinder haben in der Schule einen Intelligenztest gemac...
+   [1431] die Intelligenz (noun)
+       Sentences: 2
+       1. Hunde haben eine große Intelligenz.
+       2. Meine Kinder haben in der Schule einen Intelligenztest gemac...
+
+143. Word: "intensiv" (appears 3 times)
+   Indices: 1372, 1402, 1432
+   [1372] intensiv (adjective)
+       Sentences: 1
+       1. Ich möchte intensiv Deutsch lernen.
+   [1402] intensiv (adjective)
+       Sentences: 1
+       1. Ich möchte intensiv Deutsch lernen.
+   [1432] intensiv (adjective)
+       Sentences: 1
+       1. Ich möchte intensiv Deutsch lernen.
+
+144. Word: "Intensivkurs" (appears 3 times)
+   Indices: 1373, 1403, 1433
+   [1373] der Intensivkurs (noun)
+       Sentences: 1
+       1. Der Intensivkurs findet täglich von 9 bis 12 Uhr statt.
+   [1403] der Intensivkurs (noun)
+       Sentences: 1
+       1. Der Intensivkurs findet täglich von 9 bis 12 Uhr statt.
+   [1433] der Intensivkurs (noun)
+       Sentences: 1
+       1. Der Intensivkurs findet täglich von 9 bis 12 Uhr statt.
+
+145. Word: "interessieren" (appears 3 times)
+   Indices: 1374, 1404, 1434
+   [1374] interessieren (verb)
+       Sentences: 3
+       1. Ich interessiere mich für alte Autos.
+       2. Ich habe ihn nach seinem Beruf gefragt. Das interessierte mi...
+       3. Was interessiert dich an dieser Arbeit?
+   [1404] interessieren (verb)
+       Sentences: 3
+       1. Ich interessiere mich für alte Autos.
+       2. Ich habe ihn nach seinem Beruf gefragt. Das interessierte mi...
+       3. Was interessiert dich an dieser Arbeit?
+   [1434] interessieren (verb)
+       Sentences: 3
+       1. Ich interessiere mich für alte Autos.
+       2. Ich habe ihn nach seinem Beruf gefragt. Das interessierte mi...
+       3. Was interessiert dich an dieser Arbeit?
+
+146. Word: "interessant" (appears 3 times)
+   Indices: 1375, 1405, 1435
+   [1375] interessant (adjective)
+       Sentences: 2
+       1. Ich habe gestern einen interessanten Bericht gelesen.
+       2. Der Film war sehr interessant.
+   [1405] interessant (adjective)
+       Sentences: 2
+       1. Ich habe gestern einen interessanten Bericht gelesen.
+       2. Der Film war sehr interessant.
+   [1435] interessant (adjective)
+       Sentences: 2
+       1. Ich habe gestern einen interessanten Bericht gelesen.
+       2. Der Film war sehr interessant.
+
+147. Word: "Interesse" (appears 3 times)
+   Indices: 1376, 1406, 1436
+   [1376] das Interesse (noun)
+       Sentences: 2
+       1. Ich habe großes Interesse an diesem Job.
+       2. Zeigen Sie doch etwas Interesse an der Arbeit!
+   [1406] das Interesse (noun)
+       Sentences: 2
+       1. Ich habe großes Interesse an diesem Job.
+       2. Zeigen Sie doch etwas Interesse an der Arbeit!
+   [1436] das Interesse (noun)
+       Sentences: 2
+       1. Ich habe großes Interesse an diesem Job.
+       2. Zeigen Sie doch etwas Interesse an der Arbeit!
+
+148. Word: "interessiert" (appears 3 times)
+   Indices: 1377, 1407, 1437
+   [1377] interessiert (adjective)
+       Sentences: 2
+       1. Sind Sie an diesem Buch interessiert?
+       2. Sind Sie technisch interessiert?
+   [1407] interessiert (adjective)
+       Sentences: 2
+       1. Sind Sie an diesem Buch interessiert?
+       2. Sind Sie technisch interessiert?
+   [1437] interessiert (adjective)
+       Sentences: 2
+       1. Sind Sie an diesem Buch interessiert?
+       2. Sind Sie technisch interessiert?
+
+149. Word: "interkulturell" (appears 3 times)
+   Indices: 1378, 1408, 1438
+   [1378] interkulturell (adjective)
+       Sentences: 1
+       1. Wir bieten interkulturelle Trainings an.
+   [1408] interkulturell (adjective)
+       Sentences: 1
+       1. Wir bieten interkulturelle Trainings an.
+   [1438] interkulturell (adjective)
+       Sentences: 1
+       1. Wir bieten interkulturelle Trainings an.
+
+150. Word: "international" (appears 3 times)
+   Indices: 1379, 1409, 1439
+   [1379] international (adjective)
+       Sentences: 2
+       1. Das ist ein internationaler Kongress.
+       2. Der Professor war international bekannt.
+   [1409] international (adjective)
+       Sentences: 2
+       1. Das ist ein internationaler Kongress.
+       2. Der Professor war international bekannt.
+   [1439] international (adjective)
+       Sentences: 2
+       1. Das ist ein internationaler Kongress.
+       2. Der Professor war international bekannt.
+
+151. Word: "Kasten" (appears 2 times)
+   Indices: 1494, 1495
+   [1494] der Kasten (noun)
+       Sentences: 1
+       1. Ich hätte gern einen Kasten Mineralwasser.
+   [1495] der Kasten (noun)
+       Sentences: 1
+       1. Die Handtücher liegen im Kasten.
+
+152. Word: "komisch" (appears 2 times)
+   Indices: 1553, 1584
+   [1553] komisch (adjective)
+       Sentences: 3
+       1. Das Essen schmeckt komisch. Probier mal.
+       2. Der Film war sehr komisch. Wir haben viel gelacht.
+       3. Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus.
+   [1584] komisch (adjective)
+       Sentences: 3
+       1. Das Essen schmeckt komisch. Probier mal.
+       2. Der Film war sehr komisch. Wir haben viel gelacht.
+       3. Eine grüne Hose und gelbe Schuhe? Das sieht komisch aus.
+
+153. Word: "kommen" (appears 2 times)
+   Indices: 1554, 1585
+   [1554] kommen (verb)
+       Sentences: 9
+       1. Woher kommen Sie? – Aus Frankreich.
+       2. Wir gehen heute Abend ins Konzert. Kommen Sie auch?
+       3. Kommen Sie doch mal wieder zu uns.
+       4. Wenn Sie mal nach Köln kommen, besuchen Sie uns.
+       5. Steffi kommt im Herbst in die Schule.
+       6. Die Straßenbahn muss gleich kommen.
+       7. Wer kommt als Nächster dran?
+       8. Die Handtücher kommen in den Schrank.
+       9. Wie sind Sie denn auf diese Idee gekommen?
+   [1585] kommen (verb)
+       Sentences: 9
+       1. Woher kommen Sie? – Aus Frankreich.
+       2. Wir gehen heute Abend ins Konzert. Kommen Sie auch?
+       3. Kommen Sie doch mal wieder zu uns.
+       4. Wenn Sie mal nach Köln kommen, besuchen Sie uns.
+       5. Steffi kommt im Herbst in die Schule.
+       6. Die Straßenbahn muss gleich kommen.
+       7. Wer kommt als Nächster dran?
+       8. Die Handtücher kommen in den Schrank.
+       9. Wie sind Sie denn auf diese Idee gekommen?
+
+154. Word: "Kommunikation" (appears 2 times)
+   Indices: 1555, 1586
+   [1555] die Kommunikation (noun)
+       Sentences: 1
+       1. Die Kommunikation zwischen den Abteilungen ist gut.
+   [1586] die Kommunikation (noun)
+       Sentences: 1
+       1. Die Kommunikation zwischen den Abteilungen ist gut.
+
+155. Word: "komplett" (appears 2 times)
+   Indices: 1556, 1587
+   [1556] komplett (adjective)
+       Sentences: 2
+       1. Ich habe den Termin komplett vergessen.
+       2. Die Wohnung ist jetzt komplett eingerichtet.
+   [1587] komplett (adjective)
+       Sentences: 2
+       1. Ich habe den Termin komplett vergessen.
+       2. Die Wohnung ist jetzt komplett eingerichtet.
+
+156. Word: "kompliziert" (appears 2 times)
+   Indices: 1557, 1588
+   [1557] kompliziert (adjective)
+       Sentences: 1
+       1. Er schreibt viel zu kompliziert.
+   [1588] kompliziert (adjective)
+       Sentences: 1
+       1. Er schreibt viel zu kompliziert.
+
+157. Word: "Kompromiss" (appears 2 times)
+   Indices: 1558, 1589
+   [1558] der Kompromiss (noun)
+       Sentences: 1
+       1. Alle wollen etwas anderes. Wir müssen einen Kompromiss finde...
+   [1589] der Kompromiss (noun)
+       Sentences: 1
+       1. Alle wollen etwas anderes. Wir müssen einen Kompromiss finde...
+
+158. Word: "Konferenz" (appears 2 times)
+   Indices: 1559, 1590
+   [1559] die Konferenz (noun)
+       Sentences: 1
+       1. Die Konferenz findet in Raum 19 statt.
+   [1590] die Konferenz (noun)
+       Sentences: 1
+       1. Die Konferenz findet in Raum 19 statt.
+
+159. Word: "Konfitüre" (appears 2 times)
+   Indices: 1560, 1591
+   [1560] die Konfitüre (noun)
+       Sentences: 1
+       1. Bring bitte noch ein Glas Konfitüre mit.
+   [1591] die Konfitüre (noun)
+       Sentences: 1
+       1. Bring bitte noch ein Glas Konfitüre mit.
+
+160. Word: "Konflikt" (appears 2 times)
+   Indices: 1561, 1592
+   [1561] der Konflikt (noun)
+       Sentences: 2
+       1. Das ist ein alter Konflikt.
+       2. Ich habe einen Konflikt mit meinen Eltern.
+   [1592] der Konflikt (noun)
+       Sentences: 2
+       1. Das ist ein alter Konflikt.
+       2. Ich habe einen Konflikt mit meinen Eltern.
+
+161. Word: "König" (appears 2 times)
+   Indices: 1562, 1593
+   [1562] der König (noun)
+       Sentences: 1
+       1. Der spanische König ist in Deutschland zu Besuch.
+   [1593] der König (noun)
+       Sentences: 1
+       1. Der spanische König ist in Deutschland zu Besuch.
+
+162. Word: "Konkurrenz" (appears 2 times)
+   Indices: 1563, 1594
+   [1563] die Konkurrenz (noun)
+       Sentences: 2
+       1. Die Reparatur ist mir hier zu teuer. Bei der Konkurrenz beko...
+       2. Es ist schwer, ein Geschäft aufzu-machen. Die Konkurrenz ist...
+   [1594] die Konkurrenz (noun)
+       Sentences: 2
+       1. Die Reparatur ist mir hier zu teuer. Bei der Konkurrenz beko...
+       2. Es ist schwer, ein Geschäft aufzu-machen. Die Konkurrenz ist...
+
+163. Word: "können" (appears 2 times)
+   Indices: 1564, 1595
+   [1564] können (verb)
+       Sentences: 6
+       1. Ich kann den schweren Koffer nicht tragen.
+       2. Sie können mit dem Bus zum Bahnhof fahren.
+       3. Kann ich jetzt nach Hause gehen?
+       4. Können Sie mir helfen?
+       5. Ich kann sehr gut Englisch und Deutsch.
+       6. Es kann sein, dass es heute noch regnet.
+   [1595] können (verb)
+       Sentences: 6
+       1. Ich kann den schweren Koffer nicht tragen.
+       2. Sie können mit dem Bus zum Bahnhof fahren.
+       3. Kann ich jetzt nach Hause gehen?
+       4. Können Sie mir helfen?
+       5. Ich kann sehr gut Englisch und Deutsch.
+       6. Es kann sein, dass es heute noch regnet.
+
+164. Word: "Konsulat" (appears 2 times)
+   Indices: 1565, 1596
+   [1565] das Konsulat (noun)
+       Sentences: 1
+       1. Ein Visum bekommst du auch im Konsulat.
+   [1596] das Konsulat (noun)
+       Sentences: 1
+       1. Ein Visum bekommst du auch im Konsulat.
+
+165. Word: "konsumieren" (appears 2 times)
+   Indices: 1566, 1597
+   [1566] konsumieren (verb)
+       Sentences: 1
+       1. Die Europäer haben im letzten Jahr mehr Fleisch konsumiert.
+   [1597] konsumieren (verb)
+       Sentences: 1
+       1. Die Europäer haben im letzten Jahr mehr Fleisch konsumiert.
+
+166. Word: "Konsum" (appears 2 times)
+   Indices: 1567, 1598
+   [1567] der Konsum (noun)
+       Sentences: 1
+       1. Der Konsum von Lebensmitteln steigt.
+   [1598] der Konsum (noun)
+       Sentences: 1
+       1. Der Konsum von Lebensmitteln steigt.
+
+167. Word: "Kontakt" (appears 2 times)
+   Indices: 1568, 1599
+   [1568] der Kontakt (noun)
+       Sentences: 1
+       1. Ich habe wenig Kontakt zu meinen Kollegen.
+   [1599] der Kontakt (noun)
+       Sentences: 1
+       1. Ich habe wenig Kontakt zu meinen Kollegen.
+
+168. Word: "Konto" (appears 2 times)
+   Indices: 1569, 1600
+   [1569] das Konto (noun)
+       Sentences: 2
+       1. Ich möchte ein Konto eröffnen.
+       2. Das Geld überweisen wir am 1. März auf Ihr Konto.
+   [1600] das Konto (noun)
+       Sentences: 2
+       1. Ich möchte ein Konto eröffnen.
+       2. Das Geld überweisen wir am 1. März auf Ihr Konto.
+
+169. Word: "kosten" (appears 2 times)
+   Indices: 1620, 1623
+   [1620] kosten (verb)
+       Sentences: 2
+       1. Wie viel kostet der Pullover?
+       2. Die Reise hat mich viel Geld gekostet.
+   [1623] kosten (verb)
+       Sentences: 1
+       1. Möchten Sie den Käse mal kosten?
+
+170. Word: "Leiter" (appears 2 times)
+   Indices: 1706, 1708
+   [1706] der Leiter (noun)
+       Sentences: 1
+       1. Der neue Leiter der Schule ist sehr nett.
+   [1708] die Leiter (noun)
+       Sentences: 1
+       1. Haben Sie eine Leiter für mich? Ich will die Fenster putzen.
+
+171. Word: "Notruf" (appears 4 times)
+   Indices: 1926, 1954, 1981, 2008
+   [1926] der Notruf (noun)
+       Sentences: 1
+       1. Der Notruf hat die Nummer 110.
+   [1954] der Notruf (noun)
+       Sentences: 1
+       1. Der Notruf hat die Nummer 110.
+   [1981] der Notruf (noun)
+       Sentences: 1
+       1. Der Notruf hat die Nummer 110.
+   [2008] der Notruf (noun)
+       Sentences: 1
+       1. Der Notruf hat die Nummer 110.
+
+172. Word: "Note, -n" (appears 2 times)
+   Indices: 1927, 1955
+   [1927] die Note, -n (noun)
+       Sentences: 2
+       1. Eva hat immer sehr gute Noten in Mathematik.
+       2. Meine Kinder lernen im Musikunterricht gerade Noten lesen.
+   [1955] die Note, -n (noun)
+       Sentences: 2
+       1. Eva hat immer sehr gute Noten in Mathematik.
+       2. Meine Kinder lernen im Musikunterricht gerade Noten lesen.
+
+173. Word: "notieren" (appears 4 times)
+   Indices: 1928, 1956, 1983, 2010
+   [1928] notieren (verb)
+       Sentences: 1
+       1. Ich habe mir den Termin notiert.
+   [1956] notieren (verb)
+       Sentences: 1
+       1. Ich habe mir den Termin notiert.
+   [1983] notieren (verb)
+       Sentences: 1
+       1. Ich habe mir den Termin notiert.
+   [2010] notieren (verb)
+       Sentences: 1
+       1. Ich habe mir den Termin notiert.
+
+174. Word: "nötig" (appears 4 times)
+   Indices: 1929, 1957, 1984, 2011
+   [1929] nötig (adjective)
+       Sentences: 2
+       1. Wenn es nötig ist, nehmen Sie noch eine Tablette.
+       2. Kann ich Ihnen helfen? – Danke, nicht nötig.
+   [1957] nötig (adjective)
+       Sentences: 2
+       1. Wenn es nötig ist, nehmen Sie noch eine Tablette.
+       2. Kann ich Ihnen helfen? – Danke, nicht nötig.
+   [1984] nötig (adjective)
+       Sentences: 2
+       1. Wenn es nötig ist, nehmen Sie noch eine Tablette.
+       2. Kann ich Ihnen helfen? – Danke, nicht nötig.
+   [2011] nötig (adjective)
+       Sentences: 2
+       1. Wenn es nötig ist, nehmen Sie noch eine Tablette.
+       2. Kann ich Ihnen helfen? – Danke, nicht nötig.
+
+175. Word: "Notiz, -en" (appears 2 times)
+   Indices: 1930, 1958
+   [1930] die Notiz, -en (noun)
+       Sentences: 2
+       1. Ich habe Ihnen eine Notiz geschrieben.
+       2. Hast du einen Notizzettel für mich?
+   [1958] die Notiz, -en (noun)
+       Sentences: 2
+       1. Ich habe Ihnen eine Notiz geschrieben.
+       2. Hast du einen Notizzettel für mich?
+
+176. Word: "notwendig" (appears 4 times)
+   Indices: 1931, 1959, 1986, 2013
+   [1931] notwendig (adjective)
+       Sentences: 1
+       1. Muss ich nochmal wiederkommen? – Nein, das ist nicht notwend...
+   [1959] notwendig (adjective)
+       Sentences: 1
+       1. Muss ich nochmal wiederkommen? – Nein, das ist nicht notwend...
+   [1986] notwendig (adjective)
+       Sentences: 1
+       1. Muss ich nochmal wiederkommen? – Nein, das ist nicht notwend...
+   [2013] notwendig (adjective)
+       Sentences: 1
+       1. Muss ich nochmal wiederkommen? – Nein, das ist nicht notwend...
+
+177. Word: "Nudel, -n" (appears 2 times)
+   Indices: 1932, 1960
+   [1932] die Nudel, -n (noun)
+       Sentences: 1
+       1. Möchten Sie Nudeln oder Reis? – Lieber Nudeln.
+   [1960] die Nudel, -n (noun)
+       Sentences: 1
+       1. Möchten Sie Nudeln oder Reis? – Lieber Nudeln.
+
+178. Word: "nun" (appears 3 times)
+   Indices: 1934, 1961, 1989
+   [1934] nun (adverb)
+       Sentences: 2
+       1. Schade, dass du arbeiten musst. – Das ist nun mal so.
+       2. Was ist jetzt? Kommst du nun endlich?
+   [1961] nun (adverb)
+       Sentences: 2
+       1. Schade, dass du arbeiten musst. – Das ist nun mal so.
+       2. Was ist jetzt? Kommst du nun endlich?
+   [1989] nun (adverb)
+       Sentences: 2
+       1. Schade, dass du arbeiten musst. – Das ist nun mal so.
+       2. Was ist jetzt? Kommst du nun endlich?
+
+179. Word: "nur" (appears 3 times)
+   Indices: 1935, 1962, 1990
+   [1935] nur (adverb)
+       Sentences: 4
+       1. Im Kaufhaus gibt‘s T-Shirts für nur fünf Euro.
+       2. Ich habe keinen Hunger. Ich möchte nur etwas trinken.
+       3. Ich habe nur heute Abend Zeit.
+       4. Kannst du mir Geld leihen? Tut mir leid. Ich habe nur fünf E...
+   [1962] nur (adverb)
+       Sentences: 4
+       1. Im Kaufhaus gibt‘s T-Shirts für nur fünf Euro.
+       2. Ich habe keinen Hunger. Ich möchte nur etwas trinken.
+       3. Ich habe nur heute Abend Zeit.
+       4. Kannst du mir Geld leihen? Tut mir leid. Ich habe nur fünf E...
+   [1990] nur (adverb)
+       Sentences: 4
+       1. Im Kaufhaus gibt‘s T-Shirts für nur fünf Euro.
+       2. Ich habe keinen Hunger. Ich möchte nur etwas trinken.
+       3. Ich habe nur heute Abend Zeit.
+       4. Kannst du mir Geld leihen? Tut mir leid. Ich habe nur fünf E...
+
+180. Word: "nutzen" (appears 3 times)
+   Indices: 1936, 1963, 1991
+   [1936] nutzen (verb)
+       Sentences: 1
+       1. Ich möchte das schöne Wetter nutzen und spazieren gehen.
+   [1963] nutzen (verb)
+       Sentences: 1
+       1. Ich möchte das schöne Wetter nutzen und spazieren gehen.
+   [1991] nutzen (verb)
+       Sentences: 1
+       1. Ich möchte das schöne Wetter nutzen und spazieren gehen.
+
+181. Word: "nützen" (appears 3 times)
+   Indices: 1937, 1964, 1992
+   [1937] nützen (verb)
+       Sentences: 1
+       1. Ich habe jeden Tag eine Tablette genommen. Aber es hat nicht...
+   [1964] nützen (verb)
+       Sentences: 1
+       1. Ich habe jeden Tag eine Tablette genommen. Aber es hat nicht...
+   [1992] nützen (verb)
+       Sentences: 1
+       1. Ich habe jeden Tag eine Tablette genommen. Aber es hat nicht...
+
+182. Word: "nützlich" (appears 3 times)
+   Indices: 1938, 1965, 1993
+   [1938] nützlich (adjective)
+       Sentences: 1
+       1. Danke für den Tipp. Das war sehr nützlich.
+   [1965] nützlich (adjective)
+       Sentences: 1
+       1. Danke für den Tipp. Das war sehr nützlich.
+   [1993] nützlich (adjective)
+       Sentences: 1
+       1. Danke für den Tipp. Das war sehr nützlich.
+
+183. Word: "nichts" (appears 3 times)
+   Indices: 1939, 1966, 1994
+   [1939] nichts (pronoun)
+       Sentences: 4
+       1. Ich habe noch nichts gegessen.
+       2. Ich weiß auch nichts Genaues.
+       3. Ich habe nichts zum Schreiben dabei.
+       4. Entschuldigung! – Das macht nichts.
+   [1966] nichts (pronoun)
+       Sentences: 4
+       1. Ich habe noch nichts gegessen.
+       2. Ich weiß auch nichts Genaues.
+       3. Ich habe nichts zum Schreiben dabei.
+       4. Entschuldigung! – Das macht nichts.
+   [1994] nichts (pronoun)
+       Sentences: 4
+       1. Ich habe noch nichts gegessen.
+       2. Ich weiß auch nichts Genaues.
+       3. Ich habe nichts zum Schreiben dabei.
+       4. Entschuldigung! – Das macht nichts.
+
+184. Word: "nie" (appears 3 times)
+   Indices: 1940, 1967, 1995
+   [1940] nie (adverb)
+       Sentences: 4
+       1. Der Chef ist nie da.
+       2. Warum bist du nie zufrieden?
+       3. Bis morgen Abend schaffe ich die Arbeit nie.
+       4. Ich gehe nie wieder in dieses Restaurant.
+   [1967] nie (adverb)
+       Sentences: 4
+       1. Der Chef ist nie da.
+       2. Warum bist du nie zufrieden?
+       3. Bis morgen Abend schaffe ich die Arbeit nie.
+       4. Ich gehe nie wieder in dieses Restaurant.
+   [1995] nie (adverb)
+       Sentences: 4
+       1. Der Chef ist nie da.
+       2. Warum bist du nie zufrieden?
+       3. Bis morgen Abend schaffe ich die Arbeit nie.
+       4. Ich gehe nie wieder in dieses Restaurant.
+
+185. Word: "niedrig" (appears 3 times)
+   Indices: 1941, 1968, 1996
+   [1941] niedrig (adjective)
+       Sentences: 3
+       1. Die Räume hier sind mir zu niedrig.
+       2. Für die Jahreszeit sind die Temperaturen zu niedrig.
+       3. Die Firma zahlt sehr niedrige Löhne.
+   [1968] niedrig (adjective)
+       Sentences: 3
+       1. Die Räume hier sind mir zu niedrig.
+       2. Für die Jahreszeit sind die Temperaturen zu niedrig.
+       3. Die Firma zahlt sehr niedrige Löhne.
+   [1996] niedrig (adjective)
+       Sentences: 3
+       1. Die Räume hier sind mir zu niedrig.
+       2. Für die Jahreszeit sind die Temperaturen zu niedrig.
+       3. Die Firma zahlt sehr niedrige Löhne.
+
+186. Word: "niemand" (appears 3 times)
+   Indices: 1942, 1969, 1997
+   [1942] niemand (pronoun)
+       Sentences: 1
+       1. Ich habe geklingelt. Aber es war niemand zu Hause.
+   [1969] niemand (pronoun)
+       Sentences: 1
+       1. Ich habe geklingelt. Aber es war niemand zu Hause.
+   [1997] niemand (pronoun)
+       Sentences: 1
+       1. Ich habe geklingelt. Aber es war niemand zu Hause.
+
+187. Word: "nirgends" (appears 3 times)
+   Indices: 1943, 1970, 1998
+   [1943] nirgends (adverb)
+       Sentences: 2
+       1. Ich kann die Quittung nirgends finden.
+       2. Hier kann man nirgends parken.
+   [1970] nirgends (adverb)
+       Sentences: 2
+       1. Ich kann die Quittung nirgends finden.
+       2. Hier kann man nirgends parken.
+   [1998] nirgends (adverb)
+       Sentences: 2
+       1. Ich kann die Quittung nirgends finden.
+       2. Hier kann man nirgends parken.
+
+188. Word: "nirgendwo" (appears 3 times)
+   Indices: 1944, 1971, 1999
+   [1944] nirgendwo (adverb)
+       Sentences: 1
+       1. Die Schlüssel kann ich nirgendwo finden.
+   [1971] nirgendwo (adverb)
+       Sentences: 1
+       1. Die Schlüssel kann ich nirgendwo finden.
+   [1999] nirgendwo (adverb)
+       Sentences: 1
+       1. Die Schlüssel kann ich nirgendwo finden.
+
+189. Word: "noch" (appears 3 times)
+   Indices: 1945, 1972, 2000
+   [1945] noch (adverb)
+       Sentences: 10
+       1. Mein Bruder geht noch zur Schule.
+       2. Bist du fertig. – Nein, noch nicht ganz.
+       3. Haben Sie noch einen Wunsch? – Ja, bitte noch ein Bier.
+       4. Sonst noch etwas? – Nein, danke.
+       5. Ich komme später. Ich muss erst noch einkaufen.
+       6. Meine Freundin studiert, und abends arbeitet sie noch als Ke...
+       7. Es ist nicht mehr viel Zeit. Nur noch fünf Minuten.
+       8. Ich habe nur noch 20 Euro.
+       9. Ist das Essen schon fertig. – Nein, es dauert noch ein paar ...
+       10. Ist Amadeo schon da? – Vielleicht kommt er noch.
+   [1972] noch (adverb)
+       Sentences: 10
+       1. Mein Bruder geht noch zur Schule.
+       2. Bist du fertig. – Nein, noch nicht ganz.
+       3. Haben Sie noch einen Wunsch? – Ja, bitte noch ein Bier.
+       4. Sonst noch etwas? – Nein, danke.
+       5. Ich komme später. Ich muss erst noch einkaufen.
+       6. Meine Freundin studiert, und abends arbeitet sie noch als Ke...
+       7. Es ist nicht mehr viel Zeit. Nur noch fünf Minuten.
+       8. Ich habe nur noch 20 Euro.
+       9. Ist das Essen schon fertig. – Nein, es dauert noch ein paar ...
+       10. Ist Amadeo schon da? – Vielleicht kommt er noch.
+   [2000] noch (adverb)
+       Sentences: 10
+       1. Mein Bruder geht noch zur Schule.
+       2. Bist du fertig. – Nein, noch nicht ganz.
+       3. Haben Sie noch einen Wunsch? – Ja, bitte noch ein Bier.
+       4. Sonst noch etwas? – Nein, danke.
+       5. Ich komme später. Ich muss erst noch einkaufen.
+       6. Meine Freundin studiert, und abends arbeitet sie noch als Ke...
+       7. Es ist nicht mehr viel Zeit. Nur noch fünf Minuten.
+       8. Ich habe nur noch 20 Euro.
+       9. Ist das Essen schon fertig. – Nein, es dauert noch ein paar ...
+       10. Ist Amadeo schon da? – Vielleicht kommt er noch.
+
+190. Word: "noch mal" (appears 2 times)
+   Indices: 1946, 1973
+   [1946] noch mal (adverb)
+       Sentences: 2
+       1. Vielen Dank nochmal.
+       2. Bitte sagen Sie das nochmal.
+   [1973] noch mal (adverb)
+       Sentences: 2
+       1. Vielen Dank nochmal.
+       2. Bitte sagen Sie das nochmal.
+
+191. Word: "nochmals" (appears 3 times)
+   Indices: 1947, 1974, 2001
+   [1947] nochmals (adverb)
+       Sentences: 1
+       1. Nochmals vielen Dank!
+   [1974] nochmals (adverb)
+       Sentences: 1
+       1. Nochmals vielen Dank!
+   [2001] nochmals (adverb)
+       Sentences: 1
+       1. Nochmals vielen Dank!
+
+192. Word: "normal" (appears 3 times)
+   Indices: 1948, 1975, 2002
+   [1948] normal (adjective)
+       Sentences: 1
+       1. Fehler zu machen ist doch ganz normal.
+   [1975] normal (adjective)
+       Sentences: 1
+       1. Fehler zu machen ist doch ganz normal.
+   [2002] normal (adjective)
+       Sentences: 1
+       1. Fehler zu machen ist doch ganz normal.
+
+193. Word: "normalerweise" (appears 3 times)
+   Indices: 1949, 1976, 2003
+   [1949] normalerweise (adverb)
+       Sentences: 1
+       1. Wann haben Sie normalerweise Pause?
+   [1976] normalerweise (adverb)
+       Sentences: 1
+       1. Wann haben Sie normalerweise Pause?
+   [2003] normalerweise (adverb)
+       Sentences: 1
+       1. Wann haben Sie normalerweise Pause?
+
+194. Word: "Not-" (appears 3 times)
+   Indices: 1950, 1977, 2004
+   [1950] Not- (prefix)
+       Sentences: 1
+       1. z. B. Notaufnahme, Notausgang, Notfall
+   [1977] Not- (prefix)
+       Sentences: 1
+       1. z. B. Notaufnahme, Notausgang, Notfall
+   [2004] Not- (prefix)
+       Sentences: 1
+       1. z. B. Notaufnahme, Notausgang, Notfall
+
+195. Word: "Notaufnahme" (appears 2 times)
+   Indices: 1978, 2005
+   [1978] die Notaufnahme (noun)
+       Sentences: 1
+       1. Die Notaufnahme ist gleich hier links.
+   [2005] die Notaufnahme (noun)
+       Sentences: 1
+       1. Die Notaufnahme ist gleich hier links.
+
+196. Word: "Notausgang" (appears 2 times)
+   Indices: 1979, 2006
+   [1979] der Notausgang (noun)
+       Sentences: 1
+       1. Der Notausgang ist gleich hier bei der Treppe.
+   [2006] der Notausgang (noun)
+       Sentences: 1
+       1. Der Notausgang ist gleich hier bei der Treppe.
+
+197. Word: "Notfall" (appears 2 times)
+   Indices: 1980, 2007
+   [1980] der Notfall (noun)
+       Sentences: 2
+       1. Wir haben einen Notfall. Bitte schicken Sie einen Krankenwag...
+       2. Im Notfall rufen Sie bitte diese Nummer an.
+   [2007] der Notfall (noun)
+       Sentences: 2
+       1. Wir haben einen Notfall. Bitte schicken Sie einen Krankenwag...
+       2. Im Notfall rufen Sie bitte diese Nummer an.
+
+198. Word: "Note" (appears 2 times)
+   Indices: 1982, 2009
+   [1982] die Note (noun)
+       Sentences: 2
+       1. Eva hat immer sehr gute Noten in Mathematik.
+       2. Meine Kinder lernen im Musikunterricht gerade Noten lesen.
+   [2009] die Note (noun)
+       Sentences: 2
+       1. Eva hat immer sehr gute Noten in Mathematik.
+       2. Meine Kinder lernen im Musikunterricht gerade Noten lesen.
+
+199. Word: "Notiz" (appears 2 times)
+   Indices: 1985, 2012
+   [1985] die Notiz (noun)
+       Sentences: 2
+       1. Ich habe Ihnen eine Notiz geschrieben.
+       2. Hast du einen Notizzettel für mich?
+   [2012] die Notiz (noun)
+       Sentences: 2
+       1. Ich habe Ihnen eine Notiz geschrieben.
+       2. Hast du einen Notizzettel für mich?
+
+200. Word: "Nudel" (appears 2 times)
+   Indices: 1987, 2014
+   [1987] die Nudel (noun)
+       Sentences: 1
+       1. Möchten Sie Nudeln oder Reis? – Lieber Nudeln.
+   [2014] die Nudel (noun)
+       Sentences: 1
+       1. Möchten Sie Nudeln oder Reis? – Lieber Nudeln.
+
+201. Word: "Nummer" (appears 2 times)
+   Indices: 1988, 2015
+   [1988] die Nummer (noun)
+       Sentences: 6
+       1. Ich habe mich in der Hausnummer geirrt.
+       2. Ich habe die falsche Nummer gewählt.
+       3. Der Wagen hatte eine Münchner Nummer.
+       4. Sie haben Zimmer Nummer zwölf.
+       5. Bitte geben Sie mir Ihre Kontonummer.
+       6. Haben Sie die Bluse eine Nummer kleiner?
+   [2015] die Nummer (noun)
+       Sentences: 6
+       1. Ich habe mich in der Hausnummer geirrt.
+       2. Ich habe die falsche Nummer gewählt.
+       3. Der Wagen hatte eine Münchner Nummer.
+       4. Sie haben Zimmer Nummer zwölf.
+       5. Bitte geben Sie mir Ihre Kontonummer.
+       6. Haben Sie die Bluse eine Nummer kleiner?
+
+202. Word: "ob" (appears 2 times)
+   Indices: 2016, 2063
+   [2016] ob (conjunction)
+       Sentences: 1
+       1. Ich bin neugierig, ob du die Prüfung bestanden hast.
+   [2063] ob (conjunction)
+       Sentences: 1
+       1. Ich bin neugierig, ob du die Prüfung bestanden hast.
+
+203. Word: "oben" (appears 2 times)
+   Indices: 2017, 2064
+   [2017] oben (adverb)
+       Sentences: 2
+       1. Ich wohne ganz oben im 3. Stock.
+       2. Die Handtücher sind im obersten Fach links.
+   [2064] oben (adverb)
+       Sentences: 2
+       1. Ich wohne ganz oben im 3. Stock.
+       2. Die Handtücher sind im obersten Fach links.
+
+204. Word: "ober-" (appears 2 times)
+   Indices: 2018, 2065
+   [2018] ober- (prefix)
+       Sentences: 1
+       1. Wir fahren mit der Seilbahn auf den Oberalppass.
+   [2065] ober- (prefix)
+       Sentences: 1
+       1. Wir fahren mit der Seilbahn auf den Oberalppass.
+
+205. Word: "Ober, - (D, A) ! Kellner; CH: Serviceangestellter" (appears 2 times)
+   Indices: 2019, 2066
+   [2019] der Ober, - (D, A) ! Kellner; CH: Serviceangestellter (noun)
+       Sentences: 1
+       1. Herr Ober, die Rechnung bitte!
+   [2066] der Ober, - (D, A) ! Kellner; CH: Serviceangestellter (noun)
+       Sentences: 1
+       1. Herr Ober, die Rechnung bitte!
+
+206. Word: "das/der (Schlag-)Obers (A) ! D: (Schlag-)Sahne; CH: (Schlag-)Rahm" (appears 2 times)
+   Indices: 2020, 2067
+   [2020] das/der das/der (Schlag-)Obers (A) ! D: (Schlag-)Sahne; CH: (Schlag-)Rahm (noun)
+       Sentences: 1
+       1. Ich hätte gern ein Stück Torte mit Obers.
+   [2067] das/der das/der (Schlag-)Obers (A) ! D: (Schlag-)Sahne; CH: (Schlag-)Rahm (noun)
+       Sentences: 1
+       1. Ich hätte gern ein Stück Torte mit Obers.
+
+207. Word: "Obst (D, A) ! CH: Früchte" (appears 2 times)
+   Indices: 2021, 2068
+   [2021] das Obst (D, A) ! CH: Früchte (noun)
+       Sentences: 1
+       1. Obst und Gemüse sind gesund.
+   [2068] das Obst (D, A) ! CH: Früchte (noun)
+       Sentences: 1
+       1. Obst und Gemüse sind gesund.
+
+208. Word: "obwohl" (appears 2 times)
+   Indices: 2022, 2069
+   [2022] obwohl (conjunction)
+       Sentences: 1
+       1. Obwohl es sehr stark geregnet hat, waren wir spazieren.
+   [2069] obwohl (conjunction)
+       Sentences: 1
+       1. Obwohl es sehr stark geregnet hat, waren wir spazieren.
+
+209. Word: "oder" (appears 2 times)
+   Indices: 2023, 2070
+   [2023] oder (conjunction)
+       Sentences: 1
+       1. Möchtest du Kaffee oder Tee?
+   [2070] oder (conjunction)
+       Sentences: 1
+       1. Möchtest du Kaffee oder Tee?
+
+210. Word: "(Back-)Ofen, ¨- (D, CH) ! A: (Back-)Rohr" (appears 2 times)
+   Indices: 2024, 2071
+   [2024] der (Back-)Ofen, ¨- (D, CH) ! A: (Back-)Rohr (noun)
+       Sentences: 2
+       1. Der Kuchen ist im Ofen.
+       2. Ich muss den Backofen putzen.
+   [2071] der (Back-)Ofen, ¨- (D, CH) ! A: (Back-)Rohr (noun)
+       Sentences: 2
+       1. Der Kuchen ist im Ofen.
+       2. Ich muss den Backofen putzen.
+
+211. Word: "offen" (appears 2 times)
+   Indices: 2025, 2072
+   [2025] offen (adjective)
+       Sentences: 3
+       1. Die Tür war offen.
+       2. Ich habe eine offene Stelle in der Firma.
+       3. Das Geschäft ist heute Abend bis 20 Uhr offen.
+   [2072] offen (adjective)
+       Sentences: 3
+       1. Die Tür war offen.
+       2. Ich habe eine offene Stelle in der Firma.
+       3. Das Geschäft ist heute Abend bis 20 Uhr offen.
+
+212. Word: "öffentlich" (appears 2 times)
+   Indices: 2026, 2073
+   [2026] öffentlich (adjective)
+       Sentences: 2
+       1. Die Bibliothek ist öffentlich zugänglich.
+       2. Wir fahren mit den öffentlichen Verkehrs-mitteln.
+   [2073] öffentlich (adjective)
+       Sentences: 2
+       1. Die Bibliothek ist öffentlich zugänglich.
+       2. Wir fahren mit den öffentlichen Verkehrs-mitteln.
+
+213. Word: "öffnen" (appears 2 times)
+   Indices: 2027, 2074
+   [2027] öffnen (verb)
+       Sentences: 2
+       1. Wann öffnet die Post?
+       2. Ich kann die Flasche nicht öffnen.
+   [2074] öffnen (verb)
+       Sentences: 2
+       1. Wann öffnet die Post?
+       2. Ich kann die Flasche nicht öffnen.
+
+214. Word: "oft/öfter" (appears 2 times)
+   Indices: 2028, 2075
+   [2028] oft/öfter (adverb)
+       Sentences: 2
+       1. Er kommt öfter zu spät.
+       2. Ich rufe oft bei meiner Tante an.
+   [2075] oft/öfter (adverb)
+       Sentences: 2
+       1. Er kommt öfter zu spät.
+       2. Ich rufe oft bei meiner Tante an.
+
+215. Word: "ohne" (appears 2 times)
+   Indices: 2029, 2076
+   [2029] ohne (preposition)
+       Sentences: 3
+       1. Möchten Sie einen Kaffee ohne Zucker?
+       2. Ich kann ohne meine Brille nicht lesen.
+       3. Ohne zu fragen, hat er meinen Computer benutzt.
+   [2076] ohne (preposition)
+       Sentences: 3
+       1. Möchten Sie einen Kaffee ohne Zucker?
+       2. Ich kann ohne meine Brille nicht lesen.
+       3. Ohne zu fragen, hat er meinen Computer benutzt.
+
+216. Word: "Ohr, -en" (appears 2 times)
+   Indices: 2030, 2077
+   [2030] das Ohr, -en (noun)
+       Sentences: 2
+       1. Mir tut das Ohr weh. Ich habe Ohren-schmerzen.
+       2. Die Musik war so laut, dass mir die Ohren wehgetan haben.
+   [2077] das Ohr, -en (noun)
+       Sentences: 2
+       1. Mir tut das Ohr weh. Ich habe Ohren-schmerzen.
+       2. Die Musik war so laut, dass mir die Ohren wehgetan haben.
+
+217. Word: "Öko- (ökologisch)" (appears 2 times)
+   Indices: 2031, 2078
+   [2031] Öko- (ökologisch) (prefix/adjective)
+       Sentences: 1
+       1. Wir kaufen nur Ökoprodukte.
+   [2078] Öko- (ökologisch) (prefix/adjective)
+       Sentences: 1
+       1. Wir kaufen nur Ökoprodukte.
+
+218. Word: "Öl, -e" (appears 2 times)
+   Indices: 2032, 2079
+   [2032] das Öl, -e (noun)
+       Sentences: 2
+       1. Ich brauche Öl für das Auto.
+       2. Zum Salat nehme ich immer Olivenöl.
+   [2079] das Öl, -e (noun)
+       Sentences: 2
+       1. Ich brauche Öl für das Auto.
+       2. Zum Salat nehme ich immer Olivenöl.
+
+219. Word: "Oma, -s" (appears 2 times)
+   Indices: 2033, 2080
+   [2033] die Oma, -s (noun)
+       Sentences: 1
+       1. Meine Oma ist schon 80 Jahre alt.
+   [2080] die Oma, -s (noun)
+       Sentences: 1
+       1. Meine Oma ist schon 80 Jahre alt.
+
+220. Word: "Onkel, -" (appears 2 times)
+   Indices: 2034, 2081
+   [2034] der Onkel, - (noun)
+       Sentences: 1
+       1. Meine Tante und mein Onkel kommen uns besuchen.
+   [2081] der Onkel, - (noun)
+       Sentences: 1
+       1. Meine Tante und mein Onkel kommen uns besuchen.
+
+221. Word: "Opa, -s" (appears 2 times)
+   Indices: 2035, 2082
+   [2035] der Opa, -s (noun)
+       Sentences: 1
+       1. Mein Opa ist schon 80 Jahre alt.
+   [2082] der Opa, -s (noun)
+       Sentences: 1
+       1. Mein Opa ist schon 80 Jahre alt.
+
+222. Word: "Oper, -n" (appears 2 times)
+   Indices: 2036, 2083
+   [2036] die Oper, -n (noun)
+       Sentences: 1
+       1. Ich gehe gern in die Oper.
+   [2083] die Oper, -n (noun)
+       Sentences: 1
+       1. Ich gehe gern in die Oper.
+
+223. Word: "operieren, operiert, operierte, hat operiert" (appears 2 times)
+   Indices: 2037, 2084
+   [2037] operieren, operiert, operierte, hat operiert (verb)
+       Sentences: 1
+       1. Er wurde gestern am Knie operiert.
+   [2084] operieren, operiert, operierte, hat operiert (verb)
+       Sentences: 1
+       1. Er wurde gestern am Knie operiert.
+
+224. Word: "Operation, -en" (appears 2 times)
+   Indices: 2038, 2085
+   [2038] die Operation, -en (noun)
+       Sentences: 1
+       1. Er hat eine große Operation gut über-standen.
+   [2085] die Operation, -en (noun)
+       Sentences: 1
+       1. Er hat eine große Operation gut über-standen.
+
+225. Word: "Opfer, -" (appears 2 times)
+   Indices: 2039, 2086
+   [2039] das Opfer, - (noun)
+       Sentences: 2
+       1. Die Opfer des Unfalls werden im Krankenhaus behandelt.
+       2. Wir spenden Geld für die Opfer der Katastrophe.
+   [2086] das Opfer, - (noun)
+       Sentences: 2
+       1. Die Opfer des Unfalls werden im Krankenhaus behandelt.
+       2. Wir spenden Geld für die Opfer der Katastrophe.
+
+226. Word: "optimistisch" (appears 2 times)
+   Indices: 2040, 2087
+   [2040] optimistisch (adjective)
+       Sentences: 2
+       1. Ich bin optimistisch, dass wir die Prüfung schaffen.
+       2. Du solltest nicht immer alles so schwarz sehen. Sei doch mal...
+   [2087] optimistisch (adjective)
+       Sentences: 2
+       1. Ich bin optimistisch, dass wir die Prüfung schaffen.
+       2. Du solltest nicht immer alles so schwarz sehen. Sei doch mal...
+
+227. Word: "Orange, -n" (appears 2 times)
+   Indices: 2041, 2088
+   [2041] die Orange, -n (noun)
+       Sentences: 1
+       1. Ich hätte gern 1 kg Orangen.
+   [2088] die Orange, -n (noun)
+       Sentences: 1
+       1. Ich hätte gern 1 kg Orangen.
+
+228. Word: "Orchester, -" (appears 2 times)
+   Indices: 2042, 2089
+   [2042] das Orchester, - (noun)
+       Sentences: 1
+       1. Das Orchester spielt wunderbare Musik.
+   [2089] das Orchester, - (noun)
+       Sentences: 1
+       1. Das Orchester spielt wunderbare Musik.
+
+229. Word: "ordentlich" (appears 2 times)
+   Indices: 2043, 2090
+   [2043] ordentlich (adjective)
+       Sentences: 1
+       1. Meine Tochter ist sehr ordentlich. Sie räumt immer ihr Zimme...
+   [2090] ordentlich (adjective)
+       Sentences: 1
+       1. Meine Tochter ist sehr ordentlich. Sie räumt immer ihr Zimme...
+
+230. Word: "Ordination, -en (A) ! Praxis" (appears 2 times)
+   Indices: 2044, 2091
+   [2044] die Ordination, -en (A) ! Praxis (noun)
+       Sentences: 1
+       1. Die Ärztin ist morgen nicht in ihrer Ordination.
+   [2091] die Ordination, -en (A) ! Praxis (noun)
+       Sentences: 1
+       1. Die Ärztin ist morgen nicht in ihrer Ordination.
+
+231. Word: "Ordination, -en (A) ! Sprechstunde" (appears 2 times)
+   Indices: 2045, 2092
+   [2045] die Ordination, -en (A) ! Sprechstunde (noun)
+       Sentences: 1
+       1. Wann ist die Ordination von Frau Dr. Schaller?
+   [2092] die Ordination, -en (A) ! Sprechstunde (noun)
+       Sentences: 1
+       1. Wann ist die Ordination von Frau Dr. Schaller?
+
+232. Word: "ordnen, ordnet, ordnete, hat geordnet" (appears 2 times)
+   Indices: 2046, 2093
+   [2046] ordnen, ordnet, ordnete, hat geordnet (verb)
+       Sentences: 1
+       1. Die Ordner sind alle geordnet.
+   [2093] ordnen, ordnet, ordnete, hat geordnet (verb)
+       Sentences: 1
+       1. Die Ordner sind alle geordnet.
+
+233. Word: "Ordner, -" (appears 2 times)
+   Indices: 2047, 2094
+   [2047] der Ordner, - (noun)
+       Sentences: 1
+       1. Wir brauchen einen neuen Ordner für die Rechnungen.
+   [2094] der Ordner, - (noun)
+       Sentences: 1
+       1. Wir brauchen einen neuen Ordner für die Rechnungen.
+
+234. Word: "Ordnung" (appears 2 times)
+   Indices: 2048, 2095
+   [2048] die Ordnung (noun)
+       Sentences: 2
+       1. Im Zimmer meiner Tochter herrscht immer Ordnung.
+       2. Bisher ist alles in Ordnung.
+   [2095] die Ordnung (noun)
+       Sentences: 2
+       1. Im Zimmer meiner Tochter herrscht immer Ordnung.
+       2. Bisher ist alles in Ordnung.
+
+235. Word: "organisieren, organisiert, organisierte, hat organisiert" (appears 2 times)
+   Indices: 2049, 2096
+   [2049] organisieren, organisiert, organisierte, hat organisiert (verb)
+       Sentences: 2
+       1. Wer organisiert die nächste Party?
+       2. Für die Reise musste ich viel organisieren.
+   [2096] organisieren, organisiert, organisierte, hat organisiert (verb)
+       Sentences: 2
+       1. Wer organisiert die nächste Party?
+       2. Für die Reise musste ich viel organisieren.
+
+236. Word: "Organisation, -en" (appears 2 times)
+   Indices: 2050, 2097
+   [2050] die Organisation, -en (noun)
+       Sentences: 2
+       1. Die Organisation der Konferenz war sehr gut.
+       2. Er arbeitet für eine internationale Organisation.
+   [2097] die Organisation, -en (noun)
+       Sentences: 2
+       1. Die Organisation der Konferenz war sehr gut.
+       2. Er arbeitet für eine internationale Organisation.
+
+237. Word: "Original, -e" (appears 2 times)
+   Indices: 2051, 2098
+   [2051] das Original, -e (noun)
+       Sentences: 1
+       1. Das Original ist für Sie. Wir bekommen die Kopie.
+   [2098] das Original, -e (noun)
+       Sentences: 1
+       1. Das Original ist für Sie. Wir bekommen die Kopie.
+
+238. Word: "original" (appears 2 times)
+   Indices: 2052, 2099
+   [2052] original (adjective)
+       Sentences: 1
+       1. Ich muss das originale Dokument abgeben.
+   [2099] original (adjective)
+       Sentences: 1
+       1. Ich muss das originale Dokument abgeben.
+
+239. Word: "Ort, -e" (appears 2 times)
+   Indices: 2053, 2100
+   [2053] der Ort, -e (noun)
+       Sentences: 1
+       1. Vergessen Sie Ort und Datum nicht.
+   [2100] der Ort, -e (noun)
+       Sentences: 1
+       1. Vergessen Sie Ort und Datum nicht.
+
+240. Word: "Vorort, -e" (appears 2 times)
+   Indices: 2054, 2101
+   [2054] der Vorort, -e (noun)
+       Sentences: 1
+       1. Mein Bruder wohnt in einem Vorort von Hamburg.
+   [2101] der Vorort, -e (noun)
+       Sentences: 1
+       1. Mein Bruder wohnt in einem Vorort von Hamburg.
+
+241. Word: "Wohnort, -e" (appears 2 times)
+   Indices: 2055, 2102
+   [2055] der Wohnort, -e (noun)
+       Sentences: 1
+       1. Tragen Sie bitte auch Ihren Wohnort ein.
+   [2102] der Wohnort, -e (noun)
+       Sentences: 1
+       1. Tragen Sie bitte auch Ihren Wohnort ein.
+
+242. Word: "Ozean, -e" (appears 2 times)
+   Indices: 2056, 2103
+   [2056] der Ozean, -e (noun)
+       Sentences: 1
+       1. Dieses Schiff fährt über den Atlantischen Ozean.
+   [2103] der Ozean, -e (noun)
+       Sentences: 1
+       1. Dieses Schiff fährt über den Atlantischen Ozean.
+
+243. Word: "(ein) paar" (appears 2 times)
+   Indices: 2057, 2104
+   [2057] (ein) paar (quantifier)
+       Sentences: 2
+       1. Ich komme gleich. Es dauert nur ein paar Minuten.
+       2. Wir fahren mit ein paar Freunden in Urlaub.
+   [2104] (ein) paar (quantifier)
+       Sentences: 2
+       1. Ich komme gleich. Es dauert nur ein paar Minuten.
+       2. Wir fahren mit ein paar Freunden in Urlaub.
+
+244. Word: "Paar, -e" (appears 2 times)
+   Indices: 2058, 2105
+   [2058] das Paar, -e (noun)
+       Sentences: 2
+       1. Ina und Pedro sind ein Paar.
+       2. Gestern habe ich mir ein Paar neue Schuhe gekauft.
+   [2105] das Paar, -e (noun)
+       Sentences: 2
+       1. Ina und Pedro sind ein Paar.
+       2. Gestern habe ich mir ein Paar neue Schuhe gekauft.
+
+245. Word: "packen, packt, packte, hat gepackt" (appears 2 times)
+   Indices: 2059, 2106
+   [2059] packen, packt, packte, hat gepackt (verb)
+       Sentences: 1
+       1. Ich muss noch meinen Koffer packen.
+   [2106] packen, packt, packte, hat gepackt (verb)
+       Sentences: 1
+       1. Ich muss noch meinen Koffer packen.
+
+246. Word: "Paket, -e" (appears 2 times)
+   Indices: 2060, 2107
+   [2060] das Paket, -e (noun)
+       Sentences: 1
+       1. Hast du das Paket zur Post gebracht?
+   [2107] das Paket, -e (noun)
+       Sentences: 1
+       1. Hast du das Paket zur Post gebracht?
+
+247. Word: "Panne, -n" (appears 2 times)
+   Indices: 2061, 2108
+   [2061] die Panne, -n (noun)
+       Sentences: 2
+       1. Kurz vor München hatten wir eine Panne mit dem Auto.
+       2. Die Reise war schlecht organisiert, es gab mehrere Pannen.
+   [2108] die Panne, -n (noun)
+       Sentences: 2
+       1. Kurz vor München hatten wir eine Panne mit dem Auto.
+       2. Die Reise war schlecht organisiert, es gab mehrere Pannen.
+
+248. Word: "Papier, -e" (appears 2 times)
+   Indices: 2062, 2109
+   [2062] das Papier, -e (noun)
+       Sentences: 2
+       1. Hast du ein Blatt Papier für mich?
+       2. Bitte bringen Sie zu dem Termin alle Papiere mit.
+   [2109] das Papier, -e (noun)
+       Sentences: 2
+       1. Hast du ein Blatt Papier für mich?
+       2. Bitte bringen Sie zu dem Termin alle Papiere mit.
+
+249. Word: "Patient, -en die Patientin, -nen" (appears 3 times)
+   Indices: 2122, 2161, 2199
+   [2122] der/die Patient, -en die Patientin, -nen (noun)
+       Sentences: 1
+       1. Der Patient braucht Ruhe.
+   [2161] der/die Patient, -en die Patientin, -nen (noun)
+       Sentences: 1
+       1. Der Patient braucht Ruhe.
+   [2199] der/die Patient, -en die Patientin, -nen (noun)
+       Sentences: 1
+       1. Der Patient braucht Ruhe.
+
+250. Word: "pauschal" (appears 3 times)
+   Indices: 2123, 2162, 2200
+   [2123] pauschal (adjective)
+       Sentences: 1
+       1. Ich habe eine Pauschalreise gebucht. Alles ist inklusive.
+   [2162] pauschal (adjective)
+       Sentences: 1
+       1. Ich habe eine Pauschalreise gebucht. Alles ist inklusive.
+   [2200] pauschal (adjective)
+       Sentences: 1
+       1. Ich habe eine Pauschalreise gebucht. Alles ist inklusive.
+
+251. Word: "Pause, -n" (appears 3 times)
+   Indices: 2124, 2163, 2201
+   [2124] die Pause, -n (noun)
+       Sentences: 2
+       1. Wir machen eine halbe Stunde Pause.
+       2. In der Schule gibt es zweimal Pause.
+   [2163] die Pause, -n (noun)
+       Sentences: 2
+       1. Wir machen eine halbe Stunde Pause.
+       2. In der Schule gibt es zweimal Pause.
+   [2201] die Pause, -n (noun)
+       Sentences: 2
+       1. Wir machen eine halbe Stunde Pause.
+       2. In der Schule gibt es zweimal Pause.
+
+252. Word: "Pech" (appears 3 times)
+   Indices: 2125, 2164, 2202
+   [2125] das Pech (noun)
+       Sentences: 1
+       1. Er hat Pech. Er hat seinen Schlüssel verloren.
+   [2164] das Pech (noun)
+       Sentences: 1
+       1. Er hat Pech. Er hat seinen Schlüssel verloren.
+   [2202] das Pech (noun)
+       Sentences: 1
+       1. Er hat Pech. Er hat seinen Schlüssel verloren.
+
+253. Word: "peinlich" (appears 3 times)
+   Indices: 2126, 2165, 2203
+   [2126] peinlich (adjective)
+       Sentences: 1
+       1. Das war mir peinlich. Ich habe den Namen vergessen.
+   [2165] peinlich (adjective)
+       Sentences: 1
+       1. Das war mir peinlich. Ich habe den Namen vergessen.
+   [2203] peinlich (adjective)
+       Sentences: 1
+       1. Das war mir peinlich. Ich habe den Namen vergessen.
+
+254. Word: "Pension, -en" (appears 3 times)
+   Indices: 2127, 2166, 2204
+   [2127] die Pension, -en (noun)
+       Sentences: 1
+       1. Wir übernachten in einer kleinen Pension am Stadtrand.
+   [2166] die Pension, -en (noun)
+       Sentences: 1
+       1. Wir übernachten in einer kleinen Pension am Stadtrand.
+   [2204] die Pension, -en (noun)
+       Sentences: 1
+       1. Wir übernachten in einer kleinen Pension am Stadtrand.
+
+255. Word: "Pension, -en (A, CH) ! D, CH: Rente" (appears 3 times)
+   Indices: 2128, 2167, 2205
+   [2128] die Pension, -en (A, CH) ! D, CH: Rente (noun)
+       Sentences: 2
+       1. Nach 40 Jahren Arbeit geht mein Vater in Pension.
+       2. Sie bekommt eine gute Pension.
+   [2167] die Pension, -en (A, CH) ! D, CH: Rente (noun)
+       Sentences: 2
+       1. Nach 40 Jahren Arbeit geht mein Vater in Pension.
+       2. Sie bekommt eine gute Pension.
+   [2205] die Pension, -en (A, CH) ! D, CH: Rente (noun)
+       Sentences: 2
+       1. Nach 40 Jahren Arbeit geht mein Vater in Pension.
+       2. Sie bekommt eine gute Pension.
+
+256. Word: "pensioniert werden/sein (D, CH) ! D, A: in Pension gehen/sein; D: in Rente gehen/sein" (appears 3 times)
+   Indices: 2131, 2169, 2207
+   [2131] pensioniert werden/sein (D, CH) ! D, A: in Pension gehen/sein; D: in Rente gehen/sein (expression)
+       Sentences: 2
+       1. Er ist vor fünf Jahren pensioniert worden.
+       2. Sie ist seit drei Jahren pensioniert.
+   [2169] pensioniert werden/sein (D, CH) ! D, A: in Pension gehen/sein; D: in Rente gehen/sein (expression)
+       Sentences: 2
+       1. Er ist vor fünf Jahren pensioniert worden.
+       2. Sie ist seit drei Jahren pensioniert.
+   [2207] pensioniert werden/sein (D, CH) ! D, A: in Pension gehen/sein; D: in Rente gehen/sein (expression)
+       Sentences: 2
+       1. Er ist vor fünf Jahren pensioniert worden.
+       2. Sie ist seit drei Jahren pensioniert.
+
+257. Word: "Pensionist, -en / die Pensionistin, -nen (A) ! D, CH: Rentner" (appears 3 times)
+   Indices: 2132, 2170, 2208
+   [2132] der/die Pensionist, -en / die Pensionistin, -nen (A) ! D, CH: Rentner (noun)
+       Sentences: 1
+       1. Pensionisten bekommen Ermäßigung.
+   [2170] der/die Pensionist, -en / die Pensionistin, -nen (A) ! D, CH: Rentner (noun)
+       Sentences: 1
+       1. Pensionisten bekommen Ermäßigung.
+   [2208] der/die Pensionist, -en / die Pensionistin, -nen (A) ! D, CH: Rentner (noun)
+       Sentences: 1
+       1. Pensionisten bekommen Ermäßigung.
+
+258. Word: "per" (appears 3 times)
+   Indices: 2133, 2171, 2209
+   [2133] per (preposition)
+       Sentences: 1
+       1. Wir liefern per Post oder mit dem Kurier.
+   [2171] per (preposition)
+       Sentences: 1
+       1. Wir liefern per Post oder mit dem Kurier.
+   [2209] per (preposition)
+       Sentences: 1
+       1. Wir liefern per Post oder mit dem Kurier.
+
+259. Word: "perfekt" (appears 3 times)
+   Indices: 2134, 2172, 2210
+   [2134] perfekt (adjective)
+       Sentences: 2
+       1. Dein Deutsch ist perfekt.
+       2. Er hat die Prüfung perfekt bestanden.
+   [2172] perfekt (adjective)
+       Sentences: 2
+       1. Dein Deutsch ist perfekt.
+       2. Er hat die Prüfung perfekt bestanden.
+   [2210] perfekt (adjective)
+       Sentences: 2
+       1. Dein Deutsch ist perfekt.
+       2. Er hat die Prüfung perfekt bestanden.
+
+260. Word: "Perron, -s (CH) ! D, A: Bahnsteig" (appears 3 times)
+   Indices: 2135, 2173, 2211
+   [2135] der Perron, -s (CH) ! D, A: Bahnsteig (noun)
+       Sentences: 1
+       1. Der Zug fährt auf Perron 3 ab.
+   [2173] der Perron, -s (CH) ! D, A: Bahnsteig (noun)
+       Sentences: 1
+       1. Der Zug fährt auf Perron 3 ab.
+   [2211] der Perron, -s (CH) ! D, A: Bahnsteig (noun)
+       Sentences: 1
+       1. Der Zug fährt auf Perron 3 ab.
+
+261. Word: "Person, -en" (appears 3 times)
+   Indices: 2136, 2174, 2212
+   [2136] die Person, -en (noun)
+       Sentences: 2
+       1. Für wie viele Personen soll ich reservieren?
+       2. Dieser Raum ist für maximal 50 Personen.
+   [2174] die Person, -en (noun)
+       Sentences: 2
+       1. Für wie viele Personen soll ich reservieren?
+       2. Dieser Raum ist für maximal 50 Personen.
+   [2212] die Person, -en (noun)
+       Sentences: 2
+       1. Für wie viele Personen soll ich reservieren?
+       2. Dieser Raum ist für maximal 50 Personen.
+
+262. Word: "persönlich" (appears 3 times)
+   Indices: 2137, 2175, 2213
+   [2137] persönlich (adjective/adverb)
+       Sentences: 2
+       1. Ich habe ihn persönlich kennengelernt.
+       2. Bitte rufen Sie mich persönlich an.
+   [2175] persönlich (adjective/adverb)
+       Sentences: 2
+       1. Ich habe ihn persönlich kennengelernt.
+       2. Bitte rufen Sie mich persönlich an.
+   [2213] persönlich (adjective/adverb)
+       Sentences: 2
+       1. Ich habe ihn persönlich kennengelernt.
+       2. Bitte rufen Sie mich persönlich an.
+
+263. Word: "Personalien (Pl.)" (appears 3 times)
+   Indices: 2138, 2176, 2214
+   [2138] die Personalien (Pl.) (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihre Personalien an: Name, Adresse, Geburtsd...
+   [2176] die Personalien (Pl.) (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihre Personalien an: Name, Adresse, Geburtsd...
+   [2214] die Personalien (Pl.) (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihre Personalien an: Name, Adresse, Geburtsd...
+
+264. Word: "Personenstand ! D, A: Familienstand; CH: Zivilstand" (appears 3 times)
+   Indices: 2139, 2177, 2215
+   [2139] der Personenstand ! D, A: Familienstand; CH: Zivilstand (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihren Personenstand an.
+   [2177] der Personenstand ! D, A: Familienstand; CH: Zivilstand (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihren Personenstand an.
+   [2215] der Personenstand ! D, A: Familienstand; CH: Zivilstand (noun)
+       Sentences: 1
+       1. Bitte geben Sie Ihren Personenstand an.
+
+265. Word: "Personal" (appears 3 times)
+   Indices: 2140, 2178, 2216
+   [2140] das Personal (noun)
+       Sentences: 1
+       1. Das Personal in diesem Hotel ist sehr freundlich.
+   [2178] das Personal (noun)
+       Sentences: 1
+       1. Das Personal in diesem Hotel ist sehr freundlich.
+   [2216] das Personal (noun)
+       Sentences: 1
+       1. Das Personal in diesem Hotel ist sehr freundlich.
+
+266. Word: "Pfanne, -n (CH) ! D, A: Topf" (appears 3 times)
+   Indices: 2141, 2179, 2217
+   [2141] die Pfanne, -n (CH) ! D, A: Topf (noun)
+       Sentences: 1
+       1. Hast du keine größere Pfanne? Ich möchte Kartoffeln kochen.
+   [2179] die Pfanne, -n (CH) ! D, A: Topf (noun)
+       Sentences: 1
+       1. Hast du keine größere Pfanne? Ich möchte Kartoffeln kochen.
+   [2217] die Pfanne, -n (CH) ! D, A: Topf (noun)
+       Sentences: 1
+       1. Hast du keine größere Pfanne? Ich möchte Kartoffeln kochen.
+
+267. Word: "Pfeffer" (appears 3 times)
+   Indices: 2142, 2180, 2218
+   [2142] der Pfeffer (noun)
+       Sentences: 1
+       1. Bringen Sie uns bitte Pfeffer und Salz.
+   [2180] der Pfeffer (noun)
+       Sentences: 1
+       1. Bringen Sie uns bitte Pfeffer und Salz.
+   [2218] der Pfeffer (noun)
+       Sentences: 1
+       1. Bringen Sie uns bitte Pfeffer und Salz.
+
+268. Word: "pflanzen, pflanzt, pflanzte, hat gepflanzt" (appears 3 times)
+   Indices: 2143, 2181, 2219
+   [2143] pflanzen, pflanzt, pflanzte, hat gepflanzt (verb)
+       Sentences: 1
+       1. Lass uns einen Baum pflanzen!
+   [2181] pflanzen, pflanzt, pflanzte, hat gepflanzt (verb)
+       Sentences: 1
+       1. Lass uns einen Baum pflanzen!
+   [2219] pflanzen, pflanzt, pflanzte, hat gepflanzt (verb)
+       Sentences: 1
+       1. Lass uns einen Baum pflanzen!
+
+269. Word: "Pflanze, -n" (appears 3 times)
+   Indices: 2144, 2182, 2220
+   [2144] die Pflanze, -n (noun)
+       Sentences: 1
+       1. Wenn wir im Urlaub sind, gießt die Nachbarin unsere Pflanzen...
+   [2182] die Pflanze, -n (noun)
+       Sentences: 1
+       1. Wenn wir im Urlaub sind, gießt die Nachbarin unsere Pflanzen...
+   [2220] die Pflanze, -n (noun)
+       Sentences: 1
+       1. Wenn wir im Urlaub sind, gießt die Nachbarin unsere Pflanzen...
+
+270. Word: "Pflaster, -" (appears 3 times)
+   Indices: 2145, 2183, 2221
+   [2145] das Pflaster, - (noun)
+       Sentences: 1
+       1. Kannst du mir bitte ein Pflaster auf die Wunde kleben?
+   [2183] das Pflaster, - (noun)
+       Sentences: 1
+       1. Kannst du mir bitte ein Pflaster auf die Wunde kleben?
+   [2221] das Pflaster, - (noun)
+       Sentences: 1
+       1. Kannst du mir bitte ein Pflaster auf die Wunde kleben?
+
+271. Word: "Pflaume, -n" (appears 3 times)
+   Indices: 2146, 2184, 2222
+   [2146] die Pflaume, -n (noun)
+       Sentences: 1
+       1. Ich hätte gern 1 kg Pflaumen.
+   [2184] die Pflaume, -n (noun)
+       Sentences: 1
+       1. Ich hätte gern 1 kg Pflaumen.
+   [2222] die Pflaume, -n (noun)
+       Sentences: 1
+       1. Ich hätte gern 1 kg Pflaumen.
+
+272. Word: "pflegen, pflegt, pflegte, hat gepflegt" (appears 3 times)
+   Indices: 2147, 2185, 2223
+   [2147] pflegen, pflegt, pflegte, hat gepflegt (verb)
+       Sentences: 2
+       1. Meine Schwester pflegt meine alte Großmutter.
+       2. Das Auto ist sehr gepflegt.
+   [2185] pflegen, pflegt, pflegte, hat gepflegt (verb)
+       Sentences: 2
+       1. Meine Schwester pflegt meine alte Großmutter.
+       2. Das Auto ist sehr gepflegt.
+   [2223] pflegen, pflegt, pflegte, hat gepflegt (verb)
+       Sentences: 2
+       1. Meine Schwester pflegt meine alte Großmutter.
+       2. Das Auto ist sehr gepflegt.
+
+273. Word: "Pfleger, - die Pflegerin, -nen" (appears 3 times)
+   Indices: 2148, 2186, 2224
+   [2148] der/die Pfleger, - die Pflegerin, -nen (noun)
+       Sentences: 1
+       1. Der Pfleger im Krankenhaus war sehr nett.
+   [2186] der/die Pfleger, - die Pflegerin, -nen (noun)
+       Sentences: 1
+       1. Der Pfleger im Krankenhaus war sehr nett.
+   [2224] der/die Pfleger, - die Pflegerin, -nen (noun)
+       Sentences: 1
+       1. Der Pfleger im Krankenhaus war sehr nett.
+
+274. Word: "Pflicht, -en" (appears 3 times)
+   Indices: 2149, 2187, 2225
+   [2149] die Pflicht, -en (noun)
+       Sentences: 1
+       1. Es ist die Pflicht der Eltern, sich um ihre Kinder zu kümmer...
+   [2187] die Pflicht, -en (noun)
+       Sentences: 1
+       1. Es ist die Pflicht der Eltern, sich um ihre Kinder zu kümmer...
+   [2225] die Pflicht, -en (noun)
+       Sentences: 1
+       1. Es ist die Pflicht der Eltern, sich um ihre Kinder zu kümmer...
+
+275. Word: "Phantasie/Fantasie, -n" (appears 3 times)
+   Indices: 2150, 2188, 2226
+   [2150] die Phantasie/Fantasie, -n (noun)
+       Sentences: 1
+       1. Mein Sohn malt sehr gut. Er hat viel Fantasie.
+   [2188] die Phantasie/Fantasie, -n (noun)
+       Sentences: 1
+       1. Mein Sohn malt sehr gut. Er hat viel Fantasie.
+   [2226] die Phantasie/Fantasie, -n (noun)
+       Sentences: 1
+       1. Mein Sohn malt sehr gut. Er hat viel Fantasie.
+
+276. Word: "Picknick, -s die Pille, -n" (appears 3 times)
+   Indices: 2151, 2189, 2227
+   [2151] das/die Picknick, -s die Pille, -n (noun)
+       Sentences: 2
+       1. Wollen wir am Sonntag ein Picknick machen?
+       2. Die Pille nehme ich jeden Tag.
+   [2189] das/die Picknick, -s die Pille, -n (noun)
+       Sentences: 2
+       1. Wollen wir am Sonntag ein Picknick machen?
+       2. Die Pille nehme ich jeden Tag.
+   [2227] das/die Picknick, -s die Pille, -n (noun)
+       Sentences: 2
+       1. Wollen wir am Sonntag ein Picknick machen?
+       2. Die Pille nehme ich jeden Tag.
+
+277. Word: "Pilz, -e ! A: Schwammerl" (appears 3 times)
+   Indices: 2152, 2190, 2228
+   [2152] der Pilz, -e ! A: Schwammerl (noun)
+       Sentences: 1
+       1. Diesen Pilz darfst du nicht essen. Er ist giftig.
+   [2190] der Pilz, -e ! A: Schwammerl (noun)
+       Sentences: 1
+       1. Diesen Pilz darfst du nicht essen. Er ist giftig.
+   [2228] der Pilz, -e ! A: Schwammerl (noun)
+       Sentences: 1
+       1. Diesen Pilz darfst du nicht essen. Er ist giftig.
+
+278. Word: "Pizza, -s/Pizzen" (appears 3 times)
+   Indices: 2153, 2191, 2229
+   [2153] die Pizza, -s/Pizzen (noun)
+       Sentences: 1
+       1. Zum Abendessen bestellen wir eine Pizza.
+   [2191] die Pizza, -s/Pizzen (noun)
+       Sentences: 1
+       1. Zum Abendessen bestellen wir eine Pizza.
+   [2229] die Pizza, -s/Pizzen (noun)
+       Sentences: 1
+       1. Zum Abendessen bestellen wir eine Pizza.
+
+279. Word: "Plakat, -e" (appears 3 times)
+   Indices: 2154, 2192, 2230
+   [2154] das Plakat, -e (noun)
+       Sentences: 1
+       1. Überall hängen Plakate für die neue Ausstellung.
+   [2192] das Plakat, -e (noun)
+       Sentences: 1
+       1. Überall hängen Plakate für die neue Ausstellung.
+   [2230] das Plakat, -e (noun)
+       Sentences: 1
+       1. Überall hängen Plakate für die neue Ausstellung.
+
+280. Word: "planen, plant, plante, hat geplant" (appears 3 times)
+   Indices: 2155, 2193, 2231
+   [2155] planen, plant, plante, hat geplant (verb)
+       Sentences: 1
+       1. Wir planen im Sommer eine Reise nach Italien.
+   [2193] planen, plant, plante, hat geplant (verb)
+       Sentences: 1
+       1. Wir planen im Sommer eine Reise nach Italien.
+   [2231] planen, plant, plante, hat geplant (verb)
+       Sentences: 1
+       1. Wir planen im Sommer eine Reise nach Italien.
+
+281. Word: "Plan, ¨-e" (appears 3 times)
+   Indices: 2156, 2194, 2232
+   [2156] der Plan, ¨-e (noun)
+       Sentences: 2
+       1. Wir brauchen einen Plan für das Wochenende.
+       2. Der Plan der Stadt ist hier. Sie finden den Weg leicht.
+   [2194] der Plan, ¨-e (noun)
+       Sentences: 2
+       1. Wir brauchen einen Plan für das Wochenende.
+       2. Der Plan der Stadt ist hier. Sie finden den Weg leicht.
+   [2232] der Plan, ¨-e (noun)
+       Sentences: 2
+       1. Wir brauchen einen Plan für das Wochenende.
+       2. Der Plan der Stadt ist hier. Sie finden den Weg leicht.
+
+282. Word: "Planung, -en" (appears 3 times)
+   Indices: 2157, 2195, 2233
+   [2157] die Planung, -en (noun)
+       Sentences: 1
+       1. Die Planung für die Party hat lange gedauert.
+   [2195] die Planung, -en (noun)
+       Sentences: 1
+       1. Die Planung für die Party hat lange gedauert.
+   [2233] die Planung, -en (noun)
+       Sentences: 1
+       1. Die Planung für die Party hat lange gedauert.
+
+283. Word: "Plastik" (appears 2 times)
+   Indices: 2158, 2196
+   [2158] das Plastik (noun)
+       Sentences: 1
+       1. Plastik ist schlecht für die Umwelt.
+   [2196] das Plastik (noun)
+       Sentences: 1
+       1. Plastik ist schlecht für die Umwelt.
+
+284. Word: "Platz, ¨-e" (appears 2 times)
+   Indices: 2159, 2197
+   [2159] der Platz, ¨-e (noun)
+       Sentences: 4
+       1. Ich suche einen Parkplatz.
+       2. Im Zug ist noch Platz.
+       3. Die Kinder spielen auf dem Spielplatz.
+       4. Wir treffen uns am Marienplatz.
+   [2197] der Platz, ¨-e (noun)
+       Sentences: 4
+       1. Ich suche einen Parkplatz.
+       2. Im Zug ist noch Platz.
+       3. Die Kinder spielen auf dem Spielplatz.
+       4. Wir treffen uns am Marienplatz.
+
+285. Word: "plötzlich" (appears 2 times)
+   Indices: 2160, 2198
+   [2160] plötzlich (adverb)
+       Sentences: 2
+       1. Plötzlich war das Licht aus.
+       2. Plötzlich ist das Wetter schlechter geworden.
+   [2198] plötzlich (adverb)
+       Sentences: 2
+       1. Plötzlich war das Licht aus.
+       2. Plötzlich ist das Wetter schlechter geworden.
+
+286. Word: "in Pension gehen/sein (D, A) ! D: in Rente gehen/sein; D, CH: pensioniert werden/sein" (appears 2 times)
+   Indices: 2168, 2206
+   [2168] in Pension gehen/sein (D, A) ! D: in Rente gehen/sein; D, CH: pensioniert werden/sein (expression)
+       Sentences: 1
+       1. Mein Vater ist seit vier Jahren in Pension.
+   [2206] in Pension gehen/sein (D, A) ! D: in Rente gehen/sein; D, CH: pensioniert werden/sein (expression)
+       Sentences: 1
+       1. Mein Vater ist seit vier Jahren in Pension.
+
+287. Word: "Preis, -e" (appears 2 times)
+   Indices: 2234, 2269
+   [2234] der Preis, -e (noun)
+       Sentences: 3
+       1. Der Preis für den Pullover ist zu hoch.
+       2. Diesen Preis gibt es nur, wenn Sie eine große Menge kaufen.
+       3. Wir reduzieren jetzt unsere Preise.
+   [2269] der Preis, -e (noun)
+       Sentences: 2
+       1. Die Preise sind schon wieder gestiegen.
+       2. Wer hat den ersten Preis gewonnen?
+
+288. Word: "preiswert" (appears 2 times)
+   Indices: 2235, 2270
+   [2235] preiswert (adjective)
+       Sentences: 1
+       1. Das Buch ist gut und preiswert.
+   [2270] preiswert (adjective)
+       Sentences: 1
+       1. Die Jacke ist sehr preiswert.
+
+289. Word: "Presse" (appears 2 times)
+   Indices: 2236, 2271
+   [2236] die Presse (noun)
+       Sentences: 1
+       1. Die Presse berichtet über den Unfall.
+   [2271] die Presse (noun)
+       Sentences: 1
+       1. Darüber konnte sich jeder in der Presse informieren.
+
+290. Word: "Raucher, -die Raucherin, -nen" (appears 2 times)
+   Indices: 2309, 2346
+   [2309] der/die Raucher, -die Raucherin, -nen (noun)
+       Sentences: 1
+       1. Für Raucher gibt es ein Extra-Zimmer.
+   [2346] der/die Raucher, -die Raucherin, -nen (noun)
+       Sentences: 2
+       1. Gibt es hier ein Zimmer für Raucher?
+       2. Ich bin keine Raucherin. Ich bin
+
+291. Word: "Raum, ¨-e" (appears 2 times)
+   Indices: 2310, 2347
+   [2310] der Raum, ¨-e (noun)
+       Sentences: 3
+       1. Dieser Raum ist für Besprechungen.
+       2. Ich habe keine Zeit. Ich muss in den Seminarraum.
+       3. Wir haben heute keinen Raum für Gäste.
+   [2347] der Raum, ¨-e (noun)
+       Sentences: 3
+       1. Dieser Raum ist für Besprechungen.
+       2. Ich habe keine Zeit. Ich muss in den Seminarraum.
+       3. Wir haben heute keinen Raum für Gäste.
+
+292. Word: "rauf/rauf-" (appears 2 times)
+   Indices: 2311, 2348
+   [2311] rauf/rauf- (adverb/prefix)
+       Sentences: 2
+       1. Die Kinder sind rauf auf den Baum geklettert.
+       2. Wir wohnen im dritten Stock. Wir können mit dem Aufzug rauf ...
+   [2348] rauf/rauf- (adverb/prefix)
+       Sentences: 2
+       1. Die Kinder sind rauf auf den Baum geklettert.
+       2. Wir wohnen im dritten Stock. Wir können mit dem Aufzug rauf ...
+
+293. Word: "raus/raus-" (appears 2 times)
+   Indices: 2312, 2349
+   [2312] raus/raus- (adverb/prefix)
+       Sentences: 2
+       1. Der Chef ist gerade rausgegangen.
+       2. Gehen Sie bitte raus. Ich muss die Tür zumachen.
+   [2349] raus/raus- (adverb/prefix)
+       Sentences: 2
+       1. Der Chef ist gerade rausgegangen.
+       2. Gehen Sie bitte raus. Ich muss die Tür zumachen.
+
+294. Word: "reagieren, reagiert, reagierte, hat reagiert" (appears 2 times)
+   Indices: 2313, 2350
+   [2313] reagieren, reagiert, reagierte, hat reagiert (verb)
+       Sentences: 1
+       1. Ich warte schon lange auf eine Antwort. Aber er reagiert nic...
+   [2350] reagieren, reagiert, reagierte, hat reagiert (verb)
+       Sentences: 1
+       1. Ich warte schon lange auf eine Antwort. Aber er reagiert nic...
+
+295. Word: "Reaktion, -en" (appears 2 times)
+   Indices: 2314, 2351
+   [2314] die Reaktion, -en (noun)
+       Sentences: 1
+       1. Seine Reaktion auf die Nachricht war sehr überraschend.
+   [2351] die Reaktion, -en (noun)
+       Sentences: 1
+       1. Seine Reaktion auf die Nachricht war sehr überraschend.
+
+296. Word: "realisieren, realisiert, realisierte, hat realisiert" (appears 2 times)
+   Indices: 2315, 2352
+   [2315] realisieren, realisiert, realisierte, hat realisiert (verb)
+       Sentences: 1
+       1. Wir hoffen, unsere Pläne bald realisieren zu können.
+   [2352] realisieren, realisiert, realisierte, hat realisiert (verb)
+       Sentences: 1
+       1. Wir hoffen, unsere Pläne bald realisieren zu können.
+
+297. Word: "Realität, -en" (appears 2 times)
+   Indices: 2316, 2353
+   [2316] die Realität, -en (noun)
+       Sentences: 1
+       1. Was er erzählt, hat mit der Realität nichts zu tun.
+   [2353] die Realität, -en (noun)
+       Sentences: 1
+       1. Was er erzählt, hat mit der Realität nichts zu tun.
+
+298. Word: "realistisch" (appears 2 times)
+   Indices: 2317, 2354
+   [2317] realistisch (adjective)
+       Sentences: 1
+       1. Deine Pläne sind nicht realistisch. Das kannst du nicht scha...
+   [2354] realistisch (adjective)
+       Sentences: 1
+       1. Deine Pläne sind nicht realistisch. Das kannst du nicht scha...
+
+299. Word: "Recherche, -n" (appears 2 times)
+   Indices: 2318, 2355
+   [2318] die Recherche, -n (noun)
+       Sentences: 1
+       1. Für diesen Bericht waren viele Recherchen nötig.
+   [2355] die Recherche, -n (noun)
+       Sentences: 1
+       1. Für diesen Bericht waren viele Recherchen nötig.
+
+300. Word: "rechnen, rechnet, rechnete, hat gerechnet" (appears 2 times)
+   Indices: 2319, 2356
+   [2319] rechnen, rechnet, rechnete, hat gerechnet (verb)
+       Sentences: 3
+       1. Meine Tochter kann gut rechnen.
+       2. Im/In Rechnen hat sie eine Eins.
+       3. Mit solchen Schwierigkeiten hatten wir nicht gerechnet.
+   [2356] rechnen, rechnet, rechnete, hat gerechnet (verb)
+       Sentences: 3
+       1. Meine Tochter kann gut rechnen.
+       2. Im/In Rechnen hat sie eine Eins.
+       3. Mit solchen Schwierigkeiten hatten wir nicht gerechnet.
+
+301. Word: "Rechner, -" (appears 2 times)
+   Indices: 2320, 2357
+   [2320] der Rechner, - (noun)
+       Sentences: 1
+       1. Mein Rechner ist kaputt.
+   [2357] der Rechner, - (noun)
+       Sentences: 1
+       1. Mein Rechner ist kaputt.
+
+302. Word: "sichtbar" (appears 7 times)
+   Indices: 2534, 2603, 2662, 2697, 2732, 2767, 2802
+   [2534] sichtbar (adjective)
+       Sentences: 0
+   [2603] sichtbar (adjective)
+       Sentences: 0
+   [2662] sichtbar (adjective)
+       Sentences: 0
+   [2697] sichtbar (adjective)
+       Sentences: 0
+   [2732] sichtbar (adjective)
+       Sentences: 0
+   [2767] sichtbar (adjective)
+       Sentences: 0
+   [2802] sichtbar (adjective)
+       Sentences: 0
+
+303. Word: "siegen, siegt, siegte, hat gesiegt" (appears 8 times)
+   Indices: 2535, 2569, 2604, 2663, 2698, 2733, 2768, 2803
+   [2535] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2569] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2604] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2663] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2698] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2733] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2768] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+   [2803] siegen, siegt, siegte, hat gesiegt (verb)
+       Sentences: 1
+       1. Wir haben 5:0 gesiegt.
+
+304. Word: "Sieg, -e" (appears 8 times)
+   Indices: 2536, 2570, 2605, 2664, 2699, 2734, 2769, 2804
+   [2536] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2570] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2605] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2664] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2699] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2734] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2769] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+   [2804] der Sieg, -e (noun)
+       Sentences: 1
+       1. Das war ein toller Sieg.
+
+305. Word: "Sieger, -die Siegerin, -nen" (appears 9 times)
+   Indices: 2537, 2571, 2606, 2634, 2665, 2700, 2735, 2770, 2805
+   [2537] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2571] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2606] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2634] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2665] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2700] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2735] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2770] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+   [2805] der/die Sieger, -die Siegerin, -nen (noun)
+       Sentences: 1
+       1. Der Sieger bekommt einen Pokal.
+
+306. Word: "(sich) siezen, siezt, siezte, hat gesiezt" (appears 9 times)
+   Indices: 2538, 2572, 2607, 2635, 2666, 2701, 2736, 2771, 2806
+   [2538] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2572] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2607] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2635] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2666] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2701] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2736] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2771] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+   [2806] (sich) siezen, siezt, siezte, hat gesiezt (verb (reflexive))
+       Sentences: 1
+       1. Die Kollegen siezen sich.
+
+307. Word: "singen, singt, sang, hat gesungen" (appears 9 times)
+   Indices: 2539, 2573, 2608, 2636, 2667, 2702, 2737, 2772, 2807
+   [2539] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2573] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2608] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2636] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2667] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2702] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2737] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2772] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+   [2807] singen, singt, sang, hat gesungen (verb)
+       Sentences: 1
+       1. Ich singe sehr gern.
+
+308. Word: "sinken, sinkt, sank, ist gesunken" (appears 9 times)
+   Indices: 2540, 2574, 2609, 2637, 2668, 2703, 2738, 2773, 2808
+   [2540] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2574] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2609] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2637] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2668] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2703] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2738] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2773] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+   [2808] sinken, sinkt, sank, ist gesunken (verb)
+       Sentences: 1
+       1. Die Temperaturen sind stark gesunken.
+
+309. Word: "Sinn" (appears 9 times)
+   Indices: 2541, 2575, 2610, 2638, 2669, 2704, 2739, 2774, 2809
+   [2541] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2575] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2610] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2638] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2669] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2704] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2739] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2774] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+   [2809] der Sinn (noun)
+       Sentences: 2
+       1. Ich sehe keinen Sinn darin, so viel zu arbeiten.
+       2. Der fünfte Sinn: der Geschmackssinn.
+
+310. Word: "sinnlos" (appears 9 times)
+   Indices: 2542, 2576, 2611, 2639, 2670, 2705, 2740, 2775, 2810
+   [2542] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2576] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2611] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2639] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2670] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2705] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2740] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2775] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+   [2810] sinnlos (adjective)
+       Sentences: 1
+       1. Ohne Plan zu arbeiten ist sinnlos.
+
+311. Word: "sinnvoll" (appears 9 times)
+   Indices: 2543, 2577, 2612, 2640, 2671, 2706, 2741, 2776, 2811
+   [2543] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2577] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2612] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2640] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2671] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2706] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2741] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2776] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+   [2811] sinnvoll (adjective)
+       Sentences: 1
+       1. Ich finde die Arbeit sehr sinnvoll.
+
+312. Word: "Situation, -en" (appears 9 times)
+   Indices: 2544, 2578, 2613, 2641, 2672, 2707, 2742, 2777, 2812
+   [2544] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2578] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2613] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2641] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2672] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2707] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2742] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2777] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+   [2812] die Situation, -en (noun)
+       Sentences: 1
+       1. Die Situation in Syrien ist sehr schwierig.
+
+313. Word: "sitzen, sitzt, saß, hat/ist gesessen" (appears 9 times)
+   Indices: 2545, 2579, 2614, 2642, 2673, 2708, 2743, 2778, 2813
+   [2545] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2579] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2614] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2642] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2673] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2708] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2743] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2778] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+   [2813] sitzen, sitzt, saß, hat/ist gesessen (verb)
+       Sentences: 3
+       1. Im Bus sitzen nur wenige Leute.
+       2. Ich habe den ganzen Tag gesessen.
+       3. Setz dich doch! – Ich sitze schon.
+
+314. Word: "Sitz, -e" (appears 9 times)
+   Indices: 2546, 2580, 2615, 2643, 2674, 2709, 2744, 2779, 2814
+   [2546] der Sitz, -e (noun)
+       Sentences: 1
+       1. Der Fahrer muss den Sitz noch verstellen.
+   [2580] der Sitz, -e (noun)
+       Sentences: 1
+       1. Der Fahrer muss den Sitz noch verstellen.
+   [2615] der Sitz, -e (noun)
+       Sentences: 1
+       1. Der Fahrer muss den Sitz noch verstellen.
+   [2643] der Sitz, -e (noun)
+       Sentences: 1
+       1. Der Fahrer muss den Sitz noch verstellen.
+   [2674] der Sitz, -e (noun)
+       Sentences: 2
+       1. Der Fahrer muss den Sitz noch verstellen.
+       2. Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist ers...
+   [2709] der Sitz, -e (noun)
+       Sentences: 2
+       1. Der Fahrer muss den Sitz noch verstellen.
+       2. Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist ers...
+   [2744] der Sitz, -e (noun)
+       Sentences: 2
+       1. Der Fahrer muss den Sitz noch verstellen.
+       2. Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist ers...
+   [2779] der Sitz, -e (noun)
+       Sentences: 2
+       1. Der Fahrer muss den Sitz noch verstellen.
+       2. Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist ers...
+   [2814] der Sitz, -e (noun)
+       Sentences: 2
+       1. Der Fahrer muss den Sitz noch verstellen.
+       2. Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist ers...
+
+315. Word: "Ski/Schi, -er/-" (appears 9 times)
+   Indices: 2547, 2581, 2616, 2644, 2675, 2710, 2745, 2780, 2815
+   [2547] der Ski/Schi, -er/- (noun)
+       Sentences: 1
+       1. Fahren Sie gern Ski?
+   [2581] der Ski/Schi, -er/- (noun)
+       Sentences: 1
+       1. Fahren Sie gern Ski?
+   [2616] der Ski/Schi, -er/- (noun)
+       Sentences: 1
+       1. Fahren Sie gern Ski?
+   [2644] der Ski/Schi, -er/- (noun)
+       Sentences: 1
+       1. Fahren Sie gern Ski?
+   [2675] der Ski/Schi, -er/- (noun)
+       Sentences: 3
+       1. Fahren Sie gern Ski?
+       2. Gehen wir am Wochenende Ski laufen?
+       3. Das sind aber schöne Skier!
+   [2710] der Ski/Schi, -er/- (noun)
+       Sentences: 3
+       1. Fahren Sie gern Ski?
+       2. Gehen wir am Wochenende Ski laufen?
+       3. Das sind aber schöne Skier!
+   [2745] der Ski/Schi, -er/- (noun)
+       Sentences: 3
+       1. Fahren Sie gern Ski?
+       2. Gehen wir am Wochenende Ski laufen?
+       3. Das sind aber schöne Skier!
+   [2780] der Ski/Schi, -er/- (noun)
+       Sentences: 3
+       1. Fahren Sie gern Ski?
+       2. Gehen wir am Wochenende Ski laufen?
+       3. Das sind aber schöne Skier!
+   [2815] der Ski/Schi, -er/- (noun)
+       Sentences: 3
+       1. Fahren Sie gern Ski?
+       2. Gehen wir am Wochenende Ski laufen?
+       3. Das sind aber schöne Skier!
+
+316. Word: "so" (appears 9 times)
+   Indices: 2548, 2582, 2617, 2645, 2676, 2711, 2746, 2781, 2816
+   [2548] so (adverb/conjunction)
+       Sentences: 5
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+   [2582] so (adverb/conjunction)
+       Sentences: 5
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+   [2617] so (adverb/conjunction)
+       Sentences: 5
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+   [2645] so (adverb/conjunction)
+       Sentences: 5
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+   [2676] so (adverb/conjunction)
+       Sentences: 16
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+       6. Wie macht man das? – So!
+       7. Sie müssen das so machen. Nicht so!
+       8. Sie sind auch hier! So ein Zufall!
+       9. Ich melde mich, so schnell ich kann.
+       10. Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?
+       11. Dauert es lange? – Eine Stunde oder so kann es schon dauern.
+       12. Ich hatte kein Geld dabei. Da haben sie mich so hineingelass...
+       13. So, jetzt bin ich fertig. Was machen wir jetzt?
+       14. Fahren Sie bitte nicht so schnell!
+       15. Meine Frau ist so groß wie ich.
+       16. Was macht ihr denn so?
+   [2711] so (adverb/conjunction)
+       Sentences: 16
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+       6. Wie macht man das? – So!
+       7. Sie müssen das so machen. Nicht so!
+       8. Sie sind auch hier! So ein Zufall!
+       9. Ich melde mich, so schnell ich kann.
+       10. Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?
+       11. Dauert es lange? – Eine Stunde oder so kann es schon dauern.
+       12. Ich hatte kein Geld dabei. Da haben sie mich so hineingelass...
+       13. So, jetzt bin ich fertig. Was machen wir jetzt?
+       14. Fahren Sie bitte nicht so schnell!
+       15. Meine Frau ist so groß wie ich.
+       16. Was macht ihr denn so?
+   [2746] so (adverb/conjunction)
+       Sentences: 16
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+       6. Wie macht man das? – So!
+       7. Sie müssen das so machen. Nicht so!
+       8. Sie sind auch hier! So ein Zufall!
+       9. Ich melde mich, so schnell ich kann.
+       10. Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?
+       11. Dauert es lange? – Eine Stunde oder so kann es schon dauern.
+       12. Ich hatte kein Geld dabei. Da haben sie mich so hineingelass...
+       13. So, jetzt bin ich fertig. Was machen wir jetzt?
+       14. Fahren Sie bitte nicht so schnell!
+       15. Meine Frau ist so groß wie ich.
+       16. Was macht ihr denn so?
+   [2781] so (adverb/conjunction)
+       Sentences: 16
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+       6. Wie macht man das? – So!
+       7. Sie müssen das so machen. Nicht so!
+       8. Sie sind auch hier! So ein Zufall!
+       9. Ich melde mich, so schnell ich kann.
+       10. Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?
+       11. Dauert es lange? – Eine Stunde oder so kann es schon dauern.
+       12. Ich hatte kein Geld dabei. Da haben sie mich so hineingelass...
+       13. So, jetzt bin ich fertig. Was machen wir jetzt?
+       14. Fahren Sie bitte nicht so schnell!
+       15. Meine Frau ist so groß wie ich.
+       16. Was macht ihr denn so?
+   [2816] so (adverb/conjunction)
+       Sentences: 16
+       1. Ich bin so müde. Ich gehe schlafen.
+       2. Mach es bitte so, wie ich es dir gezeigt habe.
+       3. Wir waren zu viert beim Essen, so wie immer.
+       4. Ich habe keinen Hunger. Nur so.
+       5. Ich hätte es gern so groß, wie diese Bluse.
+       6. Wie macht man das? – So!
+       7. Sie müssen das so machen. Nicht so!
+       8. Sie sind auch hier! So ein Zufall!
+       9. Ich melde mich, so schnell ich kann.
+       10. Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?
+       11. Dauert es lange? – Eine Stunde oder so kann es schon dauern.
+       12. Ich hatte kein Geld dabei. Da haben sie mich so hineingelass...
+       13. So, jetzt bin ich fertig. Was machen wir jetzt?
+       14. Fahren Sie bitte nicht so schnell!
+       15. Meine Frau ist so groß wie ich.
+       16. Was macht ihr denn so?
+
+317. Word: "sobald" (appears 9 times)
+   Indices: 2549, 2583, 2618, 2646, 2677, 2712, 2747, 2782, 2817
+   [2549] sobald (conjunction)
+       Sentences: 1
+       1. Sobald wir fertig sind, rufen wir Sie an.
+   [2583] sobald (conjunction)
+       Sentences: 1
+       1. Sobald wir fertig sind, rufen wir Sie an.
+   [2618] sobald (conjunction)
+       Sentences: 1
+       1. Sobald wir fertig sind, rufen wir Sie an.
+   [2646] sobald (conjunction)
+       Sentences: 1
+       1. Sobald wir fertig sind, rufen wir Sie an.
+   [2677] sobald (conjunction)
+       Sentences: 2
+       1. Sobald wir fertig sind, rufen wir Sie an.
+       2. Sobald ich den Termin weiß, gebe ich Ihnen Bescheid.
+   [2712] sobald (conjunction)
+       Sentences: 2
+       1. Sobald wir fertig sind, rufen wir Sie an.
+       2. Sobald ich den Termin weiß, gebe ich Ihnen Bescheid.
+   [2747] sobald (conjunction)
+       Sentences: 2
+       1. Sobald wir fertig sind, rufen wir Sie an.
+       2. Sobald ich den Termin weiß, gebe ich Ihnen Bescheid.
+   [2782] sobald (conjunction)
+       Sentences: 2
+       1. Sobald wir fertig sind, rufen wir Sie an.
+       2. Sobald ich den Termin weiß, gebe ich Ihnen Bescheid.
+   [2817] sobald (conjunction)
+       Sentences: 2
+       1. Sobald wir fertig sind, rufen wir Sie an.
+       2. Sobald ich den Termin weiß, gebe ich Ihnen Bescheid.
+
+318. Word: "selten" (appears 9 times)
+   Indices: 2550, 2584, 2619, 2647, 2678, 2713, 2748, 2783, 2818
+   [2550] selten (adverb)
+       Sentences: 1
+       1. Ich gehe selten ins Kino.
+   [2584] selten (adverb)
+       Sentences: 1
+       1. Ich gehe selten ins Kino.
+   [2619] selten (adverb)
+       Sentences: 1
+       1. Ich gehe selten ins Kino.
+   [2647] selten (adverb)
+       Sentences: 1
+       1. Ich gehe selten ins Kino.
+   [2678] selten (adverb)
+       Sentences: 2
+       1. Ich gehe selten ins Kino.
+       2. Ich gehe ganz selten ins Kino.
+   [2713] selten (adverb)
+       Sentences: 2
+       1. Ich gehe selten ins Kino.
+       2. Ich gehe ganz selten ins Kino.
+   [2748] selten (adverb)
+       Sentences: 2
+       1. Ich gehe selten ins Kino.
+       2. Ich gehe ganz selten ins Kino.
+   [2783] selten (adverb)
+       Sentences: 2
+       1. Ich gehe selten ins Kino.
+       2. Ich gehe ganz selten ins Kino.
+   [2818] selten (adverb)
+       Sentences: 2
+       1. Ich gehe selten ins Kino.
+       2. Ich gehe ganz selten ins Kino.
+
+319. Word: "seltsam" (appears 9 times)
+   Indices: 2551, 2585, 2620, 2648, 2679, 2714, 2749, 2784, 2819
+   [2551] seltsam (adjective)
+       Sentences: 1
+       1. Das ist eine seltsame Geschichte.
+   [2585] seltsam (adjective)
+       Sentences: 1
+       1. Das ist eine seltsame Geschichte.
+   [2620] seltsam (adjective)
+       Sentences: 1
+       1. Das ist eine seltsame Geschichte.
+   [2648] seltsam (adjective)
+       Sentences: 1
+       1. Das ist eine seltsame Geschichte.
+   [2679] seltsam (adjective)
+       Sentences: 3
+       1. Das ist eine seltsame Geschichte.
+       2. Es ist seltsam, dass mein Bruder noch nicht hier ist.
+       3. Sie hörte ein seltsames Geräusch.
+   [2714] seltsam (adjective)
+       Sentences: 3
+       1. Das ist eine seltsame Geschichte.
+       2. Es ist seltsam, dass mein Bruder noch nicht hier ist.
+       3. Sie hörte ein seltsames Geräusch.
+   [2749] seltsam (adjective)
+       Sentences: 3
+       1. Das ist eine seltsame Geschichte.
+       2. Es ist seltsam, dass mein Bruder noch nicht hier ist.
+       3. Sie hörte ein seltsames Geräusch.
+   [2784] seltsam (adjective)
+       Sentences: 3
+       1. Das ist eine seltsame Geschichte.
+       2. Es ist seltsam, dass mein Bruder noch nicht hier ist.
+       3. Sie hörte ein seltsames Geräusch.
+   [2819] seltsam (adjective)
+       Sentences: 3
+       1. Das ist eine seltsame Geschichte.
+       2. Es ist seltsam, dass mein Bruder noch nicht hier ist.
+       3. Sie hörte ein seltsames Geräusch.
+
+320. Word: "Semester, -" (appears 9 times)
+   Indices: 2552, 2586, 2621, 2649, 2680, 2715, 2750, 2785, 2820
+   [2552] das Semester, - (noun)
+       Sentences: 1
+       1. Die Prüfung ist am Ende des Semesters.
+   [2586] das Semester, - (noun)
+       Sentences: 1
+       1. Die Prüfung ist am Ende des Semesters.
+   [2621] das Semester, - (noun)
+       Sentences: 1
+       1. Die Prüfung ist am Ende des Semesters.
+   [2649] das Semester, - (noun)
+       Sentences: 1
+       1. Die Prüfung ist am Ende des Semesters.
+   [2680] das Semester, - (noun)
+       Sentences: 2
+       1. Die Prüfung ist am Ende des Semesters.
+       2. Mein Neffe studiert im 7. Semester Medizin.
+   [2715] das Semester, - (noun)
+       Sentences: 2
+       1. Die Prüfung ist am Ende des Semesters.
+       2. Mein Neffe studiert im 7. Semester Medizin.
+   [2750] das Semester, - (noun)
+       Sentences: 2
+       1. Die Prüfung ist am Ende des Semesters.
+       2. Mein Neffe studiert im 7. Semester Medizin.
+   [2785] das Semester, - (noun)
+       Sentences: 2
+       1. Die Prüfung ist am Ende des Semesters.
+       2. Mein Neffe studiert im 7. Semester Medizin.
+   [2820] das Semester, - (noun)
+       Sentences: 2
+       1. Die Prüfung ist am Ende des Semesters.
+       2. Mein Neffe studiert im 7. Semester Medizin.
+
+321. Word: "Seminar, -e" (appears 9 times)
+   Indices: 2553, 2587, 2622, 2650, 2681, 2716, 2751, 2786, 2821
+   [2553] das Seminar, -e (noun)
+       Sentences: 1
+       1. Ich besuche ein Seminar an der Universität.
+   [2587] das Seminar, -e (noun)
+       Sentences: 1
+       1. Ich besuche ein Seminar an der Universität.
+   [2622] das Seminar, -e (noun)
+       Sentences: 1
+       1. Ich besuche ein Seminar an der Universität.
+   [2650] das Seminar, -e (noun)
+       Sentences: 1
+       1. Ich besuche ein Seminar an der Universität.
+   [2681] das Seminar, -e (noun)
+       Sentences: 3
+       1. Ich besuche ein Seminar an der Universität.
+       2. Ich möchte dieses Seminar unbedingt besuchen.
+       3. Zehn Studierende besuchen das Seminar.
+   [2716] das Seminar, -e (noun)
+       Sentences: 3
+       1. Ich besuche ein Seminar an der Universität.
+       2. Ich möchte dieses Seminar unbedingt besuchen.
+       3. Zehn Studierende besuchen das Seminar.
+   [2751] das Seminar, -e (noun)
+       Sentences: 3
+       1. Ich besuche ein Seminar an der Universität.
+       2. Ich möchte dieses Seminar unbedingt besuchen.
+       3. Zehn Studierende besuchen das Seminar.
+   [2786] das Seminar, -e (noun)
+       Sentences: 3
+       1. Ich besuche ein Seminar an der Universität.
+       2. Ich möchte dieses Seminar unbedingt besuchen.
+       3. Zehn Studierende besuchen das Seminar.
+   [2821] das Seminar, -e (noun)
+       Sentences: 3
+       1. Ich besuche ein Seminar an der Universität.
+       2. Ich möchte dieses Seminar unbedingt besuchen.
+       3. Zehn Studierende besuchen das Seminar.
+
+322. Word: "Semmel, -n (A) ! D: Brötchen; CH: Brötli" (appears 9 times)
+   Indices: 2554, 2588, 2623, 2651, 2682, 2717, 2752, 2787, 2822
+   [2554] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 1
+       1. Haben Sie noch Semmeln?
+   [2588] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 1
+       1. Haben Sie noch Semmeln?
+   [2623] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 1
+       1. Haben Sie noch Semmeln?
+   [2651] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 1
+       1. Haben Sie noch Semmeln?
+   [2682] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 2
+       1. Haben Sie noch Semmeln?
+       2. Ich hole schnell ein paar Semmeln zum Frühstück.
+   [2717] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 2
+       1. Haben Sie noch Semmeln?
+       2. Ich hole schnell ein paar Semmeln zum Frühstück.
+   [2752] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 2
+       1. Haben Sie noch Semmeln?
+       2. Ich hole schnell ein paar Semmeln zum Frühstück.
+   [2787] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 2
+       1. Haben Sie noch Semmeln?
+       2. Ich hole schnell ein paar Semmeln zum Frühstück.
+   [2822] die Semmel, -n (A) ! D: Brötchen; CH: Brötli (noun)
+       Sentences: 2
+       1. Haben Sie noch Semmeln?
+       2. Ich hole schnell ein paar Semmeln zum Frühstück.
+
+323. Word: "senden, sendet, sendete/sandte, hat gesendet/gesandt" (appears 9 times)
+   Indices: 2555, 2589, 2624, 2652, 2683, 2718, 2753, 2788, 2823
+   [2555] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 1
+       1. Ich habe dir eine E-Mail gesandt.
+   [2589] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 1
+       1. Ich habe dir eine E-Mail gesandt.
+   [2624] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 1
+       1. Ich habe dir eine E-Mail gesandt.
+   [2652] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 1
+       1. Ich habe dir eine E-Mail gesandt.
+   [2683] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 3
+       1. Ich habe dir eine E-Mail gesandt.
+       2. Bitte senden Sie uns die Unterlagen per E-Mail.
+       3. Können Sie uns die Post bitte nachsenden?
+   [2718] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 3
+       1. Ich habe dir eine E-Mail gesandt.
+       2. Bitte senden Sie uns die Unterlagen per E-Mail.
+       3. Können Sie uns die Post bitte nachsenden?
+   [2753] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 3
+       1. Ich habe dir eine E-Mail gesandt.
+       2. Bitte senden Sie uns die Unterlagen per E-Mail.
+       3. Können Sie uns die Post bitte nachsenden?
+   [2788] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 3
+       1. Ich habe dir eine E-Mail gesandt.
+       2. Bitte senden Sie uns die Unterlagen per E-Mail.
+       3. Können Sie uns die Post bitte nachsenden?
+   [2823] senden, sendet, sendete/sandte, hat gesendet/gesandt (verb)
+       Sentences: 3
+       1. Ich habe dir eine E-Mail gesandt.
+       2. Bitte senden Sie uns die Unterlagen per E-Mail.
+       3. Können Sie uns die Post bitte nachsenden?
+
+324. Word: "Sender, -" (appears 9 times)
+   Indices: 2556, 2590, 2625, 2653, 2684, 2719, 2754, 2789, 2824
+   [2556] der Sender, - (noun)
+       Sentences: 1
+       1. Dieser Sender ist aus Deutschland.
+   [2590] der Sender, - (noun)
+       Sentences: 1
+       1. Dieser Sender ist aus Deutschland.
+   [2625] der Sender, - (noun)
+       Sentences: 1
+       1. Dieser Sender ist aus Deutschland.
+   [2653] der Sender, - (noun)
+       Sentences: 1
+       1. Dieser Sender ist aus Deutschland.
+   [2684] der Sender, - (noun)
+       Sentences: 3
+       1. Dieser Sender ist aus Deutschland.
+       2. Welchen Sender siehst du am liebsten?
+       3. Ich höre im Radio am liebsten Sender mit moderner Musik.
+   [2719] der Sender, - (noun)
+       Sentences: 3
+       1. Dieser Sender ist aus Deutschland.
+       2. Welchen Sender siehst du am liebsten?
+       3. Ich höre im Radio am liebsten Sender mit moderner Musik.
+   [2754] der Sender, - (noun)
+       Sentences: 3
+       1. Dieser Sender ist aus Deutschland.
+       2. Welchen Sender siehst du am liebsten?
+       3. Ich höre im Radio am liebsten Sender mit moderner Musik.
+   [2789] der Sender, - (noun)
+       Sentences: 3
+       1. Dieser Sender ist aus Deutschland.
+       2. Welchen Sender siehst du am liebsten?
+       3. Ich höre im Radio am liebsten Sender mit moderner Musik.
+   [2824] der Sender, - (noun)
+       Sentences: 3
+       1. Dieser Sender ist aus Deutschland.
+       2. Welchen Sender siehst du am liebsten?
+       3. Ich höre im Radio am liebsten Sender mit moderner Musik.
+
+325. Word: "Sendung, -en" (appears 8 times)
+   Indices: 2557, 2591, 2626, 2654, 2685, 2720, 2755, 2790
+   [2557] die Sendung, -en (noun)
+       Sentences: 1
+       1. Wann kommt die Sendung im Fernsehen?
+   [2591] die Sendung, -en (noun)
+       Sentences: 1
+       1. Wann kommt die Sendung im Fernsehen?
+   [2626] die Sendung, -en (noun)
+       Sentences: 1
+       1. Wann kommt die Sendung im Fernsehen?
+   [2654] die Sendung, -en (noun)
+       Sentences: 1
+       1. Wann kommt die Sendung im Fernsehen?
+   [2685] die Sendung, -en (noun)
+       Sentences: 4
+       1. Wann kommt die Sendung im Fernsehen?
+       2. Wir wiederholen die Sendung am 11. Mai.
+       3. Ich warte auf eine Postsendung.
+       4. Wir unterbrechen die Sendung für eine wichtige Nachricht.
+   [2720] die Sendung, -en (noun)
+       Sentences: 4
+       1. Wann kommt die Sendung im Fernsehen?
+       2. Wir wiederholen die Sendung am 11. Mai.
+       3. Ich warte auf eine Postsendung.
+       4. Wir unterbrechen die Sendung für eine wichtige Nachricht.
+   [2755] die Sendung, -en (noun)
+       Sentences: 4
+       1. Wann kommt die Sendung im Fernsehen?
+       2. Wir wiederholen die Sendung am 11. Mai.
+       3. Ich warte auf eine Postsendung.
+       4. Wir unterbrechen die Sendung für eine wichtige Nachricht.
+   [2790] die Sendung, -en (noun)
+       Sentences: 4
+       1. Wann kommt die Sendung im Fernsehen?
+       2. Wir wiederholen die Sendung am 11. Mai.
+       3. Ich warte auf eine Postsendung.
+       4. Wir unterbrechen die Sendung für eine wichtige Nachricht.
+
+326. Word: "Senioren (Pl.)" (appears 8 times)
+   Indices: 2558, 2592, 2627, 2655, 2686, 2721, 2756, 2791
+   [2558] die Senioren (Pl.) (noun)
+       Sentences: 1
+       1. Für Senioren ist der Eintritt billiger.
+   [2592] die Senioren (Pl.) (noun)
+       Sentences: 1
+       1. Für Senioren ist der Eintritt billiger.
+   [2627] die Senioren (Pl.) (noun)
+       Sentences: 1
+       1. Für Senioren ist der Eintritt billiger.
+   [2655] die Senioren (Pl.) (noun)
+       Sentences: 1
+       1. Für Senioren ist der Eintritt billiger.
+   [2686] die Senioren (Pl.) (noun)
+       Sentences: 2
+       1. Für Senioren ist der Eintritt billiger.
+       2. Dieser Computerkurs ist für Senioren.
+   [2721] die Senioren (Pl.) (noun)
+       Sentences: 2
+       1. Für Senioren ist der Eintritt billiger.
+       2. Dieser Computerkurs ist für Senioren.
+   [2756] die Senioren (Pl.) (noun)
+       Sentences: 2
+       1. Für Senioren ist der Eintritt billiger.
+       2. Dieser Computerkurs ist für Senioren.
+   [2791] die Senioren (Pl.) (noun)
+       Sentences: 2
+       1. Für Senioren ist der Eintritt billiger.
+       2. Dieser Computerkurs ist für Senioren.
+
+327. Word: "senkrecht" (appears 8 times)
+   Indices: 2559, 2593, 2628, 2656, 2687, 2722, 2757, 2792
+   [2559] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2593] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2628] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2656] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2687] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2722] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2757] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+   [2792] senkrecht (adjective)
+       Sentences: 1
+       1. Ziehen Sie bitte eine senkrechte Linie.
+
+328. Word: "Serie, -n" (appears 8 times)
+   Indices: 2560, 2594, 2629, 2657, 2688, 2723, 2758, 2793
+   [2560] die Serie, -n (noun)
+       Sentences: 1
+       1. Ich sehe mir diese Serie jeden Abend an.
+   [2594] die Serie, -n (noun)
+       Sentences: 1
+       1. Ich sehe mir diese Serie jeden Abend an.
+   [2629] die Serie, -n (noun)
+       Sentences: 1
+       1. Ich sehe mir diese Serie jeden Abend an.
+   [2657] die Serie, -n (noun)
+       Sentences: 1
+       1. Ich sehe mir diese Serie jeden Abend an.
+   [2688] die Serie, -n (noun)
+       Sentences: 2
+       1. Ich sehe mir diese Serie jeden Abend an.
+       2. Meine Tochter liebt es, im Fernsehen Serien zu schauen.
+   [2723] die Serie, -n (noun)
+       Sentences: 2
+       1. Ich sehe mir diese Serie jeden Abend an.
+       2. Meine Tochter liebt es, im Fernsehen Serien zu schauen.
+   [2758] die Serie, -n (noun)
+       Sentences: 2
+       1. Ich sehe mir diese Serie jeden Abend an.
+       2. Meine Tochter liebt es, im Fernsehen Serien zu schauen.
+   [2793] die Serie, -n (noun)
+       Sentences: 2
+       1. Ich sehe mir diese Serie jeden Abend an.
+       2. Meine Tochter liebt es, im Fernsehen Serien zu schauen.
+
+329. Word: "Service" (appears 8 times)
+   Indices: 2561, 2595, 2630, 2658, 2689, 2724, 2759, 2794
+   [2561] der Service (noun)
+       Sentences: 1
+       1. Der Service in diesem Restaurant ist sehr gut.
+   [2595] der Service (noun)
+       Sentences: 1
+       1. Der Service in diesem Restaurant ist sehr gut.
+   [2630] der Service (noun)
+       Sentences: 1
+       1. Der Service in diesem Restaurant ist sehr gut.
+   [2658] der Service (noun)
+       Sentences: 1
+       1. Der Service in diesem Restaurant ist sehr gut.
+   [2689] der Service (noun)
+       Sentences: 2
+       1. Der Service in diesem Restaurant ist sehr gut.
+       2. Ich war mit dem Service in der Werkstatt nicht zufrieden.
+   [2724] der Service (noun)
+       Sentences: 2
+       1. Der Service in diesem Restaurant ist sehr gut.
+       2. Ich war mit dem Service in der Werkstatt nicht zufrieden.
+   [2759] der Service (noun)
+       Sentences: 2
+       1. Der Service in diesem Restaurant ist sehr gut.
+       2. Ich war mit dem Service in der Werkstatt nicht zufrieden.
+   [2794] der Service (noun)
+       Sentences: 2
+       1. Der Service in diesem Restaurant ist sehr gut.
+       2. Ich war mit dem Service in der Werkstatt nicht zufrieden.
+
+330. Word: "Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober" (appears 8 times)
+   Indices: 2562, 2596, 2631, 2659, 2690, 2725, 2760, 2795
+   [2562] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 1
+       1. Der Serviceangestellte war sehr freundlich.
+   [2596] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 1
+       1. Der Serviceangestellte war sehr freundlich.
+   [2631] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 1
+       1. Der Serviceangestellte war sehr freundlich.
+   [2659] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 1
+       1. Der Serviceangestellte war sehr freundlich.
+   [2690] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 2
+       1. Der Serviceangestellte war sehr freundlich.
+       2. Ich bin Serviceangestellte von Beruf.
+   [2725] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 2
+       1. Der Serviceangestellte war sehr freundlich.
+       2. Ich bin Serviceangestellte von Beruf.
+   [2760] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 2
+       1. Der Serviceangestellte war sehr freundlich.
+       2. Ich bin Serviceangestellte von Beruf.
+   [2795] der/die Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober (noun)
+       Sentences: 2
+       1. Der Serviceangestellte war sehr freundlich.
+       2. Ich bin Serviceangestellte von Beruf.
+
+331. Word: "Sessel, - (D, CH) ! A, CH: Fauteuil" (appears 8 times)
+   Indices: 2563, 2597, 2632, 2660, 2691, 2726, 2761, 2796
+   [2563] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 1
+       1. Möchten Sie im Sessel sitzen?
+   [2597] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 1
+       1. Möchten Sie im Sessel sitzen?
+   [2632] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 1
+       1. Möchten Sie im Sessel sitzen?
+   [2660] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 1
+       1. Möchten Sie im Sessel sitzen?
+   [2691] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 2
+       1. Möchten Sie im Sessel sitzen?
+       2. Ich hätte gern einen bequemen Sessel.
+   [2726] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 2
+       1. Möchten Sie im Sessel sitzen?
+       2. Ich hätte gern einen bequemen Sessel.
+   [2761] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 2
+       1. Möchten Sie im Sessel sitzen?
+       2. Ich hätte gern einen bequemen Sessel.
+   [2796] der Sessel, - (D, CH) ! A, CH: Fauteuil (noun)
+       Sentences: 2
+       1. Möchten Sie im Sessel sitzen?
+       2. Ich hätte gern einen bequemen Sessel.
+
+332. Word: "Sessel, - (A) ! D, CH: Stuhl" (appears 8 times)
+   Indices: 2564, 2598, 2633, 2661, 2692, 2727, 2762, 2797
+   [2564] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 1
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+   [2598] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 1
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+   [2633] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 1
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+   [2661] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 1
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+   [2692] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 2
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+       2. Da hinten ist noch ein Sessel frei.
+   [2727] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 2
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+       2. Da hinten ist noch ein Sessel frei.
+   [2762] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 2
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+       2. Da hinten ist noch ein Sessel frei.
+   [2797] der Sessel, - (A) ! D, CH: Stuhl (noun)
+       Sentences: 2
+       1. Der Tisch ist zu klein. Wir brauchen noch zwei Sessel.
+       2. Da hinten ist noch ein Sessel frei.
+
+333. Word: "(sich) setzen, setzt, setzte, hat gesetzt" (appears 6 times)
+   Indices: 2565, 2599, 2693, 2728, 2763, 2798
+   [2565] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+   [2599] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+   [2693] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+   [2728] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+   [2763] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+   [2798] (sich) setzen, setzt, setzte, hat gesetzt (verb (reflexive))
+       Sentences: 2
+       1. Setzen Sie sich doch!
+       2. Darf ich mich zu Ihnen setzen?
+
+334. Word: "sicher" (appears 6 times)
+   Indices: 2566, 2600, 2694, 2729, 2764, 2799
+   [2566] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+   [2600] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+   [2694] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+   [2729] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+   [2764] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+   [2799] sicher (adjective/adverb)
+       Sentences: 5
+       1. Fahren Sie vorsichtig! Das Eis ist nicht sicher.
+       2. Ich bin mir sicher, dass er heute kommt.
+       3. Mit deiner guten Ausbildung findest du sicher eine Arbeit.
+       4. Sicher, dass Sie keine Hilfe brauchen?
+       5. Sicher ist das Wetter besser morgen.
+
+335. Word: "Sicherheit, -en" (appears 6 times)
+   Indices: 2567, 2601, 2695, 2730, 2765, 2800
+   [2567] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+   [2601] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+   [2695] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+   [2730] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+   [2765] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+   [2800] die Sicherheit, -en (noun)
+       Sentences: 1
+       1. Sicherheit ist für mich sehr wichtig.
+
+336. Word: "sichern, sichert, sicherte, hat gesichert" (appears 6 times)
+   Indices: 2568, 2602, 2696, 2731, 2766, 2801
+   [2568] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+   [2602] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+   [2696] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+   [2731] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+   [2766] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+   [2801] sichern, sichert, sicherte, hat gesichert (verb)
+       Sentences: 1
+       1. Du musst immer alle Daten im Computer sichern.
+
+================================================================================
+2. ENTRIES WITHOUT SENTENCES
+================================================================================
+
+Found 25 entries without any sentences
+
+Complete list of entries without sentences:
+--------------------------------------------------------------------------------
+1. [Index 1661] das Lager (noun)
+2. [Index 1662] die Lampe (noun)
+3. [Index 1663] das Land (noun)
+4. [Index 1664] die Landwirtschaft (noun)
+5. [Index 1665] die Landschaft (noun)
+6. [Index 1666] landen (verb)
+7. [Index 1667] die Landung (noun)
+8. [Index 1668] lang (adjective)
+9. [Index 1669] die Länge (noun)
+10. [Index 1670] lange, lang (adverb)
+11. [Index 1671] langsam (adjective)
+12. [Index 1672] längst (adverb)
+13. [Index 1781] der Mangel, ¨- (noun)
+14. [Index 1786] die Mappe, -n (noun)
+15. [Index 1787] das Märchen, - (noun)
+16. [Index 1788] die Margarine (noun)
+17. [Index 1828] die Mode, -n (noun)
+18. [Index 2130] gehen/sein; D, CH: pen-sioniert werden/sein (expression)
+19. [Index 2534] sichtbar (adjective)
+20. [Index 2603] sichtbar (adjective)
+21. [Index 2662] sichtbar (adjective)
+22. [Index 2697] sichtbar (adjective)
+23. [Index 2732] sichtbar (adjective)
+24. [Index 2767] sichtbar (adjective)
+25. [Index 2802] sichtbar (adjective)
+
+================================================================================
+3. ENTRIES WITH EMPTY SENTENCES
+================================================================================
+
+Found 0 entries with empty sentences
+
+No entries with empty sentences found.
+
+================================================================================
+4. VERY SHORT SENTENCES (< 10 characters)
+================================================================================
+
+Found 0 entries with very short sentences
+
+No very short sentences found.
+
+================================================================================
+5. POTENTIAL GRAMMAR FRAGMENTS IN SENTENCES
+================================================================================
+
+Found 24 entries with potential grammar fragments
+
+Entries that may contain grammar fragments (first 50):
+--------------------------------------------------------------------------------
+1. [Index 68] der Anbieter (noun)
+   [Sentence 0] Ist das ein privater Telefonanbieter?
+2. [Index 108] die Apotheke (noun)
+   [Sentence 0] Ist hier in der Nähe eine Apotheke?
+3. [Index 366] der Briefkasten (noun)
+   [Sentence 0] Ist hier in der Nähe ein Briefkasten?
+4. [Index 368] der Briefträger (noun)
+   [Sentence 0] War die Briefträgerin schon da?
+5. [Index 422] da (adverb/conjunction)
+   [Sentence 7] Ist Herr Klein schon da?
+6. [Index 496] der Doktor (noun)
+   [Sentence 0] Ist Frau Dr. Müller da?
+7. [Index 769] das Feuerzeug (noun)
+   [Sentence 0] Ist das Feuerzeug neu?
+8. [Index 806] das Feuerzeug (noun)
+   [Sentence 0] Ist das Feuerzeug neu?
+9. [Index 867] fressen (verb)
+   [Sentence 0] Hat der Hund schon etwas zu fressen bekommen?
+10. [Index 894] für (preposition)
+   [Sentence 0] Ist Post für mich da?
+11. [Index 933] gehen (verb)
+   [Sentence 12] Ist das sehr teuer? – Es geht.
+12. [Index 1327] der Inhalt (noun)
+   [Sentence 1] Ist die Dose schon leer? Nein, der Inhalt ist noch da.
+13. [Index 1456] jemand (pronoun)
+   [Sentence 0] Ist jemand da? Ich möchte Sie sprechen.
+14. [Index 1540] klopfen (verb)
+   [Sentence 1] Hat es nicht eben geklopft?
+15. [Index 1832] möglich (adjective)
+   [Sentence 0] Ist es möglich, hier in der Nähe zu parken?
+16. [Index 1900] das Netzwerk, -e (noun)
+   [Sentence 1] Ist dein Computer mit dem Netzwerk verbunden?
+17. [Index 1945] noch (adverb)
+   [Sentence 8] Ist das Essen schon fertig. – Nein, es dauert noch ein paar Minuten.
+   [Sentence 9] Ist Amadeo schon da? – Vielleicht kommt er noch.
+18. [Index 1972] noch (adverb)
+   [Sentence 8] Ist das Essen schon fertig. – Nein, es dauert noch ein paar Minuten.
+   [Sentence 9] Ist Amadeo schon da? – Vielleicht kommt er noch.
+19. [Index 2000] noch (adverb)
+   [Sentence 8] Ist das Essen schon fertig. – Nein, es dauert noch ein paar Minuten.
+   [Sentence 9] Ist Amadeo schon da? – Vielleicht kommt er noch.
+20. [Index 2258] die Post (noun)
+   [Sentence 2] Ist Post für mich da?
+21. [Index 2260] der/die Pöstler, - / die Pöst-lerin, -nen (CH) ! Briefträger (noun)
+   [Sentence 0] War die Pöstlerin schon da?
+22. [Index 2324] recht (adverb/adjective)
+   [Sentence 0] Ist es Ihnen recht, wenn ich morgen vorbeikomme?
+23. [Index 2330] reduzieren, reduziert, reduzierte, hat reduziert (verb)
+   [Sentence 1] Ist dieser Pullover auch reduziert?
+24. [Index 2497] schon (adverb)
+   [Sentence 0] Ist das Essen schon fertig?
+
+================================================================================
+SUMMARY
+================================================================================
+
+Total entries:                    2825
+Duplicate words:                  336
+Entries without sentences:        25
+Entries with empty sentences:     0
+Entries with short sentences:     0
+Entries with potential fragments: 24
+
+Critical issues (duplicates, no sentences, empty): 361

@@ -5,7 +5,7 @@ const fs = require('fs');
  * @param {string} filePath - Path to the vocabulary JSON file
  * @param {string} outputFile - Path to write the detailed analysis report
  */
-function analyzeVocabulary(filePath, outputFile = 'a2-vocabulary-analysis.txt') {
+function analyzeVocabulary(filePath, outputFile = 'b1-vocabulary-analysis.txt') {
     console.log('Reading vocabulary file...');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     
@@ -291,8 +291,8 @@ function analyzeVocabulary(filePath, outputFile = 'a2-vocabulary-analysis.txt') 
 }
 
 if (require.main === module) {
-    const filePath = process.argv[2] || 'a2-vocabulary.json';
-    const outputFile = process.argv[3] || 'a2-vocabulary-analysis.txt';
+    const filePath = process.argv[2] || 'b1-vocabulary.json';
+    const outputFile = process.argv[3] || 'b1-vocabulary-analysis.txt';
     
     try {
         const analysis = analyzeVocabulary(filePath, outputFile);
