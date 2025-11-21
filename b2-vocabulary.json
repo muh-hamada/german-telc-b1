@@ -1,0 +1,3343 @@
+[
+  {
+    "word": "Fakultät",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie studiert an der Fakultät für Wirtschaftswissenschaften."
+      },
+      {
+        "text": "Die medizinische Fakultät ist sehr renommiert."
+      }
+    ]
+  },
+  {
+    "word": "Institut",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Institut für Physik befindet sich im Hauptgebäude."
+      },
+      {
+        "text": "Er arbeitet am Max-Planck-Institut für Chemie."
+      }
+    ]
+  },
+  {
+    "word": "Bibliothek",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich muss noch Bücher in der Bibliothek zurückgeben."
+      },
+      {
+        "text": "Die Universitätsbibliothek ist bis 22 Uhr geöffnet."
+      }
+    ]
+  },
+  {
+    "word": "Mensa",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Essen in der Mensa ist günstig und lecker."
+      },
+      {
+        "text": "Wir treffen uns mittags in der Mensa."
+      }
+    ]
+  },
+  {
+    "word": "Hörsaal",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Vorlesung findet im Hörsaal 3 statt."
+      },
+      {
+        "text": "Der Hörsaal war komplett voll."
+      }
+    ]
+  },
+  {
+    "word": "Kommilitone",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Kommilitonen sind sehr hilfsbereit."
+      },
+      {
+        "text": "Ich lerne oft zusammen mit meinen Kommilitonen."
+      }
+    ]
+  },
+  {
+    "word": "Kommilitonin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Eine Kommilitonin hat mir ihre Notizen gegeben."
+      },
+      {
+        "text": "Sie ist meine beste Kommilitonin im Studium."
+      }
+    ]
+  },
+  {
+    "word": "Dozent",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Dozent erklärt die Themen sehr verständlich."
+      },
+      {
+        "text": "Unser Dozent hat viel Erfahrung in der Forschung."
+      }
+    ]
+  },
+  {
+    "word": "Dozentin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Dozentin ist eine Expertin auf ihrem Gebiet."
+      },
+      {
+        "text": "Unsere Dozentin beantwortet immer alle Fragen."
+      }
+    ]
+  },
+  {
+    "word": "Promotion",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nach dem Master möchte er eine Promotion beginnen."
+      },
+      {
+        "text": "Die Promotion dauert normalerweise drei bis fünf Jahre."
+      }
+    ]
+  },
+  {
+    "word": "Doktorand",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er ist Doktorand am Institut für Biologie."
+      },
+      {
+        "text": "Als Doktorand muss man viel forschen und publizieren."
+      }
+    ]
+  },
+  {
+    "word": "Doktorandin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist Doktorandin in der Philosophie."
+      },
+      {
+        "text": "Die Doktorandin arbeitet an ihrer Dissertation."
+      }
+    ]
+  },
+  {
+    "word": "Dissertation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie schreibt gerade an ihrer Dissertation."
+      },
+      {
+        "text": "Die Dissertation umfasst über 300 Seiten."
+      }
+    ]
+  },
+  {
+    "word": "Lehrstuhl",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er leitet den Lehrstuhl für Soziologie."
+      },
+      {
+        "text": "An diesem Lehrstuhl wird innovative Forschung betrieben."
+      }
+    ]
+  },
+  {
+    "word": "Kolloquium",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Kolloquium findet jeden Dienstag statt."
+      },
+      {
+        "text": "Im Kolloquium werden aktuelle Forschungsergebnisse präsentiert."
+      }
+    ]
+  },
+  {
+    "word": "Wissenschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wissenschaft hat große Fortschritte gemacht."
+      },
+      {
+        "text": "Er interessiert sich sehr für Wissenschaft und Forschung."
+      }
+    ]
+  },
+  {
+    "word": "Wissenschaftler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wissenschaftler haben eine neue Methode entwickelt."
+      },
+      {
+        "text": "Er ist ein bekannter Wissenschaftler auf seinem Gebiet."
+      }
+    ]
+  },
+  {
+    "word": "Wissenschaftlerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wissenschaftlerin hat einen Preis für ihre Forschung erhalten."
+      },
+      {
+        "text": "Sie ist eine renommierte Wissenschaftlerin."
+      }
+    ]
+  },
+  {
+    "word": "publizieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat seine Forschungsergebnisse in einer Fachzeitschrift publiziert."
+      },
+      {
+        "text": "Um Professor zu werden, muss man viel publizieren."
+      }
+    ]
+  },
+  {
+    "word": "Publikation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Seine Publikationen sind international anerkannt."
+      },
+      {
+        "text": "Die Publikation erscheint nächsten Monat."
+      }
+    ]
+  },
+  {
+    "word": "Referat",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nächste Woche muss ich ein Referat über Klimawandel halten."
+      },
+      {
+        "text": "Das Referat dauert etwa 20 Minuten."
+      }
+    ]
+  },
+  {
+    "word": "Hausarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich schreibe gerade eine Hausarbeit über deutsche Literatur."
+      },
+      {
+        "text": "Die Hausarbeit muss bis Ende des Semesters abgegeben werden."
+      }
+    ]
+  },
+  {
+    "word": "Bachelorarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er schreibt seine Bachelorarbeit über erneuerbare Energien."
+      },
+      {
+        "text": "Die Bachelorarbeit ist der Abschluss des Bachelorstudiums."
+      }
+    ]
+  },
+  {
+    "word": "Masterarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat ihre Masterarbeit mit sehr gut bestanden."
+      },
+      {
+        "text": "Für die Masterarbeit hat man normalerweise sechs Monate Zeit."
+      }
+    ]
+  },
+  {
+    "word": "Modul",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dieses Semester belege ich drei Module."
+      },
+      {
+        "text": "Das Modul Statistik ist besonders anspruchsvoll."
+      }
+    ]
+  },
+  {
+    "word": "Semesterferien",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In den Semesterferien fahre ich nach Hause."
+      },
+      {
+        "text": "Die Semesterferien dauern etwa zwei Monate."
+      }
+    ]
+  },
+  {
+    "word": "Immatrikulation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Immatrikulation findet im September statt."
+      },
+      {
+        "text": "Für die Immatrikulation braucht man verschiedene Dokumente."
+      }
+    ]
+  },
+  {
+    "word": "Studienaufenthalt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich plane einen Studienaufenthalt in Spanien."
+      },
+      {
+        "text": "Der Studienaufenthalt im Ausland war eine tolle Erfahrung."
+      }
+    ]
+  },
+  {
+    "word": "Austausch",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie nimmt am Erasmus-Austausch teil."
+      },
+      {
+        "text": "Der kulturelle Austausch ist sehr bereichernd."
+      }
+    ]
+  },
+  {
+    "word": "Zulassung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat die Zulassung zum Medizinstudium erhalten."
+      },
+      {
+        "text": "Für diesen Studiengang ist die Zulassung beschränkt."
+      }
+    ]
+  },
+  {
+    "word": "Studienordnung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Studienordnung regelt den Ablauf des Studiums."
+      },
+      {
+        "text": "Man sollte die Studienordnung genau lesen."
+      }
+    ]
+  },
+  {
+    "word": "Anwesenheitspflicht",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In diesem Seminar besteht Anwesenheitspflicht."
+      },
+      {
+        "text": "Die Anwesenheitspflicht gilt für alle Seminare."
+      }
+    ]
+  },
+  {
+    "word": "Pflichtmodul",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mathematik ist ein Pflichtmodul in diesem Studiengang."
+      },
+      {
+        "text": "Alle Pflichtmodule müssen bestanden werden."
+      }
+    ]
+  },
+  {
+    "word": "Wahlmodul",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe als Wahlmodul Spanisch gewählt."
+      },
+      {
+        "text": "Man kann aus verschiedenen Wahlmodulen auswählen."
+      }
+    ]
+  },
+  {
+    "word": "Studiengebühren",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In Deutschland gibt es meist keine Studiengebühren."
+      },
+      {
+        "text": "Die Studiengebühren sind sehr hoch in diesem Land."
+      }
+    ]
+  },
+  {
+    "word": "Einschreibung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Einschreibung erfolgt online."
+      },
+      {
+        "text": "Nach der Einschreibung erhält man den Studentenausweis."
+      }
+    ]
+  },
+  {
+    "word": "Vorlesungsverzeichnis",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Vorlesungsverzeichnis findet man alle angebotenen Kurse."
+      },
+      {
+        "text": "Das Vorlesungsverzeichnis ist online verfügbar."
+      }
+    ]
+  },
+  {
+    "word": "Studienberatung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe einen Termin bei der Studienberatung."
+      },
+      {
+        "text": "Die Studienberatung hilft bei der Studienwahl."
+      }
+    ]
+  },
+  {
+    "word": "Leistungsnachweis",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für das Modul braucht man einen Leistungsnachweis."
+      },
+      {
+        "text": "Der Leistungsnachweis wird durch eine Prüfung erbracht."
+      }
+    ]
+  },
+  {
+    "word": "Studienleistung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alle Studienleistungen werden dokumentiert."
+      },
+      {
+        "text": "Die Studienleistungen müssen fristgerecht erbracht werden."
+      }
+    ]
+  },
+  {
+    "word": "NC",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für Medizin braucht man einen sehr guten NC."
+      },
+      {
+        "text": "Der NC liegt dieses Jahr bei 1,5."
+      }
+    ]
+  },
+  {
+    "word": "akademisches Jahr",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das akademische Jahr beginnt im Oktober."
+      },
+      {
+        "text": "Ein akademisches Jahr umfasst zwei Semester."
+      }
+    ]
+  },
+  {
+    "word": "Semesterbeitrag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Semesterbeitrag muss rechtzeitig überwiesen werden."
+      },
+      {
+        "text": "Im Semesterbeitrag ist das Semesterticket enthalten."
+      }
+    ]
+  },
+  {
+    "word": "Fernuniversität",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er studiert an einer Fernuniversität."
+      },
+      {
+        "text": "Die Fernuniversität bietet flexible Studienmöglichkeiten."
+      }
+    ]
+  },
+  {
+    "word": "Abschluss",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat ihren Abschluss mit Auszeichnung gemacht."
+      },
+      {
+        "text": "Ein Universitätsabschluss ist heutzutage sehr wichtig."
+      }
+    ]
+  },
+  {
+    "word": "abschließen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er wird sein Studium nächstes Jahr abschließen."
+      },
+      {
+        "text": "Sie hat das Projekt erfolgreich abgeschlossen."
+      }
+    ]
+  },
+  {
+    "word": "Bewertung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bewertung der Prüfung erfolgt nach einem Punktesystem."
+      },
+      {
+        "text": "Er hat eine gute Bewertung für seine Arbeit bekommen."
+      }
+    ]
+  },
+  {
+    "word": "Feedback",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Professor gibt konstruktives Feedback."
+      },
+      {
+        "text": "Ich warte noch auf das Feedback zu meiner Hausarbeit."
+      }
+    ]
+  },
+  {
+    "word": "Kommilitonenrunde",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir treffen uns regelmäßig in der Kommilitonenrunde zum Lernen."
+      },
+      {
+        "text": "Die Kommilitonenrunde hilft mir sehr bei der Prüfungsvorbereitung."
+      }
+    ]
+  },
+  {
+    "word": "Austauschstudent",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er ist Austauschstudent aus Frankreich."
+      },
+      {
+        "text": "Die Austauschstudenten haben einen Willkommensabend organisiert."
+      }
+    ]
+  },
+  {
+    "word": "Austauschstudentin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist Austauschstudentin aus Italien."
+      },
+      {
+        "text": "Die Austauschstudentin wohnt in einem Studentenwohnheim."
+      }
+    ]
+  },
+  {
+    "word": "Studienwahl",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Studienwahl ist eine wichtige Entscheidung."
+      },
+      {
+        "text": "Bei der Studienwahl sollte man seine Interessen berücksichtigen."
+      }
+    ]
+  },
+  {
+    "word": "Bibliothekskarte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mit der Bibliothekskarte kann man Bücher ausleihen."
+      },
+      {
+        "text": "Ich habe meine Bibliothekskarte verloren."
+      }
+    ]
+  },
+  {
+    "word": "Anwesenheitsliste",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Dozent führt eine Anwesenheitsliste."
+      },
+      {
+        "text": "Bitte tragen Sie sich in die Anwesenheitsliste ein."
+      }
+    ]
+  },
+  {
+    "word": "Geschäftsführer",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Geschäftsführer leitet das Unternehmen."
+      },
+      {
+        "text": "Sie hat ein Meeting mit dem Geschäftsführer."
+      }
+    ]
+  },
+  {
+    "word": "Geschäftsführerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Geschäftsführerin ist eine erfahrene Managerin."
+      },
+      {
+        "text": "Unsere Geschäftsführerin hat viele innovative Ideen."
+      }
+    ]
+  },
+  {
+    "word": "Personalabteilung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Personalabteilung kümmert sich um alle Bewerbungen."
+      },
+      {
+        "text": "Ich habe einen Termin in der Personalabteilung."
+      }
+    ]
+  },
+  {
+    "word": "Betrieb",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Betrieb beschäftigt über 200 Mitarbeiter."
+      },
+      {
+        "text": "Sie arbeitet in einem kleinen Betrieb."
+      }
+    ]
+  },
+  {
+    "word": "Belegschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die gesamte Belegschaft ist mit der Entscheidung zufrieden."
+      },
+      {
+        "text": "Die Belegschaft wurde über die Änderungen informiert."
+      }
+    ]
+  },
+  {
+    "word": "Vorgesetzte",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Vorgesetzter ist sehr fair."
+      },
+      {
+        "text": "Ich muss das mit meinem Vorgesetzten besprechen."
+      }
+    ]
+  },
+  {
+    "word": "Mitarbeiter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Alle Mitarbeiter erhalten eine Weihnachtsfeier."
+      },
+      {
+        "text": "Er ist ein langjähriger Mitarbeiter der Firma."
+      }
+    ]
+  },
+  {
+    "word": "Mitarbeiterin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist eine sehr kompetente Mitarbeiterin."
+      },
+      {
+        "text": "Die neue Mitarbeiterin beginnt nächste Woche."
+      }
+    ]
+  },
+  {
+    "word": "Vertrag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Vertrag heute unterschrieben."
+      },
+      {
+        "text": "Der Vertrag läuft noch zwei Jahre."
+      }
+    ]
+  },
+  {
+    "word": "unterzeichnen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Beide Parteien haben den Vertrag unterzeichnet."
+      },
+      {
+        "text": "Sie müssen hier unterzeichnen, bitte."
+      }
+    ]
+  },
+  {
+    "word": "kündigen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat zum Ende des Monats gekündigt."
+      },
+      {
+        "text": "Die Firma hat ihm gekündigt."
+      }
+    ]
+  },
+  {
+    "word": "Kündigungsfrist",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kündigungsfrist beträgt drei Monate."
+      },
+      {
+        "text": "Sie muss die Kündigungsfrist einhalten."
+      }
+    ]
+  },
+  {
+    "word": "Arbeitsverhältnis",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Arbeitsverhältnis wurde beendet."
+      },
+      {
+        "text": "Wir haben ein gutes Arbeitsverhältnis."
+      }
+    ]
+  },
+  {
+    "word": "Festanstellung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat endlich eine Festanstellung bekommen."
+      },
+      {
+        "text": "Eine Festanstellung bietet mehr Sicherheit."
+      }
+    ]
+  },
+  {
+    "word": "befristet",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Mein Arbeitsvertrag ist befristet."
+      },
+      {
+        "text": "Die Stelle ist auf zwei Jahre befristet."
+      }
+    ]
+  },
+  {
+    "word": "unbefristet",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich habe einen unbefristeten Vertrag."
+      },
+      {
+        "text": "Die Stelle ist unbefristet ausgeschrieben."
+      }
+    ]
+  },
+  {
+    "word": "Arbeitszeugnis",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich brauche ein Arbeitszeugnis für meine Bewerbung."
+      },
+      {
+        "text": "Das Arbeitszeugnis war sehr positiv."
+      }
+    ]
+  },
+  {
+    "word": "Einarbeitung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Einarbeitung dauert etwa zwei Wochen."
+      },
+      {
+        "text": "Während der Einarbeitung lernt man alle Abläufe kennen."
+      }
+    ]
+  },
+  {
+    "word": "Schichtarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schichtarbeit kann sehr anstrengend sein."
+      },
+      {
+        "text": "Er arbeitet in Schichtarbeit im Krankenhaus."
+      }
+    ]
+  },
+  {
+    "word": "Schichtplan",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der neue Schichtplan wurde veröffentlicht."
+      },
+      {
+        "text": "Im Schichtplan steht, wann ich arbeiten muss."
+      }
+    ]
+  },
+  {
+    "word": "Arbeitsumfeld",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Arbeitsumfeld ist sehr angenehm."
+      },
+      {
+        "text": "Ein gutes Arbeitsumfeld ist wichtig für die Produktivität."
+      }
+    ]
+  },
+  {
+    "word": "Führungskraft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist eine erfahrene Führungskraft."
+      },
+      {
+        "text": "Alle Führungskräfte nehmen an der Schulung teil."
+      }
+    ]
+  },
+  {
+    "word": "Gehaltsverhandlung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nächste Woche habe ich eine Gehaltsverhandlung."
+      },
+      {
+        "text": "Die Gehaltsverhandlung verlief erfolgreich."
+      }
+    ]
+  },
+  {
+    "word": "Gehaltserhöhung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine Gehaltserhöhung bekommen."
+      },
+      {
+        "text": "Die Gehaltserhöhung beträgt fünf Prozent."
+      }
+    ]
+  },
+  {
+    "word": "Nettogehalt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Nettogehalt beträgt 2500 Euro."
+      },
+      {
+        "text": "Das Nettogehalt ist das, was man tatsächlich ausgezahlt bekommt."
+      }
+    ]
+  },
+  {
+    "word": "Bruttogehalt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Bruttogehalt liegt bei 3500 Euro."
+      },
+      {
+        "text": "Vom Bruttogehalt werden Steuern und Sozialabgaben abgezogen."
+      }
+    ]
+  },
+  {
+    "word": "Lohnsteuer",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Lohnsteuer wird automatisch abgezogen."
+      },
+      {
+        "text": "Man kann die Lohnsteuer in der Steuererklärung geltend machen."
+      }
+    ]
+  },
+  {
+    "word": "Sozialversicherung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Sozialversicherung deckt verschiedene Risiken ab."
+      },
+      {
+        "text": "Arbeitgeber und Arbeitnehmer zahlen in die Sozialversicherung ein."
+      }
+    ]
+  },
+  {
+    "word": "Rentenversicherung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Rentenversicherung sichert das Einkommen im Alter."
+      },
+      {
+        "text": "Man zahlt monatlich in die Rentenversicherung ein."
+      }
+    ]
+  },
+  {
+    "word": "Beitrag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Beitrag zur Krankenversicherung ist gestiegen."
+      },
+      {
+        "text": "Ich zahle jeden Monat einen Beitrag für die Versicherung."
+      }
+    ]
+  },
+  {
+    "word": "Betriebskosten",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Betriebskosten sind in den letzten Jahren gestiegen."
+      },
+      {
+        "text": "Wir müssen die Betriebskosten senken."
+      }
+    ]
+  },
+  {
+    "word": "Umsatz",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Umsatz des Unternehmens ist gestiegen."
+      },
+      {
+        "text": "Im letzten Quartal haben wir einen hohen Umsatz erzielt."
+      }
+    ]
+  },
+  {
+    "word": "Gewinn",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Unternehmen hat einen großen Gewinn gemacht."
+      },
+      {
+        "text": "Der Gewinn wird an die Aktionäre ausgeschüttet."
+      }
+    ]
+  },
+  {
+    "word": "Verlust",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Firma hat letztes Jahr Verluste gemacht."
+      },
+      {
+        "text": "Wir müssen die Verluste minimieren."
+      }
+    ]
+  },
+  {
+    "word": "Bilanz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bilanz des Unternehmens sieht gut aus."
+      },
+      {
+        "text": "Am Ende des Jahres wird die Bilanz erstellt."
+      }
+    ]
+  },
+  {
+    "word": "Buchhaltung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie arbeitet in der Buchhaltung."
+      },
+      {
+        "text": "Die Buchhaltung muss alle Belege prüfen."
+      }
+    ]
+  },
+  {
+    "word": "Steuerberater",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben einen erfahrenen Steuerberater."
+      },
+      {
+        "text": "Der Steuerberater hilft bei der Steuererklärung."
+      }
+    ]
+  },
+  {
+    "word": "Arbeitszeitregelung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die neue Arbeitszeitregelung tritt nächsten Monat in Kraft."
+      },
+      {
+        "text": "Die Arbeitszeitregelung ist im Arbeitsvertrag festgelegt."
+      }
+    ]
+  },
+  {
+    "word": "Betriebsrat",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Betriebsrat vertritt die Interessen der Arbeitnehmer."
+      },
+      {
+        "text": "Sie wurde in den Betriebsrat gewählt."
+      }
+    ]
+  },
+  {
+    "word": "Tarifverhandlung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Tarifverhandlungen sind gescheitert."
+      },
+      {
+        "text": "Bei der Tarifverhandlung geht es um höhere Löhne."
+      }
+    ]
+  },
+  {
+    "word": "Gewerkschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er ist Mitglied einer Gewerkschaft."
+      },
+      {
+        "text": "Die Gewerkschaft ruft zum Streik auf."
+      }
+    ]
+  },
+  {
+    "word": "streiken",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Arbeiter streiken für bessere Arbeitsbedingungen."
+      },
+      {
+        "text": "Morgen wird in mehreren Betrieben gestreikt."
+      }
+    ]
+  },
+  {
+    "word": "Lieferant",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben einen zuverlässigen Lieferanten gefunden."
+      },
+      {
+        "text": "Der Lieferant bringt die Waren pünktlich."
+      }
+    ]
+  },
+  {
+    "word": "Lieferantin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Lieferantin kommt immer donnerstags."
+      },
+      {
+        "text": "Unsere Lieferantin bietet gute Preise."
+      }
+    ]
+  },
+  {
+    "word": "Lager",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ware ist im Lager vorrätig."
+      },
+      {
+        "text": "Er arbeitet im Lager und packt Pakete."
+      }
+    ]
+  },
+  {
+    "word": "Logistik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Logistik ist für den Transport zuständig."
+      },
+      {
+        "text": "Er hat Logistik studiert."
+      }
+    ]
+  },
+  {
+    "word": "Abteilung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich arbeite in der Marketing-Abteilung."
+      },
+      {
+        "text": "Jede Abteilung hat ihre eigenen Aufgaben."
+      }
+    ]
+  },
+  {
+    "word": "Zuständigkeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das fällt nicht in meine Zuständigkeit."
+      },
+      {
+        "text": "Die Zuständigkeit für dieses Projekt liegt bei ihr."
+      }
+    ]
+  },
+  {
+    "word": "Hierarchie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In diesem Unternehmen gibt es eine flache Hierarchie."
+      },
+      {
+        "text": "Man muss die Hierarchie respektieren."
+      }
+    ]
+  },
+  {
+    "word": "Kundenstamm",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben einen treuen Kundenstamm aufgebaut."
+      },
+      {
+        "text": "Der Kundenstamm wächst stetig."
+      }
+    ]
+  },
+  {
+    "word": "Akquise",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Akquise neuer Kunden ist wichtig."
+      },
+      {
+        "text": "Er ist für die Akquise zuständig."
+      }
+    ]
+  },
+  {
+    "word": "Vertragspartner",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unser Vertragspartner ist sehr zuverlässig."
+      },
+      {
+        "text": "Wir suchen einen neuen Vertragspartner."
+      }
+    ]
+  },
+  {
+    "word": "Selbstständigkeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat sich für die Selbstständigkeit entschieden."
+      },
+      {
+        "text": "Die Selbstständigkeit bietet viele Freiheiten."
+      }
+    ]
+  },
+  {
+    "word": "Freiberufler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie arbeitet als Freiberuflerin."
+      },
+      {
+        "text": "Viele Freiberufler arbeiten von zu Hause aus."
+      }
+    ]
+  },
+  {
+    "word": "Freiberuflerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Freiberuflerin hat flexible Arbeitszeiten."
+      },
+      {
+        "text": "Als Freiberuflerin muss man sich selbst versichern."
+      }
+    ]
+  },
+  {
+    "word": "Regierung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Regierung hat neue Gesetze beschlossen."
+      },
+      {
+        "text": "Die aktuelle Regierung ist eine Koalition."
+      }
+    ]
+  },
+  {
+    "word": "regieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Partei regiert seit fünf Jahren."
+      },
+      {
+        "text": "Welche Parteien regieren zusammen?"
+      }
+    ]
+  },
+  {
+    "word": "Opposition",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Opposition kritisiert die Regierung scharf."
+      },
+      {
+        "text": "Die Partei befindet sich in der Opposition."
+      }
+    ]
+  },
+  {
+    "word": "Parlament",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Parlament hat über das Gesetz abgestimmt."
+      },
+      {
+        "text": "Die Sitzung des Parlaments findet heute statt."
+      }
+    ]
+  },
+  {
+    "word": "Abgeordnete",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Abgeordneten vertreten die Bürger."
+      },
+      {
+        "text": "Sie ist Abgeordnete im Bundestag."
+      }
+    ]
+  },
+  {
+    "word": "Kabinett",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Kabinett trifft sich zu einer Sondersitzung."
+      },
+      {
+        "text": "Die Minister bilden das Kabinett."
+      }
+    ]
+  },
+  {
+    "word": "Minister",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Finanzminister stellte den neuen Haushalt vor."
+      },
+      {
+        "text": "Sie ist Ministerin für Bildung."
+      }
+    ]
+  },
+  {
+    "word": "Ministerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ministerin gab eine Pressekonferenz."
+      },
+      {
+        "text": "Die Außenministerin reist nach Frankreich."
+      }
+    ]
+  },
+  {
+    "word": "Ministerium",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Ministerium für Gesundheit ist zuständig."
+      },
+      {
+        "text": "Er arbeitet im Außenministerium."
+      }
+    ]
+  },
+  {
+    "word": "Kanzler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Kanzler hält eine Rede vor dem Parlament."
+      },
+      {
+        "text": "Der Bundeskanzler trifft sich mit dem Präsidenten."
+      }
+    ]
+  },
+  {
+    "word": "Kanzlerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kanzlerin reist zu einem Gipfeltreffen."
+      },
+      {
+        "text": "Angela Merkel war lange Bundeskanzlerin."
+      }
+    ]
+  },
+  {
+    "word": "Präsident",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Präsident wurde demokratisch gewählt."
+      },
+      {
+        "text": "Der Bundespräsident hat repräsentative Aufgaben."
+      }
+    ]
+  },
+  {
+    "word": "Präsidentin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist die erste weibliche Präsidentin des Landes."
+      },
+      {
+        "text": "Die Präsidentin hält eine wichtige Ansprache."
+      }
+    ]
+  },
+  {
+    "word": "Demokratie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Deutschland ist eine Demokratie."
+      },
+      {
+        "text": "In einer Demokratie haben alle Bürger das Wahlrecht."
+      }
+    ]
+  },
+  {
+    "word": "Diktatur",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In einer Diktatur gibt es keine freien Wahlen."
+      },
+      {
+        "text": "Das Land war jahrelang eine Diktatur."
+      }
+    ]
+  },
+  {
+    "word": "Monarchie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Großbritannien ist eine konstitutionelle Monarchie."
+      },
+      {
+        "text": "In einer Monarchie regiert ein König oder eine Königin."
+      }
+    ]
+  },
+  {
+    "word": "Verfassung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Verfassung garantiert grundlegende Rechte."
+      },
+      {
+        "text": "Eine Änderung der Verfassung ist schwierig."
+      }
+    ]
+  },
+  {
+    "word": "Grundgesetz",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Grundgesetz ist die deutsche Verfassung."
+      },
+      {
+        "text": "Das Grundgesetz schützt die Menschenwürde."
+      }
+    ]
+  },
+  {
+    "word": "Gewaltenteilung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Gewaltenteilung ist ein Grundprinzip der Demokratie."
+      },
+      {
+        "text": "Legislative, Exekutive und Judikative sind durch die Gewaltenteilung getrennt."
+      }
+    ]
+  },
+  {
+    "word": "Bundesland",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Deutschland besteht aus 16 Bundesländern."
+      },
+      {
+        "text": "Jedes Bundesland hat eine eigene Landesregierung."
+      }
+    ]
+  },
+  {
+    "word": "Bundestag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Bundestag ist das deutsche Parlament."
+      },
+      {
+        "text": "Im Bundestag werden Gesetze verabschiedet."
+      }
+    ]
+  },
+  {
+    "word": "Landtagswahl",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Landtagswahl findet nächsten Monat statt."
+      },
+      {
+        "text": "Bei der Landtagswahl wird das Landesparlament gewählt."
+      }
+    ]
+  },
+  {
+    "word": "Bundestagswahl",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bundestagswahl wird alle vier Jahre durchgeführt."
+      },
+      {
+        "text": "Er geht zur Bundestagswahl, um seine Stimme abzugeben."
+      }
+    ]
+  },
+  {
+    "word": "Wahlbeteiligung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wahlbeteiligung war sehr hoch."
+      },
+      {
+        "text": "Eine niedrige Wahlbeteiligung ist problematisch für die Demokratie."
+      }
+    ]
+  },
+  {
+    "word": "Stimme",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Jeder Bürger hat eine Stimme bei der Wahl."
+      },
+      {
+        "text": "Ich gebe meine Stimme der grünen Partei."
+      }
+    ]
+  },
+  {
+    "word": "abstimmen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Parlament stimmt über das Gesetz ab."
+      },
+      {
+        "text": "Wir müssen über den Vorschlag abstimmen."
+      }
+    ]
+  },
+  {
+    "word": "Abstimmung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Abstimmung war sehr knapp."
+      },
+      {
+        "text": "Bei der Abstimmung gab es eine klare Mehrheit."
+      }
+    ]
+  },
+  {
+    "word": "Wahlkampf",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Wahlkampf hat bereits begonnen."
+      },
+      {
+        "text": "Im Wahlkampf versprechen Politiker viel."
+      }
+    ]
+  },
+  {
+    "word": "Partei",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist Mitglied einer politischen Partei."
+      },
+      {
+        "text": "Welche Partei wirst du wählen?"
+      }
+    ]
+  },
+  {
+    "word": "Parteiprogramm",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe mir das Parteiprogramm durchgelesen."
+      },
+      {
+        "text": "Das Parteiprogramm enthält wichtige Ziele."
+      }
+    ]
+  },
+  {
+    "word": "Kandidat",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Kandidat hielt eine überzeugende Rede."
+      },
+      {
+        "text": "Sie ist Kandidatin für das Amt des Bürgermeisters."
+      }
+    ]
+  },
+  {
+    "word": "Kandidatin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kandidatin hat gute Chancen zu gewinnen."
+      },
+      {
+        "text": "Mehrere Kandidatinnen bewerben sich um das Amt."
+      }
+    ]
+  },
+  {
+    "word": "Wahlsieg",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Partei feiert ihren Wahlsieg."
+      },
+      {
+        "text": "Der Wahlsieg war deutlich."
+      }
+    ]
+  },
+  {
+    "word": "Niederlage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Partei musste eine schwere Niederlage hinnehmen."
+      },
+      {
+        "text": "Nach der Niederlage trat der Vorsitzende zurück."
+      }
+    ]
+  },
+  {
+    "word": "Koalition",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Regierung besteht aus einer Koalition zweier Parteien."
+      },
+      {
+        "text": "Die Koalitionsverhandlungen dauern an."
+      }
+    ]
+  },
+  {
+    "word": "Mehrheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Partei hat die Mehrheit im Parlament."
+      },
+      {
+        "text": "Für dieses Gesetz braucht man eine Zweidrittelmehrheit."
+      }
+    ]
+  },
+  {
+    "word": "Minderheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Minderheit im Parlament hat protestiert."
+      },
+      {
+        "text": "Minderheiten müssen geschützt werden."
+      }
+    ]
+  },
+  {
+    "word": "Gesetz",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das neue Gesetz tritt nächsten Monat in Kraft."
+      },
+      {
+        "text": "Gesetze müssen vom Parlament verabschiedet werden."
+      }
+    ]
+  },
+  {
+    "word": "verabschieden",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Parlament hat das Gesetz gestern verabschiedet."
+      },
+      {
+        "text": "Wir müssen uns jetzt verabschieden."
+      }
+    ]
+  },
+  {
+    "word": "beschließen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Regierung hat neue Maßnahmen beschlossen."
+      },
+      {
+        "text": "Wir haben beschlossen, in den Urlaub zu fahren."
+      }
+    ]
+  },
+  {
+    "word": "Skandal",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Politiker war in einen Skandal verwickelt."
+      },
+      {
+        "text": "Der Skandal führte zu seinem Rücktritt."
+      }
+    ]
+  },
+  {
+    "word": "Debatte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Parlament fand eine heftige Debatte statt."
+      },
+      {
+        "text": "Die Debatte über das neue Gesetz dauerte Stunden."
+      }
+    ]
+  },
+  {
+    "word": "Redner",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Redner hielt eine inspirierende Rede."
+      },
+      {
+        "text": "Als nächster Redner kommt der Finanzminister."
+      }
+    ]
+  },
+  {
+    "word": "Rednerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Rednerin sprach über Klimaschutz."
+      },
+      {
+        "text": "Sie ist eine begabte Rednerin."
+      }
+    ]
+  },
+  {
+    "word": "Rede",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Präsident hielt eine wichtige Rede."
+      },
+      {
+        "text": "Die Rede dauerte 30 Minuten."
+      }
+    ]
+  },
+  {
+    "word": "Petition",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Über 10.000 Menschen haben die Petition unterschrieben."
+      },
+      {
+        "text": "Die Petition fordert mehr Umweltschutz."
+      }
+    ]
+  },
+  {
+    "word": "Umfrage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Laut einer Umfrage ist die Mehrheit gegen das Gesetz."
+      },
+      {
+        "text": "Die Umfrage zeigt die aktuelle Stimmung der Bevölkerung."
+      }
+    ]
+  },
+  {
+    "word": "öffentliche Meinung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die öffentliche Meinung hat sich geändert."
+      },
+      {
+        "text": "Politiker müssen die öffentliche Meinung berücksichtigen."
+      }
+    ]
+  },
+  {
+    "word": "Behörde",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich muss zur Behörde, um meinen Pass abzuholen."
+      },
+      {
+        "text": "Die zuständige Behörde hat die Genehmigung erteilt."
+      }
+    ]
+  },
+  {
+    "word": "Verwaltungsapparat",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Verwaltungsapparat ist sehr komplex."
+      },
+      {
+        "text": "Man möchte den Verwaltungsapparat vereinfachen."
+      }
+    ]
+  },
+  {
+    "word": "Bürokratie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bürokratie in Deutschland ist sehr gründlich."
+      },
+      {
+        "text": "Viele Menschen beklagen sich über zu viel Bürokratie."
+      }
+    ]
+  },
+  {
+    "word": "Amt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat sein Amt niedergelegt."
+      },
+      {
+        "text": "Ich muss zum Amt, um ein Formular abzugeben."
+      }
+    ]
+  },
+  {
+    "word": "Gesetzesänderung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Gesetzesänderung wurde beschlossen."
+      },
+      {
+        "text": "Es gab viele Diskussionen über die Gesetzesänderung."
+      }
+    ]
+  },
+  {
+    "word": "Urteil",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Urteil des Gerichts war eindeutig."
+      },
+      {
+        "text": "Sie wartet auf das Urteil im Prozess."
+      }
+    ]
+  },
+  {
+    "word": "Richter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Richter verkündete das Urteil."
+      },
+      {
+        "text": "Sie ist Richterin am Bundesgerichtshof."
+      }
+    ]
+  },
+  {
+    "word": "Richterin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Richterin unterbrach die Verhandlung."
+      },
+      {
+        "text": "Sie ist eine erfahrene Richterin."
+      }
+    ]
+  },
+  {
+    "word": "Anwalt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Anwalt vertritt mich vor Gericht."
+      },
+      {
+        "text": "Er ist Anwalt für Arbeitsrecht."
+      }
+    ]
+  },
+  {
+    "word": "Anwältin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Anwältin hat den Fall gewonnen."
+      },
+      {
+        "text": "Sie ist eine bekannte Anwältin."
+      }
+    ]
+  },
+  {
+    "word": "Staatsanwalt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Staatsanwalt fordert eine hohe Strafe."
+      },
+      {
+        "text": "Der Staatsanwalt präsentiert die Beweise."
+      }
+    ]
+  },
+  {
+    "word": "Staatsanwältin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Staatsanwältin erhebt Anklage."
+      },
+      {
+        "text": "Sie arbeitet als Staatsanwältin."
+      }
+    ]
+  },
+  {
+    "word": "Verteidiger",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Verteidiger plädierte auf Freispruch."
+      },
+      {
+        "text": "Jeder Angeklagte hat das Recht auf einen Verteidiger."
+      }
+    ]
+  },
+  {
+    "word": "Verteidigerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Verteidigerin stellte wichtige Fragen."
+      },
+      {
+        "text": "Sie ist eine erfahrene Verteidigerin."
+      }
+    ]
+  },
+  {
+    "word": "Gericht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Fall wird vor Gericht verhandelt."
+      },
+      {
+        "text": "Das Gericht hat entschieden."
+      }
+    ]
+  },
+  {
+    "word": "Strafgericht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Prozess findet vor dem Strafgericht statt."
+      },
+      {
+        "text": "Das Strafgericht ist für Kriminalfälle zuständig."
+      }
+    ]
+  },
+  {
+    "word": "Zivilgericht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Streit wird vor dem Zivilgericht ausgetragen."
+      },
+      {
+        "text": "Das Zivilgericht behandelt private Streitigkeiten."
+      }
+    ]
+  },
+  {
+    "word": "Klage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat Klage gegen die Firma eingereicht."
+      },
+      {
+        "text": "Die Klage wurde abgewiesen."
+      }
+    ]
+  },
+  {
+    "word": "klagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sie klagt gegen ihren ehemaligen Arbeitgeber."
+      },
+      {
+        "text": "Er klagt über Schmerzen im Rücken."
+      }
+    ]
+  },
+  {
+    "word": "verklagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er hat sie auf Schadensersatz verklagt."
+      },
+      {
+        "text": "Die Firma wurde von mehreren Kunden verklagt."
+      }
+    ]
+  },
+  {
+    "word": "Anzeige",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat Anzeige bei der Polizei erstattet."
+      },
+      {
+        "text": "Nach dem Diebstahl erstattete er Anzeige."
+      }
+    ]
+  },
+  {
+    "word": "anzeigen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich werde ihn bei der Polizei anzeigen."
+      },
+      {
+        "text": "Das Thermometer zeigt 20 Grad an."
+      }
+    ]
+  },
+  {
+    "word": "Angeklagte",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Angeklagte beteuert seine Unschuld."
+      },
+      {
+        "text": "Die Angeklagte schweigt vor Gericht."
+      }
+    ]
+  },
+  {
+    "word": "Zeuge",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Zeuge wurde befragt."
+      },
+      {
+        "text": "Er war Zeuge des Unfalls."
+      }
+    ]
+  },
+  {
+    "word": "Zeugin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Zeugin sagte vor Gericht aus."
+      },
+      {
+        "text": "Sie ist eine wichtige Zeugin in diesem Fall."
+      }
+    ]
+  },
+  {
+    "word": "Zeugenaussage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Zeugenaussage widersprach den Fakten."
+      },
+      {
+        "text": "Seine Zeugenaussage war sehr glaubwürdig."
+      }
+    ]
+  },
+  {
+    "word": "aussagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Der Zeuge muss vor Gericht aussagen."
+      },
+      {
+        "text": "Sie hat ausgesagt, dass sie nichts gesehen hat."
+      }
+    ]
+  },
+  {
+    "word": "Prozess",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Prozess dauert schon mehrere Monate."
+      },
+      {
+        "text": "Es ist ein langer Prozess, eine neue Sprache zu lernen."
+      }
+    ]
+  },
+  {
+    "word": "Verfahren",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Verfahren wurde eingestellt."
+      },
+      {
+        "text": "Es gibt ein neues Verfahren zur Herstellung."
+      }
+    ]
+  },
+  {
+    "word": "Verhandlung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Verhandlung findet nächste Woche statt."
+      },
+      {
+        "text": "Nach langen Verhandlungen wurde eine Einigung erzielt."
+      }
+    ]
+  },
+  {
+    "word": "Tatort",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Polizei sichert den Tatort."
+      },
+      {
+        "text": "Am Tatort wurden Spuren gefunden."
+      }
+    ]
+  },
+  {
+    "word": "Verbrechen",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Verbrechen wurde aufgeklärt."
+      },
+      {
+        "text": "Er wurde eines schweren Verbrechens beschuldigt."
+      }
+    ]
+  },
+  {
+    "word": "Straftat",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat eine Straftat begangen."
+      },
+      {
+        "text": "Die Straftat wird strafrechtlich verfolgt."
+      }
+    ]
+  },
+  {
+    "word": "Kriminalität",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kriminalität in der Stadt ist gesunken."
+      },
+      {
+        "text": "Man versucht, die organisierte Kriminalität zu bekämpfen."
+      }
+    ]
+  },
+  {
+    "word": "Schuld",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er trägt die Schuld an dem Unfall."
+      },
+      {
+        "text": "Sie hat große Schulden bei der Bank."
+      }
+    ]
+  },
+  {
+    "word": "unschuldig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er ist unschuldig und wurde freigesprochen."
+      },
+      {
+        "text": "Das Kind ist völlig unschuldig an der Situation."
+      }
+    ]
+  },
+  {
+    "word": "schuldig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Angeklagte wurde schuldig gesprochen."
+      },
+      {
+        "text": "Ich bin dir noch Geld schuldig."
+      }
+    ]
+  },
+  {
+    "word": "Strafe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er erhielt eine hohe Strafe."
+      },
+      {
+        "text": "Die Strafe für Diebstahl ist eine Gefängnisstrafe."
+      }
+    ]
+  },
+  {
+    "word": "bestrafen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Der Täter wurde hart bestraft."
+      },
+      {
+        "text": "Man sollte Kinder nicht körperlich bestrafen."
+      }
+    ]
+  },
+  {
+    "word": "Freiheitsstrafe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er wurde zu einer Freiheitsstrafe von fünf Jahren verurteilt."
+      },
+      {
+        "text": "Die Freiheitsstrafe kann zur Bewährung ausgesetzt werden."
+      }
+    ]
+  },
+  {
+    "word": "Geldstrafe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie musste eine Geldstrafe von 500 Euro zahlen."
+      },
+      {
+        "text": "Bei geringen Vergehen gibt es oft nur eine Geldstrafe."
+      }
+    ]
+  },
+  {
+    "word": "Haft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er befindet sich in Untersuchungshaft."
+      },
+      {
+        "text": "Die Haft dauert zwei Jahre."
+      }
+    ]
+  },
+  {
+    "word": "inhaftieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Der Verdächtige wurde inhaftiert."
+      },
+      {
+        "text": "Sie wurde wegen Betrugs inhaftiert."
+      }
+    ]
+  },
+  {
+    "word": "freisprechen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Gericht hat ihn freigesprochen."
+      },
+      {
+        "text": "Sie wurde mangels Beweisen freigesprochen."
+      }
+    ]
+  },
+  {
+    "word": "Berufung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat Berufung gegen das Urteil eingelegt."
+      },
+      {
+        "text": "Die Berufung wurde abgelehnt."
+      }
+    ]
+  },
+  {
+    "word": "Rechtssystem",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das deutsche Rechtssystem ist komplex."
+      },
+      {
+        "text": "Jedes Land hat ein anderes Rechtssystem."
+      }
+    ]
+  },
+  {
+    "word": "Rechtslage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Rechtslage ist in diesem Fall unklar."
+      },
+      {
+        "text": "Ein Anwalt kann die Rechtslage erklären."
+      }
+    ]
+  },
+  {
+    "word": "Rechtsberatung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich brauche eine Rechtsberatung."
+      },
+      {
+        "text": "Die Rechtsberatung ist kostenlos."
+      }
+    ]
+  },
+  {
+    "word": "Rechtsschutz",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Versicherung bietet Rechtsschutz."
+      },
+      {
+        "text": "Er hat eine Rechtsschutzversicherung."
+      }
+    ]
+  },
+  {
+    "word": "gesetzlich",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es gibt eine gesetzliche Frist."
+      },
+      {
+        "text": "Das ist gesetzlich vorgeschrieben."
+      }
+    ]
+  },
+  {
+    "word": "rechtswidrig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Verhalten war rechtswidrig."
+      },
+      {
+        "text": "Die Kündigung wurde als rechtswidrig erklärt."
+      }
+    ]
+  },
+  {
+    "word": "Menschenrechte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Menschenrechte müssen geschützt werden."
+      },
+      {
+        "text": "Jeder hat Anspruch auf die Menschenrechte."
+      }
+    ]
+  },
+  {
+    "word": "Rechtsanwalt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Rechtsanwalt berät mich in allen rechtlichen Fragen."
+      },
+      {
+        "text": "Sie arbeitet als Rechtsanwältin."
+      }
+    ]
+  },
+  {
+    "word": "Grundrecht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Meinungsfreiheit ist ein Grundrecht."
+      },
+      {
+        "text": "Grundrechte sind im Grundgesetz verankert."
+      }
+    ]
+  },
+  {
+    "word": "Strafmaß",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Strafmaß erscheint angemessen."
+      },
+      {
+        "text": "Der Richter bestimmt das Strafmaß."
+      }
+    ]
+  },
+  {
+    "word": "ermitteln",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Polizei ermittelt in diesem Fall."
+      },
+      {
+        "text": "Der Täter konnte schnell ermittelt werden."
+      }
+    ]
+  },
+  {
+    "word": "Ermittlungen",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ermittlungen dauern noch an."
+      },
+      {
+        "text": "Die Polizei hat die Ermittlungen aufgenommen."
+      }
+    ]
+  },
+  {
+    "word": "Polizei",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich rufe die Polizei."
+      },
+      {
+        "text": "Die Polizei hat den Täter festgenommen."
+      }
+    ]
+  },
+  {
+    "word": "Täter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Täter ist noch auf der Flucht."
+      },
+      {
+        "text": "Die Polizei sucht nach dem Täter."
+      }
+    ]
+  },
+  {
+    "word": "Täterin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Täterin wurde gefasst."
+      },
+      {
+        "text": "Man sucht nach der Täterin."
+      }
+    ]
+  },
+  {
+    "word": "Opfer",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Opfer wurde ins Krankenhaus gebracht."
+      },
+      {
+        "text": "Sie wurde Opfer eines Betrugs."
+      }
+    ]
+  },
+  {
+    "word": "duzen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir können uns gerne duzen."
+      },
+      {
+        "text": "In der Firma duzen sich alle."
+      }
+    ]
+  },
+  {
+    "word": "siezen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir sollten uns besser siezen."
+      },
+      {
+        "text": "In Deutschland siezt man Fremde."
+      }
+    ]
+  },
+  {
+    "word": "Anrede",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die richtige Anrede ist wichtig."
+      },
+      {
+        "text": "Welche Anrede sollte ich in der E-Mail verwenden?"
+      }
+    ]
+  },
+  {
+    "word": "Höflichkeitsform",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Man sollte die Höflichkeitsform verwenden."
+      },
+      {
+        "text": "Die Höflichkeitsform ist 'Sie' mit großem S."
+      }
+    ]
+  },
+  {
+    "word": "Umgangssprache",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist nur Umgangssprache."
+      },
+      {
+        "text": "In der Umgangssprache sagt man das anders."
+      }
+    ]
+  },
+  {
+    "word": "formell",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Brief ist sehr formell geschrieben."
+      },
+      {
+        "text": "Es war eine formelle Veranstaltung."
+      }
+    ]
+  },
+  {
+    "word": "informell",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Treffen war informell."
+      },
+      {
+        "text": "Wir hatten ein informelles Gespräch."
+      }
+    ]
+  },
+  {
+    "word": "Begrüßung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Begrüßung war sehr herzlich."
+      },
+      {
+        "text": "In Deutschland gibt man zur Begrüßung die Hand."
+      }
+    ]
+  },
+  {
+    "word": "Verabschiedung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Verabschiedung fiel ihm schwer."
+      },
+      {
+        "text": "Zur Verabschiedung gab es eine kleine Feier."
+      }
+    ]
+  },
+  {
+    "word": "Betreff",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Was soll ich in den Betreff der E-Mail schreiben?"
+      },
+      {
+        "text": "Der Betreff sollte das Thema klar beschreiben."
+      }
+    ]
+  },
+  {
+    "word": "Anredeform",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die richtige Anredeform ist wichtig."
+      },
+      {
+        "text": "Welche Anredeform ist angemessen?"
+      }
+    ]
+  },
+  {
+    "word": "Titel",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat den Titel eines Professors."
+      },
+      {
+        "text": "Der Titel des Buches ist interessant."
+      }
+    ]
+  },
+  {
+    "word": "Herr",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Guten Tag, Herr Müller."
+      },
+      {
+        "text": "Der Herr an der Rezeption war sehr freundlich."
+      }
+    ]
+  },
+  {
+    "word": "Frau",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Guten Tag, Frau Schmidt."
+      },
+      {
+        "text": "Die Frau hat nach Ihnen gefragt."
+      }
+    ]
+  },
+  {
+    "word": "Dame",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Dame an der Kasse war sehr hilfsbereit."
+      },
+      {
+        "text": "Meine Damen und Herren, herzlich willkommen!"
+      }
+    ]
+  },
+  {
+    "word": "Kollege",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Kollege hilft mir bei dem Projekt."
+      },
+      {
+        "text": "Die Kollegen sind sehr nett."
+      }
+    ]
+  },
+  {
+    "word": "Kollegin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Kollegin ist heute krank."
+      },
+      {
+        "text": "Ich arbeite gut mit meiner Kollegin zusammen."
+      }
+    ]
+  },
+  {
+    "word": "Ansprechpartner",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wer ist mein Ansprechpartner für diese Frage?"
+      },
+      {
+        "text": "Der Ansprechpartner ist Herr Müller."
+      }
+    ]
+  },
+  {
+    "word": "Ansprechpartnerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ihre Ansprechpartnerin ist Frau Schmidt."
+      },
+      {
+        "text": "Die Ansprechpartnerin ist heute nicht erreichbar."
+      }
+    ]
+  },
+  {
+    "word": "Visitenkarte",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier ist meine Visitenkarte."
+      },
+      {
+        "text": "Auf der Visitenkarte stehen alle Kontaktdaten."
+      }
+    ]
+  },
+  {
+    "word": "Einladung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Danke für die Einladung zum Abendessen."
+      },
+      {
+        "text": "Ich habe eine Einladung zu ihrer Hochzeit erhalten."
+      }
+    ]
+  },
+  {
+    "word": "Absage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Leider muss ich Ihnen eine Absage erteilen."
+      },
+      {
+        "text": "Ich habe eine Absage für die Stelle bekommen."
+      }
+    ]
+  },
+  {
+    "word": "Zusage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine Zusage für die Wohnung bekommen."
+      },
+      {
+        "text": "Die Zusage kam sehr schnell."
+      }
+    ]
+  },
+  {
+    "word": "absagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss leider den Termin absagen."
+      },
+      {
+        "text": "Sie hat das Meeting abgesagt."
+      }
+    ]
+  },
+  {
+    "word": "zusagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe bereits zugesagt."
+      },
+      {
+        "text": "Können Sie mir zusagen, dass Sie kommen?"
+      }
+    ]
+  },
+  {
+    "word": "Vorschlag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein guter Vorschlag."
+      },
+      {
+        "text": "Ich habe einen Vorschlag für das Meeting."
+      }
+    ]
+  },
+  {
+    "word": "vorschlagen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich schlage vor, dass wir uns morgen treffen."
+      },
+      {
+        "text": "Was schlagen Sie vor?"
+      }
+    ]
+  },
+  {
+    "word": "sich vorstellen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich mich vorstellen? Mein Name ist Anna."
+      },
+      {
+        "text": "Er hat sich allen Kollegen vorgestellt."
+      }
+    ]
+  },
+  {
+    "word": "sich bedanken",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte mich für Ihre Hilfe bedanken."
+      },
+      {
+        "text": "Sie hat sich herzlich bedankt."
+      }
+    ]
+  },
+  {
+    "word": "sich entschuldigen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss mich für mein Verhalten entschuldigen."
+      },
+      {
+        "text": "Er hat sich bei ihr entschuldigt."
+      }
+    ]
+  },
+  {
+    "word": "Gespräch",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir hatten ein langes Gespräch."
+      },
+      {
+        "text": "Das Gespräch mit dem Chef war konstruktiv."
+      }
+    ]
+  },
+  {
+    "word": "Tonfall",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ihr Tonfall war sehr freundlich."
+      },
+      {
+        "text": "Achten Sie auf einen höflichen Tonfall."
+      }
+    ]
+  },
+  {
+    "word": "angemessen",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das Verhalten war nicht angemessen."
+      },
+      {
+        "text": "Eine angemessene Kleidung ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "Missverständnis",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gab ein Missverständnis."
+      },
+      {
+        "text": "Das war ein Missverständnis, tut mir leid."
+      }
+    ]
+  },
+  {
+    "word": "Verwechslung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das war eine Verwechslung."
+      },
+      {
+        "text": "Entschuldigung, das muss eine Verwechslung sein."
+      }
+    ]
+  },
+  {
+    "word": "Distanz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Man sollte eine gewisse Distanz wahren."
+      },
+      {
+        "text": "Die Distanz zwischen uns ist groß."
+      }
+    ]
+  },
+  {
+    "word": "Beziehungsebene",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Beziehungsebene ist wichtig in der Kommunikation."
+      },
+      {
+        "text": "Auf der Beziehungsebene gibt es Probleme."
+      }
+    ]
+  },
+  {
+    "word": "Kontext",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Man muss den Kontext berücksichtigen."
+      },
+      {
+        "text": "Im kulturellen Kontext hat das eine andere Bedeutung."
+      }
+    ]
+  },
+  {
+    "word": "Etikette",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Etikette muss beachtet werden."
+      },
+      {
+        "text": "Er kennt die Etikette bei formellen Anlässen."
+      }
+    ]
+  }
+]
