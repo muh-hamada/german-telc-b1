@@ -3,10 +3,11 @@
 const fs = require('fs').promises;
 
 // Configuration
-const INPUT_FILE = 'b1-vocabulary.json';
+const INPUT_FILE = 'b1-vocabulary-clean.json';
 const OUTPUT_FILE = 'b1-vocabulary-complete.json';
 const PROGRESS_FILE = 'b1-translation-progress.json';
-const BATCH_SIZE = 5; // Process 5 items at a time
+const BATCH_SIZE = 5; // Save progress every 5 items
+const PARALLEL_BATCH_SIZE = 10; // Process 10 items in parallel simultaneously
 
 // Parse command line arguments
 const args = process.argv.slice(2);
@@ -171,9 +172,30 @@ async function processEntry(entry) {
   }
 }
 
+// Function to format duration
+function formatDuration(milliseconds) {
+  const seconds = Math.floor(milliseconds / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  
+  const remainingMinutes = minutes % 60;
+  const remainingSeconds = seconds % 60;
+  
+  if (hours > 0) {
+    return `${hours}h ${remainingMinutes}m ${remainingSeconds}s`;
+  } else if (minutes > 0) {
+    return `${minutes}m ${remainingSeconds}s`;
+  } else {
+    return `${seconds}s`;
+  }
+}
+
 // Main function
 async function main() {
+  const startTime = Date.now();
+  
   console.log('🚀 B1 Vocabulary Translation Script\n');
+  console.log(`⏰ Started at: ${new Date().toLocaleTimeString()}\n`);
   
   // Load input file
   const inputData = await fs.readFile(INPUT_FILE, 'utf8');
@@ -208,41 +230,81 @@ async function main() {
   const endIndex = startIndex + itemsToProcess;
   
   console.log(`📝 Processing ${itemsToProcess} entries (from ${startIndex + 1} to ${endIndex})`);
-  console.log(`💾 Saving progress every ${BATCH_SIZE} entries\n`);
+  console.log(`🚀 Parallel processing: ${PARALLEL_BATCH_SIZE} entries at once`);
+  console.log(`💾 Saving progress regularly\n`);
   
-  // Process in batches
-  for (let i = startIndex; i < endIndex; i++) {
-    const entry = vocabulary[i];
-    const currentNum = i + 1;
-    const progress = ((i - startIndex + 1) / itemsToProcess * 100).toFixed(1);
+  let batchStartTime = Date.now();
+  
+  // Process in parallel batches
+  for (let i = startIndex; i < endIndex; i += PARALLEL_BATCH_SIZE) {
+    const batchEnd = Math.min(i + PARALLEL_BATCH_SIZE, endIndex);
+    const batchEntries = vocabulary.slice(i, batchEnd);
+    const batchSize = batchEntries.length;
     
-    console.log(`\n[${currentNum}/${vocabulary.length}] (${progress}%)`);
+    const currentNum = i + 1;
+    const progress = ((batchEnd - startIndex) / itemsToProcess * 100).toFixed(1);
+    
+    console.log(`\n[${currentNum}-${batchEnd}/${vocabulary.length}] (${progress}%)`);
+    console.log(`  Processing ${batchSize} entries in parallel...`);
     
     try {
-      const processedEntry = await processEntry(entry);
-      outputData.push(processedEntry);
+      // Process all entries in this batch simultaneously
+      const processedBatch = await Promise.all(
+        batchEntries.map((entry, idx) => {
+          console.log(`    → ${i + idx + 1}. "${entry.word}"`);
+          return processEntry(entry);
+        })
+      );
       
-      // Save progress every BATCH_SIZE items or at the end
-      if ((i + 1) % BATCH_SIZE === 0 || i === endIndex - 1) {
-        await fs.writeFile(OUTPUT_FILE, JSON.stringify(outputData, null, 2));
-        await saveProgress(i + 1, outputData.length);
-        console.log(`  ✅ Progress saved (${outputData.length} entries completed)`);
+      outputData.push(...processedBatch);
+      
+      // Save progress after each parallel batch
+      await fs.writeFile(OUTPUT_FILE, JSON.stringify(outputData, null, 2));
+      await saveProgress(batchEnd, outputData.length);
+      console.log(`  ✅ Batch completed (${outputData.length} total entries)`);
+      
+      // Show time statistics
+      const elapsed = Date.now() - startTime;
+      const processed = batchEnd - startIndex;
+      const remaining = itemsToProcess - processed;
+      
+      if (remaining > 0) {
+        const avgTime = elapsed / processed;
+        const estimatedRemaining = avgTime * remaining;
+        console.log(`  ⏱️  Elapsed: ${formatDuration(elapsed)} | ETA: ${formatDuration(estimatedRemaining)}`);
       }
       
-      // Small delay to avoid rate limiting
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Small delay between parallel batches to avoid rate limiting
+      if (batchEnd < endIndex) {
+        await new Promise(resolve => setTimeout(resolve, 200));
+      }
       
     } catch (error) {
-      console.error(`\n❌ Error processing entry ${currentNum}. Saving progress and exiting...`);
+      console.error(`\n❌ Error processing batch starting at entry ${currentNum}`);
+      console.error(`Error details:`, error.message);
+      console.error(`Saving progress and exiting...`);
       await fs.writeFile(OUTPUT_FILE, JSON.stringify(outputData, null, 2));
       await saveProgress(i, outputData.length);
       process.exit(1);
     }
   }
   
+  const endTime = Date.now();
+  const duration = endTime - startTime;
+  
   console.log('\n✨ Translation complete!');
   console.log(`📊 Total entries processed: ${outputData.length}`);
   console.log(`📁 Output saved to: ${OUTPUT_FILE}`);
+  console.log(`⏱️  Total time: ${formatDuration(duration)}`);
+  console.log(`⏰ Finished at: ${new Date().toLocaleTimeString()}`);
+  
+  // Calculate average time per entry
+  const avgTimePerEntry = duration / itemsToProcess;
+  const avgSeconds = (avgTimePerEntry / 1000).toFixed(2);
+  console.log(`\n📈 Performance Metrics:`);
+  console.log(`   • Average time per entry: ${avgSeconds}s`);
+  console.log(`   • Entries processed per minute: ${(60 / avgSeconds).toFixed(1)}`);
+  console.log(`   • Parallel batch size: ${PARALLEL_BATCH_SIZE} entries at once`);
   
   // Clean up progress file if we finished everything
   if (endIndex >= vocabulary.length) {
