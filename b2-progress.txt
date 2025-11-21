@@ -7,11 +7,11 @@ Total batches needed: ~20
 
 Current Progress:
 -----------------
-Last completed line: 200
-Next line to process: 201
-Batch completed: 4
+Last completed line: 700
+Next line to process: 701
+Batch completed: 14
 
-Status: Batches 2-4 completed successfully (lines 51-200)
+Status: Batch 14 completed successfully (lines 651-700)
 Last updated: 2025-11-21
 
 Batches completed:
@@ -19,4 +19,14 @@ Batches completed:
 - Batch 2: Lines 51-100 ✓ (Work & Business vocabulary)
 - Batch 3: Lines 101-150 ✓ (Politics & Legal vocabulary)
 - Batch 4: Lines 151-200 ✓ (Communication & Etiquette vocabulary)
+- Batch 5: Lines 201-250 ✓ (Separable verbs & Emotions)
+- Batch 6: Lines 251-300 ✓ (Mental health & Emotions vocabulary)
+- Batch 7: Lines 301-350 ✓ (Culture, Art & Literature vocabulary)
+- Batch 8: Lines 351-400 ✓ (Social Media vocabulary)
+- Batch 9: Lines 401-450 ✓ (Science & Research vocabulary)
+- Batch 10: Lines 451-500 ✓ (Technology & Economy vocabulary)
+- Batch 11: Lines 501-550 ✓ (Finance & Health vocabulary)
+- Batch 12: Lines 551-600 ✓ (Health & Ethics vocabulary)
+- Batch 13: Lines 601-650 ✓ (Ethics & Society vocabulary)
+- Batch 14: Lines 651-700 ✓ (Consumer & Workplace vocabulary)
 
