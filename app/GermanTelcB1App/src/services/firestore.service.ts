@@ -39,18 +39,27 @@ class FirestoreService {
       
       if (!userDoc.exists) {
         // New user - create full profile
+        // Auto-detect timezone from device
+        // Example: "Europe/Berlin" or "America/New_York"
+        const deviceTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        
         const userData = {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
           photoURL: user.photoURL,
           provider: user.provider,
+          appId: activeExamConfig.id,
           createdAt: Timestamp.fromDate(user.createdAt),
           lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+          timezone: deviceTimezone,
+          platform: Platform.OS,
           preferences: {
             interfaceLanguage: i18n.language || 'en',
-            notifications: false,
-            platform: Platform.OS,
+          },
+          notificationSettings: {
+            enabled: false,
+            hour: '09:00', // Default notification time in HH:mm format
           },
           stats: {
             totalExams: 0,
