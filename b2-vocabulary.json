@@ -9475,5 +9475,2982 @@
         "text": "Das Team ist sehr motiviert."
       }
     ]
+  },
+  {
+    "word": "Besprechung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben eine Besprechung um 14 Uhr."
+      },
+      {
+        "text": "Die Besprechung dauerte zwei Stunden."
+      }
+    ]
+  },
+  {
+    "word": "Meeting",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Meeting findet online statt."
+      },
+      {
+        "text": "Ich habe gleich ein Meeting."
+      }
+    ]
+  },
+  {
+    "word": "Konferenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Konferenz ist in Berlin."
+      },
+      {
+        "text": "Ich nehme an der Konferenz teil."
+      }
+    ]
+  },
+  {
+    "word": "Präsentation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Präsentation war sehr gut."
+      },
+      {
+        "text": "Ich bereite eine Präsentation vor."
+      }
+    ]
+  },
+  {
+    "word": "vortragen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er trägt seine Ideen vor."
+      },
+      {
+        "text": "Sie hat das Referat gut vorgetragen."
+      }
+    ]
+  },
+  {
+    "word": "Unterlagen",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte bringen Sie alle Unterlagen mit."
+      },
+      {
+        "text": "Die Unterlagen sind vollständig."
+      }
+    ]
+  },
+  {
+    "word": "E-Mail",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe dir eine E-Mail geschickt."
+      },
+      {
+        "text": "Bitte prüfen Sie Ihre E-Mails."
+      }
+    ]
+  },
+  {
+    "word": "Mitteilung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine wichtige Mitteilung für Sie."
+      },
+      {
+        "text": "Die Mitteilung kam per E-Mail."
+      }
+    ]
+  },
+  {
+    "word": "weiterleiten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie die E-Mail weiterleiten?"
+      },
+      {
+        "text": "Ich habe die Nachricht weitergeleitet."
+      }
+    ]
+  },
+  {
+    "word": "anhängen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich hänge die Datei an."
+      },
+      {
+        "text": "Bitte hängen Sie das Dokument an die E-Mail an."
+      }
+    ]
+  },
+  {
+    "word": "Datei",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Datei ist zu groß."
+      },
+      {
+        "text": "Können Sie mir die Datei schicken?"
+      }
+    ]
+  },
+  {
+    "word": "Anhang",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Dokument finden Sie im Anhang."
+      },
+      {
+        "text": "Der Anhang enthält weitere Informationen."
+      }
+    ]
+  },
+  {
+    "word": "Protokoll",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wer schreibt das Protokoll?"
+      },
+      {
+        "text": "Das Protokoll der Sitzung wurde verteilt."
+      }
+    ]
+  },
+  {
+    "word": "Vereinbarung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben eine Vereinbarung getroffen."
+      },
+      {
+        "text": "Die Vereinbarung gilt ab sofort."
+      }
+    ]
+  },
+  {
+    "word": "Absprache",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das war keine Absprache."
+      },
+      {
+        "text": "Wir haben eine Absprache getroffen."
+      }
+    ]
+  },
+  {
+    "word": "absprechen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen das noch absprechen."
+      },
+      {
+        "text": "Hast du das mit ihm abgesprochen?"
+      }
+    ]
+  },
+  {
+    "word": "sich abstimmen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen uns abstimmen."
+      },
+      {
+        "text": "Sie stimmt sich mit dem Team ab."
+      }
+    ]
+  },
+  {
+    "word": "Zeitplan",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Zeitplan ist sehr eng."
+      },
+      {
+        "text": "Wir müssen den Zeitplan einhalten."
+      }
+    ]
+  },
+  {
+    "word": "Frist",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Frist läuft morgen ab."
+      },
+      {
+        "text": "Wir müssen die Frist einhalten."
+      }
+    ]
+  },
+  {
+    "word": "Verantwortung übernehmen",
+    "article": "",
+    "type": "expression",
+    "exampleSentences": [
+      {
+        "text": "Er übernimmt die Verantwortung für das Projekt."
+      },
+      {
+        "text": "Man muss Verantwortung übernehmen."
+      }
+    ]
+  },
+  {
+    "word": "zuständig sein",
+    "article": "",
+    "type": "expression",
+    "exampleSentences": [
+      {
+        "text": "Wer ist dafür zuständig?"
+      },
+      {
+        "text": "Ich bin für die Organisation zuständig."
+      }
+    ]
+  },
+  {
+    "word": "Unternehmen",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Unternehmen wächst schnell."
+      },
+      {
+        "text": "Sie arbeitet in einem großen Unternehmen."
+      }
+    ]
+  },
+  {
+    "word": "Firma",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Firma hat 500 Mitarbeiter."
+      },
+      {
+        "text": "Er gründet eine eigene Firma."
+      }
+    ]
+  },
+  {
+    "word": "Anweisung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte folgen Sie den Anweisungen."
+      },
+      {
+        "text": "Er hat klare Anweisungen gegeben."
+      }
+    ]
+  },
+  {
+    "word": "Rückmeldung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich warte auf Ihre Rückmeldung."
+      },
+      {
+        "text": "Die Rückmeldung war positiv."
+      }
+    ]
+  },
+  {
+    "word": "Lösung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben eine Lösung gefunden."
+      },
+      {
+        "text": "Das ist die beste Lösung."
+      }
+    ]
+  },
+  {
+    "word": "problemlos",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Alles lief problemlos."
+      },
+      {
+        "text": "Die Installation war problemlos."
+      }
+    ]
+  },
+  {
+    "word": "effizient",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine effiziente Methode."
+      },
+      {
+        "text": "Wir müssen effizienter arbeiten."
+      }
+    ]
+  },
+  {
+    "word": "zuverlässig",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Er ist ein zuverlässiger Mitarbeiter."
+      },
+      {
+        "text": "Sie arbeitet sehr zuverlässig."
+      }
+    ]
+  },
+  {
+    "word": "Arbeitsvertrag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Arbeitsvertrag unterschrieben."
+      },
+      {
+        "text": "Der Arbeitsvertrag ist befristet."
+      }
+    ]
+  },
+  {
+    "word": "Lohn",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Lohn wird pünktlich gezahlt."
+      },
+      {
+        "text": "Sie bekommt einen guten Lohn."
+      }
+    ]
+  },
+  {
+    "word": "Beförderung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat eine Beförderung bekommen."
+      },
+      {
+        "text": "Die Beförderung war wohlverdient."
+      }
+    ]
+  },
+  {
+    "word": "Fortbildung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich mache eine Fortbildung."
+      },
+      {
+        "text": "Die Fortbildung dauert drei Tage."
+      }
+    ]
+  },
+  {
+    "word": "Kompetenz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat hohe fachliche Kompetenzen."
+      },
+      {
+        "text": "Diese Kompetenz ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "Qualifikation",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat die nötige Qualifikation."
+      },
+      {
+        "text": "Die Qualifikationen sind ausgezeichnet."
+      }
+    ]
+  },
+  {
+    "word": "Politik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie interessiert sich für Politik."
+      },
+      {
+        "text": "Die Politik muss handeln."
+      }
+    ]
+  },
+  {
+    "word": "Politiker",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Politiker hält eine Rede."
+      },
+      {
+        "text": "Viele Politiker waren anwesend."
+      }
+    ]
+  },
+  {
+    "word": "Politikerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Politikerin setzt sich für Gleichberechtigung ein."
+      },
+      {
+        "text": "Sie ist eine erfahrene Politikerin."
+      }
+    ]
+  },
+  {
+    "word": "Bundeskanzleramt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Bundeskanzleramt ist in Berlin."
+      },
+      {
+        "text": "Er arbeitet im Bundeskanzleramt."
+      }
+    ]
+  },
+  {
+    "word": "Bundespräsident",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Bundespräsident hat eine repräsentative Funktion."
+      },
+      {
+        "text": "Der Bundespräsident hielt eine Ansprache."
+      }
+    ]
+  },
+  {
+    "word": "Bundespräsidentin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Bundespräsidentin empfängt Gäste."
+      },
+      {
+        "text": "Sie ist die erste Bundespräsidentin."
+      }
+    ]
+  },
+  {
+    "word": "Bundeskanzler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Bundeskanzler leitet die Regierung."
+      },
+      {
+        "text": "Wer wird neuer Bundeskanzler?"
+      }
+    ]
+  },
+  {
+    "word": "wählen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich wähle bei der Wahl."
+      },
+      {
+        "text": "Man kann zwischen verschiedenen Optionen wählen."
+      }
+    ]
+  },
+  {
+    "word": "Wähler",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wähler haben entschieden."
+      },
+      {
+        "text": "Er ist ein unentschlossener Wähler."
+      }
+    ]
+  },
+  {
+    "word": "Wählerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wählerin hat ihre Stimme abgegeben."
+      },
+      {
+        "text": "Sie ist eine bewusste Wählerin."
+      }
+    ]
+  },
+  {
+    "word": "Wahlergebnis",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Wahlergebnis ist knapp."
+      },
+      {
+        "text": "Das Wahlergebnis wird verkündet."
+      }
+    ]
+  },
+  {
+    "word": "Politikverdrossenheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Politikverdrossenheit nimmt zu."
+      },
+      {
+        "text": "Politikverdrossenheit ist ein Problem."
+      }
+    ]
+  },
+  {
+    "word": "Mitbestimmung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Mitbestimmung der Bürger ist wichtig."
+      },
+      {
+        "text": "Wir fordern mehr Mitbestimmung."
+      }
+    ]
+  },
+  {
+    "word": "erlassen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Regierung hat ein neues Gesetz erlassen."
+      },
+      {
+        "text": "Das Gesetz wurde gestern erlassen."
+      }
+    ]
+  },
+  {
+    "word": "Asylrecht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Asylrecht ist ein Menschenrecht."
+      },
+      {
+        "text": "Er beantragt Asylrecht."
+      }
+    ]
+  },
+  {
+    "word": "Flüchtling",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Flüchtlinge suchen Schutz."
+      },
+      {
+        "text": "Die Flüchtlinge brauchen Hilfe."
+      }
+    ]
+  },
+  {
+    "word": "Asylbewerber",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Asylbewerber wartet auf eine Entscheidung."
+      },
+      {
+        "text": "Viele Asylbewerber leben in Heimen."
+      }
+    ]
+  },
+  {
+    "word": "Asylbewerberin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Asylbewerberin kommt aus Syrien."
+      },
+      {
+        "text": "Sie ist Asylbewerberin."
+      }
+    ]
+  },
+  {
+    "word": "Bürgerrecht",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bürgerrechte müssen geschützt werden."
+      },
+      {
+        "text": "Das ist ein wichtiges Bürgerrecht."
+      }
+    ]
+  },
+  {
+    "word": "Staatsbürgerschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat die deutsche Staatsbürgerschaft."
+      },
+      {
+        "text": "Sie beantragt die Staatsbürgerschaft."
+      }
+    ]
+  },
+  {
+    "word": "Innenpolitik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Innenpolitik ist kompliziert."
+      },
+      {
+        "text": "Er interessiert sich für Innenpolitik."
+      }
+    ]
+  },
+  {
+    "word": "Außenpolitik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Außenpolitik des Landes ist wichtig."
+      },
+      {
+        "text": "Sie arbeitet im Bereich Außenpolitik."
+      }
+    ]
+  },
+  {
+    "word": "Diplomatie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diplomatie ist wichtig für den Frieden."
+      },
+      {
+        "text": "Er arbeitet in der Diplomatie."
+      }
+    ]
+  },
+  {
+    "word": "Diplomat",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Diplomat verhandelt."
+      },
+      {
+        "text": "Er ist ein erfahrener Diplomat."
+      }
+    ]
+  },
+  {
+    "word": "Diplomatin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Diplomatin vertritt ihr Land."
+      },
+      {
+        "text": "Sie ist Diplomatin."
+      }
+    ]
+  },
+  {
+    "word": "Botschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Botschaft ist in der Hauptstadt."
+      },
+      {
+        "text": "Er arbeitet in der Botschaft."
+      }
+    ]
+  },
+  {
+    "word": "Botschafter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Botschafter empfängt Gäste."
+      },
+      {
+        "text": "Er ist deutscher Botschafter."
+      }
+    ]
+  },
+  {
+    "word": "Botschafterin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Botschafterin hält eine Rede."
+      },
+      {
+        "text": "Sie ist amerikanische Botschafterin."
+      }
+    ]
+  },
+  {
+    "word": "Abkommen",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Abkommen wurde unterzeichnet."
+      },
+      {
+        "text": "Das Abkommen tritt in Kraft."
+      }
+    ]
+  },
+  {
+    "word": "Vereinte Nationen",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Vereinten Nationen fördern Frieden."
+      },
+      {
+        "text": "Er arbeitet für die Vereinten Nationen."
+      }
+    ]
+  },
+  {
+    "word": "Europäische Union",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Deutschland ist Mitglied der Europäischen Union."
+      },
+      {
+        "text": "Die Europäische Union hat 27 Mitgliedsstaaten."
+      }
+    ]
+  },
+  {
+    "word": "Außenbeziehungen",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Außenbeziehungen sind angespannt."
+      },
+      {
+        "text": "Man muss die Außenbeziehungen pflegen."
+      }
+    ]
+  },
+  {
+    "word": "Sanktion",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sanktionen wurden verhängt."
+      },
+      {
+        "text": "Die Sanktionen werden verschärft."
+      }
+    ]
+  },
+  {
+    "word": "Embargo",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Embargo wurde verhängt."
+      },
+      {
+        "text": "Das Embargo schadet der Wirtschaft."
+      }
+    ]
+  },
+  {
+    "word": "Friedensverhandlung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Friedensverhandlungen beginnen."
+      },
+      {
+        "text": "Friedensverhandlungen sind schwierig."
+      }
+    ]
+  },
+  {
+    "word": "Krieg",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Krieg bringt nur Leid."
+      },
+      {
+        "text": "Wir wollen keinen Krieg."
+      }
+    ]
+  },
+  {
+    "word": "Frieden",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Frieden ist wichtig."
+      },
+      {
+        "text": "Wir kämpfen für den Frieden."
+      }
+    ]
+  },
+  {
+    "word": "Instabilität",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die politische Instabilität ist ein Problem."
+      },
+      {
+        "text": "Instabilität gefährdet den Frieden."
+      }
+    ]
+  },
+  {
+    "word": "Entwicklungspolitik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Entwicklungspolitik hilft armen Ländern."
+      },
+      {
+        "text": "Sie arbeitet im Bereich Entwicklungspolitik."
+      }
+    ]
+  },
+  {
+    "word": "Konflikt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Konflikt eskaliert."
+      },
+      {
+        "text": "Wir müssen den Konflikt lösen."
+      }
+    ]
+  },
+  {
+    "word": "Infrastruktur",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Infrastruktur muss verbessert werden."
+      },
+      {
+        "text": "Eine gute Infrastruktur ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "Stadtviertel",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Stadtviertel ist sehr lebendig."
+      },
+      {
+        "text": "Ich wohne in einem ruhigen Stadtviertel."
+      }
+    ]
+  },
+  {
+    "word": "Innenstadt",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Innenstadt ist sehr belebt."
+      },
+      {
+        "text": "Ich gehe in die Innenstadt einkaufen."
+      }
+    ]
+  },
+  {
+    "word": "Stadtrand",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie wohnt am Stadtrand."
+      },
+      {
+        "text": "Der Stadtrand ist ruhiger."
+      }
+    ]
+  },
+  {
+    "word": "Vorstadt",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Familien wohnen in der Vorstadt."
+      },
+      {
+        "text": "Die Vorstadt ist grüner."
+      }
+    ]
+  },
+  {
+    "word": "Wohngegend",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine gute Wohngegend."
+      },
+      {
+        "text": "Die Wohngegend ist sicher."
+      }
+    ]
+  },
+  {
+    "word": "Wohnhaus",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Wohnhaus hat fünf Stockwerke."
+      },
+      {
+        "text": "Sie leben in einem Wohnhaus."
+      }
+    ]
+  },
+  {
+    "word": "Hochhaus",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Hochhaus ist 30 Stockwerke hoch."
+      },
+      {
+        "text": "Ich wohne in einem Hochhaus."
+      }
+    ]
+  },
+  {
+    "word": "Mietwohnung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich suche eine Mietwohnung."
+      },
+      {
+        "text": "Die Mietwohnung ist bezahlbar."
+      }
+    ]
+  },
+  {
+    "word": "Eigentumswohnung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat eine Eigentumswohnung gekauft."
+      },
+      {
+        "text": "Eigentumswohnungen sind teuer."
+      }
+    ]
+  },
+  {
+    "word": "Warmmiete",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Warmmiete beträgt 800 Euro."
+      },
+      {
+        "text": "In der Warmmiete sind Heizkosten enthalten."
+      }
+    ]
+  },
+  {
+    "word": "Kaltmiete",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kaltmiete ist 600 Euro."
+      },
+      {
+        "text": "Zur Kaltmiete kommen noch Nebenkosten."
+      }
+    ]
+  },
+  {
+    "word": "Mietvertrag",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe den Mietvertrag unterschrieben."
+      },
+      {
+        "text": "Der Mietvertrag läuft zwei Jahre."
+      }
+    ]
+  },
+  {
+    "word": "Vermieter",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Vermieter ist sehr nett."
+      },
+      {
+        "text": "Ich habe mit dem Vermieter gesprochen."
+      }
+    ]
+  },
+  {
+    "word": "Vermieterin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Vermieterin kommt morgen vorbei."
+      },
+      {
+        "text": "Sie ist eine faire Vermieterin."
+      }
+    ]
+  },
+  {
+    "word": "Bauprojekt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Bauprojekt wird umgesetzt."
+      },
+      {
+        "text": "Ein neues Bauprojekt wurde genehmigt."
+      }
+    ]
+  },
+  {
+    "word": "Baustelle",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Baustelle ist laut."
+      },
+      {
+        "text": "Vorsicht, Baustelle!"
+      }
+    ]
+  },
+  {
+    "word": "öffentlicher Nahverkehr",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der öffentliche Nahverkehr ist gut ausgebaut."
+      },
+      {
+        "text": "Ich nutze den öffentlichen Nahverkehr."
+      }
+    ]
+  },
+  {
+    "word": "Haltestelle",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Haltestelle ist um die Ecke."
+      },
+      {
+        "text": "Ich warte an der Haltestelle."
+      }
+    ]
+  },
+  {
+    "word": "U-Bahn",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich fahre mit der U-Bahn zur Arbeit."
+      },
+      {
+        "text": "Die U-Bahn kommt alle fünf Minuten."
+      }
+    ]
+  },
+  {
+    "word": "Straßenbahn",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Straßenbahn fährt durch die Innenstadt."
+      },
+      {
+        "text": "Ich nehme die Straßenbahn."
+      }
+    ]
+  },
+  {
+    "word": "Verkehrsnetz",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Verkehrsnetz ist gut ausgebaut."
+      },
+      {
+        "text": "Man sollte das Verkehrsnetz erweitern."
+      }
+    ]
+  },
+  {
+    "word": "Fahrplan",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich schaue mir den Fahrplan an."
+      },
+      {
+        "text": "Der Fahrplan hat sich geändert."
+      }
+    ]
+  },
+  {
+    "word": "Verspätung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Zug hat Verspätung."
+      },
+      {
+        "text": "Wegen der Verspätung komme ich zu spät."
+      }
+    ]
+  },
+  {
+    "word": "Stau",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gibt einen Stau auf der Autobahn."
+      },
+      {
+        "text": "Ich stecke im Stau."
+      }
+    ]
+  },
+  {
+    "word": "Umweltzone",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Umweltzone braucht man eine Plakette."
+      },
+      {
+        "text": "Die Umweltzone schützt die Luftqualität."
+      }
+    ]
+  },
+  {
+    "word": "Fahrrad",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich fahre mit dem Fahrrad zur Arbeit."
+      },
+      {
+        "text": "Das Fahrrad ist umweltfreundlich."
+      }
+    ]
+  },
+  {
+    "word": "Fahrspur",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die linke Fahrspur ist frei."
+      },
+      {
+        "text": "Ich wechsle die Fahrspur."
+      }
+    ]
+  },
+  {
+    "word": "Fußgänger",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fußgänger haben Vorrang."
+      },
+      {
+        "text": "Viele Fußgänger sind unterwegs."
+      }
+    ]
+  },
+  {
+    "word": "Fußgängerin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Fußgängerin überquert die Straße."
+      },
+      {
+        "text": "Als Fußgängerin muss man vorsichtig sein."
+      }
+    ]
+  },
+  {
+    "word": "Fußgängerzone",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Fußgängerzone ist autofrei."
+      },
+      {
+        "text": "In der Fußgängerzone kann man shoppen."
+      }
+    ]
+  },
+  {
+    "word": "Ampel",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ampel ist rot."
+      },
+      {
+        "text": "Ich warte an der Ampel."
+      }
+    ]
+  },
+  {
+    "word": "Zebrastreifen",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe über den Zebrastreifen."
+      },
+      {
+        "text": "Am Zebrastreifen müssen Autos anhalten."
+      }
+    ]
+  },
+  {
+    "word": "Bürgersteig",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe auf dem Bürgersteig."
+      },
+      {
+        "text": "Der Bürgersteig ist breit."
+      }
+    ]
+  },
+  {
+    "word": "Straßenschild",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Straßenschild zeigt die Richtung."
+      },
+      {
+        "text": "Ich schaue auf das Straßenschild."
+      }
+    ]
+  },
+  {
+    "word": "Straßenbeleuchtung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Straßenbeleuchtung geht abends an."
+      },
+      {
+        "text": "Eine gute Straßenbeleuchtung ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "Grünfläche",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Stadt gibt es viele Grünflächen."
+      },
+      {
+        "text": "Die Grünfläche ist ein Park."
+      }
+    ]
+  },
+  {
+    "word": "Spielplatz",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder spielen auf dem Spielplatz."
+      },
+      {
+        "text": "Der Spielplatz hat eine Schaukel."
+      }
+    ]
+  },
+  {
+    "word": "Müllabfuhr",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Müllabfuhr kommt montags."
+      },
+      {
+        "text": "Ich habe den Termin der Müllabfuhr verpasst."
+      }
+    ]
+  },
+  {
+    "word": "Abfallentsorgung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Abfallentsorgung ist wichtig."
+      },
+      {
+        "text": "Eine gute Abfallentsorgung schützt die Umwelt."
+      }
+    ]
+  },
+  {
+    "word": "Wasserversorgung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wasserversorgung ist gesichert."
+      },
+      {
+        "text": "Eine gute Wasserversorgung ist lebensnotwendig."
+      }
+    ]
+  },
+  {
+    "word": "Stromversorgung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Stromversorgung ist ausgefallen."
+      },
+      {
+        "text": "Eine stabile Stromversorgung ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "Kanalnetz",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Kanalnetz muss erneuert werden."
+      },
+      {
+        "text": "Ein gutes Kanalnetz ist wichtig für die Stadt."
+      }
+    ]
+  },
+  {
+    "word": "Stadtverwaltung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe bei der Stadtverwaltung angerufen."
+      },
+      {
+        "text": "Die Stadtverwaltung ist zuständig."
+      }
+    ]
+  },
+  {
+    "word": "Bürgeramt",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe zum Bürgeramt."
+      },
+      {
+        "text": "Das Bürgeramt ist montags geschlossen."
+      }
+    ]
+  },
+  {
+    "word": "Stadtplanung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Stadtplanung ist komplex."
+      },
+      {
+        "text": "Er arbeitet in der Stadtplanung."
+      }
+    ]
+  },
+  {
+    "word": "Verkehrsplanung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Verkehrsplanung muss verbessert werden."
+      },
+      {
+        "text": "Verkehrsplanung ist wichtig für eine Stadt."
+      }
+    ]
+  },
+  {
+    "word": "Lebensqualität",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Lebensqualität in der Stadt ist hoch."
+      },
+      {
+        "text": "Grünflächen erhöhen die Lebensqualität."
+      }
+    ]
+  },
+  {
+    "word": "Mietpreisbremse",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Mietpreisbremse soll Mieten begrenzen."
+      },
+      {
+        "text": "Die Mietpreisbremse ist umstritten."
+      }
+    ]
+  },
+  {
+    "word": "Gentrifizierung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gentrifizierung verändert Stadtteile."
+      },
+      {
+        "text": "Viele Menschen leiden unter Gentrifizierung."
+      }
+    ]
+  },
+  {
+    "word": "Meinung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist meine Meinung."
+      },
+      {
+        "text": "Jeder hat eine Meinung zu diesem Thema."
+      }
+    ]
+  },
+  {
+    "word": "Standpunkt",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich vertrete diesen Standpunkt."
+      },
+      {
+        "text": "Sein Standpunkt ist klar."
+      }
+    ]
+  },
+  {
+    "word": "Ansicht",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin der Ansicht, dass das falsch ist."
+      },
+      {
+        "text": "Ihre Ansicht ist interessant."
+      }
+    ]
+  },
+  {
+    "word": "meiner Meinung nach",
+    "article": "",
+    "type": "expression",
+    "exampleSentences": [
+      {
+        "text": "Meiner Meinung nach ist das eine gute Idee."
+      },
+      {
+        "text": "Meiner Meinung nach sollten wir warten."
+      }
+    ]
+  },
+  {
+    "word": "zustimmen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich stimme dir zu."
+      },
+      {
+        "text": "Viele haben zugestimmt."
+      }
+    ]
+  },
+  {
+    "word": "ablehnen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich lehne diesen Vorschlag ab."
+      },
+      {
+        "text": "Er hat das Angebot abgelehnt."
+      }
+    ]
+  },
+  {
+    "word": "Zustimmung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Zustimmung ist groß."
+      },
+      {
+        "text": "Er hat seine Zustimmung gegeben."
+      }
+    ]
+  },
+  {
+    "word": "Ablehnung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ablehnung war deutlich."
+      },
+      {
+        "text": "Er bekam eine Ablehnung."
+      }
+    ]
+  },
+  {
+    "word": "Einwand",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe einen Einwand."
+      },
+      {
+        "text": "Sein Einwand war berechtigt."
+      }
+    ]
+  },
+  {
+    "word": "einwenden",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss etwas einwenden."
+      },
+      {
+        "text": "Er hat nichts einzuwenden."
+      }
+    ]
+  },
+  {
+    "word": "Widerspruch",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein Widerspruch."
+      },
+      {
+        "text": "Ich lege Widerspruch ein."
+      }
+    ]
+  },
+  {
+    "word": "widersprechen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss dir widersprechen."
+      },
+      {
+        "text": "Er hat mir widersprochen."
+      }
+    ]
+  },
+  {
+    "word": "Argument",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein gutes Argument."
+      },
+      {
+        "text": "Seine Argumente sind überzeugend."
+      }
+    ]
+  },
+  {
+    "word": "ein Argument vorbringen",
+    "article": "",
+    "type": "expression",
+    "exampleSentences": [
+      {
+        "text": "Er brachte ein starkes Argument vor."
+      },
+      {
+        "text": "Sie hat überzeugende Argumente vorgebracht."
+      }
+    ]
+  },
+  {
+    "word": "einleuchtend",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein einleuchtendes Argument."
+      },
+      {
+        "text": "Seine Erklärung war einleuchtend."
+      }
+    ]
+  },
+  {
+    "word": "überzeugend",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Seine Argumentation war sehr überzeugend."
+      },
+      {
+        "text": "Das ist ein überzeugender Grund."
+      }
+    ]
+  },
+  {
+    "word": "plausibel",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das klingt plausibel."
+      },
+      {
+        "text": "Seine Erklärung ist plausibel."
+      }
+    ]
+  },
+  {
+    "word": "zweifelhaft",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist zweifelhaft."
+      },
+      {
+        "text": "Die Quelle ist zweifelhaft."
+      }
+    ]
+  },
+  {
+    "word": "unsachlich",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Diskussion wurde unsachlich."
+      },
+      {
+        "text": "Das ist ein unsachliches Argument."
+      }
+    ]
+  },
+  {
+    "word": "Begründung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich brauche eine Begründung."
+      },
+      {
+        "text": "Die Begründung war nicht überzeugend."
+      }
+    ]
+  },
+  {
+    "word": "begründen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie das begründen?"
+      },
+      {
+        "text": "Er hat seine Entscheidung gut begründet."
+      }
+    ]
+  },
+  {
+    "word": "These",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Seine These ist interessant."
+      },
+      {
+        "text": "Die These muss bewiesen werden."
+      }
+    ]
+  },
+  {
+    "word": "Antithese",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist die Antithese dazu."
+      },
+      {
+        "text": "Er präsentierte die Antithese."
+      }
+    ]
+  },
+  {
+    "word": "Schlussfolgerung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Was ist deine Schlussfolgerung?"
+      },
+      {
+        "text": "Die Schlussfolgerung ist logisch."
+      }
+    ]
+  },
+  {
+    "word": "folgern",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Daraus kann man folgern, dass..."
+      },
+      {
+        "text": "Was folgerst du daraus?"
+      }
+    ]
+  },
+  {
+    "word": "schlussfolgern",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Man kann schlussfolgern, dass..."
+      },
+      {
+        "text": "Er schlussfolgerte richtig."
+      }
+    ]
+  },
+  {
+    "word": "Aussage",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Seine Aussage war klar."
+      },
+      {
+        "text": "Die Aussage ist wahr."
+      }
+    ]
+  },
+  {
+    "word": "Behauptung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine mutige Behauptung."
+      },
+      {
+        "text": "Seine Behauptung ist falsch."
+      }
+    ]
+  },
+  {
+    "word": "behaupten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er behauptet, dass er unschuldig ist."
+      },
+      {
+        "text": "Was behauptest du da?"
+      }
+    ]
+  },
+  {
+    "word": "Analyse",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Analyse ist detailliert."
+      },
+      {
+        "text": "Ich mache eine Analyse des Textes."
+      }
+    ]
+  },
+  {
+    "word": "analysieren",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen das Problem analysieren."
+      },
+      {
+        "text": "Sie analysiert die Daten."
+      }
+    ]
+  },
+  {
+    "word": "Struktur",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Struktur ist klar."
+      },
+      {
+        "text": "Der Text hat eine gute Struktur."
+      }
+    ]
+  },
+  {
+    "word": "Aufbau",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Aufbau ist logisch."
+      },
+      {
+        "text": "Der Aufbau des Textes ist gut."
+      }
+    ]
+  },
+  {
+    "word": "Gliederung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Gliederung ist übersichtlich."
+      },
+      {
+        "text": "Ich erstelle eine Gliederung."
+      }
+    ]
+  },
+  {
+    "word": "einleiten",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich leite den Text ein."
+      },
+      {
+        "text": "Man sollte den Vortrag gut einleiten."
+      }
+    ]
+  },
+  {
+    "word": "Übergang",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Übergang ist fließend."
+      },
+      {
+        "text": "Ein guter Übergang ist wichtig."
+      }
+    ]
+  },
+  {
+    "word": "abschließend",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Abschließend möchte ich sagen..."
+      },
+      {
+        "text": "Abschließend kann man feststellen."
+      }
+    ]
+  },
+  {
+    "word": "meines Erachtens",
+    "article": "",
+    "type": "expression",
+    "exampleSentences": [
+      {
+        "text": "Meines Erachtens ist das richtig."
+      },
+      {
+        "text": "Meines Erachtens sollten wir warten."
+      }
+    ]
+  },
+  {
+    "word": "zunächst",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Zunächst möchte ich sagen..."
+      },
+      {
+        "text": "Zunächst war ich skeptisch."
+      }
+    ]
+  },
+  {
+    "word": "außerdem",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Außerdem ist es teuer."
+      },
+      {
+        "text": "Außerdem müssen wir Zeit sparen."
+      }
+    ]
+  },
+  {
+    "word": "jedoch",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Jedoch gibt es Probleme."
+      },
+      {
+        "text": "Jedoch müssen wir vorsichtig sein."
+      }
+    ]
+  },
+  {
+    "word": "dennoch",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Dennoch lohnt es sich."
+      },
+      {
+        "text": "Dennoch bin ich optimistisch."
+      }
+    ]
+  },
+  {
+    "word": "schließlich",
+    "article": "",
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Schließlich haben wir es geschafft."
+      },
+      {
+        "text": "Schließlich ist es seine Entscheidung."
+      }
+    ]
+  },
+  {
+    "word": "Formulierung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Formulierung ist unklar."
+      },
+      {
+        "text": "Das ist eine gute Formulierung."
+      }
+    ]
+  },
+  {
+    "word": "sachlich",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Bleiben Sie bitte sachlich."
+      },
+      {
+        "text": "Die Diskussion war sachlich."
+      }
+    ]
+  },
+  {
+    "word": "objektiv",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine objektive Bewertung."
+      },
+      {
+        "text": "Man muss objektiv bleiben."
+      }
+    ]
+  },
+  {
+    "word": "subjektiv",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist meine subjektive Meinung."
+      },
+      {
+        "text": "Die Wahrnehmung ist subjektiv."
+      }
+    ]
+  },
+  {
+    "word": "übertreiben",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Übertreib nicht!"
+      },
+      {
+        "text": "Man sollte nicht übertreiben."
+      }
+    ]
+  },
+  {
+    "word": "verharmlosen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Man sollte das Problem nicht verharmlosen."
+      },
+      {
+        "text": "Er verharmlost die Situation."
+      }
+    ]
+  },
+  {
+    "word": "vergleichen",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Man kann das nicht vergleichen."
+      },
+      {
+        "text": "Ich vergleiche die beiden Angebote."
+      }
+    ]
+  },
+  {
+    "word": "Perspektive",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Aus dieser Perspektive sieht es anders aus."
+      },
+      {
+        "text": "Welche Perspektive hast du?"
+      }
+    ]
+  },
+  {
+    "word": "rhetorisches Mittel",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er verwendet rhetorische Mittel."
+      },
+      {
+        "text": "Das ist ein rhetorisches Mittel."
+      }
+    ]
+  },
+  {
+    "word": "Wiederholung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Wiederholung ist ein Stilmittel."
+      },
+      {
+        "text": "Wiederholung hilft beim Lernen."
+      }
+    ]
+  },
+  {
+    "word": "Metapher",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine Metapher."
+      },
+      {
+        "text": "Er verwendet viele Metaphern."
+      }
+    ]
+  },
+  {
+    "word": "Ironie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das war Ironie."
+      },
+      {
+        "text": "Seine Ironie war subtil."
+      }
+    ]
+  },
+  {
+    "word": "Übertreibung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine Übertreibung."
+      },
+      {
+        "text": "Die Übertreibung ist offensichtlich."
+      }
+    ]
+  },
+  {
+    "word": "Gegenüberstellung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Gegenüberstellung ist interessant."
+      },
+      {
+        "text": "In der Gegenüberstellung sieht man Unterschiede."
+      }
+    ]
+  },
+  {
+    "word": "Umwelt",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen die Umwelt schützen."
+      },
+      {
+        "text": "Die Umwelt ist bedroht."
+      }
+    ]
+  },
+  {
+    "word": "Umweltschutz",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Umweltschutz ist wichtig."
+      },
+      {
+        "text": "Er engagiert sich für den Umweltschutz."
+      }
+    ]
+  },
+  {
+    "word": "Erderwärmung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Erderwärmung schreitet voran."
+      },
+      {
+        "text": "Wir müssen die Erderwärmung stoppen."
+      }
+    ]
+  },
+  {
+    "word": "CO₂-Emission",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die CO₂-Emissionen müssen reduziert werden."
+      },
+      {
+        "text": "Hohe CO₂-Emissionen schaden dem Klima."
+      }
+    ]
+  },
+  {
+    "word": "CO₂-Ausstoß",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der CO₂-Ausstoß ist zu hoch."
+      },
+      {
+        "text": "Wir müssen den CO₂-Ausstoß senken."
+      }
+    ]
+  },
+  {
+    "word": "Klimapolitik",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Klimapolitik muss verbessert werden."
+      },
+      {
+        "text": "Er kritisiert die aktuelle Klimapolitik."
+      }
+    ]
+  },
+  {
+    "word": "Klimaziel",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Klimaziele sind ambitioniert."
+      },
+      {
+        "text": "Wir müssen die Klimaziele erreichen."
+      }
+    ]
+  },
+  {
+    "word": "Klimagipfel",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Klimagipfel findet in Paris statt."
+      },
+      {
+        "text": "Auf dem Klimagipfel werden Maßnahmen beschlossen."
+      }
+    ]
+  },
+  {
+    "word": "Energiewende",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Energiewende ist notwendig."
+      },
+      {
+        "text": "Deutschland vollzieht die Energiewende."
+      }
+    ]
+  },
+  {
+    "word": "erneuerbare Energien",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Erneuerbare Energien sind die Zukunft."
+      },
+      {
+        "text": "Wir setzen auf erneuerbare Energien."
+      }
+    ]
+  },
+  {
+    "word": "Solarenergie",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Solarenergie ist umweltfreundlich."
+      },
+      {
+        "text": "Wir nutzen Solarenergie."
+      }
+    ]
+  },
+  {
+    "word": "Windkraft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Windkraft ist eine erneuerbare Energie."
+      },
+      {
+        "text": "Die Windkraft wird ausgebaut."
+      }
+    ]
+  },
+  {
+    "word": "Wasserkraft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wasserkraft ist eine saubere Energie."
+      },
+      {
+        "text": "Man nutzt Wasserkraft zur Stromerzeugung."
+      }
+    ]
+  },
+  {
+    "word": "Recycling",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Recycling ist wichtig für die Umwelt."
+      },
+      {
+        "text": "Wir betreiben konsequentes Recycling."
+      }
+    ]
+  },
+  {
+    "word": "Mülltrennung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In Deutschland ist Mülltrennung Pflicht."
+      },
+      {
+        "text": "Die Mülltrennung ist kompliziert."
+      }
+    ]
+  },
+  {
+    "word": "Abfallwirtschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Abfallwirtschaft ist gut organisiert."
+      },
+      {
+        "text": "Er arbeitet in der Abfallwirtschaft."
+      }
+    ]
+  },
+  {
+    "word": "Plastikmüll",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Plastikmüll verschmutzt die Meere."
+      },
+      {
+        "text": "Wir müssen Plastikmüll reduzieren."
+      }
+    ]
+  },
+  {
+    "word": "Luftverschmutzung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Luftverschmutzung ist ein Problem."
+      },
+      {
+        "text": "Luftverschmutzung schadet der Gesundheit."
+      }
+    ]
+  },
+  {
+    "word": "Wasserverschmutzung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wasserverschmutzung gefährdet Tiere."
+      },
+      {
+        "text": "Wir müssen Wasserverschmutzung verhindern."
+      }
+    ]
+  },
+  {
+    "word": "Artenvielfalt",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Artenvielfalt nimmt ab."
+      },
+      {
+        "text": "Wir müssen die Artenvielfalt schützen."
+      }
+    ]
+  },
+  {
+    "word": "Artensterben",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Artensterben ist alarmierend."
+      },
+      {
+        "text": "Wir müssen das Artensterben stoppen."
+      }
+    ]
+  },
+  {
+    "word": "Ökosystem",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Ökosystem ist bedroht."
+      },
+      {
+        "text": "Wir müssen das Ökosystem schützen."
+      }
+    ]
+  },
+  {
+    "word": "Treibhausgas",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Treibhausgase verursachen die Erderwärmung."
+      },
+      {
+        "text": "Wir müssen Treibhausgase reduzieren."
+      }
+    ]
+  },
+  {
+    "word": "ökologischer Fußabdruck",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein ökologischer Fußabdruck ist zu groß."
+      },
+      {
+        "text": "Wir sollten unseren ökologischen Fußabdruck verkleinern."
+      }
+    ]
+  },
+  {
+    "word": "Ressourcen",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Ressourcen sind begrenzt."
+      },
+      {
+        "text": "Wir müssen die Ressourcen schonen."
+      }
+    ]
+  },
+  {
+    "word": "Energieeffizienz",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Energieeffizienz muss verbessert werden."
+      },
+      {
+        "text": "Energieeffizienz spart Kosten."
+      }
+    ]
+  },
+  {
+    "word": "Kreislaufwirtschaft",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Kreislaufwirtschaft ist nachhaltig."
+      },
+      {
+        "text": "Wir brauchen eine Kreislaufwirtschaft."
+      }
+    ]
+  },
+  {
+    "word": "nachhaltige Entwicklung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nachhaltige Entwicklung ist wichtig."
+      },
+      {
+        "text": "Wir fördern nachhaltige Entwicklung."
+      }
+    ]
+  },
+  {
+    "word": "Umweltschaden",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Umweltschaden ist enorm."
+      },
+      {
+        "text": "Wir müssen Umweltschäden vermeiden."
+      }
+    ]
+  },
+  {
+    "word": "Umweltsünder",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er ist ein Umweltsünder."
+      },
+      {
+        "text": "Umweltsünder müssen bestraft werden."
+      }
+    ]
+  },
+  {
+    "word": "Umweltsünderin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Firma ist eine Umweltsünderin."
+      },
+      {
+        "text": "Sie wird als Umweltsünderin bezeichnet."
+      }
+    ]
+  },
+  {
+    "word": "Entwicklungsland",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Entwicklungsländer brauchen Hilfe."
+      },
+      {
+        "text": "Das Land ist ein Entwicklungsland."
+      }
+    ]
+  },
+  {
+    "word": "Industrieland",
+    "article": "das",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Deutschland ist ein Industrieland."
+      },
+      {
+        "text": "Industrieländer tragen viel zum Klimawandel bei."
+      }
+    ]
+  },
+  {
+    "word": "soziale Ungleichheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die soziale Ungleichheit wächst."
+      },
+      {
+        "text": "Wir müssen soziale Ungleichheit bekämpfen."
+      }
+    ]
+  },
+  {
+    "word": "globaler Süden",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der globale Süden leidet am meisten."
+      },
+      {
+        "text": "Wir müssen dem globalen Süden helfen."
+      }
+    ]
+  },
+  {
+    "word": "globaler Norden",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der globale Norden verbraucht zu viel."
+      },
+      {
+        "text": "Der globale Norden trägt Verantwortung."
+      }
+    ]
+  },
+  {
+    "word": "Armutsbekämpfung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Armutsbekämpfung ist eine Priorität."
+      },
+      {
+        "text": "Wir unterstützen die Armutsbekämpfung."
+      }
+    ]
+  },
+  {
+    "word": "Wasserknappheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wasserknappheit ist ein wachsendes Problem."
+      },
+      {
+        "text": "In vielen Ländern herrscht Wasserknappheit."
+      }
+    ]
+  },
+  {
+    "word": "Hungersnot",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Hungersnot ist dramatisch."
+      },
+      {
+        "text": "Millionen Menschen leiden unter Hungersnot."
+      }
+    ]
+  },
+  {
+    "word": "Nahrungsknappheit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nahrungsknappheit betrifft viele Länder."
+      },
+      {
+        "text": "Wir müssen gegen Nahrungsknappheit kämpfen."
+      }
+    ]
+  },
+  {
+    "word": "Fluchtursache",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Armut ist eine Fluchtursache."
+      },
+      {
+        "text": "Wir müssen Fluchtursachen bekämpfen."
+      }
+    ]
+  },
+  {
+    "word": "humanitäre Hilfe",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die humanitäre Hilfe ist dringend nötig."
+      },
+      {
+        "text": "Wir leisten humanitäre Hilfe."
+      }
+    ]
+  },
+  {
+    "word": "globale Verantwortung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir tragen globale Verantwortung."
+      },
+      {
+        "text": "Globale Verantwortung bedeutet Handeln."
+      }
+    ]
+  },
+  {
+    "word": "internationale Zusammenarbeit",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Internationale Zusammenarbeit ist wichtig."
+      },
+      {
+        "text": "Wir fördern die internationale Zusammenarbeit."
+      }
+    ]
+  },
+  {
+    "word": "Aktivist",
+    "article": "der",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er ist ein Klimaaktivist."
+      },
+      {
+        "text": "Die Aktivisten demonstrieren."
+      }
+    ]
+  },
+  {
+    "word": "Aktivistin",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist eine bekannte Aktivistin."
+      },
+      {
+        "text": "Die Aktivistin setzt sich für Klimaschutz ein."
+      }
+    ]
+  },
+  {
+    "word": "Klimabewegung",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Klimabewegung wächst."
+      },
+      {
+        "text": "Er ist Teil der Klimabewegung."
+      }
+    ]
   }
 ]
