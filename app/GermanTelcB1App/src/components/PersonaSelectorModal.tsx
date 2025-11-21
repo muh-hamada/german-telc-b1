@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { UserPersona, PERSONA_DAILY_LIMITS } from '../types/vocabulary.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface PersonaSelectorModalProps {
   visible: boolean;
@@ -39,8 +40,23 @@ const PersonaSelectorModal: React.FC<PersonaSelectorModalProps> = ({
 }) => {
   const { t } = useCustomTranslation();
 
+  React.useEffect(() => {
+    if (visible) {
+      logEvent(AnalyticsEvents.VOCABULARY_PERSONA_MODAL_OPENED, {
+        current_persona: currentPersona,
+      });
+    }
+  }, [visible, currentPersona]);
+
   const handlePersonaSelect = (persona: UserPersona) => {
     onPersonaSelect(persona);
+    onClose();
+  };
+
+  const handleClose = () => {
+    logEvent(AnalyticsEvents.VOCABULARY_PERSONA_MODAL_CLOSED, {
+      current_persona: currentPersona,
+    });
     onClose();
   };
 
@@ -74,7 +90,7 @@ const PersonaSelectorModal: React.FC<PersonaSelectorModalProps> = ({
       visible={visible}
       animationType="slide"
       transparent={true}
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
     >
       <View style={styles.modalOverlay}>
         <SafeAreaView style={styles.modalContainer}>
@@ -82,7 +98,7 @@ const PersonaSelectorModal: React.FC<PersonaSelectorModalProps> = ({
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>{t('vocabulary.progress.selectPersona')}</Text>
-              <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
             </View>

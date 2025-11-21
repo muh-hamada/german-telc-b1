@@ -66,14 +66,17 @@ const VocabularyHomeScreen: React.FC = () => {
   };
 
   const handleViewStudiedWords = () => {
+    logEvent(AnalyticsEvents.VOCABULARY_STUDIED_LIST_OPENED);
     navigation.navigate('VocabularyStudiedList');
   };
 
   const handleSignIn = () => {
+    logEvent(AnalyticsEvents.VOCABULARY_LOGIN_MODAL_OPENED);
     setShowLoginModal(true);
   };
 
   const handleLoginSuccess = async () => {
+    logEvent(AnalyticsEvents.VOCABULARY_LOGIN_SUCCESS);
     setShowLoginModal(false);
     // Reload progress after successful login
     if (loadProgress) {

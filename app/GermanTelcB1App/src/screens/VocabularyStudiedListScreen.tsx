@@ -19,6 +19,7 @@ import { useVocabulary } from '../contexts/VocabularyContext';
 import vocabularyDataService from '../services/vocabulary-data.service';
 import { VocabularyWord } from '../types/vocabulary.types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const VocabularyStudiedListScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -31,6 +32,14 @@ const VocabularyStudiedListScreen: React.FC = () => {
   useEffect(() => {
     loadStudiedWords();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && studiedWords.length > 0) {
+      logEvent(AnalyticsEvents.VOCABULARY_STUDIED_LIST_OPENED, {
+        word_count: studiedWords.length,
+      });
+    }
+  }, [isLoading, studiedWords.length]);
 
   const loadStudiedWords = async () => {
     if (!progress) {
@@ -62,8 +71,10 @@ const VocabularyStudiedListScreen: React.FC = () => {
   const toggleExpanded = (wordId: string) => {
     const newExpanded = new Set(expandedIds);
     if (newExpanded.has(wordId)) {
+      logEvent(AnalyticsEvents.VOCABULARY_WORD_COLLAPSED, { wordId });
       newExpanded.delete(wordId);
     } else {
+      logEvent(AnalyticsEvents.VOCABULARY_WORD_EXPANDED, { wordId });
       newExpanded.add(wordId);
     }
     setExpandedIds(newExpanded);

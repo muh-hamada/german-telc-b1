@@ -125,6 +125,13 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
         // Set flag to show modal if needed
         if (result.shouldShowModal) {
           setShouldShowStreakModal(true);
+          
+          // Log analytics event when modal is triggered
+          logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
+            currentStreak: result.streakData.currentStreak,
+            longestStreak: result.streakData.longestStreak,
+            hasPendingReward: result.streakData.adFreeReward.earned,
+          });
         }
         
         console.log('[StreakContext] Activity recorded successfully, shouldShowModal:', result.shouldShowModal);
@@ -140,6 +147,11 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   // Dismiss streak modal (mark as shown)
   const dismissStreakModal = () => {
     setShouldShowStreakModal(false);
+    
+    logEvent(AnalyticsEvents.STREAK_MODAL_DISMISSED, {
+      currentStreak: streakData?.currentStreak || 0,
+      longestStreak: streakData?.longestStreak || 0,
+    });
   };
 
   // Claim reward
@@ -158,6 +170,12 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
         // Refresh all data
         await loadStreakData();
         console.log('[StreakContext] Reward claimed successfully');
+      } else {
+        // Log failure for debugging
+        logEvent(AnalyticsEvents.STREAK_REWARD_CLAIMED, {
+          success: false,
+          error: 'claim_failed',
+        });
       }
       
       return success;

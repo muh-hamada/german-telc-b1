@@ -104,6 +104,17 @@ export const AnalyticsEvents = {
   VOCABULARY_DAILY_GOAL_COMPLETED: 'vocabulary_daily_goal_completed',
   VOCABULARY_PERSONA_SELECTED: 'vocabulary_persona_selected',
   VOCABULARY_PROGRESS_OPENED: 'vocabulary_progress_opened',
+  VOCABULARY_PROGRESS_REFRESHED: 'vocabulary_progress_refreshed',
+  VOCABULARY_PERSONA_CHANGE_OPENED: 'vocabulary_persona_change_opened',
+  VOCABULARY_PERSONA_CHANGED: 'vocabulary_persona_changed',
+  VOCABULARY_PERSONA_MODAL_OPENED: 'vocabulary_persona_modal_opened',
+  VOCABULARY_PERSONA_MODAL_CLOSED: 'vocabulary_persona_modal_closed',
+  VOCABULARY_STUDIED_LIST_OPENED: 'vocabulary_studied_list_opened',
+  VOCABULARY_WORD_EXPANDED: 'vocabulary_word_expanded',
+  VOCABULARY_WORD_COLLAPSED: 'vocabulary_word_collapsed',
+  VOCABULARY_LOGIN_MODAL_OPENED: 'vocabulary_login_modal_opened',
+  VOCABULARY_LOGIN_SUCCESS: 'vocabulary_login_success',
+  VOCABULARY_LOGIN_FAILED: 'vocabulary_login_failed',
 
   // Notification Reminder
   NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',

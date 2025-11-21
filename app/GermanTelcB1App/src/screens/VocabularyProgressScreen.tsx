@@ -20,6 +20,7 @@ import { useVocabulary } from '../contexts/VocabularyContext';
 import VocabularyStatsCard from '../components/VocabularyStatsCard';
 import Card from '../components/Card';
 import PersonaSelectorModal from '../components/PersonaSelectorModal';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const VocabularyProgressScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -27,7 +28,12 @@ const VocabularyProgressScreen: React.FC = () => {
   const [refreshing, setRefreshing] = React.useState(false);
   const [isPersonaModalVisible, setIsPersonaModalVisible] = React.useState(false);
 
+  React.useEffect(() => {
+    logEvent(AnalyticsEvents.VOCABULARY_PROGRESS_OPENED);
+  }, []);
+
   const handleRefresh = async () => {
+    logEvent(AnalyticsEvents.VOCABULARY_PROGRESS_REFRESHED);
     setRefreshing(true);
     await loadProgress();
     setRefreshing(false);
@@ -35,6 +41,12 @@ const VocabularyProgressScreen: React.FC = () => {
 
   const handlePersonaChange = async (persona: 'casual' | 'serious' | 'beginner') => {
     await setUserPersona(persona);
+    logEvent(AnalyticsEvents.VOCABULARY_PERSONA_CHANGED, { persona });
+  };
+
+  const handleOpenPersonaModal = () => {
+    logEvent(AnalyticsEvents.VOCABULARY_PERSONA_CHANGE_OPENED);
+    setIsPersonaModalVisible(true);
   };
 
   if (isLoading || !stats || !progress) {
@@ -93,7 +105,7 @@ const VocabularyProgressScreen: React.FC = () => {
 
         {/* Persona Card */}
         <TouchableOpacity 
-          onPress={() => setIsPersonaModalVisible(true)}
+          onPress={handleOpenPersonaModal}
           activeOpacity={0.7}
         >
           <Card style={styles.card}>
