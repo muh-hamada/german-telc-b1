@@ -291,7 +291,7 @@ function analyzeVocabulary(filePath, outputFile = 'b1-vocabulary-analysis.txt') 
 }
 
 if (require.main === module) {
-    const filePath = process.argv[2] || 'b1-vocabulary-clean.json';
+    const filePath = process.argv[2] || 'b1-vocabulary-merged.json';
     const outputFile = process.argv[3] || 'b1-vocabulary-analysis.txt';
     
     try {

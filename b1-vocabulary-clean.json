@@ -8541,6 +8541,9 @@
     "exampleSentences": [
       {
         "text": "Fahrkarten bekommt man am Automaten."
+      },
+      {
+        "text": "Ich habe meine Fahrkarte verloren."
       }
     ]
   },
@@ -10836,6 +10839,9 @@
     "exampleSentences": [
       {
         "text": "Ich bin seit drei Jahren geschieden."
+      },
+      {
+        "text": "Meine Kollegin ist geschieden."
       }
     ]
   },
@@ -11999,10 +12005,13 @@
     "type": "adjective",
     "exampleSentences": [
       {
+        "text": "Das Brot ist schon hart."
+      },
+      {
         "text": "Die Arbeit ist hart."
       },
       {
-        "text": "Das Brot ist schon hart."
+        "text": "Wir haben hart gearbeitet, um die Wohnung zu bezahlen."
       }
     ]
   },
@@ -12012,7 +12021,13 @@
     "type": "verb",
     "exampleSentences": [
       {
+        "text": "Ich hasse Autofahren."
+      },
+      {
         "text": "Ich hasse es, wenn ich lange warten muss."
+      },
+      {
+        "text": "Ich hasse es, zu spät zu kommen."
       }
     ]
   },
@@ -12021,6 +12036,9 @@
     "article": "",
     "type": "adjective",
     "exampleSentences": [
+      {
+        "text": "Das ist aber eine hässliche Lampe!"
+      },
       {
         "text": "Ich finde dieses Kleid hässlich."
       }
@@ -12033,6 +12051,9 @@
     "exampleSentences": [
       {
         "text": "Der Bus fährt hier sehr häufig."
+      },
+      {
+        "text": "Haben Sie häufig Kopfschmerzen? Dann sollten Sie nicht so lange am Computer sitzen."
       }
     ]
   },
@@ -12063,6 +12084,9 @@
     "exampleSentences": [
       {
         "text": "Ich hätte gern 500 g Hackfleisch."
+      },
+      {
+        "text": "Ich hätte gern 500g Hackfleisch."
       }
     ]
   },
@@ -12073,6 +12097,9 @@
     "exampleSentences": [
       {
         "text": "Das Schiff fährt in den Hafen ein."
+      },
+      {
+        "text": "Wenn du in Hamburg bist, musst du dir unbedingt den Hafen ansehen."
       }
     ]
   },
@@ -12081,6 +12108,9 @@
     "article": "",
     "type": "verb",
     "exampleSentences": [
+      {
+        "text": "Bei Gewitter kann es auch hageln."
+      },
       {
         "text": "Es hat gehagelt. Jetzt liegen kleine Eisstücke auf der Straße."
       }
@@ -12093,6 +12123,9 @@
     "exampleSentences": [
       {
         "text": "Ich möchte ein halbes Hähnchen mit Pommes frites."
+      },
+      {
+        "text": "Zum Mittagessen gibt es Hühnchen mit Reis."
       }
     ]
   },
@@ -12243,110 +12276,6 @@
     ]
   },
   {
-    "word": "hart",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Die Arbeit ist hart."
-      },
-      {
-        "text": "Das Brot ist schon hart."
-      },
-      {
-        "text": "Wir haben hart gearbeitet, um die Wohnung zu bezahlen."
-      }
-    ]
-  },
-  {
-    "word": "hassen",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Ich hasse Autofahren."
-      },
-      {
-        "text": "Ich hasse es, zu spät zu kommen."
-      }
-    ]
-  },
-  {
-    "word": "hässlich",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Ich finde dieses Kleid hässlich."
-      },
-      {
-        "text": "Das ist aber eine hässliche Lampe!"
-      }
-    ]
-  },
-  {
-    "word": "häufig",
-    "article": "",
-    "type": "adverb",
-    "exampleSentences": [
-      {
-        "text": "Der Bus fährt hier sehr häufig."
-      },
-      {
-        "text": "Haben Sie häufig Kopfschmerzen? Dann sollten Sie nicht so lange am Computer sitzen."
-      }
-    ]
-  },
-  {
-    "word": "Hackfleisch",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich hätte gern 500g Hackfleisch."
-      }
-    ]
-  },
-  {
-    "word": "Hafen",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Das Schiff fährt in den Hafen ein."
-      },
-      {
-        "text": "Wenn du in Hamburg bist, musst du dir unbedingt den Hafen ansehen."
-      }
-    ]
-  },
-  {
-    "word": "hageln",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Es hat gehagelt. Jetzt liegen kleine Eisstücke auf der Straße."
-      },
-      {
-        "text": "Bei Gewitter kann es auch hageln."
-      }
-    ]
-  },
-  {
-    "word": "Hähnchen/Hühnchen",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich möchte ein halbes Hähnchen mit Pommes frites."
-      },
-      {
-        "text": "Zum Mittagessen gibt es Hühnchen mit Reis."
-      }
-    ]
-  },
-  {
     "word": "Hauptbahnhof",
     "article": "der",
     "type": "noun",
@@ -12435,6 +12364,12 @@
     "exampleSentences": [
       {
         "text": "Ich kann den schweren Koffer nicht heben."
+      },
+      {
+        "text": "Kannst du mir helfen? Das Paket kann ich allein nicht heben."
+      },
+      {
+        "text": "Wenn Sie für diesen Vorschlag sind, heben Sie bitte die Hand!"
       }
     ]
   },
@@ -12443,6 +12378,9 @@
     "article": "das",
     "type": "noun",
     "exampleSentences": [
+      {
+        "text": "Ich hätte gern ein Schreibheft."
+      },
       {
         "text": "Schreib die Sätze ins Heft."
       }
@@ -12454,6 +12392,9 @@
     "type": "adverb",
     "exampleSentences": [
       {
+        "text": "Ich will jetzt heim."
+      },
+      {
         "text": "Wir wollen so früh wie möglich heim."
       }
     ]
@@ -12463,6 +12404,9 @@
     "article": "das",
     "type": "noun",
     "exampleSentences": [
+      {
+        "text": "Meine Oma wohnt in einem Seniorenheim."
+      },
       {
         "text": "Meine Tante wohnt in einem Altenheim."
       }
@@ -12747,49 +12691,6 @@
     "exampleSentences": [
       {
         "text": "Ich habe mir Musik aus dem Internet (he)runtergeladen."
-      }
-    ]
-  },
-  {
-    "word": "heben",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Kannst du mir helfen? Das Paket kann ich allein nicht heben."
-      },
-      {
-        "text": "Wenn Sie für diesen Vorschlag sind, heben Sie bitte die Hand!"
-      }
-    ]
-  },
-  {
-    "word": "Heft",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich hätte gern ein Schreibheft."
-      }
-    ]
-  },
-  {
-    "word": "heim",
-    "article": "",
-    "type": "adverb",
-    "exampleSentences": [
-      {
-        "text": "Ich will jetzt heim."
-      }
-    ]
-  },
-  {
-    "word": "Heim",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Meine Oma wohnt in einem Seniorenheim."
       }
     ]
   },
@@ -13553,6 +13454,9 @@
     "exampleSentences": [
       {
         "text": "Ich habe im Fernsehen ein interes-santes Interview mit zwei Schauspiel-ern gesehen."
+      },
+      {
+        "text": "Ich habe im Fernsehen ein interessantes Interview mit zwei Schauspielern gesehen."
       }
     ]
   },
@@ -13596,19 +13500,6 @@
       },
       {
         "text": "Ich habe mich in der Hausnummer geirrt."
-      }
-    ]
-  },
-  {
-    "word": "ja",
-    "article": "",
-    "type": "adverb",
-    "exampleSentences": [
-      {
-        "text": "Er kommt ja bald wieder."
-      },
-      {
-        "text": "Das ist ja toll!"
       }
     ]
   },
@@ -13718,6 +13609,9 @@
     "exampleSentences": [
       {
         "text": "Ich kann das Programm nicht installieren. Kannst du mir helfen?"
+      },
+      {
+        "text": "Können Sie mir helfen, meinen Computer zu installieren?"
       }
     ]
   },
@@ -13728,6 +13622,9 @@
     "exampleSentences": [
       {
         "text": "Das Institut für deutsche Sprache ist in Mannheim."
+      },
+      {
+        "text": "Ich besuche einen Sprachkurs in einem kleinen Sprachinstitut."
       }
     ]
   },
@@ -13738,6 +13635,9 @@
     "exampleSentences": [
       {
         "text": "Ich spiele ein Musikinstrument, nämlich Flöte."
+      },
+      {
+        "text": "Ich spiele Klavier. Spielen Sie auch ein Musikinstrument?"
       }
     ]
   },
@@ -13747,7 +13647,13 @@
     "type": "verb",
     "exampleSentences": [
       {
+        "text": "Die Leute aus dem Ausland sollen besser integriert werden."
+      },
+      {
         "text": "Meine Tochter hat sich gut in der Schule integriert."
+      },
+      {
+        "text": "Sie ist schon sehr gut im Team integriert."
       }
     ]
   },
@@ -13756,6 +13662,9 @@
     "article": "die",
     "type": "noun",
     "exampleSentences": [
+      {
+        "text": "Gute Deutschkenntnisse sollen bei der Integration helfen."
+      },
       {
         "text": "Wir bieten Deutschkurse für eine bessere Integration an."
       }
@@ -13766,6 +13675,9 @@
     "article": "",
     "type": "adjective",
     "exampleSentences": [
+      {
+        "text": "Maria ist sehr intelligent. Sie kann sehr gut rechnen."
+      },
       {
         "text": "Mein Neffe ist sehr intelligent."
       }
@@ -13778,6 +13690,9 @@
     "exampleSentences": [
       {
         "text": "Hunde haben eine große Intelligenz."
+      },
+      {
+        "text": "Meine Kinder haben in der Schule einen Intelligenztest gemacht."
       }
     ]
   },
@@ -13880,16 +13795,6 @@
     ]
   },
   {
-    "word": "Interview",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich habe im Fernsehen ein interessantes Interview mit zwei Schauspielern gesehen."
-      }
-    ]
-  },
-  {
     "word": "ja",
     "article": "",
     "type": "adverb/interjection",
@@ -13902,100 +13807,6 @@
       },
       {
         "text": "Ich würde ja gern kommen, aber es geht wirklich nicht."
-      }
-    ]
-  },
-  {
-    "word": "installieren",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Ich kann das Programm nicht installieren. Kannst du mir helfen?"
-      },
-      {
-        "text": "Können Sie mir helfen, meinen Computer zu installieren?"
-      }
-    ]
-  },
-  {
-    "word": "Institut",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Das Institut für deutsche Sprache ist in Mannheim."
-      },
-      {
-        "text": "Ich besuche einen Sprachkurs in einem kleinen Sprachinstitut."
-      }
-    ]
-  },
-  {
-    "word": "Instrument",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich spiele ein Musikinstrument, nämlich Flöte."
-      },
-      {
-        "text": "Ich spiele Klavier. Spielen Sie auch ein Musikinstrument?"
-      }
-    ]
-  },
-  {
-    "word": "integrieren",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Meine Tochter hat sich gut in der Schule integriert."
-      },
-      {
-        "text": "Sie ist schon sehr gut im Team integriert."
-      },
-      {
-        "text": "Die Leute aus dem Ausland sollen besser integriert werden."
-      }
-    ]
-  },
-  {
-    "word": "Integration",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Wir bieten Deutschkurse für eine bessere Integration an."
-      },
-      {
-        "text": "Gute Deutschkenntnisse sollen bei der Integration helfen."
-      }
-    ]
-  },
-  {
-    "word": "intelligent",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Mein Neffe ist sehr intelligent."
-      },
-      {
-        "text": "Maria ist sehr intelligent. Sie kann sehr gut rechnen."
-      }
-    ]
-  },
-  {
-    "word": "Intelligenz",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Hunde haben eine große Intelligenz."
-      },
-      {
-        "text": "Meine Kinder haben in der Schule einen Intelligenztest gemacht."
       }
     ]
   },
@@ -14421,16 +14232,6 @@
     ]
   },
   {
-    "word": "Fahrkarte",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich habe meine Fahrkarte verloren."
-      }
-    ]
-  },
-  {
     "word": "Kartoffel",
     "article": "die",
     "type": "noun",
@@ -14479,17 +14280,10 @@
     "type": "noun",
     "exampleSentences": [
       {
-        "text": "Ich hätte gern einen Kasten Mineralwasser."
-      }
-    ]
-  },
-  {
-    "word": "Kasten",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
         "text": "Die Handtücher liegen im Kasten."
+      },
+      {
+        "text": "Ich hätte gern einen Kasten Mineralwasser."
       }
     ]
   },
@@ -15755,10 +15549,13 @@
     "type": "verb",
     "exampleSentences": [
       {
-        "text": "Wie viel kostet der Pullover?"
+        "text": "Die Reise hat mich viel Geld gekostet."
       },
       {
-        "text": "Die Reise hat mich viel Geld gekostet."
+        "text": "Möchten Sie den Käse mal kosten?"
+      },
+      {
+        "text": "Wie viel kostet der Pullover?"
       }
     ]
   },
@@ -15782,16 +15579,6 @@
     "exampleSentences": [
       {
         "text": "Der Eintritt ins Museum ist kostenlos."
-      }
-    ]
-  },
-  {
-    "word": "kosten",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Möchten Sie den Käse mal kosten?"
       }
     ]
   },
@@ -16765,16 +16552,6 @@
     "exampleSentences": [
       {
         "text": "Sie leitet seit zwei Jahren diesen Kurs."
-      }
-    ]
-  },
-  {
-    "word": "Leiter",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Der neue Leiter der Schule ist sehr nett."
       }
     ]
   },
@@ -20979,7 +20756,13 @@
         "text": "Der Preis für den Pullover ist zu hoch."
       },
       {
+        "text": "Die Preise sind schon wieder gestiegen."
+      },
+      {
         "text": "Diesen Preis gibt es nur, wenn Sie eine große Menge kaufen."
+      },
+      {
+        "text": "Wer hat den ersten Preis gewonnen?"
       },
       {
         "text": "Wir reduzieren jetzt unsere Preise."
@@ -20993,6 +20776,9 @@
     "exampleSentences": [
       {
         "text": "Das Buch ist gut und preiswert."
+      },
+      {
+        "text": "Die Jacke ist sehr preiswert."
       }
     ]
   },
@@ -21001,6 +20787,9 @@
     "article": "die",
     "type": "noun",
     "exampleSentences": [
+      {
+        "text": "Darüber konnte sich jeder in der Presse informieren."
+      },
       {
         "text": "Die Presse berichtet über den Unfall."
       }
@@ -21359,39 +21148,6 @@
     "exampleSentences": [
       {
         "text": "Die Arztpraxis bleibt bis zum 7. Januar geschlossen."
-      }
-    ]
-  },
-  {
-    "word": "Preis, -e",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Die Preise sind schon wieder gestiegen."
-      },
-      {
-        "text": "Wer hat den ersten Preis gewonnen?"
-      }
-    ]
-  },
-  {
-    "word": "preiswert",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Die Jacke ist sehr preiswert."
-      }
-    ]
-  },
-  {
-    "word": "Presse",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Darüber konnte sich jeder in der Presse informieren."
       }
     ]
   },
@@ -21826,6 +21582,12 @@
     "exampleSentences": [
       {
         "text": "Für Raucher gibt es ein Extra-Zimmer."
+      },
+      {
+        "text": "Gibt es hier ein Zimmer für Raucher?"
+      },
+      {
+        "text": "Ich bin keine Raucherin. Ich bin"
       }
     ]
   },
@@ -22240,19 +22002,6 @@
       },
       {
         "text": "Wer ist jetzt an der Reihe?"
-      }
-    ]
-  },
-  {
-    "word": "Raucher, -die Raucherin, -nen",
-    "article": "der/die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Gibt es hier ein Zimmer für Raucher?"
-      },
-      {
-        "text": "Ich bin keine Raucherin. Ich bin"
       }
     ]
   },
@@ -23307,16 +23056,6 @@
     "exampleSentences": [
       {
         "text": "Meine Nachbarn haben sich scheiden lassen."
-      }
-    ]
-  },
-  {
-    "word": "geschieden",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Meine Kollegin ist geschieden."
       }
     ]
   },
@@ -24509,263 +24248,6 @@
     "exampleSentences": [
       {
         "text": "Der Fahrer muss den Sitz noch verstellen."
-      }
-    ]
-  },
-  {
-    "word": "Ski/Schi, -er/-",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Fahren Sie gern Ski?"
-      }
-    ]
-  },
-  {
-    "word": "so",
-    "article": "",
-    "type": "adverb/conjunction",
-    "exampleSentences": [
-      {
-        "text": "Ich bin so müde. Ich gehe schlafen."
-      },
-      {
-        "text": "Mach es bitte so, wie ich es dir gezeigt habe."
-      },
-      {
-        "text": "Wir waren zu viert beim Essen, so wie immer."
-      },
-      {
-        "text": "Ich habe keinen Hunger. Nur so."
-      },
-      {
-        "text": "Ich hätte es gern so groß, wie diese Bluse."
-      }
-    ]
-  },
-  {
-    "word": "sobald",
-    "article": "",
-    "type": "conjunction",
-    "exampleSentences": [
-      {
-        "text": "Sobald wir fertig sind, rufen wir Sie an."
-      }
-    ]
-  },
-  {
-    "word": "selten",
-    "article": "",
-    "type": "adverb",
-    "exampleSentences": [
-      {
-        "text": "Ich gehe selten ins Kino."
-      }
-    ]
-  },
-  {
-    "word": "seltsam",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Das ist eine seltsame Geschichte."
-      }
-    ]
-  },
-  {
-    "word": "Semester, -",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Die Prüfung ist am Ende des Semesters."
-      }
-    ]
-  },
-  {
-    "word": "Seminar, -e",
-    "article": "das",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich besuche ein Seminar an der Universität."
-      }
-    ]
-  },
-  {
-    "word": "Semmel, -n (A) ! D: Brötchen; CH: Brötli",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Haben Sie noch Semmeln?"
-      }
-    ]
-  },
-  {
-    "word": "senden, sendet, sendete/sandte, hat gesendet/gesandt",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Ich habe dir eine E-Mail gesandt."
-      }
-    ]
-  },
-  {
-    "word": "Sender, -",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Dieser Sender ist aus Deutschland."
-      }
-    ]
-  },
-  {
-    "word": "Sendung, -en",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Wann kommt die Sendung im Fernsehen?"
-      }
-    ]
-  },
-  {
-    "word": "Senioren (Pl.)",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Für Senioren ist der Eintritt billiger."
-      }
-    ]
-  },
-  {
-    "word": "senkrecht",
-    "article": "",
-    "type": "adjective",
-    "exampleSentences": [
-      {
-        "text": "Ziehen Sie bitte eine senkrechte Linie."
-      }
-    ]
-  },
-  {
-    "word": "Serie, -n",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Ich sehe mir diese Serie jeden Abend an."
-      }
-    ]
-  },
-  {
-    "word": "Service",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Der Service in diesem Restaurant ist sehr gut."
-      }
-    ]
-  },
-  {
-    "word": "Serviceangestellte, -n / die Serviceangestellte, -n (CH) ! Kellner; D, A: Ober",
-    "article": "der/die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Der Serviceangestellte war sehr freundlich."
-      }
-    ]
-  },
-  {
-    "word": "Sessel, - (D, CH) ! A, CH: Fauteuil",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Möchten Sie im Sessel sitzen?"
-      }
-    ]
-  },
-  {
-    "word": "Sessel, - (A) ! D, CH: Stuhl",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Der Tisch ist zu klein. Wir brauchen noch zwei Sessel."
-      }
-    ]
-  },
-  {
-    "word": "(sich) setzen, setzt, setzte, hat gesetzt",
-    "article": "",
-    "type": "verb (reflexive)",
-    "exampleSentences": [
-      {
-        "text": "Setzen Sie sich doch!"
-      },
-      {
-        "text": "Darf ich mich zu Ihnen setzen?"
-      }
-    ]
-  },
-  {
-    "word": "sicher",
-    "article": "",
-    "type": "adjective/adverb",
-    "exampleSentences": [
-      {
-        "text": "Fahren Sie vorsichtig! Das Eis ist nicht sicher."
-      },
-      {
-        "text": "Ich bin mir sicher, dass er heute kommt."
-      },
-      {
-        "text": "Mit deiner guten Ausbildung findest du sicher eine Arbeit."
-      },
-      {
-        "text": "Sicher, dass Sie keine Hilfe brauchen?"
-      },
-      {
-        "text": "Sicher ist das Wetter besser morgen."
-      }
-    ]
-  },
-  {
-    "word": "Sicherheit, -en",
-    "article": "die",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Sicherheit ist für mich sehr wichtig."
-      }
-    ]
-  },
-  {
-    "word": "sichern, sichert, sicherte, hat gesichert",
-    "article": "",
-    "type": "verb",
-    "exampleSentences": [
-      {
-        "text": "Du musst immer alle Daten im Computer sichern."
-      }
-    ]
-  },
-  {
-    "word": "Sitz, -e",
-    "article": "der",
-    "type": "noun",
-    "exampleSentences": [
-      {
-        "text": "Der Fahrer muss den Sitz noch verstellen."
       },
       {
         "text": "Ich suche für meinen Sohn einen Sitz fürs Auto. Erst ist erst drei Jahre alt."
@@ -24778,13 +24260,13 @@
     "type": "noun",
     "exampleSentences": [
       {
+        "text": "Das sind aber schöne Skier!"
+      },
+      {
         "text": "Fahren Sie gern Ski?"
       },
       {
         "text": "Gehen wir am Wochenende Ski laufen?"
-      },
-      {
-        "text": "Das sind aber schöne Skier!"
       }
     ]
   },
@@ -24794,13 +24276,13 @@
     "type": "adverb/conjunction",
     "exampleSentences": [
       {
+        "text": "Dauert es lange? – Eine Stunde oder so kann es schon dauern."
+      },
+      {
+        "text": "Fahren Sie bitte nicht so schnell!"
+      },
+      {
         "text": "Ich bin so müde. Ich gehe schlafen."
-      },
-      {
-        "text": "Mach es bitte so, wie ich es dir gezeigt habe."
-      },
-      {
-        "text": "Wir waren zu viert beim Essen, so wie immer."
       },
       {
         "text": "Ich habe keinen Hunger. Nur so."
@@ -24809,7 +24291,16 @@
         "text": "Ich hätte es gern so groß, wie diese Bluse."
       },
       {
-        "text": "Wie macht man das? – So!"
+        "text": "Ich hatte kein Geld dabei. Da haben sie mich so hineingelassen."
+      },
+      {
+        "text": "Ich melde mich, so schnell ich kann."
+      },
+      {
+        "text": "Mach es bitte so, wie ich es dir gezeigt habe."
+      },
+      {
+        "text": "Meine Frau ist so groß wie ich."
       },
       {
         "text": "Sie müssen das so machen. Nicht so!"
@@ -24818,28 +24309,19 @@
         "text": "Sie sind auch hier! So ein Zufall!"
       },
       {
-        "text": "Ich melde mich, so schnell ich kann."
+        "text": "So, jetzt bin ich fertig. Was machen wir jetzt?"
       },
       {
         "text": "Wann treffen wir uns? – So gegen 10 Uhr. Ist dir das recht?"
       },
       {
-        "text": "Dauert es lange? – Eine Stunde oder so kann es schon dauern."
-      },
-      {
-        "text": "Ich hatte kein Geld dabei. Da haben sie mich so hineingelassen."
-      },
-      {
-        "text": "So, jetzt bin ich fertig. Was machen wir jetzt?"
-      },
-      {
-        "text": "Fahren Sie bitte nicht so schnell!"
-      },
-      {
-        "text": "Meine Frau ist so groß wie ich."
-      },
-      {
         "text": "Was macht ihr denn so?"
+      },
+      {
+        "text": "Wie macht man das? – So!"
+      },
+      {
+        "text": "Wir waren zu viert beim Essen, so wie immer."
       }
     ]
   },
@@ -24849,10 +24331,10 @@
     "type": "conjunction",
     "exampleSentences": [
       {
-        "text": "Sobald wir fertig sind, rufen wir Sie an."
+        "text": "Sobald ich den Termin weiß, gebe ich Ihnen Bescheid."
       },
       {
-        "text": "Sobald ich den Termin weiß, gebe ich Ihnen Bescheid."
+        "text": "Sobald wir fertig sind, rufen wir Sie an."
       }
     ]
   },
@@ -24862,10 +24344,10 @@
     "type": "adverb",
     "exampleSentences": [
       {
-        "text": "Ich gehe selten ins Kino."
+        "text": "Ich gehe ganz selten ins Kino."
       },
       {
-        "text": "Ich gehe ganz selten ins Kino."
+        "text": "Ich gehe selten ins Kino."
       }
     ]
   },
@@ -24933,10 +24415,10 @@
     "type": "verb",
     "exampleSentences": [
       {
-        "text": "Ich habe dir eine E-Mail gesandt."
+        "text": "Bitte senden Sie uns die Unterlagen per E-Mail."
       },
       {
-        "text": "Bitte senden Sie uns die Unterlagen per E-Mail."
+        "text": "Ich habe dir eine E-Mail gesandt."
       },
       {
         "text": "Können Sie uns die Post bitte nachsenden?"
@@ -24952,10 +24434,10 @@
         "text": "Dieser Sender ist aus Deutschland."
       },
       {
-        "text": "Welchen Sender siehst du am liebsten?"
+        "text": "Ich höre im Radio am liebsten Sender mit moderner Musik."
       },
       {
-        "text": "Ich höre im Radio am liebsten Sender mit moderner Musik."
+        "text": "Welchen Sender siehst du am liebsten?"
       }
     ]
   },
@@ -24965,16 +24447,16 @@
     "type": "noun",
     "exampleSentences": [
       {
-        "text": "Wann kommt die Sendung im Fernsehen?"
-      },
-      {
-        "text": "Wir wiederholen die Sendung am 11. Mai."
-      },
-      {
         "text": "Ich warte auf eine Postsendung."
       },
       {
+        "text": "Wann kommt die Sendung im Fernsehen?"
+      },
+      {
         "text": "Wir unterbrechen die Sendung für eine wichtige Nachricht."
+      },
+      {
+        "text": "Wir wiederholen die Sendung am 11. Mai."
       }
     ]
   },
@@ -24984,10 +24466,20 @@
     "type": "noun",
     "exampleSentences": [
       {
-        "text": "Für Senioren ist der Eintritt billiger."
+        "text": "Dieser Computerkurs ist für Senioren."
       },
       {
-        "text": "Dieser Computerkurs ist für Senioren."
+        "text": "Für Senioren ist der Eintritt billiger."
+      }
+    ]
+  },
+  {
+    "word": "senkrecht",
+    "article": "",
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ziehen Sie bitte eine senkrechte Linie."
       }
     ]
   },
@@ -25036,10 +24528,10 @@
     "type": "noun",
     "exampleSentences": [
       {
-        "text": "Möchten Sie im Sessel sitzen?"
+        "text": "Ich hätte gern einen bequemen Sessel."
       },
       {
-        "text": "Ich hätte gern einen bequemen Sessel."
+        "text": "Möchten Sie im Sessel sitzen?"
       }
     ]
   },
@@ -25049,10 +24541,65 @@
     "type": "noun",
     "exampleSentences": [
       {
-        "text": "Der Tisch ist zu klein. Wir brauchen noch zwei Sessel."
+        "text": "Da hinten ist noch ein Sessel frei."
       },
       {
-        "text": "Da hinten ist noch ein Sessel frei."
+        "text": "Der Tisch ist zu klein. Wir brauchen noch zwei Sessel."
+      }
+    ]
+  },
+  {
+    "word": "(sich) setzen, setzt, setzte, hat gesetzt",
+    "article": "",
+    "type": "verb (reflexive)",
+    "exampleSentences": [
+      {
+        "text": "Setzen Sie sich doch!"
+      },
+      {
+        "text": "Darf ich mich zu Ihnen setzen?"
+      }
+    ]
+  },
+  {
+    "word": "sicher",
+    "article": "",
+    "type": "adjective/adverb",
+    "exampleSentences": [
+      {
+        "text": "Fahren Sie vorsichtig! Das Eis ist nicht sicher."
+      },
+      {
+        "text": "Ich bin mir sicher, dass er heute kommt."
+      },
+      {
+        "text": "Mit deiner guten Ausbildung findest du sicher eine Arbeit."
+      },
+      {
+        "text": "Sicher, dass Sie keine Hilfe brauchen?"
+      },
+      {
+        "text": "Sicher ist das Wetter besser morgen."
+      }
+    ]
+  },
+  {
+    "word": "Sicherheit, -en",
+    "article": "die",
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sicherheit ist für mich sehr wichtig."
+      }
+    ]
+  },
+  {
+    "word": "sichern, sichert, sicherte, hat gesichert",
+    "article": "",
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Du musst immer alle Daten im Computer sichern."
       }
     ]
   }

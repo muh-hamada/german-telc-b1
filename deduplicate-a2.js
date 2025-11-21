@@ -203,8 +203,8 @@ function generateReport(originalData, cleanedData, duplicates, reportFile) {
 }
 
 if (require.main === module) {
-    const inputFile = process.argv[2] || 'b1-vocabulary.json';
-    const outputFile = process.argv[3] || 'b1-vocabulary-clean.json';
+    const inputFile = process.argv[2] || 'b1-vocabulary-clean.json';
+    const outputFile = process.argv[3] || 'b1-vocabulary-clean-new.json';
     const reportFile = process.argv[4] || 'deduplication-report.txt';
     
     console.log('='.repeat(60));
