@@ -145,6 +145,29 @@ class FirebaseStreaksService {
         lastStreakModalDate: streakData.lastStreakModalDate || '',
       };
       
+      // Check if streak should be reset due to missed day(s)
+      const today = getLocalDateString();
+      if (completeData.lastActivityDate && 
+          completeData.currentStreak > 0 && 
+          !isSameDay(completeData.lastActivityDate, today)) {
+        // Check if the last activity was yesterday (streak is still valid)
+        if (!isConsecutiveDay(completeData.lastActivityDate, today)) {
+          // Streak is broken - reset to 0
+          console.log('[StreaksService] Streak broken due to inactivity. Last activity:', completeData.lastActivityDate, 'Today:', today);
+          completeData.currentStreak = 0;
+          
+          // Update the database immediately
+          await firestore().doc(docPath).update({
+            currentStreak: 0,
+          });
+          
+          logEvent(AnalyticsEvents.STREAK_BROKEN, {
+            previous_streak: streakData.currentStreak,
+            reason: 'inactivity',
+          });
+        }
+      }
+      
       console.log('[StreaksService] Loaded streak data:', completeData);
       return completeData;
     } catch (error) {
