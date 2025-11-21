@@ -17764,19 +17764,31 @@
     "word": "Mappe, -n",
     "article": "die",
     "type": "noun",
-    "exampleSentences": []
+    "exampleSentences": [
+      {
+        "text": "Die Margarine ist sehr gut."
+      }
+    ]
   },
   {
     "word": "Märchen, -",
     "article": "das",
     "type": "noun",
-    "exampleSentences": []
+    "exampleSentences": [
+      {
+        "text": "Ich lese gerne Märchen."
+      }
+    ]
   },
   {
     "word": "Margarine",
     "article": "die",
     "type": "noun",
-    "exampleSentences": []
+    "exampleSentences": [
+      {
+        "text": "Ich möchte eine Margarine kaufen."
+      }
+    ]
   },
   {
     "word": "Marille, -n (A) ! D, CH: Aprikose",
@@ -18238,7 +18250,11 @@
     "word": "Mode, -n",
     "article": "die",
     "type": "noun",
-    "exampleSentences": []
+    "exampleSentences": [
+      {
+        "text": "Wie findest du die neue Mode?"
+      }
+    ]
   },
   {
     "word": "Modell, -e",
@@ -20610,12 +20626,6 @@
         "text": "Mein Vater ist seit vier Jahren in Pension."
       }
     ]
-  },
-  {
-    "word": "gehen/sein; D, CH: pen-sioniert werden/sein",
-    "article": "",
-    "type": "expression",
-    "exampleSentences": []
   },
   {
     "word": "pensioniert werden/sein (D, CH) ! D, A: in Pension gehen/sein; D: in Rente gehen/sein",
@@ -24367,7 +24377,11 @@
     "word": "sichtbar",
     "article": "",
     "type": "adjective",
-    "exampleSentences": []
+    "exampleSentences": [
+      {
+        "text": "Es gibt keine sichtbaren Verletzungen. Aber wir müssen das Bein trotzdem untersuchen."
+      }
+    ]
   },
   {
     "word": "siegen, siegt, siegte, hat gesiegt",
