@@ -185,7 +185,7 @@ class FirebaseStreaksService {
    */
   async recordActivity(
     userId: string,
-    activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study',
+    activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study' | 'vocabulary_review',
     activityId: string = '',
     score: number = 0
   ): Promise<{ success: boolean; shouldShowModal: boolean; streakData: StreakData }> {
@@ -259,7 +259,7 @@ class FirebaseStreaksService {
       // Track activity type
       if (activityType === 'exam' || activityType === 'completion') {
         todayActivity.examsCompleted += 1;
-      } else if (activityType === 'grammar_study' || activityType === 'vocabulary_study') {
+      } else if (activityType === 'grammar_study' || activityType === 'vocabulary_study' || activityType === 'vocabulary_review') {
         todayActivity.studySessionsCompleted += 1;
       }
 

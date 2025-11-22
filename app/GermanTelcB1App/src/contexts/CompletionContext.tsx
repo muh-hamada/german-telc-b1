@@ -166,7 +166,11 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         if (isStreaksEnabledForUser(user?.uid) && user?.uid) {
           try {
             const activityId = `${examType}-${partNumber}-${examId}`;
-            await recordActivity('completion', activityId, score);
+            await recordActivity({
+              activityType: 'completion',
+              activityId: activityId,
+              score: score,
+            });
             console.log('[CompletionContext] Streak activity recorded for completion');
           } catch (streakError) {
             console.error('[CompletionContext] Error recording streak:', streakError);

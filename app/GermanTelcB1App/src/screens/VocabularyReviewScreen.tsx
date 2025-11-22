@@ -115,7 +115,11 @@ const VocabularyReviewScreen: React.FC = () => {
 
     // Record streak activity for completing daily reviews (10+ reviews)
     if (totalReviews >= 10) {
-      await recordActivity('vocabulary_study', `vocab_review_${getLocalDateString()}`, totalReviews);
+      await recordActivity({
+        activityType: 'vocabulary_review',
+        activityId: `vocab_review_${getLocalDateString()}`,
+        score: totalReviews,
+      });
     }
 
     // Show completion modal

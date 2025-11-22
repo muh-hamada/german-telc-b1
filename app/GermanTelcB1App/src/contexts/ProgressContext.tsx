@@ -291,7 +291,11 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           if (isStreaksEnabledForUser(user?.uid) && user?.uid) {
             try {
               const activityId = `${examType}-${examId}`;
-              await recordActivity('exam', activityId, score || 0);
+              await recordActivity({
+                activityType: 'exam',
+                activityId: activityId,
+                score: score || 0,
+              });
               console.log('[ProgressContext] Streak activity recorded');
             } catch (streakError) {
               console.error('[ProgressContext] Error recording streak:', streakError);

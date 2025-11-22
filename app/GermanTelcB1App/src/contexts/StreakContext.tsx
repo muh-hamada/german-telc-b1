@@ -10,7 +10,7 @@ interface AdFreeStatus {
 }
 
 interface RecordActivityParams {
-  activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study';
+  activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study' | 'vocabulary_review';
   activityId?: string;
   score?: number;
   options?: {shouldSuppressStreakModal?: boolean};

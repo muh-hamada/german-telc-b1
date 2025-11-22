@@ -187,7 +187,12 @@ const GrammarStudyScreen: React.FC = () => {
           threshold: QUESTIONS_PER_ACTIVITY,
         });
         
-        const result = await recordActivity('grammar_study', activityId, 1);
+        const result = await recordActivity({
+          activityType: 'grammar_study',
+          activityId: activityId,
+          score: 1,
+        });
+        
         console.log(`[GrammarStudyScreen] Streak activity recorded after ${newSessionCount} questions`);
         
         // Reset counter after successfully recording streak activity
