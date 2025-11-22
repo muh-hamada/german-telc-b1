@@ -3,8 +3,8 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -54,19 +54,19 @@ const HomeScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <HomeHeader />
-      
+    <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView
         style={styles.content}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <HomeProgressCard 
-          onLoginPress={handleLoginPress} 
+        <HomeHeader />
+        
+        <HomeProgressCard
+          onLoginPress={handleLoginPress}
           onViewFullStats={handleViewFullStats}
         />
-        
+
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
           <Text style={styles.cardDescription}>
@@ -88,7 +88,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

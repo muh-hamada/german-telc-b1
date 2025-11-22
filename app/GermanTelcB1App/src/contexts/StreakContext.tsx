@@ -9,6 +9,13 @@ interface AdFreeStatus {
   expiresAt: number | null;
 }
 
+interface RecordActivityParams {
+  activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study';
+  activityId?: string;
+  score?: number;
+  options?: {shouldSuppressStreakModal?: boolean};
+}
+
 interface StreakContextType {
   // State
   streakData: StreakData | null;
@@ -19,11 +26,12 @@ interface StreakContextType {
   shouldShowStreakModal: boolean; // NEW: Flag to trigger modal display
   
   // Actions
-  recordActivity: (activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study', activityId?: string, score?: number) => Promise<{ success: boolean; shouldShowModal: boolean }>;
+  recordActivity: (params: RecordActivityParams) => Promise<{ success: boolean; shouldShowModal: boolean }>;
   claimReward: () => Promise<boolean>;
   refreshStreakData: () => Promise<void>;
   checkAdFreeStatus: () => Promise<boolean>;
   dismissStreakModal: () => void; // NEW: Mark modal as shown
+  setStreakModalVisibility: (visible: boolean) => void;
 }
 
 const StreakContext = createContext<StreakContextType | undefined>(undefined);
@@ -90,11 +98,10 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   }, [loadStreakData]);
 
   // Record activity
-  const recordActivity = async (
-    activityType: 'exam' | 'completion' | 'grammar_study' | 'vocabulary_study',
-    activityId: string = '',
-    score: number = 0
-  ): Promise<{ success: boolean; shouldShowModal: boolean }> => {
+  const recordActivity = async (params: RecordActivityParams): Promise<{ success: boolean; shouldShowModal: boolean }> => {
+    const { activityType, activityId, score, options } = params;
+    const shouldSuppressStreakModal = options?.shouldSuppressStreakModal || false;
+
     if (!user?.uid || !isStreaksEnabledForUser(user?.uid)) {
       console.log('[StreakContext] Cannot record activity: no user or streaks disabled');
       return { success: false, shouldShowModal: false };
@@ -124,13 +131,18 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
         
         // Set flag to show modal if needed
         if (result.shouldShowModal) {
-          setShouldShowStreakModal(true);
+          if (!shouldSuppressStreakModal) {
+            setShouldShowStreakModal(true);
+          } else {
+            console.log('[StreakContext] Streak modal suppressed');
+          }
           
           // Log analytics event when modal is triggered
           logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
             currentStreak: result.streakData.currentStreak,
             longestStreak: result.streakData.longestStreak,
             hasPendingReward: result.streakData.adFreeReward.earned,
+            shouldSuppressStreakModal: shouldSuppressStreakModal,
           });
         }
         
@@ -215,6 +227,19 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     }
   };
 
+  const setStreakModalVisibility = (visible: boolean) => {
+    setShouldShowStreakModal(visible);
+    
+    if (visible) {
+      logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
+        currentStreak: streakData?.currentStreak,
+        longestStreak: streakData?.longestStreak,
+        hasPendingReward: streakData?.adFreeReward.earned,
+        trigger: 'manual',
+      });
+    }
+  };
+
   const value: StreakContextType = {
     streakData,
     weeklyActivity,
@@ -227,6 +252,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     refreshStreakData,
     checkAdFreeStatus,
     dismissStreakModal,
+    setStreakModalVisibility,
   };
 
   return (

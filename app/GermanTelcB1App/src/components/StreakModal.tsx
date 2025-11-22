@@ -28,7 +28,9 @@ const StreakModal: React.FC<StreakModalProps> = ({
 }) => {
   const { t } = useCustomTranslation();
 
+  console.log('[StreakModal] Visible:', visible);
   if (!streakData) {
+    console.log('[StreakModal] Streak data is null');
     return null;
   }
 

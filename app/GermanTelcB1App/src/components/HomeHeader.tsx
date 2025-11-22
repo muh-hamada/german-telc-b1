@@ -1,10 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform, I18nManager } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing, typography } from '../theme';
-import LinearGradient from 'react-native-linear-gradient';
-import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { I18nManager, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { colors, spacing, typography } from '../theme';
 
 interface HomeHeaderProps {
   // You can add props here if needed in the future
@@ -15,15 +13,11 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
   const { user } = useAuth();
 
   return (
-    <SafeAreaView edges={['top']} style={styles.header}>
-
-      <View style={styles.textContainer} >
-        <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
-          {user ? t('home.welcomeUser', { name: user.displayName }) : t('home.welcomeGuest')}
-        </Text>
-      </View>
-    </SafeAreaView>
-
+    <View style={styles.textContainer} >
+      <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
+        {user ? t('home.welcomeUser', { name: user.displayName }) : t('home.welcomeGuest')}
+      </Text>
+    </View>
   );
 };
 
@@ -33,10 +27,8 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   textContainer: {
-    // flex: 1,
-    justifyContent: 'center',
-    paddingTop: spacing.padding.lg,
-    paddingHorizontal: spacing.padding.lg,
+    flex: 1,
+    marginTop: spacing.margin.md,
   },
   title: {
     ...typography.textStyles.h4,

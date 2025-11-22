@@ -28,7 +28,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const navigation = useNavigation();
   const { t } = useCustomTranslation();
   const { progress, getNewWords, markWordAsLearned, loadProgress } = useVocabulary();
-  const { recordActivity } = useStreak();
+  const { recordActivity, setStreakModalVisibility } = useStreak();
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,6 +36,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [wordsStudiedToday, setWordsStudiedToday] = useState(0);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [shouldShowStreakModalAfterCompletionModal, setShouldShowStreakModalAfterCompletionModal] = useState(false);
 
   const dailyLimit = progress ? vocabularyProgressService.getDailyLimit(progress.persona) : 20;
 
@@ -99,7 +100,14 @@ const VocabularyStudyNewScreen: React.FC = () => {
 
     // Record streak activity for completing daily vocabulary goal
     if (totalWordsStudied >= 10) {
-      await recordActivity('vocabulary_study', `vocab_daily_${getLocalDateString()}`, totalWordsStudied);
+      const result = await recordActivity({
+        activityType: 'vocabulary_study',
+        activityId: `vocab_daily_${getLocalDateString()}`,
+        score: totalWordsStudied,
+        options: { shouldSuppressStreakModal: true },
+      });
+
+      setShouldShowStreakModalAfterCompletionModal(result.shouldShowModal);
     }
 
     // Show completion modal
@@ -109,6 +117,12 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const handleModalClose = () => {
     setShowCompletionModal(false);
     loadProgress();
+
+    if (shouldShowStreakModalAfterCompletionModal) {
+      setShouldShowStreakModalAfterCompletionModal(false);
+      setStreakModalVisibility(true);
+    }
+
     navigation.goBack();
   };
 
