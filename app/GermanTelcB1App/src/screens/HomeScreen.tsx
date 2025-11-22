@@ -3,6 +3,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +12,7 @@ import { colors, spacing, typography } from '../theme';
 import Card from '../components/Card';
 import HomeProgressCard from '../components/HomeProgressCard';
 import HomeHeader from '../components/HomeHeader';
+import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
@@ -61,7 +63,7 @@ const HomeScreen: React.FC = () => {
         showsVerticalScrollIndicator={false}
       >
         <HomeHeader />
-        
+
         <HomeProgressCard
           onLoginPress={handleLoginPress}
           onViewFullStats={handleViewFullStats}
@@ -81,12 +83,21 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
 
-        <Card style={styles.card} onPress={handleVocabularyPress}>
-          <Text style={styles.cardTitle}>{t('home.vocabulary')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('home.descriptions.vocabulary')}
-          </Text>
-        </Card>
+        <AnimatedGradientBorder
+          borderWidth={2}
+          borderRadius={12}
+          colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+          duration={4000}
+          style={styles.card}
+        >
+          <Card style={styles.cardInner} onPress={handleVocabularyPress}>
+            <Text style={styles.newLabel}>{t('home.newLabel')}</Text>
+            <Text style={styles.cardTitle}>{t('home.vocabulary')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('home.descriptions.vocabulary')}
+            </Text>
+          </Card>
+        </AnimatedGradientBorder>
       </ScrollView>
     </SafeAreaView>
   );
@@ -108,6 +119,21 @@ const styles = StyleSheet.create({
   card: {
     minHeight: 120,
     justifyContent: 'center',
+  },
+  cardInner: {
+    minHeight: 120,
+    justifyContent: 'center',
+    borderWidth: 0,
+    backgroundColor: colors.background.secondary,
+  },
+  newLabel: {
+    position: 'absolute',
+    top: 10,
+    right: I18nManager.isRTL ? undefined : 11,
+    left: I18nManager.isRTL ? 11 : undefined,
+    textTransform: 'uppercase',
+    color: colors.black,
+    fontSize: 10,
   },
   cardTitle: {
     ...typography.textStyles.h3,
