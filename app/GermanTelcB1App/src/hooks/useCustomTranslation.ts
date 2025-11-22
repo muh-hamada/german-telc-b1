@@ -17,11 +17,26 @@ export function useCustomTranslation(): UseTranslationResponse<'translation', un
     const originalT = translation.t;
 
     const customT = ((...args: Parameters<typeof originalT>) => {
+        // search for "cleanText" in args
+        // we use that in the disclaimer screen to keep the original text with "telc" in it
+        let shouldCleanText = true;
+        args.forEach((arg) => {
+            if (typeof arg === 'object' && arg !== null && 'cleanText' in arg) {
+                shouldCleanText = arg.cleanText as boolean;
+                return;
+            }
+        });
+
+        console.log('-------------> shouldCleanText', shouldCleanText, args[0]);
+
         const result = originalT(...args);
 
         // Only process strings, not objects or arrays
         if (typeof result === 'string') {
-            return removeTelcFromText(result);
+            if (shouldCleanText) {
+                return removeTelcFromText(result);
+            }
+            return result;
         }
 
         return result;
@@ -46,5 +61,11 @@ export function removeTelcFromText(text: string): string {
         textToReplace = "telc-";
     }
     const withoutTelc = text.replace(new RegExp(textToReplace, 'ig'), '');
-    return withoutTelc.replace(/\s{2,}/g, ' ').trim();
+    const result_1 =  withoutTelc.replace(/\s{2,}/g, ' ').trim();
+
+    // some text may include "telc-" and "telc" together, so we need to remove the "telc" as well
+    const withoutTelcAndDash = result_1.replace(new RegExp("telc", 'ig'), '');
+    const result_2 = withoutTelcAndDash.replace(/\s{2,}/g, ' ').trim();
+
+    return result_2;
 }

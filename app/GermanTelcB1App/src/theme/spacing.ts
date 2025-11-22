@@ -61,6 +61,16 @@ export const spacing = {
   
   // Shadows
   shadow: {
+    xs: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 0.5,
+      },
+      shadowOpacity: 0.05,
+      shadowRadius: 0.5,
+      elevation: 0.25,
+    },
     sm: {
       shadowColor: '#000',
       shadowOffset: {

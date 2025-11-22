@@ -76,6 +76,62 @@ const NOTIFICATION_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/telc
 const DEFAULT_LANGUAGE = 'en';
 
 /**
+ * Core function to send notification to a single user
+ * @param uid User ID
+ * @param userData User data containing language, deviceId, and displayName
+ * @param dayOfWeek Current day of week (0=Sunday, 6=Saturday)
+ * @returns Promise<void>
+ */
+async function sendNotificationToUser(
+  uid: string,
+  userData: { language?: string; deviceId: string; displayName?: string },
+  dayOfWeek: number
+): Promise<void> {
+  const { language, deviceId, displayName } = userData;
+
+  // Validate required fields
+  if (!deviceId) {
+    throw new Error('No deviceId provided');
+  }
+
+  // Get notification content based on language
+  const userLanguage = language && NOTIFICATION_TITLES[language] ? language : DEFAULT_LANGUAGE;
+  const title = NOTIFICATION_TITLES[userLanguage];
+  const body = MOTIVATIONAL_MESSAGES[userLanguage][dayOfWeek];
+
+  // Send notification
+  await admin.messaging().send({
+    token: deviceId,
+    notification: {
+      title,
+      body,
+      imageUrl: NOTIFICATION_IMAGE_URL
+    },
+    data: {
+      type: 'daily_reminder',
+      screen: 'home'
+    },
+    apns: {
+      payload: {
+        aps: {
+          sound: 'default',
+          badge: 1
+        }
+      }
+    },
+    android: {
+      priority: 'high',
+      notification: {
+        sound: 'default',
+        priority: 'high'
+      }
+    }
+  });
+
+  console.log(`[sendNotification] Sent notification to user ${uid} (${displayName || 'unknown'}) in ${userLanguage}`);
+}
+
+/**
  * Scheduled Cloud Function that sends notifications every hour
  * Runs at minute 0 of every hour
  */
@@ -126,51 +182,17 @@ export const sendScheduledNotifications = functions
       const userIds = Object.keys(users);
       for (const uid of userIds) {
         const userData = users[uid];
-        const { language, deviceId, displayName } = userData;
         
         // Validate required fields
-        if (!deviceId) {
+        if (!userData.deviceId) {
           console.warn(`[sendScheduledNotifications] User ${uid} has no deviceId, skipping`);
           skippedCount++;
           continue;
         }
         
         try {
-          // Get notification content based on language
-          const userLanguage = language && NOTIFICATION_TITLES[language] ? language : DEFAULT_LANGUAGE;
-          const title = NOTIFICATION_TITLES[userLanguage];
-          const body = MOTIVATIONAL_MESSAGES[userLanguage][dayOfWeek];
-          
-          // Send notification
-          await admin.messaging().send({
-            token: deviceId,
-            notification: {
-              title,
-              body,
-              imageUrl: NOTIFICATION_IMAGE_URL
-            },
-            data: {
-              type: 'daily_reminder',
-              screen: 'home'
-            },
-            apns: {
-              payload: {
-                aps: {
-                  sound: 'default',
-                  badge: 1
-                }
-              }
-            },
-            android: {
-              priority: 'high',
-              notification: {
-                sound: 'default',
-                priority: 'high'
-              }
-            }
-          });
-          
-          console.log(`[sendScheduledNotifications] Sent notification to user ${uid} (${displayName || 'unknown'}) in ${userLanguage}`);
+          // Send notification using extracted function
+          await sendNotificationToUser(uid, userData, dayOfWeek);
           sentCount++;
           
         } catch (error: any) {
@@ -178,6 +200,13 @@ export const sendScheduledNotifications = functions
           if (error.code === 'messaging/invalid-registration-token' || 
               error.code === 'messaging/registration-token-not-registered') {
             console.warn(`[sendScheduledNotifications] Invalid FCM token for user ${uid}: ${error.message}`);
+            // Consider removing this token from the notification schedule
+          } else if (error.code === 'messaging/third-party-auth-error') {
+            console.error(`[sendScheduledNotifications] APNs/Web Push auth error for user ${uid}. This may indicate:`);
+            console.error(`  - Expired or invalid APNs authentication key`);
+            console.error(`  - Mismatched APNs credentials (Team ID, Key ID, or Bundle ID)`);
+            console.error(`  - Invalid FCM token for iOS device`);
+            console.error(`  Error details:`, error.message);
           } else {
             console.error(`[sendScheduledNotifications] Error sending notification to user ${uid}:`, error);
           }
@@ -197,6 +226,113 @@ export const sendScheduledNotifications = functions
     } catch (error) {
       console.error(`[sendScheduledNotifications] Error in notification job:`, error);
       throw error;
+    }
+  });
+
+/**
+ * HTTP Cloud Function to manually trigger notification for a specific user
+ * For testing purposes
+ * Usage: POST /sendTestNotification with body: { uid: "user_id" }
+ */
+export const sendTestNotification = functions
+  .runWith({
+    timeoutSeconds: 60,
+    memory: '256MB'
+  })
+  .https
+  .onRequest(async (req, res) => {
+    // Only allow POST requests
+    if (req.method !== 'POST') {
+      res.status(405).send('Method Not Allowed');
+      return;
+    }
+
+    const { uid } = req.body;
+
+    // Validate uid parameter
+    if (!uid || typeof uid !== 'string') {
+      res.status(400).json({ 
+        error: 'Missing or invalid uid parameter',
+        usage: 'POST with body: { uid: "user_id" }'
+      });
+      return;
+    }
+
+    console.log(`[sendTestNotification] Searching for user ${uid}`);
+
+    try {
+      const db = admin.firestore();
+      const dayOfWeek = new Date().getUTCDay(); // Current day of week
+
+      // Search through all hour documents (0-23)
+      let userFound = false;
+      let userData: any = null;
+      let foundInHour: number | null = null;
+
+      for (let hour = 0; hour < 24; hour++) {
+        const hourDocRef = db.collection('user_notifications_by_hour').doc(hour.toString());
+        const hourDoc = await hourDocRef.get();
+
+        if (hourDoc.exists) {
+          const hourData = hourDoc.data();
+          const users = hourData?.users;
+
+          if (users && users[uid]) {
+            userFound = true;
+            userData = users[uid];
+            foundInHour = hour;
+            break;
+          }
+        }
+      }
+
+      // Check if user was found
+      if (!userFound || !userData) {
+        res.status(404).json({
+          error: `User ${uid} not found in any notification schedule`,
+          hint: 'Make sure the user has enabled notifications in the app'
+        });
+        return;
+      }
+
+      console.log(`[sendTestNotification] Found user ${uid} in hour ${foundInHour}`);
+
+      // Send notification using the extracted function
+      await sendNotificationToUser(uid, userData, dayOfWeek);
+
+      res.status(200).json({
+        success: true,
+        message: `Notification sent successfully to user ${uid}`,
+        details: {
+          displayName: userData.displayName || 'unknown',
+          language: userData.language || DEFAULT_LANGUAGE,
+          foundInHour: foundInHour
+        }
+      });
+
+    } catch (error: any) {
+      console.error(`[sendTestNotification] Error sending notification:`, error);
+
+      // Handle specific Firebase messaging errors
+      if (error.code === 'messaging/invalid-registration-token' || 
+          error.code === 'messaging/registration-token-not-registered') {
+        res.status(400).json({
+          error: 'Invalid or unregistered FCM token',
+          details: error.message,
+          hint: 'The user may need to reinstall the app or re-enable notifications'
+        });
+      } else if (error.code === 'messaging/third-party-auth-error') {
+        res.status(500).json({
+          error: 'APNs authentication error',
+          details: error.message,
+          hint: 'This may indicate a stale/corrupted FCM token or APNs configuration issue'
+        });
+      } else {
+        res.status(500).json({
+          error: 'Failed to send notification',
+          details: error.message
+        });
+      }
     }
   });
 

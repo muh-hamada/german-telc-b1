@@ -57,15 +57,15 @@ const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({
 
         <View style={styles.disclaimerBox}>
           <Text style={styles.disclaimerText}>
-            {t('onboarding.disclaimer.text1')}
+            {t('onboarding.disclaimer.text1', { cleanText: false })}
           </Text>
 
           <Text style={[styles.disclaimerText, styles.disclaimerTextSpacing]}>
-            {t('onboarding.disclaimer.text2')}
+            {t('onboarding.disclaimer.text2', { cleanText: false })}
           </Text>
 
           <Text style={[styles.disclaimerText, styles.disclaimerTextSpacing]}>
-            {t('onboarding.disclaimer.text3')}
+            {t('onboarding.disclaimer.text3', { cleanText: false })}
           </Text>
         </View>
       </ScrollView>
@@ -82,7 +82,7 @@ const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({
             )}
           </View>
           <Text style={styles.checkboxLabel}>
-            {t('onboarding.disclaimer.checkboxLabel')}
+            {t('onboarding.disclaimer.checkboxLabel', { cleanText: false })}
           </Text>
         </TouchableOpacity>
 

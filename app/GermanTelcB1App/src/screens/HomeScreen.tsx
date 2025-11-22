@@ -88,7 +88,7 @@ const HomeScreen: React.FC = () => {
           borderRadius={12}
           colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
           duration={4000}
-          style={styles.card}
+          style={{...styles.card, ...styles.animatedCard}}
         >
           <Card style={styles.cardInner} onPress={handleVocabularyPress}>
             <Text style={styles.newLabel}>{t('home.newLabel')}</Text>
@@ -120,11 +120,13 @@ const styles = StyleSheet.create({
     minHeight: 120,
     justifyContent: 'center',
   },
+  animatedCard: {
+    // ...spacing.shadow.xs,
+  },
   cardInner: {
     minHeight: 120,
     justifyContent: 'center',
     borderWidth: 0,
-    backgroundColor: colors.background.secondary,
   },
   newLabel: {
     position: 'absolute',
