@@ -38,7 +38,7 @@ const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
   onClose,
   onLanguageSelect,
 }) => {
-  const { i18n } = useCustomTranslation();
+  const { i18n, t } = useCustomTranslation();
   const currentLanguage = i18n.language;
 
   const handleLanguageSelect = (languageCode: string) => {
@@ -80,7 +80,7 @@ const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
           <View style={styles.modalContent}>
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>Select Language</Text>
+              <Text style={styles.title}>{t('settings.selectLanguage')}</Text>
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
   },
   languageList: {
     padding: spacing.padding.md,
+    textAlign: 'center',
   },
   languageItem: {
     flexDirection: 'row',
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
     borderWidth: 2,
     borderColor: 'transparent',
+    width: '100%',
   },
   selectedLanguageItem: {
     backgroundColor: colors.primary[50],

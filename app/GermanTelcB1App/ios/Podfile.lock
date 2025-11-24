@@ -3914,6 +3914,34 @@ PODS:
     - React-utils (= 0.82.0)
     - SocketRocket
   - RecaptchaInterop (101.0.0)
+  - RestartNewArch (1.0.85):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
   - RNAppleAuthentication (2.4.1):
     - React-Core
   - RNCAsyncStorage (1.24.0):
@@ -4281,6 +4309,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RestartNewArch (from `../node_modules/react-native-restart-newarch`)
   - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
@@ -4498,6 +4527,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RestartNewArch:
+    :path: "../node_modules/react-native-restart-newarch"
   RNAppleAuthentication:
     :path: "../node_modules/@invertase/react-native-apple-authentication"
   RNCAsyncStorage:
@@ -4647,6 +4678,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 3873d7ac09960375f7845384ff47d53e478462dc
   ReactCommon: f5527f5d97a9957ab46eb5db78875d3579e03b97
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
+  RestartNewArch: 658794e23d94410cb51e6f8c1831edadf09c77b2
   RNAppleAuthentication: c3dddf5918126c9aae85dc2e2ce9fb87835e9e04
   RNCAsyncStorage: 87d51a3aa982dd38d07ecb588aa67821a4a14eee
   RNDeviceInfo: bcce8752b5043a623fe3c26789679b473f705d3c

@@ -70,8 +70,22 @@
     },
     "ok": "OK"
   },
+  "exam": {
+    "selectExam": "Prüfung auswählen:",
+    "test": "Test",
+    "loadingExam": "Prüfung wird geladen...",
+    "failedToLoad": "Prüfungsdaten konnten nicht geladen werden",
+    "selectAnExam": "Wählen Sie eine Prüfung",
+    "selectTask": "Aufgabe auswählen",
+    "completed": "Abgeschlossen",
+    "completedCount": "{{completed}}/{{total}} abgeschlossen",
+    "markedCompleted": "Prüfung als abgeschlossen markiert!",
+    "markedIncomplete": "Prüfung als unvollständig markiert!",
+    "completionFailed": "Fehler beim Aktualisieren des Abschlussstatus",
+    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern"
+  },
   "onboarding": {
-    "welcome": "Lassen Sie uns gemeinsam für die deutsche TELC B1 Prüfung lernen",
+    "welcome": "Lass uns gemeinsam für die {{language}} TELC {{level}} Prüfung vorbereiten",
     "selectLanguage": "Wählen Sie Ihre Benutzeroberflächensprache",
     "languages": {
       "en": "English",
@@ -83,10 +97,10 @@
     },
     "disclaimer": {
       "title": "Wichtiger Hinweis",
-      "text1": "Diese App ist NICHT mit der TELC GmbH verbunden, von ihr unterstützt oder mit ihr in Verbindung stehend. Wir sind ein unabhängiges Bildungstool, das entwickelt wurde, um Schülern bei der Vorbereitung auf die TELC B1 Deutschprüfung zu helfen.",
+      "text1": "Diese App ist NICHT mit der TELC GmbH verbunden, von ihr unterstützt oder mit ihr in Verbindung stehend. Wir sind ein unabhängiges Bildungstool, das entwickelt wurde, um Schülern bei der Vorbereitung auf die TELC {{level}} {{language}} Prüfung zu helfen.",
       "text2": "Alle Übungsmaterialien, Fragen und Übungen in dieser App werden unabhängig mit KI-Technologie und öffentlich verfügbaren kostenlosen Online-Ressourcen erstellt. Wir verwenden diese Ressourcen, um Fragen zu generieren, die die Komplexität und das Format der echten TELC-Prüfung simulieren.",
       "text3": "Das Absolvieren von Übungen in dieser App ist keine Garantie für Erfolg oder Misserfolg bei der eigentlichen TELC-Prüfung. Dies ist nur ein Übungs- und Vorbereitungstool.",
-      "checkboxLabel": "Ich verstehe, dass diese App nur ein Simulationstool zur Prüfungsvorbereitung ist und keine offizielle TELC-Anwendung ist. Ich bestätige, dass die Nutzung dieser App keine bestimmten Ergebnisse bei der tatsächlichen TELC B1-Prüfung garantiert."
+      "checkboxLabel": "Ich verstehe, dass diese App nur ein Simulationstool zur Prüfungsvorbereitung ist und keine offizielle TELC-Anwendung ist. Ich bestätige, dass die Nutzung dieser App keine bestimmten Ergebnisse bei der tatsächlichen TELC {{level}}-Prüfung garantiert."
     }
   },
   "navigation": {
@@ -109,7 +123,7 @@
       "speaking": "Mündlicher Ausdruck"
     },
     "descriptions": {
-      "examStructure": "Erfahren Sie mehr über das TELC B1 Prüfungsformat und die Bewertung",
+      "examStructure": "Informieren Sie sich über das TELC {{level}} Prüfungsformat und die Bewertung",
       "practice": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen",
       "vocabulary": "Vokabeln mit Lernwiederholung lernen"
     }
@@ -213,7 +227,7 @@
   },
   "examStructure": {
     "title": "Prüfungsstruktur",
-    "description": "Erfahren Sie mehr über das TELC B1 Prüfungsformat und die Bewertung",
+    "description": "Informieren Sie sich über das TELC {{level}} Prüfungsformat und die Bewertung",
     "comingSoon": "Inhalt kommt bald...",
     "cefrLevel": "CEFR-Niveau:",
     "totalDuration": "Gesamtdauer:",
@@ -309,7 +323,7 @@
     "signOut": "Abmelden",
     "changeLanguage": "Sprache ändern",
     "signedInWith": "Angemeldet mit",
-    "appName": "Deutsche TELC B1 Prüfungsvorbereitungs-App",
+    "appName": "{{language}} TELC {{level}} Prüfungsvorbereitungs-App",
     "version": "Version",
     "completionStats": "Abschlussstatistiken",
     "totalProgress": "Gesamtfortschritt",
@@ -362,6 +376,10 @@
       "inProgressTitle": "Löschung in Bearbeitung",
       "inProgressMessage": "Ihre Anfrage zur Kontolöschung wird bereits bearbeitet. Ihr Konto wird innerhalb von 7 Tagen ab dem ursprünglichen Anfragedatum gelöscht.",
       "error": "Anfrage zur Löschung konnte nicht übermittelt werden. Bitte versuchen Sie es erneut."
+    },
+    "stats": {
+      "examsCompleted": "Prüfungen abgeschlossen",
+      "averageScore": "Durchschnittliche Punktzahl"
     }
   },
   "settings": {
@@ -392,6 +410,13 @@
     "attError": "Tracking-Berechtigung konnte nicht angefordert werden. Bitte versuchen Sie es erneut.",
     "manageAttPermission": "Tracking-Berechtigung verwalten",
     "requestPermission": "Berechtigung anfordern",
+    "trackingStatus": {
+      "authorized": "Tracking ist aktiviert",
+      "denied": "Tracking ist deaktiviert",
+      "restricted": "Tracking wird durch Geräteeinstellungen eingeschränkt",
+      "not-determined": "Noch nicht gefragt",
+      "unavailable": "Nicht verfügbar"
+    },
     "adConsent": "Werbe-Einwilligung",
     "manageAdConsent": "Werbepräferenzen verwalten",
     "adConsentDescription": "Sie können Ihre Werbepräferenzen jederzeit überprüfen und ändern. Dies bestimmt, ob Sie personalisierte Werbung sehen.",
@@ -404,7 +429,8 @@
     "consentStatusNotRequired": "In Ihrer Region nicht erforderlich",
     "consentStatusRequired": "Einwilligung erforderlich",
     "consentStatusUnknown": "Status unbekannt",
-    "data": "Daten"
+    "data": "Daten",
+    "selectLanguage": "Wählen Sie Sprache aus"
   },
   "review": {
     "title": "App gefällt Ihnen?",
@@ -422,7 +448,7 @@
   },
   "mockExam": {
     "title": "Probe-Prüfung",
-    "subtitle": "Telc Deutsch B1 Vollständige Prüfung",
+    "subtitle": "Telc {{language}} {{level}} Vollständige Prüfung",
     "overview": "Prüfungsübersicht",
     "totalDuration": "Gesamtdauer",
     "totalPoints": "Gesamtpunkte",
@@ -435,7 +461,7 @@
     "aboutMockExam": "Über diese Mock-Prüfung",
     "disclaimerText1": "Diese Mock-Prüfung gibt Ihnen eine grobe Einschätzung Ihres aktuellen Kenntnisstands und Ihrer Vorbereitung. Sie ist jedoch",
     "disclaimerText2": "keine Garantie",
-    "disclaimerText3": "dafür, dass Sie die echte Telc B1-Prüfung bestehen werden.",
+    "disclaimerText3": "dafür, dass Sie die echte Telc {{level}}-Prüfung bestehen werden.",
     "disclaimerText4": "Die echte Prüfung wird unter kontrollierten Bedingungen durchgeführt und von zertifizierten Prüfern bewertet. Nutzen Sie diese Mock-Prüfung als Übungswerkzeug, um Ihre Schwachstellen zu identifizieren und gezielt zu verbessern.",
     "examSections": "Prüfungsteile:",
     "readingComprehension": "Leseverstehen (3 Teile)",
@@ -548,7 +574,7 @@
         "yourPersonalInfo": "Ihre persönlichen Informationen"
       },
       "help": {
-        "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Vorstellung für die TELC B1 mündliche Prüfung. Sie können dies als Referenz verwenden, um Ihre eigene zu erstellen.",
+        "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Vorstellung für die TELC {{level}} mündliche Prüfung. Sie können dies als Referenz verwenden, um Ihre eigene zu erstellen.",
         "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Informationen ein, um Ihren Vorstellungstext zu generieren.",
         "questionsNote": "Wichtig: Dieser Teil der Prüfung wird wahrscheinlich im Konversationsstil stattfinden. \nSie und Ihr Partner werden abwechselnd Fragen stellen, um sich kennenzulernen. \nEs ist wichtig, das Stellen und Beantworten von Fragen zu üben."
       },
@@ -740,20 +766,6 @@
       "needsImprovement": "Verbesserungsbedarf"
     },
     "login": "Login"
-  },
-  "exam": {
-    "selectExam": "Prüfung auswählen:",
-    "test": "Test",
-    "loadingExam": "Prüfung wird geladen...",
-    "failedToLoad": "Prüfungsdaten konnten nicht geladen werden",
-    "selectAnExam": "Wählen Sie eine Prüfung",
-    "selectTask": "Aufgabe auswählen",
-    "completed": "Abgeschlossen",
-    "completedCount": "{{completed}}/{{total}} abgeschlossen",
-    "markedCompleted": "Prüfung als abgeschlossen markiert!",
-    "markedIncomplete": "Prüfung als unvollständig markiert!",
-    "completionFailed": "Fehler beim Aktualisieren des Abschlussstatus",
-    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern"
   },
   "grammar": {
     "part1": {
@@ -1012,5 +1024,9 @@
     "updateNow": "Jetzt aktualisieren",
     "later": "Später",
     "forcedNote": "Dieses Update ist erforderlich, um fortzufahren"
+  },
+  "stats": {
+    "subtitle": "Detaillierte Ansicht Ihres Fortschritts in allen Prüfungsabschnitten",
+    "title": "Statistiken"
   }
 }

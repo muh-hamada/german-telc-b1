@@ -70,8 +70,21 @@
     },
     "ok": "D'ACCORD"
   },
+  "exam": {
+    "selectExam": "Sélectionner l'examen :",
+    "test": "Test",
+    "loadingExam": "Chargement de l'examen...",
+    "failedToLoad": "Échec du chargement des données de l'examen",
+    "selectAnExam": "Sélectionner un examen",
+    "selectTask": "Sélectionner une tâche",
+    "markedCompleted": "Examen marqué comme terminé !",
+    "markedIncomplete": "Examen marqué comme incomplet !",
+    "completionFailed": "Échec de la mise à jour de l'état d'achèvement",
+    "loginToSaveProgress": "Vous devez vous connecter pour sauvegarder votre progression",
+    "completedCount": "{{completed}}/{{total}} terminé"
+  },
   "onboarding": {
-    "welcome": "Préparons ensemble l'examen allemand TELC B1",
+    "welcome": "Préparons ensemble l'examen {{language}} TELC {{level}}",
     "selectLanguage": "Sélectionnez la langue de votre interface",
     "languages": {
       "en": "English",
@@ -83,10 +96,10 @@
     },
     "disclaimer": {
       "title": "Avis Important",
-      "text1": "Cette application n'est PAS affiliée, approuvée ou connectée à TELC GmbH. Nous sommes un outil éducatif indépendant créé pour aider les étudiants à se préparer à l'examen d'allemand TELC B1.",
+      "text1": "Cette application n'est PAS affiliée, approuvée ou connectée à TELC GmbH. Nous sommes un outil éducatif indépendant créé pour aider les étudiants à se préparer à l'examen d'{{language}} TELC {{level}}.",
       "text2": "Tous les matériaux de pratique, questions et exercices de cette application sont créés de manière indépendante en utilisant la technologie de l'IA et des ressources gratuites disponibles en ligne. Nous utilisons ces ressources pour générer des questions qui simulent la complexité et le format du véritable examen TELC.",
       "text3": "La réalisation des exercices dans cette application ne garantit pas le succès ou l'échec de l'examen TELC proprement dit. Ceci est uniquement un outil de pratique et de préparation.",
-      "checkboxLabel": "Je comprends que cette application n'est qu'un outil de simulation pour la préparation à l'examen et n'est pas une application officielle TELC. Je reconnais que l'utilisation de cette application ne garantit aucun résultat spécifique à l'examen TELC B1 réel."
+      "checkboxLabel": "Je comprends que cette application n'est qu'un outil de simulation pour la préparation à l'examen et n'est pas une application officielle TELC. Je reconnais que l'utilisation de cette application ne garantit aucun résultat spécifique à l'examen TELC {{level}} réel."
     }
   },
   "navigation": {
@@ -109,7 +122,7 @@
       "speaking": "Expression orale"
     },
     "descriptions": {
-      "examStructure": "Apprenez le format et le système de notation de l'examen TELC B1",
+      "examStructure": "Apprenez le format et le système de notation de l'examen TELC {{level}}",
       "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale",
       "vocabulary": "Apprenez le vocabulaire avec la répétition espacée"
     }
@@ -137,12 +150,33 @@
     "progress": {
       "title": "Progression du vocabulaire",
       "mastered": "Maîtrisé",
-      "learning": "Apprentissage"
-    }
+      "learning": "Apprentissage",
+      "breakdown": "Répartition des mots",
+      "newWords": "Nouveaux mots",
+      "reviewing": "Révision",
+      "learningPace": "Rythme d'apprentissage",
+      "dailyLimit": "{{count}} nouveaux mots par jour"
+    },
+    "cardState": {
+      "learning": "Apprentissage",
+      "review": "Révision"
+    },
+    "stats": {
+      "title": "Votre progression"
+    },
+    "wordsMastered": "Mots maîtrisés",
+    "dueToday": "À rendre aujourd'hui",
+    "learning": "Apprentissage",
+    "totalWords": "Total des mots",
+    "forecast": "Vous maîtriserez environ {{count}} mots ce mois-ci !",
+    "examples": "Exemples",
+    "noStudiedWords": "Pas encore de mots",
+    "noStudiedWordsDesc": "Commencez à étudier pour construire votre liste de vocabulaire !",
+    "studiedWords": "{{count}} Mots étudiés"
   },
   "examStructure": {
     "title": "Structure de l'examen",
-    "description": "Apprenez le format et le système de notation de l'examen TELC B1",
+    "description": "Apprenez le format et le système de notation de l'examen TELC {{level}}",
     "comingSoon": "Contenu à venir...",
     "cefrLevel": "Niveau CECR :",
     "totalDuration": "Durée totale :",
@@ -238,7 +272,7 @@
     "signOut": "Se déconnecter",
     "changeLanguage": "Changer de langue",
     "signedInWith": "Connecté avec",
-    "appName": "Application de préparation à l'examen allemand TELC B1",
+    "appName": "Application de préparation à l'examen {{language}} TELC {{level}}",
     "version": "Version",
     "completionStats": "Statistiques d'achèvement",
     "totalProgress": "Progression totale",
@@ -293,6 +327,10 @@
       "signInFailed": "Échec de la connexion. Veuillez réessayer.",
       "couldNotOpenStore": "Impossible d'ouvrir la boutique d'applications.",
       "iosRatingComingSoon": "Le lien d'évaluation iOS sera ajouté plus tard."
+    },
+    "stats": {
+      "examsCompleted": "Examens terminés",
+      "averageScore": "Note moyenne"
     }
   },
   "questions": {
@@ -359,7 +397,7 @@
         "yourPersonalInfo": "Vos informations personnelles"
       },
       "help": {
-        "exampleNote": "Ceci est un exemple complet d'une présentation personnelle pour l'examen oral TELC B1. Vous pouvez l'utiliser comme référence pour créer la vôtre.",
+        "exampleNote": "Ceci est un exemple complet d'une présentation personnelle pour l'examen oral TELC {{level}}. Vous pouvez l'utiliser comme référence pour créer la vôtre.",
         "enterInfoPrompt": "Veuillez entrer vos informations personnelles pour générer votre texte de présentation.",
         "questionsNote": "Important : Cette partie de l'examen se déroulera probablement sous forme de conversation. \nVous et votre partenaire poserez des questions à tour de rôle pour apprendre à vous connaître. \nIl est important de s’entraîner à poser des questions et à y répondre."
       },
@@ -580,6 +618,13 @@
     "attError": "Impossible de demander l'autorisation de suivi. Veuillez réessayer.",
     "manageAttPermission": "Gérer l'autorisation de suivi",
     "requestPermission": "Demander l'autorisation",
+    "trackingStatus": {
+      "authorized": "Le suivi est activé",
+      "denied": "Le suivi est désactivé",
+      "restricted": "Le suivi est restreint par les paramètres de l'appareil",
+      "not-determined": "Pas encore demandé",
+      "unavailable": "Non disponible"
+    },
     "adConsent": "Consentement publicitaire",
     "manageAdConsent": "Gérer les préférences publicitaires",
     "adConsentDescription": "Vous pouvez consulter et modifier vos préférences publicitaires à tout moment. Cela contrôle si vous voyez des publicités personnalisées.",
@@ -592,7 +637,9 @@
     "consentStatusNotRequired": "Non requis dans votre région",
     "consentStatusRequired": "Consentement requis",
     "consentStatusUnknown": "Statut inconnu",
-    "data": "Données"
+    "data": "Données",
+    "accountManagement": "Gestion des comptes",
+    "selectLanguage": "Sélectionnez la langue"
   },
   "review": {
     "title": "Vous aimez l'application?",
@@ -610,7 +657,7 @@
   },
   "mockExam": {
     "title": "Examen blanc",
-    "subtitle": "Examen complet Telc Allemand B1",
+    "subtitle": "Examen complet Telc {{language}} {{level}}",
     "overview": "Aperçu de l'examen",
     "totalDuration": "Durée totale",
     "totalPoints": "Points totaux",
@@ -623,7 +670,7 @@
     "aboutMockExam": "À propos de cet examen blanc",
     "disclaimerText1": "Cet examen blanc vous donne une évaluation approximative de vos connaissances actuelles et de votre préparation. Cependant, ce",
     "disclaimerText2": "n'est pas une garantie",
-    "disclaimerText3": "que vous réussirez le véritable examen Telc B1.",
+    "disclaimerText3": "que vous réussirez le véritable examen Telc {{level}}.",
     "disclaimerText4": "Le véritable examen se déroule dans des conditions contrôlées et est évalué par des examinateurs certifiés. Utilisez cet examen blanc comme outil d'entraînement pour identifier vos faiblesses et les améliorer spécifiquement.",
     "examSections": "Sections de l'examen :",
     "readingComprehension": "Compréhension écrite (3 parties)",
@@ -671,18 +718,6 @@
     "speakingCardTitle": "Section parlante",
     "oralExam": "Examen oral",
     "examResultsNote": "ℹ️ Il s'agit d'un examen blanc pour la pratique. \nLes résultats réels de l’examen peuvent varier. \nUtilisez ces résultats pour identifier vos forces et vos faiblesses."
-  },
-  "exam": {
-    "selectExam": "Sélectionner l'examen :",
-    "test": "Test",
-    "loadingExam": "Chargement de l'examen...",
-    "failedToLoad": "Échec du chargement des données de l'examen",
-    "selectAnExam": "Sélectionner un examen",
-    "selectTask": "Sélectionner une tâche",
-    "markedCompleted": "Examen marqué comme terminé !",
-    "markedIncomplete": "Examen marqué comme incomplet !",
-    "completionFailed": "Échec de la mise à jour de l'état d'achèvement",
-    "loginToSaveProgress": "Vous devez vous connecter pour sauvegarder votre progression"
   },
   "grammar": {
     "part1": {
@@ -941,5 +976,14 @@
     "updateNow": "Mettre à jour maintenant",
     "later": "Plus tard",
     "forcedNote": "Cette mise à jour est requise pour continuer"
+  },
+  "stats": {
+    "subtitle": "Vue détaillée de vos progrès dans toutes les sections de l'examen",
+    "title": "Statistiques"
+  },
+  "persona": {
+    "casual": "Étudiant casual",
+    "beginner": "Étudiant novice",
+    "serious": "Étudiant sérieux"
   }
 }

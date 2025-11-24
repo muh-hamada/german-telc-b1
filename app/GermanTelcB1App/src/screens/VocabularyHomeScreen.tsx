@@ -24,6 +24,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import LoginModal from '../components/LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import type { HomeStackNavigationProp } from '../types/navigation.types';
+import { I18nManager } from 'react-native';
 
 const VocabularyHomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -245,7 +246,7 @@ const VocabularyHomeScreen: React.FC = () => {
                 {t('vocabulary.viewProgressDesc')}
               </Text>
             </View>
-            <Icon name="chevron-right" size={24} color={colors.text.tertiary} />
+            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={24} color={colors.text.tertiary} />
           </View>
         </Card>
 
@@ -261,7 +262,7 @@ const VocabularyHomeScreen: React.FC = () => {
                 {t('vocabulary.studiedWordsListDesc')}
               </Text>
             </View>
-            <Icon name="chevron-right" size={24} color={colors.text.tertiary} />
+            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={24} color={colors.text.tertiary} />
           </View>
         </Card>
       </ScrollView>
@@ -388,10 +389,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   cardDescription: {
     ...typography.textStyles.caption,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   badge: {
     minWidth: 32,

@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     marginLeft: spacing.margin.sm,
     flex: 1,
+    textAlign: 'left',
   },
   totalSection: {
     backgroundColor: colors.primary[50],
@@ -253,6 +254,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   partRow: {
     flexDirection: 'row',

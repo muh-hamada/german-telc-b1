@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     marginBottom: spacing.margin.lg,
+    textAlign: 'left',
   },
 });
 

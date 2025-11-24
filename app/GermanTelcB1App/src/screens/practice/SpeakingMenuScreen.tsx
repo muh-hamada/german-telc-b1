@@ -253,12 +253,33 @@ const SpeakingMenuScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background.primary },
-  content: { flex: 1 },
-  scrollContent: { padding: spacing.padding.lg },
-  card: { marginBottom: spacing.margin.lg, minHeight: 100, justifyContent: 'center' },
-  cardTitle: { ...typography.textStyles.h3, color: colors.primary[500], marginBottom: spacing.margin.sm },
-  cardDescription: { ...typography.textStyles.body, color: colors.text.secondary, lineHeight: 24 },
+  container: {
+    flex: 1,
+    backgroundColor: colors.background.primary,
+  },
+  content: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.padding.lg,
+  },
+  card: {
+    marginBottom: spacing.margin.lg,
+    minHeight: 100,
+    justifyContent: 'center',
+  },
+  cardTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[500],
+    marginBottom: spacing.margin.sm,
+    textAlign: 'left',
+  },
+  cardDescription: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    lineHeight: 24,
+    textAlign: 'left',
+  },
 });
 
 export default SpeakingMenuScreen;

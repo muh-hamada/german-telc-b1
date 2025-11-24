@@ -265,6 +265,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   overviewRow: {
     flexDirection: 'row',
@@ -293,12 +294,14 @@ const styles = StyleSheet.create({
     color: colors.warning[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   noteText: {
     ...typography.textStyles.body,
     color: colors.warning[700],
     lineHeight: 22,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   linkButton: {
     marginTop: spacing.margin.sm,
@@ -308,6 +311,7 @@ const styles = StyleSheet.create({
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
     textDecorationLine: 'underline',
+    textAlign: 'left',
   },
   disclaimerCard: {
     backgroundColor: colors.primary[50],
@@ -322,14 +326,17 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   disclaimerText: {
     ...typography.textStyles.body,
     color: colors.primary[700],
     lineHeight: 22,
+    textAlign: 'left',
   },
   disclaimerBold: {
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   sectionsCard: {
     backgroundColor: colors.background.secondary,
@@ -353,6 +360,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     width: 40,
     marginRight: spacing.margin.sm,
+    textAlign: 'left',
   },
   sectionContent: {
     flex: 1,
@@ -362,10 +370,12 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   sectionDetail: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   speakingNote: {
     backgroundColor: colors.white,
@@ -380,11 +390,13 @@ const styles = StyleSheet.create({
     color: colors.secondary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   speakingNoteText: {
     ...typography.textStyles.body,
     color: colors.secondary[700],
     lineHeight: 22,
+    textAlign: 'left',
   },
   startButton: {
     backgroundColor: colors.success[500],

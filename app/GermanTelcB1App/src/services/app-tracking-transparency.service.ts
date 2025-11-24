@@ -173,21 +173,6 @@ class AppTrackingTransparencyService {
 
     console.log(`[ATT] Status: ${statusMap[status]}`);
   }
-
-  /**
-   * Get a user-friendly description of the tracking status
-   */
-  getStatusDescription(status: TrackingStatus): string {
-    const descriptions: Record<TrackingStatus, string> = {
-      authorized: 'Tracking is enabled',
-      denied: 'Tracking is disabled',
-      restricted: 'Tracking is restricted by device settings',
-      'not-determined': 'Not yet asked',
-      unavailable: 'Not available',
-    };
-
-    return descriptions[status];
-  }
 }
 
 // Export singleton instance

@@ -141,10 +141,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   subtitle: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   totalBadge: {
     flexDirection: 'row',

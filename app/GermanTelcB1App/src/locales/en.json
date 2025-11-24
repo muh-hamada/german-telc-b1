@@ -70,7 +70,22 @@
     },
     "ok": "OK"
   },
+  "exam": {
+    "selectExam": "Select Exam:",
+    "test": "Test",
+    "loadingExam": "Loading exam...",
+    "failedToLoad": "Failed to load exam data",
+    "selectAnExam": "Select an exam",
+    "selectTask": "Select Task",
+    "completed": "Completed",
+    "completedCount": "{{completed}}/{{total}} completed",
+    "markedCompleted": "Exam marked as completed!",
+    "markedIncomplete": "Exam marked as incomplete!",
+    "completionFailed": "Failed to update completion status",
+    "loginToSaveProgress": "You need to log in to save your progress"
+  },
   "onboarding": {
+    "welcome": "Let's prepare for the {{language}} TELC {{level}} exam together",
     "selectLanguage": "Select your interface language",
     "languages": {
       "en": "English",
@@ -82,8 +97,10 @@
     },
     "disclaimer": {
       "title": "Important Notice",
+      "text1": "This app is NOT affiliated with, endorsed by, or connected to TELC GmbH. We are an independent educational tool created to help students prepare for the TELC {{level}} {{language}} language examination.",
       "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real TELC exam.",
-      "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only."
+      "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only.",
+      "checkboxLabel": "I understand that this app is only a simulation tool for exam preparation and is not an official TELC application. I acknowledge that using this app does not guarantee any specific results in the actual TELC {{level}} exam."
     }
   },
   "navigation": {
@@ -106,6 +123,7 @@
       "speaking": "Speaking"
     },
     "descriptions": {
+      "examStructure": "Learn about the TELC {{level}} exam format and scoring",
       "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking",
       "vocabulary": "Learn vocabulary with spaced repetition"
     }
@@ -209,6 +227,7 @@
   },
   "examStructure": {
     "title": "Exam Structure",
+    "description": "Learn about the TELC {{level}} exam format and scoring",
     "comingSoon": "Content coming soon...",
     "cefrLevel": "CEFR Level:",
     "totalDuration": "Total Duration:",
@@ -347,7 +366,7 @@
     },
     "rateApp": "Rate our App",
     "deleteAccount": "Delete Account",
-    "appName": "German TELC B1 Exam Preparation App",
+    "appName": "{{language}} TELC {{level}} Exam Preparation App",
     "weeklyActivity": "Weekly Activity",
     "totalXP": "XP",
     "stats": {
@@ -395,6 +414,13 @@
     "attError": "Unable to request tracking permission. Please try again.",
     "manageAttPermission": "Manage Tracking Permission",
     "requestPermission": "Request Permission",
+    "trackingStatus": {
+      "authorized": "Tracking is enabled",
+      "denied": "Tracking is disabled",
+      "restricted": "Tracking is restricted by device settings",
+      "not-determined": "Not yet asked",
+      "unavailable": "Not available"
+    },
     "adConsent": "Ad Consent",
     "manageAdConsent": "Manage Ad Preferences",
     "adConsentDescription": "You can review and change your ad preferences at any time. This controls whether you see personalized ads.",
@@ -408,7 +434,8 @@
     "consentStatusRequired": "Consent required",
     "consentStatusUnknown": "Status unknown",
     "data": "Data",
-    "accountManagement": "Account Management"
+    "accountManagement": "Account Management",
+    "selectLanguage": "Select Language"
   },
   "stats": {
     "title": "Statistics",
@@ -430,6 +457,7 @@
   },
   "mockExam": {
     "title": "Mock Exam",
+    "subtitle": "Telc {{language}} {{level}} Complete Exam",
     "overview": "Exam Overview",
     "totalDuration": "Total Duration",
     "totalPoints": "Total Points",
@@ -442,6 +470,7 @@
     "aboutMockExam": "About this Mock Exam",
     "disclaimerText1": "This mock exam gives you a rough assessment of your current knowledge and preparation. However, it is",
     "disclaimerText2": "no guarantee",
+    "disclaimerText3": "that you will pass the real Telc {{level}} exam.",
     "disclaimerText4": "The real exam is conducted under controlled conditions and evaluated by certified examiners. Use this mock exam as a practice tool to identify your weaknesses and improve them specifically.",
     "examSections": "Exam Sections:",
     "readingComprehension": "Reading Comprehension (3 Parts)",
@@ -555,6 +584,7 @@
       },
       "help": {
         "enterInfoPrompt": "Please enter your personal information to generate your introduction text.",
+        "exampleNote": "This is a complete example of a personal introduction for the TELC {{level}} oral exam. You can use this as a reference to create your own.",
         "questionsNote": "Important: This part of the exam will likely be in a conversation style. You and your partner will take turns asking questions to get to know each other. It's important to practice asking and answering questions."
       },
       "infoLabels": {
@@ -745,20 +775,6 @@
       "needsImprovement": "Needs Improvement"
     },
     "login": "Login"
-  },
-  "exam": {
-    "selectExam": "Select Exam:",
-    "test": "Test",
-    "loadingExam": "Loading exam...",
-    "failedToLoad": "Failed to load exam data",
-    "selectAnExam": "Select an exam",
-    "selectTask": "Select Task",
-    "completed": "Completed",
-    "completedCount": "{{completed}}/{{total}} completed",
-    "markedCompleted": "Exam marked as completed!",
-    "markedIncomplete": "Exam marked as incomplete!",
-    "completionFailed": "Failed to update completion status",
-    "loginToSaveProgress": "You need to log in to save your progress"
   },
   "grammar": {
     "part1": {

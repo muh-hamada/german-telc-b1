@@ -408,7 +408,7 @@ const SettingsScreen: React.FC = () => {
       return t('settings.attNotAvailable');
     }
     
-    return attService.getStatusDescription(attStatus);
+    return t(`settings.trackingStatus.${attStatus}`);
   };
 
   // Handle delete account
@@ -755,6 +755,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   settingButton: {
     marginBottom: spacing.margin.sm,
@@ -773,6 +774,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   timeSection: {
     marginTop: spacing.margin.md,
@@ -832,11 +834,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   consentStatus: {
     ...typography.textStyles.caption,
     color: colors.text.secondary,
     fontStyle: 'italic',
+    textAlign: 'left',
   },
   consentDescription: {
     ...typography.textStyles.body,
@@ -844,6 +848,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginBottom: spacing.margin.md,
     lineHeight: 18,
+    textAlign: 'left',
   },
   notificationsContainer: {
     backgroundColor: colors.background.secondary,

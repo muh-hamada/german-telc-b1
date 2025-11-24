@@ -70,8 +70,21 @@
     },
     "ok": "DE ACUERDO"
   },
+  "exam": {
+    "selectExam": "Seleccionar examen:",
+    "test": "Test",
+    "loadingExam": "Cargando examen...",
+    "failedToLoad": "Error al cargar los datos del examen",
+    "selectAnExam": "Seleccionar un examen",
+    "selectTask": "Seleccionar tarea",
+    "markedCompleted": "¡Examen marcado como completado!",
+    "markedIncomplete": "¡Examen marcado como incompleto!",
+    "completionFailed": "Error al actualizar el estado de finalización",
+    "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso",
+    "completedCount": "{{completed}}/{{total}} completado"
+  },
   "onboarding": {
-    "welcome": "Preparemos juntos para el examen alemán TELC B1",
+    "welcome": "Preparémonos juntos para el examen de {{language}} TELC {{level}}",
     "selectLanguage": "Selecciona tu idioma de interfaz",
     "languages": {
       "en": "English",
@@ -83,10 +96,10 @@
     },
     "disclaimer": {
       "title": "Aviso Importante",
-      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con TELC GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de alemán TELC B1.",
+      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con TELC GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de {{language}} TELC {{level}}.",
       "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen TELC real.",
       "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen TELC real. Esta es sólo una herramienta de práctica y preparación.",
-      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC B1 real."
+      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC {{level}} real."
     }
   },
   "navigation": {
@@ -133,15 +146,41 @@
       "spacedRepetition": "Usa algoritmo de repetición espaciada",
       "syncDevices": "Sincroniza en todos tus dispositivos"
     },
+    "cardState": {
+      "learning": "Aprendiendo",
+      "review": "Revisando"
+    },
     "progress": {
       "title": "Progreso de Vocabulario",
       "mastered": "Dominadas",
-      "learning": "Aprendiendo"
-    }
+      "learning": "Aprendiendo",
+      "breakdown": "Desglose de palabras",
+      "newWords": "Nuevas palabras",
+      "reviewing": "Revisando",
+      "learningPace": "Ritmo de aprendizaje",
+      "dailyLimit": "{{count}} palabras nuevas por día"
+    },
+    "persona": {
+      "casual": "Estudiante casual",
+      "beginner": "Estudiante principiante",
+      "serious": "Estudiante serio"
+    },
+    "stats": {
+      "title": "Tu progreso"
+    },
+    "wordsMastered": "Palabras dominadas",
+    "dueToday": "Vencimiento hoy",
+    "learning": "Aprendiendo",
+    "totalWords": "Total de palabras",
+    "forecast": "¡Dominarás aproximadamente {{count}} palabras este mes!",
+    "examples": "Ejemplos",
+    "noStudiedWords": "Aún no hay palabras",
+    "noStudiedWordsDesc": "¡Empieza a estudiar para construir tu lista de vocabulario!",
+    "studiedWords": "{{count}} Palabras estudiadas"
   },
   "examStructure": {
     "title": "Estructura del Examen",
-    "description": "Aprende sobre el formato y puntuación del examen TELC B1",
+    "description": "Aprende sobre el formato y puntuación del examen TELC {{level}}",
     "comingSoon": "Contenido próximamente...",
     "cefrLevel": "Nivel MCER:",
     "totalDuration": "Duración total:",
@@ -237,7 +276,7 @@
     "signOut": "Cerrar sesión",
     "changeLanguage": "Cambiar idioma",
     "signedInWith": "Sesión iniciada con",
-    "appName": "Aplicación de preparación para el examen alemán TELC B1",
+    "appName": "Aplicación de preparación para el examen de {{language}} TELC {{level}}",
     "version": "Versión",
     "completionStats": "Estadísticas de finalización",
     "totalProgress": "Progreso total",
@@ -292,6 +331,10 @@
       "signInFailed": "Error al iniciar sesión. Por favor inténtelo de nuevo.",
       "couldNotOpenStore": "No pudimos abrir la tienda de aplicaciones.",
       "iosRatingComingSoon": "El enlace de valoración en iOS se añadirá más tarde."
+    },
+    "stats": {
+      "examsCompleted": "Exámenes completados",
+      "averageScore": "Puntuación promedio"
     }
   },
   "settings": {
@@ -322,6 +365,13 @@
     "attError": "No se puede solicitar permiso de rastreo. Por favor, inténtalo de nuevo.",
     "manageAttPermission": "Administrar permiso de rastreo",
     "requestPermission": "Solicitar permiso",
+    "trackingStatus": {
+      "authorized": "El rastreo está habilitado",
+      "denied": "El rastreo está deshabilitado",
+      "restricted": "El rastreo está restringido por la configuración del dispositivo",
+      "not-determined": "Aún no se ha preguntado",
+      "unavailable": "No disponible"
+    },
     "adConsent": "Consentimiento de anuncios",
     "manageAdConsent": "Administrar preferencias de anuncios",
     "adConsentDescription": "Puedes revisar y cambiar tus preferencias de anuncios en cualquier momento. Esto controla si ves anuncios personalizados.",
@@ -334,7 +384,9 @@
     "consentStatusNotRequired": "No requerido en tu región",
     "consentStatusRequired": "Consentimiento requerido",
     "consentStatusUnknown": "Estado desconocido",
-    "data": "Datos"
+    "data": "Datos",
+    "accountManagement": "Gestión de cuentas",
+    "selectLanguage": "Seleccionar idioma"
   },
   "review": {
     "title": "¿Disfrutando la aplicación?",
@@ -352,7 +404,7 @@
   },
   "mockExam": {
     "title": "Examen de prueba",
-    "subtitle": "Examen completo Telc Alemán B1",
+    "subtitle": "Examen completo Telc {{language}} {{level}}",
     "overview": "Resumen del examen",
     "totalDuration": "Duración total",
     "totalPoints": "Puntos totales",
@@ -365,7 +417,7 @@
     "aboutMockExam": "Acerca de este examen de prueba",
     "disclaimerText1": "Este examen de prueba le da una evaluación aproximada de su conocimiento actual y preparación. Sin embargo, es",
     "disclaimerText2": "no es garantía",
-    "disclaimerText3": "de que aprobará el examen real Telc B1.",
+    "disclaimerText3": "de que aprobará el examen real Telc {{level}}.",
     "disclaimerText4": "El examen real se realiza bajo condiciones controladas y es evaluado por examinadores certificados. Use este examen de prueba como herramienta de práctica para identificar sus debilidades y mejorarlas específicamente.",
     "examSections": "Partes del examen:",
     "readingComprehension": "Comprensión lectora (3 partes)",
@@ -478,7 +530,7 @@
         "yourPersonalInfo": "Su información personal"
       },
       "help": {
-        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC B1. Puede usarlo como referencia para crear el suyo propio.",
+        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC {{level}}. Puede usarlo como referencia para crear el suyo propio.",
         "enterInfoPrompt": "Por favor ingrese su información personal para generar su texto de presentación.",
         "questionsNote": "Importante: esta parte del examen probablemente tendrá un estilo de conversación. \nUsted y su pareja se turnarán para hacer preguntas para conocerse. \nEs importante practicar cómo hacer y responder preguntas."
       },
@@ -670,18 +722,6 @@
       "needsImprovement": "Necesita mejorar"
     },
     "login": "Acceso"
-  },
-  "exam": {
-    "selectExam": "Seleccionar examen:",
-    "test": "Test",
-    "loadingExam": "Cargando examen...",
-    "failedToLoad": "Error al cargar los datos del examen",
-    "selectAnExam": "Seleccionar un examen",
-    "selectTask": "Seleccionar tarea",
-    "markedCompleted": "¡Examen marcado como completado!",
-    "markedIncomplete": "¡Examen marcado como incompleto!",
-    "completionFailed": "Error al actualizar el estado de finalización",
-    "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso"
   },
   "grammar": {
     "part1": {
@@ -940,5 +980,9 @@
     "updateNow": "Actualizar ahora",
     "later": "Más tarde",
     "forcedNote": "Esta actualización es necesaria para continuar"
+  },
+  "stats": {
+    "subtitle": "Vista detallada de su progreso en todas las secciones del examen",
+    "title": "Estadística"
   }
 }

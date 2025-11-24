@@ -138,11 +138,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   cardDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
     lineHeight: 24,
+    textAlign: 'left',
   },
   separatorContainer: {
     marginBottom: spacing.margin.lg,

@@ -26,6 +26,7 @@ const ProfileStackNavigator: React.FC = () => {
           fontWeight: typography.fontWeight.semibold,
           color: colors.white,
         },
+        headerBackTitle: ' ', // This ensures no text appears next to back button on iOS
       }}
     >
       <Stack.Screen

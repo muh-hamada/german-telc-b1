@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { I18nManager } from 'react-native';
-import { activeExamConfig } from '../config/active-exam.config';
+import { getExamVariables } from './exam-variables';
 
 // Import base UI translation files
 import en from '../locales/en.json';
@@ -11,103 +11,6 @@ import ar from '../locales/ar.json';
 import es from '../locales/es.json';
 import fr from '../locales/fr.json';
 import ru from '../locales/ru.json';
-
-// Import exam-specific translations with static paths
-// Metro bundler requires static import paths (no dynamic require with template literals)
-import germanB1En from '../locales/exam-content/german-b1/en.json';
-import germanB1De from '../locales/exam-content/german-b1/de.json';
-import germanB1Ar from '../locales/exam-content/german-b1/ar.json';
-import germanB1Es from '../locales/exam-content/german-b1/es.json';
-import germanB1Fr from '../locales/exam-content/german-b1/fr.json';
-import germanB1Ru from '../locales/exam-content/german-b1/ru.json';
-
-import germanB2En from '../locales/exam-content/german-b2/en.json';
-import germanB2De from '../locales/exam-content/german-b2/de.json';
-import germanB2Ar from '../locales/exam-content/german-b2/ar.json';
-import germanB2Es from '../locales/exam-content/german-b2/es.json';
-import germanB2Fr from '../locales/exam-content/german-b2/fr.json';
-import germanB2Ru from '../locales/exam-content/german-b2/ru.json';
-
-
-// TODO: Add imports for other exams when they're created:
-// import germanB2En from '../locales/exam-content/german-b2/en.json';
-// import germanB2De from '../locales/exam-content/german-b2/de.json';
-// ... (and other languages)
-// import englishB1En from '../locales/exam-content/english-b1/en.json';
-// import englishB1De from '../locales/exam-content/english-b1/de.json';
-// ... (and other languages)
-
-// Map exam IDs to their translations
-const examTranslations: Record<string, Record<string, any>> = {
-  'german-b1': {
-    en: germanB1En,
-    de: germanB1De,
-    ar: germanB1Ar,
-    es: germanB1Es,
-    fr: germanB1Fr,
-    ru: germanB1Ru,
-  },
-  'german-b2': {
-    en: germanB2En,
-    de: germanB2De,
-    ar: germanB2Ar,
-    es: germanB2Es,
-    fr: germanB2Fr,
-    ru: germanB2Ru,
-  },
-  // 'english-b1': {
-  //   en: englishB1En,
-  //   de: englishB1De,
-  //   ar: englishB1Ar,
-  //   es: englishB1Es,
-  //   fr: englishB1Fr,
-  //   ru: englishB1Ru,
-  // },
-};
-
-// Get exam-specific translations for a language
-const getExamTranslations = (lang: string): Record<string, any> => {
-  const examId = activeExamConfig.id;
-  const examLangTranslations = examTranslations[examId];
-  
-  if (!examLangTranslations) {
-    console.warn(`[i18n] No exam translations found for exam: ${examId}`);
-    return {};
-  }
-  
-  return examLangTranslations[lang] || {};
-};
-
-// Load exam-specific translations for all languages
-const examEn = getExamTranslations('en');
-const examDe = getExamTranslations('de');
-const examAr = getExamTranslations('ar');
-const examEs = getExamTranslations('es');
-const examFr = getExamTranslations('fr');
-const examRu = getExamTranslations('ru');
-
-// Deep merge function to merge nested objects
-const deepMerge = (target: any, source: any): any => {
-  const output = { ...target };
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach((key) => {
-      if (isObject(source[key])) {
-        if (!(key in target)) {
-          Object.assign(output, { [key]: source[key] });
-        } else {
-          output[key] = deepMerge(target[key], source[key]);
-        }
-      } else {
-        Object.assign(output, { [key]: source[key] });
-      }
-    });
-  }
-  return output;
-};
-
-const isObject = (item: any): boolean => {
-  return item && typeof item === 'object' && !Array.isArray(item);
-};
 
 // RTL languages
 const RTL_LANGUAGES = ['ar'];
@@ -181,18 +84,18 @@ i18n
     debug: __DEV__,
     
     resources: {
-      // Merge base UI translations with exam-specific translations
-      // Exam-specific translations will override base translations if keys conflict
-      en: { translation: deepMerge(en, examEn) },
-      de: { translation: deepMerge(de, examDe) },
-      ar: { translation: deepMerge(ar, examAr) },
-      es: { translation: deepMerge(es, examEs) },
-      fr: { translation: deepMerge(fr, examFr) },
-      ru: { translation: deepMerge(ru, examRu) },
+      en: { translation: en },
+      de: { translation: de },
+      ar: { translation: ar },
+      es: { translation: es },
+      fr: { translation: fr },
+      ru: { translation: ru },
     },
     
     interpolation: {
       escapeValue: false,
+      // Set default context for language and level variables
+      defaultVariables: getExamVariables('en'),
     },
     
     react: {
@@ -200,9 +103,19 @@ i18n
     },
   });
 
+// Update interpolation context when language changes
+i18n.on('languageChanged', (lng: string) => {
+  const examVars = getExamVariables(lng);
+  i18n.options.interpolation = {
+    ...i18n.options.interpolation,
+    defaultVariables: examVars,
+  };
+});
+
 // Log active exam configuration in development
 if (__DEV__) {
-  console.log(`[i18n] Loaded translations for exam: ${activeExamConfig.displayName}`);
+  console.log(`[i18n] Loaded translations with inline variable support`);
+  console.log(`[i18n] Default variables:`, getExamVariables('en'));
 }
 
 export default i18n;

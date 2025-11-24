@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   breakdownItem: {
     flexDirection: 'row',
@@ -176,6 +177,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     flex: 1,
+    textAlign: 'left',
   },
   breakdownValue: {
     ...typography.textStyles.h3,
@@ -191,10 +193,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[700],
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   personaDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
 });
 

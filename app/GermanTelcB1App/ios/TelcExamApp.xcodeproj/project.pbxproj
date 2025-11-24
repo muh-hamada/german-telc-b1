@@ -297,9 +297,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
-				FIREBASE_ANALYTICS_ENABLED = NO;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				ENABLE_BITCODE = NO;
+				FIREBASE_ANALYTICS_ENABLED = NO;
 				INFOPLIST_FILE = TelcExamApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B1";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
@@ -332,8 +332,8 @@
 				CODE_SIGN_ENTITLEMENTS = TelcExamApp/TelcExamApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
-				FIREBASE_ANALYTICS_ENABLED = YES;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
+				FIREBASE_ANALYTICS_ENABLED = YES;
 				INFOPLIST_FILE = TelcExamApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "German TELC B1";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";

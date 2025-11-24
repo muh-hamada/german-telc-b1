@@ -233,6 +233,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
+    textAlign: 'left',
   },
   listContent: {
     padding: spacing.padding.lg,

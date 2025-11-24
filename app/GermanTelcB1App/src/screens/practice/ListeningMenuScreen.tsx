@@ -27,22 +27,22 @@ const ListeningMenuScreen: React.FC = () => {
         dataService.getListeningPart2Content(),
         dataService.getListeningPart3Content(),
       ]);
-      
-      const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({ 
-        id: exam.id, 
-        title: `Test ${exam.id + 1}` 
+
+      const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
+        id: exam.id,
+        title: `Test ${exam.id + 1}`
       }));
       setPart1Exams(part1ExamsList);
-      
-      const part2ExamsList = (part2Data.exams || []).map((exam: any) => ({ 
-        id: exam.id, 
-        title: `Test ${exam.id + 1}` 
+
+      const part2ExamsList = (part2Data.exams || []).map((exam: any) => ({
+        id: exam.id,
+        title: `Test ${exam.id + 1}`
       }));
       setPart2Exams(part2ExamsList);
-      
-      const part3ExamsList = (part3Data.exams || []).map((exam: any) => ({ 
-        id: exam.id, 
-        title: `Test ${exam.id + 1}` 
+
+      const part3ExamsList = (part3Data.exams || []).map((exam: any) => ({
+        id: exam.id,
+        title: `Test ${exam.id + 1}`
       }));
       setPart3Exams(part3ExamsList);
     };
@@ -132,12 +132,33 @@ const ListeningMenuScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background.primary },
-  content: { flex: 1 },
-  scrollContent: { padding: spacing.padding.lg },
-  card: { marginBottom: spacing.margin.lg, minHeight: 100, justifyContent: 'center' },
-  cardTitle: { ...typography.textStyles.h3, color: colors.primary[500], marginBottom: spacing.margin.sm },
-  cardDescription: { ...typography.textStyles.body, color: colors.text.secondary, lineHeight: 24 },
+  container: { 
+    flex: 1,
+    backgroundColor: colors.background.primary,
+  },
+  content: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing.padding.lg,
+  },
+  card: {
+    marginBottom: spacing.margin.lg,
+    minHeight: 100,
+    justifyContent: 'center',
+  },
+  cardTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[500],
+    marginBottom: spacing.margin.sm,
+    textAlign: 'left',
+  },
+  cardDescription: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    lineHeight: 24,
+    textAlign: 'left',
+  },
 });
 
 export default ListeningMenuScreen;

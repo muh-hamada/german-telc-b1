@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h5,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   closeButton: {
     padding: spacing.padding.xs,
@@ -260,11 +261,12 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   examItemTitle: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   completedBadge: {
     flexDirection: 'row',

@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   title: {
     ...typography.textStyles.h3,
     color: colors.text.primary,
+    textAlign: 'left',
   },
   statsGrid: {
     flexDirection: 'row',
