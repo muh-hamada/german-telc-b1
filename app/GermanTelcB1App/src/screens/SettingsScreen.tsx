@@ -11,11 +11,13 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useLanguageChange } from '../hooks/useLanguageChange';
 import RNRestart from 'react-native-restart';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
 import LanguageSelectorModal from '../components/LanguageSelectorModal';
+import RestartAppModal from '../components/RestartAppModal';
 import HourPickerModal from '../components/HourPickerModal';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
@@ -33,6 +35,13 @@ const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, isLoading: authLoading } = useAuth();
+  const {
+    isRestartModalVisible,
+    isGoingToRTL,
+    handleLanguageChange: handleLanguageChangeWithRestart,
+    handleRestartConfirm,
+    handleRestartCancel,
+  } = useLanguageChange();
   const [isClearing, setIsClearing] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
@@ -248,43 +257,8 @@ const SettingsScreen: React.FC = () => {
   };
 
   const handleLanguageSelect = async (languageCode: string) => {
-    try {
-      logEvent(AnalyticsEvents.LANGUAGE_CHANGED, { to: languageCode });
-      const needsRestart = checkRTLChange(languageCode);
-      await i18n.changeLanguage(languageCode);
-
-      if (needsRestart) {
-        // Switching between RTL and LTR requires app restart
-        const isGoingToRTL = languageCode === 'ar';
-        Alert.alert(
-          t('common.success'),
-          isGoingToRTL
-            ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
-            : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.',
-          [
-            {
-              text: t('common.cancel'),
-              style: 'cancel',
-            },
-            {
-              text: 'Restart / إعادة التشغيل',
-              style: 'default',
-              onPress: () => {
-                // Give a small delay to ensure language is saved
-                setTimeout(() => {
-                  RNRestart.restart();
-                }, 100);
-              },
-            },
-          ]
-        );
-      } else {
-        Alert.alert(t('common.success'), t('profile.alerts.languageChanged'));
-      }
-    } catch (error) {
-      console.error('Error changing language:', error);
-      Alert.alert(t('common.error'), t('profile.alerts.languageChangeFailed'));
-    }
+    logEvent(AnalyticsEvents.LANGUAGE_CHANGED, { to: languageCode });
+    await handleLanguageChangeWithRestart(languageCode);
   };
 
   const handleNotificationToggle = async (value: boolean) => {
@@ -732,6 +706,13 @@ const SettingsScreen: React.FC = () => {
         visible={showLanguageModal}
         onClose={() => setShowLanguageModal(false)}
         onLanguageSelect={handleLanguageSelect}
+      />
+
+      <RestartAppModal
+        visible={isRestartModalVisible}
+        isGoingToRTL={isGoingToRTL}
+        onRestart={handleRestartConfirm}
+        onCancel={handleRestartCancel}
       />
 
       {/* Hour Picker Modal */}

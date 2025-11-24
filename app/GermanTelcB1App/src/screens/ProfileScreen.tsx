@@ -7,7 +7,6 @@ import {
   Alert,
   Image,
   I18nManager,
-  Platform,
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -135,7 +134,7 @@ const ProfileScreen: React.FC = () => {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <TouchableOpacity onPress={handleNavigateBack} style={styles.headerButton}>
-            <Icon name="chevron-left" size={20} color={colors.text.primary} />
+            <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{t('profile.title')}</Text>
         </View>
@@ -274,7 +273,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: spacing.padding.lg,
@@ -282,7 +281,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   headerLeft: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.md,
   },
@@ -334,7 +333,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   benefitItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
     paddingHorizontal: spacing.padding.sm,
@@ -352,7 +351,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.lg,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.lg,
     ...spacing.shadow.sm,

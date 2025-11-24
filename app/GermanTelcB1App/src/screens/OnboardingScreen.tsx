@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useLanguageChange } from '../hooks/useLanguageChange';
 import { RootStackParamList } from '../types/navigation.types';
 import { spacing } from '../theme';
 import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
+import RestartAppModal from '../components/RestartAppModal';
 import i18n from '../utils/i18n';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
@@ -15,10 +17,17 @@ type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const { t } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const {
+    isRestartModalVisible,
+    isGoingToRTL,
+    handleLanguageChange: handleLanguageChangeWithRestart,
+    handleRestartConfirm,
+    handleRestartCancel,
+  } = useLanguageChange();
 
-  const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang);
+  const handleLanguageChange = async (lang: string) => {
     setSelectedLanguage(lang);
+    await handleLanguageChangeWithRestart(lang);
   };
 
   const handleGoPress = () => {
@@ -32,6 +41,13 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
         onLanguageSelect={handleLanguageChange}
       />
       <Button title={t('common.next')} onPress={handleGoPress} style={styles.goButton} />
+      
+      <RestartAppModal
+        visible={isRestartModalVisible}
+        isGoingToRTL={isGoingToRTL}
+        onRestart={handleRestartConfirm}
+        onCancel={handleRestartCancel}
+      />
     </SafeAreaView>
   );
 };
