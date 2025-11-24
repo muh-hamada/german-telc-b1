@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
-import RNRestart from 'react-native-restart';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
@@ -39,8 +38,7 @@ const SettingsScreen: React.FC = () => {
     isRestartModalVisible,
     isGoingToRTL,
     handleLanguageChange: handleLanguageChangeWithRestart,
-    handleRestartConfirm,
-    handleRestartCancel,
+    handleCloseModal,
   } = useLanguageChange();
   const [isClearing, setIsClearing] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
@@ -711,8 +709,7 @@ const SettingsScreen: React.FC = () => {
       <RestartAppModal
         visible={isRestartModalVisible}
         isGoingToRTL={isGoingToRTL}
-        onRestart={handleRestartConfirm}
-        onCancel={handleRestartCancel}
+        onClose={handleCloseModal}
       />
 
       {/* Hour Picker Modal */}

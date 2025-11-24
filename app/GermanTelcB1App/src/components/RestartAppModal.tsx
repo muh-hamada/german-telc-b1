@@ -1,7 +1,7 @@
 /**
  * RestartAppModal Component
  * 
- * Modal that appears when the app needs to restart for RTL/LTR layout changes
+ * Modal that appears when the app needs to be closed and reopened for RTL/LTR layout changes
  */
 
 import React from 'react';
@@ -19,54 +19,46 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 interface RestartAppModalProps {
   visible: boolean;
   isGoingToRTL: boolean;
-  onRestart: () => void;
-  onCancel: () => void;
+  onClose: () => void;
 }
 
 const RestartAppModal: React.FC<RestartAppModalProps> = ({
   visible,
   isGoingToRTL,
-  onRestart,
-  onCancel,
+  onClose,
 }) => {
   const { t } = useCustomTranslation();
 
   const message = isGoingToRTL
-    ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
-    : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.';
+    ? 'تم تغيير اللغة بنجاح إلى العربية! 🎉\n\nيرجى إغلاق التطبيق وإعادة فتحه لتطبيق التخطيط من اليمين إلى اليسار.\n\n───────────\n\nLanguage changed to Arabic successfully! 🎉\n\nPlease close and reopen the app to apply the right-to-left layout.'
+    : 'Language changed successfully! 🎉\n\nPlease close and reopen the app to apply the left-to-right layout.\n\n───────────\n\nتم تغيير اللغة بنجاح! 🎉\n\nيرجى إغلاق التطبيق وإعادة فتحه لتطبيق التخطيط من اليسار إلى اليمين.';
 
   return (
     <Modal
       visible={visible}
       transparent
       animationType="fade"
-      onRequestClose={onCancel}
+      onRequestClose={onClose}
     >
       <View style={styles.overlay}>
         <View style={styles.modal}>
-
           {/* Content */}
           <View style={styles.content}>
+            <Text style={styles.title}>
+              {isGoingToRTL ? '✓ تم' : '✓ Done'}
+            </Text>
             <Text style={styles.message}>{message}</Text>
           </View>
 
-          {/* Buttons */}
+          {/* Button */}
           <View style={styles.buttonContainer}>
             <TouchableOpacity
-              style={[styles.button, styles.cancelButton]}
-              onPress={onCancel}
+              style={[styles.button, styles.okButton]}
+              onPress={onClose}
               activeOpacity={0.7}
             >
-              <Text style={styles.cancelButtonText}>{t('common.cancel')}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.button, styles.restartButton]}
-              onPress={onRestart}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.restartButtonText}>
-                Restart / إعادة التشغيل
+              <Text style={styles.okButtonText}>
+                OK / حسناً
               </Text>
             </TouchableOpacity>
           </View>
@@ -91,19 +83,15 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     ...spacing.shadow.lg,
   },
-  header: {
-    padding: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    textAlign: 'center',
-  },
   content: {
     padding: spacing.padding.xl,
-    
+    alignItems: 'center',
+  },
+  title: {
+    ...typography.textStyles.h2,
+    color: colors.primary[500],
+    marginBottom: spacing.margin.lg,
+    textAlign: 'center',
   },
   message: {
     ...typography.textStyles.body,
@@ -112,35 +100,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonContainer: {
-    flexDirection: 'row',
     padding: spacing.padding.md,
-    gap: spacing.margin.sm,
     borderTopWidth: 1,
     borderTopColor: colors.border.light,
   },
   button: {
-    flex: 1,
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  cancelButton: {
-    backgroundColor: colors.background.secondary,
-  },
-  cancelButtonText: {
-    ...typography.textStyles.button,
-    color: colors.text.secondary,
-    flex: 1,
-  },
-  restartButton: {
+  okButton: {
     backgroundColor: colors.primary[500],
-    flex: 3,
   },
-  restartButtonText: {
+  okButtonText: {
     ...typography.textStyles.button,
     color: colors.white,
+    fontSize: 16,
   },
 });
 

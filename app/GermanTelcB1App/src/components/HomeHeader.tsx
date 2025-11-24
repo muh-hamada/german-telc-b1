@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   title: {
     ...typography.textStyles.h4,
     color: colors.text.primary,
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'left',
   },
   imageContainer: {
     flex: 0.4,

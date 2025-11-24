@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-  I18nManager,
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -303,7 +302,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   tabsContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.secondary[100],
     borderRadius: spacing.borderRadius.md,
     padding: 4,
@@ -333,7 +332,7 @@ const styles = StyleSheet.create({
     gap: spacing.margin.md,
   },
   dialogBubbleContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     marginBottom: spacing.margin.sm,
   },
   dialogBubbleLeft: {
@@ -371,7 +370,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.secondary[100],
   },
   tableHeaderCell: {
@@ -387,7 +386,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase' as 'uppercase',
   },
   tableRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
   },

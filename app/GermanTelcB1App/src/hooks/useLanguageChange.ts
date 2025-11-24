@@ -1,12 +1,11 @@
 /**
  * useLanguageChange Hook
  * 
- * Custom hook to handle language changes with RTL/LTR restart logic
+ * Custom hook to handle language changes with RTL/LTR manual restart prompts
  */
 
 import { useState } from 'react';
 import { Alert } from 'react-native';
-import RNRestart from 'react-native-restart';
 import i18n from '../utils/i18n';
 import { checkRTLChange } from '../utils/i18n';
 import { useCustomTranslation } from './useCustomTranslation';
@@ -15,8 +14,7 @@ interface UseLanguageChangeReturn {
   isRestartModalVisible: boolean;
   isGoingToRTL: boolean;
   handleLanguageChange: (languageCode: string) => Promise<void>;
-  handleRestartConfirm: () => void;
-  handleRestartCancel: () => void;
+  handleCloseModal: () => void;
 }
 
 export const useLanguageChange = (): UseLanguageChangeReturn => {
@@ -30,7 +28,7 @@ export const useLanguageChange = (): UseLanguageChangeReturn => {
       await i18n.changeLanguage(languageCode);
 
       if (needsRestart) {
-        // Show restart modal
+        // Show modal asking user to close and reopen the app
         setIsGoingToRTL(languageCode === 'ar');
         setIsRestartModalVisible(true);
       }
@@ -40,15 +38,7 @@ export const useLanguageChange = (): UseLanguageChangeReturn => {
     }
   };
 
-  const handleRestartConfirm = () => {
-    setIsRestartModalVisible(false);
-    // Give a small delay to ensure language is saved and modal closes
-    setTimeout(() => {
-      RNRestart.restart();
-    }, 100);
-  };
-
-  const handleRestartCancel = () => {
+  const handleCloseModal = () => {
     setIsRestartModalVisible(false);
   };
 
@@ -56,8 +46,6 @@ export const useLanguageChange = (): UseLanguageChangeReturn => {
     isRestartModalVisible,
     isGoingToRTL,
     handleLanguageChange,
-    handleRestartConfirm,
-    handleRestartCancel,
+    handleCloseModal,
   };
 };
-

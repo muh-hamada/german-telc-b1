@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -19,7 +18,6 @@ import {
   createInitialMockExamProgress,
   saveMockExamProgress,
 } from '../services/mock-exam.service';
-import { HIDE_ADS } from '../config/development.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamScreen: React.FC = () => {
@@ -269,7 +267,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   overviewRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: spacing.margin.sm,
   },
@@ -345,7 +343,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   sectionItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
   },
@@ -354,7 +352,7 @@ const styles = StyleSheet.create({
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
     width: 40,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
   },
   sectionContent: {
     flex: 1,

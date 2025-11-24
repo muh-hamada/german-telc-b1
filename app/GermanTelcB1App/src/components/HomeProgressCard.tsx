@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, I18nManager, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 import Button from './Button';
-import StatsGrid, { StatItem } from './StatsGrid';
 import { useCompletion } from '../contexts/CompletionContext';
 import ProfileStatsGrid from './ProfileStatsGrid';
 
@@ -141,7 +140,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   totalProgressHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.xs,
@@ -186,10 +185,10 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
   },
   loginPrompt: {
-    alignItems: I18nManager.isRTL ? 'flex-end' : 'flex-start',
+    alignItems: 'flex-start',
   },
   loginPromptTextContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
     gap: spacing.md,
   },
@@ -202,12 +201,12 @@ const styles = StyleSheet.create({
     color: colors.primary[500],
     fontWeight: typography.fontWeight.semibold,
     marginBottom: spacing.sm,
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'left',
   },
   loginPromptText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'left',
   },
 });
 

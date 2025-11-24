@@ -21,8 +21,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     isRestartModalVisible,
     isGoingToRTL,
     handleLanguageChange: handleLanguageChangeWithRestart,
-    handleRestartConfirm,
-    handleRestartCancel,
+    handleCloseModal,
   } = useLanguageChange();
 
   const handleLanguageChange = async (lang: string) => {
@@ -45,8 +44,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
       <RestartAppModal
         visible={isRestartModalVisible}
         isGoingToRTL={isGoingToRTL}
-        onRestart={handleRestartConfirm}
-        onCancel={handleRestartCancel}
+        onClose={handleCloseModal}
       />
     </SafeAreaView>
   );

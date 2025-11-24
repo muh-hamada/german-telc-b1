@@ -6,7 +6,6 @@ import {
   ScrollView,
   Alert,
   Image,
-  I18nManager,
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -22,14 +21,13 @@ import DailyStreaksCard from '../components/DailyStreaksCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import ProfileStatsGrid from '../components/ProfileStatsGrid';
 import { useAuth } from '../contexts/AuthContext';
-import { useUserStats } from '../contexts/ProgressContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useStreak } from '../contexts/StreakContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { ProfileStackParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
-import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
+import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
 import { calculateRewardDays } from '../constants/streak.constants';
 
 // Helper function to format time remaining
@@ -56,14 +54,12 @@ const ProfileScreen: React.FC = () => {
   const route = useRoute<RouteProp<ProfileStackParamList, 'Profile'>>();
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList>>();
   const { user, signOut, isLoading: authLoading } = useAuth();
-  const stats = useUserStats();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const { adFreeStatus, streakData } = useStreak();
   const { isStreaksEnabledForUser } = useRemoteConfig();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
-  const displayStats = DEMO_MODE ? DEMO_STATS : stats;
   const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
   
   // Calculate ad-free reward days
@@ -134,7 +130,7 @@ const ProfileScreen: React.FC = () => {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <TouchableOpacity onPress={handleNavigateBack} style={styles.headerButton}>
-            <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
+            <Icon name="chevron-left" size={20} color={colors.text.primary} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{t('profile.title')}</Text>
         </View>
@@ -360,8 +356,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    marginRight: I18nManager.isRTL ? 0 : spacing.margin.md,
-    marginLeft: I18nManager.isRTL ? spacing.margin.md : 0,
+    marginRight: spacing.margin.md,
   },
   avatarPlaceholder: {
     backgroundColor: colors.secondary[100],
@@ -414,7 +409,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.lg,
     marginBottom: spacing.margin.lg,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
     borderColor: colors.success[100],
@@ -422,8 +417,7 @@ const styles = StyleSheet.create({
   },
   adFreeIcon: {
     fontSize: 40,
-    marginRight: I18nManager.isRTL ? 0 : spacing.margin.md,
-    marginLeft: I18nManager.isRTL ? spacing.margin.md : 0,
+    marginRight: spacing.margin.md,
   },
   adFreeContent: {
     flex: 1,
