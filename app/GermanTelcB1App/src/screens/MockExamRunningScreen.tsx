@@ -7,7 +7,6 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
-  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -348,7 +347,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.margin.md,
   },
   stepHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -473,7 +472,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   placeholderMeta: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: spacing.margin.sm,
   },

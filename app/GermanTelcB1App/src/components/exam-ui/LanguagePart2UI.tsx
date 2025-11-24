@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
   Modal,
 } from 'react-native';
 
@@ -261,14 +260,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   wordBankGrid: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.md,
   },
   wordItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.padding.xs,
     margin: spacing.margin.xs,
@@ -279,7 +278,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: 4 } : { marginRight: 4 }),
+    marginRight: 4,
   },
   wordText: {
     ...typography.textStyles.bodySmall,
@@ -329,7 +328,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -358,7 +357,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   wordOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.md,
@@ -376,7 +375,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
   },
   wordOptionText: {
     ...typography.textStyles.body,

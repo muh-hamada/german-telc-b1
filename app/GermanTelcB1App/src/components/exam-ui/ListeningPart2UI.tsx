@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-sound';
@@ -331,12 +330,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   metaInfo: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
   },
   metaText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.md } : { marginRight: spacing.margin.md }),
+    marginRight: spacing.margin.md,
   },
   instructionsCard: {
     backgroundColor: colors.secondary[50],
@@ -381,7 +380,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border.light,
   },
   audioInfo: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.md,
@@ -444,13 +443,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.primary[100],
     borderBottomWidth: 2,
     borderBottomColor: colors.primary[500],
   },
   tableRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.light,
     backgroundColor: colors.background.secondary,
@@ -461,7 +460,7 @@ const styles = StyleSheet.create({
   },
   statementCell: {
     flex: 3,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
   },
   answerCell: {
@@ -478,7 +477,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.xs } : { marginRight: spacing.margin.xs }),
+    marginRight: spacing.margin.xs,
     minWidth: 30,
   },
   statementText: {

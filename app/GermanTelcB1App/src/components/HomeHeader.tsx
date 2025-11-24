@@ -1,5 +1,5 @@
 import React from 'react';
-import { I18nManager, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';

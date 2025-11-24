@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Alert,
   ActivityIndicator,
-  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -613,7 +612,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   optionContent: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     gap: spacing.margin.md,
@@ -761,7 +760,7 @@ const styles = StyleSheet.create({
   progressText: {
     ...typography.textStyles.h6,
     color: colors.text.primary,
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'left',
     marginTop: spacing.margin.md,
     fontWeight: typography.fontWeight.semibold,
   },

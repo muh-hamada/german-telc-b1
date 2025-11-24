@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  I18nManager,
   ActivityIndicator,
 } from 'react-native';
 import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -260,7 +259,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   overviewRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
@@ -310,7 +309,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   sectionHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
   },
@@ -318,7 +317,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h2,
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
     width: 40,
   },
   sectionTitleContainer: {
@@ -330,7 +329,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   sectionMetaRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.margin.sm,
   },
@@ -350,7 +349,7 @@ const styles = StyleSheet.create({
     borderLeftColor: colors.primary[400],
   },
   partHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.xs,
@@ -363,7 +362,7 @@ const styles = StyleSheet.create({
     marginRight: spacing.margin.sm,
   },
   partMeta: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     gap: spacing.margin.xs,
   },
   partMetaText: {

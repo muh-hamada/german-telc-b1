@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, I18nManager, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   statRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },

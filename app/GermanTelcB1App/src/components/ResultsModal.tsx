@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.md,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: spacing.md,
@@ -259,7 +258,7 @@ const styles = StyleSheet.create({
     borderLeftColor: colors.error[500],
   },
   answerHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -289,7 +288,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
   },
   buttonContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     gap: spacing.md,

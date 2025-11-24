@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
@@ -247,7 +246,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   adItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     padding: spacing.padding.sm,
     backgroundColor: colors.background.secondary,
     marginBottom: spacing.margin.xs,
@@ -311,7 +310,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   answerButtons: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
   },
   answerButton: {

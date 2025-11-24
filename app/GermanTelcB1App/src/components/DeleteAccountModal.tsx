@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
-  I18nManager,
   ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -176,13 +175,13 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: colors.error[500],
     marginBottom: spacing.margin.lg,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
   },
   warningIcon: {
     fontSize: 24,
-    marginRight: I18nManager.isRTL ? 0 : spacing.margin.sm,
-    marginLeft: I18nManager.isRTL ? spacing.margin.sm : 0,
+    marginRight: spacing.margin.sm,
+    marginLeft: 0,
   },
   warningText: {
     ...typography.textStyles.body,
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   buttonContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     gap: spacing.margin.sm,
   },
@@ -202,7 +201,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.error[500],
   },
   loadingContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: spacing.margin.md,

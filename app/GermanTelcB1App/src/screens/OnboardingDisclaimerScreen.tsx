@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, I18nManager } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     textAlign: 'center',
-    marginLeft: I18nManager.isRTL ? 0 : spacing.sm,
-    marginRight: I18nManager.isRTL ? spacing.sm : 0,
+    marginLeft: spacing.sm,
+    marginRight: 0,
   },
   disclaimerBox: {
     backgroundColor: colors.background.secondary,

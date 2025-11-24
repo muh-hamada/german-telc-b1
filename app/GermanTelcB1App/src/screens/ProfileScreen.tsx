@@ -7,6 +7,7 @@ import {
   Alert,
   Image,
   TouchableOpacity,
+  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -130,7 +131,7 @@ const ProfileScreen: React.FC = () => {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <TouchableOpacity onPress={handleNavigateBack} style={styles.headerButton}>
-            <Icon name="chevron-left" size={20} color={colors.text.primary} />
+            <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{t('profile.title')}</Text>
         </View>

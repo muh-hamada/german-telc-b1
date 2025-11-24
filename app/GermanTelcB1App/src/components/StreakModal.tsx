@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -198,7 +197,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   calendarContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
     marginBottom: spacing.margin.md,

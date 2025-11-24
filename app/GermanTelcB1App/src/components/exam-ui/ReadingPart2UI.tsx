@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -232,7 +231,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   answerOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.sm,

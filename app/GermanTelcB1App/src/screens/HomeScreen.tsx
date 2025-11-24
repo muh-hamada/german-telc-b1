@@ -3,7 +3,6 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -131,8 +130,7 @@ const styles = StyleSheet.create({
   newLabel: {
     position: 'absolute',
     top: 10,
-    right: I18nManager.isRTL ? undefined : 11,
-    left: I18nManager.isRTL ? 11 : undefined,
+    right: 11,
     textTransform: 'uppercase',
     color: colors.black,
     fontSize: 10,

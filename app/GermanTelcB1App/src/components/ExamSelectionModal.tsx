@@ -6,7 +6,6 @@ import {
   Modal,
   TouchableOpacity,
   ScrollView,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -207,7 +206,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.border.light,
   },
   statsRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
   },
@@ -249,7 +248,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.success[50],
   },
   examItemContent: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -265,9 +264,10 @@ const styles = StyleSheet.create({
   examItemTitle: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'center',
   },
   completedBadge: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.success[100],
     paddingHorizontal: spacing.padding.sm,

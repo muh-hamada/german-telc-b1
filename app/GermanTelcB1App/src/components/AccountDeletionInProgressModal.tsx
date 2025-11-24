@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -112,13 +111,13 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: colors.warning[500],
     marginBottom: spacing.margin.xl,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
   },
   infoIcon: {
     fontSize: 24,
-    marginRight: I18nManager.isRTL ? 0 : spacing.margin.sm,
-    marginLeft: I18nManager.isRTL ? spacing.margin.sm : 0,
+    marginRight: spacing.margin.sm,
+    marginLeft: 0,
   },
   infoText: {
     ...typography.textStyles.body,

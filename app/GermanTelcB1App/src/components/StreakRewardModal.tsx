@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -169,7 +168,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
   },
   rewardCard: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.success[50],
     borderRadius: spacing.borderRadius.lg,
@@ -197,7 +196,7 @@ const styles = StyleSheet.create({
   rewardDescription: {
     ...typography.textStyles.h5,
     color: colors.success[600],
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
+    textAlign: 'left',
     flexShrink: 1,
   },
   claimButton: {

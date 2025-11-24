@@ -159,10 +159,17 @@ export const applyRTLLayout = async () => {
 
 // Check if RTL needs to change and return true if restart is needed
 export const checkRTLChange = (languageCode: string): boolean => {
-  const shouldBeRTL = isRTLLanguage(languageCode);
+  const targetShouldBeRTL = isRTLLanguage(languageCode);
   const isCurrentlyRTL = I18nManager.isRTL;
   
-  return shouldBeRTL !== isCurrentlyRTL;
+  console.log('[checkRTLChange] targetLanguageCode:', languageCode);
+  console.log('[checkRTLChange] targetShouldBeRTL:', targetShouldBeRTL);
+  console.log('[checkRTLChange] I18nManager.isRTL (current native state):', isCurrentlyRTL);
+  console.log('[checkRTLChange] needsChange:', targetShouldBeRTL !== isCurrentlyRTL);
+  
+  // Compare target language RTL requirement with current native UI state
+  // This works correctly because we update I18nManager immediately after language change
+  return targetShouldBeRTL !== isCurrentlyRTL;
 };
 
 i18n

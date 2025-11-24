@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
   Modal,
 } from 'react-native';
 
@@ -288,7 +287,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -317,7 +316,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   answerOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.md,
@@ -337,7 +336,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 2,
     borderColor: colors.secondary[400],
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },

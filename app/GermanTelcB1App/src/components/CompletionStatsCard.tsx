@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -195,7 +194,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.lg,
   },
@@ -212,7 +211,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   totalRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
@@ -256,7 +255,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   partRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.xs,

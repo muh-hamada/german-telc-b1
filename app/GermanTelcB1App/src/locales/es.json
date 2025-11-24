@@ -269,6 +269,13 @@
       "welcome": "Bienvenido",
       "notLoggedIn": "No ha iniciado sesión"
     },
+    "loginPrompt": {
+      "title": "Inicia sesión para desbloquear todas las funciones",
+      "message": "Crea una cuenta gratuita o inicia sesión para guardar tu progreso y aprovechar al máximo tu preparación para el examen.",
+      "benefit1": "Rastrea tu progreso en todos los dispositivos",
+      "benefit2": "Recibe recordatorios diarios de práctica",
+      "benefit3": "Guarda tus calificaciones de examen y estadísticas"
+    },
     "alerts": {
       "clearProgressTitle": "Borrar progreso",
       "clearProgressMessage": "¿Está seguro de que desea borrar todo su progreso? Esta acción no se puede deshacer.",

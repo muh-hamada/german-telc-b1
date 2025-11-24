@@ -50,6 +50,7 @@
     "react-native-markdown-display": "^7.0.2",
     "react-native-permissions": "^5.4.4",
     "react-native-restart": "^0.0.27",
+    "react-native-restart-newarch": "^1.0.85",
     "react-native-safe-area-context": "^5.6.1",
     "react-native-screens": "^4.17.1",
     "react-native-sound": "https://github.com/zmxv/react-native-sound.git#master",

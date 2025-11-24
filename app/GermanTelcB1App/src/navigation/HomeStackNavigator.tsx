@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { Text, I18nManager } from 'react-native';
+import { Text} from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
 import HomeScreen from '../screens/HomeScreen';

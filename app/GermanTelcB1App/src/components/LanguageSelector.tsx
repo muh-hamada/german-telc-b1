@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
   },
   languageItem: {
     width: '90%',
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
   },
   languageContent: {
     flex: 1,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },

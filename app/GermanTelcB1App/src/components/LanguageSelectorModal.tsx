@@ -6,7 +6,6 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
-  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     maxHeight: '80%',
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -141,7 +140,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   languageItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,

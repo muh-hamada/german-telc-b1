@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, I18nManager } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
 
@@ -59,13 +59,13 @@ const StatsGrid: React.FC<StatsGridProps> = ({ stats, variant = 'compact', margi
 
 const styles = StyleSheet.create({
   statsGridCard: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     gap: spacing.margin.md,
   },
   statsGridCompact: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     gap: spacing.margin.md,
   },

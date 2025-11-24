@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  I18nManager,
   ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -133,7 +132,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.md,
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   totalBadge: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.primary[50],
     paddingHorizontal: spacing.padding.md,
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   chartContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     height: 180,
   },
   yAxis: {
@@ -182,7 +181,7 @@ const styles = StyleSheet.create({
   },
   barsContainer: {
     flex: 1,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'flex-end',
   },

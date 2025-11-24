@@ -270,6 +270,13 @@
       "welcome": "Bienvenue",
       "notLoggedIn": "Non connecté"
     },
+    "loginPrompt": {
+      "title": "Connectez-vous pour débloquer toutes les fonctionnalités",
+      "message": "Créez un compte gratuit ou connectez-vous pour sauvegarder votre progression et tirer le meilleur parti de votre préparation à l'examen.",
+      "benefit1": "Suivez votre progression sur tous vos appareils",
+      "benefit2": "Recevez des rappels de pratique quotidiens",
+      "benefit3": "Enregistrez vos scores d'examen et statistiques"
+    },
     "alerts": {
       "clearProgressTitle": "Effacer la progression",
       "clearProgressMessage": "Êtes-vous sûr de vouloir effacer toute votre progression ? Cette action ne peut pas être annulée.",

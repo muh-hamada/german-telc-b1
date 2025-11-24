@@ -327,6 +327,13 @@
       "welcome": "Willkommen",
       "notLoggedIn": "Nicht angemeldet"
     },
+    "loginPrompt": {
+      "title": "Anmelden, um alle Funktionen freizuschalten",
+      "message": "Erstellen Sie ein kostenloses Konto oder melden Sie sich an, um Ihren Fortschritt zu speichern und das Beste aus Ihrer Prüfungsvorbereitung herauszuholen.",
+      "benefit1": "Verfolgen Sie Ihren Fortschritt auf allen Geräten",
+      "benefit2": "Erhalten Sie tägliche Übungserinnerungen",
+      "benefit3": "Speichern Sie Ihre Prüfungsergebnisse und Statistiken"
+    },
     "alerts": {
       "clearProgressTitle": "Fortschritt löschen",
       "clearProgressMessage": "Sind Sie sicher, dass Sie Ihren gesamten Fortschritt löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
