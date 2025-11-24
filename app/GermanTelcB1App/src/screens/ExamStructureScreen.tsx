@@ -50,7 +50,7 @@ const ExamStructureScreen: React.FC = () => {
     return (
       <View style={styles.container}>
         <View style={styles.centerContent}>
-          <Text style={styles.errorText}>{error || 'Failed to load exam structure'}</Text>
+          <Text style={styles.errorText}>{error || t('examStructure.error')}</Text>
         </View>
       </View>
     );
@@ -268,11 +268,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     fontWeight: typography.fontWeight.semibold,
+    textAlign: 'left',
   },
   overviewValue: {
     ...typography.textStyles.body,
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   noteCard: {
     backgroundColor: colors.warning[50],
@@ -286,16 +288,19 @@ const styles = StyleSheet.create({
     color: colors.warning[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   noteText: {
     ...typography.textStyles.bodySmall,
     color: colors.warning[700],
     lineHeight: 20,
+    textAlign: 'left',
   },
   structureTitle: {
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   sectionCard: {
     backgroundColor: colors.background.secondary,
@@ -362,7 +367,7 @@ const styles = StyleSheet.create({
     marginRight: spacing.margin.sm,
   },
   partMeta: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     gap: spacing.margin.xs,
   },
   partMetaText: {
@@ -374,6 +379,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     lineHeight: 20,
     marginTop: spacing.margin.xs,
+    textAlign: 'left',
   },
   assessmentSection: {
     marginTop: spacing.margin.md,
@@ -423,6 +429,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     lineHeight: 20,
+    textAlign: 'left',
   },
   assessmentNote: {
     backgroundColor: colors.primary[50],
@@ -434,6 +441,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.primary[700],
     lineHeight: 18,
+    textAlign: 'left',
   },
 });
 

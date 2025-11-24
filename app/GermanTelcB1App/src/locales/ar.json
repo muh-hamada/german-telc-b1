@@ -183,16 +183,17 @@
     "title": "بنية الامتحان",
     "description": "تعرف على صيغة امتحان TELC {{level}} ونظام التقييم",
     "comingSoon": "المحتوى قريبًا...",
-    "cefrLevel": "مستوى CEFR:",
-    "totalDuration": "المدة الإجمالية:",
+    "cefrLevel": "مستوى CEFR",
+    "totalDuration": "المدة الإجمالية",
     "minutes": "دقائق",
-    "maxPoints": "النقاط القصوى:",
+    "maxPoints": "النقاط القصوى",
     "points": "نقاط",
     "passingThreshold": "حد النجاح:",
     "preparation": "التحضير",
     "passingScore": "درجة النجاح",
     "important": "مهم",
-    "totalMaxPoints": "إجمالي النقاط القصوى"
+    "totalMaxPoints": "إجمالي النقاط القصوى",
+    "error": "فشل في تحميل هيكل الامتحان. يعمل فريقنا على الإصلاح."
   },
   "practice": {
     "reading": {

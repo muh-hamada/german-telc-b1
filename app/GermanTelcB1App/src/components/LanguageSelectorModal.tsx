@@ -137,8 +137,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   languageList: {
-    padding: spacing.padding.md,
-    textAlign: 'center',
+    paddingVertical: spacing.padding.md,
   },
   languageItem: {
     flexDirection: 'row',
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
     borderWidth: 2,
     borderColor: 'transparent',
-    width: '100%',
+    marginHorizontal: spacing.margin.md,
   },
   selectedLanguageItem: {
     backgroundColor: colors.primary[50],
@@ -167,6 +166,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.semibold,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   selectedLanguageName: {
     color: colors.primary[600],
@@ -174,6 +174,7 @@ const styles = StyleSheet.create({
   languageNameSecondary: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   checkmark: {
     ...typography.textStyles.h3,

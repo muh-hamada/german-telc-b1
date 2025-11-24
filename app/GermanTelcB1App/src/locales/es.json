@@ -182,16 +182,17 @@
     "title": "Estructura del Examen",
     "description": "Aprende sobre el formato y puntuación del examen TELC {{level}}",
     "comingSoon": "Contenido próximamente...",
-    "cefrLevel": "Nivel MCER:",
-    "totalDuration": "Duración total:",
+    "cefrLevel": "Nivel MCER",
+    "totalDuration": "Duración total",
     "minutes": "Minutos",
-    "maxPoints": "Puntuación máxima:",
+    "maxPoints": "Puntuación máxima",
     "points": "Puntos",
     "passingThreshold": "Umbral de aprobación:",
     "preparation": "Preparación",
     "passingScore": "Puntaje de aprobación",
     "important": "Importante",
-    "totalMaxPoints": "Puntos máximos totales"
+    "totalMaxPoints": "Puntos máximos totales",
+    "error": "No se pudo cargar la estructura del examen. Nuestro equipo está trabajando en la solución."
   },
   "practice": {
     "reading": {

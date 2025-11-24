@@ -178,16 +178,17 @@
     "title": "Structure de l'examen",
     "description": "Apprenez le format et le système de notation de l'examen TELC {{level}}",
     "comingSoon": "Contenu à venir...",
-    "cefrLevel": "Niveau CECR :",
-    "totalDuration": "Durée totale :",
+    "cefrLevel": "Niveau CECR",
+    "totalDuration": "Durée totale",
     "minutes": "Minutes",
-    "maxPoints": "Points maximum :",
+    "maxPoints": "Points maximum",
     "points": "Points",
     "passingThreshold": "Seuil de réussite :",
     "preparation": "Préparation",
     "passingScore": "Note de passage",
     "important": "Important",
-    "totalMaxPoints": "Total maximum de points"
+    "totalMaxPoints": "Total maximum de points",
+    "error": "Échec du chargement de la structure de l'examen. Notre équipe travaille sur le correctif."
   },
   "practice": {
     "reading": {

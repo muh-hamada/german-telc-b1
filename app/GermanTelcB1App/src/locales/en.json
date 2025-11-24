@@ -229,16 +229,17 @@
     "title": "Exam Structure",
     "description": "Learn about the TELC {{level}} exam format and scoring",
     "comingSoon": "Content coming soon...",
-    "cefrLevel": "CEFR Level:",
-    "totalDuration": "Total Duration:",
+    "cefrLevel": "CEFR Level",
+    "totalDuration": "Total Duration",
     "minutes": "Minutes",
-    "maxPoints": "Maximum Points:",
+    "maxPoints": "Maximum Points",
     "points": "Points",
     "passingThreshold": "Passing Threshold:",
     "preparation": "Preparation",
     "passingScore": "Passing Score",
     "important": "Important",
-    "totalMaxPoints": "Total Max Points"
+    "totalMaxPoints": "Total Max Points",
+    "error": "Failed to load the exam structure. Our team is working on the fix."
   },
   "practice": {
     "reading": {
