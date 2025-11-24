@@ -177,7 +177,19 @@
     "examples": "Примеры",
     "noStudiedWords": "Пока нет слов",
     "noStudiedWordsDesc": "Начните учиться, чтобы пополнить свой словарный запас!",
-    "studiedWords": "{{count}} Изученных слов"
+    "studiedWords": "{{count}} Изученных слов",
+    "markAsLearned": "Отметить как изученное",
+    "showAnswer": "Показать ответ",
+    "noNewWords": "Нет новых слов",
+    "tapToSeeTranslation": "Нажмите, чтобы увидеть перевод",
+    "example": "Пример",
+    "completion": {
+      "studyTitle": "Отличная работа!",
+      "reviewTitle": "Обзор завершен!",
+      "studyMessage": "Вы выучили {{count}} новое слово",
+      "reviewMessage": "Вы просмотрели {{count}} слово",
+      "doneButton": "Сделанный"
+    }
   },
   "examStructure": {
     "title": "Структура экзамена",
@@ -336,7 +348,9 @@
     },
     "stats": {
       "examsCompleted": "Экзамены завершены",
-      "averageScore": "Средний балл"
+      "averageScore": "Средний балл",
+      "totalScore": "Общий балл",
+      "completionRate": "Скорость завершения"
     }
   },
   "settings": {
@@ -503,7 +517,12 @@
       "tooManyRequests": "Слишком много неудачных попыток. Пожалуйста, попробуйте позже.",
       "networkError": "Ошибка сети. Пожалуйста, проверьте подключение к интернету.",
       "unknownError": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз."
-    }
+    },
+    "continueWithGoogle": "Продолжить с Google",
+    "continueWithFacebook": "Продолжить через Facebook",
+    "continueWithTwitter": "Продолжить с Твиттером",
+    "continueWithApple": "Продолжить с Apple",
+    "continue": "Продолжать"
   },
   "speaking": {
     "part1": {

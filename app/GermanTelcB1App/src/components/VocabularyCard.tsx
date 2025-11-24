@@ -27,7 +27,7 @@ const { width } = Dimensions.get('window');
 const CARD_WIDTH = width - spacing.padding.lg * 2;
 
 const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip }) => {
-  const { i18n } = useCustomTranslation();
+  const { i18n, t } = useCustomTranslation();
   const [flipAnim] = useState(new Animated.Value(0));
 
   React.useEffect(() => {
@@ -91,7 +91,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip
         <View style={styles.cardContent}>
           <Text style={styles.wordType}>{word.type}</Text>
           <Text style={styles.word}>{displayWord}</Text>
-          <Text style={styles.tapHint}>Tap to see translation</Text>
+          <Text style={styles.tapHint}>{t('vocabulary.tapToSeeTranslation')}</Text>
         </View>
       </Animated.View>
 
@@ -110,7 +110,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip
           <Text style={styles.translation}>{translation}</Text>
           {exampleSentence && (
             <View style={styles.exampleContainer}>
-              <Text style={styles.exampleLabel}>Example:</Text>
+              <Text style={styles.exampleLabel}>{t('vocabulary.example')}:</Text>
               <Text style={styles.example}>{exampleSentence.text}</Text>
               <Text style={styles.exampleTranslation}>{exampleTranslation}</Text>
             </View>
@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.caption,
     color: colors.text.tertiary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   example: {
     ...typography.textStyles.body,
@@ -203,6 +204,7 @@ const styles = StyleSheet.create({
   exampleTranslation: {
     ...typography.textStyles.caption,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
 });
 

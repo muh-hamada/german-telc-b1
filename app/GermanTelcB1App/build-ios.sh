@@ -39,11 +39,28 @@ export EXAM_ID="$EXAM_ID"
 
 APP_NAME="TelcExamApp"
 
+# Set bundle identifier and provisioning profile based on exam
+if [[ "$EXAM_ID" == "german-b2" ]]; then
+    BUNDLE_ID="com.mhamada.telcb2german"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2"
+elif [[ "$EXAM_ID" == "german-b1" ]]; then
+    BUNDLE_ID="com.mhamada.telcb1german"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution"
+else
+    BUNDLE_ID="com.mhamada.telcb1english"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution English"
+fi
+
+echo "Bundle ID: $BUNDLE_ID"
+echo "Provisioning Profile: $PROVISIONING_PROFILE"
+
 echo "Starting iOS archive using scheme: $SCHEME_NAME..."
 xcodebuild -workspace ios/${APP_NAME}.xcworkspace \
            -scheme ${SCHEME_NAME} \
            -configuration ${SCHEME_NAME}-Release \
            -sdk iphoneos \
+           PRODUCT_BUNDLE_IDENTIFIER=$BUNDLE_ID \
+           PROVISIONING_PROFILE_SPECIFIER="$PROVISIONING_PROFILE" \
            -archivePath ios/build/${APP_NAME}.xcarchive archive
 
 if [ $? -ne 0 ]; then

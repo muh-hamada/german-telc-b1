@@ -177,7 +177,19 @@
     "examples": "أمثلة",
     "noStudiedWords": "لا توجد كلمات حتى الآن",
     "noStudiedWordsDesc": "ابدأ الدراسة لبناء قائمة المفردات الخاصة بك!",
-    "studiedWords": "{{count}} الكلمات المدروسة"
+    "studiedWords": "{{count}} الكلمات المدروسة",
+    "markAsLearned": "تعلمتها",
+    "showAnswer": "إظهار الإجابة",
+    "noNewWords": "لا توجد كلمات جديدة",
+    "tapToSeeTranslation": "انقر لرؤية الترجمة",
+    "example": "مثال",
+    "completion": {
+      "studyTitle": "عمل ممتاز!",
+      "reviewTitle": "اكتملت المراجعة!",
+      "studyMessage": "لقد درست {{count}} كلمة جديدة",
+      "reviewMessage": "لقد قمت بمراجعة {{count}} كلمة",
+      "doneButton": "انتهاء"
+    }
   },
   "examStructure": {
     "title": "بنية الامتحان",
@@ -335,8 +347,10 @@
       "iosRatingComingSoon": "سيتم إضافة رابط التقييم على iOS لاحقًا."
     },
     "stats": {
-      "examsCompleted": "الامتحانات تمت",
-      "averageScore": "متوسط ​​النتيجة"
+      "examsCompleted": "الامتحانات اكتملت",
+      "averageScore": "متوسط ​​النتيجة",
+      "totalScore": "مجموع النقاط",
+      "completionRate": "معدل الإنجاز"
     }
   },
   "settings": {
@@ -503,7 +517,12 @@
       "tooManyRequests": "عدد كبير جدًا من المحاولات الفاشلة. يرجى المحاولة مرة أخرى لاحقًا.",
       "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت.",
       "unknownError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
-    }
+    },
+    "continueWithGoogle": "تواصل مع جوجل",
+    "continueWithFacebook": "تواصل مع الفيسبوك",
+    "continueWithTwitter": "تواصل مع تويتر",
+    "continueWithApple": "تواصل مع أبل",
+    "continue": "يكمل"
   },
   "speaking": {
     "part1": {

@@ -8,5 +8,55 @@
     "totalDuration": "Gesamtdauer",
     "important": "Wichtig",
     "maxPoints": "Maximale Punktezahl"
+  },
+  "vocabulary": {
+    "markAsLearned": "Als gelernt markieren",
+    "showAnswer": "Antwort anzeigen",
+    "noNewWords": "Keine neuen Wörter",
+    "tapToSeeTranslation": "Tippen Sie, um die Übersetzung anzuzeigen",
+    "example": "Beispiel",
+    "completion": {
+      "studyTitle": "Ausgezeichnete Arbeit!",
+      "reviewTitle": "Rezension abgeschlossen!",
+      "studyMessage": "Du hast {{count}} neues Wort gelernt",
+      "reviewMessage": "Sie haben {{count}} Wort überprüft",
+      "doneButton": "Erledigt"
+    }
+  },
+  "streaks": {
+    "currentStreak": "Tagessträhne!",
+    "perfectWeekComplete": "Perfekte Woche abgeschlossen!",
+    "perfectWeek": "Auf halbem Weg zur perfekten Woche!",
+    "keepGoing": "Weiter so!",
+    "greatStart": "Toller Anfang!"
+  },
+  "common": {
+    "continue": "Weitermachen",
+    "done": "Erledigt"
+  },
+  "profile": {
+    "stats": {
+      "examsCompleted": "Prüfungen abgeschlossen",
+      "averageScore": "Durchschnittliche Punktzahl",
+      "totalScore": "Gesamtpunktzahl",
+      "completionRate": "Abschlussrate"
+    }
+  },
+  "auth": {
+    "loginModal": {
+      "signInCreateAccount": "Anmelden / Konto erstellen",
+      "passwordReset": "Passwort zurücksetzen",
+      "passwordResetMessage": "Eine E-Mail zum Zurücksetzen des Passworts wurde an Ihre E-Mail-Adresse gesendet.",
+      "welcomeBack": "Willkommen zurück",
+      "subtitle": "Melden Sie sich an, um Ihren Fortschritt zu speichern und geräteübergreifend zu synchronisieren",
+      "orDivider": "oder",
+      "continueWithEmail": "Fahren Sie mit E-Mail fort",
+      "backToSocialLogin": "← Zurück zum Social-Login"
+    },
+    "continueWithGoogle": "Weiter mit Google",
+    "continueWithFacebook": "Weiter mit Facebook",
+    "continueWithTwitter": "Weiter mit Twitter",
+    "continueWithApple": "Weiter mit Apple",
+    "continue": "Weitermachen"
   }
 }

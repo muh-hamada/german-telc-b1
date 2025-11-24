@@ -343,6 +343,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   scrollView: {
     flex: 1,

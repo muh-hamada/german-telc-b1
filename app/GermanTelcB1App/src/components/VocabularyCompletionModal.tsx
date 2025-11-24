@@ -1,9 +1,3 @@
-/**
- * Vocabulary Completion Modal
- * 
- * Beautiful modal to celebrate completing vocabulary study sessions.
- */
-
 import React from 'react';
 import {
   View,
@@ -66,7 +60,7 @@ const VocabularyCompletionModal: React.FC<VocabularyCompletionModalProps> = ({
             onPress={onClose}
             activeOpacity={0.8}
           >
-            <Text style={styles.doneButtonText}>DONE</Text>
+            <Text style={styles.doneButtonText}>{t('vocabulary.completion.doneButton')}</Text>
           </TouchableOpacity>
         </View>
       </View>

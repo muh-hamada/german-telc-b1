@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.md,
+    direction: 'ltr',
   },
   wordItem: {
     flexDirection: 'row',
@@ -301,6 +302,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   gapButton: {
     ...typography.textStyles.bodySmall,

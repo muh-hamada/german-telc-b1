@@ -62,7 +62,7 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
               {part.text}
             </Text>
           ))}
-          {lineIndex < lines.length - 1 && '\n'}
+          {/* {lineIndex < lines.length - 1 && '\n'} */}
         </Text>
       );
     });
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   instructionsCard: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.lg,
@@ -269,6 +269,7 @@ const styles = StyleSheet.create({
   },
   adTextContainer: {
     flex: 1,
+    direction: 'ltr',
   },
   situationsSection: {
     marginBottom: spacing.margin.lg,
@@ -297,6 +298,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   situationTextContainer: {
+    direction: 'ltr',
     marginBottom: spacing.margin.md,
   },
   boldText: {

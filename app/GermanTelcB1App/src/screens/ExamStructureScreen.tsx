@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
 import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -280,8 +281,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.warning[50],
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.warning[500],
+    borderRightColor: colors.warning[500],
   },
   noteTitle: {
     ...typography.textStyles.h4,
@@ -317,6 +320,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
+    direction: 'ltr',
   },
   sectionNumber: {
     ...typography.textStyles.h2,
@@ -350,14 +354,17 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.sm,
-    borderLeftWidth: 3,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 3,
+    borderRightWidth: I18nManager.isRTL ? 3 : 0,
     borderLeftColor: colors.primary[400],
+    borderRightColor: colors.primary[400],
   },
   partHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.xs,
+    direction: 'ltr',
   },
   partName: {
     ...typography.textStyles.body,

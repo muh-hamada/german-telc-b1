@@ -222,6 +222,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     marginBottom: spacing.margin.xs,
     borderRadius: spacing.borderRadius.sm,
+    direction: 'ltr',
   },
   headingLetter: {
     ...typography.textStyles.body,
@@ -259,6 +260,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 24,
     marginBottom: spacing.margin.md,
+    direction: 'ltr',
   },
   answerSection: {
     borderTopWidth: 1,

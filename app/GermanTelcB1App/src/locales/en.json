@@ -183,7 +183,8 @@
       "studyMessage_plural": "You studied {{count}} new words",
       "reviewTitle": "Review Complete!",
       "reviewMessage": "You reviewed {{count}} word",
-      "reviewMessage_plural": "You reviewed {{count}} words"
+      "reviewMessage_plural": "You reviewed {{count}} words",
+      "doneButton": "Done"
     },
     "onboarding": {
       "title": "Choose Your Learning Pace",
@@ -223,7 +224,9 @@
       "selectPersona": "Select Learning Pace",
       "personaDescription": "Choose your preferred daily learning pace. You can change this anytime."
     },
-    "forecast": "You'll master approximately {{count}} words this month!"
+    "forecast": "You'll master approximately {{count}} words this month!",
+    "tapToSeeTranslation": "Tap to see translation",
+    "example": "Example"
   },
   "examStructure": {
     "title": "Exam Structure",
@@ -529,6 +532,11 @@
     "tryAgain": "Try Again"
   },
   "auth": {
+    "continueWithGoogle": "Continue with Google",
+    "continueWithFacebook": "Continue with Facebook",
+    "continueWithTwitter": "Continue with Twitter",
+    "continueWithApple": "Continue with Apple",
+    "continue": "Continue",
     "signIn": "Sign In",
     "createAccount": "Create Account",
     "forgotPassword": "Forgot Password?",

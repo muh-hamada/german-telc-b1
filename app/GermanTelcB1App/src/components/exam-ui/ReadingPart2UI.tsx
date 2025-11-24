@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   questionsSection: {
     marginBottom: spacing.margin.lg,
@@ -226,14 +227,17 @@ const styles = StyleSheet.create({
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    direction: 'ltr',
   },
   questionText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
     lineHeight: 22,
+    direction: 'ltr',
   },
   answerOption: {
+    direction: 'ltr',
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,

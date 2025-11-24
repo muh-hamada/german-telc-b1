@@ -583,6 +583,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 28,
     textAlign: 'left',
+    direction: 'ltr',
   },
   sentenceTranslation: {
     ...typography.textStyles.h6,
@@ -610,6 +611,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
+    direction: 'ltr',
   },
   optionContent: {
     flexDirection: 'row',
@@ -658,6 +660,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 3,
     elevation: 3,
+    direction: 'ltr',
   },
   correctOptionCard: {
     backgroundColor: colors.success[50],

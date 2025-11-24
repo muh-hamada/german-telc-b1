@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator} from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 interface SocialLoginButtonProps {
   provider: 'google' | 'facebook' | 'apple' | 'twitter';
@@ -16,39 +17,41 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
   loading = false,
   disabled = false,
 }) => {
+  const { t } = useCustomTranslation();
+
   const getProviderConfig = () => {
     switch (provider) {
       case 'google':
         return {
-          title: 'Continue with Google',
+          title: t('auth.continueWithGoogle'),
           backgroundColor: colors.gray[500] ,
           textColor: colors.white,
           icon: 'G',
         };
       case 'facebook':
         return {
-          title: 'Continue with Facebook',
+          title: t('auth.continueWithFacebook'),
           backgroundColor: '#1877F2',
           textColor: colors.white,
           icon: 'f',
         };
       case 'twitter':
         return {
-          title: 'Continue with Twitter',
+          title: t('auth.continueWithTwitter'),
           backgroundColor: '#1DA1F2',
           textColor: colors.white,
           icon: '𝕏',
         };
       case 'apple':
         return {
-          title: 'Continue with Apple',
+          title: t('auth.continueWithApple'),
           backgroundColor: colors.text.primary,
           textColor: colors.white,
           icon: <Icon name="apple" size={20} color={colors.white} />
         };
       default:
         return {
-          title: 'Continue',
+          title: t('auth.continue'),
           backgroundColor: colors.primary[500],
           textColor: colors.white,
           icon: '?',

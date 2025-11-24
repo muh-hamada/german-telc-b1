@@ -172,7 +172,19 @@
     "examples": "Exemples",
     "noStudiedWords": "Pas encore de mots",
     "noStudiedWordsDesc": "Commencez à étudier pour construire votre liste de vocabulaire !",
-    "studiedWords": "{{count}} Mots étudiés"
+    "studiedWords": "{{count}} Mots étudiés",
+    "markAsLearned": "Marquer comme appris",
+    "showAnswer": "Afficher la réponse",
+    "noNewWords": "Pas de nouveaux mots",
+    "tapToSeeTranslation": "Appuyez pour voir la traduction",
+    "example": "Exemple",
+    "completion": {
+      "studyTitle": "Excellent travail !",
+      "reviewTitle": "Révision terminée !",
+      "studyMessage": "Vous avez étudié {{count}} nouveau mot",
+      "reviewMessage": "Vous avez révisé {{count}} mots",
+      "doneButton": "Fait"
+    }
   },
   "examStructure": {
     "title": "Structure de l'examen",
@@ -331,7 +343,9 @@
     },
     "stats": {
       "examsCompleted": "Examens terminés",
-      "averageScore": "Note moyenne"
+      "averageScore": "Note moyenne",
+      "totalScore": "Note totale",
+      "completionRate": "Taux d'achèvement"
     }
   },
   "questions": {
@@ -369,7 +383,12 @@
       "tooManyRequests": "Trop de tentatives infructueuses. Veuillez réessayer plus tard.",
       "networkError": "Erreur réseau. Veuillez vérifier votre connexion Internet.",
       "unknownError": "Une erreur inattendue s'est produite. Veuillez réessayer."
-    }
+    },
+    "continueWithGoogle": "Continuer avec Google",
+    "continueWithFacebook": "Continuer avec Facebook",
+    "continueWithTwitter": "Continuer avec Twitter",
+    "continueWithApple": "Continuer avec Apple",
+    "continue": "Continuer"
   },
   "speaking": {
     "part1": {

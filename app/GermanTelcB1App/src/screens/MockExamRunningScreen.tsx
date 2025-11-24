@@ -362,11 +362,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   stepHeaderPart: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   exitButton: {
     paddingHorizontal: spacing.padding.md,

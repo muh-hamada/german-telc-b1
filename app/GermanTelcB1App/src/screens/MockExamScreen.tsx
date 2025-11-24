@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -286,8 +287,10 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.md,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.warning[500],
+    borderRightColor: colors.warning[500],
   },
   noteTitle: {
     ...typography.textStyles.h4,
@@ -318,8 +321,10 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.md,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.primary[500],
+    borderRightColor: colors.primary[500],
   },
   disclaimerTitle: {
     ...typography.textStyles.h4,
@@ -382,8 +387,10 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.xl,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.secondary[500],
+    borderRightColor: colors.secondary[500],
   },
   speakingNoteTitle: {
     ...typography.textStyles.h4,

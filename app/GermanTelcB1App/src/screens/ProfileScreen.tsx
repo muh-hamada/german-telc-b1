@@ -340,6 +340,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     marginLeft: spacing.margin.sm,
     flex: 1,
+    textAlign: 'left',
   },
   loginPromptButton: {
     width: '100%',

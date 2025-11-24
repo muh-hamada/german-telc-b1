@@ -176,7 +176,19 @@
     "examples": "Ejemplos",
     "noStudiedWords": "Aún no hay palabras",
     "noStudiedWordsDesc": "¡Empieza a estudiar para construir tu lista de vocabulario!",
-    "studiedWords": "{{count}} Palabras estudiadas"
+    "studiedWords": "{{count}} Palabras estudiadas",
+    "markAsLearned": "Marcar como aprendido",
+    "showAnswer": "Mostrar respuesta",
+    "noNewWords": "Sin palabras nuevas",
+    "tapToSeeTranslation": "Toca para ver la traducción",
+    "example": "Ejemplo",
+    "completion": {
+      "studyTitle": "¡Excelente trabajo!",
+      "reviewTitle": "¡Revisión completa!",
+      "studyMessage": "Estudiaste {{count}} palabra nueva",
+      "reviewMessage": "Revisaste {{count}} palabra",
+      "doneButton": "Hecho"
+    }
   },
   "examStructure": {
     "title": "Estructura del Examen",
@@ -335,7 +347,9 @@
     },
     "stats": {
       "examsCompleted": "Exámenes completados",
-      "averageScore": "Puntuación promedio"
+      "averageScore": "Puntuación promedio",
+      "totalScore": "Puntuación total",
+      "completionRate": "Tasa de finalización"
     }
   },
   "settings": {
@@ -502,7 +516,12 @@
       "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtelo más tarde.",
       "networkError": "Error de red. Por favor, verifique su conexión a internet.",
       "unknownError": "Ocurrió un error inesperado. Por favor, inténtelo de nuevo."
-    }
+    },
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithFacebook": "Continuar con Facebook",
+    "continueWithTwitter": "Continuar con Twitter",
+    "continueWithApple": "Continuar con Apple",
+    "continue": "Continuar"
   },
   "speaking": {
     "part1": {

@@ -447,12 +447,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary[100],
     borderBottomWidth: 2,
     borderBottomColor: colors.primary[500],
+    direction: 'ltr',
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.light,
     backgroundColor: colors.background.secondary,
+    direction: 'ltr',
   },
   tableCell: {
     padding: spacing.padding.sm,

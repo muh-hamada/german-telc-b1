@@ -263,6 +263,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   gapButton: {
     ...typography.textStyles.bodySmall,
