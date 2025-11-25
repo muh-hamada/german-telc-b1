@@ -19,16 +19,56 @@
         "x": "Kein Infotext passt zu der Situation."
       },
       "situations": [
-        { "id": 11, "text": "Ein Freund interessiert sich für einen Dokumentarfilm über Kurkliniken.", "answer": "x" },
-        { "id": 12, "text": "Sie sind verrückt nach Kriminalfilmen.", "answer": "c" },
-        { "id": 13, "text": "Eine Bekannte mag Filme, in denen es etwas zu lachen gibt.", "answer": "d" },
-        { "id": 14, "text": "Ein Bekannter möchte gern Millionär werden.", "answer": "i" },
-        { "id": 15, "text": "Eine Bekannte interessiert sich für Informationen über medizinische Berufe mit festen Arbeitszeiten.", "answer": "k" },
-        { "id": 16, "text": "Eine Freundin mag Filme über die Übersicht.", "answer": "f" },
-        { "id": 17, "text": "Eine Bekannte sieht gern romantische Liebesfilme.", "answer": "a" },
-        { "id": 18, "text": "Sie möchten Informationen über Augenkrankheiten.", "answer": "b" },
-        { "id": 19, "text": "Ein bekanntes Ehepaar sieht sich gern Musiksendungen an, am liebsten mit deutschen Interpreten.", "answer": "j" },
-        { "id": 20, "text": "Ein Bekannter sieht sich gern Quizsendungen an.", "answer": "g" }
+        {
+          "id": 11,
+          "text": "Ein Freund interessiert sich für einen Dokumentarfilm über Kurkliniken.",
+          "answer": "x"
+        },
+        {
+          "id": 12,
+          "text": "Sie sind verrückt nach Kriminalfilmen.",
+          "answer": "c"
+        },
+        {
+          "id": 13,
+          "text": "Eine Bekannte mag Filme, in denen es etwas zu lachen gibt.",
+          "answer": "d"
+        },
+        {
+          "id": 14,
+          "text": "Ein Bekannter möchte gern Millionär werden.",
+          "answer": "i"
+        },
+        {
+          "id": 15,
+          "text": "Eine Bekannte interessiert sich für Informationen über medizinische Berufe mit festen Arbeitszeiten.",
+          "answer": "k"
+        },
+        {
+          "id": 16,
+          "text": "Eine Freundin mag Filme über die Übersicht.",
+          "answer": "f"
+        },
+        {
+          "id": 17,
+          "text": "Eine Bekannte sieht gern romantische Liebesfilme.",
+          "answer": "a"
+        },
+        {
+          "id": 18,
+          "text": "Sie möchten Informationen über Augenkrankheiten.",
+          "answer": "b"
+        },
+        {
+          "id": 19,
+          "text": "Ein bekanntes Ehepaar sieht sich gern Musiksendungen an, am liebsten mit deutschen Interpreten.",
+          "answer": "j"
+        },
+        {
+          "id": 20,
+          "text": "Ein Bekannter sieht sich gern Quizsendungen an.",
+          "answer": "g"
+        }
       ]
     },
     {
@@ -50,16 +90,56 @@
         "x": "Kein Infotext passt zu der Situation."
       },
       "situations": [
-        { "id": 11, "text": "Ein Freund interessiert sich für gesunde Ernährung nach chinesischer Art.", "answer": "d" },
-        { "id": 12, "text": "Sie sind verrückt nach Kriminalfilmen.", "answer": "a" },
-        { "id": 13, "text": "Eine Bekannte mag Filme, in denen es etwas zu lachen gibt.", "answer": "l" },
-        { "id": 14, "text": "Ein Bekannter möchte gern in Budapest eine Städtetour machen.", "answer": "j" },
-        { "id": 15, "text": "Eine Bekannte sucht eine entspannende Lösung für Stressabbau.", "answer": "x" },
-        { "id": 16, "text": "Eine Freundin ist Single und sucht nach einfachen und gesunden Kochideen.", "answer": "e" },
-        { "id": 17, "text": "Eine Bekannte möchte lernen, ihre Angst vor öffentlichen Reden zu verlieren.", "answer": "x" },
-        { "id": 18, "text": "Sie möchten Informationen über das Zeichnen von menschlichen Körpern.", "answer": "c" },
-        { "id": 19, "text": "Ein befreundetes Ehepaar möchte die Vielfalt der orientalischen Gewürze kennenlernen.", "answer": "i" },
-        { "id": 20, "text": "Ein Bekannter möchte eine Reise mit starkem Kulturbezug zu alten Zivilisationen unternehmen.", "answer": "f" }
+        {
+          "id": 11,
+          "text": "Ein Freund interessiert sich für gesunde Ernährung nach chinesischer Art.",
+          "answer": "d"
+        },
+        {
+          "id": 12,
+          "text": "Sie sind verrückt nach Kriminalfilmen.",
+          "answer": "a"
+        },
+        {
+          "id": 13,
+          "text": "Eine Bekannte mag Filme, in denen es etwas zu lachen gibt.",
+          "answer": "l"
+        },
+        {
+          "id": 14,
+          "text": "Ein Bekannter möchte gern in Budapest eine Städtetour machen.",
+          "answer": "j"
+        },
+        {
+          "id": 15,
+          "text": "Eine Bekannte sucht eine entspannende Lösung für Stressabbau.",
+          "answer": "x"
+        },
+        {
+          "id": 16,
+          "text": "Eine Freundin ist Single und sucht nach einfachen und gesunden Kochideen.",
+          "answer": "e"
+        },
+        {
+          "id": 17,
+          "text": "Eine Bekannte möchte lernen, ihre Angst vor öffentlichen Reden zu verlieren.",
+          "answer": "x"
+        },
+        {
+          "id": 18,
+          "text": "Sie möchten Informationen über das Zeichnen von menschlichen Körpern.",
+          "answer": "c"
+        },
+        {
+          "id": 19,
+          "text": "Ein befreundetes Ehepaar möchte die Vielfalt der orientalischen Gewürze kennenlernen.",
+          "answer": "i"
+        },
+        {
+          "id": 20,
+          "text": "Ein Bekannter möchte eine Reise mit starkem Kulturbezug zu alten Zivilisationen unternehmen.",
+          "answer": "f"
+        }
       ]
     },
     {
@@ -81,17 +161,412 @@
         "x": "Kein Infotext passt zu der Situation."
       },
       "situations": [
-        { "id": 11, "text": "Eine junge Bekannte möchte nach Abitur und Studium im Bereich moderne Technik arbeiten.", "answer": "f" },
-        { "id": 12, "text": "Ein Bekannter möchte gern in China arbeiten.", "answer": "x" },
-        { "id": 13, "text": "Eine Bekannte sucht auf Messen Informationen zur Sprache und Geschichte Chinas.", "answer": "b" },
-        { "id": 14, "text": "Ein Bekannter möchte im Urlaub in den Alpen wandern.", "answer": "k" },
-        { "id": 15, "text": "Sie möchten mit anderen Walzer tanzen lernen.", "answer": "x" },
-        { "id": 16, "text": "Ein allein erziehender Vater will Urlaub auf einem Bauernhof machen.", "answer": "c" },
-        { "id": 17, "text": "Ein Bekannter möchte im Urlaub überflüssige Pfunde loswerden.", "answer": "j" },
-        { "id": 18, "text": "Eine Bekannte sucht für ihr Pferd eine Pferdepension.", "answer": "g" },
-        { "id": 19, "text": "Ein befreundetes Ehepaar möchte über alles chinesische Vasen wissen.", "answer": "i" },
-        { "id": 20, "text": "Sie suchen für ihre Geburtstagparty gute Vortänzer und Vortänzerinnen.", "answer": "h" }
+        {
+          "id": 11,
+          "text": "Eine junge Bekannte möchte nach Abitur und Studium im Bereich moderne Technik arbeiten.",
+          "answer": "f"
+        },
+        {
+          "id": 12,
+          "text": "Ein Bekannter möchte gern in China arbeiten.",
+          "answer": "x"
+        },
+        {
+          "id": 13,
+          "text": "Eine Bekannte sucht auf Messen Informationen zur Sprache und Geschichte Chinas.",
+          "answer": "b"
+        },
+        {
+          "id": 14,
+          "text": "Ein Bekannter möchte im Urlaub in den Alpen wandern.",
+          "answer": "k"
+        },
+        {
+          "id": 15,
+          "text": "Sie möchten mit anderen Walzer tanzen lernen.",
+          "answer": "x"
+        },
+        {
+          "id": 16,
+          "text": "Ein allein erziehender Vater will Urlaub auf einem Bauernhof machen.",
+          "answer": "c"
+        },
+        {
+          "id": 17,
+          "text": "Ein Bekannter möchte im Urlaub überflüssige Pfunde loswerden.",
+          "answer": "j"
+        },
+        {
+          "id": 18,
+          "text": "Eine Bekannte sucht für ihr Pferd eine Pferdepension.",
+          "answer": "g"
+        },
+        {
+          "id": 19,
+          "text": "Ein befreundetes Ehepaar möchte über alles chinesische Vasen wissen.",
+          "answer": "i"
+        },
+        {
+          "id": 20,
+          "text": "Sie suchen für ihre Geburtstagparty gute Vortänzer und Vortänzerinnen.",
+          "answer": "h"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Modelltest 4 - Leseverstehen Teil 3",
+      "advertisements": {
+        "a": "Jobbörse für Handwerker\n\nSie suchen qualifizierte Handwerker für Ihre Renovierung? Oder sind Sie selbst Handwerker und suchen neue Aufträge? Auf unserer Plattform bringen wir beide Seiten zusammen. Einfach registrieren, Profil anlegen und Gesuche oder Angebote durchstöbern. Egal ob Maler, Elektriker oder Bodenleger – hier finden Sie den passenden Partner für Ihr Projekt. Kostenlos für Auftraggeber, günstige Monatsgebühren für Dienstleister.",
+        "b": "Weiterbildung zum Projektmanager (IHK)\n\nIn diesem intensiven Zertifikatslehrgang lernen Sie alles, was Sie für die erfolgreiche Planung und Steuerung von Projekten benötigen. Von der Zieldefinition über die Ressourcenplanung bis hin zum Risikomanagement. Der Kurs richtet sich an Fach- und Führungskräfte aller Branchen. Voraussetzungen: Berufserfahrung und Grundkenntnisse in BWL. Dauer: 3 Monate, berufsbegleitend (Freitagabend und Samstag). Abschluss mit IHK-Zertifikat.",
+        "c": "Praktikum im Ausland\n\nDu bist jung, abenteuerlustig und möchtest erste Berufserfahrung im internationalen Umfeld sammeln? Wir vermitteln Praktikumsplätze in England, Spanien, Frankreich und den USA. Verbessere deine Sprachkenntnisse, lerne neue Kulturen kennen und knüpfe wertvolle Kontakte für deine Zukunft. Wir unterstützen dich bei der Visumsbeantragung, Wohnungssuche und Vorbereitung. Ideal für Studenten und Schulabgänger.",
+        "d": "Karriere-Coaching für Frauen\n\nSie wollen beruflich aufsteigen, stoßen aber immer wieder an die „gläserne Decke“? In unserem Coaching-Programm analysieren wir Ihre Stärken, definieren Ihre Ziele und entwickeln eine Strategie für Ihren Erfolg. Lernen Sie, sich selbstbewusst zu präsentieren, Gehaltsverhandlungen souverän zu führen und Netzwerke effektiv zu nutzen. Einzelcoaching und Workshops in kleinen Gruppen.",
+        "e": "Ausbildung zum Mediengestalter Digital und Print\n\nKreative Köpfe gesucht! In unserer renommierten Werbeagentur bilden wir dich zum Mediengestalter aus. Du lernst den Umgang mit Grafikprogrammen, Gestaltungsgrundlagen und Drucktechniken. Wir bieten ein junges Team, spannende Projekte und eine überdurchschnittliche Ausbildungsvergütung. Voraussetzungen: Mittlere Reife oder Abitur, künstlerisches Talent und technisches Verständnis. Bewirb dich jetzt!",
+        "f": "Existenzgründer-Seminar\n\nSie haben eine Geschäftsidee und wollen sich selbstständig machen? Der Weg in die Selbstständigkeit birgt viele Chancen, aber auch Risiken. Unser Seminar vermittelt Ihnen das nötige Rüstzeug: Businessplan-Erstellung, Finanzierungsmöglichkeiten, Rechtsformen, Steuern und Marketing. Profitieren Sie vom Wissen erfahrener Unternehmensberater und tauschen Sie sich mit anderen Gründern aus.",
+        "g": "Stellenangebot: Erzieher/in gesucht\n\nFür unsere moderne Kindertagesstätte „Sonnenschein“ suchen wir ab sofort eine/n engagierte/n Erzieher/in. Wir arbeiten nach dem situationsorientierten Ansatz und legen großen Wert auf eine liebevolle Atmosphäre. Wir bieten einen unbefristeten Arbeitsvertrag, regelmäßige Fortbildungen und ein tolles Team. Wenn Sie Freude an der Arbeit mit Kindern haben und teamfähig sind, freuen wir uns auf Ihre Bewerbung.",
+        "h": "Senioren-Studium an der Uni München\n\nEs ist nie zu spät, Neues zu lernen! Die Universität München öffnet ihre Hörsäle für interessierte Senioren. Sie können Vorlesungen in Geschichte, Philosophie, Kunstgeschichte und vielen weiteren Fächern besuchen. Es gibt keine Prüfungen und keinen Leistungsdruck – nur die Freude am Wissen. Ein spezielles Rahmenprogramm bietet zudem Möglichkeiten zum Austausch und Kennenlernen.",
+        "i": "Computerkurs für Anfänger (50+)\n\nSie fühlen sich im digitalen Zeitalter abgehängt? Keine Sorge! In diesem Kurs lernen Sie Schritt für Schritt den Umgang mit dem Computer und dem Internet. E-Mails schreiben, Informationen suchen, Online-Banking – wir erklären alles verständlich und ohne Fachchinesisch. Lernen Sie in entspannter Atmosphäre und ohne Zeitdruck. Eigene Laptops können mitgebracht werden.",
+        "j": "Führungskräftetraining „Gesunde Führung“\n\nGesunde Mitarbeiter sind leistungsfähiger und motivierter. Als Führungskraft haben Sie großen Einfluss auf das Wohlbefinden Ihres Teams. In diesem Seminar lernen Sie, wie Sie Belastungen erkennen, Ressourcen stärken und ein gesundes Arbeitsklima schaffen. Themen: Stressmanagement, wertschätzende Kommunikation, Umgang mit Konflikten. Für Abteilungsleiter, Teamleiter und Personalverantwortliche.",
+        "k": "Ehrenamtliche gesucht: Lesepaten\n\nSchenken Sie Kindern Zeit und Freude am Lesen! Wir suchen engagierte Menschen, die einmal wöchentlich in Kindergärten oder Grundschulen vorlesen. Helfen Sie mit, die Sprachkompetenz und Fantasie der Kinder zu fördern. Es sind keine pädagogischen Vorkenntnisse erforderlich, nur Geduld und Spaß am Umgang mit Büchern. Wir bieten Einführungsschulungen und regelmäßige Treffen zum Austausch.",
+        "l": "Duales Studium BWL – Handel\n\nTheorie und Praxis perfekt kombiniert! Bei uns studieren Sie Betriebswirtschaftslehre an der Hochschule und arbeiten gleichzeitig im Unternehmen mit. Sie durchlaufen alle wichtigen Abteilungen, von Einkauf über Marketing bis Vertrieb, und übernehmen früh Verantwortung. Nach drei Jahren haben Sie den Bachelor-Abschluss und beste Karriereaussichten. Voraussetzung: Gutes Abitur und Engagement.",
+        "x": "Kein Infotext passt zu der Situation."
+      },
+      "situations": [
+        {
+          "id": 11,
+          "text": "Ein Bekannter möchte sich beruflich neu orientieren und sucht Beratung speziell für den Schritt in die Selbstständigkeit.",
+          "answer": "f"
+        },
+        {
+          "id": 12,
+          "text": "Eine Freundin sucht einen Ausbildungsplatz im kreativen Bereich.",
+          "answer": "e"
+        },
+        {
+          "id": 13,
+          "text": "Ihr Großvater möchte sich geistig fit halten und interessiert sich für akademische Bildung.",
+          "answer": "h"
+        },
+        {
+          "id": 14,
+          "text": "Ein Kollege möchte seine Führungskompetenzen verbessern, besonders im Hinblick auf Mitarbeitergesundheit.",
+          "answer": "j"
+        },
+        {
+          "id": 15,
+          "text": "Eine Bekannte möchte neben dem Beruf studieren.",
+          "answer": "b"
+        },
+        {
+          "id": 16,
+          "text": "Ein Schulabgänger möchte vor dem Studium praktische Erfahrungen im Ausland sammeln.",
+          "answer": "c"
+        },
+        {
+          "id": 17,
+          "text": "Eine ältere Nachbarin möchte lernen, wie man das Internet nutzt.",
+          "answer": "i"
+        },
+        {
+          "id": 18,
+          "text": "Ein Bekannter sucht einen Handwerker für die Reparatur seines Daches.",
+          "answer": "a"
+        },
+        {
+          "id": 19,
+          "text": "Eine Freundin möchte sich sozial engagieren und hat Spaß am Vorlesen.",
+          "answer": "k"
+        },
+        {
+          "id": 20,
+          "text": "Ein Bekannter sucht eine Stelle als Lehrer an einer Grundschule.",
+          "answer": "x"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Modelltest 5 - Leseverstehen Teil 3",
+      "advertisements": {
+        "a": "Kletterhalle „Gipfelstürmer“\n\nErleben Sie die Faszination des Kletterns – wetterunabhängig und sicher! Auf über 2000 qm Kletterfläche bieten wir Routen für alle Schwierigkeitsgrade, vom Anfänger bis zum Profi. Separater Boulderbereich, Kinderkletterwand und gemütliches Bistro. Kurse für Einsteiger, Fortgeschrittene und Kinder. Ausrüstung kann vor Ort ausgeliehen werden. Geöffnet täglich von 10 bis 23 Uhr.",
+        "b": "Töpferkurs: Kreativ mit Ton\n\nEntdecken Sie Ihre handwerkliche Seite! In diesem Kurs lernen Sie verschiedene Techniken der Tonbearbeitung kennen, wie Aufbaukeramik und das Drehen an der Scheibe. Formen Sie Schalen, Vasen oder Figuren nach Ihren eigenen Ideen. Nach dem Trocknen und Brennen glasieren wir die Stücke gemeinsam. Keine Vorkenntnisse erforderlich. Materialkosten werden nach Verbrauch abgerechnet.",
+        "c": "Yoga im Park\n\nStarten Sie entspannt in den Tag oder lassen Sie den Abend ruhig ausklingen. In den Sommermonaten bieten wir offene Yogastunden im Stadtpark an. Unter freiem Himmel, umgeben von grüner Natur, üben wir Asanas und Atemtechniken. Für alle Level geeignet. Bitte eigene Matte und bequeme Kleidung mitbringen. Bei Regen findet der Kurs im Gemeindezentrum statt. Keine Anmeldung nötig, einfach vorbeikommen!",
+        "d": "Museumsnacht\n\nEinmal im Jahr öffnen alle Museen und Galerien der Stadt ihre Türen bis spät in die Nacht. Ein Ticket gilt für alle Häuser sowie für die Shuttle-Busse. Erleben Sie Kunst, Geschichte und Technik in besonderer Atmosphäre. Dazu gibt es ein buntes Rahmenprogramm mit Musik, Lesungen und kulinarischen Köstlichkeiten. Ein kulturelles Highlight für Nachtschwärmer!",
+        "e": "Kochschule „Genusswerkstatt“: Vegetarisch & Vegan\n\nFleischlos glücklich! In diesem Kochkurs zeigen wir Ihnen, wie vielfältig und lecker die vegetarische und vegane Küche ist. Wir kochen gemeinsam ein mehrgängiges Menü mit saisonalen und regionalen Zutaten. Erfahren Sie mehr über alternative Proteinquellen, Gewürze und Zubereitungsarten. Anschließend genießen wir unsere Kreationen in geselliger Runde. Inklusive Getränke und Rezeptheft.",
+        "f": "Schachclub „Strategie“\n\nSie spielen gerne Schach und suchen Spielpartner? Unser Schachclub heißt Spieler aller Spielstärken willkommen. Wir treffen uns jeden Dienstag und Donnerstagabend zum freien Spiel, Training und Turnieren. Auch Anfänger werden gerne eingeführt. Kommen Sie einfach vorbei und schnuppern Sie rein! Neben dem Schachspiel pflegen wir auch das gesellige Beisammensein.",
+        "g": "Tanzschule „Rhythmus“: Salsa-Party\n\nJeden ersten Samstag im Monat heißt es bei uns: Fiesta Latina! Ab 20 Uhr startet unsere große Salsa-Party mit DJ Miguel. Vorher gibt es von 19-20 Uhr einen kostenlosen Schnupperkurs für alle, die die Grundschritte lernen möchten. Heiße Rhythmen, kühle Drinks und tolle Stimmung garantiert. Eintritt: 8 Euro. Kein Tanzpartner erforderlich.",
+        "h": "Outdoor-Survival-Camp\n\nLernen Sie, in der Natur zu überleben! In unserem Wochenend-Camp im Bayerischen Wald vermitteln wir Ihnen grundlegende Survival-Techniken: Feuer machen ohne Streichhölzer, Notunterkünfte bauen, Orientierung im Gelände und Nahrungssuche. Ein Abenteuer für alle, die ihre Grenzen testen und die Natur hautnah erleben wollen. Schlafsack und Isomatte bitte mitbringen.",
+        "i": "Stadtbibliothek: Autorenlesung\n\nAm kommenden Freitag liest die Bestsellerautorin Maria Schwarz aus ihrem neuen Kriminalroman „Schatten über dem See“. Erleben Sie Spannung pur und erfahren Sie mehr über die Hintergründe der Geschichte. Im Anschluss an die Lesung steht die Autorin für Fragen und Signierwünsche zur Verfügung. Eintritt frei, Spenden für den Förderverein der Bibliothek sind willkommen.",
+        "j": "Fahrrad-Reparatur-Workshop\n\nPlatten flicken, Bremsen einstellen, Schaltung justieren – lernen Sie, wie Sie kleine Reparaturen an Ihrem Fahrrad selbst durchführen können. Unter Anleitung eines erfahrenen Zweiradmechanikers legen Sie selbst Hand an. Bringen Sie Ihr eigenes Fahrrad mit! Werkzeug wird gestellt. Ziel ist es, dass Sie Ihr Rad verkehrssicher machen und Wartungsarbeiten selbstständig erledigen können.",
+        "k": "Kino-Open-Air\n\nGenießen Sie Kinofilme unter dem Sternenhimmel! Im August zeigen wir auf der Freilichtbühne im Schlosspark ausgewählte Filmhighlights der letzten Jahre sowie Klassiker der Filmgeschichte. Große Leinwand, bester Sound und gemütliche Liegestühle sorgen für ein unvergessliches Filmerlebnis. Für das leibliche Wohl ist mit Popcorn, Eis und Getränken gesorgt. Einlass ab 20 Uhr, Filmstart bei Einbruch der Dunkelheit.",
+        "l": "Angelverein „Petri Heil“\n\nEntspannung am Wasser und die Freude am Fang – das bietet unser Angelverein. Wir bewirtschaften mehrere Seen und Flussabschnitte in der Umgebung. Mitglieder haben exklusiven Zugang zu unseren Gewässern. Wir organisieren regelmäßige Gemeinschaftsangeln, Jugendzeltlager und Naturschutzaktionen. Werden Sie Teil unserer Gemeinschaft und genießen Sie die Ruhe der Natur.",
+        "x": "Kein Infotext passt zu der Situation."
+      },
+      "situations": [
+        {
+          "id": 11,
+          "text": "Ein Bekannter sucht einen Ort, an dem er abends tanzen gehen kann.",
+          "answer": "g"
+        },
+        {
+          "id": 12,
+          "text": "Eine Freundin möchte lernen, ihr Fahrrad selbst zu reparieren.",
+          "answer": "j"
+        },
+        {
+          "id": 13,
+          "text": "Ein Kollege interessiert sich für Klettern, hat aber keine eigene Ausrüstung.",
+          "answer": "a"
+        },
+        {
+          "id": 14,
+          "text": "Eine Bekannte möchte gerne kreativ tätig sein und etwas mit den Händen formen.",
+          "answer": "b"
+        },
+        {
+          "id": 15,
+          "text": "Ein Paar sucht eine kulturelle Abendveranstaltung im Freien.",
+          "answer": "k"
+        },
+        {
+          "id": 16,
+          "text": "Ein Bekannter möchte lernen, wie man ohne Hilfsmittel in der Wildnis zurechtkommt.",
+          "answer": "h"
+        },
+        {
+          "id": 17,
+          "text": "Eine Freundin sucht einen Kochkurs für Fleischgerichte.",
+          "answer": "x"
+        },
+        {
+          "id": 18,
+          "text": "Ein Nachbar spielt gerne Brettspiele und sucht Gleichgesinnte.",
+          "answer": "f"
+        },
+        {
+          "id": 19,
+          "text": "Eine Bekannte möchte an einer Lesung teilnehmen.",
+          "answer": "i"
+        },
+        {
+          "id": 20,
+          "text": "Ein Bekannter möchte angeln lernen, braucht aber erst einen Fischereischein.",
+          "answer": "x"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Modelltest 6 - Leseverstehen Teil 3",
+      "advertisements": {
+        "a": "Apotheken-Notdienst-Suche\n\nSie brauchen dringend Medikamente außerhalb der regulären Öffnungszeiten? Unsere Online-Suche hilft Ihnen weiter. Geben Sie einfach Ihre Postleitzahl oder Ihren Ort ein, und wir zeigen Ihnen die nächstgelegene diensthabende Apotheke an. Mit Karte, Telefonnummer und Öffnungszeiten. Auch als App für unterwegs verfügbar. So sind Sie im Notfall immer gut versorgt.",
+        "b": "Rückenschule: Starker Rücken, schmerzfrei leben\n\nRückenschmerzen sind eine Volkskrankheit. In unserem Kurs lernen Sie, wie Sie Ihren Rücken im Alltag schonen und stärken können. Wir zeigen Ihnen effektive Übungen zur Kräftigung der Rumpfmuskulatur, Dehnung und Entspannung. Außerdem erhalten Sie Tipps für rückenfreundliches Heben, Tragen und Sitzen. Der Kurs ist von den Krankenkassen als Präventionsmaßnahme anerkannt.",
+        "c": "Ernährungsberatung: Individuell und kompetent\n\nSie möchten abnehmen, sich gesünder ernähren oder haben eine Lebensmittelunverträglichkeit? Unsere qualifizierten Ernährungsberater unterstützen Sie dabei. Wir analysieren Ihre Essgewohnheiten und erstellen einen persönlichen Ernährungsplan, der zu Ihrem Leben passt. Keine strengen Diäten, sondern eine langfristige Ernährungsumstellung für mehr Wohlbefinden und Energie.",
+        "d": "Wellness-Wochenende im Schwarzwald\n\nGönnen Sie sich eine Auszeit vom Alltag! Unser 4-Sterne-Wellnesshotel bietet Ihnen Entspannung pur. Großzügige Saunalandschaft, Thermalbad, Massagen und Beauty-Anwendungen warten auf Sie. Genießen Sie die frische Schwarzwaldluft bei Wanderungen oder relaxen Sie in unserem Panoramagarten. Inklusive Halbpension mit regionalen Spezialitäten. Buchen Sie jetzt Ihr Verwöhnwochenende!",
+        "e": "Erste-Hilfe-Kurs am Kind\n\nNotfälle bei Säuglingen und Kindern erfordern schnelles und richtiges Handeln. Dieser Kurs richtet sich an Eltern, Großeltern und Babysitter. Sie lernen die wichtigsten Maßnahmen bei Verschlucken, Verbrennungen, Stürzen, Vergiftungen und Fieberkrämpfen. Üben Sie die Wiederbelebung an speziellen Puppen und gewinnen Sie Sicherheit für den Ernstfall. Ein Muss für alle, die Kinder betreuen.",
+        "f": "Augenlasern: Ein Leben ohne Brille\n\nTräumen Sie davon, morgens aufzuwachen und sofort scharf zu sehen? Unsere Augenklinik ist spezialisiert auf die Korrektur von Fehlsichtigkeiten mittels moderner Lasertechnologie (LASIK, Femto-LASIK). Erfahrene Fachärzte beraten Sie ausführlich und prüfen, ob eine Operation für Sie in Frage kommt. Vereinbaren Sie einen unverbindlichen Info-Termin und gewinnen Sie neue Lebensqualität.",
+        "g": "Selbsthilfegruppe: Diabetes Typ 2\n\nDie Diagnose Diabetes wirft viele Fragen auf und verändert das Leben. In unserer Selbsthilfegruppe treffen sich Betroffene zum Erfahrungsaustausch. Wir sprechen über Ernährung, Blutzuckermessung, Medikamente und den Umgang mit der Erkrankung im Alltag. Gelegentlich laden wir Experten zu Vorträgen ein. Sie sind nicht allein! Kommen Sie zu unseren regelmäßigen Treffen.",
+        "h": "Zahnreinigung professionell & sanft\n\nSchöne und gesunde Zähne sind Ihre Visitenkarte. Unsere professionelle Zahnreinigung entfernt hartnäckige Beläge und Verfärbungen, die Sie mit der Zahnbürste nicht erreichen. Das beugt Karies und Parodontitis vor und lässt Ihre Zähne heller strahlen. Unser geschultes Prophylaxe-Team arbeitet schonend und gründlich. Vereinbaren Sie jetzt einen Termin für Ihr strahlendes Lächeln.",
+        "i": "Homöopathie für den Hausgebrauch\n\nIn diesem Seminar lernen Sie die Grundlagen der klassischen Homöopathie kennen. Welche Globuli helfen bei Erkältung, kleinen Verletzungen, Insektenstichen oder Magenbeschwerden? Wir stellen Ihnen eine bewährte Hausapotheke vor und erklären die richtige Dosierung und Anwendung. Ideal für alle, die leichte Beschwerden sanft und natürlich behandeln möchten.",
+        "j": "Laufgruppe „Fit for Fun“\n\nLaufen macht Spaß – besonders in der Gruppe! Wir treffen uns zweimal wöchentlich zum gemeinsamen Joggen im Stadtpark. Egal ob Anfänger oder Fortgeschrittener, bei uns findet jeder sein Tempo. Erfahrene Lauftrainer geben Tipps zur richtigen Technik, Atmung und Ausrüstung. Motivation und Spaß stehen im Vordergrund. Kostenlose Teilnahme, keine Anmeldung erforderlich.",
+        "k": "Pflegeheim „Abendsonne“\n\nWir bieten liebevolle Pflege und Betreuung für Senioren in familiärer Atmosphäre. Helle Einzelzimmer, gemütliche Gemeinschaftsräume und ein schöner Garten sorgen für Wohlbefinden. Unser qualifiziertes Personal ist rund um die Uhr für Sie da. Wir legen großen Wert auf die Erhaltung der Selbstständigkeit und bieten ein abwechslungsreiches Beschäftigungsprogramm. Probewohnen möglich.",
+        "l": "Therme „Meeresbriese“\n\nTauchen Sie ein in eine Welt der Entspannung! Unsere Sole-Therme mit Wasser aus eigener Heilquelle wirkt wohltuend auf Haut und Gelenke. Genießen Sie das Schweben im warmen Salzwasser, entspannen Sie im Whirlpool oder in der Dampfgrotte. Unsere große Saunawelt mit stündlichen Aufgüssen lässt keine Wünsche offen. Gönnen Sie sich einen Tag Urlaub vom Alltag.",
+        "x": "Kein Infotext passt zu der Situation."
+      },
+      "situations": [
+        {
+          "id": 11,
+          "text": "Eine Freundin hat oft Rückenschmerzen und sucht einen Kurs zur Vorbeugung.",
+          "answer": "b"
+        },
+        {
+          "id": 12,
+          "text": "Ein Bekannter möchte keine Brille mehr tragen und interessiert sich für eine Operation.",
+          "answer": "f"
+        },
+        {
+          "id": 13,
+          "text": "Eine junge Mutter möchte wissen, was sie bei Unfällen ihres Kindes tun muss.",
+          "answer": "e"
+        },
+        {
+          "id": 14,
+          "text": "Ein älterer Herr sucht eine Wohnmöglichkeit mit Betreuung.",
+          "answer": "k"
+        },
+        {
+          "id": 15,
+          "text": "Eine Bekannte möchte sich über alternative Heilmethoden informieren.",
+          "answer": "i"
+        },
+        {
+          "id": 16,
+          "text": "Ein Kollege möchte mit dem Laufen anfangen, aber nicht alleine.",
+          "answer": "j"
+        },
+        {
+          "id": 17,
+          "text": "Eine Freundin sucht am Sonntag dringend eine offene Apotheke.",
+          "answer": "a"
+        },
+        {
+          "id": 18,
+          "text": "Ein Bekannter möchte abnehmen und sucht professionelle Hilfe bei der Ernährung.",
+          "answer": "c"
+        },
+        {
+          "id": 19,
+          "text": "Eine Bekannte sucht ein Hotel für einen Wanderurlaub ohne Wellnessangebote.",
+          "answer": "x"
+        },
+        {
+          "id": 20,
+          "text": "Ein Nachbar hat Zucker und möchte sich mit anderen Betroffenen austauschen.",
+          "answer": "g"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Modelltest 7 - Leseverstehen Teil 3",
+      "advertisements": {
+        "a": "Autovermietung „Flitzer“\n\nOb Kleinwagen für die Stadt, Kombi für den Familienausflug oder Transporter für den Umzug – wir haben das passende Fahrzeug für Sie. Günstige Tarife, flexible Mietzeiten und neuwertige Fahrzeuge. Wochenend-Specials und Langzeitmieten auf Anfrage. Keine versteckten Kosten, Vollkasko inklusive. Buchen Sie bequem online oder telefonisch.",
+        "b": "Reisebüro „Fernweh“: Last-Minute-Angebote\n\nSie sind urlaubsreif und flexibel? Dann sichern Sie sich unsere unschlagbaren Last-Minute-Schnäppchen! Ob Strandurlaub in der Türkei, Städtetrip nach Rom oder Wellness in Österreich – wir haben täglich neue Angebote zu Top-Preisen. Sparen Sie bis zu 50% gegenüber dem Katalogpreis. Lassen Sie sich von unseren Reiseexperten beraten und packen Sie Ihre Koffer!",
+        "c": "Sprachreise Malta\n\nLernen Sie Englisch unter der Sonne des Mittelmeers! Unsere Sprachschule auf Malta bietet Kurse für alle Niveaustufen. Sie wohnen bei Gastfamilien oder in modernen Schulresidenzen. Nach dem Unterricht erwartet Sie ein abwechslungsreiches Freizeitprogramm: Ausflüge, Wassersport, Partys. Die ideale Kombination aus Lernen und Urlaub. Für Schüler, Studenten und Erwachsene.",
+        "d": "Deutsche Bahn: Sparpreis-Finder\n\nReisen Sie günstig quer durch Deutschland! Mit dem Sparpreis-Finder finden Sie schnell und einfach die besten Verbindungen zum kleinsten Preis. Schon ab 19,90 Euro im ICE fahren. Je früher Sie buchen, desto günstiger. Mit der BahnCard sparen Sie zusätzlich 25%. Umweltfreundlich und entspannt ankommen – mit der Bahn.",
+        "e": "Wohnmobil-Verleih „Freiheit“\n\nErkunden Sie die Welt in Ihrem eigenen Tempo! Unsere modernen Wohnmobile bieten Komfort und Unabhängigkeit. Voll ausgestattet mit Küche, Bad und bequemen Betten. Ideal für Familien und Naturliebhaber. Verschiedene Größen und Modelle verfügbar. Haustiere sind in ausgewählten Fahrzeugen erlaubt. Starten Sie Ihr Abenteuer direkt vor der Haustür.",
+        "f": "Stadtführung: Das mittelalterliche Köln\n\nTauchen Sie ein in die Vergangenheit! Bei diesem Rundgang durch die Kölner Altstadt erfahren Sie Spannendes über das Leben im Mittelalter. Wir besuchen historische Plätze, enge Gassen und natürlich den Dom. Hören Sie Geschichten von Kaufleuten, Handwerkern und Bischöfen. Dauer: ca. 1,5 Stunden. Treffpunkt: Vor dem Hauptportal des Doms. Keine Anmeldung erforderlich.",
+        "g": "Flughafen-Transfer\n\nStarten Sie entspannt in den Urlaub! Unser Shuttle-Service bringt Sie pünktlich und bequem von zu Hause zum Flughafen und holt Sie auch wieder ab. Keine Parkplatzsuche, kein Kofferschleppen. Wir fahren alle großen Flughäfen in der Region an. Einzeltransfer oder Sammeltaxi möglich. Festpreise ohne Zuschläge. Reservieren Sie rechtzeitig vor Ihrer Reise.",
+        "h": "Hotel „Bergblick“ in Tirol\n\nGenießen Sie österreichische Gastfreundschaft in unserem familiengeführten Hotel. Ruhige Lage mit traumhaftem Blick auf die Alpen. Idealer Ausgangspunkt für Wanderungen und Skitouren. Gemütliche Zimmer im Landhausstil, reichhaltiges Frühstücksbuffet und Sauna. Wir bieten spezielle Pakete für Familien und Aktivurlauber. Hunde sind herzlich willkommen.",
+        "i": "Fernbus-Reisen\n\nGünstig, bequem und umweltfreundlich reisen – mit dem Fernbus. Wir verbinden über 500 Städte in ganz Europa. Moderne Busse mit WLAN, Steckdosen und extra Beinfreiheit. Tickets gibt es schon ab 5 Euro. Einfach online buchen, Ticket auf dem Smartphone vorzeigen und einsteigen. Die smarte Alternative zu Bahn und Auto.",
+        "j": "Jugendherberge „Hafencity“ Hamburg\n\nModern, zentral und günstig übernachten in Hamburg. Unsere Jugendherberge liegt direkt am Hafen, nur wenige Gehminuten von den Landungsbrücken und der Speicherstadt entfernt. Mehrbettzimmer für Gruppen und Familien, aber auch Doppelzimmer mit eigenem Bad. Großes Frühstücksbuffet, Bistro und Lounge. Der ideale Stützpunkt für Ihre Entdeckungstour durch die Hansestadt.",
+        "k": "Kreuzfahrt „Norwegen-Fjorde“\n\nErleben Sie die atemberaubende Natur Norwegens vom Wasser aus! Unsere 7-tägige Kreuzfahrt führt Sie durch spektakuläre Fjorde, vorbei an Wasserfällen und steilen Felswänden. Landgänge in Bergen, Geiranger und Stavanger. An Bord unseres Luxusliners genießen Sie Vollpension, Unterhaltung und Wellness. Eine Reise, die Sie nie vergessen werden.",
+        "l": "Mitfahrzentrale\n\nFahren Sie nicht allein! Bieten Sie Ihre freien Plätze im Auto an oder suchen Sie nach einer Mitfahrgelegenheit. Teilen Sie sich die Fahrtkosten und lernen Sie nette Leute kennen. Unsere App vermittelt Fahrer und Mitfahrer sicher und unkompliziert. Bewertungen sorgen für Vertrauen. Gut für den Geldbeutel und gut für die Umwelt.",
+        "x": "Kein Infotext passt zu der Situation."
+      },
+      "situations": [
+        {
+          "id": 11,
+          "text": "Ein Student möchte möglichst billig von Berlin nach München reisen.",
+          "answer": "i"
+        },
+        {
+          "id": 12,
+          "text": "Eine Familie möchte im Urlaub unabhängig sein und mit dem „Haus auf Rädern“ reisen.",
+          "answer": "e"
+        },
+        {
+          "id": 13,
+          "text": "Ein Paar möchte kurzfristig und günstig in die Sonne fliegen.",
+          "answer": "b"
+        },
+        {
+          "id": 14,
+          "text": "Eine Schulklasse sucht eine günstige Unterkunft in Hamburg.",
+          "answer": "j"
+        },
+        {
+          "id": 15,
+          "text": "Ein Bekannter möchte sein Englisch verbessern und gleichzeitig Urlaub machen.",
+          "answer": "c"
+        },
+        {
+          "id": 16,
+          "text": "Ein Geschäftsmann sucht einen Parkplatz am Flughafen.",
+          "answer": "x"
+        },
+        {
+          "id": 17,
+          "text": "Eine Gruppe möchte mehr über die Geschichte Kölns erfahren.",
+          "answer": "f"
+        },
+        {
+          "id": 18,
+          "text": "Ein Paar sucht ein Hotel in den Bergen, in das sie ihren Hund mitnehmen können.",
+          "answer": "h"
+        },
+        {
+          "id": 19,
+          "text": "Eine Bekannte möchte bequem zum Flughafen gebracht werden.",
+          "answer": "g"
+        },
+        {
+          "id": 20,
+          "text": "Ein Bekannter sucht jemanden, der ihn mit dem Auto in eine andere Stadt mitnimmt.",
+          "answer": "l"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Modelltest 8 - Leseverstehen Teil 3",
+      "advertisements": {
+        "a": "Smartphone-Reparatur-Service\n\nDisplay gesprungen? Akku schwach? Wasserschaden? Wir reparieren Ihr Smartphone schnell und professionell. Egal ob iPhone, Samsung oder Huawei. Die meisten Reparaturen erledigen wir innerhalb von 60 Minuten direkt vor Ort. Wir verwenden nur hochwertige Ersatzteile und geben 12 Monate Garantie auf unsere Arbeit. Kommen Sie vorbei oder senden Sie uns Ihr Gerät zu.",
+        "b": "Möbelhaus „Wohnwelt“: Neueröffnung\n\nWir feiern Neueröffnung und Sie feiern mit! Entdecken Sie auf 5000 qm die neuesten Wohntrends. Sofas, Betten, Küchen und Accessoires zu unschlagbaren Eröffnungspreisen. Lassen Sie sich von unseren Einrichtungsideen inspirieren. Am Wochenende Sekt-Empfang, Kinderschminken und Gewinnspiel. Wir freuen uns auf Ihren Besuch in der Industriestraße 10.",
+        "c": "Computer-Hilfe für Senioren\n\nDer Computer macht nicht das, was er soll? Der Drucker streikt? Sie kommen nicht ins Internet? Wir helfen Ihnen bei allen PC-Problemen – geduldig und verständlich. Wir kommen zu Ihnen nach Hause, richten Ihren Computer ein, installieren Software und erklären Ihnen die Bedienung. Auch Schulungen an Tablet und Smartphone. Rufen Sie uns an!",
+        "d": "Gebrauchtwaren-Kaufhaus „Zweite Chance“\n\nGut erhaltene Möbel, Kleidung, Bücher und Haushaltswaren müssen nicht teuer sein. In unserem Sozialkaufhaus finden Sie wahre Schätze zu kleinen Preisen. Wir bereiten gespendete Waren auf und verkaufen sie weiter. Damit schonen wir die Umwelt und schaffen Arbeitsplätze für Langzeitarbeitslose. Stöbern lohnt sich – jeden Tag neue Ware!",
+        "e": "Smart-Home-Beratung\n\nMachen Sie Ihr Zuhause intelligent! Steuern Sie Licht, Heizung und Rollläden bequem per App oder Sprache. Erhöhen Sie Sicherheit und Komfort und sparen Sie Energie. Wir beraten Sie herstellerunabhängig zu den Möglichkeiten der Hausautomation, planen Ihr System und übernehmen die Installation. Vereinbaren Sie einen kostenlosen Beratungstermin vor Ort.",
+        "f": "Flohmarkt am Stadtpark\n\nJeden Samstag von 8 bis 14 Uhr findet der große Flohmarkt am Stadtpark statt. Hier finden Sie alles, was das Herz begehrt: Antiquitäten, Trödel, Kleidung, Spielzeug und vieles mehr. Private Verkäufer bieten ihre Schätze an. Feilschen ausdrücklich erwünscht! Für das leibliche Wohl sorgen Imbissstände mit Bratwurst und Kaffee. Ein Erlebnis für die ganze Familie.",
+        "g": "Elektrogeräte-Recycling\n\nWohin mit dem alten Fernseher oder der kaputten Waschmaschine? Wir entsorgen Ihre Elektro-Altgeräte fachgerecht und umweltfreundlich. Bringen Sie Ihre Geräte zu unserem Wertstoffhof oder nutzen Sie unseren Abholservice (gegen Gebühr). Wir sorgen dafür, dass wertvolle Rohstoffe zurückgewonnen und Schadstoffe sicher entsorgt werden. Ein Beitrag zum Umweltschutz.",
+        "h": "Foto-Studio „Blitzlicht“\n\nWir rücken Sie ins rechte Licht! Ob biometrische Passbilder, professionelle Bewerbungsfotos oder emotionale Familienporträts – wir sind Ihr Partner für gute Bilder. In unserem modernen Studio oder on location. Wir nehmen uns Zeit für Sie und beraten Sie bei Outfit und Posing. Auch Hochzeitsfotografie und Event-Begleitung. Bilder sofort zum Mitnehmen oder digital.",
+        "i": "Schlüsseldienst & Sicherheitstechnik\n\nAussperrt? Schlüssel verloren? Wir öffnen Ihre Tür schnell, beschädigungsfrei und zum Festpreis – rund um die Uhr. Außerdem beraten wir Sie zum Thema Einbruchschutz. Sichern Sie Ihr Haus oder Ihre Wohnung mit modernen Schließzylindern, Panzerriegeln und Alarmanlagen. Ihre Sicherheit liegt uns am Herzen. Rufen Sie uns an!",
+        "j": "Internet-Café „Surfer“\n\nSurfen, chatten, drucken, scannen – bei uns können Sie alles erledigen. Schnelle Rechner, Highspeed-Internet und Laserdrucker stehen bereit. Ideal für Touristen, Studenten oder wenn der eigene PC mal streikt. Wir bieten auch Getränke und Snacks. Hilfe bei technischen Fragen inklusive. Geöffnet täglich von 10 bis 22 Uhr.",
+        "k": "Umzugsunternehmen „Pack an“\n\nWir machen Ihren Umzug stressfrei! Vom Privatumzug bis zur Firmenverlegung – wir bieten Full-Service aus einer Hand. Kartons liefern, Möbel abbauen, Transport, Aufbau am neuen Ort. Unser erfahrenes Team arbeitet sorgfältig und zuverlässig. Auch Entrümpelungen und Einlagerungen. Holen Sie sich jetzt Ihr unverbindliches Festpreis-Angebot.",
+        "l": "Streaming-Dienst „CineMax“\n\nDie besten Filme und Serien unbegrenzt streamen – wann und wo Sie wollen. Auf dem Fernseher, Tablet oder Smartphone. Riesige Auswahl an Blockbustern, Klassikern und exklusiven Eigenproduktionen. Keine Werbung, monatlich kündbar. Testen Sie uns jetzt 30 Tage kostenlos! Danach nur 8,99 Euro pro Monat.",
+        "x": "Kein Infotext passt zu der Situation."
+      },
+      "situations": [
+        {
+          "id": 11,
+          "text": "Ein Student sucht günstige Möbel für seine erste eigene Wohnung.",
+          "answer": "d"
+        },
+        {
+          "id": 12,
+          "text": "Ihr Handy ist kaputt und Sie brauchen eine schnelle Reparatur.",
+          "answer": "a"
+        },
+        {
+          "id": 13,
+          "text": "Ein älteres Ehepaar braucht Hilfe bei der Einrichtung ihres neuen Computers.",
+          "answer": "c"
+        },
+        {
+          "id": 14,
+          "text": "Ein Bekannter möchte alte Elektrogeräte loswerden.",
+          "answer": "g"
+        },
+        {
+          "id": 15,
+          "text": "Eine Familie sucht jemanden, der ihren Umzug organisiert und durchführt.",
+          "answer": "k"
+        },
+        {
+          "id": 16,
+          "text": "Ein Hobbyfotograf sucht einen Kurs zur digitalen Bildbearbeitung.",
+          "answer": "x"
+        },
+        {
+          "id": 17,
+          "text": "Ein Hausbesitzer möchte sein Haus sicherer machen und Heizkosten sparen durch Technik.",
+          "answer": "e"
+        },
+        {
+          "id": 18,
+          "text": "Sie brauchen dringend neue Passfotos für den Ausweis.",
+          "answer": "h"
+        },
+        {
+          "id": 19,
+          "text": "Ein Tourist möchte E-Mails checken, hat aber kein Gerät dabei.",
+          "answer": "j"
+        },
+        {
+          "id": 20,
+          "text": "Sie haben sich ausgesperrt und brauchen Hilfe.",
+          "answer": "i"
+        }
       ]
     }
-  ] 
+  ]
 }

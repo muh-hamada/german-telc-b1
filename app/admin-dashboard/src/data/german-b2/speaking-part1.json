@@ -1,114 +1,334 @@
 {
-    "topics": [
+  "topics": [
+    {
+      "title": "Ein Buch, das Sie gelesen haben (Thema und Handlung, Autor, Personen, Stil, Ihre Meinung usw.)",
+      "examplePresentation": "Guten Tag, ich möchte Ihnen heute das Buch 'Der Vorleser' von Bernhard Schlink vorstellen. Das Thema des Buches dreht sich um Schuld, Liebe und die Nachwirkungen des Holocausts in der deutschen Gesellschaft. Die Handlung spielt in den 1950er Jahren und erzählt die Geschichte eines jungen Mannes namens Michael, der eine Beziehung zu einer älteren Frau namens Hanna eingeht. Später erfährt er, dass Hanna in einem Kriegsverbrecherprozess involviert ist. Der Autor, Bernhard Schlink, ist ein deutscher Jurist und Schriftsteller, der das Buch 1995 veröffentlicht hat. Die Personen sind nuanciert dargestellt: Michael ist ein sensibler Jugendlicher, der mit seiner Vergangenheit ringt, und Hanna ist eine komplexe Figur, die Analphabetin ist und dadurch in moralische Dilemmata gerät. Der Stil ist klar und prägnant, mit einer Ich-Perspektive, die die inneren Konflikte des Protagonisten betont. In meiner Meinung ist das Buch beeindruckend, weil es ethische Fragen aufwirft und die Leser zum Nachdenken anregt, obwohl es manchmal emotional schwer zu ertragen ist. Es hat mir geholfen, mehr über die deutsche Geschichte nachzudenken.",
+      "exampleDiscussion": [
         {
-            "title": "Ein Buch, das Sie gelesen haben (Thema und Handlung, Autor, Personen, Stil, Ihre Meinung usw.)",
-            "examplePresentation": "Guten Tag, ich möchte Ihnen heute das Buch 'Der Vorleser' von Bernhard Schlink vorstellen. Das Thema des Buches dreht sich um Schuld, Liebe und die Nachwirkungen des Holocausts in der deutschen Gesellschaft. Die Handlung spielt in den 1950er Jahren und erzählt die Geschichte eines jungen Mannes namens Michael, der eine Beziehung zu einer älteren Frau namens Hanna eingeht. Später erfährt er, dass Hanna in einem Kriegsverbrecherprozess involviert ist. Der Autor, Bernhard Schlink, ist ein deutscher Jurist und Schriftsteller, der das Buch 1995 veröffentlicht hat. Die Personen sind nuanciert dargestellt: Michael ist ein sensibler Jugendlicher, der mit seiner Vergangenheit ringt, und Hanna ist eine komplexe Figur, die Analphabetin ist und dadurch in moralische Dilemmata gerät. Der Stil ist klar und prägnant, mit einer Ich-Perspektive, die die inneren Konflikte des Protagonisten betont. In meiner Meinung ist das Buch beeindruckend, weil es ethische Fragen aufwirft und die Leser zum Nachdenken anregt, obwohl es manchmal emotional schwer zu ertragen ist. Es hat mir geholfen, mehr über die deutsche Geschichte nachzudenken.",
-            "exampleDiscussion": [
-                {
-                    "question": "Warum haben Sie dieses Buch gewählt?",
-                    "answer": "Ich habe es gewählt, weil es ein Klassiker der deutschen Literatur ist und Themen behandelt, die immer noch aktuell sind, wie Schuld und Vergebung."
-                },
-                {
-                    "question": "Wie finden Sie den Stil des Autors?",
-                    "answer": "Der Stil ist sehr direkt und emotional, was das Buch fesselnd macht, aber auch anspruchsvoll."
-                },
-                {
-                    "question": "Welche Person im Buch hat Sie am meisten beeindruckt?",
-                    "answer": "Hanna hat mich am meisten beeindruckt, weil ihre Geheimnisse die Handlung so unerwartet wenden."
-                },
-                {
-                    "question": "Würden Sie das Buch empfehlen?",
-                    "answer": "Ja, definitiv, besonders für diejenigen, die sich für Geschichte und Psychologie interessieren."
-                }
-            ]
+          "question": "Warum haben Sie dieses Buch gewählt?",
+          "answer": "Ich habe es gewählt, weil es ein Klassiker der deutschen Literatur ist und Themen behandelt, die immer noch aktuell sind, wie Schuld und Vergebung."
         },
         {
-            "title": "Ein Film, den Sie gesehen haben (Thema und Handlung, Schauspieler, Ihre Meinung usw.)",
-            "examplePresentation": "Hallo, ich präsentiere Ihnen den Film 'Inception' von Christopher Nolan. Das Thema handelt von Träumen, Realität und dem Unterbewussten. Die Handlung folgt Dom Cobb, einem Dieb, der in die Träume anderer Menschen eindringt, um Ideen zu stehlen oder zu pflanzen. Er nimmt einen letzten Auftrag an, um sein altes Leben zurückzubekommen. Die Hauptrolle spielt Leonardo DiCaprio als Cobb, unterstützt von Schauspielern wie Joseph Gordon-Levitt und Ellen Page. Nolan ist der Regisseur und Drehbuchautor, bekannt für komplexe Geschichten. Der Film ist visuell atemberaubend mit beeindruckenden Spezialeffekten. In meiner Meinung ist 'Inception' ein Meisterwerk, weil er den Zuschauer zum Nachdenken über die Natur der Realität anregt und spannend bis zum Ende bleibt. Die Schauspielleistungen sind hervorragend, besonders DiCaprio in seiner nuancierten Rolle. Ich habe ihn mehrmals gesehen und finde ihn immer wieder faszinierend.",
-            "exampleDiscussion": [
-                {
-                    "question": "Was hat Ihnen am Film am besten gefallen?",
-                    "answer": "Die visuellen Effekte und die intelligente Handlung haben mir am besten gefallen."
-                },
-                {
-                    "question": "Wie war die Leistung der Schauspieler?",
-                    "answer": "Leonardo DiCaprio war brillant, und die Nebenrollen haben die Geschichte perfekt ergänzt."
-                },
-                {
-                    "question": "Ist der Film kompliziert zu verstehen?",
-                    "answer": "Ja, er ist komplex, aber das macht ihn spannend und lohnenswert."
-                },
-                {
-                    "question": "Würden Sie den Film weiterempfehlen?",
-                    "answer": "Absolut, vor allem für Fans von Science-Fiction und Thrillern."
-                }
-            ]
+          "question": "Wie finden Sie den Stil des Autors?",
+          "answer": "Der Stil ist sehr direkt und emotional, was das Buch fesselnd macht, aber auch anspruchsvoll."
         },
         {
-            "title": "Eine Reise, die Sie unternommen haben (Ziel, Zeit, Land und Leute, Sehenswürdigkeiten usw.)",
-            "examplePresentation": "Guten Tag, ich erzähle Ihnen von meiner Reise nach Italien im Sommer 2023. Das Ziel war Rom, die Ewige Stadt, für eine Woche. Ich war mit Freunden unterwegs, und wir haben die italienische Kultur und Gastfreundschaft erlebt. Die Leute dort sind sehr offen und herzlich, und das Essen war fantastisch – Pizza und Pasta überall. Zu den Sehenswürdigkeiten gehörten das Kolosseum, der Vatikan mit der Sixtinischen Kapelle und der Trevi-Brunnen. Wir haben auch Ausflüge in die Umgebung gemacht, wie nach Tivoli. Die Zeit war perfekt, da das Wetter sonnig war, aber nicht zu heiß. In meiner Meinung war diese Reise bereichernd, weil sie Geschichte und Moderne verbindet. Ich habe viel über die römische Antike gelernt und tolle Erinnerungen gesammelt. Es war eine der besten Reisen meines Lebens.",
-            "exampleDiscussion": [
-                {
-                    "question": "Warum haben Sie Rom als Ziel gewählt?",
-                    "answer": "Rom hat so viel Geschichte und Kultur zu bieten, das hat mich fasziniert."
-                },
-                {
-                    "question": "Wie waren die Leute in Italien?",
-                    "answer": "Sehr freundlich und hilfsbereit, sie haben uns viele Tipps gegeben."
-                },
-                {
-                    "question": "Welche Sehenswürdigkeit hat Ihnen am besten gefallen?",
-                    "answer": "Das Kolosseum, weil es so imposant und historisch ist."
-                },
-                {
-                    "question": "Würden Sie die Reise wiederholen?",
-                    "answer": "Ja, gerne, vielleicht mit mehr Zeit für die Umgebung."
-                }
-            ]
+          "question": "Welche Person im Buch hat Sie am meisten beeindruckt?",
+          "answer": "Hanna hat mich am meisten beeindruckt, weil ihre Geheimnisse die Handlung so unerwartet wenden."
         },
         {
-            "title": "Eine Musikveranstaltung, die Sie besucht haben (Musikrichtung, Musiker, Ort, persönliche Vorlieben usw.)",
-            "examplePresentation": "Hallo, ich spreche über ein Konzert von Ed Sheeran, das ich 2022 in Berlin besucht habe. Die Musikrichtung ist Pop mit Folk-Elementen, und Ed Sheeran ist ein britischer Singer-Songwriter, bekannt für Hits wie 'Shape of You'. Das Konzert fand in der Mercedes-Benz Arena statt, einer großen Halle mit toller Akustik. Er spielte solo mit Gitarre und Loop-Station, was beeindruckend war. Persönlich mag ich seine Texte, die oft von Liebe und Alltag handeln, und seine live Performance war energiegeladen. Die Atmosphäre war super, mit Tausenden Fans, die mitsangen. In meiner Meinung war es ein Highlight, weil es intim und doch großartig war. Ich bin ein großer Fan seiner Musik, da sie emotional und authentisch ist. Das Konzert hat meine Vorliebe für Live-Musik verstärkt.",
-            "exampleDiscussion": [
-                {
-                    "question": "Warum mögen Sie Ed Sheerans Musik?",
-                    "answer": "Seine Texte sind ehrlich und berührend, und die Melodien sind eingängig."
-                },
-                {
-                    "question": "Wie war die Atmosphäre am Ort?",
-                    "answer": "Energetisch und fröhlich, alle haben mitgemacht."
-                },
-                {
-                    "question": "Welcher Song hat Ihnen am besten gefallen?",
-                    "answer": "'Perfect', weil es so romantisch ist."
-                },
-                {
-                    "question": "Würden Sie wieder hingehen?",
-                    "answer": "Auf jeden Fall, es war unvergesslich."
-                }
-            ]
-        },
-        {
-            "title": "Ein Sportereignis, das Sie besucht haben (Sportart, Ort, Personen, Ergebnis usw.)",
-            "examplePresentation": "Guten Tag, ich berichte von einem Fußballspiel der Bundesliga, das ich 2024 in München gesehen habe: Bayern München gegen Borussia Dortmund. Die Sportart ist Fußball, und es war ein spannendes Derby. Der Ort war die Allianz Arena, eine moderne Stadion mit toller Atmosphäre. Wichtige Personen waren Spieler wie Harry Kane für Bayern und Marco Reus für Dortmund. Das Ergebnis war 2:1 für Bayern, mit Toren in der zweiten Halbzeit. Die Fans waren leidenschaftlich, und die Stimmung war elektrisierend. In meiner Meinung war es aufregend, live dabei zu sein, da man die Emotionen spürt, die im Fernsehen fehlen. Ich bin Fußballfan und schätze die Taktik und das Teamplay. Dieses Ereignis hat meine Leidenschaft für den Sport gesteigert.",
-            "exampleDiscussion": [
-                {
-                    "question": "Warum haben Sie dieses Spiel besucht?",
-                    "answer": "Es ist ein Klassiker der Bundesliga, und ich wollte die Atmosphäre erleben."
-                },
-                {
-                    "question": "Wer war der beste Spieler?",
-                    "answer": "Harry Kane, er hat das entscheidende Tor geschossen."
-                },
-                {
-                    "question": "Wie war das Ergebnis?",
-                    "answer": "2:1 für Bayern, es war knapp bis zum Ende."
-                },
-                {
-                    "question": "Würden Sie empfehlen, live hinzugehen?",
-                    "answer": "Ja, es ist viel intensiver als im TV."
-                }
-            ]
+          "question": "Würden Sie das Buch empfehlen?",
+          "answer": "Ja, definitiv, besonders für diejenigen, die sich für Geschichte und Psychologie interessieren."
         }
-    ]
+      ]
+    },
+    {
+      "title": "Ein Film, den Sie gesehen haben (Thema und Handlung, Schauspieler, Ihre Meinung usw.)",
+      "examplePresentation": "Hallo, ich präsentiere Ihnen den Film 'Inception' von Christopher Nolan. Das Thema handelt von Träumen, Realität und dem Unterbewussten. Die Handlung folgt Dom Cobb, einem Dieb, der in die Träume anderer Menschen eindringt, um Ideen zu stehlen oder zu pflanzen. Er nimmt einen letzten Auftrag an, um sein altes Leben zurückzubekommen. Die Hauptrolle spielt Leonardo DiCaprio als Cobb, unterstützt von Schauspielern wie Joseph Gordon-Levitt und Ellen Page. Nolan ist der Regisseur und Drehbuchautor, bekannt für komplexe Geschichten. Der Film ist visuell atemberaubend mit beeindruckenden Spezialeffekten. In meiner Meinung ist 'Inception' ein Meisterwerk, weil er den Zuschauer zum Nachdenken über die Natur der Realität anregt und spannend bis zum Ende bleibt. Die Schauspielleistungen sind hervorragend, besonders DiCaprio in seiner nuancierten Rolle. Ich habe ihn mehrmals gesehen und finde ihn immer wieder faszinierend.",
+      "exampleDiscussion": [
+        {
+          "question": "Was hat Ihnen am Film am besten gefallen?",
+          "answer": "Die visuellen Effekte und die intelligente Handlung haben mir am besten gefallen."
+        },
+        {
+          "question": "Wie war die Leistung der Schauspieler?",
+          "answer": "Leonardo DiCaprio war brillant, und die Nebenrollen haben die Geschichte perfekt ergänzt."
+        },
+        {
+          "question": "Ist der Film kompliziert zu verstehen?",
+          "answer": "Ja, er ist komplex, aber das macht ihn spannend und lohnenswert."
+        },
+        {
+          "question": "Würden Sie den Film weiterempfehlen?",
+          "answer": "Absolut, vor allem für Fans von Science-Fiction und Thrillern."
+        }
+      ]
+    },
+    {
+      "title": "Eine Reise, die Sie unternommen haben (Ziel, Zeit, Land und Leute, Sehenswürdigkeiten usw.)",
+      "examplePresentation": "Guten Tag, ich erzähle Ihnen von meiner Reise nach Italien im Sommer 2023. Das Ziel war Rom, die Ewige Stadt, für eine Woche. Ich war mit Freunden unterwegs, und wir haben die italienische Kultur und Gastfreundschaft erlebt. Die Leute dort sind sehr offen und herzlich, und das Essen war fantastisch – Pizza und Pasta überall. Zu den Sehenswürdigkeiten gehörten das Kolosseum, der Vatikan mit der Sixtinischen Kapelle und der Trevi-Brunnen. Wir haben auch Ausflüge in die Umgebung gemacht, wie nach Tivoli. Die Zeit war perfekt, da das Wetter sonnig war, aber nicht zu heiß. In meiner Meinung war diese Reise bereichernd, weil sie Geschichte und Moderne verbindet. Ich habe viel über die römische Antike gelernt und tolle Erinnerungen gesammelt. Es war eine der besten Reisen meines Lebens.",
+      "exampleDiscussion": [
+        {
+          "question": "Warum haben Sie Rom als Ziel gewählt?",
+          "answer": "Rom hat so viel Geschichte und Kultur zu bieten, das hat mich fasziniert."
+        },
+        {
+          "question": "Wie waren die Leute in Italien?",
+          "answer": "Sehr freundlich und hilfsbereit, sie haben uns viele Tipps gegeben."
+        },
+        {
+          "question": "Welche Sehenswürdigkeit hat Ihnen am besten gefallen?",
+          "answer": "Das Kolosseum, weil es so imposant und historisch ist."
+        },
+        {
+          "question": "Würden Sie die Reise wiederholen?",
+          "answer": "Ja, gerne, vielleicht mit mehr Zeit für die Umgebung."
+        }
+      ]
+    },
+    {
+      "title": "Eine Musikveranstaltung, die Sie besucht haben (Musikrichtung, Musiker, Ort, persönliche Vorlieben usw.)",
+      "examplePresentation": "Hallo, ich spreche über ein Konzert von Ed Sheeran, das ich 2022 in Berlin besucht habe. Die Musikrichtung ist Pop mit Folk-Elementen, und Ed Sheeran ist ein britischer Singer-Songwriter, bekannt für Hits wie 'Shape of You'. Das Konzert fand in der Mercedes-Benz Arena statt, einer großen Halle mit toller Akustik. Er spielte solo mit Gitarre und Loop-Station, was beeindruckend war. Persönlich mag ich seine Texte, die oft von Liebe und Alltag handeln, und seine live Performance war energiegeladen. Die Atmosphäre war super, mit Tausenden Fans, die mitsangen. In meiner Meinung war es ein Highlight, weil es intim und doch großartig war. Ich bin ein großer Fan seiner Musik, da sie emotional und authentisch ist. Das Konzert hat meine Vorliebe für Live-Musik verstärkt.",
+      "exampleDiscussion": [
+        {
+          "question": "Warum mögen Sie Ed Sheerans Musik?",
+          "answer": "Seine Texte sind ehrlich und berührend, und die Melodien sind eingängig."
+        },
+        {
+          "question": "Wie war die Atmosphäre am Ort?",
+          "answer": "Energetisch und fröhlich, alle haben mitgemacht."
+        },
+        {
+          "question": "Welcher Song hat Ihnen am besten gefallen?",
+          "answer": "'Perfect', weil es so romantisch ist."
+        },
+        {
+          "question": "Würden Sie wieder hingehen?",
+          "answer": "Auf jeden Fall, es war unvergesslich."
+        }
+      ]
+    },
+    {
+      "title": "Ein Sportereignis, das Sie besucht haben (Sportart, Ort, Personen, Ergebnis usw.)",
+      "examplePresentation": "Guten Tag, ich berichte von einem Fußballspiel der Bundesliga, das ich 2024 in München gesehen habe: Bayern München gegen Borussia Dortmund. Die Sportart ist Fußball, und es war ein spannendes Derby. Der Ort war die Allianz Arena, eine moderne Stadion mit toller Atmosphäre. Wichtige Personen waren Spieler wie Harry Kane für Bayern und Marco Reus für Dortmund. Das Ergebnis war 2:1 für Bayern, mit Toren in der zweiten Halbzeit. Die Fans waren leidenschaftlich, und die Stimmung war elektrisierend. In meiner Meinung war es aufregend, live dabei zu sein, da man die Emotionen spürt, die im Fernsehen fehlen. Ich bin Fußballfan und schätze die Taktik und das Teamplay. Dieses Ereignis hat meine Leidenschaft für den Sport gesteigert.",
+      "exampleDiscussion": [
+        {
+          "question": "Warum haben Sie dieses Spiel besucht?",
+          "answer": "Es ist ein Klassiker der Bundesliga, und ich wollte die Atmosphäre erleben."
+        },
+        {
+          "question": "Wer war der beste Spieler?",
+          "answer": "Harry Kane, er hat das entscheidende Tor geschossen."
+        },
+        {
+          "question": "Wie war das Ergebnis?",
+          "answer": "2:1 für Bayern, es war knapp bis zum Ende."
+        },
+        {
+          "question": "Würden Sie empfehlen, live hinzugehen?",
+          "answer": "Ja, es ist viel intensiver als im TV."
+        }
+      ]
+    },
+    {
+      "title": "Eine Person, die Sie bewundern (Wer, Warum, Eigenschaften, Bedeutung für Sie usw.)",
+      "examplePresentation": "Ich möchte Ihnen heute über meine Großmutter erzählen, die ich sehr bewundere. Sie ist eine starke Frau, die den Krieg überlebt und drei Kinder allein großgezogen hat. Was mich am meisten an ihr fasziniert, ist ihre positive Lebenseinstellung trotz aller Schwierigkeiten. Sie ist geduldig, weise und immer hilfsbereit. Für mich ist sie ein Vorbild, weil sie mir gezeigt hat, dass man nie aufgeben darf. Ihre Geschichten haben mich geprägt und mir wichtige Werte wie Familie und Zusammenhalt vermittelt.",
+      "exampleDiscussion": [
+        {
+          "question": "Wie oft sehen Sie Ihre Großmutter?",
+          "answer": "Ich besuche sie jeden Sonntag zum Kaffee."
+        },
+        {
+          "question": "Welche Eigenschaft schätzen Sie am meisten an ihr?",
+          "answer": "Ihre Gelassenheit in schwierigen Situationen."
+        },
+        {
+          "question": "Hat sie Ihr Leben beeinflusst?",
+          "answer": "Ja, sehr. Durch sie habe ich gelernt, dankbar zu sein."
+        },
+        {
+          "question": "Was würden Sie gerne von ihr lernen?",
+          "answer": "Ich würde gerne so gut kochen können wie sie."
+        }
+      ]
+    },
+    {
+      "title": "Ein Fest, das Sie gefeiert haben (Anlass, Gäste, Ablauf, Besonderheiten usw.)",
+      "examplePresentation": "Ich berichte von einer traditionellen Hochzeit, die ich letzten Sommer in der Türkei besucht habe. Der Anlass war die Heirat meiner Cousine. Es waren über 500 Gäste eingeladen, Familie, Freunde und Nachbarn. Die Feier begann am Nachmittag mit Musik und Tanz und dauerte bis tief in die Nacht. Besonders beeindruckend war das riesige Buffet mit vielen lokalen Spezialitäten. Es war ein sehr emotionales und fröhliches Fest, das mir lange in Erinnerung bleiben wird, besonders wegen der Gastfreundschaft und der ausgelassenen Stimmung.",
+      "exampleDiscussion": [
+        {
+          "question": "Was war das Besondere an diesem Fest?",
+          "answer": "Die Größe der Feier und die traditionellen Tänze waren einzigartig."
+        },
+        {
+          "question": "Kennen Sie die Braut gut?",
+          "answer": "Ja, wir sind zusammen aufgewachsen."
+        },
+        {
+          "question": "Gab es spezielle Kleidungsvorschriften?",
+          "answer": "Ja, festliche Abendgarderobe war erwünscht."
+        },
+        {
+          "question": "Würden Sie so ein großes Fest auch feiern wollen?",
+          "answer": "Vielleicht etwas kleiner, aber die Stimmung war toll."
+        }
+      ]
+    },
+    {
+      "title": "Ein Restaurant, das Sie besucht haben (Name, Ort, Art der Küche, Atmosphäre, Empfehlung usw.)",
+      "examplePresentation": "Guten Tag, ich möchte das Restaurant 'Vapiano' in Berlin vorstellen. Es liegt direkt am Potsdammer Platz und bietet italienische Küche an. Das Konzept ist Selbstbedienung, aber die Gerichte werden frisch vor den Augen der Gäste zubereitet. Ich habe dort eine Pizza und einen Salat gegessen, beides war sehr lecker und frisch. Die Atmosphäre ist modern und locker, mit großen Holztischen, an denen man leicht mit anderen ins Gespräch kommt. Ich kann das Restaurant jedem empfehlen, der schnell und gut italienisch essen möchte.",
+      "exampleDiscussion": [
+        {
+          "question": "Was hat Ihnen dort am besten geschmeckt?",
+          "answer": "Die Pizza mit Rucola und Parmaschinken war hervorragend."
+        },
+        {
+          "question": "Wie sind die Preise?",
+          "answer": "Die Preise sind moderat und für die Qualität angemessen."
+        },
+        {
+          "question": "Ist es dort laut?",
+          "answer": "Ja, zu Stoßzeiten kann es etwas laut werden."
+        },
+        {
+          "question": "Muss man reservieren?",
+          "answer": "Nein, bei Vapiano gibt es keine Reservierungen."
+        }
+      ]
+    },
+    {
+      "title": "Ein technisches Gerät, das Sie oft benutzen (Was, Wofür, Vorteile, Nachteile usw.)",
+      "examplePresentation": "Ich spreche über mein Tablet, das ich täglich benutze. Es ist ein iPad, das ich vor zwei Jahren gekauft habe. Ich nutze es hauptsächlich für die Uni, um Notizen zu machen, E-Books zu lesen und Filme zu schauen. Der größte Vorteil ist, dass es sehr leicht und handlich ist, sodass ich es überallhin mitnehmen kann. Außerdem ist die Akkulaufzeit sehr gut. Ein Nachteil ist vielleicht der Preis, da Tablets dieser Marke recht teuer sind. Insgesamt ist es aber aus meinem Alltag nicht mehr wegzudenken.",
+      "exampleDiscussion": [
+        {
+          "question": "Benutzen Sie es auch zum Arbeiten?",
+          "answer": "Ja, für E-Mails und einfache Textverarbeitung."
+        },
+        {
+          "question": "Haben Sie viele Apps installiert?",
+          "answer": "Ja, vor allem Lern-Apps und Streaming-Dienste."
+        },
+        {
+          "question": "Würden Sie es gegen einen Laptop tauschen?",
+          "answer": "Nein, als Ergänzung ist es perfekt, aber nicht als Ersatz."
+        },
+        {
+          "question": "Wie lange hält der Akku?",
+          "answer": "Bei normaler Nutzung etwa 10 Stunden."
+        }
+      ]
+    },
+    {
+      "title": "Eine Stadt, die Sie gerne besuchen würden (Name, Land, Sehenswürdigkeiten, Gründe usw.)",
+      "examplePresentation": "Ich träume davon, eines Tages New York City in den USA zu besuchen. Diese Stadt fasziniert mich wegen ihrer Vielfalt und Energie. Ich möchte unbedingt die Freiheitsstatue, den Central Park und den Times Square sehen. Auch ein Besuch im Museum of Modern Art steht auf meiner Liste. Ich habe so viele Filme gesehen, die dort spielen, dass ich das Gefühl habe, die Stadt schon zu kennen. Ich möchte die Wolkenkratzer live erleben und das Gefühl haben, im Zentrum der Welt zu sein.",
+      "exampleDiscussion": [
+        {
+          "question": "Wann planen Sie diese Reise?",
+          "answer": "Vielleicht nächstes Jahr, wenn ich genug gespart habe."
+        },
+        {
+          "question": "Wollen Sie alleine reisen?",
+          "answer": "Nein, am liebsten mit meinem besten Freund."
+        },
+        {
+          "question": "Was interessiert Sie am meisten an New York?",
+          "answer": "Der kulturelle Mix und die Architektur."
+        },
+        {
+          "question": "Haben Sie keine Angst vor der Größe der Stadt?",
+          "answer": "Ein bisschen Respekt habe ich schon, aber die Neugier überwiegt."
+        }
+      ]
+    },
+    {
+      "title": "Ein Hobby, das Sie betreiben (Was, Seit wann, Warum, Besonderheiten usw.)",
+      "examplePresentation": "Mein Hobby ist Fotografie, und ich betreibe es seit etwa fünf Jahren intensiv. Angefangen hat es mit einfachen Handyfotos, aber mittlerweile besitze ich eine Spiegelreflexkamera. Ich liebe es, Momente festzuhalten und die Welt durch den Sucher anders zu sehen. Besonders gerne fotografiere ich Landschaften und Porträts. Das Schöne daran ist, dass man kreativ sein kann und immer wieder neue Techniken lernt. Es entspannt mich und ist ein toller Ausgleich zu meinem Beruf.",
+      "exampleDiscussion": [
+        {
+          "question": "Haben Sie schon mal Fotos ausgestellt?",
+          "answer": "Nein, bisher nur im Internet auf Instagram."
+        },
+        {
+          "question": "Ist das nicht ein teures Hobby?",
+          "answer": "Ja, gute Ausrüstung kostet Geld, aber es lohnt sich."
+        },
+        {
+          "question": "Bearbeiten Sie Ihre Bilder auch?",
+          "answer": "Ja, ich nutze Lightroom für die Nachbearbeitung."
+        },
+        {
+          "question": "Was ist Ihr Lieblingsmotiv?",
+          "answer": "Sonnenuntergänge am Meer."
+        }
+      ]
+    },
+    {
+      "title": "Ein wichtiges Ziel, das Sie erreicht haben (Was, Wann, Schwierigkeiten, Bedeutung usw.)",
+      "examplePresentation": "Ich möchte über meinen Deutsch-B1-Abschluss sprechen, den ich letztes Jahr erreicht habe. Es war ein langer Weg für mich, da ich neben der Arbeit gelernt habe. Die größte Schwierigkeit war die Grammatik, besonders die Artikel und Fälle. Ich habe viele Abende in der Sprachschule verbracht und Vokabeln gepaukt. Dieser Erfolg bedeutet mir sehr viel, weil er mir beruflich neue Türen geöffnet hat und ich mich jetzt viel sicherer im Alltag fühle. Es hat mir gezeigt, dass sich Anstrengung auszahlt.",
+      "exampleDiscussion": [
+        {
+          "question": "Wie lange haben Sie gelernt?",
+          "answer": "Insgesamt etwa zwei Jahre intensiv."
+        },
+        {
+          "question": "Was war am schwersten für Sie?",
+          "answer": "Das Hörverstehen fand ich anfangs sehr schwierig."
+        },
+        {
+          "question": "Haben Sie Tipps für andere Lerner?",
+          "answer": "Viel sprechen und keine Angst vor Fehlern haben."
+        },
+        {
+          "question": "Was ist Ihr nächstes Ziel?",
+          "answer": "Ich bereite mich jetzt auf die B2-Prüfung vor."
+        }
+      ]
+    },
+    {
+      "title": "Eine Tradition aus Ihrem Heimatland (Was, Wann, Bedeutung, Ablauf usw.)",
+      "examplePresentation": "In meinem Heimatland feiern wir das Frühlingsfest Nowruz sehr groß. Es findet jedes Jahr am 21. März statt und markiert den Beginn des neuen Jahres. Wir bereiten einen speziellen Tisch mit sieben Symbolen vor, die für Gesundheit, Wohlstand und Glück stehen. Familien besuchen sich gegenseitig, essen gemeinsam und Kinder bekommen Geschenke. Für uns bedeutet dieses Fest Erneuerung und Hoffnung. Es ist eine Zeit, in der man Streitigkeiten vergisst und optimistisch in die Zukunft blickt.",
+      "exampleDiscussion": [
+        {
+          "question": "Gibt es spezielle Speisen an diesem Tag?",
+          "answer": "Ja, wir essen oft Fisch mit Kräuterreis."
+        },
+        {
+          "question": "Wie lange dauert das Fest?",
+          "answer": "Die Feierlichkeiten dauern fast zwei Wochen."
+        },
+        {
+          "question": "Feiern Sie das auch in Deutschland?",
+          "answer": "Ja, im kleinen Kreis mit der Familie."
+        },
+        {
+          "question": "Ist der 21. März ein Feiertag?",
+          "answer": "In meinem Heimatland ja, hier leider nicht."
+        }
+      ]
+    },
+    {
+      "title": "Eine Ausstellung, die Sie besucht haben (Thema, Ort, Exponate, Eindruck usw.)",
+      "examplePresentation": "Letzten Monat war ich in einer Ausstellung über 'Künstliche Intelligenz' im Deutschen Museum in München. Das Thema ist sehr aktuell und wurde sehr anschaulich präsentiert. Es gab viele interaktive Stationen, wo man sehen konnte, wie Roboter lernen oder wie Gesichtserkennung funktioniert. Besonders beeindruckt hat mich ein Roboter, der Porträts zeichnen konnte. Die Ausstellung hat mich zum Nachdenken gebracht über die Chancen, aber auch die Risiken der Technologie. Ich fand es sehr informativ und gut gemacht.",
+      "exampleDiscussion": [
+        {
+          "question": "War die Ausstellung gut besucht?",
+          "answer": "Ja, es waren viele Schulklassen dort."
+        },
+        {
+          "question": "Haben Sie etwas Neues gelernt?",
+          "answer": "Ja, vor allem über die Geschichte der KI."
+        },
+        {
+          "question": "Würden Sie die Ausstellung empfehlen?",
+          "answer": "Auf jeden Fall, für Technikinteressierte ein Muss."
+        },
+        {
+          "question": "Wie lange waren Sie dort?",
+          "answer": "Etwa drei Stunden, es gab viel zu sehen."
+        }
+      ]
+    },
+    {
+      "title": "Ein Geschenk, das Sie bekommen haben (Was, Von wem, Anlass, Reaktion usw.)",
+      "examplePresentation": "Zu meinem letzten Geburtstag habe ich von meinen Freunden einen Fallschirmsprung geschenkt bekommen. Ich war zuerst total geschockt, weil ich eigentlich Höhenangst habe. Aber sie wussten, dass ich schon immer mal etwas Verrücktes machen wollte. Wir sind dann zu einem kleinen Flugplatz gefahren, und ich bin tatsächlich gesprungen – natürlich mit einem Lehrer. Das Gefühl des freien Falls war unbeschreiblich, eine Mischung aus Panik und purer Freude. Es war das unvergesslichste Geschenk, das ich je erhalten habe.",
+      "exampleDiscussion": [
+        {
+          "question": "Würden Sie es noch einmal machen?",
+          "answer": "Vielleicht, jetzt wo ich weiß, wie es ist."
+        },
+        {
+          "question": "Hatten Sie große Angst?",
+          "answer": "Im Flugzeug ja, aber beim Springen war es toll."
+        },
+        {
+          "question": "War es teuer?",
+          "answer": "Ich glaube schon, aber es war ein Sammelgeschenk."
+        },
+        {
+          "question": "Haben Sie Fotos davon?",
+          "answer": "Ja, es gab ein Video, das ich mir oft ansehe."
+        }
+      ]
+    }
+  ]
 }

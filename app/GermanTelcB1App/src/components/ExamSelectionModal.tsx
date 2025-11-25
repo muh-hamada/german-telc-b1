@@ -41,11 +41,15 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
 }) => {
   const { t } = useCustomTranslation();
   const { getCompletionStatus, getStatsForPart } = useCompletion();
-  
+
   const stats = getStatsForPart(examType, partNumber);
-  
+
   // Always show stats, even if user is logged out (will show 0 progress)
-  const displayStats = stats || {
+  const displayStats = stats ? {
+    ...stats,
+    percentage: Math.round((stats.completed / exams.length) * 100),
+    total: exams.length,
+  } : {
     completed: 0,
     total: exams.length,
     percentage: 0,
@@ -91,11 +95,11 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
               </Text>
             </View>
             <View style={styles.progressBarContainer}>
-              <View 
+              <View
                 style={[
-                  styles.progressBarFill, 
+                  styles.progressBarFill,
                   { width: `${displayStats.percentage}%` }
-                ]} 
+                ]}
               />
             </View>
             {!stats && (
@@ -129,7 +133,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
                           <Text style={styles.examItemTitle}>{exam.title}</Text>
                         )}
                       </View>
-                      
+
                       {isCompleted && (
                         <View style={styles.completedBadge}>
                           <Icon name="check" size={16} color={colors.success[600]} />
