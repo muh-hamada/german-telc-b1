@@ -11,6 +11,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  I18nManager,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
@@ -37,19 +38,19 @@ const VocabularyOnboardingScreen: React.FC = () => {
     {
       type: 'casual',
       icon: 'self-improvement',
-      dailyWords: 5,
+      dailyWords: 10,
       description: t('vocabulary.onboarding.casualDesc'),
     },
     {
       type: 'beginner',
       icon: 'school',
-      dailyWords: 10,
+      dailyWords: 20,
       description: t('vocabulary.onboarding.beginnerDesc'),
     },
     {
       type: 'serious',
       icon: 'trending-up',
-      dailyWords: 20,
+      dailyWords: 30,
       description: t('vocabulary.onboarding.seriousDesc'),
     },
   ];
@@ -78,7 +79,6 @@ const VocabularyOnboardingScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
       >
         <View style={styles.header}>
-          {/* <Text style={styles.title}>{t('vocabulary.onboarding.title')}</Text> */}
           <Text style={styles.subtitle}>{t('vocabulary.onboarding.subtitle')}</Text>
         </View>
 
@@ -217,17 +217,20 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text.primary,
     marginBottom: 2,
+    textAlign: 'left',
   },
   dailyWords: {
     ...typography.textStyles.bodySmall,
     color: colors.primary[500],
     fontWeight: '600',
     marginBottom: 2,
+    textAlign: 'left',
   },
   personaDescription: {
     ...typography.textStyles.caption,
     fontSize: 12,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   checkmark: {
     position: 'absolute',
@@ -239,8 +242,10 @@ const styles = StyleSheet.create({
     padding: spacing.padding.sm,
     backgroundColor: colors.primary[50],
     borderRadius: 8,
-    borderLeftWidth: 3,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 3,
+    borderRightWidth: I18nManager.isRTL ? 3 : 0,
     borderLeftColor: colors.primary[500],
+    borderRightColor: colors.primary[500],
     gap: spacing.margin.sm,
   },
   infoText: {
@@ -248,6 +253,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: colors.text.secondary,
     flex: 1,
+    textAlign: 'left',
   },
   footer: {
     padding: spacing.padding.lg,

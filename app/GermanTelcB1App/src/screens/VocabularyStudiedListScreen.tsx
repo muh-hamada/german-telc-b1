@@ -289,10 +289,11 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     fontWeight: '600',
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   exampleItem: {
     marginBottom: spacing.margin.sm,
-    paddingLeft: spacing.padding.md,
+    paddingHorizontal: spacing.padding.md,
     borderLeftWidth: 2,
     borderLeftColor: colors.primary[500],
   },
@@ -300,6 +301,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
     marginBottom: 2,
+    direction: 'ltr',
   },
   exampleTranslation: {
     ...typography.textStyles.caption,

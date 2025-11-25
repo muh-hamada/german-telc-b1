@@ -905,7 +905,7 @@
       "permissionDenied": "Permission Denied",
       "permissionDeniedMessage": "Camera permission is required to take photos.",
       "cameraError": "Error",
-      "cameraErrorMessage": "Could not open camera: ",
+      "cameraErrorMessage": "Could not open camera",
       "imageLoadError": "Could not load image",
       "imageNotAvailable": "No image available",
       "evaluationError": "Evaluation Error",

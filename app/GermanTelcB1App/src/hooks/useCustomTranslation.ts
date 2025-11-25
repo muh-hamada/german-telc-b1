@@ -27,8 +27,6 @@ export function useCustomTranslation(): UseTranslationResponse<'translation', un
             }
         });
 
-        console.log('-------------> shouldCleanText', shouldCleanText, args[0]);
-
         const result = originalT(...args);
 
         // Only process strings, not objects or arrays

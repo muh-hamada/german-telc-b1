@@ -21,6 +21,15 @@
       "studyMessage": "Du hast {{count}} neues Wort gelernt",
       "reviewMessage": "Sie haben {{count}} Wort überprüft",
       "doneButton": "Erledigt"
+    },
+    "onboarding": {
+      "subtitle": "Wie viele neue Wörter möchten Sie jeden Tag lernen?",
+      "beginnerDesc": "Ideal zum Aufbau einer stabilen Wortschatzgrundlage",
+      "seriousDesc": "Ideal für engagierte Lernende, die schnelle Fortschritte erzielen möchten",
+      "casualDesc": "Perfekt für Gelegenheitslerner, die es ruhig angehen lassen möchten",
+      "dailyWords": "{{count}} Wörter pro Tag",
+      "info": "Sie können Ihr Tempo später jederzeit in den Einstellungen ändern. \nDie App verwendet räumliche Wiederholungen, damit Sie sich Wörter effektiv merken können.",
+      "title": "Wählen Sie Ihr Lerntempo"
     }
   },
   "streaks": {
@@ -32,7 +41,10 @@
   },
   "common": {
     "continue": "Weitermachen",
-    "done": "Erledigt"
+    "done": "Erledigt",
+    "error": "Fehler",
+    "loading": "Laden...",
+    "cancel": "Stornieren"
   },
   "profile": {
     "stats": {
@@ -58,5 +70,118 @@
     "continueWithTwitter": "Weiter mit Twitter",
     "continueWithApple": "Weiter mit Apple",
     "continue": "Weitermachen"
+  },
+  "speaking": {
+    "b2Part1": {
+      "sections": {
+        "topicTitle": "Thema",
+        "examplePresentation": "Beispielpräsentation",
+        "discussionQuestions": "Diskussionsfragen"
+      },
+      "help": {
+        "discussionNote": "Nach Ihrer Präsentation wird Ihnen Ihr Partner Fragen zum Thema stellen. \nÜben Sie die Beantwortung dieser Art von Fragen."
+      },
+      "labels": {
+        "question": "Frage",
+        "answer": "Antwort"
+      },
+      "tabs": {
+        "presentation": "Präsentation",
+        "discussion": "Diskussion"
+      }
+    },
+    "b2Part2": {
+      "help": {
+        "discussionNote": "Besprechen Sie das Thema mit Ihrem Partner. Bringen Sie Ihre Erfahrungen ein, äußern Sie Ihre Meinung, begründen Sie Ihre Argumente und sprechen Sie über Lösungsansätze.",
+        "summaryNote": "Fassen Sie zunächst kurz die Hauptpunkte des Artikels zusammen. Konzentrieren Sie sich auf die wichtigsten Argumente und Fakten."
+      },
+      "sections": {
+        "article": "Zeitschriftenartikel",
+        "summary": "Textzusammenfassung",
+        "discussion": "Beispieldiskussion"
+      },
+      "labels": {
+        "speaker": "Lautsprecher"
+      },
+      "tabs": {
+        "article": "Artikel",
+        "summary": "Zusammenfassung",
+        "discussion": "Diskussion"
+      }
+    }
+  },
+  "exam": {
+    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern",
+    "completionFailed": "Der Abschlussstatus konnte nicht aktualisiert werden",
+    "failedToLoad": "Prüfungsdaten konnten nicht geladen werden"
+  },
+  "writing": {
+    "alerts": {
+      "cameraErrorMessage": "Kamera konnte nicht geöffnet werden",
+      "cameraPermissionMessage": "Diese App benötigt Zugriff auf Ihre Kamera, um Fotos aufzunehmen.",
+      "cameraPermissionTitle": "Kameraerlaubnis erforderlich",
+      "askLater": "Fragen Sie später",
+      "ok": "OK",
+      "cameraNotAvailable": "Kamera nicht verfügbar",
+      "cameraNotAvailableMessage": "Die Kamerafunktion ist noch nicht initialisiert. \nBitte starten Sie die App nach der Neukompilierung neu.",
+      "permissionDenied": "Zugriff verweigert",
+      "permissionDeniedMessage": "Zum Fotografieren ist eine Kameraerlaubnis erforderlich.",
+      "cameraError": "Fehler",
+      "imageLoadError": "Bild konnte nicht geladen werden",
+      "imageNotAvailable": "Kein Bild verfügbar",
+      "evaluationErrorMessage": "Es ist ein unerwarteter Fehler aufgetreten.",
+      "evaluationError": "Bewertungsfehler",
+      "noEvaluation": "Keine Bewertung",
+      "noEvaluationMessage": "Bitte bewerten Sie Ihre Antwort, bevor Sie fortfahren."
+    },
+    "buttons": {
+      "nextSection": "Fahren Sie mit dem nächsten Abschnitt fort",
+      "evaluate": "Antwort bewerten"
+    },
+    "rewardedAdModal": {
+      "adNotReady": "Die Anzeige ist noch nicht fertig. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
+      "message": "Wir verwenden fortschrittliche KI, um Ihre Texte zu bewerten und Ihnen ein umfassendes Feedback zu geben, ähnlich wie bei der echten Telc-Prüfung. \nDieser Vorgang ist mit Kosten verbunden. Das Ansehen dieser kurzen Anzeige trägt dazu bei, dass unser Service für alle kostenlos bleibt.",
+      "title": "Unterstützung bei der KI-Evaluierung",
+      "watchAdButton": "Anzeige ansehen und bewerten",
+      "maybeLaterButton": "Vielleicht später"
+    },
+    "evaluation": {
+      "criteria": {
+        "taskCompletion": "1. Aufgabenerfüllung",
+        "formalCorrectness": "3. Formale Korrektheit",
+        "communicativeDesign": "2. Kommunikatives Design"
+      },
+      "correctedAnswer": "✏️ Korrigierte Antwort:",
+      "grade": "Grad:",
+      "userInput": "Ihre Antwort",
+      "criteriaTitle": "Bewertungskriterien:",
+      "title": "Ihre Einschätzung (schriftlicher Ausdruck)",
+      "totalScore": "Gesamtpunktzahl:",
+      "noUserInput": "Es wurde keine Antwort erkannt. \nVersuchen Sie, Ihre Handschrift zu verbessern."
+    },
+    "camera": {
+      "orText": "oder"
+    },
+    "input": {
+      "characterCount": "Charaktere",
+      "minCharactersWarning": "⚠️ Bitte schreiben Sie mindestens 50 Zeichen."
+    },
+    "sections": {
+      "incomingEmail": "Eingehende E-Mail:",
+      "yourAnswer": "Ihre Antwort:",
+      "writingPoints": "Schreibpunkte:"
+    },
+    "imagePreview": {
+      "evaluateButton": "✓ Bild bewerten",
+      "cancelButton": "Stornieren",
+      "retakeButton": "🔄 Wiederholen"
+    },
+    "instructions": {
+      "title": "Aufgabe:",
+      "description": "Lesen Sie die eingehende E-Mail und antworten Sie darauf. \nBerücksichtigen Sie die bereitgestellten Schreibpunkte."
+    },
+    "mock": {
+      "cacheInfo": "ℹ️ Zwischengespeichertes Ergebnis (Antwort unverändert)"
+    }
   }
 }

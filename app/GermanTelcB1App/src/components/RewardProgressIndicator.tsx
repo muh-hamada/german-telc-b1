@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -73,8 +74,10 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.md,
     padding: spacing.padding.md,
     marginBottom: spacing.margin.md,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.success[500],
+    borderRightColor: colors.success[500],
   },
   rewardProgressHeader: {
     flexDirection: 'row',

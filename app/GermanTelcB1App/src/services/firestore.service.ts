@@ -31,13 +31,13 @@ class FirestoreService {
   // User Management
   async createUserProfile(user: User): Promise<void> {
     try {
-      const userRef = firestore()
-        .collection(this.COLLECTIONS.USERS)
-        .doc(user.uid);
-      
-      const userDoc = await userRef.get();
-      
-      if (!userDoc.exists) {
+    const userRef = firestore()
+      .collection(this.COLLECTIONS.USERS)
+      .doc(user.uid);
+    
+    const userDoc = await userRef.get();
+    
+    if (!userDoc.exists()) {
         // New user - create full profile
         // Auto-detect timezone from device
         // Example: "Europe/Berlin" or "America/New_York"
@@ -59,7 +59,7 @@ class FirestoreService {
           },
           notificationSettings: {
             enabled: false,
-            hour: '09:00', // Default notification time in HH:mm format
+            hour: 9,
           },
           stats: {
             totalExams: 0,

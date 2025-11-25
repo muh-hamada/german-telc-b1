@@ -184,6 +184,15 @@
       "studyMessage": "Vous avez étudié {{count}} nouveau mot",
       "reviewMessage": "Vous avez révisé {{count}} mots",
       "doneButton": "Fait"
+    },
+    "onboarding": {
+      "subtitle": "Combien de nouveaux mots voulez-vous apprendre chaque jour ?",
+      "beginnerDesc": "Idéal pour construire une base de vocabulaire stable",
+      "seriousDesc": "Idéal pour les apprenants dévoués qui souhaitent progresser rapidement",
+      "casualDesc": "Parfait pour les apprenants occasionnels qui veulent y aller doucement",
+      "dailyWords": "{{count}} mots par jour",
+      "info": "Vous pourrez toujours modifier votre rythme ultérieurement dans les paramètres. \nL'application utilise la répétition espacée pour vous aider à mémoriser efficacement les mots.",
+      "title": "Choisissez votre rythme d'apprentissage"
     }
   },
   "examStructure": {
@@ -859,7 +868,7 @@
       "permissionDenied": "Autorisation refusée",
       "permissionDeniedMessage": "L'autorisation de la caméra est requise pour prendre des photos.",
       "cameraError": "Erreur",
-      "cameraErrorMessage": "Impossible d'ouvrir la caméra: ",
+      "cameraErrorMessage": "Impossible d'ouvrir la caméra",
       "imageLoadError": "Impossible de charger l'image",
       "imageNotAvailable": "Aucune image disponible",
       "evaluationError": "Erreur d'évaluation",

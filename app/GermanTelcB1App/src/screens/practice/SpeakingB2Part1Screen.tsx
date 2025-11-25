@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   textCard: {
     backgroundColor: colors.white,
@@ -270,6 +271,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 24,
     fontWeight: typography.fontWeight.semibold,
+    direction: 'ltr',
   },
   bodyText: {
     ...typography.textStyles.body,

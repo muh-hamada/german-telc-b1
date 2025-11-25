@@ -89,7 +89,6 @@ const SpeakingB2Part2Screen: React.FC = () => {
       if (data.questions && data.questions[topicId]) {
         setTopic(data.questions[topicId]);
       }
-      console.log('Speaking B2 Part 2 Data:', data);
     } catch (error) {
       console.error('Error loading speaking B2 part 2 data:', error);
     } finally {
@@ -283,7 +282,8 @@ const styles = StyleSheet.create({
   sectionTitle: {
     ...typography.textStyles.h3,
     color: colors.primary[500],
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   textCard: {
     backgroundColor: colors.white,
@@ -307,6 +307,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   sourceText: {
     ...typography.textStyles.bodySmall,
@@ -318,8 +319,9 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     fontStyle: 'italic' as 'italic',
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
     paddingHorizontal: spacing.padding.xs,
+    textAlign: 'left',
   },
   speakerCard: {
     backgroundColor: colors.white,
@@ -339,6 +341,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[700],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
 });
 

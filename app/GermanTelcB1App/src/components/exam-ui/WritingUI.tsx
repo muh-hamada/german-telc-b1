@@ -112,7 +112,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         // User earned the reward - NOW start the evaluation
         console.log('[WritingScreen] ✅ Ad closed after earning reward - starting evaluation NOW');
         setShowRewardedAdModal(false);
-        
+
         // Start evaluation now that ad is closed
         const evaluationType = pendingEvaluationTypeRef.current;
         console.log('[WritingScreen] 📝 Starting evaluation type:', evaluationType);
@@ -144,7 +144,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     const unsubscribeError = ad.addAdEventListener(AdEventType.ERROR, error => {
       console.error('💥 Rewarded ad error:', error);
       logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: String((error as any)?.code || 'unknown') });
-      
+
       // Reset all modal and loading states on error
       console.log('[WritingScreen] 🧹 Error cleanup - resetting all states');
       setIsAdLoaded(false);
@@ -153,7 +153,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setPendingEvaluationType(null);
       pendingEvaluationTypeRef.current = null;
       adEarnedRewardRef.current = false;
-      
+
       // Retry loading after a delay
       setTimeout(() => {
         console.log('[WritingScreen] 🔄 Retrying ad load after error');
@@ -257,7 +257,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       if (response.didCancel) {
         console.log('[WritingScreen] User cancelled camera');
       } else if (response.errorCode) {
-        Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.cameraErrorMessage') + response.errorMessage);
+        Alert.alert(t('writing.alerts.cameraError'), t('writing.alerts.cameraErrorMessage'));
+        console.error('[WritingScreen] Camera error:', response);
       } else if (response.assets && response.assets.length > 0) {
         const asset = response.assets[0];
         const imageUri = asset.uri;
@@ -450,12 +451,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   };
 
   const handleWatchAdAndEvaluate = () => {
-    console.log('[WritingScreen] handleWatchAdAndEvaluate called', { 
-      hasAd: !!rewardedAd, 
+    console.log('[WritingScreen] handleWatchAdAndEvaluate called', {
+      hasAd: !!rewardedAd,
       isAdLoaded,
-      pendingEvaluationType 
+      pendingEvaluationType
     });
-    
+
     if (!rewardedAd || !isAdLoaded) {
       console.log('[WritingScreen] Ad not ready, showing alert');
       Alert.alert(
@@ -473,10 +474,10 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     console.log('[WritingScreen] Preparing to show rewarded ad...');
     logEvent(AnalyticsEvents.REWARDED_AD_OPENED, { ad_unit_id: REWARDED_AD_UNIT_ID });
     adEarnedRewardRef.current = false; // Reset flag before showing ad
-    
+
     // Close the modal first
     setShowRewardedAdModal(false);
-    
+
     // Wait longer to ensure modal is fully dismissed on native side before showing ad
     // iOS requires time to dismiss the modal's view controller before presenting another one
     setTimeout(() => {
@@ -486,7 +487,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       } catch (showError) {
         console.error('[WritingScreen] Error calling show():', showError);
         logEvent(AnalyticsEvents.REWARDED_AD_ERROR, { ad_unit_id: REWARDED_AD_UNIT_ID, error_code: 'show_failed' });
-        
+
         // If showing the ad fails, the error event listener will handle cleanup
         // But we also need to clean up here in case the error event doesn't fire
         setTimeout(() => {
@@ -766,10 +767,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
   const renderExamContent = () => {
     if (isB2Exam) {
-
-        return renderB2Theme1Question();
-      
-      return null
+      return renderB2Theme1Question();
     }
 
     return renderB1Question();
@@ -822,11 +820,10 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
         {/* Writing Points */}
         <View style={styles.pointsSection}>
-        <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskDescription}</Text>
+          <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskDescription}</Text>
           {exam.writingPoints.map((point, index) => (
             <View key={index} style={styles.pointItem}>
-              <Text style={styles.pointBullet}>•</Text>
-              <Text style={styles.pointText}>{point}</Text>
+              <Text style={styles.pointText}>• {point}</Text>
             </View>
           ))}
           <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskFooter}</Text>
@@ -852,14 +849,16 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
           onChangeText={handleAnswerChange}
           textAlignVertical="top"
         />
-        {showWarning && (
-          <Text style={styles.warningText}>
-            {t('writing.input.minCharactersWarning')}
+        <View style={styles.warningContainer}>
+          {showWarning && (
+            <Text style={styles.warningText}>
+              {t('writing.input.minCharactersWarning')}
+            </Text>
+          )}
+          <Text style={styles.characterCount}>
+            {userAnswer.length} {t('writing.input.characterCount')}
           </Text>
-        )}
-        <Text style={styles.characterCount}>
-          {userAnswer.length} {t('writing.input.characterCount')}
-        </Text>
+        </View>
       </View>
 
       {/* Camera Button */}
@@ -965,9 +964,11 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h5,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   b2Theme1SectionTitle: {
     ...typography.textStyles.body,
+    direction: 'ltr',
   },
   emailCard: {
     backgroundColor: colors.background.secondary,
@@ -980,6 +981,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   pointsSection: {
     marginBottom: spacing.margin.lg,
@@ -1014,10 +1016,17 @@ const styles = StyleSheet.create({
     borderColor: colors.border.light,
     color: colors.text.primary,
   },
+  warningContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.margin.sm,
+  },
   warningText: {
     ...typography.textStyles.bodySmall,
     color: colors.error[600],
     marginTop: spacing.margin.sm,
+    textAlign: 'left',
   },
   characterCount: {
     ...typography.textStyles.bodySmall,

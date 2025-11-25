@@ -188,6 +188,15 @@
       "studyMessage": "Estudiaste {{count}} palabra nueva",
       "reviewMessage": "Revisaste {{count}} palabra",
       "doneButton": "Hecho"
+    },
+    "onboarding": {
+      "subtitle": "¿Cuántas palabras nuevas quieres aprender cada día?",
+      "beginnerDesc": "Excelente para desarrollar una base de vocabulario estable",
+      "seriousDesc": "Ideal para estudiantes dedicados que desean un progreso rápido",
+      "casualDesc": "Perfecto para estudiantes ocasionales que quieren tomárselo con calma",
+      "dailyWords": "{{count}} palabras por día",
+      "info": "Siempre puedes cambiar tu ritmo más tarde en la configuración. \nLa aplicación utiliza repeticiones espaciadas para ayudarte a recordar palabras de forma eficaz.",
+      "title": "Elige tu ritmo de aprendizaje"
     }
   },
   "examStructure": {
@@ -863,7 +872,7 @@
       "permissionDenied": "Permiso denegado",
       "permissionDeniedMessage": "Se requiere permiso de cámara para tomar fotos.",
       "cameraError": "Error",
-      "cameraErrorMessage": "No se pudo abrir la cámara: ",
+      "cameraErrorMessage": "No se pudo abrir la cámara",
       "imageLoadError": "No se pudo cargar la imagen",
       "imageNotAvailable": "No hay imagen disponible",
       "evaluationError": "Error de evaluación",

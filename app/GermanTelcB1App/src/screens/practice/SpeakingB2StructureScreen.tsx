@@ -51,14 +51,14 @@ const SpeakingB2StructureScreen: React.FC = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('speaking.b2Structure.sections.howItWorks')}</Text>
           <View style={styles.textCard}>
-            <Text style={styles.bodyText}>{getLocalizedText(structureData.general?.howItWorks)}</Text>
+            <Text style={[styles.bodyText, styles.bodyTextLocalized]}>{getLocalizedText(structureData.general?.howItWorks)}</Text>
           </View>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('speaking.b2Structure.sections.expectations')}</Text>
           <View style={styles.textCard}>
-            <Text style={styles.bodyText}>{getLocalizedText(structureData.general?.expectations)}</Text>
+            <Text style={[styles.bodyText, styles.bodyTextLocalized]}>{getLocalizedText(structureData.general?.expectations)}</Text>
           </View>
         </View>
       </ScrollView>
@@ -87,13 +87,13 @@ const SpeakingB2StructureScreen: React.FC = () => {
 
             <View style={styles.partSection}>
               <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.description')}:</Text>
-              <Text style={styles.bodyText}>{getLocalizedText(part.description)}</Text>
+              <Text style={[styles.bodyText, styles.bodyTextLocalized]}>{getLocalizedText(part.description)}</Text>
             </View>
 
             {part.sample && (
               <View style={styles.partSection}>
                 <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.sample')}:</Text>
-                <Text style={styles.bodyText}>{part.sample['de']}</Text>
+                <Text style={[styles.bodyText, styles.textLTR]}>{part.sample['de']}</Text>
               </View>
             )}
 
@@ -101,7 +101,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
               <View style={styles.partSection}>
                 <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.topics')}:</Text>
                 {part.topics.map((topic: any, topicIndex: number) => (
-                  <Text key={topicIndex} style={styles.bulletText}>
+                  <Text key={topicIndex} style={[styles.bulletText, styles.textLTR]}>
                     • {topic['de']}
                   </Text>
                 ))}
@@ -131,7 +131,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('speaking.b2Structure.sections.hints')}</Text>
           <View style={styles.hintsCard}>
-            <Text style={styles.bodyText}>{getLocalizedText(structureData.hints)}</Text>
+            <Text style={[styles.bodyText, styles.bodyTextLocalized]}>{getLocalizedText(structureData.hints)}</Text>
           </View>
         </View>
       </ScrollView>
@@ -244,6 +244,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   textCard: {
     backgroundColor: colors.white,
@@ -262,6 +263,12 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 24,
   },
+  bodyTextLocalized: {
+    textAlign: 'left',
+  },
+  textLTR: {
+    direction: 'ltr',
+  },
   partCard: {
     backgroundColor: colors.white,
     padding: spacing.padding.lg,
@@ -279,11 +286,14 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
+    
   },
   partInfoRow: {
     flexDirection: 'row',
     marginBottom: spacing.margin.md,
     gap: spacing.margin.md,
+    textAlign: 'left',
   },
   partInfoItem: {
     flex: 1,
@@ -293,10 +303,12 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.text.secondary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   partInfoValue: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+    textAlign: 'left',
   },
   partSection: {
     marginTop: spacing.margin.md,
@@ -306,6 +318,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[700],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   bulletText: {
     ...typography.textStyles.body,
