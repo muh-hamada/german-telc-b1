@@ -310,13 +310,13 @@ class DataService {
       case 'writing':
         return (await this.getWritingExams()).length;
       case 'speaking-part1':
-        return 1; // Single personal introduction, no multiple exams
+        return activeExamConfig.level === 'B2' ? (await this.getSpeakingB2Part1Content())?.topics?.length || 0 : 1;
       case 'speaking-part2':
         const part2Data = await this.getSpeakingPart2Content();
-        return part2Data.topics?.length || 0;
+        return (activeExamConfig.level === 'B2' ? part2Data.questions?.length : part2Data.topics?.length) || 0;
       case 'speaking-part3':
         const part3Data = await this.getSpeakingPart3Content();
-        return part3Data.scenarios?.length || 0;
+        return  (activeExamConfig.level === 'B2' ? part3Data.questions?.length : part3Data.scenarios?.length) || 0;
       case 'speaking-important-phrases':
         // Not a count-based exam; treat as available if document exists
         return (await this.getSpeakingImportantPhrases())?.groups?.length ? 1 : 0;

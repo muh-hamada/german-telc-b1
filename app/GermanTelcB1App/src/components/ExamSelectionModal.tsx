@@ -111,7 +111,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
 
           <ScrollView style={styles.examList}>
             {exams && exams.length > 0 ? (
-              exams.map((exam) => {
+              exams.map((exam, index) => {
                 const completionData = getCompletionStatus(examType, partNumber, exam.id);
                 const isCompleted = completionData?.completed || false;
 
@@ -127,7 +127,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
                     <View style={styles.examItemContent}>
                       <View style={styles.examItemLeft}>
                         <Text style={styles.examItemNumber}>
-                          {itemType || t('exam.test')}  {exam.id + 1}
+                          {itemType || t('exam.test')}  {index + 1}
                         </Text>
                         {exam.title && (
                           <Text style={styles.examItemTitle}>{exam.title}</Text>

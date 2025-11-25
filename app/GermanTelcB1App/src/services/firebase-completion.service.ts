@@ -198,12 +198,16 @@ class FirebaseCompletionService {
             : examType;
           const totalExams = await dataService.getExamCount(examTypeKey);
           
+          console.log('[CompletionService] Total exams for', examTypeKey, ':', totalExams);
+
           const partStats = await this.getCompletionStats(
             userId,
             examType,
             partNumber,
             totalExams
           );
+
+          console.log('[CompletionService] Part stats for', examTypeKey, ':', partStats);
           
           stats[examType][partNumber.toString()] = partStats;
         }

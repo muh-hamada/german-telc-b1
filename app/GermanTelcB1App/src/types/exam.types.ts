@@ -122,6 +122,7 @@ export interface SpeakingPart1Content {
 export interface SpeakingPart2Content {
   id: number;
   title: string;
+  questions: Array<any>;
   topics: Array<{
     id: string;
     title: string;
@@ -138,6 +139,7 @@ export interface SpeakingPart2Content {
 export interface SpeakingPart3Content {
   id: number;
   title: string;
+  questions: Array<any>;
   scenarios: Array<{
     id: string;
     title: string;
