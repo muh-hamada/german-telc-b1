@@ -54,6 +54,7 @@ interface AppData {
     'speaking-important-phrases'?: any;
     'grammar-study-questions'?: any;
     'oral-exam-structure'?: any;
+    'audio-practice'?: any;
 }
 
 interface AppDataMap {
