@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.md,
     backgroundColor: colors.primary[50],
     alignSelf: 'flex-start',
+    marginTop: spacing.margin.sm,
   },
   emptyContainer: {
     padding: spacing.padding.lg,
