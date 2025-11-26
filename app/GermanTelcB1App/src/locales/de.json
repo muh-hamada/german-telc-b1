@@ -68,7 +68,10 @@
       "retryExam": "Prüfung wiederholen",
       "retryExamConfirm": "Sind Sie sicher, dass Sie diese Prüfung wiederholen möchten? Ihre bisherigen Antworten gehen verloren."
     },
-    "ok": "OK"
+    "ok": "OK",
+    "correct": "Richtig",
+    "wrong": "Falsch",
+    "duration": "Dauer"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",
@@ -113,7 +116,6 @@
     "welcomeUser": "Willkommen, {{name}}!",
     "welcomeGuest": "Willkommen!",
     "examStructure": "Prüfungsstruktur",
-    "practice": "Üben",
     "vocabulary": "Vokabeltrainer",
     "newLabel": "NEU",
     "practiceSections": {
@@ -124,9 +126,12 @@
     },
     "descriptions": {
       "examStructure": "Erfahren Sie mehr über das Format und die Bewertung der TELC {{level}} Prüfung",
-      "practice": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen",
-      "vocabulary": "Lernen Sie Vokabeln mit verteilter Wiederholung"
-    }
+      "vocabulary": "Lernen Sie Vokabeln mit verteilter Wiederholung",
+      "solve": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen",
+      "listeningPractice": "Hören Sie sich Interviews an und beantworten Sie Fragen, um das Zuhören zu üben"
+    },
+    "solve": "Prüfungsfragen lösen",
+    "listeningPractice": "Hörübungen"
   },
   "vocabulary": {
     "title": "Vokabeltrainer",
@@ -265,7 +270,18 @@
       "part2Description": "Sie hören ein langes Gespräch und sollen 10 Aufgaben lösen.",
       "part3": "Teil 3: Monologe",
       "part3Description": "Sie hören fünf Monologe und sollen fünf Aufgaben lösen.",
-      "comingSoon": "Hörübungen kommen bald"
+      "comingSoon": "Hörübungen kommen bald",
+      "practice": {
+        "completed": "Hörübung abgeschlossen",
+        "score": "Sie haben {{score}} von {{total}} erzielt",
+        "listenAgain": "Hören Sie noch einmal zu",
+        "backToHome": "Zurück nach Hause",
+        "title": "Hörübungen",
+        "assessUnderstanding": "Bewerten Sie das Verständnis",
+        "goodJob": "Gute Arbeit!",
+        "explanation": "Erläuterung",
+        "finish": "Beenden"
+      }
     },
     "writing": {
       "title": "Schriftlicher Ausdruck",
@@ -1044,4 +1060,3 @@
     "forcedNote": "Dieses Update ist erforderlich, um fortzufahren"
   }
 }
-

@@ -1,11 +1,12 @@
 {
     "title": "<title of the interview>",
     "audio_url": "<audio url>",
+    "image_url": "<image url>",
     "questions": [
         {
             "question": "<question>",
             "correct": <boolean>,
-            "explaination": "<why is this correct/false? in German language>"
+            "explanation": "<why is this correct/false? in German language>"
         }
     ]
 }

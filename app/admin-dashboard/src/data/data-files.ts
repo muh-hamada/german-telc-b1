@@ -35,6 +35,7 @@ import germanB2SpeakingPart2 from './german-b2/speaking-part2.json';
 import germanB2SpeakingPart3 from './german-b2/speaking-part3.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
 
+import germanB1ListeningPractice from './german-b1/listening-practice.json';
 
 
 interface AppData {
@@ -54,7 +55,7 @@ interface AppData {
     'speaking-important-phrases'?: any;
     'grammar-study-questions'?: any;
     'oral-exam-structure'?: any;
-    'audio-practice'?: any;
+    'listening-practice'?: any;
 }
 
 interface AppDataMap {
@@ -78,6 +79,7 @@ export const appDataMap: AppDataMap = {
         'writing': germanB1Writing,
         'grammar-study-questions': germanB1GrammarStudyQuestions,
         'speaking-important-phrases': germanB1SpeakingImportantPhrases,
+        'listening-practice': germanB1ListeningPractice,
     },
     [APP_CONFIGS['german-b2'].id]: {
         'exam-info': germanB2ExamInfo,

@@ -68,7 +68,10 @@
       "retryExam": "Reintentar examen",
       "retryExamConfirm": "¿Está seguro de que desea reintentar este examen? Sus respuestas anteriores se perderán."
     },
-    "ok": "DE ACUERDO"
+    "ok": "DE ACUERDO",
+    "correct": "Correcto",
+    "wrong": "Equivocado",
+    "duration": "Duración"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -112,7 +115,6 @@
     "welcomeUser": "¡Bienvenido, {{name}}!",
     "welcomeGuest": "¡Bienvenido!",
     "examStructure": "Estructura del Examen",
-    "practice": "Practicar",
     "vocabulary": "Constructor de Vocabulario",
     "newLabel": "NUEVO",
     "practiceSections": {
@@ -122,9 +124,12 @@
       "speaking": "Expresión Oral"
     },
     "descriptions": {
-      "practice": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla",
-      "vocabulary": "Aprende vocabulario con repetición espaciada"
-    }
+      "vocabulary": "Aprende vocabulario con repetición espaciada",
+      "solve": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla",
+      "listeningPractice": "Escuche entrevistas y responda preguntas para practicar sus habilidades de escucha."
+    },
+    "solve": "Resolver preguntas del examen",
+    "listeningPractice": "Práctica de escucha"
   },
   "vocabulary": {
     "title": "Constructor de Vocabulario",
@@ -236,7 +241,18 @@
       "part2Description": "Escucharás una conversación larga y deberás resolver 10 tareas.",
       "part3": "Parte 3: Monólogos",
       "part3Description": "Escucharás cinco monólogos y deberás resolver cinco tareas.",
-      "comingSoon": "Ejercicios de audición próximamente"
+      "comingSoon": "Ejercicios de audición próximamente",
+      "practice": {
+        "completed": "Práctica de escucha completada",
+        "score": "Obtuviste {{score}} de {{total}}",
+        "listenAgain": "Escuchar de nuevo",
+        "backToHome": "Volver a Inicio",
+        "title": "Práctica de escucha",
+        "assessUnderstanding": "Evaluar la comprensión",
+        "goodJob": "¡Buen trabajo!",
+        "explanation": "Explicación",
+        "finish": "Finalizar"
+      }
     },
     "writing": {
       "title": "Expresión Escrita",

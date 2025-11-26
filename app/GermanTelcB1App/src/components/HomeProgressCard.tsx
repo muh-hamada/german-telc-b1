@@ -94,6 +94,9 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
     );
   }
 
+  // Hide progress card for now
+  return null;
+
   return (
     <View style={styles.container}>
       {/* Total Progress Section */}

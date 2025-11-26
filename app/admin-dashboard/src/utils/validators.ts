@@ -407,6 +407,50 @@ export const validateWriting = (data: any): ValidationResult => {
 };
 
 /**
+ * Validate Listening Practice structure
+ */
+export const validateListeningPractice = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.interviews || !Array.isArray(data.interviews)) {
+    errors.push('Missing or invalid "interviews" array');
+    return { valid: false, errors };
+  }
+
+  data.interviews.forEach((interview: any, index: number) => {
+    if (typeof interview.title !== 'string') {
+      errors.push(`Interview ${index}: Missing or invalid "title"`);
+    }
+    if (typeof interview.audio_url !== 'string') {
+      errors.push(`Interview ${index}: Missing or invalid "audio_url"`);
+    }
+    if (typeof interview.image_url !== 'string') {
+      errors.push(`Interview ${index}: Missing or invalid "image_url"`);
+    }
+    if (!Array.isArray(interview.questions)) {
+      errors.push(`Interview ${index}: Missing or invalid "questions" array`);
+    }
+
+    interview.questions.forEach((question: any, qIndex: number) => {
+      if (typeof question.question !== 'string') {
+        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "question"`);
+      }
+      if (typeof question.correct !== 'boolean') {
+        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "correct"`);
+      }
+      if (typeof question.explanation !== 'string') {
+        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "explanation"`);
+      }
+      if (typeof question.duration !== 'string') {
+        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "duration"`);
+      }
+    });
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
  * Validate Exam Info structure
  */
 export const validateExamInfo = (data: any): ValidationResult => {
@@ -773,6 +817,8 @@ export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' = 
           return validateExamInfo(data);
         case 'grammar-study-questions':
           return validateGrammarStudyQuestions(data);
+        case 'listening-practice':
+          return validateListeningPractice(data);
         default:
           return { valid: false, errors: [`Unknown B2 document type: ${docId}`] };
       }
@@ -807,6 +853,8 @@ export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' = 
           return validateWriting(data);
         case 'exam-info':
           return validateExamInfo(data);
+        case 'listening-practice':
+          return validateListeningPractice(data);
         default:
           return { valid: false, errors: [`Unknown B1 document type: ${docId}`] };
       }

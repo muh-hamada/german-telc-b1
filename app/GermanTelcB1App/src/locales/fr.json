@@ -68,7 +68,10 @@
       "retryExam": "Réessayer l'examen",
       "retryExamConfirm": "Êtes-vous sûr de vouloir réessayer cet examen ? Vos réponses précédentes seront perdues."
     },
-    "ok": "D'ACCORD"
+    "ok": "D'ACCORD",
+    "correct": "Correct",
+    "wrong": "Faux",
+    "duration": "Durée"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -112,7 +115,6 @@
     "welcomeUser": "Bienvenue, {{name}}!",
     "welcomeGuest": "Bienvenue!",
     "examStructure": "Structure de l'examen",
-    "practice": "Pratiquer",
     "vocabulary": "Constructeur de vocabulaire",
     "newLabel": "NOUVEAU",
     "practiceSections": {
@@ -123,9 +125,12 @@
     },
     "descriptions": {
       "examStructure": "Apprenez le format et le système de notation de l'examen TELC {{level}}",
-      "practice": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale",
-      "vocabulary": "Apprenez le vocabulaire avec la répétition espacée"
-    }
+      "vocabulary": "Apprenez le vocabulaire avec la répétition espacée",
+      "solve": "Pratiquez toutes les sections de l'examen : Lecture, Écoute, Écriture et Expression orale",
+      "listeningPractice": "Écoutez les entretiens et répondez aux questions pour pratiquer vos compétences d'écoute"
+    },
+    "solve": "Résoudre les questions d'examen",
+    "listeningPractice": "Pratique d'écoute"
   },
   "vocabulary": {
     "title": "Constructeur de vocabulaire",
@@ -232,7 +237,18 @@
       "part2Description": "Vous entendrez une longue conversation et vous devrez résoudre 10 tâches.",
       "part3": "Partie 3 : Monologues",
       "part3Description": "Vous entendrez cinq monologues et vous devrez résoudre cinq tâches.",
-      "comingSoon": "Exercices d'écoute à venir"
+      "comingSoon": "Exercices d'écoute à venir",
+      "practice": {
+        "completed": "Pratique d'écoute terminée",
+        "score": "Vous avez obtenu {{score}} sur {{total}}",
+        "listenAgain": "Écoutez à nouveau",
+        "backToHome": "Retour à la maison",
+        "title": "Pratique d'écoute",
+        "assessUnderstanding": "Évaluer la compréhension",
+        "goodJob": "Bon travail!",
+        "explanation": "Explication",
+        "finish": "Finition"
+      }
     },
     "writing": {
       "title": "Expression écrite",

@@ -29,6 +29,9 @@ import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
 import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
+import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
+import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
+import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
 import VocabularyHomeScreen from '../screens/VocabularyHomeScreen';
 import VocabularyOnboardingScreen from '../screens/VocabularyOnboardingScreen';
 import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
@@ -250,6 +253,27 @@ const HomeStackNavigator: React.FC = () => {
         component={ListeningPart3Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPracticeList"
+        component={ListeningPracticeListScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.practice.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPractice"
+        component={ListeningPracticeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPracticeQuestions"
+        component={ListeningPracticeQuestionsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.practice.assessUnderstanding" />,
         }}
       />
       <Stack.Screen

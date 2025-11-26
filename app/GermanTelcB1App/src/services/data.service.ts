@@ -25,6 +25,7 @@ import {
   SpeakingPart2Content,
   SpeakingPart3Content,
   SpeakingImportantPhrasesContent,
+  ListeningPracticeInterview,
 } from '../types/exam.types';
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
@@ -292,6 +293,12 @@ class DataService {
     // The Firebase document has structure { data: [...], metadata: {...} }
     // Extract just the data array
     return data.data || [];
+  }
+
+  // Listening Practice
+  async getListeningPracticeInterviews(): Promise<ListeningPracticeInterview[]> {
+    const data = await this.fetchFromFirestore('listening-practice', { interviews: [] });
+    return data.interviews || [];
   }
 
   // Utility methods

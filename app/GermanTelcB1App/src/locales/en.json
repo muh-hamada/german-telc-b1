@@ -68,7 +68,10 @@
       "retryExam": "Retry Exam",
       "retryExamConfirm": "Are you sure you want to retry this exam? Your previous answers will be lost."
     },
-    "ok": "OK"
+    "ok": "OK",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "duration": "Duration"
   },
   "exam": {
     "selectExam": "Select Exam:",
@@ -113,7 +116,7 @@
     "welcomeUser": "Welcome, {{name}}!",
     "welcomeGuest": "Welcome!",
     "examStructure": "Exam Structure",
-    "practice": "Practice",
+    "listeningPractice": "Listening Practice",
     "vocabulary": "Vocabulary Builder",
     "newLabel": "NEW",
     "practiceSections": {
@@ -124,9 +127,11 @@
     },
     "descriptions": {
       "examStructure": "Learn about the TELC {{level}} exam format and scoring",
-      "practice": "Practice all exam sections: Reading, Listening, Writing, and Speaking",
-      "vocabulary": "Learn vocabulary with spaced repetition"
-    }
+      "listeningPractice": "Listen to interviews and answer questions to practice listening skills",
+      "vocabulary": "Learn vocabulary with spaced repetition",
+      "solve": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
+    },
+    "solve": "Solve Exam Qestions"
   },
   "vocabulary": {
     "title": "Vocabulary Builder",
@@ -265,7 +270,19 @@
       "part2Description": "You will hear a long conversation and you should solve 10 tasks.",
       "part3": "Part 3: Monologues",
       "part3Description": "You will hear five monologues and you should solve five tasks.",
-      "comingSoon": "Listening exercises coming soon"
+      "comingSoon": "Listening exercises coming soon",
+      "practice": {
+        "title": "Listening Practice",
+        "assessUnderstanding": "Assess Understanding",
+        "goodJob": "Good Job!",
+        "explanation": "Explanation",
+        "start": "Start",
+        "finish": "Finish",
+        "completed": "Listening Practice Completed",
+        "score": "You scored {{score}} out of {{total}}",
+        "listenAgain": "Listen Again",
+        "backToHome": "Back to Home"
+      }
     },
     "writing": {
       "title": "Written Expression",

@@ -50,6 +50,9 @@ const HIDE_TAB_SCREENS = [
   'VocabularyProgress',
   'VocabularyOnboarding',
   'VocabularyStudiedList',
+  'ListeningPracticeList',
+  'ListeningPractice',
+  'ListeningPracticeQuestions',
 ];
 
 /**

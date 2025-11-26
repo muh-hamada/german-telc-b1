@@ -1,4 +1,5 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
+import { ListeningPracticeInterview } from './exam.types';
 
 // Root Stack Navigator
 export type RootStackParamList = {
@@ -42,6 +43,9 @@ export type HomeStackParamList = {
   ListeningPart1: { examId: number };
   ListeningPart2: { examId: number };
   ListeningPart3: { examId: number };
+  ListeningPracticeList: undefined;
+  ListeningPractice: { interview: ListeningPracticeInterview };
+  ListeningPracticeQuestions: { interview: ListeningPracticeInterview };
   VocabularyHome: undefined;
   VocabularyOnboarding: undefined;
   VocabularyStudyNew: undefined;

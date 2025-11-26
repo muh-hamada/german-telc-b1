@@ -37,6 +37,11 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('PracticeMenu');
   };
 
+  const handleListeningPracticePress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening_practice' });
+    navigation.navigate('ListeningPracticeList');
+  };
+
   const handleVocabularyPress = () => {
     logEvent(AnalyticsEvents.VOCABULARY_HOME_OPENED);
     // Check if user has completed onboarding (has persona set)
@@ -76,9 +81,9 @@ const HomeScreen: React.FC = () => {
         </Card>
 
         <Card style={styles.card} onPress={handlePracticePress}>
-          <Text style={styles.cardTitle}>{t('home.practice')}</Text>
+          <Text style={styles.cardTitle}>{t('home.solve')}</Text>
           <Text style={styles.cardDescription}>
-            {t('home.descriptions.practice')}
+            {t('home.descriptions.solve')}
           </Text>
         </Card>
 
@@ -87,7 +92,23 @@ const HomeScreen: React.FC = () => {
           borderRadius={12}
           colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
           duration={4000}
-          style={{...styles.card, ...styles.animatedCard}}
+          style={{ ...styles.card, ...styles.animatedCard }}
+        >
+          <Card style={styles.cardInner} onPress={handleListeningPracticePress}>
+            <Text style={styles.newLabel}>{t('home.newLabel')}</Text>
+            <Text style={styles.cardTitle}>{t('home.listeningPractice')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('home.descriptions.listeningPractice')}
+            </Text>
+          </Card>
+        </AnimatedGradientBorder>
+
+        <AnimatedGradientBorder
+          borderWidth={2}
+          borderRadius={12}
+          colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+          duration={4000}
+          style={{ ...styles.card, ...styles.animatedCard }}
         >
           <Card style={styles.cardInner} onPress={handleVocabularyPress}>
             <Text style={styles.newLabel}>{t('home.newLabel')}</Text>
