@@ -16,7 +16,6 @@ interface AuthState {
 interface AuthContextType extends AuthState {
   // Actions
   signInWithGoogle: () => Promise<void>;
-  signInWithFacebook: () => Promise<void>;
   signInWithApple: () => Promise<void>;
   signInWithTwitter: () => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
@@ -131,23 +130,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'google' });
     } catch (error: any) {
       logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'google' });
-      handleAuthError(error);
-    }
-  };
-
-  const signInWithFacebook = async (): Promise<void> => {
-    console.log('signInWithFacebook');
-    try {
-      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'facebook' });
-      dispatch({ type: 'SET_LOADING', payload: true });
-      dispatch({ type: 'CLEAR_ERROR' });
-      
-      const user = await AuthService.signInWithFacebook();
-      dispatch({ type: 'SET_USER', payload: user });
-      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'facebook' });
-    } catch (error: any) {
-      console.log('error', error);
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'facebook' });
       handleAuthError(error);
     }
   };
@@ -306,7 +288,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const contextValue: AuthContextType = {
     ...state,
     signInWithGoogle,
-    signInWithFacebook,
     signInWithApple,
     signInWithTwitter,
     signInWithEmail,

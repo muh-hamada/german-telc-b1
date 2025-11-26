@@ -38,35 +38,15 @@
 				<string>com.googleusercontent.apps.494473710301-vupub13bepirfq9ekn0mtd1ft204teda</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb1507568217229301</string>
-			</array>
-		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
-	<string>$(FIREBASE_ANALYTICS_ENABLED)</string>
-	<key>FacebookAdvertiserIDCollectionEnabled</key>
 	<false/>
-	<key>FacebookAppID</key>
-	<string>1507568217229301</string>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<true/>
-	<key>FacebookClientToken</key>
-	<string>c1f3d10c6a4054707078aae7a71dd580</string>
-	<key>FacebookDisplayName</key>
-	<string>German B1 App</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-share-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
 		<string>itms-apps</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>

@@ -13,6 +13,7 @@ const Header: React.FC = () => {
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/privacy" className="nav-link">Privacy</Link>
           <Link to="/terms" className="nav-link">Terms</Link>
+          <Link to="/support" className="nav-link">Support</Link>
           <Link to="/data-deletion" className="nav-link">Data Deletion</Link>
         </nav>
       </div>

@@ -1,9 +1,8 @@
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { LoginManager, AccessToken, Settings } from 'react-native-fbsdk-next';
 import { Platform } from 'react-native';
 import appleAuth from '@invertase/react-native-apple-authentication';
-import { firebaseConfig, googleSignInConfig, facebookConfig } from '../config/firebase.config';
+import { firebaseConfig, googleSignInConfig } from '../config/firebase.config';
 
 // User types
 export interface User {
@@ -11,7 +10,7 @@ export interface User {
   email: string | null;
   displayName: string | null;
   photoURL: string | null;
-  provider: 'google' | 'facebook' | 'apple' | 'twitter' | 'email';
+  provider: 'google' | 'apple' | 'twitter' | 'email';
   createdAt: Date;
   lastLoginAt: Date;
 }
@@ -68,8 +67,6 @@ class AuthService {
     switch (providerData.providerId) {
       case 'google.com':
         return 'google';
-      case 'facebook.com':
-        return 'facebook';
       case 'apple.com':
         return 'apple';
       case 'twitter.com':
@@ -118,123 +115,6 @@ class AuthService {
       console.error('Google sign-in error:', error);
       throw this.handleAuthError(error);
     }
-  }
-
-  // Sign in with Facebook
-  async signInWithFacebook(): Promise<User> {
-    try {
-      console.log('[Facebook] Step 1: Starting Facebook sign-in');
-      
-      // Check if Facebook is properly configured
-      if (!facebookConfig.appId || facebookConfig.appId === 'YOUR_FACEBOOK_APP_ID') {
-        throw {
-          code: 'auth/not-configured',
-          message: 'Facebook Sign-In is not configured yet. Please follow the setup guide in FACEBOOK_SETUP.md or use Google/Email sign-in instead.',
-        };
-      }
-      
-      await this.initialize();
-
-      // Logout first to ensure clean state
-      await LoginManager.logOut();
-      console.log('[Facebook] Step 3: Logged out previous session');
-
-      // Use native login with fallback - now that we have ATT permission, this should work
-      console.log('[Facebook] Step 4: Setting login behavior');
-      LoginManager.setLoginBehavior('native_with_fallback');
-
-      console.log('[Facebook] Step 5: Requesting login with permissions');
-      
-      // Attempt login with permissions
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-
-      console.log('[Facebook] Step 6: Login result received:', {
-        isCancelled: result.isCancelled,
-        grantedPermissions: result.grantedPermissions,
-        declinedPermissions: result.declinedPermissions,
-      });
-
-      if (result.isCancelled) {
-        throw {
-          code: 'auth/cancelled',
-          message: 'User cancelled the login process',
-        };
-      }
-
-      // Check if required permissions were granted
-      if (!result.grantedPermissions || result.grantedPermissions.length === 0) {
-        throw {
-          code: 'auth/permissions-denied',
-          message: 'Required permissions were not granted. Please try again and accept the requested permissions.',
-        };
-      }
-
-      console.log('[Facebook] Step 7: Getting current access token');
-
-      // Wait a moment for the token to be available
-      await new Promise<void>(resolve => setTimeout(() => resolve(), 500));
-
-      // Once signed in, get the users AccessToken
-      const data = await AccessToken.getCurrentAccessToken();
-
-      console.log('[Facebook] Step 8: Access token check:', {
-        hasData: !!data,
-        hasAccessToken: !!data?.accessToken,
-        tokenLength: data?.accessToken?.length || 0,
-        userID: data?.userID || 'none',
-        permissions: data?.permissions || [],
-      });
-
-      if (!data) {
-        // Try one more time after a longer delay
-        console.log('[Facebook] Retrying to get access token after delay...');
-        await new Promise<void>(resolve => setTimeout(() => resolve(), 1000));
-        const retryData = await AccessToken.getCurrentAccessToken();
-        
-        if (!retryData) {
-          throw {
-            code: 'auth/no-token',
-            message: 'Facebook login succeeded but no access token was returned. This may be due to Limited Login being active. Please check Facebook Developer Console settings or try again.',
-          };
-        }
-        
-        console.log('[Facebook] Access token retrieved on retry');
-        return await this.completeFacebookSignIn(retryData.accessToken);
-      }
-
-      // Validate the access token
-      if (!data.accessToken || data.accessToken.length === 0) {
-        throw {
-          code: 'auth/invalid-token',
-          message: 'Invalid access token received from Facebook. The token may be expired or malformed.',
-        };
-      }
-
-      console.log('[Facebook] Step 9: Valid token received, length:', data.accessToken.length);
-
-      return await this.completeFacebookSignIn(data.accessToken);
-      
-    } catch (error: any) {
-      console.error('[Facebook] Sign-in error:', error);
-      throw this.handleAuthError(error);
-    }
-  }
-
-  // Helper method to complete Facebook sign-in with Firebase
-  private async completeFacebookSignIn(accessToken: string): Promise<User> {
-    console.log('[Facebook] Creating Firebase credential with access token');
-    
-    // Create a Facebook credential with the AccessToken
-    const facebookCredential = auth.FacebookAuthProvider.credential(accessToken);
-
-    console.log('[Facebook] Firebase credential created, signing in...');
-    
-    // Sign-in the user with the credential
-    await auth().signInWithCredential(facebookCredential);
-    
-    console.log('[Facebook] Firebase sign-in successful!');
-
-    return this.getCurrentUser()!;
   }
 
   // Sign in with Apple (iOS only)
@@ -338,7 +218,7 @@ class AuthService {
       // For now, throw a user-friendly error that Twitter is not yet configured
       throw {
         code: 'auth/not-configured',
-        message: 'Twitter Sign-In requires additional native configuration. Please use Google, Facebook, or Email to sign in for now.',
+        message: 'Twitter Sign-In requires additional native configuration. Please use Google or Email to sign in for now.',
       };
       
       // Future implementation would use:

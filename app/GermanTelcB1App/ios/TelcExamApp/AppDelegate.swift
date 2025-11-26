@@ -3,7 +3,6 @@ import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
 import FirebaseCore
-import FBSDKCoreKit
 import GoogleSignIn
 
 @main
@@ -33,16 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     FirebaseApp.configure()
-    
-    // Initialize Facebook SDK (no tracking)
-    Settings.shared.isAdvertiserIDCollectionEnabled = false
-    Settings.shared.isAutoLogAppEventsEnabled = true
-    Settings.shared.isAdvertiserTrackingEnabled = false
-    
-    ApplicationDelegate.shared.application(
-      application,
-      didFinishLaunchingWithOptions: launchOptions
-    )
 
     return true
   }
@@ -53,16 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     open url: URL,
     options: [UIApplication.OpenURLOptionsKey : Any] = [:]
   ) -> Bool {
-    // Handle Facebook URL scheme
-    if ApplicationDelegate.shared.application(
-      app,
-      open: url,
-      sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-      annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-    ) {
-      return true
-    }
-    
     // Handle Google Sign-In URL scheme
     if GIDSignIn.sharedInstance.handle(url) {
       return true

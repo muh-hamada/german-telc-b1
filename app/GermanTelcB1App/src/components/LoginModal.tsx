@@ -31,7 +31,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const { t } = useCustomTranslation();
   const {
     signInWithGoogle,
-    signInWithFacebook,
     signInWithApple,
     signInWithTwitter,
     signInWithEmail,
@@ -44,16 +43,13 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const [showEmailForm, setShowEmailForm] = useState(false);
 
-  const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple' | 'twitter') => {
+  const handleSocialLogin = async (provider: 'google' | 'apple' | 'twitter') => {
     try {
       clearError();
       
       switch (provider) {
         case 'google':
           await signInWithGoogle();
-          break;
-        case 'facebook':
-          await signInWithFacebook();
           break;
         case 'apple':
           await signInWithApple();
@@ -166,12 +162,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       onPress={() => handleSocialLogin('google')}
                       loading={isLoading}
                     />
-                    
-                    {/* {Platform.OS === 'android' && <SocialLoginButton
-                      provider="facebook"
-                      onPress={() => handleSocialLogin('facebook')}
-                      loading={isLoading}
-                    />} */}
                     
                     {/* <SocialLoginButton
                       provider="twitter"

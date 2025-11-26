@@ -36,6 +36,7 @@ import germanB2SpeakingPart3 from './german-b2/speaking-part3.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
 
 import germanB1ListeningPractice from './german-b1/listening-practice.json';
+import germanB2ListeningPractice from './german-b2/listening-practice.json';
 
 
 interface AppData {
@@ -98,5 +99,6 @@ export const appDataMap: AppDataMap = {
         'speaking-part1': germanB2SpeakingPart1,
         'speaking-part2': germanB2SpeakingPart2,
         'speaking-part3': germanB2SpeakingPart3,
+        'listening-practice': germanB2ListeningPractice,
     },
 }

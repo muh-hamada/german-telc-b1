@@ -79,11 +79,14 @@ class AnalyticsService {
       const isAuthorized = await att.isTrackingAuthorized();
       
       if (!isAuthorized) {
-        console.log('[Analytics] ATT not authorized, analytics may be limited');
-        // Note: Firebase Analytics can still work with ATT denied
-        // It just won't use IDFA for tracking
+        console.log('[Analytics] ATT not authorized. Running in limited Analytics mode (IDFA not accessed).');
+        // We enable analytics for internal app improvement (crashes, usage patterns).
+        // iOS will automatically block access to IDFA, preventing "Tracking" (cross-app linkage).
+        // This aligns with Apple's distinction between "Analytics" (allowed) and "Tracking" (requires permission).
+        analytics().setAnalyticsCollectionEnabled(true);
       } else {
         console.log('[Analytics] ATT authorized, full analytics enabled');
+        analytics().setAnalyticsCollectionEnabled(true);
       }
     } catch (error) {
       console.error('[Analytics] Error checking ATT permission:', error);

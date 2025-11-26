@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 interface SocialLoginButtonProps {
-  provider: 'google' | 'facebook' | 'apple' | 'twitter';
+  provider: 'google' | 'apple' | 'twitter';
   onPress: () => void;
   loading?: boolean;
   disabled?: boolean;
@@ -27,13 +27,6 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
           backgroundColor: colors.gray[500] ,
           textColor: colors.white,
           icon: 'G',
-        };
-      case 'facebook':
-        return {
-          title: t('auth.continueWithFacebook'),
-          backgroundColor: '#1877F2',
-          textColor: colors.white,
-          icon: 'f',
         };
       case 'twitter':
         return {

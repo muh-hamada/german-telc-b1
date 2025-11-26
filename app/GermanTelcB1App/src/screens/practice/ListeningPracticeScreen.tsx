@@ -11,6 +11,8 @@ import { ListeningPracticeInterview } from '../../types/exam.types';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
+import { useAuth } from '../../contexts/AuthContext';
+import LoginModal from '../../components/LoginModal';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPractice'>;
 
@@ -20,12 +22,14 @@ const ListeningPracticeScreen: React.FC = () => {
   const { interview, id } = route.params;
   const { t } = useCustomTranslation();
   const { updateExamProgress, userProgress } = useProgress();
+  const { user } = useAuth();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Sound | null>(null);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loginModalVisible, setLoginModalVisible] = useState(false);
 
   const isCompleted = userProgress?.exams?.some(e => e.examType === 'listening-practice' && e.examId === id && e.completed);
 
@@ -135,19 +139,32 @@ const ListeningPracticeScreen: React.FC = () => {
   };
 
   const handleMarkCompleted = () => {
-      // Toggle completion status
-      const newStatus = !isCompleted;
-      updateExamProgress('listening-practice', id, [], 0, 0, newStatus);
-      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { 
-          section: 'listening_practice', 
-          exam_id: id, 
-          completed: newStatus,
-          title: interview.title 
-      });
+    if (!user) {
+      setLoginModalVisible(true);
+      return;
+    }
+
+    // Toggle completion status
+    const newStatus = !isCompleted;
+    updateExamProgress('listening-practice', id, [], 0, 0, newStatus);
+    logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { 
+        section: 'listening_practice', 
+        exam_id: id, 
+        completed: newStatus,
+        title: interview.title 
+    });
   };
 
   return (
     <View style={styles.container}>
+      <LoginModal
+        visible={loginModalVisible}
+        onClose={() => setLoginModalVisible(false)}
+        onSuccess={() => {
+          setLoginModalVisible(false);
+          // Optionally auto-mark completed after login, but usually better to let user click again
+        }}
+      />
       <ImageBackground
         source={{ uri: interview.image_url }}
         style={styles.backgroundImage}
