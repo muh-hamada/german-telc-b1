@@ -9,12 +9,15 @@ import { HomeStackNavigationProp } from '../../types/navigation.types';
 import dataService from '../../services/data.service';
 import { ListeningPracticeInterview } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useProgress } from '../../contexts/ProgressContext';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ListeningPracticeListScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useCustomTranslation();
   const [interviews, setInterviews] = useState<ListeningPracticeInterview[]>([]);
   const [loading, setLoading] = useState(true);
+  const { userProgress } = useProgress();
 
   useEffect(() => {
     const loadData = async () => {
@@ -31,8 +34,21 @@ const ListeningPracticeListScreen: React.FC = () => {
     loadData();
   }, []);
 
-  const handleInterviewPress = (interview: ListeningPracticeInterview) => {
-    navigation.navigate('ListeningPractice', { interview });
+  const handleInterviewPress = (interview: ListeningPracticeInterview, index: number) => {
+    logEvent(AnalyticsEvents.LISTENING_PRACTICE_STARTED, {
+      title: interview.title,
+      id: index,
+      duration: interview.duration
+    });
+    navigation.navigate('ListeningPractice', { interview, id: index });
+  };
+
+  const isCompleted = (index: number) => {
+    return userProgress?.exams?.some(e => 
+        e.examType === 'listening-practice' && 
+        e.examId === index && 
+        e.completed
+    );
   };
 
   if (loading) {
@@ -51,9 +67,12 @@ const ListeningPracticeListScreen: React.FC = () => {
         data={interviews}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={styles.listContent}
-        renderItem={({ item }) => (
-          <Card style={styles.card} onPress={() => handleInterviewPress(item)}>
-            <Text style={styles.cardTitle}>{item.title}</Text>
+        renderItem={({ item, index }) => (
+          <Card style={styles.card} onPress={() => handleInterviewPress(item, index)}>
+            <View style={styles.cardHeader}>
+                <Text style={styles.cardTitle}>{item.title}</Text>
+                {isCompleted(index) && <Icon name="check-circle" size={20} color={colors.success[500]} />}
+            </View>
             <Text style={styles.cardDuration}>{t('common.duration')}: {item.duration}</Text>
           </Card>
         )}
@@ -85,21 +104,22 @@ const styles = StyleSheet.create({
     minHeight: 80,
     justifyContent: 'center',
   },
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: spacing.margin.xs,
+  },
   cardTitle: {
     ...typography.textStyles.h5,
     color: colors.text.primary,
     direction: 'ltr',
+    flex: 1,
   },
   cardDuration: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     direction: 'ltr',
-    paddingVertical: spacing.padding.xs,
-    paddingHorizontal: spacing.padding.sm,
-    borderWidth: 1,
-    borderColor: 'transparent',
-    borderRadius: spacing.borderRadius.md,
-    backgroundColor: colors.primary[50],
     alignSelf: 'flex-start',
     marginTop: spacing.margin.sm,
   },
@@ -114,4 +134,3 @@ const styles = StyleSheet.create({
 });
 
 export default ListeningPracticeListScreen;
-

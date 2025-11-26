@@ -202,7 +202,8 @@ class FirestoreService {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<void> {
     try {
       const now = Timestamp.fromDate(new Date());
@@ -246,7 +247,7 @@ class FirestoreService {
 
       // Update exam progress
       examProgress.answers = answers;
-      examProgress.completed = true;
+      examProgress.completed = completed;
       examProgress.score = score;
       examProgress.maxScore = maxScore;
       examProgress.lastAttempt = now;

@@ -9,20 +9,25 @@ import { HomeStackParamList } from '../../types/navigation.types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ListeningPracticeInterview } from '../../types/exam.types';
 import LinearGradient from 'react-native-linear-gradient';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useProgress } from '../../contexts/ProgressContext';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPractice'>;
 
 const ListeningPracticeScreen: React.FC = () => {
   const navigation = useNavigation<any>();
   const route = useRoute<ScreenRouteProp>();
-  const { interview } = route.params as { interview: ListeningPracticeInterview };
+  const { interview, id } = route.params;
   const { t } = useCustomTranslation();
+  const { updateExamProgress, userProgress } = useProgress();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Sound | null>(null);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const isCompleted = userProgress?.exams?.some(e => e.examType === 'listening-practice' && e.examId === id && e.completed);
 
   useEffect(() => {
     Sound.setCategory('Playback');
@@ -69,16 +74,31 @@ const ListeningPracticeScreen: React.FC = () => {
     if (isPlaying) {
       sound.pause();
       setIsPlaying(false);
+      logEvent(AnalyticsEvents.LISTENING_PRACTICE_PAUSED, {
+          title: interview.title,
+          id: id,
+          current_time: currentTime
+      });
     } else {
       sound.play((success) => {
         if (success) {
           setIsPlaying(false);
           setCurrentTime(0);
+          logEvent(AnalyticsEvents.LISTENING_PRACTICE_COMPLETED, {
+              title: interview.title,
+              id: id,
+              duration: duration
+          });
         } else {
           console.log('playback failed due to audio decoding errors');
         }
       });
       setIsPlaying(true);
+      logEvent(AnalyticsEvents.LISTENING_PRACTICE_RESUMED, {
+          title: interview.title,
+          id: id,
+          current_time: currentTime
+      });
     }
   };
 
@@ -107,12 +127,27 @@ const ListeningPracticeScreen: React.FC = () => {
       sound.pause();
       setIsPlaying(false);
     }
-    navigation.navigate('ListeningPracticeQuestions', { interview });
+    logEvent(AnalyticsEvents.LISTENING_PRACTICE_ASSESSMENT_STARTED, {
+        title: interview.title,
+        id: id
+    });
+    navigation.navigate('ListeningPracticeQuestions', { interview, id });
+  };
+
+  const handleMarkCompleted = () => {
+      // Toggle completion status
+      const newStatus = !isCompleted;
+      updateExamProgress('listening-practice', id, [], 0, 0, newStatus);
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { 
+          section: 'listening_practice', 
+          exam_id: id, 
+          completed: newStatus,
+          title: interview.title 
+      });
   };
 
   return (
     <View style={styles.container}>
-      {/* Full screen image with dark overlay */}
       <ImageBackground
         source={{ uri: interview.image_url }}
         style={styles.backgroundImage}
@@ -123,17 +158,22 @@ const ListeningPracticeScreen: React.FC = () => {
           style={styles.overlay}
         >
           <SafeAreaView style={styles.safeArea}>
-            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-              <Icon name={I18nManager.isRTL ? "arrow-right" : "arrow-left"} size={24} color={colors.white} />
-            </TouchableOpacity>
-            
+            <View style={styles.topBar}>
+              <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+                <Icon name={I18nManager.isRTL ? "arrow-right" : "arrow-left"} size={24} color={colors.white} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleMarkCompleted} style={styles.actionButton}>
+                <Icon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={isCompleted ? colors.success[500] : colors.white} />
+              </TouchableOpacity>
+            </View>
+
             <View style={styles.contentContainer}>
               <Text style={styles.title}>{interview.title}</Text>
 
               <View style={styles.bottomContainer}>
                 {/* Audio Controls */}
                 <View style={styles.playerContainer}>
-                  
+
                   <View style={styles.progressContainer}>
                     <Text style={styles.timeText}>{formatTime(currentTime)}</Text>
                     <View style={styles.progressBar}>
@@ -144,7 +184,7 @@ const ListeningPracticeScreen: React.FC = () => {
 
                   <View style={styles.controlsRow}>
                     <TouchableOpacity onPress={skipBackward} disabled={!isLoaded} style={styles.controlButton}>
-                        <Icon name={I18nManager.isRTL ? "fast-forward-10" : "rewind-10"} size={36} color={colors.white} />
+                      <Icon name={I18nManager.isRTL ? "fast-forward-10" : "rewind-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={togglePlayback} disabled={!isLoaded} style={styles.playButton}>
@@ -156,7 +196,7 @@ const ListeningPracticeScreen: React.FC = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={skipForward} disabled={!isLoaded} style={styles.controlButton}>
-                        <Icon name={I18nManager.isRTL ? "rewind-10" : "fast-forward-10"} size={36} color={colors.white} />
+                      <Icon name={I18nManager.isRTL ? "rewind-10" : "fast-forward-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -191,12 +231,26 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
     justifyContent: 'space-between',
   },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
   backButton: {
     width: 40,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 20,
+  },
+  actionButton: {
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 20,
   },
   contentContainer: {
@@ -264,7 +318,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
     elevation: 8,
-  ...(I18nManager.isRTL && { transform: [{ scaleX: -1 }] }),
+    ...(I18nManager.isRTL && { transform: [{ scaleX: -1 }] }),
   },
   assessButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',

@@ -23,7 +23,8 @@ interface ProgressContextType extends ProgressState {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed?: boolean
   ) => Promise<boolean>;
   getExamProgress: (examType: string, examId: number) => ExamProgress | null;
   clearUserProgress: () => Promise<boolean>;
@@ -36,7 +37,7 @@ type ProgressAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'SET_USER_PROGRESS'; payload: UserProgress | null }
-  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: number; answers: UserAnswer[]; score?: number; maxScore?: number } }
+  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: number; answers: UserAnswer[]; score?: number; maxScore?: number; completed?: boolean } }
   | { type: 'CLEAR_PROGRESS' };
 
 // Initial State
@@ -59,7 +60,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
       return { ...state, userProgress: action.payload, isLoading: false, error: null };
     
     case 'UPDATE_EXAM_PROGRESS': {
-      const { examType, examId, answers, score, maxScore } = action.payload;
+      const { examType, examId, answers, score, maxScore, completed } = action.payload;
       const now = Date.now();
       
       // Initialize userProgress if it doesn't exist
@@ -82,7 +83,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
         examId,
         examType: examType as any,
         answers,
-        completed: true,
+        completed: completed !== undefined ? completed : true,
         score,
         maxScore,
         lastAttempt: now,
@@ -232,10 +233,11 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<boolean> => {
     try {
-      console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore });
+      console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore, completed });
       
       dispatch({ type: 'SET_LOADING', payload: true });
       
@@ -243,25 +245,14 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         // User is logged in, save to Firebase
         try {
           console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
-          await firebaseProgressService.saveExamResult(
-            examType as any,
+          await firebaseProgressService.updateExamProgress(
+            user.uid,
+            examType,
             examId,
-            {
-              examId,
-              score: score || 0,
-              maxScore: maxScore || 0,
-              percentage: maxScore ? Math.round((score || 0) / maxScore * 100) : 0,
-              correctAnswers: score || 0,
-              totalQuestions: answers.length,
-              answers: answers.map(a => ({
-                questionId: a.questionId,
-                userAnswer: a.answer,
-                correctAnswer: '',
-                isCorrect: a.isCorrect || false,
-              })),
-              timestamp: Date.now(),
-            },
-            user.uid
+            answers,
+            score,
+            maxScore,
+            completed
           );
           
           console.log('[ProgressContext] Successfully saved to Firebase');
@@ -269,26 +260,28 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           // Update in context immediately
           dispatch({
             type: 'UPDATE_EXAM_PROGRESS',
-            payload: { examType, examId, answers, score, maxScore },
+            payload: { examType, examId, answers, score, maxScore, completed },
           });
 
           // Log practice exam completed
-          logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
-            section: examType.split('-')[0],
-            part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
-            exam_id: examId,
-            score: score || 0,
-            max_score: maxScore || 0,
-            percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
-          });
-          
-          // Trigger review prompt if score is provided
-          if (score !== undefined && maxScore !== undefined) {
-            reviewTrigger.trigger(score, maxScore);
+          if (completed) {
+            logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+              section: examType.split('-')[0],
+              part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+              exam_id: examId,
+              score: score || 0,
+              max_score: maxScore || 0,
+              percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
+            });
+            
+            // Trigger review prompt if score is provided
+            if (score !== undefined && maxScore !== undefined) {
+              reviewTrigger.trigger(score, maxScore);
+            }
           }
           
           // Record streak activity (if enabled and user is logged in)
-          if (isStreaksEnabledForUser(user?.uid) && user?.uid) {
+          if (completed && isStreaksEnabledForUser(user?.uid) && user?.uid) {
             try {
               const activityId = `${examType}-${examId}`;
               await recordActivity({
@@ -315,28 +308,30 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         // User is not logged in, save to local storage
         console.log('[ProgressContext] User not logged in, saving to local storage');
         try {
-          await StorageService.updateExamProgress(examType, examId, answers, score, maxScore);
+          await StorageService.updateExamProgress(examType, examId, answers, score, maxScore, completed);
           console.log('[ProgressContext] Successfully saved to local storage');
           
           // Update in context immediately
           dispatch({
             type: 'UPDATE_EXAM_PROGRESS',
-            payload: { examType, examId, answers, score, maxScore },
+            payload: { examType, examId, answers, score, maxScore, completed },
           });
 
           // Log practice exam completed
-          logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
-            section: examType.split('-')[0],
-            part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
-            exam_id: examId,
-            score: score || 0,
-            max_score: maxScore || 0,
-            percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
-          });
-          
-          // Trigger review prompt if score is provided
-          if (score !== undefined && maxScore !== undefined) {
-            reviewTrigger.trigger(score, maxScore);
+          if (completed) {
+            logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+              section: examType.split('-')[0],
+              part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+              exam_id: examId,
+              score: score || 0,
+              max_score: maxScore || 0,
+              percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
+            });
+            
+            // Trigger review prompt if score is provided
+            if (score !== undefined && maxScore !== undefined) {
+              reviewTrigger.trigger(score, maxScore);
+            }
           }
           
           dispatch({ type: 'SET_LOADING', payload: false });

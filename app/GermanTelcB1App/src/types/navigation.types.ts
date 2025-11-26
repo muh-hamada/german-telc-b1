@@ -44,8 +44,8 @@ export type HomeStackParamList = {
   ListeningPart2: { examId: number };
   ListeningPart3: { examId: number };
   ListeningPracticeList: undefined;
-  ListeningPractice: { interview: ListeningPracticeInterview };
-  ListeningPracticeQuestions: { interview: ListeningPracticeInterview };
+  ListeningPractice: { interview: ListeningPracticeInterview; id: number };
+  ListeningPracticeQuestions: { interview: ListeningPracticeInterview; id: number };
   VocabularyHome: undefined;
   VocabularyOnboarding: undefined;
   VocabularyStudyNew: undefined;

@@ -18,6 +18,7 @@ export const AnalyticsEvents = {
 
   // Practice
   PRACTICE_SECTION_OPENED: 'practice_section_opened',
+  LISTENING_PRACTICE_SECTION_OPENED: 'listening_practice_section_opened',
   EXAM_SELECTION_OPENED: 'exam_selection_opened',
   PRACTICE_EXAM_OPENED: 'practice_exam_opened',
   QUESTION_ANSWERED: 'question_answered',
@@ -95,6 +96,17 @@ export const AnalyticsEvents = {
   SETTINGS_ATT_OPENED: 'settings_att_opened',
   SETTINGS_ATT_UPDATED: 'settings_att_updated',
   
+  // Listening Practice
+  LISTENING_PRACTICE_STARTED: 'listening_practice_started',
+  LISTENING_PRACTICE_PAUSED: 'listening_practice_paused',
+  LISTENING_PRACTICE_RESUMED: 'listening_practice_resumed',
+  LISTENING_PRACTICE_COMPLETED: 'listening_practice_completed',
+  LISTENING_PRACTICE_ASSESSMENT_STARTED: 'listening_practice_assessment_started',
+  LISTENING_PRACTICE_QUESTION_ANSWERED: 'listening_practice_question_answered',
+  LISTENING_PRACTICE_ASSESSMENT_COMPLETED: 'listening_practice_assessment_completed',
+  LISTENING_PRACTICE_LISTEN_AGAIN: 'listening_practice_listen_again',
+  LISTENING_PRACTICE_BACK_TO_HOME: 'listening_practice_back_to_home',
+
   // Vocabulary Builder
   VOCABULARY_HOME_OPENED: 'vocabulary_home_opened',
   VOCABULARY_STUDY_NEW_STARTED: 'vocabulary_study_new_started',

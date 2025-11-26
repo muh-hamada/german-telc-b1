@@ -9,20 +9,24 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MarkdownText from '../../components/MarkdownText';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import ListeningCompletionModal from '../../components/ListeningCompletionModal';
+import { useProgress } from '../../contexts/ProgressContext';
+import { UserAnswer } from '../../types/exam.types';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPracticeQuestions'>;
 
 const ListeningPracticeQuestionsScreen: React.FC = () => {
   const navigation = useNavigation<any>();
   const route = useRoute<ScreenRouteProp>();
-  const { interview } = route.params;
+  const { interview, id } = route.params;
   const { t } = useCustomTranslation();
+  const { updateExamProgress } = useProgress();
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
 
   const currentQuestion = interview.questions[currentQuestionIndex];
   const totalQuestions = interview.questions.length;
@@ -37,10 +41,21 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
         setScore(prev => prev + 1);
     }
 
-    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
-        section: 'listening_practice',
+    const userAnswer: UserAnswer = {
+        questionId: currentQuestionIndex,
+        answer: answer ? 'true' : 'false',
+        isCorrect: isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: currentQuestion.correct ? 'true' : 'false'
+    };
+    
+    setUserAnswers(prev => [...prev, userAnswer]);
+
+    logEvent(AnalyticsEvents.LISTENING_PRACTICE_QUESTION_ANSWERED, {
+        question_id: currentQuestionIndex,
         question_text: currentQuestion.question,
-        is_correct: isCorrect
+        is_correct: isCorrect,
+        exam_id: id
     });
   };
 
@@ -50,16 +65,33 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
       setSelectedAnswer(null);
       setShowResult(false);
     } else {
+      const percentage = Math.round((score / totalQuestions) * 100);
+
+      logEvent(AnalyticsEvents.LISTENING_PRACTICE_ASSESSMENT_COMPLETED, {
+          exam_id: id,
+          score: score,
+          total_questions: totalQuestions,
+          percentage: percentage
+      });
+      if (percentage >= 80) {
+          updateExamProgress('listening-practice', id, userAnswers, score, totalQuestions);
+      }
       setShowCompletionModal(true);
     }
   };
 
   const handleListenAgain = () => {
+      logEvent(AnalyticsEvents.LISTENING_PRACTICE_LISTEN_AGAIN, {
+          exam_id: id
+      });
       setShowCompletionModal(false);
       navigation.goBack();
   };
 
   const handleBackToHome = () => {
+      logEvent(AnalyticsEvents.LISTENING_PRACTICE_BACK_TO_HOME, {
+          exam_id: id
+      });
       setShowCompletionModal(false);
       navigation.navigate('Home');
   };
@@ -280,4 +312,3 @@ const styles = StyleSheet.create({
 });
 
 export default ListeningPracticeQuestionsScreen;
-

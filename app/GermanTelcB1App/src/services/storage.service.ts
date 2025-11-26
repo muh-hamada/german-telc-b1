@@ -85,7 +85,8 @@ class StorageService {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<boolean> {
     try {
       const currentProgress = await this.getUserProgress();
@@ -120,7 +121,7 @@ class StorageService {
 
       // Update exam progress
       examProgress.answers = answers;
-      examProgress.completed = true;
+      examProgress.completed = completed;
       examProgress.score = score;
       examProgress.maxScore = maxScore;
       examProgress.lastAttempt = now;

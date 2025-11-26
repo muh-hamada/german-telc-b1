@@ -32,13 +32,13 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('ExamStructure');
   };
 
-  const handlePracticePress = () => {
+  const handleSolveQuestionsPress = () => {
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
     navigation.navigate('PracticeMenu');
   };
 
   const handleListeningPracticePress = () => {
-    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening_practice' });
+    logEvent(AnalyticsEvents.LISTENING_PRACTICE_SECTION_OPENED);
     navigation.navigate('ListeningPracticeList');
   };
 
@@ -80,7 +80,7 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
 
-        <Card style={styles.card} onPress={handlePracticePress}>
+        <Card style={styles.card} onPress={handleSolveQuestionsPress}>
           <Text style={styles.cardTitle}>{t('home.solve')}</Text>
           <Text style={styles.cardDescription}>
             {t('home.descriptions.solve')}

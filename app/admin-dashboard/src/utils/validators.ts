@@ -430,6 +430,9 @@ export const validateListeningPractice = (data: any): ValidationResult => {
     if (!Array.isArray(interview.questions)) {
       errors.push(`Interview ${index}: Missing or invalid "questions" array`);
     }
+    if (typeof interview.duration !== 'string') {
+      errors.push(`Interview ${index}: Missing or invalid "duration"`);
+    }
 
     interview.questions.forEach((question: any, qIndex: number) => {
       if (typeof question.question !== 'string') {
@@ -440,9 +443,6 @@ export const validateListeningPractice = (data: any): ValidationResult => {
       }
       if (typeof question.explanation !== 'string') {
         errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "explanation"`);
-      }
-      if (typeof question.duration !== 'string') {
-        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "duration"`);
       }
     });
   });

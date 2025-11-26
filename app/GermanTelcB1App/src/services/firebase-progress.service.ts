@@ -1,4 +1,4 @@
-import { UserProgress, ExamResult, ExamType } from '../types/exam.types';
+import { UserProgress, ExamResult, ExamType, UserAnswer } from '../types/exam.types';
 import FirestoreService from './firestore.service';
 import { activeExamConfig } from '../config/active-exam.config';
 
@@ -147,8 +147,31 @@ class FirebaseProgressService {
     }
   }
 
-
-
+  async updateExamProgress(
+    userId: string,
+    examType: string,
+    examId: number,
+    answers: UserAnswer[],
+    score?: number,
+    maxScore?: number,
+    completed: boolean = true
+  ): Promise<boolean> {
+    try {
+        await FirestoreService.updateExamProgress(
+            userId,
+            examType,
+            examId,
+            answers,
+            score,
+            maxScore,
+            completed
+        );
+        return true;
+    } catch (error) {
+        console.error('Error updating exam progress in Firebase:', error);
+        return false;
+    }
+  }
 
   // Clear all progress from Firebase only
   async clearAllProgress(userId?: string): Promise<boolean> {
