@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import { HomeStackParamList } from '../../types/navigation.types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import MarkdownText from '../../components/MarkdownText';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import ListeningCompletionModal from '../../components/ListeningCompletionModal';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -93,7 +92,7 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
           exam_id: id
       });
       setShowCompletionModal(false);
-      navigation.navigate('Home');
+      navigation.navigate('ListeningPracticeList');
   };
 
   const progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
@@ -226,6 +225,7 @@ const styles = StyleSheet.create({
   progressText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   questionCard: {
     marginBottom: spacing.margin.xl,
@@ -290,6 +290,7 @@ const styles = StyleSheet.create({
   feedbackTitle: {
       ...typography.textStyles.h4,
       fontWeight: 'bold',
+      textAlign: 'left',
   },
   feedbackText: {
     ...typography.textStyles.body,

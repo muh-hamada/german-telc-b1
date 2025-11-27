@@ -1,9 +1,3 @@
-/**
- * Vocabulary Studied List Screen
- * 
- * Displays all vocabulary words that the user has studied.
- */
-
 import React, { useState, useEffect } from 'react';
 import {
   View,

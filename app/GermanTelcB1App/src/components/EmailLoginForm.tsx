@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
+  I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
@@ -66,10 +67,6 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        {isSignUp ? t('auth.createAccount') : t('auth.signIn')}
-      </Text>
-
       {isSignUp && (
         <View style={styles.inputContainer}>
           <Text style={styles.label}>{t('common.labels.name')}</Text>
@@ -172,8 +169,9 @@ const styles = StyleSheet.create({
   label: {
     ...typography.textStyles.body,
     color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
+    marginBottom: spacing.margin.xs,
     fontWeight: typography.fontWeight.medium,
+    textAlign: 'left',
   },
   input: {
     ...typography.textStyles.body,
@@ -181,12 +179,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.md,
     paddingVertical: spacing.padding.md,
+    lineHeight: 17,
     paddingHorizontal: spacing.padding.lg,
     borderWidth: 1,
     borderColor: colors.border.light,
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
   },
   submitButton: {
-    marginTop: spacing.margin.lg,
+    marginTop: spacing.margin.sm,
   },
   forgotButton: {
     alignSelf: 'center',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
   switchButton: {
     alignSelf: 'center',
-    marginTop: spacing.margin.lg,
+    marginTop: spacing.margin.md,
   },
   switchText: {
     ...typography.textStyles.body,

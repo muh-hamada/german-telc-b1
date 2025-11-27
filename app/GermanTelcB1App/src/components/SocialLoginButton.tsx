@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    direction: 'ltr',
   },
   icon: {
     fontSize: 20,

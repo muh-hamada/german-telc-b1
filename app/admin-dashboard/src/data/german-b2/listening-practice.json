@@ -1,0 +1,62 @@
+{
+    "interviews": [
+        {
+            "title": "Die Zukunft der Arbeit: Zwischen Homeoffice-Freiheit und der Rückkehr ins Büro",
+            "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
+            "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
+            "duration": "",
+            "questions": [
+                {
+                    "question": "Laut dem Text war die Pandemie der alleinige Auslöser für den Trend zum Homeoffice.",
+                    "correct": false,
+                    "explanation": "Der Text sagt, es begann durch die Pandemie als 'Notwendigkeit', hat sich aber zu einer 'Grundsatzdebatte' entwickelt. Es wird nicht gesagt, dass es der *alleinige* Auslöser war, sondern den Wandel beschleunigt hat."
+                },
+                {
+                    "question": "Ein Vorteil des Homeoffice ist, dass die Mitarbeiter dort grundsätzlich weniger arbeiten.",
+                    "correct": false,
+                    "explanation": "Der Text erwähnt als Vorteile den Wegfall des Pendelwegs und bessere Konzentration, nicht dass weniger gearbeitet wird. Im Gegenteil, die Gefahr der 'Entgrenzung' wird genannt."
+                },
+                {
+                    "question": "Der Text deutet an, dass die 'Entgrenzung' der Arbeit ein Problem des Homeoffice sein kann.",
+                    "correct": true,
+                    "explanation": "Der Text erwähnt explizit: 'Zwar besteht die Gefahr der „Entgrenzung“ – dass man also abends nicht mehr abschalten kann'."
+                },
+                {
+                    "question": "Kritiker der reinen Remote-Arbeit glauben, dass digitale Meetings den persönlichen Austausch vollständig ersetzen können.",
+                    "correct": false,
+                    "explanation": "Das Gegenteil ist der Fall. Kritiker warnen, dass der informelle Austausch sich 'digital kaum reproduzieren' lässt."
+                },
+                {
+                    "question": "Für neue Mitarbeiter ist es laut Text im Homeoffice einfacher, sich in das Unternehmen zu integrieren.",
+                    "correct": false,
+                    "explanation": "Der Text sagt: 'Besonders für neue Mitarbeiter ist es schwierig, ohne physische Präsenz ein Netzwerk aufzubauen'."
+                },
+                {
+                    "question": "Hybride Arbeitsmodelle werden im Text als eine problemlose Ideallösung dargestellt.",
+                    "correct": false,
+                    "explanation": "Der Text nennt hybride Modelle als wahrscheinliche Lösung, erwähnt aber auch, dass dieses Modell 'Herausforderungen' birgt, wie Koordinationsaufwand und mögliche Neiddebatten."
+                },
+                {
+                    "question": "Ein Nachteil hybrider Modelle ist der hohe organisatorische Aufwand.",
+                    "correct": true,
+                    "explanation": "Der Text bestätigt dies: 'Es erfordert einen hohen Koordinationsaufwand, um sicherzustellen, dass Teams gleichzeitig vor Ort sind.'"
+                },
+                {
+                    "question": "Führungskräfte befürchten laut Text, dass die Mitarbeiterbindung im Homeoffice stärker wird.",
+                    "correct": false,
+                    "explanation": "Der Text sagt, Führungskräfte sorgen sich, 'dass die Bindung zum Arbeitgeber im Homeoffice nachlässt'."
+                },
+                {
+                    "question": "Der Autor ist der Meinung, dass eine vollständige Rückkehr zu den Arbeitsbedingungen von vor 2020 unwahrscheinlich ist.",
+                    "correct": true,
+                    "explanation": "Im Fazit steht: 'Zusammenfassend lässt sich sagen, dass es kein Zurück in die alte Arbeitswelt vor 2020 geben wird.'"
+                },
+                {
+                    "question": "Die Hauptaussage des Textes ist, dass Homeoffice grundsätzlich besser ist als die Arbeit im Büro.",
+                    "correct": false,
+                    "explanation": "Der Text ist ausgewogen und präsentiert Vor- und Nachteile beider Seiten. Die Kernaussage ist, dass eine Balance gefunden werden muss."
+                }
+            ]
+        }
+    ]
+}

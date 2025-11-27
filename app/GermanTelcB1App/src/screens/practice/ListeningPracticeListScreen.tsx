@@ -10,7 +10,7 @@ import dataService from '../../services/data.service';
 import { ListeningPracticeInterview } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const ListeningPracticeListScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -62,7 +62,7 @@ const ListeningPracticeListScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <FlatList
         data={interviews}
         keyExtractor={(item, index) => index.toString()}
@@ -71,7 +71,7 @@ const ListeningPracticeListScreen: React.FC = () => {
           <Card style={styles.card} onPress={() => handleInterviewPress(item, index)}>
             <View style={styles.cardHeader}>
                 <Text style={styles.cardTitle}>{item.title}</Text>
-                {isCompleted(index) && <Icon name="check-circle" size={20} color={colors.success[500]} />}
+                {isCompleted(index) && <MaterialIcon name="check-circle" size={20} color={colors.success[500]} />}
             </View>
             <Text style={styles.cardDuration}>{t('common.duration')}: {item.duration}</Text>
           </Card>
@@ -82,7 +82,7 @@ const ListeningPracticeListScreen: React.FC = () => {
           </View>
         }
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
   listContent: {
     padding: spacing.padding.lg,
+    paddingBottom: spacing.padding.sm,
   },
   card: {
     marginBottom: spacing.margin.md,

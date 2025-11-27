@@ -98,7 +98,7 @@ const HomeStackNavigator: React.FC = () => {
         name="PracticeMenu"
         component={PracticeMenuScreen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="home.practice" />,
+          headerTitle: () => <HeaderTitle titleKey="home.solve" />,
         }}
       />
       <Stack.Screen

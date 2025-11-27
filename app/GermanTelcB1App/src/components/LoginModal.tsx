@@ -46,7 +46,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const handleSocialLogin = async (provider: 'google' | 'apple' | 'twitter') => {
     try {
       clearError();
-      
+
       switch (provider) {
         case 'google':
           await signInWithGoogle();
@@ -58,7 +58,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           await signInWithTwitter();
           break;
       }
-      
+
       onSuccess?.();
       onClose();
     } catch (error: any) {
@@ -67,7 +67,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
         console.log('User cancelled sign-in');
         return;
       }
-      
+
       // Error is handled by the auth context and will be displayed
       onFailure?.();
     }
@@ -162,13 +162,13 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       onPress={() => handleSocialLogin('google')}
                       loading={isLoading}
                     />
-                    
+
                     {/* <SocialLoginButton
                       provider="twitter"
                       onPress={() => handleSocialLogin('twitter')}
                       loading={isLoading}
                     /> */}
-                    
+
                     {Platform.OS === 'ios' && <SocialLoginButton
                       provider="apple"
                       onPress={() => handleSocialLogin('apple')}
@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   closeButton: {
     width: 32,

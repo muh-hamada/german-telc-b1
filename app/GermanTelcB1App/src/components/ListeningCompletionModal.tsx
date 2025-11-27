@@ -68,6 +68,7 @@ const ListeningCompletionModal: React.FC<ListeningCompletionModalProps> = ({
                         onPress={onListenAgain}
                         variant="outline"
                         style={styles.button}
+                        textStyle={styles.buttonText}
                     />
                     <Button
                         title={t('practice.listening.practice.backToHome')}
@@ -75,6 +76,7 @@ const ListeningCompletionModal: React.FC<ListeningCompletionModalProps> = ({
                         variant="primary"
                         size='small'
                         style={styles.button}
+                        textStyle={styles.buttonText}
                     />
                 </View>
             </View>
@@ -138,7 +140,10 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontSize: typography.fontSize.sm,
   },
 });
 

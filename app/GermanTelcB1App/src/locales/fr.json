@@ -241,8 +241,8 @@
       "practice": {
         "completed": "Pratique d'écoute terminée",
         "score": "Vous avez obtenu {{score}} sur {{total}}",
-        "listenAgain": "Écoutez à nouveau",
-        "backToHome": "Retour à la maison",
+        "listenAgain": "Encore",
+        "backToHome": "Dos",
         "title": "Pratique d'écoute",
         "assessUnderstanding": "Évaluer la compréhension",
         "goodJob": "Bon travail!",

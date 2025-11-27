@@ -6,8 +6,8 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Sound from 'react-native-sound';
 import { HomeStackParamList } from '../../types/navigation.types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { ListeningPracticeInterview } from '../../types/exam.types';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -177,10 +177,10 @@ const ListeningPracticeScreen: React.FC = () => {
           <SafeAreaView style={styles.safeArea}>
             <View style={styles.topBar}>
               <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-                <Icon name={I18nManager.isRTL ? "arrow-right" : "arrow-left"} size={24} color={colors.white} />
+                <FontAwesomeIcon name={I18nManager.isRTL ? "angle-right" : "angle-left"} size={24} color={colors.white} />
               </TouchableOpacity>
               <TouchableOpacity onPress={handleMarkCompleted} style={styles.actionButton}>
-                <Icon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={isCompleted ? colors.success[500] : colors.white} />
+                <MaterialIcon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={isCompleted ? colors.success[500] : colors.white} />
               </TouchableOpacity>
             </View>
 
@@ -201,19 +201,19 @@ const ListeningPracticeScreen: React.FC = () => {
 
                   <View style={styles.controlsRow}>
                     <TouchableOpacity onPress={skipBackward} disabled={!isLoaded} style={styles.controlButton}>
-                      <Icon name={I18nManager.isRTL ? "fast-forward-10" : "rewind-10"} size={36} color={colors.white} />
+                      <MaterialIcon name={I18nManager.isRTL ? "forward-10" : "replay-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={togglePlayback} disabled={!isLoaded} style={styles.playButton}>
                       {isLoaded ? (
-                        <Icon name={isPlaying ? "pause" : "play"} size={40} color={colors.white} />
+                        <MaterialIcon name={isPlaying ? "pause" : "play-arrow"} size={40} color={colors.white} />
                       ) : (
                         <ActivityIndicator color={colors.white} />
                       )}
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={skipForward} disabled={!isLoaded} style={styles.controlButton}>
-                      <Icon name={I18nManager.isRTL ? "rewind-10" : "fast-forward-10"} size={36} color={colors.white} />
+                      <MaterialIcon name={I18nManager.isRTL ? "replay-10" : "forward-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
                   </View>
                 </View>

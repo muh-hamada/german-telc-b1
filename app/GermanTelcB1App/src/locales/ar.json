@@ -246,13 +246,13 @@
       "practice": {
         "completed": "تم الانتهاء من ممارسة الاستماع",
         "score": "لقد سجلت {{score}} من {{total}}",
-        "listenAgain": "استمع مرة أخرى",
-        "backToHome": "العودة إلى الرئيسية",
+        "listenAgain": "مرة أخرى",
+        "backToHome": "العودة",
         "title": "ممارسة الاستماع",
         "assessUnderstanding": "تقييم الفهم",
         "goodJob": "أحسنت!",
         "explanation": "توضيح",
-        "finish": "ينهي"
+        "finish": "النتيجة"
       }
     },
     "writing": {
@@ -527,7 +527,7 @@
       "subtitle": "سجل الدخول لحفظ تقدمك ومزامنته عبر الأجهزة",
       "orDivider": "أو",
       "continueWithEmail": "المتابعة بالبريد الإلكتروني",
-      "backToSocialLogin": "← العودة إلى تسجيل الدخول الاجتماعي",
+      "backToSocialLogin": "→ العودة إلى تسجيل الدخول الاجتماعي",
       "passwordReset": "إعادة تعيين كلمة المرور",
       "passwordResetMessage": "تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور إلى عنوان بريدك الإلكتروني."
     },

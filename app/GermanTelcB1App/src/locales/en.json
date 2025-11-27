@@ -280,8 +280,8 @@
         "finish": "Finish",
         "completed": "Listening Practice Completed",
         "score": "You scored {{score}} out of {{total}}",
-        "listenAgain": "Listen Again",
-        "backToHome": "Back to Home"
+        "listenAgain": "Again",
+        "backToHome": "Back"
       }
     },
     "writing": {

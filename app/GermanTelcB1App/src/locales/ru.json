@@ -246,8 +246,8 @@
       "practice": {
         "completed": "Практика прослушивания завершена",
         "score": "Вы набрали {{score}} из {{total}}",
-        "listenAgain": "Послушай еще раз",
-        "backToHome": "Вернуться домой",
+        "listenAgain": "Снова",
+        "backToHome": "Назад",
         "title": "Практика прослушивания",
         "assessUnderstanding": "Оценить понимание",
         "goodJob": "Хорошая работа!",

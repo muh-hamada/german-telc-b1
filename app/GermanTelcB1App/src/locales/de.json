@@ -274,8 +274,8 @@
       "practice": {
         "completed": "Hörübung abgeschlossen",
         "score": "Sie haben {{score}} von {{total}} erzielt",
-        "listenAgain": "Hören Sie noch einmal zu",
-        "backToHome": "Zurück nach Hause",
+        "listenAgain": "Wieder",
+        "backToHome": "Zurück",
         "title": "Hörübungen",
         "assessUnderstanding": "Bewerten Sie das Verständnis",
         "goodJob": "Gute Arbeit!",
