@@ -160,7 +160,9 @@
       "newWords": "Новые слова",
       "reviewing": "Обзор",
       "learningPace": "Темп обучения",
-      "dailyLimit": "{{count}} новых слов в день"
+      "dailyLimit": "{{count}} новых слов в день",
+      "selectPersona": "Выберите темп обучения",
+      "personaDescription": "Выберите предпочитаемый ежедневный темп обучения. Вы можете изменить это в любое время."
     },
     "cardState": {
       "learning": "Изучение",

@@ -160,7 +160,9 @@
       "newWords": "Nouveaux mots",
       "reviewing": "Révision",
       "learningPace": "Rythme d'apprentissage",
-      "dailyLimit": "{{count}} nouveaux mots par jour"
+      "dailyLimit": "{{count}} nouveaux mots par jour",
+      "selectPersona": "Sélectionnez le rythme d'apprentissage",
+      "personaDescription": "Choisissez votre rythme d'apprentissage quotidien préféré. Vous pouvez modifier cela à tout moment."
     },
     "cardState": {
       "learning": "Apprentissage",

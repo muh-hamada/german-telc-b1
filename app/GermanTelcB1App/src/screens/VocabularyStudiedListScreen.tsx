@@ -75,8 +75,6 @@ const VocabularyStudiedListScreen: React.FC = () => {
   };
 
   const getTranslation = (word: VocabularyWord): string => {
-    const currentLang = i18n.language;
-    
     // Map language codes
     const langMap: { [key: string]: keyof VocabularyWord['translations'] } = {
       'en': 'en',
@@ -108,7 +106,7 @@ const VocabularyStudiedListScreen: React.FC = () => {
               {item.article ? `${item.article} ` : ''}
               {item.word}
             </Text>
-            <Text style={styles.translationText}>{translation}</Text>
+            {translation && <Text style={styles.translationText}>{translation}</Text>}
             {cardProgress && (
               <View style={styles.statusBadge}>
                 <Icon 
@@ -135,7 +133,7 @@ const VocabularyStudiedListScreen: React.FC = () => {
             {item.exampleSentences.map((example, index) => (
               <View key={index} style={styles.exampleItem}>
                 <Text style={styles.exampleText}>{example.text}</Text>
-                {example.translations && (
+                {example.translations && example.translations[currentLang as keyof typeof example.translations] && (
                   <Text style={styles.exampleTranslation}>
                     {example.translations[currentLang as keyof typeof example.translations]}
                   </Text>

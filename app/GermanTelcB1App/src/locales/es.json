@@ -163,7 +163,9 @@
       "newWords": "Nuevas palabras",
       "reviewing": "Revisando",
       "learningPace": "Ritmo de aprendizaje",
-      "dailyLimit": "{{count}} palabras nuevas por día"
+      "dailyLimit": "{{count}} palabras nuevas por día",
+      "personaDescription": "Elija su ritmo de aprendizaje diario preferido. Puedes cambiar esto en cualquier momento.",
+      "selectPersona": "Seleccione el ritmo de aprendizaje"
     },
     "persona": {
       "casual": "Estudiante casual",

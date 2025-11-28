@@ -160,7 +160,9 @@
       "newWords": "كلمات جديدة",
       "reviewing": "مراجعة",
       "learningPace": "وتيرة التعلم",
-      "dailyLimit": "{{count}} كلمة جديدة يوميا"
+      "dailyLimit": "{{count}} كلمة جديدة يوميا",
+      "selectPersona": "حدد سرعة التعلم",
+      "personaDescription": "اختر وتيرة التعلم اليومية المفضلة لديك. يمكنك تغيير هذا في أي وقت."
     },
     "persona": {
       "casual": "متواضع",

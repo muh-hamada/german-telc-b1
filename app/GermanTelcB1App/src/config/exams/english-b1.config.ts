@@ -26,7 +26,7 @@ export const englishB1Config: ExamConfig = {
   firebaseCollections: {
     examData: 'english_b1_telc_exam_data',              // Existing collection
     userProgress: 'users/{uid}/english_b1_progress/data',   // Fixed: Must be 4 segments for .doc() to work
-    completions: 'users/{uid}/completions/english_b1',      // Lang and level in path (already 4 segments, correct)
+    completions: 'users/{uid}/completions_english_b1',      // Fixed: Must be 3 segments (Collection) so service can append 3 more to make a Doc (6 segments
     streaks: 'users/{uid}/streaks/english-b1',              // Daily streaks tracking per exam
     vocabularyData: 'vocabulary_data_english_b1',           // Vocabulary words collection
     vocabularyProgress: 'users/{uid}/vocabulary_progress_english_b1/data', // User vocabulary progress
