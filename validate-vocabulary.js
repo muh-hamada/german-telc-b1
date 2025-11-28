@@ -3,7 +3,7 @@
 const fs = require('fs');
 
 // Configuration
-const REQUIRED_LANGUAGES = ['en', 'es', 'fr', 'ru', 'ar'];
+const REQUIRED_LANGUAGES = ['de', 'es', 'fr', 'ru', 'ar'];
 const REQUIRED_ENTRY_KEYS = ['word', 'article', 'translations', 'type', 'exampleSentences'];
 
 /**
@@ -309,7 +309,7 @@ function generateReport(data, issues) {
 
 // Run validation if called directly
 if (require.main === module) {
-    const inputFile = process.argv[2] || 'b2-vocabulary-complete.json';
+    const inputFile = process.argv[2] || 'english-b2-vocabulary-complete.json';
     
     try {
         const result = validateVocabulary(inputFile);

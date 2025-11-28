@@ -44,7 +44,7 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
 
-    match /vocabulary_data_english_a1/{wordId} {
+    match /vocabulary_data_english_b1/{wordId} {
       allow read: if true;
       allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
@@ -72,7 +72,7 @@ service cloud.firestore {
                      request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
       allow write: if request.auth != null && request.auth.uid == userId;
       
-      // User progress data (B1 - nested under users)
+      // User progress data (German B1 - nested under users)
       match /progress/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
@@ -80,8 +80,16 @@ service cloud.firestore {
         allow write: if request.auth != null && request.auth.uid == userId;
       }
       
-      // User progress data (B2 - nested under users)
+      // User progress data (German B2 - nested under users)
       match /german_b2_progress/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User progress data (English B1 - nested under users)
+      match /english_b1_progress/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
@@ -106,8 +114,16 @@ service cloud.firestore {
         allow write: if request.auth != null && request.auth.uid == userId;
       }
       
-      // User completions (B2)
+      // User completions (German B2)
       match /completions_german_b2/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User completions (English B1)
+      match /completions_english_b1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
@@ -140,8 +156,8 @@ service cloud.firestore {
         allow write: if request.auth != null && request.auth.uid == userId;
       }
 
-      // User vocabulary progress (English A1)
-      match /vocabulary_progress_english_a1/{document=**} {
+      // User vocabulary progress (English B1)
+      match /vocabulary_progress_english_b1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");

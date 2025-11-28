@@ -55,8 +55,7 @@ export const VocabularyUploadPage: React.FC = () => {
     if (!app) return '';
     
     // Map to vocabulary level
-    // German B1/B2 -> A1/B2, English B1 -> A1
-    const vocabLevel = app.level === 'B1' ? 'a1' : app.level.toLowerCase();
+    const vocabLevel = app.level.toLowerCase();
     return `${VOCABULARY_COLLECTION_PREFIX}${app.language}_${vocabLevel}`;
   };
 
