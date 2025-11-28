@@ -5237,14 +5237,45 @@
           },
           "question": {
             "rendered_sentence": "If she _____ that job last year, she _____ rich now.",
-            "type": "gap_fill",
-            "correct_answer": "had taken / would be",
-            "explanation": {
-              "de": "Der If-Satz verwendet Past Perfect (Third Conditional, unveränderbare Vergangenheit), und die Hauptklausel verwendet 'would + Base Verb' (Second Conditional, gegenwärtiges Ergebnis).",
-              "ar": "جملة If تستخدم الماضي التام (الشرط الثالث، ماضٍ غير قابل للتغيير)، والجملة الرئيسية تستخدم 'would + الفعل الأساسي' (الشرط الثاني، نتيجة حاضرة).",
-              "en": "The If-clause uses the Past Perfect (Third Conditional, unchangeable past), and the main clause uses 'would + Base Verb' (Second Conditional, present result).",
-              "Fr": "La clause If utilise le Plus-que-parfait (Troisième Conditionnel, passé immuable), et la clause principale utilise 'would + Verbe de base' (Deuxième Conditionnel, résultat présent)."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "had taken / would be",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Der If-Satz verwendet Past Perfect (Third Conditional, unveränderbare Vergangenheit), und die Hauptklausel verwendet 'would + Base Verb' (Second Conditional, gegenwärtiges Ergebnis).",
+                  "ar": "جملة If تستخدم الماضي التام (الشرط الثالث، ماضٍ غير قابل للتغيير)، والجملة الرئيسية تستخدم 'would + الفعل الأساسي' (الشرط الثاني، نتيجة حاضرة).",
+                  "en": "The If-clause uses the Past Perfect (Third Conditional, unchangeable past), and the main clause uses 'would + Base Verb' (Second Conditional, present result).",
+                  "Fr": "La clause If utilise le Plus-que-parfait (Troisième Conditionnel, passé immuable), et la clause principale utilise 'would + Verbe de base' (Deuxième Conditionnel, résultat présent).",
+                  "es": "La cláusula If usa el Pasado Perfecto (Tercer Condicional, pasado inmutable), y la cláusula principal usa 'would + Verbo Base' (Segundo Condicional, resultado presente).",
+                  "ru": "Придаточное предложение с If использует Past Perfect (Third Conditional, неизменное прошлое), а главное предложение использует 'would + базовый глагол' (Second Conditional, настоящий результат)."
+                }
+              },
+              {
+                "choice": "took / would be",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Simple Past indicates a present/future hypothetical, not past.",
+                  "de": "Falsch. Simple Past deutet auf eine hypothetische Gegenwart/Zukunft hin, nicht auf die Vergangenheit.",
+                  "ar": "غير صحيح. يشير الماضي البسيط إلى افتراض في الحاضر/المستقبل، وليس الماضي.",
+                  "Fr": "Incorrect. Le passé simple indique une hypothèse présente/future, pas passée.",
+                  "ru": "Неверно. Simple Past указывает на гипотетическое настоящее/будущее, а не прошлое.",
+                  "es": "Incorrecto. El pasado simple indica una hipótesis presente/futura, no pasada."
+                }
+              },
+              {
+                "choice": "had taken / would have been",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Would have been' refers to the past, but 'now' requires a present result.",
+                  "de": "Falsch. 'Would have been' bezieht sich auf die Vergangenheit, aber 'now' erfordert ein gegenwärtiges Ergebnis.",
+                  "ar": "غير صحيح. تشير 'Would have been' إلى الماضي، لكن 'now' تتطلب نتيجة حالية.",
+                  "Fr": "Incorrect. 'Would have been' fait référence au passé, mais 'now' nécessite un résultat présent.",
+                  "ru": "Неверно. 'Would have been' относится к прошлому, но 'now' требует настоящего результата.",
+                  "es": "Incorrecto. 'Would have been' se refiere al pasado, pero 'now' requiere un resultado presente."
+                }
+              }
+            ]
           }
         }
       ]
@@ -5272,14 +5303,45 @@
           },
           "question": {
             "rendered_sentence": "I don't think he is coming, _____?",
-            "type": "gap_fill",
-            "correct_answer": "is he",
-            "explanation": {
-              "de": "Bei 'I don't think' wird das Tag vom Nebensatz ('he is coming') abgeleitet, aber im positiven Sinn, da der Hauptsatz negativ ist.",
-              "ar": "مع 'I don't think'، يتم اشتقاق السؤال الذيلي من الجملة التابعة ('he is coming')، ولكن بصيغة إيجابية لأن الجملة الرئيسية سلبية.",
-              "en": "With 'I don't think', the tag is derived from the subordinate clause ('he is coming') but in the positive form because the main clause is negative.",
-              "Fr": "Avec 'I don't think', la question de confirmation est dérivée de la clause subordonnée ('he is coming') mais sous forme positive car la clause principale est négative."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "is he",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Bei 'I don't think' wird das Tag vom Nebensatz ('he is coming') abgeleitet, aber im positiven Sinn, da der Hauptsatz negativ ist.",
+                  "ar": "مع 'I don't think'، يتم اشتقاق السؤال الذيلي من الجملة التابعة ('he is coming')، ولكن بصيغة إيجابية لأن الجملة الرئيسية سلبية.",
+                  "en": "With 'I don't think', the tag is derived from the subordinate clause ('he is coming') but in the positive form because the main clause is negative.",
+                  "Fr": "Avec 'I don't think', la question de confirmation est dérivée de la clause subordonnée ('he is coming') mais sous forme positive car la clause principale est négative.",
+                  "es": "Con 'I don't think', la etiqueta se deriva de la cláusula subordinada ('he is coming') pero en forma positiva porque la cláusula principal es negativa.",
+                  "ru": "C 'I don't think', «хвостик» образуется от придаточного предложения ('he is coming'), но в положительной форме, так как главное предложение отрицательное."
+                }
+              },
+              {
+                "choice": "isn't he",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. The tag should be positive because the main clause 'I don't think' is negative.",
+                  "de": "Falsch. Das Tag sollte positiv sein, da der Hauptsatz 'I don't think' negativ ist.",
+                  "ar": "غير صحيح. يجب أن يكون السؤال المذيل إيجابياً لأن الجملة الرئيسية 'I don't think' سلبية.",
+                  "Fr": "Incorrect. La question de confirmation doit être positive car la clause principale 'I don't think' est négative.",
+                  "ru": "Неверно. «Хвостик» должен быть положительным, так как главное предложение 'I don't think' отрицательное.",
+                  "es": "Incorrecto. La etiqueta debe ser positiva porque la cláusula principal 'I don't think' es negativa."
+                }
+              },
+              {
+                "choice": "do I",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. The tag refers to the subordinate clause ('he is'), not the main clause.",
+                  "de": "Falsch. Das Tag bezieht sich auf den Nebensatz ('he is'), nicht auf den Hauptsatz.",
+                  "ar": "غير صحيح. يشير السؤال المذيل إلى الجملة الفرعية ('he is')، وليس الجملة الرئيسية.",
+                  "Fr": "Incorrect. La question de confirmation se réfère à la clause subordonnée ('he is'), pas à la principale.",
+                  "ru": "Неверно. «Хвостик» относится к придаточному предложению ('he is'), а не к главному.",
+                  "es": "Incorrecto. La etiqueta se refiere a la cláusula subordinada ('he is'), no a la principal."
+                }
+              }
+            ]
           }
         }
       ]
@@ -5505,14 +5567,45 @@
           },
           "question": {
             "rendered_sentence": "_____ you work, _____ you finish.",
-            "type": "gap_fill",
-            "correct_answer": "The faster / the sooner",
-            "explanation": {
-              "de": "Beide Klauseln beginnen mit dem bestimmten Artikel 'the', gefolgt von der Komparativform, um die proportionale Steigerung anzuzeigen.",
-              "ar": "تبدأ كلتا الجملتين بأداة التعريف 'the' متبوعة بصيغة المقارنة للإشارة إلى الزيادة التناسبية.",
-              "en": "Both clauses begin with the definite article 'the' followed by the comparative form to indicate proportional increase.",
-              "Fr": "Les deux propositions commencent par l'article défini 'the' suivi de la forme comparative pour indiquer une augmentation proportionnelle."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "The faster / the sooner",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Beide Klauseln beginnen mit dem bestimmten Artikel 'the', gefolgt von der Komparativform, um die proportionale Steigerung anzuzeigen.",
+                  "ar": "تبدأ كلتا الجملتين بأداة التعريف 'the' متبوعة بصيغة المقارنة للإشارة إلى الزيادة التناسبية.",
+                  "en": "Both clauses begin with the definite article 'the' followed by the comparative form to indicate proportional increase.",
+                  "Fr": "Les deux propositions commencent par l'article défini 'the' suivi de la forme comparative pour indiquer une augmentation proportionnelle.",
+                  "es": "Ambas cláusulas comienzan con el artículo definido 'the' seguido de la forma comparativa para indicar un aumento proporcional.",
+                  "ru": "Обе части начинаются с определенного артикля 'the', за которым следует сравнительная степень, чтобы указать на пропорциональное увеличение."
+                }
+              },
+              {
+                "choice": "Faster / sooner",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. The double comparative structure requires the definite article 'The'.",
+                  "de": "Falsch. Die Struktur des doppelten Komparativs erfordert den bestimmten Artikel 'The'.",
+                  "ar": "غير صحيح. تتطلب بنية المقارنة المزدوجة أداة التعريف 'The'.",
+                  "Fr": "Incorrect. La structure du double comparatif nécessite l'article défini 'The'.",
+                  "ru": "Неверно. Структура двойного сравнения требует определенного артикля 'The'.",
+                  "es": "Incorrecto. La estructura de doble comparativo requiere el artículo definido 'The'."
+                }
+              },
+              {
+                "choice": "The fast / the soon",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Comparative forms (faster, sooner) are required.",
+                  "de": "Falsch. Komparativformen (faster, sooner) sind erforderlich.",
+                  "ar": "غير صحيح. صيغ المقارنة (faster, sooner) مطلوبة.",
+                  "Fr": "Incorrect. Les formes comparatives (faster, sooner) sont requises.",
+                  "ru": "Неверно. Требуются сравнительные формы (faster, sooner).",
+                  "es": "Incorrecto. Se requieren formas comparativas (faster, sooner)."
+                }
+              }
+            ]
           }
         }
       ]
@@ -6332,14 +6425,45 @@
           },
           "question": {
             "rendered_sentence": "If I _____ better at coding, I _____ the job.",
-            "type": "gap_fill",
-            "correct_answer": "were / would have got",
-            "explanation": {
-              "de": "Der If-Satz verwendet Past Simple ('were') für die irreale Gegenwart. Die Hauptklausel verwendet 'would have + V3' für das irreale Ergebnis in der Vergangenheit.",
-              "ar": "جملة If تستخدم الماضي البسيط ('were') للحالة غير الحقيقية الحاضرة. والجملة الرئيسية تستخدم 'would have + V3' للنتيجة غير الحقيقية الماضية.",
-              "en": "The If-clause uses the Past Simple ('were') for the unreal present state. The main clause uses 'would have + V3' for the unreal past outcome.",
-              "Fr": "La clause If utilise le Passé Simple ('were') pour l'état présent irréel. La clause principale utilise 'would have + V3' pour le résultat passé irréel."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "were / would have got",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Der If-Satz verwendet Past Simple ('were') für die irreale Gegenwart. Die Hauptklausel verwendet 'would have + V3' für das irreale Ergebnis in der Vergangenheit.",
+                  "ar": "جملة If تستخدم الماضي البسيط ('were') للحالة غير الحقيقية الحاضرة. والجملة الرئيسية تستخدم 'would have + V3' للنتيجة غير الحقيقية الماضية.",
+                  "en": "The If-clause uses the Past Simple ('were') for the unreal present state. The main clause uses 'would have + V3' for the unreal past outcome.",
+                  "Fr": "La clause If utilise le Passé Simple ('were') pour l'état présent irréel. La clause principale utilise 'would have + V3' pour le résultat passé irréel.",
+                  "es": "La cláusula If usa el Pasado Simple ('were') para el estado presente irreal. La cláusula principal usa 'would have + V3' para el resultado pasado irreal.",
+                  "ru": "Придаточное предложение с If использует Past Simple ('were') для нереального настоящего состояния. Главное предложение использует 'would have + V3' для нереального результата в прошлом."
+                }
+              },
+              {
+                "choice": "am / will get",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. This is a real conditional, not hypothetical.",
+                  "de": "Falsch. Dies ist ein realer Konditional, kein hypothetischer.",
+                  "ar": "غير صحيح. هذا شرط حقيقي، وليس افتراضياً.",
+                  "Fr": "Incorrect. C'est un conditionnel réel, pas hypothétique.",
+                  "ru": "Неверно. Это реальное условие, а не гипотетическое.",
+                  "es": "Incorrecto. Este es un condicional real, no hipotético."
+                }
+              },
+              {
+                "choice": "had been / would have got",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Had been' would imply a past state, but 'were' fits the present hypothetical state better.",
+                  "de": "Falsch. 'Had been' würde einen vergangenen Zustand implizieren, aber 'were' passt besser zum gegenwärtigen hypothetischen Zustand.",
+                  "ar": "غير صحيح. تعني 'Had been' حالة ماضية، لكن 'were' تناسب الحالة الافتراضية الحالية بشكل أفضل.",
+                  "Fr": "Incorrect. 'Had been' impliquerait un état passé, mais 'were' convient mieux à l'état hypothétique présent.",
+                  "ru": "Неверно. 'Had been' подразумевало бы прошлое состояние, но 'were' лучше подходит для настоящего гипотетического состояния.",
+                  "es": "Incorrecto. 'Had been' implicaría un estado pasado, pero 'were' se ajusta mejor al estado hipotético presente."
+                }
+              }
+            ]
           }
         }
       ]
@@ -6631,16 +6755,45 @@
           },
           "question": {
             "rendered_sentence": "_____ assistance, please contact the helpline.",
-            "type": "gap_fill",
-            "correct_answer": "Should you require",
-            "explanation": {
-              "de": "Dies ist die formelle Inversion von 'If you should require'. Die Struktur ist 'Should + Subjekt + Basisverb'.",
-              "ar": "هذا هو القلب الرسمي لـ 'If you should require'. البنية هي 'Should + الفاعل + الفعل الأساسي'.",
-              "en": "This is the formal inversion of 'If you should require'. The structure is 'Should + Subject + Base Verb'.",
-              "Fr": "Ceci est l'inversion formelle de 'If you should require'. La structure est 'Should + Sujet + Verbe de base'.",
-              "ru": "Это формальная инверсия 'If you should require'. Структура: 'Should + Подлежащее + Базовый глагол'.",
-              "es": "Esta es la inversión formal de 'If you should require'. La estructura es 'Should + Sujeto + Verbo base'."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "Should you require",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Dies ist die formelle Inversion von 'If you should require'. Die Struktur ist 'Should + Subjekt + Basisverb'.",
+                  "ar": "هذا هو القلب الرسمي لـ 'If you should require'. البنية هي 'Should + الفاعل + الفعل الأساسي'.",
+                  "en": "This is the formal inversion of 'If you should require'. The structure is 'Should + Subject + Base Verb'.",
+                  "Fr": "Ceci est l'inversion formelle de 'If you should require'. La structure est 'Should + Sujet + Verbe de base'.",
+                  "ru": "Это формальная инверсия 'If you should require'. Структура: 'Should + Подлежащее + Базовый глагол'.",
+                  "es": "Esta es la inversión formal de 'If you should require'. La estructura es 'Should + Sujeto + Verbo base'."
+                }
+              },
+              {
+                "choice": "Did you require",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Did' does not form a conditional inversion here.",
+                  "de": "Falsch. 'Did' bildet hier keine bedingte Inversion.",
+                  "ar": "غير صحيح. لا تشكل 'Did' قلباً شرطياً هنا.",
+                  "Fr": "Incorrect. 'Did' ne forme pas une inversion conditionnelle ici.",
+                  "ru": "Неверно. 'Did' здесь не образует условную инверсию.",
+                  "es": "Incorrecto. 'Did' no forma una inversión condicional aquí."
+                }
+              },
+              {
+                "choice": "Had you required",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. This would be for a past condition (3rd conditional).",
+                  "de": "Falsch. Dies wäre für eine vergangene Bedingung (3. Konditional).",
+                  "ar": "غير صحيح. هذا سيكون لشرط ماضٍ (الشرط الثالث).",
+                  "Fr": "Incorrect. Ce serait pour une condition passée (3ème conditionnel).",
+                  "ru": "Неверно. Это было бы для условия в прошлом (3-й тип условных предложений).",
+                  "es": "Incorrecto. Esto sería para una condición pasada (tercer condicional)."
+                }
+              }
+            ]
           }
         }
       ]
@@ -6668,16 +6821,45 @@
           },
           "question": {
             "rendered_sentence": "_____ there would be serious consequences.",
-            "type": "gap_fill",
-            "correct_answer": "Were the project to fail",
-            "explanation": {
-              "de": "Dies ist die formelle Inversion von 'If the project were to fail'. Struktur: 'Were + Subjekt + to + Basisverb'.",
-              "ar": "هذا هو القلب الرسمي لـ 'If the project were to fail'. البنية: 'Were + الفاعل + to + الفعل الأساسي'.",
-              "en": "This is the formal inversion of 'If the project were to fail'. Structure: 'Were + Subject + to + Base Verb'.",
-              "Fr": "Ceci est l'inversion formelle de 'If the project were to fail'. Structure : 'Were + Sujet + to + Verbe de base'.",
-              "ru": "Это формальная инверсия 'If the project were to fail'. Структура: 'Were + Подлежащее + to + Базовый глагол'.",
-              "es": "Esta es la inversión formal de 'If the project were to fail'. Estructura: 'Were + Sujeto + to + Verbo base'."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "Were the project to fail",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Dies ist die formelle Inversion von 'If the project were to fail'. Struktur: 'Were + Subjekt + to + Basisverb'.",
+                  "ar": "هذا هو القلب الرسمي لـ 'If the project were to fail'. البنية: 'Were + الفاعل + to + الفعل الأساسي'.",
+                  "en": "This is the formal inversion of 'If the project were to fail'. Structure: 'Were + Subject + to + Base Verb'.",
+                  "Fr": "Ceci est l'inversion formelle de 'If the project were to fail'. Structure : 'Were + Sujet + to + Verbe de base'.",
+                  "ru": "Это формальная инверсия 'If the project were to fail'. Структура: 'Were + Подлежащее + to + Базовый глагол'.",
+                  "es": "Esta es la inversión formal de 'If the project were to fail'. Estructura: 'Were + Sujeto + to + Verbo base'."
+                }
+              },
+              {
+                "choice": "If the project fails",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. While grammatically valid, this option does not use the specific inversion structure tested here.",
+                  "de": "Falsch. Obwohl grammatikalisch korrekt, verwendet diese Option nicht die hier getestete spezifische Inversionsstruktur.",
+                  "ar": "غير صحيح. على الرغم من صحتها نحوياً، لا تستخدم هذه الخيار بنية القلب المحددة التي يتم اختبارها هنا.",
+                  "Fr": "Incorrect. Bien que grammaticalement valide, cette option n'utilise pas la structure d'inversion spécifique testée ici.",
+                  "ru": "Неверно. Хотя грамматически верно, этот вариант не использует специфическую структуру инверсии, проверяемую здесь.",
+                  "es": "Incorrecto. Aunque gramaticalmente válido, esta opción no utiliza la estructura de inversión específica probada aquí."
+                }
+              },
+              {
+                "choice": "Had the project failed",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Had the project failed' would require 'would have been' in the main clause.",
+                  "de": "Falsch. 'Had the project failed' würde 'would have been' im Hauptsatz erfordern.",
+                  "ar": "غير صحيح. تتطلب 'Had the project failed' وجود 'would have been' في الجملة الرئيسية.",
+                  "Fr": "Incorrect. 'Had the project failed' nécessiterait 'would have been' dans la clause principale.",
+                  "ru": "Неверно. 'Had the project failed' потребовало бы 'would have been' в главном предложении.",
+                  "es": "Incorrecto. 'Had the project failed' requeriría 'would have been' en la cláusula principal."
+                }
+              }
+            ]
           }
         }
       ]
@@ -7167,16 +7349,45 @@
           },
           "question": {
             "rendered_sentence": "_____ we leave, _____.",
-            "type": "gap_fill",
-            "correct_answer": "The sooner / the better",
-            "explanation": {
-              "de": "Dies ist die feste Struktur des Doppelkomparativs. Beide Klauseln beginnen mit 'The' und einem Komparativ.",
-              "ar": "هذه هي البنية الثابتة للمقارنة المزدوجة. تبدأ كلتا الجملتين بـ 'The' وصفة مقارنة.",
-              "en": "This is the fixed structure of the double comparative. Both clauses start with 'The' and a comparative adjective/adverb.",
-              "Fr": "Ceci est la structure fixe du double comparatif. Les deux clauses commencent par 'The' et un comparatif.",
-              "ru": "Это фиксированная структура двойного сравнительного оборота. Обе части начинаются с 'The' и сравнительной степени.",
-              "es": "Esta es la estructura fija del doble comparativo. Ambas cláusulas comienzan con 'The' y un comparativo."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "The sooner / the better",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Dies ist die feste Struktur des Doppelkomparativs. Beide Klauseln beginnen mit 'The' und einem Komparativ.",
+                  "ar": "هذه هي البنية الثابتة للمقارنة المزدوجة. تبدأ كلتا الجملتين بـ 'The' وصفة مقارنة.",
+                  "en": "This is the fixed structure of the double comparative. Both clauses start with 'The' and a comparative adjective/adverb.",
+                  "Fr": "Ceci est la structure fixe du double comparatif. Les deux clauses commencent par 'The' et un comparatif.",
+                  "ru": "Это фиксированная структура двойного сравнительного оборота. Обе части начинаются с 'The' и сравнительной степени.",
+                  "es": "Esta es la estructura fija del doble comparativo. Ambas cláusulas comienzan con 'The' y un comparativo."
+                }
+              },
+              {
+                "choice": "Sooner / better",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Missing the definite article 'The'.",
+                  "de": "Falsch. Der bestimmte Artikel 'The' fehlt.",
+                  "ar": "غير صحيح. أداة التعريف 'The' مفقودة.",
+                  "Fr": "Incorrect. Il manque l'article défini 'The'.",
+                  "ru": "Неверно. Отсутствует определенный артикль 'The'.",
+                  "es": "Incorrecto. Falta el artículo definido 'The'."
+                }
+              },
+              {
+                "choice": "The soonest / the best",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Superlative forms are not used in this structure.",
+                  "de": "Falsch. Superlativformen werden in dieser Struktur nicht verwendet.",
+                  "ar": "غير صحيح. لا تستخدم صيغ التفضيل في هذه البنية.",
+                  "Fr": "Incorrect. Les formes superlatifs ne sont pas utilisées dans cette structure.",
+                  "ru": "Неверно. В этой структуре не используются превосходные степени.",
+                  "es": "Incorrecto. Las formas superlativas no se usan en esta estructura."
+                }
+              }
+            ]
           }
         }
       ]
@@ -7666,16 +7877,45 @@
           },
           "question": {
             "rendered_sentence": "The easiest _____ of transport _____ the subway.",
-            "type": "gap_fill",
-            "correct_answer": "means / is",
-            "explanation": {
-              "de": "Als singuläres Nomen, das 'Methode' bedeutet, wird 'means' mit einem Singularverb ('is') verwendet.",
-              "ar": "كاسم مفرد يعني 'طريقة'، يُستخدم 'means' مع فعل مفرد ('is').",
-              "en": "As a singular noun meaning 'method', 'means' is used with a singular verb ('is').",
-              "Fr": "En tant que nom singulier signifiant 'méthode', 'means' est utilisé avec un verbe au singulier ('is').",
-              "ru": "Как существительное в единственном числе, означающее 'способ', 'means' используется с глаголом в единственном числе ('is').",
-              "es": "Como sustantivo singular que significa 'método', 'means' se utiliza con un verbo singular ('is')."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "means / is",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Als singuläres Nomen, das 'Methode' bedeutet, wird 'means' mit einem Singularverb ('is') verwendet.",
+                  "ar": "كاسم مفرد يعني 'طريقة'، يُستخدم 'means' مع فعل مفرد ('is').",
+                  "en": "As a singular noun meaning 'method', 'means' is used with a singular verb ('is').",
+                  "Fr": "En tant que nom singulier signifiant 'méthode', 'means' est utilisé avec un verbe au singulier ('is').",
+                  "ru": "Как существительное в единственном числе, означающее 'способ', 'means' используется с глаголом в единственном числе ('is').",
+                  "es": "Como sustantivo singular que significa 'método', 'means' se utiliza con un verbo singular ('is')."
+                }
+              },
+              {
+                "choice": "mean / is",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Mean' is a verb or adjective; 'means' is the noun form.",
+                  "de": "Falsch. 'Mean' ist ein Verb oder Adjektiv; 'means' ist die Nomenform.",
+                  "ar": "غير صحيح. 'Mean' فعل أو صفة؛ 'means' هي صيغة الاسم.",
+                  "Fr": "Incorrect. 'Mean' est un verbe ou un adjectif ; 'means' est la forme nominale.",
+                  "ru": "Неверно. 'Mean' — это глагол или прилагательное; 'means' — это форма существительного.",
+                  "es": "Incorrecto. 'Mean' es un verbo o adjetivo; 'means' es la forma sustantiva."
+                }
+              },
+              {
+                "choice": "means / are",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Means' as a method is singular.",
+                  "de": "Falsch. 'Means' als Methode ist Singular.",
+                  "ar": "غير صحيح. 'Means' بمعنى طريقة تكون مفردة.",
+                  "Fr": "Incorrect. 'Means' en tant que méthode est singulier.",
+                  "ru": "Неверно. 'Means' как метод — единственное число.",
+                  "es": "Incorrecto. 'Means' como método es singular."
+                }
+              }
+            ]
           }
         }
       ]
@@ -7703,16 +7943,45 @@
           },
           "question": {
             "rendered_sentence": "_____ he left _____ the truth.",
-            "type": "gap_fill",
-            "correct_answer": "Only after / did I realize",
-            "explanation": {
-              "de": "Nach 'Only after' + Klausel muss der Hauptsatz invertiert werden (Did + Subjekt + Basisverb).",
-              "ar": "بعد 'Only after' + جملة، يجب قلب الجملة الرئيسية (Did + الفاعل + الفعل الأساسي).",
-              "en": "After 'Only after' + clause, the main clause must be inverted (Did + Subject + Base Verb).",
-              "Fr": "Après 'Only after' + clause, la clause principale doit être inversée (Did + Sujet + Verbe de base).",
-              "ru": "После 'Only after' + придаточное предложение, главное предложение должно быть инвертировано (Did + Подлежащее + Базовый глагол).",
-              "es": "Después de 'Only after' + cláusula, la cláusula principal debe invertirse (Did + Sujeto + Verbo base)."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "Only after / did I realize",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Nach 'Only after' + Klausel muss der Hauptsatz invertiert werden (Did + Subjekt + Basisverb).",
+                  "ar": "بعد 'Only after' + جملة، يجب قلب الجملة الرئيسية (Did + الفاعل + الفعل الأساسي).",
+                  "en": "After 'Only after' + clause, the main clause must be inverted (Did + Subject + Base Verb).",
+                  "Fr": "Après 'Only after' + clause, la clause principale doit être inversée (Did + Sujet + Verbe de base).",
+                  "ru": "После 'Only after' + придаточное предложение, главное предложение должно быть инвертировано (Did + Подлежащее + Базовый глагол).",
+                  "es": "Después de 'Only after' + cláusula, la cláusula principal debe invertirse (Did + Sujeto + Verbo base)."
+                }
+              },
+              {
+                "choice": "Only after / I realized",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Only after' at the start requires subject-auxiliary inversion.",
+                  "de": "Falsch. 'Only after' am Anfang erfordert eine Subjekt-Hilfsverb-Inversion.",
+                  "ar": "غير صحيح. تتطلب 'Only after' في البداية قلب الفاعل والفعل المساعد.",
+                  "Fr": "Incorrect. 'Only after' au début nécessite une inversion sujet-auxiliaire.",
+                  "ru": "Неверно. 'Only after' в начале требует инверсии подлежащего и вспомогательного глагола.",
+                  "es": "Incorrecto. 'Only after' al principio requiere inversión sujeto-auxiliar."
+                }
+              },
+              {
+                "choice": "After / did I realize",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Simple 'After' does not trigger inversion.",
+                  "de": "Falsch. Ein einfaches 'After' löst keine Inversion aus.",
+                  "ar": "غير صحيح. 'After' البسيطة لا تؤدي إلى القلب.",
+                  "Fr": "Incorrect. Un simple 'After' ne déclenche pas d'inversion.",
+                  "ru": "Неверно. Простое 'After' не вызывает инверсии.",
+                  "es": "Incorrecto. El simple 'After' no provoca inversión."
+                }
+              }
+            ]
           }
         }
       ]
@@ -7806,16 +8075,45 @@
           },
           "question": {
             "rendered_sentence": "If I _____ the bus, I _____ at the meeting now.",
-            "type": "gap_fill",
-            "correct_answer": "hadn't missed / would be",
-            "explanation": {
-              "de": "Die If-Klausel erfordert das Past Perfect ('hadn't missed'); die Hauptklausel für das Gegenwarts-Ergebnis erfordert 'would + Basisverb' ('would be').",
-              "ar": "تتطلب جملة 'If' الماضي التام ('hadn't missed')؛ تتطلب الجملة الرئيسية للنتيجة الحالية 'would + الفعل الأساسي' ('would be').",
-              "en": "The If-clause requires the Past Perfect ('hadn't missed'); the main clause for the present result requires 'would + base verb' ('would be').",
-              "Fr": "La clause If nécessite le Plus-que-parfait ('hadn't missed'); la clause principale pour le résultat présent nécessite 'would + verbe de base' ('would be').",
-              "ru": "Придаточное предложение с If требует Past Perfect ('hadn't missed'); главное предложение для настоящего результата требует 'would + базовый глагол' ('would be').",
-              "es": "La cláusula If requiere el Pasado Perfecto ('hadn't missed'); la cláusula principal para el resultado presente requiere 'would + verbo base' ('would be')."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "hadn't missed / would be",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Die If-Klausel erfordert das Past Perfect ('hadn't missed'); die Hauptklausel für das Gegenwarts-Ergebnis erfordert 'would + Basisverb' ('would be').",
+                  "ar": "تتطلب جملة 'If' الماضي التام ('hadn't missed')؛ تتطلب الجملة الرئيسية للنتيجة الحالية 'would + الفعل الأساسي' ('would be').",
+                  "en": "The If-clause requires the Past Perfect ('hadn't missed'); the main clause for the present result requires 'would + base verb' ('would be').",
+                  "Fr": "La clause If nécessite le Plus-que-parfait ('hadn't missed'); la clause principale pour le résultat présent nécessite 'would + verbe de base' ('would be').",
+                  "ru": "Придаточное предложение с If требует Past Perfect ('hadn't missed'); главное предложение для настоящего результата требует 'would + базовый глагол' ('would be').",
+                  "es": "La cláusula If requiere el Pasado Perfecto ('hadn't missed'); la cláusula principal para el resultado presente requiere 'would + verbo base' ('would be')."
+                }
+              },
+              {
+                "choice": "didn't miss / would be",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. Past Simple suggests a present condition, but missing the bus happened in the past.",
+                  "de": "Falsch. Past Simple deutet auf eine gegenwärtige Bedingung hin, aber das Verpassen des Busses geschah in der Vergangenheit.",
+                  "ar": "غير صحيح. يشير الماضي البسيط إلى شرط حالي، لكن تفويت الحافلة حدث في الماضي.",
+                  "Fr": "Incorrect. Le passé simple suggère une condition présente, mais manquer le bus s'est produit dans le passé.",
+                  "ru": "Неверно. Past Simple предполагает настоящее условие, но пропуск автобуса произошел в прошлом.",
+                  "es": "Incorrecto. El pasado simple sugiere una condición presente, pero perder el autobús ocurrió en el pasado."
+                }
+              },
+              {
+                "choice": "hadn't missed / would have been",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Would have been' is for a past result, but the result is 'now'.",
+                  "de": "Incorrect. 'Would have been' is for a past result, but the result is 'now'.",
+                  "ar": "Incorrect. 'Would have been' is for a past result, but the result is 'now'.",
+                  "Fr": "Incorrect. 'Would have been' is for a past result, but the result is 'now'.",
+                  "ru": "Incorrect. 'Would have been' is for a past result, but the result is 'now'.",
+                  "es": "Incorrect. 'Would have been' is for a past result, but the result is 'now'."
+                }
+              }
+            ]
           }
         }
       ]
@@ -8437,16 +8735,45 @@
           },
           "question": {
             "rendered_sentence": "If she _____ , she _____ the test.",
-            "type": "gap_fill",
-            "correct_answer": "had studied / would have passed",
-            "explanation": {
-              "de": "Der dritte Konditional wird verwendet, um eine hypothetische Vergangenheit auszudrücken. Der Nebensatz verwendet Past Perfect, der Hauptsatz 'Would Have + V3'.",
-              "ar": "يستخدم الشرط الثالث للتعبير عن ماضٍ افتراضي. يستخدم التابع الماضي التام، ويستخدم الرئيس 'Would Have + V3'.",
-              "en": "The third conditional is used to express a hypothetical past. The subordinate clause uses Past Perfect, and the main clause uses 'Would Have + V3'.",
-              "Fr": "Le troisième conditionnel est utilisé pour exprimer un passé hypothétique. La proposition subordonnée utilise le Plus-que-parfait et la principale utilise 'Would Have + V3'.",
-              "ru": "Третий тип условного предложения используется для выражения гипотетического прошлого. Придаточное использует Past Perfect, а главное — 'Would Have + V3'.",
-              "es": "El tercer condicional se usa para expresar un pasado hipotético. La cláusula subordinada usa Pasado Perfecto, y la principal usa 'Would Have + V3'."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "had studied / would have passed",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Der dritte Konditional wird verwendet, um eine hypothetische Vergangenheit auszudrücken. Der Nebensatz verwendet Past Perfect, der Hauptsatz 'Would Have + V3'.",
+                  "ar": "يستخدم الشرط الثالث للتعبير عن ماضٍ افتراضي. يستخدم التابع الماضي التام، ويستخدم الرئيس 'Would Have + V3'.",
+                  "en": "The third conditional is used to express a hypothetical past. The subordinate clause uses Past Perfect, and the main clause uses 'Would Have + V3'.",
+                  "Fr": "Le troisième conditionnel est utilisé pour exprimer un passé hypothétique. La proposition subordonnée utilise le Plus-que-parfait et la principale utilise 'Would Have + V3'.",
+                  "ru": "Третий тип условного предложения используется для выражения гипотетического прошлого. Придаточное использует Past Perfect, а главное — 'Would Have + V3'.",
+                  "es": "El tercer condicional se usa para expresar un pasado hipotético. La cláusula subordinada usa Pasado Perfecto, y la principal usa 'Would Have + V3'."
+                }
+              },
+              {
+                "choice": "studied / would pass",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. This is a Second Conditional (present/future), not past.",
+                  "de": "Falsch. Dies ist ein zweiter Konditional (Gegenwart/Zukunft), nicht Vergangenheit.",
+                  "ar": "غير صحيح. هذا شرط ثانٍ (حاضر/مستقبل)، وليس ماضياً.",
+                  "Fr": "Incorrect. C'est un deuxième conditionnel (présent/futur), pas passé.",
+                  "ru": "Неверно. Это второй тип условных предложений (настоящее/будущее), а не прошлое.",
+                  "es": "Incorrecto. Este es un segundo condicional (presente/futuro), no pasado."
+                }
+              },
+              {
+                "choice": "has studied / will pass",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. This is a First Conditional (real possibility), not hypothetical past.",
+                  "de": "Falsch. Dies ist ein erster Konditional (reale Möglichkeit), keine hypothetische Vergangenheit.",
+                  "ar": "غير صحيح. هذا شرط أول (احتمال حقيقي)، وليس ماضياً افتراضياً.",
+                  "Fr": "Incorrect. C'est un premier conditionnel (possibilité réelle), pas un passé hypothétique.",
+                  "ru": "Неверно. Это первый тип условных предложений (реальная возможность), а не гипотетическое прошлое.",
+                  "es": "Incorrecto. Este es un primer condicional (posibilidad real), no pasado hipotético."
+                }
+              }
+            ]
           }
         }
       ]
@@ -9398,16 +9725,45 @@
           },
           "question": {
             "rendered_sentence": "_____ I sat down _____ the phone rang.",
-            "type": "gap_fill",
-            "correct_answer": "No sooner had / than",
-            "explanation": {
-              "de": "Die korrekte Korrelation ist 'No sooner' im ersten Teil (mit Inversion 'had I') und 'than' im zweiten Teil.",
-              "ar": "الارتباط الصحيح هو 'No sooner' في الجزء الأول (مع القلب 'had I') و 'than' في الجزء الثاني.",
-              "en": "The correct correlation is 'No sooner' in the first part (with inversion 'had I') and 'than' in the second part.",
-              "Fr": "La corrélation correcte est 'No sooner' dans la première partie (avec inversion 'had I') et 'than' dans la deuxième partie.",
-              "ru": "Правильная корреляция — 'No sooner' в первой части (с инверсией 'had I') и 'than' во второй части.",
-              "es": "La correlación correcta es 'No sooner' en la primera parte (con inversión 'had I') y 'than' en la segunda parte."
-            }
+            "type": "multiple_choice",
+            "options": [
+              {
+                "choice": "No sooner had / than",
+                "is_correct": true,
+                "explanation": {
+                  "de": "Die korrekte Korrelation ist 'No sooner' im ersten Teil (mit Inversion 'had I') und 'than' im zweiten Teil.",
+                  "ar": "الارتباط الصحيح هو 'No sooner' في الجزء الأول (مع القلب 'had I') و 'than' في الجزء الثاني.",
+                  "en": "The correct correlation is 'No sooner' in the first part (with inversion 'had I') and 'than' in the second part.",
+                  "Fr": "La corrélation correcte est 'No sooner' dans la première partie (avec inversion 'had I') et 'than' dans la deuxième partie.",
+                  "ru": "Правильная корреляция — 'No sooner' в первой части (с инверсией 'had I') и 'than' во второй части.",
+                  "es": "La correlación correcta es 'No sooner' en la primera parte (con inversión 'had I') y 'than' en la segunda parte."
+                }
+              },
+              {
+                "choice": "Hardly had / than",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'Hardly' correlates with 'when', not 'than'.",
+                  "de": "Falsch. 'Hardly' korreliert mit 'when', nicht mit 'than'.",
+                  "ar": "غير صحيح. ترتبط 'Hardly' بـ 'when'، وليس 'than'.",
+                  "Fr": "Incorrect. 'Hardly' est corrélé avec 'when', pas 'than'.",
+                  "ru": "Неверно. 'Hardly' коррелирует с 'when', а не с 'than'.",
+                  "es": "Incorrecto. 'Hardly' se correlaciona con 'when', no con 'than'."
+                }
+              },
+              {
+                "choice": "No sooner had / when",
+                "is_correct": false,
+                "explanation": {
+                  "en": "Incorrect. 'No sooner' correlates with 'than'.",
+                  "de": "Falsch. 'No sooner' korreliert mit 'than'.",
+                  "ar": "غير صحيح. ترتبط 'No sooner' بـ 'than'.",
+                  "Fr": "Incorrect. 'No sooner' est corrélé avec 'than'.",
+                  "ru": "Неверно. 'No sooner' коррелирует с 'than'.",
+                  "es": "Incorrecto. 'No sooner' se correlaciona con 'than'."
+                }
+              }
+            ]
           }
         }
       ]
