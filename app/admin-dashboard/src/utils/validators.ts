@@ -573,7 +573,7 @@ export const validateGrammarStudyQuestions = (data: any): ValidationResult => {
       }
 
       if (!Array.isArray(question.options)) {
-        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "options" array`);
+        errors.push(`Group ${groupIndex}, Sentence ${sentenceIndex}: Missing or invalid "options" array - ${question.rendered_sentence}`);
         return;
       }
 
