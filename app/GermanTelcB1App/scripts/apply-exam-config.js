@@ -268,6 +268,47 @@ function updateAndroidNativeFiles(config) {
   }
 }
 
+function copyFirebaseConfigToFlavorDirectory(examId) {
+  // Map exam ID to flavor directory name
+  const flavorMap = {
+    'german-b1': 'germanB1',
+    'german-b2': 'germanB2',
+    'english-b1': 'englishB1',
+  };
+  
+  const flavorName = flavorMap[examId];
+  if (!flavorName) {
+    console.warn(`⚠️  Warning: Unknown exam ID for flavor mapping: ${examId}`);
+    return;
+  }
+
+  const sourceFile = path.join(__dirname, `../android/app/google-services.${examId}.json`);
+  const flavorDir = path.join(__dirname, `../android/app/src/${flavorName}`);
+  const destFile = path.join(flavorDir, 'google-services.json');
+
+  try {
+    // Create flavor directory if it doesn't exist
+    if (!fs.existsSync(flavorDir)) {
+      fs.mkdirSync(flavorDir, { recursive: true });
+      console.log(`✅ Created flavor directory: ${flavorName}`);
+    }
+
+    // Check if source file exists
+    if (!fs.existsSync(sourceFile)) {
+      console.warn(`⚠️  Warning: Firebase config file not found: google-services.${examId}.json`);
+      console.warn(`   Expected at: ${sourceFile}`);
+      return;
+    }
+
+    // Copy the file
+    fs.copyFileSync(sourceFile, destFile);
+    console.log(`✅ Copied google-services.${examId}.json to ${flavorName} flavor directory`);
+  } catch (error) {
+    console.error(`❌ Failed to copy Firebase config to flavor directory:`, error.message);
+    throw error;
+  }
+}
+
 function updateiOSNativeFiles(config) {
   // iOS native files are no longer modified per-build
   // The project structure (TelcExamApp) remains constant
@@ -343,6 +384,7 @@ try {
     updateAndroidConfig(config);
     updateAndroidStrings(config);
     updateAndroidNativeFiles(config);
+    copyFirebaseConfigToFlavorDirectory(examId);
   } else if (platform === 'ios') {
     // For iOS, configuration is now handled by schemes
     updateiOSConfig(config);

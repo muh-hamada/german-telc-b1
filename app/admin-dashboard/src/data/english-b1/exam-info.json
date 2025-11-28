@@ -1,0 +1,268 @@
+{
+    "exam_info": {
+        "title": {
+            "en": "Telc English B1 / Zertifikat English Exam Overview",
+            "ar": "نظرة عامة على اختبار Telc English B1 / شهادة اللغة الإنجليزية",
+            "ru": "Обзор экзамена Telc English B1 / Сертификат по английскому языку",
+            "fr": "Aperçu de l'examen Telc English B1 / Certificat d'anglais",
+            "es": "Resumen del Examen Telc English B1 / Certificado de Inglés",
+            "de": "Überblick über die Prüfung Telc Englisch B1 / Zertifikat Englisch"
+        },
+        "cefr_level": "B1",
+        "total_duration_minutes": 180,
+        "total_max_points": 300,
+        "passing_score": {
+            "overall_points": 180,
+            "written_component_min_points": 135,
+            "oral_component_min_points": 45,
+            "note": {
+                "en": "A minimum of 60% must be achieved in both the Written (135/225) and Oral (45/75) components to pass the entire exam.",
+                "ar": "يجب أن يحصل على نسبة 60٪ على الأقل في كل من الكتابي (135/225) والشفوي (45/75) للاجتياز الاختبار بالكامل.",
+                "ru": "Для сдачи экзамена кандидаты должны набрать 60% от максимального балла как в письменной части (135 из 225 баллов), так и в устной части (45 из 75 баллов).",
+                "fr": "Pour réussir, les candidats doivent obtenir 60 % du score maximum dans les DEUX examens : Écrit (135/225 points) et Oral (45/75 points).",
+                "es": "Para aprobar, los candidatos deben alcanzar el 60% de la puntuación máxima tanto en el Examen Escrito (135/225 puntos) como en el Examen Oral (45/75 puntos).",
+                "de": "Zum Bestehen müssen die Teilnehmenden 60 % der Höchstpunktzahl in BEIDEN Prüfungsteilen erreichen: Schriftliche Prüfung (135/225 Punkte) und Mündliche Prüfung (45/75 Punkte)."
+            }
+        },
+        "exam_structure": {
+            "title": {
+                "en": "Detailed Exam Structure and Timing",
+                "ar": "الهيكل التفصيلي للاختبار والتوقيت",
+                "ru": "Подробная структура и тайминг экзамена",
+                "fr": "Structure détaillée de l'examen et calendrier",
+                "es": "Estructura detallada del examen y horarios",
+                "de": "Detaillierte Prüfungsstruktur und Zeitrahmen"
+            },
+            "sections": [
+                {
+                    "name": "Written Exam",
+                    "total_time_minutes": 150,
+                    "max_points": 225,
+                    "weight_percent": 75,
+                    "parts": [
+                        {
+                            "part_name": "1. Reading",
+                            "time_minutes": 90,
+                            "max_points": 75,
+                            "question_type_detail": {
+                                "en": "Three parts testing Global, Detailed, and Selective comprehension: Matching headings to texts (5 items), Multiple-Choice questions (5 items), and matching situations to advertisements (10 items).",
+                                "ar": "ثلاثة أجزاء لاختبار الفهم العام والتفصيلي والانتقائي: مطابقة العناوين بالنصوص (5 عناصر)، أسئلة الاختيار من متعدد (5 عناصر)، ومطابقة المواقف بالإعلانات (10 عناصر).",
+                                "ru": "Три части, проверяющие глобальное, детальное и выборочное понимание: сопоставление заголовков с текстами (5 заданий), выбор одного ответа из нескольких (5 заданий) и сопоставление ситуаций с объявлениями (10 заданий).",
+                                "fr": "Trois parties testant la compréhension globale, détaillée et sélective : associer des titres à des textes (5), questions à choix multiples (5) et associer des situations à des publicités (10).",
+                                "es": "Tres partes que evalúan la comprensión global, detallada y selectiva: emparejar titulares con textos (5 ítems), preguntas de opción múltiple (5 ítems) y emparejar situaciones con anuncios (10 ítems).",
+                                "de": "Drei Teile zur Prüfung des Global-, Detail- und Selektivverstehens: Zuordnungsaufgaben (5 Überschriften), Multiple-Choice-Aufgaben (5 Fragen) und Zuordnung von Situationen zu Anzeigen (10 Situationen)."
+                            }
+                        },
+                        {
+                            "part_name": "2. Language Elements",
+                            "time_minutes": 90,
+                            "max_points": 30,
+                            "question_type_detail": {
+                                "en": "Two parts testing Grammar and Vocabulary, done concurrently with Leseverstehen. Consists of a Multiple-Choice cloze test (10 items) and a cloze test with a word bank (10 items).",
+                                "ar": "جزءان لاختبار القواعد والمفردات، يتم إجراؤهما بالتزامن مع 'Leseverstehen'. يتكون من اختبار تعبئة الفراغات بالاختيار من متعدد (10 عناصر) واختبار تعبئة الفراغات ببنوك الكلمات (10 عناصر).",
+                                "ru": "Две части, проверяющие грамматику и лексику, выполняются одновременно с чтением. Состоит из теста с выбором пропущенных слов (10 заданий) и теста с выбором пропущенных слов из предложенного списка (10 заданий).",
+                                "fr": "Deux parties évaluant la Grammaire et le Vocabulaire, réalisées en parallèle avec la lecture. Comprend un test de remplissage (10 QCM) et un test de remplissage avec banque de mots (10 éléments).",
+                                "es": "Dos partes que evalúan Gramática y Vocabulario, realizadas simultáneamente con la lectura. Consiste en una prueba de rellenar huecos de opción múltiple (10 ítems) y una prueba de rellenar huecos con un banco de palabras (10 ítems).",
+                                "de": "Zwei Teile zur Prüfung der Grammatik und des Wortschatzes, gleichzeitig mit dem Leseverstehen. Besteht aus einem Multiple-Choice-Lückentext (10 Items) und einem Lückentext mit Wortliste (10 Items)."
+                            }
+                        },
+                        {
+                            "part_name": "3. Listening",
+                            "time_minutes": 30,
+                            "max_points": 75,
+                            "question_type_detail": {
+                                "en": "Three parts (Global, Detailed, Selective comprehension) consisting entirely of True/False (Richtig/Falsch) questions based on short texts and a longer dialogue.",
+                                "ar": "ثلاثة أجزاء (فهم عام، مفصل، انتقائي) تتكون بالكامل من أسئلة صواب/خطأ (Richtig/Falsch) بناءً على نصوص قصيرة وحوار أطول.",
+                                "ru": "Три части (глобальное, детальное, выборочное понимание), полностью состоящие из вопросов 'Верно/Неверно' (Richtig/Falsch) на основе коротких текстов и более длинного диалога.",
+                                "fr": "Trois parties (compréhension globale, détaillée, sélective) composées entièrement de questions Vrai/Faux (Richtig/Falsch) basées sur des textes courts et un dialogue plus long.",
+                                "es": "Tres partes (comprensión global, detallada, selectiva) que consisten enteramente en preguntas de Verdadero/Falso (Richtig/Falsch) basadas en textos cortos y un diálogo más largo.",
+                                "de": "Drei Teile (Global-, Detail-, Selektivverstehen), die vollständig aus Richtig/Falsch-Aufgaben bestehen, basierend auf kurzen Texten und einem längeren Dialog."
+                            }
+                        },
+                        {
+                            "part_name": "4. Writing",
+                            "time_minutes": 30,
+                            "max_points": 45,
+                            "question_type_detail": {
+                                "en": "Write an informal or semi-formal E-mail. The task requires covering four specific content points provided in the prompt.",
+                                "ar": "كتابة رسالة بريد إلكتروني غير رسمية أو شبه رسمية. تتطلب المهمة تغطية أربع نقاط محتوى محددة مقدمة في السؤال.",
+                                "ru": "Написать неформальное или полуформальное электронное письмо. Задание требует освещения четырех конкретных пунктов, указанных в условии.",
+                                "fr": "Rédaction d'un e-mail informel ou semi-formel. La tâche exige de couvrir quatre points de contenu spécifiques fournis dans la consigne.",
+                                "es": "Escribir un correo electrónico informal o semiformal. La tarea requiere cubrir cuatro puntos de contenido específicos proporcionados en la instrucción.",
+                                "de": "Verfassen einer informellen oder halbformellen E-Mail. Die Aufgabe erfordert die Behandlung von vier spezifischen Inhaltspunkten, die in der Aufgabenstellung gegeben sind."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Oral Exam",
+                    "total_time_minutes": 15,
+                    "preparation_time_minutes": 20,
+                    "max_points": 75,
+                    "weight_percent": 25,
+                    "parts": [
+                        {
+                            "part_name": "1. Getting to know each other",
+                            "time_minutes": 3,
+                            "max_points": 15,
+                            "question_type_detail": {
+                                "en": "Introduce yourself and ask your partner questions on topics like name, origin, housing, family, job, and languages.",
+                                "ar": "قدّم نفسك واسأل شريكك أسئلة حول مواضيع مثل الاسم، الأصل، السكن، العائلة، العمل، واللغات.",
+                                "ru": "Представьтесь и задайте партнеру вопросы на темы, такие как имя, происхождение, жилье, семья, работа и языки.",
+                                "fr": "Vous présenter et poser des questions à votre partenaire sur des sujets tels que le nom, l'origine, le logement, la famille, le travail et les langues.",
+                                "es": "Presentarse y hacer preguntas a su compañero sobre temas como el nombre, el origen, la vivienda, la familia, el trabajo y los idiomas.",
+                                "de": "Sich selbst vorstellen und dem Partner Fragen zu Themen wie Name, Herkunft, Wohnsituation, Familie, Beruf und Sprachen stellen."
+                            }
+                        },
+                        {
+                            "part_name": "2. Talking about a topic",
+                            "time_minutes": 6,
+                            "max_points": 30,
+                            "question_type_detail": {
+                                "en": "Present a short text/opinion you have read and discuss the topic (e.g., group travel) with your partner, giving your own experiences and views.",
+                                "ar": "قدّم نصًا/رأيًا قصيرًا قرأته وناقش الموضوع (مثل السفر الجماعي) مع شريكك، مع إبداء تجاربك وآرائك الخاصة.",
+                                "ru": "Представьте короткий текст/мнение, которое вы прочитали, и обсудите тему (например, групповые поездки) с партнером, поделившись собственным опытом и взглядами.",
+                                "fr": "Présenter un court texte/une opinion que vous avez lu et discuter du sujet (par exemple, les voyages en groupe) avec votre partenaire, en partageant vos propres expériences et points de vue.",
+                                "es": "Presentar un texto/opinión corta que haya leído y debatir el tema (por ejemplo, viajes en grupo) con su compañero, dando sus propias experiencias y puntos de vista.",
+                                "de": "Präsentieren Sie einen kurzen Text/eine Meinung, die Sie gelesen haben, und diskutieren Sie das Thema (z. B. Gruppenreisen) mit Ihrem Partner, indem Sie Ihre eigenen Erfahrungen und Ansichten einbringen."
+                            }
+                        },
+                        {
+                            "part_name": "3. Planning something together",
+                            "time_minutes": 6,
+                            "max_points": 30,
+                            "question_type_detail": {
+                                "en": "Collaboratively plan an event or activity (e.g., a farewell party) with your partner, discussing ideas, negotiating, and agreeing on who does what.",
+                                "ar": "خطط لحدث أو نشاط (مثل حفلة وداع) بشكل تعاوني مع شريكك، ومناقشة الأفكار، والتفاوض، والاتفاق على من يقوم بماذا.",
+                                "ru": "Совместно спланируйте мероприятие или активность (например, прощальную вечеринку) с партнером, обсуждая идеи, ведя переговоры и договариваясь о распределении задач.",
+                                "fr": "Planifier ensemble un événement ou une activité (par exemple, une fête d'adieu) avec votre partenaire, en discutant des idées, en négociant et en vous mettant d'accord sur la répartition des tâches.",
+                                "es": "Planificar en colaboración un evento o actividad (por ejemplo, una fiesta de despedida) con su compañero, discutiendo ideas, negociando y acordando quién hace qué.",
+                                "de": "Planen Sie gemeinsam eine Veranstaltung oder Aktivität (z. B. eine Abschiedsparty) mit Ihrem Partner, indem Sie Ideen diskutieren, verhandeln und sich darauf einigen, wer welche Aufgabe übernimmt."
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "assessment_score": {
+            "title": {
+                "en": "Assessment Criteria and Maximum Scores by Section",
+                "ar": "معايير التقييم والحد الأقصى للدرجات حسب القسم",
+                "ru": "Критерии оценки и максимальные баллы по разделам",
+                "fr": "Critères d'évaluation et scores maximums par section",
+                "es": "Criterios de evaluación y puntuaciones máximas por sección",
+                "de": "Bewertungskriterien und Höchstpunktzahlen nach Teilbereich"
+            },
+            "assessment_details": [
+                {
+                    "section_name": "Writing",
+                    "max_points": 45,
+                    "criteria": [
+                        {
+                            "name": "I. Task Management",
+                            "max_points": 5,
+                            "explanation": {
+                                "en": "The extent to which all four required content points from the prompt have been adequately addressed in the email.",
+                                "ar": "مدى معالجة النقاط الأربع المطلوبة للمحتوى من السؤال بشكل مناسب في البريد الإلكتروني.",
+                                "ru": "Степень, в которой все четыре требуемых пункта содержания из задания были адекватно освещены в электронном письме.",
+                                "fr": "La mesure dans laquelle les quatre points de contenu requis par la consigne ont été traités de manière adéquate dans l'e-mail.",
+                                "es": "El grado en que se han abordado adecuadamente los cuatro puntos de contenido requeridos en la instrucción del correo electrónico.",
+                                "de": "Der Grad, in dem alle vier geforderten Inhaltspunkte der Aufgabenstellung angemessen im E-Mail behandelt wurden."
+                            }
+                        },
+                        {
+                            "name": "II. Communicative Design",
+                            "max_points": 5,
+                            "explanation": {
+                                "en": "Evaluates the structure, coherence (flow of text), use of appropriate register (personal/semi-formal), and variety of linguistic resources.",
+                                "ar": "يقيّم البنية والترابط (تدفق النص)، واستخدام السجل المناسب (شخصي/شبه رسمي)، وتنوع الموارد اللغوية.",
+                                "ru": "Оценивает структуру, связность (логика текста), использование соответствующего регистра (личного/полуформального) и разнообразие языковых средств.",
+                                "fr": "Évalue la structure, la cohérence (flux du texte), l'utilisation d'un registre approprié (personnel/semi-formel) et la variété des ressources linguistiques.",
+                                "es": "Evalúa la estructura, la coherencia (flujo del texto), el uso de un registro apropiado (personal/semiformal) y la variedad de recursos lingüísticos.",
+                                "de": "Bewertet die Struktur, die Kohärenz (Textlogik), die Verwendung des angemessenen Registers (persönlich/halbformell) und das Spektrum der sprachlichen Mittel."
+                            }
+                        },
+                        {
+                            "name": "III. Accuracy",
+                            "max_points": 5,
+                            "explanation": {
+                                "en": "Assessment of grammatical correctness, including syntax and morphology, as well as spelling and punctuation. Clarity is the main priority.",
+                                "ar": "تقييم الصحة النحوية، بما في ذلك بناء الجملة والصرف، بالإضافة إلى الإملاء وعلامات الترقيم. الوضوح هو الأولوية الرئيسية.",
+                                "ru": "Оценка грамматической правильности, включая синтаксис и морфологию, а также орфографию и пунктуацию. Понятность является главным приоритетом.",
+                                "fr": "Évaluation de la correction grammaticale, y compris la syntaxe et la morphologie, ainsi que l'orthographe et la ponctuation. La clarté est la priorité principale.",
+                                "es": "Evaluación de la corrección gramatical, incluida la sintaxis y la morfología, así como la ortografía y la puntuación. La claridad es la prioridad principal.",
+                                "de": "Bewertung der grammatikalischen Korrektheit, einschließlich Syntax und Morphologie, sowie Rechtschreibung und Zeichensetzung. Verständlichkeit hat oberste Priorität."
+                            }
+                        }
+                    ],
+                    "note": {
+                        "en": "The sum of points from the 3 criteria (max 15) is multiplied by 3 to reach the total of 45 points.",
+                        "ar": "يتم ضرب مجموع النقاط من المعايير الثلاثة (الحد الأقصى 15) في 3 للوصول إلى المجموع الكلي البالغ 45 نقطة.",
+                        "ru": "Сумма баллов по 3 критериям (максимум 15) умножается на 3, чтобы получить общую сумму в 45 баллов.",
+                        "fr": "La somme des points des 3 critères (max 15) est multipliée par 3 pour atteindre le total de 45 points.",
+                        "es": "La suma de los puntos de los 3 criterios (máximo 15) se multiplica por 3 para alcanzar el total de 45 puntos.",
+                        "de": "Die Summe der Punkte aus den 3 Kriterien (max. 15) wird mit 3 multipliziert, um die Gesamtpunktzahl von 45 Punkten zu erreichen."
+                    }
+                },
+                {
+                    "section_name": "Speaking",
+                    "max_points": 75,
+                    "criteria": [
+                        {
+                            "name": "1. Expression",
+                            "explanation": {
+                                "en": "Evaluates vocabulary, range of expression, and the successful realization of communicative intent (what the speaker wants to say).",
+                                "ar": "يقيّم المفردات، ونطاق التعبير، والتحقيق الناجح للهدف التواصلي (ما يريد المتحدث قوله).",
+                                "ru": "Оценивает словарный запас, диапазон выражений и успешную реализацию коммуникативного намерения (что хочет сказать говорящий).",
+                                "fr": "Évalue le vocabulaire, l'étendue de l'expression et la réalisation réussie de l'intention communicative (ce que l'orateur veut dire).",
+                                "es": "Evalúa el vocabulario, el rango de expresión y la realización exitosa de la intención comunicativa (lo que el hablante quiere decir).",
+                                "de": "Bewertet Wortschatz, Ausdrucksweise und die erfolgreiche Verwirklichung der Sprechabsicht (was der Sprecher sagen möchte)."
+                            }
+                        },
+                        {
+                            "name": "2. Task Management",
+                            "explanation": {
+                                "en": "Assesses participation, use of discourse strategies (e.g., asking for clarification), and fluency of speech.",
+                                "ar": "يقيّم المشاركة، واستخدام استراتيجيات الخطاب (مثل طلب التوضيح)، وطلاقة الكلام.",
+                                "ru": "Оценивает участие, использование дискурсивных стратегий (например, просьба о разъяснении) и беглость речи.",
+                                "fr": "Évalue la participation, l'utilisation de stratégies discursives (ex: demander des éclaircissements) et la fluidité de la parole.",
+                                "es": "Evalúa la participación, el uso de estrategias discursivas (por ejemplo, pedir aclaraciones) y la fluidez del habla.",
+                                "de": "Beurteilt die Gesprächsbeteiligung, die Verwendung von Diskursstrategien (z. B. Nachfragen) und die Flüssigkeit der Rede."
+                            }
+                        },
+                        {
+                            "name": "3. Accuracy",
+                            "explanation": {
+                                "en": "Assessment of grammatical correctness (syntax and morphology). Errors are acceptable as long as they do not hinder overall understanding.",
+                                "ar": "تقييم الصحة النحوية (بناء الجملة والصرف). الأخطاء مقبولة طالما أنها لا تعيق الفهم العام.",
+                                "ru": "Оценка грамматической правильности (синтаксис и морфология). Ошибки допустимы, если они не препятствуют общему пониманию.",
+                                "fr": "Évaluation de la correction grammaticale (syntaxe et morphologie). Les erreurs sont acceptables tant qu'elles n'entravent pas la compréhension globale.",
+                                "es": "Evaluación de la corrección gramatical (sintaxis y morfología). Los errores son aceptables siempre que no obstaculicen la comprensión general.",
+                                "de": "Bewertung der grammatikalischen Korrektheit (Syntax und Morphologie). Fehler sind akzeptabel, solange sie das Gesamtverständnis nicht erheblich beeinträchtigen."
+                            }
+                        },
+                        {
+                            "name": "4. Pronunciation/Intonation",
+                            "explanation": {
+                                "en": "Evaluates the clarity of pronunciation and intonation. Deviations are judged on whether or not they hinder the understanding of the spoken message.",
+                                "ar": "يقيّم وضوح النطق والتنغيم. يتم الحكم على الانحرافات بناءً على ما إذا كانت تعيق فهم الرسالة المنطوقة أم لا.",
+                                "ru": "Оценивает четкость произношения и интонации. Отклонения оцениваются по тому, препятствуют ли они пониманию устного сообщения.",
+                                "fr": "Évalue la clarté de la prononciation et de l'intonation. Les écarts sont jugés selon qu'ils entravent ou non la compréhension du message parlé.",
+                                "es": "Evalúa la claridad de la pronunciación y la entonación. Las desviaciones se juzgan según si obstaculizan o no la comprensión del mensaje hablado.",
+                                "de": "Bewertet die Klarheit von Aussprache und Intonation. Abweichungen werden danach beurteilt, ob sie das Verständnis der gesprochenen Nachricht behindern oder nicht."
+                            }
+                        }
+                    ],
+                    "points_distribution": {
+                        "en": "Points are distributed across the three parts with a weighting: Part 1 (max 15 points); Parts 2 & 3 (max 30 points each).",
+                        "ar": "يتم توزيع النقاط على الأجزاء الثلاثة مع ترجيح: الجزء الأول (15 نقطة كحد أقصى)؛ الجزءان الثاني والثالث (30 نقطة كحد أقصى لكل منهما).",
+                        "ru": "Баллы распределяются по трем частям с весом: Часть 1 (макс. 15 баллов); Части 2 и 3 (макс. 30 баллов каждая).",
+                        "fr": "Les points sont répartis sur les trois parties avec une pondération : Partie 1 (max 15 points) ; Parties 2 et 3 (max 30 points chacune).",
+                        "es": "Los puntos se distribuyen en las tres partes con una ponderación: Parte 1 (máx. 15 puntos); Partes 2 y 3 (máx. 30 puntos cada una).",
+                        "de": "Die Punkte werden gewichtet auf die drei Teile verteilt: Teil 1 (max. 15 Punkte); Teil 2 & 3 (max. 30 Punkte jeweils)."
+                    }
+                }
+            ]
+        }
+    }
+}

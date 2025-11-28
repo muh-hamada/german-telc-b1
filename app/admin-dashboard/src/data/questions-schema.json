@@ -464,3 +464,16 @@ Grammar Part 2: JSON schema
         "40": "<answer_key>"
     }
 }
+
+Writing: JSON schema
+{
+    "id": 0,
+    "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
+    "incomingEmail": "<text_string>", // use \n for new lines
+    "writingPoints": [
+        "<writing_point_string>",
+        "<writing_point_string>",
+        "<writing_point_string>",
+        "<writing_point_string>"
+    ]
+}

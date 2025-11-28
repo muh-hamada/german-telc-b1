@@ -1,0 +1,136 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "title": "International Travellers' Club Ad",
+      "incomingEmail": "INTERTRAVEL\nThe International Travellers' Club\n\nDo you ever travel abroad? Would you like to meet more people and make more friends when you are in another country?\n\nIf so, join INTERTRAVEL! We have contacts in over 100 European cities.\n\nSend us your personal details and you will receive more information about our services and about how to become a member.\n\nWrite today to:\nintertravel@leeds.co.uk",
+      "writingPoints": [
+        "Ask for more details (e. g. cost, registration, etc.)",
+        "Give some information about yourself",
+        "Mention the reason for your enquiry",
+        "Say why you would like to join Intertravel"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Summer Language Course Ad",
+      "incomingEmail": "OXFORD SUMMER SCHOOL\n\nDo you want to improve your English this summer? Come to our language school in the heart of Oxford!\n\nWe offer 2-week and 4-week intensive courses for adults at all levels. Small groups, experienced teachers, and a great social programme included.\n\nAccommodation is available in the student residence or with host families.\n\nWrite to us for more details and prices:\ninfo@oxford-summer-school.com",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Give some information about yourself (age, current English level)",
+        "Ask about the cost of the course and accommodation",
+        "Ask for more details about the social programme"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Tennis Club Advertisement",
+      "incomingEmail": "THE RACKET CLUB\n\nAre you looking for a fun way to keep fit? Join our new tennis and badminton club in the city centre!\n\nWe welcome players of all ages and levels, from absolute beginners to advanced players. We offer group lessons, weekend tournaments, and a comfortable clubhouse.\n\nSpecial discount for students and families this month!\n\nFor more details, contact us at:\nmembership@racket-club.net",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Give some information about yourself (age, sports experience)",
+        "Ask about the cost of membership and lessons",
+        "Ask if you need to bring your own equipment"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Holiday Cottage Advertisement",
+      "incomingEmail": "SEASIDE HOLIDAYS\n\nAre you planning your next holiday? Rent our lovely stone cottage in Cornwall.\n\nLocated just 5 minutes from the beach, it is the perfect place to relax. The cottage sleeps up to 6 people and has a fully equipped kitchen and a large garden.\n\nAvailable from May to September.\n\nFor booking and availability, email Mrs. Jones at:\ncottage-holidays@webmail.com",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Say when you want to visit and how many people are coming",
+        "Ask about the price per week",
+        "Ask if pets are allowed in the cottage"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Music Festival Volunteer Ad",
+      "incomingEmail": "SUMMER SOUND FESTIVAL\n\nDo you love music? Do you want to be part of the biggest event of the summer?\n\nWe are looking for energetic volunteers to help us at this year's festival in July.\n\nJobs include helping at the entrance, selling programmes, and assisting the bands. In return, you get a free pass to all concerts and free camping!\n\nIf you are interested, please write to:\nvolunteers@summersound.com",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Give some information about yourself (age, interests)",
+        "Say why you would like to be a volunteer",
+        "Ask about the exact dates and working hours"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Cooking Class Advertisement",
+      "incomingEmail": "ITALIAN COOKING SCHOOL\n\nDo you love Italian food? Do you want to learn how to make perfect pasta and pizza?\n\nJoin our weekend cooking workshops! Our expert chefs will teach you traditional recipes in a fun and relaxed atmosphere.\n\nCourses take place every Saturday and Sunday. All ingredients are provided.\n\nFor more information and to book a place, please email:\ninfo@cooking-school.net",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Give some information about your cooking experience",
+        "Ask about the price of the workshop",
+        "Ask about the exact start and finish times"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Summer Internship Advertisement",
+      "incomingEmail": "GLOBAL MARKETING GROUP\n\nAre you a student? Do you want to gain work experience in an international environment?\n\nWe are looking for motivated interns for our London office this summer (July - August).\n\nYou will help our team with social media projects and organize events. Excellent English skills are required.\n\nSend your application to Ms. Baker at:\njobs@global-marketing.com",
+      "writingPoints": [
+        "Mention the reason for your enquiry",
+        "Give some information about yourself (studies, languages)",
+        "Say why you are interested in this internship",
+        "Ask about the working hours and if the internship is paid"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Visit from a Friend",
+      "incomingEmail": "Subject: Visiting you!\n\nHi!\n\nI have some great news. I am finally coming to your city next month for a few days! I have a holiday from work and I'd love to see you.\n\nAre you around in the second week of May? I really want to meet up.\n\nAlso, I haven't booked a hotel yet. Do you know a good, cheap place to stay near the centre?\n\nLet me know! I can't wait to see you.\n\nBest wishes,\nAlex",
+      "writingPoints": [
+        "Say how you feel about the visit",
+        "Say if you are free in the second week of May",
+        "Recommend a place to stay (or offer accommodation)",
+        "Suggest an activity you can do together"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Birthday Party Invitation",
+      "incomingEmail": "Subject: My Birthday Party!\n\nHello!\n\nI hope you are doing well. \n\nI'm writing because I'm celebrating my birthday next Saturday night. I'm having a big party at my house with food, drinks, and music. It would be wonderful if you could come!\n\nAlso, I'm thinking of preparing some vegetarian food. Do you know any good recipes?\n\nPlease let me know if you can make it.\n\nLove,\nJulia",
+      "writingPoints": [
+        "Thank Julia for the invitation",
+        "Explain why you cannot come to the party (e.g., family event, travel)",
+        "Suggest a recipe or food idea for the party",
+        "Suggest meeting another time to give her a present"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "News about a New Job",
+      "incomingEmail": "Subject: Big News!\n\nHi!\n\nI have some exciting news to tell you. I finally got a new job in Manchester! I am going to move there next month.\n\nI am very happy, but I am also a bit nervous because I don't know anyone there. I know you moved to a new city last year. How did you make new friends?\n\nAlso, I need to find an apartment. Do you think it is better to live alone or share a flat with other people?\n\nWrite back soon!\n\nBest wishes,\nDaniel",
+      "writingPoints": [
+        "Congratulate Daniel on his new job",
+        "Give him advice on how to meet new people",
+        "Give your opinion about living alone or sharing a flat",
+        "Ask him when he starts working"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Meeting Request from Boss",
+      "incomingEmail": "Subject: Project Meeting\n\nDear Staff,\n\nI would like to have a brief meeting with you next Tuesday at 9:00 am to discuss the plans for our new project.\n\nPlease let me know if you are available at this time.\n\nAlso, I have not received the monthly sales report from you yet. Have you finished it? I need it before the meeting.\n\nBest regards,\n\nMrs. Miller\nProject Manager",
+      "writingPoints": [
+        "Thank Mrs. Miller for her email",
+        "Explain why you cannot come to the meeting on Tuesday at 9:00 am (e.g., doctor's appointment, client visit)",
+        "Suggest a different time or day for the meeting",
+        "Say when you will send the monthly report"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Hotel Feedback Request",
+      "incomingEmail": "Subject: Your recent stay at The Riverside Hotel\n\nDear Guest,\n\nThank you for choosing The Riverside Hotel for your recent visit to the city.\n\nWe hope you had a comfortable stay. We are always trying to improve our service, so we would like to know your opinion.\n\nWere you happy with your room and the facilities? Did you try our restaurant?\n\nPlease let us know if there is anything we can do better next time.\n\nBest regards,\n\nDavid Evans\nHotel Manager",
+      "writingPoints": [
+        "Thank Mr. Evans for the email",
+        "Say what you liked about the hotel (e.g., location, staff)",
+        "Mention a problem you had (e.g., the room was noisy, breakfast was cold)",
+        "Give a suggestion for improvement"
+      ]
+    }
+  ]
+}
