@@ -10,3 +10,173 @@
         }
     ]
 }
+
+
+// Grammar Study Questions Schema
+
+{
+    "name": "<name of the question group>",
+    "description": {
+      "de": "<description of the question group in German>",
+      "ar": "<description of the question group in Arabic>",
+      "en": "<description of the question group in English>",
+      "Fr": "<description of the question group in French>",
+      "ru": "<description of the question group in Russian>",
+      "es": "<description of the question group in Spanish>"
+    },
+    "sentences": [
+      {
+        "text": "", // sentence in markdown format to highlight the important part of the sentence in the grammar context
+        "translations": {
+          "de": "<translation of the sentence in German>",
+          "ar": "<translation of the sentence in Arabic>",
+          "en": "<translation of the sentence in English>",
+          "Fr": "<translation of the sentence in French>",
+          "ru": "<translation of the sentence in Russian>",
+          "es": "<translation of the sentence in Spanish>"
+        },
+        "question": {
+          "rendered_sentence": "<question in markdown format", // Example: How _____ money do you have left for the weekend?
+          "type": "multiple_choice",
+          "options": [
+            {
+              "choice": "<choice 1>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 1 in German>",
+                "ar": "<explanation of the choice 1 in Arabic>",
+                "en": "<explanation of the choice 1 in English>",
+                "Fr": "<explanation of the choice 1 in French>",
+                "ru": "<explanation of the choice 1 in Russian>",
+                "es": "<explanation of the choice 1 in Spanish>"
+              }
+            },
+            {
+              "choice": "<choice 2>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 2 in German>",
+                "ar": "<explanation of the choice 2 in Arabic>",
+                "en": "<explanation of the choice 2 in English>",
+                "Fr": "<explanation of the choice 2 in French>",
+                "ru": "<explanation of the choice 2 in Russian>",
+                "es": "<explanation of the choice 2 in Spanish>"
+              }
+            },
+            {
+              "choice": "<choice 3>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 3 in German>",
+                "ar": "<explanation of the choice 3 in Arabic>",
+                "en": "<explanation of the choice 3 in English>",
+                "Fr": "<explanation of the choice 3 in French>",
+                "ru": "<explanation of the choice 3 in Russian>",
+                "es": "<explanation of the choice 3 in Spanish>"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+I want you to create a full study list of the English grammer
+
+
+
+the list should contain sentences. The sentences should be focused on the grammer and vocabulary that are important for the English language.
+
+
+
+the result should be a list of maybe 150 top grammer and vocabulary that are important for building the English sentences.
+
+
+
+the sentence should use markdown to highlight the focus of each sentence. Below are a few examples
+
+
+
+- She usually (work) _____ from home, but this week she (attend) _____ training in the main office.
+
+- I am going to take _____ to the party.
+
+- I don't have to _____ the dishes.
+
+
+
+---
+
+
+
+your task is to perform a deep reseach on all important grammer and scentence strcutures in English language and create a list of the top 150 scentences using markdown format.
+
+you should use the following schema to create the list:
+{
+    "name": "<name of the question group>",
+    "description": {
+      "de": "<description of the question group in German>",
+      "ar": "<description of the question group in Arabic>",
+      "en": "<description of the question group in English>",
+      "Fr": "<description of the question group in French>",
+      "ru": "<description of the question group in Russian>",
+      "es": "<description of the question group in Spanish>"
+    },
+    "sentences": [
+      {
+        "text": "", // sentence in markdown format to highlight the important part of the sentence in the grammar context
+        "translations": {
+          "de": "<translation of the sentence in German>",
+          "ar": "<translation of the sentence in Arabic>",
+          "en": "<translation of the sentence in English>",
+          "Fr": "<translation of the sentence in French>",
+          "ru": "<translation of the sentence in Russian>",
+          "es": "<translation of the sentence in Spanish>"
+        },
+        "question": {
+          "rendered_sentence": "<question in markdown format", // Example: How _____ money do you have left for the weekend?
+          "type": "multiple_choice",
+          "options": [
+            {
+              "choice": "<choice 1>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 1 in German>",
+                "ar": "<explanation of the choice 1 in Arabic>",
+                "en": "<explanation of the choice 1 in English>",
+                "Fr": "<explanation of the choice 1 in French>",
+                "ru": "<explanation of the choice 1 in Russian>",
+                "es": "<explanation of the choice 1 in Spanish>"
+              }
+            },
+            {
+              "choice": "<choice 2>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 2 in German>",
+                "ar": "<explanation of the choice 2 in Arabic>",
+                "en": "<explanation of the choice 2 in English>",
+                "Fr": "<explanation of the choice 2 in French>",
+                "ru": "<explanation of the choice 2 in Russian>",
+                "es": "<explanation of the choice 2 in Spanish>"
+              }
+            },
+            {
+              "choice": "<choice 3>",
+              "is_correct": <boolean>,
+              "explanation": { // explanation of why this choice is correct/false in each language
+                "de": "<explanation of the choice 3 in German>",
+                "ar": "<explanation of the choice 3 in Arabic>",
+                "en": "<explanation of the choice 3 in English>",
+                "Fr": "<explanation of the choice 3 in French>",
+                "ru": "<explanation of the choice 3 in Russian>",
+                "es": "<explanation of the choice 3 in Spanish>"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

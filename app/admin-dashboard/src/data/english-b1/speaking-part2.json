@@ -2,282 +2,282 @@
   "topics": [
     {
       "viewB": {
-        "person": "Jens Mühle, 39 Jahre, Physiker",
-        "text": "Wenn man mit einer Gruppe unterwegs ist, gibt es meist ein festes Programm. Daher reise ich immer allein. Manchmal möchte ich ausschlafen, manchmal etwas besichtigen. Ganz nach Lust und Laune. In einer Gruppe wäre das nicht möglich.",
-        "presentationExample": "Das Thema ist 'Gruppenreisen'. Die Person heißt Jens Mühle, 39 Jahre, Physiker. Er meint, dass er lieber allein reist, weil Gruppen meist ein festes Programm haben. Er sagt, dass er so flexibel entscheiden kann, ob er ausschlafen oder etwas besichtigen möchte."
+        "person": "Jens Mühle, 39, Physicist",
+        "text": "When traveling with a group, there is usually a fixed schedule. That's why I always travel alone. Sometimes I want to sleep in, sometimes I want to visit something. Exactly as I feel like it. That wouldn't be possible in a group.",
+        "presentationExample": "The topic is 'Group Travel'. The person is Jens Mühle, 39, a Physicist. He thinks that he prefers traveling alone because groups usually have a fixed schedule. He says that this way he can flexibly decide whether he wants to sleep in or visit something."
       },
-      "title": "Gruppenreisen",
+      "title": "Group Travel",
       "discussion": [
         {
-          "question": "Reisen Sie lieber allein oder in der Gruppe? Warum?",
-          "tip": "Hier sollten Sie Ihre eigene Präferenz mit Begründung nennen und auf die Argumente der Partner eingehen (Gesellschaft vs. Flexibilität)."
+          "question": "Do you prefer to travel alone or in a group? Why?",
+          "tip": "Here you should state your own preference with reasons and address your partner's arguments (company vs. flexibility)."
         },
         {
-          "question": "Welche Rolle spielt der Reiseführer für Sie?",
-          "tip": "Diskutieren Sie, ob ein Experte notwendig ist oder ob man lieber alles selbst planen möchte."
+          "question": "What role does the tour guide play for you?",
+          "tip": "Discuss whether an expert is necessary or if you prefer to plan everything yourself."
         },
         {
-          "question": "Welche Nachteile haben Gruppenreisen?",
-          "tip": "Nennen Sie Nachteile wie mangelnde Flexibilität, feste Zeiten oder dass man nicht alle Leute mag."
+          "question": "What are the disadvantages of group travel?",
+          "tip": "Mention disadvantages such as lack of flexibility, fixed times, or not liking all the people."
         }
       ],
       "viewA": {
-        "text": "Ich verreise gern in einer Gruppe. Allein reisen macht mir keinen Spaß. Bei Gruppenreisen kann man neue Leute kennenlernen und hat immer Gesellschaft. Außerdem ist ein Reiseführer dabei, der einem die Sehenswürdigkeiten zeigt.",
-        "person": "Sabine Klostermann, 33 Jahre, Bürokauffrau",
-        "presentationExample": "Das Thema ist 'Gruppenreisen'. Die Person heißt Sabine Klostermann, 33 Jahre, Bürokauffrau. Sie meint, dass sie gern in einer Gruppe reist, weil man dort neue Leute kennenlernt und immer Gesellschaft hat. Sie sagt, dass ein Reiseführer praktisch ist, weil er die Sehenswürdigkeiten erklärt."
+        "text": "I like traveling in a group. Traveling alone is not fun for me. In group travel, you can meet new people and always have company. Also, there is a guide who shows you the sights.",
+        "person": "Sabine Klostermann, 33, Office Clerk",
+        "presentationExample": "The topic is 'Group Travel'. The person is Sabine Klostermann, 33, an Office Clerk. She thinks that she likes traveling in a group because you meet new people there and always have company. She says that a tour guide is practical because they explain the sights."
       },
       "id": 1
     },
     {
       "viewB": {
-        "text": "Ich gehe lieber in den Laden. Da kann ich die Ware anfassen und anprobieren. Außerdem berate ich mich gerne mit dem Verkaufspersonal, und es unterstützt die lokalen Geschäfte.",
-        "person": "Hannelore Schmidt, 68 Jahre, Rentnerin",
-        "presentationExample": "Das Thema ist 'Online-Shopping'. Die Person heißt Hannelore Schmidt, 68 Jahre, Rentnerin. Sie meint, dass sie lieber im Geschäft einkauft, weil sie die Ware anfassen und anprobieren kann. Sie sagt, dass die Beratung durch Verkaufspersonal wichtig ist und dass sie lokale Geschäfte unterstützen möchte."
+        "text": "I prefer going to a shop. There, I can touch and try on the goods. Also, I like consulting with sales staff, and it supports local businesses.",
+        "person": "Hannelore Schmidt, 68, Retired",
+        "presentationExample": "The topic is 'Online Shopping'. The person is Hannelore Schmidt, 68, Retired. She thinks that she prefers shopping in a physical shop because she can touch and try on the goods. She says that consulting with sales staff is important and that she wants to support local businesses."
       },
       "id": 2,
       "discussion": [
         {
-          "question": "Kaufen Sie lieber online oder im Geschäft? Nennen Sie Vor- und Nachteile beider Methoden.",
-          "tip": "Verwenden Sie Konnektoren wie 'einerseits... andererseits' oder 'obwohl' um die Meinungen zu vergleichen."
+          "question": "Do you prefer shopping online or in a physical shop? Name the advantages and disadvantages of both methods.",
+          "tip": "Use connectors like 'on the one hand... on the other hand' or 'although' to compare the opinions."
         },
         {
-          "tip": "Diskutieren Sie die Rolle von Verkaufspersonal im digitalen Zeitalter.",
-          "question": "Wie wichtig ist die Beratung beim Einkaufen für Sie?"
+          "tip": "Discuss the role of sales staff in the digital age.",
+          "question": "How important is advice when shopping for you?"
         },
         {
-          "tip": "Ein kritischer Aspekt des Online-Shoppings, der oft angesprochen wird.",
-          "question": "Was halten Sie von Retouren und dem Einfluss auf die Umwelt?"
+          "tip": "A critical aspect of online shopping that is often addressed.",
+          "question": "What do you think about returns and the impact on the environment?"
         }
       ],
-      "title": "Online-Shopping",
+      "title": "Online Shopping",
       "viewA": {
-        "text": "Ich kaufe fast alles online, weil es bequemer ist. Die Preise sind oft niedriger und die Auswahl viel größer als im Laden. Ich kann rund um die Uhr einkaufen, ohne das Haus verlassen zu müssen.",
-        "person": "Ali Müller, 24 Jahre, Student",
-        "presentationExample": "Das Thema ist 'Online-Shopping'. Die Person heißt Ali Müller, 24 Jahre, Student. Er meint, dass er fast alles online kauft, weil es bequem ist und die Preise oft günstiger sind. Er sagt, dass die große Auswahl und die Möglichkeit, rund um die Uhr zu shoppen, für ihn wichtig sind."
+        "text": "I buy almost everything online because it's more convenient. The prices are often lower and the selection is much larger than in a shop. I can shop around the clock without having to leave the house.",
+        "person": "Ali Müller, 24, Student",
+        "presentationExample": "The topic is 'Online Shopping'. The person is Ali Müller, 24, a Student. He thinks that he buys almost everything online because it is convenient and the prices are often cheaper. He says that the large selection and the opportunity to shop around the clock are important to him."
       }
     },
     {
-      "title": "Tiere im Haushalt",
+      "title": "Pets in the Home",
       "discussion": [
         {
-          "question": "Haben Sie selbst Haustiere? Erzählen Sie von Ihren Erfahrungen.",
-          "tip": "Teilen Sie persönliche Erfahrungen und verwenden Sie dabei passendes Vokabular (z.B. 'füttern', 'Gassi gehen')."
+          "question": "Do you have pets yourself? Tell us about your experiences.",
+          "tip": "Share personal experiences and use appropriate vocabulary (e.g., 'to feed', 'to walk the dog')."
         },
         {
-          "question": "Sollte man Haustiere aus dem Tierheim holen? Warum?",
-          "tip": "Diskutieren Sie ethische Aspekte und die Verantwortung gegenüber Tieren."
+          "question": "Should one get pets from the animal shelter? Why?",
+          "tip": "Discuss ethical aspects and the responsibility towards animals."
         },
         {
-          "tip": "Nennen Sie geeignete Arten und begründen Sie Ihre Wahl.",
-          "question": "Welche Tiere sind für das Leben in einer kleinen Stadtwohnung geeignet?"
+          "tip": "Mention suitable types and justify your choice.",
+          "question": "Which animals are suitable for living in a small city apartment?"
         }
       ],
       "id": 3,
       "viewB": {
-        "person": "Dennis Schulz, 29 Jahre, Softwareentwickler",
-        "text": "Tiere machen viel Arbeit und Lärm. Die Wohnung wird schnell schmutzig, und man ist in seiner Reisefreiheit eingeschränkt. Außerdem sind die Tierarztkosten oft sehr hoch.",
-        "presentationExample": "Das Thema ist 'Tiere im Haushalt'. Die Person heißt Dennis Schulz, 29 Jahre, Softwareentwickler. Er meint, dass Tiere viel Arbeit und Lärm machen. Er sagt, dass die Wohnung schneller schmutzig wird und dass Tierarztkosten und eingeschränkte Reisefreiheit Nachteile sind."
+        "person": "Dennis Schulz, 29, Software Developer",
+        "text": "Animals create a lot of work and noise. The apartment quickly gets dirty, and your freedom to travel is restricted. Also, vet costs are often very high.",
+        "presentationExample": "The topic is 'Pets in the Home'. The person is Dennis Schulz, 29, a Software Developer. He thinks that animals create a lot of work and noise. He says that the apartment quickly gets dirty and that vet costs and restricted freedom to travel are disadvantages."
       },
       "viewA": {
-        "text": "Haustiere sind gut für die Seele. Sie machen uns glücklich, reduzieren Stress und helfen uns, verantwortungsvoller zu werden. Besonders für Kinder ist ein Tier eine tolle Erfahrung.",
-        "person": "Dr. Laura Koch, 45 Jahre, Tierärztin",
-        "presentationExample": "Das Thema ist 'Tiere im Haushalt'. Die Person heißt Dr. Laura Koch, 45 Jahre, Tierärztin. Sie meint, dass Haustiere gut für die Seele sind und Stress reduzieren. Sie sagt, dass besonders Kinder von einem Tier lernen und dass Haustiere Verantwortung vermitteln."
+        "text": "Pets are good for the soul. They make us happy, reduce stress, and help us become more responsible. Especially for children, an animal is a great experience.",
+        "person": "Dr. Laura Koch, 45, Veterinarian",
+        "presentationExample": "The topic is 'Pets in the Home'. The person is Dr. Laura Koch, 45, a Veterinarian. She thinks that pets are good for the soul and reduce stress. She says that children, in particular, learn from an animal and that pets teach responsibility."
       }
     },
     {
       "viewA": {
-        "text": "Ich schaue am liebsten Filme zu Hause auf dem Sofa. Das ist bequemer, kostet weniger und ich kann jederzeit eine Pause machen. Die große Leinwand brauche ich nicht.",
-        "person": "Julia Berg, 21 Jahre, Auszubildende",
-        "presentationExample": "Das Thema ist 'Fernsehen vs. Kino'. Die Person heißt Julia Berg, 21 Jahre, Auszubildende. Sie meint, dass sie Filme lieber zu Hause schaut, weil es bequemer und günstiger ist. Sie sagt, dass sie die große Leinwand nicht unbedingt braucht und Pausen wichtig sind."
+        "text": "I prefer watching films at home on the sofa. It's more comfortable, costs less, and I can take a break at any time. I don't need the big screen.",
+        "person": "Julia Berg, 21, Apprentice",
+        "presentationExample": "The topic is 'TV vs. Cinema'. The person is Julia Berg, 21, an Apprentice. She thinks that she prefers watching films at home because it's more comfortable and cheaper. She says that she doesn't necessarily need the big screen and breaks are important."
       },
       "viewB": {
-        "person": "Max Finke, 48 Jahre, Filmkritiker",
-        "text": "Kino ist ein Erlebnis. Die Atmosphäre, der groß e Bildschirm und der Sound sind einzigartig. Filme sind für das Kino gemacht; man sollte sie nicht nur auf kleinen Bildschirmen sehen.",
-        "presentationExample": "Das Thema ist 'Fernsehen vs. Kino'. Die Person heißt Max Finke, 48 Jahre, Filmkritiker. Er meint, dass Kino ein besonderes Erlebnis ist. Er sagt, dass Atmosphäre, großer Bildschirm und Sound den Film besonders machen und dass Filme eigentlich für das Kino gedacht sind."
+        "person": "Max Finke, 48, Film Critic",
+        "text": "Cinema is an experience. The atmosphere, the large screen, and the sound are unique. Films are made for the cinema; one shouldn't just watch them on small screens.",
+        "presentationExample": "The topic is 'TV vs. Cinema'. The person is Max Finke, 48, a Film Critic. He thinks that cinema is a special experience. He says that the atmosphere, large screen, and sound make the film special and that films are actually meant for the cinema."
       },
       "id": 4,
       "discussion": [
         {
-          "tip": "Geben Sie eine klare Präferenz an und begründen Sie diese mit drei Argumenten.",
-          "question": "Was machen Sie lieber in Ihrer Freizeit: ins Kino gehen oder zu Hause einen Film sehen?"
+          "tip": "State a clear preference and give three reasons for it.",
+          "question": "What do you prefer to do in your free time: go to the cinema or watch a film at home?"
         },
         {
-          "question": "Wie hat sich die Filmlandschaft durch Streaming-Dienste verändert?",
-          "tip": "Sprechen Sie über die Verfügbarkeit von Filmen und Serien."
+          "question": "How has the film landscape changed due to streaming services?",
+          "tip": "Talk about the availability of films and series."
         },
         {
-          "question": "Was war der letzte Film, den Sie gesehen haben? Erzählen Sie kurz davon.",
-          "tip": "Dies dient zur Anwendung von Erzählformen in der Vergangenheit."
+          "question": "What was the last film you watched? Tell us briefly about it.",
+          "tip": "This is for practicing narration in the past tenses."
         }
       ],
-      "title": "Fernsehen vs. Kino"
+      "title": "TV vs. Cinema"
     },
     {
       "id": 5,
       "viewA": {
-        "text": "Handys sind wichtig für die Sicherheit. Kinder können uns jederzeit erreichen, und sie lernen früh den Umgang mit Technologie. Das ist wichtig für ihre Zukunft.",
-        "person": "Thomas Meier, 41 Jahre, Selbstständiger",
-        "presentationExample": "Das Thema ist 'Kinder und Handy'. Die Person heißt Thomas Meier, 41 Jahre, Selbstständiger. Er meint, dass Handys wichtig für die Sicherheit sind, weil Kinder ihre Eltern erreichen können. Er sagt, dass der frühe Umgang mit Technologie für die Zukunft nützlich ist."
+        "text": "Mobile phones are important for safety. Children can reach us anytime, and they learn how to use technology early on. That is important for their future.",
+        "person": "Thomas Meier, 41, Self-Employed",
+        "presentationExample": "The topic is 'Children and Mobile Phones'. The person is Thomas Meier, 41, Self-Employed. He thinks that mobile phones are important for safety because children can reach their parents. He says that the early handling of technology is useful for the future."
       },
       "discussion": [
         {
-          "question": "Ab welchem Alter sollten Kinder ein eigenes Handy bekommen?",
-          "tip": "Nennen Sie ein Alter und begründen Sie Ihre Entscheidung."
+          "question": "At what age should children get their own mobile phone?",
+          "tip": "State an age and justify your decision."
         },
         {
-          "tip": "Diskutieren Sie die Vor- und Nachteile eines Handyverbots im Unterricht.",
-          "question": "Sollten Handys in der Schule verboten werden? Warum?"
+          "tip": "Discuss the advantages and disadvantages of banning mobile phones in class.",
+          "question": "Should mobile phones be banned in schools? Why?"
         },
         {
-          "tip": "Sprechen Sie über Sucht, Konzentrationsprobleme und Schlafstörungen.",
-          "question": "Welche Risiken bringt die ständige Erreichbarkeit mit sich?"
+          "tip": "Talk about addiction, concentration problems, and sleep disorders.",
+          "question": "What risks does constant accessibility bring?"
         }
       ],
-      "title": "Kinder und Handy",
+      "title": "Children and Mobile Phones",
       "viewB": {
-        "text": "Handys lenken in der Schule ab und führen oft zu Problemen wie Cyber-Mobbing. Die Zeit, die sie vor dem Bildschirm verbringen, fehlt ihnen für Bewegung und soziale Kontakte.",
-        "person": "Frau Lehmann, 55 Jahre, Lehrerin",
-        "presentationExample": "Das Thema ist 'Kinder und Handy'. Die Person heißt Frau Lehmann, 55 Jahre, Lehrerin. Sie meint, dass Handys in der Schule ablenken und Probleme wie Cyber-Mobbing verursachen. Sie sagt, dass die Bildschirmzeit zu weniger Bewegung und sozialen Kontakten führt."
+        "text": "Mobile phones are distracting in school and often lead to problems like cyber-bullying. The time they spend in front of the screen is missing for exercise and social contact.",
+        "person": "Frau Lehmann, 55, Teacher",
+        "presentationExample": "The topic is 'Children and Mobile Phones'. The person is Frau Lehmann, 55, a Teacher. She thinks that mobile phones are distracting in school and cause problems like cyber-bullying. She says that screen time leads to less exercise and social contact."
       }
     },
     {
       "viewA": {
-        "person": "Mia Schmidt, 30 Jahre, Umweltaktivistin",
-        "text": "Das Fahrrad ist das beste Verkehrsmittel in der Stadt. Es ist schnell, schont die Umwelt und hält fit. Man spart Geld und vermeidet Staus.",
-        "presentationExample": "Das Thema ist 'Fahrrad in der Stadt'. Die Person heißt Mia Schmidt, 30 Jahre, Umweltaktivistin. Sie meint, dass das Fahrrad das beste Verkehrsmittel in der Stadt ist, weil es umweltfreundlich, schnell und gesund ist. Sie sagt, dass man Geld spart und Staus vermeidet."
+        "person": "Mia Schmidt, 30, Environmental Activist",
+        "text": "The bicycle is the best means of transport in the city. It's fast, environmentally friendly, and keeps you fit. You save money and avoid traffic jams.",
+        "presentationExample": "The topic is 'Bikes in the City'. The person is Mia Schmidt, 30, an Environmental Activist. She thinks that the bicycle is the best means of transport in the city because it is environmentally friendly, fast, and healthy. She says that you save money and avoid traffic jams."
       },
-      "title": "Fahrrad in der Stadt",
+      "title": "Bikes in the City",
       "viewB": {
-        "person": "Herr Wagner, 52 Jahre, Manager",
-        "text": "Das ist in einer Großstadt zu gefährlich. Oft gibt es keine Fahrradwege, und bei schlechtem Wetter ist es sehr unpraktisch. Außerdem muss man seine Einkäufe transportieren können.",
-        "presentationExample": "Das Thema ist 'Fahrrad in der Stadt'. Die Person heißt Herr Wagner, 52 Jahre, Manager. Er meint, dass Fahrradfahren in Großstädten oft gefährlich ist, weil Fahrradwege fehlen. Er sagt, dass schlechtes Wetter und der Transport von Einkäufen Nachteile sind."
+        "person": "Herr Wagner, 52, Manager",
+        "text": "It's too dangerous in a large city. There are often no bicycle paths, and in bad weather, it's very impractical. Also, you need to be able to transport your purchases.",
+        "presentationExample": "The topic is 'Bikes in the City'. The person is Herr Wagner, 52, a Manager. He thinks that cycling is often dangerous in large cities because bike paths are missing. He says that bad weather and transporting purchases are disadvantages."
       },
       "id": 6,
       "discussion": [
         {
-          "question": "Welches Verkehrsmittel nutzen Sie am häufigsten in der Stadt? Warum?",
-          "tip": "Erzählen Sie von Ihrem Alltag und den praktischen Aspekten Ihres Verkehrsmittels."
+          "question": "Which means of transport do you use most often in the city? Why?",
+          "tip": "Talk about your daily routine and the practical aspects of your means of transport."
         },
         {
-          "question": "Was muss die Stadt tun, um das Fahrradfahren sicherer zu machen?",
-          "tip": "Nennen Sie konkrete Maßnahmen (z.B. mehr Radwege, bessere Beschilderung)."
+          "question": "What must the city do to make cycling safer?",
+          "tip": "Name concrete measures (e.g., more bike paths, better signage)."
         },
         {
-          "question": "Sollte Autofahren in der Innenstadt teurer werden?",
-          "tip": "Diskutieren Sie die Kosten und die städtische Planung."
+          "question": "Should driving a car in the city center become more expensive?",
+          "tip": "Discuss costs and urban planning."
         }
       ]
     },
     {
       "discussion": [
         {
-          "tip": "Vergleichen Sie die Haptik des Buches mit der Portabilität des E-Reader s.",
-          "question": "Lesen Sie lieber gedruckte Bücher oder E-Books? Begründen Sie Ihre Wahl."
+          "tip": "Compare the feel of the book with the portability of the e-reader.",
+          "question": "Do you prefer reading printed books or e-books? Justify your choice."
         },
         {
-          "question": "Gehen Sie oft in Bibliotheken? Was bieten Bibliotheken heutzutage an?",
-          "tip": "Erklären Sie die Rolle der Bibliothek in der modernen Gesellschaft."
+          "question": "Do you often go to libraries? What do libraries offer these days?",
+          "tip": "Explain the role of the library in modern society."
         },
         {
-          "tip": "Sprechen Sie über die Vorteile des Lesens für Ihren Deutschkurs.",
-          "question": "Wie wichtig ist Lesen für das Erlernen einer Fremdsprache?"
+          "tip": "Talk about the advantages of reading for your English course.",
+          "question": "How important is reading for learning a foreign language?"
         }
       ],
-      "title": "Bücher vs. E-Books",
+      "title": "Books vs. E-Books",
       "viewB": {
-        "text": "E-Books sind praktisch. Ich kann Hunderte von Büchern auf einem Gerät speichern und habe sie immer dabei. Das spart Platz und ist ökologischer als gedruckte Bücher.",
-        "person": "Elias Roth, 26 Jahre, Journalist",
-        "presentationExample": "Das Thema ist 'Bücher vs. E-Books'. Die Person heißt Elias Roth, 26 Jahre, Journalist. Er meint, dass E-Books praktisch sind, weil man viele Bücher auf einem Gerät speichern kann. Er sagt, dass das Platz spart und ökologischer ist als gedruckte Bücher."
+        "text": "E-books are practical. I can store hundreds of books on one device and always have them with me. That saves space and is more ecological than printed books.",
+        "person": "Elias Roth, 26, Journalist",
+        "presentationExample": "The topic is 'Books vs. E-Books'. The person is Elias Roth, 26, a Journalist. He thinks that e-books are practical because you can store many books on one device. He says that this saves space and is more ecological than printed books."
       },
       "viewA": {
-        "person": "Karin Haas, 58 Jahre, Bibliothekarin",
-        "text": "Ein gedrucktes Buch fühlt sich einfach besser an. Der Geruch, das Gefühl des Papiers – das ist ein anderes Leseerlebnis. E-Books sind unpersönlich.",
-        "presentationExample": "Das Thema ist 'Bücher vs. E-Books'. Die Person heißt Karin Haas, 58 Jahre, Bibliothekarin. Sie meint, dass gedruckte Bücher ein besseres Leseerlebnis bieten, wegen Geruch und Papiergefühl. Sie sagt, dass E-Books unpersönlich wirken."
+        "person": "Karin Haas, 58, Librarian",
+        "text": "A printed book simply feels better. The smell, the feel of the paper – that is a different reading experience. E-books are impersonal.",
+        "presentationExample": "The topic is 'Books vs. E-Books'. The person is Karin Haas, 58, a Librarian. She thinks that printed books offer a better reading experience because of the smell and the feel of the paper. She says that e-books seem impersonal."
       },
       "id": 7
     },
     {
       "viewB": {
-        "text": "Ich brauche die Stadt. Alle meine Freunde, die Kultur und mein Job sind hier. Die Fahrt zur Arbeit ist vom Land aus zu lang und der öffentliche Nahverkehr ist schlecht.",
-        "person": "Paul Bauer, 31 Jahre, Unternehmensberater",
-        "presentationExample": "Das Thema ist 'Wohnen auf dem Land'. Die Person heißt Paul Bauer, 31 Jahre, Unternehmensberater. Er meint, dass er die Stadt zum Leben braucht, weil Freunde, Kultur und Arbeit dort sind. Er sagt, dass die Fahrt vom Land zur Arbeit zu lange wäre und der Nahverkehr schlecht ist."
+        "text": "I need the city. All my friends, the culture, and my job are here. The commute from the countryside is too long, and public transport is bad.",
+        "person": "Paul Bauer, 31, Management Consultant",
+        "presentationExample": "The topic is 'Living in the Countryside'. The person is Paul Bauer, 31, a Management Consultant. He thinks that he needs the city to live because friends, culture, and work are there. He says that the commute from the countryside to work would be too long and the public transport is bad."
       },
       "id": 8,
-      "title": "Wohnen auf dem Land",
+      "title": "Living in the Countryside",
       "discussion": [
         {
-          "tip": "Beschreiben Sie kurz Ihren Wohnort und Ihre Wohnsituation (Mietwohnung, Haus etc.).",
-          "question": "Wo wohnen Sie im Moment? Fühlen Sie sich dort wohl?"
+          "tip": "Briefly describe your current place of residence and living situation (rented apartment, house, etc.).",
+          "question": "Where do you currently live? Do you feel comfortable there?"
         },
         {
-          "question": "Welche Kompromisse muss man beim Leben auf dem Land machen?",
-          "tip": "Sprechen Sie über lange Wege, schlechte Infrastruktur oder fehlende Freizeitmöglichkeiten."
+          "question": "What compromises must one make when living in the countryside?",
+          "tip": "Talk about long distances, poor infrastructure, or lack of leisure opportunities."
         },
         {
-          "question": "Was ist in Deutschland typisch für eine 'WG' (Wohngemeinschaft)?",
-          "tip": "Ein typisch deutsches Thema, um Vokabular zur Wohnform zu nutzen."
+          "question": "What is typical for a 'WG' (shared flat/house share) in Germany?",
+          "tip": "A typical German topic to use vocabulary related to housing forms."
         }
       ],
       "viewA": {
-        "text": "Das Landleben ist ideal für Familien. Die Kinder können draußen spielen, die Luft ist besser, und es ist ruhiger als in der Stadt. Die Lebensqualität ist viel höher.",
-        "person": "Frau Schmidt, 37 Jahre, Mutter von zwei Kindern",
-        "presentationExample": "Das Thema ist 'Wohnen auf dem Land'. Die Person heißt Frau Schmidt, 37 Jahre, Mutter von zwei Kindern. Sie meint, dass Landleben ideal für Familien ist, weil die Kinder draußen spielen können und die Luft besser ist. Sie sagt, dass die Lebensqualität auf dem Land höher ist."
+        "text": "Country life is ideal for families. Children can play outside, the air is better, and it's quieter than in the city. The quality of life is much higher.",
+        "person": "Frau Schmidt, 37, Mother of two children",
+        "presentationExample": "The topic is 'Living in the Countryside'. The person is Frau Schmidt, 37, a Mother of two children. She thinks that country life is ideal for families because children can play outside and the air is better. She says that the quality of life is higher in the countryside."
       }
     },
     {
       "id": 9,
-      "title": "Gesunde Ernährung",
+      "title": "Healthy Eating",
       "viewA": {
-        "text": "Gesundheit beginnt in der Küche. Man sollte viel frisches Obst und Gemüse essen und wenig Fleisch. Das gibt Energie und stärkt das Immunsystem.",
-        "person": "Steffen Hahn, 44 Jahre, Fitnesstrainer",
-        "presentationExample": "Das Thema ist 'Gesunde Ernährung'. Die Person heißt Steffen Hahn, 44 Jahre, Fitnesstrainer. Er meint, dass Gesundheit in der Küche beginnt und man viel Obst und Gemüse essen sollte. Er sagt, dass weniger Fleisch, mehr Gemüse und frische Lebensmittel Energie geben und das Immunsystem stärken."
+        "text": "Health begins in the kitchen. One should eat lots of fresh fruit and vegetables and little meat. That gives energy and strengthens the immune system.",
+        "person": "Steffen Hahn, 44, Fitness Trainer",
+        "presentationExample": "The topic is 'Healthy Eating'. The person is Steffen Hahn, 44, a Fitness Trainer. He thinks that health begins in the kitchen and one should eat lots of fruit and vegetables. He says that less meat, more vegetables, and fresh food give energy and strengthen the immune system."
       },
       "viewB": {
-        "text": "Essen muss vor allem gut schmecken. Ein bisschen Fleisch und Süßigkeiten sind erlaubt, solange man sich nicht zu sehr einschränkt. Genuss gehört zum Leben dazu.",
-        "person": "Marie Nowak, 35 Jahre, Köchin",
-        "presentationExample": "Das Thema ist 'Gesunde Ernährung'. Die Person heißt Marie Nowak, 35 Jahre, Köchin. Sie meint, dass Essen vor allem gut schmecken muss und Genuss wichtig ist. Sie sagt, dass ein wenig Fleisch und Süßes erlaubt sind, solange man sich nicht zu sehr einschränkt."
+        "text": "Food must taste good above all else. A little meat and sweets are allowed, as long as one does not restrict oneself too much. Enjoyment is part of life.",
+        "person": "Marie Nowak, 35, Cook",
+        "presentationExample": "The topic is 'Healthy Eating'. The person is Marie Nowak, 35, a Cook. She thinks that food must taste good above all else and that enjoyment is important. She says that a little meat and sweets are allowed, as long as one does not restrict oneself too much."
       },
       "discussion": [
         {
-          "tip": "Definieren Sie gesunde Ernährung aus Ihrer Sicht und nennen Sie typische Lebensmittel.",
-          "question": "Was bedeutet für Sie 'gesund essen'? Können Sie ein Beispiel nennen?"
+          "tip": "Define healthy eating from your perspective and name typical foods.",
+          "question": "What does 'eating healthy' mean to you? Can you give an example?"
         },
         {
-          "tip": "Vergleichen Sie die Kosten, den Zeitaufwand und den Genuss beider Optionen.",
-          "question": "Kochen Sie lieber selbst oder gehen Sie ins Restaurant? Warum?"
+          "tip": "Compare the costs, time commitment, and enjoyment of both options.",
+          "question": "Do you prefer cooking yourself or going to a restaurant? Why?"
         },
         {
-          "question": "Wie kann man sich im stressigen Alltag gesund ernähren?",
-          "tip": "Sprechen Sie über Meal Prep oder die Wahl von gesunden Kantinen-Essen."
+          "question": "How can one eat healthy in a stressful daily routine?",
+          "tip": "Talk about meal prepping or choosing healthy canteen food."
         }
       ]
     },
     {
       "discussion": [
         {
-          "question": "Arbeiten Sie im Homeoffice oder im Büro? Was sind Ihre Erfahrungen?",
-          "tip": "Teilen Sie Ihre persönlichen Erfahrungen und nennen Sie die größten Herausforderungen (z.B. Ablenkung, fehlender Austausch)."
+          "question": "Do you work from home or in the office? What are your experiences?",
+          "tip": "Share your personal experiences and mention the biggest challenges (e.g., distraction, lack of exchange)."
         },
         {
-          "question": "Welche technischen Voraussetzungen sind für die Arbeit zu Hause nötig?",
-          "tip": "Sprechen Sie über WLAN, gute Bildschirme und Ergonomie."
+          "question": "What technical requirements are necessary for working at home?",
+          "tip": "Talk about Wi-Fi, good screens, and ergonomics."
         },
         {
-          "question": "Wie können Teams zusammenarbeiten, wenn sie an verschiedenen Orten sind?",
-          "tip": "Nennen Sie Tools und Strategien für die virtuelle Kommunikation."
+          "question": "How can teams work together when they are in different locations?",
+          "tip": "Name tools and strategies for virtual communication."
         }
       ],
       "id": 10,
       "viewA": {
-        "person": "Dr. Anna Jäger, 38 Jahre, IT-Spezialistin",
-        "text": "Homeoffice macht mich produktiver. Ich habe keinen Stress durch den Arbeitsweg, kann meine Zeit flexibel einteilen und spare Geld. Ich arbeite viel effizienter.",
-        "presentationExample": "Das Thema ist 'Arbeiten im Homeoffice'. Die Person heißt Dr. Anna Jäger, 38 Jahre, IT-Spezialistin. Sie meint, dass Homeoffice sie produktiver macht, weil sie den Arbeitsweg spart und ihre Zeit flexibel einteilen kann. Sie sagt, dass sie dadurch effizienter arbeitet und Geld spart."
+        "person": "Dr. Anna Jäger, 38, IT Specialist",
+        "text": "Working from home makes me more productive. I save stress from commuting, can manage my time flexibly, and save money. I work much more efficiently.",
+        "presentationExample": "The topic is 'Working from Home'. The person is Dr. Anna Jäger, 38, an IT Specialist. She thinks that working from home makes her more productive because she saves on commuting and can manage her time flexibly. She says that this makes her work more efficiently and saves money."
       },
-      "title": "Arbeiten im Homeoffice",
+      "title": "Working from Home",
       "viewB": {
-        "text": "Zusammenarbeit ist im Büro am besten. Die Kommunikation ist direkter, und das Teamgefühl leidet, wenn jeder zu Hause sitzt. Die Grenze zwischen Arbeit und Freizeit verschwimmt.",
-        "person": "Markus Gross, 49 Jahre, Teamleiter",
-        "presentationExample": "Das Thema ist 'Arbeiten im Homeoffice'. Die Person heißt Markus Gross, 49 Jahre, Teamleiter. Er meint, dass Zusammenarbeit im Büro besser funktioniert, weil die Kommunikation direkter ist. Er sagt, dass das Teamgefühl leidet und die Grenze zwischen Arbeit und Freizeit im Homeoffice verschwimmt."
+        "text": "Teamwork is best in the office. Communication is more direct, and the team spirit suffers when everyone sits at home. The boundary between work and free time blurs.",
+        "person": "Markus Gross, 49, Team Leader",
+        "presentationExample": "The topic is 'Working from Home'. The person is Markus Gross, 49, a Team Leader. He thinks that teamwork functions better in the office because communication is more direct. He says that the team spirit suffers and the boundary between work and free time blurs when working from home."
       }
     }
   ]

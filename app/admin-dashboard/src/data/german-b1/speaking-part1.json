@@ -1,64 +1,64 @@
 {
   "content": {
     "id": 1,
-    "title": "Persönliche Vorstellung",
+    "title": "Personal Introduction",
     "personalInfo": {
-      "name": "Muhammad",
-      "age": 35,
-      "origin": "Ägypten",
-      "livingSince": "2016",
-      "family": "verheiratet mit zwei Töchtern"
+      "name": "Anwar",
+      "age": 32,
+      "origin": "Egypt",
+      "livingSince": "2019",
+      "family": "married with two daughters"
     },
     "familyInfo": {
       "location": "Charlottenburg",
       "children": [
         {
-          "name": "Ältere Tochter",
-          "age": 8,
-          "activity": "geht in die dritte Klasse"
+          "name": "Older daughter",
+          "age": 10,
+          "activity": "is in third grade"
         },
         {
-          "name": "Jüngere Tochter",
-          "age": 3,
-          "activity": "besucht den Kindergarten"
+          "name": "Younger daughter",
+          "age": 2,
+          "activity": "attends kindergarten"
         }
       ]
     },
     "professionalInfo": {
-      "job": "Ingenieur",
-      "company": "HelloFresh",
+      "job": "Doctor",
+      "company": "Amazon",
       "hobbies": [
-        "Sport treiben",
-        "ins Fitnessstudio gehen",
-        "laufen",
-        "Zeit mit Töchtern verbringen",
-        "Fahrrad fahren",
-        "in Parks gehen",
-        "den Zoo besuchen",
-        "zeichnen",
-        "Bücher lesen"
+        "doing sports",
+        "going to the gym",
+        "running",
+        "spending time with daughters",
+        "cycling",
+        "going to parks",
+        "visiting the zoo",
+        "drawing",
+        "reading books"
       ]
     },
     "completeExample": [
-      "**Guten Tag!** Mein Name ist **John** und ich **komme aus Kolombia**. Ich **wurde in Bogotá geboren** und bin **30 Jahre alt**. Ich **lebe seit 2016 in Deutschland**. Ich **bin verheiratet** und habe eine **kleine Familie**: meine Frau und zwei Töchter.",
-      "Wir **wohnen in Mitte**. Meine ältere **Tochter** ist **acht Jahre alt** und **geht in die dritte Klasse**. Meine jüngere Tochter ist **drei Jahre alt** und **besucht den Kindergarten**.",
-      "**Beruflich bin ich Fahrer** und **arbeite bei BVG**. **In meiner Freizeit treibe ich gerne Sport**, besonders **gehe ich regelmäßig ins Fitnessstudio** und **laufe einmal pro Woche**.",
-      "Ich **verbringe gerne Zeit mit meinen Töchtern**, wir **fahren Fahrrad**, **gehen in Parks** und **besuchen den Zoo**. Außerdem **zeichne** ich **sehr gerne** und **oft zusammen** mit meinen Töchtern. Und ich **lese auch sehr gerne Bücher**."
+      "**Hello!** My name is **John** and I **come from Colombia**. I **was born in Bogotá** and I am **30 years old**. I **have lived in Germany since 2016**. I **am married** and have a **small family**: my wife and two daughters.",
+      "We **live in Mitte**. My older **daughter** is **eight years old** and **is in third grade**. My younger daughter is **three years old** and **attends kindergarten**.",
+      "**Professionally, I am a driver** and I **work at BVG**. **In my free time I like doing sports**, especially **going to the gym regularly** and **running once a week**.",
+      "I **enjoy spending time with my daughters**, we **ride bikes**, **go to parks** and **visit the zoo**. Also, I **like drawing very much** and **often together** with my daughters. And I **also really like reading books**."
     ],
     "vocabulary": [
       {
-        "german": "Ich komme aus Kolombia.",
         "english": "I come from Colombia.",
+        "german": "Ich komme aus Kolumbien.",
         "arabic": "أنا من كولومبيا.",
         "russian": "Я из Колумбии.",
         "french": "Je viens de Colombie.",
         "spanish": "Vengo de Colombia.",
-        "portuguese": "Vou de Colombia.",
-        "italian": "Vengo da Colombia."
+        "portuguese": "Venho da Colômbia.",
+        "italian": "Vengo dalla Colombia."
       },
       {
-        "german": "Ich wurde in Bogotá geboren.",
         "english": "I was born in Bogotá.",
+        "german": "Ich wurde in Bogotá geboren.",
         "arabic": "أنا مولد في بوغوتا.",
         "russian": "Я родился в Боготá.",
         "french": "Je suis né à Bogotá.",
@@ -67,8 +67,8 @@
         "italian": "Sono nato a Bogotá."
       },
       {
-        "german": "Ich bin verheiratet.",
         "english": "I am married.",
+        "german": "Ich bin verheiratet.",
         "arabic": "أنا متزوج.",
         "russian": "Я женат.",
         "french": "Je suis marié.",
@@ -77,8 +77,8 @@
         "italian": "Sono sposato."
       },
       {
-        "german": "die Tochter",
         "english": "daughter",
+        "german": "die Tochter",
         "arabic": "البنت",
         "russian": "дочь",
         "french": "la fille",
@@ -87,48 +87,48 @@
         "italian": "la figlia"
       },
       {
-        "german": "den Kindergarten besuchen",
-        "english": "to attend kindergarten"
+        "english": "to attend kindergarten",
+        "german": "den Kindergarten besuchen"
       },
       {
-        "german": "die dritte Klasse",
-        "english": "the third grade"
+        "english": "the third grade",
+        "german": "die dritte Klasse"
       },
       {
-        "german": "Ich treibe gerne Sport.",
-        "english": "I like to do sports."
+        "english": "I like to do sports.",
+        "german": "Ich treibe gerne Sport."
       },
       {
-        "german": "regelmäßig ins Fitnessstudio gehen",
-        "english": "to go to the gym regularly"
+        "english": "to go to the gym regularly",
+        "german": "regelmäßig ins Fitnessstudio gehen"
       },
       {
-        "german": "Beruflich bin ich Ingenieur.",
-        "english": "Professionally, I am an engineer."
+        "english": "Professionally, I am an engineer.",
+        "german": "Beruflich bin ich Ingenieur."
       },
       {
-        "german": "Ich arbeite bei HelloFresh.",
-        "english": "I work at HelloFresh."
+        "english": "I work at HelloFresh.",
+        "german": "Ich arbeite bei HelloFresh."
       },
       {
-        "german": "Zeit verbringen mit",
-        "english": "to spend time with"
+        "english": "to spend time with",
+        "german": "Zeit verbringen mit"
       },
       {
-        "german": "Fahrrad fahren",
-        "english": "to ride a bicycle"
+        "english": "to ride a bicycle",
+        "german": "Fahrrad fahren"
       },
       {
-        "german": "den Zoo besuchen",
-        "english": "to visit the zoo"
+        "english": "to visit the zoo",
+        "german": "den Zoo besuchen"
       },
       {
-        "german": "zeichnen",
-        "english": "to draw"
+        "english": "to draw",
+        "german": "zeichnen"
       },
       {
-        "german": "Bücher lesen",
-        "english": "to read books"
+        "english": "to read books",
+        "german": "Bücher lesen"
       }
     ]
   }

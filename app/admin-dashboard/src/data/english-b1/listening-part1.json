@@ -13,7 +13,7 @@
     "exams": [
         {
             "id": 0,
-            "audio_url": "",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/telc_b1_english_exam_1_part1.mp3?alt=media&token=7ab9dc5a-7dd7-435d-ba1b-35b57959cc83",
             "statements": [
                 {
                     "id": 41,

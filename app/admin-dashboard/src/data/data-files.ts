@@ -16,6 +16,7 @@ import germanB1SpeakingPart3 from './german-b1/speaking-part3.json';
 import germanB1Writing from './german-b1/writing.json';
 import germanB1SpeakingImportantPhrases from './german-b1/speaking-important-phrases.json';
 import germanB1GrammarStudyQuestions from './german-b1/grammer-study-questions.json';
+import germanB1ListeningPractice from './german-b1/listening-practice.json';
 
 // German B2
 import germanB2ExamInfo from './german-b2/exam-info.json';
@@ -34,9 +35,25 @@ import germanB2SpeakingPart1 from './german-b2/speaking-part1.json';
 import germanB2SpeakingPart2 from './german-b2/speaking-part2.json';
 import germanB2SpeakingPart3 from './german-b2/speaking-part3.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
-
-import germanB1ListeningPractice from './german-b1/listening-practice.json';
 import germanB2ListeningPractice from './german-b2/listening-practice.json';
+
+// English B1
+import englishB1ExamInfo from './english-b1/exam-info.json';
+import englishB1GrammarPart1 from './english-b1/grammar-part1.json';
+import englishB1GrammarPart2 from './english-b1/grammar-part2.json';
+import englishB1ListeningPart1 from './english-b1/listening-part1.json';
+import englishB1ListeningPart2 from './english-b1/listening-part2.json';
+import englishB1ListeningPart3 from './english-b1/listening-part3.json';
+import englishB1ReadingPart1 from './english-b1/reading-part1.json';
+import englishB1ReadingPart2 from './english-b1/reading-part2.json';
+import englishB1ReadingPart3 from './english-b1/reading-part3.json';
+import englishB1SpeakingPart1 from './english-b1/speaking-part1.json';
+import englishB1SpeakingPart2 from './english-b1/speaking-part2.json';
+import englishB1SpeakingPart3 from './english-b1/speaking-part3.json';
+import englishB1Writing from './english-b1/writing.json';
+import englishB1SpeakingImportantPhrases from './english-b1/speaking-important-phrases.json';
+import englishB1GrammarStudyQuestions from './english-b1/grammer-study-questions.json';
+import englishB1ListeningPractice from './english-b1/listening-practice.json';
 
 
 interface AppData {
@@ -100,5 +117,23 @@ export const appDataMap: AppDataMap = {
         'speaking-part2': germanB2SpeakingPart2,
         'speaking-part3': germanB2SpeakingPart3,
         'listening-practice': germanB2ListeningPractice,
+    },
+    [APP_CONFIGS['english-b1'].id]: {
+        'exam-info': englishB1ExamInfo,
+        'grammar-part1': englishB1GrammarPart1,
+        'grammar-part2': englishB1GrammarPart2,
+        'listening-part1': englishB1ListeningPart1,
+        'listening-part2': englishB1ListeningPart2,
+        'listening-part3': englishB1ListeningPart3,
+        'reading-part1': englishB1ReadingPart1,
+        'reading-part2': englishB1ReadingPart2,
+        'reading-part3': englishB1ReadingPart3,
+        'speaking-part1': englishB1SpeakingPart1,
+        'speaking-part2': englishB1SpeakingPart2,
+        'speaking-part3': englishB1SpeakingPart3,
+        'writing': englishB1Writing,
+        'speaking-important-phrases': englishB1SpeakingImportantPhrases,
+        'listening-practice': englishB1ListeningPractice,
+        'grammar-study-questions': englishB1GrammarStudyQuestions,
     },
 }
