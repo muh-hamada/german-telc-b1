@@ -1,0 +1,424 @@
+{
+  "exams": [
+    {
+      "advertisements": {
+        "a": "**FRENCH COURSES in Chamonix**\n\n* Morning: General French classes, all levels\n* Afternoon: Skiing and snowboarding\n\nOne- or two-week courses\n\nRegistration starts 1 December\nPrice includes full board, Mont Blanc ski pass and ski insurance\n\nTel.: +33 4 50 53 07 56\nEmail: info@ifa-chamonix.com, www.ifa-chamonix.com",
+        "b": "Authorized by the Italian Ministry of Education Sponsored by the State University of Camerino Centro G. LEOPARDI offers\n\n**~ 300 SCHOLARSHIPS for students seeking a semester abroad ~**\n\nFOR ITALIAN LANGUAGE AND CULTURE COURSES IN ITALY\n\nFor information: Centro G. Leopardi, Francesco Carmelo, Via Sant'Anna, 11, 62022 Castelraimondo Macerata, Italy\n\nPhone: +39 0737 237338\nEmail: f.carmelo@centroleopardi.it",
+        "c": "**ILS France**\n\nTop quality courses for business executives and students\n\n* French for international relations\n* Commercial French\n* French through literature, music and film\n* French for the hotel and tourist industries\n\nILS France, Rue de Paris, 03206 Vichy - France\n+33 4 70 30 26 10, contact@ils-france.fr",
+        "d": "**EVERYDAY ENGLISH**\n\n* Learn at your own pace\n* Experience British culture and lifestyle\n\nThe programme includes full board, a single room in the teacher's home and one-to-one lessons. Activities and excursions are arranged according to your interests.\n\nBeautiful city, seaside or countryside locations!\n\nFor more information: Email: enquiries@english-teachers.com\nPhone: +44 1643 337700\nwww.english-teachers.com",
+        "e": "**ST. JOHN'S LANGUAGE SCHOOL**\n\nFun English courses for all levels and needs\n\n* Examination preparation courses\n* Friendly school atmosphere\n* Trendy central London location\n* Highly motivated and qualified teachers\n\n38 The Mall, London W5 3TJ\nwww.stjohns.com",
+        "f": "**CENTRE for ENGLISH LANGUAGE and BRITISH STUDIES, University of East Anglia**\n\n**UEA NORWICH**\n\nWe offer:\n* Courses to improve your knowledge of language and culture, with some opportunity for specialisation (1 or 2 semesters)\n* Summer English courses at all levels (July-September)\n\nPlease write to admissions.cebs@uea.co.uk for further information",
+        "g": "**Bell Language Center**\n\nIf you work as a tour guide, flight attendant, travel agent, etc., this course is for you! Improve your written and spoken English at one of Canada's leading language schools and get ready for an exciting career!\n\nFor more information call us at 1-604-602-1006 or send an email to Tracy McCarty: tracy.mccarty@bell.com\n\n**INTERNATIONAL TRAVEL ACADEMY**",
+        "h": "**INTENSIVE ENGLISH LANGUAGE COURSES**\n\nEdinburgh Language Centre, 17 Wine Street, Edinburgh, EH8 5KF, Scotland\n\n* Stay with carefully chosen families\n* Socialise with guests from the local business community\n* Immerse yourself in the English language and culture\n\nVisit our website for more information.\nwww.elc-scotland.co.uk",
+        "i": "**EUROTERM**\n\nEuroterm Translations Ltd. is an international organisation capable of handling over 250 translation combinations. We specialise in legal, financial, medical, technical and commercial texts.\n\nIf interested, please call +31-30-789-5641 for further information or write to careers@euroterm.com\n\nEuroterm Translations Ltd. Herenstraat 23, 3512 KB Utrecht, The Netherlands.",
+        "j": "For those of you interested in the language and art history of Italy, **THE BRITISH INSTITUTE OF FLORENCE** offers:\n\n* Regular short courses, suitable for retirees\n* Pre-university courses\n* Gap year packages\n* Easter courses for advanced learners\n* Visits to opera and other performances\n\nContact us at info@BIF.co.it or on +39 55 284031",
+        "k": "**English Immersion in Canada**\n\n* INTENSIVE ESL INSTRUCTION\n* EXAM PREPARATION\n* HOMESTAY PROGRAM\n* LEISURE ACTIVITIES\n\nVancouver English Centre, 840 Howe St. Suite 200 Vancouver BC V6Z 2L2, Canada\nwww.vec.com",
+        "l": "**Langue en France!**\n\nFrench in France!\n\n* Open all year round\n* From 1 week up to 9 months\n* All levels, including certified exams if required\n* Intensive mini-group courses (35 lessons per week)\n\nLangue en France, Rue de Clichy, 91456 Nantes, contact@lef.fr"
+      },
+      "id": 1,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You would like to stay with a family in Italy.",
+          "answer": "x"
+        },
+        {
+          "id": 12,
+          "answer": "l",
+          "text": "You want to learn French and take an examination at the end of the course."
+        },
+        {
+          "text": "You want to learn English next summer at a university in England.",
+          "answer": "f",
+          "id": 13
+        },
+        {
+          "id": 14,
+          "answer": "e",
+          "text": "You are planning to learn English in a language school in or near London."
+        },
+        {
+          "id": 15,
+          "answer": "i",
+          "text": "You want to have a technical report translated into your language."
+        },
+        {
+          "text": "You need to learn English for your job and want to meet people from British companies during the course.",
+          "id": 16,
+          "answer": "h"
+        },
+        {
+          "answer": "g",
+          "id": 17,
+          "text": "You want to learn English in order to be able to work in the travel business and would like to take a course in Canada."
+        },
+        {
+          "id": 18,
+          "text": "You would like to learn French and enjoy winter sports at the same time.",
+          "answer": "a"
+        },
+        {
+          "answer": "x",
+          "id": 19,
+          "text": "You want to learn French in Canada and stay with a family."
+        },
+        {
+          "answer": "j",
+          "id": 20,
+          "text": "You would like to improve your Italian before you begin your degree."
+        }
+      ],
+      "title": "Language Courses and Services"
+    },
+    {
+      "advertisements": {
+        "a": "**IT Support - Weekend Shift**\n\nWe need a computer expert to help our team on Saturdays and Sundays.\n* Must have experience with Linux systems.\n* Perfect for students.\n* Good hourly rate.\n\nSend CV to jobs@techsolutions.com",
+        "b": "**Summer Fruit Pickers Wanted**\n\nWork outdoors this July and August!\n* No experience necessary.\n* Accommodation provided on the farm.\n* Hard work but fun atmosphere.\n* Students welcome.\n\nCall Farmer John: 07700 900500",
+        "c": "**Senior Sales Manager**\n\nLeading electronics company seeks experienced leader.\n* Must have at least 5 years of management experience.\n* Company car and bonus scheme.\n* Full-time, permanent role.\n\nApply online at www.electrosales.co.uk",
+        "d": "**Apprentice Hairdresser**\n\nLearn a new trade!\n* Low starting salary but full training provided.\n* 4 days in the salon, 1 day at college.\n* No previous qualifications needed.\n* Ideal for school leavers.\n\nVisit 'Style Cuts' on High Street for info.",
+        "e": "**Work from Home - Telesales**\n\nMake money from your living room.\n* You will be selling insurance over the phone.\n* Flexible hours - you choose when you work.\n* Commission only (no basic salary).\n* Must have own telephone and internet.\n\nEmail: recruit@homejobs.net",
+        "f": "**Volunteer Shop Assistant**\n\nHelp us raise money for sick children.\n* We need friendly people to work in our charity shop.\n* Tuesdays and Thursdays.\n* Unpaid role, but travel expenses covered.\n* Tea and biscuits provided!\n\nPop into the 'Save the Kids' shop to apply.",
+        "g": "**Delivery Driver Needed**\n\nFast-paced job delivering parcels in the city center.\n* 6 am start time.\n* Van provided.\n* **Must have a clean driving license.**\n* £12 per hour.\n\nText 'DRIVER' to 88088",
+        "h": "**Graphic Designer (Freelance)**\n\nCreative agency looking for talented artists.\n* Project-based work.\n* Must have a strong portfolio of logos and websites.\n* Work from our studio or remote.\n\nSee our website for details.",
+        "i": "**Night Security Guard**\n\nProtect a large factory site.\n* Shifts: 10 pm to 6 am.\n* Training given.\n* Must be physically fit and able to work alone.\n* Uniform provided.\n\nCall SafeGuard: 0115 496 0000",
+        "j": "**Private Math Tutor**\n\nHelp needed for my 15-year-old son.\n* 2 hours per week (Wednesday evenings).\n* Must be a qualified teacher.\n* £30 per hour.\n\nCall Mrs. Robinson: 07999 123456",
+        "k": "**Care Assistant - Elderly Home**\n\nKind person needed to look after residents.\n* Day and night shifts available.\n* Experience preferred but training available.\n* Subject to police background check.\n\nApply at 'Oak Tree Care Home'.",
+        "l": "**Waiting Staff - Italian Restaurant**\n\nBusy city center restaurant needs energetic waiters.\n* Evening and weekend work.\n* Experience with Italian food useful.\n* Immediate start.\n* Tips included.\n\nBring your CV to 'Bella Napoli' today."
+      },
+      "id": 2,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You are a student looking for a job where you can work outdoors during the summer holidays.",
+          "answer": "b"
+        },
+        {
+          "id": 12,
+          "text": "You want to learn how to cut hair and get a qualification while you work.",
+          "answer": "d"
+        },
+        {
+          "id": 13,
+          "text": "You are a qualified teacher looking for a few extra hours of work in the evenings.",
+          "answer": "j"
+        },
+        {
+          "id": 14,
+          "text": "You have no experience but want to work as a manager in a large company.",
+          "answer": "x"
+        },
+        {
+          "id": 15,
+          "text": "You want a job driving a van, but you do not have a driving license yet.",
+          "answer": "x"
+        },
+        {
+          "id": 16,
+          "text": "You are retired and want to help a charity by working in a shop for free.",
+          "answer": "f"
+        },
+        {
+          "id": 17,
+          "text": "You are good with computers and want a part-time job on weekends.",
+          "answer": "a"
+        },
+        {
+          "id": 18,
+          "text": "You are looking for a job as a receptionist in a hotel.",
+          "answer": "x"
+        },
+        {
+          "id": 19,
+          "text": "You want a job where you can work from your own house with flexible hours.",
+          "answer": "e"
+        },
+        {
+          "id": 20,
+          "text": "You are looking for evening work serving food in a restaurant.",
+          "answer": "l"
+        }
+      ],
+      "title": "Job Opportunities"
+    },
+    {
+      "advertisements": {
+        "a": "**Taste of Italy - Cooking Course**\n\nLearn to make authentic pasta and pizza.\n* Every Tuesday evening (7 pm - 9 pm).\n* Ingredients included in the price.\n* Suitable for complete beginners.\n* Central Community Centre.\n\nBook now: 01234 567890",
+        "b": "**Sunrise Yoga in the Park**\n\nStart your day with energy!\n* Classes run Monday to Friday.\n* **Time: 6:30 am - 7:30 am.**\n* Bring your own mat.\n* Pay per session (£5).\n\nMeet at the West Gate entrance.",
+        "c": "**Advanced Coding for Professionals**\n\nBoost your career with Python and Java.\n* **Online course** only.\n* Must have previous programming experience.\n* 10-week intensive module.\n* Certificate upon completion.\n\nVisit: www.code-masters.com",
+        "d": "**Weekend Pottery Workshop**\n\nMake your own bowls and vases.\n* Saturday and Sunday (10 am - 4 pm).\n* All clay and tools provided.\n* Lunch included.\n* Take your creations home!\n\nEmail: art@studio54.co.uk",
+        "e": "**Private Guitar Tuition**\n\nLearn to play in the comfort of your own home.\n* I travel to you.\n* Acoustic or Electric guitar.\n* All ages welcome.\n* First lesson half price.\n\nCall Mike: 07700 900222",
+        "f": "**Spanish for Holidays**\n\nGoing to Spain this summer? Learn the basics!\n* Ordering food, asking directions, and booking hotels.\n* Thursdays, 6 pm - 8 pm.\n* Relaxed atmosphere, no exams.\n\n'Language Hub', High Street.",
+        "g": "**Digital Photography Club**\n\nTake better pictures of nature.\n* Weekly trips to local beauty spots.\n* Saturday mornings.\n* **Note: You must own a DSLR camera.**\n* Expert advice from professional photographers.\n\nJoin us at www.photoclub.org",
+        "h": "**Business English Certificate**\n\nImprove your professional communication.\n* Report writing and presentation skills.\n* Small groups (max 6 people).\n* Recognized qualification included.\n* Expensive but high quality.\n\nLondon Business School.",
+        "i": "**Salsa Dancing - Couples Night**\n\nSpice up your Friday nights!\n* **You must bring a partner.**\n* Beginners 7 pm, Intermediate 8 pm.\n* Fun, social atmosphere with drinks afterwards.\n* No special shoes required.\n\n The Dance Studio, 44 Main Road.",
+        "j": "**Emergency First Aid**\n\nLearn to save a life.\n* One-day intensive course (9 am - 5 pm).\n* Covers CPR, burns, and cuts.\n* Essential for workplace safety.\n* Certificate valid for 3 years.\n\nRed Cross Centre.",
+        "k": "**Write Your First Novel**\n\nHave you always wanted to write a book?\n* 12-week creative writing course.\n* Wednesdays, 6:30 pm.\n* Share your work and get feedback.\n* Guest lectures from published authors.\n\nLibrary Meeting Room 2.",
+        "l": "**Spring Gardening Tips**\n\nGet your garden ready for summer.\n* Design advice and planting guides.\n* **April and May only.**\n* Sunday afternoons.\n* Plant sale at the end of each class.\n\nBotanical Gardens."
+      },
+      "id": 3,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You want to learn how to cook Italian food on a weekday evening.",
+          "answer": "a"
+        },
+        {
+          "id": 12,
+          "text": "You are looking for a yoga class to relax after work in the evening.",
+          "answer": "x"
+        },
+        {
+          "id": 13,
+          "text": "You want to learn a musical instrument, but you do not want to leave your house.",
+          "answer": "e"
+        },
+        {
+          "id": 14,
+          "text": "You want to improve your English for your job and get a qualification.",
+          "answer": "h"
+        },
+        {
+          "id": 15,
+          "text": "You want to learn photography, but you only have a smartphone.",
+          "answer": "x"
+        },
+        {
+          "id": 16,
+          "text": "You and your partner want to learn to dance together on Friday nights.",
+          "answer": "i"
+        },
+        {
+          "id": 17,
+          "text": "You are writing a book and want help and feedback to finish it.",
+          "answer": "k"
+        },
+        {
+          "id": 18,
+          "text": "You want to learn some basic Spanish quickly before your summer holiday.",
+          "answer": "f"
+        },
+        {
+          "id": 19,
+          "text": "You want a computer course to learn the basics of using the internet.",
+          "answer": "x"
+        },
+        {
+          "id": 20,
+          "text": "You want to spend a whole weekend making something with your hands.",
+          "answer": "d"
+        }
+      ],
+      "title": "Evening Classes and Workshops"
+    },
+    {
+      "advertisements": {
+        "a": "**City Runaround - Ford Fiesta**\n\nPerfect first car for new drivers.\n* Red, 3-door hatchback.\n* Economical 1.0L engine.\n* Cheap insurance group.\n* 80,000 miles.\n\n£2,500. Call Steve: 07700 900123",
+        "b": "**Family MPV - 7 Seater**\n\nNeed space for the kids?\n* Vauxhall Zafira.\n* Rear seats fold flat for extra luggage space.\n* DVD players installed in headrests.\n* Manual gearbox, Diesel.\n\n£4,000 ono.",
+        "c": "**Vintage Scooter - Vespa**\n\nClassic Italian style.\n* 50cc engine (moped license okay).\n* Silver, recently resprayed.\n* Ideal for short city trips.\n* Helmet included.\n\nContact Mario at 'City Bikes'.",
+        "d": "**Work Van for Sale**\n\nFord Transit - Long Wheelbase.\n* High roof (stand up inside).\n* Ply-lined back with shelves.\n* Ready for work.\n* Some scratches on bodywork but runs perfectly.\n\n£3,500 + VAT.",
+        "e": "**Luxury Saloon - Mercedes C-Class**\n\nDrive in comfort.\n* Automatic transmission.\n* Heated leather seats.\n* Built-in satellite navigation.\n* Full service history included.\n* Perfect for motorway cruising.\n\n£9,500.",
+        "f": "**Convertible for Summer**\n\nMazda MX-5.\n* 2-seater sports car.\n* Roof folds down in seconds.\n* Fun to drive.\n* Alloy wheels.\n* Garage kept, low mileage.\n\nEmail: sun_drive@email.com",
+        "g": "**4x4 Off-Roader**\n\nLand Rover Defender.\n* Tough vehicle for tough jobs.\n* Tow bar fitted - great for horse boxes or trailers.\n* Mud tyres.\n* No electronics, easy to fix.\n\nCall Farmer Jack: 01234 567890",
+        "h": "**Campervan - Holiday Ready**\n\nVolkswagen Transporter conversion.\n* Sleeps 4 people (pop-top roof).\n* Small kitchen with fridge and gas cooker.\n* Curtains on all windows.\n* Ready for your next adventure!\n\n£15,000.",
+        "i": "**Electric Car - Nissan Leaf**\n\nGo green and save money.\n* Zero emissions (no road tax).\n* 150-mile range per charge.\n* Home charging cable included.\n* Silent and smooth to drive.\n\nVisit 'Green Motors' today.",
+        "j": "**Classic Restoration Project**\n\n1960s MG Sports Car.\n* Needs a lot of work.\n* Engine runs but needs new brakes and paint.\n* Ideal hobby for a mechanic.\n* Comes with box of spare parts.\n\n£1,500 for quick sale.",
+        "k": "**Estate Car - Volvo V50**\n\nSafe and solid.\n* Huge boot space - dog guard fitted.\n* Roof rack for bikes or skis.\n* 5 seats.\n* Very reliable family car.\n\nTel: 07999 888777",
+        "l": "**Racing Motorbike**\n\nYamaha R1 (1000cc).\n* Extremely fast track bike.\n* Not suitable for beginners.\n* Aftermarket exhaust (very loud).\n* Blue and white racing colours.\n\n£6,000 no offers."
+      },
+      "id": 11,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You want a vehicle to take your family of six people on holiday.",
+          "answer": "b"
+        },
+        {
+          "id": 12,
+          "text": "You are looking for a small, stylish vehicle for short trips around the city.",
+          "answer": "c"
+        },
+        {
+          "id": 13,
+          "text": "You want an eco-friendly car that does not produce pollution.",
+          "answer": "i"
+        },
+        {
+          "id": 14,
+          "text": "You need to rent a large van for the weekend to move some furniture.",
+          "answer": "x"
+        },
+        {
+          "id": 15,
+          "text": "You are a mechanic looking for an old car to fix up in your spare time.",
+          "answer": "j"
+        },
+        {
+          "id": 16,
+          "text": "You want a car with an open roof to enjoy the sunny weather.",
+          "answer": "f"
+        },
+        {
+          "id": 17,
+          "text": "You need a strong vehicle to pull a heavy trailer across muddy fields.",
+          "answer": "g"
+        },
+        {
+          "id": 18,
+          "text": "You want a 7-seater car with automatic gears.",
+          "answer": "x"
+        },
+        {
+          "id": 19,
+          "text": "You want a comfortable car with automatic gears for long journeys.",
+          "answer": "e"
+        },
+        {
+          "id": 20,
+          "text": "You want a vehicle that you can sleep in while travelling around the country.",
+          "answer": "h"
+        }
+      ],
+      "title": "Used Vehicles for Sale"
+    },
+    {
+      "advertisements": {
+        "a": "**The Cat Palace - Luxury Boarding**\n\nGoing on holiday? Leave your cat with us.\n* Individual heated rooms.\n* **Indoor only** to keep them safe.\n* Daily playtime and grooming.\n* Vet on call 24/7.\n\nTel: 01234 555666",
+        "b": "**Dog Walking Service**\n\nBusy at work? Let us exercise your dog.\n* 1-hour group walks in the countryside.\n* We pick up and drop off your dog.\n* Fully insured and police checked.\n* Monday to Friday only.\n\nCall Sarah: 07700 900111",
+        "c": "**Puppy Training Classes**\n\nTeach your new dog good manners.\n* Sit, stay, and walking on a lead.\n* Socialize with other puppies.\n* 6-week course starts next Wednesday.\n* **For dogs under 6 months old.**\n\nEmail: trainer@puppyschool.com",
+        "d": "**City Vets - New Opening Hours**\n\nWe care for all small animals.\n* Vaccinations, operations, and dental checks.\n* Open Monday to Saturday (8 am - 6 pm).\n* **Closed on Sundays and Bank Holidays.**\n* Emergency number available.\n\nFind us on High Street.",
+        "e": "**Horse Riding Lessons**\n\nLearn to ride at 'Green  Stables'.\n* Beginners welcome (adults and children).\n* Hats and boots provided.\n* Private or group lessons.\n* Indoor arena for winter riding.\n\nVisit: www.greenstables.co.uk",
+        "f": "**Paws & Claws Grooming Salon**\n\nMake your pet look beautiful.\n* Bathing, clipping, and nail trimming.\n* We groom dogs, cats, and rabbits.\n* **You must bring your pet to our shop.**\n* Appointment necessary.\n\n12 Market Square.",
+        "g": "**Aquarium Maintenance**\n\nDo you have a fish tank at home or office?\n* We clean the tank and check the water.\n* Health checks for your fish.\n* Monthly visits available.\n* We supply food and equipment.\n\nCall 'Fish Doctor': 07999 888777",
+        "h": "**Pet Photography Studio**\n\nCapture a special memory of your furry friend.\n* Professional studio lighting.\n* Patience with nervous animals.\n* Digital files and framed prints available.\n* Perfect gift idea.\n\nBook online at www.petphotos.com",
+        "i": "**Lost Pet Finder**\n\nHave you lost a dog or cat?\n* We help you search the local area.\n* Posters printed and distributed.\n* Social media campaigns.\n* 'No win, no fee' service.\n\nHelpline: 0800 123 456",
+        "j": "**Rabbit Hotel**\n\nSmall animal boarding.\n* Large outdoor runs for fresh air.\n* Fresh vegetables given daily.\n* We also look after guinea pigs and hamsters.\n* Bring your own cage or use ours.\n\nTel: Mrs. Jones 01632 960123",
+        "k": "**Exotic Vet Specialist**\n\nExpert care for unusual pets.\n* Snakes, lizards, tortoises, and birds.\n* Specialist dietary advice.\n* Surgery and X-rays.\n* Home visits available for large reptiles.\n\nEmail: exotic@vetcare.com",
+        "l": "**Dog Behaviourist**\n\nDoes your dog bark too much or bite?\n* I solve difficult behavior problems.\n* One-to-one sessions in your home.\n* All breeds and ages.\n* Positive methods only.\n\nCall Mark: 07700 900999"
+      },
+      "id": 12,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You want someone to come to your office once a month to clean the fish tank.",
+          "answer": "g"
+        },
+        {
+          "id": 12,
+          "text": "You want a mobile hairdresser to come to your house to cut your dog's hair.",
+          "answer": "x"
+        },
+        {
+          "id": 13,
+          "text": "You have a new puppy and want to take it to a class to meet other dogs.",
+          "answer": "c"
+        },
+        {
+          "id": 14,
+          "text": "You are worried because your snake is sick and needs a doctor.",
+          "answer": "k"
+        },
+        {
+          "id": 15,
+          "text": "You want to learn how to ride a horse, but you do not have your own equipment.",
+          "answer": "e"
+        },
+        {
+          "id": 16,
+          "text": "You work all day and need someone to take your dog out for a run.",
+          "answer": "b"
+        },
+        {
+          "id": 17,
+          "text": "You are going on holiday and want your cat to stay in a place with a garden.",
+          "answer": "x"
+        },
+        {
+          "id": 18,
+          "text": "Your older dog is aggressive to strangers and you need professional help.",
+          "answer": "l"
+        },
+        {
+          "id": 19,
+          "text": "You need to take your rabbit to a vet for an operation on a Sunday.",
+          "answer": "x"
+        },
+        {
+          "id": 20,
+          "text": "You are going away for the weekend and need someone to look after your guinea pig.",
+          "answer": "j"
+        }
+      ],
+      "title": "Services for Pets"
+    },
+    {
+      "advertisements": {
+        "a": "**Mama Mia's Pizzeria**\n\nBring the whole family!\n* Authentic wood-fired pizzas.\n* Children's menu and high chairs available.\n* Large groups welcome.\n* Birthday parties hosted.\n\nTel: 01234 555111",
+        "b": "**Spice Express - Indian Cuisine**\n\nHot and spicy curries to enjoy at home.\n* **Takeaway and Delivery Only.**\n* No seating area.\n* Free delivery on orders over £20.\n* Open 5 pm - 11 pm.\n\nOrder online: www.spice-express.co.uk",
+        "c": "**The Green Leaf Cafe**\n\nHealthy food for a healthy life.\n* 100% Vegetarian and Vegan menu.\n* Fresh salads, soups, and homemade cakes.\n* Gluten-free options available.\n* Open for lunch 11 am - 4 pm.\n\nFind us next to the library.",
+        "d": "**The Prime Cut Steakhouse**\n\nFor a special occasion.\n* Finest quality steaks and wines.\n* Elegant atmosphere.\n* **Smart dress code required (no jeans or trainers).**\n* Reservations essential.\n\nCall to book: 01234 999888",
+        "e": "**Dragon Buffet**\n\nAll-you-can-eat Chinese food.\n* Fixed price: £15 per person.\n* Eat as much as you like.\n* Huge selection of noodles, rice, and meat dishes.\n* Great value for hungry students.\n\n15 High Street.",
+        "f": "**Ocean Blue Seafood**\n\nFresh from the boat to your plate.\n* Located on the harbour wall.\n* **Outdoor terrace with sea views.**\n* Catch of the day specials.\n* Closed on Mondays.\n\nwww.oceanblue.com",
+        "g": "**Night Bites Burger Bar**\n\nHungry after a night out?\n* Beef, chicken, and veggie burgers.\n* Fries and milkshakes.\n* **Open until 4 am on weekends.**\n* Located near the nightclubs.\n\nNo reservation needed.",
+        "h": "**La Belle Epoque**\n\nA taste of France in the city.\n* Romantic candlelit tables.\n* Classic French dishes.\n* Quiet atmosphere perfect for couples.\n* Excellent wine list.\n\nEmail: reservations@belleepoque.com",
+        "i": "**Tokyo Taste**\n\nMore than just a restaurant.\n* Delicious sushi and ramen.\n* **Weekly sushi-making workshops.**\n* Learn to roll your own sushi with our chef.\n* Private dining room available.\n\nVisit us on Station Road.",
+        "j": "**Morning Glory Cafe**\n\nThe best breakfast in town.\n* Full English breakfast served all day.\n* Pancakes, waffles, and fresh coffee.\n* **Open 7 am - 2 pm daily.**\n* Early bird discount before 8 am.\n\n22 Sunny Side Street.",
+        "k": "**The Medieval Feast**\n\nDinner and a show!\n* Eat a 3-course banquet with your hands.\n* Watch knights fight while you eat.\n* Live music and jesters.\n* Fun for office parties and groups.\n\nBook tickets at www.medievalfeast.co.uk",
+        "l": "**Sweet Tooth Parlour**\n\nDessert lovers only!\n* 50 flavours of ice cream.\n* Waffles and crepes.\n* **Note: We do not serve main meals.**\n* Takeaway cones available.\n\nOpen until 9 pm."
+      },
+      "id": 13,
+      "situations": [
+        {
+          "id": 11,
+          "text": "You are extremely hungry and want a meal where you can eat as much as you like for a fixed price.",
+          "answer": "e"
+        },
+        {
+          "id": 12,
+          "text": "You want to sit down in a restaurant and enjoy a spicy Indian meal.",
+          "answer": "x"
+        },
+        {
+          "id": 13,
+          "text": "You want to learn how to prepare Japanese food yourself.",
+          "answer": "i"
+        },
+        {
+          "id": 14,
+          "text": "You want a romantic dinner with French food.",
+          "answer": "h"
+        },
+        {
+          "id": 15,
+          "text": "You want to eat a cooked breakfast at 5 o'clock in the afternoon.",
+          "answer": "x"
+        },
+        {
+          "id": 16,
+          "text": "You want to take your young children out for a pizza.",
+          "answer": "a"
+        },
+        {
+          "id": 17,
+          "text": "You need a meal late at night after leaving a club.",
+          "answer": "g"
+        },
+        {
+          "id": 18,
+          "text": "You want to eat high-quality meat in a formal place, and you are wearing smart clothes.",
+          "answer": "d"
+        },
+        {
+          "id": 19,
+          "text": "You want to eat fresh fish while looking at the sea.",
+          "answer": "f"
+        },
+        {
+          "id": 20,
+          "text": "You are looking for a restaurant that offers entertainment or a show while you eat.",
+          "answer": "k"
+        }
+      ],
+      "title": "Restaurants and Dining"
+    }
+  ]
+}
