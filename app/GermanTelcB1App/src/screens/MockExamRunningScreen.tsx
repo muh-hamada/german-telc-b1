@@ -117,6 +117,7 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   const renderStepContent = () => {
+    console.log('[MockExamRunningScreen] renderStepContent: currentStep', currentStep);
     if (!currentStep) return null;
 
     // Get testId for current step

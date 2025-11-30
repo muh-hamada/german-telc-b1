@@ -33,6 +33,8 @@ export const generateRandomExamSelection = async () => {
     'writing': Math.floor(Math.random() * 5), // Assuming 5 writing exams
   };
 
+  console.log('[generateRandomExamSelection] selectedTests', selectedTests);
+
   return selectedTests;
 };
 
