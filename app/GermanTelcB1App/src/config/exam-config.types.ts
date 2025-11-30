@@ -69,5 +69,7 @@ export interface ExamConfig {
       ios: string;
     },
   }
+
+  writingEvaluationFnName: string;
 }
 

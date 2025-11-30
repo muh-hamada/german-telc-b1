@@ -43,6 +43,9 @@ APP_NAME="TelcExamApp"
 if [[ "$EXAM_ID" == "german-b2" ]]; then
     BUNDLE_ID="com.mhamada.telcb2german"
     PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2"
+elif [[ "$EXAM_ID" == "english-b1" ]]; then
+    BUNDLE_ID="com.mhamada.telcb1english"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B1 English"
 elif [[ "$EXAM_ID" == "german-b1" ]]; then
     BUNDLE_ID="com.mhamada.telcb1german"
     PROVISIONING_PROFILE="TelcExamApp AppStore Distribution"

@@ -52,22 +52,24 @@ export const englishB1Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telcb1english',
-    ios: '',  // Will be filled when iOS app is published
+    ios: '6755912773',
   },
 
   ads: {
     appID: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482~2261614095',
+      ios: 'ca-app-pub-5101905792101482~2868118756',
     },
     banner: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/4436351291',
+      ios: 'ca-app-pub-5101905792101482/7489890041',
     },
     rewarded: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/7322369087',
+      ios: 'ca-app-pub-5101905792101482/5903693242',
     },
   },
+
+  writingEvaluationFnName: 'evaluateWritingEnglishB1'
 };
 

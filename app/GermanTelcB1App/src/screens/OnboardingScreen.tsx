@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.lg,
-
   },
   goButton: {
     marginTop: spacing.margin.md,

@@ -30,6 +30,15 @@ const LANGUAGE_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
 };
 
+export const LANGUAGE_SHORT_CODES: Record<string, string> = {
+  german: 'de',
+  english: 'en',
+  french: 'fr',
+  spanish: 'es',
+  russian: 'ru',
+  arabic: 'ar',
+};
+
 /**
  * Get exam variables for use in i18n interpolation
  * 

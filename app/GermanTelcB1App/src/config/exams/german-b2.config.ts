@@ -52,22 +52,24 @@ export const germanB2Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telcb2german',
-    ios: '',  // Will be filled when iOS app is published
+    ios: '6755521000',
   },
 
   ads: {
     appID: {
       android: 'ca-app-pub-5101905792101482~5846015787',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482~5081566168',
     },
     banner: {
       android: 'ca-app-pub-5101905792101482/4713607959',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/2408845954',
     },
     rewarded: {
       android: 'ca-app-pub-5101905792101482/4612825162',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/8782682610',
     },
   },
+
+  writingEvaluationFnName: 'evaluateWritingB2'
 };
 

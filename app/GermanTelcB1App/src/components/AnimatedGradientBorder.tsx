@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useRef } from 'react';
-import { View, StyleSheet, Animated, ViewStyle } from 'react-native';
+import { View, StyleSheet, Animated, ViewStyle, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface AnimatedGradientBorderProps {
@@ -37,6 +37,8 @@ const AnimatedGradientBorder: React.FC<AnimatedGradientBorderProps> = ({
         useNativeDriver: true,
       })
     ).start();
+
+    console.log(Dimensions.get('window').width)
   }, [duration]);
 
   // Interpolate rotation value to degrees
@@ -114,10 +116,10 @@ const styles = StyleSheet.create({
   },
   gradientContainer: {
     position: 'absolute',
-    top: -200,
-    left: -200,
-    right: -200,
-    bottom: -200,
+    top: -Dimensions.get('window').width/2,
+    left: -Dimensions.get('window').width/2,
+    right: -Dimensions.get('window').width/2,
+    bottom: -Dimensions.get('window').width/2,
     zIndex: 1,
   },
   gradient: {
@@ -125,10 +127,10 @@ const styles = StyleSheet.create({
   },
   glowContainer: {
     position: 'absolute',
-    top: -104,
-    left: -104,
-    right: -104,
-    bottom: -104,
+    top: -Dimensions.get('window').width/4,
+    left: -Dimensions.get('window').width/4,
+    right: -Dimensions.get('window').width/4,
+    bottom: -Dimensions.get('window').width/4,
     zIndex: 0,
     opacity: 0.5,
   },

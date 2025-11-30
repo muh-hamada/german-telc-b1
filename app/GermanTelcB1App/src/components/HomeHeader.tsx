@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
+import { DEMO_MODE } from '../config/development.config';
 
 interface HomeHeaderProps {
   // You can add props here if needed in the future
@@ -15,17 +16,13 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
   return (
     <View style={styles.textContainer} >
       <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
-        {user ? t('home.welcomeUser', { name: user.displayName }) : t('home.welcomeGuest')}
+        {user ? t('home.welcomeUser', { name: DEMO_MODE ? 'Sarah Johnson' : user.displayName }) : t('home.welcomeGuest')}
       </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    marginBottom: spacing.margin.md,
-    padding: 0,
-  },
   textContainer: {
     flex: 1,
     marginTop: spacing.margin.md,

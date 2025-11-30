@@ -55,6 +55,7 @@ echo -e "${GREEN}✓ Found source image: ${SOURCE_IMAGE}${NC}"
 
 # Target directory
 ASSETS_DIR="ios/TelcExamApp/Images.xcassets/AppIcon.appiconset"
+LAUNCH_LOGO_DIR="ios/TelcExamApp/Images.xcassets/launch_logo.imageset"
 
 # Check if sips command exists (macOS built-in image tool)
 if ! command -v sips &> /dev/null; then
@@ -107,6 +108,38 @@ for icon_entry in "${ICON_LIST[@]}"; do
     fi
 done
 
+# Generate launch logo icons
+echo -e "\n${YELLOW}Generating launch logo icons...${NC}"
+
+# Launch logo sizes (based on 1x, 2x, 3x)
+# Base size is usually around 180px for launch screen logo center
+LAUNCH_LIST=(
+    "180.png|180"
+    "180 1.png|360"
+    "180 2.png|540"
+)
+
+launch_count=0
+
+for icon_entry in "${LAUNCH_LIST[@]}"; do
+    filename="${icon_entry%%|*}"
+    size="${icon_entry##*|}"
+    output_path="${LAUNCH_LOGO_DIR}/${filename}"
+    
+    echo -e "  ${BLUE}→${NC} Generating launch logo ${filename} (${size}x${size}px)..."
+    
+    # Use sips to resize the image
+    sips -z "$size" "$size" "$SOURCE_IMAGE" --out "$output_path" > /dev/null 2>&1
+    
+    if [ $? -eq 0 ]; then
+        echo -e "  ${GREEN}✓${NC} Created ${filename}"
+        launch_count=$((launch_count + 1))
+    else
+        echo -e "  ${RED}✗${NC} Failed to create ${filename}"
+        # Don't exit here, just warn, as app icons are more critical
+    fi
+done
+
 # Verify all icons were created
 echo -e "\n${YELLOW}Verifying generated icons...${NC}"
 missing_count=0
@@ -121,21 +154,22 @@ for icon_entry in "${ICON_LIST[@]}"; do
 done
 
 if [ $missing_count -eq 0 ]; then
-    echo -e "${GREEN}✓ All ${total_icons} icon sizes generated successfully${NC}"
+    echo -e "${GREEN}✓ All ${total_icons} app icon sizes generated successfully${NC}"
 else
-    echo -e "${RED}✗ Missing ${missing_count} icon(s)${NC}"
+    echo -e "${RED}✗ Missing ${missing_count} app icon(s)${NC}"
     exit 1
 fi
 
 # Show summary
 echo -e "\n${GREEN}========================================${NC}"
-echo -e "${GREEN}✓ iOS app icons generated successfully!${NC}"
+echo -e "${GREEN}✓ iOS app icons & launch logos generated successfully!${NC}"
 echo -e "${GREEN}========================================${NC}"
 echo -e "\n${BLUE}Details:${NC}"
 echo -e "  Exam: ${EXAM_ID}"
 echo -e "  Source: ${SOURCE_IMAGE}"
-echo -e "  Target: ${ASSETS_DIR}"
-echo -e "  Icons: ${generated_count} sizes"
+echo -e "  App Icons Target: ${ASSETS_DIR}"
+echo -e "  Launch Logos Target: ${LAUNCH_LOGO_DIR}"
+echo -e "  Icons Generated: ${generated_count} + ${launch_count}"
 echo -e "  Backup: ${BACKUP_DIR}"
 echo -e "\n${YELLOW}Next steps:${NC}"
 echo -e "  1. Clean build: ${GREEN}cd ios && xcodebuild clean${NC}"

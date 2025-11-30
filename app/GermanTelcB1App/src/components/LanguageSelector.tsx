@@ -88,10 +88,8 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingHorizontal: spacing.padding.lg,
     width: '100%',
-    justifyContent: 'flex-end',
   },
   title: {
     ...typography.textStyles.h4,
@@ -100,7 +98,6 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   scrollContent: {
-    paddingBottom: spacing.padding.lg,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

@@ -7,6 +7,7 @@
 
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import { WritingAssessment, EvaluationRequest } from './types';
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -16,39 +17,6 @@ if (!admin.apps.length) {
 const OPENAI_API_KEY = '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';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o';
-
-// Interfaces
-interface WritingAssessment {
-  overallScore: number;
-  maxScore: number;
-  userInput: string;
-  criteria: {
-    taskCompletion: {
-      grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
-      feedback: string;
-    };
-    communicativeDesign: {
-      grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
-      feedback: string;
-    };
-    formalCorrectness: {
-      grade: 'A' | 'B' | 'C' | 'D';
-      points: number;
-      feedback: string;
-    };
-  };
-  correctedAnswer: string;
-}
-
-interface EvaluationRequest {
-  userAnswer?: string;
-  imageBase64?: string;
-  incomingEmail: string;
-  writingPoints: string[];
-  examTitle: string;
-}
 
 /**
  * System prompt that defines the AI's role as a Telc B2 German examiner

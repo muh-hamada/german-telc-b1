@@ -68,5 +68,7 @@ export const germanB1Config: ExamConfig = {
       ios: 'ca-app-pub-5101905792101482/5268814171',
     },
   },
+
+  writingEvaluationFnName: 'evaluateWriting'
 };
 

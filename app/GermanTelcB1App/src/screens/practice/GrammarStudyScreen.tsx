@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, act } from 'react';
 import {
   View,
   Text,
@@ -22,6 +22,7 @@ import { useStreak } from '../../contexts/StreakContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useRemoteConfig } from '../../contexts/RemoteConfigContext';
 import { QUESTIONS_PER_ACTIVITY } from '../../constants/streak.constants';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 interface GrammarQuestion {
   choice: string;
@@ -330,6 +331,26 @@ const GrammarStudyScreen: React.FC = () => {
     return langMap[i18n.language] || 'en';
   };
 
+  const getExampleTranslation = () => {
+    let translationKey = getLanguageKey();
+  
+    if(activeExamConfig.language === 'german') {
+      // If the language is German, show the English translation, otherwise show the translation in the current language
+      if (translationKey === 'de') {
+        return currentQuestion.question.translations['en'];
+      }
+    }
+
+    if(activeExamConfig.language === 'english') {
+      // If the language is English, hide the translation
+      if (translationKey === 'en') {
+        return '';
+      }
+    }
+
+    return currentQuestion.question.translations[translationKey];
+  }
+
   if (isLoading) {
     return (
       <SafeAreaView style={styles.container} edges={['bottom']}>
@@ -401,8 +422,7 @@ const GrammarStudyScreen: React.FC = () => {
             {currentQuestion.question.question.rendered_sentence}
           </Text>
           <Text style={styles.sentenceTranslation}>
-            {/* If the language is German, show the English translation, otherwise show the translation in the current language */}
-            {currentQuestion.question.translations[getLanguageKey() === 'de' ? 'en' : getLanguageKey()]}
+            {getExampleTranslation()}
           </Text>
         </View>
 

@@ -24,6 +24,8 @@
 		<string>TelcExamApp AppStore Distribution</string>
 		<key>com.mhamada.telcb2german</key>
     	<string>TelcExamApp AppStore Distribution B2</string>
+		<key>com.mhamada.telcb1english</key>
+		<string>TelcExamApp AppStore Distribution B1 English</string>
 	</dict>
 	<key>stripSwiftSymbols</key>
 	<true/>
