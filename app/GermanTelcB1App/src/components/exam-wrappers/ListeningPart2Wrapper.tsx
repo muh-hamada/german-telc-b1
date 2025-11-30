@@ -63,7 +63,7 @@ const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, o
 
   const sectionDetails = listeningData.section_details;
   const exams = listeningData.exams as Exam[];
-  const exam = exams[testId] || exams[0];
+  const exam = exams.find(e => e.id === testId) || exams[0];
 
   return (
     <View style={styles.container}>

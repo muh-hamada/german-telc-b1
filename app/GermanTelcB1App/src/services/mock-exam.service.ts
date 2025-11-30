@@ -11,26 +11,49 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
  * Picks one random test from each section's available exams
  */
 export const generateRandomExamSelection = async () => {
-  // Get counts of available exams for each section
-  const readingPart1Count = (await dataService.getReadingPart1Exams()).length;
-  const readingPart2Count = (await dataService.getReadingPart2Exams()).length;
-  const readingPart3Count = (await dataService.getReadingPart3Exams()).length;
-  const grammarPart1Count = (await dataService.getGrammarPart1Exams()).length;
-  const grammarPart2Count = (await dataService.getGrammarPart2Exams()).length;
-  
-  // For listening and writing, we only have 1 exam per section currently
-  // but we'll structure it the same way for consistency
-  
+  // Fetch all available exams for each section
+  const [
+    readingPart1Exams,
+    readingPart2Exams,
+    readingPart3Exams,
+    grammarPart1Exams,
+    grammarPart2Exams,
+    writingExams,
+    listeningPart1Data,
+    listeningPart2Data,
+    listeningPart3Data
+  ] = await Promise.all([
+    dataService.getReadingPart1Exams(),
+    dataService.getReadingPart2Exams(),
+    dataService.getReadingPart3Exams(),
+    dataService.getGrammarPart1Exams(),
+    dataService.getGrammarPart2Exams(),
+    dataService.getWritingExams(),
+    dataService.getListeningPart1Content(),
+    dataService.getListeningPart2Content(),
+    dataService.getListeningPart3Content(),
+  ]);
+
+  const listeningPart1Exams = listeningPart1Data?.exams || [];
+  const listeningPart2Exams = listeningPart2Data?.exams || [];
+  const listeningPart3Exams = listeningPart3Data?.exams || [];
+
+  const getRandomId = (exams: any[]) => {
+    if (!exams || exams.length === 0) return 0;
+    const randomIndex = Math.floor(Math.random() * exams.length);
+    return exams[randomIndex].id;
+  };
+
   const selectedTests = {
-    'reading-1': Math.floor(Math.random() * readingPart1Count),
-    'reading-2': Math.floor(Math.random() * readingPart2Count),
-    'reading-3': Math.floor(Math.random() * readingPart3Count),
-    'language-1': Math.floor(Math.random() * grammarPart1Count),
-    'language-2': Math.floor(Math.random() * grammarPart2Count),
-    'listening-1': 0, // Only one exam available
-    'listening-2': 0, // Only one exam available
-    'listening-3': 0, // Only one exam available
-    'writing': Math.floor(Math.random() * 5), // Assuming 5 writing exams
+    'reading-1': getRandomId(readingPart1Exams),
+    'reading-2': getRandomId(readingPart2Exams),
+    'reading-3': getRandomId(readingPart3Exams),
+    'language-1': getRandomId(grammarPart1Exams),
+    'language-2': getRandomId(grammarPart2Exams),
+    'listening-1': getRandomId(listeningPart1Exams),
+    'listening-2': getRandomId(listeningPart2Exams),
+    'listening-3': getRandomId(listeningPart3Exams),
+    'writing': getRandomId(writingExams),
   };
 
   console.log('[generateRandomExamSelection] selectedTests', selectedTests);
