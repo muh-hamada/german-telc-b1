@@ -179,6 +179,22 @@ service cloud.firestore {
       allow update: if request.auth != null && 
                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
+
+    // User Analytics Collection
+    // Only admin can read analytics data
+    // Cloud Functions (service account) can write
+    match /user_analytics/{appId} {
+      allow read: if request.auth != null && 
+                    request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+      allow write: if false; // Only Cloud Functions can write
+      
+      // Daily snapshots subcollection
+      match /daily_snapshots/{date} {
+        allow read: if request.auth != null && 
+                      request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+        allow write: if false; // Only Cloud Functions can write
+      }
+    }
   }
 }
 

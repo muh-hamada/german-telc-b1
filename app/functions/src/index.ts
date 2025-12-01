@@ -5,6 +5,12 @@ import { deleteUserAccount } from './delete-user-account';
 import { syncNotificationIndex } from './sync-notification-index';
 import { sendScheduledNotifications } from './send-scheduled-notifications';
 import { sendTestNotification } from './send-scheduled-notifications';
+import { 
+  onUserUpdate, 
+  onVocabularyUpdate, 
+  onStreakUpdate, 
+  onProgressUpdate 
+} from './user-analytics';
 
 export {
   evaluateWritingB1 as evaluateWriting, // Backward compatibility
@@ -13,5 +19,9 @@ export {
   deleteUserAccount,
   syncNotificationIndex,
   sendScheduledNotifications,
-  sendTestNotification
+  sendTestNotification,
+  onUserUpdate,
+  onVocabularyUpdate,
+  onStreakUpdate,
+  onProgressUpdate
 };
