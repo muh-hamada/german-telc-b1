@@ -89,8 +89,8 @@ android {
         applicationId "com.mhamada.telcb1english"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 42
-        versionName "1.0.42"
+        versionCode 43
+        versionName "1.0.43"
     }
     
     flavorDimensions "exam"
