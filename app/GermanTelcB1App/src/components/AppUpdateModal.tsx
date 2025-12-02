@@ -56,16 +56,16 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
           {/* Title */}
           <Text style={styles.title}>
             {isForced
-              ? t('appUpdate.requiredTitle', 'Update Required')
-              : t('appUpdate.availableTitle', 'Update Available')}
+              ? t('appUpdate.requiredTitle')
+              : t('appUpdate.availableTitle')}
           </Text>
 
           {/* Message */}
           <Text style={styles.message}>
             {message || 
               (isForced
-                ? t('appUpdate.requiredMessage', 'This version is no longer supported. Please update to continue using the app.')
-                : t('appUpdate.availableMessage', 'A new version is available with improvements and bug fixes!')
+                ? t('appUpdate.requiredMessage')
+                : t('appUpdate.availableMessage')
               )
             }
           </Text>
@@ -78,7 +78,7 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               activeOpacity={0.8}
             >
               <Text style={styles.primaryButtonText}>
-                {t('appUpdate.updateNow', 'Update Now')}
+                {t('appUpdate.updateNow')}
               </Text>
             </TouchableOpacity>
 
@@ -89,7 +89,7 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                 activeOpacity={0.8}
               >
                 <Text style={styles.secondaryButtonText}>
-                  {t('appUpdate.later', 'Later')}
+                  {t('appUpdate.later')}
                 </Text>
               </TouchableOpacity>
             )}
@@ -97,7 +97,7 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
 
           {isForced && (
             <Text style={styles.forcedNote}>
-              {t('appUpdate.forcedNote', 'This update is required to continue')}
+              {t('appUpdate.forcedNote')}
             </Text>
           )}
         </View>

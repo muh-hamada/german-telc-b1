@@ -155,12 +155,15 @@ export const AnalyticsEvents = {
   APP_UPDATE_STORE_OPENED: 'app_update_store_opened',
 
   // User Support Ad
-  USER_SUPPORT_AD_CLICKED: 'user_support_ad_clicked',
-  USER_SUPPORT_AD_SHOWN: 'user_support_ad_shown',
-  USER_SUPPORT_AD_EARNED_REWARD: 'user_support_ad_earned_reward',
-  USER_SUPPORT_AD_CLOSED: 'user_support_ad_closed',
-  USER_SUPPORT_AD_ERROR: 'user_support_ad_error',
-  USER_SUPPORT_AD_SHOW_FAILED: 'user_support_ad_show_failed',
+  USER_SUPPORT_AD_BUTTON_SHOWN: 'user_support_ad_button_shown', // When button becomes visible (for conditional displays like ResultsModal)
+  USER_SUPPORT_AD_SCREEN_SHOWN: 'user_support_ad_screen_shown', // When SupportAdScreen is displayed
+  USER_SUPPORT_AD_CLICKED: 'user_support_ad_clicked', // When user clicks watch ad button
+  USER_SUPPORT_AD_SHOWN: 'user_support_ad_shown', // When rewarded ad is successfully displayed
+  USER_SUPPORT_AD_EARNED_REWARD: 'user_support_ad_earned_reward', // When user earns reward for watching
+  USER_SUPPORT_AD_CLOSED: 'user_support_ad_closed', // When rewarded ad is closed
+  USER_SUPPORT_AD_SKIPPED: 'user_support_ad_skipped', // When user skips the ad screen
+  USER_SUPPORT_AD_ERROR: 'user_support_ad_error', // When ad fails to load
+  USER_SUPPORT_AD_SHOW_FAILED: 'user_support_ad_show_failed', // When ad fails to show
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

@@ -30,38 +30,59 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
-  const scaleAnim = useRef(new Animated.Value(0)).current;
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const textScaleAnim = useRef(new Animated.Value(0.5)).current;
+  const containerScaleAnim = useRef(new Animated.Value(0.8)).current;
+  const containerFadeAnim = useRef(new Animated.Value(0)).current;
+  const textScaleAnim = useRef(new Animated.Value(0.9)).current;
+  const textFadeAnim = useRef(new Animated.Value(0)).current;
+  const hintFadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     if (visible) {
       // Reset animations
-      scaleAnim.setValue(0);
-      fadeAnim.setValue(0);
-      textScaleAnim.setValue(0.5);
+      containerScaleAnim.setValue(0.8);
+      containerFadeAnim.setValue(0);
+      textScaleAnim.setValue(0.9);
+      textFadeAnim.setValue(0);
+      hintFadeAnim.setValue(0);
 
-      // Run entrance animations
-      Animated.sequence([
-        Animated.parallel([
-          Animated.spring(scaleAnim, {
-            toValue: 1,
-            friction: 8,
-            tension: 40,
-            useNativeDriver: true,
-          }),
-          Animated.timing(fadeAnim, {
+      // Run all animations in parallel with staggered timing for smooth effect
+      Animated.parallel([
+        // Container fade and scale
+        Animated.timing(containerFadeAnim, {
+          toValue: 1,
+          duration: 400,
+          useNativeDriver: true,
+        }),
+        Animated.timing(containerScaleAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        // Text animations with slight delay
+        Animated.sequence([
+          Animated.delay(150),
+          Animated.parallel([
+            Animated.timing(textFadeAnim, {
+              toValue: 1,
+              duration: 400,
+              useNativeDriver: true,
+            }),
+            Animated.timing(textScaleAnim, {
+              toValue: 1,
+              duration: 400,
+              useNativeDriver: true,
+            }),
+          ]),
+        ]),
+        // Hint fade in last
+        Animated.sequence([
+          Animated.delay(500),
+          Animated.timing(hintFadeAnim, {
             toValue: 1,
             duration: 300,
             useNativeDriver: true,
           }),
         ]),
-        Animated.spring(textScaleAnim, {
-          toValue: 1,
-          friction: 6,
-          tension: 50,
-          useNativeDriver: true,
-        }),
       ]).start();
 
       // Auto close after 4 seconds
@@ -71,7 +92,7 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
 
       return () => clearTimeout(timer);
     }
-  }, [visible, scaleAnim, fadeAnim, textScaleAnim, onClose]);
+  }, [visible, containerScaleAnim, containerFadeAnim, textScaleAnim, textFadeAnim, hintFadeAnim, onClose]);
 
   return (
     <Modal
@@ -89,8 +110,8 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
           style={[
             styles.container,
             {
-              opacity: fadeAnim,
-              transform: [{ scale: scaleAnim }],
+              opacity: containerFadeAnim,
+              transform: [{ scale: containerScaleAnim }],
             },
           ]}
         >
@@ -106,6 +127,7 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
             style={[
               styles.textContainer,
               {
+                opacity: textFadeAnim,
                 transform: [{ scale: textScaleAnim }],
               },
             ]}
@@ -119,9 +141,9 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
           </Animated.View>
 
           {/* Tap to dismiss hint */}
-          <Text style={styles.dismissHint}>
+          <Animated.Text style={[styles.dismissHint, { opacity: hintFadeAnim }]}>
             {t('supportAd.tapToDismiss')}
-          </Text>
+          </Animated.Text>
         </Animated.View>
       </TouchableOpacity>
     </Modal>

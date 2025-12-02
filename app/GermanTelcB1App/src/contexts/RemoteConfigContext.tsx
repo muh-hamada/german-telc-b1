@@ -1,5 +1,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { RemoteConfig, RemoteConfigContextType, DEFAULT_REMOTE_CONFIG } from '../types/remote-config.types';
+import { 
+  RemoteConfig, 
+  RemoteConfigContextType, 
+  DEFAULT_REMOTE_CONFIG,
+  GlobalConfig,
+  DEFAULT_GLOBAL_CONFIG,
+  SupportAdIntervalsConfig,
+} from '../types/remote-config.types';
 import firebaseRemoteConfigService from '../services/firebase-remote-config.service';
 import StorageService from '../services/storage.service';
 import { activeExamConfig } from '../config/active-exam.config';
@@ -12,6 +19,7 @@ interface RemoteConfigProviderProps {
 
 export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ children }) => {
   const [config, setConfig] = useState<RemoteConfig | null>(null);
+  const [globalConfig, setGlobalConfig] = useState<GlobalConfig | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,34 +35,52 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     try {
       console.log('[RemoteConfigContext] Loading remote config for appId:', appId);
       
-      // Step 1: Load cached config immediately for fast startup
+      // Step 1: Load cached configs immediately for fast startup
       const cachedConfig = await StorageService.getRemoteConfig();
+      const cachedGlobalConfig = await StorageService.getGlobalConfig();
+      
       if (cachedConfig) {
-        console.log('[RemoteConfigContext] Loaded config from cache:', cachedConfig);
+        console.log('[RemoteConfigContext] Loaded app config from cache:', cachedConfig);
         setConfig(cachedConfig);
+      }
+      
+      if (cachedGlobalConfig) {
+        console.log('[RemoteConfigContext] Loaded global config from cache:', cachedGlobalConfig);
+        setGlobalConfig(cachedGlobalConfig);
+      }
+      
+      if (cachedConfig || cachedGlobalConfig) {
         setIsLoading(false);
       }
 
-      // Step 2: Fetch fresh config from Firebase
-      const freshConfig = await firebaseRemoteConfigService.getRemoteConfig(appId);
+      // Step 2: Fetch fresh configs from Firebase (in parallel)
+      const [freshConfig, freshGlobalConfig] = await Promise.all([
+        firebaseRemoteConfigService.getRemoteConfig(appId),
+        firebaseRemoteConfigService.getGlobalConfig(),
+      ]);
       
-      // Step 3: Update state and cache with fresh config
+      // Step 3: Update state and cache with fresh configs
       setConfig(freshConfig);
-      await StorageService.saveRemoteConfig(freshConfig);
+      setGlobalConfig(freshGlobalConfig);
+      await Promise.all([
+        StorageService.saveRemoteConfig(freshConfig),
+        StorageService.saveGlobalConfig(freshGlobalConfig),
+      ]);
       setError(null);
       
-      console.log('[RemoteConfigContext] Config loaded and cached:', freshConfig);
+      console.log('[RemoteConfigContext] Configs loaded and cached:', { freshConfig, freshGlobalConfig });
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to load remote config';
       console.error('[RemoteConfigContext] Error loading config:', errorMessage);
       setError(errorMessage);
       
-      // Fallback to default config with development.config value
+      // Fallback to default configs
       const fallbackConfig: RemoteConfig = {
         ...DEFAULT_REMOTE_CONFIG,
         appId,
       };
       setConfig(fallbackConfig);
+      setGlobalConfig(DEFAULT_GLOBAL_CONFIG);
     } finally {
       setIsLoading(false);
     }
@@ -64,21 +90,32 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
    * Subscribe to real-time config updates from Firebase
    */
   useEffect(() => {
-    console.log('[RemoteConfigContext] Setting up real-time config listener');
+    console.log('[RemoteConfigContext] Setting up real-time config listeners');
     
-    const unsubscribe = firebaseRemoteConfigService.subscribeToConfigChanges(
+    // Subscribe to app-specific config
+    const unsubscribeAppConfig = firebaseRemoteConfigService.subscribeToConfigChanges(
       appId,
       async (updatedConfig) => {
-        console.log('[RemoteConfigContext] Config updated from Firebase:', updatedConfig);
+        console.log('[RemoteConfigContext] App config updated from Firebase:', updatedConfig);
         setConfig(updatedConfig);
         await StorageService.saveRemoteConfig(updatedConfig);
         setError(null);
       }
     );
 
+    // Subscribe to global config
+    const unsubscribeGlobalConfig = firebaseRemoteConfigService.subscribeToGlobalConfigChanges(
+      async (updatedGlobalConfig) => {
+        console.log('[RemoteConfigContext] Global config updated from Firebase:', updatedGlobalConfig);
+        setGlobalConfig(updatedGlobalConfig);
+        await StorageService.saveGlobalConfig(updatedGlobalConfig);
+      }
+    );
+
     return () => {
-      console.log('[RemoteConfigContext] Cleaning up config listener');
-      unsubscribe();
+      console.log('[RemoteConfigContext] Cleaning up config listeners');
+      unsubscribeAppConfig();
+      unsubscribeGlobalConfig();
     };
   }, [appId]);
 
@@ -125,12 +162,26 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     return false;
   }, [config]);
 
+  /**
+   * Get support ad interval for a specific placement
+   * @param placement - The placement key (e.g., 'grammarStudy', 'vocabularyStudy')
+   * @returns Number of items/questions between support ad prompts
+   */
+  const getSupportAdInterval = useCallback((placement: keyof SupportAdIntervalsConfig): number => {
+    if (!globalConfig) {
+      return DEFAULT_GLOBAL_CONFIG.supportAdIntervals[placement];
+    }
+    return globalConfig.supportAdIntervals[placement];
+  }, [globalConfig]);
+
   const value: RemoteConfigContextType = {
     config,
+    globalConfig,
     isLoading,
     error,
     refreshConfig,
     isStreaksEnabledForUser,
+    getSupportAdInterval,
   };
 
   return (

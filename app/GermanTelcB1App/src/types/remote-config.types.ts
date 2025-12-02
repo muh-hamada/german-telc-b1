@@ -4,6 +4,28 @@
  * Defines the structure of remote configuration fetched from Firebase
  */
 
+/**
+ * Support Ad Intervals Configuration
+ * Defines how often support ads should be shown in different screens
+ */
+export interface SupportAdIntervalsConfig {
+  grammarStudy: number;    // Show ad after every N grammar questions
+  vocabularyStudy: number; // Show ad after every N vocabulary items
+}
+
+/**
+ * Global Configuration
+ * Applies to all apps - stored in app_configs/global
+ */
+export interface GlobalConfig {
+  supportAdIntervals: SupportAdIntervalsConfig;
+  updatedAt: number;
+}
+
+/**
+ * App-specific Remote Configuration
+ * Stored in app_configs/{appId}
+ */
 export interface RemoteConfig {
   appId: string;
   enableStreaksForAllUsers: boolean;
@@ -17,11 +39,23 @@ export interface RemoteConfig {
 
 export interface RemoteConfigContextType {
   config: RemoteConfig | null;
+  globalConfig: GlobalConfig | null;
   isLoading: boolean;
   error: string | null;
   refreshConfig: () => Promise<void>;
   isStreaksEnabledForUser: (userId?: string) => boolean;
+  getSupportAdInterval: (placement: keyof SupportAdIntervalsConfig) => number;
 }
+
+export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
+  grammarStudy: 20,
+  vocabularyStudy: 20,
+};
+
+export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
+  supportAdIntervals: DEFAULT_SUPPORT_AD_INTERVALS,
+  updatedAt: Date.now(),
+};
 
 export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   appId: '',

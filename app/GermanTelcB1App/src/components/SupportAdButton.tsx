@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
+    padding: spacing.padding.md,
     borderWidth: 1,
     borderColor: colors.primary[100],
     ...spacing.shadow.sm,

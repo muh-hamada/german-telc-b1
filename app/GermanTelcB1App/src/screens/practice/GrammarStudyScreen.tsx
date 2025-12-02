@@ -65,9 +65,12 @@ const GrammarStudyScreen: React.FC = () => {
   const { i18n } = useTranslation();
   const { user } = useAuth();
   const { recordActivity } = useStreak();
-  const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { isStreaksEnabledForUser, getSupportAdInterval } = useRemoteConfig();
   
   const navigation = useNavigation();
+  
+  // Get support ad interval from remote config
+  const SUPPORT_AD_INTERVAL = getSupportAdInterval('grammarStudy');
 
   // Flatten all questions from all groups
   const [allQuestions, setAllQuestions] = useState<Array<{ question: Sentence; groupName: string; questionIndex: number }>>([]);
@@ -85,7 +88,6 @@ const GrammarStudyScreen: React.FC = () => {
   
   // Show support ad screen between questions
   const [showSupportAdModal, setShowSupportAdModal] = useState(false);
-  const SUPPORT_AD_INTERVAL = 2; // Show ad after every N questions
 
   useEffect(() => {
     const loadAndInitialize = async () => {

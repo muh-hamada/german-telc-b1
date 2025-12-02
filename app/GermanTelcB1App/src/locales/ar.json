@@ -1021,7 +1021,7 @@
   },
   "appUpdate": {
     "requiredTitle": "التحديث مطلوب",
-    "availableTitle": "يتوفر تحديث",
+    "availableTitle": "تحديث جديد",
     "requiredMessage": "لم يعد هذا الإصدار مدعومًا. يرجى التحديث لمواصلة استخدام التطبيق.",
     "availableMessage": "يتوفر إصدار جديد يحتوي على تحسينات وإصلاحات!",
     "currentVersion": "الحالي:",

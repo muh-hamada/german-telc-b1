@@ -10,6 +10,7 @@ class StorageService {
     GRAMMAR_STUDY_PROGRESS: 'grammar_study_progress',
     GRAMMAR_STUDY_SESSION_COUNTER: 'grammar_study_session_counter',
     REMOTE_CONFIG: 'remote_config',
+    GLOBAL_CONFIG: 'global_config',
     APP_UPDATE_DISMISSED: 'app_update_dismissed',
   };
 
@@ -378,6 +379,36 @@ class StorageService {
       await AsyncStorage.removeItem(StorageService.KEYS.REMOTE_CONFIG);
     } catch (error) {
       console.error('Error clearing remote config from cache:', error);
+    }
+  }
+
+  // Global Config Cache Methods
+  async getGlobalConfig(): Promise<any | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GLOBAL_CONFIG);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting global config from cache:', error);
+      return null;
+    }
+  }
+
+  async saveGlobalConfig(config: any): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GLOBAL_CONFIG,
+        JSON.stringify(config)
+      );
+    } catch (error) {
+      console.error('Error saving global config to cache:', error);
+    }
+  }
+
+  async clearGlobalConfig(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GLOBAL_CONFIG);
+    } catch (error) {
+      console.error('Error clearing global config from cache:', error);
     }
   }
 

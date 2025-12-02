@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import { colors, spacing, typography } from '../theme';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
 import SupportAdButton from './SupportAdButton';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface ResultsModalProps {
   visible: boolean;
@@ -30,6 +31,24 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   examTitle,
 }) => {
   const { t } = useCustomTranslation();
+  const hasLoggedButtonShown = useRef<boolean>(false);
+
+  // Track when support ad button is shown (only for scores > 60%)
+  useEffect(() => {
+    if (visible && result && result.percentage > 60 && !hasLoggedButtonShown.current) {
+      hasLoggedButtonShown.current = true;
+      logEvent(AnalyticsEvents.USER_SUPPORT_AD_BUTTON_SHOWN, { 
+        screen: 'results_modal',
+        score_percentage: result.percentage,
+      });
+    }
+    
+    // Reset the flag when modal is closed
+    if (!visible) {
+      hasLoggedButtonShown.current = false;
+    }
+  }, [visible, result]);
+
   if (!result) return null;
 
   console.log('-------------> result', result);

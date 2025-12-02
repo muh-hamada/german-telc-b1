@@ -1,15 +1,24 @@
 import firestore from '@react-native-firebase/firestore';
-import { RemoteConfig, DEFAULT_REMOTE_CONFIG } from '../types/remote-config.types';
+import { 
+  RemoteConfig, 
+  DEFAULT_REMOTE_CONFIG,
+  GlobalConfig,
+  DEFAULT_GLOBAL_CONFIG,
+  DEFAULT_SUPPORT_AD_INTERVALS,
+} from '../types/remote-config.types';
 
 /**
  * Firebase Remote Config Service
  * 
  * Manages remote configuration fetched from Firebase Firestore
- * Collection: appConfigs
- * Document ID: appId (e.g., 'german-b1')
+ * Collection: app_configs
+ * Document IDs: 
+ *   - {appId} (e.g., 'german-b1') for app-specific config
+ *   - 'global' for global config that applies to all apps
  */
 class FirebaseRemoteConfigService {
   private readonly COLLECTION_NAME = 'app_configs';
+  private readonly GLOBAL_DOC_ID = 'global';
 
   /**
    * Get remote configuration for a specific app
@@ -132,6 +141,90 @@ class FirebaseRemoteConfigService {
             ...DEFAULT_REMOTE_CONFIG,
             appId,
           });
+        }
+      );
+
+    return unsubscribe;
+  }
+
+  /**
+   * Get global configuration that applies to all apps
+   * @returns GlobalConfig object
+   */
+  async getGlobalConfig(): Promise<GlobalConfig> {
+    try {
+      console.log('[RemoteConfigService] Fetching global config');
+      
+      const docRef = firestore().collection(this.COLLECTION_NAME).doc(this.GLOBAL_DOC_ID);
+      const doc = await docRef.get();
+
+      if (!doc.exists) {
+        console.warn('[RemoteConfigService] No global config found, using defaults');
+        return DEFAULT_GLOBAL_CONFIG;
+      }
+
+      const data = doc.data();
+      if (!data) {
+        console.warn('[RemoteConfigService] Empty global config data, using defaults');
+        return DEFAULT_GLOBAL_CONFIG;
+      }
+
+      const config: GlobalConfig = {
+        supportAdIntervals: {
+          grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
+          vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
+        },
+        updatedAt: data.updatedAt || Date.now(),
+      };
+
+      console.log('[RemoteConfigService] Global config loaded successfully:', config);
+      return config;
+    } catch (error) {
+      console.error('[RemoteConfigService] Error fetching global config:', error);
+      return DEFAULT_GLOBAL_CONFIG;
+    }
+  }
+
+  /**
+   * Subscribe to real-time updates of global configuration
+   * @param callback - Function to call when config changes
+   * @returns Unsubscribe function
+   */
+  subscribeToGlobalConfigChanges(callback: (config: GlobalConfig) => void): () => void {
+    console.log('[RemoteConfigService] Subscribing to global config changes');
+    
+    const unsubscribe = firestore()
+      .collection(this.COLLECTION_NAME)
+      .doc(this.GLOBAL_DOC_ID)
+      .onSnapshot(
+        (snapshot) => {
+          if (!snapshot.exists) {
+            console.warn('[RemoteConfigService] Global config document not found');
+            callback(DEFAULT_GLOBAL_CONFIG);
+            return;
+          }
+
+          const data = snapshot.data();
+          if (!data) {
+            console.warn('[RemoteConfigService] Empty global config data');
+            callback(DEFAULT_GLOBAL_CONFIG);
+            return;
+          }
+
+          const config: GlobalConfig = {
+            supportAdIntervals: {
+              grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
+              vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
+            },
+            updatedAt: data.updatedAt || Date.now(),
+          };
+
+          console.log('[RemoteConfigService] Global config updated:', config);
+          callback(config);
+        },
+        (error) => {
+          console.error('[RemoteConfigService] Error in global config subscription:', error);
+          callback(DEFAULT_GLOBAL_CONFIG);
         }
       );
 

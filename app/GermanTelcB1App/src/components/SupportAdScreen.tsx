@@ -54,6 +54,15 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
   const [isShowingAd, setIsShowingAd] = useState(false);
   const [showThankYouModal, setShowThankYouModal] = useState(false);
   const adEarnedRewardRef = useRef<boolean>(false);
+  const hasLoggedScreenShown = useRef<boolean>(false);
+
+  // Log screen shown event once when component mounts
+  useEffect(() => {
+    if (!hasLoggedScreenShown.current) {
+      hasLoggedScreenShown.current = true;
+      logEvent(AnalyticsEvents.USER_SUPPORT_AD_SCREEN_SHOWN, { screen });
+    }
+  }, [screen]);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -153,9 +162,8 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
   }, [rewardedAd, isAdLoaded, screen]);
 
   const handleSkip = useCallback(() => {
-    logEvent(AnalyticsEvents.USER_SUPPORT_AD_CLOSED, { 
+    logEvent(AnalyticsEvents.USER_SUPPORT_AD_SKIPPED, { 
       screen,
-      skipped: true,
     });
     onContinue();
   }, [screen, onContinue]);
