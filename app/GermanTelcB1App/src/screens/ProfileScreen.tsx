@@ -21,6 +21,7 @@ import LoginModal from '../components/LoginModal';
 import DailyStreaksCard from '../components/DailyStreaksCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import ProfileStatsGrid from '../components/ProfileStatsGrid';
+import SupportAdButton from '../components/SupportAdButton';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useStreak } from '../contexts/StreakContext';
@@ -190,6 +191,9 @@ const ProfileScreen: React.FC = () => {
             </View>
           </View>
         )}
+
+        {/* Support Ad Button */}
+        <SupportAdButton screen="profile" style={styles.supportAdButton} />
 
         {/* Stats Grid */}
         <ProfileStatsGrid variant="card" marginBottom={spacing.margin.lg} backgroundColor={colors.background.secondary} />
@@ -378,6 +382,9 @@ const styles = StyleSheet.create({
   userEmail: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+  },
+  supportAdButton: {
+    marginBottom: spacing.margin.lg,
   },
   section: {
     marginBottom: spacing.margin.sm,

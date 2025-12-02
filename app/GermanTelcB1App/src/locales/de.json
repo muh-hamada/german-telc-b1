@@ -1058,5 +1058,20 @@
     "updateNow": "Jetzt aktualisieren",
     "later": "Später",
     "forcedNote": "Dieses Update ist erforderlich, um fortzufahren"
+  },
+  "supportAd": {
+    "title": "Unterstütze uns mit Werbung",
+    "subtitle": "Tippe zum Ansehen",
+    "loading": "Werbung wird geladen...",
+    "unavailable": "Werbung derzeit nicht verfügbar",
+    "thankYou": "Danke!",
+    "appreciation": "Deine Unterstützung bedeutet uns sehr viel und hilft, diese App für alle kostenlos zu halten.",
+    "tapToDismiss": "Tippe irgendwo, um zu schließen"
+  },
+  "supportAdModal": {
+    "title": "Unterstütze uns!",
+    "subtitle": "Hilf uns, diese App kostenlos zu halten, indem du eine kurze Werbung anschaust.",
+    "watchAd": "Werbung ansehen",
+    "skip": "Überspringen"
   }
 }

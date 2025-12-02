@@ -7,6 +7,58 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:494473710301:android:48815da3ec9a12adc0a934",
+        "android_client_info": {
+          "package_name": "com.mhamada.telcb1english"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494473710301-07i937d3g9ecu9ahltsp0t57622ajql2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb1english",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "494473710301-rh325umm24e184kbqq7689i0b4plpc16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb1english",
+            "certificate_hash": "691cedf56dc4b45f707547e8ca18e103ec8e43e2"
+          }
+        },
+        {
+          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mhamada.telcb1german"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:494473710301:android:1b5d40d4f9e1b2b6c0a934",
         "android_client_info": {
           "package_name": "com.mhamada.telcb1german"
@@ -80,6 +132,14 @@
           "android_info": {
             "package_name": "com.mhamada.telcb2german",
             "certificate_hash": "691cedf56dc4b45f707547e8ca18e103ec8e43e2"
+          }
+        },
+        {
+          "client_id": "494473710301-r8eref7eien7sfjm7pupn4pkjvt1hm9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb2german",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {

@@ -68,6 +68,10 @@ export interface ExamConfig {
       android: string;
       ios: string;
     },
+    userSupport: {
+      android: string;
+      ios: string;
+    }
   }
 
   writingEvaluationFnName: string;

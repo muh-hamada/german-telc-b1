@@ -13,6 +13,7 @@ import Card from '../components/Card';
 import HomeProgressCard from '../components/HomeProgressCard';
 import HomeHeader from '../components/HomeHeader';
 import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
+import SupportAdButton from '../components/SupportAdButton';
 import { HomeStackNavigationProp } from '../types/navigation.types';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
@@ -131,6 +132,11 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('ProfileStack', { screen: 'Profile' });
   };
 
+  const handleGrammarStudyPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar_study' });
+    navigation.navigate('GrammarStudy');
+  };
+
   return (
     <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView
@@ -190,6 +196,17 @@ const HomeScreen: React.FC = () => {
             </Text>
           </Card>
         </AnimatedGradientBorder>
+
+        {/* Support Ad Button */}
+        <SupportAdButton screen="home" style={styles.supportAdButton} />
+
+        {/* Grammar Study Card */}
+        <Card style={styles.card} onPress={handleGrammarStudyPress}>
+          <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('practice.grammar.study.description')}
+          </Text>
+        </Card>
       </ScrollView>
     </SafeAreaView>
   );
@@ -239,6 +256,9 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     lineHeight: 24,
     textAlign: 'left',
+  },
+  supportAdButton: {
+    marginTop: spacing.margin.sm,
   },
 });
 

@@ -68,6 +68,10 @@ export const englishB1Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/7322369087',
       ios: 'ca-app-pub-5101905792101482/5903693242',
     },
+    userSupport: {
+      android: 'ca-app-pub-5101905792101482/2664599468',
+      ios: 'ca-app-pub-5101905792101482/7398051391',
+    },
   },
 
   writingEvaluationFnName: 'evaluateWritingEnglishB1'

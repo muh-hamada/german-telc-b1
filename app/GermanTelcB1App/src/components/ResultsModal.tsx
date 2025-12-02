@@ -12,6 +12,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
+import SupportAdButton from './SupportAdButton';
 
 interface ResultsModalProps {
   visible: boolean;
@@ -138,6 +139,11 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                   </View>
                 ))}
               </View>
+            )}
+
+            {/* Support Ad Button - Only show for scores > 60% */}
+            {result.percentage > 60 && (
+              <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
             )}
 
             {/* Action Buttons */}
@@ -286,6 +292,10 @@ const styles = StyleSheet.create({
   answerText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
+  },
+  supportAdButton: {
+    marginHorizontal: spacing.md,
+    marginBottom: spacing.sm,
   },
   buttonContainer: {
     flexDirection: 'row',

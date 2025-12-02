@@ -1059,5 +1059,20 @@
     "updateNow": "Update Now",
     "later": "Later",
     "forcedNote": "This update is required to continue"
+  },
+  "supportAd": {
+    "title": "Support us by watching an ad",
+    "subtitle": "Tap to watch",
+    "loading": "Loading ad...",
+    "unavailable": "Ad currently unavailable",
+    "thankYou": "Thank You!",
+    "appreciation": "Your support means the world to us and helps keep this app free for everyone.",
+    "tapToDismiss": "Tap anywhere to dismiss"
+  },
+  "supportAdModal": {
+    "title": "Support Us!",
+    "subtitle": "Help keep this app free by watching a short ad.",
+    "watchAd": "Watch Ad",
+    "skip": "Skip"
   }
 }

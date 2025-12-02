@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../../theme';
 import StorageService from '../../services/storage.service';
 import GrammarStudyProgressModal from '../../components/GrammarStudyProgressModal';
+import SupportAdScreen from '../../components/SupportAdScreen';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import MarkdownText from '../../components/MarkdownText';
 import dataService from '../../services/data.service';
@@ -81,6 +82,10 @@ const GrammarStudyScreen: React.FC = () => {
   
   // Track questions answered in this session for streak activity
   const [sessionQuestionsAnswered, setSessionQuestionsAnswered] = useState(0);
+  
+  // Show support ad screen between questions
+  const [showSupportAdModal, setShowSupportAdModal] = useState(false);
+  const SUPPORT_AD_INTERVAL = 2; // Show ad after every N questions
 
   useEffect(() => {
     const loadAndInitialize = async () => {
@@ -208,7 +213,26 @@ const GrammarStudyScreen: React.FC = () => {
     }
   };
 
+  // Check if we should show support ad before moving to next question
+  const shouldShowSupportAd = (): boolean => {
+    // Show ad after every SUPPORT_AD_INTERVAL questions (2nd, 4th, 6th, etc. when interval is 2)
+    // currentQuestionIndex is 0-based, so +1 to get the question number
+    const questionNumber = currentQuestionIndex + 1;
+    const isIntervalReached = questionNumber % SUPPORT_AD_INTERVAL === 0;
+    const hasMoreQuestions = currentQuestionIndex < allQuestions.length - 1;
+    return isIntervalReached && hasMoreQuestions;
+  };
+
   const handleNext = async () => {
+    if (shouldShowSupportAd()) {
+      setShowSupportAdModal(true);
+      return; // Don't proceed to next question yet - will be done after ad
+    }
+    
+    proceedToNextQuestion();
+  };
+  
+  const proceedToNextQuestion = async () => {
     if (currentQuestionIndex < allQuestions.length - 1) {
       const nextIndex = currentQuestionIndex + 1;
       setCurrentQuestionIndex(nextIndex);
@@ -240,29 +264,13 @@ const GrammarStudyScreen: React.FC = () => {
   };
 
   const handleSkip = async () => {
-    if (currentQuestionIndex < allQuestions.length - 1) {
-      const nextIndex = currentQuestionIndex + 1;
-      setCurrentQuestionIndex(nextIndex);
-      setSelectedAnswer(null);
-      setShowResult(false);
-      await saveProgress();
-    } else {
-      // All questions completed
-      Alert.alert(
-        t('practice.grammar.study.congratulations'),
-        t('practice.grammar.study.allCompleted'),
-        [
-          {
-            text: t('practice.grammar.study.restart'),
-            onPress: handleStartOver,
-          },
-          {
-            text: t('common.close'),
-            onPress: () => navigation.goBack(),
-          },
-        ]
-      );
+    // Check if we should show support ad before moving to next question
+    if (shouldShowSupportAd()) {
+      setShowSupportAdModal(true);
+      return; // Don't proceed to next question yet - will be done after ad
     }
+    
+    proceedToNextQuestion();
   };
 
   const handleContinueFromProgress = () => {
@@ -388,6 +396,23 @@ const GrammarStudyScreen: React.FC = () => {
   const currentQuestion = getCurrentQuestion();
   const selectedOption = getSelectedOption();
   const progressPercentage = ((currentQuestionIndex + 1) / allQuestions.length) * 100;
+
+  // Show Support Ad Screen inline when triggered
+  if (showSupportAdModal) {
+    return (
+      <SafeAreaView style={styles.container} edges={['bottom']}>
+        <SupportAdScreen 
+          screen="grammar_study"
+          onContinue={() => {
+            console.log('[GrammarStudyScreen] User completed support ad screen');
+            setShowSupportAdModal(false);
+            // Proceed to next question after ad
+            proceedToNextQuestion();
+          }}
+        />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>

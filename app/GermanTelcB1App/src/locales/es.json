@@ -1032,5 +1032,20 @@
   "stats": {
     "subtitle": "Vista detallada de su progreso en todas las secciones del examen",
     "title": "Estadística"
+  },
+  "supportAd": {
+    "title": "Apóyanos con un anuncio",
+    "subtitle": "Toca para ver",
+    "loading": "Cargando anuncio...",
+    "unavailable": "Anuncio no disponible actualmente",
+    "thankYou": "¡Gracias!",
+    "appreciation": "Tu apoyo significa mucho para nosotros y ayuda a mantener esta app gratuita para todos.",
+    "tapToDismiss": "Toca en cualquier lugar para cerrar"
+  },
+  "supportAdModal": {
+    "title": "¡Apóyanos!",
+    "subtitle": "Ayúdanos a mantener esta app gratuita viendo un anuncio corto.",
+    "watchAd": "Ver anuncio",
+    "skip": "Omitir"
   }
 }

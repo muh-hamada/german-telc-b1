@@ -67,6 +67,10 @@ export const germanB1Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/1207745272',
       ios: 'ca-app-pub-5101905792101482/5268814171',
     },
+    userSupport: {
+      android: 'ca-app-pub-5101905792101482/6795416165',
+      ios: 'ca-app-pub-5101905792101482/1024214737',
+    }
   },
 
   writingEvaluationFnName: 'evaluateWriting'

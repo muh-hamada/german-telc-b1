@@ -1033,5 +1033,20 @@
     "casual": "Étudiant casual",
     "beginner": "Étudiant novice",
     "serious": "Étudiant sérieux"
+  },
+  "supportAd": {
+    "title": "Soutenez-nous avec une pub",
+    "subtitle": "Appuyez pour regarder",
+    "loading": "Chargement de la pub...",
+    "unavailable": "Pub actuellement indisponible",
+    "thankYou": "Merci !",
+    "appreciation": "Votre soutien compte énormément pour nous et aide à garder cette app gratuite pour tous.",
+    "tapToDismiss": "Appuyez n'importe où pour fermer"
+  },
+  "supportAdModal": {
+    "title": "Soutenez-nous !",
+    "subtitle": "Aidez-nous à garder cette app gratuite en regardant une courte pub.",
+    "watchAd": "Regarder la pub",
+    "skip": "Passer"
   }
 }

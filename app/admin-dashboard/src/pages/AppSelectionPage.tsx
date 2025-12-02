@@ -82,17 +82,7 @@ export const AppSelectionPage: React.FC = () => {
               Upload Vocabulary →
             </button>
           </div>
-          <div
-            className="admin-action-card analytics"
-            onClick={() => navigate('/analytics')}
-          >
-            <div className="admin-action-icon">📊</div>
-            <h3>Analytics Dashboard</h3>
-            <p>View user statistics and app analytics</p>
-            <button className="btn-action-select">
-              View Analytics →
-            </button>
-          </div>
+          
           <div
             className="admin-action-card reports"
             onClick={() => navigate('/reports')}

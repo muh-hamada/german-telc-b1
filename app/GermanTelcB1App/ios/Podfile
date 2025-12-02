@@ -52,6 +52,9 @@ target 'TelcExamApp' do
 
   use_modular_headers!
 
+  # GIF support for animated images
+  pod 'SDWebImageWebPCoder'
+
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.

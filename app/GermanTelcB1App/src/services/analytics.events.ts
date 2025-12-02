@@ -153,6 +153,14 @@ export const AnalyticsEvents = {
   APP_UPDATE_LATER_CLICKED: 'app_update_later_clicked',
   APP_UPDATE_MODAL_DISMISSED: 'app_update_modal_dismissed',
   APP_UPDATE_STORE_OPENED: 'app_update_store_opened',
+
+  // User Support Ad
+  USER_SUPPORT_AD_CLICKED: 'user_support_ad_clicked',
+  USER_SUPPORT_AD_SHOWN: 'user_support_ad_shown',
+  USER_SUPPORT_AD_EARNED_REWARD: 'user_support_ad_earned_reward',
+  USER_SUPPORT_AD_CLOSED: 'user_support_ad_closed',
+  USER_SUPPORT_AD_ERROR: 'user_support_ad_error',
+  USER_SUPPORT_AD_SHOW_FAILED: 'user_support_ad_show_failed',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];
