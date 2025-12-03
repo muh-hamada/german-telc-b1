@@ -6,24 +6,31 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
-import { ReadingPart1Exam } from '../../types/exam.types';
+import { ReadingPart1Exam, UserAnswer } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart1UIProps {
   exam: ReadingPart1Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
 
   const handleAnswerSelect = (textId: number, headingIndex: number) => {
     const letter = String.fromCharCode(97 + headingIndex);
     setUserAnswers(prev => ({ ...prev, [textId]: letter }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'reading',
+      part: 1,
+      exam_id: exam.id,
+      question_id: textId,
+      // is_correct not known until submit in this UI
+    });
   };
 
   const handleSubmit = () => {
@@ -64,8 +71,30 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
       }
     });
 
-    const score = (correctCount / exam.texts.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    const answers: UserAnswer[] = [];
+    // Log per-question correctness on submit
+    exam.texts.forEach(text => {
+      const selected = userAnswers[text.id];
+      const isCorrect = selected === text.correct;
+
+      answers.push({
+        questionId: text.id,
+        answer: selected || '',
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: text.correct,
+      });
+
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'reading',
+        part: 1,
+        exam_id: exam.id,
+        question_id: text.id,
+        is_correct: !!isCorrect,
+      });
+    });
+    onComplete(score, answers);
   };
 
   return (
@@ -170,11 +199,13 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    textAlign: 'left',
   },
   headingsSection: {
     marginBottom: spacing.margin.xl,
@@ -183,13 +214,15 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   headingItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     padding: spacing.padding.sm,
     backgroundColor: colors.background.secondary,
     marginBottom: spacing.margin.xs,
     borderRadius: spacing.borderRadius.sm,
+    direction: 'ltr',
   },
   headingLetter: {
     ...typography.textStyles.body,
@@ -227,6 +260,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 24,
     marginBottom: spacing.margin.md,
+    direction: 'ltr',
   },
   answerSection: {
     borderTopWidth: 1,
@@ -239,7 +273,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   answerButtons: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
   },
   answerButton: {

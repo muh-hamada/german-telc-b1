@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Abflug",
+    "article": "der",
+    "translations": {
+      "en": "departure",
+      "es": "salida",
+      "fr": "départ",
+      "ru": "вылет",
+      "ar": "الإقلاع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Abflug ist um 11.20 Uhr.",
+        "translations": {
+          "en": "The departure is at 11:20.",
+          "es": "La salida es a las 11:20.",
+          "fr": "Le départ est à 11h20.",
+          "ru": "Вылет в 11:20.",
+          "ar": "الإقلاع في الساعة 11:20."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Flughafen",
+    "article": "der",
+    "translations": {
+      "en": "airport",
+      "es": "aeropuerto",
+      "fr": "aéroport",
+      "ru": "аэропорт",
+      "ar": "المطار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mich zum Flughafen bringen?",
+        "translations": {
+          "en": "Can you take me to the airport?",
+          "es": "¿Puedes llevarme al aeropuerto?",
+          "fr": "Peux-tu m'emmener à l'aéroport ?",
+          "ru": "Ты можешь отвезти меня в аэропорт?",
+          "ar": "هل يمكنك أن تأخذني إلى المطار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Flugzeug",
+    "article": "das",
+    "translations": {
+      "en": "airplane",
+      "es": "avión",
+      "fr": "avion",
+      "ru": "самолёт",
+      "ar": "الطائرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Flugzeug aus Berlin kommt heute später an.",
+        "translations": {
+          "en": "The plane from Berlin is arriving later today.",
+          "es": "El avión de Berlín llega más tarde hoy.",
+          "fr": "L'avion de Berlin arrive plus tard aujourd'hui.",
+          "ru": "Самолёт из Берлина прибывает сегодня позже.",
+          "ar": "الطائرة من برلين تصل متأخرة اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Formular",
+    "article": "das",
+    "translations": {
+      "en": "form",
+      "es": "formulario",
+      "fr": "formulaire",
+      "ru": "форма",
+      "ar": "النموذج"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie müssen dieses Formular ausfüllen.",
+        "translations": {
+          "en": "You have to fill out this form.",
+          "es": "Debe rellenar este formulario.",
+          "fr": "Vous devez remplir ce formulaire.",
+          "ru": "Вы должны заполнить эту форму.",
+          "ar": "يجب عليك ملء هذا النموذج."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Foto",
+    "article": "das",
+    "translations": {
+      "en": "photo",
+      "es": "foto",
+      "fr": "photo",
+      "ru": "фото",
+      "ar": "الصورة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Darf ich ein Foto machen?",
+        "translations": {
+          "en": "May I take a photo?",
+          "es": "¿Puedo tomar una foto?",
+          "fr": "Puis-je prendre une photo ?",
+          "ru": "Могу я сделать фото?",
+          "ar": "هل يمكنني التقاط صورة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "fragen",
+    "article": "",
+    "translations": {
+      "en": "to ask",
+      "es": "preguntar",
+      "fr": "demander",
+      "ru": "спрашивать",
+      "ar": "يسأل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Er möchte Sie etwas fragen. Wann kommen Sie?",
+        "translations": {
+          "en": "He wants to ask you something. When are you coming?",
+          "es": "Quiere preguntarle algo. ¿Cuándo viene?",
+          "fr": "Il veut vous demander quelque chose. Quand venez-vous ?",
+          "ru": "Он хочет вас кое о чём спросить. Когда вы придёте?",
+          "ar": "يريد أن يسألك شيئًا. متى ستأتي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Frage",
+    "article": "die",
+    "translations": {
+      "en": "question",
+      "es": "pregunta",
+      "fr": "question",
+      "ru": "вопрос",
+      "ar": "السؤال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe eine Frage.",
+        "translations": {
+          "en": "I have a question.",
+          "es": "Tengo una pregunta.",
+          "fr": "J'ai une question.",
+          "ru": "У меня есть вопрос.",
+          "ar": "لدي سؤال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Frau",
+    "article": "die",
+    "translations": {
+      "en": "woman",
+      "es": "mujer",
+      "fr": "femme",
+      "ru": "женщина",
+      "ar": "المرأة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist Frau Becker.",
+        "translations": {
+          "en": "This is Mrs. Becker.",
+          "es": "Esta es la señora Becker.",
+          "fr": "C'est Madame Becker.",
+          "ru": "Это госпожа Беккер.",
+          "ar": "هذه السيدة بيكر."
+        }
+      },
+      {
+        "text": "Guten Tag, Frau Schmitt!",
+        "translations": {
+          "en": "Good day, Mrs. Schmitt!",
+          "es": "¡Buenos días, señora Schmitt!",
+          "fr": "Bonjour, Madame Schmitt !",
+          "ru": "Добрый день, госпожа Шмитт!",
+          "ar": "يوم سعيد، السيدة شميت!"
+        }
+      },
+      {
+        "text": "Hier arbeiten mehr Frauen als Männer.",
+        "translations": {
+          "en": "More women than men work here.",
+          "es": "Aquí trabajan más mujeres que hombres.",
+          "fr": "Il y a plus de femmes que d'hommes qui travaillent ici.",
+          "ru": "Здесь работает больше женщин, чем мужчин.",
+          "ar": "هنا تعمل نساء أكثر من الرجال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "frei",
+    "article": "",
+    "translations": {
+      "en": "free",
+      "es": "libre",
+      "fr": "libre",
+      "ru": "свободный",
+      "ar": "حر"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ist der Platz noch frei?",
+        "translations": {
+          "en": "Is the seat still free?",
+          "es": "¿Está libre el asiento?",
+          "fr": "La place est-elle encore libre ?",
+          "ru": "Место ещё свободно?",
+          "ar": "هل المقعد لا يزال حرًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Freizeit",
+    "article": "die",
+    "translations": {
+      "en": "free time",
+      "es": "tiempo libre",
+      "fr": "temps libre",
+      "ru": "свободное время",
+      "ar": "وقت الفراغ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In meiner Freizeit spiele ich oft Fußball.",
+        "translations": {
+          "en": "In my free time I often play soccer.",
+          "es": "En mi tiempo libre juego fútbol a menudo.",
+          "fr": "Dans mon temps libre, je joue souvent au football.",
+          "ru": "В свободное время я часто играю в футбол.",
+          "ar": "في وقت فراغي ألعب كرة القدم غالبًا."
+        }
+      }
+    ]
+  }
+]
+

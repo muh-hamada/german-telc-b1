@@ -1,7 +1,8 @@
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
-import { firebaseConfig, googleSignInConfig, facebookConfig } from '../config/firebase.config';
+import { Platform } from 'react-native';
+import appleAuth from '@invertase/react-native-apple-authentication';
+import { firebaseConfig, googleSignInConfig } from '../config/firebase.config';
 
 // User types
 export interface User {
@@ -9,7 +10,7 @@ export interface User {
   email: string | null;
   displayName: string | null;
   photoURL: string | null;
-  provider: 'google' | 'facebook' | 'apple' | 'twitter' | 'email';
+  provider: 'google' | 'apple' | 'twitter' | 'email';
   createdAt: Date;
   lastLoginAt: Date;
 }
@@ -66,8 +67,6 @@ class AuthService {
     switch (providerData.providerId) {
       case 'google.com':
         return 'google';
-      case 'facebook.com':
-        return 'facebook';
       case 'apple.com':
         return 'apple';
       case 'twitter.com':
@@ -85,22 +84,31 @@ class AuthService {
       // Check if your device supports Google Play
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
 
-      console.log('GoogleSignin.signIn()', GoogleSignin.signIn());
+      // Show Google sign-in prompt and get user info
+      const signInResponse = await GoogleSignin.signIn();
+      
+      // Check if sign-in was cancelled or failed
+      if (!signInResponse || !signInResponse.data) {
+        throw {
+          code: 'auth/cancelled',
+          message: 'Sign-in was cancelled',
+        };
+      }
+      
+      console.log('Google sign-in successful, user:', signInResponse.data?.user?.email || 'unknown');
 
-      // Get the users ID token
+      // Get the users ID token (only after successful sign-in)
       const tokens = await GoogleSignin.getTokens();
 
-      console.log('tokens', tokens);
+      console.log('Got tokens for user');
 
       // Create a Google credential with the token
       const googleCredential = auth.GoogleAuthProvider.credential(tokens.idToken);
 
-      console.log('googleCredential', googleCredential);
-
       // Sign-in the user with the credential
-      const userCredential = await auth().signInWithCredential(googleCredential);
+      await auth().signInWithCredential(googleCredential);
 
-      console.log('userCredential', userCredential);
+      console.log('Firebase sign-in successful');
 
       return this.getCurrentUser()!;
     } catch (error: any) {
@@ -109,69 +117,90 @@ class AuthService {
     }
   }
 
-  // Sign in with Facebook
-  async signInWithFacebook(): Promise<User> {
-    try {
-      console.log('signInWithFacebook step 1');
-      
-      // Check if Facebook is properly configured
-      if (!facebookConfig.appId || facebookConfig.appId === 'YOUR_FACEBOOK_APP_ID') {
-        throw {
-          code: 'auth/not-configured',
-          message: 'Facebook Sign-In is not configured yet. Please follow the setup guide in FACEBOOK_SETUP.md or use Google/Email sign-in instead.',
-        };
-      }
-      
-      await this.initialize();
-
-      // Attempt login with permissions
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-
-      console.log('signInWithFacebook step 2', result);
-
-      if (result.isCancelled) {
-        throw new Error('User cancelled the login process');
-      }
-
-      console.log('signInWithFacebook step 3');
-
-      // Once signed in, get the users AccessToken
-      const data = await AccessToken.getCurrentAccessToken();
-
-
-      console.log('signInWithFacebook step 4', data);
-
-      if (!data) {
-        throw new Error('Something went wrong obtaining access token');
-      }
-
-      console.log('signInWithFacebook step 5');
-
-      // Create a Facebook credential with the AccessToken
-      const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
-
-
-      console.log('signInWithFacebook step 6', facebookCredential);
-      // Sign-in the user with the credential
-      await auth().signInWithCredential(facebookCredential);
-      
-      console.log('signInWithFacebook step 7');
-
-      return this.getCurrentUser()!;
-    } catch (error: any) {
-      console.error('Facebook sign-in error:', error);
-      throw this.handleAuthError(error);
-    }
-  }
-
   // Sign in with Apple (iOS only)
   async signInWithApple(): Promise<User> {
     try {
-      // Note: Apple Sign-In requires additional native setup
-      // This is a placeholder implementation
-      throw new Error('Apple Sign-In not yet implemented');
+      // Only available on iOS 13+
+      if (Platform.OS !== 'ios') {
+        throw {
+          code: 'auth/not-available',
+          message: 'Apple Sign-In is only available on iOS devices',
+        };
+      }
+
+      // Check if Apple Sign-In is supported on this device
+      if (!appleAuth.isSupported) {
+        throw {
+          code: 'auth/not-available',
+          message: 'Apple Sign-In is not supported on this device. Please use iOS 13 or later.',
+        };
+      }
+
+      await this.initialize();
+
+      // Perform the Apple sign-in request
+      const appleAuthRequestResponse = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+      });
+
+      // Ensure Apple returned a user identityToken
+      if (!appleAuthRequestResponse.identityToken) {
+        throw {
+          code: 'auth/missing-token',
+          message: 'Apple Sign-In failed - no identity token returned',
+        };
+      }
+
+      // Create a Firebase credential from the response
+      const { identityToken, nonce } = appleAuthRequestResponse;
+      const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce);
+
+      // Sign the user in with the credential
+      const userCredential = await auth().signInWithCredential(appleCredential);
+
+      // Update the user's display name if provided by Apple (only on first sign-in)
+      if (appleAuthRequestResponse.fullName?.givenName && !userCredential.user.displayName) {
+        const displayName = `${appleAuthRequestResponse.fullName.givenName || ''} ${appleAuthRequestResponse.fullName.familyName || ''}`.trim();
+        if (displayName) {
+          await userCredential.user.updateProfile({ displayName });
+          // Reload user to get updated profile data
+          await userCredential.user.reload();
+        }
+      }
+
+      return this.getCurrentUser()!;
     } catch (error: any) {
       console.error('Apple sign-in error:', error);
+      
+      // Handle Apple Sign-In specific errors
+      if (error.code === appleAuth.Error.CANCELED) {
+        throw {
+          code: 'auth/cancelled',
+          message: 'Sign-in was cancelled',
+        };
+      } else if (error.code === appleAuth.Error.FAILED) {
+        throw {
+          code: 'auth/failed',
+          message: 'Apple Sign-In failed. Please try again.',
+        };
+      } else if (error.code === appleAuth.Error.INVALID_RESPONSE) {
+        throw {
+          code: 'auth/invalid-response',
+          message: 'Invalid response from Apple. Please try again.',
+        };
+      } else if (error.code === appleAuth.Error.NOT_HANDLED) {
+        throw {
+          code: 'auth/not-handled',
+          message: 'Apple Sign-In could not be handled. Please try again.',
+        };
+      } else if (error.code === appleAuth.Error.UNKNOWN) {
+        throw {
+          code: 'auth/unknown',
+          message: 'An unknown error occurred with Apple Sign-In.',
+        };
+      }
+      
       throw this.handleAuthError(error);
     }
   }
@@ -191,7 +220,7 @@ class AuthService {
       // For now, throw a user-friendly error that Twitter is not yet configured
       throw {
         code: 'auth/not-configured',
-        message: 'Twitter Sign-In requires additional native configuration. Please use Google, Facebook, or Email to sign in for now.',
+        message: 'Twitter Sign-In requires additional native configuration. Please use Google or Email to sign in for now.',
       };
       
       // Future implementation would use:
@@ -223,6 +252,8 @@ class AuthService {
       
       if (displayName) {
         await userCredential.user.updateProfile({ displayName });
+        // Reload user to get updated profile data
+        await userCredential.user.reload();
       }
       
       return this.getCurrentUser()!;
@@ -283,44 +314,82 @@ class AuthService {
 
   // Handle authentication errors
   private handleAuthError(error: any): AuthError {
-    let message = 'An unexpected error occurred';
+    let message = 'auth.errors.unknownError';
     let code = 'unknown';
 
     if (error.code) {
       code = error.code;
       switch (error.code) {
+        // Invalid credentials (covers both wrong password and user not found for security)
+        case 'auth/invalid-credential':
         case 'auth/user-not-found':
-          message = 'No user found with this email address';
-          break;
         case 'auth/wrong-password':
-          message = 'Incorrect password';
+          code = 'auth/invalid-credential';
+          message = 'auth.errors.invalidCredential';
           break;
         case 'auth/email-already-in-use':
-          message = 'An account with this email already exists';
+          message = 'auth.errors.emailInUse';
           break;
         case 'auth/weak-password':
-          message = 'Password should be at least 6 characters';
+          message = 'auth.errors.weakPassword';
           break;
         case 'auth/invalid-email':
-          message = 'Invalid email address';
+          message = 'auth.errors.invalidEmail';
           break;
         case 'auth/user-disabled':
-          message = 'This account has been disabled';
+          message = 'auth.errors.userDisabled';
           break;
         case 'auth/too-many-requests':
-          message = 'Too many failed attempts. Please try again later';
+          message = 'auth.errors.tooManyRequests';
           break;
         case 'auth/network-request-failed':
-          message = 'Network error. Please check your connection';
+          message = 'auth.errors.networkError';
           break;
         case 'auth/cancelled-popup-request':
+          code = 'auth/cancelled';
+          message = 'Sign-in was cancelled'; // Don't translate cancellation
+          break;
+        case 'auth/not-configured':
+          // Keep custom configuration messages as-is
+          message = error.message || 'This sign-in method is not configured yet';
+          break;
+        // Google Sign-In specific errors
+        case '-5': // SIGN_IN_CANCELLED
+        case '12501': // SIGN_IN_CANCELLED (Android)
+          code = 'auth/cancelled';
           message = 'Sign-in was cancelled';
           break;
+        case '7': // NETWORK_ERROR
+          message = 'auth.errors.networkError';
+          break;
         default:
-          message = error.message || message;
+          // Check if it's a technical error message that should be simplified
+          if (error.message && (error.message.includes('auth/') || error.message.includes('firebase'))) {
+            message = 'auth.errors.unknownError';
+          } else {
+            message = error.message || message;
+          }
       }
     } else if (error.message) {
-      message = error.message;
+      // Handle specific error messages
+      if (error.message.includes('getTokens requires a user to be signed in')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('cancelled') || error.message.includes('canceled')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('Sign in action cancelled')) {
+        code = 'auth/cancelled';
+        message = 'Sign-in was cancelled';
+      } else if (error.message.includes('DEVELOPER_ERROR')) {
+        code = 'auth/configuration-error';
+        message = 'Sign-in configuration error. Please contact support';
+      } else {
+        // For any other technical errors, provide a user-friendly message
+        message = error.message.includes('auth/') || error.message.includes('firebase') 
+          ? 'auth.errors.unknownError'
+          : 'Failed to sign in. Please try again';
+      }
     }
 
     return { code, message };

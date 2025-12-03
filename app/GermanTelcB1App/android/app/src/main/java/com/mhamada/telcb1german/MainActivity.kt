@@ -5,7 +5,6 @@ import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
-import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView
 
 class MainActivity : ReactActivity() {
 
@@ -13,7 +12,7 @@ class MainActivity : ReactActivity() {
    * Returns the name of the main component registered from JavaScript. This is used to schedule
    * rendering of the component.
    */
-  override fun getMainComponentName(): String = "GermanTelcB1App"
+  override fun getMainComponentName(): String = "EnglishTelcB1App"
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
@@ -23,7 +22,7 @@ class MainActivity : ReactActivity() {
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
+    super.onCreate(null)
     // Set the status bar to be translucent but not overlapping
     // This allows React Native's StatusBar component to control the appearance
   }

@@ -2,19 +2,20 @@ import React, { createContext, useContext, useReducer, useEffect, ReactNode } fr
 import { User, AuthError } from '../services/auth.service';
 import AuthService from '../services/auth.service';
 import FirestoreService from '../services/firestore.service';
+import FCMService from '../services/fcm.service';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 // Auth Context Types
 interface AuthState {
   user: User | null;
   isLoading: boolean;
   isInitialized: boolean;
-  error: AuthError | null;
+  error: string | null;
 }
 
 interface AuthContextType extends AuthState {
   // Actions
   signInWithGoogle: () => Promise<void>;
-  signInWithFacebook: () => Promise<void>;
   signInWithApple: () => Promise<void>;
   signInWithTwitter: () => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
@@ -85,6 +86,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         try {
           // Create or update user profile in Firestore
           await FirestoreService.createUserProfile(user);
+          
+          // Check if user has notifications enabled and register FCM token
+          const userSettings = await FirestoreService.getUserSettings(user.uid);
+          if (userSettings?.notificationSettings?.enabled) {
+            try {
+              await FCMService.initialize(user.uid);
+              console.log('[AuthContext] FCM token registered for user');
+            } catch (fcmError) {
+              console.error('[AuthContext] Error registering FCM token:', fcmError);
+              // Don't block auth flow if FCM fails
+            }
+          }
         } catch (error) {
           console.error('[AuthContext] Error creating user profile:', error);
         }
@@ -97,68 +110,76 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const handleAuthError = (error: AuthError) => {
-    dispatch({ type: 'SET_ERROR', payload: error.code });
+    // Don't set error state for user cancellations
+    if (error.code !== 'auth/cancelled') {
+      dispatch({ type: 'SET_ERROR', payload: error.message });
+    } else {
+      dispatch({ type: 'SET_LOADING', payload: false });
+    }
     throw error;
   };
 
   const signInWithGoogle = async (): Promise<void> => {
     try {
+      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'google' });
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.signInWithGoogle();
       dispatch({ type: 'SET_USER', payload: user });
+      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'google' });
     } catch (error: any) {
-      handleAuthError(error);
-    }
-  };
-
-  const signInWithFacebook = async (): Promise<void> => {
-    console.log('signInWithFacebook');
-    try {
-      dispatch({ type: 'SET_LOADING', payload: true });
-      dispatch({ type: 'CLEAR_ERROR' });
-      
-      const user = await AuthService.signInWithFacebook();
-      dispatch({ type: 'SET_USER', payload: user });
-    } catch (error: any) {
-      console.log('error', error);
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'google' });
       handleAuthError(error);
     }
   };
 
   const signInWithApple = async (): Promise<void> => {
     try {
+      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'apple' });
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.signInWithApple();
+      
+      // Update Firestore profile with the correct displayName
+      // (onAuthStateChanged may have created profile before displayName was set from Apple)
+      await FirestoreService.createUserProfile(user);
+      
       dispatch({ type: 'SET_USER', payload: user });
+      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'apple' });
     } catch (error: any) {
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'apple' });
       handleAuthError(error);
     }
   };
 
   const signInWithTwitter = async (): Promise<void> => {
     try {
+      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'twitter' });
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.signInWithTwitter();
       dispatch({ type: 'SET_USER', payload: user });
+      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'twitter' });
     } catch (error: any) {
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'twitter' });
       handleAuthError(error);
     }
   };
 
   const signInWithEmail = async (email: string, password: string): Promise<void> => {
     try {
+      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'email' });
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.signInWithEmail(email, password);
       dispatch({ type: 'SET_USER', payload: user });
+      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'email' });
     } catch (error: any) {
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'email' });
       handleAuthError(error);
     }
   };
@@ -169,12 +190,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     displayName?: string
   ): Promise<void> => {
     try {
+      logEvent(AnalyticsEvents.AUTH_LOGIN_OPENED, { method: 'email_signup' });
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.createAccountWithEmail(email, password, displayName);
+      
+      // Update Firestore profile with the correct displayName
+      // (onAuthStateChanged may have created profile before displayName was set)
+      await FirestoreService.createUserProfile(user);
+      
       dispatch({ type: 'SET_USER', payload: user });
+      logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'email_signup' });
     } catch (error: any) {
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'email_signup' });
       handleAuthError(error);
     }
   };
@@ -190,6 +219,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       console.log('[AuthContext] Sign out successful, clearing user state');
       // Update state to null after successful signout
       dispatch({ type: 'SET_USER', payload: null });
+      logEvent(AnalyticsEvents.AUTH_LOGOUT);
     } catch (error: any) {
       console.error('[AuthContext] Error during sign out:', error);
       handleAuthError(error);
@@ -268,7 +298,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const contextValue: AuthContextType = {
     ...state,
     signInWithGoogle,
-    signInWithFacebook,
     signInWithApple,
     signInWithTwitter,
     signInWithEmail,

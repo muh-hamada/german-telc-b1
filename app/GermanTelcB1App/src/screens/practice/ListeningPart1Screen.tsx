@@ -2,15 +2,26 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
-  SafeAreaView,
   ActivityIndicator,
+  TouchableOpacity,
   Text,
+  Alert,
 } from 'react-native';
-import { colors } from '../../theme';
+import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { UserAnswer } from '../../types/exam.types';
+import { ExamResult } from '../../types/exam.types';
+import ResultsModal from '../../components/ResultsModal';
+import { useProgress } from '../../contexts/ProgressContext';
+import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
+import { HomeStackParamList } from '../../types/navigation.types';
+
+type ListeningPart1RouteProp = RouteProp<HomeStackParamList, 'ListeningPart1'>;
 
 interface Statement {
   id: number;
@@ -25,19 +36,63 @@ interface Exam {
 }
 
 const ListeningPart1Screen: React.FC = () => {
+  const navigation = useNavigation();
+  const route = useRoute<ListeningPart1RouteProp>();
+  const { examId } = route.params;
+  const { t } = useCustomTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [examResult, setExamResult] = useState<ExamResult | null>(null);
+  const [showResults, setShowResults] = useState(false);
+  const { updateExamProgress } = useProgress();
+  const sectionDetails = listeningData?.section_details || {};
+  const exams = listeningData?.exams as Exam[] || [];
+  const currentExam = exams.find(exam => exam.id === examId) || null;
+
+  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 1, examId);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [examId]);
+
+  // Set up header button
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={handleToggleCompletion}
+          style={styles.headerButton}
+        >
+          <Icon
+            name={isCompleted ? 'check-circle' : 'circle-o'}
+            size={24}
+            color={isCompleted ? colors.success[500] : colors.white}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  }, [isCompleted, navigation, examId]);
+
+  const handleToggleCompletion = async () => {
+    try {
+      const newStatus = await toggleCompletion(examResult?.score || 0);
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'listening', part: 1, exam_id: examId, completed: newStatus });
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
+    }
+  };
 
   const loadData = async () => {
     try {
       setIsLoading(true);
       setError(null);
       const data = await dataService.getListeningPart1Content();
+      console.log('Listening Part 1 data loaded:', data);
       setListeningData(data);
     } catch (err) {
       console.error('Error loading listening part 1 data:', err);
@@ -47,44 +102,63 @@ const ListeningPart1Screen: React.FC = () => {
     }
   };
 
-  const handleComplete = (score: number) => {
-    console.log('Listening Part 1 completed with score:', score);
-    // Note: Progress tracking for practice mode can be added here if needed
+  const handleComplete = (score: number, answers: UserAnswer[]) => {
+    if (!currentExam) return;
+
+    const totalQuestions = currentExam.statements.length;
+    const percentage = Math.round((score / totalQuestions) * 100);
+
+    const result: ExamResult = {
+      examId: examId,
+      score,
+      maxScore: totalQuestions,
+      percentage,
+      correctAnswers: score,
+      totalQuestions: totalQuestions,
+      answers: answers,
+      timestamp: Date.now(),
+    };
+
+    setExamResult(result);
+    setShowResults(true);
+
+    updateExamProgress('listening-part1', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !listeningData) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
-  const sectionDetails = listeningData.section_details;
-  const exams = listeningData.exams as Exam[];
-  const currentExam = exams[0];
-
   return (
-    <SafeAreaView style={styles.container}>
-      <ListeningPart1UI 
-        exam={currentExam} 
+    <View style={styles.container}>
+      <ListeningPart1UI
+        exam={currentExam}
         sectionDetails={sectionDetails}
-        onComplete={handleComplete} 
+        onComplete={handleComplete}
       />
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+      <ResultsModal
+        visible={showResults}
+        onClose={() => setShowResults(false)}
+        examTitle={`Listening Part 1 - Test ${examId + 1}`}
+        result={examResult}
+      />
+    </View>
   );
 };
 
@@ -101,6 +175,10 @@ const styles = StyleSheet.create({
   errorText: {
     color: colors.text.primary,
     fontSize: 16,
+  },
+  headerButton: {
+    marginRight: spacing.margin.md,
+    padding: spacing.padding.xs,
   },
 });
 

@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import firebaseCompletionService, { CompletionData, CompletionStats, AllCompletionStats } from '../services/firebase-completion.service';
+import { reviewTrigger } from '../utils/reviewTrigger';
+import { useStreak } from './StreakContext';
+import { useRemoteConfig } from './RemoteConfigContext';
 
 interface CompletionContextType {
   // State
@@ -23,6 +26,8 @@ interface CompletionProviderProps {
 
 export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children }) => {
   const { user } = useAuth();
+  const { recordActivity } = useStreak();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const [completionData, setCompletionData] = useState<Map<string, CompletionData>>(new Map());
   const [allStats, setAllStats] = useState<AllCompletionStats>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -105,10 +110,12 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
     score: number
   ): Promise<boolean> => {
     if (!user?.uid) {
-      throw new Error('User must be logged in to toggle completion');
+      throw new Error('auth/not-logged-in');
     }
 
     try {
+      console.log('[CompletionContext] Toggle completion called for:', { examType, partNumber, examId, score });
+      
       const newStatus = await firebaseCompletionService.toggleCompletion(
         user.uid,
         examType,
@@ -116,10 +123,14 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
         examId,
         score
       );
+
+      console.log('[CompletionContext] Firebase returned newStatus:', newStatus);
       
       // Update local state
       const key = createKey(examType, partNumber, examId);
       const newData = new Map(completionData);
+      
+      console.log('[CompletionContext] Updating local state for key:', key, 'newStatus:', newStatus);
       
       if (newStatus) {
         // Mark as completed
@@ -131,15 +142,44 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
           date: Date.now(),
           completed: true,
         });
+        console.log('[CompletionContext] Added to local state');
       } else {
         // Remove from map
         newData.delete(key);
+        console.log('[CompletionContext] Removed from local state');
       }
       
       setCompletionData(newData);
       
-      // Refresh stats
-      await loadCompletionData();
+      // Refresh only stats (not the completion data to avoid overwriting optimistic update)
+      const stats = await firebaseCompletionService.getAllCompletionStats(user.uid);
+      setAllStats(stats);
+      
+      // Trigger review prompt if marking as complete (newStatus === true)
+      // We use a mock maxScore of 100 to indicate completion
+      if (newStatus) {
+        console.log('[CompletionContext] Triggering review prompt for score:', score);
+        // We use 100% to indicate completion
+        reviewTrigger.trigger(100, 100);
+        
+        // Record streak activity (if enabled and user is logged in)
+        if (isStreaksEnabledForUser(user?.uid) && user?.uid) {
+          try {
+            const activityId = `${examType}-${partNumber}-${examId}`;
+            await recordActivity({
+              activityType: 'completion',
+              activityId: activityId,
+              score: score,
+            });
+            console.log('[CompletionContext] Streak activity recorded for completion');
+          } catch (streakError) {
+            console.error('[CompletionContext] Error recording streak:', streakError);
+            // Don't fail the whole operation if streak recording fails
+          }
+        }
+      } else {
+        console.log('[CompletionContext] Not triggering review prompt for score:', score);
+      }
       
       return newStatus;
     } catch (error) {

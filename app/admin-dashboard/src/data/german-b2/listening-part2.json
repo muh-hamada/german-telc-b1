@@ -1,0 +1,183 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 2: Detailverstehen (Detail Comprehension)",
+        "instructions_de": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch nur einmal. Entscheiden Sie beim Hören, ob die Aussagen 46-55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46-55. Markieren Sie PLUS (+) gleich richtig und MINUS (–) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46-55. Sie haben dazu eine Minute Zeit.",
+        "instructions_en": "You will now hear a conversation. You should solve ten tasks. You will hear the conversation only once. Decide while listening whether the statements 46-55 are correct or false. Mark your solutions on the answer sheet at tasks 46-55. Mark PLUS (+) as correct and MINUS (–) as false on the answer sheet. Read now the tasks 46-55. You have one minute to do this.",
+        "instructions_ar": "ستسمع الآن حوارًا. يجب أن تحل عشرة عمليات. ستسمع الحوار فقط مرة واحدة. قرر أثناء الاستماع إذا كانت البيانات 46-55 صحيحة أو خاطئة. حدد حلولك على ورقة الإجابة عند المهام 46-55. حدد PLUS (+) كصحيح و MINUS (–) كخاطئ على ورقة الإجابة. قرأ الآن المهام 46-55. لديك دقيقة لفعل هذا.",
+        "instructions_ru": "Вы сейчас услышите разговор. Вы должны решить десять задач. Вы услышите разговор только один раз. Решите, слушая, являются ли утверждения 46-55 правильными или неправильными. Отметьте свои решения на листе ответов на задачи 46-55. Отметьте PLUS (+) как правильное и MINUS (–) как неправильное на листе ответов. Прочитайте теперь задачи 46-55. У вас есть одна минута, чтобы сделать это.",
+        "instructions_fr": "Vous entendrez maintenant une conversation. Vous devez résoudre dix tâches. Vous entendrez la conversation une seule fois. Décidez en écoutant si les affirmations 46-55 sont correctes ou incorrectes. Marquez vos solutions sur le formulaire de réponses aux tâches 46-55. Marquez PLUS (+) comme correct et MINUS (–) comme incorrect sur le formulaire de réponses. Lisez maintenant les tâches 46-55. Vous avez une minute pour faire cela.",
+        "instructions_es": "Escucharás ahora una conversación. Debes resolver diez tareas. Escucharás la conversación una sola vez. Decide mientras escuchas si las afirmaciones 46-55 son correctas o incorrectas. Marca tus soluciones en el formulario de respuestas en las tareas 46-55. Marca PLUS (+) como correcto y MINUS (–) como incorrecto en el formulario de respuestas. Lee ahora las tareas 46-55. Tienes un minuto para hacer esto.",
+        "duration_minutes": 10,
+        "prep_time_seconds": 60
+    },
+    "exams": [
+        {
+            "id": 0,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-1-part-2.mp3?alt=media&token=52e1fafd-abf8-4d01-8b72-1dac7b503cae",
+            "statements": [
+                {
+                    "id": 46,
+                    "statement": "Mirjam Pressler freut sich, in Kürze die Doktorwürde der Universität Groningen zu erhalten.",
+                    "is_correct": true
+                },
+                {
+                    "id": 47,
+                    "statement": "Sie arbeitet auch als Übersetzerin.",
+                    "is_correct": true
+                },
+                {
+                    "id": 48,
+                    "statement": "Sie hat über Anne Frank gearbeitet.",
+                    "is_correct": true
+                },
+                {
+                    "id": 49,
+                    "statement": "Sie macht jedes Jahr Urlaub in einem Ferienhaus bei Venedig.",
+                    "is_correct": false
+                },
+                {
+                    "id": 50,
+                    "statement": "Wenn Sie an ihre Kindheit denkt, denkt sie an den Krieg.",
+                    "is_correct": true
+                },
+                {
+                    "id": 51,
+                    "statement": "Der Kontakt zu ihren Pflegeeltern war sehr gut.",
+                    "is_correct": false
+                },
+                {
+                    "id": 52,
+                    "statement": "Ihre Werke haben oft biografische Züge.",
+                    "is_correct": false
+                },
+                {
+                    "id": 53,
+                    "statement": "Ihre erste Lektüre war ein Roman, der in Petersburg spielt.",
+                    "is_correct": false
+                },
+                {
+                    "id": 54,
+                    "statement": "Als Kind las sie immer im Keller des Hauses.",
+                    "is_correct": true
+                },
+                {
+                    "id": 55,
+                    "statement": "Ihre Pflegemutter wollte nicht, dass sie Tagebuch schreibt.",
+                    "is_correct": true
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-2-part-2.mp3?alt=media&token=7fd93d2d-831c-44b3-9f1f-ab294db8a512",
+            "statements": [
+                {
+                    "id": 46,
+                    "statement": "Zu Beginn der Sendung hatte der Reporter ein exklusives Frühstücksrezept erwartet.",
+                    "is_correct": true
+                },
+                {
+                    "id": 47,
+                    "statement": "Ole hat sich vor 17 Jahren selbstständig gemacht.",
+                    "is_correct": true
+                },
+                {
+                    "id": 48,
+                    "statement": "Davor hatte er eine Lehre als Koch absolviert.",
+                    "is_correct": true
+                },
+                {
+                    "id": 49,
+                    "statement": "Er bevorzugt Gerichte ohne Fleisch.",
+                    "is_correct": false
+                },
+                {
+                    "id": 50,
+                    "statement": "Ole sieht wie ein Punker aus.",
+                    "is_correct": true
+                },
+                {
+                    "id": 51,
+                    "statement": "Er kocht für Musiker, die auf Tournee sind.",
+                    "is_correct": false
+                },
+                {
+                    "id": 52,
+                    "statement": "Zuletzt hat er für die Band „Die Prinzen“ gekocht.",
+                    "is_correct": false
+                },
+                {
+                    "id": 53,
+                    "statement": "Ole nimmt eine komplette Kücheneinrichtung mit auf Tournee.",
+                    "is_correct": true
+                },
+                {
+                    "id": 54,
+                    "statement": "Er macht sich über den Sender lustig, weil der Reporter bei englischen Wörtern nachfragt.",
+                    "is_correct": true
+                },
+                {
+                    "id": 55,
+                    "statement": "Die Musiker müssen immer essen, was auf den Tisch kommt.",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-3-part-2.mp3?alt=media&token=40f62a1c-e440-42ef-9e64-6c59173b7df6",
+            "statements": [
+                {
+                    "id": 46,
+                    "statement": "Frau Edler arbeitete früher für die Verkehrsbetriebe Leipzig.",
+                    "is_correct": true
+                },
+                {
+                    "id": 47,
+                    "statement": "Zum ersten Mal wurde sie in Frankfurt mit dem Problem der Straßenkinder konfrontiert.",
+                    "is_correct": true
+                },
+                {
+                    "id": 48,
+                    "statement": "Zu Anfang kümmerte sie sich um obdachlose Erwachsene.",
+                    "is_correct": true
+                },
+                {
+                    "id": 49,
+                    "statement": "Sie hat den Straßenkindern immer Geld gegeben.",
+                    "is_correct": false
+                },
+                {
+                    "id": 50,
+                    "statement": "Die Kinder (Kids) wollten, nach Meinung von Frau Edler, Zigaretten kaufen.",
+                    "is_correct": true
+                },
+                {
+                    "id": 51,
+                    "statement": "Sie hat mit den Kindern in leer stehenden Häusern übernachtet.",
+                    "is_correct": true
+                },
+                {
+                    "id": 52,
+                    "statement": "Die Kolleginnen hatten anfangs kein Verständnis für ihr Engagement.",
+                    "is_correct": true
+                },
+                {
+                    "id": 53,
+                    "statement": "Die Zahl der Kinder, die an den Weihnachtsfeiern teilnehmen, ist seit 1990 stark gesunken.",
+                    "is_correct": false
+                },
+                {
+                    "id": 54,
+                    "statement": "Sie sammelt noch heute bei den früheren Kollegen Geld für die Straßenkinder.",
+                    "is_correct": false
+                },
+                {
+                    "id": 55,
+                    "statement": "Mit einer Büchse herumzulaufen, ist ihr manchmal peinlich.",
+                    "is_correct": false
+                }
+            ]
+        }
+    ]
+}

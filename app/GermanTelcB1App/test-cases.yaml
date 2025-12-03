@@ -1,0 +1,53 @@
+# Firebase AI Testing - Test Cases for German Telc B1 App
+# Documentation: https://firebase.google.com/docs/app-distribution/android/app-testing-agent
+
+- displayName: Complete Onboarding Flow
+  id: onboarding-complete
+  steps:
+    - goal: Select a language from the language selector
+      hint: Tap on one of the language options (English, German, Arabic, etc.)
+      successCriteria: A language is selected and highlighted
+    - goal: Proceed to the next screen
+      hint: Tap the "Next" or "Go" button at the bottom
+      successCriteria: The disclaimer screen is displayed
+    - goal: Accept the disclaimer and enter the app
+      hint: Tap the accept or continue button on the disclaimer screen
+      successCriteria: The main Home screen is visible with navigation tabs at the bottom
+
+- displayName: Navigate Between Main Tabs
+  id: navigate-home-tabs
+  prerequisiteTestCaseId: onboarding-complete
+  steps:
+    - goal: Verify the Home tab is active
+      hint: Look at the bottom navigation bar
+      successCriteria: The Home tab is highlighted and home content is visible
+    - goal: Navigate to the Mock Exam tab
+      hint: Tap on the "Mock Exam" or assignment icon in the bottom tab bar
+      successCriteria: The Mock Exam screen is displayed with exam information
+    - goal: Navigate to the Profile tab
+      hint: Tap on the "Profile" or person icon in the bottom tab bar
+      successCriteria: The Profile screen is displayed with login prompt or user info
+    - goal: Return to the Home tab
+      hint: Tap on the "Home" icon in the bottom tab bar
+      successCriteria: The Home screen is displayed again
+
+- displayName: Open Practice Menu and View Sections
+  id: open-practice-menu
+  prerequisiteTestCaseId: onboarding-complete
+  steps:
+    - goal: Open the Practice/Solve Questions section
+      hint: From the Home screen, tap on the "Solve Questions" or "Practice" card
+      successCriteria: The Practice Menu screen is displayed
+    - goal: Verify Reading section is visible
+      hint: Scroll if needed to see all options
+      successCriteria: A "Reading" card is visible on the Practice Menu
+    - goal: Verify Grammar section is visible
+      hint: Look for the Grammar card
+      successCriteria: A "Grammar" card is visible on the Practice Menu
+    - goal: Verify Speaking section is visible
+      hint: Scroll down if needed
+      successCriteria: A "Speaking" card is visible on the Practice Menu
+    - goal: Navigate back to Home
+      hint: Tap the back button or arrow in the header
+      successCriteria: The Home screen is displayed
+

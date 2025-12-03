@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
+import SupportAdButton from './SupportAdButton';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface ResultsModalProps {
   visible: boolean;
@@ -29,8 +30,28 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   onRetry,
   examTitle,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
+  const hasLoggedButtonShown = useRef<boolean>(false);
+
+  // Track when support ad button is shown (only for scores > 60%)
+  useEffect(() => {
+    if (visible && result && result.percentage > 60 && !hasLoggedButtonShown.current) {
+      hasLoggedButtonShown.current = true;
+      logEvent(AnalyticsEvents.USER_SUPPORT_AD_BUTTON_SHOWN, { 
+        screen: 'results_modal',
+        score_percentage: result.percentage,
+      });
+    }
+    
+    // Reset the flag when modal is closed
+    if (!visible) {
+      hasLoggedButtonShown.current = false;
+    }
+  }, [visible, result]);
+
   if (!result) return null;
+
+  console.log('-------------> result', result);
 
   const getScoreColor = (percentage: number): string => {
     if (percentage >= 80) return colors.success[500];
@@ -98,41 +119,51 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
             </View>
 
             {/* Detailed Results */}
-            <View style={styles.detailsContainer}>
-              <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
-              
-              {result.answers.map((answer, index) => (
-                <View
-                  key={index}
-                  style={[
-                    styles.answerRow,
-                    answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
-                  ]}
-                >
-                  <View style={styles.answerHeader}>
-                    <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                    <Text style={[
-                      styles.status,
-                      answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
-                    ]}>
-                      {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
-                    </Text>
-                  </View>
-                  
-                  <View style={styles.answerDetails}>
-                    <Text style={styles.answerLabel}>{t('results.yourAnswer')}</Text>
-                    <Text style={styles.answerText}>{answer.userAnswer}</Text>
-                  </View>
-                  
-                  {!answer.isCorrect && (
-                    <View style={styles.answerDetails}>
-                      <Text style={styles.answerLabel}>{t('results.correctAnswer')}</Text>
-                      <Text style={styles.correctAnswerText}>{answer.correctAnswer}</Text>
+            {result.answers.length > 0 && (
+              <View style={styles.detailsContainer}>
+                <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
+
+                {result.answers.map((answer, index) => (
+                  <View
+                    key={index}
+                    style={[
+                      styles.answerRow,
+                      answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
+                    ]}
+                  >
+                    <View style={styles.answerHeader}>
+                      <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
+                      <Text style={[
+                        styles.status,
+                        answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
+                      ]}>
+                        {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
+                      </Text>
                     </View>
-                  )}
-                </View>
-              ))}
-            </View>
+
+                    {/* <View style={styles.answerDetails}>
+                      <Text style={styles.answerLabel}>{t('results.yourAnswer')}
+                        <Text style={styles.answerText}>{' ' + answer.answer}</Text>
+                      </Text>
+
+                    </View> */}
+
+                    {!answer.isCorrect && answer.correctAnswer && (
+                      <View style={styles.answerDetails}>
+                        <Text style={styles.answerLabel}>{t('results.correctAnswer')}
+                          <Text style={styles.answerText}>{' ' + answer.correctAnswer}</Text>
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </View>
+            )}
+
+            {/* Support Ad Button - Only show for scores > 60% */}
+            {result.percentage > 60 && (
+              <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
+            )}
 
             {/* Action Buttons */}
             <View style={styles.buttonContainer}>
@@ -179,7 +210,7 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.md,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: spacing.md,
@@ -252,10 +283,9 @@ const styles = StyleSheet.create({
     borderLeftColor: colors.error[500],
   },
   answerHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing.xs,
   },
   questionNumber: {
     ...typography.textStyles.bodySmall,
@@ -273,24 +303,21 @@ const styles = StyleSheet.create({
     color: colors.error[700],
   },
   answerDetails: {
-    marginBottom: spacing.xs,
   },
   answerLabel: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    marginBottom: spacing.xs,
   },
   answerText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.primary,
   },
-  correctAnswerText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.medium,
+  supportAdButton: {
+    marginHorizontal: spacing.md,
+    marginBottom: spacing.sm,
   },
   buttonContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     gap: spacing.md,

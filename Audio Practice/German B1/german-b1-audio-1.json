@@ -1,0 +1,56 @@
+{
+    "title": "Wohnungssuche in München: Herausforderungen, Kosten und essenzielle Tipps für Bewerber",
+    "audio_url": "",
+    "questions": [
+        {
+            "question": "Die durchschnittliche Kaltmiete für eine Wohnung in München liegt bei etwa 20 Euro pro Quadratmeter.",
+            "correct": true,
+            "explanation": "Der Text gibt an, dass Mieter in München im Durchschnitt etwa 20 Euro pro Quadratmeter an Kaltmiete bezahlen müssen."
+        },
+        {
+            "question": "Um Geld bei der Miete zu sparen, wird empfohlen, im Zentrum Münchens, wie zum Beispiel in Schwabing, nach Wohnungen zu suchen.",
+            "correct": false,
+            "explanation": "Wer Geld sparen möchte, sollte nicht im Zentrum, wie Schwabing, suchen. Stattdessen sind Stadtteile wie Giesing oder Moosach oft etwas günstiger."
+        },
+        {
+            "question": "Ein wichtiger Grund, warum viele Menschen nach München ziehen, ist die hohe Anzahl an Arbeitsplätzen und die hohe Lebensqualität.",
+            "correct": true,
+            "explanation": "Im Text wird bestätigt, dass viele Menschen wegen der vielen Arbeitsplätze und der hohen Lebensqualität nach München ziehen."
+        },
+        {
+            "question": "Eine kleine 50-Quadratmeter-Wohnung in München kostet in der Regel etwa 500 Euro Kaltmiete pro Monat.",
+            "correct": false,
+            "explanation": "Eine kleine 50-Quadratmeter-Wohnung kostet in München oft schon 1.000 Euro Kaltmiete im Monat."
+        },
+        {
+            "question": "Wenn man eine Wohnung in München besichtigen möchte, ist es ausreichend, nur eine Kopie des Personalausweises mitzubringen.",
+            "correct": false,
+            "explanation": "Es muss eine vollständige Bewerbungsmappe vorgelegt werden, die neben der Kopie des Personalausweises auch einen Nachweis über das Einkommen (die letzten drei Gehaltsabrechnungen) und eine Schufa-Auskunft enthält."
+        },
+        {
+            "question": "Die Schufa-Auskunft ist ein Dokument, das belegt, dass der Wohnungssuchende keine Schulden hat.",
+            "correct": true,
+            "explanation": "Der Text erklärt die Schufa-Auskunft als ein Dokument, das zeigt, dass der Bewerber keine Schulden hat."
+        },
+        {
+            "question": "Wohnungssuchende sollten die Kaution im Voraus an den Vermieter überweisen, wenn dieser im Ausland ist und verspricht, den Schlüssel per Post zu schicken.",
+            "correct": false,
+            "explanation": "Man sollte niemals Geld überweisen, bevor der Mietvertrag unterschrieben wurde und die Wohnung gesehen wurde, da dies ein typischer Betrügertrick ist."
+        },
+        {
+            "question": "Massenbesichtigungen mit 20 oder 30 anderen Interessenten sind in München selten.",
+            "correct": false,
+            "explanation": "Es gibt oft sogenannte „Massenbesichtigungen“ mit 20 oder 30 anderen Interessenten."
+        },
+        {
+            "question": "Viele Wohnungssuchende in München benötigen drei bis sechs Monate, bis sie eine passende Wohnung gefunden haben.",
+            "correct": true,
+            "explanation": "Der Text betont, dass Geduld wichtig ist, da viele Menschen drei bis sechs Monate suchen, bis sie eine passende Wohnung finden."
+        },
+        {
+            "question": "Die Bewerbungsmappe muss Nachweise über das Einkommen, insbesondere die letzten drei Gehaltsabrechnungen, enthalten.",
+            "correct": true,
+            "explanation": "Zu einer vollständigen Bewerbungsmappe gehört laut Text zwingend ein Nachweis über das Einkommen, konkret die letzten drei Gehaltsabrechnungen."
+        }
+    ]
+}

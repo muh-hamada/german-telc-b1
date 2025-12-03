@@ -3,11 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
@@ -17,12 +16,11 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart2UI from '../../components/exam-ui/LanguagePart2UI';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
 import { HomeStackRouteProp } from '../../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const GrammarPart2Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'GrammarPart2'>>();
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
@@ -60,12 +58,17 @@ const GrammarPart2Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(examResult?.score || 0);
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'grammar', part: 2, exam_id: examId, completed: newStatus });
+      // Alert.alert(
+      //   t('common.success'),
+      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      // );
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 
@@ -86,60 +89,51 @@ const GrammarPart2Screen: React.FC = () => {
     }
   };
 
-  const handleComplete = (score: number) => {
+  const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const percentage = Math.round((score / 15) * 100);
+    const totalQuestions = Object.keys(currentExam.answers).length;
+    const percentage = Math.round((score / totalQuestions) * 100);
     
     const result: ExamResult = {
       examId: examId,
       score,
-      maxScore: 15,
+      maxScore: totalQuestions,
       percentage,
       correctAnswers: score,
-      totalQuestions: Object.keys(currentExam.answers).length,
-      answers: [],
+      totalQuestions: totalQuestions,
+      answers: answers,
       timestamp: Date.now(),
     };
 
     setExamResult(result);
     setShowResults(true);
 
-    const gapIds = Object.keys(currentExam.answers).map(Number);
-    const userAnswersArray: UserAnswer[] = gapIds.map(gapId => ({
-      questionId: gapId,
-      answer: '',
-      isCorrect: false,
-      timestamp: Date.now(),
-    }));
-
-    updateExamProgress('grammar-part2', examId, userAnswersArray, score, 15);
+    updateExamProgress('grammar-part2', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <LanguagePart2UI exam={currentExam} onComplete={handleComplete} />
 
       <ResultsModal
@@ -148,8 +142,7 @@ const GrammarPart2Screen: React.FC = () => {
         examTitle={`Grammar Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 

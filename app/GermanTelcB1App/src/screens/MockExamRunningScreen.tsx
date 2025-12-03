@@ -7,8 +7,6 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
-  I18nManager,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -32,15 +30,16 @@ import {
   clearMockExamProgress,
   getTestIdForStep,
 } from '../services/mock-exam.service';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { UserAnswer } from '../types/exam.types';
 import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
-import { useTranslation } from 'react-i18next';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
   const [examProgress, setExamProgress] = useState<MockExamProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   
   useEffect(() => {
     loadProgress();
@@ -67,15 +66,10 @@ const MockExamRunningScreen: React.FC = () => {
   if (isLoading || !examProgress) {
     return (
       <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.primary[500]}
-        />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.loadingText}>{t('mockExam.examLoading')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
       </SafeAreaView>
     );
   }
@@ -87,10 +81,10 @@ const MockExamRunningScreen: React.FC = () => {
     step => step.id === examProgress.currentStepId
   );
 
-  const handleCompleteStep = async (score: number) => {
+  const handleCompleteStep = async (score: number, answers: UserAnswer[]) => {
     try {
       // Update progress in storage
-      await updateStepProgress(examProgress.currentStepId, score);
+      await updateStepProgress(examProgress.currentStepId, score, true, answers);
       
       // Reload progress from storage to get updated state
       const updatedProgress = await loadMockExamProgress();
@@ -104,21 +98,26 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   const handleExitExam = () => {
+    logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_PROMPT_SHOWN);
     Alert.alert(
       t('mockExam.exitExamTitle'),
       t('mockExam.exitExamMessage'),
       [
-        { text: t('mockExam.stay'), style: 'default', onPress: () => {} },
+        { text: t('mockExam.stay'), style: 'default', onPress: () => logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CANCELLED) },
         {
           text: t('mockExam.exitExamButton'),
           style: 'destructive',
-          onPress: () => navigation.goBack(),
+          onPress: () => {
+            logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CONFIRMED);
+            navigation.goBack();
+          },
         },
       ]
     );
   };
 
   const renderStepContent = () => {
+    console.log('[MockExamRunningScreen] renderStepContent: currentStep', currentStep);
     if (!currentStep) return null;
 
     // Get testId for current step
@@ -153,7 +152,7 @@ const MockExamRunningScreen: React.FC = () => {
 
           <TouchableOpacity
             style={styles.skipButton}
-            onPress={() => handleCompleteStep(0)}
+            onPress={() => handleCompleteStep(0, [])}
           >
             <Text style={styles.skipButtonText}>{t('mockExam.skipAndContinue')}</Text>
           </TouchableOpacity>
@@ -290,20 +289,20 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   if (examProgress.isCompleted) {
-    return (
-      <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.primary[500]}
-        />
-        {renderResults()}
-        {!HIDE_ADS && <AdBanner />}
+  return (
+    <SafeAreaView style={styles.container} edges={['top']}>
+      {renderResults()}
+      
+      {/* Persistent Banner at Bottom */}
+      <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
+        <AdBanner screen="mock-exam-results" />
       </SafeAreaView>
-    );
-  }
+    </SafeAreaView>
+  );
+}
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       {/* Fixed Stepper at Top */}
       <ExamStepper steps={examProgress.steps} currentStepId={examProgress.currentStepId} />
 
@@ -324,7 +323,11 @@ const MockExamRunningScreen: React.FC = () => {
       <View style={styles.contentContainer}>
         {renderStepContent()}
       </View>
-      {!HIDE_ADS && <AdBanner />}
+
+      {/* Persistent Banner at Bottom */}
+      <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
+        <AdBanner screen="mock-exam-running" />
+      </SafeAreaView>
     </SafeAreaView>
   );
 };
@@ -345,7 +348,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.margin.md,
   },
   stepHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -360,11 +363,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   stepHeaderPart: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   exitButton: {
     paddingHorizontal: spacing.padding.md,
@@ -470,7 +475,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   placeholderMeta: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: spacing.margin.sm,
   },
@@ -592,6 +597,11 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.background.secondary,
     fontWeight: typography.fontWeight.bold,
+  },
+  bannerContainer: {
+    backgroundColor: colors.background.primary,
+    borderTopWidth: 1,
+    borderTopColor: colors.secondary[100],
   },
 });
 

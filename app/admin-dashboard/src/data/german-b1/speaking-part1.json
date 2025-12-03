@@ -1,0 +1,135 @@
+{
+  "content": {
+    "id": 1,
+    "title": "Personal Introduction",
+    "personalInfo": {
+      "name": "Anwar",
+      "age": 32,
+      "origin": "Egypt",
+      "livingSince": "2019",
+      "family": "married with two daughters"
+    },
+    "familyInfo": {
+      "location": "Charlottenburg",
+      "children": [
+        {
+          "name": "Older daughter",
+          "age": 10,
+          "activity": "is in third grade"
+        },
+        {
+          "name": "Younger daughter",
+          "age": 2,
+          "activity": "attends kindergarten"
+        }
+      ]
+    },
+    "professionalInfo": {
+      "job": "Doctor",
+      "company": "Amazon",
+      "hobbies": [
+        "doing sports",
+        "going to the gym",
+        "running",
+        "spending time with daughters",
+        "cycling",
+        "going to parks",
+        "visiting the zoo",
+        "drawing",
+        "reading books"
+      ]
+    },
+    "completeExample": [
+      "**Hello!** My name is **John** and I **come from Colombia**. I **was born in Bogotá** and I am **30 years old**. I **have lived in Germany since 2016**. I **am married** and have a **small family**: my wife and two daughters.",
+      "We **live in Mitte**. My older **daughter** is **eight years old** and **is in third grade**. My younger daughter is **three years old** and **attends kindergarten**.",
+      "**Professionally, I am a driver** and I **work at BVG**. **In my free time I like doing sports**, especially **going to the gym regularly** and **running once a week**.",
+      "I **enjoy spending time with my daughters**, we **ride bikes**, **go to parks** and **visit the zoo**. Also, I **like drawing very much** and **often together** with my daughters. And I **also really like reading books**."
+    ],
+    "vocabulary": [
+      {
+        "english": "I come from Colombia.",
+        "german": "Ich komme aus Kolumbien.",
+        "arabic": "أنا من كولومبيا.",
+        "russian": "Я из Колумбии.",
+        "french": "Je viens de Colombie.",
+        "spanish": "Vengo de Colombia.",
+        "portuguese": "Venho da Colômbia.",
+        "italian": "Vengo dalla Colombia."
+      },
+      {
+        "english": "I was born in Bogotá.",
+        "german": "Ich wurde in Bogotá geboren.",
+        "arabic": "أنا مولد في بوغوتا.",
+        "russian": "Я родился в Боготá.",
+        "french": "Je suis né à Bogotá.",
+        "spanish": "Nací en Bogotá.",
+        "portuguese": "Nasci em Bogotá.",
+        "italian": "Sono nato a Bogotá."
+      },
+      {
+        "english": "I am married.",
+        "german": "Ich bin verheiratet.",
+        "arabic": "أنا متزوج.",
+        "russian": "Я женат.",
+        "french": "Je suis marié.",
+        "spanish": "Estoy casado.",
+        "portuguese": "Sou casado.",
+        "italian": "Sono sposato."
+      },
+      {
+        "english": "daughter",
+        "german": "die Tochter",
+        "arabic": "البنت",
+        "russian": "дочь",
+        "french": "la fille",
+        "spanish": "la hija",
+        "portuguese": "a filha",
+        "italian": "la figlia"
+      },
+      {
+        "english": "to attend kindergarten",
+        "german": "den Kindergarten besuchen"
+      },
+      {
+        "english": "the third grade",
+        "german": "die dritte Klasse"
+      },
+      {
+        "english": "I like to do sports.",
+        "german": "Ich treibe gerne Sport."
+      },
+      {
+        "english": "to go to the gym regularly",
+        "german": "regelmäßig ins Fitnessstudio gehen"
+      },
+      {
+        "english": "Professionally, I am an engineer.",
+        "german": "Beruflich bin ich Ingenieur."
+      },
+      {
+        "english": "I work at HelloFresh.",
+        "german": "Ich arbeite bei HelloFresh."
+      },
+      {
+        "english": "to spend time with",
+        "german": "Zeit verbringen mit"
+      },
+      {
+        "english": "to ride a bicycle",
+        "german": "Fahrrad fahren"
+      },
+      {
+        "english": "to visit the zoo",
+        "german": "den Zoo besuchen"
+      },
+      {
+        "english": "to draw",
+        "german": "zeichnen"
+      },
+      {
+        "english": "to read books",
+        "german": "Bücher lesen"
+      }
+    ]
+  }
+}

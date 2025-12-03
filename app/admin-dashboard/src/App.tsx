@@ -3,8 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
+import { AppSelectionPage } from './pages/AppSelectionPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { EditorPage } from './pages/EditorPage';
+import { DeletionRequestsPage } from './pages/DeletionRequestsPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
+import { ReportsPage } from './pages/ReportsPage';
+import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -16,7 +21,15 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route
-            path="/dashboard"
+            path="/apps"
+            element={
+              <ProtectedRoute>
+                <AppSelectionPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/:appId"
             element={
               <ProtectedRoute>
                 <DashboardPage />
@@ -24,15 +37,47 @@ function App() {
             }
           />
           <Route
-            path="/editor/:documentId"
+            path="/editor/:appId/:documentId"
             element={
               <ProtectedRoute>
                 <EditorPage />
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route
+            path="/deletion-requests"
+            element={
+              <ProtectedRoute>
+                <DeletionRequestsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/analytics"
+            element={
+              <ProtectedRoute>
+                <AnalyticsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute>
+                <ReportsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/vocabulary-upload"
+            element={
+              <ProtectedRoute>
+                <VocabularyUploadPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/" element={<Navigate to="/apps" replace />} />
+          <Route path="*" element={<Navigate to="/apps" replace />} />
         </Routes>
       </Router>
       <ToastContainer

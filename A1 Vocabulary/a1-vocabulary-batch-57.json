@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Sohn",
+    "article": "der",
+    "translations": {
+      "en": "son",
+      "es": "hijo",
+      "fr": "fils",
+      "ru": "сын",
+      "ar": "الابن"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist Hans, mein Sohn.",
+        "translations": {
+          "en": "This is Hans, my son.",
+          "es": "Este es Hans, mi hijo.",
+          "fr": "C'est Hans, mon fils.",
+          "ru": "Это Ханс, мой сын.",
+          "ar": "هذا هانس، ابني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sollen",
+    "article": "",
+    "translations": {
+      "en": "should",
+      "es": "deber",
+      "fr": "devoir",
+      "ru": "должен",
+      "ar": "ينبغي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Soll ich kommen?",
+        "translations": {
+          "en": "Should I come?",
+          "es": "¿Debo venir?",
+          "fr": "Dois-je venir?",
+          "ru": "Мне прийти?",
+          "ar": "هل يجب أن آتي؟"
+        }
+      },
+      {
+        "text": "Was soll ich mitbringen?",
+        "translations": {
+          "en": "What should I bring?",
+          "es": "¿Qué debo traer?",
+          "fr": "Que dois-je apporter?",
+          "ru": "Что мне принести?",
+          "ar": "ماذا يجب أن أحضر؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sonne",
+    "article": "die",
+    "translations": {
+      "en": "sun",
+      "es": "sol",
+      "fr": "soleil",
+      "ru": "солнце",
+      "ar": "الشمس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Sonne scheint.",
+        "translations": {
+          "en": "The sun is shining.",
+          "es": "El sol brilla.",
+          "fr": "Le soleil brille.",
+          "ru": "Солнце светит.",
+          "ar": "الشمس تشرق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "spät",
+    "article": "",
+    "translations": {
+      "en": "late",
+      "es": "tarde",
+      "fr": "tard",
+      "ru": "поздно",
+      "ar": "متأخر"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es ist schon spät, ich muss gehen.",
+        "translations": {
+          "en": "It's already late, I have to go.",
+          "es": "Ya es tarde, tengo que irme.",
+          "fr": "Il est déjà tard, je dois partir.",
+          "ru": "Уже поздно, мне нужно идти.",
+          "ar": "الوقت متأخر بالفعل، يجب أن أذهب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "später",
+    "article": "",
+    "translations": {
+      "en": "later",
+      "es": "más tarde",
+      "fr": "plus tard",
+      "ru": "позже",
+      "ar": "لاحقًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Das können wir später machen.",
+        "translations": {
+          "en": "We can do that later.",
+          "es": "Podemos hacer eso más tarde.",
+          "fr": "Nous pouvons faire ça plus tard.",
+          "ru": "Мы можем сделать это позже.",
+          "ar": "يمكننا فعل ذلك لاحقًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Speisekarte",
+    "article": "die",
+    "translations": {
+      "en": "menu",
+      "es": "menú",
+      "fr": "carte",
+      "ru": "меню",
+      "ar": "قائمة الطعام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bringen Sie mir die Speisekarte, bitte.",
+        "translations": {
+          "en": "Bring me the menu, please.",
+          "es": "Tráigame el menú, por favor.",
+          "fr": "Apportez-moi la carte, s'il vous plaît.",
+          "ru": "Принесите мне меню, пожалуйста.",
+          "ar": "أحضر لي قائمة الطعام، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "spielen",
+    "article": "",
+    "translations": {
+      "en": "to play",
+      "es": "jugar",
+      "fr": "jouer",
+      "ru": "играть",
+      "ar": "يلعب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder spielen draußen.",
+        "translations": {
+          "en": "The children are playing outside.",
+          "es": "Los niños juegan afuera.",
+          "fr": "Les enfants jouent dehors.",
+          "ru": "Дети играют на улице.",
+          "ar": "الأطفال يلعبون في الخارج."
+        }
+      },
+      {
+        "text": "Spielen Sie Karten?",
+        "translations": {
+          "en": "Do you play cards?",
+          "es": "¿Juega a las cartas?",
+          "fr": "Jouez-vous aux cartes?",
+          "ru": "Вы играете в карты?",
+          "ar": "هل تلعب الورق؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sport",
+    "article": "der",
+    "translations": {
+      "en": "sport",
+      "es": "deporte",
+      "fr": "sport",
+      "ru": "спорт",
+      "ar": "الرياضة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich mache viel Sport.",
+        "translations": {
+          "en": "I do a lot of sports.",
+          "es": "Hago mucho deporte.",
+          "fr": "Je fais beaucoup de sport.",
+          "ru": "Я много занимаюсь спортом.",
+          "ar": "أمارس الكثير من الرياضة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sprache",
+    "article": "die",
+    "translations": {
+      "en": "language",
+      "es": "idioma",
+      "fr": "langue",
+      "ru": "язык",
+      "ar": "اللغة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Welche Sprachen sprichst du?",
+        "translations": {
+          "en": "What languages do you speak?",
+          "es": "¿Qué idiomas hablas?",
+          "fr": "Quelles langues parles-tu?",
+          "ru": "На каких языках ты говоришь?",
+          "ar": "ما اللغات التي تتحدثها؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "sprechen",
+    "article": "",
+    "translations": {
+      "en": "to speak",
+      "es": "hablar",
+      "fr": "parler",
+      "ru": "говорить",
+      "ar": "يتكلم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kann ich (mit) Herrn Klein sprechen?",
+        "translations": {
+          "en": "Can I speak to Mr. Klein?",
+          "es": "¿Puedo hablar con el señor Klein?",
+          "fr": "Puis-je parler à Monsieur Klein?",
+          "ru": "Могу я поговорить с господином Кляйном?",
+          "ar": "هل يمكنني التحدث مع السيد كلاين؟"
+        }
+      }
+    ]
+  }
+]
+

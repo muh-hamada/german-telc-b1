@@ -4,18 +4,17 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  I18nManager,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import dataService from '../services/data.service';
-import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { useTranslation } from 'react-i18next';
 
 const ExamStructureScreen: React.FC = () => {
-  const { i18n, t } = useTranslation();
+  const { t } = useCustomTranslation();
+  const { i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [examInfoData, setExamInfoData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -40,21 +39,21 @@ const ExamStructureScreen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (error || !examInfoData) {
     return (
-      <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
-          <Text style={styles.errorText}>{error || 'Failed to load exam structure'}</Text>
+          <Text style={styles.errorText}>{error || t('examStructure.error')}</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -119,11 +118,11 @@ const ExamStructureScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>📝 {getLocalizedText(examInfo.title)}</Text>
+          <Text style={styles.title}>📝 {removeTelcFromText(getLocalizedText(examInfo.title))}</Text>
           <View style={styles.overviewCard}>
             <View style={styles.overviewRow}>
               <Text style={styles.overviewLabel}>{t('examStructure.cefrLevel')}:</Text>
@@ -215,8 +214,7 @@ const ExamStructureScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -262,7 +260,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   overviewRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
@@ -271,34 +269,41 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.secondary,
     fontWeight: typography.fontWeight.semibold,
+    textAlign: 'left',
   },
   overviewValue: {
     ...typography.textStyles.body,
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   noteCard: {
     backgroundColor: colors.warning[50],
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.warning[500],
+    borderRightColor: colors.warning[500],
   },
   noteTitle: {
     ...typography.textStyles.h4,
     color: colors.warning[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   noteText: {
     ...typography.textStyles.bodySmall,
     color: colors.warning[700],
     lineHeight: 20,
+    textAlign: 'left',
   },
   structureTitle: {
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   sectionCard: {
     backgroundColor: colors.background.secondary,
@@ -312,15 +317,16 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   sectionHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
+    direction: 'ltr',
   },
   sectionNumber: {
     ...typography.textStyles.h2,
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
     width: 40,
   },
   sectionTitleContainer: {
@@ -332,7 +338,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   sectionMetaRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.margin.sm,
   },
@@ -348,14 +354,17 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.sm,
-    borderLeftWidth: 3,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 3,
+    borderRightWidth: I18nManager.isRTL ? 3 : 0,
     borderLeftColor: colors.primary[400],
+    borderRightColor: colors.primary[400],
   },
   partHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.xs,
+    direction: 'ltr',
   },
   partName: {
     ...typography.textStyles.body,
@@ -365,7 +374,7 @@ const styles = StyleSheet.create({
     marginRight: spacing.margin.sm,
   },
   partMeta: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'column',
     gap: spacing.margin.xs,
   },
   partMetaText: {
@@ -377,6 +386,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     lineHeight: 20,
     marginTop: spacing.margin.xs,
+    textAlign: 'left',
   },
   assessmentSection: {
     marginTop: spacing.margin.md,
@@ -426,6 +436,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     lineHeight: 20,
+    textAlign: 'left',
   },
   assessmentNote: {
     backgroundColor: colors.primary[50],
@@ -437,6 +448,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.primary[700],
     lineHeight: 18,
+    textAlign: 'left',
   },
 });
 

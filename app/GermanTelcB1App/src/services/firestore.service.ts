@@ -1,47 +1,90 @@
-import firestore from '@react-native-firebase/firestore';
+import firestore, { Timestamp } from '@react-native-firebase/firestore';
 import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import { User } from './auth.service';
+import { activeExamConfig } from '../config/active-exam.config';
+import { Platform } from 'react-native';
+import i18n from '../utils/i18n';
 
 class FirestoreService {
   private readonly COLLECTIONS = {
     USERS: 'users',
-    PROGRESS: 'progress',
     EXAM_RESULTS: 'examResults',
+    ACCOUNT_DELETION_REQUESTS: 'account_deletion_requests',
   };
+  
+  // Exam-specific collection prefix for future multi-app support
+  // Lazy-loaded to avoid initialization order issues
+  private get examId(): string {
+    return activeExamConfig.id;
+  }
+
+  /**
+   * Get the user progress document path for a specific user
+   * Replaces {uid} placeholder with actual userId
+   * e.g., "users/{uid}/progress" -> "users/abc123/progress"
+   * e.g., "users/{uid}/german_b2_progress" -> "users/abc123/german_b2_progress"
+   */
+  private getUserProgressPath(uid: string): string {
+    return activeExamConfig.firebaseCollections.userProgress.replace('{uid}', uid);
+  }
 
   // User Management
   async createUserProfile(user: User): Promise<void> {
     try {
-      const userData = {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        provider: user.provider,
-        createdAt: firestore.Timestamp.fromDate(user.createdAt),
-        lastLoginAt: firestore.Timestamp.fromDate(user.lastLoginAt),
-        preferences: {
-          language: 'en',
-          notifications: true,
-          darkMode: false,
-        },
-        stats: {
-          totalExams: 0,
-          completedExams: 0,
-          totalScore: 0,
-          totalMaxScore: 0,
-          averageScore: 0,
-          streak: 0,
-          lastActivity: firestore.Timestamp.fromDate(new Date()),
-        },
-      };
-
-      await firestore()
-        .collection(this.COLLECTIONS.USERS)
-        .doc(user.uid)
-        .set(userData, { merge: true });
+    const userRef = firestore()
+      .collection(this.COLLECTIONS.USERS)
+      .doc(user.uid);
+    
+    const userDoc = await userRef.get();
+    
+    if (!userDoc.exists()) {
+        // New user - create full profile
+        // Auto-detect timezone from device
+        // Example: "Europe/Berlin" or "America/New_York"
+        const deviceTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        
+        const userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          provider: user.provider,
+          appId: activeExamConfig.id,
+          createdAt: Timestamp.fromDate(user.createdAt),
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+          timezone: deviceTimezone,
+          platform: Platform.OS,
+          preferences: {
+            interfaceLanguage: i18n.language || 'en',
+          },
+          notificationSettings: {
+            enabled: false,
+            hour: 9,
+          },
+          stats: {
+            totalExams: 0,
+            completedExams: 0,
+            totalScore: 0,
+            totalMaxScore: 0,
+            averageScore: 0,
+            streak: 0,
+            lastActivity: Timestamp.fromDate(new Date()),
+          },
+        };
+        await userRef.set(userData);
+        console.log('[FirestoreService] Created new user profile for:', user.uid);
+      } else {
+        // Existing user - only update basic auth fields that can change
+        await userRef.update({
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+        });
+        console.log('[FirestoreService] Updated existing user profile for:', user.uid);
+      }
     } catch (error) {
-      console.error('Error creating user profile:', error);
+      console.error('Error creating/updating user profile:', error);
       throw error;
     }
   }
@@ -71,7 +114,7 @@ class FirestoreService {
         .doc(uid)
         .update({
           ...updates,
-          lastUpdated: firestore.Timestamp.fromDate(new Date()),
+          lastUpdated: Timestamp.fromDate(new Date()),
         });
     } catch (error) {
       console.error('Error updating user profile:', error);
@@ -92,18 +135,18 @@ class FirestoreService {
 
       const progressData = {
         ...safeProgress,
-        lastUpdated: firestore.Timestamp.fromDate(new Date(safeProgress.lastUpdated)),
+        lastUpdated: Timestamp.fromDate(new Date(safeProgress.lastUpdated)),
         exams: safeProgress.exams.map(exam => ({
           ...exam,
-          lastAttempt: firestore.Timestamp.fromDate(
+          lastAttempt: Timestamp.fromDate(
             new Date(typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now())
           ),
         })),
       };
 
+      const progressPath = this.getUserProgressPath(uid);
       await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .set(progressData, { merge: true });
     } catch (error) {
       console.error('Error saving user progress:', error);
@@ -113,9 +156,10 @@ class FirestoreService {
 
   async getUserProgress(uid: string): Promise<UserProgress | null> {
     try {
+      const progressPath = this.getUserProgressPath(uid);
+      console.log('[FirestoreService] getUserProgress: Getting user progress for uid:', uid, 'progressPath:', progressPath);
       const doc = await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .get();
 
       const data = doc.data();
@@ -158,15 +202,15 @@ class FirestoreService {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<void> {
     try {
-      const now = firestore.Timestamp.fromDate(new Date());
+      const now = Timestamp.fromDate(new Date());
       
       // Update progress document
-      const progressRef = firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid);
+      const progressPath = this.getUserProgressPath(uid);
+      const progressRef = firestore().doc(progressPath);
 
       const progressDoc = await progressRef.get();
       const rawData = progressDoc.data();
@@ -203,7 +247,7 @@ class FirestoreService {
 
       // Update exam progress
       examProgress.answers = answers;
-      examProgress.completed = true;
+      examProgress.completed = completed;
       examProgress.score = score;
       examProgress.maxScore = maxScore;
       examProgress.lastAttempt = now;
@@ -247,7 +291,7 @@ class FirestoreService {
         score: score || 0,
         maxScore: maxScore || 0,
         percentage: maxScore && maxScore > 0 ? Math.round((score || 0) / maxScore * 100) : 0,
-        completedAt: firestore.Timestamp.fromDate(new Date()),
+        completedAt: Timestamp.fromDate(new Date()),
       };
 
       await firestore()
@@ -288,7 +332,7 @@ class FirestoreService {
         .update({
           stats: {
             ...stats,
-            lastActivity: firestore.Timestamp.fromDate(new Date()),
+            lastActivity: Timestamp.fromDate(new Date()),
           },
         });
     } catch (error) {
@@ -401,9 +445,9 @@ class FirestoreService {
         .delete();
 
       // Delete progress
+      const progressPath = this.getUserProgressPath(uid);
       await firestore()
-        .collection(this.COLLECTIONS.PROGRESS)
-        .doc(uid)
+        .doc(progressPath)
         .delete();
 
       // Delete exam results
@@ -419,6 +463,120 @@ class FirestoreService {
       await batch.commit();
     } catch (error) {
       console.error('Error deleting user data:', error);
+      throw error;
+    }
+  }
+
+  // User Settings Management
+  async getUserSettings(uid: string): Promise<any | null> {
+    try {
+      const userDoc = await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .get();
+
+      if (userDoc.exists()) {
+        return userDoc.data();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error getting user settings:', error);
+      throw error;
+    }
+  }
+
+  async updateUserSettings(uid: string, settings: any): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .set(settings, { merge: true });
+    } catch (error) {
+      console.error('Error updating user settings:', error);
+      throw error;
+    }
+  }
+
+  // Account Deletion Requests
+  async createDeletionRequest(uid: string, email: string, appId: string, appName: string, platform: string): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
+        .doc(uid)
+        .set({
+          uid,
+          email,
+          appId,
+          appName,
+          platform,
+          requestedAt: Timestamp.fromDate(new Date()),
+          status: 'pending',
+        });
+    } catch (error) {
+      console.error('Error creating deletion request:', error);
+      throw error;
+    }
+  }
+
+  async checkDeletionRequestExists(uid: string): Promise<boolean> {
+    try {
+      const doc = await firestore()
+        .collection(this.COLLECTIONS.ACCOUNT_DELETION_REQUESTS)
+        .doc(uid)
+        .get();
+
+      return doc.exists() && doc.data()?.status === 'pending';
+    } catch (error) {
+      console.error('Error checking deletion request:', error);
+      throw error;
+    }
+  }
+
+  // FCM Token Management
+  async saveFCMToken(uid: string, token: string, platform: 'ios' | 'android'): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .set({
+          fcmToken: {
+            token,
+            updatedAt: Timestamp.fromDate(new Date()),
+            platform,
+          },
+        }, { merge: true });
+      console.log('FCM token saved successfully');
+    } catch (error) {
+      console.error('Error saving FCM token:', error);
+      throw error;
+    }
+  }
+
+  async removeFCMToken(uid: string): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .update({
+          fcmToken: firestore.FieldValue.delete(),
+        });
+      console.log('FCM token removed successfully');
+    } catch (error) {
+      console.error('Error removing FCM token:', error);
+      throw error;
+    }
+  }
+
+  async getFCMToken(uid: string): Promise<string | null> {
+    try {
+      const doc = await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .get();
+
+      return doc.data()?.fcmToken?.token || null;
+    } catch (error) {
+      console.error('Error getting FCM token:', error);
       throw error;
     }
   }

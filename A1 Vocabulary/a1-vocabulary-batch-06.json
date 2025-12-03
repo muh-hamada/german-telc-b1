@@ -1,0 +1,263 @@
+[
+  {
+    "word": "aufhören",
+    "article": "",
+    "translations": {
+      "en": "to stop",
+      "es": "terminar",
+      "fr": "arrêter",
+      "ru": "прекращать",
+      "ar": "يتوقف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Der Kurs hört in einer Woche auf.",
+        "translations": {
+          "en": "The course ends in a week.",
+          "es": "El curso termina en una semana.",
+          "fr": "Le cours se termine dans une semaine.",
+          "ru": "Курс заканчивается через неделю.",
+          "ar": "تنتهي الدورة خلال أسبوع."
+        }
+      },
+      {
+        "text": "Hier hört die Bahnhofstraße auf.",
+        "translations": {
+          "en": "Bahnhofstrasse ends here.",
+          "es": "Aquí termina la Bahnhofstraße.",
+          "fr": "La Bahnhofstraße se termine ici.",
+          "ru": "Здесь заканчивается Банхофштрассе.",
+          "ar": "ينتهي شارع Bahnhofstraße هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "auf sein",
+    "article": "",
+    "translations": {
+      "en": "to be open",
+      "es": "estar abierto",
+      "fr": "être ouvert",
+      "ru": "быть открытым",
+      "ar": "يكون مفتوحًا"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Du brauchst den Schlüssel nicht. Die Wohnung ist auf.",
+        "translations": {
+          "en": "You don't need the key. The apartment is open.",
+          "es": "No necesitas la llave. El apartamento está abierto.",
+          "fr": "Tu n'as pas besoin de la clé. L'appartement est ouvert.",
+          "ru": "Тебе не нужен ключ. Квартира открыта.",
+          "ar": "لا تحتاج إلى المفتاح. الشقة مفتوحة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aufstehen",
+    "article": "",
+    "translations": {
+      "en": "to get up",
+      "es": "levantarse",
+      "fr": "se lever",
+      "ru": "вставать",
+      "ar": "يستيقظ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss immer um vier Uhr aufstehen.",
+        "translations": {
+          "en": "I always have to get up at four o'clock.",
+          "es": "Siempre tengo que levantarme a las cuatro.",
+          "fr": "Je dois toujours me lever à quatre heures.",
+          "ru": "Мне всегда нужно вставать в четыре часа.",
+          "ar": "يجب أن أستيقظ دائمًا في الساعة الرابعة."
+        }
+      },
+      {
+        "text": "Soll ich aufstehen?",
+        "translations": {
+          "en": "Should I get up?",
+          "es": "¿Debería levantarme?",
+          "fr": "Dois-je me lever ?",
+          "ru": "Мне встать?",
+          "ar": "هل يجب أن أستيقظ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aufzug",
+    "article": "der",
+    "translations": {
+      "en": "elevator",
+      "es": "ascensor",
+      "fr": "ascenseur",
+      "ru": "лифт",
+      "ar": "المصعد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In diesem Haus gibt es keinen Aufzug.",
+        "translations": {
+          "en": "There's no elevator in this building.",
+          "es": "No hay ascensor en este edificio.",
+          "fr": "Il n'y a pas d'ascenseur dans cet immeuble.",
+          "ru": "В этом доме нет лифта.",
+          "ar": "لا يوجد مصعد في هذا المبنى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Auge",
+    "article": "das",
+    "translations": {
+      "en": "eye",
+      "es": "ojo",
+      "fr": "œil",
+      "ru": "глаз",
+      "ar": "العين"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er hat blaue Augen.",
+        "translations": {
+          "en": "He has blue eyes.",
+          "es": "Tiene ojos azules.",
+          "fr": "Il a les yeux bleus.",
+          "ru": "У него голубые глаза.",
+          "ar": "لديه عيون زرقاء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aus",
+    "article": "",
+    "translations": {
+      "en": "from",
+      "es": "de",
+      "fr": "de",
+      "ru": "из",
+      "ar": "من"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Er kommt aus Brasilien.",
+        "translations": {
+          "en": "He comes from Brazil.",
+          "es": "Él viene de Brasil.",
+          "fr": "Il vient du Brésil.",
+          "ru": "Он из Бразилии.",
+          "ar": "إنه من البرازيل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ausflug",
+    "article": "der",
+    "translations": {
+      "en": "excursion",
+      "es": "excursión",
+      "fr": "excursion",
+      "ru": "экскурсия",
+      "ar": "الرحلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Morgen machen wir einen Ausflug nach Heidelberg.",
+        "translations": {
+          "en": "Tomorrow we're taking an excursion to Heidelberg.",
+          "es": "Mañana haremos una excursión a Heidelberg.",
+          "fr": "Demain, nous faisons une excursion à Heidelberg.",
+          "ru": "Завтра мы совершим экскурсию в Гейдельберг.",
+          "ar": "غدًا سنقوم برحلة إلى هايدلبرغ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ausfüllen",
+    "article": "",
+    "translations": {
+      "en": "to fill out",
+      "es": "rellenar",
+      "fr": "remplir",
+      "ru": "заполнять",
+      "ar": "يملأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Füllen Sie bitte dieses Formular aus.",
+        "translations": {
+          "en": "Please fill out this form.",
+          "es": "Por favor, rellene este formulario.",
+          "fr": "Veuillez remplir ce formulaire.",
+          "ru": "Пожалуйста, заполните эту форму.",
+          "ar": "يرجى ملء هذا النموذج."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ausgang",
+    "article": "der",
+    "translations": {
+      "en": "exit",
+      "es": "salida",
+      "fr": "sortie",
+      "ru": "выход",
+      "ar": "المخرج"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo ist der Ausgang?",
+        "translations": {
+          "en": "Where is the exit?",
+          "es": "¿Dónde está la salida?",
+          "fr": "Où est la sortie ?",
+          "ru": "Где выход?",
+          "ar": "أين المخرج؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Auskunft",
+    "article": "die",
+    "translations": {
+      "en": "information",
+      "es": "información",
+      "fr": "renseignement",
+      "ru": "информация",
+      "ar": "المعلومات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Können Sie mir eine Auskunft geben?",
+        "translations": {
+          "en": "Can you give me some information?",
+          "es": "¿Puede darme información?",
+          "fr": "Pouvez-vous me donner un renseignement ?",
+          "ru": "Можете ли вы дать мне информацию?",
+          "ar": "هل يمكنك إعطائي معلومات؟"
+        }
+      }
+    ]
+  }
+]
+

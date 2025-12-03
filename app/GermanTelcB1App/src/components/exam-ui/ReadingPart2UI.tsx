@@ -6,19 +6,20 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
-import { ReadingPart2Exam } from '../../types/exam.types';
+import { ReadingPart2Exam, UserAnswer } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart2UIProps {
   exam: ReadingPart2Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
@@ -26,6 +27,12 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
       ...prev,
       [questionId]: answerIndex,
     }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'reading',
+      part: 2,
+      exam_id: exam.id,
+      question_id: questionId,
+    });
   };
 
   const handleSubmit = () => {
@@ -43,16 +50,32 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete }) => 
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.questions.forEach(question => {
       const userAnswerIndex = userAnswers[question.id];
-      const isCorrect = question.answers[userAnswerIndex]?.correct === true;
+      const correctAnswerIndex = question.answers.findIndex(a => a.correct === true);
+      const isCorrect = userAnswerIndex === correctAnswerIndex;
       if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: question.id,
+        answer: question.answers[userAnswerIndex]?.text || '',
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswerIndex !== -1 ? question.answers[correctAnswerIndex]?.text : undefined,
+      });
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'reading',
+        part: 2,
+        exam_id: exam.id,
+        question_id: question.id,
+        is_correct: !!isCorrect,
+      });
     });
 
-    const score = (correctCount / exam.questions.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   return (
@@ -155,11 +178,13 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    textAlign: 'left',
   },
   textSection: {
     marginBottom: spacing.margin.xl,
@@ -168,6 +193,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   textCard: {
     backgroundColor: colors.background.secondary,
@@ -180,6 +206,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   questionsSection: {
     marginBottom: spacing.margin.lg,
@@ -200,15 +227,18 @@ const styles = StyleSheet.create({
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    direction: 'ltr',
   },
   questionText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
     lineHeight: 22,
+    direction: 'ltr',
   },
   answerOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    direction: 'ltr',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.sm,

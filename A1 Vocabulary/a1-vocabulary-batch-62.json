@@ -1,0 +1,243 @@
+[
+  {
+    "word": "umziehen",
+    "article": "",
+    "translations": {
+      "en": "to move",
+      "es": "mudarse",
+      "fr": "déménager",
+      "ru": "переезжать",
+      "ar": "ينتقل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Nächsten Monat ziehen wir um.",
+        "translations": {
+          "en": "We're moving next month.",
+          "es": "Nos mudamos el próximo mes.",
+          "fr": "Nous déménageons le mois prochain.",
+          "ru": "Мы переезжаем в следующем месяце.",
+          "ar": "سننتقل الشهر القادم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "und",
+    "article": "",
+    "translations": {
+      "en": "and",
+      "es": "y",
+      "fr": "et",
+      "ru": "и",
+      "ar": "و"
+    },
+    "type": "conjunction",
+    "exampleSentences": [
+      {
+        "text": "Peter und Helmut sind meine Söhne.",
+        "translations": {
+          "en": "Peter and Helmut are my sons.",
+          "es": "Peter y Helmut son mis hijos.",
+          "fr": "Peter et Helmut sont mes fils.",
+          "ru": "Петер и Хельмут - мои сыновья.",
+          "ar": "بيتر وهيلموت هما ابناي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "unser-",
+    "article": "",
+    "translations": {
+      "en": "our",
+      "es": "nuestro",
+      "fr": "notre",
+      "ru": "наш",
+      "ar": "لنا"
+    },
+    "type": "determiner",
+    "exampleSentences": [
+      {
+        "text": "Das ist unsere Lehrerin.",
+        "translations": {
+          "en": "This is our teacher.",
+          "es": "Esta es nuestra maestra.",
+          "fr": "C'est notre professeur.",
+          "ru": "Это наша учительница.",
+          "ar": "هذه معلمتنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "unten",
+    "article": "",
+    "translations": {
+      "en": "downstairs",
+      "es": "abajo",
+      "fr": "en bas",
+      "ru": "внизу",
+      "ar": "في الأسفل"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Er wohnt ganz unten im Haus.",
+        "translations": {
+          "en": "He lives at the very bottom of the house.",
+          "es": "Vive en la parte más baja de la casa.",
+          "fr": "Il habite tout en bas de la maison.",
+          "ru": "Он живёт совсем внизу в доме.",
+          "ar": "يعيش في أسفل المنزل تمامًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "unter",
+    "article": "",
+    "translations": {
+      "en": "under",
+      "es": "debajo",
+      "fr": "sous",
+      "ru": "под",
+      "ar": "تحت"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Unter uns wohnt eine Familie mit drei Kindern.",
+        "translations": {
+          "en": "Below us lives a family with three children.",
+          "es": "Debajo de nosotros vive una familia con tres niños.",
+          "fr": "En dessous de nous habite une famille avec trois enfants.",
+          "ru": "Под нами живёт семья с тремя детьми.",
+          "ar": "يعيش تحتنا عائلة بثلاثة أطفال."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Unterricht",
+    "article": "der",
+    "translations": {
+      "en": "lesson",
+      "es": "clase",
+      "fr": "cours",
+      "ru": "урок",
+      "ar": "الدرس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben Unterricht von 8.00 bis 12.00 Uhr.",
+        "translations": {
+          "en": "We have lessons from 8:00 to 12:00.",
+          "es": "Tenemos clase de 8:00 a 12:00.",
+          "fr": "Nous avons cours de 8h00 à 12h00.",
+          "ru": "У нас уроки с 8:00 до 12:00.",
+          "ar": "لدينا درس من الساعة 8:00 إلى 12:00."
+        }
+      }
+    ]
+  },
+  {
+    "word": "unterschreiben",
+    "article": "",
+    "translations": {
+      "en": "to sign",
+      "es": "firmar",
+      "fr": "signer",
+      "ru": "подписывать",
+      "ar": "يوقع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo muss ich unterschreiben?",
+        "translations": {
+          "en": "Where do I have to sign?",
+          "es": "¿Dónde tengo que firmar?",
+          "fr": "Où dois-je signer?",
+          "ru": "Где мне нужно расписаться?",
+          "ar": "أين يجب أن أوقع؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Unterschrift",
+    "article": "die",
+    "translations": {
+      "en": "signature",
+      "es": "firma",
+      "fr": "signature",
+      "ru": "подпись",
+      "ar": "التوقيع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier fehlt noch Ihre Unterschrift.",
+        "translations": {
+          "en": "Your signature is still missing here.",
+          "es": "Aquí falta su firma.",
+          "fr": "Il manque encore votre signature ici.",
+          "ru": "Здесь ещё не хватает вашей подписи.",
+          "ar": "توقيعك لا يزال مفقودًا هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Urlaub",
+    "article": "der",
+    "translations": {
+      "en": "vacation",
+      "es": "vacaciones",
+      "fr": "vacances",
+      "ru": "отпуск",
+      "ar": "الإجازة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme im September Urlaub.",
+        "translations": {
+          "en": "I'm taking vacation in September.",
+          "es": "Tomaré vacaciones en septiembre.",
+          "fr": "Je prends des vacances en septembre.",
+          "ru": "Я беру отпуск в сентябре.",
+          "ar": "سآخذ إجازة في سبتمبر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Vater",
+    "article": "der",
+    "translations": {
+      "en": "father",
+      "es": "padre",
+      "fr": "père",
+      "ru": "отец",
+      "ar": "الأب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Vater ist Arbeiter.",
+        "translations": {
+          "en": "My father is a worker.",
+          "es": "Mi padre es obrero.",
+          "fr": "Mon père est ouvrier.",
+          "ru": "Мой отец рабочий.",
+          "ar": "والدي عامل."
+        }
+      }
+    ]
+  }
+]
+

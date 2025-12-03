@@ -1,0 +1,243 @@
+[
+  {
+    "word": "gehören",
+    "article": "",
+    "translations": {
+      "en": "to belong",
+      "es": "pertenecer",
+      "fr": "appartenir",
+      "ru": "принадлежать",
+      "ar": "ينتمي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wem gehört das?",
+        "translations": {
+          "en": "Who does this belong to?",
+          "es": "¿A quién pertenece esto?",
+          "fr": "À qui cela appartient-il ?",
+          "ru": "Кому это принадлежит?",
+          "ar": "لمن ينتمي هذا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geld",
+    "article": "das",
+    "translations": {
+      "en": "money",
+      "es": "dinero",
+      "fr": "argent",
+      "ru": "деньги",
+      "ar": "المال"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du noch Geld?",
+        "translations": {
+          "en": "Do you still have money?",
+          "es": "¿Todavía tienes dinero?",
+          "fr": "As-tu encore de l'argent ?",
+          "ru": "У тебя ещё есть деньги?",
+          "ar": "هل لا يزال لديك مال؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gemüse",
+    "article": "das",
+    "translations": {
+      "en": "vegetables",
+      "es": "verduras",
+      "fr": "légumes",
+      "ru": "овощи",
+      "ar": "الخضروات"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gemüse brauchen wir auch noch.",
+        "translations": {
+          "en": "We still need vegetables too.",
+          "es": "También necesitamos verduras.",
+          "fr": "Nous avons encore besoin de légumes aussi.",
+          "ru": "Нам ещё нужны овощи.",
+          "ar": "نحتاج أيضًا إلى الخضروات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gepäck",
+    "article": "das",
+    "translations": {
+      "en": "luggage",
+      "es": "equipaje",
+      "fr": "bagages",
+      "ru": "багаж",
+      "ar": "الأمتعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wollen Sie Ihr Gepäck mitnehmen?",
+        "translations": {
+          "en": "Do you want to take your luggage with you?",
+          "es": "¿Quiere llevar su equipaje?",
+          "fr": "Voulez-vous emporter vos bagages ?",
+          "ru": "Вы хотите взять свой багаж с собой?",
+          "ar": "هل تريد أخذ أمتعتك معك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "gerade",
+    "article": "",
+    "translations": {
+      "en": "just",
+      "es": "justo",
+      "fr": "justement",
+      "ru": "как раз",
+      "ar": "للتو"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Da kommt er ja gerade.",
+        "translations": {
+          "en": "There he comes now.",
+          "es": "Ahí viene justo ahora.",
+          "fr": "Le voilà qui arrive justement.",
+          "ru": "Вон он как раз идёт.",
+          "ar": "هو قادم الآن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "geradeaus",
+    "article": "",
+    "translations": {
+      "en": "straight ahead",
+      "es": "recto",
+      "fr": "tout droit",
+      "ru": "прямо",
+      "ar": "بشكل مستقيم"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Gehen Sie immer geradeaus!",
+        "translations": {
+          "en": "Keep going straight ahead!",
+          "es": "¡Siga siempre recto!",
+          "fr": "Allez toujours tout droit !",
+          "ru": "Идите всё время прямо!",
+          "ar": "اذهب دائمًا بشكل مستقيم!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "gern(e)",
+    "article": "",
+    "translations": {
+      "en": "gladly",
+      "es": "con gusto",
+      "fr": "volontiers",
+      "ru": "охотно",
+      "ar": "بسرور"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe gerne einkaufen.",
+        "translations": {
+          "en": "I like to go shopping.",
+          "es": "Me gusta ir de compras.",
+          "fr": "J'aime faire les courses.",
+          "ru": "Я люблю ходить за покупками.",
+          "ar": "أحب الذهاب للتسوق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geschäft",
+    "article": "das",
+    "translations": {
+      "en": "store",
+      "es": "tienda",
+      "fr": "magasin",
+      "ru": "магазин",
+      "ar": "المتجر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Geschäfte schließen um 18.30 Uhr.",
+        "translations": {
+          "en": "The stores close at 6:30 PM.",
+          "es": "Las tiendas cierran a las 18:30.",
+          "fr": "Les magasins ferment à 18h30.",
+          "ru": "Магазины закрываются в 18:30.",
+          "ar": "تُغلق المتاجر في الساعة 6:30 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geschenk",
+    "article": "das",
+    "translations": {
+      "en": "gift",
+      "es": "regalo",
+      "fr": "cadeau",
+      "ru": "подарок",
+      "ar": "الهدية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Danke für das schöne Geschenk.",
+        "translations": {
+          "en": "Thanks for the nice gift.",
+          "es": "Gracias por el hermoso regalo.",
+          "fr": "Merci pour le beau cadeau.",
+          "ru": "Спасибо за прекрасный подарок.",
+          "ar": "شكرًا على الهدية الجميلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geschwister",
+    "article": "die",
+    "translations": {
+      "en": "siblings",
+      "es": "hermanos",
+      "fr": "frères et sœurs",
+      "ru": "братья и сёстры",
+      "ar": "الإخوة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe leider keine Geschwister.",
+        "translations": {
+          "en": "Unfortunately, I don't have any siblings.",
+          "es": "Desafortunadamente, no tengo hermanos.",
+          "fr": "Malheureusement, je n'ai pas de frères et sœurs.",
+          "ru": "К сожалению, у меня нет братьев и сестёр.",
+          "ar": "للأسف، ليس لدي إخوة."
+        }
+      }
+    ]
+  }
+]
+

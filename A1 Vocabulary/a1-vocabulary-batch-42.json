@@ -1,0 +1,273 @@
+[
+  {
+    "word": "links",
+    "article": "",
+    "translations": {
+      "en": "left",
+      "es": "izquierda",
+      "fr": "gauche",
+      "ru": "слева",
+      "ar": "يسار"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "An der nächsten Kreuzung müssen Sie nach links fahren.",
+        "translations": {
+          "en": "At the next intersection you have to turn left.",
+          "es": "En el próximo cruce tienes que girar a la izquierda.",
+          "fr": "Au prochain carrefour, vous devez tourner à gauche.",
+          "ru": "На следующем перекрёстке вам нужно повернуть налево.",
+          "ar": "في التقاطع التالي يجب أن تدور يسارًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lippe",
+    "article": "die",
+    "translations": {
+      "en": "lip",
+      "es": "labio",
+      "fr": "lèvre",
+      "ru": "губа",
+      "ar": "الشفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Lippen sind ganz trocken.",
+        "translations": {
+          "en": "My lips are very dry.",
+          "es": "Mis labios están muy secos.",
+          "fr": "Mes lèvres sont très sèches.",
+          "ru": "Мои губы очень сухие.",
+          "ar": "شفتاي جافتان جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Liter",
+    "article": "der",
+    "translations": {
+      "en": "liter",
+      "es": "litro",
+      "fr": "litre",
+      "ru": "литр",
+      "ar": "اللتر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Tank hat 60 Liter Benzin.",
+        "translations": {
+          "en": "The tank has 60 liters of gasoline.",
+          "es": "El tanque tiene 60 litros de gasolina.",
+          "fr": "Le réservoir contient 60 litres d'essence.",
+          "ru": "В баке 60 литров бензина.",
+          "ar": "الخزان به 60 لترًا من البنزين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Loch",
+    "article": "das",
+    "translations": {
+      "en": "hole",
+      "es": "agujero",
+      "fr": "trou",
+      "ru": "дыра",
+      "ar": "الثقب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In dem Zahn ist ein Loch.",
+        "translations": {
+          "en": "There's a cavity in the tooth.",
+          "es": "Hay una caries en el diente.",
+          "fr": "Il y a un trou dans la dent.",
+          "ru": "В зубе есть дыра.",
+          "ar": "يوجد ثقب في السن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Löffel",
+    "article": "der",
+    "translations": {
+      "en": "spoon",
+      "es": "cuchara",
+      "fr": "cuillère",
+      "ru": "ложка",
+      "ar": "الملعقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich brauche einen Löffel.",
+        "translations": {
+          "en": "I need a spoon.",
+          "es": "Necesito una cuchara.",
+          "fr": "J'ai besoin d'une cuillère.",
+          "ru": "Мне нужна ложка.",
+          "ar": "أحتاج إلى ملعقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lohn",
+    "article": "der",
+    "translations": {
+      "en": "wage",
+      "es": "salario",
+      "fr": "salaire",
+      "ru": "зарплата",
+      "ar": "الأجر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin mit meinem Lohn zufrieden.",
+        "translations": {
+          "en": "I'm satisfied with my wage.",
+          "es": "Estoy satisfecho con mi salario.",
+          "fr": "Je suis satisfait de mon salaire.",
+          "ru": "Я доволен своей зарплатой.",
+          "ar": "أنا راضٍ عن أجري."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Los",
+    "article": "das",
+    "translations": {
+      "en": "lottery ticket",
+      "es": "boleto",
+      "fr": "billet",
+      "ru": "лотерейный билет",
+      "ar": "تذكرة اليانصيب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Machen wir es so: Wir kaufen ein Los und teilen dann den Gewinn.",
+        "translations": {
+          "en": "Let's do it like this: We buy a lottery ticket and then share the winnings.",
+          "es": "Hagámoslo así: compramos un boleto de lotería y luego compartimos las ganancias.",
+          "fr": "Faisons comme ceci: nous achetons un billet de loterie et partageons ensuite les gains.",
+          "ru": "Сделаем так: купим лотерейный билет и потом поделим выигрыш.",
+          "ar": "لنفعل هكذا: نشتري تذكرة يانصيب ثم نقسم الفوز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "los-",
+    "article": "",
+    "translations": {
+      "en": "loose",
+      "es": "suelto",
+      "fr": "détaché",
+      "ru": "свободный",
+      "ar": "منفصل"
+    },
+    "type": "prefix",
+    "exampleSentences": [
+      {
+        "text": "Was ist los?",
+        "translations": {
+          "en": "What's wrong?",
+          "es": "¿Qué pasa?",
+          "fr": "Qu'est-ce qui se passe?",
+          "ru": "Что случилось?",
+          "ar": "ما الخطب؟"
+        }
+      },
+      {
+        "text": "Wann geht's los?",
+        "translations": {
+          "en": "When does it start?",
+          "es": "¿Cuándo empieza?",
+          "fr": "Quand est-ce que ça commence?",
+          "ru": "Когда начнётся?",
+          "ar": "متى يبدأ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lust",
+    "article": "die",
+    "translations": {
+      "en": "desire",
+      "es": "ganas",
+      "fr": "envie",
+      "ru": "желание",
+      "ar": "الرغبة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du Lust, heute Abend ins Kino zu gehen?",
+        "translations": {
+          "en": "Do you feel like going to the cinema tonight?",
+          "es": "¿Tienes ganas de ir al cine esta noche?",
+          "fr": "As-tu envie d'aller au cinéma ce soir?",
+          "ru": "Хочешь пойти в кино сегодня вечером?",
+          "ar": "هل لديك رغبة في الذهاب إلى السينما الليلة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "machen",
+    "article": "",
+    "translations": {
+      "en": "to make",
+      "es": "hacer",
+      "fr": "faire",
+      "ru": "делать",
+      "ar": "يفعل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was machst du gerade?",
+        "translations": {
+          "en": "What are you doing right now?",
+          "es": "¿Qué estás haciendo ahora?",
+          "fr": "Qu'est-ce que tu fais en ce moment?",
+          "ru": "Что ты сейчас делаешь?",
+          "ar": "ماذا تفعل الآن؟"
+        }
+      },
+      {
+        "text": "Mach bitte das Fenster zu!",
+        "translations": {
+          "en": "Please close the window!",
+          "es": "¡Por favor, cierra la ventana!",
+          "fr": "Ferme la fenêtre, s'il te plaît!",
+          "ru": "Закрой, пожалуйста, окно!",
+          "ar": "من فضلك، أغلق النافذة!"
+        }
+      },
+      {
+        "text": "Ich mache morgen eine Prüfung.",
+        "translations": {
+          "en": "I'm taking an exam tomorrow.",
+          "es": "Voy a hacer un examen mañana.",
+          "fr": "Je passe un examen demain.",
+          "ru": "Завтра у меня экзамен.",
+          "ar": "سأجري امتحانًا غدًا."
+        }
+      }
+    ]
+  }
+]
+

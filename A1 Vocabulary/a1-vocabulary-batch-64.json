@@ -1,0 +1,283 @@
+[
+  {
+    "word": "viel",
+    "article": "",
+    "translations": {
+      "en": "much",
+      "es": "mucho",
+      "fr": "beaucoup",
+      "ru": "много",
+      "ar": "كثير"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Hier regnet es viel.",
+        "translations": {
+          "en": "It rains a lot here.",
+          "es": "Aquí llueve mucho.",
+          "fr": "Il pleut beaucoup ici.",
+          "ru": "Здесь много дождей.",
+          "ar": "تمطر كثيرًا هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "vielleicht",
+    "article": "",
+    "translations": {
+      "en": "maybe",
+      "es": "quizás",
+      "fr": "peut-être",
+      "ru": "может быть",
+      "ar": "ربما"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich komme vielleicht mit dem Bus.",
+        "translations": {
+          "en": "Maybe I'll come by bus.",
+          "es": "Quizás venga en autobús.",
+          "fr": "Je viendrai peut-être en bus.",
+          "ru": "Может быть, я приеду на автобусе.",
+          "ar": "ربما سآتي بالحافلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "von",
+    "article": "",
+    "translations": {
+      "en": "from",
+      "es": "de",
+      "fr": "de",
+      "ru": "от",
+      "ar": "من"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Das Auto von Felix ist kaputt.",
+        "translations": {
+          "en": "Felix's car is broken.",
+          "es": "El coche de Felix está roto.",
+          "fr": "La voiture de Felix est cassée.",
+          "ru": "Машина Феликса сломана.",
+          "ar": "سيارة فيليكس معطلة."
+        }
+      },
+      {
+        "text": "Er kommt gerade von Köln/von zu Hause.",
+        "translations": {
+          "en": "He's just coming from Cologne/from home.",
+          "es": "Viene de Colonia/de casa.",
+          "fr": "Il vient juste de Cologne/de chez lui.",
+          "ru": "Он только что из Кёльна/из дома.",
+          "ar": "إنه قادم من كولونيا/من المنزل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "vor",
+    "article": "",
+    "translations": {
+      "en": "before",
+      "es": "antes",
+      "fr": "avant",
+      "ru": "перед",
+      "ar": "قبل"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Der Termin war vor einer Stunde.",
+        "translations": {
+          "en": "The appointment was an hour ago.",
+          "es": "La cita fue hace una hora.",
+          "fr": "Le rendez-vous était il y a une heure.",
+          "ru": "Встреча была час назад.",
+          "ar": "كان الموعد قبل ساعة."
+        }
+      },
+      {
+        "text": "Das Auto steht vor der Tür.",
+        "translations": {
+          "en": "The car is in front of the door.",
+          "es": "El coche está delante de la puerta.",
+          "fr": "La voiture est devant la porte.",
+          "ru": "Машина стоит перед дверью.",
+          "ar": "السيارة أمام الباب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Vorname",
+    "article": "der",
+    "translations": {
+      "en": "first name",
+      "es": "nombre",
+      "fr": "prénom",
+      "ru": "имя",
+      "ar": "الاسم الأول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich heiße Müller, mein Vorname ist Eva.",
+        "translations": {
+          "en": "My name is Müller, my first name is Eva.",
+          "es": "Me llamo Müller, mi nombre es Eva.",
+          "fr": "Je m'appelle Müller, mon prénom est Eva.",
+          "ru": "Моя фамилия Мюллер, моё имя Ева.",
+          "ar": "اسمي مولر، اسمي الأول إيفا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Vorsicht",
+    "article": "die",
+    "translations": {
+      "en": "caution",
+      "es": "cuidado",
+      "fr": "attention",
+      "ru": "осторожность",
+      "ar": "الحذر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Vorsicht! Da kommt ein Auto.",
+        "translations": {
+          "en": "Careful! There's a car coming.",
+          "es": "¡Cuidado! Viene un coche.",
+          "fr": "Attention! Une voiture arrive.",
+          "ru": "Осторожно! Едет машина.",
+          "ar": "احذر! هناك سيارة قادمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "(sich) vorstellen",
+    "article": "",
+    "translations": {
+      "en": "to introduce",
+      "es": "presentarse",
+      "fr": "se présenter",
+      "ru": "представляться",
+      "ar": "يقدم نفسه"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir wollen uns kennenlernen. Können Sie sich bitte vorstellen?",
+        "translations": {
+          "en": "We want to get to know each other. Can you please introduce yourself?",
+          "es": "Queremos conocernos. ¿Puede presentarse, por favor?",
+          "fr": "Nous voulons faire connaissance. Pouvez-vous vous présenter, s'il vous plaît?",
+          "ru": "Мы хотим познакомиться. Можете представиться, пожалуйста?",
+          "ar": "نريد أن نتعرف على بعضنا البعض. هل يمكنك أن تقدم نفسك من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Vorwahl",
+    "article": "die",
+    "translations": {
+      "en": "area code",
+      "es": "prefijo",
+      "fr": "indicatif",
+      "ru": "код города",
+      "ar": "رمز المنطقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie ist die Vorwahl von München?",
+        "translations": {
+          "en": "What's the area code for Munich?",
+          "es": "¿Cuál es el prefijo de Múnich?",
+          "fr": "Quel est l'indicatif de Munich?",
+          "ru": "Какой код у Мюнхена?",
+          "ar": "ما هو رمز منطقة ميونيخ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "wandern",
+    "article": "",
+    "translations": {
+      "en": "to hike",
+      "es": "caminar",
+      "fr": "randonner",
+      "ru": "путешествовать пешком",
+      "ar": "يتجول"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir wandern um den Chiemsee.",
+        "translations": {
+          "en": "We're hiking around the Chiemsee.",
+          "es": "Caminamos alrededor del Chiemsee.",
+          "fr": "Nous randonnons autour du Chiemsee.",
+          "ru": "Мы путешествуем пешком вокруг Кимзее.",
+          "ar": "نتجول حول بحيرة كيمسي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "wann",
+    "article": "",
+    "translations": {
+      "en": "when",
+      "es": "cuándo",
+      "fr": "quand",
+      "ru": "когда",
+      "ar": "متى"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Wann bist du fertig?",
+        "translations": {
+          "en": "When will you be finished?",
+          "es": "¿Cuándo terminarás?",
+          "fr": "Quand as-tu fini?",
+          "ru": "Когда ты закончишь?",
+          "ar": "متى ستنتهي؟"
+        }
+      },
+      {
+        "text": "Wann kann ich Sie anrufen?",
+        "translations": {
+          "en": "When can I call you?",
+          "es": "¿Cuándo puedo llamarle?",
+          "fr": "Quand puis-je vous appeler?",
+          "ru": "Когда я могу вам позвонить?",
+          "ar": "متى يمكنني الاتصال بك؟"
+        }
+      },
+      {
+        "text": "Wann sind Sie geboren?",
+        "translations": {
+          "en": "When were you born?",
+          "es": "¿Cuándo nació?",
+          "fr": "Quand êtes-vous né?",
+          "ru": "Когда вы родились?",
+          "ar": "متى ولدت؟"
+        }
+      }
+    ]
+  }
+]
+

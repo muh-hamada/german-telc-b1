@@ -1,0 +1,296 @@
+[
+  {
+    "texts": [
+      {
+        "correct": "h",
+        "id": 1,
+        "text": "At least 100 Sussex children and staff are thought to be suffering from food poisoning after a Christmas meal. A third of all pupils aged between nine and 13 and ten teachers came down after eating a turkey lunch on Wednesday. Several pupils were taken to hospital."
+      },
+      {
+        "correct": "d",
+        "id": 2,
+        "text": "Travellers flocked to Heathrow Airport yesterday at the start of its busiest ever fortnight. Two million people are expected to travel through the airport between this weekend and 5 January, thanks to the start of the ski season and the traditional Christmas holiday period."
+      },
+      {
+        "correct": "i",
+        "id": 3,
+        "text": "Two men stole a double-decker bus in Southend and jumped out of it while it was still running, leaving it speeding towards a shopping mall. The police had to use their patrol cars to block the runaway bus. The two men were arrested and taken to the police station."
+      },
+      {
+        "correct": "c",
+        "id": 4,
+        "text": "A London furniture company is putting a £1,500 sofa up for sale for £1 in return for a promise from the buyer to take someone in need into their home at Christmas. Whoever takes up the offer will have to choose someone who is homeless, or living on their own, or is otherwise not going to have much of a Christmas."
+      },
+      {
+        "correct": "j",
+        "id": 5,
+        "text": "More road accidents are caused by drivers who fall asleep at the wheel than is generally recognized, a government official claimed yesterday. Peter Grayling, the current Minister for Transport has called for Government action to help solve the problem."
+      }
+    ],
+    "headings": [
+      "Free furniture for Christmas",
+      "Full stores all over Britain",
+      "Help others - and yourself",
+      "Largest number of passengers",
+      "Meals for the homeless",
+      "Government to increase road safety",
+      "Police arrest bus driver",
+      "School dinner causes serious illness",
+      "Shopping centre accident avoided",
+      "Tired drivers a danger on the road"
+    ],
+    "id": 1
+  },
+  {
+    "texts": [
+      {
+        "correct": "g",
+        "id": 1,
+        "text": "Residents of Bristol are celebrating the return of the annual Balloon Fiesta. Over 100 hot air balloons will launch from the city parks this weekend. Organizers expect record crowds if the weather remains sunny, though high winds might cause cancellations in the evening."
+      },
+      {
+        "correct": "j",
+        "id": 2,
+        "text": "Police are warning car owners to be careful after a series of thefts in the city centre. Thieves are targeting vehicles left unlocked while drivers pay for parking tickets. Officers advise drivers to check their doors twice before walking away from their cars."
+      },
+      {
+        "correct": "e",
+        "id": 3,
+        "text": "A secondary school in Manchester has banned mobile phones in classrooms starting next term. Teachers say students are too distracted during lessons. Parents can still contact their children through the school office in emergencies, but personal devices must stay in lockers."
+      },
+      {
+        "correct": "h",
+        "id": 4,
+        "text": "A local bakery is giving away unsold bread to families in need every evening. Instead of throwing away fresh loaves, the shop owner has partnered with a community centre to distribute the food. Volunteers collect the boxes just after closing time."
+      },
+      {
+        "correct": "c",
+        "id": 5,
+        "text": "Railway passengers faced long delays this morning due to a signal failure near York. Commuters were left stranded on platforms for over two hours. The rail company has apologized and offered refunds to those who were more than sixty minutes late."
+      }
+    ],
+    "headings": [
+      "Bad weather stops air show",
+      "Bakery closes down due to costs",
+      "Morning travel chaos for train users",
+      "New parking rules in city centre",
+      "New rules for student mobile phones",
+      "New signals improve train speeds",
+      "Popular festival returns to the city",
+      "Shop helps poor families with free food",
+      "Students demand better technology",
+      "Warning to drivers about car safety"
+    ],
+    "id": 2
+  },
+  {
+    "texts": [
+      {
+        "correct": "g",
+        "id": 1,
+        "text": "The central library will be closed for three weeks next month for essential repairs to the roof. During this time, a mobile library van will visit the market square every Tuesday and Friday. Borrowers can return books to any other branch in the district without penalty."
+      },
+      {
+        "correct": "i",
+        "id": 2,
+        "text": "City council leaders have approved a plan to build a dedicated cycle lane connecting the university to the train station. Construction begins in March and aims to reduce traffic congestion. Cyclists currently have to share the busy main road with buses and lorries."
+      },
+      {
+        "correct": "f",
+        "id": 3,
+        "text": "Firefighters were called to a blaze at a shoe factory in Leeds late last night. Fortunately, the building was empty at the time and nobody was hurt. Police are investigating the cause, but initial reports suggest an electrical fault in the main office."
+      },
+      {
+        "correct": "b",
+        "id": 4,
+        "text": "Young pianists aged 12 to 18 are invited to enter the National Youth Music Competition. The winner will receive a £1,000 scholarship and perform at the Royal Albert Hall. Application forms are available online until the end of September."
+      },
+      {
+        "correct": "e",
+        "id": 5,
+        "text": "A rare parrot that escaped from a zoo on Monday has been found in a local garden. The bird, known as 'Coco', was spotted by a resident who lured it down from a tree with fruit. Zoo keepers were relieved to get Coco back safe and sound."
+      }
+    ],
+    "headings": [
+      "Accident on the main road",
+      "Chance for young musicians",
+      "Concert tickets sold out",
+      "Dangerous animal escapes zoo",
+      "Escaped bird found safe",
+      "Factory fire - no injuries",
+      "Library closed for repairs",
+      "New books arrive at library",
+      "New route for cyclists",
+      "Workers injured in accident"
+    ],
+    "id": 3
+  },
+  {
+    "texts": [
+      {
+        "correct": "h",
+        "id": 1,
+        "text": "Over five hundred people took part in the 'Fun Run' on Sunday to raise money for the new children's ward. The event started in the park and finished at the main square. Organizers confirmed that they have already reached their financial target of £10,000."
+      },
+      {
+        "correct": "e",
+        "id": 2,
+        "text": "Bank customers are being advised to ignore emails claiming their accounts have been frozen. These messages often look official but are actually sent by criminals trying to steal passwords. If you receive one, do not click any links and delete it immediately."
+      },
+      {
+        "correct": "j",
+        "id": 3,
+        "text": "The historic castle museum will extend its opening hours during the summer holidays. From next week, visitors can explore the grounds until 8 pm every evening. Special guided tours at sunset are also available for the first time."
+      },
+      {
+        "correct": "d",
+        "id": 4,
+        "text": "Drivers should avoid the M6 motorway this weekend as essential engineering work takes place near Junction 10. Two lanes will be closed, and speed limits will be reduced to 40mph. Authorities suggest using public transport if possible to avoid long queues."
+      },
+      {
+        "correct": "b",
+        "id": 5,
+        "text": "A local football club is looking for new players for their junior team. Boys and girls aged 10-12 are welcome to attend a trial session on Saturday morning. No previous experience is necessary, but participants must bring their own boots."
+      }
+    ],
+    "headings": [
+      "Bank accounts frozen by mistake",
+      "Sports club seeks new members",
+      "Children injured in park",
+      "Motorway repairs cause delays",
+      "Police warn of internet scams",
+      "Museum closed for holidays",
+      "Football match cancelled",
+      "Successful fundraising event",
+      "Public transport costs rise",
+      "Longer visiting times in summer"
+    ],
+    "id": 4
+  },
+  {
+    "texts": [
+      {
+        "correct": "i",
+        "id": 1,
+        "text": "Get fit this summer at the new 'City Gym' on High Street. We offer yoga, pilates, and swimming classes for all ages. Sign up before Friday to get your first month for half the usual price."
+      },
+      {
+        "correct": "d",
+        "id": 2,
+        "text": "Residents living near the river are warned to prepare for high water levels tonight. Heavy rain has continued for three days without stopping. Emergency services are ready to help with sandbags if necessary."
+      },
+      {
+        "correct": "e",
+        "id": 3,
+        "text": "We need friendly staff to serve customers in our busy Italian restaurant. Experience is preferred but not essential as training is provided. Shifts include evenings and weekends, with good pay and tips."
+      },
+      {
+        "correct": "g",
+        "id": 4,
+        "text": "If you have lost an item on the bus, please visit our office at the central station. We keep items for one month only. You will need to describe your property clearly and pay a small fee to collect it."
+      },
+      {
+        "correct": "b",
+        "id": 5,
+        "text": "Don't miss the giant clearance sale at 'TechnoWorld' this Saturday. Laptops, phones, and cameras are reduced by up to 50%. Doors open at 8 am, so come early to grab a bargain before everything is gone."
+      }
+    ],
+    "headings": [
+      "New swimming pool opens",
+      "Low prices on electronics",
+      "Bus station closes early",
+      "Danger of flooding",
+      "Job opportunity in catering",
+      "Restaurant food causes illness",
+      "How to get lost items back",
+      "Dangerous driving on wet roads",
+      "Cheap offer for sports",
+      "Tips for healthy eating"
+    ],
+    "id": 5
+  },
+  {
+    "texts": [
+      {
+        "correct": "j",
+        "id": 1,
+        "text": "Heavy snow has caused chaos at the airport this morning. All flights to northern Europe have been cancelled until further notice. Passengers are advised not to travel to the terminal but to check the website for updates."
+      },
+      {
+        "correct": "g",
+        "id": 2,
+        "text": "Residents must now separate their rubbish into three different bins. The new green bins are for glass bottles, while paper goes in the blue ones. The council says that mixing waste could result in a fine."
+      },
+      {
+        "correct": "c",
+        "id": 3,
+        "text": "The city theater is holding open auditions for its summer production of 'Romeo and Juliet'. We are looking for men and women aged 20-30. No previous acting experience is needed, but you must be available for rehearsals in July."
+      },
+      {
+        "correct": "b",
+        "id": 4,
+        "text": "Police are warning elderly residents about criminals pretending to be water company workers. These men ask to check pipes in the kitchen while an accomplice steals money from other rooms. Always ask for identification before opening the door."
+      },
+      {
+        "correct": "e",
+        "id": 5,
+        "text": "A historic cinema in the town center is closing its doors after 50 years. The owners say that fewer people are buying tickets because of online streaming services. The building will likely be turned into a block of flats."
+      }
+    ],
+    "headings": [
+      "Airport expands with new terminal",
+      "Beware of thieves in your home",
+      "Chance to act in a play",
+      "Fines for littering in the street",
+      "Historic building closes down",
+      "New cinema opens in town",
+      "New recycling rules for residents",
+      "Theater tickets too expensive",
+      "Water shortage in the area",
+      "Weather stops air travel"
+    ],
+    "id": 6
+  },
+  {
+    "texts": [
+      {
+        "correct": "a",
+        "id": 1,
+        "text": "A new express bus service to the airport starts next Monday. It runs every thirty minutes from the central station and is significantly cheaper than the train. Passengers can buy tickets directly from the driver using cash or card."
+      },
+      {
+        "correct": "d",
+        "id": 2,
+        "text": "Shoppers are advised to keep their receipts when buying gifts this season. Many stores have strict return policies and will refuse to exchange items without proof of purchase. This is especially important for electronics and clothing."
+      },
+      {
+        "correct": "b",
+        "id": 3,
+        "text": "The local council has launched a campaign to help adults get active. As part of this, the community swimming pool is offering free lessons every Tuesday evening. Beginners are welcome, but you must book a place in advance."
+      },
+      {
+        "correct": "j",
+        "id": 4,
+        "text": "Police are asking for witnesses to a minor accident on Main Street yesterday afternoon. A blue van hit a parked car and drove away without stopping. Anyone who saw the incident or has dashcam footage should contact the station immediately."
+      },
+      {
+        "correct": "c",
+        "id": 5,
+        "text": "The annual Flower Show returns to the city park this weekend. Visitors can see displays of rare plants and watch a competition for the best garden design. Entry costs £5 for adults, while children can enter for free."
+      }
+    ],
+    "headings": [
+      "Cheaper travel to the airport",
+      "Free sports classes for adults",
+      "Garden show in the park",
+      "Keep proof of purchase",
+      "Park closed for private event",
+      "Police arrest dangerous driver",
+      "Shops closing for holidays",
+      "Swimming pool closes for repairs",
+      "Train prices increase",
+      "Witnesses needed for road accident"
+    ],
+    "id": 7
+  }
+]

@@ -6,7 +6,7 @@ import {
   ViewStyle,
   TextStyle,
   ActivityIndicator,
-  I18nManager,
+  StyleProp,
 } from 'react-native';
 import { colors, spacing, typography } from '../theme';
 
@@ -17,8 +17,8 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   loading?: boolean;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -31,21 +31,28 @@ const Button: React.FC<ButtonProps> = ({
   style,
   textStyle,
 }) => {
-  const buttonStyle = [
+  const buttonStyle: StyleProp<ViewStyle> = [
     styles.base,
     styles[variant],
     styles[size],
-    disabled && styles.disabled,
-    style,
+    disabled ? styles.disabled : undefined,
   ];
+  
+  // Merge incoming style
+  // StyleProp allows array or object; pass through directly via array concat
+  if (style) {
+    (buttonStyle as any).push?.(style) || (buttonStyle as any).concat?.(style);
+  }
 
-  const buttonTextStyle = [
+  const buttonTextStyle: StyleProp<TextStyle> = [
     styles.text,
     styles[`${variant}Text`],
     styles[`${size}Text`],
-    disabled && styles.disabledText,
-    textStyle,
+    disabled ? styles.disabledText : undefined,
   ];
+  if (textStyle) {
+    (buttonTextStyle as any).push?.(textStyle) || (buttonTextStyle as any).concat?.(textStyle);
+  }
 
   return (
     <TouchableOpacity
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
   },
   
   // Variants

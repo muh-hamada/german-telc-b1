@@ -6,123 +6,101 @@ import {
   ScrollView,
   Alert,
   Image,
+  TouchableOpacity,
   I18nManager,
-  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useRoute, RouteProp } from '@react-navigation/native';
-import RNRestart from 'react-native-restart';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import DeviceInfo from 'react-native-device-info';
 import { colors, spacing, typography } from '../theme';
 import Button from '../components/Button';
-import ProgressCard from '../components/ProgressCard';
-import CompletionStatsCard from '../components/CompletionStatsCard';
 import LoginModal from '../components/LoginModal';
-import LanguageSelectorModal from '../components/LanguageSelectorModal';
-import { useProgress } from '../contexts/ProgressContext';
+import DailyStreaksCard from '../components/DailyStreaksCard';
+import CompletionStatsCard from '../components/CompletionStatsCard';
+import ProfileStatsGrid from '../components/ProfileStatsGrid';
+import SupportAdButton from '../components/SupportAdButton';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
-import { DEMO_MODE } from '../config/demo.config';
-import { checkRTLChange } from '../utils/i18n';
-import { MainTabParamList } from '../types/navigation.types';
+import { useStreak } from '../contexts/StreakContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { ProfileStackParamList } from '../types/navigation.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { openAppRating } from '../utils/appRating';
+import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
+import { calculateRewardDays } from '../constants/streak.constants';
+
+// Helper function to format time remaining
+const formatTimeRemaining = (expiresAt: number | null): string => {
+  if (!expiresAt) return '';
+  
+  const now = Date.now();
+  const remaining = expiresAt - now;
+  
+  if (remaining <= 0) return 'Expired';
+  
+  const hours = Math.floor(remaining / (1000 * 60 * 60));
+  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  
+  if (hours > 0) {
+    return `${hours}h ${minutes}m`;
+  } else {
+    return `${minutes}m`;
+  }
+};
 
 const ProfileScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const route = useRoute<RouteProp<MainTabParamList, 'Profile'>>();
-  const { clearUserProgress, isLoading } = useProgress();
+  const { t } = useCustomTranslation();
+  const route = useRoute<RouteProp<ProfileStackParamList, 'Profile'>>();
+  const navigation = useNavigation<StackNavigationProp<ProfileStackParamList>>();
   const { user, signOut, isLoading: authLoading } = useAuth();
   const { allStats, isLoading: statsLoading } = useCompletion();
-  const [isClearing, setIsClearing] = useState(false);
+  const { adFreeStatus, streakData } = useStreak();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showLanguageModal, setShowLanguageModal] = useState(false);
+
+  // Use demo stats if demo mode is enabled
+  const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
+  
+  // Calculate ad-free reward days
+  const adFreeRewardDays = streakData ? calculateRewardDays(streakData.currentStreak) : 1;
+
+  const handleRateApp = async () => {
+    openAppRating('profile_screen');
+  };
 
   // Auto-open login modal if parameter is passed
   useEffect(() => {
     if (route.params?.openLoginModal && !user) {
       setShowLoginModal(true);
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_MODAL_OPENED);
     }
   }, [route.params?.openLoginModal, user]);
 
-  const handleClearProgress = () => {
-    Alert.alert(
-      t('profile.alerts.clearProgressTitle'),
-      t('profile.alerts.clearProgressMessage'),
-      [
-        { text: t('common.cancel'), style: 'cancel' },
-        {
-          text: t('profile.alerts.clear'),
-          style: 'destructive',
-          onPress: async () => {
-            setIsClearing(true);
-            const success = await clearUserProgress();
-            setIsClearing(false);
-            
-            if (success) {
-              Alert.alert(t('common.success'), t('profile.alerts.progressCleared'));
-            } else {
-              Alert.alert(t('common.error'), t('profile.alerts.clearFailed'));
-            }
-          },
-        },
-      ]
-    );
+  const handleNavigateToSettings = () => {
+    navigation.navigate('Settings');
   };
 
-  const handleLanguageChange = () => {
-    setShowLanguageModal(true);
-  };
-
-  const handleLanguageSelect = async (languageCode: string) => {
-    try {
-      const needsRestart = checkRTLChange(languageCode);
-      await i18n.changeLanguage(languageCode);
-      
-      if (needsRestart) {
-        // Switching between RTL and LTR requires app restart
-        const isGoingToRTL = languageCode === 'ar';
-        Alert.alert(
-          t('common.success'),
-          isGoingToRTL 
-            ? 'اللغة تم تغييرها بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص من اليمين إلى اليسار.\n\nLanguage changed successfully. The app will restart now to apply right-to-left layout.'
-            : 'Language changed successfully. The app will restart now to apply left-to-right layout.\n\nتم تغيير اللغة بنجاح. سيتم إعادة تشغيل التطبيق الآن لتطبيق اتجاه النص.',
-          [
-            {
-              text: t('common.cancel'),
-              style: 'cancel',
-            },
-            {
-              text: 'Restart / إعادة التشغيل',
-              style: 'default',
-              onPress: () => {
-                // Give a small delay to ensure language is saved
-                setTimeout(() => {
-                  RNRestart.restart();
-                }, 100);
-              },
-            },
-          ]
-        );
-      } else {
-        Alert.alert(t('common.success'), t('profile.alerts.languageChanged'));
-      }
-    } catch (error) {
-      console.error('Error changing language:', error);
-      Alert.alert(t('common.error'), t('profile.alerts.languageChangeFailed'));
-    }
+  const handleNavigateToStats = () => {
+    navigation.navigate('CompletionStats');
   };
 
   const handleSignOut = () => {
+    logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_PROMPT_SHOWN);
     Alert.alert(
       t('profile.alerts.signOutTitle'),
       t('profile.alerts.signOutMessage'),
       [
-        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel', onPress: () => logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_CANCELLED) },
         {
           text: t('profile.signOut'),
           style: 'destructive',
           onPress: async () => {
             try {
               await signOut();
+              logEvent(AnalyticsEvents.PROFILE_SIGN_OUT_CONFIRMED);
               Alert.alert(t('common.success'), t('profile.alerts.signedOut'));
             } catch (error) {
               Alert.alert(t('common.error'), t('profile.alerts.signOutFailed'));
@@ -135,98 +113,147 @@ const ProfileScreen: React.FC = () => {
 
   const handleLoginSuccess = () => {
     setShowLoginModal(false);
+    logEvent(AnalyticsEvents.PROFILE_LOGIN_SUCCESS);
     Alert.alert(t('common.success'), t('profile.alerts.signedInSuccess'));
   };
 
   const handleLoginFailure = () => {
+    logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED);
     Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
+  };
+
+  const handleNavigateBack = () => {
+    navigation.goBack();
   };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <TouchableOpacity onPress={handleNavigateBack} style={styles.headerButton}>
+            <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>{t('profile.title')}</Text>
+        </View>
+        <TouchableOpacity onPress={handleNavigateToSettings} style={styles.headerButton}>
+          <Icon name="cog" size={24} color={colors.text.primary} />
+        </TouchableOpacity>
+      </View>
+
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>{t('profile.title')}</Text>
-        
-        {/* User Info Section */}
-        {user && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
-            <View style={styles.userInfo}>
-              {user.photoURL && (
-                <Image source={{ uri: user.photoURL }} style={styles.avatar} />
-              )}
-              <View style={styles.userDetails}>
-                <Text style={styles.userName}>{user.displayName || t('common.user')}</Text>
-                <Text style={styles.userEmail}>{user.email}</Text>
-                <Text style={styles.userProvider}>
-                  {t('profile.signedInWith')} {user.provider.charAt(0).toUpperCase() + user.provider.slice(1)}
-                </Text>
+        {/* Login Prompt for Logged Out Users */}
+        {!user && (
+          <View style={styles.loginPromptCard}>
+            <Icon name="user-circle" size={60} color={colors.primary[500]} />
+            <Text style={styles.loginPromptTitle}>{t('profile.loginPrompt.title')}</Text>
+            <Text style={styles.loginPromptMessage}>{t('profile.loginPrompt.message')}</Text>
+            <View style={styles.benefitsList}>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit1')}</Text>
               </View>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit2')}</Text>
+              </View>
+              <View style={styles.benefitItem}>
+                <Icon name="check-circle" size={16} color={colors.success[500]} />
+                <Text style={styles.benefitText}>{t('profile.loginPrompt.benefit3')}</Text>
+              </View>
+            </View>
+            <Button
+              title={t('profile.signIn')}
+              onPress={() => setShowLoginModal(true)}
+              variant="primary"
+              style={styles.loginPromptButton}
+            />
+          </View>
+        )}
+
+        {/* User Profile Card */}
+        {user && (
+          <View style={styles.userCard}>
+            {user.photoURL ? (
+              <Image source={{ uri: user.photoURL }} style={styles.avatar} />
+            ) : (
+              <View style={[styles.avatar, styles.avatarPlaceholder]}>
+                <Icon name="user" size={40} color={colors.text.tertiary} />
+              </View>
+            )}
+            <View style={styles.userDetails}>
+              <Text style={styles.userName} numberOfLines={1} ellipsizeMode="tail">
+                {user.displayName || t('common.user')}
+              </Text>
+              <Text style={styles.userEmail} numberOfLines={1} ellipsizeMode="tail">
+                {user.email}
+              </Text>
             </View>
           </View>
         )}
-        
-        {/* Progress Section */}
-        <View style={styles.section}>
-          <ProgressCard showDetails={true} />
-        </View>
 
-        {/* Completion Statistics Section */}
-        {user && (
-          <View style={styles.section}>
-            <CompletionStatsCard stats={allStats} isLoading={statsLoading} />
+        {/* Support Ad Button */}
+        <SupportAdButton screen="profile" style={styles.supportAdButton} />
+
+        {/* Stats Grid */}
+        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.lg} backgroundColor={colors.background.secondary} />
+
+        {/* Ad-Free Badge - ABOVE Streaks Card */}
+        {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
+          <View style={styles.adFreeBadge}>
+            <Text style={styles.adFreeIcon}>🎉</Text>
+            <View style={styles.adFreeContent}>
+              <Text style={styles.adFreeTitle}>
+                {t('streaks.reward.activated', { days: adFreeRewardDays })}
+              </Text>
+              <Text style={styles.adFreeExpiry}>
+                {t('streaks.reward.expires', { 
+                  time: formatTimeRemaining(adFreeStatus.expiresAt) 
+                })}
+              </Text>
+            </View>
           </View>
         )}
 
-        {/* Settings Section */}
+        {/* Daily Streaks Card */}
+        {isStreaksEnabledForUser(user?.uid) && user && <DailyStreaksCard />}
+
+        {/* Completion Statistics Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.settings')}</Text>
-          
-          <Button
-            title={t('profile.changeLanguage')}
-            onPress={handleLanguageChange}
-            variant="outline"
-            style={styles.settingButton}
-          />
-          
-          <Button
-            title={t('profile.clearProgress')}
-            onPress={handleClearProgress}
-            variant="outline"
-            style={[styles.settingButton, styles.dangerButton]}
-            disabled={isClearing || isLoading}
+          <CompletionStatsCard 
+            stats={displayCompletionStats} 
+            isLoading={statsLoading} 
+            showLoggedOutMessage={!user}
+            showOnlyTop={true}
+            onSeeAllStats={handleNavigateToStats}
           />
         </View>
 
-        {/* Authentication Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.account')}</Text>
-          
-          {user ? (
+        {/* Actions Section */}
+        <View style={styles.actionsSection}>
+          {user && (
             <Button
               title={t('profile.signOut')}
               onPress={handleSignOut}
               variant="outline"
-              style={[styles.settingButton, styles.dangerButton]}
+              style={styles.actionButton}
               disabled={authLoading}
             />
-          ) : (
-            <Button
-              title={t('profile.signIn')}
-              onPress={() => setShowLoginModal(true)}
-              variant="outline"
-              style={styles.settingButton}
-            />
           )}
+          <Button
+            title={t('profile.rateApp')}
+            onPress={handleRateApp}
+            variant="primary"
+            style={styles.actionButton}
+          />
         </View>
 
         {/* About Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('profile.about')}</Text>
-          <Text style={styles.aboutText}>
-            {t('profile.appName')}
+        <View style={styles.aboutSection}>
+          <Text style={styles.aboutText}>{t('profile.appName')}</Text>
+          <Text style={styles.versionText}>
+            {t('profile.version')} {DeviceInfo.getVersion()}
           </Text>
-          <Text style={styles.versionText}>{t('profile.version')}</Text>
         </View>
       </ScrollView>
 
@@ -237,13 +264,6 @@ const ProfileScreen: React.FC = () => {
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
       />
-
-      {/* Language Selector Modal */}
-      <LanguageSelectorModal
-        visible={showLanguageModal}
-        onClose={() => setShowLanguageModal(false)}
-        onLanguageSelect={handleLanguageSelect}
-      />
     </SafeAreaView>
   );
 };
@@ -252,48 +272,91 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
-    
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
+    backgroundColor: colors.background.primary,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  headerTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+  },
+  headerButton: {
+    width: 44,
+    height: 44,
+    borderRadius: spacing.borderRadius.full,
+    backgroundColor: colors.background.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...spacing.shadow.sm,
   },
   content: {
     flex: 1,
   },
   scrollContent: {
     padding: spacing.padding.lg,
+    paddingTop: 0,
   },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
+  loginPromptCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.xl,
+    alignItems: 'center',
     marginBottom: spacing.margin.lg,
+    ...spacing.shadow.sm,
   },
-  section: {
-    marginBottom: spacing.margin.xl,
-  },
-  sectionTitle: {
-    ...typography.textStyles.h4,
+  loginPromptTitle: {
+    ...typography.textStyles.h3,
     color: colors.text.primary,
-    marginBottom: spacing.margin.md,
-  },
-  settingButton: {
+    marginTop: spacing.margin.md,
     marginBottom: spacing.margin.sm,
+    textAlign: 'center',
   },
-  dangerButton: {
-    borderColor: colors.error[500],
-  },
-  aboutText: {
+  loginPromptMessage: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
-    marginBottom: spacing.margin.xs,
+    textAlign: 'center',
+    marginBottom: spacing.margin.lg,
+    lineHeight: 22,
   },
-  versionText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.tertiary,
+  benefitsList: {
+    width: '100%',
+    marginBottom: spacing.margin.lg,
   },
-  userInfo: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+  benefitItem: {
+    flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: spacing.margin.sm,
+    paddingHorizontal: spacing.padding.sm,
+  },
+  benefitText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    marginLeft: spacing.margin.sm,
+    flex: 1,
+    textAlign: 'left',
+  },
+  loginPromptButton: {
+    width: '100%',
+  },
+  userCard: {
     backgroundColor: colors.background.secondary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.margin.lg,
+    ...spacing.shadow.sm,
   },
   avatar: {
     width: 60,
@@ -301,23 +364,82 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginRight: spacing.margin.md,
   },
+  avatarPlaceholder: {
+    backgroundColor: colors.secondary[100],
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   userDetails: {
     flex: 1,
+    flexShrink: 1,
+    justifyContent: 'center',
   },
   userName: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
   },
   userEmail: {
-    ...typography.textStyles.body,
-    fontSize: typography.fontSize.sm,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+  },
+  supportAdButton: {
+    marginBottom: spacing.margin.lg,
+  },
+  section: {
+    marginBottom: spacing.margin.sm,
+  },
+  actionsSection: {
+    marginTop: spacing.margin.lg,
+  },
+  actionButton: {
+    marginBottom: spacing.margin.sm,
+  },
+  aboutSection: {
+    alignItems: 'center',
+    paddingTop: spacing.padding.lg,
+    paddingBottom: spacing.padding.md,
+    borderTopWidth: 1,
+    borderTopColor: colors.border.light,
+    marginTop: spacing.margin.lg,
+  },
+  aboutText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
     marginBottom: spacing.margin.xs,
   },
-  userProvider: {
+  versionText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.tertiary,
+  },
+  adFreeBadge: {
+    backgroundColor: colors.success[50],
+    borderRadius: spacing.borderRadius.lg,
+    padding: spacing.padding.lg,
+    marginBottom: spacing.margin.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: colors.success[100],
+    ...spacing.shadow.sm,
+  },
+  adFreeIcon: {
+    fontSize: 40,
+    marginRight: spacing.margin.md,
+  },
+  adFreeContent: {
+    flex: 1,
+  },
+  adFreeTitle: {
+    ...typography.textStyles.h4,
+    color: colors.success[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.xs,
+  },
+  adFreeExpiry: {
+    ...typography.textStyles.bodySmall,
+    color: colors.success[600],
   },
 });
 

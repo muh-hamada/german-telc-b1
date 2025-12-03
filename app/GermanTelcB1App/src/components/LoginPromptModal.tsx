@@ -6,9 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import { useProgress } from '../contexts/ProgressContext';
@@ -25,7 +24,7 @@ const LoginPromptModal: React.FC<LoginPromptModalProps> = ({
   onClose,
   onLoginSuccess,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const { user } = useAuth();
   const { hasUnsyncedProgress } = useProgress();
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -192,7 +191,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -252,7 +251,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   benefitItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.xs,
   },

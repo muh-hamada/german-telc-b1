@@ -1,0 +1,9 @@
+{
+    "i18n-ally.localesPaths": [
+        "app/localization/translations",
+        "app/GermanTelcB1App/src/locales",
+        "app/GermanTelcB1App/src/locales/exam-content/**",
+        "app/GermanTelcB1App/ios/Pods/RCT-Folly/folly/lang",
+        "app/GermanTelcB1App/ios/Pods/boost/boost/predef/language"
+    ]
+}

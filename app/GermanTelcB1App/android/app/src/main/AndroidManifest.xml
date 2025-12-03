@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
       android:name=".MainApplication"
@@ -18,20 +20,21 @@
       android:usesCleartextTraffic="${usesCleartextTraffic}"
       android:supportsRtl="true">
       
-      <!-- Facebook App ID -->
-      <meta-data 
-        android:name="com.facebook.sdk.ApplicationId" 
-        android:value="@string/facebook_app_id"/>
-      
-      <meta-data 
-        android:name="com.facebook.sdk.ClientToken" 
-        android:value="@string/facebook_client_token"/>
-      
       <!-- Google AdMob App ID -->
       <meta-data
         android:name="com.google.android.gms.ads.APPLICATION_ID"
         android:value="ca-app-pub-5101905792101482~1016049874"
         tools:replace="android:value"/>
+      
+      <!-- Disable Firebase Analytics Collection in development -->
+      <meta-data
+        android:name="firebase_analytics_collection_deactivated"
+        android:value="@string/google_analytics_disabled"
+        tools:replace="android:value" />
+      
+      <meta-data
+        android:name="google_analytics_adid_collection_enabled"
+        android:value="true" />
       
       <activity
         android:name=".MainActivity"
@@ -43,23 +46,6 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-      </activity>
-      
-      <!-- Facebook Activity for handling login -->
-      <activity 
-        android:name="com.facebook.FacebookActivity"
-        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-        android:label="@string/app_name" />
-      
-      <activity
-        android:name="com.facebook.CustomTabActivity"
-        android:exported="true">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-          <category android:name="android.intent.category.DEFAULT" />
-          <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="@string/fb_login_protocol_scheme" />
         </intent-filter>
       </activity>
       

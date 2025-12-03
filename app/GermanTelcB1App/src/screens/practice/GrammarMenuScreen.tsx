@@ -3,22 +3,21 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
@@ -34,26 +33,36 @@ const GrammarMenuScreen: React.FC = () => {
       setPart2Exams(p2);
     };
     loadExams();
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
   }, []);
 
   const handlePart1Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'grammar', part: 1 });
     setShowPart1Modal(true);
   };
 
   const handlePart2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'grammar', part: 2 });
     setShowPart2Modal(true);
   };
 
   const handleSelectPart1Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 1, exam_id: examId });
     navigation.navigate('GrammarPart1', { examId });
   };
 
   const handleSelectPart2Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 2, exam_id: examId });
     navigation.navigate('GrammarPart2', { examId });
   };
 
+  const handleGrammarStudyPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar_study' });
+    navigation.navigate('GrammarStudy');
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.grammar.part1')}</Text>
@@ -66,6 +75,21 @@ const GrammarMenuScreen: React.FC = () => {
           <Text style={styles.cardTitle}>{t('practice.grammar.part2')}</Text>
           <Text style={styles.cardDescription}>
             {t('practice.grammar.descriptions.main')}
+          </Text>
+        </Card>
+
+        <View style={styles.separatorContainer}>
+          <View style={styles.separator}>
+            <View style={styles.separatorTextContainer}>
+              <Text style={styles.separatorText}>{t('practice.grammar.separator')}</Text>
+            </View>
+          </View>
+        </View>
+
+        <Card style={styles.card} onPress={handleGrammarStudyPress}>
+          <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('practice.grammar.study.description')}
           </Text>
         </Card>
       </ScrollView>
@@ -90,7 +114,6 @@ const GrammarMenuScreen: React.FC = () => {
         title={t('practice.grammar.part2')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };
@@ -115,11 +138,39 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   cardDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
     lineHeight: 24,
+    textAlign: 'left',
+  },
+  separatorContainer: {
+    marginBottom: spacing.margin.lg,
+    position: 'relative',
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: colors.border.light,
+  },
+  separatorTextContainer: {
+    position: 'absolute',
+    width: '100%',
+    left: 0,
+    zIndex: 1000,
+    top: -10,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  separatorText: {
+    ...typography.textStyles.h6,
+    color: colors.text.secondary,
+    textTransform: 'uppercase',
+    backgroundColor: colors.background.primary,
+    paddingHorizontal: spacing.padding.md,
   },
 });
 

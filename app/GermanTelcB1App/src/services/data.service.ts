@@ -1,17 +1,19 @@
 /**
- * Enhanced Data Service with Firebase Support
+ * Data Service with Firebase Support
  * 
- * This service fetches data from Firebase Firestore with local JSON fallback and caching for offline support.
+ * This service fetches exam data from Firebase Firestore with caching for offline support.
  * 
  * Features:
  * - Fetches exam data from Firestore
- * - Falls back to local JSON if Firestore is unavailable
+ * - Returns empty data if Firestore document doesn't exist
  * - Caches data for 24 hours to reduce Firestore reads
  * - Supports cache clearing and force refresh
+ * - Dynamically uses collection names based on active exam configuration
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
+import { activeExamConfig } from '../config/active-exam.config';
 import {
   GrammarPart1Exam,
   GrammarPart2Exam,
@@ -22,25 +24,13 @@ import {
   SpeakingPart1Content,
   SpeakingPart2Content,
   SpeakingPart3Content,
+  SpeakingImportantPhrasesContent,
+  ListeningPracticeInterview,
 } from '../types/exam.types';
+import { DISABLE_DATA_CACHE } from '../config/development.config';
 
-// Import local JSON data as fallback
-import grammarPart1DataLocal from '../data/grammar-part1.json';
-import grammarPart2DataLocal from '../data/grammar-part2.json';
-import readingPart1DataLocal from '../data/reading-part1.json';
-import readingPart2DataLocal from '../data/reading-part2.json';
-import readingPart3DataLocal from '../data/reading-part3.json';
-import writingDataLocal from '../data/writing.json';
-import speakingPart1DataLocal from '../data/speaking-part1.json';
-import speakingPart2DataLocal from '../data/speaking-part2.json';
-import speakingPart3DataLocal from '../data/speaking-part3.json';
-import listeningPart1DataLocal from '../data/listening-part1.json';
-import listeningPart2DataLocal from '../data/listening-part2.json';
-import listeningPart3DataLocal from '../data/listening-part3.json';
-import examInfoDataLocal from '../data/exam-info.json';
-
-const COLLECTION_NAME = 'b1_telc_exam_data';
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+// TODO: Change to 24 hours in milliseconds once the data is stable
+const CACHE_EXPIRATION = 10 * 1000; // 10 seconds in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {
@@ -49,17 +39,16 @@ interface CachedData {
 }
 
 class DataService {
-  private useFirebase = true; // Set to false to always use local data
+  // Lazy-loaded to avoid initialization order issues
+  private get collectionName(): string {
+    return activeExamConfig.firebaseCollections.examData;
+  }
 
   /**
    * Fetch data from Firestore with caching
+   * Returns empty/default data if document doesn't exist
    */
-  private async fetchFromFirestore(docId: string, fallbackData: any): Promise<any> {
-    if (!this.useFirebase) {
-      console.log(`[DataService] Firebase disabled, using local data for ${docId}`);
-      return fallbackData;
-    }
-
+  private async fetchFromFirestore(docId: string, defaultValue: any = {}): Promise<any> {
     try {
       // Check cache first
       const cachedData = await this.getCachedData(docId);
@@ -68,16 +57,20 @@ class DataService {
         return cachedData;
       }
 
-      // Fetch from Firestore
-      console.log(`[DataService] Fetching ${docId} from Firestore...`);
+      // Fetch from Firestore using dynamic collection name
+      console.log(`[DataService] Fetching ${docId} from Firestore collection: ${this.collectionName}...`);
       const docSnapshot = await firestore()
-        .collection(COLLECTION_NAME)
+        .collection(this.collectionName)
         .doc(docId)
         .get();
 
-      if (docSnapshot.exists) {
+      const exists = typeof (docSnapshot as any).exists === 'function'
+        ? (docSnapshot as any).exists()
+        : (docSnapshot as any).exists;
+      
+      if (exists) {
         const firestoreData = docSnapshot.data();
-        const data = firestoreData?.data || firestoreData || fallbackData;
+        const data = firestoreData?.data || firestoreData || defaultValue;
         
         console.log(`[DataService] Successfully fetched ${docId} from Firestore`);
         // Cache the data
@@ -85,12 +78,12 @@ class DataService {
         
         return data;
       } else {
-        console.warn(`[DataService] Document ${docId} not found in Firestore, using local data`);
-        return fallbackData;
+        console.warn(`[DataService] Document ${docId} not found in Firestore, returning empty data`);
+        return defaultValue;
       }
     } catch (error) {
       console.error(`[DataService] Error fetching ${docId} from Firestore:`, error);
-      return fallbackData;
+      return defaultValue;
     }
   }
 
@@ -98,6 +91,11 @@ class DataService {
    * Get cached data if still valid
    */
   private async getCachedData(docId: string): Promise<any | null> {
+    if (DISABLE_DATA_CACHE) {
+      console.log(`[DataService] Data cache is disabled, returning null for ${docId}`);
+      return null;
+    }
+
     try {
       const cacheKey = CACHE_KEY_PREFIX + docId;
       const cachedStr = await AsyncStorage.getItem(cacheKey);
@@ -164,8 +162,8 @@ class DataService {
 
   // Grammar Part 1
   async getGrammarPart1Exams(): Promise<GrammarPart1Exam[]> {
-    const data = await this.fetchFromFirestore('grammar-part1', grammarPart1DataLocal);
-    return data.exams;
+    const data = await this.fetchFromFirestore('grammar-part1', { exams: [] });
+    return data.exams || [];
   }
 
   async getGrammarPart1Exam(id: number): Promise<GrammarPart1Exam | undefined> {
@@ -175,8 +173,8 @@ class DataService {
 
   // Grammar Part 2
   async getGrammarPart2Exams(): Promise<GrammarPart2Exam[]> {
-    const data = await this.fetchFromFirestore('grammar-part2', grammarPart2DataLocal);
-    return data.exams;
+    const data = await this.fetchFromFirestore('grammar-part2', { exams: [] });
+    return data.exams || [];
   }
 
   async getGrammarPart2Exam(id: number): Promise<GrammarPart2Exam | undefined> {
@@ -186,7 +184,7 @@ class DataService {
 
   // Reading Part 1
   async getReadingPart1Exams(): Promise<ReadingPart1Exam[]> {
-    return await this.fetchFromFirestore('reading-part1', readingPart1DataLocal as ReadingPart1Exam[]);
+    return await this.fetchFromFirestore('reading-part1', []);
   }
 
   async getReadingPart1ExamById(id: number): Promise<ReadingPart1Exam | undefined> {
@@ -196,8 +194,8 @@ class DataService {
 
   // Reading Part 2
   async getReadingPart2Exams(): Promise<ReadingPart2Exam[]> {
-    const data = await this.fetchFromFirestore('reading-part2', readingPart2DataLocal);
-    return data.exams;
+    const data = await this.fetchFromFirestore('reading-part2', { exams: [] });
+    return data.exams || [];
   }
 
   async getReadingPart2Exam(id: number): Promise<ReadingPart2Exam | undefined> {
@@ -207,8 +205,8 @@ class DataService {
 
   // Reading Part 3
   async getReadingPart3Exams(): Promise<ReadingPart3Exam[]> {
-    const data = await this.fetchFromFirestore('reading-part3', readingPart3DataLocal);
-    return data.exams;
+    const data = await this.fetchFromFirestore('reading-part3', { exams: [] });
+    return data.exams || [];
   }
 
   async getReadingPart3Exam(id: number): Promise<ReadingPart3Exam | undefined> {
@@ -218,8 +216,8 @@ class DataService {
 
   // Writing
   async getWritingExams(): Promise<WritingExam[]> {
-    const data = await this.fetchFromFirestore('writing', writingDataLocal);
-    return data.exams;
+    const data = await this.fetchFromFirestore('writing', { exams: [] });
+    return data.exams || [];
   }
 
   async getWritingExam(id: number): Promise<WritingExam | undefined> {
@@ -229,40 +227,78 @@ class DataService {
 
   // Speaking Part 1
   async getSpeakingPart1Content(): Promise<SpeakingPart1Content> {
-    const data = await this.fetchFromFirestore('speaking-part1', speakingPart1DataLocal);
-    return data.content;
+    const data = await this.fetchFromFirestore('speaking-part1', { content: {} });
+    return data.content || {};
   }
 
   // Speaking Part 2
   async getSpeakingPart2Content(): Promise<SpeakingPart2Content> {
-    const data = await this.fetchFromFirestore('speaking-part2', speakingPart2DataLocal);
-    return data;
+    return await this.fetchFromFirestore('speaking-part2', { topics: [] });
   }
 
   // Speaking Part 3
   async getSpeakingPart3Content(): Promise<SpeakingPart3Content> {
-    const data = await this.fetchFromFirestore('speaking-part3', speakingPart3DataLocal);
+    return await this.fetchFromFirestore('speaking-part3', { scenarios: [] });
+  }
+
+  // Speaking Important Phrases (Part 4)
+  async getSpeakingImportantPhrases(): Promise<SpeakingImportantPhrasesContent> {
+    const data = await this.fetchFromFirestore('speaking-important-phrases', { groups: [] });
     return data;
+  }
+
+  // Oral Exam Structure (B2)
+  async getOralExamStructure(): Promise<any> {
+    return await this.fetchFromFirestore('oral-exam-structure', {});
+  }
+
+  // Speaking B2 Part 1
+  async getSpeakingB2Part1Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part1', { topics: [] });
+  }
+
+  // Speaking B2 Part 2
+  async getSpeakingB2Part2Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part2', { questions: [] });
+  }
+
+  // Speaking B2 Part 3
+  async getSpeakingB2Part3Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part3', { questions: [] });
   }
 
   // Listening Part 1
   async getListeningPart1Content(): Promise<any> {
-    return await this.fetchFromFirestore('listening-part1', listeningPart1DataLocal);
+    return await this.fetchFromFirestore('listening-part1', { exams: [] });
   }
 
   // Listening Part 2
   async getListeningPart2Content(): Promise<any> {
-    return await this.fetchFromFirestore('listening-part2', listeningPart2DataLocal);
+    return await this.fetchFromFirestore('listening-part2', { exams: [] });
   }
 
   // Listening Part 3
   async getListeningPart3Content(): Promise<any> {
-    return await this.fetchFromFirestore('listening-part3', listeningPart3DataLocal);
+    return await this.fetchFromFirestore('listening-part3', { exams: [] });
   }
 
   // Exam Info (structure, assessment criteria, etc.)
   async getExamInfo(): Promise<any> {
-    return await this.fetchFromFirestore('exam-info', examInfoDataLocal);
+    return await this.fetchFromFirestore('exam-info', {});
+  }
+
+  // Grammar Study Questions
+  async getGrammarStudyQuestions(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('grammar-study-questions', { data: [] });
+    // The Firebase document has structure { data: [...], metadata: {...} }
+    // Extract just the data array
+    return data.data || [];
+  }
+
+  // Listening Practice
+  async getListeningPracticeInterviews(): Promise<ListeningPracticeInterview[]> {
+    const data = await this.fetchFromFirestore('listening-practice', { interviews: [] });
+    return data.interviews || [];
   }
 
   // Utility methods
@@ -281,14 +317,26 @@ class DataService {
       case 'writing':
         return (await this.getWritingExams()).length;
       case 'speaking-part1':
-        return 1; // Single personal introduction, no multiple exams
+        return activeExamConfig.level === 'B2' ? (await this.getSpeakingB2Part1Content())?.topics?.length || 0 : 1;
       case 'speaking-part2':
         const part2Data = await this.getSpeakingPart2Content();
-        return part2Data.topics?.length || 0;
+        return (activeExamConfig.level === 'B2' ? part2Data.questions?.length : part2Data.topics?.length) || 0;
       case 'speaking-part3':
         const part3Data = await this.getSpeakingPart3Content();
-        return part3Data.scenarios?.length || 0;
-      default:
+        return  (activeExamConfig.level === 'B2' ? part3Data.questions?.length : part3Data.scenarios?.length) || 0;
+      case 'speaking-important-phrases':
+        // Not a count-based exam; treat as available if document exists
+        return (await this.getSpeakingImportantPhrases())?.groups?.length ? 1 : 0;
+      case 'listening-part1':
+        const listeningPart1Data = await this.getListeningPart1Content();
+        return listeningPart1Data.exams?.length || 0;
+      case 'listening-part2':
+        const listeningPart2Data = await this.getListeningPart2Content();
+        return listeningPart2Data.exams?.length || 0;
+      case 'listening-part3':
+        const listeningPart3Data = await this.getListeningPart3Content();
+        return listeningPart3Data.exams?.length || 0;
+        default:
         return 0;
     }
   }
@@ -319,6 +367,8 @@ class DataService {
         return [await this.getSpeakingPart2Content()];
       case 'speaking-part3':
         return [await this.getSpeakingPart3Content()];
+      case 'speaking-important-phrases':
+        return [await this.getSpeakingImportantPhrases()];
       default:
         return [];
     }

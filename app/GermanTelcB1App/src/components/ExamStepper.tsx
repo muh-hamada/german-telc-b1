@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, I18nManager } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 import { colors, spacing, typography } from '../theme';
 import type { MockExamStep } from '../types/mock-exam.types';
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.secondary[200],
   },
   stepsRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },

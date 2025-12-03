@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, I18nManager, ActivityIndicator } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
-import { DEMO_MODE, DEMO_STATS } from '../config/demo.config';
+import { DEMO_MODE, DEMO_STATS } from '../config/development.config';
 import Button from './Button';
 
 interface ProgressCardProps {
@@ -14,7 +14,7 @@ interface ProgressCardProps {
 }
 
 const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, showDetails = true }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const stats = useUserStats();
   const { user } = useAuth();
   const [isUserLoaded, setIsUserLoaded] = useState(false);
@@ -55,22 +55,22 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
     );
   }
 
-  // If user is not logged in and not in demo mode, show login prompt
-  if (!hasUser) {
+  // If user is not logged in and not in demo mode, show login prompt only if they have progress
+  if (!hasUser && displayStats.totalExams === 0) {
     return (
       <TouchableOpacity 
         style={styles.container} 
         onPress={onPress}
         activeOpacity={onPress ? 0.7 : 1}
       >
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
           <Text style={styles.title}>{t('progress.yourProgress')}</Text>
-        </View>
+        </View> */}
         <View style={styles.loginPrompt}>
-          <Text style={styles.loginPromptIcon}>🔒</Text>
-          <Text style={styles.loginPromptTitle}>{t('progress.loginRequired')}</Text>
+          <Text style={styles.loginPromptIcon}>📊</Text>
+          <Text style={styles.loginPromptTitle}>{t('progress.startTracking')}</Text>
           <Text style={styles.loginPromptText}>
-            {t('progress.loginPrompt')}
+            {t('progress.trackingPrompt')}
           </Text>
           {onLoginPress && <Button title={t('progress.login')} onPress={onLoginPress} size='small' style={styles.loginButton} />}
         </View>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     ...spacing.shadow.sm,
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   statRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },

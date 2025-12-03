@@ -8,16 +8,14 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Markdown from 'react-native-markdown-display';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface Topic {
   id: number;
@@ -25,10 +23,12 @@ interface Topic {
   viewA: {
     person: string;
     text: string;
+    presentationExample: string;
   };
   viewB: {
     person: string;
     text: string;
+    presentationExample: string;
   };
   discussion: Array<{
     question: string;
@@ -39,15 +39,15 @@ interface Topic {
 type SpeakingPart2ScreenRouteProp = RouteProp<{ params: { topicId: number } }, 'params'>;
 
 const SpeakingPart2Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart2ScreenRouteProp>();
   const navigation = useNavigation();
   const topicId = route.params?.topicId ?? 0;
-  
+
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
-  
+
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
-  const [showPartnerSummary, setShowPartnerSummary] = useState(false);
+  const [showPresentationExample, setShowPresentationExample] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [currentTopic, setCurrentTopic] = useState<Topic | null>(null);
 
@@ -76,12 +76,13 @@ const SpeakingPart2Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 2, exam_id: topicId, completed: newStatus });
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 
@@ -101,21 +102,21 @@ const SpeakingPart2Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentTopic) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>Failed to load speaking data</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -123,20 +124,20 @@ const SpeakingPart2Screen: React.FC = () => {
     return `**${person}:**\n\n${text}`;
   };
 
-  const createPartnerSummary = (view: { person: string; text: string }): string => {
+  const createPresentationExample = (view: { person: string; text: string }): string => {
     const [namePart] = view.person.split(',');
     const name = namePart.trim();
-    const isFemale = name.includes('Frau') || 
-                     ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
-    
+    const isFemale = name.includes('Frau') ||
+      ['Sabine', 'Hannelore', 'Laura', 'Julia', 'Mia', 'Karin', 'Schmidt', 'Marie', 'Anna'].some(n => name.includes(n));
+
     const pronoun = isFemale ? 'Sie' : 'Er';
-    
+
     return `**${view.person}:**\n\n${pronoun} ist der Meinung, dass das Thema wichtig ist. ${pronoun} findet die Argumente überzeugend und hat eine klare Position dazu.`;
   };
 
   const renderViewContent = () => {
     const view = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
-    const partnerView = activeView === 'A' ? currentTopic.viewB : currentTopic.viewA;
+    const exampleView = activeView === 'A' ? currentTopic.viewA : currentTopic.viewB;
 
     return (
       <View style={styles.viewContent}>
@@ -149,24 +150,22 @@ const SpeakingPart2Screen: React.FC = () => {
 
         <View style={styles.partnerSection}>
           <Text style={styles.partnerTitle}>
-            {t('speaking.part2.sections.partnerSummary')}
+            {t('speaking.part2.sections.presentationExample')}
           </Text>
           <TouchableOpacity
             style={styles.toggleButton}
-            onPress={() => setShowPartnerSummary(!showPartnerSummary)}
+            onPress={() => setShowPresentationExample(!showPresentationExample)}
           >
             <Text style={styles.toggleButtonText}>
-              {showPartnerSummary
-                ? t('speaking.part2.buttons.hideSummary')
-                : t('speaking.part2.buttons.showSummary')}
+              {showPresentationExample
+                ? t('speaking.part2.buttons.hideExample')
+                : t('speaking.part2.buttons.showExample')}
             </Text>
           </TouchableOpacity>
 
-          {showPartnerSummary && (
+          {showPresentationExample && (
             <View style={styles.summaryCard}>
-              <Markdown style={markdownStylesSummary}>
-                {createPartnerSummary(partnerView)}
-              </Markdown>
+              <Text style={styles.presentationExampleText}>{view.presentationExample}</Text>
             </View>
           )}
         </View>
@@ -176,7 +175,7 @@ const SpeakingPart2Screen: React.FC = () => {
 
   const renderDiscussion = () => {
     if (!currentTopic.discussion) return null;
-    
+
     return (
       <View style={styles.discussionSection}>
         <Text style={styles.discussionTitle}>
@@ -202,7 +201,7 @@ const SpeakingPart2Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.mainCard}>
           <Text style={styles.topicTitle}>{currentTopic.title}</Text>
@@ -216,7 +215,7 @@ const SpeakingPart2Screen: React.FC = () => {
               style={[styles.tab, activeView === 'A' && styles.activeTab]}
               onPress={() => {
                 setActiveView('A');
-                setShowPartnerSummary(false);
+                setShowPresentationExample(false);
               }}
             >
               <Text style={[styles.tabText, activeView === 'A' && styles.activeTabText]}>
@@ -227,7 +226,7 @@ const SpeakingPart2Screen: React.FC = () => {
               style={[styles.tab, activeView === 'B' && styles.activeTab]}
               onPress={() => {
                 setActiveView('B');
-                setShowPartnerSummary(false);
+                setShowPresentationExample(false);
               }}
             >
               <Text style={[styles.tabText, activeView === 'B' && styles.activeTabText]}>
@@ -243,8 +242,7 @@ const SpeakingPart2Screen: React.FC = () => {
           {renderDiscussion()}
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -260,21 +258,6 @@ const markdownStyles = {
   strong: {
     fontWeight: '700' as '700',
     color: colors.primary[700],
-  },
-};
-
-const markdownStylesSummary = {
-  body: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 24,
-  },
-  paragraph: {
-    marginBottom: spacing.margin.sm,
-  },
-  strong: {
-    fontWeight: '700' as '700',
-    color: colors.error[600],
   },
 };
 
@@ -318,7 +301,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.sm,
     borderTopLeftRadius: spacing.borderRadius.md,
     borderTopRightRadius: spacing.borderRadius.md,
@@ -390,11 +373,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.primary[200],
   },
+  presentationExampleText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+  },
   discussionSection: {
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
     paddingTop: spacing.padding.lg,
-    marginTop: spacing.margin.lg,
   },
   discussionTitle: {
     ...typography.textStyles.h3,
@@ -451,6 +438,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.sm,
     marginRight: spacing.margin.sm,
   },
+
 });
 
 export default SpeakingPart2Screen;

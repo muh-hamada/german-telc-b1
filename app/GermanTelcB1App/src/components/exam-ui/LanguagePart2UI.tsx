@@ -6,19 +6,21 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
+  Modal,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
-import { GrammarPart2Exam } from '../../types/exam.types';
+import { GrammarPart2Exam, UserAnswer } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface LanguagePart2UIProps {
   exam: GrammarPart2Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [gapId: number]: string }>({});
   const [showWordBank, setShowWordBank] = useState(false);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
@@ -30,6 +32,12 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     }));
     setSelectedGap(null);
     setShowWordBank(false);
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'grammar',
+      part: 2,
+      exam_id: exam.id,
+      question_id: gapId,
+    });
   };
 
   const getSelectedWordText = (gapId: number): string => {
@@ -50,7 +58,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             if (gapMatch) {
               const gapId = parseInt(gapMatch[1]);
               return (
-                <TouchableOpacity
+                <Text
                   key={index}
                   style={styles.gapButton}
                   onPress={() => {
@@ -58,10 +66,8 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
                     setShowWordBank(true);
                   }}
                 >
-                  <Text style={styles.gapButtonText}>
-                    {getSelectedWordText(gapId)}
-                  </Text>
-                </TouchableOpacity>
+                  {getSelectedWordText(gapId)}
+                </Text>
               );
             }
             return <Text key={index}>{part}</Text>;
@@ -85,16 +91,32 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     gapIds.forEach(gapId => {
       const userAnswer = userAnswers[gapId] || '';
       const correctAnswer = exam.answers[gapId.toString()];
-      if (userAnswer === correctAnswer) {
+      const isCorrect = userAnswer === correctAnswer;
+      if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: gapId,
+        answer: userAnswer,
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswer,
+      });
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'grammar',
+        part: 2,
+        exam_id: exam.id,
+        question_id: gapId,
+        is_correct: isCorrect,
+      });
     });
 
-    const score = (correctCount / gapIds.length) * 15;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   const gapIds = Object.keys(exam.answers).map(Number);
@@ -129,12 +151,22 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
       </View>
 
       {/* Word Selection Modal */}
-      {showWordBank && selectedGap !== null && (
+      <Modal
+        visible={showWordBank && selectedGap !== null}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setShowWordBank(false);
+          setSelectedGap(null);
+        }}
+      >
         <View style={styles.modalOverlay}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>{t('grammar.part2.selectWord', { gap: selectedGap })}</Text>
-            <TouchableOpacity
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {selectedGap !== null && t('grammar.part2.selectWord', { gap: selectedGap })}
+              </Text>
+              <TouchableOpacity
                 style={styles.closeButton}
                 onPress={() => {
                   setShowWordBank(false);
@@ -146,7 +178,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             </View>
             <ScrollView style={styles.modalContent}>
               {exam.words.map((word) => {
-                const isSelected = userAnswers[selectedGap] === word.key;
+                const isSelected = selectedGap !== null && userAnswers[selectedGap] === word.key;
                 return (
                   <TouchableOpacity
                     key={word.key}
@@ -154,7 +186,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
                       styles.wordOption,
                       isSelected && styles.wordOptionSelected
                     ]}
-                    onPress={() => handleSelectWord(selectedGap, word.key)}
+                    onPress={() => selectedGap !== null && handleSelectWord(selectedGap, word.key)}
                   >
                     <Text style={styles.wordOptionKey}>{word.key}:</Text>
                     <Text style={[
@@ -170,7 +202,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
             </ScrollView>
           </View>
         </View>
-      )}
+      </Modal>
 
       {/* Submit Button */}
       <TouchableOpacity
@@ -213,11 +245,13 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    textAlign: 'left',
   },
   wordBankSection: {
     marginBottom: spacing.margin.xl,
@@ -226,16 +260,18 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   wordBankGrid: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.sm,
     borderRadius: spacing.borderRadius.md,
+    direction: 'ltr',
   },
   wordItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.padding.xs,
     margin: spacing.margin.xs,
@@ -246,7 +282,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: 4 } : { marginRight: 4 }),
+    marginRight: 4,
   },
   wordText: {
     ...typography.textStyles.bodySmall,
@@ -266,19 +302,18 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
   gapButton: {
+    ...typography.textStyles.bodySmall,
     backgroundColor: colors.primary[100],
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.medium,
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: colors.primary[300],
-  },
-  gapButtonText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.medium,
   },
   modalOverlay: {
     position: 'absolute',
@@ -298,7 +333,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.md,
@@ -327,7 +362,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.md,
   },
   wordOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
     paddingHorizontal: spacing.padding.md,
@@ -345,7 +380,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
   },
   wordOptionText: {
     ...typography.textStyles.body,

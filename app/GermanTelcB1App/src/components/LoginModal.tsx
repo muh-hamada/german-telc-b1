@@ -8,8 +8,8 @@ import {
   ScrollView,
   Alert,
   Platform,
-  I18nManager,
 } from 'react-native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import { useAuth } from '../contexts/AuthContext';
 import SocialLoginButton from './SocialLoginButton';
@@ -19,6 +19,7 @@ interface LoginModalProps {
   visible: boolean;
   onClose: () => void;
   onSuccess?: () => void;
+  onFailure?: () => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({
@@ -27,9 +28,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
   onSuccess,
   onFailure,
 }) => {
+  const { t } = useCustomTranslation();
   const {
     signInWithGoogle,
-    signInWithFacebook,
     signInWithApple,
     signInWithTwitter,
     signInWithEmail,
@@ -42,16 +43,13 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   const [showEmailForm, setShowEmailForm] = useState(false);
 
-  const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple' | 'twitter') => {
+  const handleSocialLogin = async (provider: 'google' | 'apple' | 'twitter') => {
     try {
       clearError();
-      
+
       switch (provider) {
         case 'google':
           await signInWithGoogle();
-          break;
-        case 'facebook':
-          await signInWithFacebook();
           break;
         case 'apple':
           await signInWithApple();
@@ -60,11 +58,17 @@ const LoginModal: React.FC<LoginModalProps> = ({
           await signInWithTwitter();
           break;
       }
-      
+
       onSuccess?.();
       onClose();
-    } catch (error) {
-      // Error is handled by the auth context
+    } catch (error: any) {
+      // Don't show error or call onFailure for user cancellations
+      if (error?.code === 'auth/cancelled') {
+        console.log('User cancelled sign-in');
+        return;
+      }
+
+      // Error is handled by the auth context and will be displayed
       onFailure?.();
     }
   };
@@ -93,9 +97,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
     try {
       await sendPasswordResetEmail(email);
       Alert.alert(
-        'Password Reset',
-        'A password reset email has been sent to your email address.',
-        [{ text: 'OK' }]
+        t('auth.loginModal.passwordReset'),
+        t('auth.loginModal.passwordResetMessage'),
+        [{ text: t('common.done') }]
       );
     } catch (error) {
       // Error is handled by the auth context
@@ -121,7 +125,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>
-                {showEmailForm ? 'Sign In / Create Account' : 'Welcome Back'}
+                {showEmailForm ? t('auth.loginModal.signInCreateAccount') : t('auth.loginModal.welcomeBack')}
               </Text>
               <TouchableOpacity style={styles.closeButton} onPress={handleClose}>
                 <Text style={styles.closeButtonText}>✕</Text>
@@ -131,7 +135,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Error Message */}
             {error && (
               <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{error}</Text>
+                <Text style={styles.errorText}>
+                  {error.startsWith('auth.errors.') ? t(error) : error}
+                </Text>
               </View>
             )}
 
@@ -147,7 +153,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
               ) : (
                 <>
                   <Text style={styles.subtitle}>
-                    Sign in to save your progress and sync across devices
+                    {t('auth.loginModal.subtitle')}
                   </Text>
 
                   <View style={styles.socialButtons}>
@@ -156,19 +162,13 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       onPress={() => handleSocialLogin('google')}
                       loading={isLoading}
                     />
-                    
-                    <SocialLoginButton
-                      provider="facebook"
-                      onPress={() => handleSocialLogin('facebook')}
-                      loading={isLoading}
-                    />
-                    
+
                     {/* <SocialLoginButton
                       provider="twitter"
                       onPress={() => handleSocialLogin('twitter')}
                       loading={isLoading}
                     /> */}
-                    
+
                     {Platform.OS === 'ios' && <SocialLoginButton
                       provider="apple"
                       onPress={() => handleSocialLogin('apple')}
@@ -178,7 +178,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
                   <View style={styles.divider}>
                     <View style={styles.dividerLine} />
-                    <Text style={styles.dividerText}>or</Text>
+                    <Text style={styles.dividerText}>{t('auth.loginModal.orDivider')}</Text>
                     <View style={styles.dividerLine} />
                   </View>
 
@@ -187,7 +187,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                     onPress={() => setShowEmailForm(true)}
                   >
                     <Text style={styles.emailButtonText}>
-                      Continue with Email
+                      {t('auth.loginModal.continueWithEmail')}
                     </Text>
                   </TouchableOpacity>
                 </>
@@ -199,7 +199,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                   onPress={() => setShowEmailForm(false)}
                 >
                   <Text style={styles.backButtonText}>
-                    ← Back to social login
+                    {t('auth.loginModal.backToSocialLogin')}
                   </Text>
                 </TouchableOpacity>
               )}
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     maxHeight: '100%',
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   closeButton: {
     width: 32,
@@ -280,9 +281,9 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.lg,
   },
   divider: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: spacing.margin.lg,
+    marginBottom: spacing.margin.lg,
   },
   dividerLine: {
     flex: 1,

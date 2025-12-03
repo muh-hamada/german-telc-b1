@@ -3,10 +3,11 @@ import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
 import { colors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../exam-ui/ListeningPart1UI';
+import { UserAnswer } from '../../types/exam.types';
 
 interface ListeningPart1WrapperProps {
   testId: number;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 interface Statement {
@@ -47,7 +48,7 @@ const ListeningPart1Wrapper: React.FC<ListeningPart1WrapperProps> = ({ testId, o
   if (isLoading) {
     return (
       <View style={[styles.container, styles.centerContent]}>
-        <ActivityIndicator size="large" color={colors.primary} />
+        <ActivityIndicator size="large" color={colors.primary[500]} />
       </View>
     );
   }
@@ -62,7 +63,7 @@ const ListeningPart1Wrapper: React.FC<ListeningPart1WrapperProps> = ({ testId, o
 
   const sectionDetails = listeningData.section_details;
   const exams = listeningData.exams as Exam[];
-  const exam = exams[testId] || exams[0];
+  const exam = exams.find(e => e.id === testId) || exams[0];
 
   return (
     <View style={styles.container}>

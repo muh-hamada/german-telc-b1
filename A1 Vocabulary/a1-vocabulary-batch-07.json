@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Ausland",
+    "article": "das",
+    "translations": {
+      "en": "abroad",
+      "es": "extranjero",
+      "fr": "étranger",
+      "ru": "заграница",
+      "ar": "الخارج"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fahren Sie ins Ausland?",
+        "translations": {
+          "en": "Are you going abroad?",
+          "es": "¿Va al extranjero?",
+          "fr": "Partez-vous à l'étranger ?",
+          "ru": "Вы едете за границу?",
+          "ar": "هل أنت ذاهب إلى الخارج؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ausländer",
+    "article": "der",
+    "translations": {
+      "en": "foreigner",
+      "es": "extranjero",
+      "fr": "étranger",
+      "ru": "иностранец",
+      "ar": "الأجنبي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sind Sie Ausländerin?",
+        "translations": {
+          "en": "Are you a foreigner?",
+          "es": "¿Es usted extranjera?",
+          "fr": "Êtes-vous étrangère ?",
+          "ru": "Вы иностранка?",
+          "ar": "هل أنت أجنبية؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "ausländisch",
+    "article": "",
+    "translations": {
+      "en": "foreign",
+      "es": "extranjero",
+      "fr": "étranger",
+      "ru": "иностранный",
+      "ar": "أجنبي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Leider habe ich nur ausländisches Geld.",
+        "translations": {
+          "en": "Unfortunately, I only have foreign money.",
+          "es": "Desafortunadamente, solo tengo dinero extranjero.",
+          "fr": "Malheureusement, je n'ai que de l'argent étranger.",
+          "ru": "К сожалению, у меня только иностранные деньги.",
+          "ar": "للأسف، لدي فقط أموال أجنبية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ausmachen",
+    "article": "",
+    "translations": {
+      "en": "to turn off",
+      "es": "apagar",
+      "fr": "éteindre",
+      "ru": "выключать",
+      "ar": "يطفئ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Mach bitte das Licht aus!",
+        "translations": {
+          "en": "Please turn off the light!",
+          "es": "¡Por favor, apaga la luz!",
+          "fr": "Éteins la lumière, s'il te plaît !",
+          "ru": "Пожалуйста, выключи свет!",
+          "ar": "من فضلك، أطفئ الضوء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aussage",
+    "article": "die",
+    "translations": {
+      "en": "statement",
+      "es": "declaración",
+      "fr": "déclaration",
+      "ru": "заявление",
+      "ar": "البيان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ist die Aussage richtig oder falsch?",
+        "translations": {
+          "en": "Is the statement true or false?",
+          "es": "¿Es correcta o falsa la declaración?",
+          "fr": "La déclaration est-elle vraie ou fausse ?",
+          "ru": "Это утверждение правильное или ложное?",
+          "ar": "هل البيان صحيح أم خطأ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "aussehen",
+    "article": "",
+    "translations": {
+      "en": "to look",
+      "es": "parecer",
+      "fr": "avoir l'air",
+      "ru": "выглядеть",
+      "ar": "يبدو"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das sieht schön aus.",
+        "translations": {
+          "en": "That looks nice.",
+          "es": "Eso se ve bonito.",
+          "fr": "Ça a l'air joli.",
+          "ru": "Это выглядит красиво.",
+          "ar": "هذا يبدو جميلاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aus sein",
+    "article": "",
+    "translations": {
+      "en": "to be off",
+      "es": "estar apagado",
+      "fr": "être éteint",
+      "ru": "быть выключенным",
+      "ar": "يكون مطفأ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Licht ist aus.",
+        "translations": {
+          "en": "The light is off.",
+          "es": "La luz está apagada.",
+          "fr": "La lumière est éteinte.",
+          "ru": "Свет выключен.",
+          "ar": "الضوء مطفأ."
+        }
+      },
+      {
+        "text": "Die Schule ist aus.",
+        "translations": {
+          "en": "School is out.",
+          "es": "La escuela ha terminado.",
+          "fr": "L'école est finie.",
+          "ru": "Школа закончилась.",
+          "ar": "انتهت المدرسة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "aussteigen",
+    "article": "",
+    "translations": {
+      "en": "to get off",
+      "es": "bajarse",
+      "fr": "descendre",
+      "ru": "выходить",
+      "ar": "ينزل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo muss ich aussteigen?",
+        "translations": {
+          "en": "Where do I have to get off?",
+          "es": "¿Dónde tengo que bajarme?",
+          "fr": "Où dois-je descendre ?",
+          "ru": "Где мне нужно выйти?",
+          "ar": "أين يجب أن أنزل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ausweis",
+    "article": "der",
+    "translations": {
+      "en": "ID card",
+      "es": "documento de identidad",
+      "fr": "carte d'identité",
+      "ru": "удостоверение личности",
+      "ar": "بطاقة الهوية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier ist mein Ausweis.",
+        "translations": {
+          "en": "Here is my ID card.",
+          "es": "Aquí está mi documento de identidad.",
+          "fr": "Voici ma carte d'identité.",
+          "ru": "Вот моё удостоверение личности.",
+          "ar": "هنا بطاقة هويتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ausziehen",
+    "article": "",
+    "translations": {
+      "en": "to take off",
+      "es": "quitarse",
+      "fr": "enlever",
+      "ru": "снимать",
+      "ar": "يخلع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Zieh die Schuhe aus, bitte!",
+        "translations": {
+          "en": "Take off your shoes, please!",
+          "es": "¡Quítate los zapatos, por favor!",
+          "fr": "Enlève tes chaussures, s'il te plaît !",
+          "ru": "Сними обувь, пожалуйста!",
+          "ar": "اخلع حذاءك، من فضلك!"
+        }
+      }
+    ]
+  }
+]
+

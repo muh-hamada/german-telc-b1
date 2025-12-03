@@ -7,6 +7,11 @@ class StorageService {
     LANGUAGE_PREFERENCE: 'language_preference',
     ONBOARDING_COMPLETED: 'onboarding_completed',
     USER_SETTINGS: 'user_settings',
+    GRAMMAR_STUDY_PROGRESS: 'grammar_study_progress',
+    GRAMMAR_STUDY_SESSION_COUNTER: 'grammar_study_session_counter',
+    REMOTE_CONFIG: 'remote_config',
+    GLOBAL_CONFIG: 'global_config',
+    APP_UPDATE_DISMISSED: 'app_update_dismissed',
   };
 
   // User Progress Methods
@@ -81,7 +86,8 @@ class StorageService {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<boolean> {
     try {
       const currentProgress = await this.getUserProgress();
@@ -116,7 +122,7 @@ class StorageService {
 
       // Update exam progress
       examProgress.answers = answers;
-      examProgress.completed = true;
+      examProgress.completed = completed;
       examProgress.score = score;
       examProgress.maxScore = maxScore;
       examProgress.lastAttempt = now;
@@ -238,6 +244,8 @@ class StorageService {
         StorageService.KEYS.LANGUAGE_PREFERENCE,
         StorageService.KEYS.ONBOARDING_COMPLETED,
         StorageService.KEYS.USER_SETTINGS,
+        StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
+        StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER,
       ]);
       return true;
     } catch (error) {
@@ -265,6 +273,176 @@ class StorageService {
     } catch (error) {
       console.error('Error getting storage info:', error);
       return { used: 0, available: 0 };
+    }
+  }
+
+  // Grammar Study Progress Methods
+  async getGrammarStudyProgress(): Promise<{ currentQuestionIndex: number; completedQuestions: Set<number> } | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GRAMMAR_STUDY_PROGRESS);
+      if (!data) return null;
+      
+      const parsed = JSON.parse(data);
+      return {
+        currentQuestionIndex: parsed.currentQuestionIndex || 0,
+        completedQuestions: new Set(parsed.completedQuestions || []),
+      };
+    } catch (error) {
+      console.error('Error getting grammar study progress:', error);
+      return null;
+    }
+  }
+
+  async saveGrammarStudyProgress(currentQuestionIndex: number, completedQuestions: Set<number>): Promise<boolean> {
+    try {
+      const progressData = {
+        currentQuestionIndex,
+        completedQuestions: Array.from(completedQuestions),
+        lastUpdated: Date.now(),
+      };
+      
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
+        JSON.stringify(progressData)
+      );
+      return true;
+    } catch (error) {
+      console.error('Error saving grammar study progress:', error);
+      return false;
+    }
+  }
+
+  async clearGrammarStudyProgress(): Promise<boolean> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GRAMMAR_STUDY_PROGRESS);
+      return true;
+    } catch (error) {
+      console.error('Error clearing grammar study progress:', error);
+      return false;
+    }
+  }
+
+  // Grammar Study Session Counter Methods
+  async getGrammarStudySessionCounter(): Promise<number> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER);
+      return data ? parseInt(data, 10) : 0;
+    } catch (error) {
+      console.error('Error getting grammar study session counter:', error);
+      return 0;
+    }
+  }
+
+  async saveGrammarStudySessionCounter(count: number): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER,
+        count.toString()
+      );
+    } catch (error) {
+      console.error('Error saving grammar study session counter:', error);
+    }
+  }
+
+  async clearGrammarStudySessionCounter(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER);
+    } catch (error) {
+      console.error('Error clearing grammar study session counter:', error);
+    }
+  }
+
+  // Remote Config Cache Methods
+  async getRemoteConfig(): Promise<any | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.REMOTE_CONFIG);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting remote config from cache:', error);
+      return null;
+    }
+  }
+
+  async saveRemoteConfig(config: any): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.REMOTE_CONFIG,
+        JSON.stringify(config)
+      );
+    } catch (error) {
+      console.error('Error saving remote config to cache:', error);
+    }
+  }
+
+  async clearRemoteConfig(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.REMOTE_CONFIG);
+    } catch (error) {
+      console.error('Error clearing remote config from cache:', error);
+    }
+  }
+
+  // Global Config Cache Methods
+  async getGlobalConfig(): Promise<any | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.GLOBAL_CONFIG);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting global config from cache:', error);
+      return null;
+    }
+  }
+
+  async saveGlobalConfig(config: any): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.GLOBAL_CONFIG,
+        JSON.stringify(config)
+      );
+    } catch (error) {
+      console.error('Error saving global config to cache:', error);
+    }
+  }
+
+  async clearGlobalConfig(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.GLOBAL_CONFIG);
+    } catch (error) {
+      console.error('Error clearing global config from cache:', error);
+    }
+  }
+
+  // App Update Dismissal Methods
+  async getAppUpdateDismissedData(): Promise<{ version: string; dismissedAt: number } | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.APP_UPDATE_DISMISSED);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error('Error getting app update dismissed data:', error);
+      return null;
+    }
+  }
+
+  async saveAppUpdateDismissedData(version: string): Promise<void> {
+    try {
+      const data = {
+        version,
+        dismissedAt: Date.now(),
+      };
+      await AsyncStorage.setItem(
+        StorageService.KEYS.APP_UPDATE_DISMISSED,
+        JSON.stringify(data)
+      );
+    } catch (error) {
+      console.error('Error saving app update dismissed data:', error);
+    }
+  }
+
+  async clearAppUpdateDismissedData(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(StorageService.KEYS.APP_UPDATE_DISMISSED);
+    } catch (error) {
+      console.error('Error clearing app update dismissed data:', error);
     }
   }
 }

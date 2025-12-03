@@ -1,0 +1,293 @@
+[
+  {
+    "word": "Großvater",
+    "article": "der",
+    "translations": {
+      "en": "grandfather",
+      "es": "abuelo",
+      "fr": "grand-père",
+      "ru": "дедушка",
+      "ar": "الجد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Großvater ist schon 80.",
+        "translations": {
+          "en": "My grandfather is already 80.",
+          "es": "Mi abuelo ya tiene 80 años.",
+          "fr": "Mon grand-père a déjà 80 ans.",
+          "ru": "Моему дедушке уже 80.",
+          "ar": "جدي عمره 80 عامًا بالفعل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gruppe",
+    "article": "die",
+    "translations": {
+      "en": "group",
+      "es": "grupo",
+      "fr": "groupe",
+      "ru": "группа",
+      "ar": "المجموعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die erste Gruppe beginnt um 16 Uhr.",
+        "translations": {
+          "en": "The first group begins at 4 PM.",
+          "es": "El primer grupo comienza a las 16:00.",
+          "fr": "Le premier groupe commence à 16 heures.",
+          "ru": "Первая группа начинает в 16:00.",
+          "ar": "تبدأ المجموعة الأولى في الساعة 4 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gruß",
+    "article": "der",
+    "translations": {
+      "en": "greeting",
+      "es": "saludo",
+      "fr": "salutation",
+      "ru": "приветствие",
+      "ar": "التحية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Viele Grüße an Ihre Frau.",
+        "translations": {
+          "en": "Best regards to your wife.",
+          "es": "Muchos saludos a su esposa.",
+          "fr": "Bien des salutations à votre femme.",
+          "ru": "Передавайте привет вашей жене.",
+          "ar": "تحياتي لزوجتك."
+        }
+      },
+      {
+        "text": "Mit freundlichen Grüßen",
+        "translations": {
+          "en": "With kind regards",
+          "es": "Con saludos cordiales",
+          "fr": "Avec mes salutations distinguées",
+          "ru": "С дружеским приветствием",
+          "ar": "مع أطيب التحيات"
+        }
+      }
+    ]
+  },
+  {
+    "word": "gültig",
+    "article": "",
+    "translations": {
+      "en": "valid",
+      "es": "válido",
+      "fr": "valide",
+      "ru": "действительный",
+      "ar": "صالح"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Pass ist nicht mehr gültig.",
+        "translations": {
+          "en": "The passport is no longer valid.",
+          "es": "El pasaporte ya no es válido.",
+          "fr": "Le passeport n'est plus valide.",
+          "ru": "Паспорт больше не действителен.",
+          "ar": "جواز السفر لم يعد صالحًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "günstig",
+    "article": "",
+    "translations": {
+      "en": "cheap",
+      "es": "barato",
+      "fr": "bon marché",
+      "ru": "выгодный",
+      "ar": "رخيص"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Dort gibt es günstige Angebote.",
+        "translations": {
+          "en": "There are cheap offers there.",
+          "es": "Allí hay ofertas baratas.",
+          "fr": "Il y a des offres bon marché là-bas.",
+          "ru": "Там есть выгодные предложения.",
+          "ar": "هناك عروض رخيصة هناك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gut",
+    "article": "",
+    "translations": {
+      "en": "good",
+      "es": "bueno",
+      "fr": "bon",
+      "ru": "хороший",
+      "ar": "جيد"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das finde ich gut.",
+        "translations": {
+          "en": "I think that's good.",
+          "es": "Eso me parece bien.",
+          "fr": "Je trouve ça bien.",
+          "ru": "Я думаю, это хорошо.",
+          "ar": "أجد ذلك جيدًا."
+        }
+      },
+      {
+        "text": "Ich komme um 13 Uhr. – Gut!",
+        "translations": {
+          "en": "I'm coming at 1 PM. – Good!",
+          "es": "Vengo a las 13:00. – ¡Bien!",
+          "fr": "Je viens à 13 heures. – Bien !",
+          "ru": "Я приду в 13:00. – Хорошо!",
+          "ar": "سآتي في الساعة 1 مساءً. – جيد!"
+        }
+      },
+      {
+        "text": "Guten Morgen!",
+        "translations": {
+          "en": "Good morning!",
+          "es": "¡Buenos días!",
+          "fr": "Bonjour !",
+          "ru": "Доброе утро!",
+          "ar": "صباح الخير!"
+        }
+      },
+      {
+        "text": "Ein gutes neues Jahr!",
+        "translations": {
+          "en": "A happy new year!",
+          "es": "¡Un feliz año nuevo!",
+          "fr": "Bonne année !",
+          "ru": "С новым годом!",
+          "ar": "سنة جديدة سعيدة!"
+        }
+      },
+      {
+        "text": "Guten Appetit!",
+        "translations": {
+          "en": "Enjoy your meal!",
+          "es": "¡Buen provecho!",
+          "fr": "Bon appétit !",
+          "ru": "Приятного аппетита!",
+          "ar": "بالهناء والشفاء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Haar",
+    "article": "das",
+    "translations": {
+      "en": "hair",
+      "es": "cabello",
+      "fr": "cheveu",
+      "ru": "волосы",
+      "ar": "الشعر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie hat lange Haare.",
+        "translations": {
+          "en": "She has long hair.",
+          "es": "Ella tiene el cabello largo.",
+          "fr": "Elle a les cheveux longs.",
+          "ru": "У неё длинные волосы.",
+          "ar": "لديها شعر طويل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "haben",
+    "article": "",
+    "translations": {
+      "en": "to have",
+      "es": "tener",
+      "fr": "avoir",
+      "ru": "иметь",
+      "ar": "يملك"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich habe ein neues Auto.",
+        "translations": {
+          "en": "I have a new car.",
+          "es": "Tengo un coche nuevo.",
+          "fr": "J'ai une nouvelle voiture.",
+          "ru": "У меня новая машина.",
+          "ar": "لدي سيارة جديدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hähnchen",
+    "article": "das",
+    "translations": {
+      "en": "chicken",
+      "es": "pollo",
+      "fr": "poulet",
+      "ru": "курица",
+      "ar": "الدجاج"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Hähnchen mit Pommes bitte!",
+        "translations": {
+          "en": "A chicken with fries, please!",
+          "es": "¡Un pollo con papas fritas, por favor!",
+          "fr": "Un poulet avec des frites, s'il vous plaît !",
+          "ru": "Курицу с картофелем фри, пожалуйста!",
+          "ar": "دجاج مع بطاطس مقلية، من فضلك!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Halbpension",
+    "article": "die",
+    "translations": {
+      "en": "half board",
+      "es": "media pensión",
+      "fr": "demi-pension",
+      "ru": "полупансион",
+      "ar": "نصف إقامة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchten Sie Vollpension oder Halbpension?",
+        "translations": {
+          "en": "Would you like full board or half board?",
+          "es": "¿Quiere pensión completa o media pensión?",
+          "fr": "Voulez-vous la pension complète ou la demi-pension ?",
+          "ru": "Вы хотите полный пансион или полупансион?",
+          "ar": "هل تريد إقامة كاملة أم نصف إقامة؟"
+        }
+      }
+    ]
+  }
+]
+

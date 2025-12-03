@@ -73,6 +73,14 @@ export interface WritingExam {
   title: string;
   incomingEmail: string;
   writingPoints: string[];
+  themeNumber?: number;
+  themeName?: string;
+  uiStrings?: {
+    instructionTitle?: string;
+    instructionDescription?: string;
+    taskDescription?: string;
+    taskFooter?: string;
+  };
 }
 
 // Speaking Part 1 (Personal Introduction)
@@ -103,12 +111,18 @@ export interface SpeakingPart1Content {
     german: string;
     english: string;
   }>;
+  questions: Array<{
+    formal: string;
+    informal: string;
+    answer: string;
+  }>;
 }
 
 // Speaking Part 2 (Topic Presentation)
 export interface SpeakingPart2Content {
   id: number;
   title: string;
+  questions: Array<any>;
   topics: Array<{
     id: string;
     title: string;
@@ -125,6 +139,7 @@ export interface SpeakingPart2Content {
 export interface SpeakingPart3Content {
   id: number;
   title: string;
+  questions: Array<any>;
   scenarios: Array<{
     id: string;
     title: string;
@@ -137,15 +152,44 @@ export interface SpeakingPart3Content {
   }>;
 }
 
+// Speaking Important Phrases (Part 4)
+export interface SpeakingImportantPhrasesGroup {
+  id: number;
+  name: string; // not localized
+  phrases: string[]; // simple list of sentences
+}
+
+export interface SpeakingImportantPhrasesContent {
+  title?: string;
+  note?: string;
+  groups: SpeakingImportantPhrasesGroup[];
+}
+
+// Listening Practice
+export interface ListeningPracticeQuestion {
+  question: string;
+  correct: boolean;
+  explanation: string;
+}
+
+export interface ListeningPracticeInterview {
+  title: string;
+  audio_url: string;
+  image_url: string;
+  questions: ListeningPracticeQuestion[];
+  duration: string;
+}
+
 // User Progress Types
 export interface UserAnswer {
   questionId: number;
   answer: string;
-  isCorrect?: boolean;
+  isCorrect: boolean;
   timestamp: number;
+  correctAnswer?: string;
 }
 
-export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3';
+export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice';
 
 export interface ExamProgress {
   examId: number;
@@ -170,7 +214,7 @@ export interface ExamSection {
   id: string;
   title: string;
   description: string;
-  type: 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3';
+  type: 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice';
   available: boolean;
   examCount: number;
 }
@@ -183,11 +227,6 @@ export interface ExamResult {
   percentage: number;
   correctAnswers: number;
   totalQuestions: number;
-  answers: Array<{
-    questionId: number;
-    userAnswer: string;
-    correctAnswer: string;
-    isCorrect: boolean;
-  }>;
+  answers: UserAnswer[];
   timestamp: number;
 }

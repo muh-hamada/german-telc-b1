@@ -1,0 +1,242 @@
+[
+  {
+    "word": "mieten",
+    "article": "",
+    "translations": {
+      "en": "to rent",
+      "es": "alquilar",
+      "fr": "louer",
+      "ru": "арендовать",
+      "ar": "يستأجر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte ein Auto mieten.",
+        "translations": {
+          "en": "I would like to rent a car.",
+          "es": "Me gustaría alquilar un coche.",
+          "fr": "Je voudrais louer une voiture.",
+          "ru": "Я хотел бы арендовать машину.",
+          "ar": "أود استئجار سيارة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Miete",
+    "article": "die",
+    "translations": {
+      "en": "rent",
+      "es": "alquiler",
+      "fr": "loyer",
+      "ru": "арендная плата",
+      "ar": "الإيجار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Miete für diese Wohnung ist 600 Euro.",
+        "translations": {
+          "en": "The rent for this apartment is 600 euros.",
+          "es": "El alquiler de este apartamento es de 600 euros.",
+          "fr": "Le loyer de cet appartement est de 600 euros.",
+          "ru": "Арендная плата за эту квартиру составляет 600 евро.",
+          "ar": "إيجار هذه الشقة 600 يورو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Milch",
+    "article": "die",
+    "translations": {
+      "en": "milk",
+      "es": "leche",
+      "fr": "lait",
+      "ru": "молоко",
+      "ar": "الحليب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Milch steht im Kühlschrank.",
+        "translations": {
+          "en": "The milk is in the refrigerator.",
+          "es": "La leche está en el refrigerador.",
+          "fr": "Le lait est au réfrigérateur.",
+          "ru": "Молоко стоит в холодильнике.",
+          "ar": "الحليب في الثلاجة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "mit",
+    "article": "",
+    "translations": {
+      "en": "with",
+      "es": "con",
+      "fr": "avec",
+      "ru": "с",
+      "ar": "مع"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Trinken Sie den Kaffee mit Milch?",
+        "translations": {
+          "en": "Do you take your coffee with milk?",
+          "es": "¿Toma el café con leche?",
+          "fr": "Prenez-vous le café avec du lait?",
+          "ru": "Вы пьёте кофе с молоком?",
+          "ar": "هل تشرب القهوة مع الحليب؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "mitbringen",
+    "article": "",
+    "translations": {
+      "en": "to bring along",
+      "es": "traer",
+      "fr": "apporter",
+      "ru": "приносить с собой",
+      "ar": "يحضر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe einkaufen. Soll ich dir was mitbringen?",
+        "translations": {
+          "en": "I'm going shopping. Should I bring you something?",
+          "es": "Voy de compras. ¿Te traigo algo?",
+          "fr": "Je vais faire les courses. Dois-je te rapporter quelque chose?",
+          "ru": "Я иду за покупками. Принести тебе что-нибудь?",
+          "ar": "سأذهب للتسوق. هل أحضر لك شيئًا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "mitkommen",
+    "article": "",
+    "translations": {
+      "en": "to come along",
+      "es": "venir",
+      "fr": "venir avec",
+      "ru": "идти вместе",
+      "ar": "يأتي معه"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe ins Kino. Kommst du mit?",
+        "translations": {
+          "en": "I'm going to the cinema. Are you coming along?",
+          "es": "Voy al cine. ¿Vienes?",
+          "fr": "Je vais au cinéma. Tu viens?",
+          "ru": "Я иду в кино. Пойдёшь со мной?",
+          "ar": "سأذهب إلى السينما. هل ستأتي معي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "mitmachen",
+    "article": "",
+    "translations": {
+      "en": "to participate",
+      "es": "participar",
+      "fr": "participer",
+      "ru": "участвовать",
+      "ar": "يشارك"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Warum macht ihr nicht mit?",
+        "translations": {
+          "en": "Why aren't you participating?",
+          "es": "¿Por qué no participáis?",
+          "fr": "Pourquoi ne participez-vous pas?",
+          "ru": "Почему вы не участвуете?",
+          "ar": "لماذا لا تشاركون؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "mitnehmen",
+    "article": "",
+    "translations": {
+      "en": "to take along",
+      "es": "llevar",
+      "fr": "emmener",
+      "ru": "брать с собой",
+      "ar": "يأخذ معه"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Nehmen wir meine Schwester ins Kino mit?",
+        "translations": {
+          "en": "Should we take my sister to the cinema with us?",
+          "es": "¿Llevamos a mi hermana al cine?",
+          "fr": "Emmenons-nous ma sœur au cinéma?",
+          "ru": "Возьмём мою сестру в кино с собой?",
+          "ar": "هل نأخذ أختي إلى السينما معنا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Mitte",
+    "article": "die",
+    "translations": {
+      "en": "middle",
+      "es": "medio",
+      "fr": "milieu",
+      "ru": "середина",
+      "ar": "المنتصف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Lehrer steht in der Mitte des Klassenzimmers.",
+        "translations": {
+          "en": "The teacher is standing in the middle of the classroom.",
+          "es": "El profesor está de pie en el centro del aula.",
+          "fr": "Le professeur se tient au milieu de la salle de classe.",
+          "ru": "Учитель стоит в середине классной комнаты.",
+          "ar": "يقف المعلم في منتصف الفصل الدراسي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Möbel",
+    "article": "die",
+    "translations": {
+      "en": "furniture",
+      "es": "muebles",
+      "fr": "meubles",
+      "ru": "мебель",
+      "ar": "الأثاث"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sind die Möbel neu?",
+        "translations": {
+          "en": "Is the furniture new?",
+          "es": "¿Son nuevos los muebles?",
+          "fr": "Les meubles sont-ils neufs?",
+          "ru": "Мебель новая?",
+          "ar": "هل الأثاث جديد؟"
+        }
+      }
+    ]
+  }
+]

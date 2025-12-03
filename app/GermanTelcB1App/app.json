@@ -1,4 +1,8 @@
 {
-  "name": "GermanTelcB1App",
-  "displayName": "German Telc B1"
+  "name": "TelcExamApp",
+  "displayName": "English TELC B1",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "",
+    "ios_app_id": ""
+  }
 }

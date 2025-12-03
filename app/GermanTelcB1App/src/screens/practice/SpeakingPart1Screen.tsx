@@ -3,22 +3,20 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
   Modal,
   TextInput,
   Alert,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface PersonalInfo {
   name: string;
@@ -42,11 +40,11 @@ const STORAGE_KEY = '@speaking_part1_personal_info';
 const mandatoryFields = ['name', 'origin', 'livingSince'] as const;
 
 const SpeakingPart1Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
   
-  const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary'>('introduction');
+  const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary' | 'questions'>('introduction');
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -93,12 +91,13 @@ const SpeakingPart1Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 1, exam_id: 0, completed: newStatus });
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 
@@ -107,6 +106,7 @@ const SpeakingPart1Screen: React.FC = () => {
       setIsLoading(true);
       const data = await dataService.getSpeakingPart1Content();
       setSpeakingPart1Data(data);
+      console.log('Speaking Part 1 Data:', data);
       await loadPersonalInfo();
     } catch (error) {
       console.error('Error loading speaking part 1 data:', error);
@@ -282,7 +282,7 @@ const SpeakingPart1Screen: React.FC = () => {
           <Text style={styles.sectionTitle}>{t('speaking.part1.sections.keyVocabulary')}</Text>
 
           <View style={styles.vocabCard}>
-            {speakingPart1Data.vocabulary.map((item, index) => (
+            {speakingPart1Data.vocabulary.map((item: any, index: number) => (
               <View key={index} style={styles.vocabRow}>
                 <View style={styles.vocabColumn}>
                   <Text style={styles.vocabGerman}>{item.german}</Text>
@@ -328,13 +328,37 @@ const SpeakingPart1Screen: React.FC = () => {
           <View style={styles.textCard}>
             <Text style={styles.cardTitle}>{t('speaking.part1.sections.personalIntro')} - {t('speaking.part1.tabs.example')}</Text>
 
-            {speakingPart1Data.completeExample.map((paragraph, index) => (
+            {speakingPart1Data.completeExample.map((paragraph: any, index: number) => (
               <Text key={index} style={styles.exampleParagraph}>
                 {renderFormattedText(paragraph)}
               </Text>
             ))}
           </View>
         </View>
+      </ScrollView>
+    );
+  };
+
+  const renderQuestionsTab = () => {
+    if (!speakingPart1Data) return null;
+    
+    return (
+      <ScrollView style={styles.tabContent} contentContainerStyle={styles.scrollContent}>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('speaking.part1.sections.questions')}</Text>
+          <Text style={styles.exampleNote}>{t('speaking.part1.help.questionsNote')}</Text>
+        </View>
+
+        {speakingPart1Data.questions.map((question: any, index: number) => (
+          <View key={index} style={styles.questionCard}>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.formal')}:</Text> {question.formal}</Text>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.informal')}:</Text> {question.informal}</Text>
+            <Text style={[styles.questionText]}>
+              <Text style={[styles.questionType]}>{t('speaking.part1.questions.answer')}:</Text> {question.answer}</Text>
+          </View>
+        ))}
       </ScrollView>
     );
   };
@@ -579,7 +603,7 @@ const SpeakingPart1Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.tabsContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'introduction' && styles.activeTab]}
@@ -602,6 +626,16 @@ const SpeakingPart1Screen: React.FC = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={[styles.tab, activeTab === 'questions' && styles.activeTab]}
+          onPress={() => setActiveTab('questions')}
+        >
+          <Text
+            style={[styles.tabText, activeTab === 'questions' && styles.activeTabText]}
+          >
+            {t('speaking.part1.tabs.questions')}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           style={[styles.tab, activeTab === 'vocabulary' && styles.activeTab]}
           onPress={() => setActiveTab('vocabulary')}
         >
@@ -616,11 +650,11 @@ const SpeakingPart1Screen: React.FC = () => {
       {activeTab === 'introduction' && renderIntroductionTab()}
       {activeTab === 'example' && renderCompleteExampleTab()}
       {activeTab === 'vocabulary' && renderVocabularyTab()}
+      {activeTab === 'questions' && renderQuestionsTab()}
 
       {renderEditModal()}
       {renderInfoModal()}
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -654,22 +688,23 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
     alignItems: 'center',
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
+    justifyContent: 'center',
   },
   activeTab: {
     borderBottomColor: colors.primary[500],
   },
   tabText: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
+    lineHeight: 15,
+    textAlign: 'center',
   },
   activeTabText: {
     color: colors.primary[500],
-    fontWeight: typography.fontWeight.bold,
   },
   tabContent: {
     flex: 1,
@@ -678,7 +713,6 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   section: {
-    marginBottom: spacing.margin.lg,
   },
   sectionTitle: {
     ...typography.textStyles.h3,
@@ -720,6 +754,41 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.xs,
   },
   exampleParagraph: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 26,
+    marginBottom: spacing.margin.md,
+    direction: 'ltr' as 'ltr',
+  },
+  questionCard: {
+    backgroundColor: colors.white,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.lg,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.primary[500],
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    marginBottom: spacing.margin.md,
+  },
+  questionNumber: {
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.md,
+  },
+  questionText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 26,
+
+  },
+  questionType: {
+    fontWeight: typography.fontWeight.bold,
+  },
+  questionAnswer: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 26,
@@ -774,10 +843,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.bodySmall,
     fontWeight: typography.fontWeight.medium,
     color: colors.text.primary,
+    direction: 'ltr' as 'ltr',
   },
   vocabEnglish: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    direction: 'ltr' as 'ltr',
   },
   // Modal styles
   modalOverlay: {

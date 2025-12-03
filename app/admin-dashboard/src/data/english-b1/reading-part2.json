@@ -1,0 +1,684 @@
+{
+  "exams": [
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "closed ten years ago.",
+              "correct": false
+            },
+            {
+              "text": "has been saved by the local people.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "has now closed."
+            }
+          ],
+          "question": "The Llithfaen post office"
+        },
+        {
+          "question": "The shop was bought",
+          "answers": [
+            {
+              "correct": false,
+              "text": "by the local council."
+            },
+            {
+              "text": "for £ 40,000.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "with the help of the people who live in the area."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "The shop was going to close because",
+          "answers": [
+            {
+              "text": "of a decision by the European Union.",
+              "correct": false
+            },
+            {
+              "text": "the owner needed the money.",
+              "correct": false
+            },
+            {
+              "text": "the owner was too old to run the shop.",
+              "correct": true
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "paid by every person in the village.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "paid by the owner of the pub."
+            },
+            {
+              "correct": true,
+              "text": "how much the villagers had after the shop was bought."
+            }
+          ],
+          "id": 9,
+          "question": "£500 was"
+        },
+        {
+          "answers": [
+            {
+              "text": "a leisure centre.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "a pub."
+            },
+            {
+              "correct": true,
+              "text": "a school."
+            }
+          ],
+          "id": 10,
+          "question": "Llithfaen no longer has"
+        }
+      ],
+      "text": "Residents of a beautiful, small Welsh-speaking community have been collecting money to buy the local village post office and shop, ten years after they bought the local pub.\n\nThe people of Llithfaen, Caernarfonshire, were so determined to prevent their village from losing its central point, they decided to do something about it. Ten years ago, they paid 40,000 to buy the pub, called 'The Victoria', and now they have helped to keep the shop open. Most of the cost, £ 19,500, was met by the local council and a European Union grant, but the villagers needed to raise a further 6,000 to be able to buy the shop from the owner, who has decided that it is time to retire.\n\nJohn Jones, the chairman of the community committee, said: \"We went around to every house in the village and came back with £ 500 more than we needed, a great achievement for us. The post office and the pub are essential to the people and to the life of the village. There are no other facilities available to us. We were not prepared to stand by and let the heart and soul be ripped out of our small community. No one else was going to help us, so we joined together and decided to buy the shop and post office ourselves.\"\n\nLlithfaen had a population of 600 but that halved when nearby granite quarries were closed down. The school had to shut because of the population decline, there just weren't enough children in the village to keep it going, so the locals turned the school into a leisure centre and a youth club.\n\nThe village shop has since been leased to Ffion Medi Llywelyn, 24, who lives in the village with her husband, Dillon. She said: \"There is a wonderful community spirit here.\"",
+      "id": 1,
+      "title": "Active Villagers"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "in a school playground.",
+              "correct": false
+            },
+            {
+              "text": "on an old car park.",
+              "correct": true
+            },
+            {
+              "text": "next to a supermarket.",
+              "correct": false
+            }
+          ],
+          "question": "The 'Green Hands' project is located"
+        },
+        {
+          "question": "Originally, the local council planned to",
+          "answers": [
+            {
+              "correct": false,
+              "text": "turn the land into a park."
+            },
+            {
+              "text": "sell the land for a shop.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "build a new car park."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "The money for the heavy machinery came from",
+          "answers": [
+            {
+              "text": "local businesses only.",
+              "correct": false
+            },
+            {
+              "text": "fundraising and a grant.",
+              "correct": true
+            },
+            {
+              "text": "the council's budget.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "growing vegetables is very difficult.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "the hard work was worth it.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "the hard work was worth it."
+            }
+          ],
+          "id": 9,
+          "question": "Sarah Jenkins thinks that"
+        },
+        {
+          "answers": [
+            {
+              "text": "open a cafe.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "sell vegetables to a supermarket."
+            },
+            {
+              "correct": false,
+              "text": "build a larger playground."
+            }
+          ],
+          "id": 10,
+          "question": "In the future, the group hopes to"
+        }
+      ],
+      "text": "Residents of Chesterwood have successfully transformed a derelict concrete car park into a thriving community garden, just two years after the initial idea was proposed. The project, known as 'Green Hands', aims to provide a safe space for children to play and for families to grow their own vegetables.\n\nThe site had been abandoned for five years and was considered an eyesore. When the local council announced plans to sell the land to a supermarket chain, neighbors formed an action group. They collected over 2,000 signatures to stop the sale. Eventually, the council agreed to lease the land to the community for a nominal fee of £1 per year, provided they maintained it themselves.\n\nMoney was the next hurdle. While local businesses donated tools and seeds, the group needed £5,000 for fencing and heavy machinery to break up the concrete. They organized bake sales and a sponsored run, raising £3,500. The remaining amount came from a national lottery grant. 'It was hard work,' says Sarah Jenkins, the project leader. 'We spent every weekend digging and planting. But seeing the first tomatoes grow made it all worthwhile.'\n\nNow, the garden is open daily. It features a small playground, raised vegetable beds, and a seating area for elderly residents. The vegetables are shared among the volunteers, and surplus food is donated to the local food bank. Next year, the group hopes to build a small cafe on the site to raise funds for ongoing maintenance.",
+      "id": 2,
+      "title": "The Green Hands Project"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "at his school.",
+              "correct": false
+            },
+            {
+              "text": "at his home.",
+              "correct": true
+            },
+            {
+              "text": "in a laboratory.",
+              "correct": false
+            }
+          ],
+          "question": "David Miller built his invention"
+        },
+        {
+          "question": "David became interested in the topic because",
+          "answers": [
+            {
+              "correct": false,
+              "text": "he visited Africa on holiday."
+            },
+            {
+              "text": "his teacher gave him the idea.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "he saw a program on television."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "The judges chose David as the winner because",
+          "answers": [
+            {
+              "text": "his machine was simple and effective.",
+              "correct": true
+            },
+            {
+              "text": "he was the youngest student there.",
+              "correct": false
+            },
+            {
+              "text": "his invention was very expensive.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "he expected to win.",
+              "correct": false
+            },
+            {
+              "text": "he was disappointed.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "he was surprised by the result."
+            }
+          ],
+          "id": 9,
+          "question": "When he won the prize, David said that"
+        },
+        {
+          "answers": [
+            {
+              "text": "start a business immediately.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "study engineering at university."
+            },
+            {
+              "correct": false,
+              "text": "move to Geneva."
+            }
+          ],
+          "id": 10,
+          "question": "In the future, David wants to"
+        }
+      ],
+      "text": "A sixteen-year-old student from Manchester has won a national science award for inventing a cheap device to clean dirty water. David Miller, who attends North High School, spent his summer holidays working on the project in his parents' garage. He hopes his invention will help people in developing countries access clean drinking water.\n\nDavid got the idea after watching a documentary about water shortages in Africa. He was shocked to see how far people had to walk to get fresh water. He used simple materials found around the house, like plastic bottles, sand, and charcoal, to create a filtration system. His science teacher noticed his talent and encouraged him to enter the 'Young Scientists Competition' in London.\n\nThe competition was tough, with over 200 other students taking part from all over the country. However, the judges were impressed by how simple and effective David's machine was compared to others. He won the first prize of £2,000 and a trip to a famous science center in Geneva. 'I couldn't believe it when they called my name,' David said. 'I was just happy to have the chance to show my work.'\n\nDavid plans to use the prize money to improve his design and make it lighter. He has already been contacted by a charity organization that wants to test the device in real villages next year. David says he wants to study engineering at university so he can solve more global problems in the future.",
+      "id": 3,
+      "title": "Teenager Invents Water Cleaner"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "she needed money for university.",
+              "correct": false
+            },
+            {
+              "text": "she enjoyed baking with her grandmother.",
+              "correct": true
+            },
+            {
+              "text": "her parents forced her to learn.",
+              "correct": false
+            }
+          ],
+          "question": "Sophie discovered her love for cooking when"
+        },
+        {
+          "question": "Sophie's parents originally wanted her to",
+          "answers": [
+            {
+              "correct": true,
+              "text": "study law."
+            },
+            {
+              "text": "open a bakery.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "travel the world."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "Sophie learned her cooking skills",
+          "answers": [
+            {
+              "text": "at a famous college.",
+              "correct": false
+            },
+            {
+              "text": "from television programs.",
+              "correct": false
+            },
+            {
+              "text": "from the internet and practice.",
+              "correct": true
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "is the same every week.",
+              "correct": false
+            },
+            {
+              "text": "depends on what she buys at the market.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "includes a lot of frozen meals."
+            }
+          ],
+          "id": 9,
+          "question": "The menu at 'The Blue Plate'"
+        },
+        {
+          "answers": [
+            {
+              "text": "worried about money.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "tired but satisfied."
+            },
+            {
+              "correct": false,
+              "text": "bored with the work."
+            }
+          ],
+          "id": 10,
+          "question": "At the moment, Sophie feels"
+        }
+      ],
+      "text": "Sophie Turner, a 19-year-old from Brighton, has just opened her first restaurant, 'The Blue Plate', in the city center. While most teenagers are preparing for university or starting their first office jobs, Sophie is busy cooking meals for hungry customers. She discovered her passion for food at a young age, often helping her grandmother bake cakes on weekends.\n\nSophie didn't go to culinary school. Instead, she learned by watching online videos and experimenting in her family kitchen. Her parents were initially worried about her career choice, preferring her to study law, but they changed their minds after tasting her signature pasta dish. They even helped her secure a small loan to rent the building.\n\nThe restaurant is unique because the menu changes every day depending on what fresh ingredients Sophie can find at the local market. 'I don't like frozen food,' Sophie explains. 'I want everything to be fresh and healthy.' The restaurant is small, with only ten tables, but it is already fully booked for the next two weeks. Sophie admits she is exhausted but happy. 'It's hard work, but seeing people enjoy my food is the best feeling in the world.'",
+      "id": 4,
+      "title": "Young Chef's Big Dream"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "he was bored with his retirement.",
+              "correct": false
+            },
+            {
+              "text": "he wanted to protect the environment.",
+              "correct": true
+            },
+            {
+              "text": "he needed to earn extra money.",
+              "correct": false
+            }
+          ],
+          "question": "Arthur decided to keep bees because"
+        },
+        {
+          "question": "At first, the other people in the building",
+          "answers": [
+            {
+              "correct": false,
+              "text": "were excited to get free honey."
+            },
+            {
+              "text": "complained about the noise.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "were worried about safety."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "Arthur learned how to care for the bees",
+          "answers": [
+            {
+              "text": "by reading books and websites.",
+              "correct": true
+            },
+            {
+              "text": "from his father.",
+              "correct": false
+            },
+            {
+              "text": "by attending a special course.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "he forgot to feed them.",
+              "correct": false
+            },
+            {
+              "text": "the weather was too cold.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "he used the wrong equipment."
+            }
+          ],
+          "id": 9,
+          "question": "In the first year, some bees died because"
+        },
+        {
+          "answers": [
+            {
+              "text": "make a large profit.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "cover the cost of his equipment."
+            },
+            {
+              "correct": false,
+              "text": "open a shop in the market."
+            }
+          ],
+          "id": 10,
+          "question": "Arthur uses the money from selling honey to"
+        }
+      ],
+      "text": "Arthur Williams, a 65-year-old retired math teacher from London, has found a surprising new hobby. Instead of playing golf or watching television, Arthur spends his days on the roof of his apartment block taking care of thousands of bees. He started three years ago after reading a newspaper article about how the bee population in cities was falling dangerously low.\n\nAt first, his neighbors were not happy with the idea. They thought the bees would be aggressive and might sting their children playing outside. Arthur had to attend a meeting with the building residents to explain his plan. 'I promised them that these bees are very calm types,' Arthur remembers. 'I also promised to give every family a free jar of honey once a year.' After that, they finally agreed to let him try.\n\nNow, Arthur has six hives on the roof. He taught himself beekeeping by reading library books and visiting online forums. It wasn't easy; in the first year, he lost two hives because the winter temperatures dropped lower than expected. However, he didn't give up. He built stronger wooden boxes and insulated them better for the next season.\n\nToday, Arthur's 'Rooftop Gold' honey is popular in the local area. He sells it at the Saturday market, and the money he makes is just enough to pay for the jars, food, and repairs. 'It's not about becoming rich,' he says. 'It's about doing something useful. Plus, the view from the roof is fantastic.'",
+      "id": 5,
+      "title": "The Urban Beekeeper"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "she lost her job.",
+              "correct": false
+            },
+            {
+              "text": "the local library closed down.",
+              "correct": true
+            },
+            {
+              "text": "she wanted to travel more.",
+              "correct": false
+            }
+          ],
+          "question": "Sarah decided to start her project because"
+        },
+        {
+          "question": "Sarah prepared the van",
+          "answers": [
+            {
+              "correct": false,
+              "text": "with the help of the council."
+            },
+            {
+              "text": "using money from her savings.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "by borrowing money from neighbors."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "The people who use the 'Book Bus' the most are",
+          "answers": [
+            {
+              "text": "elderly residents.",
+              "correct": true
+            },
+            {
+              "text": "young children.",
+              "correct": false
+            },
+            {
+              "text": "students from the college.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "finding enough books.",
+              "correct": false
+            },
+            {
+              "text": "the high price of fuel.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "bad weather in winter."
+            }
+          ],
+          "id": 9,
+          "question": "The biggest problem Sarah faces is"
+        },
+        {
+          "answers": [
+            {
+              "text": "buy a larger vehicle.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "expand the service to other areas."
+            },
+            {
+              "correct": false,
+              "text": "hire an assistant."
+            }
+          ],
+          "id": 10,
+          "question": "In the future, Sarah hopes to"
+        }
+      ],
+      "text": "When the only library in the small village of Oakhaven closed down last year, residents were devastated. Sarah Jenkins, who had worked there for twenty years, decided she couldn't let her neighbors go without books. Using her own savings, she bought a second-hand delivery van and spent two months painting it and installing shelves to turn it into a mobile library.\n\nNow, the 'Book Bus' travels around the local area three days a week. It stops at farms and remote houses where people find it difficult to travel to the nearest town. 'It is especially popular with older people,' Sarah explains. 'Many of them do not drive, so they felt very isolated before. Now they have books to read and a friendly face to chat with.'\n\nRunning the service is not cheap. Sarah relies on donations of books from the public to keep the shelves full, but the cost of fuel is rising constantly. 'That is my biggest worry,' she admits. 'Sometimes I have to pay for diesel out of my own pocket because the donations are not enough.' Despite the challenges, she is determined to continue. She hopes that next year she can raise enough sponsorship money to visit two extra villages that have asked for her help.",
+      "id": 6,
+      "title": "Books on Wheels"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "she lost her job as a teacher.",
+              "correct": false
+            },
+            {
+              "text": "she couldn't find someone to fix her clock.",
+              "correct": true
+            },
+            {
+              "text": "she watched a TV program about waste.",
+              "correct": false
+            }
+          ],
+          "question": "Maria decided to start the project after"
+        },
+        {
+          "question": "The volunteers who work at the shop",
+          "answers": [
+            {
+              "correct": false,
+              "text": "are mostly young students."
+            },
+            {
+              "text": "have professional experience.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "are paid for their time."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "To use the service, customers",
+          "answers": [
+            {
+              "text": "must pay a fixed price.",
+              "correct": false
+            },
+            {
+              "text": "can give a voluntary donation.",
+              "correct": true
+            },
+            {
+              "text": "have to bring their own tools.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "he saved a lot of money.",
+              "correct": false
+            },
+            {
+              "text": "he learned a new skill.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "he met new friends."
+            }
+          ],
+          "id": 9,
+          "question": "One visitor mentioned he was happy because"
+        },
+        {
+          "answers": [
+            {
+              "text": "expand the project to other places.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "turn the shop into a business."
+            },
+            {
+              "correct": false,
+              "text": "write a book about her experience."
+            }
+          ],
+          "id": 10,
+          "question": "In the future, Maria wants to"
+        }
+      ],
+      "text": "Maria Silva, a former teacher, was tired of seeing useful items go to waste. Two years ago, she opened the first 'Repair Shop' in her town. Every Saturday morning, the local community center fills up with people carrying broken items. They bring everything from torn clothes to silent radios.\n\nMaria's inspiration came from a frustrating experience. 'I had a beautiful old clock from my grandfather,' she says. 'When it stopped working, three different shops told me to just buy a new one. I refused.' She eventually fixed it herself after watching a video online. That moment changed her mindset.\n\nNow, Maria has a team of ten volunteers. They are retired mechanics, electricians, and tailors who want to stay active. 'We don't charge any money,' explains Bob, a retired engineer. 'We just ask for a small donation to cover the cost of coffee and cake.'\n\nThe project is not just about saving money. It is also about learning. Owners sit with the volunteers and watch the repairs. 'I learned how to sew a button today,' said one happy visitor. 'It's a simple skill, but I never learned it at school.' Maria hopes to open two more shops in neighboring villages next year.",
+      "id": 7,
+      "title": "The Repair Shop"
+    }
+  ]
+}

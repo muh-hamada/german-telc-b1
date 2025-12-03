@@ -2,8 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { I18nManager } from 'react-native';
+import { getExamVariables } from './exam-variables';
 
-// Import translation files
+// Import base UI translation files
 import en from '../locales/en.json';
 import de from '../locales/de.json';
 import ar from '../locales/ar.json';
@@ -61,10 +62,17 @@ export const applyRTLLayout = async () => {
 
 // Check if RTL needs to change and return true if restart is needed
 export const checkRTLChange = (languageCode: string): boolean => {
-  const shouldBeRTL = isRTLLanguage(languageCode);
+  const targetShouldBeRTL = isRTLLanguage(languageCode);
   const isCurrentlyRTL = I18nManager.isRTL;
   
-  return shouldBeRTL !== isCurrentlyRTL;
+  console.log('[checkRTLChange] targetLanguageCode:', languageCode);
+  console.log('[checkRTLChange] targetShouldBeRTL:', targetShouldBeRTL);
+  console.log('[checkRTLChange] I18nManager.isRTL (current native state):', isCurrentlyRTL);
+  console.log('[checkRTLChange] needsChange:', targetShouldBeRTL !== isCurrentlyRTL);
+  
+  // Compare target language RTL requirement with current native UI state
+  // This works correctly because we update I18nManager immediately after language change
+  return targetShouldBeRTL !== isCurrentlyRTL;
 };
 
 i18n
@@ -86,11 +94,28 @@ i18n
     
     interpolation: {
       escapeValue: false,
+      // Set default context for language and level variables
+      defaultVariables: getExamVariables('en'),
     },
     
     react: {
       useSuspense: false,
     },
   });
+
+// Update interpolation context when language changes
+i18n.on('languageChanged', (lng: string) => {
+  const examVars = getExamVariables(lng);
+  i18n.options.interpolation = {
+    ...i18n.options.interpolation,
+    defaultVariables: examVars,
+  };
+});
+
+// Log active exam configuration in development
+if (__DEV__) {
+  console.log(`[i18n] Loaded translations with inline variable support`);
+  console.log(`[i18n] Default variables:`, getExamVariables('en'));
+}
 
 export default i18n;

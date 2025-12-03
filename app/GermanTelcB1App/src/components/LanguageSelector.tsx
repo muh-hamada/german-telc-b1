@@ -4,10 +4,8 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
 interface Language {
@@ -33,7 +31,7 @@ interface LanguageSelectorProps {
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   onLanguageSelect,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const handleLanguageSelect = (languageCode: string) => {
@@ -45,11 +43,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{t('onboarding.selectLanguage')}</Text>
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
+      <View style={styles.scrollContent}>
         {languages.map((language) => (
           <TouchableOpacity
             key={language.code}
@@ -70,6 +64,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
               >
                 {language.nativeName}
               </Text>
+              <Text style={styles.languageNameSeparator}> • </Text>
               <Text
                 style={[
                   styles.languageCode,
@@ -86,14 +81,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             )}
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingHorizontal: spacing.padding.lg,
     width: '100%',
   },
@@ -101,18 +95,16 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-  },
-  scrollView: {
-    flex: 1,
+    marginBottom: spacing.margin.md,
   },
   scrollContent: {
-    paddingBottom: spacing.padding.lg,
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   languageItem: {
-    width: '80%',
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    width: '90%',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
@@ -121,10 +113,12 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.lg,
     borderWidth: 2,
     borderColor: colors.border.light,
+    gap: spacing.margin.sm,
+    position: 'relative',
   },
   flag: {
     fontSize: 32,
-    marginRight: spacing.margin.md,
+    marginRight: spacing.margin.xs,
   },
   selectedLanguageItem: {
     borderColor: colors.primary[500],
@@ -132,12 +126,20 @@ const styles = StyleSheet.create({
   },
   languageContent: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   languageName: {
     ...typography.textStyles.bodyLarge,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.semibold,
-    marginBottom: spacing.margin.xs,
+    marginBottom: 0,
+  },
+  languageNameSeparator: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginBottom: 0,
   },
   selectedLanguageName: {
     color: colors.primary[700],
@@ -145,6 +147,7 @@ const styles = StyleSheet.create({
   languageCode: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    marginBottom: 0,
   },
   selectedLanguageCode: {
     color: colors.primary[600],
@@ -156,6 +159,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary[500],
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    right: -12,
+    top: '50%',
+    transform: [{ translateY: 4 }],
   },
   checkmarkText: {
     color: colors.white,

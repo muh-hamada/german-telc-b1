@@ -6,12 +6,12 @@ import {
   Modal,
   TouchableOpacity,
   ScrollView,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../theme';
 import { useCompletion } from '../contexts/CompletionContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface Exam {
   id: number;
@@ -26,6 +26,7 @@ interface ExamSelectionModalProps {
   examType: string;
   partNumber: number;
   title?: string;
+  itemType?: string;
 }
 
 const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
@@ -36,14 +37,31 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   examType,
   partNumber,
   title,
+  itemType,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const { getCompletionStatus, getStatsForPart } = useCompletion();
-  
+
   const stats = getStatsForPart(examType, partNumber);
+
+  // Always show stats, even if user is logged out (will show 0 progress)
+  const displayStats = stats ? {
+    ...stats,
+    percentage: Math.round((stats.completed / exams.length) * 100),
+    total: exams.length,
+  } : {
+    completed: 0,
+    total: exams.length,
+    percentage: 0,
+  };
 
   const handleSelectExam = (examId: number) => {
     onSelectExam(examId);
+    onClose();
+  };
+
+  const handleClose = (reason: 'user' | 'system') => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_CLOSED, { section: examType, part: partNumber, reason });
     onClose();
   };
 
@@ -52,7 +70,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
       visible={visible}
       transparent={true}
       animationType="fade"
-      onRequestClose={onClose}
+      onRequestClose={() => handleClose('system')}
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
@@ -61,7 +79,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
               {title || t('exam.selectExam')}
             </Text>
             <TouchableOpacity
-              onPress={onClose}
+              onPress={() => handleClose('user')}
               style={styles.closeButton}
             >
               <Text style={styles.closeButtonText}>✕</Text>
@@ -69,28 +87,31 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
           </View>
 
           {/* Stats Section */}
-          {stats && (
-            <View style={styles.statsContainer}>
-              <View style={styles.statsRow}>
-                <Icon name="check-circle" size={20} color={colors.success[500]} />
-                <Text style={styles.statsText}>
-                  {t('exam.completedCount', { completed: stats.completed, total: stats.total })}
-                </Text>
-              </View>
-              <View style={styles.progressBarContainer}>
-                <View 
-                  style={[
-                    styles.progressBarFill, 
-                    { width: `${stats.percentage}%` }
-                  ]} 
-                />
-              </View>
+          <View style={styles.statsContainer}>
+            <View style={styles.statsRow}>
+              <Icon name="check-circle" size={20} color={colors.success[500]} />
+              <Text style={styles.statsText}>
+                {t('exam.completedCount', { completed: displayStats.completed, total: displayStats.total })}
+              </Text>
             </View>
-          )}
+            <View style={styles.progressBarContainer}>
+              <View
+                style={[
+                  styles.progressBarFill,
+                  { width: `${displayStats.percentage}%` }
+                ]}
+              />
+            </View>
+            {!stats && (
+              <Text style={styles.loginHintText}>
+                {t('exam.loginToSaveProgress')}
+              </Text>
+            )}
+          </View>
 
           <ScrollView style={styles.examList}>
             {exams && exams.length > 0 ? (
-              exams.map((exam) => {
+              exams.map((exam, index) => {
                 const completionData = getCompletionStatus(examType, partNumber, exam.id);
                 const isCompleted = completionData?.completed || false;
 
@@ -106,13 +127,13 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
                     <View style={styles.examItemContent}>
                       <View style={styles.examItemLeft}>
                         <Text style={styles.examItemNumber}>
-                          {t('exam.test')} {exam.id + 1}
+                          {itemType || t('exam.test')}  {index + 1}
                         </Text>
                         {exam.title && (
                           <Text style={styles.examItemTitle}>{exam.title}</Text>
                         )}
                       </View>
-                      
+
                       {isCompleted && (
                         <View style={styles.completedBadge}>
                           <Icon name="check" size={16} color={colors.success[600]} />
@@ -162,7 +183,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   modalHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: spacing.padding.md,
@@ -174,6 +195,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h5,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   closeButton: {
     padding: spacing.padding.xs,
@@ -189,7 +211,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.border.light,
   },
   statsRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.margin.sm,
   },
@@ -210,6 +232,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.success[500],
     borderRadius: 4,
   },
+  loginHintText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginTop: spacing.margin.sm,
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
   examList: {
     flexGrow: 1,
     flexShrink: 1,
@@ -224,7 +253,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.success[50],
   },
   examItemContent: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -236,13 +265,15 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   examItemTitle: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   completedBadge: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.success[100],
     paddingHorizontal: spacing.padding.sm,

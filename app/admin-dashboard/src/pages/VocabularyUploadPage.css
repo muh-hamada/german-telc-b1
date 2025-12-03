@@ -1,0 +1,354 @@
+.vocabulary-upload-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.vocabulary-upload-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .vocabulary-upload-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.upload-section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #0077B6;
+  padding-bottom: 1rem;
+}
+
+.section-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #0077B6;
+  font-size: 1.75rem;
+}
+
+.section-description {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.form-select:hover:not(:disabled) {
+  border-color: #0077B6;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #0077B6;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+}
+
+.form-select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.collection-info {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #e6f7ff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #0077B6;
+}
+
+.existing-words-badge {
+  margin-left: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: #4caf50;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.form-file-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px dashed #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form-file-input:hover:not(:disabled) {
+  border-color: #0077B6;
+  background: #f8fbfd;
+}
+
+.form-file-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.file-info {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: #f8fbfd;
+  border: 1px solid #e1f0f7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-icon {
+  font-size: 2rem;
+}
+
+.file-name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.word-count {
+  padding: 0.25rem 0.75rem;
+  background: #0077B6;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.checkbox-label:hover {
+  border-color: #0077B6;
+  background: #f8fbfd;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+.checkbox-text {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.warning-text {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.btn-upload {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #0077B6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-upload:hover:not(:disabled) {
+  background: #005f92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 119, 182, 0.3);
+}
+
+.btn-upload:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-upload:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.progress-log {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.progress-log h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.log-content {
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.log-line {
+  padding: 0.25rem 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.log-line:empty {
+  height: 0.5rem;
+}
+
+/* Instructions Panel */
+.instructions-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-self: start;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.instructions-panel h3 {
+  margin: 0 0 1.5rem 0;
+  color: #0077B6;
+  font-size: 1.5rem;
+}
+
+.instruction-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.instruction-section:last-of-type {
+  border-bottom: none;
+}
+
+.instruction-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.instruction-section p {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.instruction-section pre {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.instruction-section ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.instruction-section li {
+  margin-bottom: 0.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.instruction-section code {
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #0077B6;
+}
+
+.warning-box {
+  padding: 1rem;
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+  border-radius: 6px;
+  color: #e65100;
+  line-height: 1.6;
+}
+
+.warning-box strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+

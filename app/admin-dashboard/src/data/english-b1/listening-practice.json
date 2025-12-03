@@ -1,0 +1,61 @@
+{
+    "interviews": [
+        {
+            "title": "Simple Steps to a Healthier Life",
+            "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
+            "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
+            "questions": [
+                {
+                    "question": "Does the interview suggest that you must stop eating all your favorite foods to be healthy?",
+                    "correct": false,
+                    "explanation": "The speakers explain that eating healthy is about balance and smarter choices, not giving up everything you like."
+                },
+                {
+                    "question": "According to the conversation, is low energy at work often caused by diet?",
+                    "correct": true,
+                    "explanation": "Yes, the speakers mention that feeling tired in the middle of the day is often linked to what people eat."
+                },
+                {
+                    "question": "Do the speakers recommend eating only one portion of fruit or vegetables per day?",
+                    "correct": false,
+                    "explanation": "They state that it is recommended to have at least five portions of fruit and vegetables every day."
+                },
+                {
+                    "question": "Is a heavy burger recommended for lunch if you want to feel active?",
+                    "correct": false,
+                    "explanation": "The conversation suggests that a heavy burger can make you feel tired, while a salad makes you feel lighter and more active."
+                },
+                {
+                    "question": "Did the speakers say that thirst is often confused with hunger?",
+                    "correct": true,
+                    "explanation": "Yes, they explain that often when we think we are hungry, we are actually just thirsty."
+                },
+                {
+                    "question": "Are sugary drinks recommended for long-term energy?",
+                    "correct": false,
+                    "explanation": "No, the speakers warn that sugar gives a quick burst of energy followed by a crash, making you tired again."
+                },
+                {
+                    "question": "Is 'meal prepping' defined as buying fast food on the way home?",
+                    "correct": false,
+                    "explanation": "Meal prepping is defined as preparing meals in advance, for example, cooking on Sunday for the rest of the week."
+                },
+                {
+                    "question": "Do the speakers suggest that cooking in advance can save money?",
+                    "correct": true,
+                    "explanation": "Yes, they mention that planning meals and cooking in advance saves both time and money."
+                },
+                {
+                    "question": "Is the main advice to carry a bottle of soda to the office?",
+                    "correct": false,
+                    "explanation": "The advice is to carry a water bottle to the office to stay hydrated."
+                },
+                {
+                    "question": "Is the overall tone of the conversation discouraging and strict?",
+                    "correct": false,
+                    "explanation": "The tone is described as encouraging, viewing healthy eating as a journey rather than a strict sprint."
+                }
+            ]
+        }
+    ]
+}

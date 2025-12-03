@@ -1,0 +1,46 @@
+{
+    "section_details": {
+        "title": "Listening Part 1: Global Comprehension",
+        "instructions_de": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören diese Texte nur einmal. Entscheiden Sie beim Hören, ob die Aussagen richtig (+) oder falsch (-) sind.",
+        "instructions_en": "You are going to hear five people. You will hear each person only once. First read items 41–45.After you have listened to each person, decide if the statement for each of the items 41–45 is true (+) or not true (–).",
+        "instructions_ar": "ستسمع الآن خمس نصوص قصيرة. يجب أن تحل خمس عمليات. ستسمع هذه النصوص فقط مرة واحدة. قرر أثناء الاستماع إذا كانت البيانات صحيحة (+) أو خاطئة (-).",
+        "instructions_ru": "Вы сейчас услышите пять коротких текстов. Вам нужно решить пять задач. Вы услышите эти тексты только один раз. Решите, слушая, являются ли утверждения правильными (+) или неправильными (-).",
+        "instructions_fr": "Vous entendrez maintenant cinq textes courts. Vous devez résoudre cinq tâches. Vous entendrez ces textes une seule fois. Décidez en écoutant si les affirmations sont correctes (+) ou incorrectes (-).",
+        "instructions_es": "Escucharás ahora cinco textos cortos. Debes resolver cinco tareas. Escucharás estos textos solo una vez. Decide mientras escuchas si las afirmaciones son correctas (+) o incorrectas (-).",
+        "duration_minutes": 5,
+        "prep_time_seconds": 30
+    },
+    "exams": [
+        {
+            "id": 0,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/telc_b1_english_exam_1_part1.mp3?alt=media&token=7ab9dc5a-7dd7-435d-ba1b-35b57959cc83",
+            "statements": [
+                {
+                    "id": 41,
+                    "statement": "The first speaker has thought a lot about the problem.",
+                    "is_correct": false
+                },
+                {
+                    "id": 42,
+                    "statement": "The second speaker has personal experience with people unable to read or write.",
+                    "is_correct": true
+                },
+                {
+                    "id": 43,
+                    "statement": "The third speaker is not satisfied with the present-day school system.",
+                    "is_correct": true
+                },
+                {
+                    "id": 44,
+                    "statement": "The fourth speaker feels that enough is already being done to help people who cannot read or write.",
+                    "is_correct": false
+                },
+                {
+                    "id": 45,
+                    "statement": "The fifth speaker thinks all students can read and write properly.",
+                    "is_correct": false
+                }
+            ]
+        }
+    ]
+}

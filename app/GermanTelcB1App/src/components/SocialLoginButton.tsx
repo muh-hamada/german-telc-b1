@@ -1,9 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator, I18nManager } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator} from 'react-native';
 import { colors, spacing, typography } from '../theme';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
 interface SocialLoginButtonProps {
-  provider: 'google' | 'facebook' | 'apple' | 'twitter';
+  provider: 'google' | 'apple' | 'twitter';
   onPress: () => void;
   loading?: boolean;
   disabled?: boolean;
@@ -15,39 +17,34 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
   loading = false,
   disabled = false,
 }) => {
+  const { t } = useCustomTranslation();
+
   const getProviderConfig = () => {
     switch (provider) {
       case 'google':
         return {
-          title: 'Continue with Google',
-          backgroundColor: '#4285F4',
+          title: t('auth.continueWithGoogle'),
+          backgroundColor: colors.gray[500] ,
           textColor: colors.white,
           icon: 'G',
         };
-      case 'facebook':
-        return {
-          title: 'Continue with Facebook',
-          backgroundColor: '#1877F2',
-          textColor: colors.white,
-          icon: 'f',
-        };
       case 'twitter':
         return {
-          title: 'Continue with Twitter',
+          title: t('auth.continueWithTwitter'),
           backgroundColor: '#1DA1F2',
           textColor: colors.white,
           icon: '𝕏',
         };
       case 'apple':
         return {
-          title: 'Continue with Apple',
+          title: t('auth.continueWithApple'),
           backgroundColor: colors.text.primary,
           textColor: colors.white,
-          icon: '🍎',
+          icon: <Icon name="apple" size={20} color={colors.white} />
         };
       default:
         return {
-          title: 'Continue',
+          title: t('auth.continue'),
           backgroundColor: colors.primary[500],
           textColor: colors.white,
           icon: '?',
@@ -105,14 +102,15 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   content: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    direction: 'ltr',
   },
   icon: {
     fontSize: 20,
     fontWeight: typography.fontWeight.bold,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
   },
   title: {
     ...typography.textStyles.body,

@@ -1,0 +1,243 @@
+[
+  {
+    "word": "Stunde",
+    "article": "die",
+    "translations": {
+      "en": "hour",
+      "es": "hora",
+      "fr": "heure",
+      "ru": "час",
+      "ar": "الساعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich bin in einer Stunde zurück.",
+        "translations": {
+          "en": "I'll be back in an hour.",
+          "es": "Volveré en una hora.",
+          "fr": "Je serai de retour dans une heure.",
+          "ru": "Я вернусь через час.",
+          "ar": "سأعود خلال ساعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "suchen",
+    "article": "",
+    "translations": {
+      "en": "to search",
+      "es": "buscar",
+      "fr": "chercher",
+      "ru": "искать",
+      "ar": "يبحث"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Suchst du etwas?",
+        "translations": {
+          "en": "Are you looking for something?",
+          "es": "¿Buscas algo?",
+          "fr": "Cherches-tu quelque chose?",
+          "ru": "Ты что-то ищешь?",
+          "ar": "هل تبحث عن شيء؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "tanzen",
+    "article": "",
+    "translations": {
+      "en": "to dance",
+      "es": "bailar",
+      "fr": "danser",
+      "ru": "танцевать",
+      "ar": "يرقص"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Tanzen Sie gern?",
+        "translations": {
+          "en": "Do you like to dance?",
+          "es": "¿Le gusta bailar?",
+          "fr": "Aimez-vous danser?",
+          "ru": "Вы любите танцевать?",
+          "ar": "هل تحب الرقص؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Tasche",
+    "article": "die",
+    "translations": {
+      "en": "bag",
+      "es": "bolsa",
+      "fr": "sac",
+      "ru": "сумка",
+      "ar": "الحقيبة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe die Schlüssel in der Tasche.",
+        "translations": {
+          "en": "I have the keys in my pocket.",
+          "es": "Tengo las llaves en el bolsillo.",
+          "fr": "J'ai les clés dans la poche.",
+          "ru": "У меня ключи в кармане.",
+          "ar": "لدي المفاتيح في جيبي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Taxi",
+    "article": "das",
+    "translations": {
+      "en": "taxi",
+      "es": "taxi",
+      "fr": "taxi",
+      "ru": "такси",
+      "ar": "التاكسي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Es gibt heute keinen Bus mehr. Er fährt mit dem Taxi.",
+        "translations": {
+          "en": "There's no more bus today. He's taking a taxi.",
+          "es": "Ya no hay autobús hoy. Él va en taxi.",
+          "fr": "Il n'y a plus de bus aujourd'hui. Il prend le taxi.",
+          "ru": "Сегодня больше нет автобусов. Он едет на такси.",
+          "ar": "لا توجد حافلة اليوم. سيذهب بالتاكسي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Tee",
+    "article": "der",
+    "translations": {
+      "en": "tea",
+      "es": "té",
+      "fr": "thé",
+      "ru": "чай",
+      "ar": "الشاي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich trinke morgens immer Tee.",
+        "translations": {
+          "en": "I always drink tea in the morning.",
+          "es": "Siempre bebo té por la mañana.",
+          "fr": "Je bois toujours du thé le matin.",
+          "ru": "Я всегда пью чай по утрам.",
+          "ar": "أشرب الشاي دائمًا في الصباح."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Teil",
+    "article": "der",
+    "translations": {
+      "en": "part",
+      "es": "parte",
+      "fr": "partie",
+      "ru": "часть",
+      "ar": "الجزء"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Lies bitte auch den zweiten Teil.",
+        "translations": {
+          "en": "Please also read the second part.",
+          "es": "Por favor, lee también la segunda parte.",
+          "fr": "Veuillez également lire la deuxième partie.",
+          "ru": "Пожалуйста, прочитайте также вторую часть.",
+          "ar": "من فضلك، اقرأ أيضًا الجزء الثاني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "telefonieren",
+    "article": "",
+    "translations": {
+      "en": "to phone",
+      "es": "telefonear",
+      "fr": "téléphoner",
+      "ru": "звонить",
+      "ar": "يتصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Darf ich mal telefonieren?",
+        "translations": {
+          "en": "May I make a phone call?",
+          "es": "¿Puedo hacer una llamada?",
+          "fr": "Puis-je téléphoner?",
+          "ru": "Могу я позвонить?",
+          "ar": "هل يمكنني إجراء مكالمة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Telefon",
+    "article": "das",
+    "translations": {
+      "en": "telephone",
+      "es": "teléfono",
+      "fr": "téléphone",
+      "ru": "телефон",
+      "ar": "الهاتف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie Telefon?",
+        "translations": {
+          "en": "Do you have a telephone?",
+          "es": "¿Tiene teléfono?",
+          "fr": "Avez-vous le téléphone?",
+          "ru": "У вас есть телефон?",
+          "ar": "هل لديك هاتف؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Termin",
+    "article": "der",
+    "translations": {
+      "en": "appointment",
+      "es": "cita",
+      "fr": "rendez-vous",
+      "ru": "встреча",
+      "ar": "الموعد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Am besten machen wir sofort einen Termin.",
+        "translations": {
+          "en": "It's best if we make an appointment right away.",
+          "es": "Lo mejor es que hagamos una cita de inmediato.",
+          "fr": "Le mieux est de prendre rendez-vous tout de suite.",
+          "ru": "Лучше всего назначить встречу прямо сейчас.",
+          "ar": "من الأفضل أن نحدد موعدًا على الفور."
+        }
+      }
+    ]
+  }
+]
+

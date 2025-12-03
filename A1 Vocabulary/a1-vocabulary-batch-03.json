@@ -1,0 +1,253 @@
+[
+  {
+    "word": "anklicken",
+    "article": "",
+    "translations": {
+      "en": "to click",
+      "es": "hacer clic",
+      "fr": "cliquer",
+      "ru": "нажать",
+      "ar": "ينقر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Da musst du dieses Wort anklicken.",
+        "translations": {
+          "en": "You have to click on this word.",
+          "es": "Tienes que hacer clic en esta palabra.",
+          "fr": "Tu dois cliquer sur ce mot.",
+          "ru": "Ты должен нажать на это слово.",
+          "ar": "يجب أن تنقر على هذه الكلمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ankommen",
+    "article": "",
+    "translations": {
+      "en": "to arrive",
+      "es": "llegar",
+      "fr": "arriver",
+      "ru": "прибывать",
+      "ar": "يصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wann kommt dieser Zug in Hamburg an?",
+        "translations": {
+          "en": "When does this train arrive in Hamburg?",
+          "es": "¿Cuándo llega este tren a Hamburgo?",
+          "fr": "Quand ce train arrive-t-il à Hambourg ?",
+          "ru": "Когда этот поезд прибывает в Гамбург?",
+          "ar": "متى يصل هذا القطار إلى هامبورغ؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ankunft",
+    "article": "die",
+    "translations": {
+      "en": "arrival",
+      "es": "llegada",
+      "fr": "arrivée",
+      "ru": "прибытие",
+      "ar": "الوصول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Auf diesem Plan steht nur die Ankunft(-szeit) der Züge.",
+        "translations": {
+          "en": "This schedule only shows the arrival time of the trains.",
+          "es": "Este horario solo muestra la hora de llegada de los trenes.",
+          "fr": "Ce plan indique seulement l'heure d'arrivée des trains.",
+          "ru": "В этом расписании указано только время прибытия поездов.",
+          "ar": "يظهر هذا الجدول فقط وقت وصول القطارات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ankreuzen",
+    "article": "",
+    "translations": {
+      "en": "to check",
+      "es": "marcar",
+      "fr": "cocher",
+      "ru": "отмечать",
+      "ar": "يضع علامة"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Auf dem Formular müssen Sie an mehreren Stellen etwas ankreuzen.",
+        "translations": {
+          "en": "You have to check several boxes on the form.",
+          "es": "Debe marcar varias casillas en el formulario.",
+          "fr": "Vous devez cocher plusieurs cases sur le formulaire.",
+          "ru": "Вы должны отметить несколько пунктов в форме.",
+          "ar": "يجب عليك وضع علامة على عدة خانات في النموذج."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anmachen",
+    "article": "",
+    "translations": {
+      "en": "to turn on",
+      "es": "encender",
+      "fr": "allumer",
+      "ru": "включать",
+      "ar": "يشغّل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Mach bitte das Licht an!",
+        "translations": {
+          "en": "Please turn on the light!",
+          "es": "¡Por favor, enciende la luz!",
+          "fr": "Allume la lumière, s'il te plaît !",
+          "ru": "Пожалуйста, включи свет!",
+          "ar": "من فضلك، شغّل الضوء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "anmelden",
+    "article": "",
+    "translations": {
+      "en": "to register",
+      "es": "registrarse",
+      "fr": "s'inscrire",
+      "ru": "регистрироваться",
+      "ar": "يسجل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo kann ich mich anmelden?",
+        "translations": {
+          "en": "Where can I register?",
+          "es": "¿Dónde puedo registrarme?",
+          "fr": "Où puis-je m'inscrire ?",
+          "ru": "Где я могу зарегистрироваться?",
+          "ar": "أين يمكنني التسجيل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anmeldung",
+    "article": "die",
+    "translations": {
+      "en": "registration",
+      "es": "inscripción",
+      "fr": "inscription",
+      "ru": "регистрация",
+      "ar": "التسجيل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Eine Anmeldung für diesen Kurs ist nicht mehr möglich.",
+        "translations": {
+          "en": "Registration for this course is no longer possible.",
+          "es": "Ya no es posible inscribirse en este curso.",
+          "fr": "L'inscription à ce cours n'est plus possible.",
+          "ru": "Регистрация на этот курс больше не возможна.",
+          "ar": "لم يعد التسجيل في هذه الدورة ممكنًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anrede",
+    "article": "die",
+    "translations": {
+      "en": "salutation",
+      "es": "saludo",
+      "fr": "formule d'appel",
+      "ru": "обращение",
+      "ar": "التحية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schreiben Sie auch eine Anrede und einen Gruß.",
+        "translations": {
+          "en": "Also write a salutation and a greeting.",
+          "es": "Escriba también un saludo y una despedida.",
+          "fr": "Écrivez aussi une formule d'appel et une salutation.",
+          "ru": "Напишите также обращение и приветствие.",
+          "ar": "اكتب أيضًا التحية والسلام."
+        }
+      }
+    ]
+  },
+  {
+    "word": "anrufen",
+    "article": "",
+    "translations": {
+      "en": "to call",
+      "es": "llamar",
+      "fr": "appeler",
+      "ru": "звонить",
+      "ar": "يتصل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kann man Sie anrufen?",
+        "translations": {
+          "en": "Can someone call you?",
+          "es": "¿Pueden llamarle?",
+          "fr": "Peut-on vous appeler ?",
+          "ru": "Можно вам позвонить?",
+          "ar": "هل يمكن الاتصال بك؟"
+        }
+      },
+      {
+        "text": "Peter ruft kurz seine Freundin an.",
+        "translations": {
+          "en": "Peter quickly calls his girlfriend.",
+          "es": "Peter llama brevemente a su novia.",
+          "fr": "Peter appelle brièvement sa petite amie.",
+          "ru": "Петер быстро звонит своей девушке.",
+          "ar": "يتصل بيتر بصديقته بسرعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Anruf",
+    "article": "der",
+    "translations": {
+      "en": "call",
+      "es": "llamada",
+      "fr": "appel",
+      "ru": "звонок",
+      "ar": "المكالمة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie bekommt viele Anrufe auf ihrem Handy.",
+        "translations": {
+          "en": "She receives many calls on her cell phone.",
+          "es": "Ella recibe muchas llamadas en su móvil.",
+          "fr": "Elle reçoit beaucoup d'appels sur son portable.",
+          "ru": "Она получает много звонков на свой мобильный.",
+          "ar": "إنها تتلقى العديد من المكالمات على هاتفها المحمول."
+        }
+      }
+    ]
+  }
+]
+

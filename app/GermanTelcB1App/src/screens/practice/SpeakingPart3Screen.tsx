@@ -6,18 +6,15 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-  I18nManager,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface DialogueLine {
   speaker: string;
@@ -49,7 +46,7 @@ type ViewType = 'dialog' | 'vocab' | 'phrases';
 type SpeakingPart3ScreenRouteProp = RouteProp<{ params: { scenarioId: number } }, 'params'>;
 
 const SpeakingPart3Screen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart3ScreenRouteProp>();
   const navigation = useNavigation();
   const scenarioId = route.params?.scenarioId ?? 0;
@@ -85,12 +82,17 @@ const SpeakingPart3Screen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(0); // Speaking doesn't have a score
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, { section: 'speaking', part: 3, exam_id: scenarioId, completed: newStatus });
+      // Alert.alert(
+      //   t('common.success'),
+      //   newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
+      // );
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 
@@ -110,21 +112,21 @@ const SpeakingPart3Screen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentScenario) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.centerContent}>
           <Text style={styles.errorText}>Failed to load speaking data</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -211,7 +213,7 @@ const SpeakingPart3Screen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.mainCard}>
           <View style={styles.headerContainer}>
@@ -257,8 +259,7 @@ const SpeakingPart3Screen: React.FC = () => {
           </View>
         </View>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   tabsContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.secondary[100],
     borderRadius: spacing.borderRadius.md,
     padding: 4,
@@ -331,7 +332,7 @@ const styles = StyleSheet.create({
     gap: spacing.margin.md,
   },
   dialogBubbleContainer: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     marginBottom: spacing.margin.sm,
   },
   dialogBubbleLeft: {
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.secondary[100],
   },
   tableHeaderCell: {
@@ -385,7 +386,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase' as 'uppercase',
   },
   tableRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
   },

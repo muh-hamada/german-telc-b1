@@ -27,6 +27,50 @@
   font-weight: 700;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.app-selector-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.app-selector-button:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-1px);
+}
+
+.selected-app-flag {
+  font-size: 1.25rem;
+}
+
+.selected-app-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.change-icon {
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.app-selector-button:hover .change-icon {
+  transform: translateY(2px);
+}
+
 .nav {
   display: flex;
   gap: 2rem;
@@ -40,21 +84,33 @@
 }
 
 .nav-link:hover {
-  color: #3498db;
+  color: #667eea;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .header .container {
     flex-direction: column;
     gap: 1rem;
   }
 
+  .header-right {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .app-selector-button {
+    width: 100%;
+    justify-content: center;
+  }
+
   .nav {
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-link {
     font-size: 0.9rem;
   }
 }
-

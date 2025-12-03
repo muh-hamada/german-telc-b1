@@ -1,0 +1,299 @@
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Farewell Party",
+      "scenario": "You are planning a farewell party for nice acquaintances before they leave the city.",
+      "dialogue": [
+        { "speaker": "A", "line": "Hi! Good to see you. So, we need to plan the farewell party for our friends. Do you already have any ideas when we should have it?" },
+        { "speaker": "B", "line": "Yes, hi! What do you think, next Friday or Saturday? Friday evening would be better, as most people have Saturday off." },
+        { "speaker": "A", "line": "That is a good idea. Friday evening, around 7:00 PM. Where should we celebrate? Maybe in my garden?" },
+        { "speaker": "B", "line": "Great! In a restaurant, it would be too expensive. How about a barbecue? I can take care of the salads." },
+        { "speaker": "A", "line": "A barbecue is perfect! I'll buy the meat and the drinks – wine, beer, and water. Who will take care of the invitations?" },
+        { "speaker": "B", "line": "I will make the invitations and send them by email. And who pays for what?" },
+        { "speaker": "A", "line": "I will cover the costs for the meat and the drinks, and you for the salads." },
+        { "speaker": "B", "line": "That is fair! Then we meet on Friday evening. Great that we clarified that!" },
+        { "speaker": "A", "line": "Perfect! See you then!" }
+      ],
+      "vocabulary": [
+        { "german": "die Abschiedsparty", "english": "farewell party" },
+        { "german": "die Einladung", "english": "invitation" },
+        { "german": "die Getränke", "english": "drinks" },
+        { "german": "die Kosten übernehmen", "english": "to cover the costs" },
+        { "german": "sich einigen auf", "english": "to agree upon" },
+        { "german": "der Garten", "english": "garden" },
+        { "german": "die Aufgabe", "english": "task" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "How about Friday evening?", "response": "That is a good idea!" },
+        { "type": "suggestion", "german": "What do you think about a barbecue?", "response": "I like that very much." },
+        { "type": "delegation", "german": "Who can take that over?", "response": "I will take care of it." },
+        { "type": "conclusion", "german": "Have we discussed everything?", "response": "I think so." }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "City Trip",
+      "scenario": "You want to plan a two-day trip to a German city together.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hello Anna, we need to plan our city trip to Hamburg. I'm already looking forward to it!" },
+        { "speaker": "A", "line": "Me too! Which city did we want to go to? Oh yes, Hamburg! When exactly?" },
+        { "speaker": "B", "line": "How about we go the first weekend of next month? Saturday and Sunday." },
+        { "speaker": "A", "line": "That suits me well. But how will we get there? Shall we go by train or by car?" },
+        { "speaker": "B", "line": "I suggest we take the ICE train. That is faster and more relaxing, and we save the money for the parking garage." },
+        { "speaker": "A", "line": "Good idea. We also need accommodation. I found a central hotel that is not too expensive. I can book it." },
+        { "speaker": "B", "line": "Perfect! What do we want to visit? I absolutely want to see the Elbphilharmonie (concert hall)." },
+        { "speaker": "A", "line": "That is a must! And in the evening we could eat at a fish restaurant. I will look for the restaurant and you buy the train tickets." },
+        { "speaker": "B", "line": "Agreed! Then I'll book the tickets and you the hotel and the restaurant." }
+      ],
+      "vocabulary": [
+        { "german": "die Städtereise", "english": "city trip" },
+        { "german": "die Übernachtung", "english": "accommodation/stay" },
+        { "german": "die Sehenswürdigkeit", "english": "sight / point of interest" },
+        { "german": "der Zug", "english": "train" },
+        { "german": "zentral", "english": "central" },
+        { "german": "besichtigen", "english": "to visit/sightsee" },
+        { "german": "buchen", "english": "to book" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "I have an idea: We'll take the train.", "response": "That is faster and more relaxing." },
+        { "type": "suggestion", "german": "I absolutely want to see the Elbphilharmonie.", "response": "That is a must!" },
+        { "type": "delegation", "german": "Who buys the train tickets?", "response": "I can do that." },
+        { "type": "delegation", "german": "I can take care of the booking.", "response": "That is very kind of you." }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Relocation / Moving House",
+      "scenario": "A mutual friend is moving house soon, and you are supposed to organize the help.",
+      "dialogue": [
+        { "speaker": "A", "line": "Tina, Thomas is moving next week. We need to help him organize everything." },
+        { "speaker": "B", "line": "True! Let's discuss it. First: When exactly is he moving? We need a precise date." },
+        { "speaker": "A", "line": "Next Saturday morning. We should start at 9:00 AM. Who all can help? I'll ask Lukas and Sarah too." },
+        { "speaker": "B", "line": "Good. I can take care of the means of transport. I'll call a company that rents out a delivery van." },
+        { "speaker": "A", "line": "Excellent! And we need moving boxes. I still have a few, but not enough. I will buy new ones." },
+        { "speaker": "B", "line": "Perfect. And we need to cater for the helpers. I suggest I make sandwiches and buy coffee." },
+        { "speaker": "A", "line": "That's great, then I'll buy pizza for dinner. I'll write down all the helpers on a list and you reserve the van, okay?" },
+        { "speaker": "B", "line": "Agreed! Then everything is organized." }
+      ],
+      "vocabulary": [
+        { "german": "der Umzug", "english": "the move / relocation" },
+        { "german": "der Transporter", "english": "delivery van" },
+        { "german": "die Umzugskartons", "english": "moving boxes" },
+        { "german": "helfen bei", "english": "to help with" },
+        { "german": "das Transportmittel", "english": "means of transport" },
+        { "german": "die Verpflegung", "english": "catering / food supply" },
+        { "german": "der Helfer", "english": "helper" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "We should start on Saturday at 9:00 AM.", "response": "Agreed!" },
+        { "type": "delegation", "german": "What about the moving boxes?", "response": "I'll get new ones." },
+        { "type": "suggestion", "german": "What shall we do about the food?", "response": "I can prepare sandwiches." },
+        { "type": "conclusion", "german": "With that, we have everything.", "response": "The plan is set." }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Summer Party",
+      "scenario": "You and your colleague are planning the annual summer party for the company.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hello Max, we need to plan the summer party. When is the best time? End of July or beginning of August?" },
+        { "speaker": "A", "line": "Beginning of August is better, I think. And where can we celebrate? I suggest the park near the office." },
+        { "speaker": "B", "line": "That is a good idea. It is large enough. What shall we do about the food? We need something simple." },
+        { "speaker": "A", "line": "We could order a catering service. They bring food and dishes. I will get some quotes." },
+        { "speaker": "B", "line": "Great! And we need music and dancing. I have a good playlist with summer hits. I will take care of the sound system." },
+        { "speaker": "A", "line": "Wonderful! I'll organize the food and the tables. Can you send the invitations to all colleagues?" },
+        { "speaker": "B", "line": "Yes, I'll do that right away. I'll also write a list for the drinks. Do we need anything else?" },
+        { "speaker": "A", "line": "No, I think we have discussed the most important things. I'm looking forward to the party!" }
+      ],
+      "vocabulary": [
+        { "german": "das Sommerfest", "english": "summer festival" },
+        { "german": "der Kollege", "english": "colleague" },
+        { "german": "die Musikanlage", "english": "sound system" },
+        { "german": "der Partyservice", "english": "catering service" },
+        { "german": "ein Angebot einholen", "english": "to get a quote" },
+        { "german": "das Geschirr", "english": "crockery / dishes" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "I suggest we get some quotes.", "response": "That is very practical." },
+        { "type": "delegation", "german": "Can you perhaps send the invitations?", "response": "Gladly, I'll do it!" },
+        { "type": "suggestion", "german": "What shall we do for entertainment?", "response": "We need music." },
+        { "type": "conclusion", "german": "I think we have everything.", "response": "Yes, we are finished." }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Bike Tour",
+      "scenario": "You want to go on a day-long bike tour together this weekend.",
+      "dialogue": [
+        { "speaker": "A", "line": "Lena, the weather is supposed to be great this weekend! Shall we go on our bike tour?" },
+        { "speaker": "B", "line": "Yes, absolutely! When do we want to start? In the morning, around 10 AM?" },
+        { "speaker": "A", "line": "10 AM is good. But where are we going? I know a beautiful route along the river. That's about 30 kilometers." },
+        { "speaker": "B", "line": "30 kilometers is good. But we also need to take a break. Is there a restaurant along the way?" },
+        { "speaker": "A", "line": "I don't know exactly. We could have a picnic. I'll bring bread and cheese." },
+        { "speaker": "B", "line": "That's better! I'll make fresh juice and bring fruit. And everyone has to check their bikes!" },
+        { "speaker": "A", "line": "That's true! I'll check the tire pressure and you check the brakes. We'll meet at the bridge at 10 AM." },
+        { "speaker": "B", "line": "Perfect! See you Saturday then! I'm looking forward to the fresh air." }
+      ],
+      "vocabulary": [
+        { "german": "der Fahrradausflug", "english": "bike tour" },
+        { "german": "die Route", "english": "route" },
+        { "german": "das Picknick", "english": "picnic" },
+        { "german": "die Bremse", "english": "brake" },
+        { "german": "der Reifendruck", "english": "tire pressure" },
+        { "german": "überprüfen", "english": "to check / inspect" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "When do we want to start?", "response": "10 AM is good." },
+        { "type": "suggestion", "german": "We could have a picnic.", "response": "That's better!" },
+        { "type": "delegation", "german": "Everyone has to check their bikes!", "response": "That's true!" },
+        { "type": "conclusion", "german": "Perfect! See you Saturday then!", "response": "" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Donation Drive",
+      "scenario": "You want to organize a donation drive for children in the neighborhood.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hello Martin. We want to start a donation drive to help the children in our area. How do we start?" },
+        { "speaker": "A", "line": "Hello! First, we need to clarify which organization we want to support. Do you know the children's home on Schillerstraße?" },
+        { "speaker": "B", "line": "Yes, that's a good choice. We should collect non-monetary donations, not clothes, but toys and books." },
+        { "speaker": "A", "line": "Good idea. Where can we collect the donations? I have a basement room that we can use." },
+        { "speaker": "B", "line": "Great. I'll create flyers and put them up in the supermarkets. And I'll inform the local newspaper." },
+        { "speaker": "A", "line": "Excellent! I'll make a list of things we urgently need and organize the drop-off times." },
+        { "speaker": "B", "line": "And we need volunteers to help with sorting. I'll ask my neighbors." },
+        { "speaker": "A", "line": "Agreed. I'll make the list, you do the flyers, and we ask for volunteers. I think that's a good plan!" }
+      ],
+      "vocabulary": [
+        { "german": "die Spendenaktion", "english": "donation drive" },
+        { "german": "das Kinderheim", "english": "children's home" },
+        { "german": "die Sachspende", "english": "non-monetary donation" },
+        { "german": "sammeln", "english": "to collect" },
+        { "german": "der Flyer", "english": "flyer" },
+        { "german": "der Freiwillige", "english": "volunteer" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Which organization shall we support?", "response": "That is a good choice." },
+        { "type": "suggestion", "german": "Where can we collect the donations?", "response": "I have a basement room." },
+        { "type": "delegation", "german": "We need volunteers.", "response": "I'll ask my neighbors." },
+        { "type": "conclusion", "german": "That's a good plan!", "response": "" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Children's Birthday Party",
+      "scenario": "Your children are friends, and you are planning a joint celebration.",
+      "dialogue": [
+        { "speaker": "A", "line": "Susi, our children have birthdays soon. Shall we have a joint celebration?" },
+        { "speaker": "B", "line": "Yes, that will be easier! Who should we invite? Only the children from school or the parents too?" },
+        { "speaker": "A", "line": "Only the children. I think 15 children are enough. Where shall we celebrate? My house is too small." },
+        { "speaker": "B", "line": "How about we go to the zoo and have a picnic there? Or we rent a room in the sports hall?" },
+        { "speaker": "A", "line": "The sports hall is good if the weather is bad. I'll call there and reserve the room." },
+        { "speaker": "B", "line": "Very good. What shall we do about the cake and the sweets? I can bake the cake." },
+        { "speaker": "A", "line": "Great! I'll take care of the games and the drinks. We also need a small gift from us." },
+        { "speaker": "B", "line": "Agreed. I'll bake the cake and you reserve the room. And we'll buy a gift together." }
+      ],
+      "vocabulary": [
+        { "german": "die Feier", "english": "celebration" },
+        { "german": "reservieren", "english": "to reserve" },
+        { "german": "der Kuchen", "english": "cake" },
+        { "german": "die Süßigkeiten", "english": "sweets" },
+        { "german": "die Sporthalle", "english": "sports hall" },
+        { "german": "das Geschenk", "english": "gift" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Who should we invite?", "response": "Only the children." },
+        { "type": "suggestion", "german": "Where shall we celebrate?", "response": "How about at the zoo?" },
+        { "type": "delegation", "german": "What shall we do about the cake?", "response": "I can bake the cake." },
+        { "type": "conclusion", "german": "Agreed.", "response": "" }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Fitness Routine",
+      "scenario": "You want to start a healthy sports program together.",
+      "dialogue": [
+        { "speaker": "B", "line": "Hello Alex! We wanted to do more for our health. What do we suggest? Jogging or swimming?" },
+        { "speaker": "A", "line": "Hello! I think jogging is easier because we don't need a gym membership." },
+        { "speaker": "B", "line": "That's true. How often do we want to train? I can do three times a week." },
+        { "speaker": "A", "line": "Three times is good. And when exactly? I can only do evenings after 6:00 PM." },
+        { "speaker": "B", "line": "6:30 PM? We could jog in the park, that's closer. And who will look for a good training schedule online?" },
+        { "speaker": "A", "line": "I can take that over! I'll look for a plan for beginners and write a list of warm-up exercises." },
+        { "speaker": "B", "line": "Great. I'll buy us new sports shoes and look for a good running route in the park." },
+        { "speaker": "A", "line": "Perfect! Let's start training on Monday evening." }
+      ],
+      "vocabulary": [
+        { "german": "die Gesundheit", "english": "health" },
+        { "german": "joggen", "english": "to jog" },
+        { "german": "die Mitgliedschaft", "english": "membership" },
+        { "german": "der Trainingsplan", "english": "training schedule" },
+        { "german": "der Anfänger", "english": "beginner" },
+        { "german": "die Laufstrecke", "english": "running route" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "What do we suggest?", "response": "Jogging is easier." },
+        { "type": "suggestion", "german": "How often do we want to train?", "response": "Three times is good." },
+        { "type": "delegation", "german": "Who will look for a good training schedule?", "response": "I can take that over!" },
+        { "type": "conclusion", "german": "Perfect! Let's start.", "response": "" }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Class Reunion",
+      "scenario": "You want to organize a reunion with former schoolmates after 10 years.",
+      "dialogue": [
+        { "speaker": "A", "line": "Hey, it's been 10 years since we finished school! We need to organize a class reunion!" },
+        { "speaker": "B", "line": "Yes, that's a great idea! But that's a lot of work. Who are we inviting? Only our class or the teachers too?" },
+        { "speaker": "A", "line": "Only the students from the class. When is the best time? Maybe in autumn? End of October?" },
+        { "speaker": "B", "line": "October is good. And where shall we meet? In the old school building? Or in a cafe?" },
+        { "speaker": "A", "line": "The old school building is nostalgic, but a cafe is more convenient. I can reserve a cafe in the center." },
+        { "speaker": "B", "line": "Do that! We also need to find everyone's addresses. I still have an old list. I'll write to everyone." },
+        { "speaker": "A", "line": "Perfect! I'll do the cafe and you do the invitations. And everyone pays for their own food, that's simpler." },
+        { "speaker": "B", "line": "Absolutely! Then we'll divide the tasks like that." }
+      ],
+      "vocabulary": [
+        { "german": "das Klassentreffen", "english": "class reunion" },
+        { "german": "ehemalig", "english": "former" },
+        { "german": "das Schulgebäude", "english": "school building" },
+        { "german": "bequem", "english": "convenient" },
+        { "german": "die Adresse", "english": "address" },
+        { "german": "die Liste", "english": "list" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "Who shall we invite?", "response": "Only the students from the class." },
+        { "type": "suggestion", "german": "Where shall we meet?", "response": "A cafe is more convenient." },
+        { "type": "delegation", "german": "We need to find the addresses.", "response": "I still have an old list." },
+        { "type": "conclusion", "german": "Then we'll divide the tasks like that.", "response": "" }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Visit for a Guest",
+      "scenario": "A friend from abroad is coming to visit, and you are planning their stay.",
+      "dialogue": [
+        { "speaker": "B", "line": "Tina, our friend Marco is coming next weekend! We need to plan his stay." },
+        { "speaker": "A", "line": "True! When is he arriving? I can pick him up from the airport." },
+        { "speaker": "B", "line": "That's nice of you. He lands on Friday at 3:00 PM. Where should he stay overnight? I have space at my place." },
+        { "speaker": "A", "line": "Good, then he'll stay with you. What do we want to show him? He likes art and history." },
+        { "speaker": "B", "line": "Then we'll visit the Historical Museum on Saturday and do a city tour. I'll buy the tickets." },
+        { "speaker": "A", "line": "Great! And in the evening we'll go to my favorite restaurant. I'll reserve a table for the three of us." },
+        { "speaker": "B", "line": "Perfect. Then I'll pick him up, you make the reservation, and I'll take care of the tickets for the museum." },
+        { "speaker": "A", "line": "Wonderful! I'm really looking forward to his visit!" }
+      ],
+      "vocabulary": [
+        { "german": "der Aufenthalt", "english": "stay / visit" },
+        { "german": "der Flughafen", "english": "airport" },
+        { "german": "abholen", "english": "to pick up" },
+        { "german": "die Stadtführung", "english": "city tour" },
+        { "german": "die Geschichte", "english": "history" },
+        { "german": "die Kunst", "english": "art" }
+      ],
+      "phrases": [
+        { "type": "suggestion", "german": "When is he arriving?", "response": "I can pick him up." },
+        { "type": "suggestion", "german": "What do we want to show him?", "response": "He likes art and history." },
+        { "type": "delegation", "german": "I'll buy the tickets.", "response": "Great!" },
+        { "type": "conclusion", "german": "Wonderful!", "response": "" }
+      ]
+    }
+  ]
+}

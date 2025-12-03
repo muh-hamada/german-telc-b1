@@ -11,10 +11,10 @@ const PrivacyPolicy: React.FC = () => {
         <section>
           <h2>1. Introduction</h2>
           <p>
-            Welcome to German TELC B1 ("we," "our," or "us"). We are committed to protecting your privacy 
-            and ensuring you have a positive experience when using our mobile application. This Privacy Policy 
-            explains how we collect, use, disclose, and safeguard your information when you use our German 
-            TELC B1 exam preparation application.
+            Welcome to TELC Exam Preparation ("we," "our," or "us"). We are committed to protecting your privacy 
+            and ensuring you have a positive experience when using our mobile applications. This Privacy Policy 
+            explains how we collect, use, disclose, and safeguard your information when you use our TELC exam 
+            preparation applications across different levels (B1, B2) and languages (German, English, and others).
           </p>
         </section>
 

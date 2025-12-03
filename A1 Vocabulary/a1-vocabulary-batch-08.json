@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Auto",
+    "article": "das",
+    "translations": {
+      "en": "car",
+      "es": "coche",
+      "fr": "voiture",
+      "ru": "машина",
+      "ar": "السيارة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er kommt mit dem Auto.",
+        "translations": {
+          "en": "He's coming by car.",
+          "es": "Él viene en coche.",
+          "fr": "Il vient en voiture.",
+          "ru": "Он приезжает на машине.",
+          "ar": "إنه يأتي بالسيارة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Autobahn",
+    "article": "die",
+    "translations": {
+      "en": "highway",
+      "es": "autopista",
+      "fr": "autoroute",
+      "ru": "автобан",
+      "ar": "الطريق السريع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wo geht's hier bitte zur Autobahn?",
+        "translations": {
+          "en": "Where is the highway, please?",
+          "es": "¿Dónde está la autopista, por favor?",
+          "fr": "Où est l'autoroute, s'il vous plaît ?",
+          "ru": "Где здесь автобан, пожалуйста?",
+          "ar": "أين الطريق السريع من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Automat",
+    "article": "der",
+    "translations": {
+      "en": "vending machine",
+      "es": "máquina expendedora",
+      "fr": "distributeur automatique",
+      "ru": "автомат",
+      "ar": "آلة البيع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Fahrkarten gibt es nur am Automaten.",
+        "translations": {
+          "en": "Tickets are only available from the vending machine.",
+          "es": "Los billetes solo están disponibles en la máquina expendedora.",
+          "fr": "Les billets sont uniquement disponibles au distributeur automatique.",
+          "ru": "Билеты доступны только в автомате.",
+          "ar": "التذاكر متاحة فقط من آلة البيع."
+        }
+      }
+    ]
+  },
+  {
+    "word": "automatisch",
+    "article": "",
+    "translations": {
+      "en": "automatic",
+      "es": "automático",
+      "fr": "automatique",
+      "ru": "автоматический",
+      "ar": "تلقائي"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Du musst nichts machen. Das geht automatisch.",
+        "translations": {
+          "en": "You don't have to do anything. It happens automatically.",
+          "es": "No tienes que hacer nada. Es automático.",
+          "fr": "Tu n'as rien à faire. C'est automatique.",
+          "ru": "Тебе ничего не нужно делать. Это происходит автоматически.",
+          "ar": "لا داعي لأن تفعل أي شيء. يحدث هذا تلقائيًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Baby",
+    "article": "das",
+    "translations": {
+      "en": "baby",
+      "es": "bebé",
+      "fr": "bébé",
+      "ru": "младенец",
+      "ar": "الرضيع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Kind ist noch ein Baby.",
+        "translations": {
+          "en": "My child is still a baby.",
+          "es": "Mi hijo todavía es un bebé.",
+          "fr": "Mon enfant est encore un bébé.",
+          "ru": "Мой ребёнок ещё младенец.",
+          "ar": "طفلي لا يزال رضيعًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bäckerei",
+    "article": "die",
+    "translations": {
+      "en": "bakery",
+      "es": "panadería",
+      "fr": "boulangerie",
+      "ru": "пекарня",
+      "ar": "المخبز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich geh mal schnell zur Bäckerei.",
+        "translations": {
+          "en": "I'll quickly go to the bakery.",
+          "es": "Voy rápidamente a la panadería.",
+          "fr": "Je vais vite à la boulangerie.",
+          "ru": "Я быстро схожу в пекарню.",
+          "ar": "سأذهب بسرعة إلى المخبز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bad",
+    "article": "das",
+    "translations": {
+      "en": "bathroom",
+      "es": "baño",
+      "fr": "salle de bain",
+      "ru": "ванная",
+      "ar": "الحمام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben kein großes Bad.",
+        "translations": {
+          "en": "We don't have a large bathroom.",
+          "es": "No tenemos un baño grande.",
+          "fr": "Nous n'avons pas une grande salle de bain.",
+          "ru": "У нас нет большой ванной.",
+          "ar": "ليس لدينا حمام كبير."
+        }
+      }
+    ]
+  },
+  {
+    "word": "baden",
+    "article": "",
+    "translations": {
+      "en": "to bathe",
+      "es": "bañarse",
+      "fr": "se baigner",
+      "ru": "купаться",
+      "ar": "يستحم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich bade nicht so gern, ich dusche lieber.",
+        "translations": {
+          "en": "I don't like bathing much, I prefer showering.",
+          "es": "No me gusta mucho bañarme, prefiero ducharme.",
+          "fr": "Je n'aime pas trop me baigner, je préfère me doucher.",
+          "ru": "Я не очень люблю принимать ванну, я предпочитаю душ.",
+          "ar": "لا أحب الاستحمام كثيرًا، أفضل الدش."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bahn",
+    "article": "die",
+    "translations": {
+      "en": "train",
+      "es": "tren",
+      "fr": "train",
+      "ru": "поезд",
+      "ar": "القطار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir fahren lieber mit der Bahn.",
+        "translations": {
+          "en": "We prefer to go by train.",
+          "es": "Preferimos ir en tren.",
+          "fr": "Nous préférons prendre le train.",
+          "ru": "Мы предпочитаем ехать на поезде.",
+          "ar": "نفضل السفر بالقطار."
+        }
+      },
+      {
+        "text": "Ich nehme die nächste Bahn.",
+        "translations": {
+          "en": "I'll take the next train.",
+          "es": "Tomaré el próximo tren.",
+          "fr": "Je prends le prochain train.",
+          "ru": "Я возьму следующий поезд.",
+          "ar": "سآخذ القطار التالي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bahnhof",
+    "article": "der",
+    "translations": {
+      "en": "train station",
+      "es": "estación de tren",
+      "fr": "gare",
+      "ru": "вокзал",
+      "ar": "محطة القطار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Komme ich hier zum Bahnhof?",
+        "translations": {
+          "en": "Do I get to the train station from here?",
+          "es": "¿Llego a la estación de tren desde aquí?",
+          "fr": "Est-ce que j'arrive à la gare d'ici ?",
+          "ru": "Я отсюда попаду на вокзал?",
+          "ar": "هل أصل إلى محطة القطار من هنا؟"
+        }
+      }
+    ]
+  }
+]
+

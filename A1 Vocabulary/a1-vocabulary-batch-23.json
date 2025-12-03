@@ -1,0 +1,243 @@
+[
+  {
+    "word": "Feuer",
+    "article": "das",
+    "translations": {
+      "en": "fire",
+      "es": "fuego",
+      "fr": "feu",
+      "ru": "огонь",
+      "ar": "النار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie Feuer?",
+        "translations": {
+          "en": "Do you have a light?",
+          "es": "¿Tiene fuego?",
+          "fr": "Avez-vous du feu ?",
+          "ru": "У вас есть огонь?",
+          "ar": "هل لديك نار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fieber",
+    "article": "das",
+    "translations": {
+      "en": "fever",
+      "es": "fiebre",
+      "fr": "fièvre",
+      "ru": "температура",
+      "ar": "الحمى"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Mann hat noch immer Fieber.",
+        "translations": {
+          "en": "My husband still has a fever.",
+          "es": "Mi esposo todavía tiene fiebre.",
+          "fr": "Mon mari a encore de la fièvre.",
+          "ru": "У моего мужа всё ещё температура.",
+          "ar": "زوجي لا يزال لديه حمى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Film",
+    "article": "der",
+    "translations": {
+      "en": "film",
+      "es": "película",
+      "fr": "film",
+      "ru": "фильм",
+      "ar": "الفيلم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte gern diesen Film sehen.",
+        "translations": {
+          "en": "I'd like to watch this film.",
+          "es": "Me gustaría ver esta película.",
+          "fr": "J'aimerais voir ce film.",
+          "ru": "Я хотел бы посмотреть этот фильм.",
+          "ar": "أود مشاهدة هذا الفيلم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "finden",
+    "article": "",
+    "translations": {
+      "en": "to find",
+      "es": "encontrar",
+      "fr": "trouver",
+      "ru": "находить",
+      "ar": "يجد"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wir müssen den Schlüssel finden.",
+        "translations": {
+          "en": "We have to find the key.",
+          "es": "Tenemos que encontrar la llave.",
+          "fr": "Nous devons trouver la clé.",
+          "ru": "Мы должны найти ключ.",
+          "ar": "يجب أن نجد المفتاح."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Firma",
+    "article": "die",
+    "translations": {
+      "en": "company",
+      "es": "empresa",
+      "fr": "entreprise",
+      "ru": "фирма",
+      "ar": "الشركة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er arbeitet jetzt bei einer anderen Firma.",
+        "translations": {
+          "en": "He now works for another company.",
+          "es": "Ahora trabaja para otra empresa.",
+          "fr": "Il travaille maintenant pour une autre entreprise.",
+          "ru": "Теперь он работает в другой фирме.",
+          "ar": "إنه يعمل الآن في شركة أخرى."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fisch",
+    "article": "der",
+    "translations": {
+      "en": "fish",
+      "es": "pescado",
+      "fr": "poisson",
+      "ru": "рыба",
+      "ar": "السمك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich esse gern Fisch. Fleisch mag ich nicht.",
+        "translations": {
+          "en": "I like eating fish. I don't like meat.",
+          "es": "Me gusta comer pescado. No me gusta la carne.",
+          "fr": "J'aime manger du poisson. Je n'aime pas la viande.",
+          "ru": "Я люблю есть рыбу. Мясо я не люблю.",
+          "ar": "أحب أكل السمك. لا أحب اللحم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Flasche",
+    "article": "die",
+    "translations": {
+      "en": "bottle",
+      "es": "botella",
+      "fr": "bouteille",
+      "ru": "бутылка",
+      "ar": "الزجاجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Eine Flasche Bier, bitte.",
+        "translations": {
+          "en": "A bottle of beer, please.",
+          "es": "Una botella de cerveza, por favor.",
+          "fr": "Une bouteille de bière, s'il vous plaît.",
+          "ru": "Бутылку пива, пожалуйста.",
+          "ar": "زجاجة بيرة، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fleisch",
+    "article": "das",
+    "translations": {
+      "en": "meat",
+      "es": "carne",
+      "fr": "viande",
+      "ru": "мясо",
+      "ar": "اللحم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fleisch mag ich nicht.",
+        "translations": {
+          "en": "I don't like meat.",
+          "es": "No me gusta la carne.",
+          "fr": "Je n'aime pas la viande.",
+          "ru": "Я не люблю мясо.",
+          "ar": "لا أحب اللحم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "fliegen",
+    "article": "",
+    "translations": {
+      "en": "to fly",
+      "es": "volar",
+      "fr": "voler",
+      "ru": "летать",
+      "ar": "يطير"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich fliege nicht gern. Deshalb fahre ich mit dem Zug.",
+        "translations": {
+          "en": "I don't like flying. That's why I take the train.",
+          "es": "No me gusta volar. Por eso voy en tren.",
+          "fr": "Je n'aime pas voler. C'est pourquoi je prends le train.",
+          "ru": "Я не люблю летать. Поэтому я езжу на поезде.",
+          "ar": "لا أحب الطيران. لذلك أسافر بالقطار."
+        }
+      }
+    ]
+  },
+  {
+    "word": "abfliegen",
+    "article": "",
+    "translations": {
+      "en": "to depart",
+      "es": "despegar",
+      "fr": "décoller",
+      "ru": "вылетать",
+      "ar": "يقلع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wann fliegst du ab?",
+        "translations": {
+          "en": "When are you flying out?",
+          "es": "¿Cuándo despega tu vuelo?",
+          "fr": "Quand décolles-tu ?",
+          "ru": "Когда ты вылетаешь?",
+          "ar": "متى ستقلع؟"
+        }
+      }
+    ]
+  }
+]
+

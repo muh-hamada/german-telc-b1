@@ -1,0 +1,46 @@
+{
+    "section_details": {
+        "title": "Listening Part 3: Selective Comprehension",
+        "instructions_de": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören jeden Text zweimal. Entscheiden Sie beim Hören, ob die Aussagen 56-60 richtig oder falsch sind. Markieren Sie Ihre Lösungen für die Aufgaben 56-60 auf dem Antwortbogen. Markieren Sie PLUS (+) gleich richtig und MINUS (–) gleich falsch.",
+        "instructions_en": "You are going to hear five short texts. You will hear each text twice. After you have listened to each text, decide if the statement for each of the items 56–60 is true (+) or not true (–).",
+        "instructions_ar": "ستسمع الآن خمس نصوص قصيرة. يجب أن تحل خمس عمليات. ستسمع كل نص مرتين. قرر أثناء الاستماع إذا كانت البيانات 56-60 صحيحة أو خاطئة. حدد حلولك للمهام 56-60 على ورقة الإجابة. حدد PLUS (+) كصحيح و MINUS (–) كخاطئ.",
+        "instructions_ru": "Вы сейчас услышите пять коротких текстов. Вам нужно решить пять задач. Вы услышите каждый текст дважды. Решите, слушая, являются ли утверждения 56-60 правильными или неправильными. Отметьте свои решения для задач 56-60 на листе ответов. Отметьте PLUS (+) как правильное и MINUS (–) как неправильное.",
+        "instructions_fr": "Vous entendrez maintenant cinq textes courts. Vous devez résoudre cinq tâches. Vous entendrez chaque texte deux fois. Décidez en écoutant si les affirmations 56-60 sont correctes ou incorrectes. Marquez vos solutions pour les tâches 56-60 sur le formulaire de réponses. Marquez PLUS (+) comme correct et MINUS (–) comme incorrect.",
+        "instructions_es": "Escucharás ahora cinco textos cortos. Debes resolver cinco tareas. Escucharás cada texto dos veces. Decide mientras escuchas si las afirmaciones 56-60 son correctas o incorrectas. Marca tus soluciones para las tareas 56-60 en el formulario de respuestas. Marca PLUS (+) como correcto y MINUS (–) como incorrecto.",
+        "duration_minutes": 10,
+        "prep_time_seconds": 60
+    },
+    "exams": [
+        {
+            "id": 0,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/telc_b1_english_exam_1_part3.mov?alt=media&token=140f89f3-1769-4cab-b962-92cd544c24a6",
+            "statements": [
+                {
+                    "id": 56,
+                    "statement": "You should be at the airport earlier than usual.",
+                    "is_correct": false
+                },
+                {
+                    "id": 57,
+                    "statement": "The hotel will be open for guests next week.",
+                    "is_correct": true
+                },
+                {
+                    "id": 58,
+                    "statement": "You can hear the programme about Scotland.",
+                    "is_correct": false
+                },
+                {
+                    "id": 59,
+                    "statement": "You have to go to another platform.",
+                    "is_correct": true
+                },
+                {
+                    "id": 60,
+                    "statement": "The weather will be fine in the evening.",
+                    "is_correct": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
-import { Text, I18nManager } from 'react-native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { Text} from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
 import HomeScreen from '../screens/HomeScreen';
@@ -14,26 +14,54 @@ import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
 import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
+import GrammarStudyScreen from '../screens/practice/GrammarStudyScreen';
 import WritingScreen from '../screens/practice/WritingScreen';
 import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
+import SpeakingPart4Screen from '../screens/practice/SpeakingPart4Screen';
+import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
+import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
+import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
+import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
 import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
 import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
+import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
+import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
+import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
+import VocabularyHomeScreen from '../screens/VocabularyHomeScreen';
+import VocabularyOnboardingScreen from '../screens/VocabularyOnboardingScreen';
+import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
+import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
+import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
+import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
 // Header component for dynamic translations
 const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
-  const { t } = useTranslation();
-  return <Text style={{ color: colors.white, fontSize: 18, fontWeight: '600' }}>{t(titleKey)}</Text>;
+  const { t } = useCustomTranslation();
+  return (
+    <Text 
+      style={{ 
+        color: colors.white, 
+        fontSize: 18, 
+        fontWeight: '600',
+        maxWidth: 250, // Prevent overlap with back button
+      }}
+      numberOfLines={1}
+      ellipsizeMode="tail"
+    >
+      {t(titleKey)}
+    </Text>
+  );
 };
 
 const HomeStackNavigator: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   
   // Common screen options for RTL support
   const screenOptions = {
@@ -46,6 +74,7 @@ const HomeStackNavigator: React.FC = () => {
       fontSize: 18,
     },
     headerBackTitleVisible: false,
+    headerBackTitle: ' ', // This ensures no text appears next to back button on iOS
     headerTitleAlign: 'center' as 'center',
   };
 
@@ -69,7 +98,7 @@ const HomeStackNavigator: React.FC = () => {
         name="PracticeMenu"
         component={PracticeMenuScreen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="home.practice" />,
+          headerTitle: () => <HeaderTitle titleKey="home.solve" />,
         }}
       />
       <Stack.Screen
@@ -122,6 +151,13 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="GrammarStudy"
+        component={GrammarStudyScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.grammar.study.title" />,
+        }}
+      />
+      <Stack.Screen
         name="Writing"
         component={WritingScreen}
         options={{
@@ -157,6 +193,41 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="SpeakingPart4"
+        component={SpeakingPart4Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part4" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingStructure"
+        component={SpeakingB2StructureScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Structure.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart1"
+        component={SpeakingB2Part1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part1.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart2"
+        component={SpeakingB2Part2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part2.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="B2SpeakingPart3"
+        component={SpeakingB2Part3Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.b2Part3.title" />,
+        }}
+      />
+      <Stack.Screen
         name="ListeningMenu"
         component={ListeningMenuScreen}
         options={{
@@ -182,6 +253,69 @@ const HomeStackNavigator: React.FC = () => {
         component={ListeningPart3Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPracticeList"
+        component={ListeningPracticeListScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.practice.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPractice"
+        component={ListeningPracticeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPracticeQuestions"
+        component={ListeningPracticeQuestionsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.practice.assessUnderstanding" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyHome"
+        component={VocabularyHomeScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyOnboarding"
+        component={VocabularyOnboardingScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.onboarding.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyStudyNew"
+        component={VocabularyStudyNewScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.studyNew" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyReview"
+        component={VocabularyReviewScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.review" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyProgress"
+        component={VocabularyProgressScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.progress.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="VocabularyStudiedList"
+        component={VocabularyStudiedListScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="vocabulary.studiedWordsList" />,
         }}
       />
     </Stack.Navigator>

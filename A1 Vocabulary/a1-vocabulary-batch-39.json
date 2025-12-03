@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Kurs",
+    "article": "der",
+    "translations": {
+      "en": "course",
+      "es": "curso",
+      "fr": "cours",
+      "ru": "курс",
+      "ar": "الدورة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich mache einen Deutschkurs.",
+        "translations": {
+          "en": "I'm taking a German course.",
+          "es": "Estoy tomando un curso de alemán.",
+          "fr": "Je suis un cours d'allemand.",
+          "ru": "Я прохожу курс немецкого языка.",
+          "ar": "أنا آخذ دورة ألمانية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kurz",
+    "article": "",
+    "translations": {
+      "en": "short",
+      "es": "corto",
+      "fr": "court",
+      "ru": "короткий",
+      "ar": "قصير"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Kann ich kurz telefonieren?",
+        "translations": {
+          "en": "Can I make a quick phone call?",
+          "es": "¿Puedo hacer una llamada rápida?",
+          "fr": "Puis-je téléphoner brièvement?",
+          "ru": "Могу я быстро позвонить?",
+          "ar": "هل يمكنني إجراء مكالمة سريعة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "lachen",
+    "article": "",
+    "translations": {
+      "en": "to laugh",
+      "es": "reír",
+      "fr": "rire",
+      "ru": "смеяться",
+      "ar": "يضحك"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Warum lachst du?",
+        "translations": {
+          "en": "Why are you laughing?",
+          "es": "¿Por qué te ríes?",
+          "fr": "Pourquoi ris-tu?",
+          "ru": "Почему ты смеёшься?",
+          "ar": "لماذا تضحك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Laden",
+    "article": "der",
+    "translations": {
+      "en": "shop",
+      "es": "tienda",
+      "fr": "magasin",
+      "ru": "магазин",
+      "ar": "المتجر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Laden ist von 9 bis 18 Uhr geöffnet.",
+        "translations": {
+          "en": "My shop is open from 9 to 6 p.m.",
+          "es": "Mi tienda está abierta de 9 a 18 horas.",
+          "fr": "Mon magasin est ouvert de 9 à 18 heures.",
+          "ru": "Мой магазин открыт с 9 до 18 часов.",
+          "ar": "متجري مفتوح من الساعة 9 حتى 6 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lage",
+    "article": "die",
+    "translations": {
+      "en": "location",
+      "es": "ubicación",
+      "fr": "situation",
+      "ru": "положение",
+      "ar": "الموقع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Haus hat eine gute Lage, direkt im Zentrum.",
+        "translations": {
+          "en": "The house has a good location, right in the center.",
+          "es": "La casa tiene una buena ubicación, justo en el centro.",
+          "fr": "La maison a une bonne situation, en plein centre.",
+          "ru": "Дом имеет хорошее расположение, прямо в центре.",
+          "ar": "المنزل له موقع جيد، مباشرة في المركز."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lampe",
+    "article": "die",
+    "translations": {
+      "en": "lamp",
+      "es": "lámpara",
+      "fr": "lampe",
+      "ru": "лампа",
+      "ar": "المصباح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Lampe ist kaputt.",
+        "translations": {
+          "en": "The lamp is broken.",
+          "es": "La lámpara está rota.",
+          "fr": "La lampe est cassée.",
+          "ru": "Лампа сломана.",
+          "ar": "المصباح معطل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Land",
+    "article": "das",
+    "translations": {
+      "en": "country",
+      "es": "país",
+      "fr": "pays",
+      "ru": "страна",
+      "ar": "البلد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Aus welchem Land kommst du?",
+        "translations": {
+          "en": "Which country are you from?",
+          "es": "¿De qué país eres?",
+          "fr": "De quel pays viens-tu?",
+          "ru": "Из какой ты страны?",
+          "ar": "من أي بلد أنت؟"
+        }
+      },
+      {
+        "text": "Ich lebe auf dem Land.",
+        "translations": {
+          "en": "I live in the countryside.",
+          "es": "Vivo en el campo.",
+          "fr": "Je vis à la campagne.",
+          "ru": "Я живу в сельской местности.",
+          "ar": "أعيش في الريف."
+        }
+      }
+    ]
+  },
+  {
+    "word": "lang",
+    "article": "",
+    "translations": {
+      "en": "long",
+      "es": "largo",
+      "fr": "long",
+      "ru": "длинный",
+      "ar": "طويل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Hose ist zu lang.",
+        "translations": {
+          "en": "The pants are too long.",
+          "es": "Los pantalones son demasiado largos.",
+          "fr": "Le pantalon est trop long.",
+          "ru": "Брюки слишком длинные.",
+          "ar": "البنطال طويل جدًا."
+        }
+      },
+      {
+        "text": "Wie lange arbeitest du schon bei Siemens?",
+        "translations": {
+          "en": "How long have you been working at Siemens?",
+          "es": "¿Cuánto tiempo llevas trabajando en Siemens?",
+          "fr": "Depuis combien de temps travailles-tu chez Siemens?",
+          "ru": "Как долго ты работаешь в Siemens?",
+          "ar": "منذ متى تعمل في سيمنز؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "langsam",
+    "article": "",
+    "translations": {
+      "en": "slow",
+      "es": "lento",
+      "fr": "lent",
+      "ru": "медленный",
+      "ar": "بطيء"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Kannst du bitte etwas langsamer sprechen?",
+        "translations": {
+          "en": "Can you please speak a bit slower?",
+          "es": "¿Puedes hablar un poco más despacio, por favor?",
+          "fr": "Peux-tu parler un peu plus lentement, s'il te plaît?",
+          "ru": "Можешь, пожалуйста, говорить немного медленнее?",
+          "ar": "هل يمكنك التحدث ببطء أكثر، من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "lassen",
+    "article": "",
+    "translations": {
+      "en": "to let",
+      "es": "dejar",
+      "fr": "laisser",
+      "ru": "позволять",
+      "ar": "يترك"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo kann man hier Haare schneiden lassen?",
+        "translations": {
+          "en": "Where can you get a haircut here?",
+          "es": "¿Dónde se puede cortar el pelo aquí?",
+          "fr": "Où peut-on se faire couper les cheveux ici?",
+          "ru": "Где здесь можно подстричься?",
+          "ar": "أين يمكن قص الشعر هنا؟"
+        }
+      }
+    ]
+  }
+]
+

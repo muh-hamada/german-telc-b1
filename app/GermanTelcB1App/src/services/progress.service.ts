@@ -28,9 +28,10 @@ class ProgressService {
           
           results.push({
             questionId: userAnswer.questionId,
-            userAnswer: userAnswer.answer,
+            answer: userAnswer.answer,
+            timestamp: userAnswer.timestamp,
+            isCorrect: isCorrect,
             correctAnswer: correctAnswer || '',
-            isCorrect,
           });
         });
         break;
@@ -43,7 +44,8 @@ class ProgressService {
         }
         results.push({
           questionId: 1,
-          userAnswer: userAnswers[0]?.answer || '',
+          answer: userAnswers[0]?.answer || '',
+          timestamp: userAnswers[0]?.timestamp || 0,
           correctAnswer: 'Content evaluated',
           isCorrect: hasContent,
         });
@@ -59,9 +61,10 @@ class ProgressService {
         }
         results.push({
           questionId: 1,
-          userAnswer: 'Completed',
+          answer: 'Completed',
+          timestamp: Date.now(),
           correctAnswer: 'Practice completed',
-          isCorrect: hasAttempted,
+          isCorrect: true,
         });
         break;
       
@@ -70,8 +73,9 @@ class ProgressService {
         userAnswers.forEach(userAnswer => {
           results.push({
             questionId: userAnswer.questionId,
-            userAnswer: userAnswer.answer,
-            correctAnswer: 'Unknown',
+            answer: userAnswer.answer,
+            timestamp: userAnswer.timestamp,
+            correctAnswer: '',
             isCorrect: false,
           });
         });
@@ -159,6 +163,8 @@ class ProgressService {
       questionId,
       answer,
       timestamp: Date.now(),
+      correctAnswer: '',
+      isCorrect: false,
     };
   }
 
@@ -168,6 +174,8 @@ class ProgressService {
       questionId: parseInt(questionId),
       answer,
       timestamp: Date.now(),
+      correctAnswer: '',
+      isCorrect: false,
     }));
   }
 
@@ -254,7 +262,8 @@ class ProgressService {
         totalQuestions: exam.answers.length,
         answers: exam.answers.map(answer => ({
           questionId: answer.questionId,
-          userAnswer: answer.answer,
+          answer: answer.answer,
+          timestamp: answer.timestamp,
           correctAnswer: 'Unknown', // We don't store correct answers in progress
           isCorrect: answer.isCorrect || false,
         })),

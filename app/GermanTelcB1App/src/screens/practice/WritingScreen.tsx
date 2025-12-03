@@ -3,27 +3,27 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
 } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors, spacing, typography } from '../../theme';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useProgress } from '../../contexts/ProgressContext';
 
 const WritingScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'Writing'>>();
   const navigation = useNavigation();
   const examId = route.params?.examId ?? 0;
+  const { updateExamProgress } = useProgress();
   
   const { isCompleted, toggleCompletion } = useExamCompletion('writing', 1, examId);
   
@@ -68,47 +68,65 @@ const WritingScreen: React.FC = () => {
   const handleToggleCompletion = async () => {
     try {
       const newStatus = await toggleCompletion(examResult?.score || 0);
-      Alert.alert(
-        t('common.success'),
-        newStatus ? t('exam.markedCompleted') : t('exam.markedIncomplete')
-      );
-    } catch (error) {
-      Alert.alert(t('common.error'), t('exam.completionFailed'));
+      // The alert doesn't add much value, so we'll just log the event
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, {
+        section: 'writing',
+        part: 1,
+        exam_id: examId,
+        completed: newStatus,
+        score: examResult?.score || 0,
+        max_score: 45,
+        percentage: Math.round((examResult?.score || 0 / 45) * 100),
+      });
+    } catch (error: any) {
+      if (error.message === 'auth/not-logged-in') {
+        Alert.alert(t('common.error'), t('exam.loginToSaveProgress'));
+      } else {
+        Alert.alert(t('common.error'), t('exam.completionFailed'));
+      }
     }
   };
 
   const handleComplete = (score: number) => {
-    setExamResult({ score });
-    console.log('Writing completed with score:', score);
+    const maxScore = 45;
+    const percentage = Math.round((score / maxScore) * 100);
+
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+      section: 'writing',
+      part: 1,
+      exam_id: examId,
+      score,
+      max_score: maxScore,
+      percentage: percentage,
+    });
+
+    updateExamProgress('writing', examId, [], score, maxScore);
   };
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.loadingExam')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (!currentExam) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
-        {!HIDE_ADS && <AdBanner />}
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <WritingUI exam={currentExam} onComplete={handleComplete} />
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 

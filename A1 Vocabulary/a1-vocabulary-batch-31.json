@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Halle",
+    "article": "die",
+    "translations": {
+      "en": "hall",
+      "es": "sala",
+      "fr": "salle",
+      "ru": "зал",
+      "ar": "القاعة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir treffen uns in Halle B",
+        "translations": {
+          "en": "We'll meet in hall B",
+          "es": "Nos encontramos en la sala B",
+          "fr": "Nous nous rencontrons dans la salle B",
+          "ru": "Мы встретимся в зале Б",
+          "ar": "سنلتقي في القاعة B"
+        }
+      }
+    ]
+  },
+  {
+    "word": "hallo",
+    "article": "",
+    "translations": {
+      "en": "hello",
+      "es": "hola",
+      "fr": "bonjour",
+      "ru": "привет",
+      "ar": "مرحبًا"
+    },
+    "type": "interjection",
+    "exampleSentences": [
+      {
+        "text": "Hallo Inge! Wie geht's?",
+        "translations": {
+          "en": "Hello Inge! How are you?",
+          "es": "¡Hola Inge! ¿Cómo estás?",
+          "fr": "Bonjour Inge ! Comment vas-tu ?",
+          "ru": "Привет Инге! Как дела?",
+          "ar": "مرحبًا إنجه! كيف حالك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "halten",
+    "article": "",
+    "translations": {
+      "en": "to stop",
+      "es": "parar",
+      "fr": "s'arrêter",
+      "ru": "останавливаться",
+      "ar": "يتوقف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Dieser Zug hält nicht in Rüdesheim.",
+        "translations": {
+          "en": "This train doesn't stop in Rüdesheim.",
+          "es": "Este tren no para en Rüdesheim.",
+          "fr": "Ce train ne s'arrête pas à Rüdesheim.",
+          "ru": "Этот поезд не останавливается в Рюдесхайме.",
+          "ar": "هذا القطار لا يتوقف في روديسهايم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Haltestelle",
+    "article": "die",
+    "translations": {
+      "en": "stop",
+      "es": "parada",
+      "fr": "arrêt",
+      "ru": "остановка",
+      "ar": "المحطة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An der nächsten Haltestelle müssen Sie aussteigen.",
+        "translations": {
+          "en": "You have to get off at the next stop.",
+          "es": "Debe bajarse en la siguiente parada.",
+          "fr": "Vous devez descendre au prochain arrêt.",
+          "ru": "Вы должны выйти на следующей остановке.",
+          "ar": "يجب أن تنزل في المحطة التالية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hand",
+    "article": "die",
+    "translations": {
+      "en": "hand",
+      "es": "mano",
+      "fr": "main",
+      "ru": "рука",
+      "ar": "اليد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Er gibt mir die Hand.",
+        "translations": {
+          "en": "He shakes my hand.",
+          "es": "Me da la mano.",
+          "fr": "Il me donne la main.",
+          "ru": "Он пожимает мне руку.",
+          "ar": "إنه يصافحني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Handy",
+    "article": "das",
+    "translations": {
+      "en": "cell phone",
+      "es": "móvil",
+      "fr": "portable",
+      "ru": "мобильный телефон",
+      "ar": "الهاتف المحمول"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der Schule bitte die Handys ausmachen!",
+        "translations": {
+          "en": "Please turn off your cell phones in school!",
+          "es": "¡Por favor, apaguen los móviles en la escuela!",
+          "fr": "Veuillez éteindre les portables à l'école !",
+          "ru": "Пожалуйста, выключите мобильные телефоны в школе!",
+          "ar": "من فضلك، أطفئوا الهواتف المحمولة في المدرسة!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Haus",
+    "article": "das",
+    "translations": {
+      "en": "house",
+      "es": "casa",
+      "fr": "maison",
+      "ru": "дом",
+      "ar": "المنزل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In welchem Haus wohnst du?",
+        "translations": {
+          "en": "Which house do you live in?",
+          "es": "¿En qué casa vives?",
+          "fr": "Dans quelle maison habites-tu ?",
+          "ru": "В каком доме ты живёшь?",
+          "ar": "في أي منزل تعيش؟"
+        }
+      },
+      {
+        "text": "Ich gehe jetzt nach Hause.",
+        "translations": {
+          "en": "I'm going home now.",
+          "es": "Me voy a casa ahora.",
+          "fr": "Je rentre à la maison maintenant.",
+          "ru": "Я иду домой сейчас.",
+          "ar": "أنا ذاهب إلى المنزل الآن."
+        }
+      },
+      {
+        "text": "Paul ist nicht zu Hause.",
+        "translations": {
+          "en": "Paul is not at home.",
+          "es": "Paul no está en casa.",
+          "fr": "Paul n'est pas à la maison.",
+          "ru": "Пауля нет дома.",
+          "ar": "بول ليس في المنزل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hausaufgabe",
+    "article": "die",
+    "translations": {
+      "en": "homework",
+      "es": "tarea",
+      "fr": "devoir",
+      "ru": "домашнее задание",
+      "ar": "الواجب المنزلي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir bei den Hausaufgaben helfen?",
+        "translations": {
+          "en": "Can you help me with my homework?",
+          "es": "¿Puedes ayudarme con mis tareas?",
+          "fr": "Peux-tu m'aider avec mes devoirs ?",
+          "ru": "Ты можешь помочь мне с домашним заданием?",
+          "ar": "هل يمكنك مساعدتي في واجباتي المنزلية؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hausfrau",
+    "article": "die",
+    "translations": {
+      "en": "housewife",
+      "es": "ama de casa",
+      "fr": "femme au foyer",
+      "ru": "домохозяйка",
+      "ar": "ربة منزل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Hausfrau/der Hausmann wäscht, kocht und kauft ein.",
+        "translations": {
+          "en": "The housewife/househusband washes, cooks and shops.",
+          "es": "El ama de casa/amo de casa lava, cocina y hace compras.",
+          "fr": "La femme au foyer/l'homme au foyer lave, cuisine et fait les courses.",
+          "ru": "Домохозяйка/домохозяин стирает, готовит и делает покупки.",
+          "ar": "ربة المنزل/رب المنزل تغسل، تطبخ وتتسوق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Heimat",
+    "article": "die",
+    "translations": {
+      "en": "homeland",
+      "es": "patria",
+      "fr": "patrie",
+      "ru": "родина",
+      "ar": "الوطن"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich komme aus der Schweiz. Das ist meine Heimat.",
+        "translations": {
+          "en": "I come from Switzerland. That's my homeland.",
+          "es": "Vengo de Suiza. Esa es mi patria.",
+          "fr": "Je viens de Suisse. C'est ma patrie.",
+          "ru": "Я из Швейцарии. Это моя родина.",
+          "ar": "أنا من سويسرا. ذلك وطني."
+        }
+      }
+    ]
+  }
+]
+

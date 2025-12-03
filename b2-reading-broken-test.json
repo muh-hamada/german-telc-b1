@@ -1,0 +1,43 @@
+{
+    "headings": [
+      "a) [Heading a for MT2]",
+      "b) [Heading b for MT2]",
+      "c) [Heading c for MT2]",
+      "d) [Heading d for MT2]",
+      "e) [Heading e for MT2]",
+      "f) [Heading f for MT2]",
+      "g) [Heading g for MT2]",
+      "h) [Heading h for MT2]",
+      "i) [Heading i for MT2]",
+      "j) [Heading j for MT2]"
+    ],
+    "texts": [
+      {
+        "correct": "i",
+        "id": 1,
+        "text": "Lesetext 1 (Inhalt nicht im Auszug vorhanden)"
+      },
+      {
+        "correct": "j",
+        "text": "Lesetext 2 (Inhalt nicht im Auszug vorhanden)",
+        "id": 2
+      },
+      {
+        "text": "Lesetext 3 (Inhalt nicht im Auszug vorhanden)",
+        "correct": "h",
+        "id": 3
+      },
+      {
+        "text": "Lesetext 4 (Inhalt nicht im Auszug vorhanden)",
+        "id": 4,
+        "correct": "g"
+      },
+      {
+        "id": 5,
+        "correct": "e",
+        "text": "Lesetext 5 (Inhalt nicht im Auszug vorhanden)"
+      }
+    ],
+    "title": "Modelltest 2 - Leseverstehen Teil 1",
+    "id": 2
+  }

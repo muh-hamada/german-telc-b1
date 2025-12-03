@@ -24,14 +24,6 @@ export const googleSignInConfig = {
   androidClientId: firebaseConfig.androidClientId,
 };
 
-// Facebook App configuration
-// Get these values from https://developers.facebook.com/apps/
-export const facebookConfig = {
-  appId: "1507568217229301", // e.g., "1234567890123456"
-  appName: "German TELC B1 App",
-  clientToken: "c1f3d10c6a4054707078aae7a71dd580", // From Facebook App Dashboard > Settings > Advanced > Client Token
-};
-
 // Apple Sign-In configuration
 export const appleSignInConfig = {
   serviceId: "494473710301-1b5d40d4f9e1b2b6c0a934.apps.googleusercontent.com",

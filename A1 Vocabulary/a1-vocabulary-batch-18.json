@@ -1,0 +1,273 @@
+[
+  {
+    "word": "duschen",
+    "article": "",
+    "translations": {
+      "en": "to shower",
+      "es": "ducharse",
+      "fr": "se doucher",
+      "ru": "принимать душ",
+      "ar": "يستحم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich bade nicht so gern, ich dusche lieber.",
+        "translations": {
+          "en": "I don't like bathing much, I prefer showering.",
+          "es": "No me gusta mucho bañarme, prefiero ducharme.",
+          "fr": "Je n'aime pas trop me baigner, je préfère me doucher.",
+          "ru": "Я не очень люблю принимать ванну, я предпочитаю душ.",
+          "ar": "لا أحب الاستحمام كثيرًا، أفضل الدش."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Dusche",
+    "article": "die",
+    "translations": {
+      "en": "shower",
+      "es": "ducha",
+      "fr": "douche",
+      "ru": "душ",
+      "ar": "الدش"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unsere Wohnung hat nur eine Dusche.",
+        "translations": {
+          "en": "Our apartment only has a shower.",
+          "es": "Nuestro apartamento solo tiene ducha.",
+          "fr": "Notre appartement n'a qu'une douche.",
+          "ru": "В нашей квартире только душ.",
+          "ar": "شقتنا بها دش فقط."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ecke",
+    "article": "die",
+    "translations": {
+      "en": "corner",
+      "es": "esquina",
+      "fr": "coin",
+      "ru": "угол",
+      "ar": "الزاوية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An der nächsten Ecke links.",
+        "translations": {
+          "en": "Turn left at the next corner.",
+          "es": "A la izquierda en la siguiente esquina.",
+          "fr": "À gauche au prochain coin.",
+          "ru": "На следующем углу налево.",
+          "ar": "اليسار عند الزاوية التالية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ehefrau",
+    "article": "die",
+    "translations": {
+      "en": "wife",
+      "es": "esposa",
+      "fr": "épouse",
+      "ru": "жена",
+      "ar": "الزوجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist mein (Ehe-) Mann/meine (Ehe-) Frau.",
+        "translations": {
+          "en": "This is my husband/my wife.",
+          "es": "Este es mi esposo/mi esposa.",
+          "fr": "C'est mon mari/ma femme.",
+          "ru": "Это мой муж/моя жена.",
+          "ar": "هذا زوجي/زوجتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ei",
+    "article": "das",
+    "translations": {
+      "en": "egg",
+      "es": "huevo",
+      "fr": "œuf",
+      "ru": "яйцо",
+      "ar": "البيضة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchtest du ein Ei zum Frühstück?",
+        "translations": {
+          "en": "Would you like an egg for breakfast?",
+          "es": "¿Quieres un huevo para el desayuno?",
+          "fr": "Veux-tu un œuf pour le petit déjeuner ?",
+          "ru": "Хочешь яйцо на завтрак?",
+          "ar": "هل تريد بيضة للإفطار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "eilig",
+    "article": "",
+    "translations": {
+      "en": "hurried",
+      "es": "apresurado",
+      "fr": "pressé",
+      "ru": "спешный",
+      "ar": "متعجل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Hast du es eilig?",
+        "translations": {
+          "en": "Are you in a hurry?",
+          "es": "¿Tienes prisa?",
+          "fr": "Es-tu pressé ?",
+          "ru": "Ты спешишь?",
+          "ar": "هل أنت في عجلة من أمرك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "ein",
+    "article": "",
+    "translations": {
+      "en": "one",
+      "es": "uno",
+      "fr": "un",
+      "ru": "один",
+      "ar": "واحد"
+    },
+    "type": "article",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme ein Bier. Willst du auch eins?",
+        "translations": {
+          "en": "I'll have a beer. Do you want one too?",
+          "es": "Tomaré una cerveza. ¿Quieres una también?",
+          "fr": "Je prends une bière. Tu en veux une aussi ?",
+          "ru": "Я возьму пиво. Ты тоже хочешь?",
+          "ar": "سآخذ بيرة. هل تريد واحدة أيضًا؟"
+        }
+      },
+      {
+        "text": "Ist hier einer, der das kann?",
+        "translations": {
+          "en": "Is there someone here who can do that?",
+          "es": "¿Hay alguien aquí que pueda hacer eso?",
+          "fr": "Y a-t-il quelqu'un ici qui puisse faire ça ?",
+          "ru": "Здесь есть кто-нибудь, кто может это сделать?",
+          "ar": "هل يوجد أحد هنا يمكنه فعل ذلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "einfach",
+    "article": "",
+    "translations": {
+      "en": "simple",
+      "es": "simple",
+      "fr": "simple",
+      "ru": "простой",
+      "ar": "بسيط"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Prüfung ist ganz einfach.",
+        "translations": {
+          "en": "The exam is quite simple.",
+          "es": "El examen es muy simple.",
+          "fr": "L'examen est très simple.",
+          "ru": "Экзамен довольно простой.",
+          "ar": "الامتحان بسيط جدًا."
+        }
+      },
+      {
+        "text": "Hin und zurück? – Nein, bitte nur einfach.",
+        "translations": {
+          "en": "Round trip? – No, one way only please.",
+          "es": "¿Ida y vuelta? – No, solo ida por favor.",
+          "fr": "Aller-retour ? – Non, aller simple seulement.",
+          "ru": "Туда и обратно? – Нет, только в одну сторону, пожалуйста.",
+          "ar": "ذهابًا وإيابًا؟ – لا، اتجاه واحد فقط من فضلك."
+        }
+      },
+      {
+        "text": "Ich brauche nur ein einfaches Zimmer.",
+        "translations": {
+          "en": "I just need a simple room.",
+          "es": "Solo necesito una habitación simple.",
+          "fr": "J'ai besoin seulement d'une chambre simple.",
+          "ru": "Мне нужен только простой номер.",
+          "ar": "أحتاج فقط إلى غرفة بسيطة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Eingang",
+    "article": "der",
+    "translations": {
+      "en": "entrance",
+      "es": "entrada",
+      "fr": "entrée",
+      "ru": "вход",
+      "ar": "المدخل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Eingang ist um die Ecke.",
+        "translations": {
+          "en": "The entrance is around the corner.",
+          "es": "La entrada está a la vuelta de la esquina.",
+          "fr": "L'entrée est au coin de la rue.",
+          "ru": "Вход за углом.",
+          "ar": "المدخل حول الزاوية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "einkaufen",
+    "article": "",
+    "translations": {
+      "en": "to shop",
+      "es": "hacer compras",
+      "fr": "faire les courses",
+      "ru": "делать покупки",
+      "ar": "يتسوق"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss noch für morgen einkaufen.",
+        "translations": {
+          "en": "I still have to shop for tomorrow.",
+          "es": "Todavía tengo que hacer compras para mañana.",
+          "fr": "Je dois encore faire les courses pour demain.",
+          "ru": "Мне ещё нужно сделать покупки на завтра.",
+          "ar": "لا يزال يتعين علي التسوق ليوم غد."
+        }
+      }
+    ]
+  }
+]
+

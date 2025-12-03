@@ -1,0 +1,239 @@
+[
+  {
+    "word": "Klasse",
+    "article": "die",
+    "translations": {
+      "en": "class",
+      "es": "clase",
+      "fr": "classe",
+      "ru": "класс",
+      "ar": "الصف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Sohn geht in die dritte Klasse.",
+        "translations": {
+          "en": "My son is in third grade.",
+          "es": "Mi hijo está en el tercer grado.",
+          "fr": "Mon fils est en troisième année.",
+          "ru": "Мой сын учится в третьем классе.",
+          "ar": "ابني في الصف الثالث."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kleid",
+    "article": "das",
+    "translations": {
+      "en": "dress",
+      "es": "vestido",
+      "fr": "robe",
+      "ru": "платье",
+      "ar": "الفستان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich suche ein Kleid für meine Tochter.",
+        "translations": {
+          "en": "I'm looking for a dress for my daughter.",
+          "es": "Busco un vestido para mi hija.",
+          "fr": "Je cherche une robe pour ma fille.",
+          "ru": "Я ищу платье для моей дочери.",
+          "ar": "أبحث عن فستان لابنتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kleidung",
+    "article": "die",
+    "translations": {
+      "en": "clothing",
+      "es": "ropa",
+      "fr": "vêtements",
+      "ru": "одежда",
+      "ar": "الملابس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In diesem Kaufhaus gibt es Kleidung und Schuhe.",
+        "translations": {
+          "en": "This department store has clothing and shoes.",
+          "es": "En estos grandes almacenes hay ropa y zapatos.",
+          "fr": "Dans ce grand magasin, il y a des vêtements et des chaussures.",
+          "ru": "В этом универмаге есть одежда и обувь.",
+          "ar": "يحتوي هذا المتجر الكبير على ملابس وأحذية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "klein",
+    "article": "",
+    "translations": {
+      "en": "small",
+      "es": "pequeño",
+      "fr": "petit",
+      "ru": "маленький",
+      "ar": "صغير"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Schuhe sind mir zu klein.",
+        "translations": {
+          "en": "The shoes are too small for me.",
+          "es": "Los zapatos me quedan demasiado pequeños.",
+          "fr": "Les chaussures sont trop petites pour moi.",
+          "ru": "Эти туфли мне слишком малы.",
+          "ar": "الأحذية صغيرة جدًا بالنسبة لي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kochen",
+    "article": "",
+    "translations": {
+      "en": "to cook",
+      "es": "cocinar",
+      "fr": "cuisiner",
+      "ru": "готовить",
+      "ar": "يطبخ"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Heute kocht mein Mann.",
+        "translations": {
+          "en": "My husband is cooking today.",
+          "es": "Hoy cocina mi marido.",
+          "fr": "Aujourd'hui, mon mari cuisine.",
+          "ru": "Сегодня готовит мой муж.",
+          "ar": "زوجي يطبخ اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Koffer",
+    "article": "der",
+    "translations": {
+      "en": "suitcase",
+      "es": "maleta",
+      "fr": "valise",
+      "ru": "чемодан",
+      "ar": "الحقيبة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du die Koffer gepackt?",
+        "translations": {
+          "en": "Have you packed the suitcases?",
+          "es": "¿Has empacado las maletas?",
+          "fr": "As-tu fait les valises ?",
+          "ru": "Ты упаковал чемоданы?",
+          "ar": "هل حزمت الحقائب؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kollege",
+    "article": "der",
+    "translations": {
+      "en": "colleague",
+      "es": "colega",
+      "fr": "collègue",
+      "ru": "коллега",
+      "ar": "الزميل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Kollege wird heute von Stuttgart nach Berlin fahren.",
+        "translations": {
+          "en": "My colleague will drive from Stuttgart to Berlin today.",
+          "es": "Mi colega viajará de Stuttgart a Berlín hoy.",
+          "fr": "Mon collègue ira de Stuttgart à Berlin aujourd'hui.",
+          "ru": "Мой коллега сегодня поедет из Штутгарта в Берлин.",
+          "ar": "سيسافر زميلي من شتوتغارت إلى برلين اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kommen",
+    "article": "",
+    "translations": {
+      "en": "to come",
+      "es": "venir",
+      "fr": "venir",
+      "ru": "приходить",
+      "ar": "يأتي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich komme aus der Türkei.",
+        "translations": {
+          "en": "I come from Turkey.",
+          "es": "Vengo de Turquía.",
+          "fr": "Je viens de Turquie.",
+          "ru": "Я из Турции.",
+          "ar": "أنا من تركيا."
+        }
+      },
+      {
+        "text": "Woher kommst du?",
+        "translations": {
+          "en": "Where do you come from?",
+          "es": "¿De dónde vienes?",
+          "fr": "D'où viens-tu ?",
+          "ru": "Откуда ты?",
+          "ar": "من أين أنت؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "können",
+    "article": "",
+    "translations": {
+      "en": "can",
+      "es": "poder",
+      "fr": "pouvoir",
+      "ru": "мочь",
+      "ar": "يستطيع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann gut kochen.",
+        "translations": {
+          "en": "I can cook well.",
+          "es": "Puedo cocinar bien.",
+          "fr": "Je peux bien cuisiner.",
+          "ru": "Я хорошо готовлю.",
+          "ar": "أستطيع الطبخ جيدًا."
+        }
+      },
+      {
+        "text": "Meine Freundin kann leider nicht kommen.",
+        "translations": {
+          "en": "Unfortunately, my friend can't come.",
+          "es": "Lamentablemente, mi amiga no puede venir.",
+          "fr": "Malheureusement, mon amie ne peut pas venir.",
+          "ru": "К сожалению, моя подруга не может прийти.",
+          "ar": "للأسف، صديقتي لا تستطيع المجيء."
+        }
+      }
+    ]
+  }
+]
+

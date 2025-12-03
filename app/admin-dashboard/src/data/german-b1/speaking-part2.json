@@ -1,0 +1,284 @@
+{
+  "topics": [
+    {
+      "viewB": {
+        "person": "Jens Mühle, 39, Physicist",
+        "text": "When traveling with a group, there is usually a fixed schedule. That's why I always travel alone. Sometimes I want to sleep in, sometimes I want to visit something. Exactly as I feel like it. That wouldn't be possible in a group.",
+        "presentationExample": "The topic is 'Group Travel'. The person is Jens Mühle, 39, a Physicist. He thinks that he prefers traveling alone because groups usually have a fixed schedule. He says that this way he can flexibly decide whether he wants to sleep in or visit something."
+      },
+      "title": "Group Travel",
+      "discussion": [
+        {
+          "question": "Do you prefer to travel alone or in a group? Why?",
+          "tip": "Here you should state your own preference with reasons and address your partner's arguments (company vs. flexibility)."
+        },
+        {
+          "question": "What role does the tour guide play for you?",
+          "tip": "Discuss whether an expert is necessary or if you prefer to plan everything yourself."
+        },
+        {
+          "question": "What are the disadvantages of group travel?",
+          "tip": "Mention disadvantages such as lack of flexibility, fixed times, or not liking all the people."
+        }
+      ],
+      "viewA": {
+        "text": "I like traveling in a group. Traveling alone is not fun for me. In group travel, you can meet new people and always have company. Also, there is a guide who shows you the sights.",
+        "person": "Sabine Klostermann, 33, Office Clerk",
+        "presentationExample": "The topic is 'Group Travel'. The person is Sabine Klostermann, 33, an Office Clerk. She thinks that she likes traveling in a group because you meet new people there and always have company. She says that a tour guide is practical because they explain the sights."
+      },
+      "id": 1
+    },
+    {
+      "viewB": {
+        "text": "I prefer going to a shop. There, I can touch and try on the goods. Also, I like consulting with sales staff, and it supports local businesses.",
+        "person": "Hannelore Schmidt, 68, Retired",
+        "presentationExample": "The topic is 'Online Shopping'. The person is Hannelore Schmidt, 68, Retired. She thinks that she prefers shopping in a physical shop because she can touch and try on the goods. She says that consulting with sales staff is important and that she wants to support local businesses."
+      },
+      "id": 2,
+      "discussion": [
+        {
+          "question": "Do you prefer shopping online or in a physical shop? Name the advantages and disadvantages of both methods.",
+          "tip": "Use connectors like 'on the one hand... on the other hand' or 'although' to compare the opinions."
+        },
+        {
+          "tip": "Discuss the role of sales staff in the digital age.",
+          "question": "How important is advice when shopping for you?"
+        },
+        {
+          "tip": "A critical aspect of online shopping that is often addressed.",
+          "question": "What do you think about returns and the impact on the environment?"
+        }
+      ],
+      "title": "Online Shopping",
+      "viewA": {
+        "text": "I buy almost everything online because it's more convenient. The prices are often lower and the selection is much larger than in a shop. I can shop around the clock without having to leave the house.",
+        "person": "Ali Müller, 24, Student",
+        "presentationExample": "The topic is 'Online Shopping'. The person is Ali Müller, 24, a Student. He thinks that he buys almost everything online because it is convenient and the prices are often cheaper. He says that the large selection and the opportunity to shop around the clock are important to him."
+      }
+    },
+    {
+      "title": "Pets in the Home",
+      "discussion": [
+        {
+          "question": "Do you have pets yourself? Tell us about your experiences.",
+          "tip": "Share personal experiences and use appropriate vocabulary (e.g., 'to feed', 'to walk the dog')."
+        },
+        {
+          "question": "Should one get pets from the animal shelter? Why?",
+          "tip": "Discuss ethical aspects and the responsibility towards animals."
+        },
+        {
+          "tip": "Mention suitable types and justify your choice.",
+          "question": "Which animals are suitable for living in a small city apartment?"
+        }
+      ],
+      "id": 3,
+      "viewB": {
+        "person": "Dennis Schulz, 29, Software Developer",
+        "text": "Animals create a lot of work and noise. The apartment quickly gets dirty, and your freedom to travel is restricted. Also, vet costs are often very high.",
+        "presentationExample": "The topic is 'Pets in the Home'. The person is Dennis Schulz, 29, a Software Developer. He thinks that animals create a lot of work and noise. He says that the apartment quickly gets dirty and that vet costs and restricted freedom to travel are disadvantages."
+      },
+      "viewA": {
+        "text": "Pets are good for the soul. They make us happy, reduce stress, and help us become more responsible. Especially for children, an animal is a great experience.",
+        "person": "Dr. Laura Koch, 45, Veterinarian",
+        "presentationExample": "The topic is 'Pets in the Home'. The person is Dr. Laura Koch, 45, a Veterinarian. She thinks that pets are good for the soul and reduce stress. She says that children, in particular, learn from an animal and that pets teach responsibility."
+      }
+    },
+    {
+      "viewA": {
+        "text": "I prefer watching films at home on the sofa. It's more comfortable, costs less, and I can take a break at any time. I don't need the big screen.",
+        "person": "Julia Berg, 21, Apprentice",
+        "presentationExample": "The topic is 'TV vs. Cinema'. The person is Julia Berg, 21, an Apprentice. She thinks that she prefers watching films at home because it's more comfortable and cheaper. She says that she doesn't necessarily need the big screen and breaks are important."
+      },
+      "viewB": {
+        "person": "Max Finke, 48, Film Critic",
+        "text": "Cinema is an experience. The atmosphere, the large screen, and the sound are unique. Films are made for the cinema; one shouldn't just watch them on small screens.",
+        "presentationExample": "The topic is 'TV vs. Cinema'. The person is Max Finke, 48, a Film Critic. He thinks that cinema is a special experience. He says that the atmosphere, large screen, and sound make the film special and that films are actually meant for the cinema."
+      },
+      "id": 4,
+      "discussion": [
+        {
+          "tip": "State a clear preference and give three reasons for it.",
+          "question": "What do you prefer to do in your free time: go to the cinema or watch a film at home?"
+        },
+        {
+          "question": "How has the film landscape changed due to streaming services?",
+          "tip": "Talk about the availability of films and series."
+        },
+        {
+          "question": "What was the last film you watched? Tell us briefly about it.",
+          "tip": "This is for practicing narration in the past tenses."
+        }
+      ],
+      "title": "TV vs. Cinema"
+    },
+    {
+      "id": 5,
+      "viewA": {
+        "text": "Mobile phones are important for safety. Children can reach us anytime, and they learn how to use technology early on. That is important for their future.",
+        "person": "Thomas Meier, 41, Self-Employed",
+        "presentationExample": "The topic is 'Children and Mobile Phones'. The person is Thomas Meier, 41, Self-Employed. He thinks that mobile phones are important for safety because children can reach their parents. He says that the early handling of technology is useful for the future."
+      },
+      "discussion": [
+        {
+          "question": "At what age should children get their own mobile phone?",
+          "tip": "State an age and justify your decision."
+        },
+        {
+          "tip": "Discuss the advantages and disadvantages of banning mobile phones in class.",
+          "question": "Should mobile phones be banned in schools? Why?"
+        },
+        {
+          "tip": "Talk about addiction, concentration problems, and sleep disorders.",
+          "question": "What risks does constant accessibility bring?"
+        }
+      ],
+      "title": "Children and Mobile Phones",
+      "viewB": {
+        "text": "Mobile phones are distracting in school and often lead to problems like cyber-bullying. The time they spend in front of the screen is missing for exercise and social contact.",
+        "person": "Frau Lehmann, 55, Teacher",
+        "presentationExample": "The topic is 'Children and Mobile Phones'. The person is Frau Lehmann, 55, a Teacher. She thinks that mobile phones are distracting in school and cause problems like cyber-bullying. She says that screen time leads to less exercise and social contact."
+      }
+    },
+    {
+      "viewA": {
+        "person": "Mia Schmidt, 30, Environmental Activist",
+        "text": "The bicycle is the best means of transport in the city. It's fast, environmentally friendly, and keeps you fit. You save money and avoid traffic jams.",
+        "presentationExample": "The topic is 'Bikes in the City'. The person is Mia Schmidt, 30, an Environmental Activist. She thinks that the bicycle is the best means of transport in the city because it is environmentally friendly, fast, and healthy. She says that you save money and avoid traffic jams."
+      },
+      "title": "Bikes in the City",
+      "viewB": {
+        "person": "Herr Wagner, 52, Manager",
+        "text": "It's too dangerous in a large city. There are often no bicycle paths, and in bad weather, it's very impractical. Also, you need to be able to transport your purchases.",
+        "presentationExample": "The topic is 'Bikes in the City'. The person is Herr Wagner, 52, a Manager. He thinks that cycling is often dangerous in large cities because bike paths are missing. He says that bad weather and transporting purchases are disadvantages."
+      },
+      "id": 6,
+      "discussion": [
+        {
+          "question": "Which means of transport do you use most often in the city? Why?",
+          "tip": "Talk about your daily routine and the practical aspects of your means of transport."
+        },
+        {
+          "question": "What must the city do to make cycling safer?",
+          "tip": "Name concrete measures (e.g., more bike paths, better signage)."
+        },
+        {
+          "question": "Should driving a car in the city center become more expensive?",
+          "tip": "Discuss costs and urban planning."
+        }
+      ]
+    },
+    {
+      "discussion": [
+        {
+          "tip": "Compare the feel of the book with the portability of the e-reader.",
+          "question": "Do you prefer reading printed books or e-books? Justify your choice."
+        },
+        {
+          "question": "Do you often go to libraries? What do libraries offer these days?",
+          "tip": "Explain the role of the library in modern society."
+        },
+        {
+          "tip": "Talk about the advantages of reading for your English course.",
+          "question": "How important is reading for learning a foreign language?"
+        }
+      ],
+      "title": "Books vs. E-Books",
+      "viewB": {
+        "text": "E-books are practical. I can store hundreds of books on one device and always have them with me. That saves space and is more ecological than printed books.",
+        "person": "Elias Roth, 26, Journalist",
+        "presentationExample": "The topic is 'Books vs. E-Books'. The person is Elias Roth, 26, a Journalist. He thinks that e-books are practical because you can store many books on one device. He says that this saves space and is more ecological than printed books."
+      },
+      "viewA": {
+        "person": "Karin Haas, 58, Librarian",
+        "text": "A printed book simply feels better. The smell, the feel of the paper – that is a different reading experience. E-books are impersonal.",
+        "presentationExample": "The topic is 'Books vs. E-Books'. The person is Karin Haas, 58, a Librarian. She thinks that printed books offer a better reading experience because of the smell and the feel of the paper. She says that e-books seem impersonal."
+      },
+      "id": 7
+    },
+    {
+      "viewB": {
+        "text": "I need the city. All my friends, the culture, and my job are here. The commute from the countryside is too long, and public transport is bad.",
+        "person": "Paul Bauer, 31, Management Consultant",
+        "presentationExample": "The topic is 'Living in the Countryside'. The person is Paul Bauer, 31, a Management Consultant. He thinks that he needs the city to live because friends, culture, and work are there. He says that the commute from the countryside to work would be too long and the public transport is bad."
+      },
+      "id": 8,
+      "title": "Living in the Countryside",
+      "discussion": [
+        {
+          "tip": "Briefly describe your current place of residence and living situation (rented apartment, house, etc.).",
+          "question": "Where do you currently live? Do you feel comfortable there?"
+        },
+        {
+          "question": "What compromises must one make when living in the countryside?",
+          "tip": "Talk about long distances, poor infrastructure, or lack of leisure opportunities."
+        },
+        {
+          "question": "What is typical for a 'WG' (shared flat/house share) in Germany?",
+          "tip": "A typical German topic to use vocabulary related to housing forms."
+        }
+      ],
+      "viewA": {
+        "text": "Country life is ideal for families. Children can play outside, the air is better, and it's quieter than in the city. The quality of life is much higher.",
+        "person": "Frau Schmidt, 37, Mother of two children",
+        "presentationExample": "The topic is 'Living in the Countryside'. The person is Frau Schmidt, 37, a Mother of two children. She thinks that country life is ideal for families because children can play outside and the air is better. She says that the quality of life is higher in the countryside."
+      }
+    },
+    {
+      "id": 9,
+      "title": "Healthy Eating",
+      "viewA": {
+        "text": "Health begins in the kitchen. One should eat lots of fresh fruit and vegetables and little meat. That gives energy and strengthens the immune system.",
+        "person": "Steffen Hahn, 44, Fitness Trainer",
+        "presentationExample": "The topic is 'Healthy Eating'. The person is Steffen Hahn, 44, a Fitness Trainer. He thinks that health begins in the kitchen and one should eat lots of fruit and vegetables. He says that less meat, more vegetables, and fresh food give energy and strengthen the immune system."
+      },
+      "viewB": {
+        "text": "Food must taste good above all else. A little meat and sweets are allowed, as long as one does not restrict oneself too much. Enjoyment is part of life.",
+        "person": "Marie Nowak, 35, Cook",
+        "presentationExample": "The topic is 'Healthy Eating'. The person is Marie Nowak, 35, a Cook. She thinks that food must taste good above all else and that enjoyment is important. She says that a little meat and sweets are allowed, as long as one does not restrict oneself too much."
+      },
+      "discussion": [
+        {
+          "tip": "Define healthy eating from your perspective and name typical foods.",
+          "question": "What does 'eating healthy' mean to you? Can you give an example?"
+        },
+        {
+          "tip": "Compare the costs, time commitment, and enjoyment of both options.",
+          "question": "Do you prefer cooking yourself or going to a restaurant? Why?"
+        },
+        {
+          "question": "How can one eat healthy in a stressful daily routine?",
+          "tip": "Talk about meal prepping or choosing healthy canteen food."
+        }
+      ]
+    },
+    {
+      "discussion": [
+        {
+          "question": "Do you work from home or in the office? What are your experiences?",
+          "tip": "Share your personal experiences and mention the biggest challenges (e.g., distraction, lack of exchange)."
+        },
+        {
+          "question": "What technical requirements are necessary for working at home?",
+          "tip": "Talk about Wi-Fi, good screens, and ergonomics."
+        },
+        {
+          "question": "How can teams work together when they are in different locations?",
+          "tip": "Name tools and strategies for virtual communication."
+        }
+      ],
+      "id": 10,
+      "viewA": {
+        "person": "Dr. Anna Jäger, 38, IT Specialist",
+        "text": "Working from home makes me more productive. I save stress from commuting, can manage my time flexibly, and save money. I work much more efficiently.",
+        "presentationExample": "The topic is 'Working from Home'. The person is Dr. Anna Jäger, 38, an IT Specialist. She thinks that working from home makes her more productive because she saves on commuting and can manage her time flexibly. She says that this makes her work more efficiently and saves money."
+      },
+      "title": "Working from Home",
+      "viewB": {
+        "text": "Teamwork is best in the office. Communication is more direct, and the team spirit suffers when everyone sits at home. The boundary between work and free time blurs.",
+        "person": "Markus Gross, 49, Team Leader",
+        "presentationExample": "The topic is 'Working from Home'. The person is Markus Gross, 49, a Team Leader. He thinks that teamwork functions better in the office because communication is more direct. He says that the team spirit suffers and the boundary between work and free time blurs when working from home."
+      }
+    }
+  ]
+}

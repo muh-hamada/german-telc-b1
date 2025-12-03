@@ -35,6 +35,9 @@ export const spacing = {
     md: 16,
     lg: 24,
     xl: 32,
+    '2xl': 48,
+    '3xl': 64,
+    '4xl': 96,
   },
   
   margin: {
@@ -43,6 +46,9 @@ export const spacing = {
     md: 16,
     lg: 24,
     xl: 32,
+    '2xl': 48,
+    '3xl': 64,
+    '4xl': 96,
   },
   
   // Border radius
@@ -58,6 +64,16 @@ export const spacing = {
   
   // Shadows
   shadow: {
+    xs: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 0.5,
+      },
+      shadowOpacity: 0.05,
+      shadowRadius: 0.5,
+      elevation: 0.25,
+    },
     sm: {
       shadowColor: '#000',
       shadowOffset: {

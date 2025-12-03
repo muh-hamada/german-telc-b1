@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Appetit",
+    "article": "der",
+    "translations": {
+      "en": "appetite",
+      "es": "apetito",
+      "fr": "appétit",
+      "ru": "аппетит",
+      "ar": "الشهية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Guten Appetit!",
+        "translations": {
+          "en": "Enjoy your meal!",
+          "es": "¡Buen provecho!",
+          "fr": "Bon appétit !",
+          "ru": "Приятного аппетита!",
+          "ar": "بالهناء والشفاء!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "arbeiten",
+    "article": "",
+    "translations": {
+      "en": "to work",
+      "es": "trabajar",
+      "fr": "travailler",
+      "ru": "работать",
+      "ar": "يعمل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo arbeiten Sie?",
+        "translations": {
+          "en": "Where do you work?",
+          "es": "¿Dónde trabaja?",
+          "fr": "Où travaillez-vous ?",
+          "ru": "Где вы работаете?",
+          "ar": "أين تعمل؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arbeit",
+    "article": "die",
+    "translations": {
+      "en": "work",
+      "es": "trabajo",
+      "fr": "travail",
+      "ru": "работа",
+      "ar": "العمل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Bruder sucht Arbeit.",
+        "translations": {
+          "en": "My brother is looking for work.",
+          "es": "Mi hermano busca trabajo.",
+          "fr": "Mon frère cherche du travail.",
+          "ru": "Мой брат ищет работу.",
+          "ar": "أخي يبحث عن عمل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "arbeitslos",
+    "article": "",
+    "translations": {
+      "en": "unemployed",
+      "es": "desempleado",
+      "fr": "au chômage",
+      "ru": "безработный",
+      "ar": "عاطل عن العمل"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Es gibt bei uns viele Leute, die schon lange arbeitslos sind.",
+        "translations": {
+          "en": "We have many people who have been unemployed for a long time.",
+          "es": "Tenemos muchas personas que llevan mucho tiempo desempleadas.",
+          "fr": "Nous avons beaucoup de gens qui sont au chômage depuis longtemps.",
+          "ru": "У нас много людей, которые долгое время безработные.",
+          "ar": "لدينا العديد من الأشخاص العاطلين عن العمل لفترة طويلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arbeitsplatz",
+    "article": "der",
+    "translations": {
+      "en": "workplace",
+      "es": "lugar de trabajo",
+      "fr": "lieu de travail",
+      "ru": "рабочее место",
+      "ar": "مكان العمل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "An meinem Arbeitsplatz fehlt ein Drucker.",
+        "translations": {
+          "en": "There's no printer at my workplace.",
+          "es": "Falta una impresora en mi lugar de trabajo.",
+          "fr": "Il manque une imprimante à mon lieu de travail.",
+          "ru": "На моём рабочем месте нет принтера.",
+          "ar": "يفتقد مكان عملي إلى طابعة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arm",
+    "article": "der",
+    "translations": {
+      "en": "arm",
+      "es": "brazo",
+      "fr": "bras",
+      "ru": "рука",
+      "ar": "الذراع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Arm tut weh.",
+        "translations": {
+          "en": "My arm hurts.",
+          "es": "Me duele el brazo.",
+          "fr": "Mon bras me fait mal.",
+          "ru": "У меня болит рука.",
+          "ar": "ذراعي يؤلمني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Arzt",
+    "article": "der",
+    "translations": {
+      "en": "doctor",
+      "es": "médico",
+      "fr": "médecin",
+      "ru": "врач",
+      "ar": "الطبيب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Morgen habe ich einen Termin bei meiner Ärztin.",
+        "translations": {
+          "en": "Tomorrow I have an appointment with my doctor.",
+          "es": "Mañana tengo una cita con mi médica.",
+          "fr": "Demain, j'ai un rendez-vous chez mon médecin.",
+          "ru": "Завтра у меня запись к моему врачу.",
+          "ar": "غدًا لدي موعد مع طبيبتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "auch",
+    "article": "",
+    "translations": {
+      "en": "also",
+      "es": "también",
+      "fr": "aussi",
+      "ru": "тоже",
+      "ar": "أيضًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich bin auch Spanier.",
+        "translations": {
+          "en": "I am also Spanish.",
+          "es": "Yo también soy español.",
+          "fr": "Je suis aussi espagnol.",
+          "ru": "Я тоже испанец.",
+          "ar": "أنا أيضًا إسباني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "auf",
+    "article": "",
+    "translations": {
+      "en": "on",
+      "es": "en",
+      "fr": "sur",
+      "ru": "на",
+      "ar": "على"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Die Kinder spielen auf der Straße.",
+        "translations": {
+          "en": "The children are playing on the street.",
+          "es": "Los niños juegan en la calle.",
+          "fr": "Les enfants jouent dans la rue.",
+          "ru": "Дети играют на улице.",
+          "ar": "الأطفال يلعبون في الشارع."
+        }
+      },
+      {
+        "text": "Auf Wiedersehen.",
+        "translations": {
+          "en": "Goodbye.",
+          "es": "Adiós.",
+          "fr": "Au revoir.",
+          "ru": "До свидания.",
+          "ar": "وداعًا."
+        }
+      },
+      {
+        "text": "Wie heißt das auf Deutsch?",
+        "translations": {
+          "en": "What is that called in German?",
+          "es": "¿Cómo se dice eso en alemán?",
+          "fr": "Comment dit-on cela en allemand ?",
+          "ru": "Как это называется по-немецки?",
+          "ar": "ما اسم ذلك بالألمانية؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Aufgabe",
+    "article": "die",
+    "translations": {
+      "en": "task",
+      "es": "tarea",
+      "fr": "tâche",
+      "ru": "задача",
+      "ar": "المهمة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist eine schwere Aufgabe.",
+        "translations": {
+          "en": "That's a difficult task.",
+          "es": "Esa es una tarea difícil.",
+          "fr": "C'est une tâche difficile.",
+          "ru": "Это трудная задача.",
+          "ar": "هذه مهمة صعبة."
+        }
+      }
+    ]
+  }
+]
+

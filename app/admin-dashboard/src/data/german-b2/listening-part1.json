@@ -1,0 +1,112 @@
+{
+    "section_details": {
+      "title": "Hörverstehen Teil 1: Globales Verstehen (Global Comprehension)",
+      "instructions_de": "Sie hören nun fünf kurze Texte. Dazu sollen Sie fünf Aufgaben lösen. Sie hören diese Texte nur einmal. Entscheiden Sie beim Hören, ob die Aussagen richtig (+) oder falsch (-) sind.",
+      "instructions_en": "You will now hear five short texts. You should solve five tasks. You will hear these texts only once. Decide while listening whether the statements are correct (+) or false (-).",
+      "instructions_ar": "ستسمع الآن خمس نصوص قصيرة. يجب أن تحل خمس عمليات. ستسمع هذه النصوص فقط مرة واحدة. قرر أثناء الاستماع إذا كانت البيانات صحيحة (+) أو خاطئة (-).",
+      "instructions_ru": "Вы сейчас услышите пять коротких текстов. Вам нужно решить пять задач. Вы услышите эти тексты только один раз. Решите, слушая, являются ли утверждения правильными (+) или неправильными (-).",
+      "instructions_fr": "Vous entendrez maintenant cinq textes courts. Vous devez résoudre cinq tâches. Vous entendrez ces textes une seule fois. Décidez en écoutant si les affirmations sont correctes (+) ou incorrectes (-).",
+      "instructions_es": "Escucharás ahora cinco textos cortos. Debes resolver cinco tareas. Escucharás estos textos solo una vez. Decide mientras escuchas si las afirmaciones son correctas (+) o incorrectas (-).",
+      "duration_minutes": 5,
+      "prep_time_seconds": 30
+    },
+    "exams": [
+    {
+      "id": 0,
+      "title": "Modelltest 1 - Hörverstehen Teil 1",
+      "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-1-part-1.mp3?alt=media&token=5fafd26e-6d5d-4604-b6bd-a64d2c2a96a0",
+      "statements": [
+        {
+          "id": 41,
+          "statement": "Experten aus Bankenwelt und Wirtschaft sehen die Konjunkturentwicklung in Deutschland negativ.",
+          "is_correct": false
+        },
+        {
+          "id": 42,
+          "statement": "Die Bundesregierung hat sich erneut gegen die Förderung von Eliteuniversitäten entschieden.",
+          "is_correct": false
+        },
+        {
+          "id": 43,
+          "statement": "Beim Filmfestival in Cannes hat nach elf Jahren wieder ein deutscher Film den ersten Preis gewonnen.",
+          "is_correct": true
+        },
+        {
+          "id": 44,
+          "statement": "Das Internationale Olympische Komitee trifft sich in Lausanne, um über den Austragungsort für die Olympischen Sommerspiele 2012 zu beraten.",
+          "is_correct": false
+        },
+        {
+          "id": 45,
+          "statement": "In Hessen gibt es ein Überangebot an Lehrerstellen.",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Modelltest 2 - Hörverstehen Teil 1",
+      "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-2-part-1.mp3?alt=media&token=03890fa8-d74a-4db8-8bcb-1882db23c2e4",
+      "statements": [
+        {
+          "id": 41,
+          "statement": "Auf einer internationalen Konferenz in Bonn wurde beschlossen, weltweit verstärkt umweltfreundliche Energie zu nutzen.",
+          "is_correct": true
+        },
+        {
+          "id": 42,
+          "statement": "Die Luftfahrtgesellschaft Adler stellt wieder Mitarbeiter ein.",
+          "is_correct": true
+        },
+        {
+          "id": 43,
+          "statement": "In Ulm beginnt heute der Katholikentag, eines der größten christlichen Laientreffen in Deutschland.",
+          "is_correct": false
+        },
+        {
+          "id": 44,
+          "statement": "Die Bundesregierung hat zum Schutz jugendlicher Verbraucher eine Steuer auf alkoholhaltige Mischgetränke eingeführt.",
+          "is_correct": true
+        },
+        {
+          "id": 45,
+          "statement": "In Hagen gab es ein Sprengstoffunglück.",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Modelltest 3 - Hörverstehen Teil 1",
+      "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-b2-exam-3-part-1.mp3?alt=media&token=5a594660-53c7-4d20-a69a-8c64b506222c",
+      "statements": [
+        {
+          "id": 41,
+          "statement": "Die Zahl der Arbeitslosen in Deutschland hat sich im Mai verringert.",
+          "is_correct": true
+        },
+        {
+          "id": 42,
+          "statement": "Mexiko und Russland wollen ihre Zusammenarbeit in den Bereichen Wirtschaft und Finanzen weiter vertiefen.",
+          "is_correct": false
+        },
+        {
+          "id": 43,
+          "statement": "Der deutsche Einzelhandel ist mit den Ergebnissen des Sommerschlussverkaufs sehr zufrieden.",
+          "is_correct": false
+        },
+        {
+          "id": 44,
+          "statement": "Der Präsident der Weltbank äußerte sich besorgt über die Entwicklungshilfe für die so genannte „Dritte Welt“.",
+          "is_correct": false
+        },
+        {
+          "id": 45,
+          "statement": "Bei einer Explosion im Erich-Kästner-Kinderdorf starben vier Jugendliche.",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}
+  

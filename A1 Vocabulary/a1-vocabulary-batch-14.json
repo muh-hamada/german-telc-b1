@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Brötchen",
+    "article": "das",
+    "translations": {
+      "en": "bread roll",
+      "es": "panecillo",
+      "fr": "petit pain",
+      "ru": "булочка",
+      "ar": "لفة خبز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchtest du Brötchen zum Frühstück?",
+        "translations": {
+          "en": "Would you like bread rolls for breakfast?",
+          "es": "¿Quieres panecillos para el desayuno?",
+          "fr": "Veux-tu des petits pains pour le petit déjeuner ?",
+          "ru": "Хочешь булочки на завтрак?",
+          "ar": "هل تريد لفائف خبز للإفطار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bruder",
+    "article": "der",
+    "translations": {
+      "en": "brother",
+      "es": "hermano",
+      "fr": "frère",
+      "ru": "брат",
+      "ar": "الأخ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sein Bruder arbeitet auch hier.",
+        "translations": {
+          "en": "His brother also works here.",
+          "es": "Su hermano también trabaja aquí.",
+          "fr": "Son frère travaille aussi ici.",
+          "ru": "Его брат тоже работает здесь.",
+          "ar": "أخوه يعمل هنا أيضًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Buch",
+    "article": "das",
+    "translations": {
+      "en": "book",
+      "es": "libro",
+      "fr": "livre",
+      "ru": "книга",
+      "ar": "الكتاب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gute Bücher sind oft sehr teuer.",
+        "translations": {
+          "en": "Good books are often very expensive.",
+          "es": "Los buenos libros suelen ser muy caros.",
+          "fr": "Les bons livres sont souvent très chers.",
+          "ru": "Хорошие книги часто очень дорогие.",
+          "ar": "الكتب الجيدة غالبًا ما تكون باهظة الثمن."
+        }
+      },
+      {
+        "text": "In diesem Wörterbuch finden Sie mehr als 20.000 Wörter.",
+        "translations": {
+          "en": "In this dictionary you'll find more than 20,000 words.",
+          "es": "En este diccionario encontrará más de 20,000 palabras.",
+          "fr": "Dans ce dictionnaire, vous trouverez plus de 20 000 mots.",
+          "ru": "В этом словаре вы найдёте более 20 000 слов.",
+          "ar": "في هذا القاموس ستجد أكثر من 20,000 كلمة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Buchstabe",
+    "article": "der",
+    "translations": {
+      "en": "letter",
+      "es": "letra",
+      "fr": "lettre",
+      "ru": "буква",
+      "ar": "الحرف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Diesen Buchstaben gibt es in meiner Sprache nicht.",
+        "translations": {
+          "en": "This letter doesn't exist in my language.",
+          "es": "Esta letra no existe en mi idioma.",
+          "fr": "Cette lettre n'existe pas dans ma langue.",
+          "ru": "Этой буквы нет в моём языке.",
+          "ar": "هذا الحرف غير موجود في لغتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "buchstabieren",
+    "article": "",
+    "translations": {
+      "en": "to spell",
+      "es": "deletrear",
+      "fr": "épeler",
+      "ru": "произносить по буквам",
+      "ar": "يتهجى"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bitte buchstabieren Sie Ihren Namen.",
+        "translations": {
+          "en": "Please spell your name.",
+          "es": "Por favor, deletree su nombre.",
+          "fr": "Veuillez épeler votre nom.",
+          "ru": "Пожалуйста, произнесите своё имя по буквам.",
+          "ar": "من فضلك، تهجى اسمك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bus",
+    "article": "der",
+    "translations": {
+      "en": "bus",
+      "es": "autobús",
+      "fr": "bus",
+      "ru": "автобус",
+      "ar": "الحافلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wann kommt der nächste Bus?",
+        "translations": {
+          "en": "When does the next bus come?",
+          "es": "¿Cuándo viene el próximo autobús?",
+          "fr": "Quand passe le prochain bus ?",
+          "ru": "Когда придёт следующий автобус?",
+          "ar": "متى تأتي الحافلة التالية؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Butter",
+    "article": "die",
+    "translations": {
+      "en": "butter",
+      "es": "mantequilla",
+      "fr": "beurre",
+      "ru": "масло",
+      "ar": "الزبدة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Für mich bitte ein Brötchen mit Butter und Käse.",
+        "translations": {
+          "en": "For me, a bread roll with butter and cheese, please.",
+          "es": "Para mí, un panecillo con mantequilla y queso, por favor.",
+          "fr": "Pour moi, un petit pain avec du beurre et du fromage, s'il vous plaît.",
+          "ru": "Мне, пожалуйста, булочку с маслом и сыром.",
+          "ar": "بالنسبة لي، لفة خبز مع الزبدة والجبن، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Café",
+    "article": "das",
+    "translations": {
+      "en": "café",
+      "es": "cafetería",
+      "fr": "café",
+      "ru": "кафе",
+      "ar": "المقهى"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sollen wir uns im Café treffen?",
+        "translations": {
+          "en": "Should we meet at the café?",
+          "es": "¿Nos encontramos en la cafetería?",
+          "fr": "On se retrouve au café ?",
+          "ru": "Встретимся в кафе?",
+          "ar": "هل نلتقي في المقهى؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "CD",
+    "article": "die",
+    "translations": {
+      "en": "CD",
+      "es": "CD",
+      "fr": "CD",
+      "ru": "компакт-диск",
+      "ar": "القرص المدمج"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bring bitte deine Lieblings-CD mit.",
+        "translations": {
+          "en": "Please bring your favorite CD.",
+          "es": "Por favor, trae tu CD favorito.",
+          "fr": "Apporte ton CD préféré, s'il te plaît.",
+          "ru": "Пожалуйста, принеси свой любимый компакт-диск.",
+          "ar": "من فضلك، أحضر قرصك المدمج المفضل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Chef",
+    "article": "der",
+    "translations": {
+      "en": "boss",
+      "es": "jefe",
+      "fr": "chef",
+      "ru": "начальник",
+      "ar": "المدير"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben eine neue Chefin.",
+        "translations": {
+          "en": "We have a new boss.",
+          "es": "Tenemos una nueva jefa.",
+          "fr": "Nous avons une nouvelle chef.",
+          "ru": "У нас новый начальник.",
+          "ar": "لدينا مديرة جديدة."
+        }
+      }
+    ]
+  }
+]
+

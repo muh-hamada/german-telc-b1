@@ -6,13 +6,14 @@
  */
 
 // API Configuration
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-4o'; // 'gpt-4o' supports JSON mode, or use 'gpt-3.5-turbo' for cost efficiency
 
-interface WritingAssessment {
+export interface WritingAssessment {
   overallScore: number;
   maxScore: number;
+  userInput: string;
   criteria: {
     taskCompletion: {
       grade: 'A' | 'B' | 'C' | 'D';
@@ -27,7 +28,7 @@ interface WritingAssessment {
       feedback: string;
     };
   };
-  improvementTip: string;
+  correctedAnswer: string;
 }
 
 export interface EvaluationRequest {
@@ -70,9 +71,12 @@ Deine Aufgabe ist es, E-Mail-Antworten nach den offiziellen Telc B1 Kriterien zu
 - C (2-3 Punkte): Viele Syntax-/Morphologiefehler; das Verständnis ist deutlich erschwert
 - D (0-1 Punkte): Die Syntax ist überwiegend inkorrekt; der Text ist kaum verständlich
 
+WICHTIG: Das Feld "userInput" muss EXAKT die Antwort des Teilnehmers enthalten, wie sie bereitgestellt wurde. Bei Bildern: Extrahiere den Text GENAU wie geschrieben, ohne Änderungen, Ergänzungen oder Korrekturen. Erfinde NIEMALS eine Beispielantwort.
+
 Gib deine Bewertung als JSON zurück mit folgendem Format:
 {
   "overallScore": <Gesamtpunkte>,
+  "userInput": "<EXAKTE Antwort des Teilnehmers - bei Bildern: der extrahierte Text ohne Änderungen>",
   "maxScore": 15,
   "criteria": {
     "taskCompletion": {
@@ -88,8 +92,17 @@ Gib deine Bewertung als JSON zurück mit folgendem Format:
       "feedback": "<Detailliertes Feedback>"
     }
   },
-  "improvementTip": "<Ein konkreter, hilfreicher Tipp für die Verbesserung>"
-}`;
+  "correctedAnswer": "<Die korrigierte Antwort mit Markdown-Hervorhebungen>"
+}
+
+WICHTIG für "correctedAnswer":
+- Nimm die EXAKTE Antwort des Teilnehmers und korrigiere NUR die Fehler
+- Erstelle KEINE neue Antwort - behalte den originalen Text bei
+- Verwende Markdown zur Hervorhebung der Korrekturen:
+  * **fett** für korrigierte Wörter/Phrasen
+  * ~~durchgestrichen~~ für entfernte/falsche Teile (optional, falls nötig)
+- Wenn es keine Fehler gibt, gib die originale Antwort zurück
+- Beispiel: "Ich **habe** gestern ins Kino gegangen" → "Ich **bin** gestern ins Kino gegangen"`;
 
 /**
  * Creates a user prompt for the OpenAI API
@@ -110,7 +123,7 @@ ${request.userAnswer}
 
 ---
 
-Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück.`;
+Bewerte diese Antwort nach den Telc B1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
 }
 
 /**
@@ -120,7 +133,7 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
   const apiKey = getOpenAIApiKey();
   
   if (!apiKey || apiKey === '') {
-    throw new Error('OpenAI API key is not configured. Please set the API key in openai.service.ts');
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
   }
 
   try {
@@ -145,9 +158,7 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        `OpenAI API error: ${response.status} ${response.statusText}. ${
-          errorData.error?.message || ''
-        }`
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
       );
     }
 
@@ -155,16 +166,20 @@ async function callOpenAI(userPrompt: string): Promise<WritingAssessment> {
     const content = data.choices[0]?.message?.content;
 
     if (!content) {
-      throw new Error('No response from OpenAI');
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
     }
 
     const assessment: WritingAssessment = JSON.parse(content);
     return assessment;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`OpenAI API call failed: ${error.message}`);
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
     }
-    throw new Error('OpenAI API call failed with unknown error');
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
   }
 }
 
@@ -189,7 +204,7 @@ async function imageUriToBase64(uri: string): Promise<string> {
       reader.readAsDataURL(blob);
     });
   } catch (error) {
-    throw new Error(`Failed to convert image to base64: ${error}`);
+    throw new Error('Das Bild konnte nicht gelesen werden. Bitte versuchen Sie es erneut.');
   }
 }
 
@@ -209,7 +224,15 @@ ${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n
 
 ---
 
-Bitte lese den handschriftlichen Text im Bild und bewerte diese Antwort nach den Telc B1 Kriterien. Gib das Ergebnis als JSON zurück.`;
+WICHTIGE ANWEISUNGEN:
+1. Lese zuerst den GESAMTEN handschriftlichen Text im Bild sorgfältig
+2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern
+3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
+4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
+5. Bewerte dann diese extrahierte Antwort nach den Telc B1 Kriterien
+6. Für "correctedAnswer": Nimm den extrahierten Text und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.
+
+Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
 }
 
 /**
@@ -219,7 +242,7 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
   const apiKey = getOpenAIApiKey();
   
   if (!apiKey || apiKey === '') {
-    throw new Error('OpenAI API key is not configured. Please set the API key in openai.service.ts');
+    throw new Error('Die Bewertungsfunktion ist derzeit nicht verfügbar. Bitte kontaktieren Sie den Support.');
   }
 
   try {
@@ -256,9 +279,7 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        `OpenAI API error: ${response.status} ${response.statusText}. ${
-          errorData.error?.message || ''
-        }`
+        'Die Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es später erneut.'
       );
     }
 
@@ -266,16 +287,20 @@ async function callOpenAIWithImage(userPrompt: string, imageBase64: string): Pro
     const content = data.choices[0]?.message?.content;
 
     if (!content) {
-      throw new Error('No response from OpenAI');
+      throw new Error('Die Bewertung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.');
     }
 
     const assessment: WritingAssessment = JSON.parse(content);
     return assessment;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`OpenAI API call failed: ${error.message}`);
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung') || error.message.includes('Bild')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
     }
-    throw new Error('OpenAI API call failed with unknown error');
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
   }
 }
 
@@ -304,7 +329,7 @@ export async function evaluateWritingWithImage(
   } else if (request.imageUri) {
     imageBase64 = await imageUriToBase64(request.imageUri);
   } else {
-    throw new Error('Either imageUri or imageBase64 must be provided');
+    throw new Error('Kein Bild gefunden. Bitte laden Sie ein Bild hoch.');
   }
   
   const userPrompt = createImageUserPrompt(request);
@@ -318,6 +343,7 @@ export async function evaluateWritingWithImage(
 export function getMockAssessment(): WritingAssessment {
   return {
     overallScore: 13,
+    userInput: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein mit.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\nDein Thomas',
     maxScore: 15,
     criteria: {
       taskCompletion: {
@@ -333,7 +359,7 @@ export function getMockAssessment(): WritingAssessment {
         feedback: 'Viele Genusfehler und einige falsche Verbpositionen behindern das zügige Verständnis stellenweise. Achten Sie besonders auf die Artikel (der/die/das).',
       },
     },
-    improvementTip: 'Achten Sie besonders auf die richtige Stellung des Verbs im Nebensatz (z.B. nach "weil" oder "dass"). Das Verb sollte am Ende des Nebensatzes stehen.',
+    correctedAnswer: 'Liebe Sarah,\n\nvielen Dank für deine E-Mail. Ich freue mich sehr über deine Einladung.\n\nIch habe am Samstag Zeit und ich kann zu deiner Party kommen. Ich bringe eine Flasche Wein **mit**.\n\nKann ich noch jemanden mitbringen? Mein Freund möchte auch gern kommen.\n\nBis bald!\n**Dein** Thomas',
   };
 }
 

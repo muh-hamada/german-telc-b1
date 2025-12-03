@@ -1,0 +1,273 @@
+[
+  {
+    "word": "warten",
+    "article": "",
+    "translations": {
+      "en": "to wait",
+      "es": "esperar",
+      "fr": "attendre",
+      "ru": "ждать",
+      "ar": "ينتظر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie ein paar Minuten warten?",
+        "translations": {
+          "en": "Can you wait a few minutes?",
+          "es": "¿Puede esperar unos minutos?",
+          "fr": "Pouvez-vous attendre quelques minutes?",
+          "ru": "Можете подождать несколько минут?",
+          "ar": "هل يمكنك الانتظار بضع دقائق؟"
+        }
+      },
+      {
+        "text": "Auf wen warten Sie?",
+        "translations": {
+          "en": "Who are you waiting for?",
+          "es": "¿A quién espera?",
+          "fr": "Qui attendez-vous?",
+          "ru": "Кого вы ждёте?",
+          "ar": "من تنتظر؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "warum",
+    "article": "",
+    "translations": {
+      "en": "why",
+      "es": "por qué",
+      "fr": "pourquoi",
+      "ru": "почему",
+      "ar": "لماذا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Warum kommt er nicht?",
+        "translations": {
+          "en": "Why isn't he coming?",
+          "es": "¿Por qué no viene?",
+          "fr": "Pourquoi ne vient-il pas?",
+          "ru": "Почему он не приходит?",
+          "ar": "لماذا لا يأتي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "was",
+    "article": "",
+    "translations": {
+      "en": "what",
+      "es": "qué",
+      "fr": "quoi",
+      "ru": "что",
+      "ar": "ماذا"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Was ist das?",
+        "translations": {
+          "en": "What is that?",
+          "es": "¿Qué es eso?",
+          "fr": "Qu'est-ce que c'est?",
+          "ru": "Что это?",
+          "ar": "ما هذا؟"
+        }
+      },
+      {
+        "text": "Was möchten Sie?",
+        "translations": {
+          "en": "What would you like?",
+          "es": "¿Qué desea?",
+          "fr": "Que désirez-vous?",
+          "ru": "Что вы хотите?",
+          "ar": "ماذا تريد؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "was für ein",
+    "article": "",
+    "translations": {
+      "en": "what kind of",
+      "es": "qué tipo de",
+      "fr": "quel genre de",
+      "ru": "какой",
+      "ar": "أي نوع من"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Was für eine Farbe möchten Sie?",
+        "translations": {
+          "en": "What color would you like?",
+          "es": "¿Qué color desea?",
+          "fr": "Quelle couleur désirez-vous?",
+          "ru": "Какой цвет вы хотите?",
+          "ar": "أي لون تريد؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "(sich) waschen",
+    "article": "",
+    "translations": {
+      "en": "to wash",
+      "es": "lavar",
+      "fr": "laver",
+      "ru": "мыть",
+      "ar": "يغسل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wo kann ich mir die Hände waschen?",
+        "translations": {
+          "en": "Where can I wash my hands?",
+          "es": "¿Dónde puedo lavarme las manos?",
+          "fr": "Où puis-je me laver les mains?",
+          "ru": "Где я могу помыть руки?",
+          "ar": "أين يمكنني غسل يدي؟"
+        }
+      },
+      {
+        "text": "Ich muss morgen waschen.",
+        "translations": {
+          "en": "I have to do laundry tomorrow.",
+          "es": "Tengo que lavar mañana.",
+          "fr": "Je dois faire la lessive demain.",
+          "ru": "Мне нужно постирать завтра.",
+          "ar": "يجب أن أغسل غدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wasser",
+    "article": "das",
+    "translations": {
+      "en": "water",
+      "es": "agua",
+      "fr": "eau",
+      "ru": "вода",
+      "ar": "الماء"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ein Glas Wasser, bitte.",
+        "translations": {
+          "en": "A glass of water, please.",
+          "es": "Un vaso de agua, por favor.",
+          "fr": "Un verre d'eau, s'il vous plaît.",
+          "ru": "Стакан воды, пожалуйста.",
+          "ar": "كأس ماء، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "weh tun",
+    "article": "",
+    "translations": {
+      "en": "to hurt",
+      "es": "doler",
+      "fr": "faire mal",
+      "ru": "болеть",
+      "ar": "يؤلم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich muss zum Arzt. Mein Bein tut weh.",
+        "translations": {
+          "en": "I have to go to the doctor. My leg hurts.",
+          "es": "Tengo que ir al médico. Me duele la pierna.",
+          "fr": "Je dois aller chez le médecin. Ma jambe me fait mal.",
+          "ru": "Мне нужно к врачу. Нога болит.",
+          "ar": "يجب أن أذهب إلى الطبيب. ساقي تؤلمني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "weiblich",
+    "article": "",
+    "translations": {
+      "en": "female",
+      "es": "femenino",
+      "fr": "féminin",
+      "ru": "женский",
+      "ar": "أنثى"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Kreuzen Sie bitte an: „weiblich" oder „männlich".",
+        "translations": {
+          "en": "Please check: \"female\" or \"male\".",
+          "es": "Por favor marque: \"femenino\" o \"masculino\".",
+          "fr": "Veuillez cocher: \"féminin\" ou \"masculin\".",
+          "ru": "Пожалуйста, отметьте: «женский» или «мужской».",
+          "ar": "يرجى التحديد: \"أنثى\" أو \"ذكر\"."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Wein",
+    "article": "der",
+    "translations": {
+      "en": "wine",
+      "es": "vino",
+      "fr": "vin",
+      "ru": "вино",
+      "ar": "النبيذ"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nein danke, ich möchte keinen Wein.",
+        "translations": {
+          "en": "No thank you, I don't want any wine.",
+          "es": "No gracias, no quiero vino.",
+          "fr": "Non merci, je ne veux pas de vin.",
+          "ru": "Нет, спасибо, я не хочу вина.",
+          "ar": "لا شكرًا، لا أريد نبيذًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "weit",
+    "article": "",
+    "translations": {
+      "en": "far",
+      "es": "lejos",
+      "fr": "loin",
+      "ru": "далеко",
+      "ar": "بعيد"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Zum Bahnhof ist es nicht weit.",
+        "translations": {
+          "en": "It's not far to the station.",
+          "es": "No está lejos a la estación.",
+          "fr": "Ce n'est pas loin de la gare.",
+          "ru": "До вокзала недалеко.",
+          "ar": "ليس بعيدًا إلى المحطة."
+        }
+      }
+    ]
+  }
+]
+

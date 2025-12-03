@@ -1,0 +1,273 @@
+[
+  {
+    "word": "fremd",
+    "article": "",
+    "translations": {
+      "en": "foreign",
+      "es": "extraño",
+      "fr": "étranger",
+      "ru": "чужой",
+      "ar": "غريب"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das weiß ich nicht; ich bin fremd hier.",
+        "translations": {
+          "en": "I don't know; I'm a stranger here.",
+          "es": "No lo sé; soy extraño aquí.",
+          "fr": "Je ne sais pas ; je suis étranger ici.",
+          "ru": "Я не знаю; я здесь чужой.",
+          "ar": "لا أعرف؛ أنا غريب هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "freuen",
+    "article": "",
+    "translations": {
+      "en": "to be happy",
+      "es": "alegrarse",
+      "fr": "se réjouir",
+      "ru": "радоваться",
+      "ar": "يسعد"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich freue mich auf den Urlaub.",
+        "translations": {
+          "en": "I'm looking forward to the vacation.",
+          "es": "Estoy deseando las vacaciones.",
+          "fr": "J'ai hâte d'être en vacances.",
+          "ru": "Я радуюсь отпуску.",
+          "ar": "أنا متطلع إلى العطلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Freund",
+    "article": "der",
+    "translations": {
+      "en": "friend",
+      "es": "amigo",
+      "fr": "ami",
+      "ru": "друг",
+      "ar": "الصديق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist ein Freund von mir.",
+        "translations": {
+          "en": "That's a friend of mine.",
+          "es": "Es un amigo mío.",
+          "fr": "C'est un ami à moi.",
+          "ru": "Это мой друг.",
+          "ar": "هذا صديق لي."
+        }
+      },
+      {
+        "text": "Das ist meine Freundin.",
+        "translations": {
+          "en": "This is my girlfriend.",
+          "es": "Esta es mi novia.",
+          "fr": "C'est ma petite amie.",
+          "ru": "Это моя подруга.",
+          "ar": "هذه صديقتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "früher",
+    "article": "",
+    "translations": {
+      "en": "earlier",
+      "es": "antes",
+      "fr": "autrefois",
+      "ru": "раньше",
+      "ar": "في السابق"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Früher waren wir oft zusammen im Kino.",
+        "translations": {
+          "en": "We used to go to the cinema together often.",
+          "es": "Antes íbamos a menudo juntos al cine.",
+          "fr": "Autrefois, nous allions souvent au cinéma ensemble.",
+          "ru": "Раньше мы часто ходили в кино вместе.",
+          "ar": "في السابق كنا نذهب معًا إلى السينما غالبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "frühstücken",
+    "article": "",
+    "translations": {
+      "en": "to have breakfast",
+      "es": "desayunar",
+      "fr": "prendre le petit déjeuner",
+      "ru": "завтракать",
+      "ar": "يتناول الإفطار"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Am Sonntag frühstücke ich gern im Bett.",
+        "translations": {
+          "en": "On Sundays I like to have breakfast in bed.",
+          "es": "Los domingos me gusta desayunar en la cama.",
+          "fr": "Le dimanche, j'aime prendre le petit déjeuner au lit.",
+          "ru": "В воскресенье я люблю завтракать в постели.",
+          "ar": "في أيام الأحد أحب تناول الإفطار في السرير."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Frühstück",
+    "article": "das",
+    "translations": {
+      "en": "breakfast",
+      "es": "desayuno",
+      "fr": "petit déjeuner",
+      "ru": "завтрак",
+      "ar": "الإفطار"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchtest du ein Ei zum Frühstück?",
+        "translations": {
+          "en": "Would you like an egg for breakfast?",
+          "es": "¿Quieres un huevo para el desayuno?",
+          "fr": "Veux-tu un œuf pour le petit déjeuner ?",
+          "ru": "Хочешь яйцо на завтрак?",
+          "ar": "هل تريد بيضة للإفطار؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Führung",
+    "article": "die",
+    "translations": {
+      "en": "tour",
+      "es": "visita guiada",
+      "fr": "visite guidée",
+      "ru": "экскурсия",
+      "ar": "الجولة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Führung durch das Haus beginnt in 3 Minuten.",
+        "translations": {
+          "en": "The tour of the house begins in 3 minutes.",
+          "es": "La visita guiada por la casa comienza en 3 minutos.",
+          "fr": "La visite guidée de la maison commence dans 3 minutes.",
+          "ru": "Экскурсия по дому начинается через 3 минуты.",
+          "ar": "تبدأ الجولة في المنزل خلال 3 دقائق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "für",
+    "article": "",
+    "translations": {
+      "en": "for",
+      "es": "para",
+      "fr": "pour",
+      "ru": "для",
+      "ar": "لـ"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Das ist für Sie.",
+        "translations": {
+          "en": "This is for you.",
+          "es": "Esto es para usted.",
+          "fr": "C'est pour vous.",
+          "ru": "Это для вас.",
+          "ar": "هذا لك."
+        }
+      },
+      {
+        "text": "Das ist der Schlüssel für die Haustür.",
+        "translations": {
+          "en": "This is the key for the front door.",
+          "es": "Esta es la llave de la puerta principal.",
+          "fr": "C'est la clé de la porte d'entrée.",
+          "ru": "Это ключ от входной двери.",
+          "ar": "هذا هو مفتاح الباب الأمامي."
+        }
+      },
+      {
+        "text": "Das ist das Brot für morgen.",
+        "translations": {
+          "en": "This is the bread for tomorrow.",
+          "es": "Este es el pan para mañana.",
+          "fr": "C'est le pain pour demain.",
+          "ru": "Это хлеб на завтра.",
+          "ar": "هذا هو الخبز لغد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fuß",
+    "article": "der",
+    "translations": {
+      "en": "foot",
+      "es": "pie",
+      "fr": "pied",
+      "ru": "нога",
+      "ar": "القدم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der linke Fuß tut mir weh.",
+        "translations": {
+          "en": "My left foot hurts.",
+          "es": "Me duele el pie izquierdo.",
+          "fr": "Mon pied gauche me fait mal.",
+          "ru": "У меня болит левая нога.",
+          "ar": "قدمي اليسرى تؤلمني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fußball",
+    "article": "der",
+    "translations": {
+      "en": "soccer",
+      "es": "fútbol",
+      "fr": "football",
+      "ru": "футбол",
+      "ar": "كرة القدم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Spielt ihr gerne Fußball?",
+        "translations": {
+          "en": "Do you like playing soccer?",
+          "es": "¿Les gusta jugar fútbol?",
+          "fr": "Aimez-vous jouer au football ?",
+          "ru": "Вам нравится играть в футбол?",
+          "ar": "هل تحبون لعب كرة القدم؟"
+        }
+      }
+    ]
+  }
+]
+

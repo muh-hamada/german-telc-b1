@@ -1,6 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MockExamProgress } from '../types/mock-exam.types';
 import { dataService } from './data.service';
+import { AnalyticsEvents, logEvent } from './analytics.events';
+import { UserAnswer } from '../types/exam.types';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
@@ -9,27 +11,52 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
  * Picks one random test from each section's available exams
  */
 export const generateRandomExamSelection = async () => {
-  // Get counts of available exams for each section
-  const readingPart1Count = (await dataService.getReadingPart1Exams()).length;
-  const readingPart2Count = (await dataService.getReadingPart2Exams()).length;
-  const readingPart3Count = (await dataService.getReadingPart3Exams()).length;
-  const grammarPart1Count = (await dataService.getGrammarPart1Exams()).length;
-  const grammarPart2Count = (await dataService.getGrammarPart2Exams()).length;
-  
-  // For listening and writing, we only have 1 exam per section currently
-  // but we'll structure it the same way for consistency
-  
-  const selectedTests = {
-    'reading-1': Math.floor(Math.random() * readingPart1Count),
-    'reading-2': Math.floor(Math.random() * readingPart2Count),
-    'reading-3': Math.floor(Math.random() * readingPart3Count),
-    'language-1': Math.floor(Math.random() * grammarPart1Count),
-    'language-2': Math.floor(Math.random() * grammarPart2Count),
-    'listening-1': 0, // Only one exam available
-    'listening-2': 0, // Only one exam available
-    'listening-3': 0, // Only one exam available
-    'writing': Math.floor(Math.random() * 5), // Assuming 5 writing exams
+  // Fetch all available exams for each section
+  const [
+    readingPart1Exams,
+    readingPart2Exams,
+    readingPart3Exams,
+    grammarPart1Exams,
+    grammarPart2Exams,
+    writingExams,
+    listeningPart1Data,
+    listeningPart2Data,
+    listeningPart3Data
+  ] = await Promise.all([
+    dataService.getReadingPart1Exams(),
+    dataService.getReadingPart2Exams(),
+    dataService.getReadingPart3Exams(),
+    dataService.getGrammarPart1Exams(),
+    dataService.getGrammarPart2Exams(),
+    dataService.getWritingExams(),
+    dataService.getListeningPart1Content(),
+    dataService.getListeningPart2Content(),
+    dataService.getListeningPart3Content(),
+  ]);
+
+  const listeningPart1Exams = listeningPart1Data?.exams || [];
+  const listeningPart2Exams = listeningPart2Data?.exams || [];
+  const listeningPart3Exams = listeningPart3Data?.exams || [];
+
+  const getRandomId = (exams: any[]) => {
+    if (!exams || exams.length === 0) return 0;
+    const randomIndex = Math.floor(Math.random() * exams.length);
+    return exams[randomIndex].id;
   };
+
+  const selectedTests = {
+    'reading-1': getRandomId(readingPart1Exams),
+    'reading-2': getRandomId(readingPart2Exams),
+    'reading-3': getRandomId(readingPart3Exams),
+    'language-1': getRandomId(grammarPart1Exams),
+    'language-2': getRandomId(grammarPart2Exams),
+    'listening-1': getRandomId(listeningPart1Exams),
+    'listening-2': getRandomId(listeningPart2Exams),
+    'listening-3': getRandomId(listeningPart3Exams),
+    'writing': getRandomId(writingExams),
+  };
+
+  console.log('[generateRandomExamSelection] selectedTests', selectedTests);
 
   return selectedTests;
 };
@@ -133,7 +160,8 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
 export const updateStepProgress = async (
   stepId: string,
   score: number,
-  isCompleted: boolean = true
+  isCompleted: boolean = true,
+  answers: UserAnswer[]
 ): Promise<void> => {
   try {
     const progress = await loadMockExamProgress();
@@ -151,6 +179,17 @@ export const updateStepProgress = async (
     progress.steps[stepIndex].isCompleted = isCompleted;
     progress.steps[stepIndex].endTime = Date.now();
 
+    // Track step completed
+    const completedDurationMs = (progress.steps[stepIndex].endTime || 0) - (progress.steps[stepIndex].startTime || progress.startDate);
+    logEvent(AnalyticsEvents.MOCK_EXAM_STEP_COMPLETED, {
+      exam_id: progress.examId,
+      step_id: progress.steps[stepIndex].id,
+      step_index: stepIndex,
+      score,
+      max_points: progress.steps[stepIndex].maxPoints,
+      duration_ms: completedDurationMs,
+    });
+
     // Update total score
     progress.totalScore = progress.steps
       .filter(s => s.isCompleted && s.score !== undefined)
@@ -160,15 +199,57 @@ export const updateStepProgress = async (
     if (stepIndex < progress.steps.length - 1) {
       progress.currentStepId = progress.steps[stepIndex + 1].id;
       progress.steps[stepIndex + 1].startTime = Date.now();
+
+      // Track next step started
+      logEvent(AnalyticsEvents.MOCK_EXAM_STEP_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[stepIndex + 1].id,
+        step_index: stepIndex + 1,
+      });
     } else {
       // Mark exam as completed
       progress.isCompleted = true;
       progress.endDate = Date.now();
+
+      // Track exam completed
+      const writtenScore = progress.steps
+        .filter(s => s.sectionNumber <= 4)
+        .reduce((acc, s) => acc + (s.score || 0), 0);
+      const writtenMaxPoints = 225;
+      const passedWritten = writtenScore >= 135;
+      const passedOverall = progress.totalScore >= 180 && passedWritten;
+
+      logEvent(AnalyticsEvents.MOCK_EXAM_COMPLETED, {
+        exam_id: progress.examId,
+        total_score: progress.totalScore,
+        total_max_points: progress.totalMaxPoints,
+        written_score: writtenScore,
+        percentage: Math.round((progress.totalScore / progress.totalMaxPoints) * 100),
+        passed_written: passedWritten,
+        passed_overall: passedOverall,
+        duration_ms: (progress.endDate || 0) - progress.startDate,
+      });
     }
 
     progress.hasStarted = true;
 
     await saveMockExamProgress(progress);
+    
+    // If this is the first time starting, log started and first step started
+    if (stepIndex === 0 && progress.steps[0].startTime === undefined) {
+      logEvent(AnalyticsEvents.MOCK_EXAM_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[0].id,
+        total_steps: progress.steps.length,
+      });
+      progress.steps[0].startTime = Date.now();
+      logEvent(AnalyticsEvents.MOCK_EXAM_STEP_STARTED, {
+        exam_id: progress.examId,
+        step_id: progress.steps[0].id,
+        step_index: 0,
+      });
+      await saveMockExamProgress(progress);
+    }
   } catch (error) {
     console.error('Error updating step progress:', error);
     throw error;

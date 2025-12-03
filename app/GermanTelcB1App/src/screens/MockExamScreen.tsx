@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,12 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  StatusBar,
   I18nManager,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useNavigation, CompositeNavigationProp } from '@react-navigation/native';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
 import { 
@@ -20,11 +19,10 @@ import {
   createInitialMockExamProgress,
   saveMockExamProgress,
 } from '../services/mock-exam.service';
-import AdBanner from '../components/AdBanner';
-import { HIDE_ADS } from '../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const MockExamScreen: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const navigation = useNavigation<any>();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,17 +31,24 @@ const MockExamScreen: React.FC = () => {
       const progress = await loadMockExamProgress();
       if (progress && progress.hasStarted && !progress.isCompleted) {
         // Show alert to continue or start new
+        logEvent(AnalyticsEvents.MOCK_EXAM_RESUME_DIALOG_SHOWN, { has_active_exam: true });
         Alert.alert(
           t('mockExam.examInProgress'),
           t('mockExam.resumeOrRestart'),
           [
             {
               text: t('mockExam.resume'),
-              onPress: () => navigation.navigate('MockExamRunning'),
+              onPress: () => {
+                logEvent(AnalyticsEvents.MOCK_EXAM_RESUME_SELECTED);
+                navigation.navigate('MockExamRunning');
+              },
             },
             {
               text: t('mockExam.startNew'),
-              onPress: () => confirmStartNew(),
+              onPress: () => {
+                logEvent(AnalyticsEvents.MOCK_EXAM_START_NEW_SELECTED);
+                confirmStartNew();
+              },
               style: 'destructive',
             },
             {
@@ -85,6 +90,7 @@ const MockExamScreen: React.FC = () => {
 
   const handleStartExam = async () => {
     try {
+      logEvent(AnalyticsEvents.MOCK_EXAM_START_CLICKED);
       // Create and save initial progress
       const initialProgress = await createInitialMockExamProgress();
       await saveMockExamProgress(initialProgress);
@@ -104,10 +110,6 @@ const MockExamScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={colors.primary[500]}
-      />
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
@@ -218,7 +220,6 @@ const MockExamScreen: React.FC = () => {
           {t('mockExam.goodLuck')}
         </Text>
       </ScrollView>
-      {!HIDE_ADS && <AdBanner />}
     </SafeAreaView>
   );
 };
@@ -230,7 +231,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingTop: spacing.padding.xl,
   },
   scrollContent: {
     padding: spacing.padding.lg,
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -266,9 +266,10 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   overviewRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: spacing.margin.sm,
   },
@@ -285,21 +286,25 @@ const styles = StyleSheet.create({
     backgroundColor: colors.warning[50],
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.lg,
-    borderLeftWidth: 4,
+    marginBottom: spacing.margin.md,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.warning[500],
+    borderRightColor: colors.warning[500],
   },
   noteTitle: {
     ...typography.textStyles.h4,
     color: colors.warning[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   noteText: {
     ...typography.textStyles.body,
     color: colors.warning[700],
     lineHeight: 22,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   linkButton: {
     marginTop: spacing.margin.sm,
@@ -309,34 +314,40 @@ const styles = StyleSheet.create({
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
     textDecorationLine: 'underline',
+    textAlign: 'left',
   },
   disclaimerCard: {
     backgroundColor: colors.primary[50],
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.lg,
-    borderLeftWidth: 4,
+    marginBottom: spacing.margin.md,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.primary[500],
+    borderRightColor: colors.primary[500],
   },
   disclaimerTitle: {
     ...typography.textStyles.h4,
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   disclaimerText: {
     ...typography.textStyles.body,
     color: colors.primary[700],
     lineHeight: 22,
+    textAlign: 'left',
   },
   disclaimerBold: {
     fontWeight: typography.fontWeight.bold,
+    textAlign: 'left',
   },
   sectionsCard: {
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -344,7 +355,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   sectionItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: spacing.margin.md,
   },
@@ -353,7 +364,8 @@ const styles = StyleSheet.create({
     color: colors.primary[500],
     fontWeight: typography.fontWeight.bold,
     width: 40,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.sm } : { marginRight: spacing.margin.sm }),
+    marginRight: spacing.margin.sm,
+    textAlign: 'left',
   },
   sectionContent: {
     flex: 1,
@@ -363,29 +375,35 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   sectionDetail: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   speakingNote: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.white,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.xl,
-    borderLeftWidth: 4,
+    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+    borderRightWidth: I18nManager.isRTL ? 4 : 0,
     borderLeftColor: colors.secondary[500],
+    borderRightColor: colors.secondary[500],
   },
   speakingNoteTitle: {
     ...typography.textStyles.h4,
     color: colors.secondary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   speakingNoteText: {
     ...typography.textStyles.body,
     color: colors.secondary[700],
     lineHeight: 22,
+    textAlign: 'left',
   },
   startButton: {
     backgroundColor: colors.success[500],

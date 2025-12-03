@@ -1,0 +1,243 @@
+[
+  {
+    "word": "Oma",
+    "article": "die",
+    "translations": {
+      "en": "grandma",
+      "es": "abuela",
+      "fr": "grand-mère",
+      "ru": "бабушка",
+      "ar": "الجدة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Oma ist schon tot.",
+        "translations": {
+          "en": "My grandma is already dead.",
+          "es": "Mi abuela ya está muerta.",
+          "fr": "Ma grand-mère est déjà morte.",
+          "ru": "Моя бабушка уже умерла.",
+          "ar": "جدتي متوفاة بالفعل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Opa",
+    "article": "der",
+    "translations": {
+      "en": "grandpa",
+      "es": "abuelo",
+      "fr": "grand-père",
+      "ru": "дедушка",
+      "ar": "الجد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Opa heißt Hans.",
+        "translations": {
+          "en": "My grandpa is called Hans.",
+          "es": "Mi abuelo se llama Hans.",
+          "fr": "Mon grand-père s'appelle Hans.",
+          "ru": "Моего дедушку зовут Ханс.",
+          "ar": "اسم جدي هانس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ordnung",
+    "article": "die",
+    "translations": {
+      "en": "order",
+      "es": "orden",
+      "fr": "ordre",
+      "ru": "порядок",
+      "ar": "النظام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das ist in Ordnung.",
+        "translations": {
+          "en": "That's alright.",
+          "es": "Eso está bien.",
+          "fr": "C'est bon.",
+          "ru": "Это в порядке.",
+          "ar": "هذا على ما يرام."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Ort",
+    "article": "der",
+    "translations": {
+      "en": "place",
+      "es": "lugar",
+      "fr": "lieu",
+      "ru": "место",
+      "ar": "المكان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Ort liegt am Meer.",
+        "translations": {
+          "en": "The place is located by the sea.",
+          "es": "El lugar está junto al mar.",
+          "fr": "Le lieu est situé au bord de la mer.",
+          "ru": "Это место находится у моря.",
+          "ar": "المكان يقع على البحر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Papier",
+    "article": "das",
+    "translations": {
+      "en": "paper",
+      "es": "papel",
+      "fr": "papier",
+      "ru": "бумага",
+      "ar": "الورق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hier sind Papier und Bleistift.",
+        "translations": {
+          "en": "Here are paper and pencil.",
+          "es": "Aquí están el papel y el lápiz.",
+          "fr": "Voici du papier et un crayon.",
+          "ru": "Вот бумага и карандаш.",
+          "ar": "هنا الورق والقلم الرصاص."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Papiere",
+    "article": "die",
+    "translations": {
+      "en": "documents",
+      "es": "documentos",
+      "fr": "papiers",
+      "ru": "документы",
+      "ar": "الوثائق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie Ihre Papiere dabei?",
+        "translations": {
+          "en": "Do you have your documents with you?",
+          "es": "¿Tiene sus documentos consigo?",
+          "fr": "Avez-vous vos papiers avec vous?",
+          "ru": "У вас есть с собой документы?",
+          "ar": "هل لديك وثائقك معك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Partner",
+    "article": "der",
+    "translations": {
+      "en": "partner",
+      "es": "compañero",
+      "fr": "partenaire",
+      "ru": "партнёр",
+      "ar": "الشريك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Sie ist meine Partnerin.",
+        "translations": {
+          "en": "She is my partner.",
+          "es": "Ella es mi compañera.",
+          "fr": "Elle est ma partenaire.",
+          "ru": "Она моя партнёрша.",
+          "ar": "هي شريكتي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Party",
+    "article": "die",
+    "translations": {
+      "en": "party",
+      "es": "fiesta",
+      "fr": "fête",
+      "ru": "вечеринка",
+      "ar": "الحفلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Heute Abend machen wir eine Party.",
+        "translations": {
+          "en": "We're having a party this evening.",
+          "es": "Hacemos una fiesta esta noche.",
+          "fr": "Nous faisons une fête ce soir.",
+          "ru": "Сегодня вечером у нас вечеринка.",
+          "ar": "سنقيم حفلة هذا المساء."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Pass",
+    "article": "der",
+    "translations": {
+      "en": "passport",
+      "es": "pasaporte",
+      "fr": "passeport",
+      "ru": "паспорт",
+      "ar": "جواز السفر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Im Hotel brauchst du deinen Pass.",
+        "translations": {
+          "en": "You need your passport at the hotel.",
+          "es": "En el hotel necesitas tu pasaporte.",
+          "fr": "À l'hôtel, tu as besoin de ton passeport.",
+          "ru": "В отеле тебе нужен паспорт.",
+          "ar": "تحتاج إلى جواز سفرك في الفندق."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Pause",
+    "article": "die",
+    "translations": {
+      "en": "break",
+      "es": "pausa",
+      "fr": "pause",
+      "ru": "перерыв",
+      "ar": "الاستراحة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Von 12.00 bis 12.30 Uhr haben wir Mittagspause.",
+        "translations": {
+          "en": "We have lunch break from 12:00 to 12:30.",
+          "es": "Tenemos pausa para el almuerzo de 12:00 a 12:30.",
+          "fr": "Nous avons une pause déjeuner de 12h00 à 12h30.",
+          "ru": "У нас обеденный перерыв с 12:00 до 12:30.",
+          "ar": "لدينا استراحة غداء من 12:00 إلى 12:30."
+        }
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,528 @@
+.deletion-requests-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.deletion-requests-header {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.deletion-requests-header h1 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.user-info {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-refresh,
+.btn-logout {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-refresh {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-refresh:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.btn-refresh:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-logout {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #da190b;
+}
+
+.deletion-requests-main {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.requests-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.summary-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.summary-count {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.requests-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.requests-section h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.requests-table-container {
+  overflow-x: auto;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.requests-table thead {
+  background-color: #f8f9fa;
+}
+
+.requests-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.requests-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.requests-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.requests-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.requests-table tbody tr.urgent {
+  background-color: #ffebee;
+}
+
+.requests-table tbody tr.warning {
+  background-color: #fff3e0;
+}
+
+.requests-table tbody tr.overdue {
+  background-color: #ffcdd2;
+}
+
+.requests-table tbody tr.completed {
+  background-color: #e8f5e9;
+  opacity: 0.8;
+}
+
+.email-cell {
+  font-weight: 500;
+  color: #333;
+}
+
+.uid-cell code {
+  background-color: #f4f4f4;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+.days-left-cell {
+  text-align: center;
+}
+
+.days-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.days-badge.urgent {
+  background-color: #f44336;
+  color: white;
+}
+
+.days-badge.warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+.days-badge.normal {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.days-badge.overdue {
+  background-color: #d32f2f;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn-action {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-view {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #0b7dda;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #da190b;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  line-height: 1;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.user-info-section,
+.progress-section,
+.stats-section,
+.completions-section {
+  margin-bottom: 1.5rem;
+}
+
+.user-info-section h3,
+.progress-section h3,
+.stats-section h3,
+.completions-section h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.user-info-section p,
+.progress-section p,
+.stats-section p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.completions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.completion-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.completion-card:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.completion-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.completion-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #495057;
+  text-transform: capitalize;
+}
+
+.completion-part {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.completion-count {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.completion-count strong {
+  font-size: 1.2rem;
+  color: #2196F3;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.completion-average {
+  font-size: 0.8rem;
+  color: #4CAF50;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.no-data {
+  color: #999;
+  font-style: italic;
+}
+
+.btn-secondary {
+  padding: 0.6rem 1.5rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.btn-secondary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  padding: 0.6rem 1.5rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.btn-danger:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.confirm-modal {
+  max-width: 500px;
+}
+
+.warning-message {
+  text-align: left;
+}
+
+.warning-message p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.account-details {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.account-details p {
+  margin: 0.5rem 0;
+}
+
+.warning-text {
+  font-weight: 600;
+  margin-top: 1.5rem !important;
+  color: #333;
+}
+
+.warning-message ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  color: #666;
+}
+
+.warning-message li {
+  margin: 0.3rem 0;
+}
+
+.danger-text {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 1rem !important;
+  padding: 0.5rem;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumb-link {
+  color: #2196F3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+

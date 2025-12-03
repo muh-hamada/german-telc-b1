@@ -1,0 +1,116 @@
+{
+  "project_info": {
+    "project_number": "494473710301",
+    "project_id": "telc-b1-german",
+    "storage_bucket": "telc-b1-german.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494473710301:android:1b5d40d4f9e1b2b6c0a934",
+        "android_client_info": {
+          "package_name": "com.mhamada.telcb1german"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494473710301-7hb56foba0cai1gaoe6kaa3m2o1073gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb1german",
+            "certificate_hash": "78804fb7d225d5b40b1a64b7e6afa5d3da82a97b"
+          }
+        },
+        {
+          "client_id": "494473710301-ertgrl2jfulqj75pr5o638eh1454nnv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb1german",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mhamada.telcb1german"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5101905792101482~1016049874"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494473710301:android:a3744a4ef22813b0c0a934",
+        "android_client_info": {
+          "package_name": "com.mhamada.telcb2german"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494473710301-educk2rv7ap7k5gel7q5sienrrqtbjqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb2german",
+            "certificate_hash": "078006d479222990f6085b5f5e3e7764a7a590d1"
+          }
+        },
+        {
+          "client_id": "494473710301-kl1t7vkjuba5g738j3pb4itvatr14aeu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.telcb2german",
+            "certificate_hash": "691cedf56dc4b45f707547e8ca18e103ec8e43e2"
+          }
+        },
+        {
+          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mhamada.telcb1german"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5101905792101482~5846015787"
+    }
+  ],
+  "configuration_version": "1"
+}

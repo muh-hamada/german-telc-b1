@@ -1,0 +1,283 @@
+[
+  {
+    "word": "schwimmen",
+    "article": "",
+    "translations": {
+      "en": "to swim",
+      "es": "nadar",
+      "fr": "nager",
+      "ru": "плавать",
+      "ar": "يسبح"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich schwimme jeden Tag einen Kilometer.",
+        "translations": {
+          "en": "I swim one kilometer every day.",
+          "es": "Nado un kilómetro cada día.",
+          "fr": "Je nage un kilomètre chaque jour.",
+          "ru": "Я плаваю по километру каждый день.",
+          "ar": "أسبح كيلومترًا واحدًا كل يوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schwimmbad",
+    "article": "das",
+    "translations": {
+      "en": "swimming pool",
+      "es": "piscina",
+      "fr": "piscine",
+      "ru": "бассейн",
+      "ar": "حمام السباحة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kommst du mit ins Schwimmbad?",
+        "translations": {
+          "en": "Are you coming to the swimming pool?",
+          "es": "¿Vienes a la piscina?",
+          "fr": "Tu viens à la piscine?",
+          "ru": "Пойдёшь в бассейн?",
+          "ar": "هل ستأتي معي إلى حمام السباحة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "See",
+    "article": "der",
+    "translations": {
+      "en": "lake",
+      "es": "lago",
+      "fr": "lac",
+      "ru": "озеро",
+      "ar": "البحيرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Komm, wir fahren zum Starnberger See.",
+        "translations": {
+          "en": "Come on, we're going to Lake Starnberg.",
+          "es": "Vamos, vamos al lago Starnberg.",
+          "fr": "Viens, nous allons au lac de Starnberg.",
+          "ru": "Давай, мы едем к озеру Штарнбергер.",
+          "ar": "تعال، سنذهب إلى بحيرة ستارنبرغ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sehen",
+    "article": "",
+    "translations": {
+      "en": "to see",
+      "es": "ver",
+      "fr": "voir",
+      "ru": "видеть",
+      "ar": "يرى"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann dich nicht sehen.",
+        "translations": {
+          "en": "I can't see you.",
+          "es": "No puedo verte.",
+          "fr": "Je ne peux pas te voir.",
+          "ru": "Я не могу тебя видеть.",
+          "ar": "لا أستطيع رؤيتك."
+        }
+      },
+      {
+        "text": "Ich habe diesen Jungen schon einmal gesehen.",
+        "translations": {
+          "en": "I've seen this boy before.",
+          "es": "Ya he visto a este chico antes.",
+          "fr": "J'ai déjà vu ce garçon.",
+          "ru": "Я уже видел этого мальчика.",
+          "ar": "لقد رأيت هذا الصبي من قبل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Sehenswürdigkeit",
+    "article": "die",
+    "translations": {
+      "en": "sight",
+      "es": "atracción turística",
+      "fr": "curiosité",
+      "ru": "достопримечательность",
+      "ar": "معلم سياحي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Welche Sehenswürdigkeiten gibt es in Frankfurt?",
+        "translations": {
+          "en": "What sights are there in Frankfurt?",
+          "es": "¿Qué atracciones turísticas hay en Fráncfort?",
+          "fr": "Quelles curiosités y a-t-il à Francfort?",
+          "ru": "Какие достопримечательности есть во Франкфурте?",
+          "ar": "ما هي المعالم السياحية في فرانكفورت؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "sehr",
+    "article": "",
+    "translations": {
+      "en": "very",
+      "es": "muy",
+      "fr": "très",
+      "ru": "очень",
+      "ar": "جدًا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Danke sehr!",
+        "translations": {
+          "en": "Thank you very much!",
+          "es": "¡Muchas gracias!",
+          "fr": "Merci beaucoup!",
+          "ru": "Большое спасибо!",
+          "ar": "شكرًا جزيلاً!"
+        }
+      },
+      {
+        "text": "Das ist sehr schwer.",
+        "translations": {
+          "en": "That's very difficult.",
+          "es": "Eso es muy difícil.",
+          "fr": "C'est très difficile.",
+          "ru": "Это очень трудно.",
+          "ar": "هذا صعب جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "sein",
+    "article": "",
+    "translations": {
+      "en": "to be",
+      "es": "ser",
+      "fr": "être",
+      "ru": "быть",
+      "ar": "يكون"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Herr Müller ist in seinem Zimmer.",
+        "translations": {
+          "en": "Mr. Müller is in his room.",
+          "es": "El señor Müller está en su habitación.",
+          "fr": "Monsieur Müller est dans sa chambre.",
+          "ru": "Господин Мюллер в своей комнате.",
+          "ar": "السيد مولر في غرفته."
+        }
+      },
+      {
+        "text": "Mir ist kalt.",
+        "translations": {
+          "en": "I'm cold.",
+          "es": "Tengo frío.",
+          "fr": "J'ai froid.",
+          "ru": "Мне холодно.",
+          "ar": "أنا بارد."
+        }
+      },
+      {
+        "text": "Ich bin dreiundzwanzig.",
+        "translations": {
+          "en": "I am twenty-three.",
+          "es": "Tengo veintitrés años.",
+          "fr": "J'ai vingt-trois ans.",
+          "ru": "Мне двадцать три.",
+          "ar": "عمري ثلاثة وعشرون."
+        }
+      }
+    ]
+  },
+  {
+    "word": "an sein",
+    "article": "",
+    "translations": {
+      "en": "to be on",
+      "es": "estar encendido",
+      "fr": "être allumé",
+      "ru": "быть включённым",
+      "ar": "يكون مشغلاً"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Licht ist noch an.",
+        "translations": {
+          "en": "The light is still on.",
+          "es": "La luz todavía está encendida.",
+          "fr": "La lumière est encore allumée.",
+          "ru": "Свет ещё включён.",
+          "ar": "الضوء لا يزال مشغلاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "auf sein",
+    "article": "",
+    "translations": {
+      "en": "to be open",
+      "es": "estar abierto",
+      "fr": "être ouvert",
+      "ru": "быть открытым",
+      "ar": "يكون مفتوحًا"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Fenster ist noch auf.",
+        "translations": {
+          "en": "The window is still open.",
+          "es": "La ventana todavía está abierta.",
+          "fr": "La fenêtre est encore ouverte.",
+          "ru": "Окно ещё открыто.",
+          "ar": "النافذة لا تزال مفتوحة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "weg sein",
+    "article": "",
+    "translations": {
+      "en": "to be gone",
+      "es": "estar fuera",
+      "fr": "être parti",
+      "ru": "уйти",
+      "ar": "يكون غائبًا"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Herr Meier ist schon weg.",
+        "translations": {
+          "en": "Mr. Meier is already gone.",
+          "es": "El señor Meier ya se ha ido.",
+          "fr": "Monsieur Meier est déjà parti.",
+          "ru": "Господин Майер уже ушёл.",
+          "ar": "السيد ماير قد غادر بالفعل."
+        }
+      }
+    ]
+  }
+]
+

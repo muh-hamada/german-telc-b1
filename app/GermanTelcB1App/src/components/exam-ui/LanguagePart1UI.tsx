@@ -6,26 +6,45 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
+  Modal,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
-import { GrammarPart1Exam } from '../../types/exam.types';
+import { GrammarPart1Exam, UserAnswer } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface LanguagePart1UIProps {
   exam: GrammarPart1Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
+  const [showModal, setShowModal] = useState(false);
+  const [selectedGap, setSelectedGap] = useState<number | null>(null);
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setUserAnswers(prev => ({
       ...prev,
       [questionId]: answerIndex,
     }));
+    setShowModal(false);
+    setSelectedGap(null);
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'grammar',
+      part: 1,
+      exam_id: exam.id,
+      question_id: questionId,
+    });
+  };
+
+  const getSelectedAnswerText = (gapId: number): string => {
+    const answerIndex = userAnswers[gapId];
+    if (answerIndex === undefined) return t('grammar.part1.select');
+    const question = exam.questions.find(q => q.id === gapId);
+    return question?.answers[answerIndex]?.text || t('grammar.part1.select');
   };
 
   const renderTextWithGaps = () => {
@@ -37,10 +56,17 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
           {parts.map((part, index) => {
             const gapMatch = part.match(/\[(\d{2})\]/);
             if (gapMatch) {
-              const gapNumber = gapMatch[1];
+              const gapId = parseInt(gapMatch[1]);
               return (
-                <Text key={index} style={styles.gapIndicator}>
-                  {gapNumber}
+                <Text
+                  key={index}
+                  style={styles.gapButton}
+                  onPress={() => {
+                    setSelectedGap(gapId);
+                    setShowModal(true);
+                  }}
+                >
+                  {getSelectedAnswerText(gapId)}
                 </Text>
               );
             }
@@ -66,16 +92,32 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.questions.forEach(question => {
       const userAnswerIndex = userAnswers[question.id];
-      const isCorrect = question.answers[userAnswerIndex]?.correct === true;
+      const correctAnswerIndex = question.answers.findIndex(a => a.correct === true);
+      const isCorrect = userAnswerIndex === correctAnswerIndex;
       if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: question.id,
+        answer: question.answers[userAnswerIndex]?.text || '',
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswerIndex !== -1 ? question.answers[correctAnswerIndex]?.text : undefined,
+      });
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'grammar',
+        part: 1,
+        exam_id: exam.id,
+        question_id: question.id,
+        is_correct: !!isCorrect,
+      });
     });
 
-    const score = (correctCount / exam.questions.length) * 15;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   return (
@@ -94,42 +136,64 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
         {renderTextWithGaps()}
       </View>
 
-      {/* Questions */}
-      <View style={styles.questionsSection}>
-        <Text style={styles.sectionTitle}>{t('grammar.part1.questions')}</Text>
-        {exam.questions.map((question) => (
-          <View key={question.id} style={styles.questionCard}>
-            <Text style={styles.questionNumber}>[{question.id}]</Text>
-            
-            {question.answers.map((answer, index) => {
-              const isSelected = userAnswers[question.id] === index;
-              return (
-                <TouchableOpacity
-                  key={index}
-                  style={[
-                    styles.answerOption,
-                    isSelected && styles.answerOptionSelected
-                  ]}
-                  onPress={() => handleAnswerSelect(question.id, index)}
-                >
-                  <View style={[
-                    styles.radioButton,
-                    isSelected && styles.radioButtonSelected
-                  ]}>
-                    {isSelected && <View style={styles.radioButtonInner} />}
-                  </View>
-                  <Text style={[
-                    styles.answerText,
-                    isSelected && styles.answerTextSelected
-                  ]}>
-                    {answer.text}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
+      {/* Answer Selection Modal */}
+      <Modal
+        visible={showModal && selectedGap !== null}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setShowModal(false);
+          setSelectedGap(null);
+        }}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {selectedGap !== null && t('grammar.part1.selectAnswer', { gap: selectedGap })}
+              </Text>
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={() => {
+                  setShowModal(false);
+                  setSelectedGap(null);
+                }}
+              >
+                <Text style={styles.closeButtonText}>✕</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.modalContent}>
+              {selectedGap !== null && exam.questions.find(q => q.id === selectedGap)?.answers.map((answer, index) => {
+                const isSelected = userAnswers[selectedGap] === index;
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.answerOption,
+                      isSelected && styles.answerOptionSelected
+                    ]}
+                    onPress={() => handleAnswerSelect(selectedGap, index)}
+                  >
+                    <View style={[
+                      styles.radioButton,
+                      isSelected && styles.radioButtonSelected
+                    ]}>
+                      {isSelected && <View style={styles.radioButtonInner} />}
+                    </View>
+                    <Text style={[
+                      styles.answerText,
+                      isSelected && styles.answerTextSelected
+                    ]}>
+                      {answer.text}
+                    </Text>
+                    {isSelected && <Text style={styles.checkmark}>✓</Text>}
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
           </View>
-        ))}
-      </View>
+        </View>
+      </Modal>
 
       {/* Submit Button */}
       <TouchableOpacity
@@ -172,11 +236,13 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    textAlign: 'left',
   },
   textSection: {
     marginBottom: spacing.margin.xl,
@@ -197,44 +263,69 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 24,
+    direction: 'ltr',
   },
-  gapIndicator: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[600],
-    backgroundColor: colors.primary[50],
-    paddingHorizontal: 6,
+  gapButton: {
+    ...typography.textStyles.bodySmall,
+    backgroundColor: colors.primary[100],
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.medium,
+    paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 4,
+    borderWidth: 1,
+    borderColor: colors.primary[300],
   },
-  questionsSection: {
-    marginBottom: spacing.margin.lg,
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: spacing.padding.lg,
   },
-  questionCard: {
-    backgroundColor: colors.background.secondary,
+  modalContainer: {
+    backgroundColor: colors.background.primary,
+    borderRadius: spacing.borderRadius.lg,
+    maxHeight: '80%',
+    width: '90%',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.light,
   },
-  questionNumber: {
+  modalTitle: {
     ...typography.textStyles.h4,
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.sm,
+    color: colors.text.primary,
+    flex: 1,
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.background.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    fontSize: 18,
+    color: colors.text.secondary,
+  },
+  modalContent: {
+    maxHeight: 400,
+    padding: spacing.padding.md,
   },
   answerOption: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.sm,
-    marginTop: spacing.margin.xs,
+    paddingHorizontal: spacing.padding.md,
+    marginBottom: spacing.margin.xs,
     borderRadius: spacing.borderRadius.sm,
-    backgroundColor: colors.background.primary,
+    backgroundColor: colors.background.secondary,
     borderWidth: 1,
     borderColor: colors.border.light,
   },
@@ -269,6 +360,11 @@ const styles = StyleSheet.create({
   answerTextSelected: {
     color: colors.primary[700],
     fontWeight: typography.fontWeight.medium,
+  },
+  checkmark: {
+    ...typography.textStyles.body,
+    color: colors.success[500],
+    fontWeight: typography.fontWeight.bold,
   },
   submitButton: {
     backgroundColor: colors.primary[500],

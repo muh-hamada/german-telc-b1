@@ -6,11 +6,14 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-sound';
 import { colors, spacing, typography } from '../../theme';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { UserAnswer } from '../../types/exam.types';
+import AudioDuration from '../AudioDuration';
 
 interface Statement {
   id: number;
@@ -27,20 +30,17 @@ interface Exam {
 interface ListeningPart1UIProps {
   exam: Exam;
   sectionDetails: any;
-  onComplete: (score: number) => void;
-}
-
-interface UserAnswer {
-  statementId: number;
-  selectedAnswer: boolean | null;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetails, onComplete }) => {
-  const { i18n, t } = useTranslation();
+  const { i18n, t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [sound, setSound] = useState<Sound | null>(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     return () => {
@@ -70,25 +70,33 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
 
   const handleAnswerSelect = (statementId: number, answer: boolean) => {
     setUserAnswers(prev => {
-      const existing = prev.find(a => a.statementId === statementId);
+      const existing = prev.find(a => a.questionId === statementId);
       if (existing) {
         return prev.map(a =>
-          a.statementId === statementId ? { ...a, selectedAnswer: answer } : a
+          a.questionId === statementId ? { ...a, answer: answer ? 'true' : 'false', isCorrect: answer, timestamp: Date.now() } : a
         );
       }
-      return [...prev, { statementId, selectedAnswer: answer }];
+      return [...prev, { questionId: statementId, answer: answer ? 'true' : 'false', isCorrect: answer, timestamp: Date.now() }];
+    });
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'listening',
+      part: 1,
+      exam_id: exam.id,
+      question_id: statementId,
     });
   };
 
   const getUserAnswer = (statementId: number): boolean | null => {
-    const answer = userAnswers.find(a => a.statementId === statementId);
-    return answer ? answer.selectedAnswer : null;
+    const answer = userAnswers.find(a => a.questionId === statementId);
+    return answer ? answer.answer === 'true' : null;
   };
 
   const handlePlayAudio = () => {
     Sound.setCategory('Playback');
     setHasStarted(true);
     setIsPlaying(true);
+    const startTs = Date.now();
+    logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id });
 
     const audioSound = new Sound(
       exam.audio_url,
@@ -107,13 +115,22 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
 
         audioSound.play((success: boolean) => {
           if (success) {
-            console.log('Audio playback finished successfully');
+            logEvent(AnalyticsEvents.AUDIO_COMPLETED, { exam_id: exam.id, duration_ms: Date.now() - startTs });
           } else {
             console.log('Audio playback failed');
           }
           setIsPlaying(false);
           audioSound.release();
         });
+
+        const audioDuration = audioSound.getDuration();
+        setDuration(audioDuration);
+
+        const interval = setInterval(() => {
+          audioSound.getCurrentTime((seconds: number) => {
+            setCurrentTime(seconds);
+          });
+        }, 1000);
 
         setSound(audioSound);
       }
@@ -122,7 +139,7 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
 
   const handleSubmit = () => {
     const unansweredStatements = exam.statements.filter(
-      s => !userAnswers.find(a => a.statementId === s.id && a.selectedAnswer !== null)
+      s => !userAnswers.find(a => a.questionId === s.id && a.answer !== null)
     );
 
     if (unansweredStatements.length > 0) {
@@ -135,16 +152,32 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.statements.forEach(statement => {
-      const userAnswer = userAnswers.find(a => a.statementId === statement.id);
-      if (userAnswer && userAnswer.selectedAnswer === statement.is_correct) {
+      const userAnswer = userAnswers.find(a => a.questionId === statement.id);
+      const isCorrect = userAnswer?.answer === 'true' === statement.is_correct;
+      if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: statement.id,
+        answer: userAnswer?.answer || '',
+        isCorrect,
+        timestamp: Date.now(),
+      });
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'listening',
+        part: 1,
+        exam_id: exam.id,
+        question_id: statement.id,
+        is_correct: isCorrect,
+      });
     });
 
-    const score = (correctCount / exam.statements.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
+  
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
@@ -177,12 +210,19 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
 
         <View style={styles.audioPlayer}>
           <View style={styles.audioInfo}>
-            <Text style={styles.audioTitle}>{t('listening.part1.audioFile')}</Text>
-            <Text style={styles.audioStatus}>
-              {!hasStarted ? t('listening.part1.readyToPlay') : isPlaying ? t('listening.part1.playing') : t('listening.part1.completed')}
-            </Text>
+            <View>
+              <Text style={styles.audioTitle}>{t('listening.part1.audioFile')}</Text>
+              <Text style={styles.audioStatus}>
+                {!hasStarted ? t('listening.part1.readyToPlay') : isPlaying ? t('listening.part1.playing') : t('listening.part1.completed')}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.audioTime}>
+                {hasStarted && <AudioDuration currentTime={currentTime} duration={duration} />}
+              </Text>
+            </View>
           </View>
-          
+
           {!hasStarted && (
             <TouchableOpacity style={styles.playButton} onPress={handlePlayAudio}>
               <Text style={styles.playButtonText}>{t('listening.part1.playAudio')}</Text>
@@ -200,7 +240,7 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
       {/* Statements Table */}
       <View style={styles.statementsSection}>
         <Text style={styles.sectionTitle}>{t('listening.part1.statements')}</Text>
-        
+
         <View style={styles.table}>
           {/* Table Header */}
           <View style={styles.tableHeader}>
@@ -256,15 +296,15 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
       <TouchableOpacity
         style={[
           styles.submitButton,
-          userAnswers.filter(a => a.selectedAnswer !== null).length < exam.statements.length && styles.submitButtonDisabled
+          userAnswers.filter(a => a.answer !== null).length < exam.statements.length && styles.submitButtonDisabled
         ]}
-        disabled={userAnswers.filter(a => a.selectedAnswer !== null).length < exam.statements.length}
+        disabled={userAnswers.filter(a => a.answer !== null).length < exam.statements.length}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          {t('listening.part1.submitAnswers', { 
-            answered: userAnswers.filter(a => a.selectedAnswer !== null).length, 
-            total: exam.statements.length 
+          {t('listening.part1.submitAnswers', {
+            answered: userAnswers.filter(a => a.answer !== null).length,
+            total: exam.statements.length
           })}
         </Text>
       </TouchableOpacity>
@@ -292,12 +332,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   metaInfo: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
   },
   metaText: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.md } : { marginRight: spacing.margin.md }),
+    marginRight: spacing.margin.md,
   },
   instructionsCard: {
     backgroundColor: colors.secondary[50],
@@ -342,6 +382,9 @@ const styles = StyleSheet.create({
     borderColor: colors.border.light,
   },
   audioInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: spacing.margin.md,
   },
   audioTitle: {
@@ -350,6 +393,18 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   audioStatus: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  audioTime: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  audioCurrentTime: {
+    ...typography.textStyles.bodySmall,
+    color: colors.primary[600],
+  },
+  audioDuration: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
   },
@@ -390,16 +445,18 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tableHeader: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     backgroundColor: colors.primary[100],
     borderBottomWidth: 2,
     borderBottomColor: colors.primary[500],
+    direction: 'ltr',
   },
   tableRow: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.light,
     backgroundColor: colors.background.secondary,
+    direction: 'ltr',
   },
   tableCell: {
     padding: spacing.padding.sm,
@@ -407,7 +464,7 @@ const styles = StyleSheet.create({
   },
   statementCell: {
     flex: 3,
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'flex-start',
   },
   answerCell: {
@@ -424,7 +481,7 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    ...(I18nManager.isRTL ? { marginLeft: spacing.margin.xs } : { marginRight: spacing.margin.xs }),
+    marginRight: spacing.margin.xs,
     minWidth: 30,
   },
   statementText: {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>method</key>
+	<string>app-store-connect</string>
+	<key>teamID</key>
+	<string>5UXC4BSKQ7</string>
+	<key>uploadBitcode</key>
+	<false/>
+	<key>uploadSymbols</key>
+	<true/>
+	<key>compileBitcode</key>
+	<false/>
+	<key>signingStyle</key>
+	<string>manual</string>
+	<key>destination</key>
+	<string>export</string>
+	<key>signingCertificate</key>
+	<string>Apple Distribution</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.mhamada.telcb1german</key>
+		<string>TelcExamApp AppStore Distribution</string>
+		<key>com.mhamada.telcb2german</key>
+    	<string>TelcExamApp AppStore Distribution B2</string>
+		<key>com.mhamada.telcb1english</key>
+		<string>TelcExamApp AppStore Distribution B1 English</string>
+	</dict>
+	<key>stripSwiftSymbols</key>
+	<true/>
+	<key>thinning</key>
+	<string>&lt;none&gt;</string>
+</dict>
+</plist>
+

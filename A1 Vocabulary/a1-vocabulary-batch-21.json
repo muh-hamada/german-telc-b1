@@ -1,0 +1,243 @@
+[
+  {
+    "word": "es",
+    "article": "",
+    "translations": {
+      "en": "it",
+      "es": "ello",
+      "fr": "il/elle",
+      "ru": "оно",
+      "ar": "هو/هي"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Es regnet.",
+        "translations": {
+          "en": "It's raining.",
+          "es": "Está lloviendo.",
+          "fr": "Il pleut.",
+          "ru": "Идёт дождь.",
+          "ar": "إنها تمطر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "essen",
+    "article": "",
+    "translations": {
+      "en": "to eat",
+      "es": "comer",
+      "fr": "manger",
+      "ru": "есть",
+      "ar": "يأكل"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Was gibt es zu essen?",
+        "translations": {
+          "en": "What is there to eat?",
+          "es": "¿Qué hay para comer?",
+          "fr": "Qu'y a-t-il à manger ?",
+          "ru": "Что есть поесть?",
+          "ar": "ما الذي يمكن أن نأكله؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Essen",
+    "article": "das",
+    "translations": {
+      "en": "food",
+      "es": "comida",
+      "fr": "repas",
+      "ru": "еда",
+      "ar": "الطعام"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Essen ist heute sehr gut.",
+        "translations": {
+          "en": "The food is very good today.",
+          "es": "La comida está muy buena hoy.",
+          "fr": "Le repas est très bon aujourd'hui.",
+          "ru": "Еда сегодня очень хорошая.",
+          "ar": "الطعام جيد جدًا اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "euer",
+    "article": "",
+    "translations": {
+      "en": "your",
+      "es": "vuestro",
+      "fr": "votre",
+      "ru": "ваш",
+      "ar": "لكم"
+    },
+    "type": "pronoun",
+    "exampleSentences": [
+      {
+        "text": "Euer Kurs beginnt heute.",
+        "translations": {
+          "en": "Your course begins today.",
+          "es": "Vuestro curso comienza hoy.",
+          "fr": "Votre cours commence aujourd'hui.",
+          "ru": "Ваш курс начинается сегодня.",
+          "ar": "تبدأ دورتكم اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "fahren",
+    "article": "",
+    "translations": {
+      "en": "to drive",
+      "es": "conducir",
+      "fr": "conduire",
+      "ru": "ехать",
+      "ar": "يقود"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich fahre mit dem Auto zur Arbeit.",
+        "translations": {
+          "en": "I drive to work by car.",
+          "es": "Voy al trabajo en coche.",
+          "fr": "Je vais au travail en voiture.",
+          "ru": "Я езжу на работу на машине.",
+          "ar": "أذهب إلى العمل بالسيارة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fahrer",
+    "article": "der",
+    "translations": {
+      "en": "driver",
+      "es": "conductor",
+      "fr": "conducteur",
+      "ru": "водитель",
+      "ar": "السائق"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte nicht mit dem Fahrer sprechen!",
+        "translations": {
+          "en": "Please don't talk to the driver!",
+          "es": "¡Por favor, no hable con el conductor!",
+          "fr": "Prière de ne pas parler au conducteur !",
+          "ru": "Пожалуйста, не разговаривайте с водителем!",
+          "ar": "من فضلك لا تتحدث مع السائق!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fahrkarte",
+    "article": "die",
+    "translations": {
+      "en": "ticket",
+      "es": "billete",
+      "fr": "billet",
+      "ru": "билет",
+      "ar": "التذكرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hast du schon eine Fahrkarte?",
+        "translations": {
+          "en": "Do you already have a ticket?",
+          "es": "¿Ya tienes un billete?",
+          "fr": "As-tu déjà un billet ?",
+          "ru": "У тебя уже есть билет?",
+          "ar": "هل لديك بالفعل تذكرة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Fahrrad",
+    "article": "das",
+    "translations": {
+      "en": "bicycle",
+      "es": "bicicleta",
+      "fr": "vélo",
+      "ru": "велосипед",
+      "ar": "الدراجة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Fährst du mit dem Fahrrad oder mit dem Auto?",
+        "translations": {
+          "en": "Are you going by bicycle or by car?",
+          "es": "¿Vas en bicicleta o en coche?",
+          "fr": "Tu vas en vélo ou en voiture ?",
+          "ru": "Ты едешь на велосипеде или на машине?",
+          "ar": "هل ستذهب بالدراجة أم بالسيارة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "falsch",
+    "article": "",
+    "translations": {
+      "en": "wrong",
+      "es": "falso",
+      "fr": "faux",
+      "ru": "неправильный",
+      "ar": "خطأ"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist falsch.",
+        "translations": {
+          "en": "That's wrong.",
+          "es": "Eso es falso.",
+          "fr": "C'est faux.",
+          "ru": "Это неправильно.",
+          "ar": "هذا خطأ."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Familie",
+    "article": "die",
+    "translations": {
+      "en": "family",
+      "es": "familia",
+      "fr": "famille",
+      "ru": "семья",
+      "ar": "العائلة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Meine Familie lebt in Spanien.",
+        "translations": {
+          "en": "My family lives in Spain.",
+          "es": "Mi familia vive en España.",
+          "fr": "Ma famille vit en Espagne.",
+          "ru": "Моя семья живёт в Испании.",
+          "ar": "تعيش عائلتي في إسبانيا."
+        }
+      }
+    ]
+  }
+]
+

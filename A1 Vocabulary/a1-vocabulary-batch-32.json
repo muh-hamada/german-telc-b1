@@ -1,0 +1,273 @@
+[
+  {
+    "word": "heiraten",
+    "article": "",
+    "translations": {
+      "en": "to marry",
+      "es": "casarse",
+      "fr": "se marier",
+      "ru": "жениться",
+      "ar": "يتزوج"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Meine Schwester heiratet einen Japaner.",
+        "translations": {
+          "en": "My sister is marrying a Japanese man.",
+          "es": "Mi hermana se casa con un japonés.",
+          "fr": "Ma sœur épouse un Japonais.",
+          "ru": "Моя сестра выходит замуж за японца.",
+          "ar": "أختي تتزوج من رجل ياباني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "heißen",
+    "article": "",
+    "translations": {
+      "en": "to be called",
+      "es": "llamarse",
+      "fr": "s'appeler",
+      "ru": "называться",
+      "ar": "يُدعى"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich heiße Charlotte Meier.",
+        "translations": {
+          "en": "My name is Charlotte Meier.",
+          "es": "Me llamo Charlotte Meier.",
+          "fr": "Je m'appelle Charlotte Meier.",
+          "ru": "Меня зовут Шарлотта Майер.",
+          "ar": "اسمي شارلوت ماير."
+        }
+      },
+      {
+        "text": "Wie heißt das auf Deutsch?",
+        "translations": {
+          "en": "What is that called in German?",
+          "es": "¿Cómo se dice eso en alemán?",
+          "fr": "Comment cela s'appelle-t-il en allemand ?",
+          "ru": "Как это называется по-немецки?",
+          "ar": "ما اسم ذلك بالألمانية؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "helfen",
+    "article": "",
+    "translations": {
+      "en": "to help",
+      "es": "ayudar",
+      "fr": "aider",
+      "ru": "помогать",
+      "ar": "يساعد"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Können Sie mir helfen, bitte?",
+        "translations": {
+          "en": "Can you help me, please?",
+          "es": "¿Puede ayudarme, por favor?",
+          "fr": "Pouvez-vous m'aider, s'il vous plaît ?",
+          "ru": "Вы можете мне помочь, пожалуйста?",
+          "ar": "هل يمكنك مساعدتي، من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "hell",
+    "article": "",
+    "translations": {
+      "en": "bright",
+      "es": "claro",
+      "fr": "clair",
+      "ru": "светлый",
+      "ar": "مضيء"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Im Sommer ist es bis 21 Uhr hell.",
+        "translations": {
+          "en": "In summer it's bright until 9 PM.",
+          "es": "En verano está claro hasta las 21:00.",
+          "fr": "En été, il fait clair jusqu'à 21 heures.",
+          "ru": "Летом светло до 21:00.",
+          "ar": "في الصيف يكون الجو مضيئًا حتى الساعة 9 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Herd",
+    "article": "der",
+    "translations": {
+      "en": "stove",
+      "es": "estufa",
+      "fr": "cuisinière",
+      "ru": "плита",
+      "ar": "الموقد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "In der neuen Küche fehlt noch der Herd.",
+        "translations": {
+          "en": "The new kitchen is still missing the stove.",
+          "es": "En la nueva cocina aún falta la estufa.",
+          "fr": "Dans la nouvelle cuisine, il manque encore la cuisinière.",
+          "ru": "В новой кухне ещё нет плиты.",
+          "ar": "المطبخ الجديد لا يزال يفتقر إلى الموقد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Herr",
+    "article": "der",
+    "translations": {
+      "en": "Mr.",
+      "es": "señor",
+      "fr": "monsieur",
+      "ru": "господин",
+      "ar": "السيد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Guten Tag, Herr Sommer!",
+        "translations": {
+          "en": "Good day, Mr. Sommer!",
+          "es": "¡Buenos días, señor Sommer!",
+          "fr": "Bonjour, Monsieur Sommer !",
+          "ru": "Добрый день, господин Зоммер!",
+          "ar": "يوم سعيد، السيد سومر!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "herzlich",
+    "article": "",
+    "translations": {
+      "en": "hearty",
+      "es": "cordial",
+      "fr": "cordial",
+      "ru": "сердечный",
+      "ar": "حار"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Herzlichen Glückwunsch!",
+        "translations": {
+          "en": "Congratulations!",
+          "es": "¡Felicitaciones!",
+          "fr": "Félicitations !",
+          "ru": "Поздравляю!",
+          "ar": "تهانينا!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "heute",
+    "article": "",
+    "translations": {
+      "en": "today",
+      "es": "hoy",
+      "fr": "aujourd'hui",
+      "ru": "сегодня",
+      "ar": "اليوم"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Heute ist ein schöner Tag.",
+        "translations": {
+          "en": "Today is a beautiful day.",
+          "es": "Hoy es un hermoso día.",
+          "fr": "Aujourd'hui est une belle journée.",
+          "ru": "Сегодня прекрасный день.",
+          "ar": "اليوم يوم جميل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "hier",
+    "article": "",
+    "translations": {
+      "en": "here",
+      "es": "aquí",
+      "fr": "ici",
+      "ru": "здесь",
+      "ar": "هنا"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Hier ist 06131-553221, Pamela Linke.",
+        "translations": {
+          "en": "This is 06131-553221, Pamela Linke.",
+          "es": "Aquí es 06131-553221, Pamela Linke.",
+          "fr": "Ici 06131-553221, Pamela Linke.",
+          "ru": "Это 06131-553221, Памела Линке.",
+          "ar": "هنا 06131-553221، باميلا لينكه."
+        }
+      },
+      {
+        "text": "Hier wohne ich.",
+        "translations": {
+          "en": "I live here.",
+          "es": "Vivo aquí.",
+          "fr": "J'habite ici.",
+          "ru": "Я живу здесь.",
+          "ar": "أنا أعيش هنا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Hilfe",
+    "article": "die",
+    "translations": {
+      "en": "help",
+      "es": "ayuda",
+      "fr": "aide",
+      "ru": "помощь",
+      "ar": "المساعدة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Hilfe! Bitte helfen Sie mir!",
+        "translations": {
+          "en": "Help! Please help me!",
+          "es": "¡Ayuda! ¡Por favor ayúdeme!",
+          "fr": "À l'aide ! Aidez-moi, s'il vous plaît !",
+          "ru": "Помогите! Пожалуйста, помогите мне!",
+          "ar": "النجدة! ساعدني من فضلك!"
+        }
+      },
+      {
+        "text": "Brauchen Sie meine Hilfe?",
+        "translations": {
+          "en": "Do you need my help?",
+          "es": "¿Necesita mi ayuda?",
+          "fr": "Avez-vous besoin de mon aide ?",
+          "ru": "Вам нужна моя помощь?",
+          "ar": "هل تحتاج إلى مساعدتي؟"
+        }
+      }
+    ]
+  }
+]
+

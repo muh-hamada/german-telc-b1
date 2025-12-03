@@ -1,0 +1,399 @@
+{
+    "exams": [
+        {
+            "id": 1,
+            "title": "House Swapping Inquiry",
+            "words": [
+                {
+                    "key": "A",
+                    "word": "ALL"
+                },
+                {
+                    "key": "B",
+                    "word": "AS WELL"
+                },
+                {
+                    "key": "C",
+                    "word": "BY"
+                },
+                {
+                    "key": "D",
+                    "word": "CLOSE"
+                },
+                {
+                    "key": "E",
+                    "word": "CONVENIENT"
+                },
+                {
+                    "key": "F",
+                    "word": "DURING"
+                },
+                {
+                    "key": "G",
+                    "word": "EVERYTHING"
+                },
+                {
+                    "key": "H",
+                    "word": "FAVOURITE"
+                },
+                {
+                    "key": "I",
+                    "word": "HEAR"
+                },
+                {
+                    "key": "J",
+                    "word": "HEARING"
+                },
+                {
+                    "key": "K",
+                    "word": "IN"
+                },
+                {
+                    "key": "L",
+                    "word": "INFORMATION"
+                },
+                {
+                    "key": "M",
+                    "word": "NEAR"
+                },
+                {
+                    "key": "N",
+                    "word": "OFFER"
+                },
+                {
+                    "key": "O",
+                    "word": "WHILE"
+                }
+            ],
+            "text": "Dear Sirs,\n\nI saw your advertisement about holidays based on house swapping and would like to know more about it.\n\nI am interested in the idea and I can [31] my home in Munich [32] I am not there. My apartment is situated in the centre of town, [33] the football stadium which is [34] for football fans. The apartment is big enough for two or three people and is fitted with [35] necessary for a nice holiday.\n\nMy [36] countries to visit on holiday are mostly English-speaking countries, but I would be happy to visit France [37].\n\nNormally I take my holidays between March and June, so my home could then be used [38] another member of your club.\n\nPlease let me know how I can join your club and let me have more [39] on the countries I can visit.\n\nI look forward to [40] from you soon.\n\nYours faithfully,\nDavid",
+            "answers": {
+                "31": "N",
+                "32": "O",
+                "33": "M",
+                "34": "E",
+                "35": "G",
+                "36": "H",
+                "37": "B",
+                "38": "C",
+                "39": "L",
+                "40": "J"
+            }
+        },
+        {
+            "id": 2,
+            "title": "Language Course Inquiry",
+            "words": [
+                {
+                    "key": "A",
+                    "word": "ALREADY"
+                },
+                {
+                    "key": "B",
+                    "word": "AVAILABLE"
+                },
+                {
+                    "key": "C",
+                    "word": "BEST"
+                },
+                {
+                    "key": "D",
+                    "word": "BETTER"
+                },
+                {
+                    "key": "E",
+                    "word": "FREE"
+                },
+                {
+                    "key": "F",
+                    "word": "HEARING"
+                },
+                {
+                    "key": "G",
+                    "word": "HOW"
+                },
+                {
+                    "key": "H",
+                    "word": "IN"
+                },
+                {
+                    "key": "I",
+                    "word": "INFORMATION"
+                },
+                {
+                    "key": "J",
+                    "word": "KNOW"
+                },
+                {
+                    "key": "K",
+                    "word": "OF"
+                },
+                {
+                    "key": "L",
+                    "word": "ON"
+                },
+                {
+                    "key": "M",
+                    "word": "SEPARATELY"
+                },
+                {
+                    "key": "N",
+                    "word": "SINCE"
+                },
+                {
+                    "key": "O",
+                    "word": "WITH"
+                }
+            ],
+            "text": "Dear Sir or Madam,\n\nI am writing to ask for some [31] about your summer Spanish courses. I saw your advertisement [32] the newspaper yesterday.\n\nI have [33] learned some Spanish at school, but I want to improve my speaking skills. I am thinking [34] coming to Spain for two weeks in August.\n\nCould you please tell me if there are any places [35] on the course starting on August 15th?\n\nI would also like to know [36] much the course costs. Does the price include accommodation, or do I have to pay for it [37]?\n\nFinally, is it possible to stay [38] a host family? I think this is the [39] way to practice the language and learn about the culture.\n\nI look forward to [40] from you soon.\n\nYours faithfully,\nSarah Jenkins",
+            "answers": {
+                "31": "I",
+                "32": "H",
+                "33": "A",
+                "34": "K",
+                "35": "B",
+                "36": "G",
+                "37": "M",
+                "38": "O",
+                "39": "C",
+                "40": "F"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Summer Job Application",
+            "words": [
+                {
+                    "key": "A",
+                    "word": "ABOUT"
+                },
+                {
+                    "key": "B",
+                    "word": "BY"
+                },
+                {
+                    "key": "C",
+                    "word": "DURING"
+                },
+                {
+                    "key": "D",
+                    "word": "FAITHFULLY"
+                },
+                {
+                    "key": "E",
+                    "word": "FOR"
+                },
+                {
+                    "key": "F",
+                    "word": "HEARING"
+                },
+                {
+                    "key": "G",
+                    "word": "IF"
+                },
+                {
+                    "key": "H",
+                    "word": "IN"
+                },
+                {
+                    "key": "I",
+                    "word": "INFORMATION"
+                },
+                {
+                    "key": "J",
+                    "word": "INTERESTED"
+                },
+                {
+                    "key": "K",
+                    "word": "INTERESTING"
+                },
+                {
+                    "key": "L",
+                    "word": "ON"
+                },
+                {
+                    "key": "M",
+                    "word": "SINCE"
+                },
+                {
+                    "key": "N",
+                    "word": "WHILE"
+                },
+                {
+                    "key": "O",
+                    "word": "WORKING"
+                }
+            ],
+            "text": "Dear Sir or Madam,\n\nI am writing to apply [31] the summer job at your hotel which I saw advertised yesterday.\n\nI am very [32] in this position because I study tourism and I want to improve my English. I enjoy [33] with tourists and I am friendly and helpful.\n\nI have already worked in a restaurant [34] London for two months, so I have some experience. I am available [35] the whole summer holidays, from June to August.\n\nCould you please tell me [36] accommodation is included? I do not live nearby, so I would need a room. I can travel to the hotel [37] train easily.\n\nPlease send me more [38] about the daily tasks and the salary.\n\nI look forward to [39] from you soon.\n\nYours [40],\nTom Wilson",
+            "answers": {
+                "31": "E",
+                "32": "J",
+                "33": "O",
+                "34": "H",
+                "35": "C",
+                "36": "G",
+                "37": "B",
+                "38": "I",
+                "39": "F",
+                "40": "D"
+            }
+        },
+        {
+            "id": 4,
+            "title": "Lost Item Inquiry",
+            "words": [
+                {
+                    "key": "A",
+                    "word": "ALREADY"
+                },
+                {
+                    "key": "B",
+                    "word": "FOR"
+                },
+                {
+                    "key": "C",
+                    "word": "GRATEFUL"
+                },
+                {
+                    "key": "D",
+                    "word": "HEAR"
+                },
+                {
+                    "key": "E",
+                    "word": "HEARING"
+                },
+                {
+                    "key": "F",
+                    "word": "IF"
+                },
+                {
+                    "key": "G",
+                    "word": "IN"
+                },
+                {
+                    "key": "H",
+                    "word": "KNOW"
+                },
+                {
+                    "key": "I",
+                    "word": "NEAR"
+                },
+                {
+                    "key": "J",
+                    "word": "NEXT"
+                },
+                {
+                    "key": "K",
+                    "word": "ON"
+                },
+                {
+                    "key": "L",
+                    "word": "PAY"
+                },
+                {
+                    "key": "M",
+                    "word": "TELL"
+                },
+                {
+                    "key": "N",
+                    "word": "WHICH"
+                },
+                {
+                    "key": "O",
+                    "word": "WHO"
+                }
+            ],
+            "text": "Dear Sir or Madam,\n\nI am writing regarding my recent stay at your hotel. I checked out [31] Monday morning, May 12th. Unfortunately, I believe I left my reading glasses [32] the room.\n\nI stayed in Room 205, [33] is located on the second floor. I remember placing the glasses on the small table [34] to the bed before I left.\n\nI have [35] searched my luggage carefully, but I cannot find them anywhere. Could you please check [36] the cleaning staff found them?\n\nI would be very [37] if you could send them to my home address. Of course, I will [38] for the postage costs.\n\nPlease let me [39] if you find them or if you need any more details.\n\nI look forward to [40] from you.\n\nYours faithfully,\nJohn Smith",
+            "answers": {
+                "31": "K",
+                "32": "G",
+                "33": "N",
+                "34": "J",
+                "35": "A",
+                "36": "F",
+                "37": "C",
+                "38": "L",
+                "39": "H",
+                "40": "E"
+            }
+        },
+        {
+            "id": 5,
+            "title": "Wedding Invitation Reply",
+            "words": [
+                {
+                    "key": "A",
+                    "word": "ABOUT"
+                },
+                {
+                    "key": "B",
+                    "word": "AT"
+                },
+                {
+                    "key": "C",
+                    "word": "BEST"
+                },
+                {
+                    "key": "D",
+                    "word": "BY"
+                },
+                {
+                    "key": "E",
+                    "word": "FOR"
+                },
+                {
+                    "key": "F",
+                    "word": "FROM"
+                },
+                {
+                    "key": "G",
+                    "word": "GLAD"
+                },
+                {
+                    "key": "H",
+                    "word": "IF"
+                },
+                {
+                    "key": "I",
+                    "word": "OF"
+                },
+                {
+                    "key": "J",
+                    "word": "ON"
+                },
+                {
+                    "key": "K",
+                    "word": "SEE"
+                },
+                {
+                    "key": "L",
+                    "word": "SEEING"
+                },
+                {
+                    "key": "M",
+                    "word": "TO"
+                },
+                {
+                    "key": "N",
+                    "word": "WHICH"
+                },
+                {
+                    "key": "O",
+                    "word": "WITH"
+                }
+            ],
+            "text": "Dear Maria and Stefan,\n\nThank you very much [31] the invitation to your wedding. We were so happy to receive it.\n\nWe are very [32] that we can come and celebrate with you. We are planning to travel [33] train and will arrive in the afternoon.\n\nWe have booked a room [34] the Park Hotel, [35] is very close to your house, so we won't need a taxi.\n\nI have a question [36] the reception dinner. As you know, Peter is allergic [37] nuts. Could you please tell me [38] the wedding cake contains any nuts?\n\nWe are really looking forward to [39] you both again soon.\n\n[40] wishes,\nAnna",
+            "answers": {
+                "31": "E",
+                "32": "G",
+                "33": "D",
+                "34": "B",
+                "35": "N",
+                "36": "A",
+                "37": "M",
+                "38": "H",
+                "39": "L",
+                "40": "C"
+            }
+        }
+    ]
+}

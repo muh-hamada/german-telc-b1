@@ -1,0 +1,313 @@
+[
+  {
+    "word": "Garten",
+    "article": "der",
+    "translations": {
+      "en": "garden",
+      "es": "jardín",
+      "fr": "jardin",
+      "ru": "сад",
+      "ar": "الحديقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wir haben leider keinen Garten.",
+        "translations": {
+          "en": "Unfortunately, we don't have a garden.",
+          "es": "Desafortunadamente, no tenemos jardín.",
+          "fr": "Malheureusement, nous n'avons pas de jardin.",
+          "ru": "К сожалению, у нас нет сада.",
+          "ar": "للأسف، ليس لدينا حديقة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gast",
+    "article": "der",
+    "translations": {
+      "en": "guest",
+      "es": "invitado",
+      "fr": "invité",
+      "ru": "гость",
+      "ar": "الضيف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Am Wochenende haben wir mehrere Gäste.",
+        "translations": {
+          "en": "We have several guests on the weekend.",
+          "es": "Tenemos varios invitados el fin de semana.",
+          "fr": "Nous avons plusieurs invités le week-end.",
+          "ru": "В выходные у нас несколько гостей.",
+          "ar": "لدينا عدة ضيوف في عطلة نهاية الأسبوع."
+        }
+      }
+    ]
+  },
+  {
+    "word": "geben",
+    "article": "",
+    "translations": {
+      "en": "to give",
+      "es": "dar",
+      "fr": "donner",
+      "ru": "давать",
+      "ar": "يعطي"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Kannst du mir bitte deinen Kugelschreiber geben?",
+        "translations": {
+          "en": "Can you please give me your pen?",
+          "es": "¿Puedes darme tu bolígrafo, por favor?",
+          "fr": "Peux-tu me donner ton stylo, s'il te plaît ?",
+          "ru": "Ты можешь дать мне свою ручку, пожалуйста?",
+          "ar": "هل يمكنك إعطائي قلمك من فضلك؟"
+        }
+      },
+      {
+        "text": "Es gibt keine Karten mehr.",
+        "translations": {
+          "en": "There are no more tickets.",
+          "es": "Ya no hay billetes.",
+          "fr": "Il n'y a plus de billets.",
+          "ru": "Билетов больше нет.",
+          "ar": "لم يعد هناك تذاكر."
+        }
+      }
+    ]
+  },
+  {
+    "word": "geboren",
+    "article": "",
+    "translations": {
+      "en": "born",
+      "es": "nacido",
+      "fr": "né",
+      "ru": "рождённый",
+      "ar": "مولود"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich bin in Zagreb geboren.",
+        "translations": {
+          "en": "I was born in Zagreb.",
+          "es": "Nací en Zagreb.",
+          "fr": "Je suis né à Zagreb.",
+          "ru": "Я родился в Загребе.",
+          "ar": "ولدت في زغرب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geburtsjahr",
+    "article": "das",
+    "translations": {
+      "en": "year of birth",
+      "es": "año de nacimiento",
+      "fr": "année de naissance",
+      "ru": "год рождения",
+      "ar": "سنة الميلاد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Geburtsjahr Ihres Sohnes, bitte?",
+        "translations": {
+          "en": "Your son's year of birth, please?",
+          "es": "¿El año de nacimiento de su hijo, por favor?",
+          "fr": "L'année de naissance de votre fils, s'il vous plaît ?",
+          "ru": "Год рождения вашего сына, пожалуйста?",
+          "ar": "سنة ميلاد ابنك، من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geburtsort",
+    "article": "der",
+    "translations": {
+      "en": "place of birth",
+      "es": "lugar de nacimiento",
+      "fr": "lieu de naissance",
+      "ru": "место рождения",
+      "ar": "مكان الميلاد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte schreiben Sie Ihren Geburtsort auf das Formular.",
+        "translations": {
+          "en": "Please write your place of birth on the form.",
+          "es": "Por favor, escriba su lugar de nacimiento en el formulario.",
+          "fr": "Veuillez écrire votre lieu de naissance sur le formulaire.",
+          "ru": "Пожалуйста, напишите место вашего рождения в форме.",
+          "ar": "يرجى كتابة مكان ميلادك على النموذج."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Geburtstag",
+    "article": "der",
+    "translations": {
+      "en": "birthday",
+      "es": "cumpleaños",
+      "fr": "anniversaire",
+      "ru": "день рождения",
+      "ar": "عيد الميلاد"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Herzlichen Glückwunsch zum Geburtstag!",
+        "translations": {
+          "en": "Happy birthday!",
+          "es": "¡Feliz cumpleaños!",
+          "fr": "Joyeux anniversaire !",
+          "ru": "С днём рождения!",
+          "ar": "عيد ميلاد سعيد!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "gefallen",
+    "article": "",
+    "translations": {
+      "en": "to like",
+      "es": "gustar",
+      "fr": "plaire",
+      "ru": "нравиться",
+      "ar": "يعجب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das gefällt mir.",
+        "translations": {
+          "en": "I like that.",
+          "es": "Me gusta eso.",
+          "fr": "Ça me plaît.",
+          "ru": "Мне это нравится.",
+          "ar": "يعجبني ذلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gegen",
+    "article": "",
+    "translations": {
+      "en": "against",
+      "es": "contra",
+      "fr": "contre",
+      "ru": "против",
+      "ar": "ضد"
+    },
+    "type": "preposition",
+    "exampleSentences": [
+      {
+        "text": "Fahr nicht gegen den Baum!",
+        "translations": {
+          "en": "Don't drive into the tree!",
+          "es": "¡No choques contra el árbol!",
+          "fr": "Ne rentre pas dans l'arbre !",
+          "ru": "Не врезайся в дерево!",
+          "ar": "لا تصطدم بالشجرة!"
+        }
+      },
+      {
+        "text": "Ich bin gegen diese Lösung.",
+        "translations": {
+          "en": "I'm against this solution.",
+          "es": "Estoy en contra de esta solución.",
+          "fr": "Je suis contre cette solution.",
+          "ru": "Я против этого решения.",
+          "ar": "أنا ضد هذا الحل."
+        }
+      },
+      {
+        "text": "Wer spielt gegen wen?",
+        "translations": {
+          "en": "Who's playing against whom?",
+          "es": "¿Quién juega contra quién?",
+          "fr": "Qui joue contre qui ?",
+          "ru": "Кто играет против кого?",
+          "ar": "من يلعب ضد من؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "gehen",
+    "article": "",
+    "translations": {
+      "en": "to go",
+      "es": "ir",
+      "fr": "aller",
+      "ru": "идти",
+      "ar": "يذهب"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich weiß nicht, wie das geht.",
+        "translations": {
+          "en": "I don't know how that works.",
+          "es": "No sé cómo funciona eso.",
+          "fr": "Je ne sais pas comment ça marche.",
+          "ru": "Я не знаю, как это работает.",
+          "ar": "لا أعرف كيف يعمل ذلك."
+        }
+      },
+      {
+        "text": "Wie geht's?",
+        "translations": {
+          "en": "How are you?",
+          "es": "¿Cómo estás?",
+          "fr": "Comment ça va ?",
+          "ru": "Как дела?",
+          "ar": "كيف حالك؟"
+        }
+      },
+      {
+        "text": "Jetzt muss ich (aber) leider gehen.",
+        "translations": {
+          "en": "Unfortunately, I have to go now.",
+          "es": "Desafortunadamente, tengo que irme ahora.",
+          "fr": "Malheureusement, je dois partir maintenant.",
+          "ru": "К сожалению, мне сейчас нужно идти.",
+          "ar": "للأسف، يجب أن أذهب الآن."
+        }
+      },
+      {
+        "text": "Ich muss zum Arzt gehen.",
+        "translations": {
+          "en": "I have to go to the doctor.",
+          "es": "Tengo que ir al médico.",
+          "fr": "Je dois aller chez le médecin.",
+          "ru": "Мне нужно пойти к врачу.",
+          "ar": "يجب أن أذهب إلى الطبيب."
+        }
+      },
+      {
+        "text": "Das geht nicht!",
+        "translations": {
+          "en": "That won't work!",
+          "es": "¡Eso no funciona!",
+          "fr": "Ça ne va pas !",
+          "ru": "Это не получится!",
+          "ar": "هذا لا يصلح!"
+        }
+      }
+    ]
+  }
+]
+

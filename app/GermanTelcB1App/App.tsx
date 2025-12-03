@@ -1,42 +1,56 @@
-import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
+import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import mobileAds from 'react-native-google-mobile-ads';
-import RootNavigator from './src/navigation/RootNavigator';
-import { ProgressProvider } from './src/contexts/ProgressContext';
+import AppUpdateModalContainer from './src/components/AppUpdateModalContainer';
+import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
+import ReviewModalContainer from './src/components/ReviewModalContainer';
+import StreakModalContainer from './src/components/StreakModalContainer';
+import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
+import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
+import { ProgressProvider } from './src/contexts/ProgressContext';
+import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
+import { ReviewProvider } from './src/contexts/ReviewContext';
+import { StreakProvider } from './src/contexts/StreakContext';
+import { VocabularyProvider } from './src/contexts/VocabularyContext';
+import RootNavigator from './src/navigation/RootNavigator';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
-import { colors } from './src/theme/colors';
 
 const App: React.FC = () => {
   useEffect(() => {
     // Apply RTL layout based on saved language
     applyRTLLayout();
-    
-    // Initialize Google Mobile Ads SDK
-    mobileAds()
-      .initialize()
-      .then(adapterStatuses => {
-        console.log('Mobile Ads initialized:', adapterStatuses);
-      })
-      .catch(error => {
-        console.error('Failed to initialize Mobile Ads:', error);
-      });
   }, []);
 
   return (
     <SafeAreaProvider>
-      <AuthProvider>
-        <ProgressProvider>
-          <CompletionProvider>
-            <StatusBar barStyle="light-content" backgroundColor={colors.primary[500]} />
-            <RootNavigator />
-          </CompletionProvider>
-        </ProgressProvider>
-      </AuthProvider>
+      <RemoteConfigProvider>
+        <AppUpdateProvider>
+          <ReviewProvider>
+            <AuthProvider>
+              <VocabularyProvider>
+                <StreakProvider>
+                  <NotificationReminderProvider>
+                    <ProgressProvider>
+                      <CompletionProvider>
+                        <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                        <RootNavigator />
+                        <AppUpdateModalContainer />
+                        <ReviewModalContainer />
+                        <NotificationReminderModalContainer />
+                        <StreakModalContainer />
+                      </CompletionProvider>
+                    </ProgressProvider>
+                  </NotificationReminderProvider>
+                </StreakProvider>
+              </VocabularyProvider>
+            </AuthProvider>
+          </ReviewProvider>
+        </AppUpdateProvider>
+      </RemoteConfigProvider>
     </SafeAreaProvider>
   );
 };

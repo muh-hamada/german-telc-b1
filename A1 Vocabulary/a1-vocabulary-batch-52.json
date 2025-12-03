@@ -1,0 +1,243 @@
+[
+  {
+    "word": "riechen",
+    "article": "",
+    "translations": {
+      "en": "to smell",
+      "es": "oler",
+      "fr": "sentir",
+      "ru": "пахнуть",
+      "ar": "يشم"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Dieser Wein riecht gut.",
+        "translations": {
+          "en": "This wine smells good.",
+          "es": "Este vino huele bien.",
+          "fr": "Ce vin sent bon.",
+          "ru": "Это вино хорошо пахнет.",
+          "ar": "رائحة هذا النبيذ جيدة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "ruhig",
+    "article": "",
+    "translations": {
+      "en": "quiet",
+      "es": "tranquilo",
+      "fr": "calme",
+      "ru": "тихий",
+      "ar": "هادئ"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich möchte ein ruhiges Zimmer.",
+        "translations": {
+          "en": "I would like a quiet room.",
+          "es": "Quisiera una habitación tranquila.",
+          "fr": "Je voudrais une chambre calme.",
+          "ru": "Я хотел бы тихий номер.",
+          "ar": "أريد غرفة هادئة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Saft",
+    "article": "der",
+    "translations": {
+      "en": "juice",
+      "es": "jugo",
+      "fr": "jus",
+      "ru": "сок",
+      "ar": "العصير"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Möchtest du einen Apfelsaft?",
+        "translations": {
+          "en": "Would you like an apple juice?",
+          "es": "¿Quieres un jugo de manzana?",
+          "fr": "Veux-tu un jus de pomme?",
+          "ru": "Хочешь яблочный сок?",
+          "ar": "هل تريد عصير تفاح؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "sagen",
+    "article": "",
+    "translations": {
+      "en": "to say",
+      "es": "decir",
+      "fr": "dire",
+      "ru": "говорить",
+      "ar": "يقول"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sag mal, wie geht es dir denn?",
+        "translations": {
+          "en": "Tell me, how are you?",
+          "es": "Dime, ¿cómo estás?",
+          "fr": "Dis-moi, comment vas-tu?",
+          "ru": "Скажи, как у тебя дела?",
+          "ar": "قل لي، كيف حالك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Salat",
+    "article": "der",
+    "translations": {
+      "en": "salad",
+      "es": "ensalada",
+      "fr": "salade",
+      "ru": "салат",
+      "ar": "السلطة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Wie schmeckt dir der Salat?",
+        "translations": {
+          "en": "How does the salad taste to you?",
+          "es": "¿Cómo te sabe la ensalada?",
+          "fr": "Comment trouves-tu la salade?",
+          "ru": "Как тебе салат на вкус?",
+          "ar": "كيف طعم السلطة بالنسبة لك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Salz",
+    "article": "das",
+    "translations": {
+      "en": "salt",
+      "es": "sal",
+      "fr": "sel",
+      "ru": "соль",
+      "ar": "الملح"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Herr Ober, kann ich bitte Salz haben?",
+        "translations": {
+          "en": "Waiter, can I have salt, please?",
+          "es": "Camarero, ¿puedo tener sal, por favor?",
+          "fr": "Monsieur, puis-je avoir du sel, s'il vous plaît?",
+          "ru": "Официант, можно мне соль, пожалуйста?",
+          "ar": "أيها النادل، هل يمكنني الحصول على الملح من فضلك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Satz",
+    "article": "der",
+    "translations": {
+      "en": "sentence",
+      "es": "oración",
+      "fr": "phrase",
+      "ru": "предложение",
+      "ar": "الجملة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Dieser Satz ist sehr einfach.",
+        "translations": {
+          "en": "This sentence is very simple.",
+          "es": "Esta oración es muy simple.",
+          "fr": "Cette phrase est très simple.",
+          "ru": "Это предложение очень простое.",
+          "ar": "هذه الجملة بسيطة جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "S-Bahn",
+    "article": "die",
+    "translations": {
+      "en": "suburban train",
+      "es": "tren de cercanías",
+      "fr": "train de banlieue",
+      "ru": "городская электричка",
+      "ar": "قطار الضواحي"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich nehme lieber die S-Bahn.",
+        "translations": {
+          "en": "I prefer to take the S-Bahn.",
+          "es": "Prefiero tomar el tren de cercanías.",
+          "fr": "Je préfère prendre le train de banlieue.",
+          "ru": "Я лучше поеду на городской электричке.",
+          "ar": "أفضل أن آخذ قطار الضواحي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Schalter",
+    "article": "der",
+    "translations": {
+      "en": "counter",
+      "es": "mostrador",
+      "fr": "guichet",
+      "ru": "окошко",
+      "ar": "المكتب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gehen Sie bitte zum Schalter drei!",
+        "translations": {
+          "en": "Please go to counter three!",
+          "es": "¡Por favor vaya al mostrador tres!",
+          "fr": "Veuillez aller au guichet trois!",
+          "ru": "Пожалуйста, пройдите к окошку номер три!",
+          "ar": "من فضلك، اذهب إلى المكتب ثلاثة!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "scheinen",
+    "article": "",
+    "translations": {
+      "en": "to shine",
+      "es": "brillar",
+      "fr": "briller",
+      "ru": "светить",
+      "ar": "يشرق"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Die Sonne scheint.",
+        "translations": {
+          "en": "The sun is shining.",
+          "es": "El sol brilla.",
+          "fr": "Le soleil brille.",
+          "ru": "Солнце светит.",
+          "ar": "الشمس تشرق."
+        }
+      }
+    ]
+  }
+]
+

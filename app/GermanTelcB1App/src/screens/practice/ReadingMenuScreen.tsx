@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import {
-  View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
+  View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const ReadingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
@@ -38,34 +36,41 @@ const ReadingMenuScreen: React.FC = () => {
       setPart3Exams(p3);
     };
     loadExams();
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
   }, []);
 
   const handlePart1Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 1 });
     setShowPart1Modal(true);
   };
 
   const handlePart2Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 2 });
     setShowPart2Modal(true);
   };
 
   const handlePart3Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 3 });
     setShowPart3Modal(true);
   };
 
   const handleSelectPart1Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
     navigation.navigate('ReadingPart1', { examId });
   };
 
   const handleSelectPart2Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
     navigation.navigate('ReadingPart2', { examId });
   };
 
   const handleSelectPart3Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
     navigation.navigate('ReadingPart3', { examId });
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{t('practice.reading.part1')}</Text>
@@ -119,8 +124,7 @@ const ReadingMenuScreen: React.FC = () => {
         title={t('practice.reading.part3')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -144,11 +148,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   cardDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
     lineHeight: 24,
+    textAlign: 'left',
   },
 });
 

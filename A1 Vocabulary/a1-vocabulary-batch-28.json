@@ -1,0 +1,283 @@
+[
+  {
+    "word": "Gespräch",
+    "article": "das",
+    "translations": {
+      "en": "conversation",
+      "es": "conversación",
+      "fr": "conversation",
+      "ru": "разговор",
+      "ar": "المحادثة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Gespräch mit Frau Kunz ist um 14 Uhr.",
+        "translations": {
+          "en": "The conversation with Mrs. Kunz is at 2 PM.",
+          "es": "La conversación con la señora Kunz es a las 14:00.",
+          "fr": "La conversation avec Madame Kunz est à 14 heures.",
+          "ru": "Разговор с госпожой Кунц в 14:00.",
+          "ar": "المحادثة مع السيدة كونز في الساعة 2 مساءً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gestern",
+    "article": "",
+    "translations": {
+      "en": "yesterday",
+      "es": "ayer",
+      "fr": "hier",
+      "ru": "вчера",
+      "ar": "أمس"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Gestern war ich krank.",
+        "translations": {
+          "en": "I was sick yesterday.",
+          "es": "Ayer estaba enfermo.",
+          "fr": "J'étais malade hier.",
+          "ru": "Вчера я был болен.",
+          "ar": "كنت مريضًا أمس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gestorben",
+    "article": "",
+    "translations": {
+      "en": "died",
+      "es": "muerto",
+      "fr": "mort",
+      "ru": "умерший",
+      "ar": "متوفى"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Meine Frau ist gestern gestorben.",
+        "translations": {
+          "en": "My wife died yesterday.",
+          "es": "Mi esposa murió ayer.",
+          "fr": "Ma femme est morte hier.",
+          "ru": "Моя жена умерла вчера.",
+          "ar": "توفيت زوجتي أمس."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Getränk",
+    "article": "das",
+    "translations": {
+      "en": "drink",
+      "es": "bebida",
+      "fr": "boisson",
+      "ru": "напиток",
+      "ar": "المشروب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Mein Lieblingsgetränk ist Tomatensaft.",
+        "translations": {
+          "en": "My favorite drink is tomato juice.",
+          "es": "Mi bebida favorita es el jugo de tomate.",
+          "fr": "Ma boisson préférée est le jus de tomate.",
+          "ru": "Мой любимый напиток — томатный сок.",
+          "ar": "مشروبي المفضل هو عصير الطماطم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gewicht",
+    "article": "das",
+    "translations": {
+      "en": "weight",
+      "es": "peso",
+      "fr": "poids",
+      "ru": "вес",
+      "ar": "الوزن"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bei \\\"Gewicht\\\" schreibst du: 62 Kilo.",
+        "translations": {
+          "en": "For \"weight\" you write: 62 kilos.",
+          "es": "En \"peso\" escribes: 62 kilos.",
+          "fr": "Pour \"poids\", tu écris : 62 kilos.",
+          "ru": "В графе «вес» пишешь: 62 кило.",
+          "ar": "في \"الوزن\" تكتب: 62 كيلو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gewinnen",
+    "article": "",
+    "translations": {
+      "en": "to win",
+      "es": "ganar",
+      "fr": "gagner",
+      "ru": "выигрывать",
+      "ar": "يفوز"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Wer gewinnt das Spiel?",
+        "translations": {
+          "en": "Who wins the game?",
+          "es": "¿Quién gana el juego?",
+          "fr": "Qui gagne le match ?",
+          "ru": "Кто выигрывает игру?",
+          "ar": "من يفوز باللعبة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Glas",
+    "article": "das",
+    "translations": {
+      "en": "glass",
+      "es": "vaso",
+      "fr": "verre",
+      "ru": "стакан",
+      "ar": "الكأس"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte noch ein Glas Wein!",
+        "translations": {
+          "en": "Another glass of wine, please!",
+          "es": "¡Otra copa de vino, por favor!",
+          "fr": "Encore un verre de vin, s'il vous plaît !",
+          "ru": "Ещё бокал вина, пожалуйста!",
+          "ar": "كأس آخر من النبيذ، من فضلك!"
+        }
+      },
+      {
+        "text": "Wir brauchen noch drei Gläser.",
+        "translations": {
+          "en": "We still need three glasses.",
+          "es": "Todavía necesitamos tres vasos.",
+          "fr": "Nous avons encore besoin de trois verres.",
+          "ru": "Нам ещё нужны три стакана.",
+          "ar": "لا نزال بحاجة إلى ثلاثة أكواب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "glauben",
+    "article": "",
+    "translations": {
+      "en": "to believe",
+      "es": "creer",
+      "fr": "croire",
+      "ru": "верить",
+      "ar": "يؤمن"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Sie können mir glauben, es ist so.",
+        "translations": {
+          "en": "You can believe me, it's true.",
+          "es": "Puede creerme, es así.",
+          "fr": "Vous pouvez me croire, c'est vrai.",
+          "ru": "Вы можете мне поверить, это так.",
+          "ar": "يمكنك أن تصدقني، إنه كذلك."
+        }
+      },
+      {
+        "text": "Ich glaube, er kommt gleich.",
+        "translations": {
+          "en": "I think he's coming soon.",
+          "es": "Creo que viene pronto.",
+          "fr": "Je crois qu'il arrive bientôt.",
+          "ru": "Я думаю, он скоро придёт.",
+          "ar": "أعتقد أنه سيأتي قريبًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "gleich",
+    "article": "",
+    "translations": {
+      "en": "same",
+      "es": "igual",
+      "fr": "même",
+      "ru": "одинаковый",
+      "ar": "نفسه"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Das ist mir gleich.",
+        "translations": {
+          "en": "It's all the same to me.",
+          "es": "Me da igual.",
+          "fr": "Ça m'est égal.",
+          "ru": "Мне всё равно.",
+          "ar": "هذا سواء بالنسبة لي."
+        }
+      },
+      {
+        "text": "Das ist der gleiche Preis.",
+        "translations": {
+          "en": "That's the same price.",
+          "es": "Es el mismo precio.",
+          "fr": "C'est le même prix.",
+          "ru": "Это та же цена.",
+          "ar": "هذا هو نفس السعر."
+        }
+      },
+      {
+        "text": "Ich komme gleich.",
+        "translations": {
+          "en": "I'm coming right away.",
+          "es": "Vengo enseguida.",
+          "fr": "J'arrive tout de suite.",
+          "ru": "Я сейчас приду.",
+          "ar": "سآتي حالاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Gleis",
+    "article": "das",
+    "translations": {
+      "en": "platform",
+      "es": "vía",
+      "fr": "quai",
+      "ru": "платформа",
+      "ar": "الرصيف"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der ICE nach Berlin hält heute an Gleis 12.",
+        "translations": {
+          "en": "The ICE to Berlin stops today at platform 12.",
+          "es": "El ICE a Berlín para hoy en la vía 12.",
+          "fr": "L'ICE pour Berlin s'arrête aujourd'hui au quai 12.",
+          "ru": "ICE в Берлин сегодня останавливается на платформе 12.",
+          "ar": "يتوقف قطار ICE إلى برلين اليوم في الرصيف 12."
+        }
+      }
+    ]
+  }
+]
+

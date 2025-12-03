@@ -23,7 +23,7 @@ react {
     //   The list of variants to that are debuggable. For those we're going to
     //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.
     //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
-    // debuggableVariants = ["liteDebug", "prodDebug"]
+    debuggableVariants = ["germanB1Debug", "germanB2Debug", "englishB1Debug"]
 
     /* Bundling */
     //   A list containing the node command and its flags. Default is just 'node'.
@@ -84,13 +84,34 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.mhamada.telcb1german"
+    
     defaultConfig {
-        applicationId "com.mhamada.telcb1german"
+        applicationId "com.mhamada.telcb1english"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 44
+        versionName "1.0.44"
     }
+    
+    flavorDimensions "exam"
+    productFlavors {
+        germanB1 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb1german"
+            resValue "string", "app_name", "German TELC B1"
+        }
+        germanB2 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb2german"
+            resValue "string", "app_name", "German TELC B2"
+        }
+        englishB1 {
+            dimension "exam"
+            applicationId "com.mhamada.telcb1english"
+            resValue "string", "app_name", "English TELC B1"
+        }
+    }
+    
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -110,6 +131,9 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            // Disable Firebase Analytics in debug builds
+            manifestPlaceholders = [enableCrashReporting:false]
+            resValue "string", "google_analytics_disabled", "true"
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -117,6 +141,8 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            manifestPlaceholders = [enableCrashReporting:true]
+            resValue "string", "google_analytics_disabled", "false"
         }
     }
 }
@@ -132,6 +158,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+
+    // GIF support for animated images
+    // Version should match React Native's bundled Fresco version
+    implementation("com.facebook.fresco:animated-gif:3.4.0")
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

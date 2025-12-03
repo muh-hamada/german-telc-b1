@@ -1,0 +1,253 @@
+[
+  {
+    "word": "Prospekt",
+    "article": "der",
+    "translations": {
+      "en": "brochure",
+      "es": "folleto",
+      "fr": "prospectus",
+      "ru": "проспект",
+      "ar": "الكتيب"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bitte schicken Sie mir einen Prospekt von Ihrem Hotel.",
+        "translations": {
+          "en": "Please send me a brochure of your hotel.",
+          "es": "Por favor, envíeme un folleto de su hotel.",
+          "fr": "Veuillez m'envoyer un prospectus de votre hôtel.",
+          "ru": "Пожалуйста, пришлите мне проспект вашего отеля.",
+          "ar": "من فضلك، أرسل لي كتيبًا عن فندقك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Prüfung",
+    "article": "die",
+    "translations": {
+      "en": "exam",
+      "es": "examen",
+      "fr": "examen",
+      "ru": "экзамен",
+      "ar": "الامتحان"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Prüfung ist am Montag um 8.00 Uhr.",
+        "translations": {
+          "en": "The exam is on Monday at 8:00 am.",
+          "es": "El examen es el lunes a las 8:00.",
+          "fr": "L'examen est lundi à 8h00.",
+          "ru": "Экзамен в понедельник в 8:00.",
+          "ar": "الامتحان يوم الاثنين في الساعة 8:00."
+        }
+      }
+    ]
+  },
+  {
+    "word": "pünktlich",
+    "article": "",
+    "translations": {
+      "en": "punctual",
+      "es": "puntual",
+      "fr": "ponctuel",
+      "ru": "пунктуальный",
+      "ar": "دقيق"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Der Bus fährt pünktlich um acht Uhr.",
+        "translations": {
+          "en": "The bus leaves punctually at eight o'clock.",
+          "es": "El autobús sale puntualmente a las ocho.",
+          "fr": "Le bus part ponctuellement à huit heures.",
+          "ru": "Автобус отправляется точно в восемь часов.",
+          "ar": "تغادر الحافلة بدقة في الساعة الثامنة."
+        }
+      },
+      {
+        "text": "Herr Müller ist immer pünktlich.",
+        "translations": {
+          "en": "Mr. Müller is always punctual.",
+          "es": "El señor Müller siempre es puntual.",
+          "fr": "Monsieur Müller est toujours ponctuel.",
+          "ru": "Господин Мюллер всегда пунктуален.",
+          "ar": "السيد مولر دقيق دائمًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Rad fahren",
+    "article": "",
+    "translations": {
+      "en": "to ride a bike",
+      "es": "andar en bicicleta",
+      "fr": "faire du vélo",
+      "ru": "ездить на велосипеде",
+      "ar": "يركب الدراجة"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Das Kind kann schon Rad fahren.",
+        "translations": {
+          "en": "The child can already ride a bike.",
+          "es": "El niño ya puede andar en bicicleta.",
+          "fr": "L'enfant sait déjà faire du vélo.",
+          "ru": "Ребёнок уже умеет ездить на велосипеде.",
+          "ar": "يمكن للطفل ركوب الدراجة بالفعل."
+        }
+      }
+    ]
+  },
+  {
+    "word": "rauchen",
+    "article": "",
+    "translations": {
+      "en": "to smoke",
+      "es": "fumar",
+      "fr": "fumer",
+      "ru": "курить",
+      "ar": "يدخن"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich rauche nicht.",
+        "translations": {
+          "en": "I don't smoke.",
+          "es": "No fumo.",
+          "fr": "Je ne fume pas.",
+          "ru": "Я не курю.",
+          "ar": "أنا لا أدخن."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Raum",
+    "article": "der",
+    "translations": {
+      "en": "room",
+      "es": "sala",
+      "fr": "salle",
+      "ru": "помещение",
+      "ar": "الغرفة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Der Unterricht ist in Raum 332.",
+        "translations": {
+          "en": "The lesson is in room 332.",
+          "es": "La clase es en la sala 332.",
+          "fr": "Le cours a lieu dans la salle 332.",
+          "ru": "Урок в аудитории 332.",
+          "ar": "الدرس في الغرفة 332."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Rechnung",
+    "article": "die",
+    "translations": {
+      "en": "bill",
+      "es": "cuenta",
+      "fr": "addition",
+      "ru": "счёт",
+      "ar": "الفاتورة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Die Rechnung, bitte.",
+        "translations": {
+          "en": "The bill, please.",
+          "es": "La cuenta, por favor.",
+          "fr": "L'addition, s'il vous plaît.",
+          "ru": "Счёт, пожалуйста.",
+          "ar": "الفاتورة، من فضلك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "rechts",
+    "article": "",
+    "translations": {
+      "en": "right",
+      "es": "derecha",
+      "fr": "droite",
+      "ru": "справа",
+      "ar": "يمين"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Die Schillerstraße ist hier rechts.",
+        "translations": {
+          "en": "Schillerstrasse is here on the right.",
+          "es": "La calle Schiller está aquí a la derecha.",
+          "fr": "La Schillerstrasse est ici à droite.",
+          "ru": "Шиллерштрассе здесь справа.",
+          "ar": "شارع شيلر هنا على اليمين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "regnen",
+    "article": "",
+    "translations": {
+      "en": "to rain",
+      "es": "llover",
+      "fr": "pleuvoir",
+      "ru": "идти дождю",
+      "ar": "تمطر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Heute regnet es.",
+        "translations": {
+          "en": "It's raining today.",
+          "es": "Hoy llueve.",
+          "fr": "Il pleut aujourd'hui.",
+          "ru": "Сегодня идёт дождь.",
+          "ar": "إنها تمطر اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Regen",
+    "article": "der",
+    "translations": {
+      "en": "rain",
+      "es": "lluvia",
+      "fr": "pluie",
+      "ru": "дождь",
+      "ar": "المطر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Bei diesem Regen gehe ich nicht raus.",
+        "translations": {
+          "en": "I'm not going out in this rain.",
+          "es": "No salgo con esta lluvia.",
+          "fr": "Je ne sors pas sous cette pluie.",
+          "ru": "В такой дождь я не выхожу.",
+          "ar": "لن أخرج في هذا المطر."
+        }
+      }
+    ]
+  }
+]
+

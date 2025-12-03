@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
+  View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import AdBanner from '../../components/AdBanner';
-import { HIDE_ADS } from '../../config/demo.config';
+import { HIDE_ADS } from '../../config/development.config';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [showWritingModal, setShowWritingModal] = useState(false);
   const [writingExams, setWritingExams] = useState<any[]>([]);
 
@@ -28,34 +28,42 @@ const PracticeMenuScreen: React.FC = () => {
       setWritingExams(exams);
     };
     loadWritingExams();
+    // Section opened
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
   }, []);
 
   const handleReadingPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
     navigation.navigate('ReadingMenu');
   };
 
   const handleListeningPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' });
     navigation.navigate('ListeningMenu');
   };
 
   const handleWritingPress = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });
     setShowWritingModal(true);
   };
 
   const handleSelectWritingExam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
     navigation.navigate('Writing', { examId });
   };
 
   const handleSpeakingPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
     navigation.navigate('SpeakingMenu');
   };
 
   const handleGrammarPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
     navigation.navigate('GrammarMenu');
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handleReadingPress}>
           <Text style={styles.cardTitle}>{t('practice.reading.title')}</Text>
@@ -103,8 +111,7 @@ const PracticeMenuScreen: React.FC = () => {
         title={t('practice.writing.title')}
       />
 
-      {!HIDE_ADS && <AdBanner />}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -128,11 +135,13 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[500],
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   cardDescription: {
     ...typography.textStyles.body,
     color: colors.text.secondary,
     lineHeight: 24,
+    textAlign: 'left',
   },
 });
 

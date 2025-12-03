@@ -1,0 +1,75 @@
+{
+    "groups": [
+        {
+            "id": 1,
+            "phrases": [
+                "Hallo! Schön, dass wir uns treffen.",
+                "wir können das gerne besprechen",
+                "hast du gehört, dass unser Freund aus der Stadt abreist?",
+                "ich denke, wir sollten eine Abschiedsparty machen.",
+                "was ist deine Meinung auf diese Nachricht?",
+                "Ich schlage vor, dass wir am Wochenende feiern.",
+                "Sollen wir das Fest lieber im Park oder bei dir/mir machen?",
+                "Wie wäre es mit Grillen?",
+                "Ich hätte am Samstag Zeit.",
+                "Lass uns das Fest im Park organisieren.",
+                "Freitagabend wäre besser, da haben die meisten am Samstag frei.",
+                "Vielleicht könnten wir stattdessen ein Picknick machen?",
+                "Wollen wir ein Buffet organisieren?",
+                "Ich bin für ein Restaurant, das wäre einfacher."
+            ],
+            "name": "Einstieg & Vorschläge machen"
+        },
+        {
+            "phrases": [
+                "Wann genau sollen wir das machen?",
+                "Wo genau?",
+                "Passt dir der Termin?",
+                "Wie findest du diese Idee?",
+                "Ich weiß nicht, ob das eine gute Idee ist.",
+                "Ich habe einen besseren Vorschlag.",
+                "Wäre es nicht besser, wenn wir es drinnen machen?",
+                "Ich bin nicht sicher, ob ich am Freitag Zeit habe.",
+                "Das ist leider schwierig für mich.",
+                "Ich befürchte, das wird zu teuer.",
+                "Ist es dir lieber, wenn wir Pizza bestellen statt kochen?",
+                "Könntest du den Termin vielleicht verschieben?",
+                "Meinst du nicht, das Wetter wird schlecht?",
+                "Ich hätte lieber etwas Leichteres zu essen.",
+                "Was genau meinst du mit 'Buffet'?",
+                "Ich schlage vor, ich frage drei Kollegen. Was meinst du?",
+                "Ich kann das besorgen.",
+                "Ich kann die Einladungen schicken."
+            ],
+            "id": 2,
+            "name": "Nachfragen & Gegenvorschläge"
+        },
+        {
+            "id": 3,
+            "phrases": [
+                "Das ist eine gute Idee!",
+                "Das gefällt mir gut.",
+                "Das klingt perfekt.",
+                "Bin ich einverstanden.",
+                "Klasse! / Toll!",
+                "Genau!",
+                "Das passt mir gut.",
+                "wer kann das übernehmen?",
+                "ich kann das gerne übernehmen",
+                "ich kümmere mich darum.",
+                "Ich übernehme die Kosten für das Fleisch.",
+                "Was muss noch erledigt werden?",
+                "Du könntest die Musik organisieren, oder?",
+                "Ich mache die Einladungen und schicke sie per E-Mail.",
+                "Das ist fair!",
+                "haben wir alles besprochen?",
+                "Ich denke, wir sind fertig mit der Planung.",
+                "dann, hier ist der Plan:",
+                "Toll, dass wir das geklärt haben!",
+                "Wir sehen uns dann am Freitagabend!",
+                "Ich freue mich schon sehr!"
+            ],
+            "name": "Organisation & Abschluss"
+        }
+    ]
+}

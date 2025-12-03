@@ -6,10 +6,9 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
-  SafeAreaView,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 
 interface LanguageSelectorModalProps {
@@ -39,7 +38,7 @@ const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
   onClose,
   onLanguageSelect,
 }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useCustomTranslation();
   const currentLanguage = i18n.language;
 
   const handleLanguageSelect = (languageCode: string) => {
@@ -81,7 +80,7 @@ const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
           <View style={styles.modalContent}>
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>Select Language</Text>
+              <Text style={styles.title}>{t('settings.selectLanguage')}</Text>
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     maxHeight: '80%',
   },
   header: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.padding.lg,
@@ -138,10 +137,10 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   languageList: {
-    padding: spacing.padding.md,
+    paddingVertical: spacing.padding.md,
   },
   languageItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
@@ -149,6 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
     borderWidth: 2,
     borderColor: 'transparent',
+    marginHorizontal: spacing.margin.md,
   },
   selectedLanguageItem: {
     backgroundColor: colors.primary[50],
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.semibold,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
+    textAlign: 'left',
   },
   selectedLanguageName: {
     color: colors.primary[600],
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
   languageNameSecondary: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
+    textAlign: 'left',
   },
   checkmark: {
     ...typography.textStyles.h3,

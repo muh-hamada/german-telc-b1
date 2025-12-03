@@ -70,8 +70,9 @@
 
     <script>
         // Die erweiterte und kategorisierte Liste der Redemittel für Teil 3
-        const allPhrases = [
-            // Gruppe 1: Einstieg, Thema setzen, Vorschläge machen (Wann/Wo/Was) - GRÜN
+        const importantPhrases = [
+            {groupName: "Einstieg & Vorschläge machen", phrases: [
+            
             { text: "Hallo! Schön, dass wir uns treffen.", category: 1 },
             { text: "wir können das gerne besprechen", category: 1 },
             { text: "hast du gehört, dass unser Freund aus der Stadt abreist?", category: 1 },
@@ -86,7 +87,8 @@
             { text: "Vielleicht könnten wir stattdessen ein Picknick machen?", category: 1 },
             { text: "Wollen wir ein Buffet organisieren?", category: 1 },
             { text: "Ich bin für ein Restaurant, das wäre einfacher.", category: 1 },
-
+    ]},
+            {groupName: "Nachfragen & Gegenvorschläge", phrases: [
 
             // Gruppe 2: Nachfragen, Gegenvorschläge, Zweifel, Höfliche Ablehnung - ORANGE
             { text: "Wann genau sollen wir das machen?", category: 2 },
@@ -107,6 +109,8 @@
             { text: "Ich schlage vor, ich frage drei Kollegen. Was meinst du?", category: 2 },
             { text: "Ich kann das besorgen.", category: 2 },
             { text: "Ich kann die Einladungen schicken.", category: 2 },
+        ]},
+            {groupName: "Organisation & Abschluss", phrases: [
 
             // Gruppe 3: Organisation, Aufgabenverteilung, Zustimmung, Abschluss - BLAU
             { text: "Das ist eine gute Idee!", category: 3 },
@@ -130,7 +134,8 @@
             { text: "Toll, dass wir das geklärt haben!", category: 3 },
             { text: "Wir sehen uns dann am Freitagabend!", category: 3 },
             { text: "Ich freue mich schon sehr!", category: 3 },
-        ];
+        ]},
+    ];
 
         // Funktion zum Anzeigen der Phrasen
         function renderPhrases() {

@@ -1,0 +1,263 @@
+[
+  {
+    "word": "Blick",
+    "article": "der",
+    "translations": {
+      "en": "view",
+      "es": "vista",
+      "fr": "vue",
+      "ru": "вид",
+      "ar": "المنظر"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Von diesem Hotel hat man einen guten Blick auf den Rhein.",
+        "translations": {
+          "en": "From this hotel you have a good view of the Rhine.",
+          "es": "Desde este hotel se tiene una buena vista del Rin.",
+          "fr": "De cet hôtel, on a une belle vue sur le Rhin.",
+          "ru": "Из этого отеля открывается хороший вид на Рейн.",
+          "ar": "من هذا الفندق لديك منظر جيد لنهر الراين."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Blume",
+    "article": "die",
+    "translations": {
+      "en": "flower",
+      "es": "flor",
+      "fr": "fleur",
+      "ru": "цветок",
+      "ar": "الزهرة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gefallen dir die Blumen?",
+        "translations": {
+          "en": "Do you like the flowers?",
+          "es": "¿Te gustan las flores?",
+          "fr": "Aimes-tu les fleurs ?",
+          "ru": "Тебе нравятся цветы?",
+          "ar": "هل تعجبك الزهور؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Bogen",
+    "article": "der",
+    "translations": {
+      "en": "sheet",
+      "es": "hoja",
+      "fr": "feuille",
+      "ru": "лист",
+      "ar": "الورقة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Schreiben Sie Ihre Lösungen bitte auf den Antwortbogen.",
+        "translations": {
+          "en": "Please write your answers on the answer sheet.",
+          "es": "Por favor, escriba sus respuestas en la hoja de respuestas.",
+          "fr": "Veuillez écrire vos réponses sur la feuille de réponses.",
+          "ru": "Пожалуйста, напишите свои ответы на бланке ответов.",
+          "ar": "يرجى كتابة إجاباتك على ورقة الإجابات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "böse",
+    "article": "",
+    "translations": {
+      "en": "angry",
+      "es": "enojado",
+      "fr": "fâché",
+      "ru": "сердитый",
+      "ar": "غاضب"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Sie ist böse auf mich.",
+        "translations": {
+          "en": "She's angry with me.",
+          "es": "Ella está enojada conmigo.",
+          "fr": "Elle est fâchée contre moi.",
+          "ru": "Она сердится на меня.",
+          "ar": "إنها غاضبة مني."
+        }
+      }
+    ]
+  },
+  {
+    "word": "brauchen",
+    "article": "",
+    "translations": {
+      "en": "to need",
+      "es": "necesitar",
+      "fr": "avoir besoin",
+      "ru": "нуждаться",
+      "ar": "يحتاج"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Brauchst du die Zeitung noch?",
+        "translations": {
+          "en": "Do you still need the newspaper?",
+          "es": "¿Todavía necesitas el periódico?",
+          "fr": "As-tu encore besoin du journal ?",
+          "ru": "Тебе ещё нужна газета?",
+          "ar": "هل لا تزال بحاجة إلى الصحيفة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "breit",
+    "article": "",
+    "translations": {
+      "en": "wide",
+      "es": "ancho",
+      "fr": "large",
+      "ru": "широкий",
+      "ar": "عريض"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Wie breit ist der Schrank?",
+        "translations": {
+          "en": "How wide is the cupboard?",
+          "es": "¿Qué tan ancho es el armario?",
+          "fr": "Quelle est la largeur de l'armoire ?",
+          "ru": "Какой ширины шкаф?",
+          "ar": "ما عرض الخزانة؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Brief",
+    "article": "der",
+    "translations": {
+      "en": "letter",
+      "es": "carta",
+      "fr": "lettre",
+      "ru": "письмо",
+      "ar": "الرسالة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie einen Brief für mich?",
+        "translations": {
+          "en": "Do you have a letter for me?",
+          "es": "¿Tiene una carta para mí?",
+          "fr": "Avez-vous une lettre pour moi ?",
+          "ru": "У вас есть письмо для меня?",
+          "ar": "هل لديك رسالة لي؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Briefmarke",
+    "article": "die",
+    "translations": {
+      "en": "stamp",
+      "es": "sello",
+      "fr": "timbre",
+      "ru": "марка",
+      "ar": "الطابع"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Kaufst du bitte Briefmarken bei der Post.",
+        "translations": {
+          "en": "Please buy stamps at the post office.",
+          "es": "Por favor, compra sellos en la oficina de correos.",
+          "fr": "Achète des timbres à la poste, s'il te plaît.",
+          "ru": "Пожалуйста, купи марки на почте.",
+          "ar": "من فضلك، اشتر طوابع من مكتب البريد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "bringen",
+    "article": "",
+    "translations": {
+      "en": "to bring",
+      "es": "traer",
+      "fr": "apporter",
+      "ru": "приносить",
+      "ar": "يحضر"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Bringen Sie mir bitte noch einen Kaffee!",
+        "translations": {
+          "en": "Please bring me another coffee!",
+          "es": "¡Por favor, tráigame otro café!",
+          "fr": "Apportez-moi encore un café, s'il vous plaît !",
+          "ru": "Пожалуйста, принесите мне ещё кофе!",
+          "ar": "من فضلك، أحضر لي قهوة أخرى!"
+        }
+      },
+      {
+        "text": "Wir müssen ihn zum Arzt bringen.",
+        "translations": {
+          "en": "We have to take him to the doctor.",
+          "es": "Tenemos que llevarlo al médico.",
+          "fr": "Nous devons l'emmener chez le médecin.",
+          "ru": "Мы должны отвезти его к врачу.",
+          "ar": "يجب أن نأخذه إلى الطبيب."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Brot",
+    "article": "das",
+    "translations": {
+      "en": "bread",
+      "es": "pan",
+      "fr": "pain",
+      "ru": "хлеб",
+      "ar": "الخبز"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Haben Sie auch Weißbrot?",
+        "translations": {
+          "en": "Do you also have white bread?",
+          "es": "¿También tiene pan blanco?",
+          "fr": "Avez-vous aussi du pain blanc ?",
+          "ru": "У вас также есть белый хлеб?",
+          "ar": "هل لديك أيضًا خبز أبيض؟"
+        }
+      },
+      {
+        "text": "Nimm noch ein paar Brote für die Fahrt mit.",
+        "translations": {
+          "en": "Take a few sandwiches for the journey.",
+          "es": "Lleva unos sándwiches para el viaje.",
+          "fr": "Prends quelques sandwichs pour le voyage.",
+          "ru": "Возьми ещё немного бутербродов в дорогу.",
+          "ar": "خذ بعض السندويشات للرحلة."
+        }
+      }
+    ]
+  }
+]
+

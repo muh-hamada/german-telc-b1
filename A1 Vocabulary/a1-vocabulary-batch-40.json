@@ -1,0 +1,263 @@
+[
+  {
+    "word": "laufen",
+    "article": "",
+    "translations": {
+      "en": "to run",
+      "es": "correr",
+      "fr": "courir",
+      "ru": "бегать",
+      "ar": "يجري"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe zu Fuß. Das dauert 10 Minuten.",
+        "translations": {
+          "en": "I'm going on foot. It takes 10 minutes.",
+          "es": "Voy a pie. Tarda 10 minutos.",
+          "fr": "Je vais à pied. Ça prend 10 minutes.",
+          "ru": "Я иду пешком. Это займёт 10 минут.",
+          "ar": "أنا ذاهب سيرًا على الأقدام. يستغرق 10 دقائق."
+        }
+      },
+      {
+        "text": "Ich bin 4 Kilometer gelaufen.",
+        "translations": {
+          "en": "I ran 4 kilometers.",
+          "es": "Corrí 4 kilómetros.",
+          "fr": "J'ai couru 4 kilomètres.",
+          "ru": "Я пробежал 4 километра.",
+          "ar": "جريت 4 كيلومترات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "laut",
+    "article": "",
+    "translations": {
+      "en": "loud",
+      "es": "alto",
+      "fr": "fort",
+      "ru": "громкий",
+      "ar": "عالٍ"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Kannst du bitte das Radio leiser machen? Es ist zu laut.",
+        "translations": {
+          "en": "Can you please turn down the radio? It's too loud.",
+          "es": "¿Puedes bajar el volumen de la radio, por favor? Está demasiado alto.",
+          "fr": "Peux-tu baisser la radio, s'il te plaît? C'est trop fort.",
+          "ru": "Можешь, пожалуйста, сделать радио тише? Оно слишком громкое.",
+          "ar": "هل يمكنك خفض صوت الراديو، من فضلك؟ إنه عالٍ جدًا."
+        }
+      }
+    ]
+  },
+  {
+    "word": "leben",
+    "article": "",
+    "translations": {
+      "en": "to live",
+      "es": "vivir",
+      "fr": "vivre",
+      "ru": "жить",
+      "ar": "يعيش"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich lebe seit drei Jahren in Köln.",
+        "translations": {
+          "en": "I've been living in Cologne for three years.",
+          "es": "Vivo en Colonia desde hace tres años.",
+          "fr": "Je vis à Cologne depuis trois ans.",
+          "ru": "Я живу в Кёльне три года.",
+          "ar": "أعيش في كولونيا منذ ثلاث سنوات."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Leben",
+    "article": "das",
+    "translations": {
+      "en": "life",
+      "es": "vida",
+      "fr": "vie",
+      "ru": "жизнь",
+      "ar": "الحياة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Das Leben ist schön.",
+        "translations": {
+          "en": "Life is beautiful.",
+          "es": "La vida es bella.",
+          "fr": "La vie est belle.",
+          "ru": "Жизнь прекрасна.",
+          "ar": "الحياة جميلة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lebensmittel",
+    "article": "das",
+    "translations": {
+      "en": "food",
+      "es": "alimentos",
+      "fr": "aliments",
+      "ru": "продукты",
+      "ar": "المواد الغذائية"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Gibt es hier einen Lebensmittelladen?",
+        "translations": {
+          "en": "Is there a grocery store here?",
+          "es": "¿Hay una tienda de alimentos aquí?",
+          "fr": "Y a-t-il un magasin d'alimentation ici?",
+          "ru": "Здесь есть продуктовый магазин?",
+          "ar": "هل يوجد متجر مواد غذائية هنا؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "leer",
+    "article": "",
+    "translations": {
+      "en": "empty",
+      "es": "vacío",
+      "fr": "vide",
+      "ru": "пустой",
+      "ar": "فارغ"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Flasche ist leer.",
+        "translations": {
+          "en": "The bottle is empty.",
+          "es": "La botella está vacía.",
+          "fr": "La bouteille est vide.",
+          "ru": "Бутылка пуста.",
+          "ar": "الزجاجة فارغة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "legen",
+    "article": "",
+    "translations": {
+      "en": "to lay",
+      "es": "poner",
+      "fr": "poser",
+      "ru": "класть",
+      "ar": "يضع"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Leg bitte die Jacke auf den Stuhl!",
+        "translations": {
+          "en": "Please put the jacket on the chair!",
+          "es": "¡Por favor, pon la chaqueta en la silla!",
+          "fr": "Pose la veste sur la chaise, s'il te plaît!",
+          "ru": "Положи, пожалуйста, куртку на стул!",
+          "ar": "من فضلك، ضع السترة على الكرسي!"
+        }
+      }
+    ]
+  },
+  {
+    "word": "Lehrer",
+    "article": "der",
+    "translations": {
+      "en": "teacher",
+      "es": "profesor",
+      "fr": "enseignant",
+      "ru": "учитель",
+      "ar": "المعلم"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Herr Müller ist mein Lehrer.",
+        "translations": {
+          "en": "Mr. Müller is my teacher.",
+          "es": "El señor Müller es mi profesor.",
+          "fr": "Monsieur Müller est mon enseignant.",
+          "ru": "Господин Мюллер — мой учитель.",
+          "ar": "السيد مولر معلمي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "leicht",
+    "article": "",
+    "translations": {
+      "en": "light",
+      "es": "ligero",
+      "fr": "léger",
+      "ru": "лёгкий",
+      "ar": "خفيف"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Die Tasche ist sehr leicht.",
+        "translations": {
+          "en": "The bag is very light.",
+          "es": "La bolsa es muy ligera.",
+          "fr": "Le sac est très léger.",
+          "ru": "Сумка очень лёгкая.",
+          "ar": "الحقيبة خفيفة جدًا."
+        }
+      },
+      {
+        "text": "Die Prüfung war leicht.",
+        "translations": {
+          "en": "The exam was easy.",
+          "es": "El examen fue fácil.",
+          "fr": "L'examen était facile.",
+          "ru": "Экзамен был лёгким.",
+          "ar": "كان الامتحان سهلاً."
+        }
+      }
+    ]
+  },
+  {
+    "word": "leider",
+    "article": "",
+    "translations": {
+      "en": "unfortunately",
+      "es": "desafortunadamente",
+      "fr": "malheureusement",
+      "ru": "к сожалению",
+      "ar": "للأسف"
+    },
+    "type": "adverb",
+    "exampleSentences": [
+      {
+        "text": "Ich kann heute leider nicht kommen.",
+        "translations": {
+          "en": "Unfortunately, I can't come today.",
+          "es": "Desafortunadamente, no puedo venir hoy.",
+          "fr": "Malheureusement, je ne peux pas venir aujourd'hui.",
+          "ru": "К сожалению, я не могу прийти сегодня.",
+          "ar": "للأسف، لا أستطيع القدوم اليوم."
+        }
+      }
+    ]
+  }
+]
+

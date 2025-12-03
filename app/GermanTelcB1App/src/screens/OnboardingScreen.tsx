@@ -1,57 +1,52 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { StyleSheet, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useLanguageChange } from '../hooks/useLanguageChange';
 import { RootStackParamList } from '../types/navigation.types';
-import { colors, spacing, typography } from '../theme';
+import { spacing } from '../theme';
 import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
+import RestartAppModal from '../components/RestartAppModal';
 import i18n from '../utils/i18n';
-import AdBanner from '../components/AdBanner';
-import { DEMO_MODE } from '../config/demo.config';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 type OnboardingScreenProps = StackScreenProps<RootStackParamList, 'Onboarding'>;
 
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
-  const insets = useSafeAreaInsets();
+  const {
+    isRestartModalVisible,
+    isGoingToRTL,
+    handleLanguageChange: handleLanguageChangeWithRestart,
+    handleCloseModal,
+  } = useLanguageChange();
 
-  const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang);
+  const handleLanguageChange = async (lang: string) => {
     setSelectedLanguage(lang);
+    await handleLanguageChangeWithRestart(lang);
   };
 
-  const handleGoPress = async () => {
-    try {
-      await AsyncStorage.setItem('hasLaunched', 'true');
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Main' }],
-      });
-    } catch (error) {
-      console.log('Error saving launch state:', error);
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Main' }],
-      });
-    }
+  const handleGoPress = () => {
+    logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: selectedLanguage });
+    navigation.navigate('OnboardingDisclaimer');
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.welcomeText} numberOfLines={2}>
-          {t('onboarding.welcome')}
-        </Text>
-      </View>
+    <SafeAreaView style={[styles.container]}>
       <LanguageSelector
         onLanguageSelect={handleLanguageChange}
       />
-      <Button title={t('common.go')} onPress={handleGoPress} style={styles.goButton} />
-    </View>
+      <Button title={t('common.next')} onPress={handleGoPress} style={styles.goButton} />
+      
+      <RestartAppModal
+        visible={isRestartModalVisible}
+        isGoingToRTL={isGoingToRTL}
+        onClose={handleCloseModal}
+      />
+    </SafeAreaView>
   );
 };
 
@@ -60,23 +55,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.background.primary,
     paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.lg,
-  },
-  titleContainer: {
-    height: 80, // Fixed height to prevent layout shifts
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing['2xl'],
-  },
-  welcomeText: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    textAlign: 'center',
+    paddingVertical: spacing.lg,
   },
   goButton: {
-    marginTop: spacing.xl,
+    marginTop: spacing.margin.md,
     width: '80%',
   },
 });

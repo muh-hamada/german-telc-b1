@@ -1,0 +1,303 @@
+[
+  {
+    "headings": [
+      "Edelsteinminen in Idar-Oberstein erfolgreich",
+      "Moderner Männerschmuck hat rituelle Gründe",
+      "Feiner über 100-jähriger Schmuck mit naturhaften Motiven",
+      "Volkshochschule Idar-Oberstein bietet Kurs für Hobby-Schmuckdesigner an",
+      "Hautschmuck wieder sehr modern",
+      "Wirkung des Glasschmucks vom Licht abhängig",
+      "Lichtschein verändert Farben von Fensterscheiben",
+      "Ein Ort für Edelsucher",
+      "Junger Schmuck, der krank macht",
+      "Schmuck herstellen als Freizeitbeschäftigung"
+    ],
+    "id": 1,
+    "title": "Modelltest 1 - Leseverstehen Teil 1",
+    "texts": [
+      {
+        "correct": "c",
+        "text": "Seinen schönsten und größten Erfolg feierte der Jugendstil in der Schmuckkunst. Aus verschiedenen kostbaren Metallen, Edelsteinen, Gold, Silber und Emaille wurden Broschen, Ringe oder Ketten mit feinen Details und von großer Farbenfreude hergestellt. Beliebte Motive waren weibliche Profile oder insekten- bzw. Pflanzenhafte Formen. Eine 1901 von dem französischen Künstler R. Lalique stammte eine Gürtelschließe, die einen Frauenkopf umrahmt, von Blüten zeigt. Zentren des Jugendstils in Deutschland waren München und Darmstadt.",
+        "id": 1
+      },
+      {
+        "id": 2,
+        "text": "Im 20. Jahrhundert trugen die jungen Leute am liebsten Schmuck, der sich von dem ihrer Eltern unterschied. Heute sind T-Shirts, Armreifen oder Ohrringe beliebt. In Europa hat Männerschmuck seit Jahrhunderten mehr rituelle Gründe als schmückende. Die Tätowierung ist nicht nur Schmuck oder Ausdruck des Glaubens, sondern stellt den Stechen des Körperschmucks zum persönlichen Ritual einer Mutprobe.",
+        "correct": "e"
+      },
+      {
+        "text": "Ein wahres Schmuckstück im Nahetal ist die Stadt Idar-Oberstein, Deutschlands Hauptstadt der Edelsteine. Dort gibt es keinen Edelsteinabbau mehr, aber man kann hier dem Handwerkern bei ihrer Arbeit zusehen. Mit über 9.000 Exponaten erhält man einen Überblick über die Geschichte der Edelsteingewinnung, deren Verarbeitung und dem Handwerkern bei ihrer Arbeit zusehen.",
+        "id": 3,
+        "correct": "h"
+      },
+      {
+        "correct": "j",
+        "id": 4,
+        "text": "Deutsche Volkshochschulen bieten zur Schmuckherstellung schon Programme an. Hier lernen Sie, mit Goldschmiede- oder Schmuckdesignerwerkzeugen umzugehen. In einem Kurs von etwa 20 Wochenstunden lernen Sie, wie man einfache Gold- oder Silberschmiedegegenstände herstellt. Die Absolventen sind in der Lage, Schmuck als Geschenk herzustellen."
+      },
+      {
+        "id": 5,
+        "correct": "f",
+        "text": "Farbig bemaltes Glas ist das Material, das am eindrucksvollsten die Wirkung eines Gebäudes beeinflusst. Es ist das Medium, das das Tageslicht in das Gebäude eindringt und die Atmosphäre eines Innenraums verstärkt. Viele Glasscheiben und Fenster betrachten im Lauf eines Tages oder eines Jahres die Witterung und verändern ihre Farben. Heutige Fenster mit künstlerischen Ornamenten gehören zu den Fenstern und Scheiben im Büro- und Wohnhaus."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Modelltest 2 - Leseverstehen Teil 1",
+    "headings": [
+      "Mehr Flexibilität für Arbeitnehmer",
+      "Neue Berufe entstehen durch die Digitalisierung",
+      "Gesundheitsrisiken durch ständige Erreichbarkeit",
+      "Weniger soziale Kontakte durch Online-Arbeit",
+      "Digitale Kompetenzen sind unverzichtbar",
+      "Datenschutz im Homeoffice",
+      "Künstliche Intelligenz ersetzt menschliche Arbeitskraft",
+      "Büros werden zu Begegnungsstätten",
+      "Arbeiten im Ausland wird einfacher",
+      "Traditionelle Handwerksberufe sterben aus"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "correct": "a",
+        "text": "Die Digitalisierung hat die Art und Weise, wie wir arbeiten, revolutioniert. Viele Arbeitnehmer schätzen besonders die Möglichkeit, ihre Arbeitszeit freier einzuteilen und von zu Hause aus zu arbeiten. Das Homeoffice spart nicht nur den täglichen Weg zur Arbeit, sondern ermöglicht auch eine bessere Vereinbarkeit von Beruf und Familie. Wer morgens die Kinder zur Schule bringen muss, kann seine Arbeit einfach später beginnen."
+      },
+      {
+        "id": 2,
+        "correct": "b",
+        "text": "Mit dem technologischen Wandel verändern sich auch die Jobprofile. Wo früher Sekretärinnen Briefe tippten, organisieren heute Office Manager digitale Workflows. Ganz neue Tätigkeitsfelder wie Social-Media-Manager, Datenanalysten oder Experten für Künstliche Intelligenz sind entstanden. Diese Berufe erfordern oft ein hohes Maß an technischem Verständnis und die Bereitschaft, ständig dazuzulernen."
+      },
+      {
+        "id": 3,
+        "correct": "c",
+        "text": "Doch die schöne neue Arbeitswelt hat auch ihre Schattenseiten. Durch Smartphones und Laptops sind viele Angestellte auch nach Feierabend oder am Wochenende für ihre Chefs und Kollegen erreichbar. Diese ständige Verfügbarkeit kann zu Stress, Schlafstörungen und im schlimmsten Fall zum Burnout führen. Experten raten daher dringend dazu, feste Offline-Zeiten einzuplanen."
+      },
+      {
+        "id": 4,
+        "correct": "d",
+        "text": "Ein weiterer Aspekt der virtuellen Zusammenarbeit ist der Verlust des direkten menschlichen Miteinanders. Videokonferenzen können zwar Meetings ersetzen, aber nicht das kurze Gespräch an der Kaffeemaschine. Für viele Menschen führt die Arbeit im Homeoffice zu einem Gefühl der Isolation. Der informelle Austausch, der oft wichtig für das Betriebsklima ist, bleibt dabei auf der Strecke."
+      },
+      {
+        "id": 5,
+        "correct": "e",
+        "text": "Wer heute auf dem Arbeitsmarkt bestehen will, kommt an Computerkenntnissen nicht vorbei. Der sichere Umgang mit Textverarbeitung, Tabellenkalkulation und Kommunikationssoftware wird in fast allen Branchen vorausgesetzt. Doch es reicht nicht, diese Programme nur bedienen zu können; man muss auch verstehen, wie digitale Prozesse funktionieren und wie man sich sicher im Netz bewegt."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "headings": [
+      "Immer mehr Kinder reagieren allergisch",
+      "Bewegungsmangel macht Kinder krank",
+      "Dicke Kinder bewegen sich nicht",
+      "Gründe für Gesundheitsstörungen bei Jugendlichen",
+      "Kinder lernen gesund essen",
+      "Volkskrankheit Nr. 1: Allergie",
+      "Wenn Kinder und Jugendliche falsch essen",
+      "Einseitige Ernährung macht Kinder krank",
+      "Unsere Jugend wird immer dicker",
+      "Gesund genießen lernen"
+    ],
+    "texts": [
+      {
+        "text": "Die 'Sturm-und-Drang-Zeit' des Menschen wird immer kürzer. Viele Jugendliche sitzen heute zu lange: in der Schule, am Ausbildungsplatz oder zu Hause. Der Mangel an Bewegung zeigt sich bei vielen Jugendlichen in Form von Fehlentwicklungen am Bewegungsapparat, Übergewicht, erhöhtem Blutdruck und einem kon-trollbedürftigen Cholesterinspiegel – den typischen Zivilisationskrankheiten.",
+        "correct": "b",
+        "id": 1
+      },
+      {
+        "id": 2,
+        "text": "Zwei Studien widersprechen sich über Übergewicht bei Jugendlichen in Deutschland. Die Zahl der Übergewichtigen nimmt zu. Die Folge sind hohe Kosten für die Gesundheitsversorgung: 71 Milliarden Euro jährlich. Übergewicht stellt die häufigste ernährungsbedingte Gesundheitsstörung bei Jugendlichen dar. Dies liegt an veränderten Lebensumständen, Übergewicht der Eltern, niedrigem Bildungsniveau und Rauchen.",
+        "correct": "i"
+      },
+      {
+        "id": 3,
+        "correct": "g",
+        "text": "Der schnelle Hamburger an der Ecke nach der Schule, genügend Taschengeld für Süßigkeiten, das fehlende Mittagessen zu Hause führen zu einer Veränderung des Ernährungsverhaltens von Jugendlichen. Die Kinder entwickeln oft Mängel an Eisen, Calcium und Vitaminen, sowie allergische Erkrankungen aufgrund einer falschen Ernährung."
+      },
+      {
+        "correct": "a",
+        "text": "Kinder für Allergien sind heute stärker betroffen, da ihr Immunsystem nicht ausreichend mit natürlichen Stoffen konfrontiert wird. Das Einatmen von Pollen, Haaren und Speichel von Tieren sind die Ursachen für Allergien, Heuschnupfen und Ekzeme. Chemikalien aus Medikamenten können Allergien bei jungen Menschen auslösen.",
+        "id": 4
+      },
+      {
+        "text": "Viele Kinder und Jugendliche bewegen sich zu wenig und ernähren sich falsch, was zu Diabetes und Herzkreislauf-Erkrankungen führen kann. Das Gesundheitsministerium alarmiert die Bevölkerung und fördert gesunde Ernährung. Man sollte viel Obst, Gemüse, Fisch und Getreide essen, um Krankheiten vorzubeugen. Gesunde Ernährung muss den Jugendlichen von klein auf beigebracht werden.",
+        "correct": "e",
+        "id": 5
+      }
+    ],
+    "title": "Modelltest 3 - Leseverstehen Teil 1"
+  },
+  {
+    "id": 4,
+    "title": "Modelltest 4 - Leseverstehen Teil 1",
+    "headings": [
+      "Plastikfreies Einkaufen im Supermarkt",
+      "Erneuerbare Energien auf dem Vormarsch",
+      "Recycling ist nicht die einzige Lösung",
+      "Verzicht auf Flugreisen schützt das Klima",
+      "Die Rückkehr der Wölfe in deutsche Wälder",
+      "Elektroautos sind umstritten",
+      "Nachhaltige Mode liegt im Trend",
+      "Wasserknappheit in südlichen Regionen",
+      "Bio-Lebensmittel sind teurer, aber gesünder",
+      "Stadtgärten verbessern das Mikroklima"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "correct": "a",
+        "text": "Immer mehr Verbraucher möchten Müll vermeiden und suchen nach Alternativen zur Plastikverpackung. Sogenannte Unverpackt-Läden bieten Lebensmittel wie Nudeln, Reis oder Müsli zum Selbstabfüllen an. Kunden bringen ihre eigenen Behälter mit und bezahlen nur für das Produkt. Auch große Supermarktketten reagieren auf diesen Trend und bieten vermehrt loses Obst und Gemüse an."
+      },
+      {
+        "id": 2,
+        "correct": "b",
+        "text": "Der Ausbau von Solar- und Windkraftanlagen schreitet weltweit voran. Fossile Brennstoffe wie Kohle und Öl werden zunehmend durch saubere Energiequellen ersetzt. Dies ist ein entscheidender Schritt, um die CO2-Emissionen zu senken und den Klimawandel zu verlangsamen. Viele Länder investieren Milliarden in grüne Technologien, um ihre Energieversorgung langfristig zu sichern."
+      },
+      {
+        "id": 3,
+        "correct": "d",
+        "text": "Fliegen ist eine der klimaschädlichsten Arten der Fortbewegung. Ein einziger Langstreckenflug verursacht so viele Treibhausgase wie ein Jahr Autofahren. Immer mehr Menschen entscheiden sich daher bewusst gegen Flugreisen und nutzen für ihren Urlaub die Bahn oder bleiben in der näheren Umgebung. Diese Bewegung, oft als 'Flugscham' bezeichnet, setzt die Luftfahrtindustrie unter Druck."
+      },
+      {
+        "id": 4,
+        "correct": "c",
+        "text": "Mülltrennung ist gut, aber Müllvermeidung ist besser. Das bloße Sammeln und Wiederverwerten von Rohstoffen verbraucht ebenfalls Energie und Ressourcen. Kritiker weisen darauf hin, dass wir unser Konsumverhalten grundlegend ändern müssen. Langlebige Produkte, Reparaturen statt Neukauf und ein bewussterer Umgang mit Ressourcen sind effektiver als das beste Recyclingsystem."
+      },
+      {
+        "id": 5,
+        "correct": "g",
+        "text": "Die Textilindustrie steht wegen schlechter Arbeitsbedingungen und Umweltverschmutzung oft in der Kritik. Doch es gibt eine Gegenbewegung: Fair Trade und Bio-Baumwolle werden immer beliebter. Konsumenten achten zunehmend darauf, wo und wie ihre Kleidung hergestellt wurde. Labels, die ökologische und soziale Standards garantieren, verzeichnen wachsende Umsätze."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Modelltest 5 - Leseverstehen Teil 1",
+    "headings": [
+      "Sanfter Tourismus in den Alpen",
+      "Billigflieger fördern den Massentourismus",
+      "Städtereisen sind bei jungen Leuten beliebt",
+      "Kreuzfahrten belasten die Umwelt stark",
+      "Urlaub auf dem Bauernhof für Familien",
+      "Alleine reisen als Selbsterfahrung",
+      "Die Gefahren des Extremtourismus",
+      "Sprachreisen verbinden Bildung und Urlaub",
+      "Camping erlebt einen neuen Boom",
+      "Virtuelles Reisen als Alternative"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "correct": "a",
+        "text": "Viele Urlauber suchen in den Bergen Erholung abseits der großen Skigebiete. Sie wandern auf einsamen Pfaden, übernachten in einfachen Hütten und genießen die Stille der Natur. Dieser 'sanfte Tourismus' setzt auf Nachhaltigkeit und Respekt vor der Umwelt. Ziel ist es, die Landschaft zu erhalten und gleichzeitig der lokalen Bevölkerung ein Einkommen zu sichern."
+      },
+      {
+        "id": 2,
+        "correct": "b",
+        "text": "Für wenige Euro quer durch Europa fliegen – das machen Billigairlines möglich. Doch was den Geldbeutel freut, ist für beliebte Reiseziele oft eine Plage. Städte wie Venedig oder Barcelona werden von Touristenmassen regelrecht überrollt. Die Einheimischen fühlen sich aus ihren Stadtvierteln verdrängt, und die Infrastruktur ist völlig überlastet."
+      },
+      {
+        "id": 3,
+        "correct": "d",
+        "text": "Schwimmende Hotels mit Tausenden von Passagieren sind ein riesiges Geschäft. Doch Kreuzfahrtschiffe stehen wegen ihrer schlechten Umweltbilanz in der Kritik. Sie verbrennen oft Schweröl, das die Luft extrem verschmutzt, und produzieren riesige Mengen an Müll und Abwasser. Umweltschützer fordern daher strengere Auflagen für die Reedereien."
+      },
+      {
+        "id": 4,
+        "correct": "e",
+        "text": "Für Stadtkinder ist es oft das erste Mal, dass sie eine Kuh live sehen oder im Heu spielen können. Ferien auf dem Bauernhof bieten Familien eine ideale Kombination aus Entspannung und Erlebnis. Während die Eltern auf der Terrasse lesen, können die Kinder beim Füttern der Tiere helfen und lernen, woher unsere Lebensmittel kommen."
+      },
+      {
+        "id": 5,
+        "correct": "i",
+        "text": "Freiheit, Natur und Unabhängigkeit – das verspricht der Urlaub im Zelt oder Wohnmobil. Camping ist längst nicht mehr nur etwas für Pfadfinder oder Sparfüchse. Moderne Campingplätze bieten oft Luxus wie Wellnessbereiche und Restaurants. Auch das 'Vanlife', das Leben und Reisen im umgebauten Bus, begeistert immer mehr Menschen, die dem Alltag entfliehen wollen."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Modelltest 6 - Leseverstehen Teil 1",
+    "headings": [
+      "Lebenslanges Lernen im Beruf",
+      "Sprachenlernen mit Apps ist effektiv",
+      "Studieren im Ausland erweitert den Horizont",
+      "Duales Studium verbindet Theorie und Praxis",
+      "Musikunterricht fördert die Intelligenz",
+      "Lehrermangel an deutschen Schulen",
+      "Online-Universitäten werden beliebter",
+      "Frühkindliche Bildung im Kindergarten",
+      "Bibliotheken als moderne Lernorte",
+      "Handschriftliches Schreiben wird seltener"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "correct": "a",
+        "text": "Die Zeiten, in denen man einen Beruf erlernte und ihn bis zur Rente unverändert ausübte, sind vorbei. In der modernen Arbeitswelt veraltet Wissen schnell. Wer karrieretechnisch am Ball bleiben will, muss sich ständig weiterbilden. Seminare, Workshops und E-Learning gehören heute zum beruflichen Alltag vieler Arbeitnehmer dazu."
+      },
+      {
+        "id": 2,
+        "correct": "b",
+        "text": "Vokabeln pauken mit dem Smartphone macht vielen mehr Spaß als mit dem Schulbuch. Sprachlern-Apps nutzen spielerische Elemente, um die Motivation hochzuhalten. Kurze Lektionen lassen sich perfekt in den Alltag integrieren, etwa in der Bahn oder beim Warten auf den Bus. Zwar ersetzen sie keinen kompletten Sprachkurs, sind aber eine hervorragende Ergänzung."
+      },
+      {
+        "id": 3,
+        "correct": "c",
+        "text": "Ein Semester in Frankreich oder ein Praktikum in den USA – ein Auslandsaufenthalt ist für viele Studierende ein Highlight. Man lernt nicht nur eine neue Sprache perfekt, sondern taucht auch tief in eine fremde Kultur ein. Diese Erfahrungen fördern die Selbstständigkeit und Offenheit, Eigenschaften, die später bei Arbeitgebern sehr gefragt sind."
+      },
+      {
+        "id": 4,
+        "correct": "d",
+        "text": "Viele Abiturienten wollen nicht nur graue Theorie an der Uni hören, sondern auch Geld verdienen und Berufserfahrung sammeln. Ein duales Studium bietet genau das: Phasen an der Hochschule wechseln sich mit Praxisphasen im Unternehmen ab. Die Absolventen haben oft beste Übernahmechancen, da sie den Betrieb bereits genau kennen."
+      },
+      {
+        "id": 5,
+        "correct": "g",
+        "text": "Wer berufstätig ist oder Kinder betreut, kann oft nicht zu festen Zeiten an Vorlesungen teilnehmen. Fernuniversitäten und Online-Studiengänge bieten hier die nötige Flexibilität. Lernmaterialien werden digital bereitgestellt, und Prüfungen können oft online oder in lokalen Studienzentren abgelegt werden. So wird der Hochschulabschluss auch neben dem Job möglich."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Modelltest 7 - Leseverstehen Teil 1",
+    "headings": [
+      "Smart Home macht das Leben leichter",
+      "Wohnraum in Großstädten wird knapp",
+      "Mehrgenerationenhäuser liegen im Trend",
+      "Urban Gardening: Gärtnern in der Stadt",
+      "Das Leben auf dem Land wird attraktiver",
+      "Wohngemeinschaften nicht nur für Studenten",
+      "Tiny Houses als minimalistische Wohnform",
+      "Nachbarschaftshilfe stärkt den Zusammenhalt",
+      "Barrierefreies Wohnen im Alter",
+      "Mietpreisbremse zeigt wenig Wirkung"
+    ],
+    "texts": [
+      {
+        "id": 1,
+        "correct": "a",
+        "text": "Das Licht geht automatisch an, die Heizung regelt sich herunter, wenn das Fenster offen ist, und der Kühlschrank bestellt Milch nach. Vernetzte Haustechnik, das sogenannte Smart Home, soll den Wohnkomfort erhöhen und Energie sparen. Über Apps auf dem Smartphone lassen sich viele Funktionen auch von unterwegs steuern, was für mehr Sicherheit und Kontrolle sorgt."
+      },
+      {
+        "id": 2,
+        "correct": "b",
+        "text": "In Metropolen wie München, Hamburg oder Berlin eine bezahlbare Wohnung zu finden, gleicht einem Lottogewinn. Die Mieten steigen seit Jahren rasant an, und auf eine freie Wohnung bewerben sich oft Hunderte Interessenten. Dies führt dazu, dass Geringverdiener und Familien zunehmend an den Stadtrand verdrängt werden und lange Pendelwege in Kauf nehmen müssen."
+      },
+      {
+        "id": 3,
+        "correct": "c",
+        "text": "Früher war es normal, dass Großeltern, Eltern und Kinder unter einem Dach lebten. Heute entscheiden sich wieder mehr Menschen bewusst für diese Wohnform. In Mehrgenerationenhäusern unterstützen sich die Bewohner gegenseitig: Die Senioren passen auf die Enkel auf, und die Jüngeren helfen beim Einkaufen oder im Garten. Das wirkt der Vereinsamung entgegen."
+      },
+      {
+        "id": 4,
+        "correct": "d",
+        "text": "Graue Hinterhöfe und Brachflächen verwandeln sich in grüne Oasen. Beim 'Urban Gardening' bauen Stadtbewohner gemeinsam Gemüse, Kräuter und Blumen an. Oft werden dafür Kisten oder Säcke genutzt, da kein offener Boden vorhanden ist. Diese Gemeinschaftsgärten fördern nicht nur die Biodiversität in der Stadt, sondern auch das soziale Miteinander im Viertel."
+      },
+      {
+        "id": 5,
+        "correct": "f",
+        "text": "Zusammen wohnen, Küche und Bad teilen – das kennen viele aus ihrer Studentenzeit. Doch auch Berufstätige und Senioren entdecken die Vorteile von Wohngemeinschaften. Man teilt sich die Kosten für Miete und Internet und hat immer jemanden zum Reden. Für ältere Menschen sind Senioren-WGs eine tolle Alternative zum Pflegeheim, um lange selbstbestimmt zu leben."
+      }
+    ]
+  }
+]

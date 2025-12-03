@@ -3,6 +3,10 @@ import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
 import StorageService from '../services/storage.service';
 import firebaseProgressService from '../services/firebase-progress.service';
 import { AuthContext } from './AuthContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { reviewTrigger } from '../utils/reviewTrigger';
+import { useStreak } from './StreakContext';
+import { useRemoteConfig } from './RemoteConfigContext';
 
 // Progress Context Types
 interface ProgressState {
@@ -19,7 +23,8 @@ interface ProgressContextType extends ProgressState {
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed?: boolean
   ) => Promise<boolean>;
   getExamProgress: (examType: string, examId: number) => ExamProgress | null;
   clearUserProgress: () => Promise<boolean>;
@@ -32,7 +37,7 @@ type ProgressAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'SET_USER_PROGRESS'; payload: UserProgress | null }
-  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: number; answers: UserAnswer[]; score?: number; maxScore?: number } }
+  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: number; answers: UserAnswer[]; score?: number; maxScore?: number; completed?: boolean } }
   | { type: 'CLEAR_PROGRESS' };
 
 // Initial State
@@ -55,7 +60,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
       return { ...state, userProgress: action.payload, isLoading: false, error: null };
     
     case 'UPDATE_EXAM_PROGRESS': {
-      const { examType, examId, answers, score, maxScore } = action.payload;
+      const { examType, examId, answers, score, maxScore, completed } = action.payload;
       const now = Date.now();
       
       // Initialize userProgress if it doesn't exist
@@ -78,7 +83,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
         examId,
         examType: examType as any,
         answers,
-        completed: true,
+        completed: completed !== undefined ? completed : true,
         score,
         maxScore,
         lastAttempt: now,
@@ -127,6 +132,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   const [state, dispatch] = useReducer(progressReducer, initialState);
   const authContext = useContext(AuthContext);
   const user = authContext?.user || null;
+  const { recordActivity } = useStreak();
+  const { isStreaksEnabledForUser } = useRemoteConfig();
 
   // Load user progress function
   const loadUserProgress = React.useCallback(async (): Promise<void> => {
@@ -135,21 +142,61 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       console.log('[ProgressContext] Loading progress for user:', user?.uid || 'not logged in');
       
       if (user?.uid) {
-        // User is authenticated, load from Firebase only
+        // User is authenticated, load from Firebase and merge with local storage
         try {
           console.log('[ProgressContext] Loading Firebase progress for user:', user.uid);
           const firebaseProgress = await firebaseProgressService.loadProgressFromFirebase(user.uid);
-          dispatch({ type: 'SET_USER_PROGRESS', payload: firebaseProgress });
-          console.log('[ProgressContext] Successfully loaded Firebase progress');
+          
+          // Check if there's local storage data to migrate
+          const localProgress = await StorageService.getUserProgress();
+          
+          if (localProgress && localProgress.exams.length > 0) {
+            console.log('[ProgressContext] Found local progress with', localProgress.exams.length, 'exams');
+            
+            if (!firebaseProgress || firebaseProgress.exams.length === 0) {
+              // No Firebase data, migrate local progress
+              console.log('[ProgressContext] Migrating local progress to Firebase');
+              await firebaseProgressService.migrateLocalProgress(user.uid, localProgress);
+              dispatch({ type: 'SET_USER_PROGRESS', payload: localProgress });
+              
+              // Clear local storage after successful migration
+              await StorageService.clearUserProgress();
+              console.log('[ProgressContext] Local progress migrated and cleared');
+            } else {
+              // Merge local and Firebase progress
+              console.log('[ProgressContext] Merging local and Firebase progress');
+              const mergedProgress = await firebaseProgressService.mergeAndSaveProgress(
+                user.uid,
+                localProgress,
+                firebaseProgress
+              );
+              dispatch({ type: 'SET_USER_PROGRESS', payload: mergedProgress });
+              
+              // Clear local storage after successful merge
+              await StorageService.clearUserProgress();
+              console.log('[ProgressContext] Progress merged and local storage cleared');
+            }
+          } else {
+            // No local progress, just use Firebase data
+            dispatch({ type: 'SET_USER_PROGRESS', payload: firebaseProgress });
+            console.log('[ProgressContext] Successfully loaded Firebase progress');
+          }
         } catch (firebaseError) {
           console.error('[ProgressContext] Failed to load Firebase progress:', firebaseError);
           dispatch({ type: 'SET_ERROR', payload: 'Failed to load progress from Firebase' });
           dispatch({ type: 'SET_USER_PROGRESS', payload: null });
         }
       } else {
-        // No user, clear progress
-        console.log('[ProgressContext] No user logged in, clearing progress');
-        dispatch({ type: 'SET_USER_PROGRESS', payload: null });
+        // No user, load from local storage
+        console.log('[ProgressContext] No user logged in, loading from local storage');
+        try {
+          const localProgress = await StorageService.getUserProgress();
+          dispatch({ type: 'SET_USER_PROGRESS', payload: localProgress });
+          console.log('[ProgressContext] Successfully loaded local progress:', localProgress ? 'has data' : 'empty');
+        } catch (localError) {
+          console.error('[ProgressContext] Failed to load local progress:', localError);
+          dispatch({ type: 'SET_USER_PROGRESS', payload: null });
+        }
       }
       dispatch({ type: 'SET_LOADING', payload: false });
     } catch (error) {
@@ -186,59 +233,115 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     examId: number,
     answers: UserAnswer[],
     score?: number,
-    maxScore?: number
+    maxScore?: number,
+    completed: boolean = true
   ): Promise<boolean> => {
     try {
-      console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore });
-      
-      // Check if user is logged in
-      if (!user?.uid) {
-        console.error('[ProgressContext] Cannot save progress: User not logged in');
-        dispatch({ type: 'SET_ERROR', payload: 'Please login to save your progress' });
-        return false;
-      }
+      console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore, completed });
       
       dispatch({ type: 'SET_LOADING', payload: true });
       
-      // Save directly to Firebase (no local storage)
-      try {
-        console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
-        await firebaseProgressService.saveExamResult(
-          examType as any,
-          examId,
-          {
+      if (user?.uid) {
+        // User is logged in, save to Firebase
+        try {
+          console.log('[ProgressContext] Saving to Firebase for user:', user.uid);
+          await firebaseProgressService.updateExamProgress(
+            user.uid,
+            examType,
             examId,
-            score: score || 0,
-            maxScore: maxScore || 0,
-            percentage: maxScore ? Math.round((score || 0) / maxScore * 100) : 0,
-            correctAnswers: score || 0,
-            totalQuestions: answers.length,
-            answers: answers.map(a => ({
-              questionId: a.questionId,
-              userAnswer: a.answer,
-              correctAnswer: '',
-              isCorrect: a.isCorrect || false,
-            })),
-            timestamp: Date.now(),
-          },
-          user.uid
-        );
-        
-        console.log('[ProgressContext] Successfully saved to Firebase');
-        
-        // Update in context immediately
-        dispatch({
-          type: 'UPDATE_EXAM_PROGRESS',
-          payload: { examType, examId, answers, score, maxScore },
-        });
-        
-        dispatch({ type: 'SET_LOADING', payload: false });
-        return true;
-      } catch (firebaseError) {
-        console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
-        dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
-        dispatch({ type: 'SET_LOADING', payload: false });
-        return false;
+            answers,
+            score,
+            maxScore,
+            completed
+          );
+          
+          console.log('[ProgressContext] Successfully saved to Firebase');
+          
+          // Update in context immediately
+          dispatch({
+            type: 'UPDATE_EXAM_PROGRESS',
+            payload: { examType, examId, answers, score, maxScore, completed },
+          });
+
+          // Log practice exam completed
+          if (completed) {
+            logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+              section: examType.split('-')[0],
+              part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+              exam_id: examId,
+              score: score || 0,
+              max_score: maxScore || 0,
+              percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
+            });
+            
+            // Trigger review prompt if score is provided
+            if (score !== undefined && maxScore !== undefined) {
+              reviewTrigger.trigger(score, maxScore);
+            }
+          }
+          
+          // Record streak activity (if enabled and user is logged in)
+          if (completed && isStreaksEnabledForUser(user?.uid) && user?.uid) {
+            try {
+              const activityId = `${examType}-${examId}`;
+              await recordActivity({
+                activityType: 'exam',
+                activityId: activityId,
+                score: score || 0,
+              });
+              console.log('[ProgressContext] Streak activity recorded');
+            } catch (streakError) {
+              console.error('[ProgressContext] Error recording streak:', streakError);
+              // Don't fail the whole operation if streak recording fails
+            }
+          }
+          
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return true;
+        } catch (firebaseError) {
+          console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
+          dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return false;
+        }
+      } else {
+        // User is not logged in, save to local storage
+        console.log('[ProgressContext] User not logged in, saving to local storage');
+        try {
+          await StorageService.updateExamProgress(examType, examId, answers, score, maxScore, completed);
+          console.log('[ProgressContext] Successfully saved to local storage');
+          
+          // Update in context immediately
+          dispatch({
+            type: 'UPDATE_EXAM_PROGRESS',
+            payload: { examType, examId, answers, score, maxScore, completed },
+          });
+
+          // Log practice exam completed
+          if (completed) {
+            logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
+              section: examType.split('-')[0],
+              part: Number((examType.split('-')[1] || '').replace('part', '')) || undefined,
+              exam_id: examId,
+              score: score || 0,
+              max_score: maxScore || 0,
+              percentage: maxScore ? Math.round((score || 0) / (maxScore || 1) * 100) : 0,
+            });
+            
+            // Trigger review prompt if score is provided
+            if (score !== undefined && maxScore !== undefined) {
+              reviewTrigger.trigger(score, maxScore);
+            }
+          }
+          
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return true;
+        } catch (localError) {
+          console.error('[ProgressContext] Failed to save to local storage:', localError);
+          dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress locally' });
+          dispatch({ type: 'SET_LOADING', payload: false });
+          return false;
+        }
       }
     } catch (error) {
       console.error('[ProgressContext] Error updating exam progress:', error);
@@ -327,12 +430,35 @@ export const useProgress = (): ProgressContextType => {
 
 // Utility hooks for specific progress data
 export const useExamProgress = (examType: string, examId: number) => {
-  const { getExamProgress, userProgress } = useProgress();
+  // Use useContext directly to handle cases where provider might not be ready during hot reload
+  const context = useContext(ProgressContext);
+  
+  // Return null if context is not available (e.g., during hot reload)
+  if (!context) {
+    return null;
+  }
+  
+  const { getExamProgress } = context;
   return getExamProgress(examType, examId);
 };
 
 export const useUserStats = () => {
-  const { userProgress } = useProgress();
+  // Use useContext directly to handle cases where provider might not be ready during hot reload
+  const context = useContext(ProgressContext);
+  
+  // Return default stats if context is not available (e.g., during hot reload)
+  if (!context) {
+    return {
+      totalExams: 0,
+      completedExams: 0,
+      totalScore: 0,
+      totalMaxScore: 0,
+      averageScore: 0,
+      completionRate: 0,
+    };
+  }
+  
+  const { userProgress } = context;
   
   if (!userProgress) {
     return {

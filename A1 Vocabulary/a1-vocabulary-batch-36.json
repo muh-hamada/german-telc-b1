@@ -1,0 +1,243 @@
+[
+  {
+    "word": "kaufen",
+    "article": "",
+    "translations": {
+      "en": "to buy",
+      "es": "comprar",
+      "fr": "acheter",
+      "ru": "покупать",
+      "ar": "يشتري"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe einkaufen. Was soll ich für dich kaufen?",
+        "translations": {
+          "en": "I'm going shopping. What should I buy for you?",
+          "es": "Voy de compras. ¿Qué debo comprarte?",
+          "fr": "Je vais faire des courses. Que dois-je t'acheter ?",
+          "ru": "Я иду за покупками. Что мне купить для тебя?",
+          "ar": "أنا ذاهب للتسوق. ماذا يجب أن أشتري لك؟"
+        }
+      }
+    ]
+  },
+  {
+    "word": "kein",
+    "article": "",
+    "translations": {
+      "en": "no",
+      "es": "ningún",
+      "fr": "aucun",
+      "ru": "никакой",
+      "ar": "لا"
+    },
+    "type": "determiner",
+    "exampleSentences": [
+      {
+        "text": "Ich habe heute leider keine Zeit.",
+        "translations": {
+          "en": "Unfortunately, I have no time today.",
+          "es": "Lamentablemente, no tengo tiempo hoy.",
+          "fr": "Malheureusement, je n'ai pas de temps aujourd'hui.",
+          "ru": "К сожалению, у меня сегодня нет времени.",
+          "ar": "للأسف، ليس لدي وقت اليوم."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Keller",
+    "article": "der",
+    "translations": {
+      "en": "basement",
+      "es": "sótano",
+      "fr": "cave",
+      "ru": "подвал",
+      "ar": "القبو"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Unten im Keller kann man Rad fahren.",
+        "translations": {
+          "en": "You can ride a bike downstairs in the basement.",
+          "es": "Se puede andar en bicicleta abajo en el sótano.",
+          "fr": "On peut faire du vélo en bas dans la cave.",
+          "ru": "Внизу в подвале можно кататься на велосипеде.",
+          "ar": "يمكنك ركوب الدراجة في الأسفل في القبو."
+        }
+      }
+    ]
+  },
+  {
+    "word": "kennen",
+    "article": "",
+    "translations": {
+      "en": "to know",
+      "es": "conocer",
+      "fr": "connaître",
+      "ru": "знать",
+      "ar": "يعرف"
+    },
+    "type": "verb",
+    "exampleSentences": [
+      {
+        "text": "Ich kenne dieses Buch noch nicht.",
+        "translations": {
+          "en": "I don't know this book yet.",
+          "es": "Todavía no conozco este libro.",
+          "fr": "Je ne connais pas encore ce livre.",
+          "ru": "Я ещё не знаю эту книгу.",
+          "ar": "أنا لا أعرف هذا الكتاب بعد."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kennzeichen",
+    "article": "das",
+    "translations": {
+      "en": "license plate",
+      "es": "matrícula",
+      "fr": "plaque d'immatriculation",
+      "ru": "номерной знак",
+      "ar": "لوحة الترخيص"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "B-AH 123 ist ein Berliner Kennzeichen.",
+        "translations": {
+          "en": "B-AH 123 is a Berlin license plate.",
+          "es": "B-AH 123 es una matrícula de Berlín.",
+          "fr": "B-AH 123 est une plaque berlinoise.",
+          "ru": "B-AH 123 — это берлинский номерной знак.",
+          "ar": "B-AH 123 هي لوحة ترخيص برلينية."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kind",
+    "article": "das",
+    "translations": {
+      "en": "child",
+      "es": "niño",
+      "fr": "enfant",
+      "ru": "ребёнок",
+      "ar": "الطفل"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe zwei Kinder: einen Jungen und ein Mädchen.",
+        "translations": {
+          "en": "I have two children: a boy and a girl.",
+          "es": "Tengo dos hijos: un niño y una niña.",
+          "fr": "J'ai deux enfants : un garçon et une fille.",
+          "ru": "У меня двое детей: мальчик и девочка.",
+          "ar": "لدي طفلان: صبي وفتاة."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kino",
+    "article": "das",
+    "translations": {
+      "en": "cinema",
+      "es": "cine",
+      "fr": "cinéma",
+      "ru": "кинотеатр",
+      "ar": "السينما"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Am Samstag gehe ich ins Kino.",
+        "translations": {
+          "en": "On Saturday I'm going to the cinema.",
+          "es": "El sábado voy al cine.",
+          "fr": "Samedi, je vais au cinéma.",
+          "ru": "В субботу я иду в кинотеатр.",
+          "ar": "سأذهب إلى السينما يوم السبت."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kiosk",
+    "article": "der",
+    "translations": {
+      "en": "kiosk",
+      "es": "quiosco",
+      "fr": "kiosque",
+      "ru": "киоск",
+      "ar": "الكشك"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Ich habe die Fahrkarte am Kiosk gekauft.",
+        "translations": {
+          "en": "I bought the ticket at the kiosk.",
+          "es": "Compré el boleto en el quiosco.",
+          "fr": "J'ai acheté le billet au kiosque.",
+          "ru": "Я купил билет в киоске.",
+          "ar": "اشتريت التذكرة في الكشك."
+        }
+      }
+    ]
+  },
+  {
+    "word": "Kirche",
+    "article": "die",
+    "translations": {
+      "en": "church",
+      "es": "iglesia",
+      "fr": "église",
+      "ru": "церковь",
+      "ar": "الكنيسة"
+    },
+    "type": "noun",
+    "exampleSentences": [
+      {
+        "text": "Nach der Kirche gehen wir zum Italiener essen.",
+        "translations": {
+          "en": "After church we're going to eat at the Italian restaurant.",
+          "es": "Después de la iglesia vamos a comer al restaurante italiano.",
+          "fr": "Après l'église, nous allons manger à l'italien.",
+          "ru": "После церкви мы идём есть в итальянский ресторан.",
+          "ar": "بعد الكنيسة سنذهب لتناول الطعام في المطعم الإيطالي."
+        }
+      }
+    ]
+  },
+  {
+    "word": "klar",
+    "article": "",
+    "translations": {
+      "en": "clear",
+      "es": "claro",
+      "fr": "clair",
+      "ru": "ясно",
+      "ar": "واضح"
+    },
+    "type": "adjective",
+    "exampleSentences": [
+      {
+        "text": "Ich gehe kurz einkaufen. – Ist klar.",
+        "translations": {
+          "en": "I'm going shopping quickly. – Sure, got it.",
+          "es": "Voy a hacer unas compras rápidas. – Claro.",
+          "fr": "Je vais faire des courses rapidement. – C'est clair.",
+          "ru": "Я быстро схожу за покупками. – Понятно.",
+          "ar": "سأذهب للتسوق سريعًا. – واضح."
+        }
+      }
+    ]
+  }
+]
+

@@ -6,26 +6,79 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  I18nManager,
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
-import { ReadingPart3Exam } from '../../types/exam.types';
+import { ReadingPart3Exam, UserAnswer } from '../../types/exam.types';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 interface ReadingPart3UIProps {
   exam: ReadingPart3Exam;
-  onComplete: (score: number) => void;
+  onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => {
-  const { t } = useTranslation();
+  const { t } = useCustomTranslation();
   const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>({});
+
+  const renderMarkdownText = (text: string, style: any) => {
+    // Split text by newlines to preserve line breaks
+    const lines = text.split('\n');
+    
+    return lines.map((line, lineIndex) => {
+      // Parse markdown for bold (**text**)
+      const parts: Array<{ text: string; bold: boolean }> = [];
+      let currentPos = 0;
+      const boldRegex = /\*\*(.+?)\*\*/g;
+      let match;
+      
+      while ((match = boldRegex.exec(line)) !== null) {
+        // Add text before the match
+        if (match.index > currentPos) {
+          parts.push({ text: line.slice(currentPos, match.index), bold: false });
+        }
+        // Add the bold text
+        parts.push({ text: match[1], bold: true });
+        currentPos = match.index + match[0].length;
+      }
+      
+      // Add remaining text
+      if (currentPos < line.length) {
+        parts.push({ text: line.slice(currentPos), bold: false });
+      }
+      
+      // If no markdown was found, just add the line as is
+      if (parts.length === 0) {
+        parts.push({ text: line, bold: false });
+      }
+      
+      return (
+        <Text key={lineIndex} style={style}>
+          {parts.map((part, partIndex) => (
+            <Text 
+              key={partIndex} 
+              style={part.bold ? styles.boldText : undefined}
+            >
+              {part.text}
+            </Text>
+          ))}
+          {/* {lineIndex < lines.length - 1 && '\n'} */}
+        </Text>
+      );
+    });
+  };
 
   const handleAnswerSelect = (situationId: number, adKey: string) => {
     setUserAnswers(prev => ({
       ...prev,
       [situationId]: adKey,
     }));
+    logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+      section: 'reading',
+      part: 3,
+      exam_id: exam.id,
+      question_id: situationId,
+    });
   };
 
   const handleSubmit = () => {
@@ -43,16 +96,32 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
     }
 
     let correctCount = 0;
+    const answers: UserAnswer[] = [];
     exam.situations.forEach(situation => {
       const userAnswer = userAnswers[situation.id];
-      const isCorrect = userAnswer?.toLowerCase() === situation.answer.toLowerCase();
+      const correctAnswer = situation.answer;
+      const isCorrect = userAnswer?.toLowerCase() === correctAnswer.toLowerCase();
       if (isCorrect) {
         correctCount++;
       }
+      answers.push({
+        questionId: situation.id,
+        answer: userAnswer,
+        isCorrect,
+        timestamp: Date.now(),
+        correctAnswer: correctAnswer,
+      });
+      logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
+        section: 'reading',
+        part: 3,
+        exam_id: exam.id,
+        question_id: situation.id,
+        is_correct: !!isCorrect,
+      });
     });
 
-    const score = (correctCount / exam.situations.length) * 25;
-    onComplete(Math.round(score));
+    const score = correctCount;
+    onComplete(score, answers);
   };
 
   const adKeys = Object.keys(exam.advertisements).sort();
@@ -73,7 +142,9 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
         {adKeys.map((key) => (
           <View key={key} style={styles.adItem}>
             <Text style={styles.adLetter}>{key.toUpperCase()}</Text>
-            <Text style={styles.adText}>{exam.advertisements[key]}</Text>
+            <View style={styles.adTextContainer}>
+              {renderMarkdownText(exam.advertisements[key], styles.adText)}
+            </View>
           </View>
         ))}
       </View>
@@ -84,7 +155,9 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
         {exam.situations.map((situation) => (
           <View key={situation.id} style={styles.situationCard}>
             <Text style={styles.situationNumber}>{situation.id}.</Text>
-            <Text style={styles.situationText}>{situation.text}</Text>
+            <View style={styles.situationTextContainer}>
+              {renderMarkdownText(situation.text, styles.situationText)}
+            </View>
             
             {/* Answer Selection */}
             <View style={styles.answerSection}>
@@ -146,7 +219,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   instructionsCard: {
-    backgroundColor: colors.secondary[50],
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.lg,
@@ -158,11 +231,13 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
+    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    textAlign: 'left',
   },
   adsSection: {
     marginBottom: spacing.margin.xl,
@@ -171,9 +246,10 @@ const styles = StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   adItem: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     padding: spacing.padding.sm,
     backgroundColor: colors.background.secondary,
     marginBottom: spacing.margin.xs,
@@ -190,6 +266,10 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     flex: 1,
     lineHeight: 18,
+  },
+  adTextContainer: {
+    flex: 1,
+    direction: 'ltr',
   },
   situationsSection: {
     marginBottom: spacing.margin.lg,
@@ -217,6 +297,13 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginBottom: spacing.margin.md,
   },
+  situationTextContainer: {
+    direction: 'ltr',
+    marginBottom: spacing.margin.md,
+  },
+  boldText: {
+    fontWeight: typography.fontWeight.bold,
+  },
   answerSection: {
     borderTopWidth: 1,
     borderTopColor: colors.secondary[200],
@@ -228,7 +315,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.sm,
   },
   answerButtons: {
-    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    flexDirection: 'row',
     flexWrap: 'wrap',
   },
   answerButton: {
