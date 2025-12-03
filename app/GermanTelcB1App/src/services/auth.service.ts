@@ -164,6 +164,8 @@ class AuthService {
         const displayName = `${appleAuthRequestResponse.fullName.givenName || ''} ${appleAuthRequestResponse.fullName.familyName || ''}`.trim();
         if (displayName) {
           await userCredential.user.updateProfile({ displayName });
+          // Reload user to get updated profile data
+          await userCredential.user.reload();
         }
       }
 
@@ -250,6 +252,8 @@ class AuthService {
       
       if (displayName) {
         await userCredential.user.updateProfile({ displayName });
+        // Reload user to get updated profile data
+        await userCredential.user.reload();
       }
       
       return this.getCurrentUser()!;

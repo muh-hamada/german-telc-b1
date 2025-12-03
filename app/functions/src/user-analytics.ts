@@ -30,7 +30,7 @@ export interface AnalyticsData {
   streaks: {
     currentStreakDistribution: { [key: string]: number };
     longestStreakDistribution: { [key: string]: number };
-    activeStreaks: number; // Users with streak > 0
+    activeStreaks: number;
   };
   lastUpdated: admin.firestore.Timestamp;
 }
@@ -41,7 +41,7 @@ export const INITIAL_ANALYTICS: AnalyticsData = {
   platforms: { ios: 0, android: 0, web: 0 },
   languages: { en: 0, de: 0, tr: 0, es: 0, fr: 0, it: 0, pl: 0, ru: 0, ar: 0 }, // Common languages
   notifications: { enabled: 0, disabled: 0 },
-  personas: { casual: 0, serious: 0, crammer: 0 },
+  personas: { beginner: 0, casual: 0, serious: 0 },
   vocabulary: { totalWordsStudied: 0, totalMastered: 0 },
   progress: { totalScore: 0, examsCompleted: 0 },
   streaks: { currentStreakDistribution: {}, longestStreakDistribution: {}, activeStreaks: 0 },
@@ -97,7 +97,7 @@ export const onUserUpdate = functions.firestore
     // If document deleted, we might want to decrement stats, but usually we keep historical data.
     // For now, we focus on updates/creations. 
     // If created, before is undefined.
-    
+
     // Determine App ID. Try 'appId' field, fallback to 'german-b1' (default)
     const appId = after?.appId || before?.appId || 'german-b1';
 
@@ -113,7 +113,7 @@ export const onUserUpdate = functions.firestore
       if (oldPlatform !== newPlatform) {
         if (oldPlatform && data.platforms[oldPlatform] > 0) data.platforms[oldPlatform]--;
         if (newPlatform) {
-           data.platforms[newPlatform] = (data.platforms[newPlatform] || 0) + 1;
+          data.platforms[newPlatform] = (data.platforms[newPlatform] || 0) + 1;
         }
       }
 
@@ -122,7 +122,7 @@ export const onUserUpdate = functions.firestore
       const newLang = (after?.preferences?.interfaceLanguage || 'en');
       if (oldLang !== newLang || (!before && after)) {
         if (before) {
-           if (data.languages[oldLang] > 0) data.languages[oldLang]--;
+          if (data.languages[oldLang] > 0) data.languages[oldLang]--;
         }
         data.languages[newLang] = (data.languages[newLang] || 0) + 1;
       }
@@ -142,9 +142,9 @@ export const onUserUpdate = functions.firestore
           if (data.notifications.disabled > 0) data.notifications.disabled--;
         }
       } else if (!before && after) {
-         // New user
-         if (isEnabled) data.notifications.enabled++;
-         else data.notifications.disabled++;
+        // New user
+        if (isEnabled) data.notifications.enabled++;
+        else data.notifications.disabled++;
       }
 
       return data;
@@ -164,7 +164,7 @@ export const onVocabularyUpdate = functions.firestore
   .document('users/{uid}/{collectionId}/{docId}')
   .onWrite(async (change, context) => {
     const { collectionId } = context.params;
-    
+
     // Check if this is a vocabulary collection we care about
     const appId = VOCAB_COLLECTIONS[collectionId as keyof typeof VOCAB_COLLECTIONS];
     if (!appId) return; // Not a target collection
@@ -191,7 +191,7 @@ export const onVocabularyUpdate = functions.firestore
       // 3. Persona Distribution
       const oldPersona = before?.persona;
       const newPersona = after?.persona;
-      
+
       if (oldPersona !== newPersona) {
         if (oldPersona && data.personas[oldPersona] > 0) data.personas[oldPersona]--;
         if (newPersona) {
@@ -212,7 +212,7 @@ export const onStreakUpdate = functions.firestore
     const { streakId } = context.params;
     // streakId is typically the appId/examId (e.g., 'german-b1', 'german-b2')
     // Verify if it's a valid app we want to track, or just track all
-    const appId = streakId; 
+    const appId = streakId;
 
     const before = change.before.data();
     const after = change.after.data();
@@ -220,7 +220,7 @@ export const onStreakUpdate = functions.firestore
     await updateAnalytics(appId, (data) => {
       const oldCurrent = before?.currentStreak || 0;
       const newCurrent = after?.currentStreak || 0;
-      
+
       // Update Current Streak Distribution
       if (oldCurrent > 0) {
         const count = data.streaks.currentStreakDistribution[oldCurrent] || 0;
@@ -235,7 +235,7 @@ export const onStreakUpdate = functions.firestore
 
       const oldLongest = before?.longestStreak || 0;
       const newLongest = after?.longestStreak || 0;
-      
+
       // Update Longest Streak Distribution
       if (oldLongest > 0) {
         const count = data.streaks.longestStreakDistribution[oldLongest] || 0;
@@ -293,10 +293,10 @@ export const onProgressUpdate = functions.firestore
       // This is an array in 'exams' field.
       const oldExams = (before?.exams || []) as any[];
       const newExams = (after?.exams || []) as any[];
-      
+
       const oldCompleted = oldExams.filter(e => e.completed).length;
       const newCompleted = newExams.filter(e => e.completed).length;
-      
+
       data.progress.examsCompleted += (newCompleted - oldCompleted);
 
       return data;

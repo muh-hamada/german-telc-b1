@@ -141,6 +141,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.signInWithApple();
+      
+      // Update Firestore profile with the correct displayName
+      // (onAuthStateChanged may have created profile before displayName was set from Apple)
+      await FirestoreService.createUserProfile(user);
+      
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'apple' });
     } catch (error: any) {
@@ -190,6 +195,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'CLEAR_ERROR' });
       
       const user = await AuthService.createAccountWithEmail(email, password, displayName);
+      
+      // Update Firestore profile with the correct displayName
+      // (onAuthStateChanged may have created profile before displayName was set)
+      await FirestoreService.createUserProfile(user);
+      
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'email_signup' });
     } catch (error: any) {

@@ -368,6 +368,16 @@ const TrendChart: React.FC<TrendChartProps> = ({ title, data, color }) => {
   const change = latestValue - previousValue;
   const changePercent = previousValue > 0 ? ((change / previousValue) * 100).toFixed(1) : '0';
 
+  // Format number for Y-axis (e.g., 1000 -> 1K, 1000000 -> 1M)
+  const formatYAxisValue = (value: number): string => {
+    if (value >= 1000000) return (value / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (value >= 1000) return (value / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return value.toString();
+  };
+
+  // Calculate middle value for Y-axis
+  const midValue = Math.round((maxValue + minValue) / 2);
+
   return (
     <div className="trend-chart">
       <div className="trend-chart-header">
@@ -381,55 +391,64 @@ const TrendChart: React.FC<TrendChartProps> = ({ title, data, color }) => {
           )}
         </div>
       </div>
-      <div className="trend-chart-graph">
-        <svg viewBox={`0 0 ${data.length * 20} 60`} preserveAspectRatio="none">
-          {/* Grid lines */}
-          <line x1="0" y1="15" x2={data.length * 20} y2="15" stroke="#eee" strokeWidth="1" />
-          <line x1="0" y1="30" x2={data.length * 20} y2="30" stroke="#eee" strokeWidth="1" />
-          <line x1="0" y1="45" x2={data.length * 20} y2="45" stroke="#eee" strokeWidth="1" />
-          
-          {/* Area fill */}
-          <path
-            d={`M 0 60 ${data.map((d, i) => {
-              const x = i * 20 + 10;
-              const y = 60 - ((d.value - minValue) / (maxValue - minValue || 1)) * 50 - 5;
-              return `L ${x} ${y}`;
-            }).join(' ')} L ${(data.length - 1) * 20 + 10} 60 Z`}
-            fill={color}
-            fillOpacity="0.1"
-          />
-          
-          {/* Line */}
-          <path
-            d={data.map((d, i) => {
-              const x = i * 20 + 10;
-              const y = 60 - ((d.value - minValue) / (maxValue - minValue || 1)) * 50 - 5;
-              return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
-            }).join(' ')}
-            fill="none"
-            stroke={color}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          
-          {/* Data points */}
+      <div className="trend-chart-body">
+        <div className="trend-chart-yaxis">
+          <span>{formatYAxisValue(maxValue)}</span>
+          <span>{formatYAxisValue(midValue)}</span>
+          <span>{formatYAxisValue(minValue)}</span>
+        </div>
+        <div className="trend-chart-graph">
+          <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+            {/* Grid lines */}
+            <line x1="0" y1="10" x2="200" y2="10" stroke="#30363d" strokeWidth="1" />
+            <line x1="0" y1="40" x2="200" y2="40" stroke="#30363d" strokeWidth="1" />
+            <line x1="0" y1="70" x2="200" y2="70" stroke="#30363d" strokeWidth="1" />
+            
+            {/* Area fill */}
+            <path
+              d={`M 0 80 ${data.map((d, i) => {
+                const x = (i / (data.length - 1 || 1)) * 200;
+                const y = 70 - ((d.value - minValue) / (maxValue - minValue || 1)) * 60;
+                return `L ${x} ${y}`;
+              }).join(' ')} L 200 80 Z`}
+              fill={color}
+              fillOpacity="0.15"
+            />
+            
+            {/* Line */}
+            <path
+              d={data.map((d, i) => {
+                const x = (i / (data.length - 1 || 1)) * 200;
+                const y = 70 - ((d.value - minValue) / (maxValue - minValue || 1)) * 60;
+                return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
+              }).join(' ')}
+              fill="none"
+              stroke={color}
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          {/* Data points rendered as absolute positioned divs to avoid SVG scaling issues */}
           {data.map((d, i) => {
-            const x = i * 20 + 10;
-            const y = 60 - ((d.value - minValue) / (maxValue - minValue || 1)) * 50 - 5;
+            const xPercent = (i / (data.length - 1 || 1)) * 100;
+            const yPercent = 87.5 - ((d.value - minValue) / (maxValue - minValue || 1)) * 75;
             return (
-              <circle
+              <div
                 key={i}
-                cx={x}
-                cy={y}
-                r="3"
-                fill={color}
+                className="trend-data-point"
+                style={{
+                  left: `${xPercent}%`,
+                  top: `${yPercent}%`,
+                  backgroundColor: color,
+                }}
               />
             );
           })}
-        </svg>
+        </div>
       </div>
       <div className="trend-chart-labels">
+        <span className="trend-chart-label-spacer"></span>
         <span>{data[0]?.date.slice(5)}</span>
         <span>{data[data.length - 1]?.date.slice(5)}</span>
       </div>

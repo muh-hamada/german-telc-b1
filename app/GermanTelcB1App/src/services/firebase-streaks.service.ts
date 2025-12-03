@@ -190,6 +190,17 @@ class FirebaseStreaksService {
     score: number = 0
   ): Promise<{ success: boolean; shouldShowModal: boolean; streakData: StreakData }> {
     try {
+      // Ignore 'completion' activity type - marking questions as done should not count toward streaks
+      // This prevents users from abusing the streak system by just toggling questions without studying
+      if (activityType === 'completion') {
+        console.log('[StreaksService] Ignoring completion activity - not counted for streaks');
+        return {
+          success: true,
+          shouldShowModal: false,
+          streakData: await this.getStreakData(userId),
+        };
+      }
+
       console.log('[StreaksService] Recording activity:', { activityType, activityId, score });
       
       const today = getLocalDateString();
@@ -257,7 +268,7 @@ class FirebaseStreaksService {
       todayActivity.activitiesCount += 1;
 
       // Track activity type
-      if (activityType === 'exam' || activityType === 'completion') {
+      if (activityType === 'exam') {
         todayActivity.examsCompleted += 1;
       } else if (activityType === 'grammar_study' || activityType === 'vocabulary_study' || activityType === 'vocabulary_review') {
         todayActivity.studySessionsCompleted += 1;
