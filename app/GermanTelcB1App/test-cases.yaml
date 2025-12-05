@@ -14,6 +14,29 @@
       hint: Tap the accept or continue button on the disclaimer screen
       successCriteria: The main Home screen is visible with navigation tabs at the bottom
 
+- displayName: Login with Test Account
+  id: user-login
+  prerequisiteTestCaseId: onboarding-complete
+  steps:
+    - goal: Navigate to Profile tab
+      hint: Tap on the "Profile" or person icon in the bottom tab bar
+      successCriteria: The Profile screen is displayed with a login prompt
+    - goal: Tap on Sign In button
+      hint: Tap the "Sign In" or "Login" button
+      successCriteria: A login screen or modal appears with email and password fields
+    - goal: Enter test email
+      hint: Tap on the email field and enter "test@example.com"
+      successCriteria: The email field contains the test email
+    - goal: Enter test password
+      hint: Tap on the password field and enter "Test123!"
+      successCriteria: The password field is filled (shown as dots)
+    - goal: Submit login
+      hint: Tap the "Sign In" or "Login" button to submit
+      successCriteria: Login succeeds and the Profile screen shows user information instead of login prompt
+    - goal: Return to Home tab
+      hint: Tap on the "Home" icon in the bottom tab bar
+      successCriteria: The Home screen is displayed
+
 - displayName: Navigate Between Main Tabs
   id: navigate-home-tabs
   prerequisiteTestCaseId: onboarding-complete
@@ -50,4 +73,36 @@
     - goal: Navigate back to Home
       hint: Tap the back button or arrow in the header
       successCriteria: The Home screen is displayed
+
+- displayName: Complete Listening Practice with Streak Modal
+  id: listening-practice-completion-with-streak
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open the Practice/Solve Questions section
+      hint: From the Home screen, tap on the "Listening Practice" card
+      successCriteria: The Practice Menu screen is displayed
+    - goal: Select the first listening practice exercise
+      hint: Tap on the first item in the list "Simple Steps to a Healthier Life"
+      successCriteria: The audio player screen is displayed with play controls
+    - goal: Start the assessment
+      hint: Tap the "Assess Your Understanding" or similar button
+      successCriteria: The questions screen is displayed with a true/false question
+    - goal: Answer all questions correctly to get 80%+ score
+      hint: |
+        Exercise: "Simple Steps to a Healthier Life"
+        Answers in order: FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE
+        Tap the answer, then tap Next for each question.
+      successCriteria: After answering all questions, a completion modal appears showing a score of 80% or higher
+    - goal: Tap "Back to Home" on the completion modal
+      hint: Tap the "Back to Home" button on the completion modal
+      successCriteria: The completion modal closes and a streak modal appears showing current streak with fire emoji 🔥 and a "Continue" button
+    - goal: Dismiss the streak modal
+      hint: Tap the "Continue" button on the streak modal
+      successCriteria: The streak modal closes and the Listening Practice list screen is visible
+    - goal: Verify the screen is interactive (no frozen overlay)
+      hint: Tap on any listening practice item in the list
+      successCriteria: The tapped item opens and the audio player screen is displayed
+    - goal: Navigate back to Home
+      hint: Tap the back button twice or use the Home tab
+      successCriteria: The Home screen is displayed and fully interactive
 

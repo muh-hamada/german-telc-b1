@@ -105,6 +105,17 @@ export const AppSelectionPage: React.FC = () => {
               View Requests →
             </button>
           </div>
+          <div
+            className="admin-action-card questions-overview"
+            onClick={() => navigate('/questions-overview')}
+          >
+            <div className="admin-action-icon">📝</div>
+            <h3>Exam Questions Overview</h3>
+            <p>View question counts across all apps with heatmap</p>
+            <button className="btn-action-select">
+              View Overview →
+            </button>
+          </div>
         </div>
       </div>
     </div>

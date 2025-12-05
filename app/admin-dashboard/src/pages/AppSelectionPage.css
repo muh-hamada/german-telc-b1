@@ -45,13 +45,14 @@
 
 .admin-actions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .admin-actions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -91,6 +92,18 @@
 
 .admin-action-card.deletion-requests {
   border-top: 4px solid #f44336;
+}
+
+.admin-action-card.questions-overview {
+  border-top: 4px solid #ff9800;
+}
+
+.admin-action-card.questions-overview .btn-action-select {
+  background: #ff9800;
+}
+
+.admin-action-card.questions-overview .btn-action-select:hover {
+  background: #f57c00;
 }
 
 .admin-action-icon {
@@ -142,6 +155,18 @@
 
 .admin-action-card.analytics .btn-action-select:hover {
   background: #0b7dda;
+}
+
+.admin-action-card.reports {
+  border-top: 4px solid #9c27b0;
+}
+
+.admin-action-card.reports .btn-action-select {
+  background: #9c27b0;
+}
+
+.admin-action-card.reports .btn-action-select:hover {
+  background: #7b1fa2;
 }
 
 .apps-section h2 {

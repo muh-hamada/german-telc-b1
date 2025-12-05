@@ -15,6 +15,15 @@ interface ProgressState {
   error: string | null;
 }
 
+interface UpdateExamProgressOptions {
+  suppressStreakModal?: boolean;
+}
+
+interface UpdateExamProgressResult {
+  success: boolean;
+  shouldShowStreakModal: boolean;
+}
+
 interface ProgressContextType extends ProgressState {
   // Actions
   loadUserProgress: () => Promise<void>;
@@ -24,8 +33,9 @@ interface ProgressContextType extends ProgressState {
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
-    completed?: boolean
-  ) => Promise<boolean>;
+    completed?: boolean,
+    options?: UpdateExamProgressOptions
+  ) => Promise<UpdateExamProgressResult>;
   getExamProgress: (examType: string, examId: number) => ExamProgress | null;
   clearUserProgress: () => Promise<boolean>;
   refreshProgress: () => Promise<void>;
@@ -234,8 +244,12 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
-    completed: boolean = true
-  ): Promise<boolean> => {
+    completed: boolean = true,
+    options?: UpdateExamProgressOptions
+  ): Promise<UpdateExamProgressResult> => {
+    const { suppressStreakModal = false } = options || {};
+    let shouldShowStreakModal = false;
+    
     try {
       console.log('[ProgressContext] Updating exam progress:', { examType, examId, score, maxScore, completed });
       
@@ -284,12 +298,14 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           if (completed && isStreaksEnabledForUser(user?.uid) && user?.uid) {
             try {
               const activityId = `${examType}-${examId}`;
-              await recordActivity({
+              const result = await recordActivity({
                 activityType: 'exam',
                 activityId: activityId,
                 score: score || 0,
+                options: { shouldSuppressStreakModal: suppressStreakModal },
               });
-              console.log('[ProgressContext] Streak activity recorded');
+              shouldShowStreakModal = result.shouldShowModal;
+              console.log('[ProgressContext] Streak activity recorded, shouldShowModal:', shouldShowStreakModal);
             } catch (streakError) {
               console.error('[ProgressContext] Error recording streak:', streakError);
               // Don't fail the whole operation if streak recording fails
@@ -297,12 +313,12 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           }
           
           dispatch({ type: 'SET_LOADING', payload: false });
-          return true;
+          return { success: true, shouldShowStreakModal };
         } catch (firebaseError) {
           console.error('[ProgressContext] Failed to save to Firebase:', firebaseError);
           dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress to Firebase' });
           dispatch({ type: 'SET_LOADING', payload: false });
-          return false;
+          return { success: false, shouldShowStreakModal: false };
         }
       } else {
         // User is not logged in, save to local storage
@@ -335,19 +351,19 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           }
           
           dispatch({ type: 'SET_LOADING', payload: false });
-          return true;
+          return { success: true, shouldShowStreakModal: false };
         } catch (localError) {
           console.error('[ProgressContext] Failed to save to local storage:', localError);
           dispatch({ type: 'SET_ERROR', payload: 'Failed to save progress locally' });
           dispatch({ type: 'SET_LOADING', payload: false });
-          return false;
+          return { success: false, shouldShowStreakModal: false };
         }
       }
     } catch (error) {
       console.error('[ProgressContext] Error updating exam progress:', error);
       dispatch({ type: 'SET_ERROR', payload: 'Failed to update progress' });
       dispatch({ type: 'SET_LOADING', payload: false });
-      return false;
+      return { success: false, shouldShowStreakModal: false };
     }
   };
 
