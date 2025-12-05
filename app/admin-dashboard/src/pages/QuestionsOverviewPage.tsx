@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { appDataMap } from '../data/data-files';
+import { examDataService, AppExamData } from '../services/exam-data.service';
 import { APP_CONFIGS } from '../config/apps.config';
+import { toast } from 'react-toastify';
 import './QuestionsOverviewPage.css';
 
 // Define exam types and their display names
@@ -15,17 +16,15 @@ const QUESTION_TYPES: { key: string; displayName: string }[] = [
   { key: 'listening-practice', displayName: 'Listening Practice' },
   { key: 'grammar-part1', displayName: 'Grammar Part 1' },
   { key: 'grammar-part2', displayName: 'Grammar Part 2' },
-  // { key: 'grammar-study-questions', displayName: 'Grammar Study' },
   { key: 'writing', displayName: 'Writing' },
   { key: 'speaking-part1', displayName: 'Speaking Part 1' },
   { key: 'speaking-part2', displayName: 'Speaking Part 2' },
   { key: 'speaking-part3', displayName: 'Speaking Part 3' },
-  // { key: 'speaking-important-phrases', displayName: 'Speaking Phrases' },
 ];
 
 // Count exams/items based on the data structure for each type
 // We count the number of exams (test sets), not individual questions within them
-const countQuestions = (data: any, questionType: string): number => {
+const countExams = (data: any, questionType: string): number => {
   if (!data) return 0;
 
   try {
@@ -55,17 +54,6 @@ const countQuestions = (data: any, questionType: string): number => {
         // Has interviews array - count the interviews themselves
         if (data.interviews && Array.isArray(data.interviews)) {
           return data.interviews.length;
-        }
-        return 0;
-
-      case 'grammar-study-questions':
-        // Can be array at top level OR have 'data' property with array
-        // Count grammar topics/categories, not individual sentences
-        if (Array.isArray(data)) {
-          return data.length;
-        }
-        if (data.data && Array.isArray(data.data)) {
-          return data.data.length;
         }
         return 0;
 
@@ -99,18 +87,11 @@ const countQuestions = (data: any, questionType: string): number => {
         }
         return 0;
 
-      case 'speaking-important-phrases':
-        // Has groups array - count groups (phrase categories)
-        if (data.groups && Array.isArray(data.groups)) {
-          return data.groups.length;
-        }
-        return 0;
-
       default:
         return 0;
     }
   } catch (error) {
-    console.error(`Error counting questions for ${questionType}:`, error);
+    console.error(`Error counting exams for ${questionType}:`, error);
     return 0;
   }
 };
@@ -126,25 +107,21 @@ const getHeatmapColor = (value: number, min: number, max: number): string => {
   
   // Color gradient from red (low) through yellow (mid) to green (high)
   if (ratio < 0.25) {
-    // Red to orange
     const r = 220;
     const g = Math.round(60 + ratio * 4 * 100);
     const b = 60;
     return `rgb(${r}, ${g}, ${b})`;
   } else if (ratio < 0.5) {
-    // Orange to yellow
     const r = 220;
     const g = Math.round(160 + (ratio - 0.25) * 4 * 60);
     const b = 60;
     return `rgb(${r}, ${g}, ${b})`;
   } else if (ratio < 0.75) {
-    // Yellow to light green
     const r = Math.round(220 - (ratio - 0.5) * 4 * 120);
     const g = 220;
     const b = 60;
     return `rgb(${r}, ${g}, ${b})`;
   } else {
-    // Light green to dark green
     const r = Math.round(100 - (ratio - 0.75) * 4 * 60);
     const g = Math.round(220 - (ratio - 0.75) * 4 * 80);
     const b = Math.round(60 + (ratio - 0.75) * 4 * 40);
@@ -154,7 +131,6 @@ const getHeatmapColor = (value: number, min: number, max: number): string => {
 
 // Get text color based on background brightness
 const getTextColor = (bgColor: string): string => {
-  // Parse RGB values
   const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
   if (!match) return '#ffffff';
   
@@ -162,30 +138,56 @@ const getTextColor = (bgColor: string): string => {
   const g = parseInt(match[2]);
   const b = parseInt(match[3]);
   
-  // Calculate relative luminance
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
   
   return luminance > 0.5 ? '#1a1a2e' : '#ffffff';
 };
 
 export const QuestionsOverviewPage: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+  const [examData, setExamData] = useState<Record<string, AppExamData>>({});
   const appIds = Object.keys(APP_CONFIGS);
 
-  // Calculate question counts for all apps and types
-  const questionCounts = useMemo(() => {
+  // Fetch data from Firebase
+  const loadData = async (forceRefresh: boolean = false) => {
+    try {
+      setLoading(true);
+      const data = await examDataService.getAllAppsExamData(forceRefresh);
+      setExamData(data);
+    } catch (error: any) {
+      console.error('Error loading exam data:', error);
+      toast.error(error.message || 'Failed to load exam data from Firebase');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const handleRefresh = () => {
+    examDataService.clearCache();
+    loadData(true);
+    toast.info('Refreshing exam data from Firebase...');
+  };
+
+  // Calculate exam counts for all apps and types
+  const examCounts = useMemo(() => {
     const counts: Record<string, Record<string, number>> = {};
     
     for (const appId of appIds) {
       counts[appId] = {};
-      const appData = appDataMap[appId];
+      const appData = examData[appId];
       
       for (const { key } of QUESTION_TYPES) {
-        counts[appId][key] = countQuestions(appData?.[key as keyof typeof appData], key);
+        const sectionData = appData?.sections?.[key]?.data;
+        counts[appId][key] = countExams(sectionData, key);
       }
     }
     
     return counts;
-  }, [appIds]);
+  }, [appIds, examData]);
 
   // Calculate min and max across all values (excluding zeros for better gradation)
   const { min, max, allValues } = useMemo(() => {
@@ -193,7 +195,7 @@ export const QuestionsOverviewPage: React.FC = () => {
     
     for (const appId of appIds) {
       for (const { key } of QUESTION_TYPES) {
-        const count = questionCounts[appId][key];
+        const count = examCounts[appId]?.[key] || 0;
         values.push(count);
       }
     }
@@ -203,34 +205,48 @@ export const QuestionsOverviewPage: React.FC = () => {
     const maxVal = values.length > 0 ? Math.max(...values) : 0;
     
     return { min: minVal, max: maxVal, allValues: values };
-  }, [appIds, questionCounts]);
+  }, [appIds, examCounts]);
 
   // Calculate totals per app
   const appTotals = useMemo(() => {
     const totals: Record<string, number> = {};
     for (const appId of appIds) {
       totals[appId] = QUESTION_TYPES.reduce(
-        (sum, { key }) => sum + questionCounts[appId][key], 0
+        (sum, { key }) => sum + (examCounts[appId]?.[key] || 0), 0
       );
     }
     return totals;
-  }, [appIds, questionCounts]);
+  }, [appIds, examCounts]);
 
   // Calculate totals per question type
   const typeTotals = useMemo(() => {
     const totals: Record<string, number> = {};
     for (const { key } of QUESTION_TYPES) {
       totals[key] = appIds.reduce(
-        (sum, appId) => sum + questionCounts[appId][key], 0
+        (sum, appId) => sum + (examCounts[appId]?.[key] || 0), 0
       );
     }
     return totals;
-  }, [appIds, questionCounts]);
+  }, [appIds, examCounts]);
 
   // Grand total
   const grandTotal = useMemo(() => {
     return Object.values(appTotals).reduce((sum, val) => sum + val, 0);
   }, [appTotals]);
+
+  if (loading) {
+    return (
+      <div className="questions-overview-container">
+        <div className="questions-overview-header">
+          <h1>Exam Content Overview</h1>
+        </div>
+        <div className="questions-loading">
+          <div className="loading-spinner"></div>
+          <p>Loading exam data from Firebase...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="questions-overview-container">
@@ -239,13 +255,18 @@ export const QuestionsOverviewPage: React.FC = () => {
           <div className="breadcrumb">
             <Link to="/apps" className="breadcrumb-link">← All Apps</Link>
             <span className="breadcrumb-separator">/</span>
-            <span className="breadcrumb-current">Exam Questions Overview</span>
+            <span className="breadcrumb-current">Exam Content Overview</span>
           </div>
           <h1>Exam Content Overview</h1>
           <p className="questions-overview-subtitle">
-            Exam/test counts across all apps • 
+            Exam/test counts across all apps (from Firebase) • 
             <span className="total-badge">{grandTotal.toLocaleString()} total exams</span>
           </p>
+        </div>
+        <div className="header-controls">
+          <button onClick={handleRefresh} className="btn-refresh" disabled={loading}>
+            {loading ? 'Loading...' : 'Refresh'}
+          </button>
         </div>
       </div>
 
@@ -283,7 +304,7 @@ export const QuestionsOverviewPage: React.FC = () => {
                 <tr key={key}>
                   <td className="question-type-cell">{displayName}</td>
                   {appIds.map(appId => {
-                    const count = questionCounts[appId][key];
+                    const count = examCounts[appId]?.[key] || 0;
                     const bgColor = getHeatmapColor(count, min, max);
                     const textColor = getTextColor(bgColor);
                     
@@ -366,7 +387,7 @@ export const QuestionsOverviewPage: React.FC = () => {
               const counts = appIds.map(appId => ({
                 appId,
                 appName: APP_CONFIGS[appId].displayName,
-                count: questionCounts[appId][key]
+                count: examCounts[appId]?.[key] || 0
               }));
               
               const lowCounts = counts.filter(c => c.count === 0 || c.count < min * 0.5);
@@ -395,4 +416,3 @@ export const QuestionsOverviewPage: React.FC = () => {
     </div>
   );
 };
-

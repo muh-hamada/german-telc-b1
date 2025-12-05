@@ -1,0 +1,155 @@
+import fs from 'fs/promises';
+import path from 'path';
+import os from 'os';
+import ffmpeg from 'fluent-ffmpeg';
+
+const examId = process.argv[2];
+if (!examId) {
+    console.error('Usage: node script.ts <exam-id>');
+    process.exit(1);
+}
+
+const segmentsJSON = require(`./German B1 Part 1/${examId}.json`);
+
+interface SpeechSegment {
+    type: 'speech';
+    text: string;
+    voiceId: string;
+    speed?: number;
+}
+
+interface PauseSegment {
+    type: 'pause';
+    durationSeconds: number;
+}
+
+type Segment = SpeechSegment | PauseSegment;
+
+const apiKey = process.env.ELEVENLABS_API_KEY;
+if (!apiKey) {
+    throw new Error('Set ELEVENLABS_API_KEY');
+}
+
+const voiceIds = {
+    instructor: '21m00Tcm4TlvDq8ikWAM', // Rachel - female
+    moderator: 'ErXwobaYiN019PkySvjV',  // Antoni - male
+    person1: 'EXAVITQu4vr4xnSDxMaL',    // Bella - female
+    person2: 'MF3mGyEYCl7XYWbV9V6O',    // Elli - female
+    person3: 'TxGEqnHWrfWFTfGW9XjX',    // Josh - male
+    person4: 'VR6AewLTigWG4xSOukaG',    // Arnold - male
+    person5: 'pNInz6obpgDQGcFmaJgB',    // Adam - male
+};
+
+const segments: Segment[] = segmentsJSON.map((segment: any) => ({
+    type: segment.type as 'speech' | 'pause',
+    durationSeconds: segment.durationSeconds,
+    text: segment.text as string,
+    voiceId: voiceIds[segment.voiceId as keyof typeof voiceIds],
+    speed: segment.speed as number,
+}));
+
+async function generateSegment(filePath: string, segment: Segment) {
+    if (segment.type === 'speech') {
+        const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${segment.voiceId}`, {
+            method: 'POST',
+            headers: {
+                'xi-api-key': apiKey!,
+                'Content-Type': 'application/json',
+                'Accept': 'audio/mpeg',
+            },
+            body: JSON.stringify({
+                text: segment.text,
+                model_id: 'eleven_multilingual_v2',
+                language_code: 'de',
+                speed: segment.speed || 1.0,
+                voice_settings: {
+                    stability: 0.5,
+                    similarity_boost: 0.85,
+                    style: 0.0,
+                    use_speaker_boost: true,
+                },
+                output_format: 'mp3_44100_128',
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`TTS failed: ${await response.text()}`);
+        }
+
+        const buffer = await response.arrayBuffer();
+        await fs.writeFile(filePath, Buffer.from(buffer));
+        console.log(`Success! File saved as ${filePath}`);
+    } else {
+        // generate silence using raw PCM converted to MP3
+        const sampleRate = 44100;
+        const channels = 2;
+        const bytesPerSample = 2;
+        const totalSamples = sampleRate * segment.durationSeconds * channels;
+        const pcmBuffer = Buffer.alloc(totalSamples * bytesPerSample); // silence = zeros
+        
+        const tempPcmPath = filePath.replace('.mp3', '.pcm');
+        await fs.writeFile(tempPcmPath, pcmBuffer);
+        
+        await new Promise<void>((resolve, reject) => {
+            ffmpeg()
+                .input(tempPcmPath)
+                .inputOptions(['-f s16le', '-ar 44100', '-ac 2'])
+                .audioCodec('libmp3lame')
+                .audioBitrate('128k')
+                .audioFrequency(44100)
+                .format('mp3')
+                .output(filePath)
+                .on('end', () => resolve())
+                .on('error', (err) => reject(err))
+                .run();
+        });
+        
+        await fs.unlink(tempPcmPath); // cleanup temp file
+        console.log(`Generated ${segment.durationSeconds}s silence: ${filePath}`);
+    }
+}
+
+async function generateExamAudio() {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'elevenlabs-exam-'));
+
+    try {
+        const segmentFiles: string[] = [];
+
+        for (let i = 0; i < segments.length; i++) {
+            const fileName = `${i.toString().padStart(3, '0')}.mp3`;
+            const filePath = path.join(tempDir, fileName);
+            await generateSegment(filePath, segments[i]);
+            segmentFiles.push(filePath);
+        }
+
+        // Create concat list
+        const listPath = path.join(tempDir, 'concat.txt');
+        const listContent = segmentFiles.map(f => `file '${path.basename(f)}'`).join('\n');
+        await fs.writeFile(listPath, listContent);
+
+        const outputPath = 'german-b1-listening-question-part1-' + examId + '.mp3';
+
+        await new Promise<void>((resolve, reject) => {
+            ffmpeg()
+                .input(listPath)
+                .inputOptions(['-f', 'concat', '-safe', '0'])
+                .audioCodec('libmp3lame')
+                .audioBitrate('128k')
+                .audioFrequency(44100)
+                .audioChannels(2)
+                .output(outputPath)
+                .on('end', () => resolve())
+                .on('error', (err) => reject(err))
+                .run();
+        });
+
+        console.log(`Success! File saved as ${outputPath}`);
+    } catch (err) {
+        console.error('Error:', err);
+    } finally {
+        // Optional cleanup
+        // await fs.rm(tempDir, { recursive: true, force: true });
+    }
+}
+
+generateExamAudio();
