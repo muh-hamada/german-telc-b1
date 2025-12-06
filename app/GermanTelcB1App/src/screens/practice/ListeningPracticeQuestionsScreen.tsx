@@ -10,6 +10,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import ListeningCompletionModal from '../../components/ListeningCompletionModal';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useStreak } from '../../contexts/StreakContext';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { UserAnswer } from '../../types/exam.types';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPracticeQuestions'>;
@@ -21,6 +22,7 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { updateExamProgress } = useProgress();
   const { setStreakModalVisibility } = useStreak();
+  const { setContextualModalActive } = useModalQueue();
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
@@ -89,6 +91,8 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
           );
           setShouldShowStreakModalAfterCompletionModal(result.shouldShowStreakModal);
       }
+      // Pause global modal queue and show completion modal
+      setContextualModalActive(true);
       setShowCompletionModal(true);
     }
   };
@@ -98,6 +102,8 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
           exam_id: id
       });
       setShowCompletionModal(false);
+      // Resume global modal queue
+      setContextualModalActive(false);
 
       if (shouldShowStreakModalAfterCompletionModal) {
         setShouldShowStreakModalAfterCompletionModal(false);
@@ -112,6 +118,8 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
           exam_id: id
       });
       setShowCompletionModal(false);
+      // Resume global modal queue
+      setContextualModalActive(false);
 
       if (shouldShowStreakModalAfterCompletionModal) {
         setShouldShowStreakModalAfterCompletionModal(false);

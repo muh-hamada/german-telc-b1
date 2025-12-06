@@ -17,6 +17,7 @@ import { colors, spacing, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
+import { useModalQueue } from '../contexts/ModalQueueContext';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyRatingButtons from '../components/VocabularyRatingButtons';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
@@ -29,6 +30,7 @@ const VocabularyReviewScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { getDueWords, reviewWord, loadProgress } = useVocabulary();
   const { recordActivity } = useStreak();
+  const { setContextualModalActive } = useModalQueue();
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,12 +124,15 @@ const VocabularyReviewScreen: React.FC = () => {
       });
     }
 
-    // Show completion modal
+    // Pause global modal queue and show completion modal
+    setContextualModalActive(true);
     setShowCompletionModal(true);
   };
 
   const handleModalClose = () => {
     setShowCompletionModal(false);
+    // Resume global modal queue
+    setContextualModalActive(false);
     loadProgress();
     navigation.goBack();
   };

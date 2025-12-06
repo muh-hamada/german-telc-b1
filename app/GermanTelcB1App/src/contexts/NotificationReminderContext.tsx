@@ -1,7 +1,8 @@
 /**
  * Notification Reminder Context
  * 
- * Manages notification reminder prompt state and logic across the application
+ * Manages notification reminder prompt state and logic across the application.
+ * Uses the ModalQueueContext to show notification modals.
  */
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
@@ -12,12 +13,9 @@ import FCMService from '../services/fcm.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useAuth } from './AuthContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useModalQueue } from './ModalQueueContext';
 
 interface NotificationReminderContextType {
-  // State
-  showReminderModal: boolean;
-  showHourPicker: boolean;
-  
   // Actions
   checkAndShowReminder: (triggerType: TriggerType) => Promise<void>;
   dismissReminder: () => void;
@@ -34,10 +32,9 @@ interface NotificationReminderProviderProps {
 }
 
 export const NotificationReminderProvider: React.FC<NotificationReminderProviderProps> = ({ children }) => {
-  const [showReminderModal, setShowReminderModal] = useState(false);
-  const [showHourPicker, setShowHourPicker] = useState(false);
   const { user } = useAuth();
   const { t } = useCustomTranslation();
+  const { enqueue } = useModalQueue();
 
   // Record first launch on mount
   useEffect(() => {
@@ -59,10 +56,13 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
 
       // Check if we should show the prompt
       const { shouldShow, reason } = await notificationReminderService.shouldShowReminder(triggerType);
+      console.log('shouldShow', shouldShow, 'reason', reason);
       
       if (shouldShow) {
         console.log('[NotificationReminderContext] Showing notification reminder');
-        setShowReminderModal(true);
+        
+        // Enqueue the notification reminder modal
+        enqueue('notification-reminder');
         
         // Update last prompt date
         await notificationReminderService.updateLastPromptDate();
@@ -90,7 +90,6 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
   const dismissReminder = async (): Promise<void> => {
     try {
       await notificationReminderService.recordMaybeLater();
-      setShowReminderModal(false);
       
       // Log analytics event
       logEvent(AnalyticsEvents.NOTIFICATION_REMINDER_MAYBE_LATER, {});
@@ -165,25 +164,21 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
     try {
       if (!user?.uid) {
         Alert.alert(t('common.error'), t('settings.signInToSaveSettings'));
-        setShowReminderModal(false);
         return;
       }
 
       // Request permission first
       const hasPermission = await requestNotificationPermission();
       if (!hasPermission) {
-        setShowReminderModal(false);
         return;
       }
 
-      // Close reminder modal and show hour picker
-      setShowReminderModal(false);
-      setShowHourPicker(true);
+      // Enqueue hour picker modal
+      enqueue('hour-picker', { selectedHour: 9 });
       
       console.log('[NotificationReminderContext] Starting enable flow');
     } catch (error) {
       console.error('[NotificationReminderContext] Error starting enable flow:', error);
-      setShowReminderModal(false);
     }
   };
 
@@ -218,15 +213,11 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
           t('common.error'),
           'Failed to register device for notifications. Please try again.'
         );
-        setShowHourPicker(false);
         return;
       }
 
       // Record completion
       await notificationReminderService.recordCompleted();
-      
-      // Close hour picker
-      setShowHourPicker(false);
       
       // Log analytics event
       logEvent(AnalyticsEvents.NOTIFICATION_REMINDER_ENABLED, {
@@ -250,19 +241,17 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
    * Close the reminder modal without action
    */
   const closeReminderModal = (): void => {
-    setShowReminderModal(false);
+    // No-op since modal visibility is controlled by ModalQueueContext
   };
 
   /**
    * Close hour picker without saving
    */
   const closeHourPicker = (): void => {
-    setShowHourPicker(false);
+    // No-op since modal visibility is controlled by ModalQueueContext
   };
 
   const value: NotificationReminderContextType = {
-    showReminderModal,
-    showHourPicker,
     checkAndShowReminder,
     dismissReminder,
     startEnableFlow,
@@ -286,4 +275,3 @@ export const useNotificationReminder = (): NotificationReminderContextType => {
   }
   return context;
 };
-

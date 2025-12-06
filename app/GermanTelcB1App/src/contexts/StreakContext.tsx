@@ -3,6 +3,7 @@ import { useAuth } from './AuthContext';
 import firebaseStreaksService, { StreakData, WeeklyActivityData } from '../services/firebase-streaks.service';
 import { useRemoteConfig } from './RemoteConfigContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { useModalQueue } from './ModalQueueContext';
 
 interface AdFreeStatus {
   isActive: boolean;
@@ -23,14 +24,13 @@ interface StreakContextType {
   adFreeStatus: AdFreeStatus;
   isLoading: boolean;
   hasPendingReward: boolean;
-  shouldShowStreakModal: boolean; // NEW: Flag to trigger modal display
   
   // Actions
   recordActivity: (params: RecordActivityParams) => Promise<{ success: boolean; shouldShowModal: boolean }>;
   claimReward: () => Promise<boolean>;
   refreshStreakData: () => Promise<void>;
   checkAdFreeStatus: () => Promise<boolean>;
-  dismissStreakModal: () => void; // NEW: Mark modal as shown
+  dismissStreakModal: () => void;
   setStreakModalVisibility: (visible: boolean) => void;
 }
 
@@ -43,12 +43,13 @@ interface StreakProviderProps {
 export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { enqueue } = useModalQueue();
   const [streakData, setStreakData] = useState<StreakData | null>(null);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivityData[]>([]);
   const [adFreeStatus, setAdFreeStatus] = useState<AdFreeStatus>({ isActive: false, expiresAt: null });
   const [isLoading, setIsLoading] = useState(false);
   const [hasPendingReward, setHasPendingReward] = useState(false);
-  const [shouldShowStreakModal, setShouldShowStreakModal] = useState(false);
+  const [hasShownRewardModalThisSession, setHasShownRewardModalThisSession] = useState(false);
 
   // Load streak data
   const loadStreakData = useCallback(async () => {
@@ -97,6 +98,25 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     loadStreakData();
   }, [loadStreakData]);
 
+  // Show reward modal when user has pending reward (once per session)
+  useEffect(() => {
+    if (!isStreaksEnabledForUser(user?.uid) || !user) {
+      return;
+    }
+
+    // Only show once per session
+    if (hasPendingReward && !hasShownRewardModalThisSession) {
+      console.log('[StreakContext] User has pending reward, enqueuing modal');
+      enqueue('streak-reward');
+      setHasShownRewardModalThisSession(true);
+    }
+    
+    // Reset flag when reward is no longer pending
+    if (!hasPendingReward) {
+      setHasShownRewardModalThisSession(false);
+    }
+  }, [user, hasPendingReward, hasShownRewardModalThisSession, isStreaksEnabledForUser, enqueue]);
+
   // Record activity
   const recordActivity = async (params: RecordActivityParams): Promise<{ success: boolean; shouldShowModal: boolean }> => {
     const { activityType, activityId, score, options } = params;
@@ -129,10 +149,10 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
         const pending = await firebaseStreaksService.hasPendingReward(user.uid);
         setHasPendingReward(pending);
         
-        // Set flag to show modal if needed
+        // Enqueue streak modal if needed
         if (result.shouldShowModal) {
           if (!shouldSuppressStreakModal) {
-            setShouldShowStreakModal(true);
+            enqueue('streak');
           } else {
             console.log('[StreakContext] Streak modal suppressed');
           }
@@ -158,8 +178,6 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
 
   // Dismiss streak modal (mark as shown)
   const dismissStreakModal = () => {
-    setShouldShowStreakModal(false);
-    
     logEvent(AnalyticsEvents.STREAK_MODAL_DISMISSED, {
       currentStreak: streakData?.currentStreak || 0,
       longestStreak: streakData?.longestStreak || 0,
@@ -228,9 +246,8 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   };
 
   const setStreakModalVisibility = (visible: boolean) => {
-    setShouldShowStreakModal(visible);
-    
     if (visible) {
+      enqueue('streak');
       logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
         currentStreak: streakData?.currentStreak,
         longestStreak: streakData?.longestStreak,
@@ -246,7 +263,6 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     adFreeStatus,
     isLoading,
     hasPendingReward,
-    shouldShowStreakModal,
     recordActivity,
     claimReward,
     refreshStreakData,
@@ -270,4 +286,3 @@ export const useStreak = (): StreakContextType => {
   }
   return context;
 };
-

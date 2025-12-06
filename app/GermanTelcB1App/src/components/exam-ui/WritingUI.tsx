@@ -17,6 +17,7 @@ import {
 import { launchCamera } from 'react-native-image-picker';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { colors, spacing, typography } from '../../theme';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
@@ -50,6 +51,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useCustomTranslation();
+  const { setContextualModalActive } = useModalQueue();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -192,6 +194,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       isAdLoaded
     });
   }, [showRewardedAdModal, isImagePreviewModalOpen, isResultsModalOpen, isEvaluating, pendingEvaluationType, isAdLoaded]);
+
+  // Pause global modal queue when any writing modal is open
+  useEffect(() => {
+    const isAnyModalOpen = isResultsModalOpen || isImagePreviewModalOpen || showRewardedAdModal || isEvaluating;
+    setContextualModalActive(isAnyModalOpen);
+  }, [isResultsModalOpen, isImagePreviewModalOpen, showRewardedAdModal, isEvaluating, setContextualModalActive]);
 
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);

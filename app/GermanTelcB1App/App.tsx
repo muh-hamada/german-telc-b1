@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppUpdateModalContainer from './src/components/AppUpdateModalContainer';
-import NotificationReminderModalContainer from './src/components/NotificationReminderModalContainer';
-import ReviewModalContainer from './src/components/ReviewModalContainer';
-import StreakModalContainer from './src/components/StreakModalContainer';
+import ModalQueueRenderer from './src/components/ModalQueueRenderer';
 import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
+import { ModalQueueProvider } from './src/contexts/ModalQueueContext';
 import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
 import { ProgressProvider } from './src/contexts/ProgressContext';
 import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
@@ -27,30 +25,29 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaProvider>
-      <RemoteConfigProvider>
-        <AppUpdateProvider>
-          <ReviewProvider>
-            <AuthProvider>
-              <VocabularyProvider>
-                <StreakProvider>
-                  <NotificationReminderProvider>
-                    <ProgressProvider>
-                      <CompletionProvider>
-                        <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                        <RootNavigator />
-                        <AppUpdateModalContainer />
-                        <ReviewModalContainer />
-                        <NotificationReminderModalContainer />
-                        <StreakModalContainer />
-                      </CompletionProvider>
-                    </ProgressProvider>
-                  </NotificationReminderProvider>
-                </StreakProvider>
-              </VocabularyProvider>
-            </AuthProvider>
-          </ReviewProvider>
-        </AppUpdateProvider>
-      </RemoteConfigProvider>
+      <ModalQueueProvider>
+        <RemoteConfigProvider>
+          <AppUpdateProvider>
+            <ReviewProvider>
+              <AuthProvider>
+                <VocabularyProvider>
+                  <StreakProvider>
+                    <NotificationReminderProvider>
+                      <ProgressProvider>
+                        <CompletionProvider>
+                          <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                          <RootNavigator />
+                          <ModalQueueRenderer />
+                        </CompletionProvider>
+                      </ProgressProvider>
+                    </NotificationReminderProvider>
+                  </StreakProvider>
+                </VocabularyProvider>
+              </AuthProvider>
+            </ReviewProvider>
+          </AppUpdateProvider>
+        </RemoteConfigProvider>
+      </ModalQueueProvider>
     </SafeAreaProvider>
   );
 };

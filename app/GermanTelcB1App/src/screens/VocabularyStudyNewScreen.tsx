@@ -17,6 +17,7 @@ import { colors, spacing, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
+import { useModalQueue } from '../contexts/ModalQueueContext';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
 import Button from '../components/Button';
@@ -29,6 +30,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { progress, getNewWords, markWordAsLearned, loadProgress } = useVocabulary();
   const { recordActivity, setStreakModalVisibility } = useStreak();
+  const { setContextualModalActive } = useModalQueue();
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -110,12 +112,15 @@ const VocabularyStudyNewScreen: React.FC = () => {
       setShouldShowStreakModalAfterCompletionModal(result.shouldShowModal);
     }
 
-    // Show completion modal
+    // Pause global modal queue and show completion modal
+    setContextualModalActive(true);
     setShowCompletionModal(true);
   };
 
   const handleModalClose = () => {
     setShowCompletionModal(false);
+    // Resume global modal queue
+    setContextualModalActive(false);
     loadProgress();
 
     if (shouldShowStreakModalAfterCompletionModal) {
