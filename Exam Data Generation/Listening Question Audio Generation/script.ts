@@ -13,6 +13,7 @@ if (!examPart || !examId) {
 import part1Exam2SegmentsJSON from './german-b1-part-1/exam-2.json' with { type: 'json' };
 import part1Exam3SegmentsJSON from './german-b1-part-1/exam-3.json' with { type: 'json' };
 import part2Exam2SegmentsJSON from './german-b1-part-2/exam-2.json' with { type: 'json' };
+import part3Exam2SegmentsJSON from './german-b1-part-3/exam-2.json' with { type: 'json' };
 
 const partsMap = {
     'part-1': {
@@ -21,6 +22,9 @@ const partsMap = {
     },
     'part-2': {
         'exam-2': part2Exam2SegmentsJSON,
+    },
+    'part-3': {
+        'exam-2': part3Exam2SegmentsJSON,
     },
 };
 

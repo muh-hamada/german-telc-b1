@@ -30,19 +30,19 @@ const ListeningMenuScreen: React.FC = () => {
 
       const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
         id: exam.id,
-        title: `Test ${exam.id + 1}`
+        title: exam.title || `Test ${exam.id + 1}`
       }));
       setPart1Exams(part1ExamsList);
 
       const part2ExamsList = (part2Data.exams || []).map((exam: any) => ({
         id: exam.id,
-        title: `Test ${exam.id + 1}`
+        title: exam.title || `Test ${exam.id + 1}`
       }));
       setPart2Exams(part2ExamsList);
 
       const part3ExamsList = (part3Data.exams || []).map((exam: any) => ({
         id: exam.id,
-        title: `Test ${exam.id + 1}`
+        title: exam.title || `Test ${exam.id + 1}`
       }));
       setPart3Exams(part3ExamsList);
     };
