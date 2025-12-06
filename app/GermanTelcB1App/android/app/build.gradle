@@ -86,11 +86,11 @@ android {
     namespace "com.mhamada.telcb1german"
     
     defaultConfig {
-        applicationId "com.mhamada.telcb1english"
+        applicationId "com.mhamada.telcb2german"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 45
-        versionName "1.0.45"
+        versionCode 46
+        versionName "1.0.46"
     }
     
     flavorDimensions "exam"
@@ -158,6 +158,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+
+    // Play Billing Library - required by Google Play (minimum 6.0.1)
+    // This overrides the older AIDL version from react-native-google-mobile-ads
+    implementation("com.android.billingclient:billing:7.1.1")
 
     // GIF support for animated images
     // Version should match React Native's bundled Fresco version
