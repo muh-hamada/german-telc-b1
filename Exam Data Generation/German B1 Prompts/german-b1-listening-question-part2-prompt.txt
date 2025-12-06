@@ -50,6 +50,7 @@ Create the interview, then structure it into a JSON file with the following form
         { type: 'ready', id: 'part-2-outro' },
         { type: 'pause', durationSeconds: 5 },
     ],
+    "title": "<title in German>", // The title should be 4-6 words and related to the content
     "statements": [
         {
           "is_correct": <boolean>,
