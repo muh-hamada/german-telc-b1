@@ -1,0 +1,157 @@
+You are an expert in creating listening questions for the Telc German B1 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German B1 listening question.
+
+--- Interview Start ---
+
+Interview 56
+Sie rufen im Büro einer Sprachenschule an und fragen nach dem Weg.
+Also, wenn Sie aus dem Bahnhof rauskommen, sind Sie in der Schillerstraße. Gehen Sie dann nach rechts und immer geradeaus, bis Sie zu einer Kreuzung kommen. Das ist die Königsstraße. Überqueren Sie die Königsstraße, bleiben Sie aber in der Schillerstraße. Wir sind dann ein Stückchen weiter gegenüber vom Kino Gloria.
+
+Interview 57
+Sie möchten ins Kino gehen und rufen die Kinoauskunft an.
+Guten Tag, meine Damen und Herren. Wir bringen Ihnen jetzt einen Ausschnitt aus dem Programm der Zürcher Filmtheater. Filmcasino. Frühstück bei Tiffany, 18:30 Uhr und 20:30 Uhr. City Kino 1, Sommer 18:45 Uhr und 21 Uhr. City Kino Nur zwei starke Jungs 18:15 Uhr und 19:45 Uhr. Das Kino Gloria Palast ist zurzeit wegen Renovierung geschlossen. Sie hören jetzt den Text noch einmal. Sie möchten ins Kino gehen und rufen die Kinoauskunft an. Guten Tag, meine Damen und Herren. Wir bringen Ihnen jetzt einen Ausschnitt aus dem Programm der Zürcher Filmtheater. Filmcasino, Frühstück bei Tiffany, 18:30 Uhr und 20:30 Uhr. City Kino 1, Sommer 18:45 Uhr und 21 Uhr. City Kino 2 Starke Jungs 18:15 Uhr und 19:45 Uhr. Das Gloria Palast ist zurzeit wegen Renovierung geschlossen.
+
+Interview 58
+Sie interessieren sich für das Wetter in Südbayern und hören den Wetterbericht im Radio.
+Und nun der Wetterbericht des Wetteramtes München für Montag den 28. Oktober. Südbayern. Anfangs noch vereinzelt Regen, später zunehmend sonnig mit Höchsttemperaturen bis 18°. Nachtsgeringer Bodenfrost. Nordbayern, wechselhaft mit Schauern, dabei mild und sehr windig. Temperaturen nachts bis -2°.
+
+Interview 59
+Sie sitzen im Zug und hören folgende Durchsage.
+Guten Tag, wir begrüßen alle neu hinzugestiegenen Fahrgäste im IC Riemenschneider auf der Fahrt von Hamburg nach Nürnberg. Unser Zugrestaurant finden Sie zwischen der ersten und zweiten Wagenklasse, wo Sie das Speisewagen Team ab 11:30 Uhr gern zum Mittagessen erwartet. Erte Fahrgäste, auch eine Minibar befindet sich im Zug. Sollten Sie Appetit haben auf einen kleinen Imbis oder auf kalte und warme Getränke, diese Dinge können Sie im Abteil kaufen. Die Minibar kommt durch die zweite Wagenklasse. Weitere Auskünfte und Informationen erhalten Sie beim ICE Team dieses Zuges. Wir wünschen Ihnen eine angenehme Reise. 
+
+Interview 60
+Sie sind im Kaufhaus und hören folgende Durchsage. Das ist Spitze. Sommerschlussverkauf, jetzt bei uns mit super angeboten. Ja, bei uns gibt's z.B. damenhafte Röcke für nur 39 € und modische Pullover in lässiger Weite. Wählen Sie aus verschiedenen Farben und Formen. Das Stück nur 19 €. Und das gibt's ganz aktuell für Sie, meine Herren. Oberhemden in großer Auswahl, pflegeleicht für nur 5 € oder die modischen Cityhosen für Herren, voll waschbar und echt günstig, nur 10 €. Greifen Sie zu, solange der Vorrat reicht. Sie hören jetzt den Text noch einmal. Sie sind im Kaufhaus und hören folgende Durchsage. Das ist Spitze. Sommerschlussverkauf. Jetzt bei uns mit Super Angeboten. Ja, bei uns gibt's z.B. damenhafte Röcke für nur 39 € und modische Pullover. in lässiger Weite wählen Sie aus verschiedenen Farben und Formen. Das Stück nur 19 € und das gibt's ganz aktuell für Sie, meine Herren. Oberhemden in großer Auswahl, pflegeleicht für nur 5 € oder die modischen Cityhosen für Herren, voll waschbar und echt günstig, nur 10 €. Greifen Sie zu, solange der Vorrat reicht.
+
+--- Interview End ---
+
+
+Create the interview, then structure it into a JSON file with the following format:
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-intro' },
+        { type: 'pause', durationSeconds: 2 },
+
+        { type: 'ready', id: 'nummer-56' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            text: 'statement text 56',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // copy speech 56 here with the same "id"
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'nummer-57' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            text: 'statement text 57',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // copy speech 57 here with the same "id"
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'nummer-58' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            text: 'statement text 58',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // copy speech 58 here with the same "id"
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'nummer-59' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            text: 'statement text 59',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // copy speech 59 here with the same "id"
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'nummer-60' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            text: 'statement text 60',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // copy speech 60 here with the same "id"
+        
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-outro' },
+        { type: 'pause', durationSeconds: 2 },
+    ],
+    "title": "<title in German>", // Short title of the interviews in 4-6 words, make the title related to the interviews
+    "statements": [
+        {
+          "id": 56,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 57,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 58,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 59,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 60,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        }
+      ]
+}

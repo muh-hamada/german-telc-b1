@@ -3,32 +3,18 @@ import path from 'path';
 import os from 'os';
 import ffmpeg from 'fluent-ffmpeg';
 
-const examPart = process.argv[2];
-const examId = process.argv[3];
-if (!examPart || !examId) {
-    console.error('Usage: node script.ts <exam-part> <exam-id>');
+const language = process.argv[2];
+const level = process.argv[3];
+const examPart = process.argv[4];
+const examId = process.argv[5];
+if (!language || !level || !examPart || !examId) {
+    console.error('Usage: node script.ts <language> <level> <exam-part> <exam-id>');
     process.exit(1);
 }
 
-import part1Exam2SegmentsJSON from './german-b1-part-1/exam-2.json' with { type: 'json' };
-import part1Exam3SegmentsJSON from './german-b1-part-1/exam-3.json' with { type: 'json' };
-import part2Exam2SegmentsJSON from './german-b1-part-2/exam-2.json' with { type: 'json' };
-import part3Exam2SegmentsJSON from './german-b1-part-3/exam-2.json' with { type: 'json' };
-
-const partsMap = {
-    'part-1': {
-        'exam-2': part1Exam2SegmentsJSON,
-        'exam-3': part1Exam3SegmentsJSON,
-    },
-    'part-2': {
-        'exam-2': part2Exam2SegmentsJSON,
-    },
-    'part-3': {
-        'exam-2': part3Exam2SegmentsJSON,
-    },
-};
-
-const segmentsJSON = partsMap[examPart][examId];
+// Load segments JSON dynamically based on arguments
+const jsonFilePath = path.join(import.meta.dirname, `${language}-${level}-${examPart}`, `${examId}.json`);
+const segmentsJSON = JSON.parse(await fs.readFile(jsonFilePath, 'utf-8'));
 
 interface SpeechSegment {
     type: 'speech';
@@ -94,14 +80,14 @@ const segments: Segment[] = [];
 for (let i = 0; i < rawSegments.length; i++) {
     const current = rawSegments[i];
     const prev = segments[segments.length - 1];
-    
+
     if (prev?.type === 'speech' && current.type === 'speech') {
         segments.push({ type: 'pause', durationSeconds: 1 });
     }
     segments.push(current);
 }
 
-const readySegmentsDir = path.join(import.meta.dirname, 'ready segements');
+const readySegmentsDir = path.join(import.meta.dirname, language + '-ready-segments');
 
 // Cache for speech segments with id - stores id -> generated file path
 const speechCache = new Map<string, string>();
@@ -114,7 +100,7 @@ async function generateSegment(filePath: string, segment: Segment) {
         console.log(`Copied ready segment: ${segment.id} -> ${filePath}`);
         return;
     }
-    
+
     if (segment.type === 'speech') {
         // Check if this is a repeated segment - use cached version
         if (segment.repeated && segment.id && speechCache.has(segment.id)) {
@@ -152,7 +138,7 @@ async function generateSegment(filePath: string, segment: Segment) {
         const buffer = await response.arrayBuffer();
         await fs.writeFile(filePath, Buffer.from(buffer));
         console.log(`Generated speech: ${filePath}`);
-        
+
         // Cache this segment if it has an id (for potential repeated use)
         if (segment.id) {
             speechCache.set(segment.id, filePath);
@@ -164,10 +150,10 @@ async function generateSegment(filePath: string, segment: Segment) {
         const bytesPerSample = 2;
         const totalSamples = sampleRate * segment.durationSeconds * channels;
         const pcmBuffer = Buffer.alloc(totalSamples * bytesPerSample); // silence = zeros
-        
+
         const tempPcmPath = filePath.replace('.mp3', '.pcm');
         await fs.writeFile(tempPcmPath, pcmBuffer);
-        
+
         await new Promise<void>((resolve, reject) => {
             ffmpeg()
                 .input(tempPcmPath)
@@ -181,7 +167,7 @@ async function generateSegment(filePath: string, segment: Segment) {
                 .on('error', (err) => reject(err))
                 .run();
         });
-        
+
         await fs.unlink(tempPcmPath); // cleanup temp file
         console.log(`Generated ${segment.durationSeconds}s silence: ${filePath}`);
     }
@@ -205,7 +191,7 @@ async function generateExamAudio() {
         const listContent = segmentFiles.map(f => `file '${path.basename(f)}'`).join('\n');
         await fs.writeFile(listPath, listContent);
 
-        const outputPath = `german-b1-listening-question-${examPart}-${examId}.mp3`;
+        const outputPath = `${language}-${level}-listening-question-${examPart}-${examId}.mp3`;
 
         await new Promise<void>((resolve, reject) => {
             ffmpeg()

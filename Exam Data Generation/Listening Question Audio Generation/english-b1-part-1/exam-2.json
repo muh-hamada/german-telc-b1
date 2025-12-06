@@ -1,0 +1,53 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-1-intro" },
+    { "type": "pause", "durationSeconds": 30 },
+    {
+        "type": "speech",
+        "text": "You're going to hear five people talking about the impact of tourism on their city.",
+        "voiceId": "moderator"
+    },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "number-41" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Honestly, it’s getting a bit too much. I’ve lived in this neighborhood my whole life, and now I can’t even walk down the street without bumping into groups of people taking photos. The noise level is high day and night, and the local shops have become very expensive. I really miss the quiet days before we became so popular.",
+        "voiceId": "person1"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "number-42" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "For me, tourism is a blessing. I own a small souvenir shop near the cathedral, and ninety percent of my customers are visitors. If they stopped coming, I would have to close my business immediately. They bring money into the city and create jobs for young people. We should be grateful for them.",
+        "voiceId": "person2"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "number-43" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "It is a shame to see how our city is changing. We are losing our traditional culture because everything is designed for tourists now. Also, the large tour buses cause a lot of pollution, and the crowds are actually damaging the historic buildings. We need stricter rules to protect our heritage.",
+        "voiceId": "person3"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "number-44" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "The biggest problem is finding a place to live. Landlords prefer to rent their apartments to tourists for short holidays because they can charge more money. As a student, I cannot afford the high rents anymore. I might have to move to a different town just to afford a room.",
+        "voiceId": "person4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "number-45" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "I actually enjoy the atmosphere. It is exciting to hear so many different languages on the bus or in the park. I have met wonderful people from all over the world right here in my hometown. It makes the city feel more international and alive, which I think is a great thing.",
+        "voiceId": "person5"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-1-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+]

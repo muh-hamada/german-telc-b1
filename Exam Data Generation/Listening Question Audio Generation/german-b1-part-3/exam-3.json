@@ -1,0 +1,123 @@
+[
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-intro" },
+        { "type": "pause", "durationSeconds": 2 },
+
+        { "type": "ready", "id": "nummer-56" },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-listen-text" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie rufen in einer Arztpraxis an und fragen nach dem Weg. Praxis Dr. Müller, guten Tag. Sie fragen, wie Sie zu uns kommen? Also, vom Hauptbahnhof nehmen Sie den Bus Nummer 42 Richtung Stadtpark. Steigen Sie an der Haltestelle 'Postplatz' aus. Gehen Sie dann links in die Goethestraße. Unsere Praxis ist im zweiten Haus auf der rechten Seite, direkt über der Apotheke.",
+            "voiceId": "person1",
+            "id": "speech-56"
+        },
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie rufen in einer Arztpraxis an und fragen nach dem Weg. Praxis Dr. Müller, guten Tag. Sie fragen, wie Sie zu uns kommen? Also, vom Hauptbahnhof nehmen Sie den Bus Nummer 42 Richtung Stadtpark. Steigen Sie an der Haltestelle 'Postplatz' aus. Gehen Sie dann links in die Goethestraße. Unsere Praxis ist im zweiten Haus auf der rechten Seite, direkt über der Apotheke.",
+            "voiceId": "person1",
+            "id": "speech-56"
+        },
+
+        { "type": "pause", "durationSeconds": 2 },
+        { "type": "ready", "id": "nummer-57" },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-listen-text" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie rufen beim Stadttheater an und hören das Programm. Herzlich willkommen bei der Ticket-Hotline. Hier unser Programm für das Wochenende: Am Samstag zeigen wir um 19:30 Uhr 'Romeo und Julia'. Am Sonntag gibt es um 15:00 Uhr das Kindermusical 'Der kleine Löwe'. Die Vorstellung am Freitagabend fällt wegen Krankheit leider aus. Karten können Sie jederzeit online reservieren.",
+            "voiceId": "person3",
+            "id": "speech-57"
+        },
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie rufen beim Stadttheater an und hören das Programm. Herzlich willkommen bei der Ticket-Hotline. Hier unser Programm für das Wochenende: Am Samstag zeigen wir um 19:30 Uhr 'Romeo und Julia'. Am Sonntag gibt es um 15:00 Uhr das Kindermusical 'Der kleine Löwe'. Die Vorstellung am Freitagabend fällt wegen Krankheit leider aus. Karten können Sie jederzeit online reservieren.",
+            "voiceId": "person3",
+            "id": "speech-57"
+        },
+
+        { "type": "pause", "durationSeconds": 2 },
+        { "type": "ready", "id": "nummer-58" },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-listen-text" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie hören den Wetterbericht für das Rhein-Main-Gebiet im Radio. Und nun das Wetter. Am Vormittag bleibt es noch stark bewölkt mit leichtem Regen. Gegen Mittag lockert es auf und die Sonne kommt raus. Die Temperaturen steigen auf angenehme 22 Grad. Morgen erwartet uns dann wieder schlechteres Wetter mit Sturm und Gewittern. Genießen Sie also den heutigen Nachmittag!",
+            "voiceId": "person1",
+            "id": "speech-58"
+        },
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie hören den Wetterbericht für das Rhein-Main-Gebiet im Radio. Und nun das Wetter. Am Vormittag bleibt es noch stark bewölkt mit leichtem Regen. Gegen Mittag lockert es auf und die Sonne kommt raus. Die Temperaturen steigen auf angenehme 22 Grad. Morgen erwartet uns dann wieder schlechteres Wetter mit Sturm und Gewittern. Genießen Sie also den heutigen Nachmittag!",
+            "voiceId": "person1",
+            "id": "speech-58"
+        },
+
+        { "type": "pause", "durationSeconds": 2 },
+        { "type": "ready", "id": "nummer-59" },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-listen-text" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie sind am Bahnhof und hören eine Durchsage. Achtung an Gleis 7. Der Intercity Express 502 von Berlin nach München hat heute leider ca. 20 Minuten Verspätung. Grund dafür ist eine technische Störung am Zug. Der Anschlusszug nach Salzburg wartet jedoch in München auf Sie. Wir bitten um Ihr Verständnis und wünschen Ihnen trotzdem eine gute Weiterfahrt.",
+            "voiceId": "person3",
+            "id": "speech-59"
+        },
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie sind am Bahnhof und hören eine Durchsage. Achtung an Gleis 7. Der Intercity Express 502 von Berlin nach München hat heute leider ca. 20 Minuten Verspätung. Grund dafür ist eine technische Störung am Zug. Der Anschlusszug nach Salzburg wartet jedoch in München auf Sie. Wir bitten um Ihr Verständnis und wünschen Ihnen trotzdem eine gute Weiterfahrt.",
+            "voiceId": "person3",
+            "id": "speech-59"
+        },
+
+        { "type": "pause", "durationSeconds": 2 },
+        { "type": "ready", "id": "nummer-60" },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-listen-text" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie sind im Möbelhaus und hören folgende Durchsage. Liebe Kunden, willkommen bei Möbel-Gigant! Entdecken Sie unsere tollen Angebote in der ersten Etage. Nur heute bekommen Sie auf alle Schreibtische 20 Prozent Rabatt. Und für den Garten haben wir schöne Liegestühle für nur 15 Euro das Stück. Besuchen Sie auch unsere Cafeteria im Erdgeschoss für eine kleine Kaffeepause.",
+            "voiceId": "person1",
+            "id": "speech-60"
+        },
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "text": "Sie sind im Möbelhaus und hören folgende Durchsage. Liebe Kunden, willkommen bei Möbel-Gigant! Entdecken Sie unsere tollen Angebote in der ersten Etage. Nur heute bekommen Sie auf alle Schreibtische 20 Prozent Rabatt. Und für den Garten haben wir schöne Liegestühle für nur 15 Euro das Stück. Besuchen Sie auch unsere Cafeteria im Erdgeschoss für eine kleine Kaffeepause.",
+            "voiceId": "person1",
+            "id": "speech-60"
+        },
+
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-outro" },
+        { "type": "pause", "durationSeconds": 2 }
+    ]
