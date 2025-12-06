@@ -1,0 +1,123 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-intro" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "ready", "id": "number-56" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Attention passengers for the 10:30 ferry to Dublin. Due to high winds, this crossing has been delayed by two hours. Please remain in the departure lounge where coffee and tea are available. Passengers traveling with cars should return to their vehicles 30 minutes before the new departure time. We apologize for the delay.",
+        "voiceId": "person3",
+        "id": "speech-56"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Attention passengers for the 10:30 ferry to Dublin. Due to high winds, this crossing has been delayed by two hours. Please remain in the departure lounge where coffee and tea are available. Passengers traveling with cars should return to their vehicles 30 minutes before the new departure time. We apologize for the delay.",
+        "voiceId": "person3",
+        "id": "speech-56"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-57" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "You have reached Dr. Miller's dental practice. We are currently closed for lunch between 1:00 pm and 2:00 pm. If you would like to make an appointment, please call back after 2 o'clock. In case of a severe dental emergency, please contact the central hospital on 555-0199. Thank you.",
+        "voiceId": "person1",
+        "id": "speech-57"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "You have reached Dr. Miller's dental practice. We are currently closed for lunch between 1:00 pm and 2:00 pm. If you would like to make an appointment, please call back after 2 o'clock. In case of a severe dental emergency, please contact the central hospital on 555-0199. Thank you.",
+        "voiceId": "person1",
+        "id": "speech-57"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-58" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Welcome back to 'Garden Talk'. I'm afraid our usual host, Sarah Green, is unwell today, so I'm Peter Jones sitting in for her. We won't be discussing rose planting as advertised. Instead, we have a special guest to talk about growing vegetables in small spaces. Stay tuned for some great tips.",
+        "voiceId": "person3",
+        "id": "speech-58"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Welcome back to 'Garden Talk'. I'm afraid our usual host, Sarah Green, is unwell today, so I'm Peter Jones sitting in for her. We won't be discussing rose planting as advertised. Instead, we have a special guest to talk about growing vegetables in small spaces. Stay tuned for some great tips.",
+        "voiceId": "person3",
+        "id": "speech-58"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-59" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ladies and gentlemen, the store will be closing in 15 minutes. Please make your final selection and move to the cash desks on the ground floor. The exit on High Street is now locked for security reasons, so please use the main doors near the car park. Thank you for shopping with us.",
+        "voiceId": "person1",
+        "id": "speech-59"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ladies and gentlemen, the store will be closing in 15 minutes. Please make your final selection and move to the cash desks on the ground floor. The exit on High Street is now locked for security reasons, so please use the main doors near the car park. Thank you for shopping with us.",
+        "voiceId": "person1",
+        "id": "speech-59"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-60" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Here is the forecast for the weekend. Saturday looks promising with warm temperatures and plenty of sunshine, perfect for a picnic. However, things will change overnight. Sunday will be much colder with heavy rain expected throughout the day, so make sure to keep your umbrellas ready.",
+        "voiceId": "person3",
+        "id": "speech-60"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Here is the forecast for the weekend. Saturday looks promising with warm temperatures and plenty of sunshine, perfect for a picnic. However, things will change overnight. Sunday will be much colder with heavy rain expected throughout the day, so make sure to keep your umbrellas ready.",
+        "voiceId": "person3",
+        "id": "speech-60"
+    },
+    
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 2 }
+]

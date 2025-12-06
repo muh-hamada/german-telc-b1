@@ -28,6 +28,8 @@ const ListeningMenuScreen: React.FC = () => {
         dataService.getListeningPart3Content(),
       ]);
 
+      console.log('part1Data', part1Data);
+
       const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
         id: exam.id,
         title: exam.title || `Test ${exam.id + 1}`

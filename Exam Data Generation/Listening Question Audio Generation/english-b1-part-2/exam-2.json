@@ -1,0 +1,122 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 60
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "You are going to hear a report about \"Station Support\", a service at Victoria Train Station helping passengers in trouble. Sarah Jenkins, a team leader, is telling a reporter about her daily tasks and the passengers she assists.",
+        "voiceId": "person3",
+        "id": "interview-intro"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "It is a cold Friday evening at London Victoria Station. We are in the small office of Station Support, a charity service for rail passengers. The night has just started, but the team is already busy. Sitting on a plastic chair is Maria, a nineteen-year-old student from Spain. She has been crying for twenty minutes. Sarah Jenkins, who has worked here for six years, hands her a cup of tea. Maria arrived in London for a weekend trip, but she left her backpack on the train from the airport. It contained her passport, her money, and the address of her hostel. Sarah is trying to calm her down, but it is difficult. Maria speaks very little English, and she is panicked.",
+        "voiceId": "person3",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Cases like Maria’s are very common. Sarah explains that many young tourists underestimate how busy London stations can be. Fortunately, for Maria, the cleaning staff found her bag on the train ten minutes ago. Sarah has just received the call. However, not everyone is so lucky. Last year, Station Support helped over 3,000 people. Most of them had genuinely lost their tickets or missed their last connection home. One memorable case was Arthur, a pensioner from Scotland. He fell asleep in the waiting room and woke up after the station had closed for the night. The security guards brought him to us. We managed to contact his daughter, but she lived three hours away and couldn't collect him until the morning.",
+        "voiceId": "person1",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "We stayed with Arthur all night, playing cards and talking about his grandchildren. But sadly, some people try to take advantage of our kindness. We get people coming in saying they were robbed, hoping we will simply hand over cash for a new ticket. We have a strict policy: we never give money directly to passengers. Instead, we can issue a special voucher for a ticket if the police confirm a crime has happened, or we lend them a mobile phone to call relatives who can pay by credit card over the phone.",
+        "voiceId": "person1",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Station Support is unique in the capital. While the police patrol the station, they don't have the time to look after stranded passengers. Our funding comes partly from the rail companies, but mostly from public bucket collections and charity events. This money pays for our office rent and the refreshments we offer, like tea, coffee, and biscuits. The staff, however, are mostly volunteers like me, although we do have two paid managers.",
+        "voiceId": "person1",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Despite our best efforts, we can't satisfy everyone. I remember a businessman who missed his train to Manchester because he was eating dinner in a restaurant. He came to our office and demanded that we pay for a taxi to take him all the way to Manchester, which would cost hundreds of pounds. When I told him we could only offer him a warm seat and a timetable for the morning train, he was absolutely furious. He told me he would complain to the government! It just shows that while we can help with disasters, we cannot fix bad planning.",
+        "voiceId": "person1",
+        "id": "interview-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "You are going to hear a report about \"Station Support\", a service at Victoria Train Station helping passengers in trouble. Sarah Jenkins, a team leader, is telling a reporter about her daily tasks and the passengers she assists.",
+        "voiceId": "person3",
+        "id": "interview-intro"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "It is a cold Friday evening at London Victoria Station. We are in the small office of Station Support, a charity service for rail passengers. The night has just started, but the team is already busy. Sitting on a plastic chair is Maria, a nineteen-year-old student from Spain. She has been crying for twenty minutes. Sarah Jenkins, who has worked here for six years, hands her a cup of tea. Maria arrived in London for a weekend trip, but she left her backpack on the train from the airport. It contained her passport, her money, and the address of her hostel. Sarah is trying to calm her down, but it is difficult. Maria speaks very little English, and she is panicked.",
+        "voiceId": "person3",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Cases like Maria’s are very common. Sarah explains that many young tourists underestimate how busy London stations can be. Fortunately, for Maria, the cleaning staff found her bag on the train ten minutes ago. Sarah has just received the call. However, not everyone is so lucky. Last year, Station Support helped over 3,000 people. Most of them had genuinely lost their tickets or missed their last connection home. One memorable case was Arthur, a pensioner from Scotland. He fell asleep in the waiting room and woke up after the station had closed for the night. The security guards brought him to us. We managed to contact his daughter, but she lived three hours away and couldn't collect him until the morning.",
+        "voiceId": "person1",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "We stayed with Arthur all night, playing cards and talking about his grandchildren. But sadly, some people try to take advantage of our kindness. We get people coming in saying they were robbed, hoping we will simply hand over cash for a new ticket. We have a strict policy: we never give money directly to passengers. Instead, we can issue a special voucher for a ticket if the police confirm a crime has happened, or we lend them a mobile phone to call relatives who can pay by credit card over the phone.",
+        "voiceId": "person1",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Station Support is unique in the capital. While the police patrol the station, they don't have the time to look after stranded passengers. Our funding comes partly from the rail companies, but mostly from public bucket collections and charity events. This money pays for our office rent and the refreshments we offer, like tea, coffee, and biscuits. The staff, however, are mostly volunteers like me, although we do have two paid managers.",
+        "voiceId": "person1",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Despite our best efforts, we can't satisfy everyone. I remember a businessman who missed his train to Manchester because he was eating dinner in a restaurant. He came to our office and demanded that we pay for a taxi to take him all the way to Manchester, which would cost hundreds of pounds. When I told him we could only offer him a warm seat and a timetable for the morning train, he was absolutely furious. He told me he would complain to the government! It just shows that while we can help with disasters, we cannot fix bad planning.",
+        "voiceId": "person1",
+        "id": "interview-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 20
+    }
+]

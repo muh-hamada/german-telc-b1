@@ -4,24 +4,17 @@ Create a similar interview to this one below; it should have the same language d
 
 --- Interview Start ---
 
-Der Turn und Sportverein Neustadt wird in diesem Jahr 100 Jahre alt und feiert diesen Geburtstag mit einem großen Programm. Ich begrüße dazu heute hier im Studio eine Vertreterin des Torn und Sport Vereins Neustadt Frau Seifert, guten Tag.
-Guten Tag,
-Frau Seifert. Welche Aufgaben haben Sie denn im Verein?
-Ja, also ich führe über allen Sitzungen Protokoll. Ich schreibe also alles auf, worüber diskutiert wird und was beschlossen wird. Schriftführerin heißt das.
-Aha. Vielleicht liegen Ihnen als Schriftführerin da sogar noch Papiere aus den ersten Vereinsjahren vor.
-Ja, so ist es. Unsere Kollegen früher waren nämlich äußerst sorgfältig. So konnten wir in unserer Festzeitung zum Hund. Geburtstag das Programm von der ersten Hauptversammlung des Vereins veröffentlichen. Das macht sich sehr nett.
-Unglaublich, dass trotz der zwei Kriege in diesem Jahrhundert solche Papiere und Unterlagen noch vorhanden sind. Also, ich nehme mal an, als ihr Verein vor 100 Jahren gegründet wurde, war Sport doch sicher nur eine Sache für Männer.
-Ja, klar. Am Anfang war Sport reine Männersache. Es hat 16 Jahre gedauert, bis bei uns die ersten Frauen dazu kamen. Das war ein echter Fortschritt für die Zeit damals, Anfang des 20. Jahrhunderts.
-Ja, das kann man sich gut vorstellen. Wie viele Frauen haben Sie denn im Verein im Vergleich zu Männern.
-Ja, also heute sind es ziemlich viele. Über 50% der Mitglieder sind Frauen. Das heißt mehr als 1000 der insgesamt 2000 Mitglieder.
-Ihr Verein hat ja hier in Neustadt eine schöne Anlage mit Sportplätzen im Freien und einer großen Halle. Wer finanziert denn das eigentlich alles?
-Ja, also 50% des Geldes, das wir brauchen, bekommen wir durch unsere Mitglieder in Form von Mitgliedsbeiträgen. Den Rest bekommen wir von der Stadt und vom deutschen Sportbund dazu.
-Wenn man sich Ihr Angebot an sieht, dann staunt man. Da gibt es alles, was zurzeit gefragt ist, von Aerobik über sportliches Gehen bis hin zu Mutterkindgymnastik.
-Ja, das stimmt. Im Grunde genommen bieten wir fast jede Sportart an, außer schwimmen. Es gibt dem Nachbarort ein großes Schwimmbad mit einem extra Schwimmverein. Also, da wäre es Unsinn, wenn wir eine eigene Abteilung für Schwimmen aufmachen würden.
-Woher kommen denn Ihre Trainer und die Lehrer für alle diese vielen Sportarten?
-Ja, also die meisten kommen aus dem Verein selber. Wir bilden ja viele Leute aus, die später Sport studieren oder Leistungssport machen. Diese Leute bitten wir oft im eigenen Verein zu unterrichten.
-Ja, klar. So bleiben ihnen die Talente praktisch erhalten. Frau Seifert, ich bedanke mich für ihren Besuch hier in unserem Studio und wünsche ihrem Verein auch für die nächsten 100 Jahre alles Gute.
-Danke.
+You're going to hear a report about travel care, a service that Gatwick Airport offers for travelers with problems.
+
+Ruth London, a travel care employee, will be telling the reporter about her work and some of the people she has helped.
+
+It's a weekday morning at Gatwick Airport. In the offices of travel care. The airport emergency service for travelers. The week's first case is fast asleep. For the past 3 days, Tomaso, an 18-year-old Italian, has been trying to avoid the Gatwick airport police, sleeping wherever he can before being moved on. Ruth London, a former British Airways stewardess, one of three part-time advisers employed by Travel Care, would like to do more to help, but Tomaso hasn't made it easy for her. He came here on a one-way flight, hoping some relatives in Wales would look after him, but they don't want him. Since then, I can only suppose he's been sleeping rough. It was Ruth who helped him when he first arrived at Gatwick last month without a penny to his name. When she requested assistance from the Italian embassy, she was told they had given Tomaso a return train ticket back to Italy some weeks before.
+Unfortunately, he didn't speak English. So, we employed the services of a young Italian woman who works as a waitress at the Gatwick coffee shop. Through her, we discovered that he had torn up his train ticket, but we couldn't find out why. And when finally the local Italian police made contact with his mother, the answer came back that she doesn't want to know him either.
+Last year, 23 million people visited Gatwick and 2,000 of them ended up being helped by travel care. Among them was Darren Tyler, a 23-year-old student from Belfast.
+Darren arrived here just over a fortnight ago on the promise of a job in London. But when he got there, the family friend who had guaranteed him the work had already given the job to his own son. Darren stayed with the family for 2 weeks, but the relationship soon got difficult. And one night he turned up here at Gatwick after his mother told told him she had booked him onto a return flight. When he got here, he found out that his mom hadn't booked him on the flight after all, so he'd been sleeping in the airport. Like most Gatwick passengers, Darren had never heard of Travel Care. The service does not advertise its presence. They have learned from past experience and no longer consider themselves to be an easy option for people trying to get a cheap holiday.
+Some People do try thinking we'll give them money on any old excuse, but I never give them the cash. I always go to the ticket office with them. If they're young or are not particularly helpful about who we could contact, we show them where the motorway is. We'll give them sandwiches and something to drink to prepare them for the journey. But it's amazing how often fathers will pay the money for tickets once travel care has got them on the phone.
+Brit. leads the world in emergency help for travelers. Apart from a similar organization at London's other airport, Heathrow, no other airport in the world offers such a service. Travel Care is financed by Gatwick Airport Limited, British Airways, and the British government. They also receive money from private people, some of them grateful for help they themselves have received. This money pays for the three employees and 12 other assistants, most of them former airport staff, ranging from airport directors to duty-free shop assistants. But in spite of all the facilities they have here at Travel Care, there are a few travelers who simply cannot be helped. You get some people who are very religious and they turn up at the airport believing God will help. One woman I remember told us that she didn't need any help because God would find a way for her to fly to America to see her son. She waited at Gatwick for 2 days, but no help came.
+All of which, I suppose, just goes to prove that God does not provide airline tickets.
 
 --- Interview End ---
 
@@ -48,7 +41,7 @@ Create the interview, then structure it into a JSON file with the following form
         
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-2-outro' },
-        { type: 'pause', durationSeconds: 5 },
+        { type: 'pause', durationSeconds: 20 },
     ],
     "title": "<title of the interviews>", // The title should be related to the interviews and 4-6 words long
     "statements": [

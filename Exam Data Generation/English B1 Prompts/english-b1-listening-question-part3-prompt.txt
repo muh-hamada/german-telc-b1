@@ -1,27 +1,28 @@
-You are an expert in creating listening questions for the Telc German B1 exam.
+You are an expert in creating listening questions for the Telc English B1 exam.
 
-Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German B1 listening question.
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc English B1 listening question.
 
 --- Interview Start ---
 
 Interview 56
-Sie rufen im Büro einer Sprachenschule an und fragen nach dem Weg.
-Also, wenn Sie aus dem Bahnhof rauskommen, sind Sie in der Schillerstraße. Gehen Sie dann nach rechts und immer geradeaus, bis Sie zu einer Kreuzung kommen. Das ist die Königsstraße. Überqueren Sie die Königsstraße, bleiben Sie aber in der Schillerstraße. Wir sind dann ein Stückchen weiter gegenüber vom Kino Gloria.
+You're booked on the 1945 flight to Belfast from Birmingham airport this evening. You hear the following report on the radio.
+There has been a serious accident at Birmingham airport. All flights have been cancelled until 6:00 this evening. Passengers booked on afternoon flights should get in touch with their travel agent. as soon as possible for details of new flight arrangements. Passengers for later flights need not make any special arrangements.
 
 Interview 57
-Sie möchten ins Kino gehen und rufen die Kinoauskunft an.
-Guten Tag, meine Damen und Herren. Wir bringen Ihnen jetzt einen Ausschnitt aus dem Programm der Zürcher Filmtheater. Filmcasino. Frühstück bei Tiffany, 18:30 Uhr und 20:30 Uhr. City Kino 1, Sommer 18:45 Uhr und 21 Uhr. City Kino Nur zwei starke Jungs 18:15 Uhr und 19:45 Uhr. Das Kino Gloria Palast ist zurzeit wegen Renovierung geschlossen. Sie hören jetzt den Text noch einmal. Sie möchten ins Kino gehen und rufen die Kinoauskunft an. Guten Tag, meine Damen und Herren. Wir bringen Ihnen jetzt einen Ausschnitt aus dem Programm der Zürcher Filmtheater. Filmcasino, Frühstück bei Tiffany, 18:30 Uhr und 20:30 Uhr. City Kino 1, Sommer 18:45 Uhr und 21 Uhr. City Kino 2 Starke Jungs 18:15 Uhr und 19:45 Uhr. Das Gloria Palast ist zurzeit wegen Renovierung geschlossen.
+You phone the central guest house to reserve a room for next week and hear the following message on the answering machine.
+This is the central guest house. Unfortunately, there's nobody at reception at the present time as our guest house is closed for a few days. We will be open for business again next week starting on Monday the 25th. Reception will be open as from tomorrow, Saturday. If you wish to reserve a room for next week, we will be pleased to hear from you.
 
 Interview 58
-Sie interessieren sich für das Wetter in Südbayern und hören den Wetterbericht im Radio.
-Und nun der Wetterbericht des Wetteramtes München für Montag den 28. Oktober. Südbayern. Anfangs noch vereinzelt Regen, später zunehmend sonnig mit Höchsttemperaturen bis 18°. Nachtsgeringer Bodenfrost. Nordbayern, wechselhaft mit Schauern, dabei mild und sehr windig. Temperaturen nachts bis -2°.
+You're listening to English radio because you want to hear a program about life in Scotland. You hear the following announcement.
+And now it's almost time for the weather report at 5 to 8, after which you will be able to hear the world news at 8:00. After that, there will be a change to our normal Wednesday evening programs. Instead of the planned program on life in Scottish villages, you can hear the second half of the football match between England and Germany. But now, here's Michael Fish with the weather report.
 
 Interview 59
-Sie sitzen im Zug und hören folgende Durchsage.
-Guten Tag, wir begrüßen alle neu hinzugestiegenen Fahrgäste im IC Riemenschneider auf der Fahrt von Hamburg nach Nürnberg. Unser Zugrestaurant finden Sie zwischen der ersten und zweiten Wagenklasse, wo Sie das Speisewagen Team ab 11:30 Uhr gern zum Mittagessen erwartet. Erte Fahrgäste, auch eine Minibar befindet sich im Zug. Sollten Sie Appetit haben auf einen kleinen Imbis oder auf kalte und warme Getränke, diese Dinge können Sie im Abteil kaufen. Die Minibar kommt durch die zweite Wagenklasse. Weitere Auskünfte und Informationen erhalten Sie beim ICE Team dieses Zuges. Wir wünschen Ihnen eine angenehme Reise. 
+You're traveling by train to Liverpool. While the train is standing at a station, you hear the following announcement.
+Ladies and gentlemen, we're afraid to have to tell you that there are technical problems with this train. So, passengers for Liverpool and Manchester should go to platform 6 where the next train will leave in 15 minutes time. Other passengers should make their way to the station car park where a special bus service has been arranged.
 
 Interview 60
-Sie sind im Kaufhaus und hören folgende Durchsage. Das ist Spitze. Sommerschlussverkauf, jetzt bei uns mit super angeboten. Ja, bei uns gibt's z.B. damenhafte Röcke für nur 39 € und modische Pullover in lässiger Weite. Wählen Sie aus verschiedenen Farben und Formen. Das Stück nur 19 €. Und das gibt's ganz aktuell für Sie, meine Herren. Oberhemden in großer Auswahl, pflegeleicht für nur 5 € oder die modischen Cityhosen für Herren, voll waschbar und echt günstig, nur 10 €. Greifen Sie zu, solange der Vorrat reicht. Sie hören jetzt den Text noch einmal. Sie sind im Kaufhaus und hören folgende Durchsage. Das ist Spitze. Sommerschlussverkauf. Jetzt bei uns mit Super Angeboten. Ja, bei uns gibt's z.B. damenhafte Röcke für nur 39 € und modische Pullover. in lässiger Weite wählen Sie aus verschiedenen Farben und Formen. Das Stück nur 19 € und das gibt's ganz aktuell für Sie, meine Herren. Oberhemden in großer Auswahl, pflegeleicht für nur 5 € oder die modischen Cityhosen für Herren, voll waschbar und echt günstig, nur 10 €. Greifen Sie zu, solange der Vorrat reicht.
+You're listening to the weather report on the radio because you want to go for a long walk in the evening. And here's tomorrow's weather report.
+The day will start cool and dry with a strong wind coming from the north. This will bring clouds by lunchtime with rain in most areas by the middle of the afternoon. The rain and wind shouldn't last too long, however, and by early evening it should be clear and sunny.
 
 --- Interview End ---
 
@@ -33,7 +34,7 @@ Create the interview, then structure it into a JSON file with the following form
         { type: 'ready', id: 'part-3-intro' },
         { type: 'pause', durationSeconds: 2 },
 
-        { type: 'ready', id: 'nummer-56' },
+        { type: 'ready', id: 'number-56' },
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-3-listen-text' },
         { type: 'pause', durationSeconds: 2 },
@@ -51,7 +52,7 @@ Create the interview, then structure it into a JSON file with the following form
         // copy speech 56 here with the same "id"
 
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'nummer-57' },
+        { type: 'ready', id: 'number-57' },
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-3-listen-text' },
         { type: 'pause', durationSeconds: 2 },
@@ -69,7 +70,7 @@ Create the interview, then structure it into a JSON file with the following form
         // copy speech 57 here with the same "id"
 
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'nummer-58' },
+        { type: 'ready', id: 'number-58' },
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-3-listen-text' },
         { type: 'pause', durationSeconds: 2 },
@@ -87,7 +88,7 @@ Create the interview, then structure it into a JSON file with the following form
         // copy speech 58 here with the same "id"
 
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'nummer-59' },
+        { type: 'ready', id: 'number-59' },
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-3-listen-text' },
         { type: 'pause', durationSeconds: 2 },
@@ -105,7 +106,7 @@ Create the interview, then structure it into a JSON file with the following form
         // copy speech 59 here with the same "id"
 
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'nummer-60' },
+        { type: 'ready', id: 'number-60' },
         { type: 'pause', durationSeconds: 5 },
         { type: 'ready', id: 'part-3-listen-text' },
         { type: 'pause', durationSeconds: 2 },
@@ -126,7 +127,7 @@ Create the interview, then structure it into a JSON file with the following form
         { type: 'ready', id: 'part-2-outro' },
         { type: 'pause', durationSeconds: 2 },
     ],
-    "title": "<title in German>", // Short title of the interviews in 4-6 words, make the title related to the interviews
+    "title": "<title in English>", // Short title of the interviews in 4-6 words, make the title related to the interviews
     "statements": [
         {
           "id": 56,
