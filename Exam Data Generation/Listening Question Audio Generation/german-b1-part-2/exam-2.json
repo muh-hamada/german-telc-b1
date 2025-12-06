@@ -1,0 +1,263 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-2-intro" },
+    { "type": "pause", "durationSeconds": 60 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Herzlich willkommen zu unserer Sendung „Stadt und Leben“. Heute geht es um das Thema Natur in der Großstadt. Dazu habe ich Frau Weber eingeladen. Sie ist die Leiterin des Projekts „Grünes Herz“. Hallo Frau Weber, schön, dass Sie da sind.",
+      "voiceId": "person3",
+      "id": "interview-1"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Guten Tag! Ich freue mich auch, hier zu sein.",
+      "voiceId": "person1",
+      "id": "interview-2"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, „Grünes Herz“ klingt sehr schön. Aber was genau machen Sie eigentlich?",
+      "voiceId": "person3",
+      "id": "interview-3"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Wir sind eine Gruppe von Nachbarn, die zusammen gärtnern. Mitten in der Stadt, auf einer alten Fläche hinter dem Bahnhof, bauen wir Gemüse, Obst und Blumen an. Jeder kann mitmachen, der Lust hat, sich die Hände schmutzig zu machen.",
+      "voiceId": "person3",
+      "id": "interview-4"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ja eine tolle Idee. Wie lange gibt es Ihr Projekt denn schon?",
+      "voiceId": "person1",
+      "id": "interview-5"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Angefangen haben wir vor genau fünf Jahren. Damals waren wir nur drei Leute und hatten zwei kleine Beete. Heute sind wir schon über 50 aktive Mitglieder und der Garten ist riesig geworden.",
+      "voiceId": "person1",
+      "id": "interview-6"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Muss man denn viel Erfahrung haben, wenn man bei Ihnen mitmachen will? Ich zum Beispiel habe gar keinen grünen Daumen.",
+      "voiceId": "person3",
+      "id": "interview-7"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nein, überhaupt nicht. Das ist das Schöne daran. Wir helfen uns gegenseitig. Die Erfahrenen zeigen den Neuen, wie man pflanzt und gießt. Man lernt alles direkt bei der Arbeit. Gemeinschaft ist uns wichtiger als Perfektion.",
+      "voiceId": "person1",
+      "id": "interview-8"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Ein Garten kostet ja auch Geld. Wasser, Werkzeuge, Pflanzen. Wie finanzieren Sie das?",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das stimmt. Wir nehmen einen kleinen Mitgliedsbeitrag von 5 Euro im Monat. Davon kaufen wir Erde und Samen. Das Grundstück selbst dürfen wir kostenlos von der Stadt nutzen. Das ist eine große Hilfe.",
+      "voiceId": "person1",
+      "id": "interview-10"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Und was passiert mit dem Gemüse, das Sie ernten? Verkaufen Sie das auf dem Markt?",
+      "voiceId": "person3",
+      "id": "interview-11"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nein, verkauft wird nichts. Jeder, der mithilft, darf sich Gemüse und Kräuter für zu Hause mitnehmen. Außerdem kochen wir im Sommer jeden Sonntag zusammen im Garten. Dann essen wir alles gemeinsam auf.",
+      "voiceId": "person1",
+      "id": "interview-12"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das klingt sehr gemütlich. Ist das Projekt nur für Erwachsene, oder gibt es auch Angebote für Kinder?",
+      "voiceId": "person3",
+      "id": "interview-13"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Oh, Kinder sind sehr wichtig für uns. Wir haben eine Kooperation mit zwei Grundschulen. Die Klassen kommen einmal pro Woche und lernen, woher das Essen kommt. Die Kinder lieben es, Kartoffeln aus der Erde zu holen.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Haben Sie Pläne für die Zukunft? Soll der Garten noch größer werden?",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Größer nicht, aber wir wollen vielfältiger werden. Nächstes Jahr möchten wir Bienenstöcke aufstellen und unseren eigenen Honig machen. Dafür suchen wir noch jemanden, der sich mit Bienen auskennt.",
+      "voiceId": "person1",
+      "id": "interview-16"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ein spannendes Vorhaben. Frau Weber, vielen Dank für das Gespräch und viel Erfolg mit den Bienen!",
+      "voiceId": "person3",
+      "id": "interview-17"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Vielen Dank!",
+      "voiceId": "person1",
+      "id": "interview-18"
+    },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Herzlich willkommen zu unserer Sendung „Stadt und Leben“. Heute geht es um das Thema Natur in der Großstadt. Dazu habe ich Frau Weber eingeladen. Sie ist die Leiterin des Projekts „Grünes Herz“. Hallo Frau Weber, schön, dass Sie da sind.",
+      "voiceId": "person3",
+      "id": "interview-1"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Guten Tag! Ich freue mich auch, hier zu sein.",
+      "voiceId": "person1",
+      "id": "interview-2"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, „Grünes Herz“ klingt sehr schön. Aber was genau machen Sie eigentlich?",
+      "voiceId": "person3",
+      "id": "interview-3"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Wir sind eine Gruppe von Nachbarn, die zusammen gärtnern. Mitten in der Stadt, auf einer alten Fläche hinter dem Bahnhof, bauen wir Gemüse, Obst und Blumen an. Jeder kann mitmachen, der Lust hat, sich die Hände schmutzig zu machen.",
+      "voiceId": "person3",
+      "id": "interview-4"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ja eine tolle Idee. Wie lange gibt es Ihr Projekt denn schon?",
+      "voiceId": "person1",
+      "id": "interview-5"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Angefangen haben wir vor genau fünf Jahren. Damals waren wir nur drei Leute und hatten zwei kleine Beete. Heute sind wir schon über 50 aktive Mitglieder und der Garten ist riesig geworden.",
+      "voiceId": "person1",
+      "id": "interview-6"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Muss man denn viel Erfahrung haben, wenn man bei Ihnen mitmachen will? Ich zum Beispiel habe gar keinen grünen Daumen.",
+      "voiceId": "person3",
+      "id": "interview-7"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nein, überhaupt nicht. Das ist das Schöne daran. Wir helfen uns gegenseitig. Die Erfahrenen zeigen den Neuen, wie man pflanzt und gießt. Man lernt alles direkt bei der Arbeit. Gemeinschaft ist uns wichtiger als Perfektion.",
+      "voiceId": "person1",
+      "id": "interview-8"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Ein Garten kostet ja auch Geld. Wasser, Werkzeuge, Pflanzen. Wie finanzieren Sie das?",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das stimmt. Wir nehmen einen kleinen Mitgliedsbeitrag von 5 Euro im Monat. Davon kaufen wir Erde und Samen. Das Grundstück selbst dürfen wir kostenlos von der Stadt nutzen. Das ist eine große Hilfe.",
+      "voiceId": "person1",
+      "id": "interview-10"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Und was passiert mit dem Gemüse, das Sie ernten? Verkaufen Sie das auf dem Markt?",
+      "voiceId": "person3",
+      "id": "interview-11"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nein, verkauft wird nichts. Jeder, der mithilft, darf sich Gemüse und Kräuter für zu Hause mitnehmen. Außerdem kochen wir im Sommer jeden Sonntag zusammen im Garten. Dann essen wir alles gemeinsam auf.",
+      "voiceId": "person1",
+      "id": "interview-12"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das klingt sehr gemütlich. Ist das Projekt nur für Erwachsene, oder gibt es auch Angebote für Kinder?",
+      "voiceId": "person3",
+      "id": "interview-13"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Oh, Kinder sind sehr wichtig für uns. Wir haben eine Kooperation mit zwei Grundschulen. Die Klassen kommen einmal pro Woche und lernen, woher das Essen kommt. Die Kinder lieben es, Kartoffeln aus der Erde zu holen.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Haben Sie Pläne für die Zukunft? Soll der Garten noch größer werden?",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Größer nicht, aber wir wollen vielfältiger werden. Nächstes Jahr möchten wir Bienenstöcke aufstellen und unseren eigenen Honig machen. Dafür suchen wir noch jemanden, der sich mit Bienen auskennt.",
+      "voiceId": "person1",
+      "id": "interview-16"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ein spannendes Vorhaben. Frau Weber, vielen Dank für das Gespräch und viel Erfolg mit den Bienen!",
+      "voiceId": "person3",
+      "id": "interview-17"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Vielen Dank!",
+      "voiceId": "person1",
+      "id": "interview-18"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

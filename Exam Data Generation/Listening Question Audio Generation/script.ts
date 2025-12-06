@@ -3,19 +3,36 @@ import path from 'path';
 import os from 'os';
 import ffmpeg from 'fluent-ffmpeg';
 
-const examId = process.argv[2];
-if (!examId) {
-    console.error('Usage: node script.ts <exam-id>');
+const examPart = process.argv[2];
+const examId = process.argv[3];
+if (!examPart || !examId) {
+    console.error('Usage: node script.ts <exam-part> <exam-id>');
     process.exit(1);
 }
 
-const segmentsJSON = require(`./German B1 Part 1/${examId}.json`);
+import part1Exam2SegmentsJSON from './german-b1-part-1/exam-2.json' with { type: 'json' };
+import part1Exam3SegmentsJSON from './german-b1-part-1/exam-3.json' with { type: 'json' };
+import part2Exam2SegmentsJSON from './german-b1-part-2/exam-2.json' with { type: 'json' };
+
+const partsMap = {
+    'part-1': {
+        'exam-2': part1Exam2SegmentsJSON,
+        'exam-3': part1Exam3SegmentsJSON,
+    },
+    'part-2': {
+        'exam-2': part2Exam2SegmentsJSON,
+    },
+};
+
+const segmentsJSON = partsMap[examPart][examId];
 
 interface SpeechSegment {
     type: 'speech';
     text: string;
     voiceId: string;
     speed?: number;
+    id?: string;       // unique id for caching
+    repeated?: boolean; // if true, use cached audio instead of calling API
 }
 
 interface PauseSegment {
@@ -23,7 +40,12 @@ interface PauseSegment {
     durationSeconds: number;
 }
 
-type Segment = SpeechSegment | PauseSegment;
+interface ReadySegment {
+    type: 'ready';
+    id: string; // e.g. "nummer-41", "part-1-intro"
+}
+
+type Segment = SpeechSegment | PauseSegment | ReadySegment;
 
 const apiKey = process.env.ELEVENLABS_API_KEY;
 if (!apiKey) {
@@ -40,16 +62,63 @@ const voiceIds = {
     person5: 'pNInz6obpgDQGcFmaJgB',    // Adam - male
 };
 
-const segments: Segment[] = segmentsJSON.map((segment: any) => ({
-    type: segment.type as 'speech' | 'pause',
-    durationSeconds: segment.durationSeconds,
-    text: segment.text as string,
-    voiceId: voiceIds[segment.voiceId as keyof typeof voiceIds],
-    speed: segment.speed as number,
-}));
+const rawSegments: Segment[] = segmentsJSON.map((segment: any) => {
+    if (segment.type === 'ready') {
+        return {
+            type: 'ready' as const,
+            id: segment.id as string,
+        };
+    }
+    if (segment.type === 'speech') {
+        return {
+            type: 'speech' as const,
+            text: segment.text as string,
+            voiceId: voiceIds[segment.voiceId as keyof typeof voiceIds],
+            speed: segment.speed as number | undefined,
+            id: segment.id as string | undefined,
+            repeated: segment.repeated as boolean | undefined,
+        };
+    }
+    return {
+        type: 'pause' as const,
+        durationSeconds: segment.durationSeconds as number,
+    };
+});
+
+// Insert 1-second pause between consecutive speech segments
+const segments: Segment[] = [];
+for (let i = 0; i < rawSegments.length; i++) {
+    const current = rawSegments[i];
+    const prev = segments[segments.length - 1];
+    
+    if (prev?.type === 'speech' && current.type === 'speech') {
+        segments.push({ type: 'pause', durationSeconds: 1 });
+    }
+    segments.push(current);
+}
+
+const readySegmentsDir = path.join(import.meta.dirname, 'ready segements');
+
+// Cache for speech segments with id - stores id -> generated file path
+const speechCache = new Map<string, string>();
 
 async function generateSegment(filePath: string, segment: Segment) {
+    if (segment.type === 'ready') {
+        // Copy existing audio file from ready segments folder
+        const sourcePath = path.join(readySegmentsDir, `${segment.id}.mp3`);
+        await fs.copyFile(sourcePath, filePath);
+        console.log(`Copied ready segment: ${segment.id} -> ${filePath}`);
+        return;
+    }
+    
     if (segment.type === 'speech') {
+        // Check if this is a repeated segment - use cached version
+        if (segment.repeated && segment.id && speechCache.has(segment.id)) {
+            const cachedPath = speechCache.get(segment.id)!;
+            await fs.copyFile(cachedPath, filePath);
+            console.log(`Used cached segment: ${segment.id} -> ${filePath}`);
+            return;
+        }
         const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${segment.voiceId}`, {
             method: 'POST',
             headers: {
@@ -59,7 +128,7 @@ async function generateSegment(filePath: string, segment: Segment) {
             },
             body: JSON.stringify({
                 text: segment.text,
-                model_id: 'eleven_multilingual_v2',
+                model_id: 'eleven_flash_v2_5',
                 language_code: 'de',
                 speed: segment.speed || 1.0,
                 voice_settings: {
@@ -78,7 +147,12 @@ async function generateSegment(filePath: string, segment: Segment) {
 
         const buffer = await response.arrayBuffer();
         await fs.writeFile(filePath, Buffer.from(buffer));
-        console.log(`Success! File saved as ${filePath}`);
+        console.log(`Generated speech: ${filePath}`);
+        
+        // Cache this segment if it has an id (for potential repeated use)
+        if (segment.id) {
+            speechCache.set(segment.id, filePath);
+        }
     } else {
         // generate silence using raw PCM converted to MP3
         const sampleRate = 44100;
@@ -127,7 +201,7 @@ async function generateExamAudio() {
         const listContent = segmentFiles.map(f => `file '${path.basename(f)}'`).join('\n');
         await fs.writeFile(listPath, listContent);
 
-        const outputPath = 'german-b1-listening-question-part1-' + examId + '.mp3';
+        const outputPath = `german-b1-listening-question-${examPart}-${examId}.mp3`;
 
         await new Promise<void>((resolve, reject) => {
             ffmpeg()
