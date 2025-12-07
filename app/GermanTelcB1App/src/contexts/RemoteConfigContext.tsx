@@ -182,7 +182,6 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     if (!config) {
       return false; // Default to disabled if config not loaded
     }
-    console.log('isPremiumFeaturesEnabled', config.enablePremiumFeatures);
     return config.enablePremiumFeatures;
   }, [config]);
 

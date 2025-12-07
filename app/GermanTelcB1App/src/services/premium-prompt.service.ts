@@ -7,6 +7,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ALWAYS_SHOW_PREMIUM_MODAL } from '../config/development.config';
 
 // Configuration
 const FIRST_PROMPT_AFTER_SECONDS = 3 * 60; // 3 minutes
@@ -93,7 +94,9 @@ class PremiumPromptService {
    * - After first time: show REPROMPT_AFTER_DAYS after last dismissal
    */
   shouldShowPremiumModal(): boolean {
-    return true;
+    if(ALWAYS_SHOW_PREMIUM_MODAL) {
+      return true;
+    }
 
     // Never show if user has purchased
     if (this.hasPurchased) {

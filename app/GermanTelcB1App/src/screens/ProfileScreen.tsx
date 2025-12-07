@@ -233,6 +233,7 @@ const ProfileScreen: React.FC = () => {
                   source={require('../../assets/images/race.gif')}
                   style={styles.raceGif}
                   resizeMode="contain"
+
                 />
             </TouchableOpacity>
           </AnimatedGradientBorder>
@@ -529,20 +530,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.semibold,
     color: colors.text.primary,
+    textAlign: 'left',
   },
   premiumUpgradeDescription: {
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
-  },
-  premiumUpgradePriceContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    // gap: spacing.margin.xs,
-  },
-  premiumUpgradePrice: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[600],
+    textAlign: 'left',
   },
   premiumBadgeWrapper: {
     marginBottom: spacing.margin.lg,
@@ -565,6 +558,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 12,
+    transform: [{ rotate: I18nManager.isRTL ? '180deg' : '0deg' }],
   },
 });
 

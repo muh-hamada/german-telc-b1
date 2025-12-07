@@ -1,11 +1,3 @@
-/**
- * Premium Content Component
- * 
- * Shared UI for premium features promotion.
- * Used by both PremiumScreen and PremiumUpsellModal.
- * Same design in both places.
- */
-
 import React from 'react';
 import {
   View,
@@ -270,11 +262,13 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 44,
     flex: 1,
+    textAlign: 'left',
   },
   subtitle: {
     fontSize: 18,
     color: colors.text.secondary,
     marginBottom: spacing.margin['2xl'],
+    textAlign: 'left',
   },
 
   // Sparkles
@@ -399,11 +393,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.text.primary,
     marginBottom: 4,
+    textAlign: 'left',
   },
   featureDescription: {
     fontSize: 14,
     color: colors.text.secondary,
     lineHeight: 20,
+    textAlign: 'left',
   },
 
   // CTA section

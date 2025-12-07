@@ -91,6 +91,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 46
         versionName "1.0.46"
+        missingDimensionStrategy "store", "play"
     }
     
     flavorDimensions "exam"
