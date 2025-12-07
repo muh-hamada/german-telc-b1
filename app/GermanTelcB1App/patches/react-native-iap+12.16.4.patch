@@ -1,0 +1,35 @@
+diff --git a/node_modules/react-native-iap/android/src/play/java/com/dooboolab/rniap/RNIapModule.kt b/node_modules/react-native-iap/android/src/play/java/com/dooboolab/rniap/RNIapModule.kt
+index 54ca696..5aca6e9 100644
+--- a/node_modules/react-native-iap/android/src/play/java/com/dooboolab/rniap/RNIapModule.kt
++++ b/node_modules/react-native-iap/android/src/play/java/com/dooboolab/rniap/RNIapModule.kt
+@@ -461,7 +461,7 @@ class RNIapModule(
+         isOfferPersonalized: Boolean, // New parameter in V5
+         promise: Promise,
+     ) {
+-        val activity = currentActivity
++        val activity = getCurrentActivity()
+         if (activity == null) {
+             promise.safeReject(PromiseUtils.E_UNKNOWN, "getCurrentActivity returned null")
+             return
+diff --git a/node_modules/react-native-iap/ios/IapSerializationUtils.swift b/node_modules/react-native-iap/ios/IapSerializationUtils.swift
+index 800848a..e0a0838 100644
+--- a/node_modules/react-native-iap/ios/IapSerializationUtils.swift
++++ b/node_modules/react-native-iap/ios/IapSerializationUtils.swift
+@@ -204,11 +204,12 @@ func serialize(_ t: Transaction) -> [String: Any?] {
+         "webOrderLineItemID": t.webOrderLineItemID
+     ]
+ 
+-    #if compiler(>=5.10)
+-    if #available(iOS 15.2, tvOS 15.2, *) {
+-        result["appTransactionID"] = t.appTransactionID
+-    }
+-    #endif
++    // Patched: appTransactionID property does not exist in StoreKit Transaction
++    // #if compiler(>=5.10)
++    // if #available(iOS 15.2, tvOS 15.2, *) {
++    //     result["appTransactionID"] = t.appTransactionID
++    // }
++    // #endif
+ 
+     return result
+ }

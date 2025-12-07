@@ -138,7 +138,8 @@ class PurchaseService {
       const productId = getProductId();
       console.log('[PurchaseService] Getting products for:', productId);
       
-      const products = await RNIap.fetchProducts({ skus: [productId] }) as RNIap.Product[];
+      // v12 API: getProducts instead of fetchProducts
+      const products = await RNIap.getProducts({ skus: [productId] });
       console.log('[PurchaseService] Products:', products);
       
       return products || [];
@@ -165,13 +166,12 @@ class PurchaseService {
         productId,
       });
       
-      // react-native-iap v14+ API - platform-specific request format
-      await RNIap.requestPurchase({
-        request: Platform.OS === 'ios' 
-          ? { ios: { sku: productId } }
-          : { android: { skus: [productId] } },
-        type: 'in-app',
-      });
+      // v12 API: simpler requestPurchase format
+      if (Platform.OS === 'ios') {
+        await RNIap.requestPurchase({ sku: productId });
+      } else {
+        await RNIap.requestPurchase({ skus: [productId] });
+      }
       // The result will come through the purchaseUpdatedListener
     } catch (error) {
       console.error('[PurchaseService] Error requesting purchase:', error);
