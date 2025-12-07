@@ -63,9 +63,24 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description, col
 // Decorative sparkles
 const Sparkles: React.FC = () => (
   <View style={styles.sparklesContainer}>
-    <Text style={styles.sparkle}>✦</Text>
-    <Text style={[styles.sparkle, styles.sparkleSmall]}>✧</Text>
-    <Text style={[styles.sparkle, styles.sparkleMedium]}>✦</Text>
+    <View style={styles.sparklesInnerContainer}>
+      {/* Large sparkles */}
+      <Text style={[styles.sparkle, styles.sparkle1]}>✦</Text>
+      <Text style={[styles.sparkle, styles.sparkle2]}>✦</Text>
+      {/* Medium sparkles */}
+      <Text style={[styles.sparkle, styles.sparkle3]}>✧</Text>
+      <Text style={[styles.sparkle, styles.sparkle4]}>✦</Text>
+      <Text style={[styles.sparkle, styles.sparkle5]}>✧</Text>
+      {/* Small sparkles */}
+      <Text style={[styles.sparkle, styles.sparkle6]}>✦</Text>
+      <Text style={[styles.sparkle, styles.sparkle7]}>✧</Text>
+      <Text style={[styles.sparkle, styles.sparkle8]}>✦</Text>
+      {/* Tiny sparkles */}
+      <Text style={[styles.sparkle, styles.sparkle9]}>✧</Text>
+      <Text style={[styles.sparkle, styles.sparkle10]}>✦</Text>
+      <Text style={[styles.sparkle, styles.sparkle11]}>✧</Text>
+      <Text style={[styles.sparkle, styles.sparkle12]}>✦</Text>
+    </View>
   </View>
 );
 
@@ -90,8 +105,8 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
 
       {/* Close button */}
       {showCloseButton && onClose && (
-        <TouchableOpacity 
-          style={styles.closeButton} 
+        <TouchableOpacity
+          style={styles.closeButton}
           onPress={onClose}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
@@ -99,7 +114,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         </TouchableOpacity>
       )}
 
-      <ScrollView 
+      <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
@@ -107,8 +122,9 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>{t('premium.screen.whyPremium')}</Text>
-          <Sparkles />
         </View>
+        
+        <Sparkles />
 
         {/* Subtitle */}
         <Text style={styles.subtitle}>{t('premium.screen.oneTimePurchase')}</Text>
@@ -189,7 +205,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F9FF',
+    backgroundColor: '#f5fbff',
   },
   scrollView: {
     flex: 1,
@@ -199,7 +215,7 @@ const styles = StyleSheet.create({
     paddingTop: spacing.padding.xl,
     paddingBottom: spacing.padding.xl,
   },
-  
+
   // Background shapes
   bgShapeTop: {
     position: 'absolute',
@@ -221,7 +237,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#DBEAFE',
     opacity: 0.5,
   },
-  
+
   // Close button
   closeButton: {
     position: 'absolute',
@@ -240,7 +256,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-  
+
   // Header
   header: {
     flexDirection: 'row',
@@ -258,34 +274,105 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     color: colors.text.secondary,
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin['2xl'],
   },
-  
+
   // Sparkles
   sparklesContainer: {
-    width: 60,
-    height: 60,
+    top: -100,
+    right: 0,
+    width: SCREEN_WIDTH * 0.55,
+    height: SCREEN_WIDTH * 0.55,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  sparkle: {
-    fontSize: 20,
-    color: '#6366F1',
     position: 'absolute',
   },
-  sparkleSmall: {
+  sparklesInnerContainer: {
+    position: 'relative',
+    zIndex: 1,
+    width: '100%',
+    height: '100%',
+  },
+  sparkle: {
+    position: 'absolute',
+  },
+  // Row 1 - Top (0-25%)
+  sparkle1: {
+    fontSize: 10,
+    top: '5%',
+    left: '15%',
+    color: '#22D3EE', // Light cyan
+  },
+  sparkle2: {
+    fontSize: 18,
+    top: '8%',
+    left: '45%',
+    color: '#8B5CF6', // Purple
+  },
+  sparkle3: {
+    fontSize: 8,
+    top: '12%',
+    right: '20%',
+    color: '#FBBF24', // Yellow
+  },
+  // Row 2 - Upper middle (25-45%)
+  sparkle4: {
+    fontSize: 24,
+    top: '28%',
+    left: '10%',
+    color: '#6366F1', // Indigo
+  },
+  sparkle5: {
+    fontSize: 12,
+    top: '32%',
+    left: '55%',
+    color: '#818CF8', // Light indigo
+  },
+  sparkle6: {
+    fontSize: 22,
+    top: '48%',
+    right: '8%',
+    color: '#EC4899', // Pink
+  },
+  // Row 3 - Middle (45-65%)
+  sparkle7: {
     fontSize: 14,
-    top: 5,
-    right: 10,
-    color: '#A78BFA',
+    top: '50%',
+    left: '25%',
+    color: '#A78BFA', // Light purple
   },
-  sparkleMedium: {
+  sparkle8: {
+    fontSize: 17,
+    top: '55%',
+    right: '25%',
+    color: '#F59E0B', // Amber
+  },
+  sparkle9: {
+    fontSize: 9,
+    top: '60%',
+    left: '60%',
+    color: '#C084FC', // Lighter purple
+  },
+  // Row 4 - Lower (65-85%)
+  sparkle10: {
     fontSize: 16,
-    bottom: 10,
-    left: 5,
-    color: '#818CF8',
+    bottom: '0%',
+    left: '45%',
+    color: '#06B6D4', // Cyan
   },
-  
+  sparkle11: {
+    fontSize: 13,
+    top: '75%',
+    left: '40%',
+    color: '#F472B6', // Light pink
+  },
+  sparkle12: {
+    fontSize: 10,
+    top: '80%',
+    right: '15%',
+    color: '#34D399', // Emerald
+  },
+
   // Features section
   featuresSection: {
     marginBottom: spacing.margin.xl,
@@ -318,7 +405,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     lineHeight: 20,
   },
-  
+
   // CTA section
   ctaSection: {
     marginBottom: spacing.margin.lg,

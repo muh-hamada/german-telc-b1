@@ -74,7 +74,7 @@ const PremiumScreen: React.FC = () => {
         <View style={styles.bgShapeBottom} />
         
         <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-          <Icon name={I18nManager.isRTL ? "arrow-right" : "arrow-left"} size={22} color={colors.text.primary} />
+          <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
         </TouchableOpacity>
 
         <View style={styles.alreadyPremiumContainer}>
@@ -92,7 +92,7 @@ const PremiumScreen: React.FC = () => {
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Back button */}
       <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-        <Icon name={I18nManager.isRTL ? "arrow-right" : "arrow-left"} size={22} color={colors.text.primary} />
+        <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
       </TouchableOpacity>
 
       {/* Shared content */}
@@ -126,13 +126,20 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 40,
+    top: 50,
     left: 20,
     width: 44,
     height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.background.secondary,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   
   // Already premium

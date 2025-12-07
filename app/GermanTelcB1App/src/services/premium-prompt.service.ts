@@ -93,6 +93,8 @@ class PremiumPromptService {
    * - After first time: show REPROMPT_AFTER_DAYS after last dismissal
    */
   shouldShowPremiumModal(): boolean {
+    return true;
+
     // Never show if user has purchased
     if (this.hasPurchased) {
       console.log('[PremiumPromptService] User has purchased, not showing modal');

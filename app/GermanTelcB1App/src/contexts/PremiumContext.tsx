@@ -9,7 +9,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import firestore from '@react-native-firebase/firestore';
-import { Purchase, PurchaseError, Product } from 'react-native-iap';
+import { Purchase, PurchaseError, Product, ErrorCode } from 'react-native-iap';
 import { useAuth } from './AuthContext';
 import { useRemoteConfig } from './RemoteConfigContext';
 import purchaseService from '../services/purchase.service';
@@ -29,12 +29,12 @@ interface PremiumContextType {
   isLoading: boolean;
   isPurchasing: boolean;
   error: string | null;
-  
+
   // Product info (fetched from store)
   productPrice: string | null;        // Localized price e.g., "$4.99", "€4,99", "£3.99"
   productCurrency: string | null;     // Currency code e.g., "USD", "EUR"
   isLoadingProduct: boolean;
-  
+
   // Actions
   purchasePremium: () => Promise<boolean>;
   restorePurchases: () => Promise<boolean>;
@@ -57,12 +57,12 @@ const DEFAULT_PREMIUM_DATA: PremiumData = {
 export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
-  
+
   const [premiumData, setPremiumData] = useState<PremiumData>(DEFAULT_PREMIUM_DATA);
   const [isLoading, setIsLoading] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
+
   // Product info from store (localized price)
   const [productPrice, setProductPrice] = useState<string | null>(null);
   const [productCurrency, setProductCurrency] = useState<string | null>(null);
@@ -89,12 +89,12 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     try {
       console.log('[PremiumContext] Loading premium status for user:', user.uid);
       setIsLoading(true);
-      
+
       const docPath = getPremiumPath(user.uid);
       const docRef = firestore().doc(docPath);
       const docSnapshot = await docRef.get();
-      
-      if (docSnapshot.exists) {
+
+      if (docSnapshot.exists()) {
         const data = docSnapshot.data() as PremiumData;
         console.log('[PremiumContext] Premium data loaded:', data);
         setPremiumData(data);
@@ -102,7 +102,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         console.log('[PremiumContext] No premium data found, user is not premium');
         setPremiumData(DEFAULT_PREMIUM_DATA);
       }
-      
+
       setError(null);
     } catch (err) {
       console.error('[PremiumContext] Error loading premium status:', err);
@@ -124,11 +124,11 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
 
     try {
       console.log('[PremiumContext] Saving premium status:', data);
-      
+
       const docPath = getPremiumPath(user.uid);
       const docRef = firestore().doc(docPath);
       await docRef.set(data, { merge: true });
-      
+
       console.log('[PremiumContext] Premium status saved');
     } catch (err) {
       console.error('[PremiumContext] Error saving premium status:', err);
@@ -141,14 +141,14 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
    */
   const handlePurchaseComplete = useCallback(async (purchase: Purchase) => {
     console.log('[PremiumContext] Purchase complete:', purchase);
-    
+
     const newPremiumData: PremiumData = {
       isPremium: true,
       purchaseDate: Date.now(),
       productId: purchase.productId,
       transactionId: purchase.transactionId || null,
     };
-    
+
     try {
       await savePremiumStatus(newPremiumData);
       setPremiumData(newPremiumData);
@@ -166,14 +166,15 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
    */
   const handlePurchaseError = useCallback((purchaseError: PurchaseError) => {
     console.error('[PremiumContext] Purchase error:', purchaseError);
-    
+
     // User cancelled is not really an error
-    if (purchaseError.code === 'E_USER_CANCELLED') {
+    if (purchaseError.code === ErrorCode.UserCancelled) {
       setError(null);
     } else {
       setError(purchaseError.message || 'Purchase failed');
     }
-    
+
+
     setIsPurchasing(false);
   }, []);
 
@@ -186,24 +187,24 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     const initIAP = async () => {
       const initialized = await purchaseService.initialize();
       if (!isMounted) return;
-      
+
       if (initialized) {
         // Fetch product info to get localized price
         try {
           setIsLoadingProduct(true);
           const products = await purchaseService.getProducts();
-          
+
           if (!isMounted) return;
-          
+
           if (products.length > 0) {
             const product = products[0] as any; // Type assertion for cross-platform properties
             console.log('[PremiumContext] Product info loaded:', product);
-            
+
             // react-native-iap v14+: Android uses displayPrice, iOS uses localizedPrice
             const price = product.displayPrice || product.localizedPrice || null;
-            const currency = product.currency || 
+            const currency = product.currency ||
               product.oneTimePurchaseOfferDetailsAndroid?.priceCurrencyCode || null;
-            
+
             console.log('[PremiumContext] Extracted price:', price, 'currency:', currency);
             setProductPrice(price);
             setProductCurrency(currency);
@@ -260,7 +261,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     try {
       setIsPurchasing(true);
       setError(null);
-      
+
       await purchaseService.purchasePremium();
       // Result will come through handlePurchaseComplete callback
       return true;
@@ -284,9 +285,9 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     try {
       setIsPurchasing(true);
       setError(null);
-      
+
       const purchase = await purchaseService.restorePurchases();
-      
+
       if (purchase) {
         const newPremiumData: PremiumData = {
           isPremium: true,
@@ -294,7 +295,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
           productId: purchase.productId,
           transactionId: purchase.transactionId || null,
         };
-        
+
         await savePremiumStatus(newPremiumData);
         setPremiumData(newPremiumData);
         setIsPurchasing(false);
