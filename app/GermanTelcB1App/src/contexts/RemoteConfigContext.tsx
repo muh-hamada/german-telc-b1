@@ -174,6 +174,18 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     return globalConfig.supportAdIntervals[placement];
   }, [globalConfig]);
 
+  /**
+   * Check if premium features are enabled (kill switch)
+   * When false, all premium UI/modals/entry points should be hidden
+   */
+  const isPremiumFeaturesEnabled = useCallback((): boolean => {
+    if (!config) {
+      return false; // Default to disabled if config not loaded
+    }
+    console.log('isPremiumFeaturesEnabled', config.enablePremiumFeatures);
+    return config.enablePremiumFeatures;
+  }, [config]);
+
   const value: RemoteConfigContextType = {
     config,
     globalConfig,
@@ -182,6 +194,7 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     refreshConfig,
     isStreaksEnabledForUser,
     getSupportAdInterval,
+    isPremiumFeaturesEnabled,
   };
 
   return (

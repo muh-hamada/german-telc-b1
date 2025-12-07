@@ -8,6 +8,7 @@ import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
 import { ModalQueueProvider } from './src/contexts/ModalQueueContext';
 import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
+import { PremiumProvider } from './src/contexts/PremiumContext';
 import { ProgressProvider } from './src/contexts/ProgressContext';
 import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
@@ -30,19 +31,21 @@ const App: React.FC = () => {
           <AppUpdateProvider>
             <ReviewProvider>
               <AuthProvider>
-                <VocabularyProvider>
-                  <StreakProvider>
-                    <NotificationReminderProvider>
-                      <ProgressProvider>
-                        <CompletionProvider>
-                          <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                          <RootNavigator />
-                          <ModalQueueRenderer />
-                        </CompletionProvider>
-                      </ProgressProvider>
-                    </NotificationReminderProvider>
-                  </StreakProvider>
-                </VocabularyProvider>
+                <PremiumProvider>
+                  <VocabularyProvider>
+                    <StreakProvider>
+                      <NotificationReminderProvider>
+                        <ProgressProvider>
+                          <CompletionProvider>
+                            <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
+                            <RootNavigator />
+                            <ModalQueueRenderer />
+                          </CompletionProvider>
+                        </ProgressProvider>
+                      </NotificationReminderProvider>
+                    </StreakProvider>
+                  </VocabularyProvider>
+                </PremiumProvider>
               </AuthProvider>
             </ReviewProvider>
           </AppUpdateProvider>

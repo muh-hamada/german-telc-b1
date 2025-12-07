@@ -894,7 +894,7 @@
       "nextSection": "Continue to Next Section"
     },
     "evaluation": {
-      "title": "Your Assessment (Written Expression)",
+      "title": "Your Assessment",
       "totalScore": "Total Score:",
       "criteriaTitle": "Assessment Criteria:",
       "criteria": {
@@ -1074,5 +1074,70 @@
     "subtitle": "Help keep this app free by watching a short ad.",
     "watchAd": "Watch Ad",
     "skip": "Skip"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Go Premium",
+      "subtitle": "Unlock the full experience",
+      "oneTimePurchase": "One-time purchase",
+      "purchaseButton": "Upgrade Now",
+      "purchasing": "Processing...",
+      "maybeLater": "Maybe Later"
+    },
+    "features": {
+      "adFree": {
+        "title": "Ad-Free Experience",
+        "description": "Enjoy learning without any interruptions from ads"
+      },
+      "offline": {
+        "title": "Offline Mode",
+        "description": "Download all content and study anywhere, anytime"
+      },
+      "streakFreeze": {
+        "title": "Streak Freeze",
+        "description": "Protect your streak with 2 freezes per week"
+      },
+      "support": {
+        "title": "Support Development",
+        "description": "Help us bring you more exams, features, and improvements"
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Upgrade to Premium",
+        "description": "Ad-free, offline mode, and more"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "Why\nPremium?",
+      "oneTimePurchase": "Buy once, access forever",
+      "unlockNow": "Unlock Now",
+      "restorePurchases": "Restore Purchases",
+      "restoring": "Restoring...",
+      "noRestoreFound": "No previous purchases found",
+      "restoreSuccess": "Purchases restored successfully!",
+      "alreadyPremium": "You already have Premium!",
+      "thankYou": "Thank you for your support!",
+      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees."
+    }
+  },
+  "offline": {
+    "title": "Offline Mode",
+    "subtitle": "Download all content for offline studying",
+    "enableTitle": "Enable Offline Mode?",
+    "enableMessage": "This will download all exam content and audio files. Make sure you have a stable internet connection.",
+    "disableTitle": "Disable Offline Mode?",
+    "disableMessage": "This will delete all downloaded content. You will need an internet connection to study.",
+    "download": "Download",
+    "downloadNow": "Download Now",
+    "update": "Update",
+    "clear": "Clear",
+    "downloaded": "Content downloaded",
+    "notDownloaded": "Content not downloaded",
+    "used": "used",
+    "lastUpdated": "Last updated:",
+    "error": "Download failed. Please try again."
   }
 }

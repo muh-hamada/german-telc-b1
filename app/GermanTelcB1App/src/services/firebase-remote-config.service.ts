@@ -64,6 +64,9 @@ class FirebaseRemoteConfigService {
           : DEFAULT_REMOTE_CONFIG.forceUpdate,
         updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
         updatedAt: data.updatedAt || Date.now(),
+        enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
+          ? data.enablePremiumFeatures 
+          : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
       };
 
       console.log('[RemoteConfigService] Config loaded successfully:', config);
@@ -129,6 +132,9 @@ class FirebaseRemoteConfigService {
               : DEFAULT_REMOTE_CONFIG.forceUpdate,
             updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
             updatedAt: data.updatedAt || Date.now(),
+            enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
+              ? data.enablePremiumFeatures 
+              : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
           };
 
           console.log('[RemoteConfigService] Config updated:', config);

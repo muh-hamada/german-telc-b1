@@ -74,6 +74,13 @@ export const germanB2Config: ExamConfig = {
     },
   },
 
+  premium: {
+    productId: {
+      android: 'premium_unlock',
+      ios: 'com.mhamada.telcb2german.premium',
+    },
+  },
+
   writingEvaluationFnName: 'evaluateWritingB2'
 };
 

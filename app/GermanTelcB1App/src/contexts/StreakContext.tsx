@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useAuth } from './AuthContext';
-import firebaseStreaksService, { StreakData, WeeklyActivityData } from '../services/firebase-streaks.service';
+import firebaseStreaksService, { StreakData, WeeklyActivityData, StreakFreeze } from '../services/firebase-streaks.service';
+import { usePremium } from './PremiumContext';
 import { useRemoteConfig } from './RemoteConfigContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useModalQueue } from './ModalQueueContext';
@@ -24,6 +25,7 @@ interface StreakContextType {
   adFreeStatus: AdFreeStatus;
   isLoading: boolean;
   hasPendingReward: boolean;
+  streakFreeze: StreakFreeze | null; // Premium feature
   
   // Actions
   recordActivity: (params: RecordActivityParams) => Promise<{ success: boolean; shouldShowModal: boolean }>;
@@ -32,6 +34,7 @@ interface StreakContextType {
   checkAdFreeStatus: () => Promise<boolean>;
   dismissStreakModal: () => void;
   setStreakModalVisibility: (visible: boolean) => void;
+  useStreakFreeze: () => Promise<boolean>; // Premium feature
 }
 
 const StreakContext = createContext<StreakContextType | undefined>(undefined);
@@ -43,6 +46,7 @@ interface StreakProviderProps {
 export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { isPremium } = usePremium();
   const { enqueue } = useModalQueue();
   const [streakData, setStreakData] = useState<StreakData | null>(null);
   const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivityData[]>([]);
@@ -50,6 +54,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasPendingReward, setHasPendingReward] = useState(false);
   const [hasShownRewardModalThisSession, setHasShownRewardModalThisSession] = useState(false);
+  const [streakFreeze, setStreakFreeze] = useState<StreakFreeze | null>(null);
 
   // Load streak data
   const loadStreakData = useCallback(async () => {
@@ -59,6 +64,7 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
       setWeeklyActivity([]);
       setAdFreeStatus({ isActive: false, expiresAt: null });
       setHasPendingReward(false);
+      setStreakFreeze(null);
       return;
     }
 
@@ -81,17 +87,29 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
       const pending = await firebaseStreaksService.hasPendingReward(user.uid);
       setHasPendingReward(pending);
       
+      // Load streak freeze data if premium
+      if (isPremium) {
+        const freezeData = await firebaseStreaksService.getStreakFreezeData(user.uid);
+        setStreakFreeze(freezeData);
+        
+        // Auto-apply freeze if streak would be broken
+        await firebaseStreaksService.checkAndAutoApplyFreeze(user.uid, isPremium);
+      } else {
+        setStreakFreeze(null);
+      }
+      
       console.log('[StreakContext] Streak data loaded:', {
         currentStreak: data.currentStreak,
         hasPending: pending,
         isAdFree,
+        hasFreezes: isPremium,
       });
     } catch (error) {
       console.error('[StreakContext] Error loading streak data:', error);
     } finally {
       setIsLoading(false);
     }
-  }, [user?.uid, isStreaksEnabledForUser]);
+  }, [user?.uid, isStreaksEnabledForUser, isPremium]);
 
   // Load data when user changes
   useEffect(() => {
@@ -257,18 +275,42 @@ export const StreakProvider: React.FC<StreakProviderProps> = ({ children }) => {
     }
   };
 
+  // Use a streak freeze (premium feature)
+  const useStreakFreeze = async (): Promise<boolean> => {
+    if (!user?.uid || !isPremium) {
+      console.log('[StreakContext] Cannot use streak freeze: no user or not premium');
+      return false;
+    }
+
+    try {
+      const success = await firebaseStreaksService.useStreakFreeze(user.uid);
+      
+      if (success) {
+        // Refresh data to get updated freeze count
+        await loadStreakData();
+      }
+      
+      return success;
+    } catch (error) {
+      console.error('[StreakContext] Error using streak freeze:', error);
+      return false;
+    }
+  };
+
   const value: StreakContextType = {
     streakData,
     weeklyActivity,
     adFreeStatus,
     isLoading,
     hasPendingReward,
+    streakFreeze,
     recordActivity,
     claimReward,
     refreshStreakData,
     checkAdFreeStatus,
     dismissStreakModal,
     setStreakModalVisibility,
+    useStreakFreeze,
   };
 
   return (

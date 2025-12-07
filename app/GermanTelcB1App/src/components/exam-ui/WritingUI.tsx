@@ -18,6 +18,7 @@ import { launchCamera } from 'react-native-image-picker';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { colors, spacing, typography } from '../../theme';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
@@ -52,6 +53,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useCustomTranslation();
   const { setContextualModalActive } = useModalQueue();
+  const { isPremium } = usePremium();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -314,7 +316,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
 
-    if (SKIP_REWARDED_ADS) {
+    // Skip rewarded ad for premium users or if SKIP_REWARDED_ADS is enabled
+    if (SKIP_REWARDED_ADS || isPremium) {
       await proceedWithImageEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -403,7 +406,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
 
-    if (SKIP_REWARDED_ADS) {
+    // Skip rewarded ad for premium users or if SKIP_REWARDED_ADS is enabled
+    if (SKIP_REWARDED_ADS || isPremium) {
       await proceedWithTextEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });

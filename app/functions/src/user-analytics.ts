@@ -35,18 +35,21 @@ export interface AnalyticsData {
   lastUpdated: admin.firestore.Timestamp;
 }
 
-// Default initial state
-export const INITIAL_ANALYTICS: AnalyticsData = {
-  totalUsers: 0,
-  platforms: { ios: 0, android: 0, web: 0 },
-  languages: { en: 0, de: 0, tr: 0, es: 0, fr: 0, it: 0, pl: 0, ru: 0, ar: 0 }, // Common languages
-  notifications: { enabled: 0, disabled: 0 },
-  personas: { beginner: 0, casual: 0, serious: 0 },
-  vocabulary: { totalWordsStudied: 0, totalMastered: 0 },
-  progress: { totalScore: 0, examsCompleted: 0 },
-  streaks: { currentStreakDistribution: {}, longestStreakDistribution: {}, activeStreaks: 0 },
-  lastUpdated: admin.firestore.Timestamp.now(),
-};
+// Factory function to create initial analytics state
+// (Can't use Timestamp.now() at module load time - Firebase not initialized yet)
+export function getInitialAnalytics(): AnalyticsData {
+  return {
+    totalUsers: 0,
+    platforms: { ios: 0, android: 0, web: 0 },
+    languages: { en: 0, de: 0, tr: 0, es: 0, fr: 0, it: 0, pl: 0, ru: 0, ar: 0 }, // Common languages
+    notifications: { enabled: 0, disabled: 0 },
+    personas: { beginner: 0, casual: 0, serious: 0 },
+    vocabulary: { totalWordsStudied: 0, totalMastered: 0 },
+    progress: { totalScore: 0, examsCompleted: 0 },
+    streaks: { currentStreakDistribution: {}, longestStreakDistribution: {}, activeStreaks: 0 },
+    lastUpdated: admin.firestore.Timestamp.now(),
+  };
+}
 
 /**
  * Helper to update analytics data safely using a transaction
@@ -67,7 +70,7 @@ async function updateAnalytics(
     let currentData: AnalyticsData;
 
     if (!analyticsDoc.exists) {
-      currentData = { ...INITIAL_ANALYTICS };
+      currentData = getInitialAnalytics();
     } else {
       currentData = analyticsDoc.data() as AnalyticsData;
     }

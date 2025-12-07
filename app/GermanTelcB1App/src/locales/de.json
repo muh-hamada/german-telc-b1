@@ -893,7 +893,7 @@
       "nextSection": "Zum nächsten Abschnitt"
     },
     "evaluation": {
-      "title": "Ihre Bewertung (Schriftlicher Ausdruck)",
+      "title": "Ihre Einschätzung",
       "totalScore": "Gesamtpunktzahl:",
       "criteriaTitle": "Bewertungskriterien:",
       "criteria": {
@@ -1073,5 +1073,70 @@
     "subtitle": "Hilf uns, diese App kostenlos zu halten, indem du eine kurze Werbung anschaust.",
     "watchAd": "Werbung ansehen",
     "skip": "Überspringen"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Premium werden",
+      "subtitle": "Erlebe die volle Funktionalität",
+      "oneTimePurchase": "Einmaliger Kauf",
+      "purchaseButton": "Jetzt upgraden",
+      "purchasing": "Wird verarbeitet...",
+      "maybeLater": "Vielleicht später"
+    },
+    "features": {
+      "adFree": {
+        "title": "Werbefrei",
+        "description": "Lerne ohne Unterbrechungen durch Werbung"
+      },
+      "offline": {
+        "title": "Offline-Modus",
+        "description": "Lade alle Inhalte herunter und lerne überall"
+      },
+      "streakFreeze": {
+        "title": "Streak-Schutz",
+        "description": "Schütze deinen Streak mit 2 Freezes pro Woche"
+      },
+      "support": {
+        "title": "Entwicklung unterstützen",
+        "description": "Hilf uns, mehr Prüfungen, Funktionen und Verbesserungen zu entwickeln"
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Zu Premium upgraden",
+        "description": "Werbefrei, Offline-Modus und mehr"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "Warum\nPremium?",
+      "oneTimePurchase": "Einmal kaufen, für immer nutzen",
+      "unlockNow": "Jetzt freischalten",
+      "restorePurchases": "Käufe wiederherstellen",
+      "restoring": "Wird wiederhergestellt...",
+      "noRestoreFound": "Keine vorherigen Käufe gefunden",
+      "restoreSuccess": "Käufe erfolgreich wiederhergestellt!",
+      "alreadyPremium": "Du hast bereits Premium!",
+      "thankYou": "Danke für deine Unterstützung!",
+      "disclaimer": "Einmaliger Kauf. Schaltet alle Premium-Funktionen für immer frei. Kein Abo, keine wiederkehrenden Kosten."
+    }
+  },
+  "offline": {
+    "title": "Offline-Modus",
+    "subtitle": "Alle Inhalte für Offline-Lernen herunterladen",
+    "enableTitle": "Offline-Modus aktivieren?",
+    "enableMessage": "Dies lädt alle Prüfungsinhalte und Audiodateien herunter. Stelle sicher, dass du eine stabile Internetverbindung hast.",
+    "disableTitle": "Offline-Modus deaktivieren?",
+    "disableMessage": "Dies löscht alle heruntergeladenen Inhalte. Du brauchst eine Internetverbindung zum Lernen.",
+    "download": "Herunterladen",
+    "downloadNow": "Jetzt herunterladen",
+    "update": "Aktualisieren",
+    "clear": "Löschen",
+    "downloaded": "Inhalte heruntergeladen",
+    "notDownloaded": "Inhalte nicht heruntergeladen",
+    "used": "verwendet",
+    "lastUpdated": "Zuletzt aktualisiert:",
+    "error": "Download fehlgeschlagen. Bitte versuche es erneut."
   }
 }

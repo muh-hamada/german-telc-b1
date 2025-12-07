@@ -17,6 +17,7 @@ export const MODAL_PRIORITIES: Record<GlobalModalType, number> = {
   'streak': 25,
   'streak-reward': 24,
   'hour-picker': 23, // Sub-modal of notification reminder
+  'premium-upsell': 15, // After streaks, before review
   'app-review': 10,
 };
 

@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { useStreak } from '../../contexts/StreakContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useRemoteConfig } from '../../contexts/RemoteConfigContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { QUESTIONS_PER_ACTIVITY } from '../../constants/streak.constants';
 import { activeExamConfig } from '../../config/active-exam.config';
 
@@ -64,6 +65,7 @@ const GrammarStudyScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { i18n } = useTranslation();
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const { recordActivity } = useStreak();
   const { isStreaksEnabledForUser, getSupportAdInterval } = useRemoteConfig();
   
@@ -217,6 +219,11 @@ const GrammarStudyScreen: React.FC = () => {
 
   // Check if we should show support ad before moving to next question
   const shouldShowSupportAd = (): boolean => {
+    // Premium users don't see support ads
+    if (isPremium) {
+      return false;
+    }
+    
     // Show ad after every SUPPORT_AD_INTERVAL questions (2nd, 4th, 6th, etc. when interval is 2)
     // currentQuestionIndex is 0-based, so +1 to get the question number
     const questionNumber = currentQuestionIndex + 1;

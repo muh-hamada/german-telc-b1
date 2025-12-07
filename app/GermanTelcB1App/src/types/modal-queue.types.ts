@@ -11,7 +11,8 @@ export type GlobalModalType =
   | 'hour-picker'
   | 'streak'
   | 'streak-reward'
-  | 'app-review';
+  | 'app-review'
+  | 'premium-upsell';
 
 export interface QueuedModal {
   id: string;

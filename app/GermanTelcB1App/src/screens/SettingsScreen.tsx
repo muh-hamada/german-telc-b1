@@ -29,11 +29,16 @@ import FCMService from '../services/fcm.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
 import { activeExamConfig } from '../config/active-exam.config';
+import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import OfflineDownloadSection from '../components/OfflineDownloadSection';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, isLoading: authLoading } = useAuth();
+  const { isPremium } = usePremium();
+  const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const {
     isRestartModalVisible,
     isGoingToRTL,
@@ -683,6 +688,14 @@ const SettingsScreen: React.FC = () => {
             disabled={isClearing || isLoading}
           />
         </View>
+
+        {/* Offline Mode Section (Premium Only) */}
+        {isPremiumFeaturesEnabled() && isPremium && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>{t('offline.title')}</Text>
+            <OfflineDownloadSection />
+          </View>
+        )}
 
         {/* Account Management Section */}
         {user && (

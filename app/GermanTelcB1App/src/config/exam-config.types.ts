@@ -72,7 +72,16 @@ export interface ExamConfig {
       android: string;
       ios: string;
     }
-  }
+  };
+
+  // Premium/IAP Configuration
+  premium: {
+    productId: {
+      android: string;
+      ios: string;
+    };
+    // Note: Price comes from store dynamically via PremiumContext.productPrice
+  };
 
   writingEvaluationFnName: string;
 }

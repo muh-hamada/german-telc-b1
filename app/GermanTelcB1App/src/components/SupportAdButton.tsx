@@ -14,6 +14,7 @@ import { colors, spacing, typography } from '../theme';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import SupportThankYouModal from './SupportThankYouModal';
+import { usePremium } from '../contexts/PremiumContext';
 
 // Ad Unit ID for user support rewarded ad
 const USER_SUPPORT_AD_UNIT_ID = __DEV__
@@ -50,6 +51,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   onAdWatched,
 }) => {
   const { t } = useCustomTranslation();
+  const { isPremium } = usePremium();
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [isAdLoading, setIsAdLoading] = useState(true);
@@ -57,8 +59,14 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   const [showThankYouModal, setShowThankYouModal] = useState(false);
   const adEarnedRewardRef = useRef<boolean>(false);
 
-  // Initialize and load rewarded ad
+  // Initialize and load rewarded ad (must be before any conditional returns)
   useEffect(() => {
+    // Skip ad loading for premium users
+    if (isPremium) {
+      setIsAdLoading(false);
+      return;
+    }
+
     const ad = RewardedAd.createForAdRequest(USER_SUPPORT_AD_UNIT_ID, {
       requestNonPersonalizedAdsOnly: false,
     });
@@ -141,7 +149,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
       unsubscribeClosed();
       unsubscribeError();
     };
-  }, [screen, onAdWatched]);
+  }, [screen, onAdWatched, isPremium]);
 
   const handlePress = useCallback(async () => {
     if (!rewardedAd || !isAdLoaded) {
@@ -169,6 +177,11 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   const handleCloseThankYouModal = useCallback(() => {
     setShowThankYouModal(false);
   }, []);
+
+  // Don't render for premium users (after all hooks)
+  if (isPremium) {
+    return null;
+  }
 
   const isDisabled = !isAdLoaded || isShowingAd;
 

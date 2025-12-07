@@ -34,6 +34,8 @@ export interface RemoteConfig {
   latestVersion: string;
   forceUpdate: boolean;
   updateMessage?: { [locale: string]: string };
+  // Premium features kill switch - set to false to hide all premium UI/modals
+  enablePremiumFeatures: boolean;
   updatedAt: number;
 }
 
@@ -45,6 +47,7 @@ export interface RemoteConfigContextType {
   refreshConfig: () => Promise<void>;
   isStreaksEnabledForUser: (userId?: string) => boolean;
   getSupportAdInterval: (placement: keyof SupportAdIntervalsConfig) => number;
+  isPremiumFeaturesEnabled: () => boolean;
 }
 
 export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
@@ -72,6 +75,7 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
     fr: 'Une nouvelle version est disponible avec des améliorations et des corrections de bugs!',
     ru: 'Доступна новая версия с улучшениями и исправлениями ошибок!',
   },
+  enablePremiumFeatures: false, // Disabled by default until ready to launch
   updatedAt: Date.now(),
 };
 

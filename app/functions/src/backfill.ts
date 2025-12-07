@@ -38,7 +38,7 @@ if (!admin.apps.length) {
 }
 
 // Now import user-analytics AFTER admin is initialized
-import { AnalyticsData, INITIAL_ANALYTICS } from './user-analytics';
+import { AnalyticsData, getInitialAnalytics } from './user-analytics';
 
 const db = admin.firestore();
 
@@ -63,8 +63,8 @@ const aggregatedData = new Map<string, AnalyticsData>();
 
 function getOrCreateAnalytics(appId: string): AnalyticsData {
   if (!aggregatedData.has(appId)) {
-    // Deep copy initial state
-    aggregatedData.set(appId, JSON.parse(JSON.stringify(INITIAL_ANALYTICS)));
+    // Get fresh initial state
+    aggregatedData.set(appId, getInitialAnalytics());
   }
   return aggregatedData.get(appId)!;
 }

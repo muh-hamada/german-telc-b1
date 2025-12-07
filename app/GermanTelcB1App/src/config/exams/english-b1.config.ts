@@ -74,6 +74,13 @@ export const englishB1Config: ExamConfig = {
     },
   },
 
+  premium: {
+    productId: {
+      android: 'premium_unlock',
+      ios: 'com.mhamada.telcb1english.premium',
+    },
+  },
+
   writingEvaluationFnName: 'evaluateWritingEnglishB1'
 };
 

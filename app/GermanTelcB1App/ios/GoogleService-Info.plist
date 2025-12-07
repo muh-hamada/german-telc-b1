@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>494473710301-63ilcobt6cbntob4p2g4u69v0klad0fo.apps.googleusercontent.com</string>
+	<string>494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.494473710301-63ilcobt6cbntob4p2g4u69v0klad0fo</string>
+	<string>com.googleusercontent.apps.494473710301-dd0gfpdhm8cn2c7puphlef9meajjjf7g</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>494473710301-07i937d3g9ecu9ahltsp0t57622ajql2.apps.googleusercontent.com</string>
+	<string>494473710301-7hb56foba0cai1gaoe6kaa3m2o1073gc.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCrheGVNbiEPGHZ6JoiYcavfipuxdYveoo</string>
 	<key>GCM_SENDER_ID</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mhamada.telcb1english</string>
+	<string>com.mhamada.telcb1german</string>
 	<key>PROJECT_ID</key>
 	<string>telc-b1-german</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:494473710301:ios:f535300843fab9c8c0a934</string>
+	<string>1:494473710301:ios:f22c98fad2d4bf73c0a934</string>
 </dict>
 </plist>
-

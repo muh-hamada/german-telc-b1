@@ -13,6 +13,7 @@ import { useNotificationReminder } from '../contexts/NotificationReminderContext
 import { useStreak } from '../contexts/StreakContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { usePremium } from '../contexts/PremiumContext';
 
 // Import modal components
 import AppUpdateModal from './AppUpdateModal';
@@ -21,12 +22,15 @@ import NotificationReminderModal from './NotificationReminderModal';
 import HourPickerModal from './HourPickerModal';
 import StreakModal from './StreakModal';
 import StreakRewardModal from './StreakRewardModal';
+import PremiumUpsellModal from './PremiumUpsellModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import premiumPromptService from '../services/premium-prompt.service';
 
 const ModalQueueRenderer: React.FC = () => {
   const { currentModal, dismissCurrentModal } = useModalQueue();
   const { user } = useAuth();
-  const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
+  const { isPremium, isPurchasing, purchasePremium } = usePremium();
   
   // Get context data and handlers
   const { updateInfo, dismissUpdate, openAppStore } = useAppUpdate();
@@ -135,6 +139,22 @@ const ModalQueueRenderer: React.FC = () => {
     return success;
   };
 
+  // Handler for premium upsell modal
+  const handlePremiumUpsellDismiss = async () => {
+    await premiumPromptService.recordModalDismiss();
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_DISMISSED);
+    dismissCurrentModal();
+  };
+
+  const handlePremiumUpsellPurchase = async () => {
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_PURCHASE_CLICKED);
+    const success = await purchasePremium();
+    if (success) {
+      await premiumPromptService.recordPurchase();
+      dismissCurrentModal();
+    }
+  };
+
   // Render based on modal type
   switch (currentModal.type) {
     case 'app-update-forced':
@@ -209,6 +229,21 @@ const ModalQueueRenderer: React.FC = () => {
           currentStreak={streakData?.currentStreak || 0}
           onClaim={handleClaimReward}
           onClose={handleRewardDismiss}
+        />
+      );
+
+    case 'premium-upsell':
+      // Don't show if premium features are disabled or user already has premium
+      if (!isPremiumFeaturesEnabled() || isPremium) {
+        dismissCurrentModal();
+        return null;
+      }
+      return (
+        <PremiumUpsellModal
+          visible={true}
+          onClose={handlePremiumUpsellDismiss}
+          onPurchase={handlePremiumUpsellPurchase}
+          isPurchasing={isPurchasing}
         />
       );
 

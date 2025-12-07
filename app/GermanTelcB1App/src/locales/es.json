@@ -863,7 +863,7 @@
       "nextSection": "Continuar a la siguiente parte"
     },
     "evaluation": {
-      "title": "Tu evaluación (Expresión escrita)",
+      "title": "Tu evaluación",
       "totalScore": "Puntuación total:",
       "criteriaTitle": "Criterios de evaluación:",
       "criteria": {
@@ -1047,5 +1047,70 @@
     "subtitle": "Ayúdanos a mantener esta app gratuita viendo un anuncio corto.",
     "watchAd": "Ver anuncio",
     "skip": "Omitir"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Hazte Premium",
+      "subtitle": "Desbloquea la experiencia completa",
+      "oneTimePurchase": "Compra única",
+      "purchaseButton": "Actualizar ahora",
+      "purchasing": "Procesando...",
+      "maybeLater": "Quizás más tarde"
+    },
+    "features": {
+      "adFree": {
+        "title": "Sin anuncios",
+        "description": "Aprende sin interrupciones de anuncios"
+      },
+      "offline": {
+        "title": "Modo sin conexión",
+        "description": "Descarga todo el contenido y estudia en cualquier lugar"
+      },
+      "streakFreeze": {
+        "title": "Congelar racha",
+        "description": "Protege tu racha con 2 congelaciones por semana"
+      },
+      "support": {
+        "title": "Apoya el desarrollo",
+        "description": "Ayúdanos a traer más exámenes, funciones y mejoras"
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Actualizar a Premium",
+        "description": "Sin anuncios, modo sin conexión y más"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "¿Por qué\nPremium?",
+      "oneTimePurchase": "Compra una vez, accede siempre",
+      "unlockNow": "Desbloquear ahora",
+      "restorePurchases": "Restaurar compras",
+      "restoring": "Restaurando...",
+      "noRestoreFound": "No se encontraron compras anteriores",
+      "restoreSuccess": "¡Compras restauradas exitosamente!",
+      "alreadyPremium": "¡Ya tienes Premium!",
+      "thankYou": "¡Gracias por tu apoyo!",
+      "disclaimer": "Compra única. Desbloquea todas las funciones premium para siempre. Sin suscripción ni pagos recurrentes."
+    }
+  },
+  "offline": {
+    "title": "Modo sin conexión",
+    "subtitle": "Descarga todo el contenido para estudiar sin conexión",
+    "enableTitle": "¿Activar modo sin conexión?",
+    "enableMessage": "Esto descargará todo el contenido de exámenes y archivos de audio. Asegúrate de tener una conexión estable.",
+    "disableTitle": "¿Desactivar modo sin conexión?",
+    "disableMessage": "Esto eliminará todo el contenido descargado. Necesitarás conexión a internet para estudiar.",
+    "download": "Descargar",
+    "downloadNow": "Descargar ahora",
+    "update": "Actualizar",
+    "clear": "Eliminar",
+    "downloaded": "Contenido descargado",
+    "notDownloaded": "Contenido no descargado",
+    "used": "usado",
+    "lastUpdated": "Última actualización:",
+    "error": "Descarga fallida. Por favor intenta de nuevo."
   }
 }

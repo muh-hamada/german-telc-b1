@@ -859,7 +859,7 @@
       "nextSection": "Continuer à la partie suivante"
     },
     "evaluation": {
-      "title": "Votre évaluation (Expression écrite)",
+      "title": "Votre évaluation",
       "totalScore": "Score total:",
       "criteriaTitle": "Critères d'évaluation:",
       "criteria": {
@@ -1048,5 +1048,70 @@
     "subtitle": "Aidez-nous à garder cette app gratuite en regardant une courte pub.",
     "watchAd": "Regarder la pub",
     "skip": "Passer"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Passez à Premium",
+      "subtitle": "Débloquez l'expérience complète",
+      "oneTimePurchase": "Achat unique",
+      "purchaseButton": "Mettre à niveau",
+      "purchasing": "Traitement en cours...",
+      "maybeLater": "Peut-être plus tard"
+    },
+    "features": {
+      "adFree": {
+        "title": "Sans publicité",
+        "description": "Apprenez sans interruption des publicités"
+      },
+      "offline": {
+        "title": "Mode hors ligne",
+        "description": "Téléchargez tout le contenu et étudiez partout"
+      },
+      "streakFreeze": {
+        "title": "Gel de série",
+        "description": "Protégez votre série avec 2 gels par semaine"
+      },
+      "support": {
+        "title": "Soutenir le développement",
+        "description": "Aidez-nous à apporter plus d'examens, de fonctionnalités et d'améliorations"
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Passer à Premium",
+        "description": "Sans pub, mode hors ligne et plus"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "Pourquoi\nPremium ?",
+      "oneTimePurchase": "Achetez une fois, accédez pour toujours",
+      "unlockNow": "Débloquer maintenant",
+      "restorePurchases": "Restaurer les achats",
+      "restoring": "Restauration...",
+      "noRestoreFound": "Aucun achat précédent trouvé",
+      "restoreSuccess": "Achats restaurés avec succès !",
+      "alreadyPremium": "Vous avez déjà Premium !",
+      "thankYou": "Merci pour votre soutien !",
+      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents."
+    }
+  },
+  "offline": {
+    "title": "Mode hors ligne",
+    "subtitle": "Télécharger tout le contenu pour étudier hors ligne",
+    "enableTitle": "Activer le mode hors ligne ?",
+    "enableMessage": "Cela téléchargera tout le contenu des examens et les fichiers audio. Assurez-vous d'avoir une connexion stable.",
+    "disableTitle": "Désactiver le mode hors ligne ?",
+    "disableMessage": "Cela supprimera tout le contenu téléchargé. Vous aurez besoin d'une connexion internet pour étudier.",
+    "download": "Télécharger",
+    "downloadNow": "Télécharger maintenant",
+    "update": "Mettre à jour",
+    "clear": "Supprimer",
+    "downloaded": "Contenu téléchargé",
+    "notDownloaded": "Contenu non téléchargé",
+    "used": "utilisé",
+    "lastUpdated": "Dernière mise à jour :",
+    "error": "Téléchargement échoué. Veuillez réessayer."
   }
 }

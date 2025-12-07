@@ -164,6 +164,19 @@ export const AnalyticsEvents = {
   USER_SUPPORT_AD_SKIPPED: 'user_support_ad_skipped', // When user skips the ad screen
   USER_SUPPORT_AD_ERROR: 'user_support_ad_error', // When ad fails to load
   USER_SUPPORT_AD_SHOW_FAILED: 'user_support_ad_show_failed', // When ad fails to show
+
+  // Premium / In-App Purchase
+  PREMIUM_PURCHASE_INITIATED: 'premium_purchase_initiated',
+  PREMIUM_PURCHASE_SUCCESS: 'premium_purchase_success',
+  PREMIUM_PURCHASE_ERROR: 'premium_purchase_error',
+  PREMIUM_RESTORE_INITIATED: 'premium_restore_initiated',
+  PREMIUM_RESTORE_SUCCESS: 'premium_restore_success',
+  PREMIUM_RESTORE_NOT_FOUND: 'premium_restore_not_found',
+  PREMIUM_RESTORE_ERROR: 'premium_restore_error',
+  PREMIUM_UPSELL_MODAL_SHOWN: 'premium_upsell_modal_shown',
+  PREMIUM_UPSELL_MODAL_DISMISSED: 'premium_upsell_modal_dismissed',
+  PREMIUM_UPSELL_PURCHASE_CLICKED: 'premium_upsell_purchase_clicked',
+  PREMIUM_SCREEN_OPENED: 'premium_screen_opened',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];
