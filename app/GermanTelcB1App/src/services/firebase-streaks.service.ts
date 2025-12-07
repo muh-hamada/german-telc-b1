@@ -493,10 +493,14 @@ class FirebaseStreaksService {
       if (!isActive && streakData.adFreeReward.claimed) {
         console.log('[StreaksService] Ad-free period expired, cleaning up');
         const docPath = this.getStreaksPath(userId);
-        await firestore().doc(docPath).update({
-          'adFreeReward.claimed': false,
-          'adFreeReward.expiresAt': null,
-        });
+        // Use set with merge to handle case where doc doesn't exist
+        await firestore().doc(docPath).set({
+          adFreeReward: {
+            ...streakData.adFreeReward,
+            claimed: false,
+            expiresAt: null,
+          },
+        }, { merge: true });
 
         logEvent(AnalyticsEvents.AD_FREE_EXPIRED);
       }
@@ -532,10 +536,11 @@ class FirebaseStreaksService {
       const today = getLocalDateString();
       const docPath = this.getStreaksPath(userId);
       
-      await firestore().doc(docPath).update({
+      // Use set with merge to handle case where doc doesn't exist
+      await firestore().doc(docPath).set({
         streakModalShownToday: true,
         lastStreakModalDate: today,
-      });
+      }, { merge: true });
 
       logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
         date: today,
@@ -607,9 +612,10 @@ class FirebaseStreaksService {
         };
         
         const docPath = this.getStreaksPath(userId);
-        await firestore().doc(docPath).update({
+        // Use set with merge to create doc if it doesn't exist
+        await firestore().doc(docPath).set({
           streakFreeze: defaultFreeze,
-        });
+        }, { merge: true });
         
         return defaultFreeze;
       }
@@ -623,9 +629,10 @@ class FirebaseStreaksService {
         };
         
         const docPath = this.getStreaksPath(userId);
-        await firestore().doc(docPath).update({
+        // Use set with merge to create doc if it doesn't exist
+        await firestore().doc(docPath).set({
           streakFreeze: refilled,
-        });
+        }, { merge: true });
         
         console.log('[StreaksService] Streak freezes refilled for new week');
         return refilled;
@@ -666,10 +673,11 @@ class FirebaseStreaksService {
       // Also update last activity date to today to maintain the streak
       const today = getLocalDateString();
       
-      await firestore().doc(docPath).update({
+      // Use set with merge to handle case where doc doesn't exist
+      await firestore().doc(docPath).set({
         streakFreeze: updatedFreeze,
         lastActivityDate: today, // This prevents streak from breaking
-      });
+      }, { merge: true });
 
       console.log('[StreaksService] Streak freeze used. Remaining:', updatedFreeze.available);
       

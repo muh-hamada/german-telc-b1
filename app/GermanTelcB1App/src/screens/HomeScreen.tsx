@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   StyleSheet,
   ScrollView,
+  TouchableOpacity,
+  Image,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -21,6 +24,9 @@ import { MainTabParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
+import { useModalQueue } from '../contexts/ModalQueueContext';
+import LoginModal from '../components/LoginModal';
+import { usePremium } from '../contexts/PremiumContext';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -30,6 +36,9 @@ type HomeScreenNavigationProp = CompositeNavigationProp<
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
+  const { enqueue } = useModalQueue();
+  const { isPremium } = usePremium();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -124,7 +133,7 @@ const HomeScreen: React.FC = () => {
 
   const handleLoginPress = () => {
     logEvent(AnalyticsEvents.PROGRESS_CARD_LOGIN_NAVIGATED);
-    navigation.navigate('ProfileStack', { screen: 'Profile', params: { openLoginModal: true } });
+    setShowLoginModal(true);
   };
 
   const handleViewFullStats = () => {
@@ -135,6 +144,12 @@ const HomeScreen: React.FC = () => {
   const handleGrammarStudyPress = () => {
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar_study' });
     navigation.navigate('GrammarStudy');
+  };
+
+  const handleNavigateToPremium = () => {
+    // open premium modal
+    // enqueue premium modal
+    enqueue('premium-upsell');
   };
 
   return (
@@ -208,6 +223,28 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+
+      {/* Fixed Premium Button */}
+      {!isPremium && (
+        <View style={styles.premiumButtonWrapper}>
+          <AnimatedGradientBorder
+            borderWidth={2}
+            borderRadius={32}
+            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']} 
+            duration={500}
+            style={styles.premiumButtonContainer}
+          >
+            <TouchableOpacity onPress={handleNavigateToPremium} style={styles.premiumButtonTouch}>
+              <Image source={require('../../assets/images/diamond.gif')} style={styles.diamondImage} />
+            </TouchableOpacity>
+          </AnimatedGradientBorder>
+        </View>
+      )}
+
+      <LoginModal
+        visible={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+      />
     </SafeAreaView>
   );
 };
@@ -219,6 +256,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    position: 'relative',
   },
   scrollContent: {
     padding: spacing.padding.lg,
@@ -259,6 +297,28 @@ const styles = StyleSheet.create({
   },
   supportAdButton: {
     marginTop: spacing.margin.sm,
+  },
+  premiumButtonWrapper: {
+    position: 'absolute',
+    top: 70,
+    right: spacing.margin.lg,
+    zIndex: 1000,
+    ...spacing.shadow.lg,
+  },
+  premiumButtonContainer: {
+    height: 60,
+    width: 60,
+  },
+  premiumButtonTouch: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.background.primary,
+  },
+  diamondImage: {
+    width: 50,
+    height: 50,
   },
 });
 

@@ -168,7 +168,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     console.error('[PremiumContext] Purchase error:', purchaseError);
 
     // User cancelled is not really an error
-    if (purchaseError.code === ErrorCode.UserCancelled) {
+    if (purchaseError.code === ErrorCode.E_USER_CANCELLED) {
       setError(null);
     } else {
       setError(purchaseError.message || 'Purchase failed');

@@ -1,11 +1,3 @@
-/**
- * Premium Prompt Service
- * 
- * Tracks app usage time and determines when to show premium upsell modal.
- * - First prompt: After 3 minutes of cumulative app usage
- * - Subsequent prompts: 3 days after last dismissal
- */
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ALWAYS_SHOW_PREMIUM_MODAL } from '../config/development.config';
 
