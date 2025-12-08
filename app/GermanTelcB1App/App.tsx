@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ModalQueueRenderer from './src/components/ModalQueueRenderer';
+import OfflineBlockingModal from './src/components/OfflineBlockingModal';
 import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
@@ -40,8 +41,9 @@ const App: React.FC = () => {
                             <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
                             <RootNavigator />
                             <ModalQueueRenderer />
+                            <OfflineBlockingModal />
                           </CompletionProvider>
-                        </ProgressProvider>
+                        </ProgressProvider>>
                       </NotificationReminderProvider>
                     </StreakProvider>
                   </VocabularyProvider>

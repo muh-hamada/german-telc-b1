@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User, AuthError } from '../services/auth.service';
 import AuthService from '../services/auth.service';
 import FirestoreService from '../services/firestore.service';
@@ -39,10 +40,12 @@ type AuthAction =
 // Initial State
 const initialState: AuthState = {
   user: null,
-  isLoading: false,
+  isLoading: true, // Start as loading to allow cache check
   isInitialized: false,
   error: null,
 };
+
+const USER_STORAGE_KEY = 'user_profile_cache_v1';
 
 // Reducer
 const authReducer = (state: AuthState, action: AuthAction): AuthState => {
@@ -78,11 +81,35 @@ interface AuthProviderProps {
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  // Load cached user on mount
+  useEffect(() => {
+    const loadCachedUser = async () => {
+      try {
+        const cachedUser = await AsyncStorage.getItem(USER_STORAGE_KEY);
+        if (cachedUser) {
+          const user = JSON.parse(cachedUser);
+          console.log('[AuthContext] Loaded cached user:', user.uid);
+          dispatch({ type: 'SET_USER', payload: user });
+          // Don't set initialized yet, waiting for firebase auth to confirm
+        }
+      } catch (error) {
+        console.error('[AuthContext] Error loading cached user:', error);
+      }
+    };
+    loadCachedUser();
+  }, []);
+
   // Initialize auth state on mount
   useEffect(() => {
     const unsubscribe = AuthService.onAuthStateChanged(async (user) => {
       console.log('[AuthContext] Auth state changed:', user ? `User ${user.uid}` : 'No user');
+      
       if (user) {
+        // Update cache
+        AsyncStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user)).catch(e => 
+          console.error('[AuthContext] Error caching user:', e)
+        );
+
         try {
           // Create or update user profile in Firestore
           await FirestoreService.createUserProfile(user);
@@ -101,7 +128,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         } catch (error) {
           console.error('[AuthContext] Error creating user profile:', error);
         }
+      } else {
+        // Clear cache if no user (and we are sure it's not just a temp loading state)
+        // But be careful: onAuthStateChanged calls with null on init sometimes?
+        // Actually, it calls with null if not logged in.
+        // So we should clear cache here to be safe, BUT what if we are offline?
+        // If offline, onAuthStateChanged might behave differently.
+        // For now, let's assume if Firebase says null, it means null.
+        // WE DO NOT clear cache here immediately if we want offline support?
+        // If we are offline, Firebase Auth might still provide the user from its own cache.
+        // So if user is null here, it really means logged out.
+        // AsyncStorage.removeItem(USER_STORAGE_KEY); 
       }
+      
       dispatch({ type: 'SET_USER', payload: user });
       dispatch({ type: 'SET_INITIALIZED', payload: true });
     });
@@ -217,6 +256,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       await AuthService.signOut();
       
       console.log('[AuthContext] Sign out successful, clearing user state');
+      
+      // Clear cache
+      await AsyncStorage.removeItem(USER_STORAGE_KEY);
+      
       // Update state to null after successful signout
       dispatch({ type: 'SET_USER', payload: null });
       logEvent(AnalyticsEvents.AUTH_LOGOUT);

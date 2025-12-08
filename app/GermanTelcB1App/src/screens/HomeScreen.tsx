@@ -229,7 +229,7 @@ const HomeScreen: React.FC = () => {
       {!isPremium && !isPremiumLoading && (
         <View style={[styles.premiumButtonWrapper, { top: insets.top + spacing.margin.md }]}>
           <AnimatedGradientBorder
-            borderWidth={3}
+            borderWidth={2}
             borderRadius={32}
             colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']} 
             duration={500}

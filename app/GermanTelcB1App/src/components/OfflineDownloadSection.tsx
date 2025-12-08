@@ -15,6 +15,7 @@ import {
   Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import NetInfo from '@react-native-community/netinfo';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../theme';
 import offlineService, { DownloadProgress, OfflineStatus } from '../services/offline.service';
@@ -30,6 +31,15 @@ const OfflineDownloadSection: React.FC<OfflineDownloadSectionProps> = ({
   const [status, setStatus] = useState<OfflineStatus | null>(null);
   const [progress, setProgress] = useState<DownloadProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isConnected, setIsConnected] = useState<boolean | null>(true);
+
+  // Subscribe to network changes
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected ?? true);
+    });
+    return () => unsubscribe();
+  }, []);
 
   // Load offline status on mount
   useEffect(() => {
@@ -57,6 +67,15 @@ const OfflineDownloadSection: React.FC<OfflineDownloadSectionProps> = ({
   };
 
   const handleEnableOffline = async () => {
+    // Check if online before allowing download/update
+    if (!isConnected) {
+      Alert.alert(
+        t('offline.requiresConnectionTitle'),
+        t('offline.requiresConnectionMessage')
+      );
+      return;
+    }
+
     Alert.alert(
       t('offline.enableTitle'),
       t('offline.enableMessage'),

@@ -1126,6 +1126,13 @@
   "offline": {
     "title": "Offline Mode",
     "subtitle": "Download all content for offline studying",
+    "blocking": {
+      "title": "No Internet Connection",
+      "description": "An active internet connection is required to use the free version of this app.\n\nPremium users can access content offline.",
+      "premiumHint": "Upgrade to Premium for offline access"
+    },
+    "requiresConnectionTitle": "Internet Required",
+    "requiresConnectionMessage": "You need an internet connection to download or update offline content.",
     "enableTitle": "Enable Offline Mode?",
     "enableMessage": "This will download all exam content and audio files. Make sure you have a stable internet connection.",
     "disableTitle": "Disable Offline Mode?",

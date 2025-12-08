@@ -1099,6 +1099,13 @@
   "offline": {
     "title": "Modo sin conexión",
     "subtitle": "Descarga todo el contenido para estudiar sin conexión",
+    "blocking": {
+      "title": "Sin conexión a Internet",
+      "description": "Se requiere una conexión a Internet activa para usar la versión gratuita de esta aplicación.\n\nLos usuarios Premium pueden acceder al contenido sin conexión.",
+      "premiumHint": "Actualiza a Premium para acceso sin conexión"
+    },
+    "requiresConnectionTitle": "Se requiere Internet",
+    "requiresConnectionMessage": "Necesitas una conexión a Internet para descargar o actualizar el contenido sin conexión.",
     "enableTitle": "¿Activar modo sin conexión?",
     "enableMessage": "Esto descargará todo el contenido de exámenes y archivos de audio. Asegúrate de tener una conexión estable.",
     "disableTitle": "¿Desactivar modo sin conexión?",

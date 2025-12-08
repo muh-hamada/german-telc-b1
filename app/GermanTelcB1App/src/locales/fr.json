@@ -1100,6 +1100,13 @@
   "offline": {
     "title": "Mode hors ligne",
     "subtitle": "Télécharger tout le contenu pour étudier hors ligne",
+    "blocking": {
+      "title": "Pas de connexion Internet",
+      "description": "Une connexion Internet active est requise pour utiliser la version gratuite de cette application.\n\nLes utilisateurs Premium peuvent accéder au contenu hors ligne.",
+      "premiumHint": "Passez à Premium pour un accès hors ligne"
+    },
+    "requiresConnectionTitle": "Internet requis",
+    "requiresConnectionMessage": "Vous avez besoin d'une connexion Internet pour télécharger ou mettre à jour le contenu hors ligne.",
     "enableTitle": "Activer le mode hors ligne ?",
     "enableMessage": "Cela téléchargera tout le contenu des examens et les fichiers audio. Assurez-vous d'avoir une connexion stable.",
     "disableTitle": "Désactiver le mode hors ligne ?",

@@ -1125,6 +1125,13 @@
   "offline": {
     "title": "Offline-Modus",
     "subtitle": "Alle Inhalte für Offline-Lernen herunterladen",
+    "blocking": {
+      "title": "Keine Internetverbindung",
+      "description": "Für die kostenlose Version dieser App ist eine aktive Internetverbindung erforderlich.\n\nPremium-Nutzer können Inhalte offline nutzen.",
+      "premiumHint": "Auf Premium upgraden für Offline-Zugang"
+    },
+    "requiresConnectionTitle": "Internet erforderlich",
+    "requiresConnectionMessage": "Du benötigst eine Internetverbindung, um Offline-Inhalte herunterzuladen oder zu aktualisieren.",
     "enableTitle": "Offline-Modus aktivieren?",
     "enableMessage": "Dies lädt alle Prüfungsinhalte und Audiodateien herunter. Stelle sicher, dass du eine stabile Internetverbindung hast.",
     "disableTitle": "Offline-Modus deaktivieren?",
