@@ -9,6 +9,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Purchase, PurchaseError, Product, ErrorCode } from 'react-native-iap';
 import { useAuth } from './AuthContext';
 import { useRemoteConfig } from './RemoteConfigContext';
@@ -54,14 +55,33 @@ const DEFAULT_PREMIUM_DATA: PremiumData = {
   transactionId: null,
 };
 
+const PREMIUM_STORAGE_KEY = 'premium_status_v1';
+
 export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) => {
-  const { user } = useAuth();
+  const { user, isInitialized } = useAuth();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
 
   const [premiumData, setPremiumData] = useState<PremiumData>(DEFAULT_PREMIUM_DATA);
   const [isLoading, setIsLoading] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Load cached premium status on mount
+  useEffect(() => {
+    const loadCachedStatus = async () => {
+      try {
+        const cached = await AsyncStorage.getItem(PREMIUM_STORAGE_KEY);
+        if (cached) {
+          const data = JSON.parse(cached);
+          console.log('[PremiumContext] Loaded cached premium status:', data);
+          setPremiumData(prev => ({ ...prev, ...data }));
+        }
+      } catch (e) {
+        console.error('[PremiumContext] Error loading cached status:', e);
+      }
+    };
+    loadCachedStatus();
+  }, []);
 
   // Product info from store (localized price)
   const [productPrice, setProductPrice] = useState<string | null>(null);
@@ -79,9 +99,17 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
    * Load premium status from Firestore
    */
   const loadPremiumStatus = useCallback(async () => {
+    // If auth is not initialized yet, don't reset premium status
+    // We want to keep the cached status visible while auth loads
+    if (!isInitialized) {
+      console.log('[PremiumContext] Auth not initialized yet, skipping load');
+      return;
+    }
+
     if (!user?.uid) {
-      console.log('[PremiumContext] No user, setting premium to false');
-      setPremiumData(DEFAULT_PREMIUM_DATA);
+      console.log('[PremiumContext] No user and auth initialized, setting premium to false');
+      // If no user, we should clear the premium cache to avoid showing premium for guest
+      setPremiumData(DEFAULT_PREMIUM_DATA); 
       setIsLoading(false);
       return;
     }
@@ -98,20 +126,29 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         const data = docSnapshot.data() as PremiumData;
         console.log('[PremiumContext] Premium data loaded:', data);
         setPremiumData(data);
+        // Cache the data
+        await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(data));
       } else {
         console.log('[PremiumContext] No premium data found, user is not premium');
-        setPremiumData(DEFAULT_PREMIUM_DATA);
+        // Only reset if we don't have cached data showing premium, 
+        // OR if we are sure this is a fresh authoritative check.
+        // But since this is a check against Firestore, it IS authoritative.
+        const newData = DEFAULT_PREMIUM_DATA;
+        setPremiumData(newData);
+        await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(newData));
       }
 
       setError(null);
     } catch (err) {
       console.error('[PremiumContext] Error loading premium status:', err);
+      // If error (e.g. offline), we rely on cached data which we loaded on mount
+      // Don't overwrite with default unless we have no cache? 
+      // We already loaded cache in mount. So if we fail here, we just keep what we have.
       setError('Failed to load premium status');
-      setPremiumData(DEFAULT_PREMIUM_DATA);
     } finally {
       setIsLoading(false);
     }
-  }, [user?.uid, getPremiumPath]);
+  }, [user?.uid, getPremiumPath, isInitialized]);
 
   /**
    * Save premium status to Firestore
@@ -124,6 +161,10 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
 
     try {
       console.log('[PremiumContext] Saving premium status:', data);
+
+      // Save to cache first for immediate feedback next time
+      await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(data));
+      setPremiumData(data); // Optimistic update
 
       const docPath = getPremiumPath(user.uid);
       const docRef = firestore().doc(docPath);

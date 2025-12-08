@@ -37,7 +37,7 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
-  const { isPremium } = usePremium();
+  const { isPremium, isLoading: isPremiumLoading } = usePremium();
   const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -226,8 +226,7 @@ const HomeScreen: React.FC = () => {
         </Card>
       </ScrollView>
 
-      {/* Fixed Premium Button */}
-      {!isPremium && (
+      {!isPremium && !isPremiumLoading && (
         <View style={[styles.premiumButtonWrapper, { top: insets.top + spacing.margin.md }]}>
           <AnimatedGradientBorder
             borderWidth={3}

@@ -51,7 +51,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   onAdWatched,
 }) => {
   const { t } = useCustomTranslation();
-  const { isPremium } = usePremium();
+  const { isPremium, isLoading: isPremiumLoading } = usePremium();
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [isAdLoading, setIsAdLoading] = useState(true);
@@ -179,7 +179,8 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   }, []);
 
   // Don't render for premium users (after all hooks)
-  if (isPremium) {
+  // Also hide while loading premium status to avoid flicker
+  if (isPremium || isPremiumLoading) {
     return null;
   }
 
