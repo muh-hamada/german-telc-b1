@@ -14,6 +14,7 @@ import { colors, spacing, typography } from '../../theme';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { UserAnswer } from '../../types/exam.types';
 import AudioDuration from '../AudioDuration';
+import offlineService from '../../services/offline.service';
 
 interface Statement {
   id: number;
@@ -91,15 +92,19 @@ const ListeningPart1UI: React.FC<ListeningPart1UIProps> = ({ exam, sectionDetail
     return answer ? answer.answer === 'true' : null;
   };
 
-  const handlePlayAudio = () => {
+  const handlePlayAudio = async () => {
     Sound.setCategory('Playback');
     setHasStarted(true);
     setIsPlaying(true);
     const startTs = Date.now();
     logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id });
 
+    // Use offline file if available
+    const audioPath = await offlineService.getLocalAudioPath(exam.audio_url);
+    console.log('[ListeningPart1] Playing audio from:', audioPath);
+
     const audioSound = new Sound(
-      exam.audio_url,
+      audioPath,
       '',
       (error: any) => {
         if (error) {

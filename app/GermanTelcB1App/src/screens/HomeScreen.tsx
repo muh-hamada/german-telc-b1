@@ -7,7 +7,7 @@ import {
   Image,
   View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -38,6 +38,7 @@ const HomeScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
   const { isPremium } = usePremium();
+  const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
@@ -149,6 +150,7 @@ const HomeScreen: React.FC = () => {
   const handleNavigateToPremium = () => {
     // open premium modal
     // enqueue premium modal
+    logEvent(AnalyticsEvents.PREMIUM_HOME_BUTTON_CLICKED);
     enqueue('premium-upsell');
   };
 
@@ -226,9 +228,9 @@ const HomeScreen: React.FC = () => {
 
       {/* Fixed Premium Button */}
       {!isPremium && (
-        <View style={styles.premiumButtonWrapper}>
+        <View style={[styles.premiumButtonWrapper, { top: insets.top + spacing.margin.md }]}>
           <AnimatedGradientBorder
-            borderWidth={2}
+            borderWidth={3}
             borderRadius={32}
             colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']} 
             duration={500}
@@ -300,7 +302,6 @@ const styles = StyleSheet.create({
   },
   premiumButtonWrapper: {
     position: 'absolute',
-    top: 70,
     right: spacing.margin.lg,
     zIndex: 1000,
     ...spacing.shadow.lg,
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.background.primary,
+    backgroundColor: colors.white,
   },
   diamondImage: {
     width: 50,

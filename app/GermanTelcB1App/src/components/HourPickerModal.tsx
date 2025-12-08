@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
-  FlatList,
+  ScrollView,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -50,8 +50,9 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
     onClose();
   };
 
-  const renderHourItem = ({ item }: { item: number }) => (
+  const renderHourItem = (item: number) => (
     <TouchableOpacity
+      key={item}
       style={[
         styles.hourItem,
         selectedHour === item && styles.hourItemSelected,
@@ -99,7 +100,10 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
       <View style={styles.overlay}>
         <TouchableOpacity style={styles.backdrop} onPress={onClose} />
         <SafeAreaView style={styles.container}>
-          <View style={styles.content}>
+          <ScrollView 
+            contentContainerStyle={styles.content}
+            showsVerticalScrollIndicator={false}
+          >
             <View style={styles.header}>
               <Text style={styles.title}>{t('settings.selectHour')}</Text>
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
@@ -109,14 +113,15 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
 
             {/* Hour Picker */}
             <View style={styles.pickerContainer}>
-              <FlatList
-                data={allHours}
-                renderItem={renderHourItem}
-                keyExtractor={(item) => item.toString()}
-                numColumns={6}
-                contentContainerStyle={styles.hourGrid}
-                showsVerticalScrollIndicator={false}
-              />
+              {Array.from({ length: 4 }).map((_, rowIndex) => (
+                <View key={rowIndex} style={styles.row}>
+                  {allHours.slice(rowIndex * 6, (rowIndex + 1) * 6).map((hour) => (
+                    <View key={hour} style={styles.hourItemWrapper}>
+                      {renderHourItem(hour)}
+                    </View>
+                  ))}
+                </View>
+              ))}
             </View>
 
             {/* Popular Hours */}
@@ -134,7 +139,7 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
               variant="primary"
               style={styles.doneButton}
             />
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </View>
     </Modal>
@@ -154,7 +159,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
     borderTopLeftRadius: spacing.borderRadius.xl,
     borderTopRightRadius: spacing.borderRadius.xl,
-    maxHeight: '70%',
+    maxHeight: '90%',
   },
   content: {
     padding: spacing.padding.lg,
@@ -177,11 +182,14 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   pickerContainer: {
-    maxHeight: 250,
     marginBottom: spacing.margin.lg,
   },
-  hourGrid: {
-    paddingVertical: spacing.padding.sm,
+  row: {
+    flexDirection: 'row',
+    marginBottom: spacing.margin.xs,
+  },
+  hourItemWrapper: {
+    flex: 1,
   },
   hourItem: {
     flex: 1,

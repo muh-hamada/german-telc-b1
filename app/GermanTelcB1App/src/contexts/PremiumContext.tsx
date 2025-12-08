@@ -141,6 +141,10 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
    */
   const handlePurchaseComplete = useCallback(async (purchase: Purchase) => {
     console.log('[PremiumContext] Purchase complete:', purchase);
+    logEvent(AnalyticsEvents.PREMIUM_PURCHASE_SUCCESS, {
+      productId: purchase.productId,
+      transactionId: purchase.transactionId,
+    });
 
     const newPremiumData: PremiumData = {
       isPremium: true,
@@ -166,6 +170,10 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
    */
   const handlePurchaseError = useCallback((purchaseError: PurchaseError) => {
     console.error('[PremiumContext] Purchase error:', purchaseError);
+    logEvent(AnalyticsEvents.PREMIUM_PURCHASE_ERROR, {
+      code: purchaseError.code,
+      message: purchaseError.message,
+    });
 
     // User cancelled is not really an error
     if (purchaseError.code === ErrorCode.E_USER_CANCELLED) {
@@ -259,6 +267,9 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     }
 
     try {
+      logEvent(AnalyticsEvents.PREMIUM_PURCHASE_INITIATED, {
+        productId: activeExamConfig.id,
+      });
       setIsPurchasing(true);
       setError(null);
 
@@ -267,6 +278,9 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       return true;
     } catch (err) {
       console.error('[PremiumContext] Error initiating purchase:', err);
+      logEvent(AnalyticsEvents.PREMIUM_PURCHASE_ERROR, {
+        error: String(err),
+      });
       setError('Failed to start purchase');
       setIsPurchasing(false);
       return false;
@@ -283,12 +297,17 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     }
 
     try {
+      logEvent(AnalyticsEvents.PREMIUM_RESTORE_INITIATED);
       setIsPurchasing(true);
       setError(null);
 
       const purchase = await purchaseService.restorePurchases();
 
       if (purchase) {
+        logEvent(AnalyticsEvents.PREMIUM_RESTORE_SUCCESS, {
+          productId: purchase.productId,
+          transactionId: purchase.transactionId,
+        });
         const newPremiumData: PremiumData = {
           isPremium: true,
           purchaseDate: purchase.transactionDate || Date.now(),
@@ -301,12 +320,16 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         setIsPurchasing(false);
         return true;
       } else {
+        logEvent(AnalyticsEvents.PREMIUM_RESTORE_NOT_FOUND);
         setError('No previous purchases found');
         setIsPurchasing(false);
         return false;
       }
     } catch (err) {
       console.error('[PremiumContext] Error restoring purchases:', err);
+      logEvent(AnalyticsEvents.PREMIUM_RESTORE_ERROR, {
+        error: String(err),
+      });
       setError('Failed to restore purchases');
       setIsPurchasing(false);
       return false;

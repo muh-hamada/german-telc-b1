@@ -177,6 +177,9 @@ export const AnalyticsEvents = {
   PREMIUM_UPSELL_MODAL_DISMISSED: 'premium_upsell_modal_dismissed',
   PREMIUM_UPSELL_PURCHASE_CLICKED: 'premium_upsell_purchase_clicked',
   PREMIUM_SCREEN_OPENED: 'premium_screen_opened',
+  PREMIUM_SCREEN_PURCHASE_CLICKED: 'premium_screen_purchase_clicked',
+  PREMIUM_SCREEN_RESTORE_CLICKED: 'premium_screen_restore_clicked',
+  PREMIUM_HOME_BUTTON_CLICKED: 'premium_home_button_clicked',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

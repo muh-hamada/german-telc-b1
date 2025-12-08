@@ -14,7 +14,7 @@ import {
   Alert,
   I18nManager,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -32,12 +32,14 @@ const PremiumScreen: React.FC = () => {
   const { isPremium, isPurchasing, purchasePremium, restorePurchases } = usePremium();
   const [isRestoring, setIsRestoring] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const insets = useSafeAreaInsets();
 
   React.useEffect(() => {
     logEvent(AnalyticsEvents.PREMIUM_SCREEN_OPENED);
   }, []);
 
   const handlePurchase = async () => {
+    logEvent(AnalyticsEvents.PREMIUM_SCREEN_PURCHASE_CLICKED);
     if (!user) {
       setShowLoginModal(true);
       return;
@@ -46,6 +48,7 @@ const PremiumScreen: React.FC = () => {
   };
 
   const handleRestore = async () => {
+    logEvent(AnalyticsEvents.PREMIUM_SCREEN_RESTORE_CLICKED);
     if (!user) {
       setShowLoginModal(true);
       return;
@@ -91,7 +94,7 @@ const PremiumScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Back button */}
-      <TouchableOpacity onPress={handleBack} style={styles.backButton}>
+      <TouchableOpacity onPress={handleBack} style={[styles.backButton, { top: insets.top + spacing.margin.md }]}>
         <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
       </TouchableOpacity>
 
@@ -126,7 +129,6 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 50,
     left: 20,
     width: 44,
     height: 44,

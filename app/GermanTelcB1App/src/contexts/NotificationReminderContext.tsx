@@ -1,10 +1,3 @@
-/**
- * Notification Reminder Context
- * 
- * Manages notification reminder prompt state and logic across the application.
- * Uses the ModalQueueContext to show notification modals.
- */
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Alert, Platform, Linking, PermissionsAndroid } from 'react-native';
 import notificationReminderService, { TriggerType } from '../services/notification-reminder.service';

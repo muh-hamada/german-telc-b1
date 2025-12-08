@@ -95,7 +95,8 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       <View style={styles.bgShapeTop} />
       <View style={styles.bgShapeBottom} />
 
-      {/* Close button */}
+      <Sparkles />
+
       {showCloseButton && onClose && (
         <TouchableOpacity
           style={styles.closeButton}
@@ -115,8 +116,6 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         <View style={styles.header}>
           <Text style={styles.title}>{t('premium.screen.whyPremium')}</Text>
         </View>
-        
-        <Sparkles />
 
         {/* Subtitle */}
         <Text style={styles.subtitle}>{t('premium.screen.oneTimePurchase')}</Text>
@@ -293,57 +292,57 @@ const styles = StyleSheet.create({
   // Row 1 - Top (0-25%)
   sparkle1: {
     fontSize: 10,
-    top: '5%',
-    left: '15%',
-    color: '#22D3EE', // Light cyan
+    top: '100%',
+    right: '25%',
+    color: 'orange', // Light cyan
   },
   sparkle2: {
     fontSize: 18,
-    top: '8%',
-    left: '45%',
+    top: '65%',
+    left: '35%',
     color: '#8B5CF6', // Purple
   },
   sparkle3: {
     fontSize: 8,
-    top: '12%',
-    right: '20%',
+    top: '82%',
+    right: '70%',
     color: '#FBBF24', // Yellow
   },
   // Row 2 - Upper middle (25-45%)
   sparkle4: {
     fontSize: 24,
-    top: '28%',
+    top: '38%',
     left: '10%',
     color: '#6366F1', // Indigo
   },
   sparkle5: {
     fontSize: 12,
-    top: '32%',
+    top: '42%',
     left: '55%',
     color: '#818CF8', // Light indigo
   },
   sparkle6: {
     fontSize: 22,
-    top: '48%',
-    right: '8%',
+    top: '80%',
+    right: '38%',
     color: '#EC4899', // Pink
   },
   // Row 3 - Middle (45-65%)
   sparkle7: {
     fontSize: 14,
-    top: '50%',
+    top: '60%',
     left: '25%',
     color: '#A78BFA', // Light purple
   },
   sparkle8: {
     fontSize: 17,
-    top: '55%',
+    top: '65%',
     right: '25%',
     color: '#F59E0B', // Amber
   },
   sparkle9: {
     fontSize: 9,
-    top: '60%',
+    top: '70%',
     left: '60%',
     color: '#C084FC', // Lighter purple
   },
@@ -356,20 +355,20 @@ const styles = StyleSheet.create({
   },
   sparkle11: {
     fontSize: 13,
-    top: '75%',
+    top: '85%',
     left: '40%',
     color: '#F472B6', // Light pink
   },
   sparkle12: {
     fontSize: 10,
-    top: '80%',
+    top: '90%',
     right: '15%',
     color: '#34D399', // Emerald
   },
 
   // Features section
   featuresSection: {
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.lg,
   },
   featureItem: {
     flexDirection: 'row',

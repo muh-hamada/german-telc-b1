@@ -13,6 +13,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useAuth } from '../../contexts/AuthContext';
 import LoginModal from '../../components/LoginModal';
+import offlineService from '../../services/offline.service';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPractice'>;
 
@@ -41,19 +42,40 @@ const ListeningPracticeScreen: React.FC = () => {
       return;
     }
 
-    const newSound = new Sound(interview.audio_url, '', (error) => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        Alert.alert('Error', 'Failed to load audio file');
-        return;
-      }
-      setIsLoaded(true);
-      setDuration(newSound.getDuration());
-    });
+    let isMounted = true;
+    let newSound: Sound | null = null;
 
-    setSound(newSound);
+    const loadSound = async () => {
+      // Use offline file if available
+      const audioPath = await offlineService.getLocalAudioPath(interview.audio_url);
+      console.log('[ListeningPractice] Playing audio from:', audioPath);
+
+      if (!isMounted) return;
+
+      newSound = new Sound(audioPath, '', (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          Alert.alert('Error', 'Failed to load audio file');
+          return;
+        }
+        if (isMounted) {
+          setIsLoaded(true);
+          // newSound is not null here if successful
+          if (newSound) {
+            setDuration(newSound.getDuration());
+          }
+        }
+      });
+      
+      if (isMounted) {
+        setSound(newSound);
+      }
+    };
+
+    loadSound();
 
     return () => {
+      isMounted = false;
       if (newSound) {
         newSound.release();
       }

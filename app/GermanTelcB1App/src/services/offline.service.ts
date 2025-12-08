@@ -10,6 +10,7 @@ import RNFS from 'react-native-fs';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 import { activeExamConfig } from '../config/active-exam.config';
+import i18n from '../utils/i18n';
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -20,8 +21,69 @@ const STORAGE_KEYS = {
   DOWNLOAD_PROGRESS: '@offline_download_progress',
 };
 
+const progressMessageLocalizations: Record<string, Record<string, string>> = {
+  en: {
+    preparing: 'Preparing...',
+    downloadingExamData: 'Downloading exam data...',
+    downloadingAudioFiles: 'Downloading audio files...',
+    completed: 'Download complete',
+    progressMessage: 'File {{current}}/{{total}}',
+  },
+  de: {
+    preparing: 'Vorbereitung...',
+    downloadingExamData: 'Prüfungsdaten herunterladen...',
+    downloadingAudioFiles: 'Audiodateien herunterladen...',
+    completed: 'Herunterladen abgeschlossen',
+    progressMessage: 'Datei {{current}}/{{total}}',
+  },
+  es: {
+    preparing: 'Preparando...',
+    downloadingExamData: 'Descargando datos del examen...',
+    downloadingAudioFiles: 'Descargando archivos de audio...',
+    completed: 'Descarga completada',
+    progressMessage: 'Archivo {{current}}/{{total}}',
+  },
+  fr: {
+    preparing: 'Préparation...',
+    downloadingExamData: 'Téléchargement des données de l\'examen...',
+    downloadingAudioFiles: 'Téléchargement des fichiers audio...',
+    completed: 'Téléchargement terminé',
+    progressMessage: 'Fichier {{current}}/{{total}}',
+  },
+  it: {
+    preparing: 'Preparazione...',
+    downloadingExamData: 'Download dei dati dell\'esame...',
+    downloadingAudioFiles: 'Download dei file audio...',
+    completed: 'Download completato',
+    progressMessage: 'File {{current}}/{{total}}',
+  },
+  pt: {
+    preparing: 'Preparando...',
+    downloadingExamData: 'Download dos dados do exame...',
+    downloadingAudioFiles: 'Download dos arquivos de áudio...',
+    completed: 'Download concluído',
+    progressMessage: 'Arquivo {{current}}/{{total}}',
+  },
+  ru: {
+    preparing: 'Подготовка...',
+    downloadingExamData: 'Загрузка данных экзамена...',
+    downloadingAudioFiles: 'Загрузка аудио файлов...',
+    completed: 'Загрузка завершена',
+    progressMessage: 'Файл {{current}}/{{total}}',
+  },
+  'ar': {
+    preparing: 'جاري التحميل...',
+    downloadingExamData: 'جاري تحميل بيانات الامتحان...',
+    downloadingAudioFiles: 'جاري تحميل ملفات الصوت...',
+    completed: 'تحميل مكتمل',
+    progressMessage: 'ملف {{current}}/{{total}}',
+  },
+};
+
 // Directory for downloaded audio files
 const OFFLINE_AUDIO_DIR = `${RNFS.DocumentDirectoryPath}/offline_audio`;
+// File path for exam data
+const OFFLINE_DATA_FILE = `${RNFS.DocumentDirectoryPath}/offline_data.json`;
 
 export interface DownloadProgress {
   status: 'idle' | 'downloading' | 'completed' | 'error';
@@ -77,7 +139,9 @@ class OfflineService {
    * Notify all listeners of progress update
    */
   private notifyProgress(): void {
-    this.progressListeners.forEach(listener => listener(this.downloadProgress));
+    // Create a copy to ensure React detects state changes
+    const progressCopy = { ...this.downloadProgress };
+    this.progressListeners.forEach(listener => listener(progressCopy));
   }
 
   /**
@@ -85,13 +149,13 @@ class OfflineService {
    */
   async getOfflineStatus(): Promise<OfflineStatus> {
     try {
-      const [isEnabled, lastDownloadStr, examData] = await Promise.all([
+      const [isEnabled, lastDownloadStr] = await Promise.all([
         AsyncStorage.getItem(STORAGE_KEYS.OFFLINE_ENABLED),
         AsyncStorage.getItem(STORAGE_KEYS.LAST_DOWNLOAD_DATE),
-        AsyncStorage.getItem(STORAGE_KEYS.EXAM_DATA),
       ]);
 
-      const isDownloaded = !!examData && examData !== '{}';
+      const dataExists = await RNFS.exists(OFFLINE_DATA_FILE);
+      const isDownloaded = dataExists;
       const lastDownloadDate = lastDownloadStr ? parseInt(lastDownloadStr, 10) : null;
 
       // Calculate storage used
@@ -122,9 +186,10 @@ class OfflineService {
       let totalBytes = 0;
 
       // Get exam data size
-      const examData = await AsyncStorage.getItem(STORAGE_KEYS.EXAM_DATA);
-      if (examData) {
-        totalBytes += new Blob([examData]).size;
+      const dataExists = await RNFS.exists(OFFLINE_DATA_FILE);
+      if (dataExists) {
+        const stat = await RNFS.stat(OFFLINE_DATA_FILE);
+        totalBytes += stat.size;
       }
 
       // Get audio files size
@@ -187,17 +252,20 @@ class OfflineService {
    */
   async downloadAllContent(): Promise<boolean> {
     try {
+      const lang = i18n.language || 'en';
+      const messages = progressMessageLocalizations[lang] || progressMessageLocalizations['en'];
+
       this.downloadProgress = {
         status: 'downloading',
         totalItems: 0,
         downloadedItems: 0,
-        currentItem: 'Preparing...',
+        currentItem: messages.preparing,
       };
       this.notifyProgress();
 
       // Step 1: Download exam data from Firestore
       console.log('[OfflineService] Downloading exam data...');
-      this.downloadProgress.currentItem = 'Downloading exam data...';
+      this.downloadProgress.currentItem = messages.downloadingExamData;
       this.notifyProgress();
 
       const examData = await this.downloadExamData();
@@ -205,24 +273,33 @@ class OfflineService {
         throw new Error('Failed to download exam data');
       }
 
+      const examDataDocsCount = Object.keys(examData).length;
+
       // Step 2: Extract audio URLs from exam data and download
       console.log('[OfflineService] Downloading audio files...');
       const audioUrls = this.extractAudioUrls(examData);
-      this.downloadProgress.totalItems = audioUrls.length;
+      
+      // Total items = exam data docs count + audio files count
+      this.downloadProgress.totalItems = examDataDocsCount + audioUrls.length;
+      // We consider the exam docs "downloaded" now since we fetched them all in one batch above
+      this.downloadProgress.downloadedItems = examDataDocsCount;
       this.notifyProgress();
 
       for (let i = 0; i < audioUrls.length; i++) {
         const url = audioUrls[i];
-        this.downloadProgress.currentItem = `Audio file ${i + 1}/${audioUrls.length}`;
+        this.downloadProgress.currentItem = messages.progressMessage
+          .replace('{{current}}',  this.downloadProgress.downloadedItems.toString())
+          .replace('{{total}}', this.downloadProgress.totalItems.toString());
         this.notifyProgress();
 
         await this.downloadAudioFile(url);
-        this.downloadProgress.downloadedItems = i + 1;
+        
+        this.downloadProgress.downloadedItems = examDataDocsCount + i + 1;
         this.notifyProgress();
       }
 
       this.downloadProgress.status = 'completed';
-      this.downloadProgress.currentItem = 'Download complete';
+      this.downloadProgress.currentItem = messages.completed;
       this.notifyProgress();
 
       console.log('[OfflineService] All content downloaded successfully');
@@ -263,10 +340,14 @@ class OfflineService {
         console.log('[OfflineService] No vocabulary data to download');
       }
 
-      // Save to AsyncStorage
-      await AsyncStorage.setItem(STORAGE_KEYS.EXAM_DATA, JSON.stringify(examData));
+      // Save to File instead of AsyncStorage
+      await RNFS.writeFile(OFFLINE_DATA_FILE, JSON.stringify(examData), 'utf8');
       
       console.log('[OfflineService] Exam data downloaded:', Object.keys(examData).length, 'documents');
+      // Update progress for documents
+      this.downloadProgress.downloadedItems = Object.keys(examData).length;
+      this.notifyProgress();
+
       return examData;
     } catch (error) {
       console.error('[OfflineService] Error downloading exam data:', error);
@@ -306,6 +387,12 @@ class OfflineService {
    */
   private async downloadAudioFile(url: string): Promise<void> {
     try {
+      // Ensure audio directory exists
+      const dirExists = await RNFS.exists(OFFLINE_AUDIO_DIR);
+      if (!dirExists) {
+        await RNFS.mkdir(OFFLINE_AUDIO_DIR);
+      }
+
       // Generate local filename from URL
       const filename = this.getFilenameFromUrl(url);
       const localPath = `${OFFLINE_AUDIO_DIR}/${filename}`;
@@ -356,13 +443,18 @@ class OfflineService {
   async getLocalAudioPath(url: string): Promise<string> {
     try {
       const status = await this.getOfflineStatus();
+      console.log('[OfflineService] Status:', status);
+      console.log('[OfflineService] Is enabled:', status.isEnabled);
+      console.log('[OfflineService] Is downloaded:', status.isDownloaded);
+      console.log('[OfflineService] URL:', url);
       if (!status.isEnabled || !status.isDownloaded) {
         return url;
       }
 
       const filename = this.getFilenameFromUrl(url);
+      console.log('[OfflineService] Filename:', filename);
       const localPath = `${OFFLINE_AUDIO_DIR}/${filename}`;
-      
+      console.log('[OfflineService] Local path:', localPath);
       const exists = await RNFS.exists(localPath);
       if (exists) {
         return `file://${localPath}`;
@@ -385,8 +477,9 @@ class OfflineService {
         return null;
       }
 
-      const dataStr = await AsyncStorage.getItem(STORAGE_KEYS.EXAM_DATA);
-      if (dataStr) {
+      const exists = await RNFS.exists(OFFLINE_DATA_FILE);
+      if (exists) {
+        const dataStr = await RNFS.readFile(OFFLINE_DATA_FILE, 'utf8');
         return JSON.parse(dataStr);
       }
       return null;
@@ -403,11 +496,18 @@ class OfflineService {
     try {
       // Clear AsyncStorage
       await AsyncStorage.multiRemove([
-        STORAGE_KEYS.EXAM_DATA,
         STORAGE_KEYS.AUDIO_MANIFEST,
         STORAGE_KEYS.LAST_DOWNLOAD_DATE,
         STORAGE_KEYS.DOWNLOAD_PROGRESS,
       ]);
+      // Remove old EXAM_DATA if it exists in AsyncStorage
+      await AsyncStorage.removeItem(STORAGE_KEYS.EXAM_DATA);
+
+      // Clear data file
+      const dataExists = await RNFS.exists(OFFLINE_DATA_FILE);
+      if (dataExists) {
+        await RNFS.unlink(OFFLINE_DATA_FILE);
+      }
 
       // Clear audio files
       const exists = await RNFS.exists(OFFLINE_AUDIO_DIR);
