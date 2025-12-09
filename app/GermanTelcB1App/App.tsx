@@ -43,7 +43,7 @@ const App: React.FC = () => {
                             <ModalQueueRenderer />
                             <OfflineBlockingModal />
                           </CompletionProvider>
-                        </ProgressProvider>>
+                        </ProgressProvider>
                       </NotificationReminderProvider>
                     </StreakProvider>
                   </VocabularyProvider>

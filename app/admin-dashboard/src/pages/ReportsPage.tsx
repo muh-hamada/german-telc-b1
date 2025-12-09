@@ -6,7 +6,7 @@ import { DistributionChart } from '../components/DistributionChart';
 import { toast } from 'react-toastify';
 import './ReportsPage.css';
 
-type MetricKey = 'totalUsers' | 'activeStreaks' | 'wordsStudied' | 'examsCompleted' | 'notificationsEnabled';
+type MetricKey = 'totalUsers' | 'activeStreaks' | 'wordsStudied' | 'examsCompleted' | 'notificationsEnabled' | 'premiumUsers';
 
 interface TrendData {
   date: string;
@@ -65,6 +65,7 @@ export const ReportsPage: React.FC = () => {
         acc.wordsMastered += app.current.vocabulary.totalMastered;
         acc.examsCompleted += app.current.progress.examsCompleted;
         acc.notificationsEnabled += app.current.notifications.enabled;
+        acc.premiumUsers += app.current.premium?.total || 0;
       }
       return acc;
     }, {
@@ -74,6 +75,7 @@ export const ReportsPage: React.FC = () => {
       wordsMastered: 0,
       examsCompleted: 0,
       notificationsEnabled: 0,
+      premiumUsers: 0,
     });
   }, [allAppsData]);
 
@@ -96,6 +98,9 @@ export const ReportsPage: React.FC = () => {
           break;
         case 'notificationsEnabled':
           value = snap.notifications?.enabled || 0;
+          break;
+        case 'premiumUsers':
+          value = snap.premium?.total || 0;
           break;
       }
       return { date: snap.date, value };
@@ -189,6 +194,13 @@ export const ReportsPage: React.FC = () => {
               icon="✅"
               color="warning"
             />
+            <StatCard
+              title="Premium Users"
+              value={totals.premiumUsers.toLocaleString()}
+              subtitle={totals.totalUsers > 0 ? `${((totals.premiumUsers / totals.totalUsers) * 100).toFixed(1)}% of users` : '0% of users'}
+              icon="⭐"
+              color="success"
+            />
           </div>
         </section>
 
@@ -208,6 +220,10 @@ export const ReportsPage: React.FC = () => {
                     <div className="app-stat">
                       <span className="app-stat-value">{app.current.totalUsers.toLocaleString()}</span>
                       <span className="app-stat-label">Users</span>
+                    </div>
+                    <div className="app-stat">
+                      <span className="app-stat-value">{app.current.premium?.total || 0}</span>
+                      <span className="app-stat-label">Premium</span>
                     </div>
                     <div className="app-stat">
                       <span className="app-stat-value">{app.current.streaks.activeStreaks}</span>
@@ -261,6 +277,11 @@ export const ReportsPage: React.FC = () => {
                       data={getTrendData(selectedAppData.snapshots, 'examsCompleted')} 
                       color="#ff9800"
                     />
+                    <TrendChart 
+                      title="Premium Users" 
+                      data={getTrendData(selectedAppData.snapshots, 'premiumUsers')} 
+                      color="#ffc107"
+                    />
                   </div>
                 ) : (
                   <p className="no-snapshots">No historical snapshots available yet.</p>
@@ -297,6 +318,13 @@ export const ReportsPage: React.FC = () => {
                   data={[
                     { label: 'Enabled', value: selectedAppData.current.notifications.enabled },
                     { label: 'Disabled', value: selectedAppData.current.notifications.disabled },
+                  ]}
+                />
+                <DistributionChart
+                  title="Premium Status"
+                  data={[
+                    { label: 'Premium', value: selectedAppData.current.premium?.total || 0 },
+                    { label: 'Free', value: selectedAppData.current.premium?.nonPremium || 0 },
                   ]}
                 />
                 <DistributionChart

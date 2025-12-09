@@ -47,16 +47,18 @@ const VOCAB_COLLECTIONS = {
   'vocabulary_progress_german_a1': 'german-b1',
   'vocabulary_progress_german_b2': 'german-b2',
   'vocabulary_progress_english_b1': 'english-b1',
+  'vocabulary_progress_english_b2': 'english-b2',
 };
 
 const PROGRESS_COLLECTIONS = {
-  'progress': 'german-b1',
+  'progress': 'german-b1', // German B1, backward compatibility
   'german_b2_progress': 'german-b2',
   'english_b1_progress': 'english-b1',
+  'english_b2_progress': 'english-b2',
 };
 
 // Valid App IDs to ensure we initialize them
-const APP_IDS = ['german-b1', 'german-b2', 'english-b1'];
+const APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
 
 // Storage for aggregated data
 const aggregatedData = new Map<string, AnalyticsData>();

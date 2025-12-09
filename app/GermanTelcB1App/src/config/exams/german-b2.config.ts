@@ -76,8 +76,8 @@ export const germanB2Config: ExamConfig = {
 
   premium: {
     productId: {
-      android: 'premium_unlock',
-      ios: 'com.mhamada.telcb2german.premium',
+      android: 'full_access',
+      ios: 'full_access_german_b2',
     },
   },
 

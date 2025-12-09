@@ -76,8 +76,8 @@ export const englishB1Config: ExamConfig = {
 
   premium: {
     productId: {
-      android: 'premium_unlock',
-      ios: 'com.mhamada.telcb1english.premium',
+      android: 'full_access',
+      ios: 'full_access_english_b1',
     },
   },
 

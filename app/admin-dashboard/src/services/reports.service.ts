@@ -18,6 +18,10 @@ export interface AnalyticsData {
     enabled: number;
     disabled: number;
   };
+  premium: {
+    total: number;
+    nonPremium: number;
+  };
   personas: { [key: string]: number };
   vocabulary: {
     totalWordsStudied: number;

@@ -76,7 +76,7 @@ export const germanB1Config: ExamConfig = {
   premium: {
     productId: {
       android: 'full_access',
-      ios: 'full_access',
+      ios: 'full_access_german_b1',
     },
   },
 
