@@ -1,0 +1,588 @@
+You are an expert English-language tutor specializing in creating the **Telc B2 English Exam**.
+
+My goal is to create a new question similar to those below for students to solve in mock exams before the real exam.
+
+To generate an accurate and relevant question, you must carefully review the provided question before you create a new one.
+
+Your highest priority is accuracy and relevance. Carefully craft to match the difficulty level, vocabulary, and structural logic of the official exams, ensuring valid distractors and clear correct answers.
+
+-----
+
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- 5 texts
+- 10 headings
+- id: int
+- title: general title for the question. 4-6 words long
+
+{
+    "texts": [
+        {
+            "correct": "j",
+            "id": 1,
+            "text": "A man who has been in a coma for 19 years after a car crash woke up and started talking to his mother, who was sitting at his bedside. Terry Wallis began his return to consciousness slowly with just a few nouns, but gradually a flood of phrases came pouring out. 'He started out with 'mum', and then it was 'milk' and 'tree', said the director of the Arkansas rehabilitation centre where Wallis was being cared for. Terry, now 39, was driving home 19 years ago when his car left the road and plunged into a stream. He was found the next day under a bridge and was in a coma. Terry's daughter Amber, who was born shortly before the crash, is thrilled to now be able to build up a relationship with her father. According to Terry's father, his son talks almost non-stop now. 'It's so peculiar, it's going to take some getting used to!'"
+        },
+        {
+            "correct": "e",
+            "id": 2,
+            "text": "In an attempt to combat the rise in ownership of dangerous animals, the government has announced plans to introduce an addition to the law stating that all dogs must now be fitted with a microchip. Voluntary 'chipping' of animals is already a common practice and involves a small electronic device being implanted under the animal's skin. Each chip has a unique number that can be read by a scanner. Vets, the police or an animal welfare organisation can quickly and easily trace the animal's owner. There are an estimated eight million dogs in Britain, and four breeds are currently banned under the Dangerous Dogs Act (1991). Critics of the plan say that it will do nothing to tackle problems with these banned breeds, since people who already own such dogs are likely to ignore the new legislation as they fear to lose their animals. However, owners who can prove that their dogs are not dangerous will be given a Certificate of Exemption."
+        },
+        {
+            "correct": "c",
+            "id": 3,
+            "text": "Faced with a tough problem, the traditional advice is to 'sleep on it. And, according to new research, 'sleeping on it' may be exactly the right thing to do: a good night's sleep really does help the brain get to grips with information and to act on it the following day. Researchers at the University of Pennsylvania studied how well mice absorbed or 'consolidated' new information and remembered it the next day. Scientists gave two groups of mice a small electric shock when they were put in a specific place to generate fear of that particular location. One group of mice was then allowed to sleep, while the other group was kept awake. Twenty four hours later, the two groups were tested to see if they 'froze' when put in this same area. Those who slept were four times more likely to show fear than those kept awake. Researchers concluded that sleeping during the five hours after learning was crucial for 'memory consolidation'."
+        },
+        {
+            "correct": "d",
+            "id": 4,
+            "text": "After flourishing for millions of years, the last sixty years has seen a huge decline in the country's bee population. Some species have already disappeared completely from the British countryside and others are now considered endangered. Experts believe that the reduction in bee numbers is due to changing weather patterns, the increased use of insecticides in farming and gardening, and the loss of habitat as our cities expand. Albert Einstein, the physicist, said that if all bees became extinct, human society would follow within a few years. This statement was based on the fact that in our interconnected ecosystem, the production of food is almost entirely dependent on these useful workers, and yet many of us take the work they do for granted. While collecting nectar for themselves, bees transfer pollen from one plant to another, ensuring that, for example, fruit grows. Currently, bee keepers, scientists and conservation organisations are working hard to save our bee population."
+        },
+        {
+            "correct": "i",
+            "id": 5,
+            "text": "A woman deliberately left her four-metre long python behind when moving home, and explained this to the council as she was dropping off the keys. The unnamed tenant of a council flat near Birmingham said to the council worker on duty, 'I'm catching a train to Norfolk and I'm not coming back. I've just fed my Burmese python and I'm leaving her in the flat.' Housing officers quickly rang the Royal Society for the Prevention of Cruelty to Animals (RSPCA), which sent two inspectors to collect the 25-kilo snake, which they found curled up in the living room. The snake is now being cared for at a reptile centre in Birmingham while the RSPCA tries to trace its former owner. A spokesman for the district council said, 'Our housing department has heard some strange things from our tenants over the years, but this has to be the strangest.'"
+        }
+    ],
+    "headings": [
+        "Accident fatal for 19-year-old",
+        "Dangerous pets banned under new legislation",
+        "Important decision? Head for bed!",
+        "Life on earth at risk",
+        "New regulations on problematic pets",
+        "Research shows mice fear sleep",
+        "Snake leaves home",
+        "Unknown bee disease identified",
+        "Unusual message for local authorities",
+        "Years of silence finally end"
+    ],
+    "title: "",
+    "id": 1
+}
+
+----
+
+Reading Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- Five questions from id 6 to 10
+- text: the article
+- id: int
+- short title: 4-6 words
+
+{
+    "questions": [
+        {
+            "id": 6,
+            "answers": [
+                {
+                    "text": "are willing to give up their careers to be a stay-at-home parent.",
+                    "correct": true
+                },
+                {
+                    "text": "think fatherhood provides discipline in their lives.",
+                    "correct": false
+                },
+                {
+                    "correct": false,
+                    "text": "would feel afraid of not being able to raise a child."
+                }
+            ],
+            "question": "A number of modern fathers"
+        },
+        {
+            "question": "According to the article, a majority of men today",
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "still do not want to attend the birth of their children."
+                },
+                {
+                    "text": "take an active part in pre-natal care.",
+                    "correct": true
+                },
+                {
+                    "correct": false,
+                    "text": "wish they could afford to have leave when a child is born."
+                }
+            ],
+            "id": 7
+        },
+        {
+            "question": "If a child were ill, most of the men questioned said",
+            "answers": [
+                {
+                    "text": "either partner could stay with the child.",
+                    "correct": false
+                },
+                {
+                    "text": "the mother should take time off work.",
+                    "correct": true
+                },
+                {
+                    "text": "they would stay off work themselves.",
+                    "correct": false
+                }
+            ],
+            "id": 8
+        },
+        {
+            "answers": [
+                {
+                    "text": "both parents need to take equal time with their new-born baby.",
+                    "correct": false
+                },
+                {
+                    "correct": false,
+                    "text": "children don't care which parent is around when they are upset."
+                },
+                {
+                    "correct": true,
+                    "text": "traditional roles for parenting have changed."
+                }
+            ],
+            "id": 9,
+            "question": "Dr. Marks comments that"
+        },
+        {
+            "answers": [
+                {
+                    "text": "famous people are often poor examples of fatherhood.",
+                    "correct": false
+                },
+                {
+                    "correct": false,
+                    "text": "society still thinks that a positive attitude to fatherhood is a sign of weakness."
+                },
+                {
+                    "correct": true,
+                    "text": "the results of this survey were unexpected."
+                }
+            ],
+            "id": 10,
+            "question": "Tom Beardshaw points out that"
+        }
+    ],
+    "text": "MODERN men see fatherhood as their biggest life-changing experience and desperately want to be 'hands on' during their partner's pregnancy and the upbringing of their child. The days of fatherhood being limited to discipline and breadwinning look to be long gone, as a third of today's dads say they would even consider leaving work to take on the role of full-time father. But despite being anxious about the birth of their child, men are more worried about money than losing their freedom. The results of Pregnancy & Births magazine's annual fatherhood survey, reveal the respect with which many men now regard the role of fatherhood. More than 2,000 couples across the UK who were expecting their first child were asked about their feelings. According to 98% of the fathers-to-be, they believe fatherhood will make them happy and 90% say it is their biggest life-changing event ever'. It seems that men are taking child-rearing seriously, wanting to be 'hands on' both before and after the birth. Nine out of ten dads-to-be attend scans and check-ups; only 2% of the men surveyed would not be at the birth because they \"could not face it\". Eight out of 10 women say their partner is more caring during the pregnancy and 83% of men would rather stay in with their partner than go out with friends. 72% of men say they will take two weeks' leave. A further 77% say they wish they could have more time off to bond with their baby. However, more than half of the men questioned still think that the mother should take time off work if the child is ill, but 39% said they would share it. Modern fathers-to-be are also more likely to do chores compared to decades ago: almost half of them do more housework, 41% do more meal preparation and a third go shopping more. The role of child rearing has changed dramatically over the past 50 years and more men would consider leaving work to raise their child. A third of the men surveyed say they would be prepared to be a full-time stay-at-home dad, another third would like to work part-time while the rest wish to continue with work. Dr. Maureen Marks, a specialist psychiatrist on fathers and their changing roles, does not believe the survey sample is wide enough. But she agrees that men's parental roles have changed dramatically. Dr. Marks, a senior lecturer at the Institute of Psychiatry, King's College London, said, \"Generally speaking, men are more able to be involved. As women are working more, they are not totally dependent on their husbands for money, so the roles are less rigid.\" She believes that, although the roles have been modified, biological differences are important. \"Women are the ones who carry the child and many breast-feed. In those early days, however involved the father is, they miss that connection,\" she said. However, men make up for this when the child is old enough to be played with. \"Men are much more active when playing with their children and encourage their sociability, but when children need comforting or soothing they tend to go to their mother.\" Tom Beardshaw, from the charity Fathers Direct, believes these results confirm society's changing views on fatherhood. He said, \"this confirms the equal opportunities research which shocked a lot of people by how much fathers want to get involved. There are historical changes such as women working more, and also positive male role models, such as George Clooney, who show that being a proud father is not an unmanly attribute to have.\"",
+    "id": 1,
+    "title": "Fatherhood Today"
+}
+
+----
+
+Reading Part 3
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- 12 advertisements
+- 10 questions from id 21 to 30
+- id: int
+- title: 4-6 words (should be relevant to the ads. For example: Cooking, Shopping, Jobs, and more services )
+
+{
+  "advertisements": {
+    "f": "**IF COOKING IS YOUR PASSION, WE WANT TO HEAR FROM YOU!**\n\nWe are looking for articles for our monthly magazine on a variety of food-related topics.\n\nIf you have a favourite childhood food memory or a story of an unforgettable meal in the perfect setting, we want to know.\n\nTell us about your most unusual food experience, or review a restaurant.\n\nAll entries must be submitted by the end of next month to www.gourmetgrace.com. [cite: 56, 57, 58, 59, 60, 61]",
+    "d": "**No-Cook Cookbook by Orlando Murrin**\n\nSuccessful \"no-cooking\" is quite an art in itself, and Orlando Murrin (the editor of BBC Good Food Magazine) explains what you need to keep in the fridge, freezer and store cupboard so that you can no-cook in no time.\n\nYou are allowed a kettle, toaster and food processor. A further advantage is that the emphasis is on assembling fresh, raw ingredients, making it very healthy fast-food.\n\nSurprise your friends and family with lots of interesting meals. [cite: 44, 45, 46, 47, 48]",
+    "g": "**JOB HUNTING for roles, £30K-£350 K**\nwww.jobsabroad.com\n\nWith years of experience assisting expatriates to find work abroad, we can guide you into that challenging, rewarding career you have been looking for.\n\nOur Career Management & Marketing services are most effective for people with the following profiles:\n* CEOs/Directors/Senior Management\n* Sales & Marketing Management Mid-Level Professionals\n* Finance/Accounting/IT\n\nWe have jobs in the USA/Canada/New Zealand.\nSend us your CV for a confidential appointment:\nTel: 0113 200 2070\nEmail: jobsabroad@bernardhaldane.com [cite: 68, 71, 72, 73, 74, 75, 76, 77]",
+    "i": "**Kingscourt Hotel**\n\nA popular location for weddings and other special occasions is offering a luxury five-star relaxation package to help couples escape the stresses of modern life.\n\nRelax in the sauna, detox in the steam room or swim in the pool.\n\nSip champagne while having a massage, facial or manicure. Enjoy a meal in our award-winning restaurant.\n\nWalk in our famous gardens or rest in the comfort of our fully equipped suites. Live the highlife!\n\nSee our website: www.kingscourt-hotel.co.uk [cite: 66, 82, 83, 84, 85, 86, 87]",
+    "b": "**NT needs volunteers**\n\nThe National Trust is an organisation set up to protect British buildings, landscapes and coasts.\n\nWe are desperately looking for volunteer stewards during the busy summer months to help us welcome visitors to our Welsh historic attractions, as diverse as the Aberdulais Tin Works and Waterfall, Chirk Castle or Bodnant Garden.\n\nIf you like being with people and want to get out and about and have fun, then contact The National Trust's Volunteering Team at www.nationaltrust.org.uk/volunteers [cite: 31, 32, 33, 34, 35]",
+    "h": "**TORQUAY**\n\nThe Atrium, Torquay, Devon.\nSuperb new 1, 2 and 3 bedroom apartments, set in a stunning location just minutes to walk from the seafront in Torquay, are a perfect example of stylish, modern properties, built for today's demanding homebuyers.\n\nEach of the apartments has individual views and is finished to the highest standard; this could be your perfect seaside retreat.\n\nShow apartment now open. With prices starting from just 250,000, don't delay!\n\nCall now on 01803 212597 to make an appointment to view. [cite: 70, 78, 79, 80, 81]",
+    "c": "**EXPLORE vineyards by day and listen to fine chamber music by night at Le Fauré estate near Bordeaux.**\n\nWe have arranged a three-day event from October 3 to 6, with musicians from across Europe playing to guests after a gourmet dinner in the salon of an 18th-century house.\n\nA three-night break costs $245pp including half-board, concerts and transfers.\n\nExcursions to vineyards and a one-day cookery course are extra.\n\nwww.tourismefrance.com/lefaure\n\nAir France has flights to Bordeaux from £79 return.\nwww.airfrance.com/uk [cite: 36, 37, 38, 39, 40, 41, 42, 43]",
+    "l": "**Want to study and play?**\n\nThere is still time for sports people to apply for a £1,000 scholarship to study at the University of Wales College, Newport.\n\nThe university is awarding six sports scholarships for the new academic year to future students who have reached a minimum standard of play or coaching in their chosen sport, providing they enrol on a full or part-time course at UWCN.\n\nFor full details and application forms, contact the UWCN Sports Centre on 01633 432933.\nApplications must be received by September 6. [cite: 97, 98, 99, 100]",
+    "a": "**CURIOUS COOKS**\n\nThe ultimate Asian cookbook aimed at inspiring young and old to try their hand at something new.\n\nWith over 300 recipes for every occasion, these traditional Thai, Indian and Chinese classics will soon be new family favourites.\n\nThere are sections on healthy low-fat dishes, vegetarian meals and delicious desserts, and lots of tips for saving money and planning a weekly menu.\n\nThis book brings the tastes and smells of the Orient into your own home. An essential addition to any kitchen shelf. [cite: 24, 25, 26, 27, 28, 29, 30]",
+    "e": "**FINISHED SCHOOL AND UNIVERSITY NOT FOR YOU?**\n**LOOKING FOR THE PERFECT CAREER?**\n**NEED A NEW START?**\n\nWe are looking for 10 new management trainees to join our dynamic team.\n\nWe are a marketing company involved in sports, utilities and promotions, and are looking for people to train from ground-level up to middle and senior management.\n\nThese positions would ideally suit anyone involved in sports and seeking a career change.\n\nNo management experience necessary.\nCall Anna Davis on 02920 227004 [cite: 49, 50, 51, 52, 53, 54, 55]",
+    "j": "**Who says men can't cook?!**\n\nThese days many men have discovered the creative, social and health benefits of cooking.\n\nBut for those who haven't, the Kitchen Academy elementary courses give you advice on topics such as practical nutrition, vegetarian options and effective shopping techniques as well as a new skill to impress friends and improve your health.\n\nIn each workshop we prepare at least three courses and, with refreshments provided, no one goes home hungry or thirsty.\n\nSign up today. [cite: 88, 89, 90, 91, 92]",
+    "k": "**Shopping online needn't cost the earth.**\n\nWith Grocery Hub there are three ways to shop: from your smartphone, computer or tablet, so there is no reason why you can't avail yourself of our fresh fruit and vegetables, gourmet and big brand products being brought straight to your door.\n\nOur award-winning service is great value. Sign up now and receive a discount of €15.\n\nTest us and see why our customers return to us time and time again. Grocery Hub - revolutionising online shopping. [cite: 93, 94, 95, 96]"
+  },
+  "id": 0,
+  "situations": [
+    {
+      "id": 11,
+      "text": "You would like to invest some money in a flat by the sea.",
+      "answer": "h"
+    },
+    {
+      "id": 12,
+      "answer": "l",
+      "text": "You are excellent at sports and would like to study in the UK but need financial support."
+    },
+    {
+      "text": "You enjoy sharing tips about good places to eat with other people.",
+      "answer": "f",
+      "id": 13
+    },
+    {
+      "id": 14,
+      "answer": "c",
+      "text": "You are looking for a wedding anniversary present for your parents who love classical music and good food."
+    },
+    {
+      "id": 15,
+      "answer": "x",
+      "text": "Your brother loves food and enjoys cooking. He would like to do an advanced cooking course."
+    },
+    {
+      "text": "You are interested in historic places and would like to help to show tourists around them.",
+      "id": 16,
+      "answer": "b"
+    },
+    {
+      "answer": "i",
+      "id": 17,
+      "text": "You want to take your partner away for a romantic spa weekend."
+    },
+    {
+      "id": 18,
+      "text": "Your aunt has just come home from hospital and needs a food delivery service.",
+      "answer": "k"
+    },
+    {
+      "answer": "x",
+      "id": 19,
+      "text": "You are a computer specialist and would like to work in Britain but need help finding a job."
+    },
+    {
+      "answer": "a",
+      "id": 20,
+      "text": "You are looking for a birthday present for a friend who loves exotic food."
+    }
+  ],
+  "title": "Cooking, Shopping, Jobs and Other Services"
+}
+
+---
+
+Grammar Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text:  use \n for new lines and [number] for the question number
+- 10 situations from id 11 to 20
+- id: int
+- title: 4-6 words (should be relevant the text)
+
+{
+    "questions": [
+        {
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "am knowing"
+                },
+                {
+                    "correct": true,
+                    "text": "have known"
+                },
+                {
+                    "correct": false,
+                    "text": "know"
+                }
+            ],
+            "id": 21
+        },
+        {
+            "id": 22,
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "a lot of"
+                },
+                {
+                    "correct": false,
+                    "text": "plenty"
+                },
+                {
+                    "correct": true,
+                    "text": "several"
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "answers": [
+                {
+                    "correct": true,
+                    "text": "for writing"
+                },
+                {
+                    "correct": false,
+                    "text": "in writing"
+                },
+                {
+                    "correct": false,
+                    "text": "to write"
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "answers": [
+                {
+                    "correct": true,
+                    "text": "could"
+                },
+                {
+                    "correct": false,
+                    "text": "should"
+                },
+                {
+                    "correct": false,
+                    "text": "would"
+                }
+            ]
+        },
+        {
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "in"
+                },
+                {
+                    "correct": true,
+                    "text": "of"
+                },
+                {
+                    "correct": false,
+                    "text": "with"
+                }
+            ],
+            "id": 25
+        },
+        {
+            "id": 26,
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "as good as"
+                },
+                {
+                    "correct": false,
+                    "text": "as much as"
+                },
+                {
+                    "correct": true,
+                    "text": "as well as"
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "answers": [
+                {
+                    "correct": true,
+                    "text": "crop up"
+                },
+                {
+                    "correct": false,
+                    "text": "go on"
+                },
+                {
+                    "correct": false,
+                    "text": "turn out"
+                }
+            ]
+        },
+        {
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "ever"
+                },
+                {
+                    "correct": false,
+                    "text": "however"
+                },
+                {
+                    "correct": true,
+                    "text": "therefore"
+                }
+            ],
+            "id": 28
+        },
+        {
+            "answers": [
+                {
+                    "correct": false,
+                    "text": "search"
+                },
+                {
+                    "correct": false,
+                    "text": "see"
+                },
+                {
+                    "correct": true,
+                    "text": "seek"
+                }
+            ],
+            "id": 29
+        },
+        {
+            "id": 30,
+            "answers": [
+                {
+                    "correct": true,
+                    "text": "any"
+                },
+                {
+                    "correct": false,
+                    "text": "many"
+                },
+                {
+                    "correct": false,
+                    "text": "some"
+                }
+            ]
+        }
+    ],
+    "text": "To whom it may concern\n\nRecommendation\n\nI [21] Sophie Lane in a variety of capacities for a number of years. She was my daughter's private French teacher for [22] years. In addition, she is my partner in a small, successful business where she is responsible [23] articles, press releases and website content, among other duties as required in our office.\n\nWe have worked together effectively from the start and profitably on different projects and have rarely had any difficulties, at least none which [24] not be resolved after some positive discussion.\n\nJane is an organized, efficient and very competent person and has an excellent rapport with people [25] all ages. Her communication skills, both written and verbal, are excellent and she has proved to be a popular employee with all of our customers.\n\nShe is also qualified and skilled in all aspects of office management, including bookkeeping [26] in web content management. In addition, she speaks and writes French and German well and can cope with all situations which could [27] in a general office environment.\n\nI can [28] highly recommend her for any position that she may [29]. I am sorry to lose her, but I understand her need to broaden her experience. I am fully convinced that she will be a valuable asset to [30] organization that chooses to hire her in the future.\n\nIf you have any questions, please do not hesitate to contact me.\n\nSincerely,\n\nElizabeth Atkinson",
+    "title": "Recommendation Letter",
+    "id": 0
+}
+
+
+---
+
+Grammar Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text:  use \n for new lines and [number] for the question number
+- 16 words
+- id: int
+- title: 4-6 words (should be relevant the text)
+
+{
+    "id": 0,
+    "title": "Yutyrannus a cuddly giant?",
+    "words": [
+        {
+            "key": "A",
+            "word": "BREED"
+        },
+        {
+            "key": "B",
+            "word": "CAPABLE"
+        },
+        {
+            "key": "C",
+            "word": "CHARACTERISTIC"
+        },
+        {
+            "key": "D",
+            "word": "DECORATIVE"
+        },
+        {
+            "key": "E",
+            "word": "ENTIRE"
+        },
+        {
+            "key": "F",
+            "word": "FUNCTIONS"
+        },
+        {
+            "key": "G",
+            "word": "LONELY"
+        },
+        {
+            "key": "H",
+            "word": "PREVIOUSLY"
+        },
+        {
+            "key": "I",
+            "word": "REGARDED"
+        },
+        {
+            "key": "J",
+            "word": "RELATED"
+        },
+        {
+            "key": "K",
+            "word": "REMOTE"
+        },
+        {
+            "key": "L",
+            "word": "REVEALED"
+        },
+        {
+            "key": "M",
+            "word": "SPECIES"
+        },
+        {
+            "key": "N",
+            "word": "TYPICAL"
+        },
+        {
+            "key": "O",
+            "word": "USE"
+        }
+    ],
+    "text": "New archaeological discoveries have begun to show that far more dinosaur [31] existed than had [32] been thought, and some were more colourful than scientists could have predicted.\nThe science magazine, Wild Nature, recently published an article describing a newly-identified creature, possibly [33] to the famous Tyrannosaurus Rex.\nThe Yutyrannus Huali is believed to have been a meat-eater that hunted in packs. Weighing more than a tonne when fully grown, the animal was clearly flightless, but still [34] of running at high speeds. What is particularly fascinating, however, is that this enormous and terrifying animal had fluffy feathers.\nScientists had already [35] that other, smaller members of the theropod family of dinosaurs had feathers, but it was unclear whether their larger cousins shared this [36].\nBased on evidence from numerous fossils found over the last few years in [37] parts of China, where Yutyrannus lived some 125 million years ago, these feathers were long and probably covered its [38] body.\nBut what was the purpose of these feathers, if not to enable it to fly? Feathers on birds serve a number of [39] including as a means of waterproofing, camouflage and protection.\nIt's likely that the feathers also helped to keep the Yutyrannus warm while chasing prey through the snowy mountains of China. Some researchers believe that they may have been of [40] value, helping the creatures to attract partners for mating.\nAs for colour, it is, unfortunately, not currently possible to say for sure how the Yutyrannus looked.",
+    "answers": {
+        "31": "m",
+        "32": "h",
+        "33": "j",
+        "34": "b",
+        "35": "l",
+        "36": "c",
+        "37": "k",
+        "38": "e",
+        "39": "f",
+        "40": "d"
+    }
+}
+
+----
+
+Writing: JSON schema / B2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- uiStrings: 
+-- instructionDescription
+-- instructionTitle
+-- taskDescription
+-- taskFooter: the ending of the question
+- themeNumber: 1 for Task A, 2 for Task B
+- themeName: Name of the theme based on the task
+- incomingEmail: the input text in the task (incoming email, advertisement, etc)
+- title: Capture the title of the text - it should be 4-6 words long and describe the text
+- writingPoints: four writing points
+- id: int
+
+Task A
+{
+  "uiStrings": {
+    "instructionDescription": "30 Minutes Written Expression",
+    "instructionTitle": "Written Expression, Task A",
+    "taskDescription": "You would like to organize a team-building event for your company at the following countryside lodge. Write an email to the lodge enquiring about the possibility of hosting the event there.\n\nYou should mention:\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect related to the topic:",
+    "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+  },
+  "title": "The Willow Creek Lodge",
+  "writingPoints": [
+    "availability of vegetarian or vegan meal options",
+    "group discount rates",
+    "details about outdoor activities",
+    "why you are interested in this location"
+  ],
+  "themeNumber": 1,
+  "themeName": "Lodge Inquiry",
+  "id": 0,
+  "incomingEmail": "The Willow Creek Lodge\n\nEscape the city and discover the perfect balance of work and relaxation.\n\nLocated in the heart of the Peak District, our lodge offers a peaceful environment ideal for corporate retreats and team getaways. We provide comfortable accommodation, fully equipped seminar rooms, and access to stunning nature trails.\n\nOur on-site restaurant prides itself on serving hearty meals made from local produce. We can also arrange guided hiking tours and team challenges.\n\nFor reservations, group bookings, or to discuss a tailored package, please get in touch.\n\n15 River Road, Derbyshire, DE4 3JG\nTel. 01629 555 123\nreservations@willowcreek.co.uk\nwww.willowcreek.co.uk"
+}
+
+Task B
+{
+  "uiStrings": {
+    "instructionDescription": "30 Minutes Written Expression",
+    "instructionTitle": "Written Expression, Task B",
+    "taskDescription": "You and your friends have just returned from this workshop. However, you were not satisfied with the experience. Write an email of complaint to the organizer, Fiona Campbell, to express your disappointment.\n\nYou should mention\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect of your choice:",
+    "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+  },
+  "title": "Highland Landscapes Workshop",
+  "writingPoints": [
+    "accommodation was below standard",
+    "photography tutor was not present",
+    "boat trip was cancelled",
+    "guides were not knowledgeable"
+  ],
+  "themeNumber": 2,
+  "themeName": "Workshop Complaint",
+  "id": 1,
+  "incomingEmail": "HIGHLAND LANDSCAPES\n\nJoin us for a week-long photography workshop in the stunning Scottish Highlands with award-winning photographer, Sarah Jenkins.\n\nOur local guides are experts in history and geology, ready to show you the hidden gems of the North.\n\nThe workshop includes daily field trips to Glencoe, the Isle of Skye, and Loch Ness. In the evenings, participants can attend seminars on photo editing and portfolio reviews.\n\nFor nature lovers, we include a private boat trip to see the seal colonies.\n\nAccommodation is provided in 4-star historic hotels with breakfast and dinner included.\n\nContact: Fiona Campbell\n45 Royal Mile, Edinburgh, EH1 1BB\nTel: +44 131 555 0199\nEmail: fiona@highland-photo.co.uk"
+}

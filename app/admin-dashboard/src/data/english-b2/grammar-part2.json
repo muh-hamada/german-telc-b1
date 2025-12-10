@@ -1,0 +1,83 @@
+{
+  "exams": [
+    {
+      "id": 0,
+      "title": "Yutyrannus a cuddly giant?",
+      "words": [
+        {
+          "key": "A",
+          "word": "BREED"
+        },
+        {
+          "key": "B",
+          "word": "CAPABLE"
+        },
+        {
+          "key": "C",
+          "word": "CHARACTERISTIC"
+        },
+        {
+          "key": "D",
+          "word": "DECORATIVE"
+        },
+        {
+          "key": "E",
+          "word": "ENTIRE"
+        },
+        {
+          "key": "F",
+          "word": "FUNCTIONS"
+        },
+        {
+          "key": "G",
+          "word": "LONELY"
+        },
+        {
+          "key": "H",
+          "word": "PREVIOUSLY"
+        },
+        {
+          "key": "I",
+          "word": "REGARDED"
+        },
+        {
+          "key": "J",
+          "word": "RELATED"
+        },
+        {
+          "key": "K",
+          "word": "REMOTE"
+        },
+        {
+          "key": "L",
+          "word": "REVEALED"
+        },
+        {
+          "key": "M",
+          "word": "SPECIES"
+        },
+        {
+          "key": "N",
+          "word": "TYPICAL"
+        },
+        {
+          "key": "O",
+          "word": "USE"
+        }
+      ],
+      "text": "New archaeological discoveries have begun to show that far more dinosaur [31] existed than had [32] been thought, and some were more colourful than scientists could have predicted.\nThe science magazine, Wild Nature, recently published an article describing a newly-identified creature, possibly [33] to the famous Tyrannosaurus Rex.\nThe Yutyrannus Huali is believed to have been a meat-eater that hunted in packs. Weighing more than a tonne when fully grown, the animal was clearly flightless, but still [34] of running at high speeds. What is particularly fascinating, however, is that this enormous and terrifying animal had fluffy feathers.\nScientists had already [35] that other, smaller members of the theropod family of dinosaurs had feathers, but it was unclear whether their larger cousins shared this [36].\nBased on evidence from numerous fossils found over the last few years in [37] parts of China, where Yutyrannus lived some 125 million years ago, these feathers were long and probably covered its [38] body.\nBut what was the purpose of these feathers, if not to enable it to fly? Feathers on birds serve a number of [39] including as a means of waterproofing, camouflage and protection.\nIt's likely that the feathers also helped to keep the Yutyrannus warm while chasing prey through the snowy mountains of China. Some researchers believe that they may have been of [40] value, helping the creatures to attract partners for mating.\nAs for colour, it is, unfortunately, not currently possible to say for sure how the Yutyrannus looked.",
+      "answers": {
+        "31": "m",
+        "32": "h",
+        "33": "j",
+        "34": "b",
+        "35": "l",
+        "36": "c",
+        "37": "k",
+        "38": "e",
+        "39": "f",
+        "40": "d"
+      }
+    }
+  ]
+}

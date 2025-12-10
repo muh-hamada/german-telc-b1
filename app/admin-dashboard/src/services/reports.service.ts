@@ -49,7 +49,7 @@ export interface AppAnalytics {
   snapshots: DailySnapshot[];
 }
 
-const APP_IDS = ['german-b1', 'german-b2', 'english-b1'];
+const APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
 
 class ReportsService {
   private db = firebaseService.getFirestore();

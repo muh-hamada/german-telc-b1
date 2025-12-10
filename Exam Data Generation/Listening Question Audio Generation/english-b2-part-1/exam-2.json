@@ -1,0 +1,116 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "text": "This is the news on Radio 4. You are going to hear five short news items.",
+        "voiceId": "moderator"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "number-41"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "The e-mobility startup 'Swift Scooters' has issued a voluntary recall for their latest Model-X electric scooter following reports of brake malfunctions. Although no serious injuries have been recorded, three customers in London reported that the electronic braking system failed to engage on steep hills. The company stated that a software update should resolve the glitch, but they are recalling 2,000 units as a precautionary measure. Customers are being offered full refunds or a free repair service, which will take approximately two weeks to complete.",
+        "voiceId": "person1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-42"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Astronomers at the European Space Agency are predicting a rare celestial event later this month. The 'Lyrid' meteor shower is expected to be unusually bright due to the specific trajectory of the passing Comet Thatcher. While this meteor shower occurs annually, scientists say the density of the dust trail this year hasn't been seen since 1982. Visibility will be best in the Northern Hemisphere, provided that cloud cover remains low. Experts advise viewers to head to rural areas away from city lights for the best experience.",
+        "voiceId": "person2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-43"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "A team of hikers in the dense forests of Tasmania stumbled upon a creature thought to be extinct for nearly a century. The Tasmanian Tiger, or Thylacine, was officially declared extinct in 1936. However, the hikers captured blurred video footage of an animal with the distinct striped lower back of the marsupial. While biological experts remain skeptical and suggest it may be a feral dog, the government has launched a discreet investigation to analyze footprints and DNA samples found in the area.",
+        "voiceId": "person3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-44"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "A frustrated resident in Bristol took matters into his own hands regarding the lack of parking on his street. The 45-year-old man purchased professional road paint and marked out a 'Disabled Only' bay directly in front of his house, despite having no disability permit. The plan fell apart when a parking inspector noticed the bay was painted in a slightly wrong shade of yellow and was smaller than regulation size. The man was ordered to pay for the removal of the paint and received a hefty fine for damaging public property.",
+        "voiceId": "person4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-45"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Retired architect Elena Ross noticed that many residents in her father's nursing home struggled with memory loss and boredom. Using her professional background, she created a workshop called 'Build Back Memories,' which uses complex model-building kits to stimulate the brain. The program requires participants to follow blueprints to construct miniature houses. Early results suggest that the focus required improves cognitive function and hand-eye coordination. The local council is now considering funding the project for other care facilities across the region.",
+        "voiceId": "person5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

@@ -325,7 +325,7 @@
             // Correct logic:
             const correctKey = allExams[activeExamId].answers[id];
             
-            const isCorrect = userAnswerKey === correctKey;
+            const isCorrect = userAnswerKey.toLowerCase() === correctKey.toLowerCase();
             if (isCorrect) {
                 correctCount++;
             }

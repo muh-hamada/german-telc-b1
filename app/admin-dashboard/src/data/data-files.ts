@@ -56,6 +56,25 @@ import englishB1GrammarStudyQuestions from './english-b1/grammer-study-questions
 import englishB1ListeningPractice from './english-b1/listening-practice.json';
 
 
+// English B2
+import englishB2ExamInfo from './english-b2/exam-info.json';
+import englishB2GrammarStudyQuestions from './english-b2/grammer-study-questions.json';
+import englishB2ReadingPart1 from './english-b2/reading-part1.json';
+import englishB2ReadingPart2 from './english-b2/reading-part2.json';
+import englishB2ReadingPart3 from './english-b2/reading-part3.json';
+import englishB2GrammarPart1 from './english-b2/grammar-part1.json';
+import englishB2GrammarPart2 from './english-b2/grammar-part2.json';
+import englishB2Writing from './english-b2/writing.json';
+import englishB2ListeningPart1 from './english-b2/listening-part1.json';
+import englishB2ListeningPart2 from './english-b2/listening-part2.json';
+import englishB2ListeningPart3 from './english-b2/listening-part3.json';
+import englishB2OralExamStructure from './english-b2/oral-exam-structure.json';
+import englishB2SpeakingPart1 from './english-b2/speaking-part1.json';
+import englishB2SpeakingPart2 from './english-b2/speaking-part2.json';
+import englishB2SpeakingPart3 from './english-b2/speaking-part3.json';
+import englishB2SpeakingImportantPhrases from './english-b2/speaking-important-phrases.json';
+
+
 interface AppData {
     'exam-info'?: any;
     'grammar-part1'?: any;
@@ -135,5 +154,23 @@ export const appDataMap: AppDataMap = {
         'speaking-important-phrases': englishB1SpeakingImportantPhrases,
         'listening-practice': englishB1ListeningPractice,
         'grammar-study-questions': englishB1GrammarStudyQuestions,
+    },
+    [APP_CONFIGS['english-b2'].id]: {
+        'exam-info': englishB2ExamInfo,
+        'grammar-study-questions': englishB2GrammarStudyQuestions,
+        'reading-part1': englishB2ReadingPart1,
+        'reading-part2': englishB2ReadingPart2,
+        'reading-part3': englishB2ReadingPart3,
+        'grammar-part1': englishB2GrammarPart1,
+        'grammar-part2': englishB2GrammarPart2,
+        'writing': englishB2Writing,
+        'listening-part1': englishB2ListeningPart1,
+        'listening-part2': englishB2ListeningPart2,
+        'listening-part3': englishB2ListeningPart3,
+        'oral-exam-structure': englishB2OralExamStructure,
+        'speaking-part1': englishB2SpeakingPart1,
+        'speaking-part2': englishB2SpeakingPart2,
+        'speaking-part3': englishB2SpeakingPart3,
+        'speaking-important-phrases': englishB2SpeakingImportantPhrases,
     },
 }

@@ -1,0 +1,171 @@
+{
+    "teil": "2: Discussion",
+    "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner, contribute your experiences, and express your opinion. Justify your arguments. Talk about possible solutions.",
+    "questions": [
+        {
+            "title": "Family or Single? No Marriage Without Future Prospects",
+            "content": "Father, mother, and two to three children. The parents stay together for a lifetime and take care of their children. The children take care of the parents when they are old and can no longer care for themselves. At least, that is a widespread idea of family happiness. But is this idea actually realistic in this day and age?\n\nWhen asked about their personal future, a lasting partnership or a family with children is at the top of the wish list for a large number of young Germans. But how can it be explained then that the number of singles in Germany keeps growing, while at the same time the number of marriages is rapidly decreasing? According to official statistics from the Federal Statistical Office from 2004, singles currently live in 36% of the 38 million German households, 29% of households are occupied by childless couples, and a further 14% are shared apartments, households of same-sex couples, or temporary households.\n\nSo, the ideal happy family that so many young people dream of is found in only 16% of all German households. Are young Germans perhaps hostile towards families, or do they prefer a life full of fun over the responsibilities of family life? Do they no longer have values like loyalty, duty, or respect for life?\n\nYes, they do. And that is precisely why it is so difficult for young people to decide on a family. A family needs permanence and security. But exactly that has become increasingly rare in today's economic world. In the past, after completing training or university, one could count on a job that often provided a secure income for life. Today, it is uncertain whether one will find a job at all after training. The economy today demands flexibility. Frequent job changes have become the norm.\n\nThe uncertainty of how to support a family in the long run and how to offer children a happy family life becomes the deciding factor for or against a family. Like their fathers, young people today want to build their desired family life only when they have financial security. But there is less and less of a guarantee for this goal these days. Will we, therefore, have a society of singles in the future?",
+            "source": "from: Die Zeitwoche, 8 / 2000",
+            "summary": [
+                {
+                    "speaker": "A",
+                    "text": "The text deals with the family in modern society. It describes the ideal image of a family with parents and children who support each other. However, in Germany, there are more and more singles and fewer marriages because young people face financial insecurity. According to statistics, 36% live as singles, and only 16% in families with children. The economy requires flexibility, which makes it difficult to start a family."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Exactly, the article argues that young Germans have values like loyalty, but uncertainty in the job market holds them back from marrying or having children. In the past, there were lifelong jobs; today, that is no longer the case. Therefore, the number of singles is growing, and the question is whether we are becoming a single-society."
+                }
+            ],
+            "exampleDiscussion": [
+                {
+                    "speaker": "A",
+                    "text": "I agree with the text. In my experience, many friends see that it is hard to finance a family when jobs are insecure. For example, I have an acquaintance who has changed jobs several times and does not plan on having children because of it. What do you think?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "Yes, I am familiar with that too. I find it a pity because family is important for society. But perhaps political measures can help, such as better childcare or financial support for families. That would reduce the uncertainty."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Good idea. For example, more flexible working models or guarantees for parental leave. That way, young people might be more likely to start a family. Do you have your own experiences with this?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "In my family, my parents worked, but with support from the state. Without that, it would have been difficult. I think we need more solutions like that to increase the birth rate."
+                }
+            ]
+        },
+        {
+            "title": "Social Media: Blessing or Curse for Society?",
+            "content": "Social media platforms like Facebook, Instagram, and Twitter have changed our lives significantly in recent years. They allow us to stay in touch with friends and family, share news, and meet new people. But is this development only positive, or does it also harbor risks?\n\nProponents argue that social media strengthens democracy by spreading information quickly and mobilizing citizens. Examples like the Arab Spring show how platforms support revolutions. In addition, they offer companies new advertising opportunities and help with networking in a globalized world. According to a study by the Pew Research Center, 72% of adults in the USA use social media to feel informed.\n\nHowever, critics warn of the negative effects. Fake news spreads rapidly and can influence elections, as seen in the Cambridge Analytica scandal. Furthermore, algorithms promote echo chambers where users only hear opinions that confirm their own, which reinforces the polarization of society. Mental health problems like depression and anxiety are increasing, especially among young people who are online for hours. A survey by the WHO shows that 15% of young people suffer from cyberbullying.\n\nLet's contrast the advantages with the disadvantages: Social media connects us, but also isolates us from one another. Personal conversations become rarer, and dependence on 'likes' influences self-esteem. Data protection issues are enormous, as companies collect and sell personal data.\n\nIn contrast, proponents emphasize that regulations like the GDPR in Europe can curb abuses. Nevertheless, the question remains: Can social media be reformed, or will it lead to a fragmented society in the long term?",
+            "source": "from: Der Spiegel, 5 / 2019",
+            "summary": [
+                {
+                    "speaker": "A",
+                    "text": "The text discusses the pros and cons of social media. On the positive side, it creates connections and promotes democracy, as seen in the Arab Spring. But on the negative side are fake news, polarization, and mental health problems like depression among young people. According to the WHO, 15% suffer from cyberbullying."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Yes, and it mentions that algorithms create echo chambers and data privacy is a problem. Proponents see advantages in networking, critics warn of isolation. The question is whether regulations like the GDPR can help."
+                }
+            ],
+            "exampleDiscussion": [
+                {
+                    "speaker": "A",
+                    "text": "I find social media to be more of a curse because I have seen friends scroll for hours and get stressed. Fake news has also influenced elections. What is your opinion?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "I see both sides. In my experience, it helps to keep in contact with family abroad. But to solve the problems, we need better algorithms and education about media literacy in schools."
+                },
+                {
+                    "speaker": "A",
+                    "text": "True, education would be good. Maybe also age restrictions or more transparency with data. That way we could use the benefits without the risks."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Exactly, and companies should act more responsibly. I experienced cyberbullying once, that was terrible, which is why I advocate for stricter rules."
+                }
+            ]
+        },
+        {
+            "title": "Renewable Energies: The Path to the Future?",
+            "content": "Climate change is one of the greatest challenges of our time. Many experts are calling for a rapid switch to renewable energies like wind, sun, and water to reduce CO2 emissions. But is this path feasible, or are there too many obstacles?\n\nProponents highlight that renewable energies are inexhaustible and protect the environment. In Germany, the energy transition has already shown success: in 2023, 52% of electricity came from renewable sources. Wind farms and solar plants create jobs and reduce dependence on imports from unstable regions. An IPCC study warns that without a transition, global warming will have catastrophic consequences.\n\nCritics argue that the expansion is expensive and endangers the security of supply. Wind and sun depend on the weather, which leads to fluctuations. Storage technologies like batteries are not yet mature, and expanding the grid costs billions. In countries like China, coal continues to dominate because renewable energies are not scalable fast enough. Additionally, wind turbines destroy landscapes and affect wildlife.\n\nLet's compare: Renewable energies are necessary for climate protection but require massive investments. Fossil fuels are cheaper but harmful in the long term. The EU plans to be climate-neutral by 2050, but skeptics doubt the feasibility without nuclear energy.\n\nIn contrast, optimists see the solution in innovations like green hydrogen. The question remains: Can we manage the transition, or must we rely on a mix of energies?",
+            "source": "from: Süddeutsche Zeitung, 3 / 2024",
+            "summary": [
+                {
+                    "speaker": "A",
+                    "text": "The article deals with renewable energies as a solution against climate change. Positive points: They are inexhaustible, create jobs, and reduce emissions. In Germany, 52% of electricity is renewable. But critics say it is expensive and insecure due to weather dependence."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Correct, and storage is not perfect; wind turbines harm nature. The EU wants to be climate-neutral by 2050, but without nuclear energy, it could be difficult. Innovations like hydrogen are seen as hope."
+                }
+            ],
+            "exampleDiscussion": [
+                {
+                    "speaker": "A",
+                    "text": "I am in favor because climate change is urgent. In my city, there are solar panels that work well. Fossil energies are harmful. What do you think about the costs?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "The costs are high, but in the long term, we save through less environmental damage. My experience: In Scandinavia, it works with wind energy. A solution could be subsidies and better technology."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Yes, international cooperation would be good, e.g., with China. That way we can promote the transition globally and overcome obstacles."
+                },
+                {
+                    "speaker": "B",
+                    "text": "A mix of energies might be realistic, including nuclear energy for stability. But renewables should be prioritized."
+                }
+            ]
+        },
+        {
+            "title": "Home Office: Advantage or Disadvantage for Employees?",
+            "content": "Due to the Corona pandemic, home office has become established in many industries. Many employees now work from home, which offers flexibility. But is this form of work only beneficial, or does it harbor risks?\n\nProponents praise the work-life balance: No commuting saves time and money, and one can organize the day more freely. A survey by Bitkom shows that 68% of Germans appreciate home office because it reduces stress and increases productivity. Families benefit as parents can spend more time with children.\n\nCritics warn of isolation and overload. Without clear boundaries between work and private life, burnout threatens. Social contacts in the office are missing, which leads to loneliness. Furthermore, not all apartments are suitable for home office, and technical problems make work difficult. A study by DAK-Health reports a 25% increase in mental illnesses since 2020.\n\nLet's compare: Home office enables autonomy but makes teamwork more difficult. Companies save costs but must invest in digitalization. In the EU, a new law calls for the 'right to disconnect' after work hours.\n\nIn contrast, experts emphasize hybrid models as a solution. The question remains: Will home office be the future of work, or will we return to the office?",
+            "source": "from: Frankfurter Allgemeine Zeitung, 7 / 2022",
+            "summary": [
+                {
+                    "speaker": "A",
+                    "text": "The text discusses home office since Corona. Advantages: Better balance, less stress, 68% appreciate it. But disadvantages: Isolation, burnout, mental health problems increased by 25%. Hybrid models are suggested."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Yes, no commuting saves time, but missing contacts lead to loneliness. EU laws for disconnecting might help. The question is whether home office stays or if we go back to the office."
+                }
+            ],
+            "exampleDiscussion": [
+                {
+                    "speaker": "A",
+                    "text": "For me, it is an advantage because I am more flexible and have more time with family. But I miss colleagues. In my company, it increased productivity. And you?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "I see disadvantages since I feel isolated. A solution could be regular meetings or hybrid weeks, e.g., three days home office, two in the office."
+                },
+                {
+                    "speaker": "A",
+                    "text": "Good point. Mental health programs from companies would also be helpful. That way we use the benefits without the risks."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Exactly, and better technology against problems. I have experienced that home office is good for parents, but lonely for singles."
+                }
+            ]
+        },
+        {
+            "title": "Vegetarian Diet: Healthy or Risky?",
+            "content": "More and more people are deciding on a vegetarian or vegan diet to protect animal welfare and the environment. But is giving up meat really healthy, or are important nutrients missing?\n\nProponents argue that a plant-based diet prevents heart disease and cancer. A study by Harvard University shows that vegetarians have a lower risk of obesity. Additionally, it reduces the carbon footprint, as livestock farming is responsible for 14.5% of global emissions. Many athletes like Novak Djokovic live vegan and perform at the top level.\n\nCritics warn of deficiencies such as Vitamin B12, iron, and protein. Children and pregnant women, in particular, need animal products for development. The German Nutrition Society advises taking supplements because plant-based alternatives are not always sufficient. Furthermore, organic-vegetarian food is expensive and not accessible to everyone.\n\nLet's compare: Vegetarianism spares the environment but requires planning. Meat offers complete proteins but is ethically questionable. The WHO classifies processed meat as carcinogenic.\n\nIn contrast, nutrition experts advocate for a balanced mixed diet. The question remains: Can a vegetarian diet become the norm, or does meat remain essential?",
+            "source": "from: Die Zeit, 4 / 2023",
+            "summary": [
+                {
+                    "speaker": "A",
+                    "text": "The article deals with vegetarian diets. Positive: Reduces disease risks, protects the environment, Harvard study shows less obesity. But critics warn of deficiencies like B12, especially in children. WHO views meat as carcinogenic."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Yes, livestock farming causes 14.5% of emissions. Vegetarianism needs planning and supplements. Experts recommend a mixed diet. The question is whether it can become the norm."
+                }
+            ],
+            "exampleDiscussion": [
+                {
+                    "speaker": "A",
+                    "text": "I am a vegetarian and feel healthier, fewer illnesses. The environment is important to me. But I take vitamins. What is your experience?"
+                },
+                {
+                    "speaker": "B",
+                    "text": "I eat meat but am reducing it. The risk of deficiencies in children is real. Solution: Better education and affordable alternatives, e.g., promoting plant-based proteins."
+                },
+                {
+                    "speaker": "A",
+                    "text": "True, schools could offer vegetarian options. That makes it more accessible and healthier for everyone."
+                },
+                {
+                    "speaker": "B",
+                    "text": "Yes, and governments could give subsidies for organic products. I tried vegan once, felt energetic, but it was expensive."
+                }
+            ]
+        }
+    ]
+}

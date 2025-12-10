@@ -1,0 +1,155 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-3-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Good morning, delegates. Those registered for the 'Future of AI' workshop, please proceed to the Blue Auditorium immediately. Seats are still open for the Cybersecurity panel at 1:00 PM in Seminar Room 4. If you are interested in block-chain technology, that session begins in Hall C at 2:30. Thank you for joining us at the Global Tech Summit.",
+        "voiceId": "person1",
+        "id": "speech-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Hello, this is Mark from Horizon Travel. You asked for details regarding our 'Classic Italy' and 'Roman Holiday' packages. Both include return flights and four-star accommodation. Guided tours up to €200 are included in the 'Roman Holiday' option, as are airport transfers, but neither package covers evening meals or entrance fees to private galleries. For further customization, please call me on the number displayed.",
+        "voiceId": "person3",
+        "id": "speech-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Welcome to the Green Valley Music Festival team. I’m Sarah, and I’m here to outline the safety procedures and your duties for the weekend. After we hand out your high-visibility jackets, you will head to the main stage where your supervisors will assign your specific patrol areas. If you need to swap shifts with a partner, please visit the coordination tent during the lunch break.",
+        "voiceId": "person1",
+        "id": "speech-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Here is the forecast for the southwest region issued on Friday, the 15th of June. A band of high pressure will bring sunshine and light breezes to coastal areas on Saturday morning. However, clouds will gather by late afternoon, bringing thunderstorms to the interior. Sunday looks promising with clear skies returning before noon, though temperatures will drop significantly by the evening. Drivers should be careful of fog patches early Monday morning.",
+        "voiceId": "person3",
+        "id": "speech-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Attention passengers booked on Flight 402 to Madrid. Due to a technical issue with the aircraft, this flight has been delayed by approximately two hours. Please do not go to Gate 12 as originally printed on your boarding passes. The new departure gate is Gate 24 in Terminal B. Vouchers for refreshments are now available at the customer service desk for all affected passengers. We apologize for the delay.",
+        "voiceId": "person1",
+        "id": "speech-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    }
+]

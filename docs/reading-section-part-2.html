@@ -231,7 +231,7 @@
                 }
             });
 
-            const isCorrect = userAnswer === correctAnswer;
+            const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
             if (isCorrect) {
                 correctCount++;
             }

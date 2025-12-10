@@ -1,7 +1,8 @@
 [
   {
     "word": "Abandon",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "aufgeben",
       "es": "abandonar",
@@ -20,11 +21,13 @@
           "ar": "اضطرت العائلة إلى التخلي عن منزلها بسبب الفيضانات."
         }
       }
-    ]
+    ],
+    "explanation": "To give up completely; to leave behind"
   },
   {
     "word": "Ability",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Fähigkeit",
       "es": "habilidad",
@@ -43,11 +46,13 @@
           "ar": "لقد impressed أصحاب العمل قدرتها على التحدث بعدة لغات."
         }
       }
-    ]
+    ],
+    "explanation": "The capacity to do something"
   },
   {
     "word": "Absolute",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "absolut",
       "es": "absoluto",
@@ -66,11 +71,13 @@
           "ar": "الصمت المطلق في المكتبة ساعد الطلاب على التركيز."
         }
       }
-    ]
+    ],
+    "explanation": "Complete and total; not limited"
   },
   {
     "word": "Absorb",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "absorbieren",
       "es": "absorber",
@@ -89,11 +96,13 @@
           "ar": "تمتص النباتات ضوء الشمس لإنتاج الطاقة من خلال عملية التمثيل الضوئي."
         }
       }
-    ]
+    ],
+    "explanation": "To take in or soak up"
   },
   {
     "word": "Abstract",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "abstrakt",
       "es": "abstracto",
@@ -112,11 +121,13 @@
           "ar": "مفهوم الحرية مجرد ويعني أشياء مختلفة لأشخاص مختلفين."
         }
       }
-    ]
+    ],
+    "explanation": "Existing in thought rather than reality"
   },
   {
     "word": "Academic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "akademisch",
       "es": "académico",
@@ -135,11 +146,13 @@
           "ar": "يبدأ العام الأكاديمي في سبتمبر في معظم الجامعات."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to education and scholarship"
   },
   {
     "word": "Accent",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Akzent",
       "es": "acento",
@@ -158,11 +171,13 @@
           "ar": "لهجتها الاسكتلندية جعلت حديثها ساحرًا ومميزًا."
         }
       }
-    ]
+    ],
+    "explanation": "A distinctive way of pronouncing words"
   },
   {
     "word": "Acceptable",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "akzeptabel",
       "es": "aceptable",
@@ -181,11 +196,13 @@
           "ar": "كانت جودة العمل مقبولة ولكن يمكن تحسينها."
         }
       }
-    ]
+    ],
+    "explanation": "Satisfactory or allowable"
   },
   {
     "word": "Accidentally",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "versehentlich",
       "es": "accidentalmente",
@@ -204,11 +221,13 @@
           "ar": "لقد حذفت الملف المهم من جهاز الكمبيوتر الخاص بها عن غير قصد."
         }
       }
-    ]
+    ],
+    "explanation": "By chance; not intentionally"
   },
   {
     "word": "Accommodate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "unterbringen",
       "es": "acomodar",
@@ -227,11 +246,13 @@
           "ar": "يمكن للفندق استيعاب ما يصل إلى 200 ضيف بشكل مريح."
         }
       }
-    ]
+    ],
+    "explanation": "To provide lodging; to adapt to"
   },
   {
     "word": "Accommodation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Unterkunft",
       "es": "Alojamiento",
@@ -250,11 +271,13 @@
           "ar": "يحتاج الطلاب إلى ترتيب الإقامة قبل بدء الجامعة."
         }
       }
-    ]
+    ],
+    "explanation": "A place to live or stay"
   },
   {
     "word": "Accompany",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "begleiten",
       "es": "acompañar",
@@ -273,11 +296,13 @@
           "ar": "سيرافق المرشد السياحي السياح طوال زيارة المتحف."
         }
       }
-    ]
+    ],
+    "explanation": "To go with someone"
   },
   {
     "word": "Accomplish",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erreichen",
       "es": "lograr",
@@ -296,11 +321,13 @@
           "ar": "تمكنت من تحقيق جميع أهدافها للسنة."
         }
       }
-    ]
+    ],
+    "explanation": "To achieve or complete successfully"
   },
   {
     "word": "Account",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konto",
       "es": "cuenta",
@@ -319,11 +346,13 @@
           "ar": "يرجى التحقق من رصيد حسابك قبل إجراء المشتريات."
         }
       }
-    ]
+    ],
+    "explanation": "A record of financial transactions; a report"
   },
   {
     "word": "Accountant",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Buchhalter",
       "es": "Contador",
@@ -342,11 +371,13 @@
           "ar": "قام المحاسب بإعداد التقرير المالي السنوي للشركة."
         }
       }
-    ]
+    ],
+    "explanation": "A person who maintains financial records"
   },
   {
     "word": "Accuracy",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Genauigkeit",
       "es": "Precisión",
@@ -365,11 +396,13 @@
           "ar": "تحسنت دقة توقعات الطقس بشكل كبير."
         }
       }
-    ]
+    ],
+    "explanation": "The quality of being correct or precise"
   },
   {
     "word": "Accurate",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "genau",
       "es": "exacto",
@@ -388,11 +421,13 @@
           "ar": "يرجى تقديم معلومات دقيقة عند ملء الطلب."
         }
       }
-    ]
+    ],
+    "explanation": "Correct and exact"
   },
   {
     "word": "Accurately",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "genau",
       "es": "con precisión",
@@ -411,11 +446,13 @@
           "ar": "قام العالم بقياس نتائج التفاعل الكيميائي بدقة."
         }
       }
-    ]
+    ],
+    "explanation": "In a correct and exact manner"
   },
   {
     "word": "Accuse",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "beschuldigen",
       "es": "acusar",
@@ -434,11 +471,13 @@
           "ar": "سيتهم المدعي العام المتهم بارتكاب الاحتيال."
         }
       }
-    ]
+    ],
+    "explanation": "To claim someone has done something wrong"
   },
   {
     "word": "Acknowledge",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "anerkennen",
       "es": "reconocer",
@@ -457,11 +496,13 @@
           "ar": "اعترفت الشركة بالخطأ وعرضت تعويضًا."
         }
       }
-    ]
+    ],
+    "explanation": "To accept or admit the existence of something"
   },
   {
     "word": "Acquire",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erwerben",
       "es": "adquirir",
@@ -480,11 +521,13 @@
           "ar": "يكتسب الطلاب المعرفة من خلال الدراسة والخبرة العملية."
         }
       }
-    ]
+    ],
+    "explanation": "To obtain or gain possession of"
   },
   {
     "word": "Acre",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Acker",
       "es": "acre",
@@ -503,11 +546,13 @@
           "ar": "تغطي المزرعة حوالي خمسين فدانًا من الأرض الخصبة."
         }
       }
-    ]
+    ],
+    "explanation": "A unit of land measurement"
   },
   {
     "word": "Activate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "Aktivieren",
       "es": "Activar",
@@ -526,11 +571,13 @@
           "ar": "يرجى تفعيل حسابك من خلال النقر على رابط البريد الإلكتروني."
         }
       }
-    ]
+    ],
+    "explanation": "To make something start working"
   },
   {
     "word": "Actual",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "tatsächlich",
       "es": "real",
@@ -549,11 +596,13 @@
           "ar": "كانت التكلفة الفعلية أعلى من التقدير الأصلي."
         }
       }
-    ]
+    ],
+    "explanation": "Real and factual; existing in reality"
   },
   {
     "word": "Adapt",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "anpassen",
       "es": "adaptar",
@@ -572,11 +621,13 @@
           "ar": "يجب على الحيوانات التكيف مع التغيرات البيئية للبقاء على قيد الحياة."
         }
       }
-    ]
+    ],
+    "explanation": "To adjust to new conditions"
   },
   {
     "word": "Addiction",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Sucht",
       "es": "adicción",
@@ -595,11 +646,13 @@
           "ar": "إدمان وسائل التواصل الاجتماعي يؤثر على العديد من الشباب اليوم."
         }
       }
-    ]
+    ],
+    "explanation": "The state of being dependent on something"
   },
   {
     "word": "Additional",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "zusätzlich",
       "es": "adicional",
@@ -618,11 +671,13 @@
           "ar": "يتطلب المشروع تمويلاً إضافيًا ليكتمل بنجاح."
         }
       }
-    ]
+    ],
+    "explanation": "Extra; more than what is usual"
   },
   {
     "word": "Additionally",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "zusätzlich",
       "es": "además",
@@ -641,11 +696,13 @@
           "ar": "يوفر الفندق إفطارًا مجانيًا؛ بالإضافة إلى ذلك، يتم تضمين مواقف السيارات."
         }
       }
-    ]
+    ],
+    "explanation": "In addition; furthermore"
   },
   {
     "word": "Address",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "ansprechen",
       "es": "dirigir",
@@ -664,11 +721,13 @@
           "ar": "سيتحدث الرئيس إلى الأمة حول السياسات الاقتصادية."
         }
       }
-    ]
+    ],
+    "explanation": "A location; to speak to or deal with"
   },
   {
     "word": "Adequate",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "angemessen",
       "es": "adecuado",
@@ -687,11 +746,13 @@
           "ar": "الراتب كافٍ لتغطية النفقات الأساسية للمعيشة."
         }
       }
-    ]
+    ],
+    "explanation": "Sufficient for a particular purpose"
   },
   {
     "word": "Adequately",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "angemessen",
       "es": "adecuadamente",
@@ -710,11 +771,13 @@
           "ar": "كان الطلاب مستعدين بشكل كافٍ للامتحان."
         }
       }
-    ]
+    ],
+    "explanation": "In a sufficient manner"
   },
   {
     "word": "Adjust",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "anpassen",
       "es": "ajustar",
@@ -733,11 +796,13 @@
           "ar": "يرجى تعديل درجة الحرارة لجعل الغرفة أكثر راحة."
         }
       }
-    ]
+    ],
+    "explanation": "To change slightly to achieve the desired result"
   },
   {
     "word": "Administration",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verwaltung",
       "es": "Administración",
@@ -756,11 +821,13 @@
           "ar": "أعلنت إدارة المدرسة عن سياسات جديدة للسلامة."
         }
       }
-    ]
+    ],
+    "explanation": "The management of a business or organization"
   },
   {
     "word": "Adopt",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "adoptieren",
       "es": "adoptar",
@@ -779,11 +846,13 @@
           "ar": "قررت الزوجان تبني طفل من الخارج."
         }
       }
-    ]
+    ],
+    "explanation": "To take in and raise; to accept and use"
   },
   {
     "word": "Advance",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "vorankommen",
       "es": "avanzar",
@@ -802,11 +871,13 @@
           "ar": "تستمر التكنولوجيا في التقدم بوتيرة مذهلة."
         }
       }
-    ]
+    ],
+    "explanation": "To move forward; progress"
   },
   {
     "word": "Affair",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Affäre",
       "es": "asunto",
@@ -825,11 +896,13 @@
           "ar": "القضية الخيرية جمعت آلاف الدولارات للتعليم."
         }
       }
-    ]
+    ],
+    "explanation": "An event or situation; a romantic relationship"
   },
   {
     "word": "Affordable",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "bezahlbar",
       "es": "asequible",
@@ -848,11 +921,13 @@
           "ar": "تقوم الحكومة ببناء المزيد من المساكن المناسبة للعائلات."
         }
       }
-    ]
+    ],
+    "explanation": "Reasonably priced; not expensive"
   },
   {
     "word": "Afterwards",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "danach",
       "es": "después",
@@ -871,11 +946,13 @@
           "ar": "سنتناول العشاء أولاً، وبعد ذلك سنشاهد فيلمًا."
         }
       }
-    ]
+    ],
+    "explanation": "At a later time; subsequently"
   },
   {
     "word": "Aged",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "gereift",
       "es": "madurado",
@@ -894,11 +971,13 @@
           "ar": "الجبن المعتق له نكهة غنية ومعقدة."
         }
       }
-    ]
+    ],
+    "explanation": "Old; having lived for a specified time"
   },
   {
     "word": "Agency",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Agentur",
       "es": "agencia",
@@ -917,11 +996,13 @@
           "ar": "تنظمت وكالة السفر عطلتنا إلى أوروبا."
         }
       }
-    ]
+    ],
+    "explanation": "An organization providing services"
   },
   {
     "word": "Agenda",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Agenda",
       "es": "Agenda",
@@ -940,11 +1021,13 @@
           "ar": "تشمل أجندة الاجتماع مناقشات الميزانية وتحديثات المشاريع."
         }
       }
-    ]
+    ],
+    "explanation": "A list of items to be discussed"
   },
   {
     "word": "Aggressive",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "aggressiv",
       "es": "agresivo",
@@ -963,11 +1046,13 @@
           "ar": "حملة التسويق العدوانية زادت المبيعات بشكل كبير."
         }
       }
-    ]
+    ],
+    "explanation": "Hostile and forceful in behavior"
   },
   {
     "word": "Agriculture",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Landwirtschaft",
       "es": "Agricultura",
@@ -986,11 +1071,13 @@
           "ar": "الزراعة هي المصدر الرئيسي للدخل في المناطق الريفية."
         }
       }
-    ]
+    ],
+    "explanation": "The practice of farming"
   },
   {
     "word": "Aid",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Hilfe",
       "es": "ayuda",
@@ -1009,11 +1096,13 @@
           "ar": "تقدم المنظمات الدولية للمساعدة الإغاثة من الكوارث في جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "Help or assistance"
   },
   {
     "word": "Aircraft",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Flugzeug",
       "es": "aeronave",
@@ -1032,11 +1121,13 @@
           "ar": "هبطت الطائرة بأمان على الرغم من الظروف الجوية القاسية."
         }
       }
-    ]
+    ],
+    "explanation": "A vehicle that can fly"
   },
   {
     "word": "Alarm",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Alarm",
       "es": "alarma",
@@ -1055,11 +1146,13 @@
           "ar": "انطلق إنذار الحريق، وبدأ الجميع في إخلاء المبنى."
         }
       }
-    ]
+    ],
+    "explanation": "A warning signal; concern"
   },
   {
     "word": "Alien",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Außerirdischer",
       "es": "extraterrestre",
@@ -1078,11 +1171,13 @@
           "ar": "كانت الكائنات الفضائية في الفيلم تمتلك تكنولوجيا متقدمة."
         }
       }
-    ]
+    ],
+    "explanation": "A foreigner; from another planet"
   },
   {
     "word": "Alongside",
-    "article":"","type": "preposition",
+    "article": "",
+    "type": "preposition",
     "translations": {
       "de": "neben",
       "es": "junto a",
@@ -1101,11 +1196,13 @@
           "ar": "عمل الموظف الجديد بجانب زملاء ذوي خبرة."
         }
       }
-    ]
+    ],
+    "explanation": "Next to; together with"
   },
   {
     "word": "Alter",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "ändern",
       "es": "alterar",
@@ -1124,11 +1221,13 @@
           "ar": "سيقوم الخياط بتعديل الفستان ليتناسب تمامًا."
         }
       }
-    ]
+    ],
+    "explanation": "To change or modify"
   },
   {
     "word": "Altogether",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "insgesamt",
       "es": "en total",
@@ -1147,11 +1246,13 @@
           "ar": "كلف المشروع إجمالاً أكثر مما كان متوقعاً."
         }
       }
-    ]
+    ],
+    "explanation": "Completely; in total"
   },
   {
     "word": "Ambitious",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "ehrgeizig",
       "es": "ambicioso",
@@ -1170,11 +1271,13 @@
           "ar": "الطالب الطموح يهدف إلى أن يصبح طبيبًا."
         }
       }
-    ]
+    ],
+    "explanation": "Having strong desire for success"
   },
   {
     "word": "Ambulance",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Krankenwagen",
       "es": "ambulancia",
@@ -1193,11 +1296,13 @@
           "ar": "وصلت سيارة الإسعاف بسرعة إلى مكان الحادث."
         }
       }
-    ]
+    ],
+    "explanation": "A vehicle for transporting sick people"
   },
   {
     "word": "Amount",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Menge",
       "es": "cantidad",
@@ -1216,11 +1321,13 @@
           "ar": "زادت كمية الواجبات المنزلية بشكل كبير هذا الفصل."
         }
       }
-    ]
+    ],
+    "explanation": "A quantity of something"
   },
   {
     "word": "Amusing",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "amüsant",
       "es": "divertido",
@@ -1239,11 +1346,13 @@
           "ar": "قصص الكوميدي الممتعة جعلت الجميع يضحكون."
         }
       }
-    ]
+    ],
+    "explanation": "Entertaining and funny"
   },
   {
     "word": "Analyst",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Analyst",
       "es": "Analista",
@@ -1262,11 +1371,13 @@
           "ar": "تنبأ المحلل المالي باتجاهات السوق بدقة."
         }
       }
-    ]
+    ],
+    "explanation": "A person who analyzes information"
   },
   {
     "word": "Ancestor",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vorfahre",
       "es": "ancestro",
@@ -1285,11 +1396,13 @@
           "ar": "هاجر أسلافي إلى هذا البلد قبل أكثر من قرن."
         }
       }
-    ]
+    ],
+    "explanation": "A person from whom one is descended"
   },
   {
     "word": "Anger",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wut",
       "es": "ira",
@@ -1308,11 +1421,13 @@
           "ar": "كان غضبه مبرراً بعد اكتشافه الخداع."
         }
       }
-    ]
+    ],
+    "explanation": "A strong feeling of displeasure"
   },
   {
     "word": "Angle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Winkel",
       "es": "ángulo",
@@ -1331,11 +1446,13 @@
           "ar": "التقط المصور المبنى من زاوية مثيرة للاهتمام."
         }
       }
-    ]
+    ],
+    "explanation": "The space between two intersecting lines"
   },
   {
     "word": "Animation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Animation",
       "es": "Animación",
@@ -1354,11 +1471,13 @@
           "ar": "كانت الرسوم المتحركة في الفيلم واقعية بشكل لا يصدق."
         }
       }
-    ]
+    ],
+    "explanation": "The technique of making drawings move"
   },
   {
     "word": "Anniversary",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Jahrestag",
       "es": "aniversario",
@@ -1377,11 +1496,13 @@
           "ar": "احتفل الزوجان بذكرى زواجهما مع الأصدقاء."
         }
       }
-    ]
+    ],
+    "explanation": "The yearly recurrence of a date"
   },
   {
     "word": "Annual",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "jährlich",
       "es": "anual",
@@ -1400,11 +1521,13 @@
           "ar": "تجذب المؤتمر السنوي خبراء من جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "Happening once every year"
   },
   {
     "word": "Annually",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "jährlich",
       "es": "anualmente",
@@ -1423,11 +1546,13 @@
           "ar": "تقوم الشركة بمراجعة أداء الموظفين سنويًا."
         }
       }
-    ]
+    ],
+    "explanation": "Once per year; every year"
   },
   {
     "word": "Anticipate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erwarten",
       "es": "anticipar",
@@ -1446,11 +1571,13 @@
           "ar": "نتوقع حركة مرور كثيفة خلال عطلة نهاية الأسبوع."
         }
       }
-    ]
+    ],
+    "explanation": "To expect or predict"
   },
   {
     "word": "Anxiety",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Angst",
       "es": "ansiedad",
@@ -1469,11 +1596,13 @@
           "ar": "يؤثر القلق من الاختبارات على الأداء الأكاديمي للعديد من الطلاب."
         }
       }
-    ]
+    ],
+    "explanation": "A feeling of worry or nervousness"
   },
   {
     "word": "Anxious",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "ängstlich",
       "es": "ansioso",
@@ -1492,11 +1621,13 @@
           "ar": "كانت تشعر بالقلق بشأن مقابلة العمل غدًا."
         }
       }
-    ]
+    ],
+    "explanation": "Worried or nervous"
   },
   {
     "word": "Apology",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Entschuldigung",
       "es": "disculpa",
@@ -1515,11 +1646,13 @@
           "ar": "اعتذاره الصادق ساعد في إصلاح صداقتهم المتضررة."
         }
       }
-    ]
+    ],
+    "explanation": "An expression of regret"
   },
   {
     "word": "Apparent",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "offensichtlich",
       "es": "aparente",
@@ -1538,11 +1671,13 @@
           "ar": "الحل الظاهر للمشكلة كان بسيطًا بشكل مدهش."
         }
       }
-    ]
+    ],
+    "explanation": "Clearly visible or understood"
   },
   {
     "word": "Apparently",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "offensichtlich",
       "es": "aparentemente",
@@ -1561,11 +1696,13 @@
           "ar": "على ما يبدو، تم تأجيل الاجتماع حتى الأسبوع المقبل."
         }
       }
-    ]
+    ],
+    "explanation": "Seemingly; as far as one knows"
   },
   {
     "word": "Appeal",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Appell",
       "es": "apelación",
@@ -1584,11 +1721,13 @@
           "ar": "كان نداء الجمعية الخيرية للتبرعات ناجحًا جدًا."
         }
       }
-    ]
+    ],
+    "explanation": "To make a request; to be attractive"
   },
   {
     "word": "Applicant",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bewerber",
       "es": "Solicitante",
@@ -1607,11 +1746,13 @@
           "ar": "يجب على كل مُتقدِّم تقديم نموذج طلب مكتمل."
         }
       }
-    ]
+    ],
+    "explanation": "A person who applies for something"
   },
   {
     "word": "Approach",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ansatz",
       "es": "enfoque",
@@ -1630,11 +1771,13 @@
           "ar": "نهج المعلم في تدريس الرياضيات فعال للغاية."
         }
       }
-    ]
+    ],
+    "explanation": "To come near; a way of dealing with something"
   },
   {
     "word": "Appropriate",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "angemessen",
       "es": "apropiado",
@@ -1653,11 +1796,13 @@
           "ar": "يرجى ارتداء ملابس مناسبة للعشاء الرسمي."
         }
       }
-    ]
+    ],
+    "explanation": "Suitable for a particular situation"
   },
   {
     "word": "Appropriately",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "angemessen",
       "es": "apropiadamente",
@@ -1676,11 +1821,13 @@
           "ar": "ارتدى الطلاب ملابس مناسبة لحفل التخرج."
         }
       }
-    ]
+    ],
+    "explanation": "In a suitable manner"
   },
   {
     "word": "Approval",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Genehmigung",
       "es": "Aprobación",
@@ -1699,11 +1846,13 @@
           "ar": "يحتاج المشروع إلى موافقة المجلس البلدي."
         }
       }
-    ]
+    ],
+    "explanation": "Official permission; agreement"
   },
   {
     "word": "Approve",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "genehmigen",
       "es": "aprobar",
@@ -1722,11 +1871,13 @@
           "ar": "سيوافق المجلس على الميزانية في اجتماع الغد."
         }
       }
-    ]
+    ],
+    "explanation": "To officially agree to something"
   },
   {
     "word": "Arise",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "entstehen",
       "es": "surgir",
@@ -1745,11 +1896,13 @@
           "ar": "قد تظهر مشاكل إذا لم نخطط بعناية."
         }
       }
-    ]
+    ],
+    "explanation": "To come into being; to get up"
   },
   {
     "word": "Armed",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "bewaffnet",
       "es": "armado",
@@ -1768,11 +1921,13 @@
           "ar": "حراس مسلحون حمو الأعمال الفنية القيمة."
         }
       }
-    ]
+    ],
+    "explanation": "Carrying weapons; equipped"
   },
   {
     "word": "Arms",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Waffen",
       "es": "armas",
@@ -1791,11 +1946,13 @@
           "ar": "تطلب اتفاق السلام من الجانبين إلقاء أسلحتهما."
         }
       }
-    ]
+    ],
+    "explanation": "Weapons; the upper limbs of the body"
   },
   {
     "word": "Arrow",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Pfeil",
       "es": "flecha",
@@ -1814,11 +1971,13 @@
           "ar": "اتبع علامات السهم للوصول إلى مخرج الطوارئ."
         }
       }
-    ]
+    ],
+    "explanation": "A pointed projectile; a directional symbol"
   },
   {
     "word": "Artificial",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "künstlich",
       "es": "artificial",
@@ -1837,11 +1996,13 @@
           "ar": "تقوم الذكاء الاصطناعي بتحويل العديد من الصناعات بسرعة."
         }
       }
-    ]
+    ],
+    "explanation": "Made by humans; not natural"
   },
   {
     "word": "Artistic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "künstlerisch",
       "es": "artístico",
@@ -1860,11 +2021,13 @@
           "ar": "التصميم الفني للمبنى فاز بعدة جوائز."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to art; creative"
   },
   {
     "word": "Artwork",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kunstwerk",
       "es": "obra de arte",
@@ -1883,11 +2046,13 @@
           "ar": "تغطي مجموعة الأعمال الفنية في المتحف عدة قرون."
         }
       }
-    ]
+    ],
+    "explanation": "Paintings, drawings, or sculptures"
   },
   {
     "word": "Ashamed",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "beschämt",
       "es": "avergonzado",
@@ -1906,11 +2071,13 @@
           "ar": "شعر بالخجل من سلوكه في الحفلة."
         }
       }
-    ]
+    ],
+    "explanation": "Feeling embarrassed or guilty"
   },
   {
     "word": "Aspect",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Aspekt",
       "es": "aspecto",
@@ -1929,11 +2096,13 @@
           "ar": "يحتاج الجانب المالي من المشروع إلى اعتبار دقيق."
         }
       }
-    ]
+    ],
+    "explanation": "A particular part or feature"
   },
   {
     "word": "Assess",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bewerten",
       "es": "evaluar",
@@ -1952,11 +2121,13 @@
           "ar": "يقيم المعلمون تقدم الطلاب من خلال طرق متنوعة."
         }
       }
-    ]
+    ],
+    "explanation": "To evaluate or judge"
   },
   {
     "word": "Assessment",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bewertung",
       "es": "Evaluación",
@@ -1975,11 +2146,13 @@
           "ar": "التقييم كشف عن مجالات تحتاج إلى تحسين."
         }
       }
-    ]
+    ],
+    "explanation": "The evaluation of something"
   },
   {
     "word": "Asset",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vermögen",
       "es": "activo",
@@ -1998,11 +2171,13 @@
           "ar": "مهاراتها اللغوية هي أصل قيم في الأعمال."
         }
       }
-    ]
+    ],
+    "explanation": "A valuable thing or person"
   },
   {
     "word": "Assign",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "zuweisen",
       "es": "asignar",
@@ -2021,11 +2196,13 @@
           "ar": "سيقوم المعلم بتعيين واجب منزلي لعطلة نهاية الأسبوع."
         }
       }
-    ]
+    ],
+    "explanation": "To allocate or designate"
   },
   {
     "word": "Assistance",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Hilfe",
       "es": "asistencia",
@@ -2044,11 +2221,13 @@
           "ar": "كان الرجل المسن بحاجة إلى مساعدة لعبور الشارع المزدحم."
         }
       }
-    ]
+    ],
+    "explanation": "Help or support"
   },
   {
     "word": "Associate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "assoziieren",
       "es": "asociar",
@@ -2067,11 +2246,13 @@
           "ar": "أربط تلك الأغنية بذكرياتي في الطفولة."
         }
       }
-    ]
+    ],
+    "explanation": "To connect in the mind; a colleague"
   },
   {
     "word": "Associated",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "assoziiert",
       "es": "asociado",
@@ -2090,11 +2271,13 @@
           "ar": "المشاكل الصحية مرتبطة بنظام غذائي سيء."
         }
       }
-    ]
+    ],
+    "explanation": "Connected or linked with"
   },
   {
     "word": "Association",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vereinigung",
       "es": "asociación",
@@ -2113,11 +2296,13 @@
           "ar": "نشرت الجمعية الطبية إرشادات علاجية جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "An organization; a connection"
   },
   {
     "word": "Assume",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "annehmen",
       "es": "asumir",
@@ -2136,11 +2321,13 @@
           "ar": "أفترض أنك قد أكملت القراءة المطلوبة."
         }
       }
-    ]
+    ],
+    "explanation": "To suppose something is true"
   },
   {
     "word": "Assumption",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Annahme",
       "es": "suposición",
@@ -2159,11 +2346,13 @@
           "ar": "كان الافتراض بأن الأسعار سترتفع غير صحيح."
         }
       }
-    ]
+    ],
+    "explanation": "Something taken for granted"
   },
   {
     "word": "Assure",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "versichern",
       "es": "asegurar",
@@ -2182,11 +2371,13 @@
           "ar": "يمكنني أن أؤكد لك أن المنتج آمن."
         }
       }
-    ]
+    ],
+    "explanation": "To tell someone confidently"
   },
   {
     "word": "Astonishing",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "erstaunlich",
       "es": "asombroso",
@@ -2205,11 +2396,13 @@
           "ar": "أدهشت خدع الساحر المذهلة الجمهور."
         }
       }
-    ]
+    ],
+    "explanation": "Extremely surprising"
   },
   {
     "word": "Athletic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "athletisch",
       "es": "atlético",
@@ -2228,11 +2421,13 @@
           "ar": "ساعدتها المنحة الرياضية في الالتحاق بالجامعة."
         }
       }
-    ]
+    ],
+    "explanation": "Physically strong and active"
   },
   {
     "word": "Attachment",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Anhang",
       "es": "adjunto",
@@ -2251,11 +2446,13 @@
           "ar": "يرجى العثور على مرفق الوثيقة في البريد الإلكتروني."
         }
       }
-    ]
+    ],
+    "explanation": "Something attached; emotional bond"
   },
   {
     "word": "Attempt",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "versuchen",
       "es": "intentar",
@@ -2274,11 +2471,13 @@
           "ar": "ستحاول كسر الرقم القياسي العالمي."
         }
       }
-    ]
+    ],
+    "explanation": "To try to do something"
   },
   {
     "word": "Audio",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Audio",
       "es": "Audio",
@@ -2297,11 +2496,13 @@
           "ar": "جودة الصوت في التسجيل ممتازة."
         }
       }
-    ]
+    ],
+    "explanation": "Sound, especially recorded sound"
   },
   {
     "word": "Awareness",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bewusstsein",
       "es": "Conciencia",
@@ -2320,11 +2521,13 @@
           "ar": "لقد زاد الوعي البيئي بين الشباب."
         }
       }
-    ]
+    ],
+    "explanation": "Knowledge or understanding of a situation"
   },
   {
     "word": "Awkward",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "ungeschickt",
       "es": "torpe",
@@ -2343,11 +2546,13 @@
           "ar": "الصمت غير المريح جعل الجميع يشعر بعدم الارتياح."
         }
       }
-    ]
+    ],
+    "explanation": "Difficult to deal with; clumsy"
   },
   {
     "word": "Back",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "unterstützen",
       "es": "apoyar",
@@ -2366,11 +2571,13 @@
           "ar": "قررت الشركة دعم المبادرة البيئية الجديدة."
         }
       }
-    ]
+    ],
+    "explanation": "The rear part; to support"
   },
   {
     "word": "Bacteria",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bakterien",
       "es": "Bacterias",
@@ -2389,11 +2596,13 @@
           "ar": "يمكن أن تسبب البكتيريا عدوى إذا لم يتم الحفاظ على النظافة المناسبة."
         }
       }
-    ]
+    ],
+    "explanation": "Microscopic organisms"
   },
   {
     "word": "Badge",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Abzeichen",
       "es": "insignia",
@@ -2412,11 +2621,13 @@
           "ar": "أظهر ضابط الشرطة شارة هويته."
         }
       }
-    ]
+    ],
+    "explanation": "A small sign worn to show rank"
   },
   {
     "word": "Balanced",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "ausgewogen",
       "es": "equilibrado",
@@ -2435,11 +2646,13 @@
           "ar": "تتضمن الحمية المتوازنة الفواكه والخضروات والبروتينات."
         }
       }
-    ]
+    ],
+    "explanation": "Having equal weight or importance"
   },
   {
     "word": "Ballet",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ballett",
       "es": "ballet",
@@ -2458,11 +2671,13 @@
           "ar": "كانت عرض الباليه رشيقًا ومؤثرًا عاطفيًا."
         }
       }
-    ]
+    ],
+    "explanation": "A type of dance performance"
   },
   {
     "word": "Balloon",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ballon",
       "es": "globo",
@@ -2481,11 +2696,13 @@
           "ar": "الأطفال يحبون اللعب بالبالونات الملونة في الحفلات."
         }
       }
-    ]
+    ],
+    "explanation": "An inflatable rubber sac"
   },
   {
     "word": "Bar",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Riegel",
       "es": "barra",
@@ -2504,11 +2721,13 @@
           "ar": "ذاب لوح الشوكولاتة تحت الشمس الحارة."
         }
       }
-    ]
+    ],
+    "explanation": "A long piece of metal; a drinking establishment"
   },
   {
     "word": "Barely",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "kaum",
       "es": "apenas",
@@ -2527,11 +2746,13 @@
           "ar": "لقد نجحت في الامتحان بالكاد بأدنى درجة."
         }
       }
-    ]
+    ],
+    "explanation": "Only just; almost not"
   },
   {
     "word": "Bargain",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schnäppchen",
       "es": "ganga",
@@ -2550,11 +2771,13 @@
           "ar": "كانت المزهرية القديمة صفقة حقيقية بهذا السعر."
         }
       }
-    ]
+    ],
+    "explanation": "A good deal; to negotiate"
   },
   {
     "word": "Barrier",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Barriere",
       "es": "barrera",
@@ -2573,11 +2796,13 @@
           "ar": "يمكن أن تكون اللغة حاجزًا أمام التواصل الفعال."
         }
       }
-    ]
+    ],
+    "explanation": "Something that blocks progress"
   },
   {
     "word": "Basement",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Keller",
       "es": "sótano",
@@ -2596,11 +2821,13 @@
           "ar": "غمر القبو خلال عاصفة مطرية شديدة."
         }
       }
-    ]
+    ],
+    "explanation": "The lowest floor of a building"
   },
   {
     "word": "Basically",
-    "article":"","type": "adverb",
+    "article": "",
+    "type": "adverb",
     "translations": {
       "de": "grundsätzlich",
       "es": "básicamente",
@@ -2619,11 +2846,13 @@
           "ar": "الخطة أساسًا سليمة لكنها تحتاج إلى تعديلات طفيفة."
         }
       }
-    ]
+    ],
+    "explanation": "Fundamentally; essentially"
   },
   {
     "word": "Biological",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "biologisch",
       "es": "biológico",
@@ -2642,11 +2871,13 @@
           "ar": "التنوع البيولوجي في الغابة الاستوائية ملحوظ."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to living organisms"
   },
   {
     "word": "Bitter",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "bitter",
       "es": "amargo",
@@ -2665,11 +2896,13 @@
           "ar": "كان للدواء طعم مر كان من الصعب بلعه."
         }
       }
-    ]
+    ],
+    "explanation": "Having a sharp, unpleasant taste; resentful"
   },
   {
     "word": "Blame",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "beschuldigen",
       "es": "culpar",
@@ -2688,11 +2921,13 @@
           "ar": "لا تلوم نفسك على الحادث؛ لم يكن خطأك."
         }
       }
-    ]
+    ],
+    "explanation": "To hold responsible for something bad"
   },
   {
     "word": "Blanket",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Decke",
       "es": "manta",
@@ -2711,11 +2946,13 @@
           "ar": "كانت البطانية الناعمة تبقيها دافئة خلال الليل البارد."
         }
       }
-    ]
+    ],
+    "explanation": "A covering for warmth"
   },
   {
     "word": "Blind",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "blind",
       "es": "ciego",
@@ -2734,11 +2971,13 @@
           "ar": "عازف البيانو الأعمى عزف بشكل جميل من الذاكرة."
         }
       }
-    ]
+    ],
+    "explanation": "Unable to see; without sight"
   },
   {
     "word": "Blow",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "blasen",
       "es": "soplar",
@@ -2757,11 +2996,13 @@
           "ar": "سوف تهب الرياح القوية الأوراق من الأشجار."
         }
       }
-    ]
+    ],
+    "explanation": "To move air; a hard hit"
   },
   {
     "word": "Bold",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kühn",
       "es": "audaz",
@@ -2780,11 +3021,13 @@
           "ar": "قرارها الجريء ببدء عمل تجاري أثمر بنجاح."
         }
       }
-    ]
+    ],
+    "explanation": "Brave and confident; clearly visible"
   },
   {
     "word": "Bombing",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bombardierung",
       "es": "bombardeo",
@@ -2803,11 +3046,13 @@
           "ar": "أدى قصف المدينة إلى دمار واسع النطاق."
         }
       }
-    ]
+    ],
+    "explanation": "An attack with bombs"
   },
   {
     "word": "Bond",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bindung",
       "es": "vínculo",
@@ -2826,11 +3071,13 @@
           "ar": "الرابطة القوية بين الأم والطفل واضحة."
         }
       }
-    ]
+    ],
+    "explanation": "A connection; a financial security"
   },
   {
     "word": "Boost",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "steigern",
       "es": "aumentar",
@@ -2849,11 +3096,13 @@
           "ar": "ستعزز الحملة الإعلانية الجديدة المبيعات بشكل كبير."
         }
       }
-    ]
+    ],
+    "explanation": "To help increase; an improvement"
   },
   {
     "word": "Border",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Grenze",
       "es": "frontera",
@@ -2872,11 +3121,13 @@
           "ar": "الحدود بين البلدين محروسة بشدة."
         }
       }
-    ]
+    ],
+    "explanation": "The edge or boundary"
   },
   {
     "word": "Bound",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "gebunden",
       "es": "destinado",
@@ -2895,11 +3146,13 @@
           "ar": "القطار متجه إلى العاصمة."
         }
       }
-    ]
+    ],
+    "explanation": "Tied up; certain to happen"
   },
   {
     "word": "Bracket",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Halterung",
       "es": "soporte",
@@ -2918,11 +3171,13 @@
           "ar": "يجب تأمين دعامة الرف بشكل صحيح."
         }
       }
-    ]
+    ],
+    "explanation": "A support; a category"
   },
   {
     "word": "Brain",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gehirn",
       "es": "cerebro",
@@ -2941,11 +3196,13 @@
           "ar": "الدماغ البشري معقد وقوي بشكل لا يصدق."
         }
       }
-    ]
+    ],
+    "explanation": "The organ of thought"
   },
   {
     "word": "Branch",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Filiale",
       "es": "sucursal",
@@ -2964,11 +3221,13 @@
           "ar": "افتتحت البنك فرعًا جديدًا في مركز التسوق."
         }
       }
-    ]
+    ],
+    "explanation": "A part of a tree; a division"
   },
   {
     "word": "Brand",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Marke",
       "es": "marca",
@@ -2987,11 +3246,13 @@
           "ar": "هذه العلامة التجارية من القهوة مشهورة في جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "A type of product; a trademark"
   },
   {
     "word": "Brave",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "mutig",
       "es": "valiente",
@@ -3010,11 +3271,13 @@
           "ar": "أنقذ رجل الإطفاء الشجاع العائلة من المبنى المحترق."
         }
       }
-    ]
+    ],
+    "explanation": "Showing courage; fearless"
   },
   {
     "word": "Bread",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Brot",
       "es": "pan",
@@ -3033,11 +3296,13 @@
           "ar": "رائحة الخبز الطازج من المخبز رائعة."
         }
       }
-    ]
+    ],
+    "explanation": "A basic food made from flour"
   },
   {
     "word": "Break",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Pause",
       "es": "descanso",
@@ -3056,11 +3321,13 @@
           "ar": "دعنا نأخذ استراحة من الدراسة ونتناول القهوة."
         }
       }
-    ]
+    ],
+    "explanation": "To damage; a pause"
   },
   {
     "word": "Breath",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Atem",
       "es": "aliento",
@@ -3079,11 +3346,13 @@
           "ar": "خذ نفسًا عميقًا وحاول الاسترخاء."
         }
       }
-    ]
+    ],
+    "explanation": "Air taken into the lungs"
   },
   {
     "word": "Breathe",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "atmen",
       "es": "respirar",
@@ -3102,11 +3371,13 @@
           "ar": "من المهم أن تتنفس بعمق أثناء التأمل."
         }
       }
-    ]
+    ],
+    "explanation": "To take air into the lungs"
   },
   {
     "word": "Breed",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "züchten",
       "es": "criar",
@@ -3125,11 +3396,13 @@
           "ar": "المزارع يربي الماشية من أجل إنتاج الحليب."
         }
       }
-    ]
+    ],
+    "explanation": "To produce offspring; a type"
   },
   {
     "word": "Brick",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ziegel",
       "es": "ladrillo",
@@ -3148,11 +3421,13 @@
           "ar": "تم بناء المنزل بالطوب الأحمر والمونة البيضاء."
         }
       }
-    ]
+    ],
+    "explanation": "A building material"
   },
   {
     "word": "Brief",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kurz",
       "es": "breve",
@@ -3171,11 +3446,13 @@
           "ar": "كانت الاجتماع قصيرًا لكنه غطى جميع النقاط المهمة."
         }
       }
-    ]
+    ],
+    "explanation": "Short in duration; concise"
   },
   {
     "word": "Brilliant",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "brillant",
       "es": "brillante",
@@ -3194,11 +3471,13 @@
           "ar": "العالمة الرائعة فازت بجائزة نوبل لأبحاثها."
         }
       }
-    ]
+    ],
+    "explanation": "Very bright; extremely clever"
   },
   {
     "word": "Broad",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "breit",
       "es": "amplio",
@@ -3217,11 +3496,13 @@
           "ar": "تقدم الجامعة مجموعة واسعة من البرامج الأكاديمية."
         }
       }
-    ]
+    ],
+    "explanation": "Wide; covering many areas"
   },
   {
     "word": "Broadcast",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "übertragen",
       "es": "transmitir",
@@ -3240,11 +3521,13 @@
           "ar": "ستقوم محطة الأخبار ببث نتائج الانتخابات مباشرة."
         }
       }
-    ]
+    ],
+    "explanation": "To transmit by radio or TV"
   },
   {
     "word": "Bronze",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bronze",
       "es": "bronce",
@@ -3263,11 +3546,13 @@
           "ar": "كان الرياضي فخورًا بالفوز بميدالية البرونز."
         }
       }
-    ]
+    ],
+    "explanation": "A brown metal; third place"
   },
   {
     "word": "Brush",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bürste",
       "es": "cepillo",
@@ -3286,11 +3571,13 @@
           "ar": "استخدمت فرشاة لرسم المنظر الجميل."
         }
       }
-    ]
+    ],
+    "explanation": "A tool with bristles; to clean"
   },
   {
     "word": "Bubble",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Blase",
       "es": "burbuja",
@@ -3309,11 +3596,13 @@
           "ar": "كانت فقاعة الصابون تطفو برفق في الهواء."
         }
       }
-    ]
+    ],
+    "explanation": "A thin sphere of liquid"
   },
   {
     "word": "Budget",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Haushaltsbudget",
       "es": "presupuesto",
@@ -3332,11 +3621,13 @@
           "ar": "أنشأت العائلة ميزانية شهرية للتحكم في النفقات."
         }
       }
-    ]
+    ],
+    "explanation": "A plan for spending money"
   },
   {
     "word": "Build",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bauen",
       "es": "construir",
@@ -3355,11 +3646,13 @@
           "ar": "تخطط الشركة لبناء مصنع جديد."
         }
       }
-    ]
+    ],
+    "explanation": "To construct; to develop"
   },
   {
     "word": "Bulk",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Menge",
       "es": "a granel",
@@ -3378,11 +3671,13 @@
           "ar": "الشراء بكميات كبيرة يقلل غالبًا من التكلفة لكل وحدة."
         }
       }
-    ]
+    ],
+    "explanation": "Large size; the main part"
   },
   {
     "word": "Bullet",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kugel",
       "es": "bala",
@@ -3401,11 +3696,13 @@
           "ar": "وجد المحقق رصاصة في مسرح الجريمة."
         }
       }
-    ]
+    ],
+    "explanation": "A projectile from a gun"
   },
   {
     "word": "Bundle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bündel",
       "es": "paquete",
@@ -3424,11 +3721,13 @@
           "ar": "تم تسليم حزمة الصحف هذا الصباح."
         }
       }
-    ]
+    ],
+    "explanation": "A collection tied together"
   },
   {
     "word": "Burden",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Last",
       "es": "Carga",
@@ -3447,11 +3746,13 @@
           "ar": "العبء المالي للتعليم يؤثر على العديد من الأسر."
         }
       }
-    ]
+    ],
+    "explanation": "A heavy load; responsibility"
   },
   {
     "word": "Bureau",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Büro",
       "es": "oficina",
@@ -3470,11 +3771,13 @@
           "ar": "أصدر مكتب الأرصاد الجوية تحذيرًا من عاصفة."
         }
       }
-    ]
+    ],
+    "explanation": "An office; a chest of drawers"
   },
   {
     "word": "Burst",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "platzen",
       "es": "estallar",
@@ -3493,11 +3796,13 @@
           "ar": "سوف ينفجر البالون إذا نفخت الكثير من الهواء."
         }
       }
-    ]
+    ],
+    "explanation": "To break open suddenly"
   },
   {
     "word": "Bury",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "begraben",
       "es": "enterrar",
@@ -3516,11 +3821,13 @@
           "ar": "غالبًا ما يدفن القراصنة كنزهم في جزر نائية."
         }
       }
-    ]
+    ],
+    "explanation": "To place underground"
   },
   {
     "word": "Bush",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Busch",
       "es": "arbusto",
@@ -3539,11 +3846,13 @@
           "ar": "ازدهرت شجيرة الورد بشكل جميل في الربيع."
         }
       }
-    ]
+    ],
+    "explanation": "A woody plant; wild land"
   },
   {
     "word": "Business",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Geschäft",
       "es": "negocio",
@@ -3562,11 +3871,13 @@
           "ar": "يعمل أصحاب الأعمال الصغيرة بجد لتحقيق النجاح."
         }
       }
-    ]
+    ],
+    "explanation": "Commercial activity; a company"
   },
   {
     "word": "Button",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Knopf",
       "es": "botón",
@@ -3585,11 +3896,13 @@
           "ar": "اضغط على الزر الأحمر لإيقاف الآلة على الفور."
         }
       }
-    ]
+    ],
+    "explanation": "A fastener; a control"
   },
   {
     "word": "Buy",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "kaufen",
       "es": "comprar",
@@ -3608,11 +3921,13 @@
           "ar": "أحتاج إلى شراء البقالة لعشاء الليلة."
         }
       }
-    ]
+    ],
+    "explanation": "To purchase with money"
   },
   {
     "word": "Cabinet",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schrank",
       "es": "armario",
@@ -3631,11 +3946,13 @@
           "ar": "الخزانة في المطبخ تخزن الأطباق ولوازم الطهي."
         }
       }
-    ]
+    ],
+    "explanation": "A cupboard; a group of advisers"
   },
   {
     "word": "Cable",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kabel",
       "es": "cable",
@@ -3654,11 +3971,13 @@
           "ar": "خدمة التلفاز الكابلي تقدم مئات القنوات."
         }
       }
-    ]
+    ],
+    "explanation": "A thick rope or wire"
   },
   {
     "word": "Cage",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Käfig",
       "es": "jaula",
@@ -3677,11 +3996,13 @@
           "ar": "غنت الطيور برقة من قفصها الذهبي."
         }
       }
-    ]
+    ],
+    "explanation": "An enclosure for animals"
   },
   {
     "word": "Calculate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "berechnen",
       "es": "calcular",
@@ -3700,11 +4021,13 @@
           "ar": "يرجى حساب التكلفة الإجمالية بما في ذلك الضرائب."
         }
       }
-    ]
+    ],
+    "explanation": "To work out mathematically"
   },
   {
     "word": "Calendar",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kalender",
       "es": "calendario",
@@ -3723,11 +4046,13 @@
           "ar": "حدد الاجتماع المهم في تقويمك."
         }
       }
-    ]
+    ],
+    "explanation": "A chart showing dates"
   },
   {
     "word": "Call",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "rufen",
       "es": "llamar",
@@ -3746,11 +4071,13 @@
           "ar": "من فضلك اتصل بي عندما تصل إلى المطار."
         }
       }
-    ]
+    ],
+    "explanation": "To telephone; to shout"
   },
   {
     "word": "Calm",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "ruhig",
       "es": "tranquilo",
@@ -3769,11 +4096,13 @@
           "ar": "البحيرة الهادئة عكست الجبال بشكل مثالي."
         }
       }
-    ]
+    ],
+    "explanation": "Peaceful and quiet"
   },
   {
     "word": "Camera",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kamera",
       "es": "cámara",
@@ -3792,11 +4121,13 @@
           "ar": "تلتقط الكاميرا الرقمية صورًا عالية الجودة."
         }
       }
-    ]
+    ],
+    "explanation": "A device for taking photographs"
   },
   {
     "word": "Campaign",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kampagne",
       "es": "campaña",
@@ -3815,11 +4146,13 @@
           "ar": "حملة البيئة زادت الوعي حول التلوث."
         }
       }
-    ]
+    ],
+    "explanation": "An organized effort"
   },
   {
     "word": "Campus",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Campus",
       "es": "campus",
@@ -3838,11 +4171,13 @@
           "ar": "الحرم الجامعي جميل في الخريف."
         }
       }
-    ]
+    ],
+    "explanation": "The grounds of a university"
   },
   {
     "word": "Canal",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kanal",
       "es": "canal",
@@ -3861,11 +4196,13 @@
           "ar": "القناة تربط بين نهرين رئيسيين بكفاءة."
         }
       }
-    ]
+    ],
+    "explanation": "An artificial waterway"
   },
   {
     "word": "Cancel",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "stornieren",
       "es": "cancelar",
@@ -3884,11 +4221,13 @@
           "ar": "اضطررنا إلى إلغاء النزهة بسبب المطر."
         }
       }
-    ]
+    ],
+    "explanation": "To call off; to stop"
   },
   {
     "word": "Candidate",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kandidat",
       "es": "Candidato",
@@ -3907,11 +4246,13 @@
           "ar": "قدم كل مرشح مؤهلاته بوضوح."
         }
       }
-    ]
+    ],
+    "explanation": "A person seeking election or a job"
   },
   {
     "word": "Canvas",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Leinwand",
       "es": "lienzo",
@@ -3930,11 +4271,13 @@
           "ar": "رسم الفنان تحفة على القماش."
         }
       }
-    ]
+    ],
+    "explanation": "Strong cloth; a painting surface"
   },
   {
     "word": "Capability",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Fähigkeit",
       "es": "capacidad",
@@ -3953,11 +4296,13 @@
           "ar": "البرنامج الجديد يزيد من قدرة الكمبيوتر."
         }
       }
-    ]
+    ],
+    "explanation": "The ability to do something"
   },
   {
     "word": "Capacity",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kapazität",
       "es": "capacidad",
@@ -3976,11 +4321,13 @@
           "ar": "الملعب لديه سعة 50,000 متفرج."
         }
       }
-    ]
+    ],
+    "explanation": "The maximum amount; ability"
   },
   {
     "word": "Capital",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Hauptstadt",
       "es": "capital",
@@ -3999,11 +4346,13 @@
           "ar": "باريس هي عاصمة فرنسا."
         }
       }
-    ]
+    ],
+    "explanation": "The main city; money for investment"
   },
   {
     "word": "Captain",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kapitän",
       "es": "capitán",
@@ -4022,11 +4371,13 @@
           "ar": "قاد قائد السفينة السفينة بأمان عبر العاصفة."
         }
       }
-    ]
+    ],
+    "explanation": "The leader of a team or ship"
   },
   {
     "word": "Capture",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "einfangen",
       "es": "capturar",
@@ -4045,11 +4396,13 @@
           "ar": "تمكن المصور من التقاط اللحظة المثالية."
         }
       }
-    ]
+    ],
+    "explanation": "To catch or record"
   },
   {
     "word": "Carbon",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kohlenstoff",
       "es": "Carbono",
@@ -4068,11 +4421,13 @@
           "ar": "تساهم انبعاثات الكربون بشكل كبير في تغير المناخ."
         }
       }
-    ]
+    ],
+    "explanation": "A chemical element"
   },
   {
     "word": "Card",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Karte",
       "es": "tarjeta",
@@ -4091,11 +4446,13 @@
           "ar": "أرسلت بطاقة عيد ميلاد إلى جدتها."
         }
       }
-    ]
+    ],
+    "explanation": "A piece of stiff paper"
   },
   {
     "word": "Care",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "sich kümmern",
       "es": "cuidar",
@@ -4114,11 +4471,13 @@
           "ar": "الآباء يهتمون بشدة بتعليم أطفالهم."
         }
       }
-    ]
+    ],
+    "explanation": "To look after; concern"
   },
   {
     "word": "Career",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Karriere",
       "es": "carrera",
@@ -4137,11 +4496,13 @@
           "ar": "لقد بنت مسيرة ناجحة في الأعمال الدولية."
         }
       }
-    ]
+    ],
+    "explanation": "A profession or occupation"
   },
   {
     "word": "Careful",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "Vorsichtig",
       "es": "Cuidadoso",
@@ -4160,11 +4521,13 @@
           "ar": "كن حذرًا عند عبور الشارع المزدحم."
         }
       }
-    ]
+    ],
+    "explanation": "Taking care; cautious"
   },
   {
     "word": "Cargo",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Fracht",
       "es": "carga",
@@ -4183,11 +4546,13 @@
           "ar": "سفينة الشحن نقلت الحاويات عبر المحيط."
         }
       }
-    ]
+    ],
+    "explanation": "Goods carried by transport"
   },
   {
     "word": "Carpet",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Teppich",
       "es": "alfombra",
@@ -4206,11 +4571,13 @@
           "ar": "كانت السجادة الفارسية جميلة وقيمة."
         }
       }
-    ]
+    ],
+    "explanation": "A floor covering"
   },
   {
     "word": "Carry",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "tragen",
       "es": "llevar",
@@ -4229,11 +4596,13 @@
           "ar": "يرجى حمل هذه الكتب إلى المكتبة."
         }
       }
-    ]
+    ],
+    "explanation": "To transport; to bear"
   },
   {
     "word": "Carve",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "schnitzen",
       "es": "tallar",
@@ -4252,11 +4621,13 @@
           "ar": "قام النحات بنحت تمثال من الرخام."
         }
       }
-    ]
+    ],
+    "explanation": "To cut into shape"
   },
   {
     "word": "Case",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Fall",
       "es": "Caso",
@@ -4275,11 +4646,13 @@
           "ar": "في حالة الطوارئ، اتصل بالشرطة على الفور."
         }
       }
-    ]
+    ],
+    "explanation": "A container; a situation"
   },
   {
     "word": "Cash",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bargeld",
       "es": "efectivo",
@@ -4298,11 +4671,13 @@
           "ar": "المتجر الصغير يقبل فقط المدفوعات النقدية."
         }
       }
-    ]
+    ],
+    "explanation": "Money in coins and notes"
   },
   {
     "word": "Cast",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "besetzen",
       "es": "repartir",
@@ -4321,11 +4696,13 @@
           "ar": "اختار المخرج ممثلين موهوبين للفيلم."
         }
       }
-    ]
+    ],
+    "explanation": "To throw; actors in a play"
   },
   {
     "word": "Castle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schloss",
       "es": "castillo",
@@ -4344,11 +4721,13 @@
           "ar": "القلعة medieval تجذب آلاف السياح."
         }
       }
-    ]
+    ],
+    "explanation": "A large fortified building"
   },
   {
     "word": "Casual",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "leger",
       "es": "informal",
@@ -4367,11 +4746,13 @@
           "ar": "المكتب لديه قواعد ملابس غير رسمية يوم الجمعة."
         }
       }
-    ]
+    ],
+    "explanation": "Informal and relaxed"
   },
   {
     "word": "Catalog",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Katalog",
       "es": "catálogo",
@@ -4390,11 +4771,13 @@
           "ar": "يساعد كتالوج المكتبة في العثور على الكتب بسرعة."
         }
       }
-    ]
+    ],
+    "explanation": "A list of items"
   },
   {
     "word": "Category",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kategorie",
       "es": "Categoría",
@@ -4413,11 +4796,13 @@
           "ar": "المنتجات منظمة حسب الفئة."
         }
       }
-    ]
+    ],
+    "explanation": "A class or group"
   },
   {
     "word": "Cattle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Rinder",
       "es": "ganado",
@@ -4436,11 +4821,13 @@
           "ar": "قام المربي بتربية المواشي في المزرعة الكبيرة."
         }
       }
-    ]
+    ],
+    "explanation": "Cows and bulls"
   },
   {
     "word": "Cause",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verursachen",
       "es": "causar",
@@ -4459,11 +4846,13 @@
           "ar": "يمكن أن يتسبب الطقس السيئ في تأخير الرحلات."
         }
       }
-    ]
+    ],
+    "explanation": "To make happen; a reason"
   },
   {
     "word": "Caution",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vorsicht",
       "es": "Precaución",
@@ -4482,11 +4871,13 @@
           "ar": "كن حذرًا عند القيادة في الضباب."
         }
       }
-    ]
+    ],
+    "explanation": "Care to avoid danger"
   },
   {
     "word": "Cave",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Höhle",
       "es": "cueva",
@@ -4505,11 +4896,13 @@
           "ar": "اكتشف المستكشفون لوحات في الكهف القديم."
         }
       }
-    ]
+    ],
+    "explanation": "A natural underground space"
   },
   {
     "word": "Cease",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "einstellen",
       "es": "cesar",
@@ -4528,11 +4921,13 @@
           "ar": "ستتوقف المصنع عن الإنتاج الشهر المقبل."
         }
       }
-    ]
+    ],
+    "explanation": "To stop or end"
   },
   {
     "word": "Celebrate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "feiern",
       "es": "celebrar",
@@ -4551,11 +4946,13 @@
           "ar": "اجتمعت العائلة للاحتفال بالتخرج."
         }
       }
-    ]
+    ],
+    "explanation": "To mark a special occasion"
   },
   {
     "word": "Cell",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zelle",
       "es": "celda",
@@ -4574,11 +4971,13 @@
           "ar": "قضى السجين سنوات في زنزانة صغيرة."
         }
       }
-    ]
+    ],
+    "explanation": "A small room; basic unit of life"
   },
   {
     "word": "Cemetery",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Friedhof",
       "es": "cementerio",
@@ -4597,11 +4996,13 @@
           "ar": "المقبرة القديمة تحتوي على قبور من القرن التاسع عشر."
         }
       }
-    ]
+    ],
+    "explanation": "A burial ground"
   },
   {
     "word": "Census",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Volkszählung",
       "es": "censo",
@@ -4620,11 +5021,13 @@
           "ar": "يحدث التعداد الوطني كل عشر سنوات."
         }
       }
-    ]
+    ],
+    "explanation": "An official count of population"
   },
   {
     "word": "Center",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zentrum",
       "es": "centro",
@@ -4643,11 +5046,13 @@
           "ar": "المركز التجاري يحتوي على العديد من المتاجر والمطاعم."
         }
       }
-    ]
+    ],
+    "explanation": "The middle point; a facility"
   },
   {
     "word": "Central",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "zentral",
       "es": "central",
@@ -4666,11 +5071,13 @@
           "ar": "تخدم المكتبة المركزية المدينة بأكملها."
         }
       }
-    ]
+    ],
+    "explanation": "In the middle; most important"
   },
   {
     "word": "Century",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Jahrhundert",
       "es": "siglo",
@@ -4689,11 +5096,13 @@
           "ar": "شهد القرن الحادي والعشرين تغييرات تكنولوجية سريعة."
         }
       }
-    ]
+    ],
+    "explanation": "A period of 100 years"
   },
   {
     "word": "Ceremony",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zeremonie",
       "es": "ceremonia",
@@ -4712,11 +5121,13 @@
           "ar": "كانت مراسم الزواج جميلة ومؤثرة."
         }
       }
-    ]
+    ],
+    "explanation": "A formal event"
   },
   {
     "word": "Certain",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "gewiss",
       "es": "cierto",
@@ -4735,11 +5146,13 @@
           "ar": "أنا متأكد أن الاجتماع في الساعة 3 مساءً."
         }
       }
-    ]
+    ],
+    "explanation": "Sure; particular"
   },
   {
     "word": "Certificate",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zertifikat",
       "es": "certificado",
@@ -4758,11 +5171,13 @@
           "ar": "لقد حصلت على شهادة لإكمال الدورة."
         }
       }
-    ]
+    ],
+    "explanation": "An official document"
   },
   {
     "word": "Chain",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kette",
       "es": "cadena",
@@ -4781,11 +5196,13 @@
           "ar": "يبيع متجر المجوهرات سلاسل ذهبية وفضية."
         }
       }
-    ]
+    ],
+    "explanation": "Connected links; a series"
   },
   {
     "word": "Chair",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Stuhl",
       "es": "silla",
@@ -4804,11 +5221,13 @@
           "ar": "الكرسي المريح مثالي للقراءة."
         }
       }
-    ]
+    ],
+    "explanation": "A seat; to lead a meeting"
   },
   {
     "word": "Challenge",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Herausforderung",
       "es": "desafío",
@@ -4827,11 +5246,13 @@
           "ar": "تعلم لغة جديدة هو دائمًا تحدي."
         }
       }
-    ]
+    ],
+    "explanation": "A difficult task; to question"
   },
   {
     "word": "Chamber",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kammer",
       "es": "cámara",
@@ -4850,11 +5271,13 @@
           "ar": "للقلب أربع غرف تضخ الدم."
         }
       }
-    ]
+    ],
+    "explanation": "A room; an enclosed space"
   },
   {
     "word": "Champion",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Meister",
       "es": "campeón",
@@ -4873,11 +5296,13 @@
           "ar": "فاز بطل التنس بثلاث بطولات هذا العام."
         }
       }
-    ]
+    ],
+    "explanation": "A winner; to support"
   },
   {
     "word": "Chance",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chance",
       "es": "Oportunidad",
@@ -4896,11 +5321,13 @@
           "ar": "هذه المقابلة هي فرصة رائعة للتقدم."
         }
       }
-    ]
+    ],
+    "explanation": "An opportunity; possibility"
   },
   {
     "word": "Change",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Änderung",
       "es": "cambio",
@@ -4919,11 +5346,13 @@
           "ar": "يؤثر تغير المناخ على أنماط الطقس على مستوى العالم."
         }
       }
-    ]
+    ],
+    "explanation": "To alter; coins"
   },
   {
     "word": "Channel",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kanal",
       "es": "canal",
@@ -4942,11 +5371,13 @@
           "ar": "القناة الإنجليزية تفصل بريطانيا عن فرنسا."
         }
       }
-    ]
+    ],
+    "explanation": "A waterway; a TV station"
   },
   {
     "word": "Chapter",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kapitel",
       "es": "capítulo",
@@ -4965,11 +5396,13 @@
           "ar": "الفصل الأول يقدم الشخصيات الرئيسية."
         }
       }
-    ]
+    ],
+    "explanation": "A section of a book"
   },
   {
     "word": "Character",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Charakter",
       "es": "personaje",
@@ -4988,11 +5421,13 @@
           "ar": "يواجه الشخصية الرئيسية في الرواية العديد من التحديات."
         }
       }
-    ]
+    ],
+    "explanation": "A person in a story; personality"
   },
   {
     "word": "Characteristic",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Eigenschaft",
       "es": "característica",
@@ -5011,11 +5446,13 @@
           "ar": "الصبر سمة من سمات المعلمين الجيدين."
         }
       }
-    ]
+    ],
+    "explanation": "A typical feature"
   },
   {
     "word": "Charge",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "berechnen",
       "es": "cobrar",
@@ -5034,11 +5471,13 @@
           "ar": "سوف يفرض الفندق رسومًا إضافية على خدمة الغرف."
         }
       }
-    ]
+    ],
+    "explanation": "To ask for payment; to accuse"
   },
   {
     "word": "Charity",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wohltätigkeit",
       "es": "caridad",
@@ -5057,11 +5496,13 @@
           "ar": "تقدم الجمعية الخيرية الطعام للمشردين."
         }
       }
-    ]
+    ],
+    "explanation": "An organization helping others"
   },
   {
     "word": "Chart",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Diagramm",
       "es": "Gráfico",
@@ -5080,11 +5521,13 @@
           "ar": "الرسم البياني للطقس يظهر أنماط درجات الحرارة."
         }
       }
-    ]
+    ],
+    "explanation": "A graph or map"
   },
   {
     "word": "Chase",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verfolgung",
       "es": "persecución",
@@ -5103,11 +5546,13 @@
           "ar": "انتهت مطاردة الشرطة بسلام."
         }
       }
-    ]
+    ],
+    "explanation": "To pursue; to follow quickly"
   },
   {
     "word": "Cheap",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "billig",
       "es": "barato",
@@ -5126,11 +5571,13 @@
           "ar": "الأثاث الرخيص انكسر بعد بضعة أشهر."
         }
       }
-    ]
+    ],
+    "explanation": "Low in price; poor quality"
   },
   {
     "word": "Check",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "prüfen",
       "es": "verificar",
@@ -5149,11 +5596,13 @@
           "ar": "يرجى التحقق من إجاباتك قبل الإرسال."
         }
       }
-    ]
+    ],
+    "explanation": "To examine; a payment method"
   },
   {
     "word": "Chemical",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chemikalie",
       "es": "químico",
@@ -5172,11 +5621,13 @@
           "ar": "تنتج المصنع مواد كيميائية للمنتجات التنظيف."
         }
       }
-    ]
+    ],
+    "explanation": "A substance; relating to chemistry"
   },
   {
     "word": "Chemistry",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chemie",
       "es": "química",
@@ -5195,11 +5646,13 @@
           "ar": "درست الكيمياء لفهم الهياكل الجزيئية."
         }
       }
-    ]
+    ],
+    "explanation": "The science of substances"
   },
   {
     "word": "Chest",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Truhe",
       "es": "cofre",
@@ -5218,11 +5671,13 @@
           "ar": "صندوق الكنز كان يحتوي على الذهب والمجوهرات."
         }
       }
-    ]
+    ],
+    "explanation": "The front of the torso; a box"
   },
   {
     "word": "Chief",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chef",
       "es": "jefe",
@@ -5241,11 +5696,13 @@
           "ar": "رئيس الإطفاء نسق الاستجابة للطوارئ."
         }
       }
-    ]
+    ],
+    "explanation": "The leader; main"
   },
   {
     "word": "Child",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kind",
       "es": "niño",
@@ -5264,11 +5721,13 @@
           "ar": "يستحق كل طفل تعليمًا جيدًا."
         }
       }
-    ]
+    ],
+    "explanation": "A young person"
   },
   {
     "word": "Childhood",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kindheit",
       "es": "infancia",
@@ -5287,11 +5746,13 @@
           "ar": "كانت طفولتها مليئة بالذكريات السعيدة."
         }
       }
-    ]
+    ],
+    "explanation": "The time of being a child"
   },
   {
     "word": "Chip",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chip",
       "es": "chip",
@@ -5310,11 +5771,13 @@
           "ar": "تقوم شريحة الكمبيوتر بمعالجة المعلومات بسرعة."
         }
       }
-    ]
+    ],
+    "explanation": "A small piece; computer component"
   },
   {
     "word": "Choice",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wahl",
       "es": "elección",
@@ -5333,11 +5796,13 @@
           "ar": "لدى الطلاب اختيار من بين عدة مواد اختيارية."
         }
       }
-    ]
+    ],
+    "explanation": "An option; the act of choosing"
   },
   {
     "word": "Choose",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "Wählen",
       "es": "Elegir",
@@ -5356,11 +5821,13 @@
           "ar": "يرجى اختيار أفضل إجابة من الخيارات."
         }
       }
-    ]
+    ],
+    "explanation": "To select; to decide"
   },
   {
     "word": "Chorus",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Chor",
       "es": "coro",
@@ -5379,11 +5846,13 @@
           "ar": "أدى كورال المدرسة عرضًا في الحفل."
         }
       }
-    ]
+    ],
+    "explanation": "A group of singers"
   },
   {
     "word": "Chronic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "chronisch",
       "es": "crónico",
@@ -5402,11 +5871,13 @@
           "ar": "الألم المزمن يؤثر بشكل كبير على الأنشطة اليومية."
         }
       }
-    ]
+    ],
+    "explanation": "Long-lasting; persistent"
   },
   {
     "word": "Circle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kreis",
       "es": "círculo",
@@ -5425,11 +5896,13 @@
           "ar": "جلس الأطفال في دائرة لوقت القصة."
         }
       }
-    ]
+    ],
+    "explanation": "A round shape; a group"
   },
   {
     "word": "Circuit",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schaltkreis",
       "es": "circuito",
@@ -5448,11 +5921,13 @@
           "ar": "الدائرة الكهربائية تزود المبنى بالكامل بالطاقة."
         }
       }
-    ]
+    ],
+    "explanation": "A complete electrical path"
   },
   {
     "word": "Circumstance",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Umstand",
       "es": "circunstancia",
@@ -5471,11 +5946,13 @@
           "ar": "في الظروف العادية، يستغرق المشروع ستة أشهر."
         }
       }
-    ]
+    ],
+    "explanation": "A condition or situation"
   },
   {
     "word": "Citizen",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bürger",
       "es": "ciudadano",
@@ -5494,11 +5971,13 @@
           "ar": "لكل مواطن الحق في التصويت."
         }
       }
-    ]
+    ],
+    "explanation": "A member of a country"
   },
   {
     "word": "City",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Stadt",
       "es": "ciudad",
@@ -5517,11 +5996,13 @@
           "ar": "تقدم المدينة العديد من المعالم الثقافية."
         }
       }
-    ]
+    ],
+    "explanation": "A large town"
   },
   {
     "word": "Civil",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "zivil",
       "es": "civil",
@@ -5540,11 +6021,13 @@
           "ar": "حركة الحقوق المدنية غيرت المجتمع."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to citizens; polite"
   },
   {
     "word": "Civilian",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zivilist",
       "es": "civil",
@@ -5563,11 +6046,13 @@
           "ar": "حمت القوات العسكرية المدنيين أثناء الإخلاء."
         }
       }
-    ]
+    ],
+    "explanation": "A non-military person"
   },
   {
     "word": "Civilization",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zivilisation",
       "es": "civilización",
@@ -5586,11 +6071,13 @@
           "ar": "أثرت الحضارة اليونانية القديمة على الديمقراطية الحديثة."
         }
       }
-    ]
+    ],
+    "explanation": "An advanced society"
   },
   {
     "word": "Claim",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Anspruch",
       "es": "reclamo",
@@ -5609,11 +6096,13 @@
           "ar": "قامت شركة التأمين بمعالجة المطالبة بسرعة."
         }
       }
-    ]
+    ],
+    "explanation": "To state; to demand"
   },
   {
     "word": "Clash",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konflikt",
       "es": "choque",
@@ -5632,11 +6121,13 @@
           "ar": "استمر التصادم بين المتظاهرين والشرطة لساعات."
         }
       }
-    ]
+    ],
+    "explanation": "A conflict; to disagree strongly"
   },
   {
     "word": "Class",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Klasse",
       "es": "clase",
@@ -5655,11 +6146,13 @@
           "ar": "تجتمع فصل اللغة الإنجليزية كل ثلاثاء صباحًا."
         }
       }
-    ]
+    ],
+    "explanation": "A group; a lesson"
   },
   {
     "word": "Classic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "klassisch",
       "es": "clásico",
@@ -5678,11 +6171,13 @@
           "ar": "الرواية الكلاسيكية لا تزال شائعة اليوم."
         }
       }
-    ]
+    ],
+    "explanation": "Of highest quality; traditional"
   },
   {
     "word": "Classification",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Klassifikation",
       "es": "Clasificación",
@@ -5701,11 +6196,13 @@
           "ar": "تستخدم المكتبة نظام تصنيف للكتب."
         }
       }
-    ]
+    ],
+    "explanation": "The arrangement in categories"
   },
   {
     "word": "Classify",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "klassifizieren",
       "es": "clasificar",
@@ -5724,11 +6221,13 @@
           "ar": "يصنف العلماء الحيوانات حسب خصائصها."
         }
       }
-    ]
+    ],
+    "explanation": "To arrange in categories"
   },
   {
     "word": "Clause",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Klausel",
       "es": "cláusula",
@@ -5747,11 +6246,13 @@
           "ar": "يتضمن العقد بندًا حول شروط الدفع."
         }
       }
-    ]
+    ],
+    "explanation": "A part of a sentence or contract"
   },
   {
     "word": "Clean",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "sauber",
       "es": "limpio",
@@ -5770,11 +6271,13 @@
           "ar": "يرجى الحفاظ على المختبر نظيفًا ومنظمًا."
         }
       }
-    ]
+    ],
+    "explanation": "Free from dirt; to remove dirt"
   },
   {
     "word": "Clear",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "klar",
       "es": "claro",
@@ -5793,11 +6296,13 @@
           "ar": "التعليمات واضحة وسهلة المتابعة."
         }
       }
-    ]
+    ],
+    "explanation": "Easy to understand; transparent"
   },
   {
     "word": "Clerk",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Angestellter",
       "es": "Empleado",
@@ -5816,11 +6321,13 @@
           "ar": "ساعد موظف البنك العملاء في المعاملات."
         }
       }
-    ]
+    ],
+    "explanation": "An office worker"
   },
   {
     "word": "Client",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kunde",
       "es": "Cliente",
@@ -5839,11 +6346,13 @@
           "ar": "التقت المحامية بعميلها لمناقشة القضية."
         }
       }
-    ]
+    ],
+    "explanation": "A customer using services"
   },
   {
     "word": "Climate",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Klima",
       "es": "clima",
@@ -5862,11 +6371,13 @@
           "ar": "المناخ الاستوائي يدعم تنوع الحياة النباتية."
         }
       }
-    ]
+    ],
+    "explanation": "Weather conditions over time"
   },
   {
     "word": "Climb",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "steigen",
       "es": "escalar",
@@ -5885,11 +6396,13 @@
           "ar": "يخطط المتسلقون لتسلق أعلى قمة."
         }
       }
-    ]
+    ],
+    "explanation": "To go up using hands and feet"
   },
   {
     "word": "Clock",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Uhr",
       "es": "reloj",
@@ -5908,11 +6421,13 @@
           "ar": "الساعة القديمة تدق كل ساعة."
         }
       }
-    ]
+    ],
+    "explanation": "A timepiece"
   },
   {
     "word": "Close",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "schließen",
       "es": "cerrar",
@@ -5931,11 +6446,13 @@
           "ar": "سوف يغلق المتجر مبكرًا في ليلة عيد الميلاد."
         }
       }
-    ]
+    ],
+    "explanation": "Near; to shut"
   },
   {
     "word": "Cloth",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Stoff",
       "es": "tela",
@@ -5954,11 +6471,13 @@
           "ar": "اختار الخياط قماشًا ناعمًا للبدلة."
         }
       }
-    ]
+    ],
+    "explanation": "Woven material"
   },
   {
     "word": "Cloud",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wolke",
       "es": "nube",
@@ -5977,11 +6496,13 @@
           "ar": "تجمعت سحب داكنة قبل العاصفة."
         }
       }
-    ]
+    ],
+    "explanation": "Water vapor in the sky"
   },
   {
     "word": "Club",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Club",
       "es": "Club",
@@ -6000,11 +6521,13 @@
           "ar": "يجتمع نادي التصوير كل يوم ثلاثاء."
         }
       }
-    ]
+    ],
+    "explanation": "An organization; a stick"
   },
   {
     "word": "Clue",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Hinweis",
       "es": "pista",
@@ -6023,11 +6546,13 @@
           "ar": "وجد المحقق دليلاً مهماً."
         }
       }
-    ]
+    ],
+    "explanation": "A hint; evidence"
   },
   {
     "word": "Coach",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Trainer",
       "es": "Entrenador",
@@ -6046,11 +6571,13 @@
           "ar": "قام مدرب كرة السلة بتطوير استراتيجيات جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "A trainer; a bus"
   },
   {
     "word": "Coal",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kohle",
       "es": "carbón",
@@ -6069,11 +6596,13 @@
           "ar": "تحرق محطة الطاقة الفحم لتوليد الكهرباء."
         }
       }
-    ]
+    ],
+    "explanation": "A black fuel"
   },
   {
     "word": "Coast",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Küste",
       "es": "costa",
@@ -6092,11 +6621,13 @@
           "ar": "الساحل الصخري يوفر مناظر خلابة للمحيط."
         }
       }
-    ]
+    ],
+    "explanation": "Land near the sea"
   },
   {
     "word": "Coat",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Mantel",
       "es": "abrigo",
@@ -6115,11 +6646,13 @@
           "ar": "كانت ترتدي معطفًا دافئًا في الشتاء."
         }
       }
-    ]
+    ],
+    "explanation": "An outer garment; a layer"
   },
   {
     "word": "Code",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Code",
       "es": "código",
@@ -6138,11 +6671,13 @@
           "ar": "كتب المبرمج رمزًا فعالًا."
         }
       }
-    ]
+    ],
+    "explanation": "A system of signals; rules"
   },
   {
     "word": "Coffee",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kaffee",
       "es": "café",
@@ -6161,11 +6696,13 @@
           "ar": "المقهى يقدم قهوة ممتازة ومعجنات."
         }
       }
-    ]
+    ],
+    "explanation": "A hot drink"
   },
   {
     "word": "Coin",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Münze",
       "es": "moneda",
@@ -6184,11 +6721,13 @@
           "ar": "العملة النادرة تساوي آلاف الدولارات."
         }
       }
-    ]
+    ],
+    "explanation": "Metal money"
   },
   {
     "word": "Cold",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kälte",
       "es": "frío",
@@ -6207,11 +6746,13 @@
           "ar": "الطقس البارد أجبر الناس على البقاء في الداخل."
         }
       }
-    ]
+    ],
+    "explanation": "Low temperature; unfriendly"
   },
   {
     "word": "Collapse",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kollaps",
       "es": "colapso",
@@ -6230,11 +6771,13 @@
           "ar": "انهيار المبنى القديم أغلق الشارع."
         }
       }
-    ]
+    ],
+    "explanation": "To fall down; sudden failure"
   },
   {
     "word": "Colleague",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kollege",
       "es": "Colega",
@@ -6253,11 +6796,13 @@
           "ar": "ناقشت المشروع مع زميلها."
         }
       }
-    ]
+    ],
+    "explanation": "A coworker"
   },
   {
     "word": "Collect",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "sammeln",
       "es": "coleccionar",
@@ -6276,11 +6821,13 @@
           "ar": "يجمع المتحف القطع الأثرية من العصور القديمة."
         }
       }
-    ]
+    ],
+    "explanation": "To gather; to pick up"
   },
   {
     "word": "Collection",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Sammlung",
       "es": "colección",
@@ -6299,11 +6846,13 @@
           "ar": "تتضمن مجموعة طوابعه عينات نادرة."
         }
       }
-    ]
+    ],
+    "explanation": "A group of collected items"
   },
   {
     "word": "College",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Hochschule",
       "es": "universidad",
@@ -6322,11 +6871,13 @@
           "ar": "تخرجت من الكلية بمرتبة الشرف."
         }
       }
-    ]
+    ],
+    "explanation": "An educational institution"
   },
   {
     "word": "Color",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Farbe",
       "es": "color",
@@ -6345,11 +6896,13 @@
           "ar": "استخدم الفنان ألوانًا زاهية في اللوحة."
         }
       }
-    ]
+    ],
+    "explanation": "The appearance of light; to add color"
   },
   {
     "word": "Column",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Säule",
       "es": "columna",
@@ -6368,11 +6921,13 @@
           "ar": "الأعمدة الرخامية تدعم مدخل المبنى."
         }
       }
-    ]
+    ],
+    "explanation": "A vertical support; a regular article"
   },
   {
     "word": "Combat",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kampf",
       "es": "combate",
@@ -6391,11 +6946,13 @@
           "ar": "تدرب الجنود للقتال في ظروف صعبة."
         }
       }
-    ]
+    ],
+    "explanation": "Fighting; to fight against"
   },
   {
     "word": "Combination",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kombination",
       "es": "combinación",
@@ -6414,11 +6971,13 @@
           "ar": "تركيبة المكونات تخلق نكهة لذيذة."
         }
       }
-    ]
+    ],
+    "explanation": "A mixture; a sequence"
   },
   {
     "word": "Combine",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "kombinieren",
       "es": "combinar",
@@ -6437,11 +6996,13 @@
           "ar": "قررت الشركات دمج الموارد."
         }
       }
-    ]
+    ],
+    "explanation": "To join together"
   },
   {
     "word": "Come",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "kommen",
       "es": "venir",
@@ -6460,11 +7021,13 @@
           "ar": "يرجى الحضور إلى الاجتماع في الساعة الثالثة."
         }
       }
-    ]
+    ],
+    "explanation": "To move toward; to arrive"
   },
   {
     "word": "Comedy",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Komödie",
       "es": "comedia",
@@ -6483,11 +7046,13 @@
           "ar": "عرض الكوميديا جعل الجميع يضحكون."
         }
       }
-    ]
+    ],
+    "explanation": "Humorous entertainment"
   },
   {
     "word": "Comfort",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Komfort",
       "es": "Comodidad",
@@ -6506,11 +7071,13 @@
           "ar": "الكرسي المريح مثالي للقراءة."
         }
       }
-    ]
+    ],
+    "explanation": "Ease; to console"
   },
   {
     "word": "Command",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Befehl",
       "es": "comando",
@@ -6529,11 +7096,13 @@
           "ar": "أصدر الجنرال أمراً بالتقدم."
         }
       }
-    ]
+    ],
+    "explanation": "An order; to give orders"
   },
   {
     "word": "Comment",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kommentar",
       "es": "comentario",
@@ -6552,11 +7121,13 @@
           "ar": "كتب المعلم تعليقات مفيدة على المقالات."
         }
       }
-    ]
+    ],
+    "explanation": "A remark; to make remarks"
   },
   {
     "word": "Commerce",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Handel",
       "es": "comercio",
@@ -6575,11 +7146,13 @@
           "ar": "تستفيد التجارة الدولية من التجارة الحرة."
         }
       }
-    ]
+    ],
+    "explanation": "Trade and business"
   },
   {
     "word": "Commercial",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kommerziell",
       "es": "comercial",
@@ -6598,11 +7171,13 @@
           "ar": "الحي التجاري يحتوي على متاجر ومطاعم."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to business; an advertisement"
   },
   {
     "word": "Commission",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kommission",
       "es": "comisión",
@@ -6621,11 +7196,13 @@
           "ar": "اختارت لجنة الفن تماثيل عامة."
         }
       }
-    ]
+    ],
+    "explanation": "A group with a task; a fee"
   },
   {
     "word": "Commit",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verpflichten",
       "es": "comprometer",
@@ -6644,11 +7221,13 @@
           "ar": "ستلتزم الشركة بتخصيص موارد للبحث."
         }
       }
-    ]
+    ],
+    "explanation": "To do; to pledge"
   },
   {
     "word": "Committee",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ausschuss",
       "es": "comité",
@@ -6667,11 +7246,13 @@
           "ar": "تجتمع لجنة التخطيط شهريًا."
         }
       }
-    ]
+    ],
+    "explanation": "A group with a function"
   },
   {
     "word": "Common",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "gemeinsam",
       "es": "común",
@@ -6690,11 +7271,13 @@
           "ar": "المنطق السليم يقترح ارتداء أحزمة الأمان."
         }
       }
-    ]
+    ],
+    "explanation": "Frequent; shared"
   },
   {
     "word": "Communicate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "kommunizieren",
       "es": "comunicar",
@@ -6713,11 +7296,13 @@
           "ar": "تساعد التكنولوجيا الناس على التواصل عالميًا."
         }
       }
-    ]
+    ],
+    "explanation": "To share information"
   },
   {
     "word": "Communication",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kommunikation",
       "es": "Comunicación",
@@ -6736,11 +7321,13 @@
           "ar": "الاتصال الفعال ضروري للعمل الجماعي."
         }
       }
-    ]
+    ],
+    "explanation": "The sharing of information"
   },
   {
     "word": "Community",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gemeinschaft",
       "es": "comunidad",
@@ -6759,11 +7346,13 @@
           "ar": "نظمت المجتمع المحلي مهرجانًا."
         }
       }
-    ]
+    ],
+    "explanation": "A group in the same area"
   },
   {
     "word": "Company",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Unternehmen",
       "es": "empresa",
@@ -6782,11 +7371,13 @@
           "ar": "تقوم الشركة التكنولوجية بتطوير البرمجيات."
         }
       }
-    ]
+    ],
+    "explanation": "A business; companionship"
   },
   {
     "word": "Compare",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "vergleichen",
       "es": "comparar",
@@ -6805,11 +7396,13 @@
           "ar": "يجب على الطلاب مقارنة مصادر مختلفة."
         }
       }
-    ]
+    ],
+    "explanation": "To examine differences"
   },
   {
     "word": "Comparison",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vergleich",
       "es": "comparación",
@@ -6828,11 +7421,13 @@
           "ar": "المقارنة تكشف عن اختلافات كبيرة."
         }
       }
-    ]
+    ],
+    "explanation": "The act of comparing"
   },
   {
     "word": "Compete",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "wettbewerben",
       "es": "competir",
@@ -6851,11 +7446,13 @@
           "ar": "يتدرب الرياضيون بجد للتنافس على المستوى الدولي."
         }
       }
-    ]
+    ],
+    "explanation": "To try to win"
   },
   {
     "word": "Competition",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wettbewerb",
       "es": "competencia",
@@ -6874,11 +7471,13 @@
           "ar": "المسابقة جذبت مشاركين من جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "A contest; rivalry"
   },
   {
     "word": "Competitive",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "wettbewerbsfähig",
       "es": "competitivo",
@@ -6897,11 +7496,13 @@
           "ar": "السوق التنافسي يفرض الابتكار."
         }
       }
-    ]
+    ],
+    "explanation": "Wanting to win"
   },
   {
     "word": "Competitor",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wettbewerber",
       "es": "competidor",
@@ -6920,11 +7521,13 @@
           "ar": "المنافس الجديد يقدم منتجات مماثلة بأسعار أقل."
         }
       }
-    ]
+    ],
+    "explanation": "A rival; someone competing"
   },
   {
     "word": "Complain",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "beschweren",
       "es": "quejarse",
@@ -6943,11 +7546,13 @@
           "ar": "يشكو العملاء عندما لا يلبي الخدمة التوقعات."
         }
       }
-    ]
+    ],
+    "explanation": "To express dissatisfaction"
   },
   {
     "word": "Complaint",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Beschwerde",
       "es": "queja",
@@ -6966,11 +7571,13 @@
           "ar": "عالج المدير كل شكوى من العملاء على الفور."
         }
       }
-    ]
+    ],
+    "explanation": "An expression of dissatisfaction"
   },
   {
     "word": "Complete",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "vollständig",
       "es": "completo",
@@ -6989,11 +7596,13 @@
           "ar": "مشروع البناء مكتمل وجاهز."
         }
       }
-    ]
+    ],
+    "explanation": "Having all parts; to finish"
   },
   {
     "word": "Complex",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "komplex",
       "es": "complejo",
@@ -7012,11 +7621,13 @@
           "ar": "المشكلة المعقدة تتطلب تحليلًا دقيقًا."
         }
       }
-    ]
+    ],
+    "explanation": "Complicated; having many parts"
   },
   {
     "word": "Component",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Komponente",
       "es": "componente",
@@ -7035,11 +7646,13 @@
           "ar": "كل مكون يؤدي وظيفة محددة."
         }
       }
-    ]
+    ],
+    "explanation": "A part of something larger"
   },
   {
     "word": "Compose",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "komponieren",
       "es": "componer",
@@ -7058,11 +7671,13 @@
           "ar": "قام الموسيقي بتأليف سمفونية جميلة."
         }
       }
-    ]
+    ],
+    "explanation": "To create; to write"
   },
   {
     "word": "Composition",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Komposition",
       "es": "Composición",
@@ -7081,11 +7696,13 @@
           "ar": "تركيبها فاز بالجائزة الأولى في المسابقة."
         }
       }
-    ]
+    ],
+    "explanation": "A work of art; the makeup"
   },
   {
     "word": "Compound",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verbindung",
       "es": "compuesto",
@@ -7104,11 +7721,13 @@
           "ar": "المركب الكيميائي له خصائص فريدة."
         }
       }
-    ]
+    ],
+    "explanation": "A mixture; to make worse"
   },
   {
     "word": "Comprehensive",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "umfassend",
       "es": "integral",
@@ -7127,11 +7746,13 @@
           "ar": "التقرير الشامل يغطي جميع الجوانب."
         }
       }
-    ]
+    ],
+    "explanation": "Complete and thorough"
   },
   {
     "word": "Computer",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Computer",
       "es": "computadora",
@@ -7150,11 +7771,13 @@
           "ar": "يُعالج الحاسوب المعلومات بسرعة كبيرة."
         }
       }
-    ]
+    ],
+    "explanation": "An electronic device"
   },
   {
     "word": "Concentrate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "konzentrieren",
       "es": "concentrar",
@@ -7173,11 +7796,13 @@
           "ar": "يجب على الطلاب التركيز أثناء الامتحانات."
         }
       }
-    ]
+    ],
+    "explanation": "To focus; to make stronger"
   },
   {
     "word": "Concentration",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konzentration",
       "es": "concentración",
@@ -7196,11 +7821,13 @@
           "ar": "تركيز التلوث يؤثر على الصحة."
         }
       }
-    ]
+    ],
+    "explanation": "Focused attention; a gathering"
   },
   {
     "word": "Concept",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konzept",
       "es": "concepto",
@@ -7219,11 +7846,13 @@
           "ar": "مفهوم الديمقراطية يختلف عبر الثقافات."
         }
       }
-    ]
+    ],
+    "explanation": "An idea; a general notion"
   },
   {
     "word": "Concern",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Anliegen",
       "es": "preocupación",
@@ -7242,11 +7871,13 @@
           "ar": "القلق البيئي يحفز جهود إعادة التدوير."
         }
       }
-    ]
+    ],
+    "explanation": "Worry; a matter of interest"
   },
   {
     "word": "Concert",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konzert",
       "es": "concierto",
@@ -7265,11 +7896,13 @@
           "ar": "قدمت الأوركسترا حفلاً مميزًا."
         }
       }
-    ]
+    ],
+    "explanation": "A musical performance"
   },
   {
     "word": "Conclude",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "abschließen",
       "es": "concluir",
@@ -7288,11 +7921,13 @@
           "ar": "ستختتم الدراسة الشهر المقبل."
         }
       }
-    ]
+    ],
+    "explanation": "To end; to decide"
   },
   {
     "word": "Conclusion",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schlussfolgerung",
       "es": "conclusión",
@@ -7311,11 +7946,13 @@
           "ar": "الاستنتاج يدعم الفرضية الأصلية."
         }
       }
-    ]
+    ],
+    "explanation": "The end; a judgment"
   },
   {
     "word": "Concrete",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Beton",
       "es": "Hormigón",
@@ -7334,11 +7971,13 @@
           "ar": "يضمن الأساس الخرساني الاستقرار."
         }
       }
-    ]
+    ],
+    "explanation": "Building material; specific"
   },
   {
     "word": "Condition",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zustand",
       "es": "condición",
@@ -7357,11 +7996,13 @@
           "ar": "السيارة في حالة ممتازة."
         }
       }
-    ]
+    ],
+    "explanation": "The state of something; a requirement"
   },
   {
     "word": "Conduct",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Leitung",
       "es": "conducción",
@@ -7380,11 +8021,13 @@
           "ar": "سيوجه قائد الأوركسترا الأوركسترا."
         }
       }
-    ]
+    ],
+    "explanation": "To organize; behavior"
   },
   {
     "word": "Conference",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konferenz",
       "es": "conferencia",
@@ -7403,11 +8046,13 @@
           "ar": "تناولت المؤتمر الدولي قضايا المناخ."
         }
       }
-    ]
+    ],
+    "explanation": "A formal meeting"
   },
   {
     "word": "Confidence",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vertrauen",
       "es": "confianza",
@@ -7426,11 +8071,13 @@
           "ar": "ثقتها زادت مع الخبرة."
         }
       }
-    ]
+    ],
+    "explanation": "Self-assurance"
   },
   {
     "word": "Confident",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "zuversichtlich",
       "es": "seguro",
@@ -7449,11 +8096,13 @@
           "ar": "الخطاب الواثق أسر الجمهور."
         }
       }
-    ]
+    ],
+    "explanation": "Feeling certain"
   },
   {
     "word": "Confirm",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bestätigen",
       "es": "confirmar",
@@ -7472,11 +8121,13 @@
           "ar": "يرجى تأكيد حضورك عبر البريد الإلكتروني."
         }
       }
-    ]
+    ],
+    "explanation": "To verify; to establish truth"
   },
   {
     "word": "Conflict",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konflikt",
       "es": "conflicto",
@@ -7495,11 +8146,13 @@
           "ar": "استمر النزاع لعدة سنوات."
         }
       }
-    ]
+    ],
+    "explanation": "A disagreement; to clash"
   },
   {
     "word": "Confuse",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verwirren",
       "es": "confundir",
@@ -7518,11 +8171,13 @@
           "ar": "يمكن أن تُربك التعليمات المعقدة العمال."
         }
       }
-    ]
+    ],
+    "explanation": "To make unclear; to mix up"
   },
   {
     "word": "Congress",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kongress",
       "es": "Congreso",
@@ -7541,11 +8196,13 @@
           "ar": "أقر الكونغرس قوانين جديدة لحماية المستهلك."
         }
       }
-    ]
+    ],
+    "explanation": "A legislative body; a meeting"
   },
   {
     "word": "Connect",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verbinden",
       "es": "conectar",
@@ -7564,11 +8221,13 @@
           "ar": "الجسر يربط جانبي النهر."
         }
       }
-    ]
+    ],
+    "explanation": "To join; to link"
   },
   {
     "word": "Connection",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verbindung",
       "es": "conexión",
@@ -7587,11 +8246,13 @@
           "ar": "اتصال الإنترنت يتيح الوصول العالمي."
         }
       }
-    ]
+    ],
+    "explanation": "A link; a relationship"
   },
   {
     "word": "Conscious",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "bewusst",
       "es": "consciente",
@@ -7610,11 +8271,13 @@
           "ar": "بذلت جهدًا واعيًا لتحسين نفسها."
         }
       }
-    ]
+    ],
+    "explanation": "Aware; deliberate"
   },
   {
     "word": "Consequence",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Folge",
       "es": "consecuencia",
@@ -7633,11 +8296,13 @@
           "ar": "كانت للتخطيط السيء عواقب وخيمة."
         }
       }
-    ]
+    ],
+    "explanation": "A result; an outcome"
   },
   {
     "word": "Conservative",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "konservativ",
       "es": "conservador",
@@ -7656,11 +8321,13 @@
           "ar": "النهج المحافظ يقلل من المخاطر."
         }
       }
-    ]
+    ],
+    "explanation": "Traditional; cautious"
   },
   {
     "word": "Consider",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "berücksichtigen",
       "es": "considerar",
@@ -7679,11 +8346,13 @@
           "ar": "يرجى اعتبار جميع الخيارات بعناية."
         }
       }
-    ]
+    ],
+    "explanation": "To think about; to regard"
   },
   {
     "word": "Considerable",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "erheblich",
       "es": "considerable",
@@ -7702,11 +8371,13 @@
           "ar": "يتطلب المشروع استثمارًا كبيرًا."
         }
       }
-    ]
+    ],
+    "explanation": "Notable; significant"
   },
   {
     "word": "Consideration",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Überlegung",
       "es": "consideración",
@@ -7725,11 +8396,13 @@
           "ar": "يستحق الاقتراح اعتبارًا جادًا."
         }
       }
-    ]
+    ],
+    "explanation": "Careful thought; thoughtfulness"
   },
   {
     "word": "Consist",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bestehen",
       "es": "consistir",
@@ -7748,11 +8421,13 @@
           "ar": "يتكون الفريق من خبراء دوليين."
         }
       }
-    ]
+    ],
+    "explanation": "To be made up of"
   },
   {
     "word": "Consistent",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "konsequent",
       "es": "consistente",
@@ -7771,11 +8446,13 @@
           "ar": "الممارسة المتسقة تؤدي إلى التحسن."
         }
       }
-    ]
+    ],
+    "explanation": "Regular; unchanging"
   },
   {
     "word": "Constant",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "konstant",
       "es": "constante",
@@ -7794,11 +8471,13 @@
           "ar": "الضوضاء الثابتة أزعجت السكان."
         }
       }
-    ]
+    ],
+    "explanation": "Continuous; unchanging"
   },
   {
     "word": "Constitution",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verfassung",
       "es": "constitución",
@@ -7817,11 +8496,13 @@
           "ar": "يضمن الدستور الحقوق الأساسية."
         }
       }
-    ]
+    ],
+    "explanation": "Fundamental principles"
   },
   {
     "word": "Construct",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "konstruieren",
       "es": "construir",
@@ -7840,11 +8521,13 @@
           "ar": "سيقوم العمال ببناء المستشفى."
         }
       }
-    ]
+    ],
+    "explanation": "To build; to create"
   },
   {
     "word": "Construction",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bau",
       "es": "Construcción",
@@ -7863,11 +8546,13 @@
           "ar": "سيبدأ البناء في الربيع المقبل."
         }
       }
-    ]
+    ],
+    "explanation": "The building process"
   },
   {
     "word": "Consult",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "konsultieren",
       "es": "consultar",
@@ -7886,11 +8571,13 @@
           "ar": "يجب على المرضى استشارة طبيبهم."
         }
       }
-    ]
+    ],
+    "explanation": "To seek advice"
   },
   {
     "word": "Consumer",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verbraucher",
       "es": "Consumidor",
@@ -7909,11 +8596,13 @@
           "ar": "تؤثر طلبات المستهلكين على تطوير المنتجات."
         }
       }
-    ]
+    ],
+    "explanation": "A buyer; someone who uses"
   },
   {
     "word": "Contact",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "Kontakt aufnehmen",
       "es": "contactar",
@@ -7932,11 +8621,13 @@
           "ar": "يرجى الاتصال بخدمة العملاء."
         }
       }
-    ]
+    ],
+    "explanation": "Communication; to reach"
   },
   {
     "word": "Contain",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "enthalten",
       "es": "contener",
@@ -7955,11 +8646,13 @@
           "ar": "تحتوي الصندوق على مستندات مهمة."
         }
       }
-    ]
+    ],
+    "explanation": "To hold; to include"
   },
   {
     "word": "Container",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Container",
       "es": "Contenedor",
@@ -7978,11 +8671,13 @@
           "ar": "تحتوي حاوية الشحن على الآلاف من المنتجات."
         }
       }
-    ]
+    ],
+    "explanation": "A receptacle"
   },
   {
     "word": "Content",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Inhalt",
       "es": "contenido",
@@ -8001,11 +8696,13 @@
           "ar": "كان محتوى المحاضرة مفيدًا."
         }
       }
-    ]
+    ],
+    "explanation": "Satisfied; the substance"
   },
   {
     "word": "Contest",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wettbewerb",
       "es": "concurso",
@@ -8024,11 +8721,13 @@
           "ar": "تجذب مسابقة الغناء المؤدين الموهوبين."
         }
       }
-    ]
+    ],
+    "explanation": "A competition; to dispute"
   },
   {
     "word": "Context",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kontext",
       "es": "Contexto",
@@ -8047,11 +8746,13 @@
           "ar": "فهم السياق يساعد في تفسير المعنى."
         }
       }
-    ]
+    ],
+    "explanation": "The circumstances; the setting"
   },
   {
     "word": "Continue",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "Fortsetzen",
       "es": "Continuar",
@@ -8070,11 +8771,13 @@
           "ar": "ستستمر الاجتماع بعد استراحة."
         }
       }
-    ]
+    ],
+    "explanation": "To persist; to go on"
   },
   {
     "word": "Contract",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Vertrag",
       "es": "Contrato",
@@ -8093,11 +8796,13 @@
           "ar": "يحدد عقد البناء موعد الانتهاء."
         }
       }
-    ]
+    ],
+    "explanation": "A legal agreement; to shrink"
   },
   {
     "word": "Contrast",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kontrast",
       "es": "contraste",
@@ -8116,11 +8821,13 @@
           "ar": "التباين بين اللوحات لافت للنظر."
         }
       }
-    ]
+    ],
+    "explanation": "The difference; to compare"
   },
   {
     "word": "Contribute",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "beitragen",
       "es": "contribuir",
@@ -8139,11 +8846,13 @@
           "ar": "المتطوعون يساهمون بالوقت في المشاريع المجتمعية."
         }
       }
-    ]
+    ],
+    "explanation": "To give; to help"
   },
   {
     "word": "Contribution",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Beitrag",
       "es": "contribución",
@@ -8162,11 +8871,13 @@
           "ar": "مساهمتها حصلت على اعتراف دولي."
         }
       }
-    ]
+    ],
+    "explanation": "Something given; a donation"
   },
   {
     "word": "Control",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kontrolle",
       "es": "control",
@@ -8185,11 +8896,13 @@
           "ar": "تتحكم إشارات المرور في تدفق المركبات."
         }
       }
-    ]
+    ],
+    "explanation": "Power to influence; to command"
   },
   {
     "word": "Controversial",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kontrovers",
       "es": "controversial",
@@ -8208,11 +8921,13 @@
           "ar": "القرار المثير للجدل أثار نقاشًا."
         }
       }
-    ]
+    ],
+    "explanation": "Causing disagreement"
   },
   {
     "word": "Convention",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Konvention",
       "es": "convención",
@@ -8231,11 +8946,13 @@
           "ar": "تضمنت الاتفاقية الطبية علاجات جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "A large meeting; accepted practice"
   },
   {
     "word": "Conversation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gespräch",
       "es": "conversación",
@@ -8254,11 +8971,13 @@
           "ar": "تناولت المحادثة العديد من المواضيع."
         }
       }
-    ]
+    ],
+    "explanation": "An exchange of ideas"
   },
   {
     "word": "Convert",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "konvertieren",
       "es": "convertir",
@@ -8277,11 +8996,13 @@
           "ar": "ستتحول المصنع إلى الطاقة المتجددة."
         }
       }
-    ]
+    ],
+    "explanation": "To change form"
   },
   {
     "word": "Convince",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "überzeugen",
       "es": "convencer",
@@ -8300,11 +9021,13 @@
           "ar": "كانت الأدلة كافية لإقناع هيئة المحلفين."
         }
       }
-    ]
+    ],
+    "explanation": "To persuade"
   },
   {
     "word": "Cook",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "kochen",
       "es": "cocinar",
@@ -8323,11 +9046,13 @@
           "ar": "لقد تعلمت طهي الأطباق التقليدية."
         }
       }
-    ]
+    ],
+    "explanation": "To prepare food; a chef"
   },
   {
     "word": "Cool",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "cool",
       "es": "fresco",
@@ -8346,11 +9071,13 @@
           "ar": "وفرت النسيم البارد راحة من الحرارة."
         }
       }
-    ]
+    ],
+    "explanation": "Moderately cold; fashionable"
   },
   {
     "word": "Cooperation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kooperation",
       "es": "Cooperación",
@@ -8369,11 +9096,13 @@
           "ar": "التعاون الدولي يعالج التحديات العالمية."
         }
       }
-    ]
+    ],
+    "explanation": "Working together"
   },
   {
     "word": "Cope",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bewältigen",
       "es": "hacer frente",
@@ -8392,11 +9121,13 @@
           "ar": "يجب على الأسر التعامل مع الضغوط المالية."
         }
       }
-    ]
+    ],
+    "explanation": "To deal with difficulty"
   },
   {
     "word": "Copy",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kopie",
       "es": "copia",
@@ -8415,11 +9146,13 @@
           "ar": "يرجى عمل نسخة لسجلاتك."
         }
       }
-    ]
+    ],
+    "explanation": "A reproduction; to duplicate"
   },
   {
     "word": "Core",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kern",
       "es": "núcleo",
@@ -8438,11 +9171,13 @@
           "ar": "تعتبر الرياضيات جزءًا من المنهج الأساسي."
         }
       }
-    ]
+    ],
+    "explanation": "The center; most important part"
   },
   {
     "word": "Corner",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ecke",
       "es": "esquina",
@@ -8461,11 +9196,13 @@
           "ar": "المكتبة تقع عند زاوية الشارع."
         }
       }
-    ]
+    ],
+    "explanation": "Where lines meet"
   },
   {
     "word": "Corporate",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "unternehmerisch",
       "es": "corporativo",
@@ -8484,11 +9221,13 @@
           "ar": "تشمل المسؤولية الشركاتية القضايا البيئية."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to corporations"
   },
   {
     "word": "Corporation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Unternehmen",
       "es": "corporación",
@@ -8507,11 +9246,13 @@
           "ar": "تعمل الشركة متعددة الجنسيات على مستوى العالم."
         }
       }
-    ]
+    ],
+    "explanation": "A large company"
   },
   {
     "word": "Correct",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "korrigieren",
       "es": "corregir",
@@ -8530,11 +9271,13 @@
           "ar": "يرجى تصحيح أي أخطاء قبل التقديم."
         }
       }
-    ]
+    ],
+    "explanation": "Right; free from error"
   },
   {
     "word": "Correspond",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "entsprechen",
       "es": "corresponder",
@@ -8553,11 +9296,13 @@
           "ar": "تتوافق النتائج مع التوقعات."
         }
       }
-    ]
+    ],
+    "explanation": "To match; to communicate"
   },
   {
     "word": "Corrupt",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "korrupt",
       "es": "corrupto",
@@ -8576,11 +9321,13 @@
           "ar": "تمت إقالة المسؤولين الفاسدين على الفور."
         }
       }
-    ]
+    ],
+    "explanation": "Dishonest; to make dishonest"
   },
   {
     "word": "Cost",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kosten",
       "es": "costo",
@@ -8599,11 +9346,13 @@
           "ar": "تكلفة التعليم تستمر في الارتفاع."
         }
       }
-    ]
+    ],
+    "explanation": "The price; to require payment"
   },
   {
     "word": "Cotton",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Baumwolle",
       "es": "algodón",
@@ -8622,11 +9371,13 @@
           "ar": "القميص القطني مريح في الصيف."
         }
       }
-    ]
+    ],
+    "explanation": "A soft fiber; fabric"
   },
   {
     "word": "Council",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Rat",
       "es": "Consejo",
@@ -8645,11 +9396,13 @@
           "ar": "وافق المجلس البلدي على التطوير."
         }
       }
-    ]
+    ],
+    "explanation": "An assembly"
   },
   {
     "word": "Count",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "zählen",
       "es": "contar",
@@ -8668,11 +9421,13 @@
           "ar": "يرجى عد المشاركين في كل مجموعة."
         }
       }
-    ]
+    ],
+    "explanation": "To number; to matter"
   },
   {
     "word": "Counter",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Theke",
       "es": "mostrador",
@@ -8691,11 +9446,13 @@
           "ar": "عداد المطبخ يوفر مساحة عمل."
         }
       }
-    ]
+    ],
+    "explanation": "A surface; opposite"
   },
   {
     "word": "Country",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Land",
       "es": "país",
@@ -8714,11 +9471,13 @@
           "ar": "تعتمد اقتصاد البلاد على الزراعة."
         }
       }
-    ]
+    ],
+    "explanation": "A nation; rural areas"
   },
   {
     "word": "County",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Landkreis",
       "es": "condado",
@@ -8737,11 +9496,13 @@
           "ar": "تقدم حكومة المقاطعة خدمات أساسية."
         }
       }
-    ]
+    ],
+    "explanation": "A territorial division"
   },
   {
     "word": "Couple",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Paar",
       "es": "Pareja",
@@ -8760,11 +9521,13 @@
           "ar": "احتفل الزوجان بذكرى زواجهما."
         }
       }
-    ]
+    ],
+    "explanation": "Two people; a few"
   },
   {
     "word": "Course",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kurs",
       "es": "curso",
@@ -8783,11 +9546,13 @@
           "ar": "الدورة التدريبية عبر الإنترنت تغطي تقنيات البرمجة."
         }
       }
-    ]
+    ],
+    "explanation": "A series of lessons; direction"
   },
   {
     "word": "Court",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gericht",
       "es": "tribunal",
@@ -8806,11 +9571,13 @@
           "ar": "ستستمع المحكمة العليا إلى القضية."
         }
       }
-    ]
+    ],
+    "explanation": "A tribunal; sports area"
   },
   {
     "word": "Cover",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "decken",
       "es": "cubrir",
@@ -8829,11 +9596,13 @@
           "ar": "ستغطي التأمين الأضرار الناتجة عن الكوارث."
         }
       }
-    ]
+    ],
+    "explanation": "To place over; protection"
   },
   {
     "word": "Craft",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Handwerk",
       "es": "oficio",
@@ -8852,11 +9621,13 @@
           "ar": "حرفة الحرفي انتقلت عبر الأجيال."
         }
       }
-    ]
+    ],
+    "explanation": "Skill; to make skillfully"
   },
   {
     "word": "Crash",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Crash",
       "es": "colapso",
@@ -8875,11 +9646,13 @@
           "ar": "أثر انهيار السوق على المستثمرين في جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "A collision; to collide"
   },
   {
     "word": "Create",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erschaffen",
       "es": "crear",
@@ -8898,11 +9671,13 @@
           "ar": "يخلق الفنانون أعمالًا تلهم الناس."
         }
       }
-    ]
+    ],
+    "explanation": "To bring into existence"
   },
   {
     "word": "Creation",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schöpfung",
       "es": "creación",
@@ -8921,11 +9696,13 @@
           "ar": "إنشاء الإنترنت ثور في التواصل."
         }
       }
-    ]
+    ],
+    "explanation": "The act of creating"
   },
   {
     "word": "Creative",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kreativ",
       "es": "creativo",
@@ -8944,11 +9721,13 @@
           "ar": "التفكير الإبداعي يؤدي إلى حلول مبتكرة."
         }
       }
-    ]
+    ],
+    "explanation": "Having creativity; imaginative"
   },
   {
     "word": "Credit",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kredit",
       "es": "crédito",
@@ -8967,11 +9746,13 @@
           "ar": "هي تستحق الائتمان لتنظيم الحدث."
         }
       }
-    ]
+    ],
+    "explanation": "Recognition; deferred payment"
   },
   {
     "word": "Crime",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verbrechen",
       "es": "crimen",
@@ -8990,11 +9771,13 @@
           "ar": "تعمل الشرطة على منع الجريمة في الحي."
         }
       }
-    ]
+    ],
+    "explanation": "An illegal act"
   },
   {
     "word": "Criminal",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verbrecher",
       "es": "criminal",
@@ -9013,11 +9796,13 @@
           "ar": "نظام العدالة الجنائية يعيد تأهيل المجرمين."
         }
       }
-    ]
+    ],
+    "explanation": "A lawbreaker; relating to crime"
   },
   {
     "word": "Crisis",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Krise",
       "es": "crisis",
@@ -9036,11 +9821,13 @@
           "ar": "أثرت الأزمة الاقتصادية على ملايين الأشخاص في جميع أنحاء العالم."
         }
       }
-    ]
+    ],
+    "explanation": "A difficult time"
   },
   {
     "word": "Criteria",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kriterien",
       "es": "Criterios",
@@ -9059,11 +9846,13 @@
           "ar": "تشمل معايير المنح الدراسية التميز الأكاديمي."
         }
       }
-    ]
+    ],
+    "explanation": "Standards for judgment"
   },
   {
     "word": "Critical",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "kritisch",
       "es": "crítico",
@@ -9082,11 +9871,13 @@
           "ar": "مهارات التفكير النقدي ضرورية."
         }
       }
-    ]
+    ],
+    "explanation": "Very important; expressing disapproval"
   },
   {
     "word": "Criticism",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kritik",
       "es": "Crítica",
@@ -9105,11 +9896,13 @@
           "ar": "النقد البناء يساعد الكتاب على التحسن."
         }
       }
-    ]
+    ],
+    "explanation": "Disapproval; evaluation"
   },
   {
     "word": "Crop",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Ernte",
       "es": "cosecha",
@@ -9128,11 +9921,13 @@
           "ar": "محصول المزارع أسفر عن حصاد ممتاز."
         }
       }
-    ]
+    ],
+    "explanation": "A cultivated plant; to cut"
   },
   {
     "word": "Cross",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "überqueren",
       "es": "cruzar",
@@ -9151,11 +9946,13 @@
           "ar": "يجب على المشاة العبور في المناطق المحددة."
         }
       }
-    ]
+    ],
+    "explanation": "To go across; intersection"
   },
   {
     "word": "Crowd",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Menge",
       "es": "multitud",
@@ -9174,11 +9971,13 @@
           "ar": "الحشد هتف خلال البطولة."
         }
       }
-    ]
+    ],
+    "explanation": "Many people together"
   },
   {
     "word": "Crown",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Krone",
       "es": "corona",
@@ -9197,11 +9996,13 @@
           "ar": "كانت الملكة ترتدي تاجًا رائعًا."
         }
       }
-    ]
+    ],
+    "explanation": "A ceremonial headdress; the top"
   },
   {
     "word": "Crucial",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "entscheidend",
       "es": "crucial",
@@ -9220,11 +10021,13 @@
           "ar": "التوقيت حاسم لنجاح الحملة."
         }
       }
-    ]
+    ],
+    "explanation": "Extremely important; decisive"
   },
   {
     "word": "Crude",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "roh",
       "es": "crudo",
@@ -9243,11 +10046,13 @@
           "ar": "يجب تكرير النفط الخام قبل الاستخدام."
         }
       }
-    ]
+    ],
+    "explanation": "Raw; lacking refinement"
   },
   {
     "word": "Cry",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "weinen",
       "es": "llorar",
@@ -9266,11 +10071,13 @@
           "ar": "بدأ الطفل يبكي عندما جاع."
         }
       }
-    ]
+    ],
+    "explanation": "To shed tears; to shout"
   },
   {
     "word": "Culture",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kultur",
       "es": "cultura",
@@ -9289,11 +10096,13 @@
           "ar": "المتحف يعرض الثقافة القديمة."
         }
       }
-    ]
+    ],
+    "explanation": "Arts and customs; to grow"
   },
   {
     "word": "Cup",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Tasse",
       "es": "taza",
@@ -9312,11 +10121,13 @@
           "ar": "استمتعت بكوب من الشاي الساخن."
         }
       }
-    ]
+    ],
+    "explanation": "A drinking container"
   },
   {
     "word": "Curious",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "neugierig",
       "es": "curioso",
@@ -9335,11 +10146,13 @@
           "ar": "الأطفال فضوليون بطبيعتهم تجاه كل شيء."
         }
       }
-    ]
+    ],
+    "explanation": "Eager to know; strange"
   },
   {
     "word": "Current",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "aktuell",
       "es": "actual",
@@ -9358,11 +10171,13 @@
           "ar": "تشكل الأحداث الحالية الرأي العام."
         }
       }
-    ]
+    ],
+    "explanation": "Present; a flow"
   },
   {
     "word": "Curve",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kurve",
       "es": "curva",
@@ -9381,11 +10196,13 @@
           "ar": "الطريق يحتوي على منحنى خطير."
         }
       }
-    ]
+    ],
+    "explanation": "A bent line; to bend"
   },
   {
     "word": "Custom",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Brauchtum",
       "es": "costumbre",
@@ -9404,11 +10221,13 @@
           "ar": "إعطاء الهدايا هو عادة في العطلات."
         }
       }
-    ]
+    ],
+    "explanation": "A tradition; made to order"
   },
   {
     "word": "Customer",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Kunde",
       "es": "Cliente",
@@ -9427,11 +10246,13 @@
           "ar": "رضا العملاء هو أولويتنا."
         }
       }
-    ]
+    ],
+    "explanation": "A buyer; a client"
   },
   {
     "word": "Cut",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "schneiden",
       "es": "cortar",
@@ -9450,11 +10271,13 @@
           "ar": "يرجى قطع الخضروات للسلطة."
         }
       }
-    ]
+    ],
+    "explanation": "To divide with a blade"
   },
   {
     "word": "Cycle",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Zyklus",
       "es": "Ciclo",
@@ -9473,11 +10296,13 @@
           "ar": "تشمل دورة المياه التبخر."
         }
       }
-    ]
+    ],
+    "explanation": "A series that repeats"
   },
   {
     "word": "Damage",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schaden",
       "es": "daño",
@@ -9496,11 +10321,13 @@
           "ar": "تسبب العاصفة في أضرار كبيرة."
         }
       }
-    ]
+    ],
+    "explanation": "Harm; to cause harm"
   },
   {
     "word": "Dance",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "tanzen",
       "es": "bailar",
@@ -9519,11 +10346,13 @@
           "ar": "تعلم الزوجان الرقص."
         }
       }
-    ]
+    ],
+    "explanation": "To move to music"
   },
   {
     "word": "Danger",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gefahr",
       "es": "peligro",
@@ -9542,11 +10371,13 @@
           "ar": "تسلق الجبال ينطوي على خطر."
         }
       }
-    ]
+    ],
+    "explanation": "Risk of harm"
   },
   {
     "word": "Dangerous",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "gefährlich",
       "es": "peligroso",
@@ -9565,11 +10396,13 @@
           "ar": "القيادة في المطر يمكن أن تكون خطيرة."
         }
       }
-    ]
+    ],
+    "explanation": "Likely to cause harm"
   },
   {
     "word": "Dark",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "dunkel",
       "es": "oscuro",
@@ -9588,11 +10421,13 @@
           "ar": "السحب المظلمة تشير إلى عواصف قادمة."
         }
       }
-    ]
+    ],
+    "explanation": "Having little light; evil"
   },
   {
     "word": "Data",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Daten",
       "es": "datos",
@@ -9611,11 +10446,13 @@
           "ar": "تدعم بيانات البحث الفرضية."
         }
       }
-    ]
+    ],
+    "explanation": "Facts and statistics"
   },
   {
     "word": "Database",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Datenbank",
       "es": "base de datos",
@@ -9634,11 +10471,13 @@
           "ar": "قاعدة بيانات العملاء تحتوي على معلومات الاتصال."
         }
       }
-    ]
+    ],
+    "explanation": "Organized data collection"
   },
   {
     "word": "Date",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Datum",
       "es": "fecha",
@@ -9657,11 +10496,13 @@
           "ar": "تاريخ انتهاء الصلاحية قد انتهى."
         }
       }
-    ]
+    ],
+    "explanation": "A specific day; social appointment"
   },
   {
     "word": "Daughter",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Tochter",
       "es": "Hija",
@@ -9680,11 +10521,13 @@
           "ar": "شاهد الأب ابنته تتخرج."
         }
       }
-    ]
+    ],
+    "explanation": "A female child"
   },
   {
     "word": "Day",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Tag",
       "es": "día",
@@ -9703,11 +10546,13 @@
           "ar": "كل يوم يجلب فرصًا جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "A 24-hour period"
   },
   {
     "word": "Dead",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "tot",
       "es": "muerto",
@@ -9726,11 +10571,13 @@
           "ar": "البطارية الميتة تحتاج إلى استبدال."
         }
       }
-    ]
+    ],
+    "explanation": "No longer alive; completely"
   },
   {
     "word": "Deal",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Deal",
       "es": "trato",
@@ -9749,11 +10596,13 @@
           "ar": "الصفقة التجارية تفيد كلا الشركتين."
         }
       }
-    ]
+    ],
+    "explanation": "An agreement; to distribute"
   },
   {
     "word": "Death",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Tod",
       "es": "Muerte",
@@ -9772,11 +10621,13 @@
           "ar": "موت الزعيم أحزن الأمة."
         }
       }
-    ]
+    ],
+    "explanation": "The end of life"
   },
   {
     "word": "Debate",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Debatte",
       "es": "debate",
@@ -9795,11 +10646,13 @@
           "ar": "تناولت المناظرة قضايا مهمة."
         }
       }
-    ]
+    ],
+    "explanation": "A formal discussion; to argue"
   },
   {
     "word": "Debt",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schuld",
       "es": "deuda",
@@ -9818,11 +10671,13 @@
           "ar": "تؤثر ديون الطلاب على القرارات المالية."
         }
       }
-    ]
+    ],
+    "explanation": "Money owed"
   },
   {
     "word": "Decade",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Jahrzehnt",
       "es": "década",
@@ -9841,11 +10696,13 @@
           "ar": "شهد العقد الماضي تقدمًا تكنولوجيًا."
         }
       }
-    ]
+    ],
+    "explanation": "Ten years"
   },
   {
     "word": "Decide",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "entscheiden",
       "es": "decidir",
@@ -9864,11 +10721,13 @@
           "ar": "سوف يقرر اللجنة الأسبوع المقبل."
         }
       }
-    ]
+    ],
+    "explanation": "To make a choice"
   },
   {
     "word": "Decision",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Entscheidung",
       "es": "decisión",
@@ -9887,11 +10746,13 @@
           "ar": "كان قرار الانتقال صعبًا."
         }
       }
-    ]
+    ],
+    "explanation": "A conclusion after consideration"
   },
   {
     "word": "Declare",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erklären",
       "es": "declarar",
@@ -9910,11 +10771,13 @@
           "ar": "سيعلن العمدة افتتاح المهرجان."
         }
       }
-    ]
+    ],
+    "explanation": "To announce formally"
   },
   {
     "word": "Decline",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "sinken",
       "es": "declinar",
@@ -9933,11 +10796,13 @@
           "ar": "بدأت أرباح الشركة في الانخفاض."
         }
       }
-    ]
+    ],
+    "explanation": "To decrease; to refuse"
   },
   {
     "word": "Decorate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "dekorieren",
       "es": "decorar",
@@ -9956,11 +10821,13 @@
           "ar": "ستقوم العائلة بتزيين المنزل للاحتفالات."
         }
       }
-    ]
+    ],
+    "explanation": "To make attractive"
   },
   {
     "word": "Decrease",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Rückgang",
       "es": "disminución",
@@ -9979,11 +10846,13 @@
           "ar": "تظهر معدلات الجريمة انخفاضًا كبيرًا."
         }
       }
-    ]
+    ],
+    "explanation": "To become smaller"
   },
   {
     "word": "Deep",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "tief",
       "es": "profundo",
@@ -10002,11 +10871,13 @@
           "ar": "المحيط العميق يحتوي على أنواع غير معروفة."
         }
       }
-    ]
+    ],
+    "explanation": "Extending far down; intense"
   },
   {
     "word": "Defeat",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "besiegen",
       "es": "derrotar",
@@ -10025,11 +10896,13 @@
           "ar": "تمكن الفريق من هزيمة الأبطال."
         }
       }
-    ]
+    ],
+    "explanation": "To win against; a loss"
   },
   {
     "word": "Defense",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verteidigung",
       "es": "defensa",
@@ -10048,11 +10921,13 @@
           "ar": "زاد ميزانية الدفاع في البلاد."
         }
       }
-    ]
+    ],
+    "explanation": "Protection; defending team"
   },
   {
     "word": "Define",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "definieren",
       "es": "definir",
@@ -10071,11 +10946,13 @@
           "ar": "يرجى تعريف المصطلحات الفنية بوضوح."
         }
       }
-    ]
+    ],
+    "explanation": "To explain meaning"
   },
   {
     "word": "Definition",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Definition",
       "es": "definición",
@@ -10094,11 +10971,13 @@
           "ar": "يوفر القاموس تعريفات واضحة."
         }
       }
-    ]
+    ],
+    "explanation": "A statement of meaning"
   },
   {
     "word": "Degree",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Grad",
       "es": "grado",
@@ -10117,11 +10996,13 @@
           "ar": "لقد حصلت على درجة الماجستير."
         }
       }
-    ]
+    ],
+    "explanation": "A measurement unit; qualification"
   },
   {
     "word": "Delay",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verspätung",
       "es": "retraso",
@@ -10140,11 +11021,13 @@
           "ar": "تسبب الطقس في تأخير الرحلة."
         }
       }
-    ]
+    ],
+    "explanation": "To postpone; waiting period"
   },
   {
     "word": "Deliver",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "Liefern",
       "es": "Entregar",
@@ -10163,11 +11046,13 @@
           "ar": "تقوم خدمة البريد بتوصيل الطرود بسرعة."
         }
       }
-    ]
+    ],
+    "explanation": "To bring and hand over"
   },
   {
     "word": "Delivery",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Lieferung",
       "es": "Entrega",
@@ -10186,11 +11071,13 @@
           "ar": "توصيل مجاني للطلبات التي تزيد عن خمسين دولارًا."
         }
       }
-    ]
+    ],
+    "explanation": "The act of delivering"
   },
   {
     "word": "Demand",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Nachfrage",
       "es": "Demanda",
@@ -10209,11 +11096,13 @@
           "ar": "تزداد طلب المستهلكين على المنتجات العضوية."
         }
       }
-    ]
+    ],
+    "explanation": "To ask forcefully; strong request"
   },
   {
     "word": "Democracy",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Demokratie",
       "es": "Democracia",
@@ -10232,11 +11121,13 @@
           "ar": "تتطلب الديمقراطية مشاركة المواطنين المطلعة."
         }
       }
-    ]
+    ],
+    "explanation": "Government by the people"
   },
   {
     "word": "Democratic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "demokratisch",
       "es": "democrático",
@@ -10255,11 +11146,13 @@
           "ar": "تضمن العملية الديمقراطية تمثيلًا عادلًا."
         }
       }
-    ]
+    ],
+    "explanation": "Supporting democracy; equal"
   },
   {
     "word": "Demonstrate",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "demonstrieren",
       "es": "demostrar",
@@ -10278,11 +11171,13 @@
           "ar": "سيظهر المعلم التقنية الصحيحة."
         }
       }
-    ]
+    ],
+    "explanation": "To show clearly; to protest"
   },
   {
     "word": "Department",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Abteilung",
       "es": "departamento",
@@ -10301,11 +11196,13 @@
           "ar": "تقوم قسم التسويق بتطوير استراتيجيات."
         }
       }
-    ]
+    ],
+    "explanation": "An organizational division"
   },
   {
     "word": "Depend",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "abhängen",
       "es": "depender",
@@ -10324,11 +11221,13 @@
           "ar": "نجاح المشروع يعتمد على التعاون."
         }
       }
-    ]
+    ],
+    "explanation": "To rely on; be determined by"
   },
   {
     "word": "Dependent",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "abhängig",
       "es": "dependiente",
@@ -10347,11 +11246,13 @@
           "ar": "الأطفال معتمدون على الآباء."
         }
       }
-    ]
+    ],
+    "explanation": "Relying on others"
   },
   {
     "word": "Depth",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Tiefe",
       "es": "Profundidad",
@@ -10370,11 +11271,13 @@
           "ar": "عمق البحيرة يجعلها مناسبة للغوص."
         }
       }
-    ]
+    ],
+    "explanation": "Distance inward; intensity"
   },
   {
     "word": "Derive",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "ableiten",
       "es": "derivar",
@@ -10393,11 +11296,13 @@
           "ar": "يستمد العلماء الأدوية من النباتات."
         }
       }
-    ]
+    ],
+    "explanation": "To obtain from a source"
   },
   {
     "word": "Describe",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "beschreiben",
       "es": "describir",
@@ -10416,11 +11321,13 @@
           "ar": "يرجى وصف تجربتك الدولية."
         }
       }
-    ]
+    ],
+    "explanation": "To give an account"
   },
   {
     "word": "Description",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Beschreibung",
       "es": "Descripción",
@@ -10439,11 +11346,13 @@
           "ar": "تحدد وصف الوظيفة المسؤوليات."
         }
       }
-    ]
+    ],
+    "explanation": "A spoken account"
   },
   {
     "word": "Desert",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wüste",
       "es": "desierto",
@@ -10462,11 +11371,13 @@
           "ar": "المنظر الطبيعي للصحراء قاسٍ ولكنه جميل."
         }
       }
-    ]
+    ],
+    "explanation": "A dry area; to abandon"
   },
   {
     "word": "Design",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Design",
       "es": "diseño",
@@ -10485,11 +11396,13 @@
           "ar": "تصميم المهندس المعماري يستخدم مواد مستدامة."
         }
       }
-    ]
+    ],
+    "explanation": "A plan; to create"
   },
   {
     "word": "Designer",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Designer",
       "es": "diseñador",
@@ -10508,11 +11421,13 @@
           "ar": "المصمم الأزياء يصمم ملابس دولية."
         }
       }
-    ]
+    ],
+    "explanation": "Someone who designs"
   },
   {
     "word": "Desire",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verlangen",
       "es": "Deseo",
@@ -10531,11 +11446,13 @@
           "ar": "رغبتها في المساعدة أدت إلى الطب."
         }
       }
-    ]
+    ],
+    "explanation": "A strong wish; to want"
   },
   {
     "word": "Desk",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schreibtisch",
       "es": "escritorio",
@@ -10554,11 +11471,13 @@
           "ar": "نظمت الطالبة الأوراق على مكتبها."
         }
       }
-    ]
+    ],
+    "explanation": "Furniture for writing"
   },
   {
     "word": "Despite",
-    "article":"","type": "preposition",
+    "article": "",
+    "type": "preposition",
     "translations": {
       "de": "trotz",
       "es": "a pesar de",
@@ -10577,11 +11496,13 @@
           "ar": "رغم المطر، استمر الحفل."
         }
       }
-    ]
+    ],
+    "explanation": "In spite of"
   },
   {
     "word": "Destroy",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "zerstören",
       "es": "destruir",
@@ -10600,11 +11521,13 @@
           "ar": "يمكن أن تدمر الزلازل المباني التاريخية."
         }
       }
-    ]
+    ],
+    "explanation": "To damage beyond repair"
   },
   {
     "word": "Detail",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Detail",
       "es": "detalle",
@@ -10623,11 +11546,13 @@
           "ar": "يتضمن العقد كل تفصيل."
         }
       }
-    ]
+    ],
+    "explanation": "A small fact; to describe fully"
   },
   {
     "word": "Detect",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "erkennen",
       "es": "detectar",
@@ -10646,11 +11571,13 @@
           "ar": "تكتشف أنظمة الأمان الدخول غير المصرح به."
         }
       }
-    ]
+    ],
+    "explanation": "To discover; to identify"
   },
   {
     "word": "Determine",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "bestimmen",
       "es": "determinar",
@@ -10669,11 +11596,13 @@
           "ar": "سيحدد الباحثون السبب."
         }
       }
-    ]
+    ],
+    "explanation": "To establish; to decide"
   },
   {
     "word": "Develop",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "entwickeln",
       "es": "desarrollar",
@@ -10692,11 +11621,13 @@
           "ar": "تقوم الشركة بتطوير منتجات جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "To grow; to create"
   },
   {
     "word": "Development",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Entwicklung",
       "es": "Desarrollo",
@@ -10715,11 +11646,13 @@
           "ar": "يأخذ التطوير الحضري في الاعتبار الأثر البيئي."
         }
       }
-    ]
+    ],
+    "explanation": "The process of developing"
   },
   {
     "word": "Device",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gerät",
       "es": "dispositivo",
@@ -10738,11 +11671,13 @@
           "ar": "الجهاز الطبي يراقب العلامات الحيوية."
         }
       }
-    ]
+    ],
+    "explanation": "A tool or machine"
   },
   {
     "word": "Diamond",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Diamant",
       "es": "diamante",
@@ -10761,11 +11696,13 @@
           "ar": "كان خاتم الماس يتلألأ بشكل رائع."
         }
       }
-    ]
+    ],
+    "explanation": "A precious stone"
   },
   {
     "word": "Dictionary",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Wörterbuch",
       "es": "diccionario",
@@ -10784,11 +11721,13 @@
           "ar": "يستخدم الطلاب القواميس للمفردات."
         }
       }
-    ]
+    ],
+    "explanation": "A book of definitions"
   },
   {
     "word": "Die",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "sterben",
       "es": "morir",
@@ -10807,11 +11746,13 @@
           "ar": "تموت اللغات عندما لا يتحدث بها أحد."
         }
       }
-    ]
+    ],
+    "explanation": "To stop living"
   },
   {
     "word": "Diet",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Diät",
       "es": "dieta",
@@ -10830,11 +11771,13 @@
           "ar": "تتضمن الحمية المتوازنة الفواكه والخضروات."
         }
       }
-    ]
+    ],
+    "explanation": "Food consumed regularly"
   },
   {
     "word": "Difference",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Unterschied",
       "es": "diferencia",
@@ -10853,11 +11796,13 @@
           "ar": "الفرق بين الاقتراحات كبير."
         }
       }
-    ]
+    ],
+    "explanation": "How things are unlike"
   },
   {
     "word": "Different",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "anders",
       "es": "diferente",
@@ -10876,11 +11821,13 @@
           "ar": "كل طالب لديه أساليب تعلم مختلفة."
         }
       }
-    ]
+    ],
+    "explanation": "Not the same; distinct"
   },
   {
     "word": "Difficult",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "schwierig",
       "es": "difícil",
@@ -10899,11 +11846,13 @@
           "ar": "تعلم اللغات قد يكون صعبًا ولكنه مجزٍ."
         }
       }
-    ]
+    ],
+    "explanation": "Hard to do; challenging"
   },
   {
     "word": "Difficulty",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Schwierigkeit",
       "es": "dificultad",
@@ -10922,11 +11871,13 @@
           "ar": "فاجأت صعوبة الامتحان الطلاب."
         }
       }
-    ]
+    ],
+    "explanation": "The state of being difficult"
   },
   {
     "word": "Digital",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "digital",
       "es": "digital",
@@ -10945,11 +11896,13 @@
           "ar": "تكنولوجيا الرقمية تحول الاتصال العالمي."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to computer technology"
   },
   {
     "word": "Dimension",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Dimension",
       "es": "Dimensión",
@@ -10968,11 +11921,13 @@
           "ar": "المشروع له أبعاد تقنية واجتماعية."
         }
       }
-    ]
+    ],
+    "explanation": "A measurable extent; an aspect"
   },
   {
     "word": "Direct",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "direkt",
       "es": "directo",
@@ -10991,11 +11946,13 @@
           "ar": "الرحلة المباشرة توفر وقت السفر."
         }
       }
-    ]
+    ],
+    "explanation": "Straight; to control"
   },
   {
     "word": "Direction",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Richtung",
       "es": "dirección",
@@ -11014,11 +11971,13 @@
           "ar": "اتبع علامات الاتجاه إلى غرفة المؤتمر."
         }
       }
-    ]
+    ],
+    "explanation": "The course of movement"
   },
   {
     "word": "Director",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Direktor",
       "es": "director",
@@ -11037,11 +11996,13 @@
           "ar": "مدير المتحف يشرف على المعارض."
         }
       }
-    ]
+    ],
+    "explanation": "A manager; filmmaker"
   },
   {
     "word": "Dirty",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "schmutzig",
       "es": "sucio",
@@ -11060,11 +12021,13 @@
           "ar": "الأطباق المتسخة تحتاج إلى غسل."
         }
       }
-    ]
+    ],
+    "explanation": "Not clean; dishonest"
   },
   {
     "word": "Disappear",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verschwinden",
       "es": "desaparecer",
@@ -11083,11 +12046,13 @@
           "ar": "صنع الساحر الأرنب يختفي."
         }
       }
-    ]
+    ],
+    "explanation": "To cease being visible"
   },
   {
     "word": "Disaster",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Katastrophe",
       "es": "desastre",
@@ -11106,11 +12071,13 @@
           "ar": "الكارثة الطبيعية دفعت جهود الإغاثة."
         }
       }
-    ]
+    ],
+    "explanation": "A sudden damaging event"
   },
   {
     "word": "Discipline",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Disziplin",
       "es": "Disciplina",
@@ -11129,11 +12096,13 @@
           "ar": "يتطلب الانضباط العسكري الالتزام الصارم."
         }
       }
-    ]
+    ],
+    "explanation": "Training; a field of study"
   },
   {
     "word": "Discover",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "entdecken",
       "es": "descubrir",
@@ -11152,11 +12121,13 @@
           "ar": "يأمل العلماء في اكتشاف علاجات جديدة."
         }
       }
-    ]
+    ],
+    "explanation": "To find something unknown"
   },
   {
     "word": "Discovery",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Entdeckung",
       "es": "descubrimiento",
@@ -11175,11 +12146,13 @@
           "ar": "اكتشاف المضادات الحيوية أحدث ثورة في الطب."
         }
       }
-    ]
+    ],
+    "explanation": "The act of discovering"
   },
   {
     "word": "Discuss",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "diskutieren",
       "es": "discutir",
@@ -11198,11 +12171,13 @@
           "ar": "سوف يناقش اللجنة تخصيصات الميزانية."
         }
       }
-    ]
+    ],
+    "explanation": "To talk about"
   },
   {
     "word": "Discussion",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Diskussion",
       "es": "discusión",
@@ -11221,11 +12196,13 @@
           "ar": "النقاش كشف عن وجهات نظر مختلفة."
         }
       }
-    ]
+    ],
+    "explanation": "The act of discussing"
   },
   {
     "word": "Disease",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Krankheit",
       "es": "enfermedad",
@@ -11244,11 +12221,13 @@
           "ar": "تقلل الطب الوقائي من انتشار الأمراض."
         }
       }
-    ]
+    ],
+    "explanation": "An illness; a disorder"
   },
   {
     "word": "Dish",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Gericht",
       "es": "plato",
@@ -11267,11 +12246,13 @@
           "ar": "طبق الشيف المميز يجمع بين التقنيات."
         }
       }
-    ]
+    ],
+    "explanation": "A container; particular food"
   },
   {
     "word": "Display",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Anzeige",
       "es": "exhibición",
@@ -11290,11 +12271,13 @@
           "ar": "عرض المتحف يضم قطع أثرية قديمة."
         }
       }
-    ]
+    ],
+    "explanation": "To show; an exhibition"
   },
   {
     "word": "Distance",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Entfernung",
       "es": "distancia",
@@ -11313,11 +12296,13 @@
           "ar": "المسافة بين المدن هي 200 كيلومتر."
         }
       }
-    ]
+    ],
+    "explanation": "Space between points"
   },
   {
     "word": "Distribute",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "verteilen",
       "es": "distribuir",
@@ -11336,11 +12321,13 @@
           "ar": "المتطوعون يوزعون حزم الطعام."
         }
       }
-    ]
+    ],
+    "explanation": "To give out; to spread"
   },
   {
     "word": "Distribution",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Verteilung",
       "es": "distribución",
@@ -11359,11 +12346,13 @@
           "ar": "توزيع الثروة يؤثر على الاستقرار الاجتماعي."
         }
       }
-    ]
+    ],
+    "explanation": "The act of distributing"
   },
   {
     "word": "District",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Bezirk",
       "es": "distrito",
@@ -11382,11 +12371,13 @@
           "ar": "يخدم منطقة المدرسة المجتمعات المجاورة."
         }
       }
-    ]
+    ],
+    "explanation": "An area with boundaries"
   },
   {
     "word": "Divide",
-    "article":"","type": "verb",
+    "article": "",
+    "type": "verb",
     "translations": {
       "de": "teilen",
       "es": "dividir",
@@ -11405,11 +12396,13 @@
           "ar": "يقسم المعلمون الطلاب إلى مجموعات."
         }
       }
-    ]
+    ],
+    "explanation": "To separate into parts"
   },
   {
     "word": "Division",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Abteilung",
       "es": "división",
@@ -11428,11 +12421,13 @@
           "ar": "قسم البحث يطور المنتجات."
         }
       }
-    ]
+    ],
+    "explanation": "The act of dividing; a section"
   },
   {
     "word": "Document",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Dokument",
       "es": "Documento",
@@ -11451,11 +12446,13 @@
           "ar": "الوثيقة القانونية تتطلب توقيعات."
         }
       }
-    ]
+    ],
+    "explanation": "A written paper; to record"
   },
   {
     "word": "Domain",
-    "article":"","type": "noun",
+    "article": "",
+    "type": "noun",
     "translations": {
       "de": "Domäne",
       "es": "dominio",
@@ -11474,11 +12471,13 @@
           "ar": "نظام النطاقات في الإنترنت ينظم المواقع."
         }
       }
-    ]
+    ],
+    "explanation": "An area of activity"
   },
   {
     "word": "Domestic",
-    "article":"","type": "adjective",
+    "article": "",
+    "type": "adjective",
     "translations": {
       "de": "inländisch",
       "es": "doméstico",
@@ -11497,6 +12496,7 @@
           "ar": "تؤثر السياسات المحلية على المجتمعات المحلية."
         }
       }
-    ]
+    ],
+    "explanation": "Relating to home; within country"
   }
 ]

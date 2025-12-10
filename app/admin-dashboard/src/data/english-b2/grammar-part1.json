@@ -1,0 +1,358 @@
+{
+  "exams": [
+    {
+      "questions": [
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "am knowing"
+            },
+            {
+              "correct": true,
+              "text": "have known"
+            },
+            {
+              "correct": false,
+              "text": "know"
+            }
+          ],
+          "id": 21
+        },
+        {
+          "id": 22,
+          "answers": [
+            {
+              "correct": false,
+              "text": "a lot of"
+            },
+            {
+              "correct": false,
+              "text": "plenty"
+            },
+            {
+              "correct": true,
+              "text": "several"
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "answers": [
+            {
+              "correct": true,
+              "text": "for writing"
+            },
+            {
+              "correct": false,
+              "text": "in writing"
+            },
+            {
+              "correct": false,
+              "text": "to write"
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "answers": [
+            {
+              "correct": true,
+              "text": "could"
+            },
+            {
+              "correct": false,
+              "text": "should"
+            },
+            {
+              "correct": false,
+              "text": "would"
+            }
+          ]
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "in"
+            },
+            {
+              "correct": true,
+              "text": "of"
+            },
+            {
+              "correct": false,
+              "text": "with"
+            }
+          ],
+          "id": 25
+        },
+        {
+          "id": 26,
+          "answers": [
+            {
+              "correct": false,
+              "text": "as good as"
+            },
+            {
+              "correct": false,
+              "text": "as much as"
+            },
+            {
+              "correct": true,
+              "text": "as well as"
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "answers": [
+            {
+              "correct": true,
+              "text": "crop up"
+            },
+            {
+              "correct": false,
+              "text": "go on"
+            },
+            {
+              "correct": false,
+              "text": "turn out"
+            }
+          ]
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "ever"
+            },
+            {
+              "correct": false,
+              "text": "however"
+            },
+            {
+              "correct": true,
+              "text": "therefore"
+            }
+          ],
+          "id": 28
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "search"
+            },
+            {
+              "correct": false,
+              "text": "see"
+            },
+            {
+              "correct": true,
+              "text": "seek"
+            }
+          ],
+          "id": 29
+        },
+        {
+          "id": 30,
+          "answers": [
+            {
+              "correct": true,
+              "text": "any"
+            },
+            {
+              "correct": false,
+              "text": "many"
+            },
+            {
+              "correct": false,
+              "text": "some"
+            }
+          ]
+        }
+      ],
+      "text": "To whom it may concern\n\nRecommendation\n\nI [21] Sophie Lane in a variety of capacities for a number of years. She was my daughter's private French teacher for [22] years. In addition, she is my partner in a small, successful business where she is responsible [23] articles, press releases and website content, among other duties as required in our office.\n\nWe have worked together effectively from the start and profitably on different projects and have rarely had any difficulties, at least none which [24] not be resolved after some positive discussion.\n\nJane is an organized, efficient and very competent person and has an excellent rapport with people [25] all ages. Her communication skills, both written and verbal, are excellent and she has proved to be a popular employee with all of our customers.\n\nShe is also qualified and skilled in all aspects of office management, including bookkeeping [26] in web content management. In addition, she speaks and writes French and German well and can cope with all situations which could [27] in a general office environment.\n\nI can [28] highly recommend her for any position that she may [29]. I am sorry to lose her, but I understand her need to broaden her experience. I am fully convinced that she will be a valuable asset to [30] organization that chooses to hire her in the future.\n\nIf you have any questions, please do not hesitate to contact me.\n\nSincerely,\n\nElizabeth Atkinson",
+      "title": "Language Elements Part 1 - Recommendation Letter",
+      "id": 0
+    },
+    {
+      "questions": [
+        {
+          "id": 11,
+          "answers": [
+            {
+              "correct": true,
+              "text": "in"
+            },
+            {
+              "correct": false,
+              "text": "on"
+            },
+            {
+              "correct": false,
+              "text": "with"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "answers": [
+            {
+              "correct": false,
+              "text": "am working"
+            },
+            {
+              "correct": false,
+              "text": "had worked"
+            },
+            {
+              "correct": true,
+              "text": "have worked"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "answers": [
+            {
+              "correct": true,
+              "text": "extensive"
+            },
+            {
+              "correct": false,
+              "text": "many"
+            },
+            {
+              "correct": false,
+              "text": "lots"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "answers": [
+            {
+              "correct": false,
+              "text": "for"
+            },
+            {
+              "correct": true,
+              "text": "of"
+            },
+            {
+              "correct": false,
+              "text": "with"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "answers": [
+            {
+              "correct": false,
+              "text": "for"
+            },
+            {
+              "correct": false,
+              "text": "in"
+            },
+            {
+              "correct": true,
+              "text": "of"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "answers": [
+            {
+              "correct": false,
+              "text": "and"
+            },
+            {
+              "correct": true,
+              "text": "but"
+            },
+            {
+              "correct": false,
+              "text": "or"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "answers": [
+            {
+              "correct": true,
+              "text": "out"
+            },
+            {
+              "correct": false,
+              "text": "over"
+            },
+            {
+              "correct": false,
+              "text": "up"
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "answers": [
+            {
+              "correct": false,
+              "text": "Although"
+            },
+            {
+              "correct": false,
+              "text": "Despite"
+            },
+            {
+              "correct": true,
+              "text": "Furthermore"
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "answers": [
+            {
+              "correct": true,
+              "text": "any"
+            },
+            {
+              "correct": false,
+              "text": "every"
+            },
+            {
+              "correct": false,
+              "text": "some"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "answers": [
+            {
+              "correct": false,
+              "text": "hear"
+            },
+            {
+              "correct": true,
+              "text": "hearing"
+            },
+            {
+              "correct": false,
+              "text": "to hear"
+            }
+          ]
+        }
+      ],
+      "text": "Dear Mr. Henderson,\n\nI am writing [11] response to your advertisement regarding the post of Marketing Manager, which appeared in yesterday's *Daily Times*.\n\nAs you can see from my enclosed CV, I [12] in the marketing sector for over ten years. During this time, I have gained [13] experience in leading teams and managing large budgets. Currently, I am employed at TechSolutions, where I am in charge [14] developing global social media strategies.\n\nI am convinced that my skills would be [15] great benefit to your company. Not only do I speak fluent Spanish, [16] I also possess excellent IT skills. I am used to working under pressure and can handle tight deadlines, a skill that generally turns [17] to be very useful in this industry.\n\n[18], I am looking for a new challenge where I can make full use of my potential. I am a highly motivated individual who is eager to learn and grow within a dynamic organization like yours.\n\nI would welcome the opportunity to discuss my application with you in person. Please feel free to contact me at [19] time if you require further information.\n\nThank you for considering my application. I look forward to [20] from you soon.\n\nYours sincerely,\n\nMark Davis",
+      "title": "Application for Marketing Manager",
+      "id": 1
+    }
+  ]
+}

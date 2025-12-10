@@ -27,6 +27,7 @@ import consentService, { AdsConsentStatus } from '../services/consent.service';
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import LoginModal from '../components/LoginModal';
 import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -38,6 +39,7 @@ const HomeScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
   const { isPremium, isLoading: isPremiumLoading } = usePremium();
+  const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -226,7 +228,7 @@ const HomeScreen: React.FC = () => {
         </Card>
       </ScrollView>
 
-      {!isPremium && !isPremiumLoading && (
+      {isPremiumFeaturesEnabled() && !isPremium && !isPremiumLoading && (
         <View style={[styles.premiumButtonWrapper, { top: insets.top + spacing.margin.md }]}>
           <AnimatedGradientBorder
             borderWidth={2}

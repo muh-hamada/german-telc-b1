@@ -1,0 +1,71 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "b2-part-3-intro" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "ready", "id": "number-56" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Good morning, library visitors. A quick change to today's schedule. The 'Digital Skills' workshop has been moved from Room 3B to the computer lab on the second floor. For those here for the local history lecture, please take your seats in the main auditorium as we will be starting in five minutes. Also, a reminder that the children’s reading corner is closed for cleaning until 1:00 pm. Thank you for your cooperation.",
+        "voiceId": "person1",
+        "id": "speech-56"
+    },
+    
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-57" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Hi, this is Mark from FitLife Gym calling. You asked for details about our membership upgrades. The Gold Plan includes 24-hour access and free towel service. The Platinum Plan adds unlimited sauna use and personal training sessions, though I'm afraid neither plan covers the juice bar or massage therapy costs. If you want to proceed with the upgrade, just give me a call back on this number.",
+        "voiceId": "person3",
+        "id": "speech-57"
+    },        
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-58" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Welcome everyone to the Highlands Day Tour. I'm Sarah, your guide for today. We'll be driving for about an hour before our first stop at the castle. Feel free to use the USB ports above your seats to charge your devices. Lunch isn't provided, but we will stop at a village where you can buy sandwiches. If you need a printed map of the area, I have plenty here at the front of the bus.",
+        "voiceId": "person1",
+        "id": "speech-58"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-59" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Here is the forecast for the southwest region. Friday will start with strong winds along the coast, though inland areas will remain calm. Expect temperatures to drop significantly overnight. Saturday looks brighter with sunny spells in the morning, but don't put away your umbrellas just yet, as heavy showers are expected by late afternoon. Sunday should be dry and mild with highs of 20 degrees.",
+        "voiceId": "person3",
+        "id": "speech-59"
+    },
+
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "number-60" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "This is a passenger announcement for flight BA492 to Madrid. Due to a technical issue with the jet bridge, boarding has been moved from Gate 12 to Gate 45. Passengers requiring special assistance or traveling with wheelchairs should remain seated and wait for staff members to arrive. All other passengers, please proceed to Gate 45 immediately. We apologize for the delay.",
+        "voiceId": "person1",
+        "id": "speech-60"
+    },
+    
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 2 }
+]

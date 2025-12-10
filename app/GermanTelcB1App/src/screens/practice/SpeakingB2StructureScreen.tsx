@@ -10,10 +10,13 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { colors, spacing, typography } from '../../theme';
 import dataService from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { activeExamConfig } from '../../config/active-exam.config';
+import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 const SpeakingB2StructureScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   
+  const examLanguageCode = LanguageNameToLanguageCodes[activeExamConfig.language] || 'de';
   const [activeTab, setActiveTab] = useState<'overview' | 'parts' | 'hints'>('overview');
   const [isLoading, setIsLoading] = useState(true);
   const [structureData, setStructureData] = useState<any>(null);
@@ -93,7 +96,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
             {part.sample && (
               <View style={styles.partSection}>
                 <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.sample')}:</Text>
-                <Text style={[styles.bodyText, styles.textLTR]}>{part.sample['de']}</Text>
+                <Text style={[styles.bodyText, styles.textLTR]}>{part.sample[examLanguageCode]}</Text>
               </View>
             )}
 
@@ -102,7 +105,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
                 <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.topics')}:</Text>
                 {part.topics.map((topic: any, topicIndex: number) => (
                   <Text key={topicIndex} style={[styles.bulletText, styles.textLTR]}>
-                    • {topic['de']}
+                    • {topic[examLanguageCode]}
                   </Text>
                 ))}
               </View>
@@ -112,8 +115,8 @@ const SpeakingB2StructureScreen: React.FC = () => {
               <View style={styles.partSection}>
                 <Text style={styles.partSectionTitle}>{t('speaking.b2Structure.labels.exampleArticle')}:</Text>
                 <View style={styles.articleCard}>
-                  <Text style={styles.articleTitle}>{part.article.title['de']}</Text>
-                  <Text style={styles.articleContent}>{part.article.content['de']}</Text>
+                  <Text style={styles.articleTitle}>{part.article.title[examLanguageCode]}</Text>
+                  <Text style={styles.articleContent}>{part.article.content[examLanguageCode]}</Text>
                 </View>
               </View>
             )}

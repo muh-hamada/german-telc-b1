@@ -1,3 +1,6 @@
+Export the data from this PDF to the following JSON schema. Ensure all data is extracted correctly and completely. Your priority is accuracy and completion.
+You must comply with the JSON schema.
+
 Reading Part 1: JSON schema
 
 {
@@ -465,7 +468,7 @@ Grammar Part 2: JSON schema
     }
 }
 
-Writing: JSON schema
+Writing: JSON schema / B1
 {
     "id": 0,
     "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
@@ -477,3 +480,24 @@ Writing: JSON schema
         "<writing_point_string>"
     ]
 }
+
+Writing: JSON schema / B2
+{
+    "uiStrings": {
+      "instructionDescription": "<instruction_description_string>",
+      "instructionTitle": "<instruction_title_string>",
+      "taskDescription": "<task_description_string>",
+      "taskFooter": "<task_footer_string>"
+    },
+    "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
+    "writingPoints": [
+      "<writing_point_string>",
+      "<writing_point_string>",
+      "<writing_point_string>"
+      "<writing_point_string>"
+    ],
+    "themeNumber": 1,
+    "themeName": "<theme_name_string>",
+    "id": 0,
+    "incomingEmail": "<incoming_email_string>" // use \n for new lines
+  }

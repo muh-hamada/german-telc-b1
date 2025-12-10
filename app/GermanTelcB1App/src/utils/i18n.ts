@@ -15,6 +15,15 @@ import ru from '../locales/ru.json';
 // RTL languages
 const RTL_LANGUAGES = ['ar'];
 
+export const LanguageNameToLanguageCodes = {
+  'english': 'en',
+  'german': 'de',
+  'french': 'fr',
+  'spanish': 'es',
+  'russian': 'ru',
+  'arabic': 'ar',
+};
+
 const LANGUAGE_DETECTOR = {
   type: 'languageDetector' as const,
   async: true,

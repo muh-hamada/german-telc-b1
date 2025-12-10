@@ -1,0 +1,92 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 60
+    },
+    {
+        "type": "speech",
+        "text": "Good afternoon and welcome to 'Modern Living' on City Radio. I’m your host, Sarah Jenkins. Today we are looking at the changing face of the workplace, specifically the rise of the so-called 'Digital Nomad'. With laptops in hand, thousands of professionals are leaving their offices to work from beaches in Bali or cafes in Lisbon. However, a new study suggests that this lifestyle isn't quite the paradise it appears to be on social media. From tax complications to severe loneliness, the dream of working from anywhere often comes with a heavy price tag. To discuss this, we are joined by Dr. Mark Bennett, a sociologist who specializes in remote work trends. Mark, welcome. Is the digital nomad life really as difficult as this report claims?",
+        "voiceId": "person1",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "text": "Hello Sarah, thanks for having me. Well, the short answer is yes. We see photos of people with laptops by the ocean, but the reality is often quite different. The report highlights that the biggest struggle isn't finding Wi-Fi, but rather maintaining mental health. Without the structure of a traditional office or a fixed home base, many nomads suffer from isolation. They might meet people easily in hostels, but forming deep, lasting friendships is incredibly difficult when you move to a new city every month. It’s a very transient existence.",
+        "voiceId": "person3",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "text": "That’s interesting. I assumed the main problem would be productivity. I mean, how can you concentrate on work when you are in a holiday destination? Do employers find that their remote staff are working less?",
+        "voiceId": "person1",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "text": "Actually, the opposite is true, and this surprises many managers. The data shows that remote workers often work longer hours than their office-based colleagues. The problem is 'switching off'. Because they live where they work, and often work across different time zones, they feel the need to be available 24/7. This leads to high rates of burnout. So, companies aren't worried about laziness anymore; they are worried about their staff becoming exhausted and quitting.",
+        "voiceId": "person3",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "text": "I see. And what about the impact on the places they visit? I’ve read articles about locals in places like Mexico City or Barcelona being unhappy about the influx of foreign workers.",
+        "voiceId": "person1",
+        "id": "interview-5"
+    },
+    {
+        "type": "speech",
+        "text": "Yes, that is becoming a significant political issue. Digital nomads usually earn salaries from wealthy countries but spend their money in places with a lower cost of living. While this brings money into the local economy, it also drives up rent prices and the cost of daily goods like coffee or food. We call this 'gentrification'. Local residents find they can no longer afford to live in their own neighborhoods. Consequently, we are seeing some cities introducing stricter regulations on short-term rentals to protect their citizens.",
+        "voiceId": "person3",
+        "id": "interview-6"
+    },
+    {
+        "type": "speech",
+        "text": "Speaking of regulations, is it complicated legally? I imagine you can’t just turn up in a country and start working.",
+        "voiceId": "person1",
+        "id": "interview-7"
+    },
+    {
+        "type": "speech",
+        "text": "It is incredibly complicated, and this is where most people make mistakes. Most nomads enter on a tourist visa, which technically doesn't allow you to work, even remotely. Authorities used to ignore this, but now they are cracking down. However, many countries are now offering specific 'Digital Nomad Visas' to legalize this status. They want the tax revenue. If you don't sort out your tax residency, you could end up owing money to two different governments at once.",
+        "voiceId": "person3",
+        "id": "interview-8"
+    },
+    {
+        "type": "speech",
+        "text": "One final question, Mark. Is this a lifestyle primarily for people in their twenties?",
+        "voiceId": "person1",
+        "id": "interview-9"
+    },
+    {
+        "type": "speech",
+        "text": "You might think so, but the demographic is shifting. The fastest-growing group is actually professionals in their late 30s and 40s. They have the seniority to negotiate remote work with their bosses, and they have the financial savings to travel comfortably. They aren't staying in backpacker hostels; they are renting apartments and staying in one place for three to six months. They are looking for stability within the movement.",
+        "voiceId": "person3",
+        "id": "interview-10"
+    },
+    {
+        "type": "speech",
+        "text": "Thank you, Mark. That certainly gives anyone thinking of packing their bags something to consider. Next up, we have the weather...",
+        "voiceId": "person1",
+        "id": "interview-11"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 20
+    }
+]

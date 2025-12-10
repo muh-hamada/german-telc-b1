@@ -20,7 +20,7 @@ class ProgressService {
         // For these types, each question has one correct answer
         userAnswers.forEach(userAnswer => {
           const correctAnswer = this.getCorrectAnswer(examType, userAnswer.questionId, correctAnswers);
-          const isCorrect = userAnswer.answer === correctAnswer;
+          const isCorrect = userAnswer.answer.toLowerCase() === correctAnswer?.toLowerCase();
           
           if (isCorrect) {
             correctCount++;

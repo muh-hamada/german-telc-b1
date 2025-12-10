@@ -43,6 +43,15 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     description: 'English language exam preparation for TELC B1 level',
     dataFolder: 'english-b1',
   },
+  'english-b2': {
+    id: 'english-b2',
+    language: 'english',
+    level: 'B2',
+    displayName: 'English TELC B2',
+    collectionName: 'english_b2_telc_exam_data',
+    description: 'English language exam preparation for TELC B2 level',
+    dataFolder: 'english-b2',
+  },
 };
 
 export const getAppConfig = (appId: string): AppConfig => {

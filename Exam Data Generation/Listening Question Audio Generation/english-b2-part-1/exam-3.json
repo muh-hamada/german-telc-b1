@@ -1,0 +1,116 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "text": "This is the news on Radio 4. You are going to hear five short news items.",
+        "voiceId": "moderator"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "number-41"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Electronics giant ElectroCore is issuing a mandatory recall for its latest fitness tracker after reports of devices overheating on users' wrists. Over seventy customers have reported minor burns. Engineers traced the fault to a specific batch of lithium batteries used in production last month. ElectroCore has apologized, emphasizing that customer safety is their priority, and is offering immediate full refunds or replacements. Meanwhile, shares in the company have dipped slightly as investors wait for a full safety report.",
+        "voiceId": "person1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-42"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Ornithologists in Scotland are puzzled by the arrival of Puffins three weeks earlier than expected. The seabirds usually return to the cliffs in late spring. Experts believe unusually high Atlantic temperatures are confusing the birds' internal clocks. While tourists are delighted to see them, conservationists worry this misalignment with local food sources could impact breeding success. If the sand eels they eat aren't available yet, the chick survival rate could drop significantly this season.",
+        "voiceId": "person2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-43"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Construction workers in York got a surprise yesterday when digging the foundations for a new supermarket. Instead of soil, they hit a lead box containing over two thousand Roman coins. Archaeologists describe the find as 'significant,' dating back to the 3rd century. The site has been temporarily secured to allow for a proper excavation, halting the supermarket build. Local museums are already bidding to display the hoard, which offers a rare glimpse into the region's ancient economic history.",
+        "voiceId": "person3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-44"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "A resident in a crowded London suburb took parking matters into her own hands. Frustrated by the lack of spaces, she hired a contractor to paint official-looking 'Disabled' markings outside her house, despite having no permit. Council wardens became suspicious when the paint began to fade after just one week. The woman admitted to the fraud and was ordered to pay for the removal of the markings plus a heavy fine. The council reminded residents that public roads cannot be privatized.",
+        "voiceId": "person4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-45"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "After years of working in high-pressure finance, Sarah Jenkins noticed her colleagues suffering from burnout. She remembered how gardening helped her grandmother stay calm. Jenkins launched 'Corporate Roots,' a program bringing miniature allotments to office rooftops. Employees spend lunch breaks tending to vegetables. The results have been impressive, with reported stress levels dropping by 40%. Jenkins claims that nurturing plants helps workers reconnect with nature, making them more productive when they return to their desks.",
+        "voiceId": "person5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

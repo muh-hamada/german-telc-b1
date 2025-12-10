@@ -307,7 +307,7 @@
         // 2. Evaluate answers
         exam.texts.forEach(text => {
             const userAnswer = exam.answers[text.id];
-            const isCorrect = userAnswer === text.correct;
+            const isCorrect = userAnswer.toLowerCase() === text.correct.toLowerCase();
             
             if (isCorrect) {
                 correctCount++;

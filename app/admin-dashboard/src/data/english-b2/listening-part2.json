@@ -1,0 +1,186 @@
+{
+    "section_details": {
+        "title": "Listening Part 2: Detail Comprehension",
+        "instructions_de": "Sie hören nun ein Gespräch. Dazu sollen Sie zehn Aufgaben lösen. Sie hören das Gespräch nur einmal. Entscheiden Sie beim Hören, ob die Aussagen 46-55 richtig oder falsch sind. Markieren Sie Ihre Lösungen auf dem Antwortbogen bei den Aufgaben 46-55. Markieren Sie PLUS (+) gleich richtig und MINUS (–) gleich falsch auf dem Antwortbogen. Lesen Sie jetzt die Aufgaben 46-55. Sie haben dazu eine Minute Zeit.",
+        "instructions_en": "You will now hear a conversation. You should solve ten tasks. You will hear the conversation only once. Decide while listening whether the statements 46-55 are correct or false. Mark your solutions on the answer sheet at tasks 46-55. Mark PLUS (+) as correct and MINUS (–) as false on the answer sheet. Read now the tasks 46-55. You have one minute to do this.",
+        "instructions_ar": "ستسمع الآن حوارًا. يجب أن تحل عشرة عمليات. ستسمع الحوار فقط مرة واحدة. قرر أثناء الاستماع إذا كانت البيانات 46-55 صحيحة أو خاطئة. حدد حلولك على ورقة الإجابة عند المهام 46-55. حدد PLUS (+) كصحيح و MINUS (–) كخاطئ على ورقة الإجابة. قرأ الآن المهام 46-55. لديك دقيقة لفعل هذا.",
+        "instructions_ru": "Вы сейчас услышите разговор. Вы должны решить десять задач. Вы услышите разговор только один раз. Решите, слушая, являются ли утверждения 46-55 правильными или неправильными. Отметьте свои решения на листе ответов на задачи 46-55. Отметьте PLUS (+) как правильное и MINUS (–) как неправильное на листе ответов. Прочитайте теперь задачи 46-55. У вас есть одна минута, чтобы сделать это.",
+        "instructions_fr": "Vous entendrez maintenant une conversation. Vous devez résoudre dix tâches. Vous entendrez la conversation une seule fois. Décidez en écoutant si les affirmations 46-55 sont correctes ou incorrectes. Marquez vos solutions sur le formulaire de réponses aux tâches 46-55. Marquez PLUS (+) comme correct et MINUS (–) comme incorrect sur le formulaire de réponses. Lisez maintenant les tâches 46-55. Vous avez une minute pour faire cela.",
+        "instructions_es": "Escucharás ahora una conversación. Debes resolver diez tareas. Escucharás la conversación una sola vez. Decide mientras escuchas si las afirmaciones 46-55 son correctas o incorrectas. Marca tus soluciones en el formulario de respuestas en las tareas 46-55. Marca PLUS (+) como correcto y MINUS (–) como incorrecto en el formulario de respuestas. Lee ahora las tareas 46-55. Tienes un minuto para hacer esto.",
+        "duration_minutes": 10,
+        "prep_time_seconds": 60
+    },
+    "exams": [
+        {
+            "id": 0,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english-b2-listening-question-part-2-exam-1.mp3?alt=media&token=1b7d6b84-4d3d-4965-8a4a-541e210ae4e8",
+            "title": "Realities of the Nomad Lifestyle",
+            "statements": [
+                {
+                    "is_correct": false,
+                    "id": 46,
+                    "statement": "The new study suggests that the digital nomad lifestyle is exactly as enjoyable as it looks on social media."
+                },
+                {
+                    "id": 47,
+                    "is_correct": false,
+                    "statement": "According to Dr. Bennett, the most difficult challenge for nomads is finding a reliable internet connection."
+                },
+                {
+                    "is_correct": true,
+                    "statement": "Digital nomads often struggle to make long-term friends because they move location frequently.",
+                    "id": 48
+                },
+                {
+                    "is_correct": false,
+                    "id": 49,
+                    "statement": "Employers are currently very concerned that their remote workers are lazy and not working enough hours."
+                },
+                {
+                    "id": 50,
+                    "is_correct": true,
+                    "statement": "A major risk for remote workers is burnout caused by an inability to stop working at the end of the day."
+                },
+                {
+                    "is_correct": true,
+                    "id": 51,
+                    "statement": "The arrival of wealthy foreign workers often causes rent and food prices to increase for local residents."
+                },
+                {
+                    "id": 52,
+                    "is_correct": false,
+                    "statement": "Local residents in popular destinations generally welcome the changes brought by digital nomads without complaint."
+                },
+                {
+                    "is_correct": false,
+                    "statement": "Most countries allow tourists to work remotely on a standard tourist visa without any legal issues.",
+                    "id": 53
+                },
+                {
+                    "is_correct": true,
+                    "id": 54,
+                    "statement": "Some governments are introducing specific visas to clarify the tax and legal status of remote workers."
+                },
+                {
+                    "id": 55,
+                    "is_correct": false,
+                    "statement": "The majority of digital nomads are currently young people in their twenties with low incomes."
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english-b2-listening-question-part-2-exam-2.mp3?alt=media&token=c2a8f876-6cc8-46ac-99f2-d737a5be32a1",
+            "title": "Urban Cycling and Mobility",
+            "statements": [
+                {
+                    "id": 46,
+                    "is_correct": false,
+                    "statement": "According to Mark, the increase in bicycle sales has led to a significant drop in rush hour car traffic."
+                },
+                {
+                    "id": 47,
+                    "is_correct": true,
+                    "statement": "Mark suggests that most people currently use their new bikes for recreational purposes rather than commuting."
+                },
+                {
+                    "id": 48,
+                    "is_correct": true,
+                    "statement": "The guest believes that painted lines on roads are insufficient to make cyclists feel safe."
+                },
+                {
+                    "id": 49,
+                    "is_correct": false,
+                    "statement": "Mark agrees with the host that the British weather is a valid reason for low cycling rates."
+                },
+                {
+                    "id": 50,
+                    "is_correct": true,
+                    "statement": "According to the interview, electric bikes have effectively removed the difficulty of cycling in hilly cities."
+                },
+                {
+                    "id": 51,
+                    "is_correct": true,
+                    "statement": "Shop owners are often initially worried that cycle lanes will negatively affect their business."
+                },
+                {
+                    "id": 52,
+                    "is_correct": false,
+                    "statement": "Data shows that car drivers spend more money in local shops than cyclists do."
+                },
+                {
+                    "id": 53,
+                    "is_correct": false,
+                    "statement": "Mark claims that road aggression is entirely the fault of car drivers."
+                },
+                {
+                    "id": 54,
+                    "is_correct": true,
+                    "statement": "The guest suggests that conflict arises because different road users are competing for the same space."
+                },
+                {
+                    "id": 55,
+                    "is_correct": true,
+                    "statement": "The proposed solution to road rage is to separate the physical paths of cars and bicycles."
+                }
+            ]
+        },
+        {
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english-b2-listening-question-part-2-exam-3.mp3?alt=media&token=9484dab9-0ff0-47fe-8fed-f45d4ae4a9b7",
+            "id": 2,
+            "title": "Remote Work and Digital Nomads",
+            "statements": [
+                {
+                    "is_correct": false,
+                    "id": 46,
+                    "statement": "According to the guest, the trend of working remotely from abroad is currently declining."
+                },
+                {
+                    "id": 47,
+                    "is_correct": false,
+                    "statement": "Digital nomads are currently almost exclusively young freelancers and tech entrepreneurs."
+                },
+                {
+                    "is_correct": true,
+                    "statement": "Local residents in some popular destinations have protested against the influx of remote workers.",
+                    "id": 48
+                },
+                {
+                    "is_correct": true,
+                    "id": 49,
+                    "statement": "Dr. Thorne suggests that digital nomads contribute to rising housing costs in the cities they visit."
+                },
+                {
+                    "id": 50,
+                    "is_correct": false,
+                    "statement": "Landlords generally prefer renting to local families because they stay for longer periods."
+                },
+                {
+                    "is_correct": true,
+                    "id": 51,
+                    "statement": "Research indicates that loneliness is a significant problem for long-term digital nomads."
+                },
+                {
+                    "id": 52,
+                    "is_correct": false,
+                    "statement": "Companies are generally unhappy about remote work because it increases their office costs."
+                },
+                {
+                    "is_correct": true,
+                    "statement": "Managers are concerned that remote work makes mentoring younger employees more difficult.",
+                    "id": 53
+                },
+                {
+                    "is_correct": false,
+                    "id": 54,
+                    "statement": "Dr. Thorne believes that the 'hybrid' working model will disappear in the near future."
+                },
+                {
+                    "id": 55,
+                    "is_correct": true,
+                    "statement": "Some countries are introducing specific visas to regulate remote workers and taxation."
+                }
+            ]
+        }
+    ]
+}
