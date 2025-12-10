@@ -73,7 +73,7 @@ import englishB2SpeakingPart1 from './english-b2/speaking-part1.json';
 import englishB2SpeakingPart2 from './english-b2/speaking-part2.json';
 import englishB2SpeakingPart3 from './english-b2/speaking-part3.json';
 import englishB2SpeakingImportantPhrases from './english-b2/speaking-important-phrases.json';
-
+import englishB2ListeningPractice from './english-b2/listening-practice.json';
 
 interface AppData {
     'exam-info'?: any;
@@ -172,5 +172,6 @@ export const appDataMap: AppDataMap = {
         'speaking-part2': englishB2SpeakingPart2,
         'speaking-part3': englishB2SpeakingPart3,
         'speaking-important-phrases': englishB2SpeakingImportantPhrases,
+        'listening-practice': englishB2ListeningPractice,
     },
 }

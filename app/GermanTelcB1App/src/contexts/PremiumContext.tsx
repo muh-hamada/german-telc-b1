@@ -87,6 +87,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   const [productPrice, setProductPrice] = useState<string | null>(null);
   const [productCurrency, setProductCurrency] = useState<string | null>(null);
   const [isLoadingProduct, setIsLoadingProduct] = useState(true);
+  const [isIAPReady, setIsIAPReady] = useState(false);
 
   /**
    * Get Firestore path for user's premium data
@@ -238,6 +239,9 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       if (!isMounted) return;
 
       if (initialized) {
+        // Mark IAP as ready so callbacks can be set
+        setIsIAPReady(true);
+        
         // Fetch product info to get localized price
         try {
           setIsLoadingProduct(true);
@@ -283,13 +287,14 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   }, []); // Run once on mount
 
   /**
-   * Update purchase callbacks when they change
+   * Update purchase callbacks when IAP is ready or callbacks change
    */
   useEffect(() => {
-    if (purchaseService.isReady()) {
+    if (isIAPReady && purchaseService.isReady()) {
+      console.log('[PremiumContext] Setting purchase callbacks');
       purchaseService.setCallbacks(handlePurchaseComplete, handlePurchaseError);
     }
-  }, [handlePurchaseComplete, handlePurchaseError]);
+  }, [isIAPReady, handlePurchaseComplete, handlePurchaseError]);
 
   /**
    * Load premium status when user changes
