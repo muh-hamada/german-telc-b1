@@ -28,6 +28,7 @@ import { useModalQueue } from '../contexts/ModalQueueContext';
 import LoginModal from '../components/LoginModal';
 import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { HIDE_SUPPORT_US } from '../config/development.config';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -217,7 +218,7 @@ const HomeScreen: React.FC = () => {
         </AnimatedGradientBorder>
 
         {/* Support Ad Button */}
-        <SupportAdButton screen="home" style={styles.supportAdButton} />
+        {!HIDE_SUPPORT_US && <SupportAdButton screen="home" style={styles.supportAdButton} />}
 
         {/* Grammar Study Card */}
         <Card style={styles.card} onPress={handleGrammarStudyPress}>

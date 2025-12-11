@@ -21,6 +21,8 @@ export const ALWAYS_SHOW_REVIEW_MODAL = false; // Set to false for production
 
 export const DISABLE_DATA_CACHE = false; // Set to true to disable data cache
 
+export const HIDE_SUPPORT_US = false; // Set to false for production
+
 /**
  * Streak Feature Flags
  */

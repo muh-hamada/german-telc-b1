@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.lg,
   },
   title: {
     ...typography.textStyles.h1,
