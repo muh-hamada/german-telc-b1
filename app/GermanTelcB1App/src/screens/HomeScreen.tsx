@@ -39,7 +39,7 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
-  const { isPremium, isLoading: isPremiumLoading } = usePremium();
+  const { isPremium, isLoading: isPremiumLoading, productPrice, productCurrency } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -72,14 +72,14 @@ const HomeScreen: React.FC = () => {
       // Step 1: Request and handle user consent (GDPR/US Privacy) - Show this FIRST
       // Apple Guideline 5.1.1: If the app shows the GDPR prompt before showing the App Tracking Transparency permission request, there is no need to modify the wording of the GDPR prompt.
       console.log('[HomeScreen] Starting UMP consent flow...');
-      
+
       const consentStatus = await consentService.requestConsent();
       console.log('[HomeScreen] UMP consent flow completed with status:', consentStatus);
 
       // Step 2: Request App Tracking Transparency (ATT) permission (iOS 14+)
       // We request this AFTER the GDPR form to avoid confusing the user (asking for tracking after they might have just said no in ATT)
       let attStatus: TrackingStatus = 'not-determined';
-      
+
       if (consentStatus === AdsConsentStatus.OBTAINED || consentStatus === AdsConsentStatus.NOT_REQUIRED) {
         console.log('[HomeScreen] Requesting App Tracking Transparency permission...');
         // Add a small delay to ensure the UMP dialog is fully dismissed before showing ATT
@@ -90,12 +90,12 @@ const HomeScreen: React.FC = () => {
       } else {
         console.log('[HomeScreen] Skipping ATT permission request due to consent status:', consentStatus);
       }
-      
+
       // Step 3: Initialize Google Mobile Ads SDK after all consents
       console.log('[HomeScreen] Initializing Google Mobile Ads...');
       const adapterStatuses = await mobileAds().initialize();
       console.log('[HomeScreen] Mobile Ads initialized:', adapterStatuses);
-      
+
       // Log tracking and personalization status
       if (consentService.canShowPersonalizedAds() && attStatus === 'authorized') {
         console.log('[HomeScreen] ✓ Full tracking enabled - personalized ads allowed');
@@ -153,8 +153,15 @@ const HomeScreen: React.FC = () => {
   const handleNavigateToPremium = () => {
     // open premium modal
     // enqueue premium modal
-    logEvent(AnalyticsEvents.PREMIUM_HOME_BUTTON_CLICKED);
+    logEvent(AnalyticsEvents.PREMIUM_HOME_BUTTON_CLICKED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
     enqueue('premium-upsell');
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_SHOWN, {
+      price: productPrice,
+      currency: productCurrency,
+    });
   };
 
   return (
@@ -234,7 +241,7 @@ const HomeScreen: React.FC = () => {
           <AnimatedGradientBorder
             borderWidth={2}
             borderRadius={32}
-            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']} 
+            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
             duration={500}
             style={styles.premiumButtonContainer}
           >
@@ -299,9 +306,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'left',
   },
-  supportAdButton: {
-    marginTop: spacing.margin.sm,
-  },
+  supportAdButton: {},
   premiumButtonWrapper: {
     position: 'absolute',
     right: spacing.margin.lg,

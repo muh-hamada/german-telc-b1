@@ -43,6 +43,7 @@ const PremiumUpsellModal: React.FC<PremiumUpsellModalProps> = ({
             onClose={onClose}
             isPurchasing={isPurchasing}
             showCloseButton={true}
+            isModal={true}
           />
         </View>
       </View>

@@ -271,11 +271,11 @@
       "part1": "Partie 1 : Texte à trous (Choix multiples)",
       "part2": "Partie 2 : Texte à trous (Liste de mots)",
       "descriptions": {
-        "main": "Pratiquez la grammaire allemande avec des exercices à trous"
+        "main": "Pratiquez la grammaire {{language}} avec des exercices à trous"
       },
       "study": {
         "title": "150 Questions de Grammaire",
-        "description": "Maîtrisez la grammaire allemande avec 150 questions d'entraînement sur divers sujets",
+        "description": "Maîtrisez la grammaire {{language}} avec 150 questions d'entraînement sur divers sujets",
         "progress": "Question {{current}} sur {{total}}",
         "currentProgress": "Progrès actuel",
         "progressFound": "Progrès précédent trouvé",
@@ -647,7 +647,7 @@
     "selectHour": "Sélectionner l'heure",
     "popularTimes": "Heures populaires",
     "notificationPermission": "Autorisation de notification",
-    "notificationPermissionMessage": "Nous vous enverrons des rappels quotidiens pour pratiquer votre allemand. Vous pouvez modifier cela à tout moment dans les paramètres.",
+    "notificationPermissionMessage": "Nous vous enverrons des rappels quotidiens pour pratiquer votre {{language}}. Vous pouvez modifier cela à tout moment dans les paramètres.",
     "permissionDenied": "Autorisation refusée",
     "permissionDeniedMessage": "Pour recevoir des notifications, veuillez les activer dans les paramètres de votre appareil.",
     "permissionError": "Impossible de demander l'autorisation de notification. Veuillez vérifier les paramètres de votre appareil.",
@@ -697,7 +697,7 @@
   },
   "notificationReminder": {
     "title": "Restez sur la bonne voie avec des rappels quotidiens",
-    "message": "Recevez une notification quotidienne amicale pour vous aider à pratiquer régulièrement et atteindre vos objectifs en allemand!",
+    "message": "Recevez une notification quotidienne amicale pour vous aider à pratiquer régulièrement et atteindre vos objectifs en {{language}}!",
     "enableButton": "Activer les notifications",
     "maybeLaterButton": "Peut-être plus tard",
     "hourPickerTitle": "Choisissez votre heure de rappel préférée",
@@ -1061,19 +1061,19 @@
     "features": {
       "adFree": {
         "title": "Sans publicité",
-        "description": "Apprenez sans interruption des publicités"
+        "description": "Apprenez sans interruption."
       },
       "offline": {
         "title": "Mode hors ligne",
-        "description": "Téléchargez tout le contenu et étudiez partout"
+        "description": "Téléchargez et étudiez partout."
       },
       "streakFreeze": {
         "title": "Gel de série",
-        "description": "Protégez votre série avec 2 gels par semaine"
+        "description": "Protégez avec 2 gels/semaine."
       },
       "support": {
         "title": "Soutenir le développement",
-        "description": "Aidez-nous à apporter plus d'examens, de fonctionnalités et d'améliorations"
+        "description": "Nouveaux examens et fonctionnalités."
       }
     },
     "profile": {

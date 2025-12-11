@@ -31,6 +31,7 @@ interface PremiumContentProps {
   isRestoring?: boolean;
   showCloseButton?: boolean;
   showRestoreButton?: boolean;
+  isModal?: boolean;
 }
 
 interface FeatureItemProps {
@@ -84,6 +85,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   isRestoring = false,
   showCloseButton = false,
   showRestoreButton = false,
+  isModal = false,
 }) => {
   const { t } = useCustomTranslation();
   const { productPrice } = usePremium();
@@ -103,7 +105,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
           onPress={onClose}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Icon name="times" size={20} color={colors.text.tertiary} />
+          <Icon name="times" size={18} color={colors.text.primary} />
         </TouchableOpacity>
       )}
 
@@ -147,48 +149,48 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
             colorScheme={FEATURE_COLORS.support}
           />
         </View>
+      </ScrollView>
 
-        {/* CTA Section */}
-        <View style={styles.ctaSection}>
+      {/* Fixed CTA Section at Bottom */}
+      <View style={[styles.ctaSection, { paddingBottom: isModal ? spacing.padding.sm : spacing.padding.lg }]}>
+        <TouchableOpacity
+          style={[styles.purchaseButton, isPurchasing && styles.purchaseButtonDisabled]}
+          onPress={onPurchase}
+          disabled={isPurchasing || isRestoring}
+          activeOpacity={0.85}
+        >
+          {isPurchasing ? (
+            <ActivityIndicator color="#FFFFFF" size="small" />
+          ) : (
+            <Text style={styles.purchaseButtonText}>
+              {t('premium.screen.unlockNow')} • {price}
+            </Text>
+          )}
+        </TouchableOpacity>
+
+        {/* Restore or Later button */}
+        {showRestoreButton && onRestore ? (
           <TouchableOpacity
-            style={[styles.purchaseButton, isPurchasing && styles.purchaseButtonDisabled]}
-            onPress={onPurchase}
+            style={styles.secondaryButton}
+            onPress={onRestore}
             disabled={isPurchasing || isRestoring}
-            activeOpacity={0.85}
           >
-            {isPurchasing ? (
-              <ActivityIndicator color="#FFFFFF" size="small" />
+            {isRestoring ? (
+              <ActivityIndicator color={colors.text.secondary} size="small" />
             ) : (
-              <Text style={styles.purchaseButtonText}>
-                {t('premium.screen.unlockNow')} • {price}
-              </Text>
+              <Text style={styles.restoreButtonText}>{t('premium.screen.restorePurchases')}</Text>
             )}
           </TouchableOpacity>
-
-          {/* Restore or Later button */}
-          {showRestoreButton && onRestore ? (
-            <TouchableOpacity
-              style={styles.secondaryButton}
-              onPress={onRestore}
-              disabled={isPurchasing || isRestoring}
-            >
-              {isRestoring ? (
-                <ActivityIndicator color={colors.text.secondary} size="small" />
-              ) : (
-                <Text style={styles.restoreButtonText}>{t('premium.screen.restorePurchases')}</Text>
-              )}
-            </TouchableOpacity>
-          ) : onClose && (
-            <TouchableOpacity
-              style={styles.secondaryButton}
-              onPress={onClose}
-              disabled={isPurchasing}
-            >
-              <Text style={styles.laterButtonText}>{t('premium.upsell.maybeLater')}</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-      </ScrollView>
+        ) : onClose && (
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={onClose}
+            disabled={isPurchasing}
+          >
+            <Text style={styles.laterButtonText}>{t('premium.upsell.maybeLater')}</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
@@ -204,7 +206,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: spacing.padding.lg,
     paddingTop: spacing.padding.xl,
-    paddingBottom: spacing.padding.xl,
+    paddingBottom: spacing.padding.md,
   },
 
   // Background shapes
@@ -229,21 +231,21 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
 
-  // Close button
+  // Close button (back arrow)
   closeButton: {
     position: 'absolute',
-    top: 16,
+    top: 20,
     right: 16,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.08,
     shadowRadius: 4,
     elevation: 2,
   },
@@ -312,7 +314,7 @@ const styles = StyleSheet.create({
   sparkle4: {
     fontSize: 24,
     top: '38%',
-    left: '10%',
+    right: '10%',
     color: '#6366F1', // Indigo
   },
   sparkle5: {
@@ -401,9 +403,14 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
 
-  // CTA section
+  // CTA section - fixed at bottom
   ctaSection: {
-    marginBottom: spacing.margin.lg,
+    paddingHorizontal: spacing.padding.lg,
+    paddingTop: spacing.padding.lg,
+    paddingBottom: spacing.padding.lg,
+    backgroundColor: '#fff',
+    borderTopRightRadius: spacing.borderRadius['2xl'],
+    borderTopLeftRadius: spacing.borderRadius['2xl'],
   },
   purchaseButton: {
     backgroundColor: '#16A34A',
@@ -412,7 +419,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.xl,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
     shadowColor: '#16A34A',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,

@@ -275,11 +275,11 @@
       "part1": "Parte 1: Rellenar espacios (Opción múltiple)",
       "part2": "Parte 2: Rellenar espacios (Lista de palabras)",
       "descriptions": {
-        "main": "Practica gramática alemana con ejercicios de completar espacios"
+        "main": "Practica gramática {{language}} con ejercicios de completar espacios"
       },
       "study": {
         "title": "150 Preguntas de Gramática",
-        "description": "Domina la gramática alemana con 150 preguntas de práctica sobre varios temas",
+        "description": "Domina la gramática {{language}} con 150 preguntas de práctica sobre varios temas",
         "progress": "Pregunta {{current}} de {{total}}",
         "currentProgress": "Progreso actual",
         "progressFound": "Progreso anterior encontrado",
@@ -389,7 +389,7 @@
     "selectHour": "Seleccionar hora",
     "popularTimes": "Horas populares",
     "notificationPermission": "Permiso de notificación",
-    "notificationPermissionMessage": "Te enviaremos recordatorios diarios para practicar tu alemán. Puedes cambiar esto en cualquier momento en la configuración.",
+    "notificationPermissionMessage": "Te enviaremos recordatorios diarios para practicar tu {{language}}. Puedes cambiar esto en cualquier momento en la configuración.",
     "permissionDenied": "Permiso denegado",
     "permissionDeniedMessage": "Para recibir notificaciones, habilítalas en la configuración de tu dispositivo.",
     "permissionError": "No se puede solicitar permiso de notificación. Por favor, verifica la configuración de tu dispositivo.",
@@ -439,7 +439,7 @@
   },
   "notificationReminder": {
     "title": "Mantente en el camino con recordatorios diarios",
-    "message": "¡Recibe una notificación diaria amigable para ayudarte a practicar regularmente y alcanzar tus objetivos en el idioma alemán!",
+    "message": "¡Recibe una notificación diaria amigable para ayudarte a practicar regularmente y alcanzar tus objetivos en el idioma {{language}}!",
     "enableButton": "Activar notificaciones",
     "maybeLaterButton": "Tal vez más tarde",
     "hourPickerTitle": "Elige tu hora de recordatorio preferida",
@@ -1060,19 +1060,19 @@
     "features": {
       "adFree": {
         "title": "Sin anuncios",
-        "description": "Aprende sin interrupciones de anuncios"
+        "description": "Aprende sin interrupciones."
       },
       "offline": {
         "title": "Modo sin conexión",
-        "description": "Descarga todo el contenido y estudia en cualquier lugar"
+        "description": "Descarga y estudia en cualquier lugar."
       },
       "streakFreeze": {
         "title": "Congelar racha",
-        "description": "Protege tu racha con 2 congelaciones por semana"
+        "description": "Protege tu racha con 2/semana."
       },
       "support": {
         "title": "Apoya el desarrollo",
-        "description": "Ayúdanos a traer más exámenes, funciones y mejoras"
+        "description": "Nuevos exámenes y funciones."
       }
     },
     "profile": {

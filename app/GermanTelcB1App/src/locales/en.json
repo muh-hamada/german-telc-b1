@@ -303,11 +303,11 @@
       "part1": "Part 1: Gap Fill (Multiple Choice)",
       "part2": "Part 2: Gap Fill (Word List)",
       "descriptions": {
-        "main": "Practice German grammar with gap-fill exercises"
+        "main": "Practice {{language}} grammar with gap-fill exercises"
       },
       "study": {
         "title": "150 Grammar Questions",
-        "description": "Master German grammar with 150 practice questions from various topics",
+        "description": "Master {{language}} grammar with 150 practice questions from various topics",
         "progress": "Question {{current}} of {{total}}",
         "currentProgress": "Current Progress",
         "progressFound": "Previous Progress Found",
@@ -416,7 +416,7 @@
     "selectHour": "Select Hour",
     "popularTimes": "Popular Times",
     "notificationPermission": "Notification Permission",
-    "notificationPermissionMessage": "We'll send you daily reminders to practice your German. You can change this anytime in settings.",
+    "notificationPermissionMessage": "We'll send you daily reminders to practice your {{language}}. You can change this anytime in settings.",
     "permissionDenied": "Permission Denied",
     "permissionDeniedMessage": "To receive notifications, please enable them in your device settings.",
     "permissionError": "Unable to request notification permission. Please check your device settings.",
@@ -470,7 +470,7 @@
   },
   "notificationReminder": {
     "title": "Stay on Track with Daily Reminders",
-    "message": "Get a friendly daily notification to help you practice regularly and achieve your German language goals!",
+    "message": "Get a friendly daily notification to help you practice regularly and achieve your {{language}} language goals!",
     "enableButton": "Enable Notifications",
     "maybeLaterButton": "Maybe Later",
     "hourPickerTitle": "Choose your preferred reminder time",
@@ -1087,19 +1087,19 @@
     "features": {
       "adFree": {
         "title": "Ad-Free Experience",
-        "description": "Enjoy learning without any interruptions from ads"
+        "description": "Enjoy learning without interruptions."
       },
       "offline": {
         "title": "Offline Mode",
-        "description": "Download all content and study anywhere, anytime"
+        "description": "Download and study anywhere."
       },
       "streakFreeze": {
         "title": "Streak Freeze",
-        "description": "Protect your streak with 2 freezes per week"
+        "description": "Protect streak with 2 freezes/week."
       },
       "support": {
         "title": "Support Development",
-        "description": "Help us bring you more exams, features, and improvements"
+        "description": "Help us bring new exams & features."
       }
     },
     "profile": {

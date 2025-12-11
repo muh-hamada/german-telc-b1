@@ -30,7 +30,7 @@ const ModalQueueRenderer: React.FC = () => {
   const { currentModal, dismissCurrentModal } = useModalQueue();
   const { user } = useAuth();
   const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
-  const { isPremium, isPurchasing, purchasePremium } = usePremium();
+  const { isPremium, isPurchasing, purchasePremium, productPrice, productCurrency } = usePremium();
   
   // Get context data and handlers
   const { updateInfo, dismissUpdate, openAppStore } = useAppUpdate();
@@ -142,12 +142,18 @@ const ModalQueueRenderer: React.FC = () => {
   // Handler for premium upsell modal
   const handlePremiumUpsellDismiss = async () => {
     await premiumPromptService.recordModalDismiss();
-    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_DISMISSED);
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_DISMISSED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
     dismissCurrentModal();
   };
 
   const handlePremiumUpsellPurchase = async () => {
-    logEvent(AnalyticsEvents.PREMIUM_UPSELL_PURCHASE_CLICKED);
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_PURCHASE_CLICKED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
     const success = await purchasePremium();
     if (success) {
       await premiumPromptService.recordPurchase();

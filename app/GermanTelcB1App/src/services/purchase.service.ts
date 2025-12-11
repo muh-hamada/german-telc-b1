@@ -26,6 +26,10 @@ class PurchaseService {
   private purchaseErrorSubscription: ReturnType<typeof RNIap.purchaseErrorListener> | null = null;
   private onPurchaseComplete: ((purchase: RNIap.Purchase) => void) | null = null;
   private onPurchaseError: ((error: RNIap.PurchaseError) => void) | null = null;
+  
+  // Store product price for analytics
+  private productPrice: string | null = null;
+  private productCurrency: string | null = null;
 
   /**
    * Initialize IAP connection
@@ -96,6 +100,8 @@ class PurchaseService {
             logEvent(AnalyticsEvents.PREMIUM_PURCHASE_SUCCESS, {
               productId: purchase.productId,
               transactionId: purchase.transactionId,
+              price: this.productPrice,
+              currency: this.productCurrency,
             });
           } catch (finishError) {
             console.error('[PurchaseService] Error finishing transaction:', finishError);
@@ -115,6 +121,8 @@ class PurchaseService {
       logEvent(AnalyticsEvents.PREMIUM_PURCHASE_ERROR, {
         code: error.code,
         message: error.message,
+        price: this.productPrice,
+        currency: this.productCurrency,
       });
     });
   }
@@ -142,11 +150,34 @@ class PurchaseService {
       const products = await RNIap.getProducts({ skus: [productId] });
       console.log('[PurchaseService] Products:', products);
       
+      // Store price for analytics
+      if (products && products.length > 0) {
+        const product = products[0] as any;
+        this.productPrice = product.displayPrice || product.localizedPrice || null;
+        this.productCurrency = product.currency ||
+          product.oneTimePurchaseOfferDetailsAndroid?.priceCurrencyCode || null;
+        console.log('[PurchaseService] Stored price:', this.productPrice, 'currency:', this.productCurrency);
+      }
+      
       return products || [];
     } catch (error) {
       console.error('[PurchaseService] Error getting products:', error);
       return [];
     }
+  }
+
+  /**
+   * Get stored product price for analytics
+   */
+  getProductPrice(): string | null {
+    return this.productPrice;
+  }
+
+  /**
+   * Get stored product currency for analytics
+   */
+  getProductCurrency(): string | null {
+    return this.productCurrency;
   }
 
   /**
@@ -164,6 +195,8 @@ class PurchaseService {
       
       logEvent(AnalyticsEvents.PREMIUM_PURCHASE_INITIATED, {
         productId,
+        price: this.productPrice,
+        currency: this.productCurrency,
       });
       
       // v12 API: simpler requestPurchase format
@@ -187,7 +220,10 @@ class PurchaseService {
     try {
       console.log('[PurchaseService] Restoring purchases...');
       
-      logEvent(AnalyticsEvents.PREMIUM_RESTORE_INITIATED);
+      logEvent(AnalyticsEvents.PREMIUM_RESTORE_INITIATED, {
+        price: this.productPrice,
+        currency: this.productCurrency,
+      });
       
       const purchases = await RNIap.getAvailablePurchases();
       console.log('[PurchaseService] Available purchases:', purchases);
@@ -200,17 +236,24 @@ class PurchaseService {
         logEvent(AnalyticsEvents.PREMIUM_RESTORE_SUCCESS, {
           productId: premiumPurchase.productId,
           transactionId: premiumPurchase.transactionId,
+          price: this.productPrice,
+          currency: this.productCurrency,
         });
         return premiumPurchase;
       }
       
       console.log('[PurchaseService] No premium purchase found');
-      logEvent(AnalyticsEvents.PREMIUM_RESTORE_NOT_FOUND);
+      logEvent(AnalyticsEvents.PREMIUM_RESTORE_NOT_FOUND, {
+        price: this.productPrice,
+        currency: this.productCurrency,
+      });
       return null;
     } catch (error) {
       console.error('[PurchaseService] Error restoring purchases:', error);
       logEvent(AnalyticsEvents.PREMIUM_RESTORE_ERROR, {
         error: error instanceof Error ? error.message : 'Unknown error',
+        price: this.productPrice,
+        currency: this.productCurrency,
       });
       throw error;
     }

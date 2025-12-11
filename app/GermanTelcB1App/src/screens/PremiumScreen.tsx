@@ -29,17 +29,23 @@ const PremiumScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const { user } = useAuth();
-  const { isPremium, isPurchasing, purchasePremium, restorePurchases } = usePremium();
+  const { isPremium, isPurchasing, purchasePremium, restorePurchases, productPrice, productCurrency } = usePremium();
   const [isRestoring, setIsRestoring] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const insets = useSafeAreaInsets();
 
   React.useEffect(() => {
-    logEvent(AnalyticsEvents.PREMIUM_SCREEN_OPENED);
-  }, []);
+    logEvent(AnalyticsEvents.PREMIUM_SCREEN_OPENED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
+  }, [productPrice, productCurrency]);
 
   const handlePurchase = async () => {
-    logEvent(AnalyticsEvents.PREMIUM_SCREEN_PURCHASE_CLICKED);
+    logEvent(AnalyticsEvents.PREMIUM_SCREEN_PURCHASE_CLICKED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
     if (!user) {
       setShowLoginModal(true);
       return;
@@ -48,7 +54,10 @@ const PremiumScreen: React.FC = () => {
   };
 
   const handleRestore = async () => {
-    logEvent(AnalyticsEvents.PREMIUM_SCREEN_RESTORE_CLICKED);
+    logEvent(AnalyticsEvents.PREMIUM_SCREEN_RESTORE_CLICKED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
     if (!user) {
       setShowLoginModal(true);
       return;

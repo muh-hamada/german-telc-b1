@@ -258,7 +258,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
 - text:  use \n for new lines and [number] for the question number
 - 10 situations from id 11 to 20
 - id: int
-- title: 4-6 words (should be relevant the text)
+- title: 4-6 words (should be relevant to the text)
 
 {
     "questions": [
@@ -447,7 +447,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
 - text:  use \n for new lines and [number] for the question number
 - 16 words
 - id: int
-- title: 4-6 words (should be relevant the text)
+- title: 4-6 words (should be relevant to the text)
 
 {
     "id": 0,

@@ -302,11 +302,11 @@
       "part1": "Teil 1: Lückentext (Multiple Choice)",
       "part2": "Teil 2: Lückentext (Wortliste)",
       "descriptions": {
-        "main": "Üben Sie deutsche Grammatik mit Lückentext-Übungen"
+        "main": "Üben Sie {{language}} Grammatik mit Lückentext-Übungen"
       },
       "study": {
         "title": "150 Grammatikfragen",
-        "description": "Meistern Sie die deutsche Grammatik mit 150 Übungsfragen aus verschiedenen Themenbereichen",
+        "description": "Meistern Sie die {{language}} Grammatik mit 150 Übungsfragen aus verschiedenen Themenbereichen",
         "progress": "Frage {{current}} von {{total}}",
         "currentProgress": "Aktueller Fortschritt",
         "progressFound": "Vorheriger Fortschritt gefunden",
@@ -415,7 +415,7 @@
     "selectHour": "Stunde wählen",
     "popularTimes": "Beliebte Zeiten",
     "notificationPermission": "Benachrichtigungsberechtigung",
-    "notificationPermissionMessage": "Wir senden Ihnen tägliche Erinnerungen, um Ihr Deutsch zu üben. Sie können dies jederzeit in den Einstellungen ändern.",
+    "notificationPermissionMessage": "Wir senden Ihnen tägliche Erinnerungen, um Ihr {{language}} zu üben. Sie können dies jederzeit in den Einstellungen ändern.",
     "permissionDenied": "Berechtigung verweigert",
     "permissionDeniedMessage": "Um Benachrichtigungen zu erhalten, aktivieren Sie diese bitte in Ihren Geräteeinstellungen.",
     "permissionError": "Benachrichtigungsberechtigung konnte nicht angefordert werden. Bitte überprüfen Sie Ihre Geräteeinstellungen.",
@@ -469,7 +469,7 @@
   },
   "notificationReminder": {
     "title": "Bleiben Sie dran mit täglichen Erinnerungen",
-    "message": "Erhalten Sie eine freundliche tägliche Benachrichtigung, die Ihnen hilft, regelmäßig zu üben und Ihre Deutschziele zu erreichen!",
+    "message": "Erhalten Sie eine freundliche tägliche Benachrichtigung, die Ihnen hilft, regelmäßig zu üben und Ihre {{language}}-Sprachziele zu erreichen!",
     "enableButton": "Benachrichtigungen aktivieren",
     "maybeLaterButton": "Vielleicht später",
     "hourPickerTitle": "Wählen Sie Ihre bevorzugte Erinnerungszeit",
@@ -1086,19 +1086,19 @@
     "features": {
       "adFree": {
         "title": "Werbefrei",
-        "description": "Lerne ohne Unterbrechungen durch Werbung"
+        "description": "Lerne ohne Unterbrechungen."
       },
       "offline": {
         "title": "Offline-Modus",
-        "description": "Lade alle Inhalte herunter und lerne überall"
+        "description": "Herunterladen und überall lernen."
       },
       "streakFreeze": {
         "title": "Streak-Schutz",
-        "description": "Schütze deinen Streak mit 2 Freezes pro Woche"
+        "description": "2 Freezes pro Woche schützen."
       },
       "support": {
         "title": "Entwicklung unterstützen",
-        "description": "Hilf uns, mehr Prüfungen, Funktionen und Verbesserungen zu entwickeln"
+        "description": "Neue Prüfungen & Funktionen."
       }
     },
     "profile": {

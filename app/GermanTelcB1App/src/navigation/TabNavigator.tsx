@@ -102,7 +102,7 @@ const TabNavigator: React.FC = () => {
   const { checkAndShowReminder } = useNotificationReminder();
   const { enqueue } = useModalQueue();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
-  const { isPremium } = usePremium();
+  const { isPremium, productPrice, productCurrency } = usePremium();
   const appState = useRef(AppState.currentState);
   const usageTrackingRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasEnqueuedPremiumModalRef = useRef(false);
@@ -166,9 +166,12 @@ const TabNavigator: React.FC = () => {
       console.log('[TabNavigator] Enqueueing premium upsell modal');
       hasEnqueuedPremiumModalRef.current = true;
       enqueue('premium-upsell');
-      logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_SHOWN);
+      logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_SHOWN, {
+        price: productPrice,
+        currency: productCurrency,
+      });
     }
-  }, [isPremiumFeaturesEnabled, isPremium, enqueue]);
+  }, [isPremiumFeaturesEnabled, isPremium, enqueue, productPrice, productCurrency]);
 
   // Initialize premium prompt service and start usage tracking
   useEffect(() => {
