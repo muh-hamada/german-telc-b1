@@ -1,9 +1,3 @@
-/**
- * Vocabulary Home Screen
- * 
- * Main hub for vocabulary learning with study and review options.
- */
-
 import React, { useState } from 'react';
 import {
   View,
