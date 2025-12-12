@@ -59,6 +59,7 @@ export type ProfileStackParamList = {
   Profile: { openLoginModal?: boolean } | undefined;
   Settings: undefined;
   CompletionStats: undefined;
+  Premium: undefined;
 };
 
 // Navigation prop types

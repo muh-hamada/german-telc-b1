@@ -11,6 +11,7 @@ import { colors, spacing } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
 import { useProgress } from '../../contexts/ProgressContext';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import { useExamCompletion } from '../../contexts/CompletionContext';
@@ -45,6 +46,7 @@ const ListeningPart2Screen: React.FC = () => {
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [showResults, setShowResults] = useState(false);
   const { updateExamProgress } = useProgress();
+  const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
   const exams = listeningData?.exams as Exam[] || [];
   const currentExam = exams.find(exam => exam.id === examId) || null;
@@ -118,6 +120,8 @@ const ListeningPart2Screen: React.FC = () => {
     };
 
     setExamResult(result);
+    // Pause global modal queue and show results
+    setContextualModalActive(true);
     setShowResults(true);
 
     updateExamProgress('listening-part2', examId, answers, score, totalQuestions);
@@ -152,7 +156,11 @@ const ListeningPart2Screen: React.FC = () => {
       />
       <ResultsModal
         visible={showResults}
-        onClose={() => setShowResults(false)}
+        onClose={() => {
+          setShowResults(false);
+          // Resume global modal queue
+          setContextualModalActive(false);
+        }}
         examTitle={`Listening Part 2 - Test ${examId + 1}`}
         result={examResult}
       />

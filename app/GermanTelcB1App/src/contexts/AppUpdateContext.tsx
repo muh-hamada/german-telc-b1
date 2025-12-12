@@ -1,16 +1,17 @@
 /**
  * App Update Context
  * 
- * Manages app version checking and update modal display logic
+ * Manages app version checking and update modal display logic.
+ * Uses the ModalQueueContext to show update modals.
  */
 
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { useRemoteConfig } from './RemoteConfigContext';
+import { useModalQueue } from './ModalQueueContext';
 import appUpdateService, { AppUpdateCheckResult } from '../services/app-update.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface AppUpdateContextType {
-  shouldShowUpdateModal: boolean;
   updateInfo: AppUpdateCheckResult | null;
   dismissUpdate: () => Promise<void>;
   openAppStore: () => Promise<void>;
@@ -24,7 +25,7 @@ interface AppUpdateProviderProps {
 
 export const AppUpdateProvider: React.FC<AppUpdateProviderProps> = ({ children }) => {
   const { config, isLoading: configLoading } = useRemoteConfig();
-  const [shouldShowUpdateModal, setShouldShowUpdateModal] = useState(false);
+  const { enqueue } = useModalQueue();
   const [updateInfo, setUpdateInfo] = useState<AppUpdateCheckResult | null>(null);
 
   /**
@@ -50,7 +51,10 @@ export const AppUpdateProvider: React.FC<AppUpdateProviderProps> = ({ children }
       setUpdateInfo(result);
       
       if (result.shouldShow) {
-        setShouldShowUpdateModal(true);
+        // Enqueue the appropriate modal type
+        const modalType = result.isForced ? 'app-update-forced' : 'app-update-available';
+        enqueue(modalType);
+        
         logEvent(AnalyticsEvents.APP_UPDATE_MODAL_SHOWN, {
           current_version: result.currentVersion,
           latest_version: result.latestVersion,
@@ -60,10 +64,10 @@ export const AppUpdateProvider: React.FC<AppUpdateProviderProps> = ({ children }
       }
     };
 
-    // Add a small delay to ensure other modals can initialize first
+    // Add a small delay to ensure other contexts can initialize first
     const timer = setTimeout(checkForUpdates, 1000);
     return () => clearTimeout(timer);
-  }, [config, configLoading]);
+  }, [config, configLoading, enqueue]);
 
   const dismissUpdate = useCallback(async () => {
     if (!updateInfo) return;
@@ -76,7 +80,6 @@ export const AppUpdateProvider: React.FC<AppUpdateProviderProps> = ({ children }
     });
 
     await appUpdateService.dismissUpdate(updateInfo.latestVersion);
-    setShouldShowUpdateModal(false);
   }, [updateInfo]);
 
   const openAppStore = useCallback(async () => {
@@ -102,7 +105,6 @@ export const AppUpdateProvider: React.FC<AppUpdateProviderProps> = ({ children }
   }, [updateInfo]);
 
   const value: AppUpdateContextType = {
-    shouldShowUpdateModal,
     updateInfo,
     dismissUpdate,
     openAppStore,
@@ -125,4 +127,3 @@ export const useAppUpdate = (): AppUpdateContextType => {
   }
   return context;
 };
-

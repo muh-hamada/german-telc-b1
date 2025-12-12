@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0d1117;
+  color: #e6edf3;
 }
 
 code {
@@ -18,4 +20,23 @@ code {
 
 .App {
   text-align: center;
+}
+
+/* Global scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #21262d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #484f58;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6e7681;
 }

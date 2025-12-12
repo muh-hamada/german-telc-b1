@@ -9,6 +9,7 @@ import { HIDE_ADS } from '../config/development.config';
 import { useStreak } from '../contexts/StreakContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useAuth } from '../contexts/AuthContext';
+import { usePremium } from '../contexts/PremiumContext';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -39,9 +40,16 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   const { user } = useAuth();
   const { adFreeStatus } = useStreak();
   const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { isPremium } = usePremium();
   
   // Check if ads should be hidden
   if (HIDE_ADS) {
+    return null;
+  }
+  
+  // Check if user has premium subscription
+  if (isPremium) {
+    console.log('[AdBanner] Premium user, hiding ad');
     return null;
   }
   

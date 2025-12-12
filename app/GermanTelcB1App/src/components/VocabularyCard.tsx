@@ -63,6 +63,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip
   const currentLang = i18n.language;
   const translation = word.translations[currentLang as keyof typeof word.translations] || 
                       word.translations.en || 
+                      word.explanation ||
                       '';
 
   // Get first example sentence translation
@@ -112,7 +113,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip
             <View style={styles.exampleContainer}>
               <Text style={styles.exampleLabel}>{t('vocabulary.example')}:</Text>
               <Text style={styles.example}>{exampleSentence.text}</Text>
-              <Text style={styles.exampleTranslation}>{exampleTranslation}</Text>
+              {exampleTranslation && <Text style={styles.exampleTranslation}>{exampleTranslation}</Text>}
             </View>
           )}
         </View>
@@ -199,12 +200,12 @@ const styles = StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     fontStyle: 'italic',
-    marginBottom: spacing.margin.sm,
   },
   exampleTranslation: {
     ...typography.textStyles.caption,
     color: colors.text.secondary,
     textAlign: 'left',
+    marginTop: spacing.margin.sm,
   },
 });
 

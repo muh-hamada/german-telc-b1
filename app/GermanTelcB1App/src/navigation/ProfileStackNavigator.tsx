@@ -6,6 +6,7 @@ import { colors, typography } from '../theme';
 import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CompletionStatsScreen from '../screens/CompletionStatsScreen';
+import PremiumScreen from '../screens/PremiumScreen';
 
 const Stack = createStackNavigator<ProfileStackParamList>();
 
@@ -48,6 +49,13 @@ const ProfileStackNavigator: React.FC = () => {
         component={CompletionStatsScreen}
         options={{
           title: t('stats.title'),
+        }}
+      />
+      <Stack.Screen
+        name="Premium"
+        component={PremiumScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

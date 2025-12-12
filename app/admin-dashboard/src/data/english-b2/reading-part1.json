@@ -1,0 +1,128 @@
+[
+  {
+    "texts": [
+      {
+        "correct": "j",
+        "id": 1,
+        "text": "A man who has been in a coma for 19 years after a car crash woke up and started talking to his mother, who was sitting at his bedside. Terry Wallis began his return to consciousness slowly with just a few nouns, but gradually a flood of phrases came pouring out. 'He started out with 'mum', and then it was 'milk' and 'tree', said the director of the Arkansas rehabilitation centre where Wallis was being cared for. Terry, now 39, was driving home 19 years ago when his car left the road and plunged into a stream. He was found the next day under a bridge and was in a coma. Terry's daughter Amber, who was born shortly before the crash, is thrilled to now be able to build up a relationship with her father. According to Terry's father, his son talks almost non-stop now. 'It's so peculiar, it's going to take some getting used to!'"
+      },
+      {
+        "correct": "e",
+        "id": 2,
+        "text": "In an attempt to combat the rise in ownership of dangerous animals, the government has announced plans to introduce an addition to the law stating that all dogs must now be fitted with a microchip. Voluntary 'chipping' of animals is already a common practice and involves a small electronic device being implanted under the animal's skin. Each chip has a unique number that can be read by a scanner. Vets, the police or an animal welfare organisation can quickly and easily trace the animal's owner. There are an estimated eight million dogs in Britain, and four breeds are currently banned under the Dangerous Dogs Act (1991). Critics of the plan say that it will do nothing to tackle problems with these banned breeds, since people who already own such dogs are likely to ignore the new legislation as they fear to lose their animals. However, owners who can prove that their dogs are not dangerous will be given a Certificate of Exemption."
+      },
+      {
+        "correct": "c",
+        "id": 3,
+        "text": "Faced with a tough problem, the traditional advice is to 'sleep on it. And, according to new research, 'sleeping on it' may be exactly the right thing to do: a good night's sleep really does help the brain get to grips with information and to act on it the following day. Researchers at the University of Pennsylvania studied how well mice absorbed or 'consolidated' new information and remembered it the next day. Scientists gave two groups of mice a small electric shock when they were put in a specific place to generate fear of that particular location. One group of mice was then allowed to sleep, while the other group was kept awake. Twenty four hours later, the two groups were tested to see if they 'froze' when put in this same area. Those who slept were four times more likely to show fear than those kept awake. Researchers concluded that sleeping during the five hours after learning was crucial for 'memory consolidation'."
+      },
+      {
+        "correct": "d",
+        "id": 4,
+        "text": "After flourishing for millions of years, the last sixty years has seen a huge decline in the country's bee population. Some species have already disappeared completely from the British countryside and others are now considered endangered. Experts believe that the reduction in bee numbers is due to changing weather patterns, the increased use of insecticides in farming and gardening, and the loss of habitat as our cities expand. Albert Einstein, the physicist, said that if all bees became extinct, human society would follow within a few years. This statement was based on the fact that in our interconnected ecosystem, the production of food is almost entirely dependent on these useful workers, and yet many of us take the work they do for granted. While collecting nectar for themselves, bees transfer pollen from one plant to another, ensuring that, for example, fruit grows. Currently, bee keepers, scientists and conservation organisations are working hard to save our bee population."
+      },
+      {
+        "correct": "i",
+        "id": 5,
+        "text": "A woman deliberately left her four-metre long python behind when moving home, and explained this to the council as she was dropping off the keys. The unnamed tenant of a council flat near Birmingham said to the council worker on duty, 'I'm catching a train to Norfolk and I'm not coming back. I've just fed my Burmese python and I'm leaving her in the flat.' Housing officers quickly rang the Royal Society for the Prevention of Cruelty to Animals (RSPCA), which sent two inspectors to collect the 25-kilo snake, which they found curled up in the living room. The snake is now being cared for at a reptile centre in Birmingham while the RSPCA tries to trace its former owner. A spokesman for the district council said, 'Our housing department has heard some strange things from our tenants over the years, but this has to be the strangest.'"
+      }
+    ],
+    "headings": [
+      "Accident fatal for 19-year-old",
+      "Dangerous pets banned under new legislation",
+      "Important decision? Head for bed!",
+      "Life on earth at risk",
+      "New regulations on problematic pets",
+      "Research shows mice fear sleep",
+      "Snake leaves home",
+      "Unknown bee disease identified",
+      "Unusual message for local authorities",
+      "Years of silence finally end"
+    ],
+    "id": 1
+  },
+  {
+    "texts": [
+      {
+        "correct": "a",
+        "id": 6,
+        "text": "As temperatures rise globally, major metropolises are facing the 'urban heat island' effect, where concrete traps heat. To combat this, city planners are turning to nature by installing 'green roofs'—layers of living vegetation on top of buildings. These gardens do more than just look attractive; they provide insulation, lower air conditioning costs, and significantly reduce the ambient temperature in the street. Furthermore, they absorb rainwater, which helps prevent flash flooding during storms. While some building owners complain about the initial installation costs, environmentalists and city councils argue that the long-term benefits for the city's climate and air quality are worth the investment."
+      },
+      {
+        "correct": "i",
+        "id": 7,
+        "text": "In the digital age, staring at screens for hours has become the norm for both work and leisure. Consequently, opticians are reporting a sharp increase in 'digital eye strain', characterized by dry eyes, blurred vision, and headaches. However, experts suggest a straightforward solution known as the '20-20-20 rule'. Every 20 minutes, screen users should look at something 20 feet away for at least 20 seconds. This brief pause allows the eye muscles to relax and reset. Although special expensive glasses are available on the market, doctors insist that taking these regular, disciplined breaks is actually the most effective way to maintain eye health."
+      },
+      {
+        "correct": "e",
+        "id": 8,
+        "text": "Following the pandemic, the debate over where employees should work has intensified. Many staff members, having tasted the freedom of remote work, are reluctant to return to the daily commute and rigid hours. Conversely, managers argue that physical office presence is vital for team collaboration and maintaining company culture. To solve this standoff, most organizations are adopting a 'hybrid' model. This policy typically requires staff to be in the office two or three days a week, allowing them to work from home for the remainder. This middle-ground approach aims to balance organizational needs with employee satisfaction."
+      },
+      {
+        "correct": "g",
+        "id": 9,
+        "text": "The historic streets of popular European destinations are becoming dangerously overcrowded. Residents in cities like Venice and Barcelona have long protested that mass tourism is making their lives unbearable, citing noise, waste, and rising rents. In response, local authorities are introducing an entry tax for day-trippers. The logic is that charging a fee will deter casual visitors who contribute little to the local economy while generating revenue to maintain the city's infrastructure. While travel agencies worry this might discourage tourism too much, officials insist it is necessary to preserve the quality of life for the local population."
+      },
+      {
+        "correct": "j",
+        "id": 10,
+        "text": "It was once widely believed that learning complex skills was reserved for the young, but new neuroscience research challenges this view. A recent study focused on pensioners taking up musical instruments for the first time. The results showed that practicing the piano or guitar stimulates the brain, creating new neural pathways and improving memory retention. Unlike passive activities like watching TV, playing music requires intense cognitive engagement. The researchers concluded that this mental workout could delay the onset of age-related cognitive decline, proving that you are never really too old to learn something new."
+      }
+    ],
+    "headings": [
+      "City heat reduction strategy",
+      "Smartphones cause permanent blindness",
+      "Gardeners needed for high-rise projects",
+      "Historical sites closed for renovation",
+      "Compromise reached on workplace location",
+      "Offices closing down permanently",
+      "Financial measure to control crowd numbers",
+      "Old age prevents learning new skills",
+      "Simple habit prevents vision problems",
+      "Mental benefits of late-life learning"
+    ],
+    "id": 2
+  },
+  {
+    "texts": [
+      {
+        "correct": "f",
+        "id": 11,
+        "text": "The traditional five-day working week is being challenged by a growing number of companies worldwide piloting a four-day model. Results from recent large-scale trials in the UK and Iceland suggest that reducing working hours does not lead to a drop in output. In fact, many businesses reported that employee productivity remained the same or actually improved. Staff reported lower stress levels and better sleep, while companies noted a significant drop in sick leave. Crucially, the model being tested is based on the '100:80:100' principle: 100% of the pay, for 80% of the time, in exchange for maintaining 100% productivity."
+      },
+      {
+        "correct": "b",
+        "id": 12,
+        "text": "Plastic pollution is one of the planet's most persistent environmental crises, but help may be coming from an unlikely source: bacteria. Scientists have discovered a specific enzyme produced by a bacterium that can digest polyethylene terephthalate (PET), the material commonly used for soft drink bottles. While natural decomposition of plastic takes hundreds of years, this enzyme can break it down in a matter of days. Researchers are now working to engineer this enzyme to work faster and on an industrial scale. If successful, this biological method could revolutionize recycling facilities, allowing us to process waste that currently ends up in landfills or oceans."
+      },
+      {
+        "correct": "j",
+        "id": 13,
+        "text": "In a world of constant digital stimulation, we have forgotten how to be bored. Parents often rush to entertain their children the moment they complain of having nothing to do, handing them tablets or organizing activities. However, child psychologists warn that this prevents children from developing essential skills. Experiencing boredom is actually a critical trigger for creativity; when the brain lacks external input, it begins to wander and daydream. This 'default mode' allows the mind to make new connections and solve problems. Therefore, doing absolutely nothing might be one of the most productive things a child can do."
+      },
+      {
+        "correct": "c",
+        "id": 14,
+        "text": "Smart speakers and voice-activated assistants have become central hubs in millions of modern homes, used for everything from checking the weather to controlling the lights. Yet, privacy advocates are raising alarms about how much these devices actually hear. While tech companies insist that the microphones only activate after a specific 'wake word' is spoken, there have been numerous admitted instances of devices recording private conversations by mistake. The data collected is often stored in the cloud for analysis to improve the software. Consequently, consumers are now having to weigh the convenience of a smart home against the potential intrusion into their private lives."
+      },
+      {
+        "correct": "a",
+        "id": 15,
+        "text": "As the global population swells and agricultural land becomes scarce, farmers are looking upwards rather than outwards. 'Vertical farming' involves growing crops in stacked layers inside controlled environments like skyscrapers or shipping containers. This method uses soil-free techniques such as hydroponics and relies on LED lights rather than the sun. The benefits are significant: crops can be grown year-round regardless of weather conditions, and the closed-loop water systems use up to 95% less water than traditional farming. Furthermore, by placing farms in city centers, the carbon footprint of transporting food is drastically reduced."
+      }
+    ],
+    "headings": [
+      "Agriculture moves indoors",
+      "Biological aid for waste problems",
+      "Concerns over household spies",
+      "Employees refuse to work weekends",
+      "Farmers struggling with drought",
+      "Less work without losing money",
+      "New ban on plastic manufacturing",
+      "Parents advised to buy more toys",
+      "Security systems prevent burglary",
+      "The creative benefits of boredom"
+    ],
+    "id": 3
+  }
+]

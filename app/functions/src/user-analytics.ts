@@ -18,6 +18,10 @@ export interface AnalyticsData {
     enabled: number;
     disabled: number;
   };
+  premium: {
+    total: number;
+    nonPremium: number;
+  };
   personas: { [key: string]: number };
   vocabulary: {
     totalWordsStudied: number;
@@ -35,18 +39,22 @@ export interface AnalyticsData {
   lastUpdated: admin.firestore.Timestamp;
 }
 
-// Default initial state
-export const INITIAL_ANALYTICS: AnalyticsData = {
-  totalUsers: 0,
-  platforms: { ios: 0, android: 0, web: 0 },
-  languages: { en: 0, de: 0, tr: 0, es: 0, fr: 0, it: 0, pl: 0, ru: 0, ar: 0 }, // Common languages
-  notifications: { enabled: 0, disabled: 0 },
-  personas: { beginner: 0, casual: 0, serious: 0 },
-  vocabulary: { totalWordsStudied: 0, totalMastered: 0 },
-  progress: { totalScore: 0, examsCompleted: 0 },
-  streaks: { currentStreakDistribution: {}, longestStreakDistribution: {}, activeStreaks: 0 },
-  lastUpdated: admin.firestore.Timestamp.now(),
-};
+// Factory function to create initial analytics state
+// (Can't use Timestamp.now() at module load time - Firebase not initialized yet)
+export function getInitialAnalytics(): AnalyticsData {
+  return {
+    totalUsers: 0,
+    platforms: { ios: 0, android: 0, web: 0 },
+    languages: { en: 0, de: 0, tr: 0, es: 0, fr: 0, it: 0, pl: 0, ru: 0, ar: 0 }, // Common languages
+    notifications: { enabled: 0, disabled: 0 },
+    premium: { total: 0, nonPremium: 0 },
+    personas: { beginner: 0, casual: 0, serious: 0 },
+    vocabulary: { totalWordsStudied: 0, totalMastered: 0 },
+    progress: { totalScore: 0, examsCompleted: 0 },
+    streaks: { currentStreakDistribution: {}, longestStreakDistribution: {}, activeStreaks: 0 },
+    lastUpdated: admin.firestore.Timestamp.now(),
+  };
+}
 
 /**
  * Helper to update analytics data safely using a transaction
@@ -67,7 +75,7 @@ async function updateAnalytics(
     let currentData: AnalyticsData;
 
     if (!analyticsDoc.exists) {
-      currentData = { ...INITIAL_ANALYTICS };
+      currentData = getInitialAnalytics();
     } else {
       currentData = analyticsDoc.data() as AnalyticsData;
     }
@@ -158,6 +166,7 @@ const VOCAB_COLLECTIONS = {
   'vocabulary_progress_german_a1': 'german-b1',
   'vocabulary_progress_german_b2': 'german-b2',
   'vocabulary_progress_english_b1': 'english-b1',
+  'vocabulary_progress_english_b2': 'english-b2',
 };
 
 export const onVocabularyUpdate = functions.firestore
@@ -269,6 +278,7 @@ const PROGRESS_COLLECTIONS = {
   'progress': 'german-b1',
   'german_b2_progress': 'german-b2',
   'english_b1_progress': 'english-b1',
+  'english_b2_progress': 'english-b2',
 };
 
 export const onProgressUpdate = functions.firestore
@@ -298,6 +308,45 @@ export const onProgressUpdate = functions.firestore
       const newCompleted = newExams.filter(e => e.completed).length;
 
       data.progress.examsCompleted += (newCompleted - oldCompleted);
+
+      return data;
+    });
+  });
+
+// --- Trigger: Premium Status Updates ---
+// Monitors: users/{uid}/premium/{examId}
+// examId is typically the appId (e.g., 'german-b1', 'german-b2', 'english-b1')
+export const onPremiumUpdate = functions.firestore
+  .document('users/{uid}/premium/{examId}')
+  .onWrite(async (change, context) => {
+    const { examId } = context.params;
+    // examId is the appId (e.g., 'german-b1', 'german-b2', 'english-b1')
+    const appId = examId;
+
+    const before = change.before.data();
+    const after = change.after.data();
+
+    const wasPremium = before?.isPremium === true;
+    const isPremium = after?.isPremium === true;
+
+    // Only update if premium status actually changed
+    if (wasPremium === isPremium) return;
+
+    await updateAnalytics(appId, (data) => {
+      // Ensure premium object exists (for existing documents without this field)
+      if (!data.premium) {
+        data.premium = { total: 0, nonPremium: 0 };
+      }
+
+      if (!wasPremium && isPremium) {
+        // User became premium
+        data.premium.total++;
+        if (data.premium.nonPremium > 0) data.premium.nonPremium--;
+      } else if (wasPremium && !isPremium) {
+        // User lost premium status
+        if (data.premium.total > 0) data.premium.total--;
+        data.premium.nonPremium++;
+      }
 
       return data;
     });

@@ -16,6 +16,7 @@ import { ExamResult } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -46,6 +47,7 @@ const ListeningPart1Screen: React.FC = () => {
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [showResults, setShowResults] = useState(false);
   const { updateExamProgress } = useProgress();
+  const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
   const exams = listeningData?.exams as Exam[] || [];
   const currentExam = exams.find(exam => exam.id === examId) || null;
@@ -120,6 +122,8 @@ const ListeningPart1Screen: React.FC = () => {
     };
 
     setExamResult(result);
+    // Pause global modal queue and show results
+    setContextualModalActive(true);
     setShowResults(true);
 
     updateExamProgress('listening-part1', examId, answers, score, totalQuestions);
@@ -154,7 +158,11 @@ const ListeningPart1Screen: React.FC = () => {
       />
       <ResultsModal
         visible={showResults}
-        onClose={() => setShowResults(false)}
+        onClose={() => {
+          setShowResults(false);
+          // Resume global modal queue
+          setContextualModalActive(false);
+        }}
         examTitle={`Listening Part 1 - Test ${examId + 1}`}
         result={examResult}
       />

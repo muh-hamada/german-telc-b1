@@ -1,0 +1,262 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-2-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 60
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Die Stadtbibliothek in Rosenheim wurde nach zwei Jahren Umbau neu eröffnet. Über das neue Konzept spreche ich heute mit der Leiterin der Bibliothek, Frau Weber. Hallo, Frau Weber.",
+      "voiceId": "person3",
+      "id": "interview-01"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Guten Tag, ich freue mich, hier zu sein.",
+      "voiceId": "person1",
+      "id": "interview-02"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, wenn man an eine Bibliothek denkt, denkt man an Ruhe und viele Bücher. Ist das bei Ihnen auch noch so?",
+      "voiceId": "person3",
+      "id": "interview-03"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nicht ganz. Natürlich haben wir noch viele Bücher, aber die absolute Ruhe gibt es kaum noch. Wir verstehen uns heute als einen Treffpunkt für alle Bürger. Es wird diskutiert, gelernt und manchmal auch gelacht. Es ist eher wie ein öffentliches Wohnzimmer.",
+      "voiceId": "person1",
+      "id": "interview-04"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das klingt modern. Aber lesen die Leute im Zeitalter des Internets überhaupt noch gedruckte Bücher?",
+      "voiceId": "person3",
+      "id": "interview-05"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Überraschenderweise ja. Zwar leihen viele Kunden eBooks aus, die sie auf dem Tablet lesen, aber besonders Familien mit Kindern wollen echte Bücher mit Bildern. Das gedruckte Buch ist bei uns immer noch die Nummer eins.",
+      "voiceId": "person1",
+      "id": "interview-06"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie haben ja auch die Öffnungszeiten geändert. Man kann jetzt sogar abends kommen.",
+      "voiceId": "person3",
+      "id": "interview-07"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Richtig. Früher haben wir schon um 17 Uhr geschlossen. Jetzt haben wir zweimal in der Woche bis 20 Uhr offen. Das ist besonders für Berufstätige wichtig, die nach der Arbeit noch Medien ausleihen möchten.",
+      "voiceId": "person1",
+      "id": "interview-08"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Ein großes Thema ist immer das Geld. Bücher und neue Computer sind teuer. Zahlt das alles die Stadt Rosenheim?",
+      "voiceId": "person3",
+      "id": "interview-09"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Die Stadt übernimmt die Kosten für das Gebäude und das Personal. Aber für spezielle Anschaffungen, wie zum Beispiel unsere neuen 3D-Drucker oder die gemütlichen Sofas in der Kinderabteilung, hilft uns unser Förderverein. Ohne diese privaten Spenden ginge das nicht.",
+      "voiceId": "person1",
+      "id": "interview-10"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie bieten ja nicht nur Medien an, sondern auch Veranstaltungen. Was ist denn da besonders beliebt?",
+      "voiceId": "person3",
+      "id": "interview-11"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sehr beliebt ist unser Sprachcafé. Da treffen sich Menschen, die Deutsch lernen, und unterhalten sich mit Muttersprachlern. Und für Senioren bieten wir Kurse an, wie man das Internet sicher nutzt. Das ist fast immer ausgebucht.",
+      "voiceId": "person1",
+      "id": "interview-12"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ein tolles Angebot. Wer macht diese Kurse? Sind das Ihre Bibliothekare?",
+      "voiceId": "person3",
+      "id": "interview-13"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Teilweise. Aber wir haben auch viele ehrenamtliche Helfer. Das sind Bürger, die in ihrer Freizeit kostenlos bei uns arbeiten. Sie lesen zum Beispiel Kindern vor oder helfen bei den Hausaufgaben. Ohne diese Hilfe könnten wir das alles gar nicht leisten.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, vielen Dank für das Gespräch und viel Erfolg mit dem neuen Konzept.",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Gern geschehen. Danke.",
+      "voiceId": "person1",
+      "id": "interview-16"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Die Stadtbibliothek in Rosenheim wurde nach zwei Jahren Umbau neu eröffnet. Über das neue Konzept spreche ich heute mit der Leiterin der Bibliothek, Frau Weber. Hallo, Frau Weber.",
+      "voiceId": "person3",
+      "id": "interview-01"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Guten Tag, ich freue mich, hier zu sein.",
+      "voiceId": "person1",
+      "id": "interview-02"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, wenn man an eine Bibliothek denkt, denkt man an Ruhe und viele Bücher. Ist das bei Ihnen auch noch so?",
+      "voiceId": "person3",
+      "id": "interview-03"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Nicht ganz. Natürlich haben wir noch viele Bücher, aber die absolute Ruhe gibt es kaum noch. Wir verstehen uns heute als einen Treffpunkt für alle Bürger. Es wird diskutiert, gelernt und manchmal auch gelacht. Es ist eher wie ein öffentliches Wohnzimmer.",
+      "voiceId": "person1",
+      "id": "interview-04"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das klingt modern. Aber lesen die Leute im Zeitalter des Internets überhaupt noch gedruckte Bücher?",
+      "voiceId": "person3",
+      "id": "interview-05"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Überraschenderweise ja. Zwar leihen viele Kunden eBooks aus, die sie auf dem Tablet lesen, aber besonders Familien mit Kindern wollen echte Bücher mit Bildern. Das gedruckte Buch ist bei uns immer noch die Nummer eins.",
+      "voiceId": "person1",
+      "id": "interview-06"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie haben ja auch die Öffnungszeiten geändert. Man kann jetzt sogar abends kommen.",
+      "voiceId": "person3",
+      "id": "interview-07"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Richtig. Früher haben wir schon um 17 Uhr geschlossen. Jetzt haben wir zweimal in der Woche bis 20 Uhr offen. Das ist besonders für Berufstätige wichtig, die nach der Arbeit noch Medien ausleihen möchten.",
+      "voiceId": "person1",
+      "id": "interview-08"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Ein großes Thema ist immer das Geld. Bücher und neue Computer sind teuer. Zahlt das alles die Stadt Rosenheim?",
+      "voiceId": "person3",
+      "id": "interview-09"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Die Stadt übernimmt die Kosten für das Gebäude und das Personal. Aber für spezielle Anschaffungen, wie zum Beispiel unsere neuen 3D-Drucker oder die gemütlichen Sofas in der Kinderabteilung, hilft uns unser Förderverein. Ohne diese privaten Spenden ginge das nicht.",
+      "voiceId": "person1",
+      "id": "interview-10"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie bieten ja nicht nur Medien an, sondern auch Veranstaltungen. Was ist denn da besonders beliebt?",
+      "voiceId": "person3",
+      "id": "interview-11"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sehr beliebt ist unser Sprachcafé. Da treffen sich Menschen, die Deutsch lernen, und unterhalten sich mit Muttersprachlern. Und für Senioren bieten wir Kurse an, wie man das Internet sicher nutzt. Das ist fast immer ausgebucht.",
+      "voiceId": "person1",
+      "id": "interview-12"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Das ist ein tolles Angebot. Wer macht diese Kurse? Sind das Ihre Bibliothekare?",
+      "voiceId": "person3",
+      "id": "interview-13"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Teilweise. Aber wir haben auch viele ehrenamtliche Helfer. Das sind Bürger, die in ihrer Freizeit kostenlos bei uns arbeiten. Sie lesen zum Beispiel Kindern vor oder helfen bei den Hausaufgaben. Ohne diese Hilfe könnten wir das alles gar nicht leisten.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Frau Weber, vielen Dank für das Gespräch und viel Erfolg mit dem neuen Konzept.",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Gern geschehen. Danke.",
+      "voiceId": "person1",
+      "id": "interview-16"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "part-2-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

@@ -17,19 +17,8 @@ interface HomeProgressCardProps {
 const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onViewFullStats }) => {
   const { t } = useCustomTranslation();
   const stats = useUserStats();
-  const { user } = useAuth();
+  const { user, isInitialized } = useAuth();
   const { allStats } = useCompletion();
-  const [isUserLoaded, setIsUserLoaded] = useState(false);
-
-  useEffect(() => {
-    // Simulate loading state for 1 second
-    // We do this to avoid the loading state flashing when the user is logged in
-    // but it takes a bit of time to load the "user" from the database
-    const timeout = setTimeout(() => {
-      setIsUserLoaded(true);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [])
 
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_STATS : stats;
@@ -67,7 +56,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
   };
 
   // If the user is not loaded yet, show loading
-  if (!isUserLoaded && user == null) {
+  if (!isInitialized) {
     return (
       <View style={styles.container}>
         <ActivityIndicator size="large" color={colors.primary[500]} />

@@ -1,0 +1,116 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "text": "This is the news on Radio 5. You are going to hear five reports on recent events.",
+        "voiceId": "moderator"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "number-41"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Electronics giant Nexus is issuing a mandatory recall for their latest smartphone model following reports of devices overheating during charging. An internal investigation revealed a defect in the lithium-ion battery components supplied by a third-party manufacturer. Although no serious injuries have been reported, the company’s stock value dropped by four percent this morning. Nexus has promised to fully refund affected customers or exchange the device for an upgraded model. They stated that while this is a financial setback, maintaining consumer trust and safety remains their highest priority.",
+        "voiceId": "person1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-42"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Astronomers at the European Space Agency have identified a potential 'super-Earth' orbiting a star just forty light-years away. Initial readings suggest the planet lies within the 'Goldilocks zone,' meaning temperatures could be suitable for liquid water to exist on the surface. While the discovery has generated excitement in the scientific community, experts caution that it is too early to confirm the presence of an atmosphere or life. The agency plans to utilize the new Web Telescope next year to analyze the chemical composition of the planet more closely.",
+        "voiceId": "person2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-43"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Birdwatchers in Central Park were stunned this week to spot a pair of Peregrine Falcons nesting on a high-rise apartment balcony. These birds, usually found on coastal cliffs, have been migrating to urban centers in increasing numbers. Biologists explain that the decline of their natural rural habitats, combined with the abundance of pigeons in the city which provide an easy food source, makes the concrete jungle an attractive alternative. Conservationists are monitoring the pair to ensure they are not disturbed by the curious public.",
+        "voiceId": "person3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-44"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "A university student in Manchester attempted to bypass mandatory attendance regulations by building a realistic mannequin of himself. The engineering student used 3D printing for the face and even programmed a small speaker to answer 'here' during roll call. However, the plan failed during a two-hour lecture when the professor noticed the student hadn't blinked or moved once. The student is now facing suspension for academic dishonesty. While the faculty was unamused, fellow students on social media have praised the sheer creativity involved in the prank.",
+        "voiceId": "person4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-45"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Corporate productivity might rely more on house plants than on caffeine, according to a new study by the Institute of Psychology. The concept, known as 'Biophilic design,' suggests that humans possess an innate tendency to seek connections with nature. The study found that employees working in offices with greenery reported fifteen percent higher concentration levels than those in sterile environments. Furthermore, the presence of plants significantly lowered stress hormones. As a result, many major tech companies are now rushing to redesign their workspaces to bring the outdoors inside.",
+        "voiceId": "person5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

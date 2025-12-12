@@ -128,6 +128,16 @@ export const AnalyticsEvents = {
   VOCABULARY_LOGIN_SUCCESS: 'vocabulary_login_success',
   VOCABULARY_LOGIN_FAILED: 'vocabulary_login_failed',
 
+  // Vocabulary Native Ad
+  VOCABULARY_NATIVE_AD_REQUESTED: 'vocabulary_native_ad_requested', // When native ad load is initiated
+  VOCABULARY_NATIVE_AD_LOADED: 'vocabulary_native_ad_loaded', // When native ad loads successfully
+  VOCABULARY_NATIVE_AD_FAILED: 'vocabulary_native_ad_failed', // When native ad fails to load
+  VOCABULARY_NATIVE_AD_DISPLAYED: 'vocabulary_native_ad_displayed', // When native ad card is shown to user
+  VOCABULARY_NATIVE_AD_CLICKED: 'vocabulary_native_ad_clicked', // When user clicks on the native ad
+  VOCABULARY_NATIVE_AD_IMPRESSION: 'vocabulary_native_ad_impression', // When native ad records an impression
+  VOCABULARY_NATIVE_AD_CLOSED: 'vocabulary_native_ad_closed', // When user continues past the ad card
+  VOCABULARY_NATIVE_AD_SKIPPED: 'vocabulary_native_ad_skipped', // When ad is skipped (premium/streak users)
+
   // Notification Reminder
   NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',
   NOTIFICATION_REMINDER_ENABLED: 'notification_reminder_enabled',
@@ -164,6 +174,22 @@ export const AnalyticsEvents = {
   USER_SUPPORT_AD_SKIPPED: 'user_support_ad_skipped', // When user skips the ad screen
   USER_SUPPORT_AD_ERROR: 'user_support_ad_error', // When ad fails to load
   USER_SUPPORT_AD_SHOW_FAILED: 'user_support_ad_show_failed', // When ad fails to show
+
+  // Premium / In-App Purchase
+  PREMIUM_PURCHASE_INITIATED: 'premium_purchase_initiated',
+  PREMIUM_PURCHASE_SUCCESS: 'premium_purchase_success',
+  PREMIUM_PURCHASE_ERROR: 'premium_purchase_error',
+  PREMIUM_RESTORE_INITIATED: 'premium_restore_initiated',
+  PREMIUM_RESTORE_SUCCESS: 'premium_restore_success',
+  PREMIUM_RESTORE_NOT_FOUND: 'premium_restore_not_found',
+  PREMIUM_RESTORE_ERROR: 'premium_restore_error',
+  PREMIUM_UPSELL_MODAL_SHOWN: 'premium_upsell_modal_shown',
+  PREMIUM_UPSELL_MODAL_DISMISSED: 'premium_upsell_modal_dismissed',
+  PREMIUM_UPSELL_PURCHASE_CLICKED: 'premium_upsell_purchase_clicked',
+  PREMIUM_SCREEN_OPENED: 'premium_screen_opened',
+  PREMIUM_SCREEN_PURCHASE_CLICKED: 'premium_screen_purchase_clicked',
+  PREMIUM_SCREEN_RESTORE_CLICKED: 'premium_screen_restore_clicked',
+  PREMIUM_HOME_BUTTON_CLICKED: 'premium_home_button_clicked',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

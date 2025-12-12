@@ -39,6 +39,7 @@ export interface VocabularyWord {
   };
   type: 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'other';
   exampleSentences: ExampleSentence[];
+  explanation?: string;
 }
 
 /**

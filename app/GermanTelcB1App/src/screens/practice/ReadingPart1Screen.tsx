@@ -13,6 +13,7 @@ import { colors, spacing, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
@@ -24,6 +25,7 @@ const ReadingPart1Screen: React.FC = () => {
   const route = useRoute<HomeStackRouteProp<'ReadingPart1'>>();
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
+  const { setContextualModalActive } = useModalQueue();
   const examId = route.params?.examId ?? 0;
   
   const { isCompleted, toggleCompletion } = useExamCompletion('reading', 1, examId);
@@ -103,6 +105,8 @@ const ReadingPart1Screen: React.FC = () => {
     };
 
     setExamResult(result);
+    // Pause global modal queue and show results
+    setContextualModalActive(true);
     setShowResults(true);
 
     updateExamProgress('reading-part1', examId, answers, score, totalQuestions);
@@ -134,7 +138,11 @@ const ReadingPart1Screen: React.FC = () => {
 
       <ResultsModal
         visible={showResults}
-        onClose={() => setShowResults(false)}
+        onClose={() => {
+          setShowResults(false);
+          // Resume global modal queue
+          setContextualModalActive(false);
+        }}
         examTitle={`Reading Part 1 - Test ${examId + 1}`}
         result={examResult}
       />

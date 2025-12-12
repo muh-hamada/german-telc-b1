@@ -1,0 +1,53 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-1-intro" },
+    { "type": "pause", "durationSeconds": 30 },
+    {
+        "type": "speech",
+        "text": "Wir beschäftigen uns heute mit dem Thema Arbeitswelt im Wandel. Wir haben fünf Angestellte gefragt: Wie kommen Sie mit dem Homeoffice zurecht? Hören Sie dazu einige Stellungnahmen.",
+        "voiceId": "moderator"
+    },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "nummer-41" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Also für mich ist das perfekt. Ich wohne etwas außerhalb und spare mir jeden Tag über eine Stunde Fahrtzeit. Kein Stau, kein Stress am Morgen. Ich kann länger schlafen und... ja, zu Hause kann ich mich auch viel besser konzentrieren. Im Büro telefonieren die Kollegen oft so laut, da werde ich ständig abgelenkt.",
+        "voiceId": "person1"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "nummer-42" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Naja, Homeoffice ist ehrlich gesagt nicht so mein Ding. Mir fehlen die sozialen Kontakte. Mal schnell einen Kaffee trinken und mit den Kollegen quatschen, das geht zu Hause ja nicht. Da sitze ich den ganzen Tag allein vor dem Computer. Das ist mir auf Dauer einfach zu einsam und langweilig.",
+        "voiceId": "person2"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "nummer-43" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Puh, bei uns ist das ziemlich schwierig. Mein Mann und ich arbeiten beide von zu Hause und unsere Wohnung ist nicht sehr groß. Einen richtigen Arbeitszimmer haben wir nicht, also sitze ich meistens am Küchentisch. Das ist unbequem und wenn die Kinder am Nachmittag kommen, ist es mit der Ruhe sowieso vorbei.",
+        "voiceId": "person3"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "nummer-44" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Wir haben da eigentlich eine sehr gute Lösung gefunden. Es ist flexibel. Ich bin zwei Tage fest im Büro für Meetings und Absprachen, und die restlichen drei Tage arbeite ich von daheim. Das finde ich super. Wenn ich Berichte schreiben muss, mache ich das zu Hause, da schafft man einfach mehr weg.",
+        "voiceId": "person4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "nummer-45" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "text": "Das Problem ist, dass ich zu Hause kein Ende finde. Im Büro gehe ich um 17 Uhr nach Hause und schalte ab. Aber daheim? Da guckt man abends um 20 Uhr doch noch mal schnell in die E-Mails oder geht ans Telefon. Man arbeitet eigentlich viel mehr als früher und die Technik spielt auch oft verrückt.",
+        "voiceId": "person5"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-1-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+]

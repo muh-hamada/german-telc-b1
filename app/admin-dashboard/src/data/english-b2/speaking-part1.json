@@ -1,0 +1,334 @@
+{
+  "topics": [
+    {
+      "title": "A book you have read (theme and plot, author, characters, style, your opinion, etc.)",
+      "examplePresentation": "Hello, today I would like to present the book 'The Reader' by Bernhard Schlink. The theme of the book revolves around guilt, love, and the aftereffects of the Holocaust on German society. The plot is set in the 1950s and tells the story of a young man named Michael who enters into a relationship with an older woman named Hanna. Later, he learns that Hanna is involved in a war crimes trial. The author, Bernhard Schlink, is a German lawyer and writer who published the book in 1995. The characters are portrayed with nuance: Michael is a sensitive teenager struggling with his past, and Hanna is a complex figure who is illiterate and falls into moral dilemmas because of it. The style is clear and concise, written from a first-person perspective that emphasizes the protagonist's inner conflicts. In my opinion, the book is impressive because it raises ethical questions and encourages the reader to reflect, even though it is sometimes emotionally difficult to bear. It helped me think more deeply about German history.",
+      "exampleDiscussion": [
+        {
+          "question": "Why did you choose this book?",
+          "answer": "I chose it because it is a classic of German literature and deals with themes that are still relevant today, such as guilt and forgiveness."
+        },
+        {
+          "question": "What do you think of the author's style?",
+          "answer": "The style is very direct and emotional, which makes the book gripping but also demanding."
+        },
+        {
+          "question": "Which character in the book impressed you the most?",
+          "answer": "Hanna impressed me the most because her secrets turn the plot in such an unexpected direction."
+        },
+        {
+          "question": "Would you recommend the book?",
+          "answer": "Yes, definitely, especially for those interested in history and psychology."
+        }
+      ]
+    },
+    {
+      "title": "A film you have seen (theme and plot, actors, your opinion, etc.)",
+      "examplePresentation": "Hello, I am presenting the film 'Inception' by Christopher Nolan. The theme deals with dreams, reality, and the subconscious. The plot follows Dom Cobb, a thief who enters other people's dreams to steal or plant ideas. He accepts one last job to get his old life back. The main role is played by Leonardo DiCaprio as Cobb, supported by actors like Joseph Gordon-Levitt and Ellen Page. Nolan is the director and screenwriter, known for complex stories. The film is visually stunning with impressive special effects. In my opinion, 'Inception' is a masterpiece because it encourages the viewer to think about the nature of reality and remains exciting until the end. The acting performances are outstanding, especially DiCaprio in his nuanced role. I have seen it several times and find it fascinating every time.",
+      "exampleDiscussion": [
+        {
+          "question": "What did you like best about the film?",
+          "answer": "I liked the visual effects and the intelligent plot the best."
+        },
+        {
+          "question": "How was the performance of the actors?",
+          "answer": "Leonardo DiCaprio was brilliant, and the supporting roles complemented the story perfectly."
+        },
+        {
+          "question": "Is the film complicated to understand?",
+          "answer": "Yes, it is complex, but that makes it exciting and worthwhile."
+        },
+        {
+          "question": "Would you recommend the film to others?",
+          "answer": "Absolutely, especially for fans of science fiction and thrillers."
+        }
+      ]
+    },
+    {
+      "title": "A trip you have taken (destination, time, country and people, sights, etc.)",
+      "examplePresentation": "Good day, I will tell you about my trip to Italy in the summer of 2023. The destination was Rome, the Eternal City, for one week. I was traveling with friends, and we experienced Italian culture and hospitality. The people there are very open and warm, and the food was fantastic – pizza and pasta everywhere. The sights included the Colosseum, the Vatican with the Sistine Chapel, and the Trevi Fountain. We also went on excursions to the surrounding area, such as Tivoli. The timing was perfect as the weather was sunny but not too hot. In my opinion, this trip was enriching because it combines history and modernity. I learned a lot about Roman antiquity and collected great memories. It was one of the best trips of my life.",
+      "exampleDiscussion": [
+        {
+          "question": "Why did you choose Rome as your destination?",
+          "answer": "Rome has so much history and culture to offer; that really fascinated me."
+        },
+        {
+          "question": "What were the people in Italy like?",
+          "answer": "Very friendly and helpful; they gave us a lot of tips."
+        },
+        {
+          "question": "Which sight did you like the best?",
+          "answer": "The Colosseum, because it is so imposing and historic."
+        },
+        {
+          "question": "Would you repeat the trip?",
+          "answer": "Yes, gladly, perhaps with more time for the surrounding area."
+        }
+      ]
+    },
+    {
+      "title": "A music event you attended (genre, musician, location, personal preferences, etc.)",
+      "examplePresentation": "Hello, I am talking about an Ed Sheeran concert that I attended in Berlin in 2022. The musical genre is pop with folk elements, and Ed Sheeran is a British singer-songwriter known for hits like 'Shape of You'. The concert took place in the Mercedes-Benz Arena, a large venue with great acoustics. He played solo with a guitar and loop station, which was impressive. Personally, I like his lyrics, which often deal with love and everyday life, and his live performance was energetic. The atmosphere was super, with thousands of fans singing along. In my opinion, it was a highlight because it felt intimate yet grand. I am a big fan of his music since it is emotional and authentic. The concert strengthened my preference for live music.",
+      "exampleDiscussion": [
+        {
+          "question": "Why do you like Ed Sheeran's music?",
+          "answer": "His lyrics are honest and touching, and the melodies are catchy."
+        },
+        {
+          "question": "How was the atmosphere at the venue?",
+          "answer": "Energetic and cheerful; everyone participated."
+        },
+        {
+          "question": "Which song did you like the best?",
+          "answer": "'Perfect', because it is so romantic."
+        },
+        {
+          "question": "Would you go again?",
+          "answer": "Definitely, it was unforgettable."
+        }
+      ]
+    },
+    {
+      "title": "A sports event you attended (sport, location, people, result, etc.)",
+      "examplePresentation": "Good day, I am reporting on a Bundesliga football match that I saw in Munich in 2024: Bayern Munich against Borussia Dortmund. The sport is football, and it was an exciting derby. The location was the Allianz Arena, a modern stadium with a great atmosphere. Key people included players like Harry Kane for Bayern and Marco Reus for Dortmund. The result was 2:1 for Bayern, with goals in the second half. The fans were passionate, and the mood was electric. In my opinion, it was exciting to be there live because you feel the emotions that are missing on television. I am a football fan and appreciate the tactics and team play. This event increased my passion for the sport.",
+      "exampleDiscussion": [
+        {
+          "question": "Why did you attend this match?",
+          "answer": "It is a Bundesliga classic, and I wanted to experience the atmosphere."
+        },
+        {
+          "question": "Who was the best player?",
+          "answer": "Harry Kane; he scored the decisive goal."
+        },
+        {
+          "question": "How was the result?",
+          "answer": "2:1 for Bayern; it was close until the end."
+        },
+        {
+          "question": "Would you recommend going live?",
+          "answer": "Yes, it is much more intense than on TV."
+        }
+      ]
+    },
+    {
+      "title": "A person you admire (who, why, characteristics, significance to you, etc.)",
+      "examplePresentation": "Today I would like to tell you about my grandmother, whom I admire greatly. She is a strong woman who survived the war and raised three children on her own. What fascinates me most about her is her positive attitude towards life despite all the difficulties. She is patient, wise, and always helpful. For me, she is a role model because she showed me that one must never give up. Her stories have shaped me and taught me important values like family and solidarity.",
+      "exampleDiscussion": [
+        {
+          "question": "How often do you see your grandmother?",
+          "answer": "I visit her every Sunday for coffee."
+        },
+        {
+          "question": "Which quality do you appreciate most about her?",
+          "answer": "Her serenity in difficult situations."
+        },
+        {
+          "question": "Has she influenced your life?",
+          "answer": "Yes, very much so. Through her, I learned to be grateful."
+        },
+        {
+          "question": "What would you like to learn from her?",
+          "answer": "I would love to be able to cook as well as she does."
+        }
+      ]
+    },
+    {
+      "title": "A celebration you celebrated (occasion, guests, procedure, special features, etc.)",
+      "examplePresentation": "I am reporting on a traditional wedding that I attended in Turkey last summer. The occasion was my cousin's marriage. Over 500 guests were invited, including family, friends, and neighbors. The celebration began in the afternoon with music and dancing and lasted deep into the night. Particularly impressive was the huge buffet with many local specialties. It was a very emotional and joyful celebration that I will remember for a long time, especially because of the hospitality and the exuberant atmosphere.",
+      "exampleDiscussion": [
+        {
+          "question": "What was special about this celebration?",
+          "answer": "The size of the celebration and the traditional dances were unique."
+        },
+        {
+          "question": "Do you know the bride well?",
+          "answer": "Yes, we grew up together."
+        },
+        {
+          "question": "Were there special dress codes?",
+          "answer": "Yes, festive evening wear was desired."
+        },
+        {
+          "question": "Would you want to celebrate such a large party too?",
+          "answer": "Maybe a bit smaller, but the atmosphere was great."
+        }
+      ]
+    },
+    {
+      "title": "A restaurant you visited (name, location, type of cuisine, atmosphere, recommendation, etc.)",
+      "examplePresentation": "Good day, I would like to introduce the restaurant 'Vapiano' in Berlin. It is located right at Potsdamer Platz and offers Italian cuisine. The concept is self-service, but the dishes are prepared fresh in front of the guests' eyes. I ate a pizza and a salad there; both were very delicious and fresh. The atmosphere is modern and casual, with large wooden tables where it is easy to get into conversation with others. I can recommend the restaurant to anyone who wants to eat Italian food quickly and well.",
+      "exampleDiscussion": [
+        {
+          "question": "What tasted best to you there?",
+          "answer": "The pizza with arugula and Parma ham was excellent."
+        },
+        {
+          "question": "How are the prices?",
+          "answer": "The prices are moderate and reasonable for the quality."
+        },
+        {
+          "question": "Is it loud there?",
+          "answer": "Yes, at peak times it can get a bit loud."
+        },
+        {
+          "question": "Do you have to reserve a table?",
+          "answer": "No, there are no reservations at Vapiano."
+        }
+      ]
+    },
+    {
+      "title": "A technical device you use often (what, what for, advantages, disadvantages, etc.)",
+      "examplePresentation": "I am speaking about my tablet, which I use daily. It is an iPad that I bought two years ago. I use it mainly for university to take notes, read e-books, and watch movies. The biggest advantage is that it is very light and handy, so I can take it anywhere. Furthermore, the battery life is very good. A disadvantage is perhaps the price, as tablets of this brand are quite expensive. Overall, however, it is indispensable in my everyday life.",
+      "exampleDiscussion": [
+        {
+          "question": "Do you also use it for work?",
+          "answer": "Yes, for emails and simple word processing."
+        },
+        {
+          "question": "Do you have many apps installed?",
+          "answer": "Yes, especially learning apps and streaming services."
+        },
+        {
+          "question": "Would you trade it for a laptop?",
+          "answer": "No, it is perfect as a supplement, but not as a replacement."
+        },
+        {
+          "question": "How long does the battery last?",
+          "answer": "With normal usage, about 10 hours."
+        }
+      ]
+    },
+    {
+      "title": "A city you would like to visit (name, country, sights, reasons, etc.)",
+      "examplePresentation": "I dream of visiting New York City in the USA one day. This city fascinates me because of its diversity and energy. I definitely want to see the Statue of Liberty, Central Park, and Times Square. A visit to the Museum of Modern Art is also on my list. I have seen so many movies set there that I feel like I already know the city. I want to experience the skyscrapers live and feel like I am in the center of the world.",
+      "exampleDiscussion": [
+        {
+          "question": "When do you plan this trip?",
+          "answer": "Maybe next year, when I have saved enough."
+        },
+        {
+          "question": "Do you want to travel alone?",
+          "answer": "No, preferably with my best friend."
+        },
+        {
+          "question": "What interests you most about New York?",
+          "answer": "The cultural mix and the architecture."
+        },
+        {
+          "question": "Are you not afraid of the size of the city?",
+          "answer": "I have a bit of respect for it, but curiosity outweighs it."
+        }
+      ]
+    },
+    {
+      "title": "A hobby you pursue (what, since when, why, special features, etc.)",
+      "examplePresentation": "My hobby is photography, and I have been pursuing it intensively for about five years. It started with simple mobile phone photos, but now I own a DSLR camera. I love capturing moments and seeing the world differently through the viewfinder. I especially enjoy photographing landscapes and portraits. The nice thing about it is that you can be creative and always learn new techniques. It relaxes me and is a great balance to my job.",
+      "exampleDiscussion": [
+        {
+          "question": "Have you ever exhibited photos?",
+          "answer": "No, so far only on the internet on Instagram."
+        },
+        {
+          "question": "Isn't that an expensive hobby?",
+          "answer": "Yes, good equipment costs money, but it's worth it."
+        },
+        {
+          "question": "Do you also edit your pictures?",
+          "answer": "Yes, I use Lightroom for post-processing."
+        },
+        {
+          "question": "What is your favorite subject?",
+          "answer": "Sunsets by the sea."
+        }
+      ]
+    },
+    {
+      "title": "An important goal you have achieved (what, when, difficulties, significance, etc.)",
+      "examplePresentation": "I would like to talk about my German B1 certificate, which I achieved last year. It was a long road for me since I studied alongside work. The greatest difficulty was the grammar, especially the articles and cases. I spent many evenings in language school and cramming vocabulary. This success means a lot to me because it opened new doors professionally, and I now feel much more confident in everyday life. It showed me that effort pays off.",
+      "exampleDiscussion": [
+        {
+          "question": "How long did you study?",
+          "answer": "About two years intensively in total."
+        },
+        {
+          "question": "What was the hardest part for you?",
+          "answer": "I found listening comprehension very difficult at first."
+        },
+        {
+          "question": "Do you have tips for other learners?",
+          "answer": "Speak a lot and don't be afraid of mistakes."
+        },
+        {
+          "question": "What is your next goal?",
+          "answer": "I am now preparing for the B2 exam."
+        }
+      ]
+    },
+    {
+      "title": "A tradition from your home country (what, when, significance, procedure, etc.)",
+      "examplePresentation": "In my home country, we celebrate the spring festival Nowruz very grandly. It takes place every year on March 21st and marks the beginning of the new year. We prepare a special table with seven symbols representing health, prosperity, and happiness. Families visit each other, eat together, and children receive gifts. For us, this festival means renewal and hope. It is a time when one forgets arguments and looks optimistically into the future.",
+      "exampleDiscussion": [
+        {
+          "question": "Are there special dishes on this day?",
+          "answer": "Yes, we often eat fish with herbed rice."
+        },
+        {
+          "question": "How long does the festival last?",
+          "answer": "The festivities last almost two weeks."
+        },
+        {
+          "question": "Do you celebrate this in Germany too?",
+          "answer": "Yes, in a small circle with family."
+        },
+        {
+          "question": "Is March 21st a public holiday?",
+          "answer": "In my home country yes, here unfortunately not."
+        }
+      ]
+    },
+    {
+      "title": "An exhibition you visited (topic, location, exhibits, impression, etc.)",
+      "examplePresentation": "Last month I was at an exhibition about 'Artificial Intelligence' at the Deutsches Museum in Munich. The topic is very current and was presented very vividly. There were many interactive stations where you could see how robots learn or how facial recognition works. I was particularly impressed by a robot that could draw portraits. The exhibition made me think about the opportunities, but also the risks of technology. I found it very informative and well done.",
+      "exampleDiscussion": [
+        {
+          "question": "Was the exhibition well attended?",
+          "answer": "Yes, there were many school classes there."
+        },
+        {
+          "question": "Did you learn something new?",
+          "answer": "Yes, especially about the history of AI."
+        },
+        {
+          "question": "Would you recommend the exhibition?",
+          "answer": "Definitely, a must for those interested in technology."
+        },
+        {
+          "question": "How long were you there?",
+          "answer": "About three hours; there was a lot to see."
+        }
+      ]
+    },
+    {
+      "title": "A gift you received (what, from whom, occasion, reaction, etc.)",
+      "examplePresentation": "For my last birthday, I received a skydiving voucher from my friends. I was initially totally shocked because I actually have a fear of heights. But they knew that I had always wanted to do something crazy. We then drove to a small airfield, and I actually jumped – with an instructor, of course. The feeling of free fall was indescribable, a mixture of panic and pure joy. It was the most unforgettable gift I have ever received.",
+      "exampleDiscussion": [
+        {
+          "question": "Would you do it again?",
+          "answer": "Maybe, now that I know what it's like."
+        },
+        {
+          "question": "Were you very scared?",
+          "answer": "In the plane yes, but while jumping it was great."
+        },
+        {
+          "question": "Was it expensive?",
+          "answer": "I think so, but it was a group gift."
+        },
+        {
+          "question": "Do you have photos of it?",
+          "answer": "Yes, there was a video that I watch often."
+        }
+      ]
+    }
+  ]
+}

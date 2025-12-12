@@ -1,0 +1,95 @@
+You are an expert in creating listening questions for the Telc English B2 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc English B2 listening question.
+
+--- Interview Start ---
+
+Good morning and welcome to Breakfast Radio on BBC Radio 2. I'm your host, Gina Matthews. Our topic today is British motorists and the challenges of driving on the continent. France is one of the most popular destinations for British holiday maker. is and many still choose to take their cars rather than flying. However, according to research published today, many of these drivers are a danger to themselves and their European neighbors. In fact, more than half of all British motorists heading across the channel will this summer break the law within one mile of starting their journey without realizing. Some of the problems encountered by Brits on the roads abroad are due to a lack of knowledge of foreign speed limits and drinking and driving restrictions, as well as an inability to understand non-English road signs. To talk about this today, we have Peter Norris, formerly Minister of Transport for London. Peter, do you think this is accurate?
+Yes, I'm afraid I do. Unfortunately, it has been proven that British drivers really do speed up when they get over to the other side of the channel. And on French roads in particular. They seem to think that the French care less about road safety than we do, which is not true. In addition, they are driving on the other side of the road than they are used to. So, they can represent quite a threat.
+Interestingly, I was talking to a French journalist just the other day, and he was telling me that when the French encounter British drivers, they find them to be polite, careful, and discipline. I don't recognize that description of British drivers in the UK, I must say.
+No. Well, the surprising thing is, Gina, one of the things we do really, really well is road safety. If you look across the whole of Europe, the statistics are really staggering. We're without a doubt the safest drivers in Europe, even better than the Scandinavian countries who usually come out on top in most statistics.
+Is that because of us or because of the cameras and the speed limits and everything else.
+You know, it's us in the sense that it's never been a political issue with either Labor and Conservative governments. They've always taken road safety very seriously and have consistently attempted to make our crowded road network safer. But the point the research is focusing on is that when British motorists get over to the continent, something changes. Firstly, they've got the steering wheel on the wrong side of the car for the road, which makes turning corners or overtaking on country lanes much more difficult. Secondly, they start driving as fast, if not faster, than French drivers who are much more used to the roads and the traffic. The result can of course be very dangerous indeed. So, I think the real lesson is just to be very be very sensible when you go abroad, particularly if you're not used to driving on the other side of the road.
+Is it the case that once they go to France, the British have a tendency to allow themselves a glass or even two of wine at lunch, which they would never do here, and then they drive? Do you see that as an additional problem?
+Well, Gina, you've raised an interesting point about drinking and driving. There are huge differences on that. between European countries. In some East European countries, there is a zero tolerance attitude towards drinking and driving. So, either drink or drive, but certainly not both. While others like France and Germany are more relaxed and you can drink a pint of beer or a glass of wine without having to fear getting into trouble with the police. In the UK, in contrast, the limit for the blood alcohol level is relatively high, but the penalties for exceeding this limit are some of the strictest in Europe.
+How else has the government tried to deal with the danger of drinking and driving?
+Actually, we had a campaign for decades that said if you drink and drive, not only are you breaking the law, but you're being antisocial. Now, that was what made the difference. We managed to get the point across to people that drinking and driving is not cool. It's not something you boast about to your friends. It's simply irresponsible. It is this idea of social responsibility that really discourages people from drink driving even more so than the threat of penalties. And that's something that perhaps other countries in Europe have woken up to. Now, it may be part of our culture to drink, but not when you're driving.
+Peter, to go back to the point about us being polite and careful, and so on in our own country. A lot of people may not recognize that because we have a terrible road rage problem here, don't we?
+Indeed, the report we're talking about also included data on road rage in Europe. And it seems that your chance of being a victim of road rage is much greater in Britain than anywhere else. And I think that's quite worrying. I think it's an issue we should be looking at in more detail in the near future. However, many countries seem to have a specific driving problem of some kind or other. The bottom line is no matter where you come from, be aware that driving culture and rules vary from country to country and make sure to find out about them before you get behind the wheel.
+That was really interesting. Thank you very much, Peter. Our listeners can now call in with their own experiences.
+
+
+--- Interview End ---
+
+Topic: Cyclying and reduce reliance on Cars
+
+Create the interview, then structure it into a JSON file with the following format:
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'b2-part-2-intro' },
+        { type: 'pause', durationSeconds: 60 },
+        {
+            type: 'speech',
+            text: 'statement text 41',
+            voiceId: 'person1|person4', // use person1 for female speaker, and use person4 for male speaker,
+            id: "interview-{index}"
+        },        
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'b2-part-2-outro' },
+        { type: 'pause', durationSeconds: 20 },
+    ],
+    "title": "<title of the interviews>", // The title should be related to the interviews and 4-6 words long
+    "statements": [
+        {
+          "is_correct": <boolean>,
+          "id": 46,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 47,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "id": 48
+        },
+        {
+          "is_correct": <boolean>,
+          "id": 49,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 50,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "is_correct": <boolean>,
+          "id": 51,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 52,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "id": 53
+        },
+        {
+          "is_correct": <boolean>,
+          "id": 54,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 55,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        }
+    ]
+}

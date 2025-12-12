@@ -13,6 +13,7 @@ import { colors, spacing, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useModalQueue } from '../../contexts/ModalQueueContext';
 import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart1UI from '../../components/exam-ui/LanguagePart1UI';
@@ -24,6 +25,7 @@ const GrammarPart1Screen: React.FC = () => {
   const route = useRoute<HomeStackRouteProp<'GrammarPart1'>>();
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
+  const { setContextualModalActive } = useModalQueue();
   const examId = route.params?.examId ?? 0;
   
   const { isCompleted, toggleCompletion } = useExamCompletion('grammar', 1, examId);
@@ -107,6 +109,8 @@ const GrammarPart1Screen: React.FC = () => {
     };
 
     setExamResult(result);
+    // Pause global modal queue and show results
+    setContextualModalActive(true);
     setShowResults(true);
 
     updateExamProgress('grammar-part1', examId, answers, score, totalQuestions);
@@ -138,7 +142,11 @@ const GrammarPart1Screen: React.FC = () => {
 
       <ResultsModal
         visible={showResults}
-        onClose={() => setShowResults(false)}
+        onClose={() => {
+          setShowResults(false);
+          // Resume global modal queue
+          setContextualModalActive(false);
+        }}
         examTitle={`Grammar Part 1 - Test ${examId + 1}`}
         result={examResult}
       />

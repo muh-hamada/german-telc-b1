@@ -1,0 +1,114 @@
+You are an expert in creating listening questions for the Telc German B1 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German B1 listening question.
+
+--- Interview Start ---
+
+Wir beschäftigen uns heute mit der Frage Gleichberechtigung im und konfrontierten über 50 verheiratete Paare mit der Frage, wie teilen Sie sich die Arbeit im Haushalt? Hören Sie dazu einige Stellungnahen.
+
+Nummer 41.
+
+Na, eigentlich mach alles ich. Ich bin zu Hause und daher koche ich, ich wasche ab, ich bügel, ich versorge das Kind. Na ja, mein Mann macht vielleicht den Abwasch und na den Garten. Der für den ist er zuständig. Und einkaufen gehen wir beide. 
+
+Nummer 42,
+
+wo ich im Aushalt helfe. M Ach Gott, kochen, kochen tue immer ich. Das macht mir großen Spaß. Dafür wäscht meine Frau eben ab. Ähm, Wäsche waschen mache ich nicht so gerne. Das das macht sie. Dafür gehe ich immer gern einkaufen und Gartenblumen gießen, dass ich ein bisschen aus dem Haus rauskomme.
+
+Nummer 43.
+
+Tja, äh bei uns ist das so, mein Mann ist voll berufstätig. Ich bin zu Hause mit unseren zwei kleinen Kindern 53 Jahre alt. Tja, und dann schaut so aus, dass ich koche, abwasche, ja, aufräumen, das muss auch ich machen. Vor allem die Kinderzimmer schauen natürlich immer schrecklich aus. Wäsche waschen, das mach auch ich ebenso das Bügeln, das Einkaufen übernimmt er, putzen durch und im Sommer betreut er den Garten, gieß die Blumen den Garten, aber das ist etwas, das kann ich nicht, das mag ich nicht. 
+
+Nummer 44.
+
+Wissen Sie, bei uns ist es eigentlich ganz unterschiedlich. Es hängt von der Situation ab. Meistens koche ich und gehe auch einkaufen, während meine Partnerin sich eher mit Aufräumen und Abwaschen beschäftigt. Äh, die Wäsche, die teilen wir uns und äh Garten haben wir keinen, daher entfällt es weg.
+
+Nummer 45.
+
+Also mein Mann, der ist ziemlich voll. Der macht überhaupt nur das, was ihm Spaß macht. Einkaufen geht er ja, aber er hält sich nicht an. Die Liste, die ich ihm aufschreibe, kauft irgendwas meistens zu teure Sachen. Ab und zu kocht er, aber das Abwaschen überlässt er mir. Na, aufräumen tut sowieso nicht. Die Wäsche, die schmeißt einfach ins Eck. Das ist meine Sache. Putzen kann keine Rede sein. Also, und um den Garten kümmert sich bei uns eigentlich überhaupt keiner, der verwildert. 
+
+--- Interview End ---
+
+
+Create the interview, then structure it into a JSON file with the following format:
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-1-intro' },
+        { type: 'pause', durationSeconds: 30 },
+        {
+            type: 'speech',
+            text: 'moderator text',
+            voiceId: 'moderator',
+        },
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'number-41' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            text: 'statement text 41',
+            voiceId: 'person1',
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-42' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            text: 'statement text 42',
+            voiceId: 'person2',
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-43' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            text: 'statement text 43',
+            voiceId: 'person3',
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-44' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            text: 'statement text 44',
+            voiceId: 'person4',
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-45' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            text: 'statement text 45',
+            voiceId: 'person5',
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-1-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "statements": [
+        {
+          "is_correct": <boolean>,
+          "id": 41,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 42,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "id": 43
+        },
+        {
+          "is_correct": <boolean>,
+          "id": 44,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        },
+        {
+          "id": 45,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>"
+        }
+    ]
+}

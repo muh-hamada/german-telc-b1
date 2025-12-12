@@ -1,0 +1,104 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 60
+    },
+    {
+        "type": "speech",
+        "text": "Good afternoon and welcome to 'Modern Horizons' on City FM. I'm your host, Sarah Jenkins. Today we are looking at the changing face of the workplace, specifically the explosion of the 'Digital Nomad' lifestyle. It seems that since the pandemic, everyone from graphic designers to accountants wants to pack their laptop and work from a beach in Bali or a café in Lisbon. But is this lifestyle really as perfect as it looks on Instagram? And what is the impact on the cities these workers flock to? To discuss this, we are joined by Dr. Julian Thorne, a sociologist who specializes in labor trends and urban development. Welcome, Julian.",
+        "voiceId": "person1",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "text": "Hello Sarah, it's a pleasure to be here.",
+        "voiceId": "person4",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "text": "Julian, let's start with the basics. Is this trend still growing, or have people started returning to the office now that things have settled down?",
+        "voiceId": "person1",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "text": "It is absolutely still growing. In fact, we are seeing a shift in who exactly is doing this. Five or six years ago, it was mostly young freelancers and tech entrepreneurs. Now, we are seeing older professionals and even families taking part. Major corporations are now allowing full-time employees to work from anywhere for extended periods. However, this mass movement of people is creating significant friction in popular destinations. We often hear about the freedom of the worker, but less about the local cost.",
+        "voiceId": "person4",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "text": "That's an important point. I've read reports about locals in places like Mexico City or the Canary Islands protesting against remote workers. Why is there this tension?",
+        "voiceId": "person1",
+        "id": "interview-5"
+    },
+    {
+        "type": "speech",
+        "text": "It comes down to economics. Digital nomads earn salaries from wealthy countries—like the US, the UK, or Germany—but spend that money in places with a lower cost of living. While this brings money into local cafes and restaurants, it also drives up housing prices drastically. Landlords prefer to rent to foreigners for a month at a high rate rather than to a local family for a year. Consequently, local residents are often pushed out of their own city centers because they simply cannot compete with foreign salaries. It creates a sort of 'lifestyle gentrification'.",
+        "voiceId": "person4",
+        "id": "interview-6"
+    },
+    {
+        "type": "speech",
+        "text": "That sounds quite serious. But surely, for the workers themselves, the experience is positive? We see the photos of sunsets and laptops, and it looks like a dream.",
+        "voiceId": "person1",
+        "id": "interview-7"
+    },
+    {
+        "type": "speech",
+        "text": "Visually, yes, it looks stunning. But psychologically, the reality can be quite different. Our research shows that loneliness is the number one complaint among long-term digital nomads. Constantly moving means you never really form deep connections. You have many acquaintances, but few close friends nearby. The 'Instagram' version of the lifestyle omits the hours spent alone in hotel rooms, the bad Wi-Fi connections, and the difficulty of navigating foreign bureaucracies like taxes and visas. It is a very transient, ungrounded existence.",
+        "voiceId": "person4",
+        "id": "interview-8"
+    },
+    {
+        "type": "speech",
+        "text": "So, it's not all sunshine and relaxation. What about the employers? Are companies generally happy with this arrangement, or are they trying to pull people back?",
+        "voiceId": "person1",
+        "id": "interview-9"
+    },
+    {
+        "type": "speech",
+        "text": "It's a mixed bag. Financially, companies love it because they can downsize their expensive office buildings. If half your staff is abroad, you don't need a headquarters in central London. However, managers are finding it harder to maintain company culture and innovation. It is difficult to brainstorm effectively over a video call. There is a fear that younger employees aren't getting the mentorship they need because they aren't physically sitting next to experienced colleagues. So, we are seeing a move toward a 'hybrid' model, rather than fully remote.",
+        "voiceId": "person4",
+        "id": "interview-10"
+    },
+    {
+        "type": "speech",
+        "text": "Looking forward, Julian, do you think this nomadic lifestyle is here to stay, or is it a passing phase?",
+        "voiceId": "person1",
+        "id": "interview-11"
+    },
+    {
+        "type": "speech",
+        "text": "I think the technology is here to stay, but the behavior will mature. We will likely see people doing this for shorter periods—perhaps working abroad for two months a year—rather than permanently living out of a suitcase. Countries are also catching up; many are introducing 'Digital Nomad Visas' to regulate the flow and ensure these workers pay some tax, which might help ease the tension with locals. The 'wild west' era of remote work is probably coming to an end.",
+        "voiceId": "person4",
+        "id": "interview-12"
+    },
+    {
+        "type": "speech",
+        "text": "Thank you, Julian. That was a fascinating insight into a complex topic. Next up, we'll be taking calls from listeners who have tried working abroad...",
+        "voiceId": "person1",
+        "id": "interview-13"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 20
+    }
+]

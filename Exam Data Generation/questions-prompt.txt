@@ -1,0 +1,500 @@
+You are an expert German-language tutor specializing in creating the **Telc B1 German Exam**.
+
+My goal is to create five more questions similar to those below for students to solve in mock exams before the real exam.
+
+You must follow the same exam JSON schema.
+
+To generate accurate and relevant questions, you must carefully review the provided questions before you create new ones.
+
+Your highest priority is accuracy and relevance. Carefully craft to match the difficulty level, vocabulary, and structural logic of the official exams, ensuring valid distractors and clear correct answers.
+
+
+{
+  "exams": [
+    {
+      "questions": [
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "eine berufliche Ausbildung abschließen."
+            },
+            {
+              "correct": false,
+              "text": "lernen, was sie in der Schule verpasst haben."
+            },
+            {
+              "text": "praktische Erfahrungen mit der Büroarbeit sammeln.",
+              "correct": true
+            }
+          ],
+          "id": 6,
+          "question": "In einem fünfmonatigen Kurs können die Teilnehmer"
+        },
+        {
+          "id": 7,
+          "question": "Die Büro-Werkstatt versucht außerdem,",
+          "answers": [
+            {
+              "text": "auch jenen Arbeitslosen zu helfen, die nicht behindert sind.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "Behinderte auf die Abschlussprüfungen vorzubereiten."
+            },
+            {
+              "correct": true,
+              "text": "für die behinderten Menschen eine Arbeit zu finden."
+            }
+          ]
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "eine besondere Steuer zahlen."
+            },
+            {
+              "text": "einen Behinderten einstellen oder eine monatliche Gebühr bezahlen.",
+              "correct": true
+            },
+            {
+              "text": "für jeden Behinderten monatlich 150 Euro bezahlen.",
+              "correct": false
+            }
+          ],
+          "question": "Laut Gesetz müssen österreichische Firmen pro 25 Beschäftigte",
+          "id": 8
+        },
+        {
+          "question": "Seit der Vereinsgründung",
+          "answers": [
+            {
+              "text": "konnte für ein Drittel der behinderten Kursteilnehmer eine Arbeit gefunden werden.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "konnte Günther Hos für den Verein schon viel Geld sparen."
+            },
+            {
+              "text": "zahlen Arbeitslose um ein Drittel weniger Steuern.",
+              "correct": false
+            }
+          ],
+          "id": 9
+        },
+        {
+          "answers": [
+            {
+              "text": "wollte etwas tun, damit Behinderte einen Arbeitsplatz erhalten.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "wollte nicht länger Geografie und Geschichte unterrichten."
+            },
+            {
+              "text": "wird nach der Ausbildung der Behinderten nicht mehr gebraucht.",
+              "correct": false
+            }
+          ],
+          "question": "Die Lehrerin, die die Büro-Werkstatt gegründet hat,",
+          "id": 10
+        }
+      ],
+      "id": 0,
+      "title": "Büro-Werkstatt: Chance für behinderte Menschen",
+      "text": "Margit, die junge Frau im Rollstuhl, erledigt die Lohnverrechnung für einen Verlag. Reinhard, seit der Geburt gehbehindert, tippt für die Direktion von Hewlett Packard Protokolle und Preislisten. Martin, seine Unterarme sind verkürzt, layoutet die Speisekarte eines Wiener Restaurants. Drei junge körperbehinderte Menschen am Computer - alle drei können auf eine abgeschlossene kaufmännische Ausbildung verweisen. Dennoch hat man sie auf dem Arbeitsamt als \"schwer vermittelbar\" eingestuft. Zurzeit arbeiten Margit, Reinhard und Martin - gemeinsam mit sieben anderen behinderten Menschen - in der „Büro-Werkstatt\" in Wien-Stadlau. Hier werden körperbehinderte Schulabgänger auf das Berufsleben vorbereitet. In einem fünfmonatigen Kurs lernen sie, das in der Schule Gelernte in die Praxis umzusetzen. Ihre Dienste werden von Privatfirmen (darunter auch die OMV und zwei Banken) zugekauft. Gleichzeitig wird ihnen bei der Jobsuche geholfen. \"Leicht ist das nicht\", sagt Betreuer Günther Hos. \"Es gibt so viele Arbeitslose, die nicht behindert sind. Wer nimmt schon einen Mitarbeiter mit Handicap?\" Zwar wären die Firmen gesetzlich verpflichtet, pro 25 Beschäftigte einen Behinderten einzustellen. Die meisten Firmen nützen jedoch die Möglichkeit, sich \"freizukaufen\" (die sogenannte „Ausgleichstaxe\" beträgt rund 150 Euro monatlich). Trotz der Rahmenbedingungen kann Hos mit einer durchaus positiven Bilanz aufwarten: \"Immerhin haben wir seit der Vereinsgründung vor drei Jahren ein Drittel unserer Leute untergebracht.\" Auch ein Dienst an der Allgemeinheit, denn jede Vermittlung bedeutet: ein Arbeitsloser weniger, ein Steuerzahler mehr. Gegründet wurde die Büro-Werkstatt von einer Lehrerin: Heide Hanisch, die in einer Wiener berufsbildenden Schule Geografie und Geschichte unterrichtet, wollte nicht länger hinnehmen, dass ihre behinderten Schüler erst ausgebildet werden, um dann als Arbeitnehmer nicht gebraucht zu werden."
+    },
+    {
+      "id": 1,
+      "text": "Jedes Jahr landen in Deutschland Millionen Tonnen Plastikmüll auf Deponien oder in der Umwelt. Ein großer Teil davon stammt aus Einwegverpackungen für Lebensmittel, Kosmetik und andere Produkte. Experten fordern schon lange strengere Gesetze, um diesen Trend zu stoppen. Eine aktuelle Studie der Universität Hamburg zeigt, dass Konsumenten bereit wären, mehr für Mehrwegsysteme zu bezahlen, wenn diese bequem und flächendeckend verfügbar wären. Besonders bei Coffee-to-go-Bechern gibt es viel Potenzial. Viele Cafés bieten bereits Rabatte an, wenn Kunden ihren eigenen Becher mitbringen. Die Industrie argumentiert jedoch, dass Einwegverpackungen oft hygienischer und in der Produktion günstiger seien. Umweltorganisationen halten dagegen und verweisen auf Länder wie Frankreich, wo Einwegplastik in vielen Bereichen verboten wurde. Die Hoffnung liegt nun auf einer EU-weiten Richtlinie, die die Hersteller stärker in die Pflicht nehmen soll, alternative und nachhaltige Verpackungslösungen zu entwickeln.",
+      "title": "Plastikmüll: Das Problem der Einwegverpackungen",
+      "questions": [
+        {
+          "answers": [
+            {
+              "text": "alten Haushaltsgeräten.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "Verpackungen, die nur einmal benutzt werden."
+            },
+            {
+              "correct": false,
+              "text": "Autoreifen und Baumaterial."
+            }
+          ],
+          "id": 6,
+          "question": "Ein großer Teil des Plastikmülls in Deutschland stammt aus"
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "den Konsum von Plastik ablehnen."
+            },
+            {
+              "text": "bereit sind, für Mehrwegsysteme mehr Geld auszugeben.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "keine Rabatte für eigene Coffee-Becher annehmen."
+            }
+          ],
+          "id": 7,
+          "question": "Die Hamburger Studie hat gezeigt, dass die Kunden"
+        },
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "weniger Platz im Lager benötigen."
+            },
+            {
+              "correct": true,
+              "text": "hygienischer und billiger herzustellen sind."
+            },
+            {
+              "text": "weniger Gewicht haben und einfacher zu transportieren sind.",
+              "correct": false
+            }
+          ],
+          "id": 8,
+          "question": "Die Industrie ist der Meinung, dass Einwegverpackungen besser sind, weil sie"
+        },
+        {
+          "id": 9,
+          "question": "Was ist das Ziel der EU-Richtlinie?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Kunden zu zwingen, Mehrwegbecher zu benutzen."
+            },
+            {
+              "text": "den Herstellern mehr Verantwortung für nachhaltige Lösungen zu geben.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Plastikmüll in allen EU-Ländern vollständig zu verbieten."
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "answers": [
+            {
+              "correct": false,
+              "text": "Sie erhöhen die Preise für alle Getränke."
+            },
+            {
+              "text": "Sie verbieten Plastikbecher vollständig.",
+              "correct": false
+            },
+            {
+              "text": "Sie bieten günstigere Preise für Kunden mit eigenem Becher.",
+              "correct": true
+            }
+          ],
+          "question": "Wie reagieren manche Cafés auf das Problem?"
+        }
+      ]
+    },
+    {
+      "questions": [
+        {
+          "question": "Wofür steht die Abkürzung BGM?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Bewegung und gesunde Mahlzeiten."
+            },
+            {
+              "text": "Betriebliches Gesundheitsmanagement.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Berufliches Gewinn-Maximierung."
+            }
+          ],
+          "id": 6
+        },
+        {
+          "id": 7,
+          "answers": [
+            {
+              "correct": false,
+              "text": "Nur kostenlose Fitnesskurse für alle."
+            },
+            {
+              "text": "Ergonomische Stühle, Sportangebote und Stressberatung.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Die Organisation von Team-Events."
+            }
+          ],
+          "question": "Was gehört zum BGM?"
+        },
+        {
+          "question": "Was ist ein Vorteil von BGM für die Firma?",
+          "id": 8,
+          "answers": [
+            {
+              "text": "Die Mitarbeiter arbeiten länger.",
+              "correct": false
+            },
+            {
+              "text": "Es gibt weniger Krankmeldungen und die Motivation ist höher.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Die Firma spart sofort hohe Kosten."
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "question": "Warum zögern kleine Firmen oft bei der Einführung von BGM?",
+          "answers": [
+            {
+              "text": "Sie haben kein Interesse an gesunden Mitarbeitern.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "Sie halten die Organisation für zu schwierig."
+            },
+            {
+              "correct": false,
+              "text": "Sie haben kein Geld für Büromöbel."
+            }
+          ]
+        },
+        {
+          "question": "Was wird kleinen Firmen als einfacher erster Schritt empfohlen?",
+          "id": 10,
+          "answers": [
+            {
+              "correct": false,
+              "text": "Große Investitionen in neue Software."
+            },
+            {
+              "correct": false,
+              "text": "Die Einführung eines Psychologen."
+            },
+            {
+              "correct": true,
+              "text": "Kleine Maßnahmen wie gesunde Snacks oder gemeinsame Pausen."
+            }
+          ]
+        }
+      ],
+      "id": 2,
+      "text": "Immer mehr Firmen erkennen, dass die Gesundheit ihrer Mitarbeiter direkt mit dem Unternehmenserfolg zusammenhängt. Betriebliches Gesundheitsmanagement (BGM) umfasst alle Maßnahmen, die das Wohlbefinden am Arbeitsplatz verbessern. Dazu gehören ergonomische Büromöbel, kostenlose Fitnesskurse oder auch psychologische Beratung bei Stress. Eine große Krankenkasse hat festgestellt, dass Unternehmen mit einem aktiven BGM weniger Fehlzeiten bei den Mitarbeitern verzeichnen und eine höhere Motivation haben. Trotz der anfänglichen Kosten spart das Unternehmen langfristig Geld, da die Produktivität steigt und weniger neue Mitarbeiter gesucht werden müssen. Besonders kleine und mittlere Unternehmen zögern oft noch, solche Programme einzuführen, da sie die Organisation als zu kompliziert empfinden. Experten empfehlen diesen Firmen, mit einfachen Maßnahmen wie gemeinsamen Mittagspausen oder gesunden Snacks zu beginnen, bevor sie große Investitionen tätigen.",
+      "title": "Betriebliches Gesundheitsmanagement: Gesunde Mitarbeiter, gesunde Firma"
+    },
+    {
+      "title": "Online-Lernen: Die Revolution in der Weiterbildung",
+      "id": 3,
+      "questions": [
+        {
+          "id": 6,
+          "question": "Für wen ist Online-Lernen besonders praktisch?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Für Dozenten an Universitäten."
+            },
+            {
+              "text": "Für Personen, die im Berufsleben stehen.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Für Schüler, die noch zur Schule gehen."
+            }
+          ]
+        },
+        {
+          "question": "Was ist laut Umfrage die größte Schwierigkeit beim Online-Lernen?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Der Mangel an Technik."
+            },
+            {
+              "correct": true,
+              "text": "Die fehlende Selbstdisziplin."
+            },
+            {
+              "text": "Die hohen Kosten für die Kurse.",
+              "correct": false
+            }
+          ],
+          "id": 7
+        },
+        {
+          "id": 8,
+          "question": "Wie versuchen Lernplattformen, die Motivation zu erhöhen?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Durch feste Anwesenheitspflicht."
+            },
+            {
+              "text": "Durch interaktive Elemente wie Chats und Gruppenarbeit.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Sie bieten den Studenten mehr Pausen an."
+            }
+          ]
+        },
+        {
+          "question": "Im Vergleich zu Präsenzkursen sind Online-Weiterbildungen",
+          "id": 9,
+          "answers": [
+            {
+              "correct": false,
+              "text": "wesentlich teurer."
+            },
+            {
+              "text": "meistens günstiger.",
+              "correct": true
+            },
+            {
+              "text": "immer von besserer Qualität.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Welche Entwicklung sehen Experten für die Zukunft des Lernens?",
+          "answers": [
+            {
+              "text": "Man wird nur noch an der Universität lernen.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "Digitale Kurse werden die wichtigste Lernmethode sein."
+            },
+            {
+              "correct": false,
+              "text": "Es wird weniger wichtig sein, sich weiterzubilden."
+            }
+          ],
+          "id": 10
+        }
+      ],
+      "text": "Die Digitalisierung hat das Lernen revolutioniert. Immer mehr Menschen nutzen Online-Kurse und virtuelle Seminare, um sich weiterzubilden. Dies ist besonders für Berufstätige attraktiv, da sie zeitlich und örtlich flexibel sind. Man kann lernen, wann und wo man will. Eine Umfrage unter Teilnehmern von Online-Kursen ergab, dass die größte Herausforderung die Selbstdisziplin ist. Ohne feste Termine und eine physische Gruppe fällt es vielen schwer, motiviert zu bleiben. Deshalb legen moderne Lernplattformen Wert auf interaktive Elemente wie Live-Chats mit Dozenten und Gruppenprojekte. Außerdem sind die Kosten für Online-Weiterbildungen oft deutlich niedriger als für Präsenzkurse an Universitäten oder Volkshochschulen. Die Experten sind sich einig: Lebenslanges Lernen wird immer wichtiger, und digitale Kurse werden in Zukunft die wichtigste Methode dafür sein, da sie Wissen schnell und aktuell vermitteln können."
+    },
+    {
+      "id": 4,
+      "title": "Die Fahrradstadt: Neue Wege für den urbanen Verkehr",
+      "text": "Viele große Städte in Deutschland kämpfen mit dem Verkehrsproblem: zu viele Autos, zu viel Lärm, zu viel Abgase. Die Lösung für viele Kommunen lautet: Ausbau der Fahrradinfrastruktur. Das bedeutet nicht nur mehr Radwege, sondern auch sichere Abstellmöglichkeiten, spezielle Ampelschaltungen und bessere Anbindungen an den öffentlichen Nahverkehr. Eine Studie des ADFC (Allgemeiner Deutscher Fahrrad-Club) zeigt, dass in Städten mit guter Infrastruktur der Anteil der Radfahrer am Gesamtverkehr deutlich steigt. Das entlastet die Straßen und verbessert die Luftqualität. Kritiker argumentieren, dass die Investitionen in Radwege zu teuer seien und Parkplätze für Autofahrer verloren gingen. Befürworter halten dagegen: Die gesundheitlichen Vorteile durch mehr Bewegung und die ökologischen Vorteile für die Umwelt überwiegen die Kosten bei Weitem. Deshalb planen viele Städte, den Anteil des Radverkehrs in den nächsten zehn Jahren auf bis zu 30 Prozent zu erhöhen.",
+      "questions": [
+        {
+          "answers": [
+            {
+              "correct": false,
+              "text": "Es gibt zu wenig Einkaufszentren."
+            },
+            {
+              "correct": true,
+              "text": "Zu viele Autos, Lärm und Abgase."
+            },
+            {
+              "correct": false,
+              "text": "Die Mieten sind zu hoch."
+            }
+          ],
+          "question": "Welche Probleme haben viele deutsche Großstädte?",
+          "id": 6
+        },
+        {
+          "answers": [
+            {
+              "text": "Die Radwege werden schmaler.",
+              "correct": false
+            },
+            {
+              "correct": true,
+              "text": "Bessere Anbindung an Bus und Bahn."
+            },
+            {
+              "text": "Es werden weniger Ampeln benötigt.",
+              "correct": false
+            }
+          ],
+          "id": 7,
+          "question": "Was ist ein Ziel beim Ausbau der Fahrradinfrastruktur?"
+        },
+        {
+          "question": "Was ist eine Folge der besseren Fahrradinfrastruktur?",
+          "id": 8,
+          "answers": [
+            {
+              "correct": false,
+              "text": "Die Zahl der Autos steigt."
+            },
+            {
+              "text": "Die Straßen werden entlastet und die Luft wird besser.",
+              "correct": true
+            },
+            {
+              "text": "Die Fahrräder werden teurer.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Was sagen die Kritiker gegen den Ausbau der Radwege?",
+          "answers": [
+            {
+              "correct": false,
+              "text": "Sie finden, dass Radfahren unsicher ist."
+            },
+            {
+              "text": "Sie befürchten den Verlust von Parkplätzen.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "Sie wollen, dass mehr Busse fahren."
+            }
+          ],
+          "id": 9
+        },
+        {
+          "question": "Was ist das Ziel für den Radverkehr in den nächsten Jahren?",
+          "answers": [
+            {
+              "correct": true,
+              "text": "Der Anteil soll auf 30 Prozent erhöht werden."
+            },
+            {
+              "correct": false,
+              "text": "Der Anteil soll halbiert werden."
+            },
+            {
+              "correct": false,
+              "text": "Der Anteil soll konstant bleiben."
+            }
+          ],
+          "id": 10
+        }
+      ]
+    }
+  ]
+}

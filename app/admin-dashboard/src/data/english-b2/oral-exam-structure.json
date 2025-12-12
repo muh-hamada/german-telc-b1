@@ -1,0 +1,274 @@
+{
+  "title": {
+    "de": "Mündliche Prüfung telc Englisch B2",
+    "en": "Oral Exam telc English B2",
+    "fr": "Examen oral telc anglais B2",
+    "es": "Examen oral telc inglés B2",
+    "ru": "Устный экзамен telc английский B2",
+    "ar": "الامتحان الشفوي telc الانجليزي B2"
+  },
+  "general": {
+    "howItWorks": {
+      "de": "Die Teilnehmenden bereiten sich zunächst individuell auf das Prüfungsgespräch vor (20 Minuten). Dazu erhalten sie für jeden Teil des Prüfungsgesprächs ein Aufgabenblatt. Die Mündliche Prüfung (15 Minuten) wird immer von zwei Prüfenden durchgeführt, die eine telc Lizenz besitzen.",
+      "en": "The participants first prepare individually for the exam conversation (20 minutes). To do this, they receive a task sheet for each part of the exam conversation. The oral exam (15 minutes) is always conducted by two examiners who have a telc license.",
+      "fr": "Les participants se préparent d'abord individuellement à la conversation d'examen (20 minutes). Pour cela, ils reçoivent une fiche de tâche pour chaque partie de la conversation d'examen. L'examen oral (15 minutes) est toujours conduit par deux examinateurs qui possèdent une licence telc.",
+      "es": "Los participantes se preparan primero individualmente para la conversación del examen (20 minutos). Para ello, reciben una hoja de tareas para cada parte de la conversación del examen. El examen oral (15 minutos) siempre es realizado por dos examinadores que tienen una licencia telc.",
+      "ru": "Участники сначала готовятся индивидуально к экзаменационному разговору (20 минут). Для этого они получают лист с заданием для каждой части экзаменационного разговора. Устный экзамен (15 минут) всегда проводится двумя экзаменаторами, имеющими лицензию telc.",
+      "ar": "يستعد المشاركون أولاً بشكل فردي لمحادثة الامتحان (20 دقيقة). لذلك، يتلقون ورقة مهام لكل جزء من محادثة الامتحان. يتم إجراء الامتحان الشفوي (15 دقيقة) دائمًا بواسطة اثنين من الممتحنين اللذين يحملان ترخيص telc."
+    },
+    "expectations": {
+      "de": "Die Teilnehmenden sollen so miteinander reden und auf die Argumente des Partners oder der Partnerin eingehen, dass ein möglichst lebendiges und authentisches Gespräch entsteht. Nachfragen und gegenseitige Hilfestellung werden positiv bewertet. Handschriftliche Notizen, die während der Vorbereitungszeit gemacht wurden, können im Prüfungsgespräch benutzt werden. Ablesen vom Blatt ist jedoch nicht erlaubt.",
+      "en": "The participants should talk to each other and respond to the arguments of the partner in such a way that the most lively and authentic conversation possible arises. Asking questions and mutual assistance are positively evaluated. Handwritten notes made during the preparation time can be used in the exam conversation. However, reading from the sheet is not allowed.",
+      "fr": "Les participants doivent parler entre eux et répondre aux arguments du partenaire de manière à ce qu'une conversation la plus vivante et authentique possible se crée. Les questions et l'aide mutuelle sont évaluées positivement. Les notes manuscrites prises pendant le temps de préparation peuvent être utilisées dans la conversation d'examen. Cependant, lire depuis la feuille n'est pas permis.",
+      "es": "Los participantes deben hablar entre sí y responder a los argumentos del socio de manera que surja una conversación lo más viva y auténtica posible. Las preguntas y la asistencia mutua se evalúan positivamente. Las notas manuscritas hechas durante el tiempo de preparación pueden usarse en la conversación del examen. Sin embargo, leer de la hoja no está permitido.",
+      "ru": "Участники должны разговаривать друг с другом и реагировать на аргументы партнера таким образом, чтобы возник самый живой и аутентичный разговор. Задавание вопросов и взаимная помощь оцениваются положительно. Рукописные заметки, сделанные во время подготовки, могут использоваться в экзаменационном разговоре. Однако чтение с листа не разрешено.",
+      "ar": "يجب على المشاركين التحدث مع بعضهم البعض والرد على حجج الشريك بطريقة تجعل المحادثة الأكثر حيوية وأصالة ممكنة. يتم تقييم طرح الأسئلة والمساعدة المتبادلة إيجابيًا. يمكن استخدام الملاحظات اليدوية التي تم إعدادها أثناء وقت التحضير في محادثة الامتحان. ومع ذلك، لا يُسمح بالقراءة من الورقة."
+    }
+  },
+  "parts": [
+    {
+      "name": {
+        "de": "Vorspann: Kontaktaufnahme",
+        "en": "Introduction: Making Contact",
+        "fr": "Introduction: Prise de contact",
+        "es": "Introducción: Toma de contacto",
+        "ru": "Введение: Установление контакта",
+        "ar": "المقدمة: إقامة الاتصال"
+      },
+      "duration": {
+        "de": "30–60 Sekunden",
+        "en": "30–60 seconds",
+        "fr": "30–60 secondes",
+        "es": "30–60 segundos",
+        "ru": "30–60 секунд",
+        "ar": "30–60 ثانية"
+      },
+      "participants": {
+        "de": "Teilnehmer/in A/B/C",
+        "en": "Participant A/B/C",
+        "fr": "Participant A/B/C",
+        "es": "Participante A/B/C",
+        "ru": "Участник A/B/C",
+        "ar": "المشارك A/B/C"
+      },
+      "description": {
+        "de": "Sie haben Gelegenheit, sich zu Beginn der Prüfung mit Ihrem Gesprächspartner ein bisschen besser bekannt zu machen, sich ein wenig „zu beschnuppern“. Je nachdem, wie gut Sie sich bereits kennen, können Sie sich unterhalten über Ihre Familie, über Erfahrungen mit dem Sprachenlernen, Vorbereitungen auf die Prüfung etc. Das liegt ganz bei Ihnen. Es werden Ihnen keine Themen vorgegeben.",
+        "en": "You have the opportunity at the beginning of the exam to get to know your conversation partner a little better, to 'sniff each other out' a bit. Depending on how well you already know each other, you can talk about your family, experiences with language learning, preparations for the exam, etc. It's entirely up to you. No topics are given to you.",
+        "fr": "Vous avez l'occasion, au début de l'examen, de mieux faire connaissance avec votre partenaire de conversation, de vous 'renifler' un peu. Selon à quel point vous vous connaissez déjà, vous pouvez parler de votre famille, d'expériences avec l'apprentissage des langues, des préparations à l'examen, etc. C'est entièrement à vous. Aucun thème ne vous est donné.",
+        "es": "Tiene la oportunidad al comienzo del examen de conocer un poco mejor a su compañero de conversación, de 'olisquearse' un poco. Dependiendo de lo bien que ya se conozcan, pueden hablar de su familia, experiencias con el aprendizaje de idiomas, preparaciones para el examen, etc. Depende completamente de ustedes. No se les dan temas.",
+        "ru": "У вас есть возможность в начале экзамена лучше познакомиться с партнером по разговору, немного 'принюхаться' друг к другу. В зависимости от того, насколько хорошо вы уже знаете друг друга, вы можете поговорить о своей семье, опыте изучения языков, подготовке к экзамену и т.д. Это полностью зависит от вас. Темы не даются.",
+        "ar": "لديك الفرصة في بداية الامتحان للتعرف على شريك محادثتك بشكل أفضل قليلاً، لـ'التلمس' بعضكما البعض قليلاً. حسب مدى معرفتكما ببعضكما بالفعل، يمكنكما التحدث عن عائلتكما، تجارب تعلم اللغات، التحضيرات للامتحان إلخ. الأمر يعود إليكما تمامًا. لا يتم تقديم مواضيع لكما."
+      },
+      "sample": {
+        "de": "Stellen Sie sich Ihrem Partner oder Ihrer Partnerin vor. Sie können z. B. darüber sprechen, warum Sie Deutsch lernen, welche Interessen oder Hobbys Sie haben oder wie Sie sich auf die Prüfung vorbereitet haben usw. Diese Kontaktaufnahme wird nicht bewertet.",
+        "en": "Introduce yourself to your partner. You can, for example, talk about why you are learning German, what interests or hobbies you have, or how you prepared for the exam, etc. This contact making is not evaluated.",
+        "fr": "Présentez-vous à votre partenaire. Vous pouvez par exemple parler de pourquoi vous apprenez l'allemand, quels intérêts ou hobbies vous avez, ou comment vous vous êtes préparé à l'examen, etc. Cette prise de contact n'est pas évaluée.",
+        "es": "Preséntese a su compañero. Puede, por ejemplo, hablar de por qué aprende alemán, qué intereses o pasatiempos tiene, o cómo se preparó para el examen, etc. Esta toma de contacto no se evalúa.",
+        "ru": "Представьтесь своему партнеру. Вы можете, например, поговорить о том, почему вы изучаете немецкий, какие у вас интересы или хобби, или как вы готовились к экзамену и т.д. Это установление контакта не оценивается.",
+        "ar": "قدم نفسك لشريكك. يمكنك على سبيل المثال التحدث عن سبب تعلمك الألمانية، ما هي اهتماماتك أو هواياتك، أو كيف أعددت نفسك للامتحان إلخ. هذه الإقامة للاتصال لا تُقيّم."
+      }
+    },
+    {
+      "name": {
+        "de": "Teil 1: Präsentation",
+        "en": "Part 1: Presentation",
+        "fr": "Partie 1: Présentation",
+        "es": "Parte 1: Presentación",
+        "ru": "Часть 1: Презентация",
+        "ar": "الجزء 1: العرض"
+      },
+      "duration": {
+        "de": "ca. 2½ Minuten",
+        "en": "approx. 2½ minutes",
+        "fr": "env. 2½ minutes",
+        "es": "aprox. 2½ minutos",
+        "ru": "прим. 2½ минуты",
+        "ar": "حوالي 2½ دقيقة"
+      },
+      "participants": {
+        "de": "Teilnehmer/in A/B/C",
+        "en": "Participant A/B/C",
+        "fr": "Participant A/B/C",
+        "es": "Participante A/B/C",
+        "ru": "Участник A/B/C",
+        "ar": "المشارك A/B/C"
+      },
+      "description": {
+        "de": "Im ersten Teil der Prüfung sollen Sie Ihrem Gesprächspartner oder Ihrer Gesprächspartnerin zunächst kurz etwas vorstellen. Sie können aus fünf Themen auswählen. Die eigentliche Präsentation sollte höchstens 90 Sekunden dauern. Während dieser Zeit sollten Sie Ihren Gesprächspartner oder Ihre Gesprächspartnerin nur unterbrechen, wenn Sie etwas gar nicht verstanden haben oder wenn Sie helfen möchten. Nach der Präsentation antworten Sie auf die Fragen, die Ihnen von Ihrem Gesprächspartner bzw. Ihrer Gesprächspartnerin gestellt werden. Für alle Teilnehmenden gilt also der gleiche Ablauf: zunächst Präsentation, dann Antwort auf Rückfragen.",
+        "en": "In the first part of the exam, you should first briefly present something to your conversation partner. You can choose from five topics. The actual presentation should last at most 90 seconds. During this time, you should only interrupt your conversation partner if you haven't understood something at all or if you want to help. After the presentation, you answer the questions asked by your conversation partner. So, the same procedure applies to all participants: first presentation, then answer to follow-up questions.",
+        "fr": "Dans la première partie de l'examen, vous devez d'abord présenter brièvement quelque chose à votre partenaire de conversation. Vous pouvez choisir parmi cinq thèmes. La présentation proprement dite ne devrait pas durer plus de 90 secondes. Pendant ce temps, vous ne devriez interrompre votre partenaire de conversation que si vous n'avez rien compris du tout ou si vous voulez aider. Après la présentation, vous répondez aux questions posées par votre partenaire de conversation. Donc, la même procédure s'applique à tous les participants : d'abord présentation, puis réponse aux questions de suivi.",
+        "es": "En la primera parte del examen, debe presentar brevemente algo a su compañero de conversación. Puede elegir entre cinco temas. La presentación real no debe durar más de 90 segundos. Durante este tiempo, solo debe interrumpir a su compañero de conversación si no ha entendido algo en absoluto o si quiere ayudar. Después de la presentación, responde a las preguntas que le hace su compañero de conversación. Por lo tanto, el mismo procedimiento se aplica a todos los participantes: primero presentación, luego respuesta a preguntas de seguimiento.",
+        "ru": "В первой части экзамена вы должны сначала кратко представить что-то своему партнеру по разговору. Вы можете выбрать из пяти тем. Сама презентация должна длиться не более 90 секунд. В это время вы должны прерывать своего партнера по разговору только если вы ничего не поняли или если вы хотите помочь. После презентации вы отвечаете на вопросы, заданные вашим партнером по разговору. Таким образом, ко всем участникам применяется одна и та же процедура: сначала презентация, затем ответ на последующие вопросы.",
+        "ar": "في الجزء الأول من الامتحان، يجب عليك أولاً تقديم شيء ما بشكل موجز لشريك محادثتك. يمكنك الاختيار من بين خمسة مواضيع. يجب أن تستمر العرض الفعلي أقصى 90 ثانية. خلال هذا الوقت، يجب عليك مقاطعة شريك محادثتك فقط إذا لم تفهم شيئًا على الإطلاق أو إذا كنت تريد المساعدة. بعد العرض، ترد على الأسئلة التي يطرحها عليك شريك محادثتك. لذا، ينطبق الإجراء نفسه على جميع المشاركين: أولاً العرض، ثم الرد على أسئلة المتابعة."
+      },
+      "sample": {
+        "de": "Sie sollen kurz Ihrem Partner oder Ihrer Partnerin eines der folgenden Themen präsentieren (die Stichpunkte in den Klammern können Ihnen dabei helfen). Sie haben dazu ca. zwei Minuten Zeit. Nach Ihrer Präsentation beantworten Sie die Fragen Ihres Partners oder Ihrer Partnerin. Nachdem Ihr Partner oder Ihre Partnerin ebenfalls sein bzw. ihr Thema präsentiert hat, stellen Sie ihm oder ihr einige Fragen, die Sie interessieren. Während der Präsentation unterbrechen Sie Ihren Partner oder Ihre Partnerin möglichst nicht.",
+        "en": "You should briefly present one of the following topics to your partner (the bullet points in parentheses can help you). You have about two minutes for this. After your presentation, answer the questions from your partner. After your partner has also presented their topic, ask them some questions that interest you. During the presentation, interrupt your partner as little as possible.",
+        "fr": "Vous devez présenter brièvement l'un des thèmes suivants à votre partenaire (les points en parenthèses peuvent vous aider). Vous avez environ deux minutes pour cela. Après votre présentation, répondez aux questions de votre partenaire. Une fois que votre partenaire a également présenté son thème, posez-lui quelques questions qui vous intéressent. Pendant la présentation, interrompez votre partenaire le moins possible.",
+        "es": "Debe presentar brevemente uno de los siguientes temas a su compañero (los puntos en paréntesis pueden ayudarle). Tiene aproximadamente dos minutos para esto. Después de su presentación, responda a las preguntas de su compañero. Después de que su compañero también haya presentado su tema, hágale algunas preguntas que le interesen. Durante la presentación, interrumpa a su compañero lo menos posible.",
+        "ru": "Вы должны кратко представить одну из следующих тем своему партнеру (точки в скобках могут помочь вам). У вас есть около двух минут на это. После вашей презентации ответьте на вопросы вашего партнера. После того, как ваш партнер также представил свою тему, задайте ему несколько вопросов, которые вас интересуют. Во время презентации прерывайте своего партнера как можно реже.",
+        "ar": "يجب عليك تقديم أحد المواضيع التالية بشكل موجز لشريكك (النقاط في الأقواس يمكن أن تساعدك). لديك حوالي دقيقتين لذلك. بعد عرضك، أجب على أسئلة شريكك. بعد أن يقدم شريكك أيضًا موضوعه، اسأله بعض الأسئلة التي تهمك. خلال العرض, قم بمقاطعة شريكك قدر الإمكان أقل."
+      },
+      "topics": [
+        {
+          "de": "Ein Buch, das Sie gelesen haben (Thema, Autor, Ihre Meinung usw.)",
+          "en": "A book you have read (topic, author, your opinion, etc.)",
+          "fr": "Un livre que vous avez lu (thème, auteur, votre opinion, etc.)",
+          "es": "Un libro que has leído (tema, autor, tu opinión, etc.)",
+          "ru": "Книга, которую вы прочитали (тема, автор, ваше мнение и т.д.)",
+          "ar": "كتاب قرأته (الموضوع، الكاتب، رأيك، إلخ.)"
+        },
+        {
+          "de": "Einen Film, den Sie gesehen haben (Thema und Handlung, Schauspieler, Ihre Meinung usw.)",
+          "en": "A film you have seen (topic and plot, actors, your opinion, etc.)",
+          "fr": "Un film que vous avez vu (thème et intrigue, acteurs, votre opinion, etc.)",
+          "es": "Una película que has visto (tema y trama, actores, tu opinión, etc.)",
+          "ru": "Фильм, который вы видели (тема и сюжет, актеры, ваше мнение и т.д.)",
+          "ar": "فيلم شاهدته (الموضوع والحبكة، الممثلون، رأيك، إلخ.)"
+        },
+        {
+          "de": "Eine Reise, die Sie unternommen haben (Ziel, Zeit, Land und Leute, Sehenswürdigkeiten usw.)",
+          "en": "A trip you have taken (destination, time, country and people, sights, etc.)",
+          "fr": "Un voyage que vous avez fait (destination, temps, pays et gens, sites touristiques, etc.)",
+          "es": "Un viaje que has realizado (destino, tiempo, país y gente, atracciones, etc.)",
+          "ru": "Путешествие, которое вы совершили (пункт назначения, время, страна и люди, достопримечательности и т.д.)",
+          "ar": "رحلة قمت بها (الوجهة، الوقت، البلد والناس، المعالم السياحية، إلخ.)"
+        },
+        {
+          "de": "Eine Musikveranstaltung, die Sie besucht haben (Musikrichtung, Musiker, Ort, persönliche Vorlieben usw.)",
+          "en": "A music event you have attended (music genre, musicians, location, personal preferences, etc.)",
+          "fr": "Un événement musical que vous avez assisté (genre musical, musiciens, lieu, préférences personnelles, etc.)",
+          "es": "Un evento musical que has asistido (género musical, músicos, lugar, preferencias personales, etc.)",
+          "ru": "Музыкальное мероприятие, которое вы посетили (музыкальный жанр, музыканты, место, личные предпочтения и т.д.)",
+          "ar": "حدث موسيقي حضرته (نوع الموسيقى، الموسيقيون، المكان، التفضيلات الشخصية، إلخ.)"
+        },
+        {
+          "de": "Ein Sportereignis, das Sie besucht haben (Sportart, Ort, Personen, Ergebnis usw.)",
+          "en": "A sports event you have attended (sport type, location, persons, result, etc.)",
+          "fr": "Un événement sportif que vous avez assisté (type de sport, lieu, personnes, résultat, etc.)",
+          "es": "Un evento deportivo que has asistido (tipo de deporte, lugar, personas, resultado, etc.)",
+          "ru": "Спортивное событие, которое вы посетили (вид спорта, место, лица, результат и т.д.)",
+          "ar": "حدث رياضي حضرته (نوع الرياضة، المكان، الأشخاص، النتيجة، إلخ.)"
+        }
+      ]
+    },
+    {
+      "name": {
+        "de": "Teil 2: Diskussion",
+        "en": "Part 2: Discussion",
+        "fr": "Partie 2: Discussion",
+        "es": "Parte 2: Discusión",
+        "ru": "Часть 2: Дискуссия",
+        "ar": "الجزء 2: النقاش"
+      },
+      "duration": {
+        "de": "ca. 2½ Minuten",
+        "en": "approx. 2½ minutes",
+        "fr": "env. 2½ minutes",
+        "es": "aprox. 2½ minutos",
+        "ru": "прим. 2½ минуты",
+        "ar": "حوالي 2½ دقيقة"
+      },
+      "participants": {
+        "de": "Teilnehmer/in A/B/C",
+        "en": "Participant A/B/C",
+        "fr": "Participant A/B/C",
+        "es": "Participante A/B/C",
+        "ru": "Участник A/B/C",
+        "ar": "المشارك A/B/C"
+      },
+      "description": {
+        "de": "In diesem Teil der Prüfung sollen Sie über ein kontroverses Thema diskutieren. Zunächst äußern Sie sich kurz über den Text (oder die Texte), die Sie in der Vorbereitungszeit gelesen haben. Stellen Sie die Argumente oder auch einzelne Aspekte, die Sie interessant finden, kurz dar (pro Kandidat höchstens eine Minute). In der folgenden Diskussion führen Sie Ihre eigenen Argumente zum Thema an. Achten Sie darauf, dass Sie miteinander im Gespräch bleiben. Tauschen Sie Ihre Argumente aus und gehen Sie aufeinander ein.",
+        "en": "In this part of the exam, you should discuss a controversial topic. First, briefly comment on the text (or texts) you read during preparation time. Briefly present the arguments or individual aspects you find interesting (maximum one minute per candidate). In the following discussion, present your own arguments on the topic. Make sure you stay in conversation with each other. Exchange your arguments and respond to each other.",
+        "fr": "Dans cette partie de l'examen, vous devez discuter d'un thème controversé. D'abord, commentez brièvement le texte (ou les textes) que vous avez lus pendant le temps de préparation. Présentez brièvement les arguments ou les aspects individuels que vous trouvez intéressants (maximum une minute par candidat). Dans la discussion suivante, présentez vos propres arguments sur le thème. Assurez-vous de rester en conversation les uns avec les autres. Échangez vos arguments et répondez-vous mutuellement.",
+        "es": "En esta parte del examen, debe discutir un tema controvertido. Primero, comente brevemente el texto (o textos) que leyó durante el tiempo de preparación. Presente brevemente los argumentos o aspectos individuales que encuentra interesantes (máximo un minuto por candidato). En la discusión siguiente, presente sus propios argumentos sobre el tema. Asegúrese de mantenerse en conversación entre sí. Intercambien sus argumentos y respóndanse mutuamente.",
+        "ru": "В этой части экзамена вы должны обсудить спорную тему. Сначала кратко прокомментируйте текст (или тексты), которые вы прочитали во время подготовки. Кратко представьте аргументы или отдельные аспекты, которые вы находите интересными (максимум одна минута на кандидата). В последующем обсуждении представьте свои собственные аргументы по теме. Убедитесь, что вы остаетесь в разговоре друг с другом. Обменивайтесь аргументами и реагируйте друг на друга.",
+        "ar": "في هذا الجزء من الامتحان، يجب عليك مناقشة موضوع مثير للجدل. أولاً، علق باختصار على النص (أو النصوص) الذي قرأته أثناء وقت التحضير. قدم باختصار الحجج أو الجوانب الفردية التي تجدها مثيرة للاهتمام (أقصى دقيقة واحدة لكل مرشح). في النقاش التالي، قدم حججك الخاصة حول الموضوع. تأكد من البقاء في المحادثة مع بعضكما البعض. تبادل حججكما ورد على بعضكما البعض."
+      },
+      "sample": {
+        "de": "Lesen Sie folgenden Text aus einer Zeitschrift. Diskutieren Sie mit Ihrem Partner oder Ihrer Partnerin über den Inhalt des Textes, bringen Sie Ihre Erfahrungen ein und äußern Sie Ihre Meinung. Begründen Sie Ihre Argumente. Sprechen Sie über mögliche Lösungen.",
+        "en": "Read the following text from a magazine. Discuss with your partner about the content of the text, bring in your experiences, and express your opinion. Justify your arguments. Talk about possible solutions.",
+        "fr": "Lisez le texte suivant d'un magazine. Discutez avec votre partenaire du contenu du texte, apportez vos expériences et exprimez votre opinion. Justifiez vos arguments. Parlez de solutions possibles.",
+        "es": "Lea el siguiente texto de una revista. Discuta con su compañero sobre el contenido del texto, aporte sus experiencias y exprese su opinión. Justifique sus argumentos. Hable sobre posibles soluciones.",
+        "ru": "Прочитайте следующий текст из журнала. Обсудите с партнером содержание текста, внесите свой опыт и выразите свое мнение. Обоснуйте свои аргументы. Поговорите о возможных решениях.",
+        "ar": "اقرأ النص التالي من مجلة. ناقش مع شريكك محتوى النص، أدرج تجاربك وأعبر عن رأيك. برر حججك. تحدث عن حلول ممكنة."
+      },
+      "article": {
+        "title": {
+          "de": "Getrennte Schulen für Mädchen und Jungen?",
+          "en": "Separate Schools for Girls and Boys?",
+          "fr": "Écoles séparées pour filles et garçons ?",
+          "es": "¿Escuelas separadas para niñas y niños?",
+          "ru": "Отдельные школы для девочек и мальчиков?",
+          "ar": "مدارس منفصلة للفتيات والفتيان؟"
+        },
+        "content": {
+          "de": "Studie plädiert für die getrennte Schulerziehung \n\nSollen Mädchen und Jungen zukünftig wieder getrennte Schulen besuchen? Dafür jedenfalls plädiert eine Studie des Instituts für sozialpädagogische Forschung (ISF) in Hannover. \n\nDie Studie geht davon aus, dass im herkömmlichen koedukativen Schulsystem für die Angehörigen der beiden Geschlechter, besonders in den naturwissenschaftlichen Fächern, keine Chancengleichheit bestehe und junge Frauen in der Entfaltung ihrer Möglichkeiten eingeschränkt würden.\n\nDies belegt unter anderem eine Umfrage, die vom ISF an mehreren Gymnasien durchgeführt wurde. Schülerinnen gelten bei nicht wenigen männlichen Lehrern und Schülern als unbegabt für naturwissenschaftliche Fächer. Es wird behauptet, Mädchen könnten zwar gut auswendig lernen, ihnen fehle aber in Wirklichkeit das Verständnis für Physik, Chemie und Biologie. \n\nJunge Frauen fühlen sich daher diskriminiert und zurückgesetzt und können nicht mehr ihre wirkliche Leistung erbringen. Das ISF schlägt vor, Jungen und Mädchen von der siebten Klasse an getrennt zu unterrichten. Modellversuche in Nordrhein-Westfalen geben dem Institut Recht: Dort werden an einigen Schulen Mädchen in den Naturwissenschaften getrennt von den Jungen unterrichtet und sie erzielen im Durchschnitt wesentlich bessere Lernerfolge als Schülerinnen an koedukativen Schulen.\n\nDemgegenüber verweist eine Sprecherin des Kultusministeriums darauf, dass sie die getrennte Erziehung nicht für geeignet halte, die Ungleichheiten zwischen Männern und Frauen in unserer Gesellschaft abzubauen. Im Gegenteil führe die getrennte Erziehung in eine Isolation der Geschlechter voneinander, die die Rollenklischees eher verstärken als abschwächen würde. Die Koedukation sei letztendlich eine Errungenschaft der Emanzipation des weiblichen Geschlechts.\n\nAußerdem sei die Tatsache, dass in Deutschland immer mehr Frauen naturwissenschaftliche Berufe ausüben und darin sehr erfolgreich seien, doch eher ein Beleg dafür, dass die Berufswahl nicht davon bestimmt werde, ob an einer Schule Mädchen und Jungen getrennt unterrichtet werden oder nicht.\n\naus: Die Zeitwoche, 8 / 2000",
+          "en": "Study Advocates for Separate School Education \n\nShould girls and boys attend separate schools in the future? At least a study from the Institute for Social Pedagogical Research (ISF) in Hannover advocates for that. \n\nThe study assumes that in the conventional co-educational school system, there is no equality of opportunity for members of both genders, especially in natural science subjects, and young women are restricted in developing their possibilities.\n\nThis is supported, among other things, by a survey conducted by the ISF at several high schools. Female students are considered untalented for natural science subjects by not a few male teachers and students. It is claimed that girls can learn by heart well, but they lack real understanding for physics, chemistry, and biology. \n\nYoung women therefore feel discriminated against and set back and can no longer deliver their real performance. The ISF suggests teaching boys and girls separately from the seventh grade. Model trials in North Rhine-Westphalia prove the institute right: There, at some schools, girls are taught natural sciences separately from boys and they achieve significantly better learning outcomes on average than female students at co-educational schools.\n\nIn contrast, a spokeswoman for the Ministry of Education points out that she does not consider separate education suitable for reducing inequalities between men and women in our society. On the contrary, separate education leads to isolation of the genders from each other, which would rather strengthen role stereotypes than weaken them. Co-education is ultimately an achievement of female emancipation.\n\nMoreover, the fact that in Germany more and more women practice natural science professions and are very successful in them is rather evidence that career choice is not determined by whether girls and boys are taught separately at a school or not.\n\nfrom: Die Zeitwoche, 8 / 2000",
+          "fr": "Étude plaide pour l'éducation scolaire séparée \n\nLes filles et les garçons devraient-ils à l'avenir fréquenter de nouveau des écoles séparées ? C'est en tout cas ce que plaide une étude de l'Institut de recherche en pédagogie sociale (ISF) à Hanovre. \n\nL'étude part du principe que dans le système scolaire coéducatif conventionnel, il n'y a pas d'égalité des chances pour les membres des deux sexes, particulièrement dans les matières scientifiques, et que les jeunes femmes sont limitées dans le développement de leurs possibilités.\n\nCela est prouvé notamment par une enquête menée par l'ISF dans plusieurs lycées. Les élèves filles sont considérées par bon nombre d'enseignants et d'élèves masculins comme non douées pour les matières scientifiques. On prétend que les filles peuvent bien apprendre par cœur, mais qu'elles manquent en réalité de compréhension pour la physique, la chimie et la biologie. \n\nLes jeunes femmes se sentent donc discriminées et reléguées et ne peuvent plus fournir leur performance réelle. L'ISF propose d'enseigner les garçons et les filles séparément à partir de la septième classe. Des essais modèles en Rhénanie-du-Nord-Westphalie donnent raison à l'institut : Là, dans certaines écoles, les filles sont enseignées en sciences naturelles séparément des garçons et elles obtiennent en moyenne des succès d'apprentissage nettement meilleurs que les élèves filles dans les écoles coéducatives.\n\nEn revanche, une porte-parole du ministère de l'Éducation fait remarquer qu'elle ne considère pas l'éducation séparée comme appropriée pour réduire les inégalités entre hommes et femmes dans notre société. Au contraire, l'éducation séparée mène à une isolation des sexes l'un de l'autre, qui renforcerait plutôt les stéréotypes de rôles que les atténuerait. La coéducation est finalement une conquête de l'émancipation du sexe féminin.\n\nDe plus, le fait qu'en Allemagne de plus en plus de femmes exercent des professions scientifiques et y sont très réussies est plutôt une preuve que le choix professionnel n'est pas déterminé par le fait que dans une école les filles et les garçons soient enseignés séparément ou non.\n\nd'après : Die Zeitwoche, 8 / 2000",
+          "es": "Estudio aboga por la educación escolar separada \n\n¿Deben las niñas y los niños asistir de nuevo a escuelas separadas en el futuro? Al menos un estudio del Instituto de Investigación Pedagógica Social (ISF) en Hannover aboga por ello. \n\nEl estudio asume que en el sistema escolar coeducativo convencional no existe igualdad de oportunidades para los miembros de ambos géneros, especialmente en las asignaturas de ciencias naturales, y que las jóvenes están restringidas en el desarrollo de sus posibilidades.\n\nEsto se demuestra, entre otras cosas, por una encuesta realizada por el ISF en varios institutos. Las alumnas son consideradas por no pocos profesores y alumnos masculinos como no dotadas para las asignaturas científicas. Se afirma que las niñas pueden aprender de memoria bien, pero que les falta en realidad la comprensión para la física, la química y la biología. \n\nLas jóvenes se sienten por ello discriminadas y relegadas y no pueden entregar su rendimiento real. El ISF propone enseñar a niños y niñas por separado a partir de la séptima clase. Ensayos modelo en Renania del Norte-Westfalia dan la razón al instituto: Allí, en algunas escuelas, las niñas son enseñadas en ciencias naturales por separado de los niños y logran en promedio éxitos de aprendizaje mucho mejores que las alumnas en escuelas coeducativas.\n\nEn contraste, una portavoz del Ministerio de Educación señala que no considera la educación separada adecuada para reducir las desigualdades entre hombres y mujeres en nuestra sociedad. Al contrario, la educación separada lleva a un aislamiento de los géneros entre sí, que reforzaría más bien los estereotipos de roles que los debilitaría. La coeducación es en última instancia un logro de la emancipación del género femenino.\n\nAdemás, el hecho de que en Alemania cada vez más mujeres ejerzan profesiones científicas y sean muy exitosas en ellas es más bien una prueba de que la elección profesional no se determina por si en una escuela las niñas y los niños se enseñan por separado o no.\n\nde: Die Zeitwoche, 8 / 2000",
+          "ru": "Исследование выступает за раздельное школьное образование \n\nДолжны ли девочки и мальчики в будущем снова посещать раздельные школы? По крайней мере, за это выступает исследование Института социально-педагогических исследований (ISF) в Ганновере. \n\nИсследование исходит из того, что в従来ной коэдукационной школьной системе для членов обоих полов, особенно в естественнонаучных предметах, не существует равенства шансов, и молодые женщины ограничены в развитии своих возможностей.\n\nЭто подтверждается, среди прочего, опросом, проведенным ISF в нескольких гимназиях. Ученицы считаются у немалого числа мужских учителей и учеников не одаренными для естественнонаучных предметов. Утверждается, что девочки могут хорошо учить наизусть, но им не хватает в действительности понимания физики, химии и биологии. \n\nМолодые женщины поэтому чувствуют себя дискриминированными и отодвинутыми и не могут больше выдавать свою реальную производительность. ISF предлагает преподавать мальчиков и девочек раздельно с седьмого класса. Модельные испытания в Северном Рейне-Вестфалии дают институту правоту: Там, в некоторых школах, девочек преподают в естественных науках раздельно от мальчиков и они достигают в среднем существенно лучших успехов в обучении, чем ученицы в коэдукационных школах.\n\nВ противовес этому представительница министерства культуры указывает на то, что она не считает раздельное воспитание подходящим для снижения неравенств между мужчинами и женщинами в нашем обществе. Наоборот, раздельное воспитание приводит к изоляции полов друг от друга, которая скорее усиливает стереотипы ролей, чем ослабляет. Коэдукация в конечном итоге является достижением эмансипации женского пола.\n\nКроме того, факт, что в Германии все больше женщин занимаются естественнонаучными профессиями и очень успешны в них, является скорее доказательством того, что выбор профессии не определяется тем, преподаются ли в школе девочки и мальчики раздельно или нет.\n\nиз: Die Zeitwoche, 8 / 2000",
+          "ar": "دراسة تدعو إلى التعليم المدرسي المنفصل \n\nهل يجب على الفتيات والفتيان في المستقبل زيارة مدارس منفصلة مرة أخرى؟ على الأقل، تدعو دراسة من معهد البحوث التربوية الاجتماعية (ISF) في هانوفر إلى ذلك. \n\nتفترض الدراسة أن في النظام المدرسي المختلط التقليدي لا توجد مساواة في الفرص لأعضاء الجنسين، خاصة في المواد العلمية الطبيعية، وأن الشابات مقيدات في تطوير إمكانياتهن.\n\nيثبت ذلك، من بين أمور أخرى، استطلاع رأي أجراه ISF في عدة جمنازيوم. تعتبر التلميذات لدى عدد غير قليل من المعلمين والتلاميذ الذكور غير موهوبات للمواد العلمية الطبيعية. يُزعم أن الفتيات يمكنهن التعلم بالحفظ جيدًا، لكنهن يفتقرن في الواقع إلى الفهم للفيزياء والكيمياء والبيولوجيا. \n\nتشعر الشابات لذلك بالتمييز والتراجع ولا يمكنهن تقديم أدائهن الحقيقي بعد الآن. يقترح ISF تدريس الفتيان والفتيات منفصلين من الصف السابع. تجارب نموذجية في نوردراين-فيستفاليا تعطي المعهد حقًا: هناك، في بعض المدارس، يتم تدريس الفتيات في العلوم الطبيعية منفصلة عن الفتيان ويحققن في المتوسط نجاحات تعلم أفضل بكثير من التلميذات في المدارس المختلطة.\n\nبالمقابل، تشير متحدثة باسم وزارة التربية إلى أنها لا تعتبر التعليم المنفصل مناسبًا لتقليل اللامساواة بين الرجال والنساء في مجتمعنا. على العكس، يؤدي التعليم المنفصل إلى عزلة الجنسين عن بعضهما البعض، مما يعزز الصور النمطية للأدوار بدلاً من إضعافها. التعليم المختلط هو في النهاية إنجاز لتحرر الجنس الأنثوي.\n\nبالإضافة إلى ذلك، حقيقة أن في ألمانيا يمارس المزيد والمزيد من النساء مهن علمية طبيعية وهن ناجحات جدًا فيها، هي دليل أكثر على أن اختيار المهنة لا يحدد به إذا كانت الفتيات والفتيان يُدرسون منفصلين في المدرسة أم لا.\n\nمن: Die Zeitwoche, 8 / 2000"
+        },
+        "source": {
+          "de": "aus: Die Zeitwoche, 8 / 2000",
+          "en": "from: Die Zeitwoche, 8 / 2000",
+          "fr": "d'après : Die Zeitwoche, 8 / 2000",
+          "es": "de: Die Zeitwoche, 8 / 2000",
+          "ru": "из: Die Zeitwoche, 8 / 2000",
+          "ar": "من: Die Zeitwoche, 8 / 2000"
+        }
+      }
+    },
+    {
+      "name": {
+        "de": "Teil 3: Problemlösung",
+        "en": "Part 3: Problem Solving",
+        "fr": "Partie 3 : Résolution de problèmes",
+        "es": "Parte 3: Resolución de problemas",
+        "ru": "Часть 3: Решение проблем",
+        "ar": "الجزء 3: حل المشكلات"
+      },
+      "duration": {
+        "de": "ca. 2½ Minuten",
+        "en": "approx. 2½ minutes",
+        "fr": "env. 2½ minutes",
+        "es": "aprox. 2½ minutos",
+        "ru": "прим. 2½ минуты",
+        "ar": "حوالي 2½ دقيقة"
+      },
+      "participants": {
+        "de": "Teilnehmer/in A und B",
+        "en": "Participant A and B",
+        "fr": "Participant A et B",
+        "es": "Participante A y B",
+        "ru": "Участник A и B",
+        "ar": "المشارك A و B"
+      },
+      "description": {
+        "de": "Sie sollen gemeinsam etwas planen. Nur die Situation wird Ihnen vorgegeben, die Details der Planung liegen bei Ihnen. Überlegen Sie, was Sie alles beachten müssen, bringen Sie Ihre Ideen und Vorschläge ein und gehen Sie auf das ein, was Ihnen vorgeschlagen wird.",
+        "en": "You should plan something together. Only the situation is given to you, the details of the planning are up to you. Think about what you need to consider, bring in your ideas and suggestions, and respond to what is suggested to you.",
+        "fr": "Vous devez planifier quelque chose ensemble. Seule la situation vous est donnée, les détails de la planification dépendent de vous. Réfléchissez à ce que vous devez tout prendre en compte, apportez vos idées et suggestions et répondez à ce qui vous est suggéré.",
+        "es": "Deben planificar algo juntos. Solo se les da la situación, los detalles de la planificación dependen de ustedes. Piensen en lo que deben considerar todo, aporten sus ideas y sugerencias y respondan a lo que se les sugiere.",
+        "ru": "Вы должны спланировать что-то вместе. Вам дается только ситуация, детали планирования зависят от вас. Подумайте, что вы должны учитывать все, внесите свои идеи и предложения и отреагируйте на то, что вам предлагается.",
+        "ar": "يجب عليكما التخطيط لشيء ما معًا. يتم تقديم الوضع فقط لكما، تفاصيل التخطيط تعود إليكما. فكرا في ما يجب مراعاته كله، أدرجا أفكاركما واقتراحاتكما وردا على ما يُقترح عليكما."
+      },
+      "sample": {
+        "de": "Eine Gruppe von Senioren (60 Jahre und älter) möchte eine Reise durch Deutschland, Österreich oder die Schweiz machen. Sie sollen der Gruppe bei der Planung und beim Erstellen eines Programms helfen. Überlegen Sie, wie Sie der Gruppe helfen können, und machen Sie Ihrem Partner/Ihrer Partnerin Vorschläge. Entwickeln Sie dann gemeinsam einen Plan und ein Programm für die Reisegruppe.",
+        "en": "A group of seniors (60 years and older) wants to take a trip through Germany, Austria or Switzerland. You should help the group with planning and creating a program. Think about how you can help the group, and make suggestions to your partner. Then develop a plan and a program for the travel group together.",
+        "fr": "Un groupe de seniors (60 ans et plus) souhaite faire un voyage à travers l'Allemagne, l'Autriche ou la Suisse. Vous devez aider le groupe dans la planification et la création d'un programme. Réfléchissez à la façon dont vous pouvez aider le groupe et faites des suggestions à votre partenaire. Développez ensuite ensemble un plan et un programme pour le groupe de voyage.",
+        "es": "Un grupo de personas mayores (60 años y más) quiere hacer un viaje a través de Alemania, Austria o Suiza. Deben ayudar al grupo en la planificación y la creación de un programa. Piensen en cómo pueden ayudar al grupo y hagan sugerencias a su compañero. Luego desarrollen juntos un plan y un programa para el grupo de viaje.",
+        "ru": "Группа пожилых людей (60 лет и старше) хочет совершить поездку через Германию, Австрию или Швейцарию. Вы должны помочь группе в планировании и создании программы. Подумайте, как вы можете помочь группе, и сделайте предложения своему партнеру. Затем разработайте вместе план и программу для группы путешественников.",
+        "ar": "تريد مجموعة من كبار السن (60 عامًا فما فوق) القيام برحلة عبر ألمانيا أو النمسا أو سويسرا. يجب عليكم مساعدة المجموعة في التخطيط وإنشاء برنامج. فكروا في كيفية مساعدة المجموعة، وقدموا اقتراحات لشريككم. ثم طوروا معًا خطة وبرنامجًا لمجموعة الرحلة."
+      }
+    }
+  ],
+  "hints": {
+    "de": "Sie können sich während der Vorbereitungszeit Notizen machen (jedoch nicht auf den Aufgabenblättern), die Sie bei der Prüfung benutzen dürfen. Sie dürfen diese allerdings nicht einfach ablesen! Während der Vorbereitungszeit dürfen Sie Ihr Wörterbuch benutzen, während der Prüfung jedoch nicht.",
+    "en": "You can make notes during the preparation time (however not on the task sheets), which you may use during the exam. However, you may not simply read them off! During the preparation time, you may use your dictionary, but not during the exam.",
+    "fr": "Vous pouvez prendre des notes pendant le temps de préparation (cependant pas sur les fiches de tâches), que vous pouvez utiliser pendant l'examen. Cependant, vous ne pouvez pas simplement les lire ! Pendant le temps de préparation, vous pouvez utiliser votre dictionnaire, mais pas pendant l'examen.",
+    "es": "Puede tomar notas durante el tiempo de preparación (sin embargo, no en las hojas de tareas), que puede usar durante el examen. Sin embargo, ¡no puede simplemente leerlas! Durante el tiempo de preparación, puede usar su diccionario, pero no durante el examen.",
+    "ru": "Вы можете делать заметки во время подготовки (однако не на листах с заданиями), которые вы можете использовать во время экзамена. Однако вы не можете просто читать их! Во время подготовки вы можете использовать свой словарь, но не во время экзамена.",
+    "ar": "يمكنكم عمل ملاحظات أثناء وقت التحضير (ومع ذلك ليس على أوراق المهام)، والتي يمكنكم استخدامها أثناء الامتحان. ومع ذلك، لا يمكنكم قراءتها ببساطة! أثناء وقت التحضير، يمكنكم استخدام قاموسكم، لكن ليس أثناء الامتحان."
+  }
+}

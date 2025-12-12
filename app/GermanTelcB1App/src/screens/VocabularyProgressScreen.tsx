@@ -21,6 +21,8 @@ import VocabularyStatsCard from '../components/VocabularyStatsCard';
 import Card from '../components/Card';
 import PersonaSelectorModal from '../components/PersonaSelectorModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { UserPersona } from '../types/vocabulary.types';
+import { PERSONA_DAILY_LIMITS } from '../types/vocabulary.types';
 
 const VocabularyProgressScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -116,7 +118,7 @@ const VocabularyProgressScreen: React.FC = () => {
               </Text>
               <Text style={styles.personaDescription}>
                 {t('vocabulary.progress.dailyLimit', {
-                  count: progress.persona === 'beginner' ? 10 : progress.persona === 'serious' ? 20 : 5,
+                  count: PERSONA_DAILY_LIMITS[progress.persona],
                 })}
               </Text>
             </View>

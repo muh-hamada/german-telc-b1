@@ -61,6 +61,7 @@ class VocabularyDataService {
           translations: data.translations || {},
           type: data.type || 'other',
           exampleSentences: data.exampleSentences || [],
+          explanation: data.explanation || '',
         } as VocabularyWord;
       });
 
@@ -118,6 +119,7 @@ class VocabularyDataService {
       // Return only the requested number
       const result = newWords.slice(0, limit);
       console.log(`[VocabularyDataService] Returning ${result.length} new words`);
+      console.log(`[VocabularyDataService] result:::`, result[0]);
       
       return result;
     } catch (error) {

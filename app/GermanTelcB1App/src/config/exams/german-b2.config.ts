@@ -72,6 +72,17 @@ export const germanB2Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/2149594149',
       ios: 'ca-app-pub-5101905792101482/4312830857',
     },
+    vocabularyBuilder: {
+      android: 'ca-app-pub-5101905792101482/9694021528',
+      ios: 'ca-app-pub-5101905792101482/3000620666',
+    },
+  },
+
+  premium: {
+    productId: {
+      android: 'full_access',
+      ios: 'full_access_german_b2',
+    },
   },
 
   writingEvaluationFnName: 'evaluateWritingB2'

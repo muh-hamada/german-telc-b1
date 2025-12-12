@@ -271,11 +271,11 @@
       "part1": "Partie 1 : Texte à trous (Choix multiples)",
       "part2": "Partie 2 : Texte à trous (Liste de mots)",
       "descriptions": {
-        "main": "Pratiquez la grammaire allemande avec des exercices à trous"
+        "main": "Pratiquez la grammaire {{language}} avec des exercices à trous"
       },
       "study": {
         "title": "150 Questions de Grammaire",
-        "description": "Maîtrisez la grammaire allemande avec 150 questions d'entraînement sur divers sujets",
+        "description": "Maîtrisez la grammaire {{language}} avec 150 questions d'entraînement sur divers sujets",
         "progress": "Question {{current}} sur {{total}}",
         "currentProgress": "Progrès actuel",
         "progressFound": "Progrès précédent trouvé",
@@ -406,6 +406,7 @@
       "wrongPassword": "Mot de passe incorrect. Veuillez réessayer.",
       "emailInUse": "Un compte avec cette adresse e-mail existe déjà.",
       "weakPassword": "Le mot de passe doit comporter au moins 6 caractères.",
+      "adLoadFailed": "Impossible de charger le contenu. Veuillez continuer.",
       "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
       "userDisabled": "Ce compte a été désactivé.",
       "tooManyRequests": "Trop de tentatives infructueuses. Veuillez réessayer plus tard.",
@@ -647,7 +648,7 @@
     "selectHour": "Sélectionner l'heure",
     "popularTimes": "Heures populaires",
     "notificationPermission": "Autorisation de notification",
-    "notificationPermissionMessage": "Nous vous enverrons des rappels quotidiens pour pratiquer votre allemand. Vous pouvez modifier cela à tout moment dans les paramètres.",
+    "notificationPermissionMessage": "Nous vous enverrons des rappels quotidiens pour pratiquer votre {{language}}. Vous pouvez modifier cela à tout moment dans les paramètres.",
     "permissionDenied": "Autorisation refusée",
     "permissionDeniedMessage": "Pour recevoir des notifications, veuillez les activer dans les paramètres de votre appareil.",
     "permissionError": "Impossible de demander l'autorisation de notification. Veuillez vérifier les paramètres de votre appareil.",
@@ -697,7 +698,7 @@
   },
   "notificationReminder": {
     "title": "Restez sur la bonne voie avec des rappels quotidiens",
-    "message": "Recevez une notification quotidienne amicale pour vous aider à pratiquer régulièrement et atteindre vos objectifs en allemand!",
+    "message": "Recevez une notification quotidienne amicale pour vous aider à pratiquer régulièrement et atteindre vos objectifs en {{language}}!",
     "enableButton": "Activer les notifications",
     "maybeLaterButton": "Peut-être plus tard",
     "hourPickerTitle": "Choisissez votre heure de rappel préférée",
@@ -859,7 +860,7 @@
       "nextSection": "Continuer à la partie suivante"
     },
     "evaluation": {
-      "title": "Votre évaluation (Expression écrite)",
+      "title": "Votre évaluation",
       "totalScore": "Score total:",
       "criteriaTitle": "Critères d'évaluation:",
       "criteria": {
@@ -1048,5 +1049,77 @@
     "subtitle": "Aidez-nous à garder cette app gratuite en regardant une courte pub.",
     "watchAd": "Regarder la pub",
     "skip": "Passer"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Passez à Premium",
+      "subtitle": "Débloquez l'expérience complète",
+      "oneTimePurchase": "Achat unique",
+      "purchaseButton": "Mettre à niveau",
+      "purchasing": "Traitement en cours...",
+      "maybeLater": "Peut-être plus tard"
+    },
+    "features": {
+      "adFree": {
+        "title": "Sans publicité",
+        "description": "Apprenez sans interruption."
+      },
+      "offline": {
+        "title": "Mode hors ligne",
+        "description": "Téléchargez et étudiez partout."
+      },
+      "streakFreeze": {
+        "title": "Gel de série",
+        "description": "Protégez avec 2 gels/semaine."
+      },
+      "support": {
+        "title": "Soutenir le développement",
+        "description": "Nouveaux examens et fonctionnalités."
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Passer à Premium",
+        "description": "Sans pub, mode hors ligne et plus"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "Pourquoi\nPremium ?",
+      "oneTimePurchase": "Achetez une fois, accédez pour toujours",
+      "unlockNow": "Débloquer maintenant",
+      "restorePurchases": "Restaurer les achats",
+      "restoring": "Restauration...",
+      "noRestoreFound": "Aucun achat précédent trouvé",
+      "restoreSuccess": "Achats restaurés avec succès !",
+      "alreadyPremium": "Vous avez déjà Premium !",
+      "thankYou": "Merci pour votre soutien !",
+      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents."
+    }
+  },
+  "offline": {
+    "title": "Mode hors ligne",
+    "subtitle": "Télécharger tout le contenu pour étudier hors ligne",
+    "blocking": {
+      "title": "Pas de connexion Internet",
+      "description": "Une connexion Internet active est requise pour utiliser la version gratuite de cette application.\n\nLes utilisateurs Premium peuvent accéder au contenu hors ligne.",
+      "premiumHint": "Passez à Premium pour un accès hors ligne"
+    },
+    "requiresConnectionTitle": "Internet requis",
+    "requiresConnectionMessage": "Vous avez besoin d'une connexion Internet pour télécharger ou mettre à jour le contenu hors ligne.",
+    "enableTitle": "Activer le mode hors ligne ?",
+    "enableMessage": "Cela téléchargera tout le contenu des examens et les fichiers audio. Assurez-vous d'avoir une connexion stable.",
+    "disableTitle": "Désactiver le mode hors ligne ?",
+    "disableMessage": "Cela supprimera tout le contenu téléchargé. Vous aurez besoin d'une connexion internet pour étudier.",
+    "download": "Télécharger",
+    "downloadNow": "Télécharger maintenant",
+    "update": "Mettre à jour",
+    "clear": "Supprimer",
+    "downloaded": "Contenu téléchargé",
+    "notDownloaded": "Contenu non téléchargé",
+    "used": "utilisé",
+    "lastUpdated": "Dernière mise à jour :",
+    "error": "Téléchargement échoué. Veuillez réessayer."
   }
 }

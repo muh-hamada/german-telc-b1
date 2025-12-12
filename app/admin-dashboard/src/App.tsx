@@ -10,6 +10,7 @@ import { DeletionRequestsPage } from './pages/DeletionRequestsPage';
 import { AnalyticsPage } from './pages/AnalyticsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
+import { QuestionsOverviewPage } from './pages/QuestionsOverviewPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -73,6 +74,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <VocabularyUploadPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/questions-overview"
+            element={
+              <ProtectedRoute>
+                <QuestionsOverviewPage />
               </ProtectedRoute>
             }
           />

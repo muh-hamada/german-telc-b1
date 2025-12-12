@@ -69,6 +69,21 @@ target 'TelcExamApp' do
       # :ccache_enabled => true
     )
     
+    # Fix react-native-iap appTransactionID bug (property doesn't exist in StoreKit)
+    iap_file = "#{Pod::Config.instance.installation_root}/../node_modules/react-native-iap/ios/IapSerializationUtils.swift"
+    if File.exist?(iap_file)
+      content = File.read(iap_file)
+      if content.include?('result["appTransactionID"] = t.appTransactionID')
+        # Comment out the appTransactionID lines which reference a non-existent property
+        patched_content = content.gsub(
+          /(\s*)(#if compiler\(>=5\.10\)\s*\n\s*if #available\(iOS 15\.2, tvOS 15\.2, \*\) \{\s*\n\s*result\["appTransactionID"\] = t\.appTransactionID\s*\n\s*\}\s*\n\s*#endif)/m,
+          "\\1// Patched: appTransactionID property does not exist in StoreKit Transaction\n\\1// \\2".gsub("\n", "\n\\1// ")
+        )
+        File.write(iap_file, patched_content)
+        Pod::UI.puts "Patched RNIap IapSerializationUtils.swift to fix appTransactionID issue"
+      end
+    end
+    
     # Fix for Hermes dSYM missing issue
     installer.pods_project.targets.each do |target|
       if target.name == 'hermes-engine'
@@ -83,6 +98,7 @@ target 'TelcExamApp' do
         config.build_settings.delete('PROVISIONING_PROFILE_SPECIFIER')
         config.build_settings.delete('CODE_SIGN_IDENTITY')
         config.build_settings.delete('CODE_SIGN_STYLE')
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
       end
     end
   end

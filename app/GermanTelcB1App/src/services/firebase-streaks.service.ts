@@ -22,6 +22,12 @@ export interface AdFreeReward {
   earnedAt: number | null;
 }
 
+export interface StreakFreeze {
+  available: number;        // Currently available freezes (0-2)
+  lastRefillDate: string;   // YYYY-MM-DD when last refilled to 2
+  usedThisWeek: number;     // Count used this week
+}
+
 export interface StreakData {
   currentStreak: number;
   longestStreak: number;
@@ -31,6 +37,8 @@ export interface StreakData {
   adFreeReward: AdFreeReward;
   streakModalShownToday: boolean;
   lastStreakModalDate: string; // YYYY-MM-DD
+  // Premium feature: streak freeze
+  streakFreeze?: StreakFreeze;
 }
 
 export interface WeeklyActivityData {
@@ -104,7 +112,34 @@ class FirebaseStreaksService {
       },
       streakModalShownToday: false,
       lastStreakModalDate: '',
+      streakFreeze: {
+        available: 2,
+        lastRefillDate: getLocalDateString(),
+        usedThisWeek: 0,
+      },
     };
+  }
+
+  /**
+   * Get the start of the current week (Monday)
+   */
+  private getWeekStartDate(): string {
+    const now = new Date();
+    const day = now.getDay();
+    const diff = now.getDate() - day + (day === 0 ? -6 : 1); // Adjust for Sunday
+    const monday = new Date(now.setDate(diff));
+    const year = monday.getFullYear();
+    const month = String(monday.getMonth() + 1).padStart(2, '0');
+    const dayStr = String(monday.getDate()).padStart(2, '0');
+    return `${year}-${month}-${dayStr}`;
+  }
+
+  /**
+   * Check if freeze should be refilled (new week started)
+   */
+  private shouldRefillFreezes(lastRefillDate: string): boolean {
+    const currentWeekStart = this.getWeekStartDate();
+    return lastRefillDate !== currentWeekStart;
   }
 
   /**
@@ -458,10 +493,14 @@ class FirebaseStreaksService {
       if (!isActive && streakData.adFreeReward.claimed) {
         console.log('[StreaksService] Ad-free period expired, cleaning up');
         const docPath = this.getStreaksPath(userId);
-        await firestore().doc(docPath).update({
-          'adFreeReward.claimed': false,
-          'adFreeReward.expiresAt': null,
-        });
+        // Use set with merge to handle case where doc doesn't exist
+        await firestore().doc(docPath).set({
+          adFreeReward: {
+            ...streakData.adFreeReward,
+            claimed: false,
+            expiresAt: null,
+          },
+        }, { merge: true });
 
         logEvent(AnalyticsEvents.AD_FREE_EXPIRED);
       }
@@ -497,10 +536,11 @@ class FirebaseStreaksService {
       const today = getLocalDateString();
       const docPath = this.getStreaksPath(userId);
       
-      await firestore().doc(docPath).update({
+      // Use set with merge to handle case where doc doesn't exist
+      await firestore().doc(docPath).set({
         streakModalShownToday: true,
         lastStreakModalDate: today,
-      });
+      }, { merge: true });
 
       logEvent(AnalyticsEvents.STREAK_MODAL_SHOWN, {
         date: today,
@@ -550,6 +590,143 @@ class FirebaseStreaksService {
       return streakData.adFreeReward.earned && !streakData.adFreeReward.claimed;
     } catch (error) {
       console.error('[StreaksService] Error checking pending reward:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Get streak freeze data, refilling if new week
+   * @param userId - User ID
+   * @returns Current streak freeze data
+   */
+  async getStreakFreezeData(userId: string): Promise<StreakFreeze> {
+    try {
+      const streakData = await this.getStreakData(userId);
+      
+      // Initialize freeze data if doesn't exist
+      if (!streakData.streakFreeze) {
+        const defaultFreeze: StreakFreeze = {
+          available: 2,
+          lastRefillDate: this.getWeekStartDate(),
+          usedThisWeek: 0,
+        };
+        
+        const docPath = this.getStreaksPath(userId);
+        // Use set with merge to create doc if it doesn't exist
+        await firestore().doc(docPath).set({
+          streakFreeze: defaultFreeze,
+        }, { merge: true });
+        
+        return defaultFreeze;
+      }
+
+      // Check if new week started - refill freezes
+      if (this.shouldRefillFreezes(streakData.streakFreeze.lastRefillDate)) {
+        const refilled: StreakFreeze = {
+          available: 2,
+          lastRefillDate: this.getWeekStartDate(),
+          usedThisWeek: 0,
+        };
+        
+        const docPath = this.getStreaksPath(userId);
+        // Use set with merge to create doc if it doesn't exist
+        await firestore().doc(docPath).set({
+          streakFreeze: refilled,
+        }, { merge: true });
+        
+        console.log('[StreaksService] Streak freezes refilled for new week');
+        return refilled;
+      }
+
+      return streakData.streakFreeze;
+    } catch (error) {
+      console.error('[StreaksService] Error getting streak freeze data:', error);
+      return {
+        available: 0,
+        lastRefillDate: this.getWeekStartDate(),
+        usedThisWeek: 0,
+      };
+    }
+  }
+
+  /**
+   * Use a streak freeze to protect the streak
+   * @param userId - User ID
+   * @returns true if freeze was used successfully
+   */
+  async useStreakFreeze(userId: string): Promise<boolean> {
+    try {
+      const freezeData = await this.getStreakFreezeData(userId);
+      
+      if (freezeData.available <= 0) {
+        console.log('[StreaksService] No streak freezes available');
+        return false;
+      }
+
+      const docPath = this.getStreaksPath(userId);
+      const updatedFreeze: StreakFreeze = {
+        available: freezeData.available - 1,
+        lastRefillDate: freezeData.lastRefillDate,
+        usedThisWeek: freezeData.usedThisWeek + 1,
+      };
+
+      // Also update last activity date to today to maintain the streak
+      const today = getLocalDateString();
+      
+      // Use set with merge to handle case where doc doesn't exist
+      await firestore().doc(docPath).set({
+        streakFreeze: updatedFreeze,
+        lastActivityDate: today, // This prevents streak from breaking
+      }, { merge: true });
+
+      console.log('[StreaksService] Streak freeze used. Remaining:', updatedFreeze.available);
+      
+      logEvent(AnalyticsEvents.STREAK_ACTIVITY_RECORDED, {
+        activity_type: 'streak_freeze',
+        freezes_remaining: updatedFreeze.available,
+      });
+
+      return true;
+    } catch (error) {
+      console.error('[StreaksService] Error using streak freeze:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Check if streak would be broken today and auto-apply freeze if premium
+   * This should be called on app launch for premium users
+   * @param userId - User ID
+   * @param isPremium - Whether user has premium
+   * @returns true if freeze was auto-applied
+   */
+  async checkAndAutoApplyFreeze(userId: string, isPremium: boolean): Promise<boolean> {
+    if (!isPremium) {
+      return false;
+    }
+
+    try {
+      const streakData = await this.getStreakData(userId);
+      const today = getLocalDateString();
+
+      // If last activity was yesterday, streak is fine
+      if (!streakData.lastActivityDate || 
+          isSameDay(streakData.lastActivityDate, today) ||
+          isConsecutiveDay(streakData.lastActivityDate, today)) {
+        return false;
+      }
+
+      // Streak would be broken - check if we have freezes
+      const freezeData = await this.getStreakFreezeData(userId);
+      
+      if (freezeData.available > 0 && streakData.currentStreak > 0) {
+        console.log('[StreaksService] Auto-applying streak freeze to protect streak');
+        return await this.useStreakFreeze(userId);
+      }
+
+      return false;
+    } catch (error) {
+      console.error('[StreaksService] Error checking auto-apply freeze:', error);
       return false;
     }
   }

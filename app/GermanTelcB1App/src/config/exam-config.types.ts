@@ -71,8 +71,21 @@ export interface ExamConfig {
     userSupport: {
       android: string;
       ios: string;
+    },
+    vocabularyBuilder: {
+      android: string;
+      ios: string;
     }
-  }
+  };
+
+  // Premium/IAP Configuration
+  premium: {
+    productId: {
+      android: string;
+      ios: string;
+    };
+    // Note: Price comes from store dynamically via PremiumContext.productPrice
+  };
 
   writingEvaluationFnName: string;
 }

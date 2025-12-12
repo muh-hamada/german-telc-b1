@@ -1,0 +1,92 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 60
+    },
+    {
+        "type": "speech",
+        "text": "Good afternoon and welcome to City Matters on Radio 4. I'm your host, Sarah Jenkins. Today we are looking at the future of urban transport, specifically the push to get people out of their cars and onto bicycles. Cities across the country are declaring a 'cycling revolution,' investing millions in new lanes and schemes. Yet, traffic congestion remains at an all-time high. It seems that while we like the idea of cycling, we are struggling to let go of our car keys. To discuss why this shift is so difficult, we have Mark Evans, an urban mobility planner who has worked with councils across the UK. Mark, welcome. Is the revolution actually happening?",
+        "voiceId": "person1",
+        "id": "interview-0"
+    },
+    {
+        "type": "speech",
+        "text": "Hello Sarah. Well, it is and it isn't. If you look at bicycle sales figures, they have gone through the roof in the last five years. However, owning a bike and using it for your daily commute are two very different things. Research suggests that while many people are buying bikes, they are primarily using them for weekend leisure in parks, rather than replacing their Monday to Friday car journeys. So, we have more cyclists, but sadly, not necessarily fewer cars on the road during rush hour.",
+        "voiceId": "person4",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "text": "That is a crucial distinction. What stops people from making that switch for the daily commute? Is it simply laziness, or is there a genuine fear of safety?",
+        "voiceId": "person1",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "text": "Safety is undoubtedly the number one barrier. You can't just paint a white line on the side of a busy road and call it a cycle lane. Most people do not feel comfortable cycling inches away from a bus or a lorry. To truly reduce car reliance, we need what we call 'segregated infrastructure'—physical barriers that separate cyclists from heavy traffic, much like they have in the Netherlands. Until people feel physically safe, they will naturally prefer the metal box of their car.",
+        "voiceId": "person4",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "text": "But surely geography and weather play a part too? It's all very well comparing us to Amsterdam, which is flat, but many of our cities are hilly and, frankly, it rains a lot more here. Is it realistic to expect people to cycle in bad weather?",
+        "voiceId": "person1",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "text": "That is a common misconception, actually. If you look at cities in Scandinavia, like Copenhagen or Oulu in Finland, they have much harsher winters than we do, yet their cycling rates are huge. The weather isn't the issue; it's the clothing and the culture. As for hills, the boom in electric bikes has completely solved that problem. An e-bike flattens the city. It allows you to arrive at work without being sweaty or exhausted. The technology is there; we just need the mindset to change.",
+        "voiceId": "person4",
+        "id": "interview-5"
+    },
+    {
+        "type": "speech",
+        "text": "I'd like to touch on the economic impact. Local business owners often complain that if you remove parking spaces to build these bike lanes, they will lose customers. Is there any truth to that?",
+        "voiceId": "person1",
+        "id": "interview-6"
+    },
+    {
+        "type": "speech",
+        "text": "It is a very understandable fear for shop owners, but the data proves the opposite. Cyclists and pedestrians actually spend more money in local shops than drivers do. Drivers tend to do one big shop at a supermarket and drive home. Cyclists stop more frequently, perhaps grabbing a coffee or buying small items on their way. Making a street pedestrian and cycle-friendly actually boosts the local economy, though it can be hard to convince shop owners of this initially.",
+        "voiceId": "person4",
+        "id": "interview-7"
+    },
+    {
+        "type": "speech",
+        "text": "We have seen increased tension on the roads recently—so-called 'wars' between cyclists and drivers. We see videos online of arguments and near misses. How do we solve this aggression?",
+        "voiceId": "person1",
+        "id": "interview-8"
+    },
+    {
+        "type": "speech",
+        "text": "It is worrying, and there is fault on both sides. You have drivers parking in cycle lanes, and you have cyclists ignoring red lights. This friction usually happens because they are fighting for the same small amount of road space. The solution brings us back to infrastructure. If you build proper lanes where cars and bikes don't interact, the conflict disappears. You don't see road rage between a train driver and a pilot because they have their own paths. We need to design our streets so that cyclists and drivers aren't constantly in each other's way.",
+        "voiceId": "person4",
+        "id": "interview-9"
+    },
+    {
+        "type": "speech",
+        "text": "That makes a lot of sense. Mark, thank you for joining us. We'll be back after the news with a look at the weather.",
+        "voiceId": "person1",
+        "id": "interview-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 20
+    }
+]

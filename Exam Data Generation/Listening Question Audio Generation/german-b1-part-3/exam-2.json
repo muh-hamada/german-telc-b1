@@ -1,0 +1,124 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-intro" },
+    { "type": "pause", "durationSeconds": 2 },
+    
+    { "type": "ready", "id": "nummer-56" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie rufen eine Zahnarztpraxis an und fragen nach dem Weg. Also, das ist ganz einfach. Wenn Sie an der Bushaltestelle 'Marktplatz' aussteigen, gehen Sie links an der Post vorbei in die Breite Straße. Gehen Sie etwa hundert Meter geradeaus. Unsere Praxis ist dann auf der rechten Seite, direkt über dem Supermarkt. Der Eingang ist aber hinten im Hof, nicht an der Straße.",
+      "voiceId": "person3",
+      "id": "speech-56"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie rufen eine Zahnarztpraxis an und fragen nach dem Weg. Also, das ist ganz einfach. Wenn Sie an der Bushaltestelle 'Marktplatz' aussteigen, gehen Sie links an der Post vorbei in die Breite Straße. Gehen Sie etwa hundert Meter geradeaus. Unsere Praxis ist dann auf der rechten Seite, direkt über dem Supermarkt. Der Eingang ist aber hinten im Hof, nicht an der Straße.",
+      "voiceId": "person3",
+      "id": "speech-56"
+    },
+    
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "nummer-57" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie rufen die Hotline eines Theaters an. Herzlich willkommen beim Kultur-Telefon. Hier ist unser Programm für das Wochenende. Im Großen Saal sehen Sie am Samstag das Musical 'Der König der Löwen', Beginn 19:30 Uhr. Im Kleinen Studio zeigen wir den Film 'Alte Zeiten' um 21:00 Uhr. Achtung: Für das Musical am Samstag gibt es keine Karten mehr, die Vorstellung ist komplett ausverkauft.",
+      "voiceId": "person1",
+      "id": "speech-57"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie rufen die Hotline eines Theaters an. Herzlich willkommen beim Kultur-Telefon. Hier ist unser Programm für das Wochenende. Im Großen Saal sehen Sie am Samstag das Musical 'Der König der Löwen', Beginn 19:30 Uhr. Im Kleinen Studio zeigen wir den Film 'Alte Zeiten' um 21:00 Uhr. Achtung: Für das Musical am Samstag gibt es keine Karten mehr, die Vorstellung ist komplett ausverkauft.",
+      "voiceId": "person1",
+      "id": "speech-57"
+    },
+    
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "nummer-58" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie hören den Wetterbericht für Norddeutschland im Radio. Und hier die Aussichten für das Wochenende. Am Samstag erwartet Sie viel Sonnenschein an der Küste bei angenehmen 22 Grad. Ideal für einen Ausflug. Aber Vorsicht am Sonntag: Es zieht ein starkes Gewitter auf, es kühlt ab auf 15 Grad und wird sehr regnerisch. Lassen Sie den Regenschirm am Sonntag nicht zu Hause.",
+      "voiceId": "person4",
+      "id": "speech-58"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie hören den Wetterbericht für Norddeutschland im Radio. Und hier die Aussichten für das Wochenende. Am Samstag erwartet Sie viel Sonnenschein an der Küste bei angenehmen 22 Grad. Ideal für einen Ausflug. Aber Vorsicht am Sonntag: Es zieht ein starkes Gewitter auf, es kühlt ab auf 15 Grad und wird sehr regnerisch. Lassen Sie den Regenschirm am Sonntag nicht zu Hause.",
+      "voiceId": "person4",
+      "id": "speech-58"
+    },
+    
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "nummer-59" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie sitzen im Bus und hören eine Durchsage. Achtung, eine wichtige Information für alle Fahrgäste der Linie 42 Richtung Hauptbahnhof. Wegen einer Baustelle am Marktplatz fährt dieser Bus heute eine Umleitung. Wir halten heute nicht am Rathaus. Die nächste reguläre Haltestelle ist 'Neumarkt'. Wenn Sie zum Rathaus wollen, steigen Sie bitte am Neumarkt aus und laufen Sie zurück.",
+      "voiceId": "person2",
+      "id": "speech-59"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie sitzen im Bus und hören eine Durchsage. Achtung, eine wichtige Information für alle Fahrgäste der Linie 42 Richtung Hauptbahnhof. Wegen einer Baustelle am Marktplatz fährt dieser Bus heute eine Umleitung. Wir halten heute nicht am Rathaus. Die nächste reguläre Haltestelle ist 'Neumarkt'. Wenn Sie zum Rathaus wollen, steigen Sie bitte am Neumarkt aus und laufen Sie zurück.",
+      "voiceId": "person2",
+      "id": "speech-59"
+    },
+    
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "nummer-60" },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-listen-text" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie sind im Supermarkt und hören folgende Durchsage. Liebe Kunden, aufgepasst! In unserer Obst- und Gemüseabteilung feiern wir heute das Frische-Fest. Leckere spanische Orangen, das Kilo für nur 1 Euro 50. Und probieren Sie unsere frischen deutschen Äpfel aus dem Alten Land, der 2-Kilo-Beutel heute für nur 2 Euro. Greifen Sie zu, nur solange der Vorrat reicht!",
+      "voiceId": "person5",
+      "id": "speech-60"
+    },
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "text": "Sie sind im Supermarkt und hören folgende Durchsage. Liebe Kunden, aufgepasst! In unserer Obst- und Gemüseabteilung feiern wir heute das Frische-Fest. Leckere spanische Orangen, das Kilo für nur 1 Euro 50. Und probieren Sie unsere frischen deutschen Äpfel aus dem Alten Land, der 2-Kilo-Beutel heute für nur 2 Euro. Greifen Sie zu, nur solange der Vorrat reicht!",
+      "voiceId": "person5",
+      "id": "speech-60"
+    },
+
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 2 }
+]
+  

@@ -303,11 +303,11 @@
       "part1": "Part 1: Gap Fill (Multiple Choice)",
       "part2": "Part 2: Gap Fill (Word List)",
       "descriptions": {
-        "main": "Practice German grammar with gap-fill exercises"
+        "main": "Practice {{language}} grammar with gap-fill exercises"
       },
       "study": {
         "title": "150 Grammar Questions",
-        "description": "Master German grammar with 150 practice questions from various topics",
+        "description": "Master {{language}} grammar with 150 practice questions from various topics",
         "progress": "Question {{current}} of {{total}}",
         "currentProgress": "Current Progress",
         "progressFound": "Previous Progress Found",
@@ -416,7 +416,7 @@
     "selectHour": "Select Hour",
     "popularTimes": "Popular Times",
     "notificationPermission": "Notification Permission",
-    "notificationPermissionMessage": "We'll send you daily reminders to practice your German. You can change this anytime in settings.",
+    "notificationPermissionMessage": "We'll send you daily reminders to practice your {{language}}. You can change this anytime in settings.",
     "permissionDenied": "Permission Denied",
     "permissionDeniedMessage": "To receive notifications, please enable them in your device settings.",
     "permissionError": "Unable to request notification permission. Please check your device settings.",
@@ -470,7 +470,7 @@
   },
   "notificationReminder": {
     "title": "Stay on Track with Daily Reminders",
-    "message": "Get a friendly daily notification to help you practice regularly and achieve your German language goals!",
+    "message": "Get a friendly daily notification to help you practice regularly and achieve your {{language}} language goals!",
     "enableButton": "Enable Notifications",
     "maybeLaterButton": "Maybe Later",
     "hourPickerTitle": "Choose your preferred reminder time",
@@ -579,7 +579,8 @@
       "userDisabled": "This account has been disabled.",
       "tooManyRequests": "Too many failed attempts. Please try again later.",
       "networkError": "Network error. Please check your internet connection.",
-      "unknownError": "An unexpected error occurred. Please try again."
+      "unknownError": "An unexpected error occurred. Please try again.",
+      "adLoadFailed": "Unable to load content. Please continue."
     }
   },
   "speaking": {
@@ -894,7 +895,7 @@
       "nextSection": "Continue to Next Section"
     },
     "evaluation": {
-      "title": "Your Assessment (Written Expression)",
+      "title": "Your Assessment",
       "totalScore": "Total Score:",
       "criteriaTitle": "Assessment Criteria:",
       "criteria": {
@@ -1074,5 +1075,77 @@
     "subtitle": "Help keep this app free by watching a short ad.",
     "watchAd": "Watch Ad",
     "skip": "Skip"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Go Premium",
+      "subtitle": "Unlock the full experience",
+      "oneTimePurchase": "One-time purchase",
+      "purchaseButton": "Upgrade Now",
+      "purchasing": "Processing...",
+      "maybeLater": "Maybe Later"
+    },
+    "features": {
+      "adFree": {
+        "title": "Ad-Free Experience",
+        "description": "Enjoy learning without interruptions."
+      },
+      "offline": {
+        "title": "Offline Mode",
+        "description": "Download and study anywhere."
+      },
+      "streakFreeze": {
+        "title": "Streak Freeze",
+        "description": "Protect streak with 2 freezes/week."
+      },
+      "support": {
+        "title": "Support Development",
+        "description": "Help us bring new exams & features."
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Upgrade to Premium",
+        "description": "Ad-free, offline mode, and more"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "Why\nPremium?",
+      "oneTimePurchase": "Buy once, access forever",
+      "unlockNow": "Unlock Now",
+      "restorePurchases": "Restore Purchases",
+      "restoring": "Restoring...",
+      "noRestoreFound": "No previous purchases found",
+      "restoreSuccess": "Purchases restored successfully!",
+      "alreadyPremium": "You already have Premium!",
+      "thankYou": "Thank you for your support!",
+      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees."
+    }
+  },
+  "offline": {
+    "title": "Offline Mode",
+    "subtitle": "Download all content for offline studying",
+    "blocking": {
+      "title": "No Internet Connection",
+      "description": "An active internet connection is required to use the free version of this app.\n\nPremium users can access content offline.",
+      "premiumHint": "Upgrade to Premium for offline access"
+    },
+    "requiresConnectionTitle": "Internet Required",
+    "requiresConnectionMessage": "You need an internet connection to download or update offline content.",
+    "enableTitle": "Enable Offline Mode?",
+    "enableMessage": "This will download all exam content and audio files. Make sure you have a stable internet connection.",
+    "disableTitle": "Disable Offline Mode?",
+    "disableMessage": "This will delete all downloaded content. You will need an internet connection to study.",
+    "download": "Download",
+    "downloadNow": "Download Now",
+    "update": "Update",
+    "clear": "Clear",
+    "downloaded": "Content downloaded",
+    "notDownloaded": "Content not downloaded",
+    "used": "used",
+    "lastUpdated": "Last updated:",
+    "error": "Download failed. Please try again."
   }
 }

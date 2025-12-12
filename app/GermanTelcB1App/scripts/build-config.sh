@@ -18,6 +18,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"
+  echo "  - english-b2"
   echo ""
   echo "Available platforms:"
   echo "  - android"
@@ -35,8 +36,8 @@ echo "Configuring build for: $EXAM_ID ($PLATFORM)"
 echo "================================================"
 echo ""
 
-# Run Node script to apply configuration
-node scripts/apply-exam-config.js "$EXAM_ID" "$PLATFORM"
+# Run TypeScript script to apply configuration
+npx tsx scripts/apply-exam-config.ts "$EXAM_ID" "$PLATFORM"
 
 echo ""
 echo "Copying Firebase configuration files..."

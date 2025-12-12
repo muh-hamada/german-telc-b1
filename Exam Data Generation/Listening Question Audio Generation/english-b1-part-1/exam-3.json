@@ -1,0 +1,116 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-1-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 30
+    },
+    {
+      "type": "speech",
+      "text": "You're going to hear five people talking about the experience of working from home.",
+      "voiceId": "moderator"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "number-41"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "For me, it has been a fantastic change. I used to spend over an hour every morning just driving to work in heavy traffic. Now, I use that time to exercise or have a proper breakfast with my family. I feel much more relaxed when I start my work day.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-42"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "I honestly find it quite difficult. I live in a small apartment and I don't have a separate room for an office. I have to work at the kitchen table, which is uncomfortable. Also, my neighbors can be very noisy during the day, so it is hard to concentrate.",
+      "voiceId": "person2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-43"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "I miss the social side of the job. At the office, we often solved problems just by chatting while getting a coffee. At home, you have to write an email or schedule a call for everything. It feels a bit lonely and the work actually takes longer.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-44"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "The biggest benefit is definitely financial. Before, I was spending a large part of my salary on train tickets and buying lunch at restaurants near the office. Now, I cook at home and save hundreds of pounds a month. It makes a big difference to my budget.",
+      "voiceId": "person4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-45"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "I think the best solution is a mix of both. It is good to stay home when you need to focus on a big project without interruptions. But, it is also important to go in once or twice a week to see your team. Companies should offer a hybrid model.",
+      "voiceId": "person5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "part-1-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

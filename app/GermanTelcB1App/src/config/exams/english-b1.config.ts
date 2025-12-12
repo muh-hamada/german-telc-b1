@@ -72,6 +72,17 @@ export const englishB1Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/2664599468',
       ios: 'ca-app-pub-5101905792101482/7398051391',
     },
+    vocabularyBuilder: {
+      android: 'ca-app-pub-5101905792101482/3919962422',
+      ios: 'ca-app-pub-5101905792101482/4633266531',
+    },
+  },
+
+  premium: {
+    productId: {
+      android: 'full_access',
+      ios: 'full_access_english_b1',
+    },
   },
 
   writingEvaluationFnName: 'evaluateWritingEnglishB1'

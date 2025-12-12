@@ -4,6 +4,23 @@ export interface ValidationResult {
 }
 
 /**
+ * Helper function to find duplicate IDs in an array
+ */
+const findDuplicateIds = (ids: (number | string)[]): (number | string)[] => {
+  const seen = new Set<number | string>();
+  const duplicates = new Set<number | string>();
+  
+  ids.forEach(id => {
+    if (seen.has(id)) {
+      duplicates.add(id);
+    }
+    seen.add(id);
+  });
+  
+  return Array.from(duplicates);
+};
+
+/**
  * Validate Grammar Part 1 & 2 structure
  */
 export const validateGrammarPart1 = (data: any): ValidationResult => {
@@ -12,6 +29,13 @@ export const validateGrammarPart1 = (data: any): ValidationResult => {
   if (!data.exams || !Array.isArray(data.exams)) {
     errors.push('Missing or invalid "exams" array');
     return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
   }
 
   data.exams.forEach((exam: any, index: number) => {
@@ -27,6 +51,13 @@ export const validateGrammarPart1 = (data: any): ValidationResult => {
     if (!Array.isArray(exam.questions)) {
       errors.push(`Exam ${index}: Missing or invalid "questions" array`);
     } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
       exam.questions.forEach((q: any, qIndex: number) => {
         if (typeof q.id !== 'number') {
           errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
@@ -47,6 +78,13 @@ export const validateGrammarPart2 = (data: any): ValidationResult => {
   if (!data.exams || !Array.isArray(data.exams)) {
     errors.push('Missing or invalid "exams" array');
     return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
   }
 
   data.exams.forEach((exam: any, index: number) => {
@@ -81,6 +119,13 @@ export const validateReadingPart1 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate exam IDs
+  const examIds = data.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
   data.forEach((exam: any, index: number) => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
@@ -91,6 +136,13 @@ export const validateReadingPart1 = (data: any): ValidationResult => {
     if (!Array.isArray(exam.texts)) {
       errors.push(`Exam ${index}: Missing or invalid "texts" array`);
     } else {
+      // Check for duplicate text IDs within this exam
+      const textIds = exam.texts.map((t: any) => t.id).filter((id: any) => typeof id === 'number');
+      const duplicateTextIds = findDuplicateIds(textIds);
+      if (duplicateTextIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate text IDs found: ${duplicateTextIds.join(', ')}`);
+      }
+
       exam.texts.forEach((text: any, tIndex: number) => {
         if (typeof text.id !== 'number') {
           errors.push(`Exam ${index}, Text ${tIndex}: Missing "id"`);
@@ -119,6 +171,13 @@ export const validateReadingPart2 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
   data.exams.forEach((exam: any, index: number) => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
@@ -132,6 +191,13 @@ export const validateReadingPart2 = (data: any): ValidationResult => {
     if (!Array.isArray(exam.questions)) {
       errors.push(`Exam ${index}: Missing or invalid "questions" array`);
     } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
       exam.questions.forEach((q: any, qIndex: number) => {
         if (typeof q.id !== 'number') {
           errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
@@ -160,6 +226,13 @@ export const validateReadingPart3 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
   data.exams.forEach((exam: any, index: number) => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
@@ -173,6 +246,13 @@ export const validateReadingPart3 = (data: any): ValidationResult => {
     if (!Array.isArray(exam.situations)) {
       errors.push(`Exam ${index}: Missing or invalid "situations" array`);
     } else {
+      // Check for duplicate situation IDs within this exam
+      const situationIds = exam.situations.map((s: any) => s.id).filter((id: any) => typeof id === 'number');
+      const duplicateSituationIds = findDuplicateIds(situationIds);
+      if (duplicateSituationIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate situation IDs found: ${duplicateSituationIds.join(', ')}`);
+      }
+
       exam.situations.forEach((situation: any, sIndex: number) => {
         if (typeof situation.id !== 'number') {
           errors.push(`Exam ${index}, Situation ${sIndex}: Missing "id"`);
@@ -205,6 +285,13 @@ export const validateListeningPart = (data: any): ValidationResult => {
     return { valid: errors.length === 0, errors };
   }
 
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
   data.exams.forEach((exam: any, index: number) => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
@@ -215,6 +302,13 @@ export const validateListeningPart = (data: any): ValidationResult => {
     if (!Array.isArray(exam.statements)) {
       errors.push(`Exam ${index}: Missing or invalid "statements" array`);
     } else {
+      // Check for duplicate statement IDs within this exam
+      const statementIds = exam.statements.map((s: any) => s.id).filter((id: any) => typeof id === 'number');
+      const duplicateStatementIds = findDuplicateIds(statementIds);
+      if (duplicateStatementIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate statement IDs found: ${duplicateStatementIds.join(', ')}`);
+      }
+
       exam.statements.forEach((statement: any, sIndex: number) => {
         if (typeof statement.id !== 'number') {
           errors.push(`Exam ${index}, Statement ${sIndex}: Missing "id"`);
@@ -241,6 +335,13 @@ export const validateSpeakingImportantPhrases = (data: any): ValidationResult =>
   if (!data.groups || !Array.isArray(data.groups)) {
     errors.push('Missing or invalid "phrases" array');
     return { valid: false, errors };
+  }
+
+  // Check for duplicate group IDs
+  const groupIds = data.groups.map((group: any) => group.id).filter((id: any) => typeof id === 'number');
+  const duplicateGroupIds = findDuplicateIds(groupIds);
+  if (duplicateGroupIds.length > 0) {
+    errors.push(`Duplicate group IDs found: ${duplicateGroupIds.join(', ')}`);
   }
 
   data.groups.forEach((group: any, index: number) => {
@@ -312,6 +413,13 @@ export const validateSpeakingPart2 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate topic IDs
+  const topicIds = data.topics.map((topic: any) => topic.id).filter((id: any) => typeof id === 'number');
+  const duplicateTopicIds = findDuplicateIds(topicIds);
+  if (duplicateTopicIds.length > 0) {
+    errors.push(`Duplicate topic IDs found: ${duplicateTopicIds.join(', ')}`);
+  }
+
   data.topics.forEach((topic: any, index: number) => {
     if (typeof topic.id !== 'number') {
       errors.push(`Topic ${index}: Missing or invalid "id"`);
@@ -351,6 +459,13 @@ export const validateSpeakingPart3 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate scenario IDs
+  const scenarioIds = data.scenarios.map((scenario: any) => scenario.id).filter((id: any) => typeof id === 'number');
+  const duplicateScenarioIds = findDuplicateIds(scenarioIds);
+  if (duplicateScenarioIds.length > 0) {
+    errors.push(`Duplicate scenario IDs found: ${duplicateScenarioIds.join(', ')}`);
+  }
+
   data.scenarios.forEach((scenario: any, index: number) => {
     if (typeof scenario.id !== 'number') {
       errors.push(`Scenario ${index}: Missing or invalid "id"`);
@@ -386,6 +501,13 @@ export const validateWriting = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
   data.exams.forEach((exam: any, index: number) => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
@@ -417,6 +539,13 @@ export const validateListeningPractice = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate interview IDs (using title as unique identifier since no id field)
+  const interviewTitles = data.interviews.map((interview: any) => interview.title).filter((title: any) => typeof title === 'string');
+  const duplicateInterviewTitles = findDuplicateIds(interviewTitles);
+  if (duplicateInterviewTitles.length > 0) {
+    errors.push(`Duplicate interview titles found: ${duplicateInterviewTitles.join(', ')}`);
+  }
+
   data.interviews.forEach((interview: any, index: number) => {
     if (typeof interview.title !== 'string') {
       errors.push(`Interview ${index}: Missing or invalid "title"`);
@@ -434,17 +563,19 @@ export const validateListeningPractice = (data: any): ValidationResult => {
       errors.push(`Interview ${index}: Missing or invalid "duration"`);
     }
 
-    interview.questions.forEach((question: any, qIndex: number) => {
-      if (typeof question.question !== 'string') {
-        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "question"`);
-      }
-      if (typeof question.correct !== 'boolean') {
-        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "correct"`);
-      }
-      if (typeof question.explanation !== 'string') {
-        errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "explanation"`);
-      }
-    });
+    if (Array.isArray(interview.questions)) {
+      interview.questions.forEach((question: any, qIndex: number) => {
+        if (typeof question.question !== 'string') {
+          errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "question"`);
+        }
+        if (typeof question.correct !== 'boolean') {
+          errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "correct"`);
+        }
+        if (typeof question.explanation !== 'string') {
+          errors.push(`Interview ${index}, Question ${qIndex}: Missing or invalid "explanation"`);
+        }
+      });
+    }
   });
 
   return { valid: errors.length === 0, errors };
@@ -620,6 +751,13 @@ export const validateB2SpeakingPart1 = (data: any): ValidationResult => {
     return { valid: false, errors };
   }
 
+  // Check for duplicate topic titles (using title as unique identifier)
+  const topicTitles = data.topics.map((topic: any) => topic.title).filter((title: any) => typeof title === 'string');
+  const duplicateTopicTitles = findDuplicateIds(topicTitles);
+  if (duplicateTopicTitles.length > 0) {
+    errors.push(`Duplicate topic titles found: ${duplicateTopicTitles.join(', ')}`);
+  }
+
   data.topics.forEach((topic: any, index: number) => {
     if (typeof topic.title !== 'string') {
       errors.push(`Topic ${index}: Missing or invalid "title"`);
@@ -653,6 +791,13 @@ export const validateB2SpeakingPart2 = (data: any): ValidationResult => {
   if (!data.questions || !Array.isArray(data.questions)) {
     errors.push('Missing or invalid "questions" array');
     return { valid: false, errors };
+  }
+
+  // Check for duplicate question titles (using title as unique identifier)
+  const questionTitles = data.questions.map((q: any) => q.title).filter((title: any) => typeof title === 'string');
+  const duplicateQuestionTitles = findDuplicateIds(questionTitles);
+  if (duplicateQuestionTitles.length > 0) {
+    errors.push(`Duplicate question titles found: ${duplicateQuestionTitles.join(', ')}`);
   }
 
   data.questions.forEach((question: any, index: number) => {
@@ -703,6 +848,13 @@ export const validateB2SpeakingPart3 = (data: any): ValidationResult => {
   if (!data.questions || !Array.isArray(data.questions)) {
     errors.push('Missing or invalid "questions" array');
     return { valid: false, errors };
+  }
+
+  // Check for duplicate questions (using question text as unique identifier)
+  const questionTexts = data.questions.map((q: any) => q.question).filter((q: any) => typeof q === 'string');
+  const duplicateQuestionTexts = findDuplicateIds(questionTexts);
+  if (duplicateQuestionTexts.length > 0) {
+    errors.push(`Duplicate questions found: ${duplicateQuestionTexts.join(', ')}`);
   }
 
   data.questions.forEach((question: any, index: number) => {

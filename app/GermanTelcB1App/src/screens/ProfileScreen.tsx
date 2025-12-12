@@ -22,11 +22,14 @@ import DailyStreaksCard from '../components/DailyStreaksCard';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import ProfileStatsGrid from '../components/ProfileStatsGrid';
 import SupportAdButton from '../components/SupportAdButton';
+import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useStreak } from '../contexts/StreakContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { usePremium } from '../contexts/PremiumContext';
 import { ProfileStackParamList } from '../types/navigation.types';
+import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
 import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
@@ -35,15 +38,15 @@ import { calculateRewardDays } from '../constants/streak.constants';
 // Helper function to format time remaining
 const formatTimeRemaining = (expiresAt: number | null): string => {
   if (!expiresAt) return '';
-  
+
   const now = Date.now();
   const remaining = expiresAt - now;
-  
+
   if (remaining <= 0) return 'Expired';
-  
+
   const hours = Math.floor(remaining / (1000 * 60 * 60));
   const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-  
+
   if (hours > 0) {
     return `${hours}h ${minutes}m`;
   } else {
@@ -58,12 +61,13 @@ const ProfileScreen: React.FC = () => {
   const { user, signOut, isLoading: authLoading } = useAuth();
   const { allStats, isLoading: statsLoading } = useCompletion();
   const { adFreeStatus, streakData } = useStreak();
-  const { isStreaksEnabledForUser } = useRemoteConfig();
+  const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
+  const { isPremium, purchasePremium, isPurchasing, productPrice } = usePremium();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Use demo stats if demo mode is enabled
   const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
-  
+
   // Calculate ad-free reward days
   const adFreeRewardDays = streakData ? calculateRewardDays(streakData.currentStreak) : 1;
 
@@ -124,6 +128,18 @@ const ProfileScreen: React.FC = () => {
 
   const handleNavigateBack = () => {
     navigation.goBack();
+  };
+
+  const handleNavigateToPremium = () => {
+    navigation.navigate('Premium' as never);
+  };
+
+  const handleUpgradeToPremium = async () => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+    await purchasePremium();
   };
 
   return (
@@ -192,11 +208,58 @@ const ProfileScreen: React.FC = () => {
           </View>
         )}
 
+        {/* Premium Upgrade Card - only show when premium features enabled and user is not premium */}
+        {isPremiumFeaturesEnabled() && !isPremium && (
+          <AnimatedGradientBorder
+            borderWidth={2}
+            borderRadius={16}
+            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+            duration={4000}
+            style={styles.premiumUpgradeCardWrapper}
+          >
+            <TouchableOpacity
+              style={styles.premiumUpgradeCard}
+              onPress={handleNavigateToPremium}
+              activeOpacity={0.8}
+            >
+              <View style={styles.premiumUpgradeIconContainer}>
+                <Icon name="star" size={24} color="#F59E0B" />
+              </View>
+              <View style={styles.premiumUpgradeContent}>
+                <Text style={styles.premiumUpgradeTitle}>{t('premium.profile.upgradeCard.title')}</Text>
+                <Text style={styles.premiumUpgradeDescription}>{t('premium.profile.upgradeCard.description')}</Text>
+              </View>
+              <Image
+                  source={require('../../assets/images/race.gif')}
+                  style={styles.raceGif}
+                  resizeMode="contain"
+
+                />
+            </TouchableOpacity>
+          </AnimatedGradientBorder>
+        )}
+
         {/* Support Ad Button */}
         <SupportAdButton screen="profile" style={styles.supportAdButton} />
 
+        {/* Premium Badge - show when user is premium */}
+        {isPremiumFeaturesEnabled() && isPremium && (
+          <AnimatedGradientBorder
+            borderWidth={2}
+            borderRadius={16}
+            colors={['#F59E0B', '#FBBF24', '#FCD34D', '#FDE68A', '#FCD34D', '#FBBF24', '#F59E0B']}
+            duration={3000}
+            style={styles.premiumBadgeWrapper}
+          >
+            <View style={styles.premiumBadge}>
+              <Icon name="star" size={20} color="#F59E0B" />
+              <Text style={styles.premiumBadgeText}>{t('premium.profile.premiumBadge')}</Text>
+            </View>
+          </AnimatedGradientBorder>
+        )}
+
         {/* Stats Grid */}
-        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.lg} backgroundColor={colors.background.secondary} />
+        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.md} backgroundColor={colors.background.secondary} />
 
         {/* Ad-Free Badge - ABOVE Streaks Card */}
         {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
@@ -207,8 +270,8 @@ const ProfileScreen: React.FC = () => {
                 {t('streaks.reward.activated', { days: adFreeRewardDays })}
               </Text>
               <Text style={styles.adFreeExpiry}>
-                {t('streaks.reward.expires', { 
-                  time: formatTimeRemaining(adFreeStatus.expiresAt) 
+                {t('streaks.reward.expires', {
+                  time: formatTimeRemaining(adFreeStatus.expiresAt)
                 })}
               </Text>
             </View>
@@ -220,9 +283,9 @@ const ProfileScreen: React.FC = () => {
 
         {/* Completion Statistics Section */}
         <View style={styles.section}>
-          <CompletionStatsCard 
-            stats={displayCompletionStats} 
-            isLoading={statsLoading} 
+          <CompletionStatsCard
+            stats={displayCompletionStats}
+            isLoading={statsLoading}
             showLoggedOutMessage={!user}
             showOnlyTop={true}
             onSeeAllStats={handleNavigateToStats}
@@ -312,7 +375,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.xl,
     alignItems: 'center',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
     ...spacing.shadow.sm,
   },
   loginPromptTitle: {
@@ -331,7 +394,7 @@ const styles = StyleSheet.create({
   },
   benefitsList: {
     width: '100%',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   benefitItem: {
     flexDirection: 'row',
@@ -355,7 +418,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
     ...spacing.shadow.sm,
   },
   avatar: {
@@ -384,7 +447,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   supportAdButton: {
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   section: {
     marginBottom: spacing.margin.sm,
@@ -440,6 +503,62 @@ const styles = StyleSheet.create({
   adFreeExpiry: {
     ...typography.textStyles.bodySmall,
     color: colors.success[600],
+  },
+  premiumUpgradeCardWrapper: {
+    marginBottom: spacing.margin.md,
+  },
+  premiumUpgradeCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: 14,
+    padding: spacing.padding.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  premiumUpgradeIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#FEF3C7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: spacing.margin.md,
+  },
+  premiumUpgradeContent: {
+    flex: 1,
+  },
+  premiumUpgradeTitle: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text.primary,
+    textAlign: 'left',
+  },
+  premiumUpgradeDescription: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    textAlign: 'left',
+  },
+  premiumBadgeWrapper: {
+    marginBottom: spacing.margin.lg,
+  },
+  premiumBadge: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: 14,
+    padding: spacing.padding.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.margin.sm,
+  },
+  premiumBadgeText: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.semibold,
+    color: '#B45309',
+  },
+  raceGif: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    transform: [{ rotate: I18nManager.isRTL ? '180deg' : '0deg' }],
   },
 });
 

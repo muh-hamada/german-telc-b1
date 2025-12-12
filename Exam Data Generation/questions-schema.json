@@ -1,0 +1,503 @@
+Export the data from this PDF to the following JSON schema. Ensure all data is extracted correctly and completely. Your priority is accuracy and completion.
+You must comply with the JSON schema.
+
+Reading Part 1: JSON schema
+
+{
+    "texts": [
+        {
+            "correct": "<correct_answer_key>",
+            "id": 1,
+            "text": "<text_string>"
+        },
+        {
+            "correct": "<correct_answer_key>",
+            "id": 2,
+            "text": "<text_string>"
+        },
+        {
+            "correct": "<correct_answer_key>",
+            "id": 3,
+            "text": "<text_string>"
+        },
+        {
+            "correct": "<correct_answer_key>",
+            "id": 4,
+            "text": "<text_string>"
+        },
+        {
+            "correct": "<correct_answer_key>",
+            "id": 5,
+            "text": "<text_string>"
+        }
+    ],
+    "headings": [
+        "<heading_string>"
+    ],
+    "id": 1
+}
+
+Reading Part 2: JSON schema
+{
+    "questions": [
+        {
+            "id": 6,
+            "answers": [
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "question": "<question_string>"
+        },
+        {
+            "question": "<question_string>",
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 7
+        },
+        {
+            "question": "<question_string>",
+            "answers": [
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                }
+            ],
+            "id": 8
+        },
+        {
+            "answers": [
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 9,
+            "question": "<question_string>"
+        },
+        {
+            "answers": [
+                {
+                    "text": "<answer_string>",
+                    "correct": <boolean>
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 10,
+            "question": "<question_string>"
+        }
+    ],
+    "text": "<text_string>",
+    "id": 1,
+    "title": "<title_string>"
+}
+
+Reading Part 3: JSON schema
+{
+    "advertisements": {
+        "f": "<text_string_in_markdown>",
+        "d": "<text_string_in_markdown>",
+        "g": "<text_string_in_markdown>",
+        "i": "<text_string_in_markdown>",
+        "b": "<text_string_in_markdown>",
+        "h": "<text_string_in_markdown>",
+        "c": "<text_string_in_markdown>",
+        "l": "<text_string_in_markdown>",
+        "a": "<text_string_in_markdown>",
+        "e": "<text_string_in_markdown>",
+        "j": "<text_string_in_markdown>",
+        "k": "<text_string_in_markdown>"
+    },
+    "id": 0,
+    "situations": [
+        {
+            "id": 11,
+            "text": "<text_string>",
+            "answer": "<answer_key>"
+        },
+        {
+            "id": 12,
+            "answer": "<answer_key>",
+            "text": "<text_string>"
+        },
+        {
+            "text": "<text_string>",
+            "answer": "<answer_key>",
+            "id": 13
+        },
+        {
+            "id": 14,
+            "answer": "<answer_key>",
+            "text": "<text_string>"
+        },
+        {
+            "id": 15,
+            "answer": "<answer_key>",
+            "text": "<text_string>"
+        },
+        {
+            "text": "<text_string>",
+            "id": 16,
+            "answer": "<answer_key>"
+        },
+        {
+            "answer": "<answer_key>",
+            "id": 17,
+            "text": "<text_string>"
+        },
+        {
+            "id": 18,
+            "text": "<text_string>",
+            "answer": "<answer_key>"
+        },
+        {
+            "answer": "<answer_key>",
+            "id": 19,
+            "text": "<text_string>"
+        },
+        {
+            "answer": "<answer_key>",
+            "id": 20,
+            "text": "<text_string>"
+        }
+    ],
+    "title": "<title_string>"
+}
+
+Grammar Part 1: JSON schema
+{
+    "questions": [
+        {
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 21 // question number, starts from 21
+        },
+        {
+            "id": 22,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        },
+        {
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 25
+        },
+        {
+            "id": 26,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        },
+        {
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 28
+        },
+        {
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ],
+            "id": 29
+        },
+        {
+            "id": 30,
+            "answers": [
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                },
+                {
+                    "correct": <boolean>,
+                    "text": "<answer_string>"
+                }
+            ]
+        }
+    ],
+    "text": "<text_string>", // use \n for new lines and [number] for the question number
+    "title": "<title_string>",
+    "id": 0
+}
+
+Grammar Part 2: JSON schema
+{
+    "id": 0,
+    "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
+    "words": [
+        {
+            "key": "A",
+            "word": "<word_string>"
+        },
+        {
+            "key": "B",
+            "word": "<word_string>"
+        },
+        {
+            "key": "C",
+            "word": "<word_string>"
+        },
+        {
+            "key": "D",
+            "word": "<word_string>"
+        },
+        {
+            "key": "E",
+            "word": "<word_string>"
+        },
+        {
+            "key": "F",
+            "word": "<word_string>"
+        },
+        {
+            "key": "G",
+            "word": "<word_string>"
+        },
+        {
+            "key": "H",
+            "word": "<word_string>"
+        },
+        {
+            "key": "I",
+            "word": "<word_string>"
+        },
+        {
+            "key": "J",
+            "word": "<word_string>"
+        },
+        {
+            "key": "K",
+            "word": "<word_string>"
+        },
+        {
+            "key": "L",
+            "word": "<word_string>"
+        },
+        {
+            "key": "M",
+            "word": "<word_string>"
+        },
+        {
+            "key": "N",
+            "word": "<word_string>"
+        },
+        {
+            "key": "O",
+            "word": "<word_string>"
+        }
+    ],
+    "text": "<text_string>", // use \n for new lines and [number] for the question number
+    "answers": {
+        "31": "<answer_key>",
+        "32": "<answer_key>",
+        "33": "<answer_key>",
+        "34": "<answer_key>",
+        "35": "<answer_key>",
+        "36": "<answer_key>",
+        "37": "<answer_key>",
+        "38": "<answer_key>",
+        "39": "<answer_key>",
+        "40": "<answer_key>"
+    }
+}
+
+Writing: JSON schema / B1
+{
+    "id": 0,
+    "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
+    "incomingEmail": "<text_string>", // use \n for new lines
+    "writingPoints": [
+        "<writing_point_string>",
+        "<writing_point_string>",
+        "<writing_point_string>",
+        "<writing_point_string>"
+    ]
+}
+
+Writing: JSON schema / B2
+{
+    "uiStrings": {
+      "instructionDescription": "<instruction_description_string>",
+      "instructionTitle": "<instruction_title_string>",
+      "taskDescription": "<task_description_string>",
+      "taskFooter": "<task_footer_string>"
+    },
+    "title": "<title_string>", // Capture the title of the text - it should be 3-4 words long and describe the text
+    "writingPoints": [
+      "<writing_point_string>",
+      "<writing_point_string>",
+      "<writing_point_string>"
+      "<writing_point_string>"
+    ],
+    "themeNumber": 1,
+    "themeName": "<theme_name_string>",
+    "id": 0,
+    "incomingEmail": "<incoming_email_string>" // use \n for new lines
+  }

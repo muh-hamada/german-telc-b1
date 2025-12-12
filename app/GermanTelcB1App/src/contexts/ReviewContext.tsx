@@ -1,7 +1,8 @@
 /**
  * Review Context
  * 
- * Manages app review prompt state and logic across the application
+ * Manages app review prompt state and logic across the application.
+ * Uses the ModalQueueContext to show review modals.
  */
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
@@ -9,11 +10,9 @@ import reviewService from '../services/review.service';
 import { openAppRating } from '../utils/appRating';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { reviewTrigger } from '../utils/reviewTrigger';
+import { useModalQueue } from './ModalQueueContext';
 
 interface ReviewContextType {
-  // State
-  showReviewModal: boolean;
-  
   // Actions
   requestReview: (score?: number, maxScore?: number) => Promise<void>;
   dismissReview: () => void;
@@ -28,7 +27,7 @@ interface ReviewProviderProps {
 }
 
 export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
-  const [showReviewModal, setShowReviewModal] = useState(false);
+  const { enqueue } = useModalQueue();
 
   // Listen to review trigger events
   useEffect(() => {
@@ -61,7 +60,9 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
       
       if (shouldShow) {
         console.log('[ReviewContext] Showing review prompt');
-        setShowReviewModal(true);
+        
+        // Enqueue the review modal
+        enqueue('app-review');
         
         // Update last prompt date
         await reviewService.updateLastPromptDate();
@@ -86,7 +87,6 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
   const dismissReview = async (): Promise<void> => {
     try {
       await reviewService.recordDismissal();
-      setShowReviewModal(false);
       
       // Log analytics event
       logEvent(AnalyticsEvents.REVIEW_PROMPT_DISMISSED, {});
@@ -102,8 +102,6 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
    */
   const completeReview = async (): Promise<void> => {
     try {
-      setShowReviewModal(false);
-      
       // Open the app store for rating
       const success = await openAppRating('review_provider');
       
@@ -120,8 +118,6 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error('[ReviewContext] Error completing review:', error);
-    } finally {
-      setShowReviewModal(false);
     }
   };
 
@@ -129,11 +125,10 @@ export const ReviewProvider: React.FC<ReviewProviderProps> = ({ children }) => {
    * Close the review modal without action (for testing)
    */
   const closeReviewModal = (): void => {
-    setShowReviewModal(false);
+    // No-op since modal visibility is controlled by ModalQueueContext
   };
 
   const value: ReviewContextType = {
-    showReviewModal,
     requestReview,
     dismissReview,
     completeReview,
@@ -155,4 +150,3 @@ export const useReview = (): ReviewContextType => {
   }
   return context;
 };
-

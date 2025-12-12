@@ -49,7 +49,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
 
   const renderTextWithGaps = () => {
     const parts = exam.text.split(/(\[\d{2}\])/g);
-    
+
     return (
       <View style={styles.textContainer}>
         <Text style={styles.textContent}>
@@ -95,7 +95,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
     gapIds.forEach(gapId => {
       const userAnswer = userAnswers[gapId] || '';
       const correctAnswer = exam.answers[gapId.toString()];
-      const isCorrect = userAnswer === correctAnswer;
+      const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
       if (isCorrect) {
         correctCount++;
       }
@@ -176,29 +176,31 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
             </View>
-            <ScrollView style={styles.modalContent}>
-              {exam.words.map((word) => {
-                const isSelected = selectedGap !== null && userAnswers[selectedGap] === word.key;
-                return (
-                  <TouchableOpacity
-                    key={word.key}
-                    style={[
-                      styles.wordOption,
-                      isSelected && styles.wordOptionSelected
-                    ]}
-                    onPress={() => selectedGap !== null && handleSelectWord(selectedGap, word.key)}
-                  >
-                    <Text style={styles.wordOptionKey}>{word.key}:</Text>
-                    <Text style={[
-                      styles.wordOptionText,
-                      isSelected && styles.wordOptionTextSelected
-                    ]}>
-                      {word.word}
-                    </Text>
-                    {isSelected && <Text style={styles.checkmark}>✓</Text>}
-                  </TouchableOpacity>
-                );
-              })}
+            <ScrollView style={styles.modalScrollView}>
+              <View style={styles.modalContent}>
+                {exam.words.map((word) => {
+                  const isSelected = selectedGap !== null && userAnswers[selectedGap] === word.key;
+                  return (
+                    <TouchableOpacity
+                      key={word.key}
+                      style={[
+                        styles.wordOption,
+                        isSelected && styles.wordOptionSelected
+                      ]}
+                      onPress={() => selectedGap !== null && handleSelectWord(selectedGap, word.key)}
+                    >
+                      <Text style={styles.wordOptionKey}>{word.key}:</Text>
+                      <Text style={[
+                        styles.wordOptionText,
+                        isSelected && styles.wordOptionTextSelected
+                      ]}>
+                        {word.word}
+                      </Text>
+                      {isSelected && <Text style={styles.checkmark}>✓</Text>}
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
             </ScrollView>
           </View>
         </View>
@@ -214,9 +216,9 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          {t('grammar.part2.submitAnswers', { 
-            answered: Object.keys(userAnswers).length, 
-            total: gapIds.length 
+          {t('grammar.part2.submitAnswers', {
+            answered: Object.keys(userAnswers).length,
+            total: gapIds.length
           })}
         </Text>
       </TouchableOpacity>
@@ -357,8 +359,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.text.secondary,
   },
-  modalContent: {
+  modalScrollView: {
     maxHeight: 400,
+  },
+  modalContent: {
     padding: spacing.padding.md,
   },
   wordOption: {

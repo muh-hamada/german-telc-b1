@@ -1,0 +1,392 @@
+{
+  "exams": [
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "are willing to give up their careers to be a stay-at-home parent.",
+              "correct": true
+            },
+            {
+              "text": "think fatherhood provides discipline in their lives.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "would feel afraid of not being able to raise a child."
+            }
+          ],
+          "question": "A number of modern fathers"
+        },
+        {
+          "question": "According to the article, a majority of men today",
+          "answers": [
+            {
+              "correct": false,
+              "text": "still do not want to attend the birth of their children."
+            },
+            {
+              "text": "take an active part in pre-natal care.",
+              "correct": true
+            },
+            {
+              "correct": false,
+              "text": "wish they could afford to have leave when a child is born."
+            }
+          ],
+          "id": 7
+        },
+        {
+          "question": "If a child were ill, most of the men questioned said",
+          "answers": [
+            {
+              "text": "either partner could stay with the child.",
+              "correct": false
+            },
+            {
+              "text": "the mother should take time off work.",
+              "correct": true
+            },
+            {
+              "text": "they would stay off work themselves.",
+              "correct": false
+            }
+          ],
+          "id": 8
+        },
+        {
+          "answers": [
+            {
+              "text": "both parents need to take equal time with their new-born baby.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "children don't care which parent is around when they are upset."
+            },
+            {
+              "correct": true,
+              "text": "traditional roles for parenting have changed."
+            }
+          ],
+          "id": 9,
+          "question": "Dr. Marks comments that"
+        },
+        {
+          "answers": [
+            {
+              "text": "famous people are often poor examples of fatherhood.",
+              "correct": false
+            },
+            {
+              "correct": false,
+              "text": "society still thinks that a positive attitude to fatherhood is a sign of weakness."
+            },
+            {
+              "correct": true,
+              "text": "the results of this survey were unexpected."
+            }
+          ],
+          "id": 10,
+          "question": "Tom Beardshaw points out that"
+        }
+      ],
+      "text": "MODERN men see fatherhood as their biggest life-changing experience and desperately want to be 'hands on' during their partner's pregnancy and the upbringing of their child. The days of fatherhood being limited to discipline and breadwinning look to be long gone, as a third of today's dads say they would even consider leaving work to take on the role of full-time father. But despite being anxious about the birth of their child, men are more worried about money than losing their freedom. The results of Pregnancy & Births magazine's annual fatherhood survey, reveal the respect with which many men now regard the role of fatherhood. More than 2,000 couples across the UK who were expecting their first child were asked about their feelings. According to 98% of the fathers-to-be, they believe fatherhood will make them happy and 90% say it is their biggest life-changing event ever'. It seems that men are taking child-rearing seriously, wanting to be 'hands on' both before and after the birth. Nine out of ten dads-to-be attend scans and check-ups; only 2% of the men surveyed would not be at the birth because they \"could not face it\". Eight out of 10 women say their partner is more caring during the pregnancy and 83% of men would rather stay in with their partner than go out with friends. 72% of men say they will take two weeks' leave. A further 77% say they wish they could have more time off to bond with their baby. However, more than half of the men questioned still think that the mother should take time off work if the child is ill, but 39% said they would share it. Modern fathers-to-be are also more likely to do chores compared to decades ago: almost half of them do more housework, 41% do more meal preparation and a third go shopping more. The role of child rearing has changed dramatically over the past 50 years and more men would consider leaving work to raise their child. A third of the men surveyed say they would be prepared to be a full-time stay-at-home dad, another third would like to work part-time while the rest wish to continue with work. Dr. Maureen Marks, a specialist psychiatrist on fathers and their changing roles, does not believe the survey sample is wide enough. But she agrees that men's parental roles have changed dramatically. Dr. Marks, a senior lecturer at the Institute of Psychiatry, King's College London, said, \"Generally speaking, men are more able to be involved. As women are working more, they are not totally dependent on their husbands for money, so the roles are less rigid.\" She believes that, although the roles have been modified, biological differences are important. \"Women are the ones who carry the child and many breast-feed. In those early days, however involved the father is, they miss that connection,\" she said. However, men make up for this when the child is old enough to be played with. \"Men are much more active when playing with their children and encourage their sociability, but when children need comforting or soothing they tend to go to their mother.\" Tom Beardshaw, from the charity Fathers Direct, believes these results confirm society's changing views on fatherhood. He said, \"this confirms the equal opportunities research which shocked a lot of people by how much fathers want to get involved. There are historical changes such as women working more, and also positive male role models, such as George Clooney, who show that being a proud father is not an unmanly attribute to have.\"",
+      "id": 1,
+      "title": "Fatherhood Today"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "it has evolved from a temporary necessity into a permanent lifestyle for many.",
+              "correct": true
+            },
+            {
+              "text": "most employees differ from their bosses regarding productivity.",
+              "correct": false
+            },
+            {
+              "text": "companies are desperate to force all workers back to the office immediately.",
+              "correct": false
+            }
+          ],
+          "question": "Regarding the shift to remote work, the text suggests that"
+        },
+        {
+          "id": 7,
+          "answers": [
+            {
+              "text": "they usually earn less money than office-based employees.",
+              "correct": false
+            },
+            {
+              "text": "they are unable to maintain steady employment while traveling.",
+              "correct": false
+            },
+            {
+              "text": "they utilize technology to work from locations of their choosing.",
+              "correct": true
+            }
+          ],
+          "question": "Which statement best describes 'digital nomads'?"
+        },
+        {
+          "id": 8,
+          "answers": [
+            {
+              "text": "a lack of proper technological equipment at home.",
+              "correct": false
+            },
+            {
+              "text": "the potential loss of company culture and employee connection.",
+              "correct": true
+            },
+            {
+              "text": "an increase in expenses for the employer.",
+              "correct": false
+            }
+          ],
+          "question": "One significant challenge facing businesses today is"
+        },
+        {
+          "id": 9,
+          "answers": [
+            {
+              "text": "physical proximity is no longer necessary for any type of work.",
+              "correct": false
+            },
+            {
+              "text": "younger workers struggle more with technology than older generations.",
+              "correct": false
+            },
+            {
+              "text": "face-to-face interaction is still crucial for creative collaboration.",
+              "correct": true
+            }
+          ],
+          "question": "Dr. Elena Rossi argues that"
+        },
+        {
+          "id": 10,
+          "answers": [
+            {
+              "text": "a hybrid model that balances office attendance with home working.",
+              "correct": true
+            },
+            {
+              "text": "a complete return to the traditional nine-to-five office structure.",
+              "correct": false
+            },
+            {
+              "text": "closing all physical headquarters to maximize profit margins.",
+              "correct": false
+            }
+          ],
+          "question": "The future of the workplace will likely involve"
+        }
+      ],
+      "text": "Once considered a rare perk for the tech-savvy few, remote work has transformed the global labour market with surprising speed. What began as a temporary necessity during the global health crisis has solidified into a preferred lifestyle for millions. Recent statistics indicate that nearly 40% of the workforce would consider resigning if their employer insisted on a full-time return to the office. This shift has given rise to the phenomenon of the 'digital nomad'—professionals who leverage cloud-based technology to perform their duties from beachside cafes in Bali or mountain cabins in Colorado, rather than a cubicle in a city centre. The appeal is obvious: no commute, flexible hours, and a better work-life balance. \n\nHowever, this revolution is not without its complications. For corporate leaders, the primary concern is no longer productivity—studies have shown that output often increases when working from home—but rather 'connectivity'. Managers worry that without the casual, unplanned interactions that happen by the water cooler or in the elevator, company culture will erode. They fear that employees will feel less loyalty to a company they only experience through a screen. \n\nDr. Elena Rossi, an organisational psychologist at the University of Manchester, suggests that while the tasks can be done remotely, the spark of innovation often requires physical proximity. \"Humans are social animals,\" she explains. \"While we can process data and answer emails alone, complex problem-solving and creative brainstorming thrive on the energy of a group in a shared space. You cannot schedule inspiration in a thirty-minute video call.\" \n\nConsequently, the future of work looks neither entirely remote nor entirely office-bound, but rather 'hybrid'. Many major corporations are now redesigning their headquarters to be collaboration hubs rather than daily workspaces. In this model, employees might come in two days a week specifically for meetings and team-building, while spending the rest of the week focusing on individual tasks at home. This compromise aims to offer the flexibility workers demand while preserving the social cohesion companies need to survive.",
+      "id": 2,
+      "title": "The Hybrid Future"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "it receives more media attention than air pollution.",
+              "correct": false
+            },
+            {
+              "text": "it is often ignored despite being a serious health risk.",
+              "correct": true
+            },
+            {
+              "text": "it is primarily caused by emergency sirens.",
+              "correct": false
+            }
+          ],
+          "question": "Regarding noise pollution in cities, the text states that"
+        },
+        {
+          "id": 7,
+          "answers": [
+            {
+              "text": "the body effectively blocks out sound to protect itself.",
+              "correct": false
+            },
+            {
+              "text": "the brain stops processing auditory input to allow rest.",
+              "correct": false
+            },
+            {
+              "text": "the body reacts physically even if the person does not wake up.",
+              "correct": true
+            }
+          ],
+          "question": "According to Dr. Julianne Holt, when we are asleep,"
+        },
+        {
+          "id": 8,
+          "answers": [
+            {
+              "text": "they develop better concentration skills to cope with the distraction.",
+              "correct": false
+            },
+            {
+              "text": "their reading development can be negatively affected.",
+              "correct": true
+            },
+            {
+              "text": "they are generally less sensitive to noise than adults.",
+              "correct": false
+            }
+          ],
+          "question": "Research into children attending schools in noisy areas shows that"
+        },
+        {
+          "id": 9,
+          "answers": [
+            {
+              "text": "replacing traffic noise with pleasant natural sounds.",
+              "correct": true
+            },
+            {
+              "text": "creating complete silence within city centers.",
+              "correct": false
+            },
+            {
+              "text": "banning all construction work during daylight hours.",
+              "correct": false
+            }
+          ],
+          "question": "The urban planning technique known as 'soundscaping' involves"
+        },
+        {
+          "id": 10,
+          "answers": [
+            {
+              "text": "noise pollution will eventually disappear as cars become electric.",
+              "correct": false
+            },
+            {
+              "text": "cities need to provide specific areas where residents can find quiet.",
+              "correct": true
+            },
+            {
+              "text": "moving away from cities is the only way to stay healthy.",
+              "correct": false
+            }
+          ],
+          "question": "The conclusion of the article suggests that"
+        }
+      ],
+      "text": "Noise pollution is often described by environmentalists as the 'forgotten pollutant'. While air quality and waste disposal frequently make headlines, the constant roar of traffic, construction, and sirens in our urban centres is often dismissed by the public as a mere annoyance of modern life. However, scientists warn that this 'soundtrack of the city' is having a profound impact on public health, one that goes far beyond temporary irritation. The World Health Organization (WHO) has recently classified traffic noise as the second worst environmental stressor for humans, ranking only behind air pollution in terms of the harm it causes.\n\nPhysiologically, the human body reacts to unwanted noise as a threat. Sudden loud noises trigger the release of stress hormones like cortisol, which can lead to high blood pressure and an increased risk of heart attacks. This primitive 'fight or flight' response occurs even when we are resting. Dr. Julianne Holt, an auditory neuroscientist, explains, \"The ear has no eyelid. You cannot shut it. Even while you are asleep, your brain is constantly processing sound and your body is reacting to it. This prevents the deep, restorative sleep stages necessary for maintaining a healthy immune system.\"\n\nThe impact is particularly worrying for the younger generation. Research conducted in schools located near major airports or busy highways has revealed a clear link between high noise levels and delayed cognitive development. Children in these environments often struggle with concentration and show a delay in reading skills compared to those in quieter neighbourhoods. Researchers believe these children spend so much mental energy trying to 'tune out' the noise that they have fewer cognitive resources available for learning.\n\nSo, what is the solution? Complete silence is impossible in a thriving metropolis, but a new approach called 'soundscaping' is gaining popularity among urban planners. This involves not just reducing mechanical noise, but actively introducing positive sounds, like water features or rustling leaves, which help to mask the unpleasant drone of traffic. Furthermore, new legislation in several European capitals now requires the creation of designated 'quiet zones'—parks or squares where noise levels are strictly monitored—offering citizens a necessary escape from the auditory chaos of the city.",
+      "id": 3,
+      "title": "The Invisible Danger"
+    },
+    {
+      "questions": [
+        {
+          "id": 6,
+          "answers": [
+            {
+              "text": "rely exclusively on printed brochures for inspiration.",
+              "correct": false
+            },
+            {
+              "text": "choose destinations based on their visual appeal on social media.",
+              "correct": true
+            },
+            {
+              "text": "prefer to visit places where photography is prohibited.",
+              "correct": false
+            }
+          ],
+          "question": "The text suggests that many modern travelers"
+        },
+        {
+          "id": 7,
+          "answers": [
+            {
+              "text": "it has significantly improved the infrastructure of old cities.",
+              "correct": false
+            },
+            {
+              "text": "locals often feel their quality of life is being negatively affected.",
+              "correct": true
+            },
+            {
+              "text": "it has caused property prices in tourist areas to decrease.",
+              "correct": false
+            }
+          ],
+          "question": "One consequence of 'overtourism' mentioned in the article is that"
+        },
+        {
+          "id": 8,
+          "answers": [
+            {
+              "text": "allowing small businesses to reach a global audience cheaply.",
+              "correct": true
+            },
+            {
+              "text": "discouraging people from visiting remote or unknown valleys.",
+              "correct": false
+            },
+            {
+              "text": "ensuring that only large hotel chains survive in the market.",
+              "correct": false
+            }
+          ],
+          "question": "Social media has benefited the tourism industry by"
+        },
+        {
+          "id": 9,
+          "answers": [
+            {
+              "text": "flying to destinations using only private jets.",
+              "correct": false
+            },
+            {
+              "text": "visiting locations specifically because they appeared in films or TV.",
+              "correct": true
+            },
+            {
+              "text": "creating their own movies while on holiday.",
+              "correct": false
+            }
+          ],
+          "question": "The term 'set-jetting' refers to the trend of"
+        },
+        {
+          "id": 10,
+          "answers": [
+            {
+              "text": "stop using smartphones while they are on vacation.",
+              "correct": false
+            },
+            {
+              "text": "consider visiting less famous alternatives to popular spots.",
+              "correct": true
+            },
+            {
+              "text": "avoid traveling to foreign countries altogether.",
+              "correct": false
+            }
+          ],
+          "question": "To reduce the negative impact of tourism, the author suggests travelers should"
+        }
+      ],
+      "text": "The way we choose our holiday destinations has undergone a radical shift in the last decade. Gone are the days when we relied solely on travel agents or glossy brochures; today, a single viral image on a social media feed can launch a thousand plane tickets. This phenomenon has given rise to the 'Instagram tourist', a traveler whose primary motivation is capturing the perfect aesthetic photo for their online followers. While this has boosted tourism numbers globally, it has also created a significant problem known as 'overtourism'. \n\nHistoric towns and fragile natural sites, once peaceful 'hidden gems', are now frequently overwhelmed by crowds. In places like Barcelona and Kyoto, local residents have voiced their frustration, citing overcrowded public transport, noise, and rising rents as direct results of the tourist influx. The desire to replicate a famous photo often leads visitors to ignore local etiquette or damage the very environment they came to admire.\n\nHowever, the digital revolution is not entirely to blame; it also offers a lifeline to struggling economies. Social media provides a free marketing platform for small, family-run businesses that previously could not compete with major hotel chains. A unique guesthouse in a remote village can now attract visitors from across the globe simply by being 'shareable'. Furthermore, the trend of 'set-jetting'—traveling to locations featured in popular movies and television series—has revitalized tourism in regions that were previously off the map.\n\nUltimately, the sustainability of travel depends on how we use these tools. Travel experts are now encouraging the concept of 'dupe destinations'—visiting lesser-known places that offer a similar experience to famous hotspots but without the crushing crowds. By using social media to discover these alternatives rather than just following the herd, travelers can enjoy a more authentic experience while reducing the pressure on the world's most iconic sights.",
+      "id": 4,
+      "title": "The Digital Traveler"
+    }
+  ]
+}

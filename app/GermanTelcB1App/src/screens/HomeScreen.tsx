@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   StyleSheet,
   ScrollView,
+  TouchableOpacity,
+  Image,
+  View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -21,6 +24,11 @@ import { MainTabParamList } from '../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
+import { useModalQueue } from '../contexts/ModalQueueContext';
+import LoginModal from '../components/LoginModal';
+import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { HIDE_SUPPORT_US } from '../config/development.config';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -30,6 +38,11 @@ type HomeScreenNavigationProp = CompositeNavigationProp<
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
+  const { enqueue } = useModalQueue();
+  const { isPremium, isLoading: isPremiumLoading, productPrice, productCurrency } = usePremium();
+  const { isPremiumFeaturesEnabled } = useRemoteConfig();
+  const insets = useSafeAreaInsets();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -59,14 +72,14 @@ const HomeScreen: React.FC = () => {
       // Step 1: Request and handle user consent (GDPR/US Privacy) - Show this FIRST
       // Apple Guideline 5.1.1: If the app shows the GDPR prompt before showing the App Tracking Transparency permission request, there is no need to modify the wording of the GDPR prompt.
       console.log('[HomeScreen] Starting UMP consent flow...');
-      
+
       const consentStatus = await consentService.requestConsent();
       console.log('[HomeScreen] UMP consent flow completed with status:', consentStatus);
 
       // Step 2: Request App Tracking Transparency (ATT) permission (iOS 14+)
       // We request this AFTER the GDPR form to avoid confusing the user (asking for tracking after they might have just said no in ATT)
       let attStatus: TrackingStatus = 'not-determined';
-      
+
       if (consentStatus === AdsConsentStatus.OBTAINED || consentStatus === AdsConsentStatus.NOT_REQUIRED) {
         console.log('[HomeScreen] Requesting App Tracking Transparency permission...');
         // Add a small delay to ensure the UMP dialog is fully dismissed before showing ATT
@@ -77,12 +90,12 @@ const HomeScreen: React.FC = () => {
       } else {
         console.log('[HomeScreen] Skipping ATT permission request due to consent status:', consentStatus);
       }
-      
+
       // Step 3: Initialize Google Mobile Ads SDK after all consents
       console.log('[HomeScreen] Initializing Google Mobile Ads...');
       const adapterStatuses = await mobileAds().initialize();
       console.log('[HomeScreen] Mobile Ads initialized:', adapterStatuses);
-      
+
       // Log tracking and personalization status
       if (consentService.canShowPersonalizedAds() && attStatus === 'authorized') {
         console.log('[HomeScreen] ✓ Full tracking enabled - personalized ads allowed');
@@ -124,7 +137,7 @@ const HomeScreen: React.FC = () => {
 
   const handleLoginPress = () => {
     logEvent(AnalyticsEvents.PROGRESS_CARD_LOGIN_NAVIGATED);
-    navigation.navigate('ProfileStack', { screen: 'Profile', params: { openLoginModal: true } });
+    setShowLoginModal(true);
   };
 
   const handleViewFullStats = () => {
@@ -135,6 +148,20 @@ const HomeScreen: React.FC = () => {
   const handleGrammarStudyPress = () => {
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar_study' });
     navigation.navigate('GrammarStudy');
+  };
+
+  const handleNavigateToPremium = () => {
+    // open premium modal
+    // enqueue premium modal
+    logEvent(AnalyticsEvents.PREMIUM_HOME_BUTTON_CLICKED, {
+      price: productPrice,
+      currency: productCurrency,
+    });
+    enqueue('premium-upsell');
+    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_SHOWN, {
+      price: productPrice,
+      currency: productCurrency,
+    });
   };
 
   return (
@@ -198,7 +225,7 @@ const HomeScreen: React.FC = () => {
         </AnimatedGradientBorder>
 
         {/* Support Ad Button */}
-        <SupportAdButton screen="home" style={styles.supportAdButton} />
+        {!HIDE_SUPPORT_US && <SupportAdButton screen="home" style={styles.supportAdButton} />}
 
         {/* Grammar Study Card */}
         <Card style={styles.card} onPress={handleGrammarStudyPress}>
@@ -208,6 +235,27 @@ const HomeScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
+
+      {isPremiumFeaturesEnabled() && !isPremium && !isPremiumLoading && (
+        <View style={[styles.premiumButtonWrapper, { top: insets.top + spacing.margin.md }]}>
+          <AnimatedGradientBorder
+            borderWidth={2}
+            borderRadius={32}
+            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+            duration={500}
+            style={styles.premiumButtonContainer}
+          >
+            <TouchableOpacity onPress={handleNavigateToPremium} style={styles.premiumButtonTouch}>
+              <Image source={require('../../assets/images/diamond.gif')} style={styles.diamondImage} />
+            </TouchableOpacity>
+          </AnimatedGradientBorder>
+        </View>
+      )}
+
+      <LoginModal
+        visible={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+      />
     </SafeAreaView>
   );
 };
@@ -219,6 +267,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    position: 'relative',
   },
   scrollContent: {
     padding: spacing.padding.lg,
@@ -257,8 +306,27 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'left',
   },
-  supportAdButton: {
-    marginTop: spacing.margin.sm,
+  supportAdButton: {},
+  premiumButtonWrapper: {
+    position: 'absolute',
+    right: spacing.margin.lg,
+    zIndex: 1000,
+    ...spacing.shadow.lg,
+  },
+  premiumButtonContainer: {
+    height: 60,
+    width: 60,
+  },
+  premiumButtonTouch: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+  },
+  diamondImage: {
+    width: 50,
+    height: 50,
   },
 });
 

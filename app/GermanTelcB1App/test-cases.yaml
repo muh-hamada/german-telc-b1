@@ -14,6 +14,29 @@
       hint: Tap the accept or continue button on the disclaimer screen
       successCriteria: The main Home screen is visible with navigation tabs at the bottom
 
+- displayName: Login with Test Account
+  id: user-login
+  prerequisiteTestCaseId: onboarding-complete
+  steps:
+    - goal: Navigate to Profile tab
+      hint: Tap on the "Profile" or person icon in the bottom tab bar
+      successCriteria: The Profile screen is displayed with a login prompt
+    - goal: Tap on Sign In button
+      hint: Tap the "Sign In" or "Login" button
+      successCriteria: A login screen or modal appears with email and password fields
+    - goal: Enter test email
+      hint: Tap on the email field and enter "test@example.com"
+      successCriteria: The email field contains the test email
+    - goal: Enter test password
+      hint: Tap on the password field and enter "Test123!"
+      successCriteria: The password field is filled (shown as dots)
+    - goal: Submit login
+      hint: Tap the "Sign In" or "Login" button to submit
+      successCriteria: Login succeeds and the Profile screen shows user information instead of login prompt
+    - goal: Return to Home tab
+      hint: Tap on the "Home" icon in the bottom tab bar
+      successCriteria: The Home screen is displayed
+
 - displayName: Navigate Between Main Tabs
   id: navigate-home-tabs
   prerequisiteTestCaseId: onboarding-complete
@@ -50,4 +73,614 @@
     - goal: Navigate back to Home
       hint: Tap the back button or arrow in the header
       successCriteria: The Home screen is displayed
+
+# =============================================================================
+# MODAL QUEUE MANAGER TEST CASES
+# These tests verify the Modal Queue system behavior:
+# - Global modals shown one at a time with delays
+# - Contextual modals (Results, Completion) block global modal queue
+# - Proper dismiss handling and queue resumption
+# - App remains interactive after modal dismissal
+# =============================================================================
+
+- displayName: Modal Queue - Listening Practice Results Then Streak
+  id: modal-queue-listening-results-streak
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open the Listening Practice section from Home
+      hint: From the Home screen, tap on the "Listening Practice" card
+      successCriteria: The Listening Practice list screen is displayed with exercises
+    - goal: Select the first listening practice exercise
+      hint: Tap on the first item "Simple Steps to a Healthier Life"
+      successCriteria: The audio player screen is displayed with play controls
+    - goal: Start the assessment
+      hint: Tap the "Assess Your Understanding" or similar button
+      successCriteria: The questions screen is displayed with a true/false question
+    - goal: Answer all questions to complete the exercise
+      hint: |
+        Answers in order: FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE
+        Tap the answer, then tap Next for each question.
+      successCriteria: After the last question, a Completion Modal appears showing score and stats
+    - goal: Verify the Completion Modal is displayed (contextual modal)
+      hint: Look for the modal with score percentage and "Back to Home" button
+      successCriteria: The Completion Modal is visible with score, NO streak modal behind it
+    - goal: Dismiss the Completion Modal
+      hint: Tap the "Back to Home" button
+      successCriteria: The Completion Modal closes
+    - goal: Verify the Streak Modal appears after Completion Modal (from queue)
+      hint: Wait ~1 second for the streak modal to appear
+      successCriteria: The Streak Modal appears with fire emoji 🔥, current streak count, and "Continue" button
+    - goal: Dismiss the Streak Modal
+      hint: Tap the "Continue" button
+      successCriteria: The Streak Modal closes and the Listening Practice list is visible
+    - goal: Verify app is fully interactive after modal dismissal
+      hint: Tap on any item in the list
+      successCriteria: The tapped item opens normally, no frozen UI or overlay
+
+- displayName: Modal Queue - Reading Practice Results Then Streak
+  id: modal-queue-reading-results-streak
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Practice Menu
+      hint: From Home screen, tap "Solve Questions" or "Practice" card
+      successCriteria: The Practice Menu is displayed
+    - goal: Open Reading section
+      hint: Tap on the "Reading" card
+      successCriteria: The Reading Menu is displayed with Part 1, Part 2, Part 3 options
+    - goal: Select Reading Part 1
+      hint: Tap on "Part 1" or the first reading option
+      successCriteria: The exam selection screen is displayed
+    - goal: Select the first exam
+      hint: Tap on "Exam 1" or the first available exam
+      successCriteria: The Reading Part 1 practice screen is displayed with text and questions
+    - goal: Answer all questions
+      hint: Read the text and select answers for each question, then tap Submit or Check
+      successCriteria: A Results Modal appears showing your score
+    - goal: Verify Results Modal is displayed (contextual modal)
+      hint: Look for the modal showing score and performance
+      successCriteria: The Results Modal is visible, no other modals visible behind it
+    - goal: Close the Results Modal
+      hint: Tap "Close" or the X button on the Results Modal
+      successCriteria: The Results Modal closes
+    - goal: Verify Streak Modal appears from queue (if first activity of day)
+      hint: Wait ~1 second after closing Results Modal
+      successCriteria: Either the Streak Modal appears OR no modal appears (if already shown today)
+    - goal: If Streak Modal appeared, dismiss it
+      hint: Tap "Continue" on the Streak Modal
+      successCriteria: Modal closes and screen is interactive
+    - goal: Navigate back to Home
+      hint: Use back button or Home tab
+      successCriteria: Home screen is displayed and interactive
+
+- displayName: Modal Queue - Grammar Practice Results Flow
+  id: modal-queue-grammar-results-flow
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Practice Menu
+      hint: From Home screen, tap "Solve Questions" or "Practice" card
+      successCriteria: The Practice Menu is displayed
+    - goal: Open Grammar section
+      hint: Tap on the "Grammar" card
+      successCriteria: The Grammar Menu is displayed
+    - goal: Select Grammar Part 1
+      hint: Tap on "Part 1" or "Grammar Practice"
+      successCriteria: The exam selection or Grammar Part 1 screen is displayed
+    - goal: Select an exam and complete it
+      hint: Select an exam and answer all questions
+      successCriteria: A Results Modal appears after completing all questions
+    - goal: Verify only one modal is visible at a time
+      hint: Check that the Results Modal is the only visible modal
+      successCriteria: Results Modal is visible, screen behind it is dimmed, no stacked modals
+    - goal: Close the Results Modal
+      hint: Tap the close button
+      successCriteria: Results Modal closes smoothly
+    - goal: Verify any queued global modals appear in sequence
+      hint: Watch for Streak Modal or other global modals after ~1 second delay
+      successCriteria: If a global modal appears, it shows one at a time with proper animation
+    - goal: Dismiss any remaining modals
+      hint: Tap Continue or Close on any modal that appears
+      successCriteria: All modals are dismissed, app is interactive
+
+- displayName: Modal Queue - Vocabulary Study Completion Flow
+  id: modal-queue-vocabulary-study-completion
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Vocabulary section
+      hint: From Home screen, tap on "Vocabulary" card or section
+      successCriteria: The Vocabulary Home screen is displayed
+    - goal: Start studying new words
+      hint: Tap "Study New Words" or similar button
+      successCriteria: The vocabulary study screen is displayed with a word to learn
+    - goal: Study at least 5 words
+      hint: View each word, flip to see meaning, then tap Next to continue
+      successCriteria: Progress through 5+ words
+    - goal: Complete the study session
+      hint: Continue until you reach the end of the session or tap "Finish"
+      successCriteria: A Vocabulary Completion Modal appears showing words studied
+    - goal: Verify Completion Modal blocks global modals
+      hint: The Completion Modal should be the only visible modal
+      successCriteria: Completion Modal is visible, no Streak Modal behind it
+    - goal: Close the Completion Modal
+      hint: Tap "Done" or the close button
+      successCriteria: Completion Modal closes
+    - goal: Verify Streak Modal appears from queue after delay
+      hint: Wait ~1 second for the Streak Modal
+      successCriteria: Streak Modal appears with current streak info
+    - goal: Dismiss Streak Modal
+      hint: Tap "Continue"
+      successCriteria: Streak Modal closes, Vocabulary screen is visible and interactive
+
+- displayName: Modal Queue - Vocabulary Review Completion Flow
+  id: modal-queue-vocabulary-review-completion
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Vocabulary section
+      hint: From Home screen, tap on "Vocabulary" card
+      successCriteria: The Vocabulary Home screen is displayed
+    - goal: Start reviewing words (if available)
+      hint: Tap "Review" or "Review Due Words" button
+      successCriteria: The vocabulary review screen is displayed with a word to review
+    - goal: Complete the review session
+      hint: Review words by marking them as known/unknown until session ends
+      successCriteria: A Vocabulary Completion Modal appears
+    - goal: Verify proper modal sequencing
+      hint: Completion Modal should show first, then Streak Modal after dismissal
+      successCriteria: Only Completion Modal is visible
+    - goal: Close Completion Modal and verify Streak Modal follows
+      hint: Close the Completion Modal, then watch for Streak Modal
+      successCriteria: After closing Completion Modal, Streak Modal appears (if earned)
+    - goal: Dismiss all modals and verify app state
+      hint: Close any remaining modals
+      successCriteria: App returns to interactive state, no frozen UI
+
+- displayName: Modal Queue - Multiple Completions Don't Duplicate Modals
+  id: modal-queue-no-duplicate-modals
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open Listening Practice
+      hint: From Home, tap "Listening Practice"
+      successCriteria: Listening Practice list is displayed
+    - goal: Complete first exercise quickly
+      hint: Select first exercise, answer questions quickly
+      successCriteria: Completion Modal appears
+    - goal: Close Completion Modal and dismiss Streak Modal
+      hint: Close modals one by one
+      successCriteria: Both modals closed, back at list
+    - goal: Immediately start second exercise
+      hint: Quickly tap on another exercise
+      successCriteria: Second exercise audio screen is displayed
+    - goal: Complete second exercise
+      hint: Answer all questions
+      successCriteria: Completion Modal appears
+    - goal: Close Completion Modal
+      hint: Tap close button
+      successCriteria: Completion Modal closes
+    - goal: Verify NO duplicate Streak Modal appears
+      hint: Since Streak was already shown for today, it should not appear again
+      successCriteria: No Streak Modal appears, app returns directly to list screen
+    - goal: Verify app is interactive
+      hint: Tap around the screen
+      successCriteria: App responds normally to all taps
+
+- displayName: Modal Queue - App Interactive After Modal Chain
+  id: modal-queue-interactive-after-chain
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete an activity to trigger modals
+      hint: Complete any practice exercise (Listening, Reading, or Grammar)
+      successCriteria: A Results or Completion Modal appears
+    - goal: Dismiss the contextual modal
+      hint: Tap Close or Done
+      successCriteria: Modal closes
+    - goal: Wait for and dismiss any global modals
+      hint: If Streak Modal appears, tap Continue
+      successCriteria: All modals dismissed
+    - goal: Verify bottom tab navigation works
+      hint: Tap on Home, Mock Exam, and Profile tabs
+      successCriteria: All tabs respond and show correct screens
+    - goal: Verify scrolling works
+      hint: Scroll up and down on the current screen
+      successCriteria: Screen scrolls smoothly
+    - goal: Verify buttons are tappable
+      hint: Tap on various buttons and cards
+      successCriteria: All interactive elements respond to taps
+
+- displayName: Modal Queue - Streak Modal Content Verification
+  id: modal-queue-streak-modal-content
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete an activity to trigger Streak Modal
+      hint: Complete any practice exercise
+      successCriteria: Completion/Results modal appears
+    - goal: Close the completion modal
+      hint: Tap close button
+      successCriteria: Completion modal closes
+    - goal: Wait for Streak Modal to appear
+      hint: The Streak Modal should appear after ~1 second delay
+      successCriteria: Streak Modal is displayed
+    - goal: Verify Streak Modal contains fire emoji
+      hint: Look for 🔥 emoji in the modal
+      successCriteria: Fire emoji is visible
+    - goal: Verify Streak Modal shows streak count
+      hint: Look for a number indicating current streak (e.g., "1", "7", "30")
+      successCriteria: A streak number is displayed
+    - goal: Verify Continue button is present
+      hint: Look for a "Continue" button at the bottom
+      successCriteria: Continue button is visible and tappable
+    - goal: Dismiss the modal
+      hint: Tap Continue
+      successCriteria: Modal closes smoothly
+
+- displayName: Modal Queue - Dismiss Modal Via Continue Button
+  id: modal-queue-dismiss-via-continue
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Trigger a Streak Modal
+      hint: Complete any practice activity and close the completion modal
+      successCriteria: Streak Modal appears
+    - goal: Tap the Continue button
+      hint: Locate and tap the "Continue" button
+      successCriteria: The Streak Modal closes with animation
+    - goal: Verify no ghost overlay remains
+      hint: Try tapping on the screen where the modal was
+      successCriteria: Taps go through to the underlying screen, no invisible blocking element
+
+- displayName: Modal Queue - Rapid Modal Dismissal
+  id: modal-queue-rapid-dismissal
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete an activity
+      hint: Finish any practice exercise
+      successCriteria: Completion Modal appears
+    - goal: Quickly dismiss the Completion Modal
+      hint: Tap close as soon as it appears
+      successCriteria: Modal closes
+    - goal: If Streak Modal appears, immediately dismiss it
+      hint: Tap Continue right away
+      successCriteria: Modal closes without animation glitches
+    - goal: Verify app state is clean
+      hint: Navigate to different tabs
+      successCriteria: All tabs work, no frozen UI
+
+- displayName: Modal Queue - Writing Evaluation Blocks Queue
+  id: modal-queue-writing-blocks-queue
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Mock Exam tab
+      hint: Tap Mock Exam in bottom navigation
+      successCriteria: Mock Exam screen is displayed
+    - goal: Start a Mock Exam
+      hint: Tap "Start Exam" or "Begin"
+      successCriteria: Exam selection or first section appears
+    - goal: Navigate to Writing section
+      hint: Find and start the Writing section of the exam
+      successCriteria: Writing screen is displayed with prompt
+    - goal: Write a short response
+      hint: Enter at least 50 characters of text
+      successCriteria: Text is entered in the writing area
+    - goal: Submit for evaluation
+      hint: Tap "Submit" or "Evaluate" button
+      successCriteria: Evaluation starts, loading indicator appears
+    - goal: Verify loading screen blocks global modals
+      hint: During evaluation, no global modals should appear
+      successCriteria: Only the loading/evaluating screen is visible
+    - goal: Wait for evaluation to complete
+      hint: Wait for the results to appear
+      successCriteria: Writing Results Modal appears with feedback
+    - goal: Close results and verify queue resumes
+      hint: Close the results modal
+      successCriteria: If any global modals were queued, they appear after closing
+
+- displayName: Modal Queue - Grammar Study Progress Modal Flow
+  id: modal-queue-grammar-study-progress
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to Grammar section
+      hint: Go to Practice Menu, then Grammar
+      successCriteria: Grammar Menu is displayed
+    - goal: Open Grammar Study
+      hint: Tap "Study Grammar" or "Learn Grammar" option
+      successCriteria: Grammar study screen is displayed
+    - goal: Start a study session
+      hint: Begin studying grammar topics
+      successCriteria: Study content is displayed
+    - goal: Trigger progress modal by exiting mid-session
+      hint: Try to go back or exit while in the middle of studying
+      successCriteria: A Progress Modal appears asking to continue or start over
+    - goal: Verify Progress Modal is interactive
+      hint: Check that Continue and Start Over buttons are tappable
+      successCriteria: Buttons respond to taps
+    - goal: Choose an option
+      hint: Tap Continue or Start Over
+      successCriteria: Modal closes and app responds accordingly
+
+- displayName: Modal Queue - Navigation During Modal Display
+  id: modal-queue-navigation-blocked
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Trigger a modal to appear
+      hint: Complete any practice activity to show Completion Modal
+      successCriteria: A modal is displayed
+    - goal: Attempt to tap bottom navigation tabs
+      hint: While modal is visible, try tapping Home, Mock Exam, Profile tabs
+      successCriteria: Navigation is blocked by the modal overlay
+    - goal: Attempt to tap back button
+      hint: Try pressing the back button while modal is open
+      successCriteria: Either back button is ignored or modal closes (not navigation)
+    - goal: Properly dismiss the modal
+      hint: Use the modal's close/continue button
+      successCriteria: Modal closes properly
+    - goal: Verify navigation now works
+      hint: Tap on different tabs
+      successCriteria: Navigation works normally after modal is dismissed
+
+- displayName: Modal Queue - Streak Modal After First Activity of Day
+  id: modal-queue-streak-first-activity
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Ensure this is the first activity of the day
+      hint: This test works best on a fresh day or after resetting streak state
+      successCriteria: Starting from Home screen
+    - goal: Complete any learning activity
+      hint: Do a Listening, Reading, Grammar, or Vocabulary exercise
+      successCriteria: Activity completion modal appears
+    - goal: Close the completion modal
+      hint: Tap close/done button
+      successCriteria: Completion modal closes
+    - goal: Verify Streak Modal appears
+      hint: Since this is first activity today, Streak Modal should show
+      successCriteria: Streak Modal appears showing streak count (at least 1)
+    - goal: Verify streak count incremented
+      hint: Check the number shown on the Streak Modal
+      successCriteria: Streak shows current day count
+    - goal: Dismiss and verify
+      hint: Tap Continue
+      successCriteria: Modal closes, app is interactive
+
+- displayName: Modal Queue - Second Activity Same Day No Streak Modal
+  id: modal-queue-second-activity-no-streak
+  prerequisiteTestCaseId: modal-queue-streak-first-activity
+  steps:
+    - goal: Complete a second activity on the same day
+      hint: Do another practice exercise (different from first)
+      successCriteria: Activity completion modal appears
+    - goal: Close the completion modal
+      hint: Tap close button
+      successCriteria: Completion modal closes
+    - goal: Wait briefly and verify NO Streak Modal
+      hint: Wait 2-3 seconds, no Streak Modal should appear
+      successCriteria: No Streak Modal appears (already shown today)
+    - goal: Verify app is interactive
+      hint: Navigate around the app
+      successCriteria: App responds normally
+
+- displayName: Modal Queue - Listening Completion Modal Specific
+  id: modal-queue-listening-completion-modal
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open Listening Practice
+      hint: From Home, tap Listening Practice
+      successCriteria: Listening list is displayed
+    - goal: Select any exercise
+      hint: Tap on any listening exercise
+      successCriteria: Audio player screen appears
+    - goal: Start and complete the assessment
+      hint: Tap "Assess Your Understanding" and answer all questions
+      successCriteria: Listening Completion Modal appears
+    - goal: Verify modal content
+      hint: Check for score, performance stats, and navigation buttons
+      successCriteria: Modal shows score and has "Back to Home" or "Close" button
+    - goal: Tap Back to Home
+      hint: Tap the "Back to Home" button
+      successCriteria: Modal closes and navigates appropriately
+    - goal: Verify Streak Modal can appear after
+      hint: If first activity of day, Streak Modal should appear
+      successCriteria: Streak Modal appears (or doesn't if already shown)
+    - goal: Final verification
+      hint: Dismiss any remaining modals
+      successCriteria: App returns to normal interactive state
+
+# =============================================================================
+# MODAL QUEUE - PRIORITY AND EDGE CASE TESTS
+# =============================================================================
+
+- displayName: Modal Queue - Priority Order Verification
+  id: modal-queue-priority-order
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open a practice section
+      hint: From Home, navigate to any practice section
+      successCriteria: Practice screen is displayed
+    - goal: Note current time and complete activity
+      hint: Complete an exercise - this may trigger multiple modals
+      successCriteria: Completion modal appears
+    - goal: Observe modal order
+      hint: Close completion modal and watch which global modal appears first
+      successCriteria: |
+        Priority order should be:
+        1. App Update (if available) - highest priority
+        2. Notification Reminder (if triggered)
+        3. Streak Modal
+        4. App Review (if triggered) - lowest priority
+    - goal: Dismiss each modal in sequence
+      hint: Close each modal as it appears
+      successCriteria: Modals appear one at a time with ~1 second delay between them
+    - goal: Verify all modals dismissed
+      hint: Wait a few seconds after last modal
+      successCriteria: No more modals appear, app is interactive
+
+- displayName: Modal Queue - Delay Between Modals
+  id: modal-queue-delay-verification
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete an activity that triggers streak modal
+      hint: Do any practice exercise
+      successCriteria: Completion modal appears
+    - goal: Time the delay between modals
+      hint: Close completion modal and count seconds until streak modal appears
+      successCriteria: There is approximately 1 second delay before streak modal appears
+    - goal: Verify delay is not instant
+      hint: The streak modal should NOT appear immediately
+      successCriteria: Noticeable pause between modal closures
+    - goal: Close streak modal
+      hint: Tap Continue
+      successCriteria: Modal closes with smooth animation
+
+- displayName: Modal Queue - Background/Foreground Resilience
+  id: modal-queue-background-foreground
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete an activity
+      hint: Do any practice exercise
+      successCriteria: Completion modal appears
+    - goal: Close completion modal
+      hint: Tap close button
+      successCriteria: Completion modal closes
+    - goal: Quickly background the app before streak modal appears
+      hint: Press home button or swipe up to go to home screen
+      successCriteria: App is in background
+    - goal: Return to the app
+      hint: Open the app again
+      successCriteria: App is in foreground
+    - goal: Verify streak modal appears correctly
+      hint: The streak modal should appear after returning
+      successCriteria: Streak modal is displayed (if it was queued)
+    - goal: Dismiss modal and verify app state
+      hint: Close any visible modal
+      successCriteria: App is fully interactive
+
+- displayName: Modal Queue - Results Modal Close Variants
+  id: modal-queue-results-close-variants
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete a practice exercise
+      hint: Do any Reading, Listening, or Grammar exercise
+      successCriteria: Results Modal appears
+    - goal: Try closing with X button
+      hint: If there's an X button, tap it
+      successCriteria: Modal closes properly
+    - goal: Do another exercise
+      hint: Complete another practice activity
+      successCriteria: Results Modal appears again
+    - goal: Try closing with "Close" button
+      hint: Tap the Close or Done button
+      successCriteria: Modal closes properly
+    - goal: Verify both methods work correctly
+      hint: In both cases, streak modal should appear after if applicable
+      successCriteria: Modal queue resumes correctly after either close method
+
+- displayName: Modal Queue - Image Preview in Writing
+  id: modal-queue-writing-image-preview
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Navigate to a Writing exercise
+      hint: Go to Mock Exam or find a Writing practice
+      successCriteria: Writing screen is displayed
+    - goal: Take a photo of handwritten text (if feature available)
+      hint: Look for a camera icon or "Scan" button
+      successCriteria: Camera opens or photo selection appears
+    - goal: Capture/select an image
+      hint: Take a photo or select from gallery
+      successCriteria: Image preview modal appears
+    - goal: Verify image preview blocks global queue
+      hint: While preview is open, global modals should not appear
+      successCriteria: Only image preview is visible
+    - goal: Close image preview
+      hint: Tap close or confirm button
+      successCriteria: Image preview closes
+    - goal: Verify app is interactive
+      hint: Continue with writing task
+      successCriteria: Writing screen is responsive
+
+- displayName: Modal Queue - Concurrent Activity Prevention
+  id: modal-queue-concurrent-prevention
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Open Listening Practice
+      hint: From Home, tap Listening Practice
+      successCriteria: Listening list is displayed
+    - goal: Complete exercise and trigger completion modal
+      hint: Finish an exercise
+      successCriteria: Completion Modal appears
+    - goal: While modal is open, try to start another exercise
+      hint: Try tapping on exercise items in the background
+      successCriteria: Taps are blocked by the modal overlay
+    - goal: Close the modal properly
+      hint: Use the close button
+      successCriteria: Modal closes
+    - goal: Now verify exercises can be started
+      hint: Tap on an exercise
+      successCriteria: Exercise opens normally
+
+- displayName: Modal Queue - Animation Smoothness
+  id: modal-queue-animation-smoothness
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Trigger a modal
+      hint: Complete any activity
+      successCriteria: Modal appears with fade/slide animation
+    - goal: Observe modal appearance animation
+      hint: Watch how the modal enters the screen
+      successCriteria: Smooth fade-in or slide-up animation, no glitches
+    - goal: Close the modal
+      hint: Tap close button
+      successCriteria: Smooth fade-out or slide-down animation
+    - goal: If streak modal follows, observe transition
+      hint: Watch the transition between modals
+      successCriteria: Clean transition with delay, no flickering
+    - goal: Close streak modal
+      hint: Tap Continue
+      successCriteria: Smooth dismissal animation
+
+- displayName: Modal Queue - Multiple Tab Switches After Modal
+  id: modal-queue-multi-tab-after
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Complete activity and close all modals
+      hint: Do any exercise and dismiss all modals that appear
+      successCriteria: All modals are closed
+    - goal: Rapidly switch between tabs
+      hint: Quickly tap Home -> Mock Exam -> Profile -> Home
+      successCriteria: All tabs respond immediately
+    - goal: Verify no lingering modal issues
+      hint: Check that no ghost modals appear during navigation
+      successCriteria: Clean navigation with no modal remnants
+    - goal: Do another activity
+      hint: Complete another exercise
+      successCriteria: Modal system works correctly for second activity
+
+- displayName: Modal Queue - Full Flow Integration Test
+  id: modal-queue-full-flow-test
+  prerequisiteTestCaseId: user-login
+  steps:
+    - goal: Start from Home screen
+      hint: Navigate to Home tab
+      successCriteria: Home screen is displayed
+    - goal: Complete a Listening exercise
+      hint: Go to Listening Practice, complete an exercise
+      successCriteria: Completion Modal appears
+    - goal: Close completion modal
+      hint: Tap close
+      successCriteria: Modal closes
+    - goal: Observe and close streak modal
+      hint: Wait for streak modal, then tap Continue
+      successCriteria: Streak modal appears and closes
+    - goal: Complete a Reading exercise
+      hint: Navigate to Reading practice and complete an exercise
+      successCriteria: Results Modal appears
+    - goal: Close results modal
+      hint: Tap close
+      successCriteria: Modal closes
+    - goal: Verify no duplicate streak modal
+      hint: Wait 2-3 seconds
+      successCriteria: No streak modal appears (already shown)
+    - goal: Complete a Grammar exercise
+      hint: Navigate to Grammar and complete an exercise
+      successCriteria: Results Modal appears
+    - goal: Close results and verify app state
+      hint: Close modal and check app responsiveness
+      successCriteria: App is fully interactive, all features work
+    - goal: Navigate through all tabs one final time
+      hint: Tap Home, Mock Exam, Profile tabs
+      successCriteria: All tabs work correctly, test complete
 

@@ -1,0 +1,80 @@
+{
+  "exams": [
+    {
+      "uiStrings": {
+        "instructionDescription": "30 Minutes Written Expression",
+        "instructionTitle": "Written Expression, Task A",
+        "taskDescription": "You would like to organize a team-building event for your company at the following countryside lodge. Write an email to the lodge enquiring about the possibility of hosting the event there.\n\nYou should mention:\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect related to the topic:",
+        "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+      },
+      "title": "The Willow Creek Lodge",
+      "writingPoints": [
+        "availability of vegetarian or vegan meal options",
+        "group discount rates",
+        "details about outdoor activities",
+        "why you are interested in this location"
+      ],
+      "themeNumber": 1,
+      "themeName": "Lodge Inquiry",
+      "id": 0,
+      "incomingEmail": "The Willow Creek Lodge\n\nEscape the city and discover the perfect balance of work and relaxation.\n\nLocated in the heart of the Peak District, our lodge offers a peaceful environment ideal for corporate retreats and team getaways. We provide comfortable accommodation, fully equipped seminar rooms, and access to stunning nature trails.\n\nOur on-site restaurant prides itself on serving hearty meals made from local produce. We can also arrange guided hiking tours and team challenges.\n\nFor reservations, group bookings, or to discuss a tailored package, please get in touch.\n\n15 River Road, Derbyshire, DE4 3JG\nTel. 01629 555 123\nreservations@willowcreek.co.uk\nwww.willowcreek.co.uk"
+    },
+    {
+      "uiStrings": {
+        "instructionDescription": "30 Minutes Written Expression",
+        "instructionTitle": "Written Expression, Task B",
+        "taskDescription": "You and your friends have just returned from this workshop. However, you were not satisfied with the experience. Write an email of complaint to the organizer, Fiona Campbell, to express your disappointment.\n\nYou should mention\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect of your choice:",
+        "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+      },
+      "title": "Highland Landscapes Workshop",
+      "writingPoints": [
+        "accommodation was below standard",
+        "photography tutor was not present",
+        "boat trip was cancelled",
+        "guides were not knowledgeable"
+      ],
+      "themeNumber": 2,
+      "themeName": "Workshop Complaint",
+      "id": 1,
+      "incomingEmail": "HIGHLAND LANDSCAPES\n\nJoin us for a week-long photography workshop in the stunning Scottish Highlands with award-winning photographer, Sarah Jenkins.\n\nOur local guides are experts in history and geology, ready to show you the hidden gems of the North.\n\nThe workshop includes daily field trips to Glencoe, the Isle of Skye, and Loch Ness. In the evenings, participants can attend seminars on photo editing and portfolio reviews.\n\nFor nature lovers, we include a private boat trip to see the seal colonies.\n\nAccommodation is provided in 4-star historic hotels with breakfast and dinner included.\n\nContact: Fiona Campbell\n45 Royal Mile, Edinburgh, EH1 1BB\nTel: +44 131 555 0199\nEmail: fiona@highland-photo.co.uk"
+    },
+    {
+      "uiStrings": {
+        "instructionDescription": "30 Minutes Written Expression",
+        "instructionTitle": "Written Expression, Task A",
+        "taskDescription": "You are interested in improving your Business English skills for your job. You found the following advertisement for a language school in Dublin. Write an email to the institute enquiring about their upcoming courses.\n\nYou should mention:\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect related to the topic:",
+        "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+      },
+      "title": "Bright Horizon Language Institute",
+      "writingPoints": [
+        "prices for a two-week intensive course",
+        "details regarding accommodation options",
+        "information about the final certificate",
+        "why you would like to attend this course"
+      ],
+      "themeNumber": 1,
+      "themeName": "Language Course Inquiry",
+      "id": 2,
+      "incomingEmail": "Bright Horizon Language Institute – Dublin\n\nTake your career to the next level with our specialized Business English courses.\n\nSituated in the historic center of Dublin, we offer intensive training designed for professionals who wish to communicate more effectively in the global market. Our curriculum focuses on negotiation skills, presentation techniques, and intercultural competence.\n\nCourses run year-round with small class sizes to ensure individual attention. We also offer a social program to help you explore Irish culture after class hours.\n\nInterested in joining us? Contact our admissions team for schedules and booking information.\n\n42 Grafton Street, Dublin 2, Ireland\nTel. +353 1 677 9900\ninfo@brighthorizon.ie\nwww.brighthorizon.ie"
+    },
+    {
+      "uiStrings": {
+        "instructionDescription": "30 Minutes Written Expression",
+        "instructionTitle": "Written Expression, Task B",
+        "taskDescription": "You and your friends have just returned from this cooking course. However, you were not satisfied with the experience. Write an email of complaint to the organizer, Elena Ricci, to express your disappointment.\n\nYou should mention\n a) at least three of the following points\n or\n b) at least two of the following points plus one other aspect of your choice:",
+        "taskFooter": "Before starting the email, decide on the order in which you think the points should be included, as well as on an appropriate reference line, salutation, introduction and close.\n\nPlease write at least 150 words."
+      },
+      "title": "Gourmet Italian Cooking Weekend",
+      "writingPoints": [
+        "celebrity chef was replaced",
+        "ingredients were not organic",
+        "kitchen equipment was outdated",
+        "vineyard tour did not happen"
+      ],
+      "themeNumber": 2,
+      "themeName": "Cooking Course Complaint",
+      "id": 3,
+      "incomingEmail": "TASTE OF TUSCANY\n\nMaster the art of Italian cuisine during our exclusive weekend retreat with renowned TV Chef, Marco Rossi.\n\nHosted in a luxury converted farmhouse, our course offers hands-on training in our state-of-the-art professional kitchens.\n\nWe pride ourselves on quality. All participants will cook with premium, organic ingredients sourced directly from local farms.\n\nThe weekend package includes two full days of instruction, a recipe book to take home, and a guided tour of a local vineyard with wine tasting included.\n\nNo previous experience is required—just a passion for food!\n\nContact: Elena Ricci\n12 Olive Grove Lane, Bristol, BS8 1TQ\nTel: +44 117 496 0221\nEmail: info@taste-tuscany-cooking.co.uk"
+    }
+  ]
+}

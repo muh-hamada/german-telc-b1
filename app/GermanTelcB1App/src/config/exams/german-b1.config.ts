@@ -70,7 +70,18 @@ export const germanB1Config: ExamConfig = {
     userSupport: {
       android: 'ca-app-pub-5101905792101482/6795416165',
       ios: 'ca-app-pub-5101905792101482/1024214737',
-    }
+    },
+    vocabularyBuilder: {
+      android: 'ca-app-pub-5101905792101482/7872839243',
+      ios: 'ca-app-pub-5101905792101482/5626784006',
+    },
+  },
+
+  premium: {
+    productId: {
+      android: 'full_access',
+      ios: 'full_access_german_b1',
+    },
   },
 
   writingEvaluationFnName: 'evaluateWriting'

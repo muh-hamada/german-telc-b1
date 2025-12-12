@@ -59,7 +59,7 @@ class FirestoreService {
           },
           notificationSettings: {
             enabled: false,
-            hour: 9,
+            hour: 16, // 4 PM
           },
           stats: {
             totalExams: 0,

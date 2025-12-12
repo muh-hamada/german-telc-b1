@@ -275,11 +275,11 @@
       "part1": "Parte 1: Rellenar espacios (Opción múltiple)",
       "part2": "Parte 2: Rellenar espacios (Lista de palabras)",
       "descriptions": {
-        "main": "Practica gramática alemana con ejercicios de completar espacios"
+        "main": "Practica gramática {{language}} con ejercicios de completar espacios"
       },
       "study": {
         "title": "150 Preguntas de Gramática",
-        "description": "Domina la gramática alemana con 150 preguntas de práctica sobre varios temas",
+        "description": "Domina la gramática {{language}} con 150 preguntas de práctica sobre varios temas",
         "progress": "Pregunta {{current}} de {{total}}",
         "currentProgress": "Progreso actual",
         "progressFound": "Progreso anterior encontrado",
@@ -389,7 +389,7 @@
     "selectHour": "Seleccionar hora",
     "popularTimes": "Horas populares",
     "notificationPermission": "Permiso de notificación",
-    "notificationPermissionMessage": "Te enviaremos recordatorios diarios para practicar tu alemán. Puedes cambiar esto en cualquier momento en la configuración.",
+    "notificationPermissionMessage": "Te enviaremos recordatorios diarios para practicar tu {{language}}. Puedes cambiar esto en cualquier momento en la configuración.",
     "permissionDenied": "Permiso denegado",
     "permissionDeniedMessage": "Para recibir notificaciones, habilítalas en la configuración de tu dispositivo.",
     "permissionError": "No se puede solicitar permiso de notificación. Por favor, verifica la configuración de tu dispositivo.",
@@ -439,7 +439,7 @@
   },
   "notificationReminder": {
     "title": "Mantente en el camino con recordatorios diarios",
-    "message": "¡Recibe una notificación diaria amigable para ayudarte a practicar regularmente y alcanzar tus objetivos en el idioma alemán!",
+    "message": "¡Recibe una notificación diaria amigable para ayudarte a practicar regularmente y alcanzar tus objetivos en el idioma {{language}}!",
     "enableButton": "Activar notificaciones",
     "maybeLaterButton": "Tal vez más tarde",
     "hourPickerTitle": "Elige tu hora de recordatorio preferida",
@@ -539,6 +539,7 @@
       "wrongPassword": "Contraseña incorrecta. Por favor, inténtelo de nuevo.",
       "emailInUse": "Ya existe una cuenta con este correo electrónico.",
       "weakPassword": "La contraseña debe tener al menos 6 caracteres.",
+      "adLoadFailed": "No se pudo cargar el contenido. Por favor, continúe.",
       "invalidEmail": "Por favor, ingrese una dirección de correo electrónico válida.",
       "userDisabled": "Esta cuenta ha sido deshabilitada.",
       "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtelo más tarde.",
@@ -863,7 +864,7 @@
       "nextSection": "Continuar a la siguiente parte"
     },
     "evaluation": {
-      "title": "Tu evaluación (Expresión escrita)",
+      "title": "Tu evaluación",
       "totalScore": "Puntuación total:",
       "criteriaTitle": "Criterios de evaluación:",
       "criteria": {
@@ -1047,5 +1048,77 @@
     "subtitle": "Ayúdanos a mantener esta app gratuita viendo un anuncio corto.",
     "watchAd": "Ver anuncio",
     "skip": "Omitir"
+  },
+  "premium": {
+    "upsell": {
+      "title": "Hazte Premium",
+      "subtitle": "Desbloquea la experiencia completa",
+      "oneTimePurchase": "Compra única",
+      "purchaseButton": "Actualizar ahora",
+      "purchasing": "Procesando...",
+      "maybeLater": "Quizás más tarde"
+    },
+    "features": {
+      "adFree": {
+        "title": "Sin anuncios",
+        "description": "Aprende sin interrupciones."
+      },
+      "offline": {
+        "title": "Modo sin conexión",
+        "description": "Descarga y estudia en cualquier lugar."
+      },
+      "streakFreeze": {
+        "title": "Congelar racha",
+        "description": "Protege tu racha con 2/semana."
+      },
+      "support": {
+        "title": "Apoya el desarrollo",
+        "description": "Nuevos exámenes y funciones."
+      }
+    },
+    "profile": {
+      "upgradeCard": {
+        "title": "Actualizar a Premium",
+        "description": "Sin anuncios, modo sin conexión y más"
+      },
+      "premiumBadge": "Premium"
+    },
+    "screen": {
+      "title": "Premium",
+      "whyPremium": "¿Por qué\nPremium?",
+      "oneTimePurchase": "Compra una vez, accede siempre",
+      "unlockNow": "Desbloquear ahora",
+      "restorePurchases": "Restaurar compras",
+      "restoring": "Restaurando...",
+      "noRestoreFound": "No se encontraron compras anteriores",
+      "restoreSuccess": "¡Compras restauradas exitosamente!",
+      "alreadyPremium": "¡Ya tienes Premium!",
+      "thankYou": "¡Gracias por tu apoyo!",
+      "disclaimer": "Compra única. Desbloquea todas las funciones premium para siempre. Sin suscripción ni pagos recurrentes."
+    }
+  },
+  "offline": {
+    "title": "Modo sin conexión",
+    "subtitle": "Descarga todo el contenido para estudiar sin conexión",
+    "blocking": {
+      "title": "Sin conexión a Internet",
+      "description": "Se requiere una conexión a Internet activa para usar la versión gratuita de esta aplicación.\n\nLos usuarios Premium pueden acceder al contenido sin conexión.",
+      "premiumHint": "Actualiza a Premium para acceso sin conexión"
+    },
+    "requiresConnectionTitle": "Se requiere Internet",
+    "requiresConnectionMessage": "Necesitas una conexión a Internet para descargar o actualizar el contenido sin conexión.",
+    "enableTitle": "¿Activar modo sin conexión?",
+    "enableMessage": "Esto descargará todo el contenido de exámenes y archivos de audio. Asegúrate de tener una conexión estable.",
+    "disableTitle": "¿Desactivar modo sin conexión?",
+    "disableMessage": "Esto eliminará todo el contenido descargado. Necesitarás conexión a internet para estudiar.",
+    "download": "Descargar",
+    "downloadNow": "Descargar ahora",
+    "update": "Actualizar",
+    "clear": "Eliminar",
+    "downloaded": "Contenido descargado",
+    "notDownloaded": "Contenido no descargado",
+    "used": "usado",
+    "lastUpdated": "Última actualización:",
+    "error": "Descarga fallida. Por favor intenta de nuevo."
   }
 }

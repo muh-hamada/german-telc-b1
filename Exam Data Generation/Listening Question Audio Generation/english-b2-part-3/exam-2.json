@@ -1,0 +1,152 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "b2-part-3-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Good morning, tech enthusiasts. Delegates registered for the Future of AI keynote, please proceed to the Grand Ballroom immediately. Seats remain for the Cybersecurity Deep Dive and the Blockchain Basics workshops, commencing in Room 101 and Room 104 respectively. For those fascinated by robotics, the 'Automated Future' panel kicks off in the Exhibition Hall at 1:30 PM. Thank you for joining the Tech Innovators Summit.",
+        "voiceId": "person1",
+        "id": "speech-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Hello, this is Marcus from Summit Banking. You enquired about our Silver and Platinum current accounts. Both tiers offer fee-free international withdrawals and access to our mobile investment platform. Complimentary travel insurance up to $5,000 is exclusive to the Platinum tier, as is the concierge service, though neither package includes our roadside assistance benefit. If you require details on our business rates, please contact me using the direct line on your screen.",
+        "voiceId": "person3",
+        "id": "speech-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Welcome to the Green Earth Volunteer Centre here in Brighton. I'm Sarah, and I’ll be walking you through our safety protocols and site geography. Following a brief orientation video, you'll break into groups where your team leaders will distribute the equipment required for today's beach cleanup to ensure you have everything needed. Any adjustments to your shift patterns for next week can be finalized at the reception desk before you leave today.",
+        "voiceId": "person1",
+        "id": "speech-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Here is the outlook for the weekend issued by the Weather Centre on Friday, the 12th of November. A cold front will drive heavy rain across the Midlands and Wales throughout Saturday morning. These conditions will drift eastward by the afternoon, though the southwest coast should stay clear, remaining breezy with sunny spells. Expect widespread frost in the Scottish Highlands before dawn on Sunday, followed by crisp, clear skies across the majority of the country as high pressure stabilises the region.",
+        "voiceId": "person3",
+        "id": "speech-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Attention passengers booked on flight AZ404 to Rome. Departure has been suspended until 14:30 due to a technical fault with the landing gear. A meal voucher is being issued to all ticket holders at the customer service desk located near Gate 12. All other flights to Italy are operating on schedule. We sincerely apologise for the disruption to your journey.",
+        "voiceId": "person1",
+        "id": "speech-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    }
+]

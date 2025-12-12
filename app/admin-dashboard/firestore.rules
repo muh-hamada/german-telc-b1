@@ -32,6 +32,14 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
 
+    // English B2 Telc Exam Data Collection
+    match /english_b2_telc_exam_data/{document} {
+      allow read: if true
+      
+      // Only authenticated users can write
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
     // Vocabulary Data Collections
     // All users can read vocabulary, only admin can write
     match /vocabulary_data_german_a1/{wordId} {
@@ -45,6 +53,11 @@ service cloud.firestore {
     }
 
     match /vocabulary_data_english_b1/{wordId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
+    match /vocabulary_data_english_b2/{wordId} {
       allow read: if true;
       allow write: if request.auth != null && request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
@@ -95,6 +108,14 @@ service cloud.firestore {
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
         allow write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // User progress data (English B2 - nested under users)
+      match /english_b2_progress/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
       
       // User exam results (legacy - nested under users)
       match /examResults/{document=**} {
@@ -129,11 +150,29 @@ service cloud.firestore {
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
         allow write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // User completions (English B2)
+      match /completions_english_b2/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
       
       // User streaks (Daily Streaks feature)
       // Allow users to read/write their own streak data
       // Admin can read all streaks
       match /streaks/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User premium status (In-App Purchases)
+      // Allow users to read/write their own premium data
+      // Admin can read all premium data
+      match /premium/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
@@ -158,6 +197,14 @@ service cloud.firestore {
 
       // User vocabulary progress (English B1)
       match /vocabulary_progress_english_b1/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User vocabulary progress (English B2)
+      match /vocabulary_progress_english_b2/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");

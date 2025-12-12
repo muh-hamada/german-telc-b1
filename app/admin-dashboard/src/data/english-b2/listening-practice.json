@@ -1,0 +1,120 @@
+{
+    "interviews": [
+        {
+            "title": "The Architecture of Rest",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english_b2_listening_practice%2Fenglish-b2-audio-1.m4a?alt=media&token=249790aa-edb1-4b76-ac32-2e6cad6ed0d3",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english_b2_listening_practice%2Fenglish-b2-audio-1.jpg?alt=media&token=2405991d-fc39-4dd7-8509-bb8e9f338864",
+            "duration": "12:15",
+            "questions": [
+                {
+                    "question": "In the interview, the speakers implies that society currently views sleep deprivation as a sign of dedication and hard work.",
+                    "correct": true,
+                    "explanation": "The interviewers states that people 'wear our exhaustion like a badge of honor,' implying it is seen as a positive symbol of hard work."
+                },
+                {
+                    "question": "The interviewers suggest that 'hustle culture' became popular because people were fully aware of the importance of sleep.",
+                    "correct": false,
+                    "explanation": "The text uses a third conditional: 'If we had known earlier... perhaps the hustle culture... would never have taken such a strong hold.' This implies they did NOT know."
+                },
+                {
+                    "question": "According to the interviewers, the brain is inactive and dormant while sleeping.",
+                    "correct": false,
+                    "explanation": "The text explicitly states that sleep is 'far more than just a passive state of rest; it is an active period of neurological reconstruction.'"
+                },
+                {
+                    "question": "The glymphatic system is responsible for removing harmful substances from the brain.",
+                    "correct": true,
+                    "explanation": "The interviewers explain that during deep sleep, the brain is 'cleaned of toxins' via the glymphatic system."
+                },
+                {
+                    "question": "The interviewers believe that working late and waking up early ('burning the candle at both ends') increases long-term productivity.",
+                    "correct": false,
+                    "explanation": "The interviewers states that consequently, these professionals face burnout and are 'unable to concentrate,' indicating a decrease in productivity."
+                },
+                {
+                    "question": "The interviewers predict that by the time people recognize the harm of poor sleep, it is often too late to avoid health compromises.",
+                    "correct": true,
+                    "explanation": "The interviewers uses the Future Perfect tense: 'By the time most people realize... they will have already compromised their long-term health.'"
+                },
+                {
+                    "question": "The interviewers argue that the duration of sleep is the only factor that determines its effectiveness.",
+                    "correct": false,
+                    "explanation": "The interviewers argues the opposite: 'It is crucial to point out that quality matters as much as quantity.'"
+                },
+                {
+                    "question": "Sleep hygiene involves habits such as regulating room temperature and avoiding digital devices before bed.",
+                    "correct": true,
+                    "explanation": "The interviewers lists 'turning off screens, cooling the room, and winding down' as part of a sleep hygiene routine."
+                },
+                {
+                    "question": "The interviewers suggests we should cancel or stop our negative attitude toward sleep.",
+                    "correct": true,
+                    "explanation": "The interviewers uses the phrasal verb 'call off,' stating 'we must call off our war on sleep,' which means to cancel or stop it."
+                },
+                {
+                    "question": "The interviewers concludes that physical exercise is the foundation of all success, with sleep being secondary.",
+                    "correct": false,
+                    "explanation": "The interviewers explicitly states that 'sleep should be viewed as the foundation upon which all other success is built.'"
+                }
+            ]
+        },
+        {
+            "title": "The Myth of the Perfect Balance",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english_b2_listening_practice%2Fenglish-b2-audio-2.m4a?alt=media&token=76ac5553-d7ec-48b7-9b8b-6e1d71f79b68",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english_b2_listening_practice%2Fenglish-b2-audio-2.jpg?alt=media&token=bd3d4170-d5d5-4b8e-a8f5-ce2a8b9e81df",
+            "duration": "08:13",
+            "questions": [
+                {
+                    "question": "The interviewers suggests that the traditional idea of 'work-life balance' views work and life as opposing forces.",
+                    "correct": true,
+                    "explanation": "The interviewers states that 'balance implies a trade-off where one side wins and the other loses,' suggesting an opposing relationship."
+                },
+                {
+                    "question": "According to the interviewers, remote work has helped to create a clearer separation between office and home.",
+                    "correct": false,
+                    "explanation": "The interviewers states the opposite: 'the boundaries between the office and the home have blurred significantly.'"
+                },
+                {
+                    "question": "Work-life integration allows for flexible scheduling, such as handling personal tasks during traditional work hours.",
+                    "correct": true,
+                    "explanation": "The interviewers gives the example of 'attending a child’s school event at 2:00 PM' as part of integration."
+                },
+                {
+                    "question": "The interviewers implies that work-life integration is purely beneficial and has no negative downsides.",
+                    "correct": false,
+                    "explanation": "The interviewers calls flexibility a 'double-edged sword' and warns it can lead to 'work-life invasion,' implying negative risks."
+                },
+                {
+                    "question": "The 'right to disconnect' policies mentioned are designed to force employees to work on weekends.",
+                    "correct": false,
+                    "explanation": "The interviewers states these policies ensure employees are 'not penalized for ignoring emails after hours,' protecting their downtime."
+                },
+                {
+                    "question": "By next year, it is predicted that companies will have finished removing all remote work options.",
+                    "correct": false,
+                    "explanation": "The interviewers predicts companies 'will have implemented right to disconnect policies,' not removed remote work."
+                },
+                {
+                    "question": "The text recommends that employees should remain silent about their workload concerns.",
+                    "correct": false,
+                    "explanation": "The interviewers explicitly advises: 'We should bring up these concerns with management rather than suffering in silence.'"
+                },
+                {
+                    "question": "The phrase 'double-edged sword' suggests that flexibility has both positive and negative aspects.",
+                    "correct": true,
+                    "explanation": "This is the definition of the idiom used in the interviewers to describe the risks and rewards of flexibility."
+                },
+                {
+                    "question": "The interviewers believes that success should be defined by how evenly we split our hours between work and rest.",
+                    "correct": false,
+                    "explanation": "The interviewers argues: 'It is not about splitting hours perfectly evenly, but about having the autonomy to adjust.'"
+                },
+                {
+                    "question": "The smartphone is described as a tool that keeps employees tied to their work.",
+                    "correct": true,
+                    "explanation": "The interviewers metaphorically describes the smartphone as a 'tether to the workplace.'"
+                }
+            ]
+        }
+    ]
+}

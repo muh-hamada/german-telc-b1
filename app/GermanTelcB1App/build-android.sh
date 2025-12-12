@@ -16,6 +16,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"
+  echo "  - english-b2"
   echo ""
   echo "Build types:"
   echo "  - apk: Build APK (for testing on emulator/device)"
@@ -40,6 +41,9 @@ case "$EXAM_ID" in
     ;;
   "english-b1")
     FLAVOR="englishB1"
+    ;;
+  "english-b2")
+    FLAVOR="englishB2"
     ;;
   *)
     echo "❌ Error: Unknown exam ID '$EXAM_ID'"
