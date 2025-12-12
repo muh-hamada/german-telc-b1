@@ -6,6 +6,8 @@ import {
   GlobalConfig,
   DEFAULT_GLOBAL_CONFIG,
   SupportAdIntervalsConfig,
+  VocabularyNativeAdConfig,
+  DEFAULT_VOCABULARY_NATIVE_AD_CONFIG,
 } from '../types/remote-config.types';
 import firebaseRemoteConfigService from '../services/firebase-remote-config.service';
 import StorageService from '../services/storage.service';
@@ -185,6 +187,20 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     return config.enablePremiumFeatures;
   }, [config]);
 
+  /**
+   * Get vocabulary native ad configuration
+   * @returns VocabularyNativeAdConfig with enabled flag and interval
+   */
+  const getVocabularyNativeAdConfig = useCallback((): VocabularyNativeAdConfig => {
+    if (!config) {
+      return DEFAULT_VOCABULARY_NATIVE_AD_CONFIG;
+    }
+    return {
+      enabled: config.enableVocabularyNativeAd,
+      interval: config.vocabularyNativeAdInterval,
+    };
+  }, [config]);
+
   const value: RemoteConfigContextType = {
     config,
     globalConfig,
@@ -194,6 +210,7 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
     isStreaksEnabledForUser,
     getSupportAdInterval,
     isPremiumFeaturesEnabled,
+    getVocabularyNativeAdConfig,
   };
 
   return (

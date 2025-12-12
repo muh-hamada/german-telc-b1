@@ -23,6 +23,14 @@ export interface GlobalConfig {
 }
 
 /**
+ * Vocabulary Native Ad Configuration
+ */
+export interface VocabularyNativeAdConfig {
+  enabled: boolean;
+  interval: number; // Show ad after every N vocabulary words
+}
+
+/**
  * App-specific Remote Configuration
  * Stored in app_configs/{appId}
  */
@@ -36,6 +44,9 @@ export interface RemoteConfig {
   updateMessage?: { [locale: string]: string };
   // Premium features kill switch - set to false to hide all premium UI/modals
   enablePremiumFeatures: boolean;
+  // Vocabulary native ad configuration
+  enableVocabularyNativeAd: boolean;
+  vocabularyNativeAdInterval: number;
   updatedAt: number;
 }
 
@@ -48,6 +59,7 @@ export interface RemoteConfigContextType {
   isStreaksEnabledForUser: (userId?: string) => boolean;
   getSupportAdInterval: (placement: keyof SupportAdIntervalsConfig) => number;
   isPremiumFeaturesEnabled: () => boolean;
+  getVocabularyNativeAdConfig: () => VocabularyNativeAdConfig;
 }
 
 export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
@@ -58,6 +70,11 @@ export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
 export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
   supportAdIntervals: DEFAULT_SUPPORT_AD_INTERVALS,
   updatedAt: Date.now(),
+};
+
+export const DEFAULT_VOCABULARY_NATIVE_AD_CONFIG: VocabularyNativeAdConfig = {
+  enabled: true, // Disabled by default until configured
+  interval: 10, // Show ad every 5 words by default
 };
 
 export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
@@ -76,6 +93,8 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
     ru: 'Доступна новая версия с улучшениями и исправлениями ошибок!',
   },
   enablePremiumFeatures: false, // Disabled by default until ready to launch
+  enableVocabularyNativeAd: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
+  vocabularyNativeAdInterval: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
   updatedAt: Date.now(),
 };
 

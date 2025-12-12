@@ -128,6 +128,16 @@ export const AnalyticsEvents = {
   VOCABULARY_LOGIN_SUCCESS: 'vocabulary_login_success',
   VOCABULARY_LOGIN_FAILED: 'vocabulary_login_failed',
 
+  // Vocabulary Native Ad
+  VOCABULARY_NATIVE_AD_REQUESTED: 'vocabulary_native_ad_requested', // When native ad load is initiated
+  VOCABULARY_NATIVE_AD_LOADED: 'vocabulary_native_ad_loaded', // When native ad loads successfully
+  VOCABULARY_NATIVE_AD_FAILED: 'vocabulary_native_ad_failed', // When native ad fails to load
+  VOCABULARY_NATIVE_AD_DISPLAYED: 'vocabulary_native_ad_displayed', // When native ad card is shown to user
+  VOCABULARY_NATIVE_AD_CLICKED: 'vocabulary_native_ad_clicked', // When user clicks on the native ad
+  VOCABULARY_NATIVE_AD_IMPRESSION: 'vocabulary_native_ad_impression', // When native ad records an impression
+  VOCABULARY_NATIVE_AD_CLOSED: 'vocabulary_native_ad_closed', // When user continues past the ad card
+  VOCABULARY_NATIVE_AD_SKIPPED: 'vocabulary_native_ad_skipped', // When ad is skipped (premium/streak users)
+
   // Notification Reminder
   NOTIFICATION_REMINDER_SHOWN: 'notification_reminder_shown',
   NOTIFICATION_REMINDER_ENABLED: 'notification_reminder_enabled',

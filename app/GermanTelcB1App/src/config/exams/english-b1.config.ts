@@ -73,8 +73,8 @@ export const englishB1Config: ExamConfig = {
       ios: 'ca-app-pub-5101905792101482/7398051391',
     },
     vocabularyBuilder: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/3919962422',
+      ios: 'ca-app-pub-5101905792101482/4633266531',
     },
   },
 

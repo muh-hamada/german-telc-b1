@@ -73,7 +73,7 @@ export const germanB1Config: ExamConfig = {
     },
     vocabularyBuilder: {
       android: 'ca-app-pub-5101905792101482/7872839243',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/5626784006',
     },
   },
 

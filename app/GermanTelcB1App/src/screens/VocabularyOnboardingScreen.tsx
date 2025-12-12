@@ -1,9 +1,3 @@
-/**
- * Vocabulary Onboarding Screen
- * 
- * One-time persona selection for vocabulary learning pace.
- */
-
 import React, { useState } from 'react';
 import {
   View,
@@ -17,7 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import { colors, spacing, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
-import { UserPersona } from '../types/vocabulary.types';
+import { PERSONA_DAILY_LIMITS, UserPersona } from '../types/vocabulary.types';
 import Button from '../components/Button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -38,19 +32,19 @@ const VocabularyOnboardingScreen: React.FC = () => {
     {
       type: 'casual',
       icon: 'self-improvement',
-      dailyWords: 10,
+      dailyWords: PERSONA_DAILY_LIMITS.casual,
       description: t('vocabulary.onboarding.casualDesc'),
     },
     {
       type: 'beginner',
       icon: 'school',
-      dailyWords: 20,
+      dailyWords: PERSONA_DAILY_LIMITS.beginner,
       description: t('vocabulary.onboarding.beginnerDesc'),
     },
     {
       type: 'serious',
       icon: 'trending-up',
-      dailyWords: 30,
+      dailyWords: PERSONA_DAILY_LIMITS.serious,
       description: t('vocabulary.onboarding.seriousDesc'),
     },
   ];
@@ -64,7 +58,7 @@ const VocabularyOnboardingScreen: React.FC = () => {
         persona: selectedPersona,
       });
 
-      navigation.replace('VocabularyHome' as never);
+      navigation.navigate('VocabularyHome' as never);
     } catch (error) {
       console.error('[VocabularyOnboardingScreen] Error setting persona:', error);
     } finally {

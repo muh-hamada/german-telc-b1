@@ -5,6 +5,7 @@ import {
   GlobalConfig,
   DEFAULT_GLOBAL_CONFIG,
   DEFAULT_SUPPORT_AD_INTERVALS,
+  DEFAULT_VOCABULARY_NATIVE_AD_CONFIG,
 } from '../types/remote-config.types';
 
 /**
@@ -67,6 +68,12 @@ class FirebaseRemoteConfigService {
         enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
           ? data.enablePremiumFeatures 
           : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
+        enableVocabularyNativeAd: data.enableVocabularyNativeAd !== undefined
+          ? data.enableVocabularyNativeAd
+          : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
+        vocabularyNativeAdInterval: data.vocabularyNativeAdInterval !== undefined
+          ? data.vocabularyNativeAdInterval
+          : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
       };
 
       console.log('[RemoteConfigService] Config loaded successfully:', config);
@@ -135,6 +142,12 @@ class FirebaseRemoteConfigService {
             enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
               ? data.enablePremiumFeatures 
               : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
+            enableVocabularyNativeAd: data.enableVocabularyNativeAd !== undefined
+              ? data.enableVocabularyNativeAd
+              : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
+            vocabularyNativeAdInterval: data.vocabularyNativeAdInterval !== undefined
+              ? data.vocabularyNativeAdInterval
+              : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
           };
 
           console.log('[RemoteConfigService] Config updated:', config);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,11 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
 import { useModalQueue } from '../contexts/ModalQueueContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { usePremium } from '../contexts/PremiumContext';
+import { useAuth } from '../contexts/AuthContext';
 import VocabularyCard from '../components/VocabularyCard';
+import VocabularyAdCard from '../components/VocabularyAdCard';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
 import Button from '../components/Button';
 import { VocabularyWord } from '../types/vocabulary.types';
@@ -22,8 +26,11 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const navigation = useNavigation();
   const { t } = useCustomTranslation();
   const { progress, getNewWords, markWordAsLearned, loadProgress } = useVocabulary();
-  const { recordActivity, setStreakModalVisibility } = useStreak();
+  const { recordActivity, setStreakModalVisibility, adFreeStatus } = useStreak();
   const { setContextualModalActive } = useModalQueue();
+  const { getVocabularyNativeAdConfig, isStreaksEnabledForUser } = useRemoteConfig();
+  const { isPremium } = usePremium();
+  const { user } = useAuth();
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,12 +39,126 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const [wordsStudiedToday, setWordsStudiedToday] = useState(0);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
   const [shouldShowStreakModalAfterCompletionModal, setShouldShowStreakModalAfterCompletionModal] = useState(false);
+  
+  // Native ad state
+  const [showAdCard, setShowAdCard] = useState(false);
 
   const dailyLimit = progress ? vocabularyProgressService.getDailyLimit(progress.persona) : 20;
+  
+  // Get native ad config from remote config
+  const nativeAdConfig = getVocabularyNativeAdConfig();
+  
+  // Check if user should see ads (not premium and no active streak reward)
+  const shouldShowAds = useCallback(() => {
+    // Skip ads if premium
+    if (isPremium) {
+      console.log('[VocabularyStudyNewScreen] Premium user - skipping ads');
+      logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason: 'premium' });
+      return false;
+    }
+    
+    // Skip ads if streak reward (ad-free) is active
+    if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
+      console.log('[VocabularyStudyNewScreen] Streak reward active - skipping ads');
+      logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason: 'streak_reward' });
+      return false;
+    }
+    
+    // Skip if feature is disabled
+    if (!nativeAdConfig.enabled) {
+      console.log('[VocabularyStudyNewScreen] Native ad feature disabled');
+      return false;
+    }
+    
+    return true;
+  }, [isPremium, isStreaksEnabledForUser, user?.uid, adFreeStatus.isActive, nativeAdConfig.enabled]);
+  
+  // Check if we should show an ad at the current word index
+  const shouldShowAdAtIndex = useCallback((index: number) => {
+    if (!shouldShowAds()) return false;
+    
+    // Show ad after every N words (interval)
+    // e.g., if interval is 5, show ad after words 5, 10, 15, etc.
+    const wordNumber = index + 1; // 1-indexed word number
+    return wordNumber > 0 && wordNumber % nativeAdConfig.interval === 0;
+  }, [shouldShowAds, nativeAdConfig.interval]);
 
   useEffect(() => {
     loadNewWords();
   }, []);
+  
+  // Handle native ad loaded
+  const handleAdLoaded = useCallback(() => {
+    console.log('[VocabularyStudyNewScreen] Native ad loaded successfully');
+  }, []);
+  
+  // Handle native ad failed to load
+  const handleAdFailedToLoad = useCallback((error: any) => {
+    console.log('[VocabularyStudyNewScreen] Native ad failed to load:', error);
+    // If ad fails to load, we'll skip showing the ad card
+  }, []);
+  
+  // State to track if we need to complete after ad
+  const [completeAfterAd, setCompleteAfterAd] = useState(false);
+  
+  const getLocalDateString = (): string => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  // Handle completion - defined early so it can be used in useEffect
+  const handleComplete = useCallback(async (totalWordsStudied: number) => {
+    logEvent(AnalyticsEvents.VOCABULARY_DAILY_GOAL_COMPLETED, {
+      wordsStudied: totalWordsStudied,
+    });
+
+    // Record streak activity for completing daily vocabulary goal
+    if (totalWordsStudied >= 10) {
+      const result = await recordActivity({
+        activityType: 'vocabulary_study',
+        activityId: `vocab_daily_${getLocalDateString()}`,
+        score: totalWordsStudied,
+        options: { shouldSuppressStreakModal: true },
+      });
+
+      setShouldShowStreakModalAfterCompletionModal(result.shouldShowModal);
+    }
+
+    // Pause global modal queue and show completion modal
+    setContextualModalActive(true);
+    setShowCompletionModal(true);
+  }, [recordActivity, setContextualModalActive]);
+  
+  // Handle continue from ad card
+  const handleAdContinue = useCallback(() => {
+    console.log('[VocabularyStudyNewScreen] User continued from ad card');
+    logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_CLOSED, {
+      wordIndex: currentIndex,
+      wordsStudied: wordsStudiedToday,
+    });
+    
+    setShowAdCard(false);
+    
+    // Move to next word after ad
+    if (currentIndex < words.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setIsFlipped(false);
+    } else {
+      // Completed all words - set flag to trigger completion
+      setCompleteAfterAd(true);
+    }
+  }, [currentIndex, wordsStudiedToday, words.length]);
+
+  // Handle completion after ad is dismissed
+  useEffect(() => {
+    if (completeAfterAd) {
+      setCompleteAfterAd(false);
+      handleComplete(wordsStudiedToday);
+    }
+  }, [completeAfterAd, wordsStudiedToday, handleComplete]);
 
   const loadNewWords = async () => {
     try {
@@ -75,6 +196,20 @@ const VocabularyStudyNewScreen: React.FC = () => {
       const newWordsStudied = wordsStudiedToday + 1;
       setWordsStudiedToday(newWordsStudied);
 
+      // Check if we should show an ad after this word
+      console.log('[VocabularyStudyNewScreen] shouldShowAdAtIndex', shouldShowAdAtIndex(currentIndex));
+      if (shouldShowAdAtIndex(currentIndex)) {
+        console.log('[VocabularyStudyNewScreen] Showing ad card after word', currentIndex + 1);
+        logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_DISPLAYED, {
+          wordIndex: currentIndex,
+          wordsStudied: newWordsStudied,
+          interval: nativeAdConfig.interval,
+        });
+        setShowAdCard(true);
+        setIsFlipped(false);
+        return; // Wait for user to continue from ad
+      }
+
       // Move to next word
       if (currentIndex < words.length - 1) {
         setCurrentIndex(currentIndex + 1);
@@ -86,28 +221,6 @@ const VocabularyStudyNewScreen: React.FC = () => {
     } catch (error) {
       console.error('[VocabularyStudyNewScreen] Error marking word as learned:', error);
     }
-  };
-
-  const handleComplete = async (totalWordsStudied: number) => {
-    logEvent(AnalyticsEvents.VOCABULARY_DAILY_GOAL_COMPLETED, {
-      wordsStudied: totalWordsStudied,
-    });
-
-    // Record streak activity for completing daily vocabulary goal
-    if (totalWordsStudied >= 10) {
-      const result = await recordActivity({
-        activityType: 'vocabulary_study',
-        activityId: `vocab_daily_${getLocalDateString()}`,
-        score: totalWordsStudied,
-        options: { shouldSuppressStreakModal: true },
-      });
-
-      setShouldShowStreakModalAfterCompletionModal(result.shouldShowModal);
-    }
-
-    // Pause global modal queue and show completion modal
-    setContextualModalActive(true);
-    setShowCompletionModal(true);
   };
 
   const handleModalClose = () => {
@@ -122,14 +235,6 @@ const VocabularyStudyNewScreen: React.FC = () => {
     }
 
     navigation.goBack();
-  };
-
-  const getLocalDateString = (): string => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
   };
 
   if (isLoading) {
@@ -164,18 +269,31 @@ const VocabularyStudyNewScreen: React.FC = () => {
         </Text>
       </View>
 
-      {/* Flashcard */}
+      {/* Flashcard or Ad Card */}
       <View style={styles.cardContainer}>
-        <VocabularyCard
-          word={currentWord}
-          isFlipped={isFlipped}
-          onFlip={handleFlip}
-        />
+        {showAdCard ? (
+          <VocabularyAdCard
+            onAdLoaded={handleAdLoaded}
+            onAdFailedToLoad={handleAdFailedToLoad}
+          />
+        ) : (
+          <VocabularyCard
+            word={currentWord}
+            isFlipped={isFlipped}
+            onFlip={handleFlip}
+          />
+        )}
       </View>
 
       {/* Action Buttons */}
       <View style={styles.actionsContainer}>
-        {!isFlipped ? (
+        {showAdCard ? (
+          <Button
+            title={t('common.continue')}
+            onPress={handleAdContinue}
+            style={styles.button}
+          />
+        ) : !isFlipped ? (
           <Button
             title={t('vocabulary.showAnswer')}
             onPress={handleFlip}
@@ -191,7 +309,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
           </View>
         )}
       </View>
-
+      
       {/* Completion Modal */}
       <VocabularyCompletionModal
         visible={showCompletionModal}

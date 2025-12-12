@@ -579,7 +579,8 @@
       "userDisabled": "This account has been disabled.",
       "tooManyRequests": "Too many failed attempts. Please try again later.",
       "networkError": "Network error. Please check your internet connection.",
-      "unknownError": "An unexpected error occurred. Please try again."
+      "unknownError": "An unexpected error occurred. Please try again.",
+      "adLoadFailed": "Unable to load content. Please continue."
     }
   },
   "speaking": {

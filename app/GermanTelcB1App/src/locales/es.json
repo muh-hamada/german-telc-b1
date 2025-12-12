@@ -539,6 +539,7 @@
       "wrongPassword": "Contraseña incorrecta. Por favor, inténtelo de nuevo.",
       "emailInUse": "Ya existe una cuenta con este correo electrónico.",
       "weakPassword": "La contraseña debe tener al menos 6 caracteres.",
+      "adLoadFailed": "No se pudo cargar el contenido. Por favor, continúe.",
       "invalidEmail": "Por favor, ingrese una dirección de correo electrónico válida.",
       "userDisabled": "Esta cuenta ha sido deshabilitada.",
       "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtelo más tarde.",

@@ -574,6 +574,7 @@
       "wrongPassword": "Falsches Passwort. Bitte versuchen Sie es erneut.",
       "emailInUse": "Ein Konto mit dieser E-Mail existiert bereits.",
       "weakPassword": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+      "adLoadFailed": "Inhalt konnte nicht geladen werden. Bitte fortfahren.",
       "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
       "userDisabled": "Dieses Konto wurde deaktiviert.",
       "tooManyRequests": "Zu viele fehlgeschlagene Versuche. Bitte versuchen Sie es später erneut.",

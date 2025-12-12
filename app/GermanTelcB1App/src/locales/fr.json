@@ -406,6 +406,7 @@
       "wrongPassword": "Mot de passe incorrect. Veuillez réessayer.",
       "emailInUse": "Un compte avec cette adresse e-mail existe déjà.",
       "weakPassword": "Le mot de passe doit comporter au moins 6 caractères.",
+      "adLoadFailed": "Impossible de charger le contenu. Veuillez continuer.",
       "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
       "userDisabled": "Ce compte a été désactivé.",
       "tooManyRequests": "Trop de tentatives infructueuses. Veuillez réessayer plus tard.",
