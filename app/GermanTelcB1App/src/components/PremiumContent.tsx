@@ -88,8 +88,11 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   isModal = false,
 }) => {
   const { t } = useCustomTranslation();
-  const { productPrice } = usePremium();
+  const { productPrice, isProductAvailable, isLoadingProduct } = usePremium();
   const price = productPrice || '...';
+  
+  // Disable purchase if product is loading or not available
+  const isPurchaseDisabled = isPurchasing || isRestoring || isLoadingProduct || !isProductAvailable;
 
   return (
     <View style={styles.container}>
@@ -154,12 +157,12 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       {/* Fixed CTA Section at Bottom */}
       <View style={[styles.ctaSection, { paddingBottom: isModal ? spacing.padding.sm : spacing.padding.lg }]}>
         <TouchableOpacity
-          style={[styles.purchaseButton, isPurchasing && styles.purchaseButtonDisabled]}
+          style={[styles.purchaseButton, isPurchaseDisabled && styles.purchaseButtonDisabled]}
           onPress={onPurchase}
-          disabled={isPurchasing || isRestoring}
+          disabled={isPurchaseDisabled}
           activeOpacity={0.85}
         >
-          {isPurchasing ? (
+          {isPurchasing || isLoadingProduct ? (
             <ActivityIndicator color="#FFFFFF" size="small" />
           ) : (
             <Text style={styles.purchaseButtonText}>

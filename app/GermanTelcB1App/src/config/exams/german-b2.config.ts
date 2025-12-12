@@ -72,6 +72,10 @@ export const germanB2Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/2149594149',
       ios: 'ca-app-pub-5101905792101482/4312830857',
     },
+    vocabularyBuilder: {
+      android: '',
+      ios: '',
+    },
   },
 
   premium: {

@@ -322,16 +322,9 @@ export const ReportsPage: React.FC = () => {
                   ]}
                 />
                 <DistributionChart
-                  title="Premium Status"
-                  data={[
-                    { label: 'Premium', value: selectedAppData.current.premium?.total || 0 },
-                    { label: 'Free', value: selectedAppData.current.premium?.nonPremium || 0 },
-                  ]}
-                />
-                <DistributionChart
                   title="Vocabulary Persona"
                   data={Object.entries(selectedAppData.current.personas)
-                    .filter(([_, count]) => count > 0)
+                    .sort((a, b) => a[0].localeCompare(b[0]))
                     .map(([persona, count]) => ({
                       label: persona.charAt(0).toUpperCase() + persona.slice(1),
                       value: count,

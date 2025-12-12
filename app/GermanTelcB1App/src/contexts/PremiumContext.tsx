@@ -34,6 +34,7 @@ interface PremiumContextType {
   productPrice: string | null;        // Localized price e.g., "$4.99", "€4,99", "£3.99"
   productCurrency: string | null;     // Currency code e.g., "USD", "EUR"
   isLoadingProduct: boolean;
+  isProductAvailable: boolean;        // Whether the product was successfully loaded from store
 
   // Actions
   purchasePremium: () => Promise<boolean>;
@@ -86,6 +87,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   const [productPrice, setProductPrice] = useState<string | null>(null);
   const [productCurrency, setProductCurrency] = useState<string | null>(null);
   const [isLoadingProduct, setIsLoadingProduct] = useState(true);
+  const [isProductAvailable, setIsProductAvailable] = useState(false);
   const [isIAPReady, setIsIAPReady] = useState(false);
 
   /**
@@ -254,8 +256,10 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
             console.log('[PremiumContext] Extracted price:', price, 'currency:', currency);
             setProductPrice(price);
             setProductCurrency(currency);
+            setIsProductAvailable(true);
           } else {
-            console.log('[PremiumContext] No products found');
+            console.log('[PremiumContext] No products found - purchase will not be available');
+            setIsProductAvailable(false);
           }
         } catch (err) {
           console.error('[PremiumContext] Error fetching products:', err);
@@ -305,6 +309,12 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       return false;
     }
 
+    if (!isProductAvailable) {
+      console.error('[PremiumContext] Cannot purchase - product not available');
+      setError('Product not available. Please try again later.');
+      return false;
+    }
+
     try {
       // Analytics logged in purchase.service.ts
       setIsPurchasing(true);
@@ -320,7 +330,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       setIsPurchasing(false);
       return false;
     }
-  }, [user?.uid]);
+  }, [user?.uid, isProductAvailable]);
 
   /**
    * Restore purchases
@@ -381,6 +391,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     productPrice,
     productCurrency,
     isLoadingProduct,
+    isProductAvailable,
     purchasePremium,
     restorePurchases,
     refreshPremiumStatus,

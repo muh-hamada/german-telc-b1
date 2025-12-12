@@ -71,6 +71,10 @@ export interface ExamConfig {
     userSupport: {
       android: string;
       ios: string;
+    },
+    vocabularyBuilder: {
+      android: string;
+      ios: string;
     }
   };
 

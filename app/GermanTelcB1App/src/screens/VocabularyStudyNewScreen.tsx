@@ -1,9 +1,3 @@
-/**
- * Vocabulary Study New Screen
- * 
- * Screen for studying new vocabulary words.
- */
-
 import React, { useState, useEffect } from 'react';
 import {
   View,
