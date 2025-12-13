@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 
 interface DeleteAccountModalProps {
@@ -25,6 +26,8 @@ const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({
   isLoading,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [step, setStep] = useState<'confirm' | 'success'>('confirm');
 
   const handleClose = () => {
@@ -126,111 +129,112 @@ const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.xl,
-    width: '100%',
-    maxWidth: 400,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.secondary[100],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    color: colors.text.secondary,
-  },
-  content: {
-    padding: spacing.padding.lg,
-  },
-  warningContainer: {
-    backgroundColor: colors.error[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.error[500],
-    marginBottom: spacing.margin.lg,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  warningIcon: {
-    fontSize: 24,
-    marginRight: spacing.margin.sm,
-    marginLeft: 0,
-  },
-  warningText: {
-    ...typography.textStyles.body,
-    color: colors.error[700],
-    flex: 1,
-    lineHeight: 22,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: spacing.margin.sm,
-  },
-  button: {
-    flex: 1,
-  },
-  dangerButton: {
-    backgroundColor: colors.error[500],
-  },
-  loadingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: spacing.margin.md,
-    gap: spacing.margin.sm,
-  },
-  loadingText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-  },
-  successContainer: {
-    alignItems: 'center',
-    paddingVertical: spacing.padding.xl,
-  },
-  successIcon: {
-    fontSize: 64,
-    color: colors.success[500],
-    marginBottom: spacing.margin.lg,
-  },
-  successText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: spacing.margin.xl,
-  },
-  doneButton: {
-    width: '100%',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.xl,
+      width: '100%',
+      maxWidth: 400,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      flex: 1,
+    },
+    closeButton: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      backgroundColor: colors.secondary[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeButtonText: {
+      fontSize: 18,
+      color: colors.text.secondary,
+    },
+    content: {
+      padding: spacing.padding.lg,
+    },
+    warningContainer: {
+      backgroundColor: colors.error[50],
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.error[500],
+      marginBottom: spacing.margin.lg,
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+    },
+    warningIcon: {
+      fontSize: 24,
+      marginRight: spacing.margin.sm,
+      marginLeft: 0,
+    },
+    warningText: {
+      ...typography.textStyles.body,
+      color: colors.error[700],
+      flex: 1,
+      lineHeight: 22,
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      gap: spacing.margin.sm,
+    },
+    button: {
+      flex: 1,
+    },
+    dangerButton: {
+      backgroundColor: colors.error[500],
+    },
+    loadingContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: spacing.margin.md,
+      gap: spacing.margin.sm,
+    },
+    loadingText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+    },
+    successContainer: {
+      alignItems: 'center',
+      paddingVertical: spacing.padding.xl,
+    },
+    successIcon: {
+      fontSize: 64,
+      color: colors.success[500],
+      marginBottom: spacing.margin.lg,
+    },
+    successText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      textAlign: 'center',
+      lineHeight: 24,
+      marginBottom: spacing.margin.xl,
+    },
+    doneButton: {
+      width: '100%',
+    },
+  });
 
 export default DeleteAccountModal;
 

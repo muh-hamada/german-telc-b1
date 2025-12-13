@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Modal,
   View,
@@ -8,7 +8,8 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useProgress } from '../contexts/ProgressContext';
 import LoginModal from './LoginModal';
@@ -25,6 +26,8 @@ const LoginPromptModal: React.FC<LoginPromptModalProps> = ({
   onLoginSuccess,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const { user } = useAuth();
   const { hasUnsyncedProgress } = useProgress();
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -167,133 +170,134 @@ const LoginPromptModal: React.FC<LoginPromptModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.card,
-    borderRadius: spacing.borderRadius.xl,
-    maxHeight: '90%',
-    width: '100%',
-    maxWidth: 400,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.background.tertiary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    color: colors.text.secondary,
-  },
-  content: {
-    padding: spacing.padding.lg,
-  },
-  iconContainer: {
-    alignItems: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  icon: {
-    fontSize: 48,
-  },
-  subtitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  description: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: spacing.margin.lg,
-  },
-  benefitsContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.lg,
-  },
-  benefitsTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  benefitItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.xs,
-  },
-  benefitIcon: {
-    fontSize: 16,
-    marginRight: spacing.margin.sm,
-    width: 20,
-  },
-  benefitText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    flex: 1,
-  },
-  buttonContainer: {
-    gap: spacing.margin.sm,
-  },
-  loginButton: {
-    backgroundColor: colors.primary[500],
-    borderRadius: spacing.borderRadius.lg,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    alignItems: 'center',
-  },
-  loginButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  continueButton: {
-    backgroundColor: 'transparent',
-    borderRadius: spacing.borderRadius.lg,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  continueButtonText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
-  },
-});
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.xl,
+      maxHeight: '90%',
+      width: '100%',
+      maxWidth: 400,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 8,
+      elevation: 8,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      flex: 1,
+    },
+    closeButton: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      backgroundColor: colors.secondary[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeButtonText: {
+      fontSize: 18,
+      color: colors.text.secondary,
+    },
+    content: {
+      padding: spacing.padding.lg,
+    },
+    iconContainer: {
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    icon: {
+      fontSize: 48,
+    },
+    subtitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.md,
+    },
+    description: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      lineHeight: 24,
+      marginBottom: spacing.margin.lg,
+    },
+    benefitsContainer: {
+      backgroundColor: colors.background.primary,
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginBottom: spacing.margin.lg,
+    },
+    benefitsTitle: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+    },
+    benefitItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.xs,
+    },
+    benefitIcon: {
+      fontSize: 16,
+      marginRight: spacing.margin.sm,
+      width: 20,
+    },
+    benefitText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      flex: 1,
+    },
+    buttonContainer: {
+      gap: spacing.margin.sm,
+    },
+    loginButton: {
+      backgroundColor: colors.primary[500],
+      borderRadius: spacing.borderRadius.lg,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      alignItems: 'center',
+    },
+    loginButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.inverse,
+      fontWeight: typography.fontWeight.semibold,
+    },
+    continueButton: {
+      backgroundColor: 'transparent',
+      borderRadius: spacing.borderRadius.lg,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: colors.border.light,
+    },
+    continueButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      fontWeight: typography.fontWeight.medium,
+    },
+  });
 
 export default LoginPromptModal;

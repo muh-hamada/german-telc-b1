@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { colors, spacing, ThemeColors, typography } from '../theme';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE, DEMO_STATS, DEMO_COMPLETION_STATS } from '../config/development.config';
 import Button from './Button';
 import { useCompletion } from '../contexts/CompletionContext';
 import ProfileStatsGrid from './ProfileStatsGrid';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface HomeProgressCardProps {
   onLoginPress?: () => void;
@@ -19,6 +20,8 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
   const stats = useUserStats();
   const { user, isInitialized } = useAuth();
   const { allStats } = useCompletion();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_STATS : stats;
@@ -121,7 +124,7 @@ const HomeProgressCard: React.FC<HomeProgressCardProps> = ({ onLoginPress, onVie
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
@@ -190,7 +193,7 @@ const styles = StyleSheet.create({
   },
   loginPromptTitle: {
     ...typography.textStyles.h3,
-    color: colors.primary[500],
+    color: colors.text.primary,
     fontWeight: typography.fontWeight.semibold,
     marginBottom: spacing.sm,
     textAlign: 'left',

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
   Dimensions,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -30,6 +31,8 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const containerScaleAnim = useRef(new Animated.Value(0.8)).current;
   const containerFadeAnim = useRef(new Animated.Value(0)).current;
   const textScaleAnim = useRef(new Animated.Value(0.9)).current;
@@ -150,51 +153,52 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.85)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.padding.xl,
-  },
-  heartsGif: {
-    width: SCREEN_WIDTH * 0.8,
-    height: SCREEN_HEIGHT * 0.5,
-    marginBottom: spacing.margin['2xl'],
-  },
-  textContainer: {
-    alignItems: 'center',
-  },
-  thankYouText: {
-    fontSize: 42,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.white,
-    textAlign: 'center',
-    marginBottom: spacing.margin.md,
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 4,
-  },
-  appreciationText: {
-    ...typography.textStyles.bodyLarge,
-    color: colors.white,
-    textAlign: 'center',
-    opacity: 0.9,
-    paddingHorizontal: spacing.padding.xl,
-    lineHeight: 26,
-  },
-  dismissHint: {
-    ...typography.textStyles.bodySmall,
-    color: colors.white,
-    opacity: 0.5,
-    marginTop: spacing.margin.xl,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.85)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: spacing.padding.xl,
+    },
+    heartsGif: {
+      width: SCREEN_WIDTH * 0.8,
+      height: SCREEN_HEIGHT * 0.5,
+      marginBottom: spacing.margin['2xl'],
+    },
+    textContainer: {
+      alignItems: 'center',
+    },
+    thankYouText: {
+      fontSize: 42,
+      fontWeight: typography.fontWeight.bold,
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.md,
+      textShadowColor: 'rgba(0, 0, 0, 0.3)',
+      textShadowOffset: { width: 0, height: 2 },
+      textShadowRadius: 4,
+    },
+    appreciationText: {
+      ...typography.textStyles.bodyLarge,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      opacity: 0.9,
+      paddingHorizontal: spacing.padding.xl,
+      lineHeight: 26,
+    },
+    dismissHint: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      opacity: 0.5,
+      marginTop: spacing.margin.xl,
+    },
+  });
 
 export default SupportThankYouModal;
 

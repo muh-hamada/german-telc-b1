@@ -1,4 +1,6 @@
-export const colors = {
+export type ThemeMode = 'light' | 'dark';
+
+export const lightColors = {
   // Primary colors - Professional blue theme
   primary: {
     50: '#E6F0FF',
@@ -93,7 +95,120 @@ export const colors = {
     medium: '#BDBDBD',
     dark: '#757575',
   },
+
+  social: {
+    google: '#4285F4',
+    twitter: '#1DA1F2',
+    apple: '#FFFFFF',
+  }
 } as const;
 
-export type ColorKey = keyof typeof colors;
-export type ColorValue = typeof colors[ColorKey];
+export const darkColors = {
+  // Primary colors - keep brand blue while improving contrast
+  primary: {
+    50: '#0B223F',
+    100: '#0F2C52',
+    200: '#143666',
+    300: '#19407A',
+    400: '#1E4A8E',
+    500: '#2A5FB6',
+    600: '#3F7AD1',
+    700: '#5A93E2',
+    800: '#7BACF0',
+    900: '#A1C5FA',
+  },
+
+  // Secondary colors tuned for dark surfaces
+  secondary: {
+    50: '#0B1220',
+    100: '#101828',
+    200: '#111827',
+    300: '#1F2937',
+    400: '#273549',
+    500: '#334155',
+    600: '#475569',
+    700: '#94A3B8',
+    800: '#E2E8F0',
+    900: '#F8FAFC',
+  },
+
+  // Semantic colors (kept same for consistency)
+  success: {
+    50: '#102218',
+    100: '#1D3A29',
+    200: '#275033',
+    500: '#4CAF50',
+    600: '#68C26C',
+    700: '#7DDC82',
+  },
+
+  warning: {
+    50: '#2D1B00',
+    100: '#3A2300',
+    200: '#4A2D00',
+    500: '#FF9800',
+    600: '#FFAD33',
+    700: '#FFC166',
+    800: '#FFD9A3',
+  },
+
+  error: {
+    50: '#2C0A0C',
+    100: '#3E0E12',
+    200: '#4F1217',
+    500: '#F44336',
+    600: '#F77066',
+    700: '#F99B91',
+  },
+
+  // Neutral colors
+  white: '#FFFFFF',
+  black: '#000000',
+  transparent: 'transparent',
+
+  // Gray colors
+  gray: {
+    50: '#0F172A',
+    100: '#1F2937',
+    200: '#334155',
+    300: '#475569',
+    400: '#64748B',
+    500: '#94A3B8',
+    600: '#CBD5E1',
+  },
+
+  // Background colors
+  background: {
+    primary: '#0F172A',
+    secondary: '#213a70',
+    tertiary: '#1F2937',
+  },
+
+  // Text colors
+  text: {
+    primary: '#E5E7EB',
+    secondary: '#CBD5E1',
+    tertiary: '#94A3B8',
+    inverse: '#0F172A',
+  },
+
+  // Border colors
+  border: {
+    light: '#1F2937',
+    medium: '#334155',
+    dark: '#475569',
+  },
+
+  social: {
+    google: '#4285F4',
+    twitter: '#1DA1F2',
+    apple: '#FFFFFF',
+  }
+} as const;
+
+// Default export keeps backward compatibility with existing imports.
+export const colors = lightColors;
+
+export type ThemeColors = typeof lightColors;
+export type ColorKey = keyof ThemeColors;
+export type ColorValue = ThemeColors[ColorKey];

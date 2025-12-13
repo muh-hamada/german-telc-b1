@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Text,
   StyleSheet,
@@ -11,7 +11,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import Card from '../components/Card';
 import HomeProgressCard from '../components/HomeProgressCard';
 import HomeHeader from '../components/HomeHeader';
@@ -29,6 +29,7 @@ import LoginModal from '../components/LoginModal';
 import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { HIDE_SUPPORT_US } from '../config/development.config';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -43,6 +44,8 @@ const HomeScreen: React.FC = () => {
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -246,7 +249,7 @@ const HomeScreen: React.FC = () => {
             style={styles.premiumButtonContainer}
           >
             <TouchableOpacity onPress={handleNavigateToPremium} style={styles.premiumButtonTouch}>
-              <Image source={require('../../assets/images/diamond.gif')} style={styles.diamondImage} />
+              <Image source={require('../../assets/images/diamond-transparent.gif')} style={styles.diamondImage} />
             </TouchableOpacity>
           </AnimatedGradientBorder>
         </View>
@@ -260,74 +263,77 @@ const HomeScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-    position: 'relative',
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-    paddingTop: 0,
-    gap: spacing.margin.md,
-  },
-  card: {
-    minHeight: 120,
-    justifyContent: 'center',
-  },
-  animatedCard: {
-    // ...spacing.shadow.xs,
-  },
-  cardInner: {
-    minHeight: 120,
-    justifyContent: 'center',
-    borderWidth: 0,
-  },
-  newLabel: {
-    position: 'absolute',
-    top: 10,
-    right: 11,
-    textTransform: 'uppercase',
-    color: colors.black,
-    fontSize: 10,
-  },
-  cardTitle: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  cardDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    lineHeight: 24,
-    textAlign: 'left',
-  },
-  supportAdButton: {},
-  premiumButtonWrapper: {
-    position: 'absolute',
-    right: spacing.margin.lg,
-    zIndex: 1000,
-    ...spacing.shadow.lg,
-  },
-  premiumButtonContainer: {
-    height: 60,
-    width: 60,
-  },
-  premiumButtonTouch: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.white,
-  },
-  diamondImage: {
-    width: 50,
-    height: 50,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    content: {
+      flex: 1,
+      position: 'relative',
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+      paddingTop: 0,
+      gap: spacing.margin.md,
+    },
+    card: {
+      minHeight: 120,
+      justifyContent: 'center',
+      backgroundColor: colors.background.secondary,
+    },
+    animatedCard: {
+      // ...spacing.shadow.xs,
+    },
+    cardInner: {
+      minHeight: 120,
+      justifyContent: 'center',
+      borderWidth: 0,
+      backgroundColor: colors.background.secondary,
+    },
+    newLabel: {
+      position: 'absolute',
+      top: 10,
+      right: 11,
+      textTransform: 'uppercase',
+      color: colors.text.primary,
+      fontSize: 10,
+    },
+    cardTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    cardDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      lineHeight: 24,
+      textAlign: 'left',
+    },
+    supportAdButton: {},
+    premiumButtonWrapper: {
+      position: 'absolute',
+      right: spacing.margin.lg,
+      zIndex: 1000,
+      ...spacing.shadow.lg,
+    },
+    premiumButtonContainer: {
+      height: 60,
+      width: 60,
+    },
+    premiumButtonTouch: {
+      width: '100%',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.secondary,
+    },
+    diamondImage: {
+      width: 50,
+      height: 50,
+    },
+  });
 
 export default HomeScreen;

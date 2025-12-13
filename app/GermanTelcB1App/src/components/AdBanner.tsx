@@ -1,15 +1,17 @@
 import React, { useMemo } from 'react';
-import { StyleSheet, View, Platform } from 'react-native';
-import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import { activeExamConfig } from '../config/active-exam.config';
+import { Platform, StyleSheet, View } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import consentService from '../services/consent.service';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import { activeExamConfig } from '../config/active-exam.config';
 import { HIDE_ADS } from '../config/development.config';
-import { useStreak } from '../contexts/StreakContext';
-import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useAuth } from '../contexts/AuthContext';
 import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { useStreak } from '../contexts/StreakContext';
+import { useAppTheme } from '../contexts/ThemeContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import consentService from '../services/consent.service';
+import { ThemeColors } from '../theme';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -41,23 +43,8 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   const { adFreeStatus } = useStreak();
   const { isStreaksEnabledForUser } = useRemoteConfig();
   const { isPremium } = usePremium();
-  
-  // Check if ads should be hidden
-  if (HIDE_ADS) {
-    return null;
-  }
-  
-  // Check if user has premium subscription
-  if (isPremium) {
-    console.log('[AdBanner] Premium user, hiding ad');
-    return null;
-  }
-  
-  // Check if user has active ad-free period from streaks
-  if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
-    console.log('[AdBanner] Ad-free period active, hiding ad');
-    return null;
-  }
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Memoize app version to prevent recalculation on every render
   const appVersion = useMemo(() => DeviceInfo.getVersion(), []);
@@ -93,6 +80,23 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
     };
   }, [screen, appVersion, requestNonPersonalizedAdsOnly]);
 
+  // Check if ads should be hidden
+  if (HIDE_ADS) {
+    return null;
+  }
+  
+  // Check if user has premium subscription
+  if (isPremium) {
+    console.log('[AdBanner] Premium user, hiding ad');
+    return null;
+  }
+  
+  // Check if user has active ad-free period from streaks
+  if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
+    console.log('[AdBanner] Ad-free period active, hiding ad');
+    return null;
+  }
+
   return (
     <View style={[styles.container, style]}>
       <BannerAd
@@ -112,11 +116,11 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+    justifyContent: 'center', 
+    backgroundColor: colors.background.secondary,
   },
 });
 

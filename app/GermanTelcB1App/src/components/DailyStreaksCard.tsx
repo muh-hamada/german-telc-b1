@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useStreak } from '../contexts/StreakContext';
 import RewardProgressIndicator from './RewardProgressIndicator';
 
@@ -16,6 +17,8 @@ interface DailyStreaksCardProps {
 
 const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const { weeklyActivity, streakData, isLoading, adFreeStatus } = useStreak();
 
   // Map activity data to activity count for visualization
@@ -123,118 +126,119 @@ const DailyStreaksCard: React.FC<DailyStreaksCardProps> = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    marginBottom: spacing.margin.lg,
-    ...spacing.shadow.sm,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  title: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  subtitle: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'left',
-  },
-  totalBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary[50],
-    paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.full,
-  },
-  totalValue: {
-    ...typography.textStyles.h3,
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.bold,
-    marginRight: spacing.margin.xs,
-  },
-  totalIcon: {
-    fontSize: 18,
-  },
-  chartContainer: {
-    flexDirection: 'row',
-    height: 180,
-  },
-  yAxis: {
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.padding.sm,
-    marginBottom: spacing.margin.md,
-    borderRadius: spacing.borderRadius.md,
-  },
-  yAxisLabel: {
-    ...typography.textStyles.bodySmall,
-    textAlign: 'center',
-    color: colors.text.tertiary,
-    fontSize: 10,
-  },
-  barsContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'flex-end',
-  },
-  barWrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    marginHorizontal: 2,
-  },
-  barContainer: {
-    width: '100%',
-    height: 150,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    position: 'relative',
-  },
-  barBackground: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-    opacity: 0.3,
-  },
-  bar: {
-    width: '80%',
-    borderRadius: spacing.borderRadius.sm,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 4,
-    minHeight: 4,
-  },
-  barValue: {
-    ...typography.textStyles.caption,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-    fontSize: 9,
-  },
-  dayLabel: {
-    ...typography.textStyles.caption,
-    color: colors.text.tertiary,
-    marginTop: spacing.margin.xs,
-    fontSize: 10,
-  },
-  dayLabelToday: {
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.bold,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      marginBottom: spacing.margin.lg,
+      ...spacing.shadow.sm,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.margin.md,
+    },
+    title: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+      textAlign: 'left',
+    },
+    subtitle: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      textAlign: 'left',
+    },
+    totalBadge: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.primary[50],
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+      borderRadius: spacing.borderRadius.full,
+    },
+    totalValue: {
+      ...typography.textStyles.h3,
+      color: colors.primary[700],
+      fontWeight: typography.fontWeight.bold,
+      marginRight: spacing.margin.xs,
+    },
+    totalIcon: {
+      fontSize: 18,
+    },
+    chartContainer: {
+      flexDirection: 'row',
+      height: 180,
+    },
+    yAxis: {
+      justifyContent: 'space-between',
+      paddingHorizontal: spacing.padding.sm,
+      marginBottom: spacing.margin.md,
+      borderRadius: spacing.borderRadius.md,
+    },
+    yAxisLabel: {
+      ...typography.textStyles.bodySmall,
+      textAlign: 'center',
+      color: colors.text.tertiary,
+      fontSize: 10,
+    },
+    barsContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'flex-end',
+    },
+    barWrapper: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      marginHorizontal: 2,
+    },
+    barContainer: {
+      width: '100%',
+      height: 150,
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      position: 'relative',
+    },
+    barBackground: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      borderTopWidth: 1,
+      borderTopColor: colors.border.light,
+      opacity: 0.3,
+    },
+    bar: {
+      width: '80%',
+      borderRadius: spacing.borderRadius.sm,
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      paddingTop: 4,
+      minHeight: 4,
+    },
+    barValue: {
+      ...typography.textStyles.caption,
+      color: colors.text.inverse,
+      fontWeight: typography.fontWeight.bold,
+      fontSize: 9,
+    },
+    dayLabel: {
+      ...typography.textStyles.caption,
+      color: colors.text.tertiary,
+      marginTop: spacing.margin.xs,
+      fontSize: 10,
+    },
+    dayLabelToday: {
+      color: colors.primary[600],
+      fontWeight: typography.fontWeight.bold,
+    },
+  });
 
 export default DailyStreaksCard;
 

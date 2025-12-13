@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,8 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -43,6 +44,8 @@ const SpeakingPart1Screen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const [activeTab, setActiveTab] = useState<'introduction' | 'example' | 'vocabulary' | 'questions'>('introduction');
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -86,7 +89,7 @@ const SpeakingPart1Screen: React.FC = () => {
         </TouchableOpacity>
       ),
     });
-  }, [isCompleted, navigation]);
+  }, [isCompleted, navigation, colors]);
 
   const handleToggleCompletion = async () => {
     try {
@@ -658,7 +661,7 @@ const SpeakingPart1Screen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -720,7 +723,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   textCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -761,7 +764,7 @@ const styles = StyleSheet.create({
     direction: 'ltr' as 'ltr',
   },
   questionCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -820,7 +823,7 @@ const styles = StyleSheet.create({
     color: colors.primary[700],
   },
   vocabCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.md,
     shadowColor: '#000',
@@ -858,7 +861,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContainer: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.xl,
     width: '90%',
     maxHeight: '85%',
@@ -881,7 +884,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: colors.background.secondary,
+    backgroundColor: colors.background.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -901,7 +904,7 @@ const styles = StyleSheet.create({
   },
   input: {
     ...typography.textStyles.body,
-    backgroundColor: colors.background.secondary,
+    backgroundColor: colors.background.primary,
     borderWidth: 1,
     borderColor: colors.border.light,
     borderRadius: spacing.borderRadius.md,

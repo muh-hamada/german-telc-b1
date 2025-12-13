@@ -71,7 +71,8 @@
     "ok": "OK",
     "correct": "Correct",
     "wrong": "Wrong",
-    "duration": "Duration"
+    "duration": "Duration",
+    "info": "Information"
   },
   "exam": {
     "selectExam": "Select Exam:",

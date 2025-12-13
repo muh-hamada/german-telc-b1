@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,10 @@ import {
 } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { WritingExam } from '../../types/exam.types';
@@ -22,6 +23,8 @@ const WritingScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'Writing'>>();
   const navigation = useNavigation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
   const { updateExamProgress } = useProgress();
   
@@ -130,24 +133,25 @@ const WritingScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    ...typography.textStyles.body,
-    color: colors.error[500],
-  },
-  headerButton: {
-    marginRight: spacing.margin.md,
-    padding: spacing.padding.xs,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    errorContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    errorText: {
+      ...typography.textStyles.body,
+      color: colors.error[500],
+    },
+    headerButton: {
+      marginRight: spacing.margin.md,
+      padding: spacing.padding.xs,
+    },
+  });
 
 export default WritingScreen;

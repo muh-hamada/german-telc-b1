@@ -71,7 +71,8 @@
     "ok": "D'ACCORD",
     "correct": "Correct",
     "wrong": "Faux",
-    "duration": "Durée"
+    "duration": "Durée",
+    "info": "Information"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",

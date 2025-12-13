@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, Modal, Image } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import { usePremium } from '../contexts/PremiumContext';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const OfflineBlockingModal: React.FC = () => {
   const { isPremium, isLoading: isPremiumLoading } = usePremium();
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [isConnected, setIsConnected] = useState<boolean | null>(true);
 
   useEffect(() => {
@@ -63,64 +66,65 @@ const OfflineBlockingModal: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.xl,
-  },
-  content: {
-    alignItems: 'center',
-    maxWidth: 400,
-  },
-  iconContainer: {
-    width: 120,
-    height: 120,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.margin.xl,
-    backgroundColor: colors.background.secondary,
-    borderRadius: 60,
-    ...spacing.shadow.md,
-  },
-  slashContainer: {
-    position: 'absolute',
-    transform: [{ rotate: '90deg' }],
-    opacity: 0.8,
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.md,
-    textAlign: 'center',
-  },
-  description: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-    lineHeight: 24,
-    paddingHorizontal: spacing.padding.lg,
-  },
-  premiumHint: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.warning[50],
-    paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.full,
-    gap: spacing.margin.sm,
-    borderWidth: 1,
-    borderColor: colors.warning[200],
-  },
-  premiumText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.warning[800],
-    fontWeight: typography.fontWeight.semibold,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.xl,
+    },
+    content: {
+      alignItems: 'center',
+      maxWidth: 400,
+    },
+    iconContainer: {
+      width: 120,
+      height: 120,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: spacing.margin.xl,
+      backgroundColor: colors.background.secondary,
+      borderRadius: 60,
+      ...spacing.shadow.md,
+    },
+    slashContainer: {
+      position: 'absolute',
+      transform: [{ rotate: '90deg' }],
+      opacity: 0.8,
+    },
+    title: {
+      ...typography.textStyles.h2,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.md,
+      textAlign: 'center',
+    },
+    description: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xl,
+      lineHeight: 24,
+      paddingHorizontal: spacing.padding.lg,
+    },
+    premiumHint: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.warning[50],
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+      borderRadius: spacing.borderRadius.full,
+      gap: spacing.margin.sm,
+      borderWidth: 1,
+      borderColor: colors.warning[200],
+    },
+    premiumText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.warning[800],
+      fontWeight: typography.fontWeight.semibold,
+    },
+  });
 
 export default OfflineBlockingModal;
 

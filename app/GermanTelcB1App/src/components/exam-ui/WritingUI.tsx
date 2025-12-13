@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -19,7 +19,8 @@ import { launchCamera } from 'react-native-image-picker';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { usePremium } from '../../contexts/PremiumContext';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
   evaluateWriting,
@@ -52,6 +53,8 @@ const REWARDED_AD_UNIT_ID = __DEV__
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const { setContextualModalActive } = useModalQueue();
   const { isPremium } = usePremium();
   const [userAnswer, setUserAnswer] = useState('');
@@ -857,6 +860,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
           style={styles.textInput}
           multiline
           placeholder={t('writing.input.placeholder')}
+          placeholderTextColor={colors.text.secondary}
           value={userAnswer}
           onChangeText={handleAnswerChange}
           textAlignVertical="top"
@@ -910,7 +914,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -944,7 +948,7 @@ const styles = StyleSheet.create({
     padding: spacing.padding.lg,
   },
   instructionsCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.lg,

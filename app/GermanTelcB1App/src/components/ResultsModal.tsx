@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,8 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
 import SupportAdButton from './SupportAdButton';
@@ -31,6 +32,8 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   examTitle,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const hasLoggedButtonShown = useRef<boolean>(false);
 
   // Track when support ad button is shown (only for scores > 60%)
@@ -188,146 +191,146 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.md,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    maxHeight: '85%',
-    width: '92%',
-    alignSelf: 'center',
-  },
-  scrollView: {
-    maxHeight: '100%',
-  },
-  contentContainer: {
-    paddingBottom: spacing.md,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.background.tertiary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    color: colors.text.secondary,
-  },
-  scoreContainer: {
-    alignItems: 'center',
-    paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.md,
-    backgroundColor: colors.background.tertiary,
-  },
-  emoji: {
-    fontSize: 40,
-    marginBottom: spacing.xs,
-  },
-  score: {
-    ...typography.textStyles.h2,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.xs,
-  },
-  scoreText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    marginBottom: spacing.xs,
-  },
-  scoreDetails: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-  },
-  detailsContainer: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  detailsTitle: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    marginBottom: spacing.sm,
-  },
-  answerRow: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.xs,
-    borderLeftWidth: 4,
-  },
-  correctAnswer: {
-    backgroundColor: colors.success[50],
-    borderLeftColor: colors.success[500],
-  },
-  incorrectAnswer: {
-    backgroundColor: colors.error[50],
-    borderLeftColor: colors.error[500],
-  },
-  answerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  questionNumber: {
-    ...typography.textStyles.bodySmall,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
-  },
-  status: {
-    ...typography.textStyles.bodySmall,
-    fontWeight: typography.fontWeight.medium,
-  },
-  correctStatus: {
-    color: colors.success[700],
-  },
-  incorrectStatus: {
-    color: colors.error[700],
-  },
-  answerDetails: {
-  },
-  answerLabel: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-  },
-  answerText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.primary,
-  },
-  supportAdButton: {
-    marginHorizontal: spacing.md,
-    marginBottom: spacing.sm,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    gap: spacing.md,
-  },
-  retryButton: {
-    flex: 1,
-  },
-  continueButton: {
-    flex: 1,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.md,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      maxHeight: '85%',
+      width: '92%',
+      alignSelf: 'center',
+    },
+    scrollView: {
+      maxHeight: '100%',
+    },
+    contentContainer: {
+      paddingBottom: spacing.padding.md,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    title: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+    },
+    closeButton: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      backgroundColor: colors.secondary[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeButtonText: {
+      fontSize: 18,
+      color: colors.text.secondary,
+    },
+    scoreContainer: {
+      alignItems: 'center',
+      paddingVertical: spacing.padding.lg,
+      paddingHorizontal: spacing.padding.md,
+      backgroundColor: colors.background.primary,
+    },
+    emoji: {
+      fontSize: 40,
+      marginBottom: spacing.margin.xs,
+    },
+    score: {
+      ...typography.textStyles.h2,
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: spacing.margin.xs,
+    },
+    scoreText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+    },
+    scoreDetails: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+    },
+    detailsContainer: {
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+    },
+    detailsTitle: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+    },
+    answerRow: {
+      paddingVertical: spacing.padding.sm,
+      paddingHorizontal: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.xs,
+      borderLeftWidth: 4,
+    },
+    correctAnswer: {
+      backgroundColor: colors.success[50],
+      borderLeftColor: colors.success[500],
+    },
+    incorrectAnswer: {
+      backgroundColor: colors.error[50],
+      borderLeftColor: colors.error[500],
+    },
+    answerHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    questionNumber: {
+      ...typography.textStyles.bodySmall,
+      fontWeight: typography.fontWeight.medium,
+      color: colors.text.primary,
+    },
+    status: {
+      ...typography.textStyles.bodySmall,
+      fontWeight: typography.fontWeight.medium,
+    },
+    correctStatus: {
+      color: colors.success[700],
+    },
+    incorrectStatus: {
+      color: colors.error[700],
+    },
+    answerDetails: {},
+    answerLabel: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+    },
+    answerText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.primary,
+    },
+    supportAdButton: {
+      marginHorizontal: spacing.margin.md,
+      marginBottom: spacing.margin.sm,
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+      gap: spacing.margin.md,
+    },
+    retryButton: {
+      flex: 1,
+    },
+    continueButton: {
+      flex: 1,
+    },
+  });
 
 export default ResultsModal;

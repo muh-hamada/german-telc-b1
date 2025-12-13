@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
   Platform,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import SocialLoginButton from './SocialLoginButton';
 import EmailLoginForm from './EmailLoginForm';
@@ -29,6 +30,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
   onFailure,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const {
     signInWithGoogle,
     signInWithApple,
@@ -211,113 +214,114 @@ const LoginModal: React.FC<LoginModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.xl,
-    maxHeight: '90%',
-    width: '100%',
-    maxWidth: 400,
-  },
-  scrollView: {
-    maxHeight: '100%',
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.secondary[100],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    color: colors.text.secondary,
-  },
-  errorContainer: {
-    backgroundColor: colors.error[50],
-    margin: spacing.margin.lg,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.error[500],
-  },
-  errorText: {
-    ...typography.textStyles.body,
-    color: colors.error[700],
-  },
-  content: {
-    padding: spacing.padding.lg,
-  },
-  subtitle: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-    lineHeight: 24,
-  },
-  socialButtons: {
-    marginBottom: spacing.margin.lg,
-  },
-  divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: colors.border.light,
-  },
-  dividerText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.tertiary,
-    marginHorizontal: spacing.margin.md,
-  },
-  emailButton: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  emailButtonText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  backButton: {
-    alignSelf: 'center',
-    marginTop: spacing.margin.lg,
-  },
-  backButtonText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[500],
-    textDecorationLine: 'underline',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.xl,
+      maxHeight: '90%',
+      width: '100%',
+      maxWidth: 400,
+    },
+    scrollView: {
+      maxHeight: '100%',
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      flex: 1,
+      textAlign: 'left',
+    },
+    closeButton: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      backgroundColor: colors.secondary[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    closeButtonText: {
+      fontSize: 18,
+      color: colors.text.secondary,
+    },
+    errorContainer: {
+      backgroundColor: colors.error[50],
+      margin: spacing.margin.lg,
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.error[500],
+    },
+    errorText: {
+      ...typography.textStyles.body,
+      color: colors.error[700],
+    },
+    content: {
+      padding: spacing.padding.lg,
+    },
+    subtitle: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xl,
+      lineHeight: 24,
+    },
+    socialButtons: {
+      marginBottom: spacing.margin.lg,
+    },
+    divider: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    dividerLine: {
+      flex: 1,
+      height: 1,
+      backgroundColor: colors.border.light,
+    },
+    dividerText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.tertiary,
+      marginHorizontal: spacing.margin.md,
+    },
+    emailButton: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: colors.border.light,
+    },
+    emailButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.medium,
+    },
+    backButton: {
+      alignSelf: 'center',
+      marginTop: spacing.margin.lg,
+    },
+    backButtonText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.primary[500],
+      textDecorationLine: 'underline',
+    },
+  });
 
 export default LoginModal;

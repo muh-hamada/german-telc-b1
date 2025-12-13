@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,7 @@ import {
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import Button from '../components/Button';
 import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import RestartAppModal from '../components/RestartAppModal';
@@ -32,6 +32,7 @@ import { activeExamConfig } from '../config/active-exam.config';
 import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import OfflineDownloadSection from '../components/OfflineDownloadSection';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -39,6 +40,9 @@ const SettingsScreen: React.FC = () => {
   const { user, isLoading: authLoading } = useAuth();
   const { isPremium } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
+  const { colors, mode: themeMode, setTheme, isLoading: isThemeLoading } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  const isDarkMode = themeMode === 'dark';
   const {
     isRestartModalVisible,
     isGoingToRTL,
@@ -329,6 +333,10 @@ const SettingsScreen: React.FC = () => {
     return `${hour - 12}:00 pm`;
   };
 
+  const handleThemeToggle = async (value: boolean) => {
+    await setTheme(value ? 'dark' : 'light');
+  };
+
   // Handle ad consent settings
   const handleManageAdConsent = async () => {
     try {
@@ -572,6 +580,28 @@ const SettingsScreen: React.FC = () => {
           />
         </View>
 
+        {/* Appearance Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('settings.appearance', { defaultValue: 'Appearance' })}</Text>
+          <View style={styles.notificationsContainer}>
+            <View style={styles.notificationsRow}>
+              <Text style={styles.settingLabel}>{t('settings.darkMode', { defaultValue: 'Dark mode' })}</Text>
+              <Switch
+                value={isDarkMode}
+                onValueChange={handleThemeToggle}
+                trackColor={{ false: colors.secondary[200], true: colors.primary[200] }}
+                thumbColor={isDarkMode ? colors.primary[500] : colors.secondary[400]}
+                disabled={isThemeLoading}
+              />
+            </View>
+            <Text style={styles.helperText}>
+              {isDarkMode
+                ? t('settings.darkModeOn', { defaultValue: 'Dark theme reduces glare.' })
+                : t('settings.darkModeOff', { defaultValue: 'Light theme keeps a brighter look.' })}
+            </Text>
+          </View>
+        </View>
+
         {/* Notifications Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('settings.notifications')}</Text>
@@ -750,130 +780,137 @@ const SettingsScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-  },
-  section: {
-    marginBottom: spacing.margin.lg,
-  },
-  sectionTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  settingButton: {
-    marginBottom: spacing.margin.sm,
-  },
-  settingRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.sm,
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.sm,
-  },
-  settingLabel: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  timeSection: {
-    marginTop: spacing.margin.md,
-  },
-  timeLabel: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    marginBottom: spacing.margin.xs,
-  },
-  timeButton: {
-    alignSelf: 'flex-start',
-    minWidth: 120,
-  },
-  loggedOutMessage: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    fontStyle: 'italic',
-    textAlign: 'center',
-    paddingVertical: spacing.padding.lg,
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-  },
-  dangerButton: {
-    borderColor: colors.error[500],
-  },
-  deleteAccountButton: {
-    borderColor: colors.error[500],
-  },
-  permissionWarning: {
-    backgroundColor: colors.warning[100],
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginTop: spacing.margin.sm,
-    borderWidth: 1,
-    borderColor: colors.warning[500],
-  },
-  permissionWarningText: {
-    ...typography.textStyles.body,
-    color: colors.warning[700],
-    marginBottom: spacing.margin.xs,
-  },
-  openSettingsButton: {
-    borderColor: colors.warning[500],
-    marginTop: spacing.margin.xs,
-  },
-  consentContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.sm,
-  },
-  consentHeader: {
-    marginBottom: spacing.margin.xs,
-  },
-  consentTitle: {
-    ...typography.textStyles.body,
-    fontWeight: '700',
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  consentStatus: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    fontStyle: 'italic',
-    textAlign: 'left',
-  },
-  consentDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    fontSize: 13,
-    marginBottom: spacing.margin.md,
-    lineHeight: 18,
-    textAlign: 'left',
-  },
-  notificationsContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.sm,
-  },
-  notificationsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    content: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+    },
+    section: {
+      marginBottom: spacing.margin.lg,
+    },
+    sectionTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    settingButton: {
+      marginBottom: spacing.margin.sm,
+    },
+    settingRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.sm,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.sm,
+    },
+    settingLabel: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      flex: 1,
+      textAlign: 'left',
+    },
+    timeSection: {
+      marginTop: spacing.margin.md,
+    },
+    timeLabel: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      marginBottom: spacing.margin.xs,
+    },
+    timeButton: {
+      alignSelf: 'flex-start',
+      minWidth: 120,
+    },
+    loggedOutMessage: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      fontStyle: 'italic',
+      textAlign: 'center',
+      paddingVertical: spacing.padding.lg,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+    },
+    helperText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      marginTop: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    dangerButton: {
+      borderColor: colors.error[500],
+    },
+    deleteAccountButton: {
+      borderColor: colors.error[500],
+    },
+    permissionWarning: {
+      backgroundColor: colors.warning[100],
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginTop: spacing.margin.sm,
+      borderWidth: 1,
+      borderColor: colors.warning[500],
+    },
+    permissionWarningText: {
+      ...typography.textStyles.body,
+      color: colors.warning[700],
+      marginBottom: spacing.margin.xs,
+    },
+    openSettingsButton: {
+      borderColor: colors.warning[500],
+      marginTop: spacing.margin.xs,
+    },
+    consentContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginBottom: spacing.margin.sm,
+    },
+    consentHeader: {
+      marginBottom: spacing.margin.xs,
+    },
+    consentTitle: {
+      ...typography.textStyles.body,
+      fontWeight: '700',
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+      textAlign: 'left',
+    },
+    consentStatus: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      fontStyle: 'italic',
+      textAlign: 'left',
+    },
+    consentDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      fontSize: 13,
+      marginBottom: spacing.margin.md,
+      lineHeight: 18,
+      textAlign: 'left',
+    },
+    notificationsContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginBottom: spacing.margin.sm,
+    },
+    notificationsRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+  });
 
 export default SettingsScreen;

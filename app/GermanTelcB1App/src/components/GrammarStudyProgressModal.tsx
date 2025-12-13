@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,8 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface GrammarStudyProgressModalProps {
   visible: boolean;
@@ -28,6 +29,8 @@ const GrammarStudyProgressModal: React.FC<GrammarStudyProgressModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const handleStartOver = () => {
     Alert.alert(
@@ -98,85 +101,86 @@ const GrammarStudyProgressModal: React.FC<GrammarStudyProgressModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.white,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.xl,
-    width: '100%',
-    maxWidth: 400,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  message: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: spacing.margin.lg,
-  },
-  progressInfo: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.lg,
-    alignSelf: 'stretch',
-  },
-  progressText: {
-    ...typography.textStyles.body,
-    color: colors.primary[700],
-    textAlign: 'center',
-    fontWeight: typography.fontWeight.semibold,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: spacing.margin.md,
-    alignSelf: 'stretch',
-  },
-  button: {
-    flex: 1,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  continueButton: {
-    backgroundColor: colors.primary[500],
-  },
-  restartButton: {
-    backgroundColor: colors.background.secondary,
-    borderWidth: 1,
-    borderColor: colors.border.medium,
-  },
-  buttonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    textAlign: 'center',
-  },
-  continueButtonText: {
-    color: colors.white,
-  },
-  restartButtonText: {
-    color: colors.text.primary,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.xl,
+      width: '100%',
+      maxWidth: 400,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.25,
+      shadowRadius: 8,
+      elevation: 8,
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.md,
+    },
+    message: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      lineHeight: 24,
+      marginBottom: spacing.margin.lg,
+    },
+    progressInfo: {
+      backgroundColor: colors.primary[50],
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.lg,
+      alignSelf: 'stretch',
+    },
+    progressText: {
+      ...typography.textStyles.body,
+      color: colors.primary[700],
+      textAlign: 'center',
+      fontWeight: typography.fontWeight.semibold,
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      gap: spacing.margin.md,
+      alignSelf: 'stretch',
+    },
+    button: {
+      flex: 1,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    continueButton: {
+      backgroundColor: colors.primary[500],
+    },
+    restartButton: {
+      backgroundColor: colors.background.primary,
+      borderWidth: 1,
+      borderColor: colors.border.medium,
+    },
+    buttonText: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      textAlign: 'center',
+    },
+    continueButtonText: {
+      color: colors.text.inverse,
+    },
+    restartButtonText: {
+      color: colors.text.primary,
+    },
+  });
 
 export default GrammarStudyProgressModal;

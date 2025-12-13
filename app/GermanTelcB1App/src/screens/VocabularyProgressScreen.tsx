@@ -4,7 +4,7 @@
  * Statistics dashboard for vocabulary learning progress.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -14,9 +14,10 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
+import { useAppTheme } from '../contexts/ThemeContext';
 import VocabularyStatsCard from '../components/VocabularyStatsCard';
 import Card from '../components/Card';
 import PersonaSelectorModal from '../components/PersonaSelectorModal';
@@ -29,6 +30,8 @@ const VocabularyProgressScreen: React.FC = () => {
   const { stats, progress, isLoading, loadProgress, setUserPersona } = useVocabulary();
   const [refreshing, setRefreshing] = React.useState(false);
   const [isPersonaModalVisible, setIsPersonaModalVisible] = React.useState(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   React.useEffect(() => {
     logEvent(AnalyticsEvents.VOCABULARY_PROGRESS_OPENED);
@@ -137,72 +140,73 @@ const VocabularyProgressScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-    gap: spacing.margin.md,
-  },
-  card: {
-    padding: spacing.padding.lg,
-  },
-  cardTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.md,
-    textAlign: 'left',
-  },
-  breakdownItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.sm,
-  },
-  breakdownDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    marginRight: spacing.margin.md,
-  },
-  breakdownLabel: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  breakdownValue: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    fontWeight: 'bold',
-  },
-  personaContainer: {
-    padding: spacing.padding.md,
-    backgroundColor: colors.primary[50],
-    borderRadius: 12,
-  },
-  personaLabel: {
-    ...typography.textStyles.h3,
-    color: colors.primary[700],
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  personaDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'left',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+    },
+    scrollView: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+      gap: spacing.margin.md,
+    },
+    card: {
+      padding: spacing.padding.lg,
+    },
+    cardTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.md,
+      textAlign: 'left',
+    },
+    breakdownItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: spacing.padding.sm,
+    },
+    breakdownDot: {
+      width: 12,
+      height: 12,
+      borderRadius: 6,
+      marginRight: spacing.margin.md,
+    },
+    breakdownLabel: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      flex: 1,
+      textAlign: 'left',
+    },
+    breakdownValue: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      fontWeight: 'bold',
+    },
+    personaContainer: {
+      padding: spacing.padding.md,
+      backgroundColor: colors.primary[50],
+      borderRadius: 12,
+    },
+    personaLabel: {
+      ...typography.textStyles.h3,
+      color: colors.primary[700],
+      marginBottom: spacing.margin.xs,
+      textAlign: 'left',
+    },
+    personaDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'left',
+    },
+  });
 
 export default VocabularyProgressScreen;
 

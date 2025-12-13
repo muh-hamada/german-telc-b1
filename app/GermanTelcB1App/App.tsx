@@ -15,9 +15,27 @@ import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
 import { StreakProvider } from './src/contexts/StreakContext';
 import { VocabularyProvider } from './src/contexts/VocabularyContext';
+import { ThemeProvider, useAppTheme } from './src/contexts/ThemeContext';
 import RootNavigator from './src/navigation/RootNavigator';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
+
+const AppContent: React.FC = () => {
+  const { colors, mode } = useAppTheme();
+
+  return (
+    <>
+      <StatusBar
+        barStyle={mode === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={colors.background.primary}
+        translucent={false}
+      />
+      <RootNavigator />
+      <ModalQueueRenderer />
+      <OfflineBlockingModal />
+    </>
+  );
+};
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -27,32 +45,31 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaProvider>
-      <ModalQueueProvider>
-        <RemoteConfigProvider>
-          <AppUpdateProvider>
-            <ReviewProvider>
-              <AuthProvider>
-                <PremiumProvider>
-                  <VocabularyProvider>
-                    <StreakProvider>
-                      <NotificationReminderProvider>
-                        <ProgressProvider>
-                          <CompletionProvider>
-                            <StatusBar barStyle="dark-content" backgroundColor="#000000" translucent={false} />
-                            <RootNavigator />
-                            <ModalQueueRenderer />
-                            <OfflineBlockingModal />
-                          </CompletionProvider>
-                        </ProgressProvider>
-                      </NotificationReminderProvider>
-                    </StreakProvider>
-                  </VocabularyProvider>
-                </PremiumProvider>
-              </AuthProvider>
-            </ReviewProvider>
-          </AppUpdateProvider>
-        </RemoteConfigProvider>
-      </ModalQueueProvider>
+      <ThemeProvider>
+        <ModalQueueProvider>
+          <RemoteConfigProvider>
+            <AppUpdateProvider>
+              <ReviewProvider>
+                <AuthProvider>
+                  <PremiumProvider>
+                    <VocabularyProvider>
+                      <StreakProvider>
+                        <NotificationReminderProvider>
+                          <ProgressProvider>
+                            <CompletionProvider>
+                              <AppContent />
+                            </CompletionProvider>
+                          </ProgressProvider>
+                        </NotificationReminderProvider>
+                      </StreakProvider>
+                    </VocabularyProvider>
+                  </PremiumProvider>
+                </AuthProvider>
+              </ReviewProvider>
+            </AppUpdateProvider>
+          </RemoteConfigProvider>
+        </ModalQueueProvider>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 };

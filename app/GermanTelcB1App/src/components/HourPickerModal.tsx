@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 
 interface HourPickerModalProps {
@@ -26,6 +27,8 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
   onHourSelect,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Popular notification times
   const popularHours = [
@@ -146,111 +149,112 @@ const HourPickerModal: React.FC<HourPickerModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-end',
-  },
-  backdrop: {
-    flex: 1,
-  },
-  container: {
-    backgroundColor: colors.background.primary,
-    borderTopLeftRadius: spacing.borderRadius.xl,
-    borderTopRightRadius: spacing.borderRadius.xl,
-    maxHeight: '90%',
-  },
-  content: {
-    padding: spacing.padding.lg,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-  },
-  closeButton: {
-    padding: spacing.padding.sm,
-  },
-  closeText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-  },
-  pickerContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  row: {
-    flexDirection: 'row',
-    marginBottom: spacing.margin.xs,
-  },
-  hourItemWrapper: {
-    flex: 1,
-  },
-  hourItem: {
-    flex: 1,
-    margin: spacing.margin.xs,
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.xs,
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.sm,
-    alignItems: 'center',
-    minWidth: 50,
-  },
-  hourItemSelected: {
-    backgroundColor: colors.primary[500],
-  },
-  hourText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontSize: typography.fontSize.sm,
-  },
-  hourTextSelected: {
-    color: colors.white,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  popularSection: {
-    marginBottom: spacing.margin.lg,
-  },
-  popularTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  popularContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  popularButton: {
-    flex: 1,
-    marginHorizontal: spacing.margin.xs,
-    paddingVertical: spacing.padding.md,
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  popularButtonSelected: {
-    backgroundColor: colors.primary[50],
-    borderColor: colors.primary[500],
-  },
-  popularText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  popularTextSelected: {
-    color: colors.primary[500],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  doneButton: {
-    marginTop: spacing.margin.md,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'flex-end',
+    },
+    backdrop: {
+      flex: 1,
+    },
+    container: {
+      backgroundColor: colors.background.primary,
+      borderTopLeftRadius: spacing.borderRadius.xl,
+      borderTopRightRadius: spacing.borderRadius.xl,
+      maxHeight: '90%',
+    },
+    content: {
+      padding: spacing.padding.lg,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+    },
+    closeButton: {
+      padding: spacing.padding.sm,
+    },
+    closeText: {
+      ...typography.textStyles.h3,
+      color: colors.text.secondary,
+    },
+    pickerContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    row: {
+      flexDirection: 'row',
+      marginBottom: spacing.margin.xs,
+    },
+    hourItemWrapper: {
+      flex: 1,
+    },
+    hourItem: {
+      flex: 1,
+      margin: spacing.margin.xs,
+      paddingVertical: spacing.padding.sm,
+      paddingHorizontal: spacing.padding.xs,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.sm,
+      alignItems: 'center',
+      minWidth: 50,
+    },
+    hourItemSelected: {
+      backgroundColor: colors.primary[500],
+    },
+    hourText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontSize: typography.fontSize.sm,
+    },
+    hourTextSelected: {
+      color: colors.text.inverse,
+      fontWeight: typography.fontWeight.semibold,
+    },
+    popularSection: {
+      marginBottom: spacing.margin.lg,
+    },
+    popularTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+    },
+    popularContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    popularButton: {
+      flex: 1,
+      marginHorizontal: spacing.margin.xs,
+      paddingVertical: spacing.padding.md,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: 'transparent',
+    },
+    popularButtonSelected: {
+      backgroundColor: colors.primary[50],
+      borderColor: colors.primary[500],
+    },
+    popularText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.medium,
+    },
+    popularTextSelected: {
+      color: colors.primary[500],
+      fontWeight: typography.fontWeight.semibold,
+    },
+    doneButton: {
+      marginTop: spacing.margin.md,
+    },
+  });
 
 export default HourPickerModal;

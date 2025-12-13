@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,13 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -22,6 +23,8 @@ const GrammarMenuScreen: React.FC = () => {
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   React.useEffect(() => {
     const loadExams = async () => {
@@ -118,61 +121,63 @@ const GrammarMenuScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-  },
-  card: {
-    marginBottom: spacing.margin.lg,
-    minHeight: 100,
-    justifyContent: 'center',
-  },
-  cardTitle: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  cardDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    lineHeight: 24,
-    textAlign: 'left',
-  },
-  separatorContainer: {
-    marginBottom: spacing.margin.lg,
-    position: 'relative',
-  },
-  separator: {
-    height: 1,
-    width: '100%',
-    backgroundColor: colors.border.light,
-  },
-  separatorTextContainer: {
-    position: 'absolute',
-    width: '100%',
-    left: 0,
-    zIndex: 1000,
-    top: -10,
-    height: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  separatorText: {
-    ...typography.textStyles.h6,
-    color: colors.text.secondary,
-    textTransform: 'uppercase',
-    backgroundColor: colors.background.primary,
-    paddingHorizontal: spacing.padding.md,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    content: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+    },
+    card: {
+      marginBottom: spacing.margin.lg,
+      minHeight: 100,
+      justifyContent: 'center',
+      backgroundColor: colors.background.secondary,
+    },
+    cardTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    cardDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      lineHeight: 24,
+      textAlign: 'left',
+    },
+    separatorContainer: {
+      marginBottom: spacing.margin.lg,
+      position: 'relative',
+    },
+    separator: {
+      height: 1,
+      width: '100%',
+      backgroundColor: colors.border.light,
+    },
+    separatorTextContainer: {
+      position: 'absolute',
+      width: '100%',
+      left: 0,
+      zIndex: 1000,
+      top: -10,
+      height: 24,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    separatorText: {
+      ...typography.textStyles.h6,
+      color: colors.text.secondary,
+      textTransform: 'uppercase',
+      backgroundColor: colors.background.primary,
+      paddingHorizontal: spacing.padding.md,
+    },
+  });
 
 export default GrammarMenuScreen;
 

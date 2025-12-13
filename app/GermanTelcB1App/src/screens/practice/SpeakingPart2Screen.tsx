@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,8 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Markdown from 'react-native-markdown-display';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -43,6 +44,9 @@ const SpeakingPart2Screen: React.FC = () => {
   const route = useRoute<SpeakingPart2ScreenRouteProp>();
   const navigation = useNavigation();
   const topicId = route.params?.topicId ?? 0;
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  const markdownStyles = useMemo(() => createMarkdownStyles(colors), [colors]);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
 
@@ -71,7 +75,7 @@ const SpeakingPart2Screen: React.FC = () => {
         </TouchableOpacity>
       ),
     });
-  }, [isCompleted, navigation]);
+  }, [isCompleted, navigation, colors]);
 
   const handleToggleCompletion = async () => {
     try {
@@ -246,7 +250,7 @@ const SpeakingPart2Screen: React.FC = () => {
   );
 };
 
-const markdownStyles = {
+const createMarkdownStyles = (colors: ThemeColors) => ({
   body: {
     ...typography.textStyles.body,
     color: colors.text.primary,
@@ -259,9 +263,9 @@ const markdownStyles = {
     fontWeight: '700' as '700',
     color: colors.primary[700],
   },
-};
+});
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

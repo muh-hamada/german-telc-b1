@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,8 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { ReadingPart3Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
@@ -19,6 +20,8 @@ interface ReadingPart3UIProps {
 
 const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>({});
 
   const renderMarkdownText = (text: string, style: any) => {
@@ -210,7 +213,7 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => 
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

@@ -4,7 +4,7 @@
  * Screen for reviewing vocabulary words with SM-2 ratings.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,11 +13,12 @@ import {
   Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
 import { useModalQueue } from '../contexts/ModalQueueContext';
+import { useAppTheme } from '../contexts/ThemeContext';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyRatingButtons from '../components/VocabularyRatingButtons';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
@@ -31,6 +32,8 @@ const VocabularyReviewScreen: React.FC = () => {
   const { getDueWords, reviewWord, loadProgress } = useVocabulary();
   const { recordActivity } = useStreak();
   const { setContextualModalActive } = useModalQueue();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -210,64 +213,65 @@ const VocabularyReviewScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.lg,
-  },
-  emptyText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  progressContainer: {
-    padding: spacing.padding.lg,
-    gap: spacing.margin.sm,
-  },
-  progressBar: {
-    height: 8,
-    backgroundColor: colors.secondary[200],
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  progressFill: {
-    height: '100%',
-    backgroundColor: colors.warning[500],
-    borderRadius: 4,
-  },
-  progressText: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  actionsContainer: {
-    padding: spacing.padding.lg,
-    paddingBottom: spacing.padding.xl,
-  },
-  button: {
-    marginHorizontal: 0,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+    },
+    emptyContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+      padding: spacing.padding.lg,
+    },
+    emptyText: {
+      ...typography.textStyles.h3,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    progressContainer: {
+      padding: spacing.padding.lg,
+      gap: spacing.margin.sm,
+    },
+    progressBar: {
+      height: 8,
+      backgroundColor: colors.secondary[200],
+      borderRadius: 4,
+      overflow: 'hidden',
+    },
+    progressFill: {
+      height: '100%',
+      backgroundColor: colors.warning[500],
+      borderRadius: 4,
+    },
+    progressText: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+    cardContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    actionsContainer: {
+      padding: spacing.padding.lg,
+      paddingBottom: spacing.padding.xl,
+    },
+    button: {
+      marginHorizontal: 0,
+    },
+  });
 
 export default VocabularyReviewScreen;
 

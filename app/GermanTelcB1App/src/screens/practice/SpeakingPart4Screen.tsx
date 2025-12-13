@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { SpeakingImportantPhrasesContent, SpeakingImportantPhrasesGroup } from '../../types/exam.types';
 import { HomeStackParamList } from '../../types/navigation.types';
@@ -20,6 +21,8 @@ const SpeakingPart4Screen: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [content, setContent] = useState<SpeakingImportantPhrasesContent | null>(null);
   const groupIndex = route.params?.groupIndex ?? 0;
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 4, groupIndex);
 
@@ -57,7 +60,7 @@ const SpeakingPart4Screen: React.FC = () => {
         </TouchableOpacity>
       ),
     });
-  }, [isCompleted, navigation]);
+  }, [isCompleted, navigation, colors]);
 
   const handleToggleCompletion = async () => {
     try {
@@ -121,7 +124,7 @@ const SpeakingPart4Screen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

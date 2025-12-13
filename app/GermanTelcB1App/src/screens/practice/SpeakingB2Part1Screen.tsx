@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -35,6 +36,8 @@ const SpeakingB2Part1Screen: React.FC = () => {
   const route = useRoute<B2SpeakingPart1RouteProp>();
   const { topicId } = route.params;
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, topicId);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const [activeTab, setActiveTab] = useState<'presentation' | 'discussion'>('presentation');
   const [isLoading, setIsLoading] = useState(true);
@@ -60,7 +63,7 @@ const SpeakingB2Part1Screen: React.FC = () => {
         </TouchableOpacity>
       ),
     });
-  }, [isCompleted, navigation]);
+  }, [isCompleted, navigation, colors]);
 
   const handleToggleCompletion = async () => {
     try {
@@ -195,7 +198,7 @@ const SpeakingB2Part1Screen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -255,7 +258,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   textCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -286,7 +289,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.padding.xs,
   },
   questionCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -326,4 +329,3 @@ const styles = StyleSheet.create({
 });
 
 export default SpeakingB2Part1Screen;
-

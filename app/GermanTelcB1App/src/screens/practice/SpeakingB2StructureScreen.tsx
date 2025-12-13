@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
@@ -15,6 +16,8 @@ import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 const SpeakingB2StructureScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const examLanguageCode = LanguageNameToLanguageCodes[activeExamConfig.language] || 'de';
   const [activeTab, setActiveTab] = useState<'overview' | 'parts' | 'hints'>('overview');
@@ -194,7 +197,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -250,7 +253,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   textCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -273,7 +276,7 @@ const styles = StyleSheet.create({
     direction: 'ltr',
   },
   partCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -331,7 +334,7 @@ const styles = StyleSheet.create({
     paddingLeft: spacing.padding.sm,
   },
   articleCard: {
-    backgroundColor: colors.background.secondary,
+    backgroundColor: colors.background.primary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginTop: spacing.margin.sm,
@@ -353,7 +356,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic' as 'italic',
   },
   hintsCard: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     borderLeftWidth: 4,
@@ -373,4 +376,3 @@ const styles = StyleSheet.create({
 });
 
 export default SpeakingB2StructureScreen;
-

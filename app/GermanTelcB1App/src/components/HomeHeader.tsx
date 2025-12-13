@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { colors, spacing, ThemeColors, typography } from '../theme';
 import { DEMO_MODE } from '../config/development.config';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface HomeHeaderProps {
   // You can add props here if needed in the future
@@ -12,6 +13,8 @@ interface HomeHeaderProps {
 const HomeHeader: React.FC<HomeHeaderProps> = () => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   return (
     <View style={styles.textContainer} >
@@ -22,7 +25,7 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   textContainer: {
     flex: 1,
     marginTop: spacing.margin.md,

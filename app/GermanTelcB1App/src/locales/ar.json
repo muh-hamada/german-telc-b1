@@ -71,7 +71,8 @@
     "ok": "نعم",
     "correct": "صحيح",
     "wrong": "خطأ",
-    "duration": "مدة"
+    "duration": "مدة",
+    "info": "معلومة"
   },
   "exam": {
     "selectExam": "اختر الامتحان:",

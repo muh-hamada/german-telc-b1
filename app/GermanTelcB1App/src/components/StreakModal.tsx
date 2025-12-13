@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Modal,
   View,
@@ -8,7 +8,8 @@ import {
   ScrollView,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { StreakData } from '../services/firebase-streaks.service';
 import RewardProgressIndicator from './RewardProgressIndicator';
 
@@ -26,6 +27,8 @@ const StreakModal: React.FC<StreakModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   console.log('[StreakModal] Visible:', visible);
   if (!streakData) {
@@ -145,122 +148,123 @@ const StreakModal: React.FC<StreakModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.xl,
-    width: '100%',
-    maxWidth: 400,
-    maxHeight: '80%',
-    ...spacing.shadow.lg,
-  },
-  scrollContent: {
-    padding: spacing.padding.xl,
-    alignItems: 'center',
-  },
-  iconContainer: {
-    position: 'relative',
-    marginBottom: spacing.margin.md,
-  },
-  fireIcon: {
-    fontSize: 80,
-  },
-  streakNumberContainer: {
-    position: 'absolute',
-    bottom: -10,
-    right: 0,
-    left: 0,
-    alignItems: 'center',
-  },
-  streakNumberText: {
-    textAlign: 'center',
-    borderRadius: spacing.borderRadius.full,
-    backgroundColor: colors.error[500],
-    padding: spacing.padding.xs,
-    ...typography.textStyles.h4,
-    color: colors.white,
-    minWidth: 30,
-    lineHeight: 22,
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.lg,
-    textAlign: 'center',
-  },
-  calendarContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    marginBottom: spacing.margin.md,
-    paddingHorizontal: spacing.padding.sm,
-  },
-  dayColumn: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  dayName: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    marginBottom: spacing.margin.xs,
-    fontSize: 11,
-  },
-  dayCircle: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.secondary[100],
-    borderWidth: 2,
-    borderColor: colors.secondary[200],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  dayCircleComplete: {
-    backgroundColor: colors.warning[500],
-    borderColor: colors.warning[600],
-  },
-  dayCircleToday: {
-    borderColor: colors.primary[500],
-    borderWidth: 2,
-  },
-  checkmark: {
-    color: colors.white,
-    fontSize: 20,
-    fontWeight: typography.fontWeight.bold,
-  },
-  starIcon: {
-    fontSize: 18,
-  },
-  message: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.md,
-    lineHeight: 22,
-  },
-  continueButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.xl,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    alignItems: 'center',
-    ...spacing.shadow.md,
-  },
-  continueButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.primary,
+      borderRadius: spacing.borderRadius.xl,
+      width: '100%',
+      maxWidth: 400,
+      maxHeight: '80%',
+      ...spacing.shadow.lg,
+    },
+    scrollContent: {
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+    },
+    iconContainer: {
+      position: 'relative',
+      marginBottom: spacing.margin.md,
+    },
+    fireIcon: {
+      fontSize: 80,
+    },
+    streakNumberContainer: {
+      position: 'absolute',
+      bottom: -10,
+      right: 0,
+      left: 0,
+      alignItems: 'center',
+    },
+    streakNumberText: {
+      textAlign: 'center',
+      borderRadius: spacing.borderRadius.full,
+      backgroundColor: colors.error[500],
+      padding: spacing.padding.xs,
+      ...typography.textStyles.h4,
+      color: colors.text.inverse,
+      minWidth: 30,
+      lineHeight: 22,
+    },
+    title: {
+      ...typography.textStyles.h2,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: spacing.margin.lg,
+      textAlign: 'center',
+    },
+    calendarContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%',
+      marginBottom: spacing.margin.md,
+      paddingHorizontal: spacing.padding.sm,
+    },
+    dayColumn: {
+      alignItems: 'center',
+      flex: 1,
+    },
+    dayName: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      marginBottom: spacing.margin.xs,
+      fontSize: 11,
+    },
+    dayCircle: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: colors.secondary[100],
+      borderWidth: 2,
+      borderColor: colors.secondary[200],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    dayCircleComplete: {
+      backgroundColor: colors.warning[500],
+      borderColor: colors.warning[600],
+    },
+    dayCircleToday: {
+      borderColor: colors.primary[500],
+      borderWidth: 2,
+    },
+    checkmark: {
+      color: colors.text.inverse,
+      fontSize: 20,
+      fontWeight: typography.fontWeight.bold,
+    },
+    starIcon: {
+      fontSize: 18,
+    },
+    message: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.md,
+      lineHeight: 22,
+    },
+    continueButton: {
+      backgroundColor: colors.primary[500],
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.xl,
+      borderRadius: spacing.borderRadius.lg,
+      width: '100%',
+      alignItems: 'center',
+      ...spacing.shadow.md,
+    },
+    continueButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.inverse,
+      fontWeight: typography.fontWeight.bold,
+    },
+  });
 
 export default StreakModal;
 

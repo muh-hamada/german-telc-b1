@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,19 +6,20 @@ import {
   ScrollView,
   ActivityIndicator,
   TouchableOpacity,
+  I18nManager,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Card from '../components/Card';
 import StatsGrid from '../components/StatsGrid';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LoginModal from '../components/LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import type { HomeStackNavigationProp } from '../types/navigation.types';
-import { I18nManager } from 'react-native';
 
 const VocabularyHomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -26,6 +27,8 @@ const VocabularyHomeScreen: React.FC = () => {
   const { user } = useAuth();
   const { stats, progress, isLoading, newWordsCount, dueReviewsCount, loadProgress } = useVocabulary();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   React.useEffect(() => {
     logEvent(AnalyticsEvents.VOCABULARY_HOME_OPENED);
@@ -271,140 +274,140 @@ const VocabularyHomeScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-  },
-  errorText: {
-    ...typography.textStyles.body,
-    color: colors.error[500],
-    textAlign: 'center',
-    paddingHorizontal: spacing.padding.xl,
-  },
-  centerContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.xl,
-  },
-  signInTitle: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    marginTop: spacing.margin.lg,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'center',
-  },
-  signInMessage: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-    paddingHorizontal: spacing.padding.md,
-  },
-  signInButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary[500],
-    paddingHorizontal: spacing.padding.xl,
-    paddingVertical: spacing.padding.md,
-    borderRadius: 12,
-    gap: spacing.margin.sm,
-    marginBottom: spacing.margin.xl,
-  },
-  signInButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: 'bold',
-  },
-  featuresList: {
-    width: '100%',
-    marginTop: spacing.margin.lg,
-  },
-  featureItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.margin.md,
-    marginBottom: spacing.margin.md,
-  },
-  featureText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-    gap: spacing.margin.md,
-  },
-  header: {
-    paddingVertical: spacing.padding.md,
-  },
-  headerTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.md,
-    textAlign: 'center',
-  },
-  title: {
-    ...typography.textStyles.h1,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.lg,
-  },
-  actionCard: {
-  },
-  disabledCard: {
-    opacity: 0.5,
-  },
-  cardContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.margin.md,
-  },
-  iconContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cardText: {
-    flex: 1,
-  },
-  cardTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  cardDescription: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    textAlign: 'left',
-  },
-  badge: {
-    minWidth: 32,
-    height: 32,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: spacing.padding.sm,
-  },
-  badgeText: {
-    ...typography.textStyles.caption,
-    color: colors.white,
-    fontWeight: 'bold',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+    },
+    errorText: {
+      ...typography.textStyles.body,
+      color: colors.error[500],
+      textAlign: 'center',
+      paddingHorizontal: spacing.padding.xl,
+    },
+    centerContent: {
+      flexGrow: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.xl,
+    },
+    signInTitle: {
+      ...typography.textStyles.h2,
+      color: colors.text.primary,
+      marginTop: spacing.margin.lg,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    signInMessage: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xl,
+      paddingHorizontal: spacing.padding.md,
+    },
+    signInButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.primary[500],
+      paddingHorizontal: spacing.padding.xl,
+      paddingVertical: spacing.padding.md,
+      borderRadius: 12,
+      gap: spacing.margin.sm,
+      marginBottom: spacing.margin.xl,
+    },
+    signInButtonText: {
+      ...typography.textStyles.body,
+      color: colors.white,
+      fontWeight: 'bold',
+    },
+    featuresList: {
+      width: '100%',
+      marginTop: spacing.margin.lg,
+    },
+    featureItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.margin.md,
+      marginBottom: spacing.margin.md,
+    },
+    featureText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      flex: 1,
+      textAlign: 'left',
+    },
+    scrollView: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+      gap: spacing.margin.md,
+    },
+    header: {
+      paddingVertical: spacing.padding.md,
+    },
+    headerTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.md,
+      textAlign: 'center',
+    },
+    title: {
+      ...typography.textStyles.h1,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.lg,
+    },
+    actionCard: {},
+    disabledCard: {
+      opacity: 0.5,
+    },
+    cardContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.margin.md,
+    },
+    iconContainer: {
+      width: 60,
+      height: 60,
+      borderRadius: 30,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    cardText: {
+      flex: 1,
+    },
+    cardTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+      textAlign: 'left',
+    },
+    cardDescription: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      textAlign: 'left',
+    },
+    badge: {
+      minWidth: 32,
+      height: 32,
+      borderRadius: 16,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: spacing.padding.sm,
+    },
+    badgeText: {
+      ...typography.textStyles.caption,
+      color: colors.white,
+      fontWeight: 'bold',
+    },
+  });
 
 export default VocabularyHomeScreen;
 

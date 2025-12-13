@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { 
   STREAK_REWARD_THRESHOLD,
   calculateDaysUntilNextReward,
@@ -24,6 +25,8 @@ const RewardProgressIndicator: React.FC<RewardProgressIndicatorProps> = ({
   showAdFreeReward = true,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Calculate progress to next reward milestone
   const daysUntilNextReward = calculateDaysUntilNextReward(currentStreak);
@@ -67,52 +70,53 @@ const RewardProgressIndicator: React.FC<RewardProgressIndicatorProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  rewardProgressContainer: {
-    width: '100%',
-    backgroundColor: colors.success[50],
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.md,
-    borderLeftWidth: I18nManager.isRTL ? 0 : 4,
-    borderRightWidth: I18nManager.isRTL ? 4 : 0,
-    borderLeftColor: colors.success[500],
-    borderRightColor: colors.success[500],
-  },
-  rewardProgressHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  rewardProgressTitle: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  rewardProgressDays: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[600],
-    fontWeight: typography.fontWeight.bold,
-  },
-  progressBarContainer: {
-    height: 8,
-    backgroundColor: colors.success[100],
-    borderRadius: spacing.borderRadius.full,
-    overflow: 'hidden',
-    marginBottom: spacing.margin.xs,
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.success[500],
-    borderRadius: spacing.borderRadius.full,
-  },
-  rewardProgressMessage: {
-    ...typography.textStyles.caption,
-    color: colors.success[700],
-    textAlign: 'center',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    rewardProgressContainer: {
+      width: '100%',
+      backgroundColor: colors.success[50],
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginBottom: spacing.margin.md,
+      borderLeftWidth: I18nManager.isRTL ? 0 : 4,
+      borderRightWidth: I18nManager.isRTL ? 4 : 0,
+      borderLeftColor: colors.success[500],
+      borderRightColor: colors.success[500],
+    },
+    rewardProgressHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.margin.sm,
+    },
+    rewardProgressTitle: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.semibold,
+    },
+    rewardProgressDays: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[600],
+      fontWeight: typography.fontWeight.bold,
+    },
+    progressBarContainer: {
+      height: 8,
+      backgroundColor: colors.success[100],
+      borderRadius: spacing.borderRadius.full,
+      overflow: 'hidden',
+      marginBottom: spacing.margin.xs,
+    },
+    progressBarFill: {
+      height: '100%',
+      backgroundColor: colors.success[500],
+      borderRadius: spacing.borderRadius.full,
+    },
+    rewardProgressMessage: {
+      ...typography.textStyles.caption,
+      color: colors.success[700],
+      textAlign: 'center',
+    },
+  });
 
 export default RewardProgressIndicator;
 

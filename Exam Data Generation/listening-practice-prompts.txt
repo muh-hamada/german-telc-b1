@@ -19,6 +19,10 @@ Provide a specific prompt I can paste into NotebookLM's "Customize" box to gener
 Create a JSON file with 10 questions to test understanding. The question should be targeting the audio. For example, the question should NOT say "in the text, the ...." but it should be "in the interview, ..."
 The question should be answered by "true/false" only. No questions asking about details, etc.
 * **Level:** The questions should test **Global Understanding** (the main idea) and **Detail Understanding** (specific dates, numbers, rules).
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
+- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
+
 * **Schema:**
 ```json
 {
@@ -78,6 +82,9 @@ Constraint: The questions must be answered by true or false only.
 Level: The questions must be challenging. Do not use direct keyword matching.
 Inference: The listener must understand the attitude or implication of the speakers to answer correctly.
 Paraphrasing: Use synonyms in the questions (e.g., if the audio says "we need to cut costs," the question might ask about "fiscal responsibility").
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
+- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
 Schema:
 
 JSON
@@ -101,7 +108,7 @@ Aspect Ratio: 9:16 (Vertical).
 Style: Cinematic, realistic photography, candid style with high dynamic range.
 Content: Visualize the specific setting of the text (e.g., a busy corporate boardroom, a crowded airport terminal, a university lecture hall).
 Composition: The image must have one single, focused scene. Important visual elements must be in the top 30% of the image to avoid being covered by the UI player controls at the bottom.
-We should not include any split screens, Only one scene in the entire image.
+We should not include any split screens. Only one scene in the entire image.
 
 
 ------------------------ German B2 ------------------------
@@ -125,6 +132,9 @@ Provide a specific prompt I can paste into NotebookLM's "Customize" box to gener
 Create a JSON file with 10 questions to test understanding. The question should be targeting the audio. For example, the question should NOT say "in the text, the ...." but it should be "in the interview, ..."
 The question should be answered by "true/false" only. No questions asking about details, etc.
 * **Level:** The questions should test not just details, but also *inference* and *attitude* (typical for B2).
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
+- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
 * **Schema:**
 ```json
 {
@@ -172,6 +182,9 @@ Create a JSON file with 10 questions to test understanding.
 * **Constraint:** The questions must target the audio conversation. The phrasing should be "Im Gespräch..." or "Die Sprecher..." rather than "Im Text...".
 * **Format:** The questions must be answered by "true" or "false" only.
 * **Level:** The questions should test **Global Understanding** (the main theme) and **Detail Understanding** (specific facts, numbers, rules, or dates mentioned).
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
+- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
 * **Schema:**
 ```json
 {

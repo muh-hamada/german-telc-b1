@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import DeviceInfo from 'react-native-device-info';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import Button from '../components/Button';
 import LoginModal from '../components/LoginModal';
 import DailyStreaksCard from '../components/DailyStreaksCard';
@@ -34,6 +34,7 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
 import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
 import { calculateRewardDays } from '../constants/streak.constants';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 // Helper function to format time remaining
 const formatTimeRemaining = (expiresAt: number | null): string => {
@@ -64,6 +65,8 @@ const ProfileScreen: React.FC = () => {
   const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
   const { isPremium, purchasePremium, isPurchasing, productPrice } = usePremium();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Use demo stats if demo mode is enabled
   const displayCompletionStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
@@ -331,235 +334,236 @@ const ProfileScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.md,
-    backgroundColor: colors.background.primary,
-  },
-  headerLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-  },
-  headerTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-  },
-  headerButton: {
-    width: 44,
-    height: 44,
-    borderRadius: spacing.borderRadius.full,
-    backgroundColor: colors.background.secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...spacing.shadow.sm,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-    paddingTop: 0,
-  },
-  loginPromptCard: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.xl,
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-    ...spacing.shadow.sm,
-  },
-  loginPromptTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginTop: spacing.margin.md,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'center',
-  },
-  loginPromptMessage: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.lg,
-    lineHeight: 22,
-  },
-  benefitsList: {
-    width: '100%',
-    marginBottom: spacing.margin.md,
-  },
-  benefitItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-    paddingHorizontal: spacing.padding.sm,
-  },
-  benefitText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    marginLeft: spacing.margin.sm,
-    flex: 1,
-    textAlign: 'left',
-  },
-  loginPromptButton: {
-    width: '100%',
-  },
-  userCard: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-    ...spacing.shadow.sm,
-  },
-  avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: spacing.margin.md,
-  },
-  avatarPlaceholder: {
-    backgroundColor: colors.secondary[100],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  userDetails: {
-    flex: 1,
-    flexShrink: 1,
-    justifyContent: 'center',
-  },
-  userName: {
-    ...typography.textStyles.bodyLarge,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-  },
-  userEmail: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-  },
-  supportAdButton: {
-    marginBottom: spacing.margin.md,
-  },
-  section: {
-    marginBottom: spacing.margin.sm,
-  },
-  actionsSection: {
-    marginTop: spacing.margin.lg,
-  },
-  actionButton: {
-    marginBottom: spacing.margin.sm,
-  },
-  aboutSection: {
-    alignItems: 'center',
-    paddingTop: spacing.padding.lg,
-    paddingBottom: spacing.padding.md,
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-    marginTop: spacing.margin.lg,
-  },
-  aboutText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xs,
-  },
-  versionText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.tertiary,
-  },
-  adFreeBadge: {
-    backgroundColor: colors.success[50],
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    marginBottom: spacing.margin.lg,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: colors.success[100],
-    ...spacing.shadow.sm,
-  },
-  adFreeIcon: {
-    fontSize: 40,
-    marginRight: spacing.margin.md,
-  },
-  adFreeContent: {
-    flex: 1,
-  },
-  adFreeTitle: {
-    ...typography.textStyles.h4,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.xs,
-  },
-  adFreeExpiry: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[600],
-  },
-  premiumUpgradeCardWrapper: {
-    marginBottom: spacing.margin.md,
-  },
-  premiumUpgradeCard: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: 14,
-    padding: spacing.padding.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  premiumUpgradeIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#FEF3C7',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: spacing.margin.md,
-  },
-  premiumUpgradeContent: {
-    flex: 1,
-  },
-  premiumUpgradeTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    textAlign: 'left',
-  },
-  premiumUpgradeDescription: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'left',
-  },
-  premiumBadgeWrapper: {
-    marginBottom: spacing.margin.lg,
-  },
-  premiumBadge: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: 14,
-    padding: spacing.padding.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.margin.sm,
-  },
-  premiumBadgeText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: '#B45309',
-  },
-  raceGif: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
-    transform: [{ rotate: I18nManager.isRTL ? '180deg' : '0deg' }],
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: spacing.padding.lg,
+      paddingVertical: spacing.padding.md,
+      backgroundColor: colors.background.primary,
+    },
+    headerLeft: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.md,
+    },
+    headerTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.bold,
+    },
+    headerButton: {
+      width: 44,
+      height: 44,
+      borderRadius: spacing.borderRadius.full,
+      backgroundColor: colors.background.secondary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      ...spacing.shadow.sm,
+    },
+    content: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+      paddingTop: 0,
+    },
+    loginPromptCard: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+      marginBottom: spacing.margin.md,
+      ...spacing.shadow.sm,
+    },
+    loginPromptTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginTop: spacing.margin.md,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    loginPromptMessage: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.lg,
+      lineHeight: 22,
+    },
+    benefitsList: {
+      width: '100%',
+      marginBottom: spacing.margin.md,
+    },
+    benefitItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.sm,
+      paddingHorizontal: spacing.padding.sm,
+    },
+    benefitText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      marginLeft: spacing.margin.sm,
+      flex: 1,
+      textAlign: 'left',
+    },
+    loginPromptButton: {
+      width: '100%',
+    },
+    userCard: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.md,
+      ...spacing.shadow.sm,
+    },
+    avatar: {
+      width: 60,
+      height: 60,
+      borderRadius: 30,
+      marginRight: spacing.margin.md,
+    },
+    avatarPlaceholder: {
+      backgroundColor: colors.secondary[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    userDetails: {
+      flex: 1,
+      flexShrink: 1,
+      justifyContent: 'center',
+    },
+    userName: {
+      ...typography.textStyles.bodyLarge,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+    },
+    userEmail: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+    },
+    supportAdButton: {
+      marginBottom: spacing.margin.md,
+    },
+    section: {
+      marginBottom: spacing.margin.sm,
+    },
+    actionsSection: {
+      marginTop: spacing.margin.lg,
+    },
+    actionButton: {
+      marginBottom: spacing.margin.sm,
+    },
+    aboutSection: {
+      alignItems: 'center',
+      paddingTop: spacing.padding.lg,
+      paddingBottom: spacing.padding.md,
+      borderTopWidth: 1,
+      borderTopColor: colors.border.light,
+      marginTop: spacing.margin.lg,
+    },
+    aboutText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xs,
+    },
+    versionText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.tertiary,
+    },
+    adFreeBadge: {
+      backgroundColor: colors.success[50],
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      marginBottom: spacing.margin.lg,
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: colors.success[100],
+      ...spacing.shadow.sm,
+    },
+    adFreeIcon: {
+      fontSize: 40,
+      marginRight: spacing.margin.md,
+    },
+    adFreeContent: {
+      flex: 1,
+    },
+    adFreeTitle: {
+      ...typography.textStyles.h4,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: spacing.margin.xs,
+    },
+    adFreeExpiry: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[600],
+    },
+    premiumUpgradeCardWrapper: {
+      marginBottom: spacing.margin.md,
+    },
+    premiumUpgradeCard: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: 14,
+      padding: spacing.padding.md,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    premiumUpgradeIconContainer: {
+      width: 48,
+      height: 48,
+      borderRadius: 24,
+      backgroundColor: '#FEF3C7',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: spacing.margin.md,
+    },
+    premiumUpgradeContent: {
+      flex: 1,
+    },
+    premiumUpgradeTitle: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      color: colors.text.primary,
+      textAlign: 'left',
+    },
+    premiumUpgradeDescription: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      textAlign: 'left',
+    },
+    premiumBadgeWrapper: {
+      marginBottom: spacing.margin.lg,
+    },
+    premiumBadge: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: 14,
+      padding: spacing.padding.md,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: spacing.margin.sm,
+    },
+    premiumBadgeText: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      color: '#B45309',
+    },
+    raceGif: {
+      width: 48,
+      height: 48,
+      borderRadius: 12,
+      transform: [{ rotate: I18nManager.isRTL ? '180deg' : '0deg' }],
+    },
+  });
 
 export default ProfileScreen;

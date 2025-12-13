@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { HomeStackParamList } from '../../types/navigation.types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -23,6 +24,8 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
   const { updateExamProgress } = useProgress();
   const { setStreakModalVisibility } = useStreak();
   const { setContextualModalActive } = useModalQueue();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<boolean | null>(null);
@@ -226,7 +229,7 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

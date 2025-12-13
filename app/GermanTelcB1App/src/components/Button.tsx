@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   TouchableOpacity,
   Text,
@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
   StyleProp,
 } from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface ButtonProps {
   title: string;
@@ -31,6 +32,9 @@ const Button: React.FC<ButtonProps> = ({
   style,
   textStyle,
 }) => {
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+
   const buttonStyle: StyleProp<ViewStyle> = [
     styles.base,
     styles[variant],
@@ -63,7 +67,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {loading ? (
         <ActivityIndicator
-          color={variant === 'primary' ? colors.white : colors.primary[500]}
+          color={variant === 'primary' ? colors.text.inverse : colors.primary[500]}
           size="small"
         />
       ) : (
@@ -73,76 +77,79 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  base: {
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  
-  // Variants
-  primary: {
-    backgroundColor: colors.primary[500],
-  },
-  secondary: {
-    backgroundColor: colors.secondary[100],
-  },
-  outline: {
-    backgroundColor: colors.transparent,
-    borderWidth: 1,
-    borderColor: colors.primary[500],
-  },
-  
-  // Sizes
-  small: {
-    paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.sm,
-    minHeight: 36,
-  },
-  medium: {
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.md,
-    minHeight: 44,
-  },
-  large: {
-    paddingHorizontal: spacing.padding.xl,
-    paddingVertical: spacing.padding.lg,
-    minHeight: 52,
-  },
-  
-  // Disabled state
-  disabled: {
-    opacity: 0.5,
-  },
-  
-  // Text styles
-  text: {
-    ...typography.textStyles.button,
-  },
-  primaryText: {
-    color: colors.white,
-  },
-  secondaryText: {
-    color: colors.text.primary,
-  },
-  outlineText: {
-    color: colors.primary[500],
-  },
-  disabledText: {
-    opacity: 0.7,
-  },
-  
-  // Text sizes
-  smallText: {
-    fontSize: typography.fontSize.sm,
-  },
-  mediumText: {
-    fontSize: typography.fontSize.base,
-  },
-  largeText: {
-    fontSize: typography.fontSize.lg,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    base: {
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'row',
+    },
+    
+    // Variants
+    primary: {
+      backgroundColor: colors.primary[500],
+    },
+    secondary: {
+      backgroundColor: colors.background.secondary,
+      borderWidth: 1,
+      borderColor: colors.border.light,
+    },
+    outline: {
+      backgroundColor: colors.transparent,
+      borderWidth: 1,
+      borderColor: colors.primary[500],
+    },
+    
+    // Sizes
+    small: {
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.sm,
+      minHeight: 36,
+    },
+    medium: {
+      paddingHorizontal: spacing.padding.lg,
+      paddingVertical: spacing.padding.md,
+      minHeight: 44,
+    },
+    large: {
+      paddingHorizontal: spacing.padding.xl,
+      paddingVertical: spacing.padding.lg,
+      minHeight: 52,
+    },
+    
+    // Disabled state
+    disabled: {
+      opacity: 0.5,
+    },
+    
+    // Text styles
+    text: {
+      ...typography.textStyles.button,
+    },
+    primaryText: {
+      color: colors.text.inverse,
+    },
+    secondaryText: {
+      color: colors.text.primary,
+    },
+    outlineText: {
+      color: colors.primary[500],
+    },
+    disabledText: {
+      opacity: 0.7,
+    },
+    
+    // Text sizes
+    smallText: {
+      fontSize: typography.fontSize.sm,
+    },
+    mediumText: {
+      fontSize: typography.fontSize.base,
+    },
+    largeText: {
+      fontSize: typography.fontSize.lg,
+    },
+  });
 
 export default Button;

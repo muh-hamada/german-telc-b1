@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Modal,
   View,
@@ -9,7 +9,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { REWARD_MODAL_SUCCESS_DURATION, calculateRewardDays } from '../constants/streak.constants';
 
 interface StreakRewardModalProps {
@@ -26,6 +27,8 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [isClaiming, setIsClaiming] = useState(false);
   const [claimed, setClaimed] = useState(false);
 
@@ -134,119 +137,120 @@ const StreakRewardModal: React.FC<StreakRewardModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.xl,
-    width: '100%',
-    maxWidth: 400,
-    maxHeight: '80%',
-    ...spacing.shadow.lg,
-  },
-  scrollContent: {
-    padding: spacing.padding.xl,
-    alignItems: 'center',
-  },
-  iconContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  celebrationIcon: {
-    fontSize: 80,
-  },
-  streakText: {
-    ...typography.textStyles.h3,
-    color: colors.warning[700],
-    fontWeight: typography.fontWeight.bold,
-  },
-  rewardCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.success[50],
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    marginBottom: spacing.margin.lg,
-    borderWidth: 2,
-    borderColor: colors.success[100],
-    gap: spacing.md,
-    paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.md,
-    flex: 1,
-    flexShrink: 1,
-  },
-  rewardIcon: {
-    fontSize: 28,
-    marginBottom: spacing.margin.sm,
-  },
-  rewardTitle: {
-    ...typography.textStyles.h4,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'center',
-  },
-  rewardDescription: {
-    ...typography.textStyles.h5,
-    color: colors.success[600],
-    textAlign: 'left',
-    flexShrink: 1,
-  },
-  claimButton: {
-    backgroundColor: colors.success[500],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.xl,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    alignItems: 'center',
-    ...spacing.shadow.md,
-    marginBottom: spacing.margin.sm,
-  },
-  claimButtonDisabled: {
-    opacity: 0.7,
-  },
-  claimButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-    fontSize: 16,
-  },
-  laterButton: {
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.md,
-  },
-  laterButtonText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-  },
-  successContainer: {
-    alignItems: 'center',
-    paddingVertical: spacing.padding.xl,
-  },
-  successIcon: {
-    fontSize: 80,
-    marginBottom: spacing.margin.md,
-  },
-  successTitle: {
-    ...typography.textStyles.h2,
-    color: colors.success[600],
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'center',
-  },
-  successMessage: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.primary,
+      borderRadius: spacing.borderRadius.xl,
+      width: '100%',
+      maxWidth: 400,
+      maxHeight: '80%',
+      ...spacing.shadow.lg,
+    },
+    scrollContent: {
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+    },
+    iconContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginBottom: spacing.margin.md,
+    },
+    celebrationIcon: {
+      fontSize: 80,
+    },
+    streakText: {
+      ...typography.textStyles.h3,
+      color: colors.warning[700],
+      fontWeight: typography.fontWeight.bold,
+    },
+    rewardCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.success[50],
+      borderRadius: spacing.borderRadius.lg,
+      width: '100%',
+      marginBottom: spacing.margin.lg,
+      borderWidth: 2,
+      borderColor: colors.success[100],
+      gap: spacing.margin.md,
+      paddingHorizontal: spacing.padding.md,
+      paddingVertical: spacing.padding.md,
+      flex: 1,
+      flexShrink: 1,
+    },
+    rewardIcon: {
+      fontSize: 28,
+      marginBottom: spacing.margin.sm,
+    },
+    rewardTitle: {
+      ...typography.textStyles.h4,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: spacing.margin.xs,
+      textAlign: 'center',
+    },
+    rewardDescription: {
+      ...typography.textStyles.h5,
+      color: colors.success[600],
+      textAlign: 'left',
+      flexShrink: 1,
+    },
+    claimButton: {
+      backgroundColor: colors.success[500],
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.xl,
+      borderRadius: spacing.borderRadius.lg,
+      width: '100%',
+      alignItems: 'center',
+      ...spacing.shadow.md,
+      marginBottom: spacing.margin.sm,
+    },
+    claimButtonDisabled: {
+      opacity: 0.7,
+    },
+    claimButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.inverse,
+      fontWeight: typography.fontWeight.bold,
+      fontSize: 16,
+    },
+    laterButton: {
+      paddingVertical: spacing.padding.sm,
+      paddingHorizontal: spacing.padding.md,
+    },
+    laterButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+    },
+    successContainer: {
+      alignItems: 'center',
+      paddingVertical: spacing.padding.xl,
+    },
+    successIcon: {
+      fontSize: 80,
+      marginBottom: spacing.margin.md,
+    },
+    successTitle: {
+      ...typography.textStyles.h2,
+      color: colors.success[600],
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    successMessage: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+  });
 
 export default StreakRewardModal;
 

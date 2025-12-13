@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -10,18 +10,14 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing } from '../theme';
+import { spacing, type ThemeColors } from '../theme';
 import { usePremium } from '../contexts/PremiumContext';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
-// Feature colors
-const FEATURE_COLORS = {
-  adFree: { bg: '#d6e8ff', icon: '#3B82F6' },
-  offline: { bg: '#F3E8FF', icon: '#8B5CF6' },
-  streakFreeze: { bg: '#c8f7ff', icon: '#42bbd0' },
-  support: { bg: '#FCE7F3', icon: '#EC4899' },
-};
+type FeatureColorScheme = { bg: string; icon: string };
+type PremiumStyles = ReturnType<typeof createStyles>;
 
 interface PremiumContentProps {
   onPurchase: () => void;
@@ -39,9 +35,10 @@ interface FeatureItemProps {
   title: string;
   description: string;
   colorScheme: { bg: string; icon: string };
+  styles: PremiumStyles;
 }
 
-const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description, colorScheme }) => (
+const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description, colorScheme, styles }) => (
   <View style={styles.featureItem}>
     <View style={[styles.featureIconContainer, { backgroundColor: colorScheme.bg }]}>
       <Icon name={icon} size={22} color={colorScheme.icon} />
@@ -54,7 +51,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description, col
 );
 
 // Decorative sparkles
-const Sparkles: React.FC = () => (
+const Sparkles: React.FC<{ styles: PremiumStyles }> = ({ styles }) => (
   <View style={styles.sparklesContainer}>
     <View style={styles.sparklesInnerContainer}>
       {/* Large sparkles */}
@@ -89,10 +86,14 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
 }) => {
   const { t } = useCustomTranslation();
   const { productPrice, isProductAvailable, isLoadingProduct } = usePremium();
+  const { colors, mode } = useAppTheme();
+  const isDarkMode = mode === 'dark';
   const price = productPrice || '...';
   
   // Disable purchase if product is loading or not available
   const isPurchaseDisabled = isPurchasing || isRestoring || isLoadingProduct || !isProductAvailable;
+  const featureColors = useMemo(() => getFeatureColors(isDarkMode, colors), [colors, isDarkMode]);
+  const styles = useMemo(() => createStyles(colors, isDarkMode), [colors, isDarkMode]);
 
   return (
     <View style={styles.container}>
@@ -100,7 +101,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       <View style={styles.bgShapeTop} />
       <View style={styles.bgShapeBottom} />
 
-      <Sparkles />
+      <Sparkles styles={styles} />
 
       {showCloseButton && onClose && (
         <TouchableOpacity
@@ -131,25 +132,29 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
             icon="ban"
             title={t('premium.features.adFree.title')}
             description={t('premium.features.adFree.description')}
-            colorScheme={FEATURE_COLORS.adFree}
+            colorScheme={featureColors.adFree}
+            styles={styles}
           />
           <FeatureItem
             icon="download"
             title={t('premium.features.offline.title')}
             description={t('premium.features.offline.description')}
-            colorScheme={FEATURE_COLORS.offline}
+            colorScheme={featureColors.offline}
+            styles={styles}
           />
           <FeatureItem
             icon="snowflake-o"
             title={t('premium.features.streakFreeze.title')}
             description={t('premium.features.streakFreeze.description')}
-            colorScheme={FEATURE_COLORS.streakFreeze}
+            colorScheme={featureColors.streakFreeze}
+            styles={styles}
           />
           <FeatureItem
             icon="heart"
             title={t('premium.features.support.title')}
             description={t('premium.features.support.description')}
-            colorScheme={FEATURE_COLORS.support}
+            colorScheme={featureColors.support}
+            styles={styles}
           />
         </View>
       </ScrollView>
@@ -198,259 +203,281 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5fbff',
+const getFeatureColors = (isDarkMode: boolean, colors: ThemeColors): Record<string, FeatureColorScheme> => ({
+  adFree: {
+    bg: isDarkMode ? colors.secondary[300] : '#d6e8ff',
+    icon: colors.primary[600],
   },
-  scrollView: {
-    flex: 1,
+  offline: {
+    bg: isDarkMode ? colors.primary[200] : '#F3E8FF',
+    icon: colors.primary[700],
   },
-  scrollContent: {
-    paddingHorizontal: spacing.padding.lg,
-    paddingTop: spacing.padding.xl,
-    paddingBottom: spacing.padding.md,
+  streakFreeze: {
+    bg: isDarkMode ? colors.secondary[200] : '#c8f7ff',
+    icon: colors.success[600],
   },
-
-  // Background shapes
-  bgShapeTop: {
-    position: 'absolute',
-    top: -50,
-    right: -30,
-    width: SCREEN_WIDTH * 0.55,
-    height: SCREEN_WIDTH * 0.55,
-    borderRadius: SCREEN_WIDTH * 0.275,
-    backgroundColor: '#E9D5FF',
-    opacity: 0.6,
-  },
-  bgShapeBottom: {
-    position: 'absolute',
-    bottom: -80,
-    left: -60,
-    width: SCREEN_WIDTH * 0.8,
-    height: SCREEN_WIDTH * 0.8,
-    borderRadius: SCREEN_WIDTH * 0.4,
-    backgroundColor: '#DBEAFE',
-    opacity: 0.5,
-  },
-
-  // Close button (back arrow)
-  closeButton: {
-    position: 'absolute',
-    top: 20,
-    right: 16,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-
-  // Header
-  header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    marginBottom: spacing.margin.sm,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: '800',
-    color: colors.text.primary,
-    lineHeight: 44,
-    flex: 1,
-    textAlign: 'left',
-  },
-  subtitle: {
-    fontSize: 18,
-    color: colors.text.secondary,
-    marginBottom: spacing.margin['2xl'],
-    textAlign: 'left',
-  },
-
-  // Sparkles
-  sparklesContainer: {
-    top: -100,
-    right: 0,
-    width: SCREEN_WIDTH * 0.55,
-    height: SCREEN_WIDTH * 0.55,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-  },
-  sparklesInnerContainer: {
-    position: 'relative',
-    zIndex: 1,
-    width: '100%',
-    height: '100%',
-  },
-  sparkle: {
-    position: 'absolute',
-  },
-  // Row 1 - Top (0-25%)
-  sparkle1: {
-    fontSize: 10,
-    top: '100%',
-    right: '25%',
-    color: 'orange', // Light cyan
-  },
-  sparkle2: {
-    fontSize: 18,
-    top: '65%',
-    left: '35%',
-    color: '#8B5CF6', // Purple
-  },
-  sparkle3: {
-    fontSize: 8,
-    top: '82%',
-    right: '70%',
-    color: '#FBBF24', // Yellow
-  },
-  // Row 2 - Upper middle (25-45%)
-  sparkle4: {
-    fontSize: 24,
-    top: '38%',
-    right: '10%',
-    color: '#6366F1', // Indigo
-  },
-  sparkle5: {
-    fontSize: 12,
-    top: '42%',
-    left: '55%',
-    color: '#818CF8', // Light indigo
-  },
-  sparkle6: {
-    fontSize: 22,
-    top: '80%',
-    right: '38%',
-    color: '#EC4899', // Pink
-  },
-  // Row 3 - Middle (45-65%)
-  sparkle7: {
-    fontSize: 14,
-    top: '60%',
-    left: '25%',
-    color: '#A78BFA', // Light purple
-  },
-  sparkle8: {
-    fontSize: 17,
-    top: '65%',
-    right: '25%',
-    color: '#F59E0B', // Amber
-  },
-  sparkle9: {
-    fontSize: 9,
-    top: '70%',
-    left: '60%',
-    color: '#C084FC', // Lighter purple
-  },
-  // Row 4 - Lower (65-85%)
-  sparkle10: {
-    fontSize: 16,
-    bottom: '0%',
-    left: '45%',
-    color: '#06B6D4', // Cyan
-  },
-  sparkle11: {
-    fontSize: 13,
-    top: '85%',
-    left: '40%',
-    color: '#F472B6', // Light pink
-  },
-  sparkle12: {
-    fontSize: 10,
-    top: '90%',
-    right: '15%',
-    color: '#34D399', // Emerald
-  },
-
-  // Features section
-  featuresSection: {
-    marginBottom: spacing.margin.lg,
-  },
-  featureItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: spacing.margin.lg,
-  },
-  featureIconContainer: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: spacing.margin.md,
-  },
-  featureContent: {
-    flex: 1,
-    paddingTop: 4,
-  },
-  featureTitle: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: colors.text.primary,
-    marginBottom: 4,
-    textAlign: 'left',
-  },
-  featureDescription: {
-    fontSize: 14,
-    color: colors.text.secondary,
-    lineHeight: 20,
-    textAlign: 'left',
-  },
-
-  // CTA section - fixed at bottom
-  ctaSection: {
-    paddingHorizontal: spacing.padding.lg,
-    paddingTop: spacing.padding.lg,
-    paddingBottom: spacing.padding.lg,
-    backgroundColor: '#fff',
-    borderTopRightRadius: spacing.borderRadius['2xl'],
-    borderTopLeftRadius: spacing.borderRadius['2xl'],
-  },
-  purchaseButton: {
-    backgroundColor: '#16A34A',
-    borderRadius: 28,
-    paddingVertical: 18,
-    paddingHorizontal: spacing.padding.xl,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: spacing.margin.sm,
-    shadowColor: '#16A34A',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 6,
-  },
-  purchaseButtonDisabled: {
-    opacity: 0.7,
-  },
-  purchaseButtonText: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    letterSpacing: 0.3,
-  },
-  secondaryButton: {
-    paddingVertical: spacing.padding.sm,
-    alignItems: 'center',
-  },
-  laterButtonText: {
-    fontSize: 14,
-    color: colors.text.tertiary,
-  },
-  restoreButtonText: {
-    fontSize: 15,
-    color: colors.text.secondary,
-    textDecorationLine: 'underline',
+  support: {
+    bg: isDarkMode ? colors.secondary[300] : '#FCE7F3',
+    icon: colors.error[600],
   },
 });
+
+const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    scrollView: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: spacing.padding.lg,
+      paddingTop: spacing.padding.xl,
+      paddingBottom: spacing.padding.md,
+    },
+
+    // Background shapes
+    bgShapeTop: {
+      position: 'absolute',
+      top: -50,
+      right: -30,
+      width: SCREEN_WIDTH * 0.55,
+      height: SCREEN_WIDTH * 0.55,
+      borderRadius: SCREEN_WIDTH * 0.275,
+      backgroundColor: isDarkMode ? colors.primary[300] : colors.primary[100],
+      opacity: isDarkMode ? 0.35 : 0.45,
+    },
+    bgShapeBottom: {
+      position: 'absolute',
+      bottom: -80,
+      left: -60,
+      width: SCREEN_WIDTH * 0.8,
+      height: SCREEN_WIDTH * 0.8,
+      borderRadius: SCREEN_WIDTH * 0.4,
+      backgroundColor: isDarkMode ? colors.secondary[300] : colors.primary[50],
+      opacity: isDarkMode ? 0.25 : 0.35,
+    },
+
+    // Close button (back arrow)
+    closeButton: {
+      position: 'absolute',
+      top: 20,
+      right: 16,
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: colors.background.secondary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 10,
+      shadowColor: colors.black,
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.12,
+      shadowRadius: 4,
+      elevation: 2,
+    },
+
+    // Header
+    header: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      marginBottom: spacing.margin.sm,
+    },
+    title: {
+      fontSize: 36,
+      fontWeight: '800',
+      color: colors.text.primary,
+      lineHeight: 44,
+      flex: 1,
+      textAlign: 'left',
+    },
+    subtitle: {
+      fontSize: 18,
+      color: colors.text.secondary,
+      marginBottom: spacing.margin['2xl'],
+      textAlign: 'left',
+    },
+
+    // Sparkles
+    sparklesContainer: {
+      top: -100,
+      right: 0,
+      width: SCREEN_WIDTH * 0.55,
+      height: SCREEN_WIDTH * 0.55,
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+    },
+    sparklesInnerContainer: {
+      position: 'relative',
+      zIndex: 1,
+      width: '100%',
+      height: '100%',
+    },
+    sparkle: {
+      position: 'absolute',
+    },
+    // Row 1 - Top (0-25%)
+    sparkle1: {
+      fontSize: 10,
+      top: '100%',
+      right: '25%',
+      color: colors.primary[500],
+    },
+    sparkle2: {
+      fontSize: 18,
+      top: '65%',
+      left: '35%',
+      color: colors.primary[700],
+    },
+    sparkle3: {
+      fontSize: 8,
+      top: '82%',
+      right: '70%',
+      color: colors.warning[600],
+    },
+    // Row 2 - Upper middle (25-45%)
+    sparkle4: {
+      fontSize: 24,
+      top: '38%',
+      right: '10%',
+      color: colors.primary[600],
+    },
+    sparkle5: {
+      fontSize: 12,
+      top: '42%',
+      left: '55%',
+      color: colors.secondary[700],
+    },
+    sparkle6: {
+      fontSize: 22,
+      top: '80%',
+      right: '38%',
+      color: colors.error[600],
+    },
+    // Row 3 - Middle (45-65%)
+    sparkle7: {
+      fontSize: 14,
+      top: '60%',
+      left: '25%',
+      color: colors.secondary[700],
+    },
+    sparkle8: {
+      fontSize: 17,
+      top: '65%',
+      right: '25%',
+      color: colors.warning[600],
+    },
+    sparkle9: {
+      fontSize: 9,
+      top: '70%',
+      left: '60%',
+      color: colors.primary[400],
+    },
+    // Row 4 - Lower (65-85%)
+    sparkle10: {
+      fontSize: 16,
+      bottom: '0%',
+      left: '45%',
+      color: colors.success[600],
+    },
+    sparkle11: {
+      fontSize: 13,
+      top: '85%',
+      left: '40%',
+      color: colors.error[700],
+    },
+    sparkle12: {
+      fontSize: 10,
+      top: '90%',
+      right: '15%',
+      color: colors.secondary[600],
+    },
+
+    // Features section
+    featuresSection: {
+      marginBottom: spacing.margin.lg,
+    },
+    featureItem: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      marginBottom: spacing.margin.lg,
+    },
+    featureIconContainer: {
+      width: 52,
+      height: 52,
+      borderRadius: 26,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: spacing.margin.md,
+    },
+    featureContent: {
+      flex: 1,
+      paddingTop: 4,
+    },
+    featureTitle: {
+      fontSize: 17,
+      fontWeight: '700',
+      color: colors.text.primary,
+      marginBottom: 4,
+      textAlign: 'left',
+    },
+    featureDescription: {
+      fontSize: 14,
+      color: colors.text.secondary,
+      lineHeight: 20,
+      textAlign: 'left',
+    },
+
+    // CTA section - fixed at bottom
+    ctaSection: {
+      paddingHorizontal: spacing.padding.lg,
+      paddingTop: spacing.padding.lg,
+      paddingBottom: spacing.padding.lg,
+      backgroundColor: colors.background.secondary,
+      borderTopRightRadius: spacing.borderRadius['2xl'],
+      borderTopLeftRadius: spacing.borderRadius['2xl'],
+      borderTopWidth: 1,
+      borderTopColor: colors.border.light,
+    },
+    purchaseButton: {
+      backgroundColor: colors.success[500],
+      borderRadius: 28,
+      paddingVertical: 18,
+      paddingHorizontal: spacing.padding.xl,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: spacing.margin.sm,
+      shadowColor: colors.success[500],
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.25,
+      shadowRadius: 8,
+      elevation: 6,
+    },
+    purchaseButtonDisabled: {
+      opacity: 0.7,
+    },
+    purchaseButtonText: {
+      fontSize: 17,
+      fontWeight: '600',
+      color: colors.text.inverse,
+      letterSpacing: 0.3,
+    },
+    secondaryButton: {
+      paddingVertical: spacing.padding.sm,
+      alignItems: 'center',
+    },
+    laterButtonText: {
+      fontSize: 14,
+      color: colors.text.tertiary,
+    },
+    restoreButtonText: {
+      fontSize: 15,
+      color: colors.text.secondary,
+      textDecorationLine: 'underline',
+    },
+  });
 
 export default PremiumContent;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Text,
   StyleSheet,
@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 const ReadingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -23,6 +24,8 @@ const ReadingMenuScreen: React.FC = () => {
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
   const [part3Exams, setPart3Exams] = useState<any[]>([]);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   React.useEffect(() => {
     const loadExams = async () => {
@@ -128,34 +131,36 @@ const ReadingMenuScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-  },
-  card: {
-    marginBottom: spacing.margin.lg,
-    minHeight: 100,
-    justifyContent: 'center',
-  },
-  cardTitle: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  cardDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    lineHeight: 24,
-    textAlign: 'left',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    content: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+    },
+    card: {
+      marginBottom: spacing.margin.lg,
+      minHeight: 100,
+      justifyContent: 'center',
+      backgroundColor: colors.background.secondary,
+    },
+    cardTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    cardDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      lineHeight: 24,
+      textAlign: 'left',
+    },
+  });
 
 export default ReadingMenuScreen;

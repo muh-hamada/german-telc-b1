@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-sound';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { UserAnswer } from '../../types/exam.types';
 import AudioDuration from '../AudioDuration';
@@ -35,6 +36,8 @@ interface ListeningPart2UIProps {
 
 const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetails, onComplete }) => {
   const { i18n, t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -315,7 +318,7 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

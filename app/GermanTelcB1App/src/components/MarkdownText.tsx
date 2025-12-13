@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Text, StyleSheet, TextStyle } from 'react-native';
-import { typography } from '../theme/typography';
-import { colors } from '../theme/colors';
+import { typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface MarkdownTextProps {
   text: string;
@@ -28,6 +28,9 @@ const MarkdownText: React.FC<MarkdownTextProps> = ({
   boldStyle,
   italicStyle,
 }) => {
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   // Merge default styles with provided styles
   const mergedBaseStyle = { ...styles.baseStyle, ...baseStyle };
   const mergedBoldStyle = { ...styles.boldStyle, ...boldStyle };
@@ -111,19 +114,20 @@ const MarkdownText: React.FC<MarkdownTextProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  baseStyle: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-  },
-  boldStyle: {
-    fontWeight: typography.fontWeight.bold,
-  },
-  italicStyle: {
-    fontStyle: 'italic',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    baseStyle: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      lineHeight: 22,
+    },
+    boldStyle: {
+      fontWeight: typography.fontWeight.bold,
+    },
+    italicStyle: {
+      fontStyle: 'italic',
+    },
+  });
 
 export default MarkdownText;
 

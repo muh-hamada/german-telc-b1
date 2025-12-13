@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Text, StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 const SpeakingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -25,6 +26,8 @@ const SpeakingMenuScreen: React.FC = () => {
   const [b2Part1Topics, setB2Part1Topics] = useState<any[]>([]);
   const [b2Part2Topics, setB2Part2Topics] = useState<any[]>([]);
   const [b2Part3Questions, setB2Part3Questions] = useState<any[]>([]);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -252,34 +255,36 @@ const SpeakingMenuScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-  },
-  card: {
-    marginBottom: spacing.margin.lg,
-    minHeight: 100,
-    justifyContent: 'center',
-  },
-  cardTitle: {
-    ...typography.textStyles.h3,
-    color: colors.primary[500],
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  cardDescription: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    lineHeight: 24,
-    textAlign: 'left',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    content: {
+      flex: 1,
+    },
+    scrollContent: {
+      padding: spacing.padding.lg,
+    },
+    card: {
+      marginBottom: spacing.margin.lg,
+      minHeight: 100,
+      justifyContent: 'center',
+      backgroundColor: colors.background.secondary,
+    },
+    cardTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    cardDescription: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      lineHeight: 24,
+      textAlign: 'left',
+    },
+  });
 
 export default SpeakingMenuScreen;

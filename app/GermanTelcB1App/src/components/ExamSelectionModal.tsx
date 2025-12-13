@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
@@ -40,6 +41,8 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   itemType,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const { getCompletionStatus, getStatsForPart } = useCompletion();
 
   const stats = getStatsForPart(examType, partNumber);
@@ -160,143 +163,144 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContent: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    maxWidth: 500,
-    maxHeight: '80%',
-    minHeight: 300,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 8,
-    overflow: 'hidden',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  modalTitle: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  closeButton: {
-    padding: spacing.padding.xs,
-  },
-  closeButtonText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-  },
-  statsContainer: {
-    padding: spacing.padding.lg,
-    backgroundColor: colors.primary[50],
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  statsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  statsText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.semibold,
-    marginLeft: spacing.margin.sm,
-  },
-  progressBarContainer: {
-    height: 8,
-    backgroundColor: colors.white,
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.success[500],
-    borderRadius: 4,
-  },
-  loginHintText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    marginTop: spacing.margin.sm,
-    textAlign: 'center',
-    fontStyle: 'italic',
-  },
-  examList: {
-    flexGrow: 1,
-    flexShrink: 1,
-  },
-  examItem: {
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  examItemCompleted: {
-    backgroundColor: colors.success[50],
-  },
-  examItemContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  examItemLeft: {
-    flex: 1,
-  },
-  examItemNumber: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  examItemTitle: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'left',
-  },
-  completedBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.success[100],
-    paddingHorizontal: spacing.padding.sm,
-    paddingVertical: spacing.padding.xs,
-    borderRadius: spacing.borderRadius.sm,
-  },
-  completedText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.success[700],
-    fontWeight: typography.fontWeight.semibold,
-    marginLeft: spacing.margin.xs,
-  },
-  emptyState: {
-    padding: spacing.padding.xl,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  emptyStateText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContent: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      width: '100%',
+      maxWidth: 500,
+      maxHeight: '80%',
+      minHeight: 300,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.3,
+      shadowRadius: 12,
+      elevation: 8,
+      overflow: 'hidden',
+    },
+    modalHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    modalTitle: {
+      ...typography.textStyles.h5,
+      color: colors.text.primary,
+      flex: 1,
+      textAlign: 'left',
+    },
+    closeButton: {
+      padding: spacing.padding.xs,
+    },
+    closeButtonText: {
+      ...typography.textStyles.h3,
+      color: colors.text.secondary,
+    },
+    statsContainer: {
+      padding: spacing.padding.lg,
+      backgroundColor: colors.primary[50],
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    statsRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.sm,
+    },
+    statsText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.semibold,
+      marginLeft: spacing.margin.sm,
+    },
+    progressBarContainer: {
+      height: 8,
+      backgroundColor: colors.background.primary,
+      borderRadius: 4,
+      overflow: 'hidden',
+    },
+    progressBarFill: {
+      height: '100%',
+      backgroundColor: colors.success[500],
+      borderRadius: 4,
+    },
+    loginHintText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      marginTop: spacing.margin.sm,
+      textAlign: 'center',
+      fontStyle: 'italic',
+    },
+    examList: {
+      flexGrow: 1,
+      flexShrink: 1,
+    },
+    examItem: {
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+    },
+    examItemCompleted: {
+      backgroundColor: colors.success[50],
+    },
+    examItemContent: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    examItemLeft: {
+      flex: 1,
+    },
+    examItemNumber: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.bold,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+      textAlign: 'left',
+    },
+    examItemTitle: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      textAlign: 'left',
+    },
+    completedBadge: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.success[100],
+      paddingHorizontal: spacing.padding.sm,
+      paddingVertical: spacing.padding.xs,
+      borderRadius: spacing.borderRadius.sm,
+    },
+    completedText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.semibold,
+      marginLeft: spacing.margin.xs,
+    },
+    emptyState: {
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    emptyStateText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+  });
 
 export default ExamSelectionModal;
 

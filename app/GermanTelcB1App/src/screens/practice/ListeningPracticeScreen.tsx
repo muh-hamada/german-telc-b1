@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator, Alert, I18nManager } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import Sound from 'react-native-sound';
 import { HomeStackParamList } from '../../types/navigation.types';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
@@ -24,6 +25,8 @@ const ListeningPracticeScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { updateExamProgress, userProgress } = useProgress();
   const { user } = useAuth();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<Sound | null>(null);
@@ -253,7 +256,7 @@ const ListeningPracticeScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
   },

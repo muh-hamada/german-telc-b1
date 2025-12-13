@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,8 @@ import {
   ScrollView,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 
 interface ListeningCompletionModalProps {
@@ -27,6 +28,8 @@ const ListeningCompletionModal: React.FC<ListeningCompletionModalProps> = ({
   onBackToHome,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const percentage = (score / totalQuestions) * 100;
 
@@ -86,66 +89,67 @@ const ListeningCompletionModal: React.FC<ListeningCompletionModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.md,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    width: '90%',
-    maxWidth: 400,
-    alignSelf: 'center',
-    padding: spacing.lg,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.md,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  content: {
-    alignItems: 'center',
-  },
-  title: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.lg,
-    textAlign: 'center',
-  },
-  scoreContainer: {
-    alignItems: 'center',
-    marginBottom: spacing.xl,
-  },
-  emoji: {
-    fontSize: 48,
-    marginBottom: spacing.md,
-  },
-  scoreText: {
-    ...typography.textStyles.h5,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: spacing.md,
-    width: '100%',
-    justifyContent: 'space-between',
-  },
-  button: {
-    flex: 1,
-  },
-  buttonText: {
-    textAlign: 'center',
-    fontSize: typography.fontSize.sm,
-  },
-});
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      width: '90%',
+      maxWidth: 400,
+      alignSelf: 'center',
+      padding: spacing.padding.lg,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    content: {
+      alignItems: 'center',
+    },
+    title: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.lg,
+      textAlign: 'center',
+    },
+    scoreContainer: {
+      alignItems: 'center',
+      marginBottom: spacing.margin.xl,
+    },
+    emoji: {
+      fontSize: 48,
+      marginBottom: spacing.margin.md,
+    },
+    scoreText: {
+      ...typography.textStyles.h5,
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      gap: spacing.margin.md,
+      width: '100%',
+      justifyContent: 'space-between',
+    },
+    button: {
+      flex: 1,
+    },
+    buttonText: {
+      textAlign: 'center',
+      fontSize: typography.fontSize.sm,
+    },
+  });
 
 export default ListeningCompletionModal;
 

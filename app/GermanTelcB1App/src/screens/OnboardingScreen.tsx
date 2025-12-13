@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
 import { RootStackParamList } from '../types/navigation.types';
-import { spacing } from '../theme';
+import { spacing, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from '../components/Button';
 import LanguageSelector from '../components/LanguageSelector';
 import RestartAppModal from '../components/RestartAppModal';
@@ -23,6 +24,8 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     handleLanguageChange: handleLanguageChangeWithRestart,
     handleCloseModal,
   } = useLanguageChange();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const handleLanguageChange = async (lang: string) => {
     setSelectedLanguage(lang);
@@ -50,13 +53,14 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.lg,
+    backgroundColor: colors.background.primary,
   },
   goButton: {
     marginTop: spacing.margin.md,

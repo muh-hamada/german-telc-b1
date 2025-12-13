@@ -5,7 +5,7 @@
  * Uses shared PremiumContent component.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,8 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing } from '../theme';
+import { spacing, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -33,6 +34,8 @@ const PremiumScreen: React.FC = () => {
   const [isRestoring, setIsRestoring] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const insets = useSafeAreaInsets();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   React.useEffect(() => {
     logEvent(AnalyticsEvents.PREMIUM_SCREEN_OPENED, {
@@ -127,10 +130,10 @@ const PremiumScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F9FF',
+    backgroundColor: colors.background.primary,
   },
   contentContainer: {
     flex: 1,
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: '#E9D5FF',
+    backgroundColor: colors.primary[200],
     opacity: 0.6,
   },
   bgShapeBottom: {
@@ -171,7 +174,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     borderRadius: 150,
-    backgroundColor: '#DBEAFE',
+    backgroundColor: colors.primary[100],
     opacity: 0.5,
   },
   alreadyPremiumContainer: {

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator} from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 
@@ -18,20 +19,22 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
   disabled = false,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const getProviderConfig = () => {
     switch (provider) {
       case 'google':
         return {
           title: t('auth.continueWithGoogle'),
-          backgroundColor: colors.gray[500] ,
+          backgroundColor: colors.social.google,
           textColor: colors.white,
           icon: 'G',
         };
       case 'twitter':
         return {
           title: t('auth.continueWithTwitter'),
-          backgroundColor: '#1DA1F2',
+          backgroundColor: colors.social.twitter,
           textColor: colors.white,
           icon: '𝕏',
         };
@@ -83,39 +86,40 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: spacing.borderRadius.lg,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    marginVertical: spacing.margin.sm,
-    shadowColor: colors.text.primary,
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    button: {
+      borderRadius: spacing.borderRadius.lg,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      marginVertical: spacing.margin.sm,
+      shadowColor: colors.text.primary,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  disabled: {
-    opacity: 0.6,
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    direction: 'ltr',
-  },
-  icon: {
-    fontSize: 20,
-    fontWeight: typography.fontWeight.bold,
-    marginRight: spacing.margin.sm,
-  },
-  title: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.medium,
-  },
-});
+    disabled: {
+      opacity: 0.6,
+    },
+    content: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      direction: 'ltr',
+    },
+    icon: {
+      fontSize: 20,
+      fontWeight: typography.fontWeight.bold,
+      marginRight: spacing.margin.sm,
+    },
+    title: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.medium,
+    },
+  });
 
 export default SocialLoginButton;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import ExamStepper from '../components/ExamStepper';
 import ReadingPart1Wrapper from '../components/exam-wrappers/ReadingPart1Wrapper';
 import ReadingPart2Wrapper from '../components/exam-wrappers/ReadingPart2Wrapper';
@@ -40,6 +41,8 @@ const MockExamRunningScreen: React.FC = () => {
   const [examProgress, setExamProgress] = useState<MockExamProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   useEffect(() => {
     loadProgress();
@@ -332,7 +335,7 @@ const MockExamRunningScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -606,4 +609,3 @@ const styles = StyleSheet.create({
 });
 
 export default MockExamRunningScreen;
-

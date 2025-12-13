@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native';
-import { colors, spacing } from '../theme';
+import { spacing, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface CardProps extends TouchableOpacityProps {
   children: React.ReactNode;
@@ -22,6 +23,9 @@ const Card: React.FC<CardProps> = ({
   variant = 'default',
   ...props
 }) => {
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+
   const cardStyle = [
     styles.base,
     styles[variant],
@@ -48,25 +52,26 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  base: {
-    backgroundColor: colors.white,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-  },
-  
-  default: {
-    ...spacing.shadow.sm,
-  },
-  
-  elevated: {
-    ...spacing.shadow.lg,
-  },
-  
-  outlined: {
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    base: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+    },
+    
+    default: {
+      ...spacing.shadow.sm,
+    },
+    
+    elevated: {
+      ...spacing.shadow.lg,
+    },
+    
+    outlined: {
+      borderWidth: 1,
+      borderColor: colors.border.light,
+    },
+  });
 
 export default Card;

@@ -4,7 +4,7 @@
  * Modal that appears when the app needs to be closed and reopened for RTL/LTR layout changes
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,8 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface RestartAppModalProps {
   visible: boolean;
@@ -25,6 +26,8 @@ const RestartAppModal: React.FC<RestartAppModalProps> = ({
   isGoingToRTL,
   onClose,
 }) => {
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const message = isGoingToRTL ?
     ['يرجى إغلاق التطبيق وإعادة فتحه لتطبيق التخطيط من اليمين إلى اليسار.',
@@ -65,52 +68,53 @@ const RestartAppModal: React.FC<RestartAppModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modal: {
-    backgroundColor: colors.white,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    maxWidth: 400,
-    ...spacing.shadow.lg,
-  },
-  content: {
-    padding: spacing.padding.xl,
-    alignItems: 'center',
-  },
-  message: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    padding: spacing.padding.md,
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-  },
-  button: {
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  okButton: {
-    backgroundColor: colors.primary[500],
-  },
-  okButtonText: {
-    ...typography.textStyles.button,
-    color: colors.white,
-    fontSize: 16,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modal: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      width: '100%',
+      maxWidth: 400,
+      ...spacing.shadow.lg,
+    },
+    content: {
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+    },
+    message: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      lineHeight: 24,
+      textAlign: 'center',
+    },
+    buttonContainer: {
+      padding: spacing.padding.md,
+      borderTopWidth: 1,
+      borderTopColor: colors.border.light,
+    },
+    button: {
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    okButton: {
+      backgroundColor: colors.primary[500],
+    },
+    okButtonText: {
+      ...typography.textStyles.button,
+      color: colors.text.inverse,
+      fontSize: 16,
+    },
+  });
 
 export default RestartAppModal;
 

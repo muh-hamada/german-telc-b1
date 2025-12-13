@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
 import { 
   loadMockExamProgress, 
@@ -20,11 +20,14 @@ import {
   saveMockExamProgress,
 } from '../services/mock-exam.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation<any>();
   const [isLoading, setIsLoading] = useState(true);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const checkForActiveExam = async () => {
     try {
@@ -224,7 +227,7 @@ const MockExamScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { GrammarPart1Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
@@ -21,6 +22,8 @@ interface LanguagePart1UIProps {
 
 const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
   const [showModal, setShowModal] = useState(false);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
@@ -215,7 +218,7 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

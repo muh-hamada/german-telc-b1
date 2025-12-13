@@ -5,7 +5,7 @@
  * for daily practice reminders.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Modal,
   View,
@@ -14,7 +14,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors } from '../theme';
+import { spacing, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface NotificationReminderModalProps {
   visible: boolean;
@@ -30,6 +31,8 @@ const NotificationReminderModal: React.FC<NotificationReminderModalProps> = ({
   onMaybeLater,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const handleEnable = () => {
     onEnable();
@@ -95,95 +98,96 @@ const NotificationReminderModal: React.FC<NotificationReminderModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  modalContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    padding: 28,
-    width: '100%',
-    maxWidth: 400,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 10,
-  },
-  iconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: colors.primary[50],
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  icon: {
-    fontSize: 48,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: colors.gray[600],
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  message: {
-    fontSize: 16,
-    color: colors.gray[600],
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: 28,
-  },
-  buttonContainer: {
-    width: '100%',
-    gap: 12,
-  },
-  enableButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignItems: 'center',
-    shadowColor: colors.primary[500],
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.xl,
+      padding: spacing.padding.xl,
+      width: '100%',
+      maxWidth: 400,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 8,
+      elevation: 10,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-  enableButtonText: {
-    color: '#FFFFFF',
-    fontSize: 17,
-    fontWeight: '600',
-  },
-  laterButton: {
-    backgroundColor: 'transparent',
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.gray[300],
-  },
-  laterButtonText: {
-    color: colors.gray[600],
-    fontSize: 16,
-    fontWeight: '500',
-  },
-});
+    iconContainer: {
+      width: 80,
+      height: 80,
+      borderRadius: 40,
+      backgroundColor: colors.primary[50],
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    icon: {
+      fontSize: 48,
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.md,
+    },
+    message: {
+      fontSize: 16,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      lineHeight: 24,
+      marginBottom: spacing.margin.xl,
+    },
+    buttonContainer: {
+      width: '100%',
+      gap: spacing.margin.md,
+    },
+    enableButton: {
+      backgroundColor: colors.primary[500],
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderRadius: spacing.borderRadius.lg,
+      alignItems: 'center',
+      shadowColor: colors.primary[500],
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 4,
+      elevation: 4,
+    },
+    enableButtonText: {
+      color: colors.text.inverse,
+      fontSize: 17,
+      fontWeight: '600',
+    },
+    laterButton: {
+      backgroundColor: 'transparent',
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderRadius: spacing.borderRadius.lg,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: colors.border.light,
+    },
+    laterButtonText: {
+      color: colors.text.secondary,
+      fontSize: 16,
+      fontWeight: '500',
+    },
+  });
 
 export default NotificationReminderModal;
 

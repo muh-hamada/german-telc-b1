@@ -1,4 +1,4 @@
-import React, { useState, useEffect, act } from 'react';
+import React, { useState, useEffect, act, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import StorageService from '../../services/storage.service';
 import GrammarStudyProgressModal from '../../components/GrammarStudyProgressModal';
 import SupportAdScreen from '../../components/SupportAdScreen';
@@ -23,6 +23,7 @@ import { useStreak } from '../../contexts/StreakContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useRemoteConfig } from '../../contexts/RemoteConfigContext';
 import { usePremium } from '../../contexts/PremiumContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import { QUESTIONS_PER_ACTIVITY } from '../../constants/streak.constants';
 import { activeExamConfig } from '../../config/active-exam.config';
 
@@ -68,6 +69,8 @@ const GrammarStudyScreen: React.FC = () => {
   const { isPremium } = usePremium();
   const { recordActivity } = useStreak();
   const { isStreaksEnabledForUser, getSupportAdInterval } = useRemoteConfig();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const navigation = useNavigation();
   
@@ -592,263 +595,264 @@ const GrammarStudyScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  content: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: spacing.padding.lg,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    marginTop: spacing.margin.md,
-  },
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    ...typography.textStyles.body,
-    color: colors.error[500],
-  },
-  groupName: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    fontStyle: 'italic',
-    marginBottom: spacing.margin.sm,
-    textAlign: 'center',
-  },
-  questionCard: {
-    marginBottom: spacing.margin.lg,
-  },
-  questionText: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    lineHeight: 28,
-    textAlign: 'left',
-    direction: 'ltr',
-  },
-  sentenceTranslation: {
-    ...typography.textStyles.h6,
-    color: colors.text.secondary,
-    lineHeight: 18,
-    textAlign: 'left',
-    marginTop: spacing.margin.sm,
-  },
-  optionsContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  optionButton: {
-    backgroundColor: colors.white,
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.lg,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 1,
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-    direction: 'ltr',
-  },
-  optionContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: spacing.margin.md,
-  },
-  letterCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.primary[600],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  letterText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-    textTransform: 'uppercase',
-  },
-  emptyCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    borderWidth: 2,
-    borderColor: colors.border.light,
-    backgroundColor: 'transparent',
-  },
-  optionText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-    flex: 1,
-  },
-  selectedOptionCard: {
-    paddingHorizontal: spacing.padding.lg,
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.lg,
-    borderWidth: 2,
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    content: {
+      flex: 1,
     },
-    shadowOpacity: 0.15,
-    shadowRadius: 3,
-    elevation: 3,
-    direction: 'ltr',
-  },
-  correctOptionCard: {
-    backgroundColor: colors.success[50],
-    borderColor: colors.success[500],
-  },
-  wrongOptionCard: {
-    backgroundColor: colors.error[50],
-    borderColor: colors.error[500],
-  },
-  selectedOptionText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    flex: 1,
-  },
-  iconCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: spacing.margin.sm,
-  },
-  correctIconCircle: {
-    backgroundColor: colors.success[500],
-  },
-  wrongIconCircle: {
-    backgroundColor: colors.error[500],
-  },
-  iconText: {
-    ...typography.textStyles.h4,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-  },
-  correctOptionText: {
-    color: colors.success[700],
-  },
-  wrongOptionText: {
-    color: colors.error[700],
-  },
-  resultContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  resultHeader: {
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    alignItems: 'center',
-  },
-  correctHeader: {
-    backgroundColor: colors.success[100],
-  },
-  wrongHeader: {
-    backgroundColor: colors.error[100],
-  },
-  resultText: {
-    ...typography.textStyles.h4,
-    fontWeight: typography.fontWeight.bold,
-  },
-  explanationContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    gap: spacing.margin.md,
-  },
-  actionButton: {
-    flex: 1,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  actionButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    textAlign: 'center',
-  },
-  tryAgainButton: {
-    backgroundColor: colors.warning[500],
-  },
-  tryAgainButtonText: {
-    color: colors.white,
-  },
-  skipButton: {
-    backgroundColor: colors.primary[500],
-  },
-  skipButtonText: {
-    color: colors.white,
-  },
-  nextButton: {
-    backgroundColor: colors.success[500],
-  },
-  nextButtonText: {
-    color: colors.white,
-  },
-  progressContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  progressText: {
-    ...typography.textStyles.h6,
-    color: colors.text.primary,
-    textAlign: 'left',
-    marginTop: spacing.margin.md,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  progressBarContainer: {
-    alignItems: 'center',
-  },
-  progressBarBackground: {
-    width: '100%',
-    height: 8,
-    backgroundColor: colors.border.light,
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.primary[500],
-    borderRadius: 4,
-  },
-  retryButton: {
-    marginTop: spacing.margin.lg,
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    backgroundColor: colors.primary[500],
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-  },
-  retryButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: typography.fontWeight.semibold,
-  },
-});
+    scrollContent: {
+      padding: spacing.padding.lg,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    loadingText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      marginTop: spacing.margin.md,
+    },
+    errorContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    errorText: {
+      ...typography.textStyles.body,
+      color: colors.error[500],
+    },
+    groupName: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      fontStyle: 'italic',
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    questionCard: {
+      marginBottom: spacing.margin.lg,
+    },
+    questionText: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      lineHeight: 28,
+      textAlign: 'left',
+      direction: 'ltr',
+    },
+    sentenceTranslation: {
+      ...typography.textStyles.h6,
+      color: colors.text.secondary,
+      lineHeight: 18,
+      textAlign: 'left',
+      marginTop: spacing.margin.sm,
+    },
+    optionsContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    optionButton: {
+      backgroundColor: colors.background.secondary,
+      paddingHorizontal: spacing.padding.lg,
+      paddingVertical: spacing.padding.md,
+      borderRadius: spacing.borderRadius.lg,
+      marginBottom: spacing.margin.md,
+      borderWidth: 1,
+      borderColor: colors.border.light,
+      shadowColor: colors.black,
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 2,
+      elevation: 2,
+      direction: 'ltr',
+    },
+    optionContent: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: spacing.margin.md,
+    },
+    letterCircle: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      backgroundColor: colors.primary[600],
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    letterText: {
+      ...typography.textStyles.body,
+      color: colors.white,
+      fontWeight: typography.fontWeight.bold,
+      textTransform: 'uppercase',
+    },
+    emptyCircle: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      borderWidth: 2,
+      borderColor: colors.border.light,
+      backgroundColor: 'transparent',
+    },
+    optionText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.medium,
+      flex: 1,
+    },
+    selectedOptionCard: {
+      paddingHorizontal: spacing.padding.lg,
+      paddingVertical: spacing.padding.md,
+      borderRadius: spacing.borderRadius.lg,
+      borderWidth: 2,
+      shadowColor: colors.black,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.15,
+      shadowRadius: 3,
+      elevation: 3,
+      direction: 'ltr',
+    },
+    correctOptionCard: {
+      backgroundColor: colors.success[50],
+      borderColor: colors.success[500],
+    },
+    wrongOptionCard: {
+      backgroundColor: colors.error[50],
+      borderColor: colors.error[500],
+    },
+    selectedOptionText: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      flex: 1,
+    },
+    iconCircle: {
+      width: 32,
+      height: 32,
+      borderRadius: 16,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: spacing.margin.sm,
+    },
+    correctIconCircle: {
+      backgroundColor: colors.success[500],
+    },
+    wrongIconCircle: {
+      backgroundColor: colors.error[500],
+    },
+    iconText: {
+      ...typography.textStyles.h4,
+      color: colors.white,
+      fontWeight: typography.fontWeight.bold,
+    },
+    correctOptionText: {
+      color: colors.success[700],
+    },
+    wrongOptionText: {
+      color: colors.error[700],
+    },
+    resultContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    resultHeader: {
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.md,
+      alignItems: 'center',
+    },
+    correctHeader: {
+      backgroundColor: colors.success[100],
+    },
+    wrongHeader: {
+      backgroundColor: colors.error[100],
+    },
+    resultText: {
+      ...typography.textStyles.h4,
+      fontWeight: typography.fontWeight.bold,
+    },
+    explanationContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    actionButtons: {
+      flexDirection: 'row',
+      gap: spacing.margin.md,
+    },
+    actionButton: {
+      flex: 1,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    actionButtonText: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.semibold,
+      textAlign: 'center',
+    },
+    tryAgainButton: {
+      backgroundColor: colors.warning[500],
+    },
+    tryAgainButtonText: {
+      color: colors.white,
+    },
+    skipButton: {
+      backgroundColor: colors.primary[500],
+    },
+    skipButtonText: {
+      color: colors.white,
+    },
+    nextButton: {
+      backgroundColor: colors.success[500],
+    },
+    nextButtonText: {
+      color: colors.white,
+    },
+    progressContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    progressText: {
+      ...typography.textStyles.h6,
+      color: colors.text.primary,
+      textAlign: 'left',
+      marginTop: spacing.margin.md,
+      fontWeight: typography.fontWeight.semibold,
+    },
+    progressBarContainer: {
+      alignItems: 'center',
+    },
+    progressBarBackground: {
+      width: '100%',
+      height: 8,
+      backgroundColor: colors.border.light,
+      borderRadius: 4,
+      overflow: 'hidden',
+    },
+    progressBarFill: {
+      height: '100%',
+      backgroundColor: colors.primary[500],
+      borderRadius: 4,
+    },
+    retryButton: {
+      marginTop: spacing.margin.lg,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      backgroundColor: colors.primary[500],
+      borderRadius: spacing.borderRadius.md,
+      alignItems: 'center',
+    },
+    retryButtonText: {
+      ...typography.textStyles.body,
+      color: colors.white,
+      fontWeight: typography.fontWeight.semibold,
+    },
+  });
 
 export default GrammarStudyScreen;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -24,6 +25,8 @@ const VocabularyCompletionModal: React.FC<VocabularyCompletionModalProps> = ({
   onClose,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const title = type === 'study' 
     ? t('vocabulary.completion.studyTitle') 
@@ -68,90 +71,91 @@ const VocabularyCompletionModal: React.FC<VocabularyCompletionModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: 24,
-    padding: spacing.padding.xl,
-    width: '100%',
-    maxWidth: 400,
-    alignItems: 'center',
-    ...spacing.shadow.lg,
-  },
-  iconContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: colors.success[100],
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  title: {
-    ...typography.textStyles.h2,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'center',
-  },
-  message: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-  },
-  statsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    width: '100%',
-    padding: spacing.padding.lg,
-    backgroundColor: colors.success[50],
-    borderRadius: 16,
-    marginBottom: spacing.margin.xl,
-  },
-  statItem: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  statValue: {
-    ...typography.textStyles.h1,
-    color: colors.success[600],
-    fontWeight: 'bold',
-    marginBottom: spacing.margin.xs,
-  },
-  statLabel: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  statDivider: {
-    width: 1,
-    height: 40,
-    backgroundColor: colors.secondary[200],
-    marginHorizontal: spacing.margin.md,
-  },
-  doneButton: {
-    backgroundColor: colors.success[500],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.xl,
-    borderRadius: 12,
-    width: '100%',
-    alignItems: 'center',
-  },
-  doneButtonText: {
-    ...typography.textStyles.body,
-    color: colors.white,
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    modalContainer: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: 24,
+      padding: spacing.padding.xl,
+      width: '100%',
+      maxWidth: 400,
+      alignItems: 'center',
+      ...spacing.shadow.lg,
+    },
+    iconContainer: {
+      width: 100,
+      height: 100,
+      borderRadius: 50,
+      backgroundColor: colors.success[100],
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    title: {
+      ...typography.textStyles.h2,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    message: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xl,
+    },
+    statsContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      width: '100%',
+      padding: spacing.padding.lg,
+      backgroundColor: colors.success[50],
+      borderRadius: 16,
+      marginBottom: spacing.margin.xl,
+    },
+    statItem: {
+      alignItems: 'center',
+      flex: 1,
+    },
+    statValue: {
+      ...typography.textStyles.h1,
+      color: colors.success[600],
+      fontWeight: 'bold',
+      marginBottom: spacing.margin.xs,
+    },
+    statLabel: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+    statDivider: {
+      width: 1,
+      height: 40,
+      backgroundColor: colors.secondary[200],
+      marginHorizontal: spacing.margin.md,
+    },
+    doneButton: {
+      backgroundColor: colors.success[500],
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.xl,
+      borderRadius: 12,
+      width: '100%',
+      alignItems: 'center',
+    },
+    doneButtonText: {
+      ...typography.textStyles.body,
+      color: colors.text.inverse,
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
+  });
 
 export default VocabularyCompletionModal;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   ScrollView,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import CompletionStatsCard from '../components/CompletionStatsCard';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -16,6 +17,8 @@ const CompletionStatsScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { allStats, isLoading } = useCompletion();
   const { user } = useAuth();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Use demo stats if demo mode is enabled
   const displayStats = DEMO_MODE ? DEMO_COMPLETION_STATS : allStats;
@@ -36,7 +39,7 @@ const CompletionStatsScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

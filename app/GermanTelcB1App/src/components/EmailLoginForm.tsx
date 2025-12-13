@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,8 @@ import {
   I18nManager,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 
 interface EmailLoginFormProps {
@@ -26,6 +27,8 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
   loading = false,
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -153,59 +156,60 @@ const EmailLoginForm: React.FC<EmailLoginFormProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  title: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.xl,
-  },
-  inputContainer: {
-    marginBottom: spacing.margin.lg,
-  },
-  label: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    fontWeight: typography.fontWeight.medium,
-    textAlign: 'left',
-  },
-  input: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.md,
-    paddingVertical: spacing.padding.md,
-    lineHeight: 17,
-    paddingHorizontal: spacing.padding.lg,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-    textAlign: I18nManager.isRTL ? 'right' : 'left',
-  },
-  submitButton: {
-    marginTop: spacing.margin.sm,
-  },
-  forgotButton: {
-    alignSelf: 'center',
-    marginTop: spacing.margin.md,
-  },
-  forgotText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[500],
-    textDecorationLine: 'underline',
-  },
-  switchButton: {
-    alignSelf: 'center',
-    marginTop: spacing.margin.md,
-  },
-  switchText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      width: '100%',
+    },
+    title: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.xl,
+    },
+    inputContainer: {
+      marginBottom: spacing.margin.lg,
+    },
+    label: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.xs,
+      fontWeight: typography.fontWeight.medium,
+      textAlign: 'left',
+    },
+    input: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.md,
+      paddingVertical: spacing.padding.md,
+      lineHeight: 17,
+      paddingHorizontal: spacing.padding.lg,
+      borderWidth: 1,
+      borderColor: colors.border.light,
+      textAlign: I18nManager.isRTL ? 'right' : 'left',
+    },
+    submitButton: {
+      marginTop: spacing.margin.sm,
+    },
+    forgotButton: {
+      alignSelf: 'center',
+      marginTop: spacing.margin.md,
+    },
+    forgotText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.primary[500],
+      textDecorationLine: 'underline',
+    },
+    switchButton: {
+      alignSelf: 'center',
+      marginTop: spacing.margin.md,
+    },
+    switchText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+  });
 
 export default EmailLoginForm;

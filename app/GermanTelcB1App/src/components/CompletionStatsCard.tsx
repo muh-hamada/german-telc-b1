@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 import { AllCompletionStats } from '../services/firebase-completion.service';
 
@@ -32,6 +33,8 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({
   onSeeAllStats 
 }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const examSections: ExamSection[] = [
     { key: 'grammar', titleKey: 'practice.grammar.title', parts: [1, 2] },
@@ -180,132 +183,132 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.lg,
-    marginBottom: spacing.margin.lg,
-    ...spacing.shadow.sm,
-  },
-  loadingText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  headerTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    marginLeft: spacing.margin.sm,
-    flex: 1,
-    textAlign: 'left',
-  },
-  totalSection: {
-    backgroundColor: colors.primary[50],
-    borderRadius: spacing.borderRadius.md,
-    padding: spacing.padding.md,
-    marginBottom: spacing.margin.lg,
-  },
-  totalRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  totalText: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-  },
-  totalCount: {
-    ...typography.textStyles.h4,
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.bold,
-  },
-  progressBarContainer: {
-    height: 12,
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    overflow: 'hidden',
-    marginBottom: spacing.margin.xs,
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.success[500],
-    borderRadius: 6,
-  },
-  percentageText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginTop: spacing.margin.xs,
-  },
-  sectionsContainer: {
-    gap: spacing.margin.md,
-  },
-  sectionContainer: {
-    marginBottom: spacing.margin.md,
-  },
-  sectionTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  partRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.xs,
-    paddingHorizontal: spacing.padding.sm,
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.xs,
-  },
-  partInfo: {
-    flex: 1,
-    marginRight: spacing.margin.md,
-  },
-  partTitle: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    marginBottom: spacing.margin.xs,
-  },
-  miniProgressBar: {
-    height: 6,
-    backgroundColor: colors.secondary[200],
-    borderRadius: 3,
-    overflow: 'hidden',
-  },
-  miniProgressBarFill: {
-    height: '100%',
-    backgroundColor: colors.success[500],
-    borderRadius: 3,
-  },
-  partStats: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  emptyState: {
-    alignItems: 'center',
-    paddingTop: spacing.padding.xl,
-  },
-  emptyIcon: {
-    marginBottom: spacing.margin.md,
-  },
-  emptyText: {
-    ...typography.textStyles.body,
-    color: colors.text.tertiary,
-    textAlign: 'center',
-  },
-  seeAllButton: {
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    card: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      marginBottom: spacing.margin.lg,
+      ...spacing.shadow.sm,
+    },
+    loadingText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    headerTitle: {
+      ...typography.textStyles.h3,
+      color: colors.text.primary,
+      marginLeft: spacing.margin.sm,
+      flex: 1,
+      textAlign: 'left',
+    },
+    totalSection: {
+      backgroundColor: colors.primary[50],
+      borderRadius: spacing.borderRadius.md,
+      padding: spacing.padding.md,
+      marginBottom: spacing.margin.lg,
+    },
+    totalRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.margin.sm,
+    },
+    totalText: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+    },
+    totalCount: {
+      ...typography.textStyles.h4,
+      color: colors.primary[600],
+      fontWeight: typography.fontWeight.bold,
+    },
+    progressBarContainer: {
+      height: 12,
+      backgroundColor: colors.background.secondary,
+      borderRadius: 6,
+      overflow: 'hidden',
+      marginBottom: spacing.margin.xs,
+    },
+    progressBarFill: {
+      height: '100%',
+      backgroundColor: colors.success[500],
+      borderRadius: 6,
+    },
+    percentageText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginTop: spacing.margin.xs,
+    },
+    sectionsContainer: {
+      gap: spacing.margin.md,
+    },
+    sectionContainer: {
+      marginBottom: spacing.margin.md,
+    },
+    sectionTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'left',
+    },
+    partRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: spacing.padding.xs,
+      paddingHorizontal: spacing.padding.sm,
+      backgroundColor: colors.background.primary,
+      borderRadius: spacing.borderRadius.sm,
+      marginBottom: spacing.margin.xs,
+    },
+    partInfo: {
+      flex: 1,
+      marginRight: spacing.margin.md,
+    },
+    partTitle: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      marginBottom: spacing.margin.xs,
+    },
+    miniProgressBar: {
+      height: 6,
+      backgroundColor: colors.secondary[200],
+      borderRadius: 3,
+      overflow: 'hidden',
+    },
+    miniProgressBarFill: {
+      height: '100%',
+      backgroundColor: colors.success[500],
+      borderRadius: 3,
+    },
+    partStats: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.semibold,
+    },
+    emptyState: {
+      alignItems: 'center',
+      paddingTop: spacing.padding.xl,
+    },
+    emptyIcon: {
+      marginBottom: spacing.margin.md,
+    },
+    emptyText: {
+      ...typography.textStyles.body,
+      color: colors.text.tertiary,
+      textAlign: 'center',
+    },
+    seeAllButton: {},
+  });
 
 export default CompletionStatsCard;
 

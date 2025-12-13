@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   StyleSheet,
   View,
@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { colors, spacing } from '../../theme';
+import { spacing, type ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import { useExamCompletion } from '../../contexts/CompletionContext';
@@ -40,6 +41,8 @@ const ListeningPart2Screen: React.FC = () => {
   const route = useRoute<ListeningPart2RouteProp>();
   const { examId } = route.params;
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -168,24 +171,25 @@ const ListeningPart2Screen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  centerContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    color: colors.text.primary,
-    fontSize: 16,
-  },
-  headerButton: {
-    marginRight: spacing.margin.md,
-    padding: spacing.padding.xs,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    centerContent: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    errorText: {
+      color: colors.text.primary,
+      fontSize: 16,
+    },
+    headerButton: {
+      marginRight: spacing.margin.md,
+      padding: spacing.padding.xs,
+    },
+  });
 
 export default ListeningPart2Screen;

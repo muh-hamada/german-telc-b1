@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import { View, StyleSheet, AppState } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
@@ -6,7 +6,6 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MainTabParamList } from '../types/navigation.types';
-import { colors } from '../theme';
 import HomeStackNavigator from './HomeStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
 import MockExamScreen from '../screens/MockExamScreen';
@@ -18,6 +17,8 @@ import { usePremium } from '../contexts/PremiumContext';
 import notificationReminderService from '../services/notification-reminder.service';
 import premiumPromptService from '../services/premium-prompt.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { useAppTheme } from '../contexts/ThemeContext';
+import { type ThemeColors } from '../theme';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -69,7 +70,19 @@ const HIDE_BANNER_SCREENS = [
  * Custom Tab Bar component with persistent banner above it
  * This is the clean, proper way using React Navigation's tabBar prop
  */
-const CustomTabBar = (props: any) => {
+const createTabBarStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    tabBarWrapper: {
+      backgroundColor: colors.background.primary,
+    },
+    bannerContainer: {
+      backgroundColor: colors.background.primary,
+      borderTopWidth: 1,
+      borderTopColor: colors.secondary[100],
+    },
+  });
+
+const CustomTabBar = ({ colors, ...props }: any) => {
   // Check if current route should hide the tab bar
   const routeName = props.state?.routes[props.state.index]?.state?.routes?.[
     props.state.routes[props.state.index]?.state?.index ?? 0
@@ -78,6 +91,8 @@ const CustomTabBar = (props: any) => {
   const shouldHideTabBar = routeName && HIDE_TAB_SCREENS.includes(routeName);
 
   const shouldHideBanner = routeName && HIDE_BANNER_SCREENS.includes(routeName);
+
+  const styles = useMemo(() => createTabBarStyles(colors), [colors]);
 
   return (
     <SafeAreaView edges={(shouldHideTabBar && !shouldHideBanner) ? ['bottom'] : []} style={styles.tabBarWrapper}>
@@ -106,6 +121,7 @@ const TabNavigator: React.FC = () => {
   const appState = useRef(AppState.currentState);
   const usageTrackingRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasEnqueuedPremiumModalRef = useRef(false);
+  const { colors } = useAppTheme();
 
   // Check for notification reminder triggers on mount and app foreground
   useEffect(() => {
@@ -205,7 +221,7 @@ const TabNavigator: React.FC = () => {
 
   return (
     <Tab.Navigator
-      tabBar={(props) => <CustomTabBar {...props} />}
+      tabBar={(props) => <CustomTabBar {...props} colors={colors} />}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.primary[500],
@@ -249,16 +265,5 @@ const TabNavigator: React.FC = () => {
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBarWrapper: {
-    backgroundColor: colors.background.primary,
-  },
-  bannerContainer: {
-    backgroundColor: colors.background.primary,
-    borderTopWidth: 1,
-    borderTopColor: colors.secondary[100],
-  },
-});
 
 export default TabNavigator;

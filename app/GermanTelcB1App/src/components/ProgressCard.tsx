@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useUserStats } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { DEMO_MODE, DEMO_STATS } from '../config/development.config';
@@ -15,6 +16,8 @@ interface ProgressCardProps {
 
 const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, showDetails = true }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const stats = useUserStats();
   const { user } = useAuth();
   const [isUserLoaded, setIsUserLoaded] = useState(false);
@@ -136,82 +139,82 @@ const ProgressCard: React.FC<ProgressCardProps> = ({ onPress, onLoginPress, show
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.lg,
-    // marginVertical: spacing.sm,
-    ...spacing.shadow.sm,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  title: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-  },
-  score: {
-    ...typography.textStyles.h3,
-    fontWeight: typography.fontWeight.bold,
-  },
-  statsContainer: {
-    gap: spacing.sm,
-  },
-  statRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  statLabel: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-  },
-  statValue: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
-  },
-  emptyState: {
-    alignItems: 'center',
-    paddingVertical: spacing.lg,
-  },
-  emptyText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  loginPrompt: {
-    alignItems: 'center',
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.sm,
-    paddingHorizontal: spacing.sm,
-  },
-  loginPromptIcon: {
-    fontSize: 48,
-    marginBottom: spacing.md,
-  },
-  loginPromptTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    marginBottom: spacing.sm,
-    textAlign: 'center',
-  },
-  loginPromptText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-  loginButton: {
-    marginTop: spacing.md,
-  },
-  loadingState: {
-    alignItems: 'center',
-    paddingVertical: spacing.lg * 2,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      ...spacing.shadow.sm,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    title: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+    },
+    score: {
+      ...typography.textStyles.h3,
+      fontWeight: typography.fontWeight.bold,
+    },
+    statsContainer: {
+      gap: spacing.margin.sm,
+    },
+    statRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    statLabel: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+    },
+    statValue: {
+      ...typography.textStyles.body,
+      fontWeight: typography.fontWeight.medium,
+      color: colors.text.primary,
+    },
+    emptyState: {
+      alignItems: 'center',
+      paddingVertical: spacing.padding.lg,
+    },
+    emptyText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+    loginPrompt: {
+      alignItems: 'center',
+      paddingTop: spacing.padding.sm,
+      paddingBottom: spacing.padding.sm,
+      paddingHorizontal: spacing.padding.sm,
+    },
+    loginPromptIcon: {
+      fontSize: 48,
+      marginBottom: spacing.margin.md,
+    },
+    loginPromptTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+      textAlign: 'center',
+    },
+    loginPromptText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      lineHeight: 22,
+    },
+    loginButton: {
+      marginTop: spacing.margin.md,
+    },
+    loadingState: {
+      alignItems: 'center',
+      paddingVertical: spacing.padding.lg * 2,
+    },
+  });
 
 export default ProgressCard;

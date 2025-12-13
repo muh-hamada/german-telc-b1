@@ -71,7 +71,8 @@
     "ok": "OK",
     "correct": "Richtig",
     "wrong": "Falsch",
-    "duration": "Dauer"
+    "duration": "Dauer",
+    "info": "Information"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",

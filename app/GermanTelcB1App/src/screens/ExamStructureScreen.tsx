@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,10 @@ import {
   I18nManager,
 } from 'react-native';
 import { removeTelcFromText, useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import dataService from '../services/data.service';
 import { useTranslation } from 'react-i18next';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const ExamStructureScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -18,6 +19,8 @@ const ExamStructureScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [examInfoData, setExamInfoData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   useEffect(() => {
     loadData();
@@ -218,7 +221,7 @@ const ExamStructureScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from '../types/navigation.types';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 import Button from '../components/Button';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -15,6 +16,8 @@ type OnboardingDisclaimerScreenProps = StackScreenProps<RootStackParamList, 'Onb
 const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({ navigation }) => {
   const { t } = useCustomTranslation();
   const [isChecked, setIsChecked] = useState(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const handleContinue = async () => {
     if (!isChecked) return;
@@ -97,7 +100,7 @@ const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -140,7 +143,7 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     borderTopWidth: 1,
     borderTopColor: colors.border.light,
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -175,4 +178,3 @@ const styles = StyleSheet.create({
 });
 
 export default OnboardingDisclaimerScreen;
-

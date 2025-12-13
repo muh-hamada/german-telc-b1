@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
@@ -14,6 +14,7 @@ import { useModalQueue } from '../contexts/ModalQueueContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useAppTheme } from '../contexts/ThemeContext';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyAdCard from '../components/VocabularyAdCard';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
@@ -31,6 +32,8 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const { getVocabularyNativeAdConfig, isStreaksEnabledForUser } = useRemoteConfig();
   const { isPremium } = usePremium();
   const { user } = useAuth();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -321,67 +324,68 @@ const VocabularyStudyNewScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.lg,
-  },
-  emptyText: {
-    ...typography.textStyles.h3,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.lg,
-  },
-  progressContainer: {
-    padding: spacing.padding.lg,
-    gap: spacing.margin.sm,
-  },
-  progressBar: {
-    height: 8,
-    backgroundColor: colors.secondary[200],
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  progressFill: {
-    height: '100%',
-    backgroundColor: colors.primary[500],
-    borderRadius: 4,
-  },
-  progressText: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  actionsContainer: {
-    padding: spacing.padding.lg,
-    gap: spacing.margin.md,
-  },
-  button: {
-    marginHorizontal: 0,
-  },
-  buttonGroup: {
-    gap: spacing.margin.sm,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+    },
+    emptyContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: colors.background.primary,
+      padding: spacing.padding.lg,
+    },
+    emptyText: {
+      ...typography.textStyles.h3,
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginBottom: spacing.margin.lg,
+    },
+    progressContainer: {
+      padding: spacing.padding.lg,
+      gap: spacing.margin.sm,
+    },
+    progressBar: {
+      height: 8,
+      backgroundColor: colors.secondary[200],
+      borderRadius: 4,
+      overflow: 'hidden',
+    },
+    progressFill: {
+      height: '100%',
+      backgroundColor: colors.primary[500],
+      borderRadius: 4,
+    },
+    progressText: {
+      ...typography.textStyles.caption,
+      color: colors.text.secondary,
+      textAlign: 'center',
+    },
+    cardContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.padding.lg,
+    },
+    actionsContainer: {
+      padding: spacing.padding.lg,
+      gap: spacing.margin.md,
+    },
+    button: {
+      marginHorizontal: 0,
+    },
+    buttonGroup: {
+      gap: spacing.margin.sm,
+    },
+  });
 
 export default VocabularyStudyNewScreen;
 

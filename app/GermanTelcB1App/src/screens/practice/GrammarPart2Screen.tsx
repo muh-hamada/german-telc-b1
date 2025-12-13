@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,11 +9,12 @@ import {
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors, spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import { GrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart2UI from '../../components/exam-ui/LanguagePart2UI';
@@ -26,6 +27,8 @@ const GrammarPart2Screen: React.FC = () => {
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
   
   const { isCompleted, toggleCompletion } = useExamCompletion('grammar', 2, examId);
@@ -154,34 +157,35 @@ const GrammarPart2Screen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background.primary,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-  },
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    ...typography.textStyles.body,
-    color: colors.error[500],
-  },
-  headerButton: {
-    marginRight: spacing.margin.md,
-    padding: spacing.padding.xs,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.primary,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    loadingText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+    },
+    errorContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    errorText: {
+      ...typography.textStyles.body,
+      color: colors.error[500],
+    },
+    headerButton: {
+      marginRight: spacing.margin.md,
+      padding: spacing.padding.xs,
+    },
+  });
 
 export default GrammarPart2Screen;
 

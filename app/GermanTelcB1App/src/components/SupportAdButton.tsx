@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   ActivityIndicator,
   Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import { AdEventType, RewardedAd, RewardedAdEventType, TestIds } from 'react-native-google-mobile-ads';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
-import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
 import { activeExamConfig } from '../config/active-exam.config';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import SupportThankYouModal from './SupportThankYouModal';
 import { usePremium } from '../contexts/PremiumContext';
+import { useAppTheme } from '../contexts/ThemeContext';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { spacing, ThemeColors, typography } from '../theme';
+import SupportThankYouModal from './SupportThankYouModal';
 
 // Ad Unit ID for user support rewarded ad
 const USER_SUPPORT_AD_UNIT_ID = __DEV__
@@ -58,6 +59,8 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   const [isShowingAd, setIsShowingAd] = useState(false);
   const [showThankYouModal, setShowThankYouModal] = useState(false);
   const adEarnedRewardRef = useRef<boolean>(false);
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   // Initialize and load rewarded ad (must be before any conditional returns)
   useEffect(() => {
@@ -241,7 +244,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
