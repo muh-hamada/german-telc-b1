@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   StyleSheet,
   Text,
 } from 'react-native';
-import { colors, typography } from '../theme';
+import { ThemeColors, typography } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 function formatTime(seconds: number): string {
   const mins = Math.floor(seconds / 60);
@@ -21,6 +22,9 @@ const AudioDuration: React.FC<AudioDurationProps> = ({
   currentTime,
   duration,
 }) => {
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   return (
     <View style={styles.container}>
       <Text style={styles.currentTime}>{formatTime(currentTime)}</Text>
@@ -30,7 +34,7 @@ const AudioDuration: React.FC<AudioDurationProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

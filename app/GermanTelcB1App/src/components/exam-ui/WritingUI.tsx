@@ -714,10 +714,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                 {t('writing.imagePreview.title')}
               </Text>
 
-              <Text style={styles.imagePreviewSubtitle}>
-                {t('writing.imagePreview.subtitle')}
-              </Text>
-
               <View style={styles.imageContainer}>
                 <Image
                   source={{ uri: capturedImageUri }}
@@ -734,7 +730,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                     setTimeout(handleTakePhoto, 300);
                   }}
                 >
-                  <Text style={styles.imagePreviewButtonText}>{t('writing.imagePreview.retakeButton')}</Text>
+                  <Text style={styles.retakeIcon}>📷</Text>
+                  <Text style={[styles.imagePreviewButtonText, styles.retakeButtonText]}>{t('writing.imagePreview.retakeButton')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -743,9 +740,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                   disabled={isEvaluating}
                 >
                   {isEvaluating ? (
-                    <ActivityIndicator color={colors.background.secondary} />
+                    <ActivityIndicator color={colors.text.primary} size="small" />
                   ) : (
-                    <Text style={styles.imagePreviewButtonText}>{t('writing.imagePreview.evaluateButton')}</Text>
+                    <>
+                      <Text style={styles.evaluateIcon}>✓</Text>
+                      <Text style={[styles.imagePreviewButtonText, styles.evaluateButtonText]}>{t('writing.imagePreview.evaluateButton')}</Text>
+                    </>
                   )}
                 </TouchableOpacity>
               </View>
@@ -1296,46 +1296,62 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   previewImage: {
     width: '100%',
-    height: 200,
+    height: 300,
   },
   imagePreviewButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
     gap: spacing.margin.sm,
   },
   imagePreviewButton: {
     flex: 1,
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
+    paddingVertical: spacing.padding.sm,
+    paddingHorizontal: spacing.padding.md,
+    borderRadius: spacing.borderRadius.sm,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 48,
+    flexDirection: 'row',
+    gap: spacing.margin.xs,
   },
   retakeButton: {
-    backgroundColor: colors.warning[500],
+    backgroundColor: colors.warning[100],
+    borderWidth: 1,
+    borderColor: colors.warning[500],
   },
   evaluateImageButton: {
-    backgroundColor: colors.secondary[500],
+    backgroundColor: colors.background.secondary,
+    borderWidth: 1,
+    borderColor: colors.border.medium,
   },
   imagePreviewButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text.primary,
     textAlign: 'center',
   },
+  retakeButtonText: {
+    color: colors.warning[700],
+  },
+  retakeIcon: {
+    fontSize: 14,
+  },
+  evaluateIcon: {
+    fontSize: 14,
+    color: colors.text.primary,
+  },
   cancelImageButton: {
-    backgroundColor: colors.error[100],
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
+    backgroundColor: 'transparent',
+    paddingVertical: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: colors.error[500],
   },
   cancelImageButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.error[600],
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.medium,
+    color: colors.error[500],
   },
   rewardedAdModalContent: {
     padding: spacing.padding.xl,

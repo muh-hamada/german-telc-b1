@@ -5,7 +5,7 @@
  * Shows download progress, storage usage, and controls.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -17,8 +17,9 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NetInfo from '@react-native-community/netinfo';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { colors, spacing, ThemeColors, typography } from '../theme';
 import offlineService, { DownloadProgress, OfflineStatus } from '../services/offline.service';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface OfflineDownloadSectionProps {
   onDownloadComplete?: () => void;
@@ -32,7 +33,9 @@ const OfflineDownloadSection: React.FC<OfflineDownloadSectionProps> = ({
   const [progress, setProgress] = useState<DownloadProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isConnected, setIsConnected] = useState<boolean | null>(true);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   // Subscribe to network changes
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
@@ -222,7 +225,7 @@ const OfflineDownloadSection: React.FC<OfflineDownloadSectionProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,

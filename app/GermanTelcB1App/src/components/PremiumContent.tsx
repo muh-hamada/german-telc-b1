@@ -156,6 +156,13 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
             colorScheme={featureColors.support}
             styles={styles}
           />
+          <FeatureItem
+            icon="moon-o"
+            title={t('premium.features.darkTheme.title')}
+            description={t('premium.features.darkTheme.description')}
+            colorScheme={featureColors.darkTheme}
+            styles={styles}
+          />
         </View>
       </ScrollView>
 
@@ -219,6 +226,10 @@ const getFeatureColors = (isDarkMode: boolean, colors: ThemeColors): Record<stri
   support: {
     bg: isDarkMode ? colors.secondary[300] : '#FCE7F3',
     icon: colors.error[600],
+  },
+  darkTheme: {
+    bg: isDarkMode ? colors.secondary[200] : '#1e293b',
+    icon: isDarkMode ? colors.warning[600] : '#fbbf24',
   },
 });
 

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
-import { colors } from '../../theme';
+import { ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart3UI from '../exam-ui/ListeningPart3UI';
 import { UserAnswer } from '../../types/exam.types';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 interface ListeningPart3WrapperProps {
   testId: number;
@@ -26,7 +27,9 @@ const ListeningPart3Wrapper: React.FC<ListeningPart3WrapperProps> = ({ testId, o
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   useEffect(() => {
     loadData();
   }, [testId]);
@@ -76,7 +79,7 @@ const ListeningPart3Wrapper: React.FC<ListeningPart3WrapperProps> = ({ testId, o
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

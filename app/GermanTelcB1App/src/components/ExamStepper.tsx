@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, StyleSheet} from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import type { MockExamStep } from '../types/mock-exam.types';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface ExamStepperProps {
   steps: MockExamStep[];
@@ -10,7 +11,9 @@ interface ExamStepperProps {
 
 const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
   const currentStepIndex = steps.findIndex(step => step.id === currentStepId);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   return (
     <View style={styles.container}>
       <View style={styles.stepsRow}>
@@ -52,7 +55,7 @@ const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     backgroundColor: colors.background.secondary,
     paddingVertical: spacing.padding.md,

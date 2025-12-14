@@ -4,7 +4,7 @@
  * Four-button rating interface for SM-2 spaced repetition feedback.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,9 +13,10 @@ import {
   Platform,
   Vibration,
 } from 'react-native';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import { Rating } from '../types/vocabulary.types';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface VocabularyRatingButtonsProps {
   onRate: (rating: Rating) => void;
@@ -23,7 +24,9 @@ interface VocabularyRatingButtonsProps {
 
 const VocabularyRatingButtons: React.FC<VocabularyRatingButtonsProps> = ({ onRate }) => {
   const { t } = useCustomTranslation();
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   const triggerHapticFeedback = () => {
     try {
       // Simple vibration feedback that works on both iOS and Android
@@ -94,7 +97,7 @@ const VocabularyRatingButtons: React.FC<VocabularyRatingButtonsProps> = ({ onRat
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     gap: spacing.margin.sm,

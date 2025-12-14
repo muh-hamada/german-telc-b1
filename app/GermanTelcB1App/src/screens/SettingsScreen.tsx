@@ -10,6 +10,7 @@ import {
   Linking,
   PermissionsAndroid,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
@@ -20,6 +21,7 @@ import RestartAppModal from '../components/RestartAppModal';
 import HourPickerModal from '../components/HourPickerModal';
 import DeleteAccountModal from '../components/DeleteAccountModal';
 import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
+import PremiumDarkModeModal from '../components/PremiumDarkModeModal';
 import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { checkRTLChange } from '../utils/i18n';
@@ -36,6 +38,7 @@ import { useAppTheme } from '../contexts/ThemeContext';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
+  const navigation = useNavigation();
   const { clearUserProgress, isLoading } = useProgress();
   const { user, isLoading: authLoading } = useAuth();
   const { isPremium } = usePremium();
@@ -62,6 +65,7 @@ const SettingsScreen: React.FC = () => {
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
   const [showDeletionInProgressModal, setShowDeletionInProgressModal] = useState(false);
   const [isDeletingAccount, setIsDeletingAccount] = useState(false);
+  const [showPremiumDarkModeModal, setShowPremiumDarkModeModal] = useState(false);
 
   // Load settings and check permissions when component mounts
   useEffect(() => {
@@ -334,7 +338,17 @@ const SettingsScreen: React.FC = () => {
   };
 
   const handleThemeToggle = async (value: boolean) => {
+    // Only allow enabling dark mode for premium users
+    if (value && !isPremium) {
+      setShowPremiumDarkModeModal(true);
+      return;
+    }
     await setTheme(value ? 'dark' : 'light');
+  };
+
+  const handleViewPremiumBenefits = () => {
+    setShowPremiumDarkModeModal(false);
+    navigation.navigate('Premium' as never);
   };
 
   // Handle ad consent settings
@@ -775,6 +789,13 @@ const SettingsScreen: React.FC = () => {
       <AccountDeletionInProgressModal
         visible={showDeletionInProgressModal}
         onClose={() => setShowDeletionInProgressModal(false)}
+      />
+
+      {/* Premium Dark Mode Modal */}
+      <PremiumDarkModeModal
+        visible={showPremiumDarkModeModal}
+        onClose={() => setShowPremiumDarkModeModal(false)}
+        onViewBenefits={handleViewPremiumBenefits}
       />
     </View>
   );

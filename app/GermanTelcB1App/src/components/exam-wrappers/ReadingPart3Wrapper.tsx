@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { colors, typography } from '../../theme';
+import { ThemeColors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart3UI from '../exam-ui/ReadingPart3UI';
 import { ReadingPart3Exam, UserAnswer } from '../../types/exam.types';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 interface ReadingPart3WrapperProps {
   testId: number;
@@ -13,7 +14,9 @@ interface ReadingPart3WrapperProps {
 const ReadingPart3Wrapper: React.FC<ReadingPart3WrapperProps> = ({ testId, onComplete }) => {
   const [exam, setExam] = useState<ReadingPart3Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   useEffect(() => {
     const loadExam = async () => {
       try {
@@ -48,7 +51,7 @@ const ReadingPart3Wrapper: React.FC<ReadingPart3WrapperProps> = ({ testId, onCom
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

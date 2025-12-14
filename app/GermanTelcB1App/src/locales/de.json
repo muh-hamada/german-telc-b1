@@ -1101,6 +1101,10 @@
       "support": {
         "title": "Entwicklung unterstützen",
         "description": "Neue Prüfungen & Funktionen."
+      },
+      "darkTheme": {
+        "title": "Dunkles Design",
+        "description": "Augenschonend mit dunklem Modus."
       }
     },
     "profile": {
@@ -1122,6 +1126,13 @@
       "alreadyPremium": "Du hast bereits Premium!",
       "thankYou": "Danke für deine Unterstützung!",
       "disclaimer": "Einmaliger Kauf. Schaltet alle Premium-Funktionen für immer frei. Kein Abo, keine wiederkehrenden Kosten."
+    },
+    "darkModeModal": {
+      "title": "Der Dunkelmodus ist Premium",
+      "description": "Der Dunkelmodus ist eine exklusive Funktion für Premium-Benutzer. Upgraden Sie, um ein wunderschönes dunkles Thema zusammen mit anderen erstaunlichen Vorteilen zu genießen!",
+      "buyNow": "Premium freischalten",
+      "viewBenefits": "Alle Premium-Vorteile anzeigen",
+      "maybeLater": "Vielleicht später"
     }
   },
   "offline": {

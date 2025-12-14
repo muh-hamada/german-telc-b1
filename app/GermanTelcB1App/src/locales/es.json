@@ -1075,6 +1075,10 @@
       "support": {
         "title": "Apoya el desarrollo",
         "description": "Nuevos exámenes y funciones."
+      },
+      "darkTheme": {
+        "title": "Tema Oscuro",
+        "description": "Cuida tus ojos con el modo oscuro."
       }
     },
     "profile": {
@@ -1096,6 +1100,13 @@
       "alreadyPremium": "¡Ya tienes Premium!",
       "thankYou": "¡Gracias por tu apoyo!",
       "disclaimer": "Compra única. Desbloquea todas las funciones premium para siempre. Sin suscripción ni pagos recurrentes."
+    },
+    "darkModeModal": {
+      "title": "El modo oscuro es premium",
+      "description": "El modo oscuro es una característica exclusiva para usuarios premium. \n¡Actualiza para disfrutar de un hermoso tema oscuro junto con otros increíbles beneficios!",
+      "buyNow": "Desbloquear prima",
+      "viewBenefits": "Ver todos los beneficios premium",
+      "maybeLater": "Quizás más tarde"
     }
   },
   "offline": {

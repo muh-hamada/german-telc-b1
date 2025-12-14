@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface Language {
   code: string;
@@ -33,7 +34,9 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 }) => {
   const { t, i18n } = useCustomTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   const handleLanguageSelect = (languageCode: string) => {
     setSelectedLanguage(languageCode);
     i18n.changeLanguage(languageCode);
@@ -86,7 +89,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     paddingHorizontal: spacing.padding.lg,
     width: '100%',

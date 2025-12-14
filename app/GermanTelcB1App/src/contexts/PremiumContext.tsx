@@ -206,22 +206,74 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   }, [savePremiumStatus]);
 
   /**
+   * Handle "already owned" scenario - when a purchase exists on the store account
+   * but not associated with the current app user
+   */
+  const handleAlreadyOwned = useCallback(async (): Promise<boolean> => {
+    console.log('[PremiumContext] Handling already owned scenario...');
+    
+    try {
+      // Get the existing purchase from the store
+      const purchase = await purchaseService.restorePurchases();
+      
+      if (purchase) {
+        console.log('[PremiumContext] Found existing purchase, granting to current user:', purchase);
+        
+        const newPremiumData: PremiumData = {
+          isPremium: true,
+          purchaseDate: purchase.transactionDate || Date.now(),
+          productId: purchase.productId,
+          transactionId: purchase.transactionId || null,
+        };
+
+        await savePremiumStatus(newPremiumData);
+        setPremiumData(newPremiumData);
+        setError(null);
+        return true;
+      }
+      
+      return false;
+    } catch (err) {
+      console.error('[PremiumContext] Error handling already owned:', err);
+      return false;
+    }
+  }, [savePremiumStatus]);
+
+  /**
    * Handle purchase error
    */
-  const handlePurchaseError = useCallback((purchaseError: PurchaseError) => {
+  const handlePurchaseError = useCallback(async (purchaseError: PurchaseError) => {
     console.error('[PremiumContext] Purchase error:', purchaseError);
     // Analytics logged in purchase.service.ts
 
     // User cancelled is not really an error
     if (purchaseError.code === ErrorCode.E_USER_CANCELLED) {
       setError(null);
-    } else {
-      setError(purchaseError.message || 'Purchase failed');
+      setIsPurchasing(false);
+      return;
+    }
+    
+    // Handle "already owned" error - this happens when a different app user
+    // tries to purchase on the same device/store account
+    if (purchaseError.code === ErrorCode.E_ALREADY_OWNED) {
+      console.log('[PremiumContext] Item already owned, attempting to restore for current user...');
+      const success = await handleAlreadyOwned();
+      
+      if (success) {
+        console.log('[PremiumContext] Successfully restored already-owned purchase');
+        setIsPurchasing(false);
+        return;
+      }
+      
+      // If restore failed, show a helpful error
+      setError('This item was already purchased. Please use "Restore Purchases" to access premium features.');
+      setIsPurchasing(false);
+      return;
     }
 
-
+    setError(purchaseError.message || 'Purchase failed');
     setIsPurchasing(false);
-  }, []);
+  }, [handleAlreadyOwned]);
 
   /**
    * Initialize IAP service and fetch product info (runs once on mount)
@@ -320,6 +372,28 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       setIsPurchasing(true);
       setError(null);
 
+      // First, check if user already has this purchase on their store account
+      // This handles the case where a different app user purchased on the same device
+      console.log('[PremiumContext] Checking for existing purchases before purchase...');
+      const existingPurchase = await purchaseService.restorePurchases();
+      
+      if (existingPurchase) {
+        console.log('[PremiumContext] Found existing purchase, granting to current user');
+        const newPremiumData: PremiumData = {
+          isPremium: true,
+          purchaseDate: existingPurchase.transactionDate || Date.now(),
+          productId: existingPurchase.productId,
+          transactionId: existingPurchase.transactionId || null,
+        };
+
+        await savePremiumStatus(newPremiumData);
+        setPremiumData(newPremiumData);
+        setIsPurchasing(false);
+        setError(null);
+        return true;
+      }
+
+      // No existing purchase found, proceed with new purchase
       await purchaseService.purchasePremium();
       // Result will come through handlePurchaseComplete callback
       return true;
@@ -330,7 +404,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       setIsPurchasing(false);
       return false;
     }
-  }, [user?.uid, isProductAvailable]);
+  }, [user?.uid, isProductAvailable, savePremiumStatus]);
 
   /**
    * Restore purchases

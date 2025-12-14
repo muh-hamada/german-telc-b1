@@ -1076,6 +1076,10 @@
       "support": {
         "title": "Soutenir le développement",
         "description": "Nouveaux examens et fonctionnalités."
+      },
+      "darkTheme": {
+        "title": "Thème Sombre",
+        "description": "Confort visuel avec le mode sombre."
       }
     },
     "profile": {
@@ -1097,6 +1101,13 @@
       "alreadyPremium": "Vous avez déjà Premium !",
       "thankYou": "Merci pour votre soutien !",
       "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents."
+    },
+    "darkModeModal": {
+      "title": "Le mode sombre est Premium",
+      "description": "Le mode sombre est une fonctionnalité exclusive pour les utilisateurs premium. \nMettez à niveau pour profiter d'un magnifique thème sombre ainsi que d'autres avantages incroyables !",
+      "buyNow": "Débloquez la prime",
+      "viewBenefits": "Voir tous les avantages Premium",
+      "maybeLater": "Peut-être plus tard"
     }
   },
   "offline": {

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { colors, typography } from '../../theme';
+import { ThemeColors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import LanguagePart2UI from '../exam-ui/LanguagePart2UI';
 import { GrammarPart2Exam, UserAnswer } from '../../types/exam.types';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 interface LanguagePart2WrapperProps {
   testId: number;
@@ -13,7 +14,9 @@ interface LanguagePart2WrapperProps {
 const LanguagePart2Wrapper: React.FC<LanguagePart2WrapperProps> = ({ testId, onComplete }) => {
   const [exam, setExam] = useState<GrammarPart2Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   useEffect(() => {
     const loadExam = async () => {
       try {
@@ -48,7 +51,7 @@ const LanguagePart2Wrapper: React.FC<LanguagePart2WrapperProps> = ({ testId, onC
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

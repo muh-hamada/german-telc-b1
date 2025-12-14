@@ -104,61 +104,61 @@ export const lightColors = {
 } as const;
 
 export const darkColors = {
-  // Primary colors - keep brand blue while improving contrast
+  // Primary colors - GitHub-style blue accents
   primary: {
-    50: '#0B223F',
-    100: '#0F2C52',
-    200: '#143666',
-    300: '#19407A',
-    400: '#1E4A8E',
-    500: '#2A5FB6',
-    600: '#3F7AD1',
-    700: '#5A93E2',
-    800: '#7BACF0',
-    900: '#A1C5FA',
+    50: '#0d1117',
+    100: '#161b22',
+    200: '#1f3a5f',
+    300: '#2d4a7c',
+    400: '#3b5998',
+    500: '#58a6ff',
+    600: '#79c0ff',
+    700: '#a5d6ff',
+    800: '#cae8ff',
+    900: '#e6f4ff',
   },
 
-  // Secondary colors tuned for dark surfaces
+  // Secondary colors - GitHub dark surfaces
   secondary: {
-    50: '#0B1220',
-    100: '#101828',
-    200: '#111827',
-    300: '#1F2937',
-    400: '#273549',
-    500: '#334155',
-    600: '#475569',
-    700: '#94A3B8',
-    800: '#E2E8F0',
-    900: '#F8FAFC',
+    50: '#0d1117',
+    100: '#161b22',
+    200: '#21262d',
+    300: '#30363d',
+    400: '#484f58',
+    500: '#6e7681',
+    600: '#8b949e',
+    700: '#c9d1d9',
+    800: '#e6edf3',
+    900: '#f0f6fc',
   },
 
-  // Semantic colors (kept same for consistency)
+  // Semantic colors - GitHub style
   success: {
-    50: '#102218',
-    100: '#1D3A29',
-    200: '#275033',
-    500: '#4CAF50',
-    600: '#68C26C',
-    700: '#7DDC82',
+    50: '#0d1117',
+    100: '#0f2d1c',
+    200: '#1a4731',
+    500: '#238636',
+    600: '#2ea043',
+    700: '#3fb950',
   },
 
   warning: {
-    50: '#2D1B00',
-    100: '#3A2300',
-    200: '#4A2D00',
-    500: '#FF9800',
-    600: '#FFAD33',
-    700: '#FFC166',
-    800: '#FFD9A3',
+    50: '#0d1117',
+    100: '#2d1b00',
+    200: '#3a2300',
+    500: '#d29922',
+    600: '#e3b341',
+    700: '#f0c75e',
+    800: '#ffd33d',
   },
 
   error: {
-    50: '#2C0A0C',
-    100: '#3E0E12',
-    200: '#4F1217',
-    500: '#F44336',
-    600: '#F77066',
-    700: '#F99B91',
+    50: '#0d1117',
+    100: '#2d0f0f',
+    200: '#4a1616',
+    500: '#f85149',
+    600: '#ff6b6b',
+    700: '#ff8585',
   },
 
   // Neutral colors
@@ -166,37 +166,37 @@ export const darkColors = {
   black: '#000000',
   transparent: 'transparent',
 
-  // Gray colors
+  // Gray colors - GitHub dark palette
   gray: {
-    50: '#0F172A',
-    100: '#1F2937',
-    200: '#334155',
-    300: '#475569',
-    400: '#64748B',
-    500: '#94A3B8',
-    600: '#CBD5E1',
+    50: '#0d1117',
+    100: '#161b22',
+    200: '#21262d',
+    300: '#30363d',
+    400: '#484f58',
+    500: '#6e7681',
+    600: '#8b949e',
   },
 
-  // Background colors
+  // Background colors - GitHub dark theme
   background: {
-    primary: '#0F172A',
-    secondary: '#213a70',
-    tertiary: '#1F2937',
+    primary: '#0d1117',
+    secondary: '#161b22',
+    tertiary: '#21262d',
   },
 
-  // Text colors
+  // Text colors - GitHub dark theme
   text: {
-    primary: '#E5E7EB',
-    secondary: '#CBD5E1',
-    tertiary: '#94A3B8',
-    inverse: '#0F172A',
+    primary: '#e6edf3',
+    secondary: '#8b949e',
+    tertiary: '#6e7681',
+    inverse: '#0d1117',
   },
 
-  // Border colors
+  // Border colors - GitHub dark theme
   border: {
-    light: '#1F2937',
-    medium: '#334155',
-    dark: '#475569',
+    light: '#21262d',
+    medium: '#30363d',
+    dark: '#484f58',
   },
 
   social: {

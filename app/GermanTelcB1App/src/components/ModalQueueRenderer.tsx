@@ -23,6 +23,7 @@ import HourPickerModal from './HourPickerModal';
 import StreakModal from './StreakModal';
 import StreakRewardModal from './StreakRewardModal';
 import PremiumUpsellModal from './PremiumUpsellModal';
+import LoginModal from './LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import premiumPromptService from '../services/premium-prompt.service';
 
@@ -49,6 +50,9 @@ const ModalQueueRenderer: React.FC = () => {
   // Track reward modal state
   const [showRewardModal, setShowRewardModal] = useState(false);
   const [rewardClaimSuccessful, setRewardClaimSuccessful] = useState(false);
+  
+  // Login modal state for premium upsell
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Reset reward modal state when current modal changes
   useEffect(() => {
@@ -141,11 +145,14 @@ const ModalQueueRenderer: React.FC = () => {
 
   // Handler for premium upsell modal
   const handlePremiumUpsellDismiss = async () => {
-    await premiumPromptService.recordModalDismiss();
-    logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_DISMISSED, {
-      price: productPrice,
-      currency: productCurrency,
-    });
+    // Only record dismiss if user is not premium (they dismissed the purchase offer)
+    if (!isPremium) {
+      await premiumPromptService.recordModalDismiss();
+      logEvent(AnalyticsEvents.PREMIUM_UPSELL_MODAL_DISMISSED, {
+        price: productPrice,
+        currency: productCurrency,
+      });
+    }
     dismissCurrentModal();
   };
 
@@ -154,10 +161,15 @@ const ModalQueueRenderer: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
     const success = await purchasePremium();
     if (success) {
       await premiumPromptService.recordPurchase();
-      dismissCurrentModal();
+      // Don't dismiss automatically - let the modal show AlreadyPremiumView
+      // User can close it with the close button
     }
   };
 
@@ -239,18 +251,26 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'premium-upsell':
-      // Don't show if premium features are disabled or user already has premium
-      if (!isPremiumFeaturesEnabled() || isPremium) {
+      // Don't show if premium features are disabled
+      if (!isPremiumFeaturesEnabled()) {
         dismissCurrentModal();
         return null;
       }
+      // Note: We don't check isPremium here anymore because we want to show
+      // AlreadyPremiumView after successful purchase. User closes with the close button.
       return (
-        <PremiumUpsellModal
-          visible={true}
-          onClose={handlePremiumUpsellDismiss}
-          onPurchase={handlePremiumUpsellPurchase}
-          isPurchasing={isPurchasing}
-        />
+        <>
+          <PremiumUpsellModal
+            visible={true}
+            onClose={handlePremiumUpsellDismiss}
+            onPurchase={handlePremiumUpsellPurchase}
+            isPurchasing={isPurchasing}
+          />
+          <LoginModal
+            visible={showLoginModal}
+            onClose={() => setShowLoginModal(false)}
+          />
+        </>
       );
 
     default:

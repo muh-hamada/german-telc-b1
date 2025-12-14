@@ -5,7 +5,7 @@
  * Uses react-native-google-mobile-ads native ad support (v16+).
  */
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -24,10 +24,11 @@ import {
   NativeAdEventType,
   TestIds,
 } from 'react-native-google-mobile-ads';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width - spacing.padding.lg * 2;
@@ -76,7 +77,9 @@ const VocabularyAdCard: React.FC<VocabularyAdCardProps> = ({
   const [nativeAd, setNativeAd] = useState<NativeAd | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   const adUnitId = getAdUnitId();
 
   const loadAd = useCallback(async () => {
@@ -193,7 +196,7 @@ const VocabularyAdCard: React.FC<VocabularyAdCardProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     width: CARD_WIDTH,
     height: 450,

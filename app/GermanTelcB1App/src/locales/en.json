@@ -1102,6 +1102,10 @@
       "support": {
         "title": "Support Development",
         "description": "Help us bring new exams & features."
+      },
+      "darkTheme": {
+        "title": "Dark Theme",
+        "description": "Easy on your eyes with dark mode."
       }
     },
     "profile": {
@@ -1123,6 +1127,13 @@
       "alreadyPremium": "You already have Premium!",
       "thankYou": "Thank you for your support!",
       "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees."
+    },
+    "darkModeModal": {
+      "title": "Dark Mode is Premium",
+      "description": "Dark mode is an exclusive feature for premium users. Upgrade to enjoy a beautiful dark theme along with other amazing benefits!",
+      "buyNow": "Unlock Premium",
+      "viewBenefits": "See All Premium Benefits",
+      "maybeLater": "Maybe Later"
     }
   },
   "offline": {

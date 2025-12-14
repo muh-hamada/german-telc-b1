@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,10 +11,11 @@ import {
 } from 'react-native';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import SupportThankYouModal from './SupportThankYouModal';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -55,7 +56,9 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
   const [showThankYouModal, setShowThankYouModal] = useState(false);
   const adEarnedRewardRef = useRef<boolean>(false);
   const hasLoggedScreenShown = useRef<boolean>(false);
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   // Log screen shown event once when component mounts
   useEffect(() => {
     if (!hasLoggedScreenShown.current) {
@@ -202,7 +205,7 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
             activeOpacity={0.8}
           >
             {isAdLoading ? (
-              <ActivityIndicator size="small" color={colors.white} />
+              <ActivityIndicator size="small" color={colors.text.primary} />
             ) : (
               <Text style={styles.watchAdButtonText}>
                 {t('supportAdModal.watchAd')}
@@ -231,7 +234,7 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -282,7 +285,7 @@ const styles = StyleSheet.create({
   },
   watchAdButtonText: {
     ...typography.textStyles.body,
-    color: colors.white,
+    color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
     fontSize: 16,
   },

@@ -1,10 +1,4 @@
-/**
- * App Update Modal
- * 
- * Displays update information and allows users to update now or dismiss
- */
-
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Modal,
   View,
@@ -13,10 +7,11 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
-import { colors } from '../theme/colors';
+import { ThemeColors } from '../theme/colors';
 import { typography } from '../theme/typography';
 import { spacing } from '../theme/spacing';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useAppTheme } from '../contexts/ThemeContext';
 
 interface AppUpdateModalProps {
   visible: boolean;
@@ -38,7 +33,9 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
   onLater,
 }) => {
   const { t } = useCustomTranslation();
-
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   return (
     <Modal
       visible={visible}
@@ -106,7 +103,7 @@ const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
