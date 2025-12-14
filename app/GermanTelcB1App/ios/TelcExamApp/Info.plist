@@ -7,13 +7,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>English B2 Exam</string>
+	<string>German B1 Exam</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mhamada.telcb2english</string>
+	<string>com.mhamada.telcb1german</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

@@ -12,6 +12,7 @@ import { ReportsPage } from './pages/ReportsPage';
 import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
 import { QuestionsOverviewPage } from './pages/QuestionsOverviewPage';
 import { ConfigPage } from './pages/ConfigPage';
+import { UsersPage } from './pages/UsersPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -91,6 +92,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ConfigPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users"
+            element={
+              <ProtectedRoute>
+                <UsersPage />
               </ProtectedRoute>
             }
           />
