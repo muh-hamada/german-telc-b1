@@ -1132,5 +1132,8 @@
     "used": "usado",
     "lastUpdated": "Última actualización:",
     "error": "Descarga fallida. Por favor intenta de nuevo."
+  },
+  "errors": {
+    "adLoadFailed": "Se produjo un error al cargar el anuncio."
   }
 }

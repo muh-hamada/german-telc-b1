@@ -1158,5 +1158,8 @@
     "used": "verwendet",
     "lastUpdated": "Zuletzt aktualisiert:",
     "error": "Download fehlgeschlagen. Bitte versuche es erneut."
+  },
+  "errors": {
+    "adLoadFailed": "Beim Laden der Anzeige ist ein Fehler aufgetreten"
   }
 }

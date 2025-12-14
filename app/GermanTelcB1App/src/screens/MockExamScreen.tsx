@@ -13,8 +13,8 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { MOCK_EXAM_STEPS } from '../types/mock-exam.types';
-import { 
-  loadMockExamProgress, 
+import {
+  loadMockExamProgress,
   clearMockExamProgress,
   createInitialMockExamProgress,
   saveMockExamProgress,
@@ -164,7 +164,7 @@ const MockExamScreen: React.FC = () => {
         {/* Exam Sections */}
         <View style={styles.sectionsCard}>
           <Text style={styles.cardTitle}>{t('mockExam.examSections')}</Text>
-          
+
           <View style={styles.sectionItem}>
             <Text style={styles.sectionNumber}>1</Text>
             <View style={styles.sectionContent}>
@@ -386,7 +386,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     textAlign: 'left',
   },
   speakingNote: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.xl,

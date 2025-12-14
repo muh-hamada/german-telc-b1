@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { colors, spacing, ThemeColors, typography } from '../theme';
+import { spacing, ThemeColors, typography } from '../theme';
 import { DEMO_MODE } from '../config/development.config';
 import { useAppTheme } from '../contexts/ThemeContext';
 
@@ -34,25 +34,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     textAlign: 'left',
-  },
-  imageContainer: {
-    flex: 0.4,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imagePlaceholder: {
-    width: '80%',
-    aspectRatio: 1,
-    backgroundColor: colors.white,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    opacity: 0.9,
-  },
-  placeholderText: {
-    ...typography.textStyles.body,
-    color: colors.primary[500],
-    fontSize: 12,
   },
 });
 

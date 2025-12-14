@@ -1159,5 +1159,8 @@
     "used": "used",
     "lastUpdated": "Last updated:",
     "error": "Download failed. Please try again."
+  },
+  "errors": {
+    "adLoadFailed": "An error occurred while loading the ad"
   }
 }

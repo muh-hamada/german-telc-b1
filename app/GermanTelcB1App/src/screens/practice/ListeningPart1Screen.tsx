@@ -72,7 +72,7 @@ const ListeningPart1Screen: React.FC = () => {
           <Icon
             name={isCompleted ? 'check-circle' : 'circle-o'}
             size={24}
-            color={isCompleted ? colors.success[500] : colors.white}
+            color={colors.white}
           />
         </TouchableOpacity>
       ),

@@ -1,10 +1,3 @@
-/**
- * AnimatedGradientBorder Component
- * 
- * Creates an animated rotating gradient border effect similar to the web version.
- * Uses react-native-linear-gradient with Animated API for smooth performance.
- */
-
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated, ViewStyle, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

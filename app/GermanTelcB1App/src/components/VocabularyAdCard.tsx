@@ -1,10 +1,3 @@
-/**
- * Vocabulary Ad Card Component
- *
- * Displays a native ad in the same style as VocabularyCard.
- * Uses react-native-google-mobile-ads native ad support (v16+).
- */
-
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import {
   View,
@@ -164,30 +157,35 @@ const VocabularyAdCard: React.FC<VocabularyAdCardProps> = ({
           <NativeAdView nativeAd={nativeAd} style={styles.nativeAdView}>
             <View style={styles.cardContent}>
               <View style={styles.mediaContainer}>
-                <NativeMediaView style={styles.mediaView} resizeMode="cover" />
+                <NativeMediaView 
+                  style={styles.mediaView} 
+                  resizeMode="cover"
+                />
               </View>
 
-              <NativeAsset assetType={NativeAssetType.HEADLINE}>
-                <Text style={styles.headline}>{nativeAd.headline}</Text>
-              </NativeAsset>
+              <View style={styles.contentSection}>
+                <NativeAsset assetType={NativeAssetType.HEADLINE}>
+                  <Text style={styles.headline}>{nativeAd.headline}</Text>
+                </NativeAsset>
 
-              <NativeAsset assetType={NativeAssetType.BODY}>
-                <Text style={styles.tagline} numberOfLines={2}>
-                  {nativeAd.body}
-                </Text>
-              </NativeAsset>
-
-              <NativeAsset assetType={NativeAssetType.ADVERTISER}>
-                <Text style={styles.advertiser}>{nativeAd.advertiser}</Text>
-              </NativeAsset>
-
-              <NativeAsset assetType={NativeAssetType.CALL_TO_ACTION}>
-                <TouchableOpacity style={styles.callToAction} activeOpacity={0.9}>
-                  <Text style={styles.callToActionText}>
-                    {nativeAd.callToAction || t('common.continue')}
+                <NativeAsset assetType={NativeAssetType.BODY}>
+                  <Text style={styles.tagline} numberOfLines={2}>
+                    {nativeAd.body}
                   </Text>
-                </TouchableOpacity>
-              </NativeAsset>
+                </NativeAsset>
+
+                <NativeAsset assetType={NativeAssetType.ADVERTISER}>
+                  <Text style={styles.advertiser}>{nativeAd.advertiser}</Text>
+                </NativeAsset>
+
+                <NativeAsset assetType={NativeAssetType.CALL_TO_ACTION}>
+                  <TouchableOpacity style={styles.callToAction} activeOpacity={0.9}>
+                    <Text style={styles.callToActionText}>
+                      {nativeAd.callToAction || t('common.continue')}
+                    </Text>
+                  </TouchableOpacity>
+                </NativeAsset>
+              </View>
             </View>
           </NativeAdView>
         )}
@@ -260,15 +258,25 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
   },
   mediaContainer: {
-    height: 180,
+    width: '100%',
+    height: 200,
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: spacing.margin.md,
     backgroundColor: colors.background.tertiary,
+    position: 'relative',
   },
   mediaView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     width: '100%',
     height: '100%',
+  },
+  contentSection: {
+    flex: 1,
   },
   headline: {
     ...typography.textStyles.h3,

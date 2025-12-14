@@ -1133,5 +1133,8 @@
     "used": "utilisé",
     "lastUpdated": "Dernière mise à jour :",
     "error": "Téléchargement échoué. Veuillez réessayer."
+  },
+  "errors": {
+    "adLoadFailed": "Une erreur s'est produite lors du chargement de l'annonce"
   }
 }

@@ -27,8 +27,8 @@ interface PersonaOption {
 }
 
 const PERSONA_OPTIONS: PersonaOption[] = [
-  { persona: 'beginner', icon: '🐢' },
   { persona: 'casual', icon: '🚶' },
+  { persona: 'beginner', icon: '🐢' },
   { persona: 'serious', icon: '🚀' },
 ];
 

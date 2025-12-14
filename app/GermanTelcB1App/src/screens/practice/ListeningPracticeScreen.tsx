@@ -205,7 +205,7 @@ const ListeningPracticeScreen: React.FC = () => {
                 <FontAwesomeIcon name={I18nManager.isRTL ? "angle-right" : "angle-left"} size={24} color={colors.white} />
               </TouchableOpacity>
               <TouchableOpacity onPress={handleMarkCompleted} style={styles.actionButton}>
-                <MaterialIcon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={isCompleted ? colors.success[500] : colors.white} />
+                <MaterialIcon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={colors.white} />
               </TouchableOpacity>
             </View>
 

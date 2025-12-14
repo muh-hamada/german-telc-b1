@@ -17,8 +17,8 @@ export type Rating = 1 | 2 | 3 | 4; // 1=Again, 2=Hard, 3=Good, 4=Easy
  * Daily study limits based on user persona
  */
 export const PERSONA_DAILY_LIMITS: Record<UserPersona, number> = {
-  beginner: 10,
-  casual: 20,
+  casual: 10,
+  beginner: 20,
   serious: 30,
 };
 
