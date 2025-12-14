@@ -72,6 +72,18 @@ export const AppSelectionPage: React.FC = () => {
         <h2>Admin Actions</h2>
         <div className="admin-actions-grid">
           <div
+            className="admin-action-card config"
+            onClick={() => navigate('/config')}
+          >
+            <div className="admin-action-icon">⚙️</div>
+            <h3>App Configuration</h3>
+            <p>Manage global and per-app configurations</p>
+            <button className="btn-action-select">
+              Manage Config →
+            </button>
+          </div>
+
+          <div
             className="admin-action-card vocabulary-upload"
             onClick={() => navigate('/vocabulary-upload')}
           >

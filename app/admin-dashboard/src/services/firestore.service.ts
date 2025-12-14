@@ -483,6 +483,134 @@ class FirestoreService {
   }
 
   /**
+   * Get detailed user data with all nested collections
+   */
+  async getDetailedUserData(uid: string): Promise<any> {
+    try {
+      const userData: any = {
+        uid,
+        profile: null,
+        progress: {},
+        completions: {},
+        streaks: null,
+        vocabularyProgress: {},
+        premium: null,
+      };
+
+      // Get user profile
+      try {
+        const profileRef = doc(this.db, 'users', uid);
+        const profileSnap = await getDoc(profileRef);
+        if (profileSnap.exists()) {
+          userData.profile = { id: profileSnap.id, ...profileSnap.data() };
+        }
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+
+      // Get progress for all apps
+      const progressCollections = ['progress', 'german_b2_progress', 'english_b1_progress', 'english_b2_progress'];
+      for (const collectionName of progressCollections) {
+        try {
+          const progressRef = collection(this.db, 'users', uid, collectionName);
+          const progressSnap = await getDocs(progressRef);
+          if (!progressSnap.empty) {
+            userData.progress[collectionName] = progressSnap.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+          }
+        } catch (error) {
+          console.error(`Error fetching ${collectionName}:`, error);
+        }
+      }
+
+      // Get completions
+      try {
+        const completionsRef = collection(this.db, 'users', uid, 'completions');
+        const completionsSnap = await getDocs(completionsRef);
+        for (const examTypeDoc of completionsSnap.docs) {
+          const examType = examTypeDoc.id;
+          userData.completions[examType] = {};
+          
+          const partsRef = collection(this.db, 'users', uid, 'completions', examType);
+          const partsSnap = await getDocs(partsRef);
+          
+          for (const partDoc of partsSnap.docs) {
+            const partNumber = partDoc.id;
+            const examsRef = collection(this.db, 'users', uid, 'completions', examType, partNumber);
+            const examsSnap = await getDocs(examsRef);
+            
+            userData.completions[examType][partNumber] = examsSnap.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching completions:', error);
+      }
+
+      // Get streaks
+      try {
+        const streaksRef = collection(this.db, 'users', uid, 'streaks');
+        const streaksSnap = await getDocs(streaksRef);
+        if (!streaksSnap.empty) {
+          userData.streaks = streaksSnap.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+        }
+      } catch (error) {
+        console.error('Error fetching streaks:', error);
+      }
+
+      // Get vocabulary progress for all apps
+      const vocabularyCollections = [
+        'vocabulary_progress_german_a1',
+        'vocabulary_progress_german_a2',
+        'vocabulary_progress_german_b1',
+        'vocabulary_progress_german_b2',
+        'vocabulary_progress_english_a1',
+        'vocabulary_progress_english_a2',
+        'vocabulary_progress_english_b1',
+        'vocabulary_progress_english_b2',
+      ];
+      
+      for (const collectionName of vocabularyCollections) {
+        try {
+          const vocabRef = collection(this.db, 'users', uid, collectionName);
+          const vocabSnap = await getDocs(vocabRef);
+          if (!vocabSnap.empty) {
+            userData.vocabularyProgress[collectionName] = vocabSnap.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+          }
+        } catch (error) {
+          // Vocabulary progress might not exist for all apps
+        }
+      }
+
+      // Get premium subscription info
+      try {
+        const premiumRef = doc(this.db, 'users', uid, 'premium', 'subscription');
+        const premiumSnap = await getDoc(premiumRef);
+        if (premiumSnap.exists()) {
+          userData.premium = { id: premiumSnap.id, ...premiumSnap.data() };
+        }
+      } catch (error) {
+        console.error('Error fetching premium data:', error);
+      }
+
+      return userData;
+    } catch (error) {
+      console.error('Error getting detailed user data:', error);
+      throw new Error('Failed to fetch detailed user data');
+    }
+  }
+
+  /**
    * Call the cloud function to delete a user account
    */
   async callDeleteUserAccount(uid: string, email: string): Promise<any> {

@@ -11,6 +11,7 @@ import { AnalyticsPage } from './pages/AnalyticsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
 import { QuestionsOverviewPage } from './pages/QuestionsOverviewPage';
+import { ConfigPage } from './pages/ConfigPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -82,6 +83,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <QuestionsOverviewPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/config"
+            element={
+              <ProtectedRoute>
+                <ConfigPage />
               </ProtectedRoute>
             }
           />
