@@ -95,6 +95,10 @@ export const AnalyticsEvents = {
   SETTINGS_AD_CONSENT_UPDATED: 'settings_ad_consent_updated',
   SETTINGS_ATT_OPENED: 'settings_att_opened',
   SETTINGS_ATT_UPDATED: 'settings_att_updated',
+  SETTINGS_THEME_ENABLED: 'settings_theme_enabled',
+  SETTINGS_THEME_DISABLED: 'settings_theme_disabled',
+  SETTINGS_PREMIUM_DARK_MODE_MODAL_SHOWN: 'settings_premium_dark_mode_modal_shown',
+  SETTINGS_PREMIUM_BENEFITS_VIEWED: 'settings_premium_benefits_viewed',
   
   // Listening Practice
   LISTENING_PRACTICE_STARTED: 'listening_practice_started',

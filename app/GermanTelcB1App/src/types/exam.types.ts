@@ -116,6 +116,38 @@ export interface SpeakingPart1Content {
     informal: string;
     answer: string;
   }>;
+  personalInfoPlaceholderText: {
+    name: string;
+    age: string;
+    birthCity: string;
+    origin: string;
+    livingSince: string;
+    maritalStatus: string;
+    familySize: string;
+    location: string;
+    child1Age: string;
+    child1Grade: string;
+    child2Age: string;
+    profession: string;
+    company: string;
+    hobbies: string;
+  },
+  personalInfoStrings: {
+    name: string;
+    age: string;
+    birthCity: string;
+    origin: string;
+    livingSince: string;
+    maritalStatus: string;
+    familySize: string;
+    location: string;
+    child1Age: string;
+    child1Grade: string;
+    child2Age: string;
+    profession: string;
+    company: string;
+    hobbies: string;
+  },
 }
 
 // Speaking Part 2 (Topic Presentation)

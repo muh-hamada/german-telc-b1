@@ -24,10 +24,10 @@
       "age": "Alter",
       "birthCity": "Geburtsort",
       "origin": "Herkunft (Land)",
-      "livingSince": "In Deutschland seit",
+      "livingSince": "Seitdem im aktuellen Land leben",
       "maritalStatus": "Familienstand",
       "familySize": "Familiengröße",
-      "location": "Wohnort in Deutschland",
+      "location": "Wo wohnst du (Stadt)",
       "child1Age": "Alter Kind 1",
       "child1Grade": "Klasse Kind 1",
       "child2Age": "Alter Kind 2",
@@ -913,8 +913,8 @@
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",
       "subtitle": "Bitte überprüfen Sie, ob das Bild klar und lesbar ist.",
-      "retakeButton": "🔄 Wiederholen",
-      "evaluateButton": "✓ Bild bewerten",
+      "retakeButton": "Wiederholen",
+      "evaluateButton": "Bild bewerten",
       "cancelButton": "Abbrechen"
     },
     "alerts": {

@@ -460,6 +460,7 @@ class FirestoreService {
 
   /**
    * Get all users from the users collection
+   * Only fetches the main user document for performance
    */
   async getAllUsers(): Promise<any[]> {
     try {
@@ -592,17 +593,29 @@ class FirestoreService {
         }
       }
 
-      // Get premium subscription info
+      // Get premium subscription info for all apps
+      const appIds = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
+      userData.premium = {};
+      userData.isPremium = false;
+      
       try {
-        const premiumRef = doc(this.db, 'users', uid, 'premium', 'subscription');
-        const premiumSnap = await getDoc(premiumRef);
-        if (premiumSnap.exists()) {
-          userData.premium = { id: premiumSnap.id, ...premiumSnap.data() };
+        for (const appId of appIds) {
+          const premiumDocRef = doc(this.db, 'users', uid, 'premium', appId);
+          const premiumSnap = await getDoc(premiumDocRef);
+          if (premiumSnap.exists()) {
+            console.log(`[getDetailedUserData] Premium data for ${appId}:`, premiumSnap.data());
+            userData.premium[appId] = premiumSnap.data();
+            if (premiumSnap.data().isPremium === true) {
+              console.log(`[getDetailedUserData] User is premium for ${appId}`);
+              userData.isPremium = true;
+            }
+          }
         }
       } catch (error) {
         console.error('Error fetching premium data:', error);
       }
 
+      console.log(`[getDetailedUserData] User is premium:`, userData);
       return userData;
     } catch (error) {
       console.error('Error getting detailed user data:', error);

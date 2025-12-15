@@ -19,9 +19,6 @@ interface DeleteUserAccountResponse {
   deletedData?: {
     authAccount: boolean;
     userDocument: boolean;
-    progressB1: boolean;
-    progressB2: boolean;
-    completions: boolean;
     deletionRequest: boolean;
   };
   error?: string;
@@ -64,9 +61,6 @@ export const deleteUserAccount = functions.https.onCall(
     const deletedData = {
       authAccount: false,
       userDocument: false,
-      progressB1: false,
-      progressB2: false,
-      completions: false,
       deletionRequest: false,
     };
 
@@ -76,45 +70,21 @@ export const deleteUserAccount = functions.https.onCall(
 
       console.log(`Starting deletion process for user: ${uid} (${email})`);
 
-      // 1. Delete user's main document
+      // 1. Recursively delete user document and ALL subcollections
+      // This will delete: user document, premium, streaks, progress, completions, vocabulary, etc.
+      const userDocRef = db.collection('users').doc(uid);
+      
       try {
-        await db.collection('users').doc(uid).delete();
+        console.log(`Recursively deleting user document and all subcollections: users/${uid}`);
+        await db.recursiveDelete(userDocRef);
         deletedData.userDocument = true;
-        console.log(`✓ Deleted user document: users/${uid}`);
-      } catch (error) {
-        console.error(`Error deleting user document:`, error);
-        // Continue with other deletions even if this fails
+        console.log(`✓ Successfully deleted user document and all subcollections: users/${uid}`);
+      } catch (error: any) {
+        console.error(`✗ Error recursively deleting user document:`, error);
+        throw new Error(`Failed to delete user document and subcollections: ${error.message}`);
       }
 
-      // 2. Delete B1 progress
-      try {
-        await db.doc(`users/${uid}/progress`).delete();
-        deletedData.progressB1 = true;
-        console.log(`✓ Deleted B1 progress: users/${uid}/progress`);
-      } catch (error) {
-        console.error(`Error deleting B1 progress:`, error);
-      }
-
-      // 3. Delete B2 progress
-      try {
-        await db.doc(`users/${uid}/german_b2_progress`).delete();
-        deletedData.progressB2 = true;
-        console.log(`✓ Deleted B2 progress: users/${uid}/german_b2_progress`);
-      } catch (error) {
-        console.error(`Error deleting B2 progress:`, error);
-      }
-
-      // 4. Delete all completions (recursively delete subcollections)
-      try {
-        const completionsRef = db.collection(`users/${uid}/completions`);
-        await deleteCollection(db, completionsRef, 100);
-        deletedData.completions = true;
-        console.log(`✓ Deleted completions: users/${uid}/completions`);
-      } catch (error) {
-        console.error(`Error deleting completions:`, error);
-      }
-
-      // 5. Update deletion request to completed
+      // 2. Update deletion request to completed
       try {
         await db
           .collection('account_deletion_requests')
@@ -126,17 +96,18 @@ export const deleteUserAccount = functions.https.onCall(
           });
         deletedData.deletionRequest = true;
         console.log(`✓ Updated deletion request status to completed`);
-      } catch (error) {
-        console.error(`Error updating deletion request:`, error);
+      } catch (error: any) {
+        console.error(`✗ Error updating deletion request:`, error);
+        // Continue even if this fails
       }
 
-      // 6. Delete authentication account (do this last)
+      // 3. Delete authentication account (do this last)
       try {
         await auth.deleteUser(uid);
         deletedData.authAccount = true;
         console.log(`✓ Deleted authentication account for user: ${uid}`);
-      } catch (error) {
-        console.error(`Error deleting auth account:`, error);
+      } catch (error: any) {
+        console.error(`✗ Error deleting auth account:`, error);
         // If auth deletion fails, we should still mark as success
         // since the data has been deleted
       }
@@ -149,61 +120,23 @@ export const deleteUserAccount = functions.https.onCall(
         deletedData,
       };
     } catch (error: any) {
-      console.error(`Error in deleteUserAccount function:`, error);
+      const errorMessage = error.message || 'Unknown error occurred';
+      console.error(`✗ Error in deleteUserAccount function:`, error);
+      console.error(`✗ Error details:`, {
+        message: errorMessage,
+        stack: error.stack,
+        code: error.code,
+        deletedData,
+      });
       
       return {
         success: false,
-        message: 'Failed to delete user account',
-        error: error.message || 'Unknown error occurred',
+        message: `Failed to delete user account: ${errorMessage}`,
+        error: errorMessage,
         deletedData,
       };
     }
   }
 );
 
-/**
- * Helper function to recursively delete a collection
- */
-async function deleteCollection(
-  db: admin.firestore.Firestore,
-  collectionRef: admin.firestore.CollectionReference,
-  batchSize: number
-): Promise<void> {
-  const query = collectionRef.limit(batchSize);
-
-  return new Promise((resolve, reject) => {
-    deleteQueryBatch(db, query, resolve, reject);
-  });
-}
-
-async function deleteQueryBatch(
-  db: admin.firestore.Firestore,
-  query: admin.firestore.Query,
-  resolve: () => void,
-  reject: (error: Error) => void
-): Promise<void> {
-  try {
-    const snapshot = await query.get();
-
-    // When there are no documents left, we are done
-    if (snapshot.size === 0) {
-      resolve();
-      return;
-    }
-
-    // Delete documents in a batch
-    const batch = db.batch();
-    snapshot.docs.forEach((doc) => {
-      batch.delete(doc.ref);
-    });
-    await batch.commit();
-
-    // Recurse on the next process tick to avoid exploding the stack
-    process.nextTick(() => {
-      deleteQueryBatch(db, query, resolve, reject);
-    });
-  } catch (error) {
-    reject(error as Error);
-  }
-}
 

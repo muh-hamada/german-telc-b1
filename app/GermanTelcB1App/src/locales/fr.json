@@ -24,10 +24,10 @@
       "age": "Âge",
       "birthCity": "Ville de naissance",
       "origin": "Origine (Pays)",
-      "livingSince": "Vivant en Allemagne depuis",
+      "livingSince": "Vivre dans le pays actuel depuis",
       "maritalStatus": "État civil",
       "familySize": "Taille de la famille",
-      "location": "Emplacement en Allemagne",
+      "location": "Où habites-tu (Ville)",
       "child1Age": "Âge de l'enfant 1",
       "child1Grade": "Classe de l'enfant 1",
       "child2Age": "Âge de l'enfant 2",
@@ -879,8 +879,8 @@
     "imagePreview": {
       "title": "Vérifier l'image capturée",
       "subtitle": "Veuillez vérifier que l'image est claire et lisible.",
-      "retakeButton": "🔄 Reprendre",
-      "evaluateButton": "✓ Évaluer l'image",
+      "retakeButton": "Reprendre",
+      "evaluateButton": "Évaluer l'image",
       "cancelButton": "Annuler"
     },
     "alerts": {

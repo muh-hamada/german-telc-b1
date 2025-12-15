@@ -1064,7 +1064,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   evaluateButtonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
+    color: colors.text.primary,
   },
   submitButton: {
     backgroundColor: colors.primary[500],
@@ -1086,7 +1086,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     padding: spacing.padding.lg,
   },
   modalContent: {
-    backgroundColor: colors.background.primary,
+    backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
     padding: spacing.padding.lg,
     maxHeight: '80%',

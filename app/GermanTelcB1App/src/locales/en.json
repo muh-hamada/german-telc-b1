@@ -24,10 +24,10 @@
       "age": "Age",
       "birthCity": "Birth City",
       "origin": "Origin (Country)",
-      "livingSince": "Living in Germany Since",
+      "livingSince": "Living in the Current Country Since",
       "maritalStatus": "Marital Status",
       "familySize": "Family Size",
-      "location": "Location in Germany",
+      "location": "Where do you live (City)",
       "child1Age": "Child 1 Age",
       "child1Grade": "Child 1 Grade",
       "child2Age": "Child 2 Age",
@@ -914,8 +914,8 @@
     "imagePreview": {
       "title": "Review Captured Image",
       "subtitle": "Please check if the image is clear and readable.",
-      "retakeButton": "🔄 Retake",
-      "evaluateButton": "✓ Evaluate Image",
+      "retakeButton": "Retake",
+      "evaluateButton": "Evaluate Image",
       "cancelButton": "Cancel"
     },
     "alerts": {

@@ -15,7 +15,6 @@ interface User {
   createdAt?: any;
   lastLoginAt?: any;
   stats?: any;
-  premium?: any;
 }
 
 export const UsersPage: React.FC = () => {
@@ -23,12 +22,13 @@ export const UsersPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedAppFilter, setSelectedAppFilter] = useState<string>('all');
+  const [selectedPlatformFilter, setSelectedPlatformFilter] = useState<string>('all');
   const [selectedUser, setSelectedUser] = useState<any | null>(null);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [loadingDetails, setLoadingDetails] = useState(false);
-  const { logout, currentUser } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const apps = getAllAppConfigs();
@@ -105,28 +105,26 @@ export const UsersPage: React.FC = () => {
     }
   };
 
-  // Fuzzy search function
-  const fuzzyMatch = (text: string, query: string): boolean => {
+  // Simple substring search function
+  const substringMatch = (text: string, query: string): boolean => {
     if (!query) return true;
-    const lowerText = text.toLowerCase();
-    const lowerQuery = query.toLowerCase();
-    
-    // Simple fuzzy matching - check if all characters appear in order
-    let textIndex = 0;
-    for (let i = 0; i < lowerQuery.length; i++) {
-      textIndex = lowerText.indexOf(lowerQuery[i], textIndex);
-      if (textIndex === -1) return false;
-      textIndex++;
-    }
-    return true;
+    return text.toLowerCase().includes(query.toLowerCase());
   };
 
-  // Filtered users based on search and app filter
+  // Filtered users based on search and filters
   const filteredUsers = useMemo(() => {
     return users.filter(user => {
       // App filter
       if (selectedAppFilter !== 'all' && user.appId !== selectedAppFilter) {
         return false;
+      }
+
+      // Platform filter
+      if (selectedPlatformFilter !== 'all') {
+        const userPlatform = user.platform?.toLowerCase();
+        if (userPlatform !== selectedPlatformFilter) {
+          return false;
+        }
       }
 
       // Search filter
@@ -137,12 +135,12 @@ export const UsersPage: React.FC = () => {
           user.uid || '',
         ].join(' ');
         
-        return fuzzyMatch(searchableText, searchQuery);
+        return substringMatch(searchableText, searchQuery);
       }
 
       return true;
     });
-  }, [users, searchQuery, selectedAppFilter]);
+  }, [users, searchQuery, selectedAppFilter, selectedPlatformFilter]);
 
   const formatDate = (date: any): string => {
     if (!date) return 'N/A';
@@ -210,21 +208,38 @@ export const UsersPage: React.FC = () => {
             )}
           </div>
 
-          <div className="app-filter">
-            <label htmlFor="appFilter">App:</label>
-            <select
-              id="appFilter"
-              value={selectedAppFilter}
-              onChange={(e) => setSelectedAppFilter(e.target.value)}
-              className="app-filter-select"
-            >
-              <option value="all">All Apps</option>
-              {apps.map(app => (
-                <option key={app.id} value={app.id}>
-                  {app.displayName}
-                </option>
-              ))}
-            </select>
+          <div className="filter-group">
+            <div className="app-filter">
+              <label htmlFor="appFilter">App:</label>
+              <select
+                id="appFilter"
+                value={selectedAppFilter}
+                onChange={(e) => setSelectedAppFilter(e.target.value)}
+                className="app-filter-select"
+              >
+                <option value="all">All Apps</option>
+                {apps.map(app => (
+                  <option key={app.id} value={app.id}>
+                    {app.displayName}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="app-filter">
+              <label htmlFor="platformFilter">Platform:</label>
+              <select
+                id="platformFilter"
+                value={selectedPlatformFilter}
+                onChange={(e) => setSelectedPlatformFilter(e.target.value)}
+                className="app-filter-select"
+              >
+                <option value="all">All Platforms</option>
+                <option value="ios">iOS</option>
+                <option value="android">Android</option>
+                <option value="web">Web</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -244,7 +259,6 @@ export const UsersPage: React.FC = () => {
                   <th>Platform</th>
                   <th>Created</th>
                   <th>Last Login</th>
-                  <th>Premium</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -263,13 +277,6 @@ export const UsersPage: React.FC = () => {
                     </td>
                     <td>{formatDate(user.createdAt)}</td>
                     <td>{formatDate(user.lastLoginAt)}</td>
-                    <td>
-                      {user.premium?.isActive ? (
-                        <span className="premium-badge active">✓ Premium</span>
-                      ) : (
-                        <span className="premium-badge inactive">Free</span>
-                      )}
-                    </td>
                     <td className="actions-cell">
                       <button
                         onClick={() => handleViewUserDetails(user)}
@@ -391,29 +398,39 @@ export const UsersPage: React.FC = () => {
                   )}
 
                   {/* Premium Section */}
-                  {selectedUser.premium && (
+                  {selectedUser.premium && Object.keys(selectedUser.premium).length > 0 && (
                     <section className="detail-section">
-                      <h3>Premium Subscription</h3>
-                      <div className="detail-grid">
-                        <div className="detail-item">
-                          <label>Status:</label>
-                          <span className={`premium-badge ${selectedUser.premium.isActive ? 'active' : 'inactive'}`}>
-                            {selectedUser.premium.isActive ? 'Active' : 'Inactive'}
-                          </span>
-                        </div>
-                        <div className="detail-item">
-                          <label>Product ID:</label>
-                          <span>{selectedUser.premium.productId || 'N/A'}</span>
-                        </div>
-                        <div className="detail-item">
-                          <label>Purchase Date:</label>
-                          <span>{formatDate(selectedUser.premium.purchaseDate)}</span>
-                        </div>
-                        <div className="detail-item">
-                          <label>Expiry Date:</label>
-                          <span>{formatDate(selectedUser.premium.expiryDate)}</span>
-                        </div>
-                      </div>
+                      <h3>Premium Subscriptions</h3>
+                      {apps.map(app => {
+                        const premiumData = selectedUser.premium[app.id];
+                        if (!premiumData) return null;
+                        
+                        return (
+                          <div key={app.id} className="premium-app-section">
+                            <h4>{app.displayName}</h4>
+                            <div className="detail-grid">
+                              <div className="detail-item">
+                                <label>Status:</label>
+                                <span className={`premium-badge ${premiumData.isPremium ? 'active' : 'inactive'}`}>
+                                  {premiumData.isPremium ? 'Active' : 'Inactive'}
+                                </span>
+                              </div>
+                              <div className="detail-item">
+                                <label>Product ID:</label>
+                                <span>{premiumData.productId || 'N/A'}</span>
+                              </div>
+                              <div className="detail-item">
+                                <label>Purchase Date:</label>
+                                <span>{premiumData.purchaseDate ? formatDate(premiumData.purchaseDate) : 'N/A'}</span>
+                              </div>
+                              <div className="detail-item">
+                                <label>Transaction ID:</label>
+                                <span>{premiumData.transactionId || 'N/A'}</span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </section>
                   )}
 

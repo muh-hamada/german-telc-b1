@@ -102,13 +102,44 @@ export const onUserUpdate = functions.firestore
     const before = change.before.data();
     const after = change.after.data();
 
-    // If document deleted, we might want to decrement stats, but usually we keep historical data.
-    // For now, we focus on updates/creations. 
-    // If created, before is undefined.
-
     // Determine App ID. Try 'appId' field, fallback to 'german-b1' (default)
     const appId = after?.appId || before?.appId || 'german-b1';
 
+    // Handle user deletion
+    if (before && !after) {
+      console.log(`[Analytics] User deleted: ${context.params.uid}, appId: ${appId}`);
+      await updateAnalytics(appId, (data) => {
+        // 1. Decrement Total Users
+        if (data.totalUsers > 0) {
+          data.totalUsers -= 1;
+        }
+
+        // 2. Decrement Platform Distribution
+        const platform = before.platform?.toLowerCase();
+        if (platform && data.platforms[platform] > 0) {
+          data.platforms[platform]--;
+        }
+
+        // 3. Decrement Language Distribution
+        const lang = before.preferences?.interfaceLanguage || 'en';
+        if (data.languages[lang] > 0) {
+          data.languages[lang]--;
+        }
+
+        // 4. Decrement Notification Status
+        const wasEnabled = before.notificationSettings?.enabled && before.fcmToken;
+        if (wasEnabled) {
+          if (data.notifications.enabled > 0) data.notifications.enabled--;
+        } else {
+          if (data.notifications.disabled > 0) data.notifications.disabled--;
+        }
+
+        return data;
+      });
+      return; // Exit early after handling deletion
+    }
+
+    // Handle user creation and updates
     await updateAnalytics(appId, (data) => {
       // 1. Total Users (Count)
       if (!before && after) {
@@ -184,6 +215,29 @@ export const onVocabularyUpdate = functions.firestore
     const before = change.before.data();
     const after = change.after.data();
 
+    // Handle deletion
+    if (before && !after) {
+      console.log(`[Analytics] Vocabulary data deleted for user: ${context.params.uid}, collection: ${collectionId}`);
+      await updateAnalytics(appId, (data) => {
+        // Decrement all vocabulary stats
+        const oldWords = before.totalWordsStudied || 0;
+        data.vocabulary.totalWordsStudied = Math.max(0, data.vocabulary.totalWordsStudied - oldWords);
+
+        const oldMastered = before.wordsMastered || 0;
+        data.vocabulary.totalMastered = Math.max(0, data.vocabulary.totalMastered - oldMastered);
+
+        // Decrement persona
+        const oldPersona = before.persona;
+        if (oldPersona && data.personas[oldPersona] > 0) {
+          data.personas[oldPersona]--;
+        }
+
+        return data;
+      });
+      return;
+    }
+
+    // Handle creation and updates
     await updateAnalytics(appId, (data) => {
       // 1. Words Studied
       const oldWords = before?.totalWordsStudied || 0;
@@ -226,6 +280,40 @@ export const onStreakUpdate = functions.firestore
     const before = change.before.data();
     const after = change.after.data();
 
+    // Handle deletion
+    if (before && !after) {
+      console.log(`[Analytics] Streak data deleted for user: ${context.params.uid}, appId: ${appId}`);
+      await updateAnalytics(appId, (data) => {
+        const oldCurrent = before.currentStreak || 0;
+        const oldLongest = before.longestStreak || 0;
+
+        // Remove from current streak distribution
+        if (oldCurrent > 0) {
+          const count = data.streaks.currentStreakDistribution[oldCurrent] || 0;
+          if (count > 0) {
+            data.streaks.currentStreakDistribution[oldCurrent] = count - 1;
+          }
+        }
+
+        // Remove from longest streak distribution
+        if (oldLongest > 0) {
+          const count = data.streaks.longestStreakDistribution[oldLongest] || 0;
+          if (count > 0) {
+            data.streaks.longestStreakDistribution[oldLongest] = count - 1;
+          }
+        }
+
+        // Decrement active streaks if user had an active streak
+        if (oldCurrent > 0 && data.streaks.activeStreaks > 0) {
+          data.streaks.activeStreaks--;
+        }
+
+        return data;
+      });
+      return;
+    }
+
+    // Handle creation and updates
     await updateAnalytics(appId, (data) => {
       const oldCurrent = before?.currentStreak || 0;
       const newCurrent = after?.currentStreak || 0;
@@ -292,6 +380,25 @@ export const onProgressUpdate = functions.firestore
     const before = change.before.data();
     const after = change.after.data();
 
+    // Handle deletion
+    if (before && !after) {
+      console.log(`[Analytics] Progress data deleted for user: ${context.params.uid}, collection: ${collectionId}`);
+      await updateAnalytics(appId, (data) => {
+        // Decrement total score
+        const oldScore = before.totalScore || 0;
+        data.progress.totalScore = Math.max(0, data.progress.totalScore - oldScore);
+
+        // Decrement completed exams
+        const oldExams = (before.exams || []) as any[];
+        const oldCompleted = oldExams.filter(e => e.completed).length;
+        data.progress.examsCompleted = Math.max(0, data.progress.examsCompleted - oldCompleted);
+
+        return data;
+      });
+      return;
+    }
+
+    // Handle creation and updates
     await updateAnalytics(appId, (data) => {
       // 1. Total Score
       const oldScore = before?.totalScore || 0;
@@ -325,6 +432,37 @@ export const onPremiumUpdate = functions.firestore
 
     const before = change.before.data();
     const after = change.after.data();
+
+    // Handle deletion
+    if (before && !after) {
+      console.log(`[Analytics] Premium data deleted for user: ${context.params.uid}, appId: ${appId}`);
+      const wasPremium = before.isPremium === true;
+      
+      if (!wasPremium) {
+        // If the deleted document wasn't premium, no need to update analytics
+        console.log(`[Analytics] Deleted premium document for non-premium user in ${appId}, skipping analytics update`);
+        return;
+      }
+      
+      await updateAnalytics(appId, (data) => {
+        // Ensure premium object exists
+        if (!data.premium) {
+          data.premium = { total: 0, nonPremium: 0 };
+        }
+
+        // User had premium, decrement premium count
+        const oldTotal = data.premium.total;
+        if (oldTotal > 0) {
+          data.premium.total--;
+          console.log(`[Analytics] Decremented premium count for ${appId}: ${oldTotal} -> ${data.premium.total}`);
+        } else {
+          console.warn(`[Analytics] Attempted to decrement premium count for ${appId} but count was already 0. This may indicate a data inconsistency.`);
+        }
+
+        return data;
+      });
+      return;
+    }
 
     const wasPremium = before?.isPremium === true;
     const isPremium = after?.isPremium === true;

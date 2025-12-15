@@ -205,7 +205,7 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
             activeOpacity={0.8}
           >
             {isAdLoading ? (
-              <ActivityIndicator size="small" color={colors.text.primary} />
+              <ActivityIndicator size="small" color={colors.white} />
             ) : (
               <Text style={styles.watchAdButtonText}>
                 {t('supportAdModal.watchAd')}
@@ -285,7 +285,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   watchAdButtonText: {
     ...typography.textStyles.body,
-    color: colors.text.primary,
+    color: colors.white,
     fontWeight: typography.fontWeight.bold,
     fontSize: 16,
   },

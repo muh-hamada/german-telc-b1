@@ -107,15 +107,23 @@
 /* Filters */
 .users-filters {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .search-box {
   position: relative;
   flex: 1;
   min-width: 300px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .search-input {
@@ -471,6 +479,26 @@
   font-size: 0.875rem;
   color: #c9d1d9;
   margin: 0.75rem 0 0.5rem;
+}
+
+.premium-app-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(110, 118, 129, 0.05);
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+.premium-app-section:last-child {
+  margin-bottom: 0;
+}
+
+.premium-app-section h4 {
+  font-size: 1rem;
+  color: #e6edf3;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #21262d;
 }
 
 .detail-grid {

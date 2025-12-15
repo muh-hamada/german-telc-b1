@@ -18,6 +18,8 @@ import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { LanguageCodesToLanguageNames, LanguageNameToLanguageCodes } from '../../utils/i18n';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 interface PersonalInfo {
   name: string;
@@ -52,6 +54,7 @@ const SpeakingPart1Screen: React.FC = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [speakingPart1Data, setSpeakingPart1Data] = useState<any>(null);
+  const {i18n} = useCustomTranslation();
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
     name: '',
     age: '',
@@ -68,6 +71,9 @@ const SpeakingPart1Screen: React.FC = () => {
     company: '',
     hobbies: '',
   });
+
+  const studyLanguageName = activeExamConfig.language;
+  const translatedLanguageName = LanguageCodesToLanguageNames[i18n.language];
 
   useEffect(() => {
     loadData();
@@ -154,66 +160,80 @@ const SpeakingPart1Screen: React.FC = () => {
       return ''; // Return empty string instead of null to avoid type errors
     }
 
-    let text = `**Guten Tag!** Mein Name ist **${personalInfo.name}**`;
-
-    if (personalInfo.origin) {
-      text += ` und ich **komme aus ${personalInfo.origin}**`;
+    if (!speakingPart1Data?.personalInfoStrings) {
+      return ''; // Return empty if strings not loaded
     }
 
-    text += '.';
+    const strings = speakingPart1Data.personalInfoStrings;
+    const replacePlaceholder = (template: string, ...values: string[]): string => {
+      let result = template;
+      values.forEach(value => {
+        result = result.replace(/__injected_text__/, value);
+      });
+      return result;
+    };
+
+    let text = replacePlaceholder(strings.greeting, personalInfo.name);
+
+    if (personalInfo.origin) {
+      text += replacePlaceholder(strings.origin, personalInfo.origin);
+    }
+
+    text += strings.period;
 
     if (personalInfo.birthCity) {
-      text += ` Ich **wurde in ${personalInfo.birthCity} geboren**`;
+      text += replacePlaceholder(strings.birthCity, personalInfo.birthCity);
     }
 
     if (personalInfo.age) {
-      text += ` und bin **${personalInfo.age} Jahre alt**`;
+      text += replacePlaceholder(strings.age, personalInfo.age);
     }
 
-    text += '.';
+    text += strings.period;
 
     if (personalInfo.livingSince) {
-      text += ` Ich **lebe seit ${personalInfo.livingSince} in Deutschland**.`;
+      text += replacePlaceholder(strings.livingSince, personalInfo.livingSince);
     }
 
     if (personalInfo.maritalStatus) {
-      text += ` Ich **bin ${personalInfo.maritalStatus}**`;
+      text += replacePlaceholder(strings.maritalStatus, personalInfo.maritalStatus);
     }
 
     if (personalInfo.familySize) {
-      text += ` und habe **${personalInfo.familySize}**`;
+      text += replacePlaceholder(strings.familySize, personalInfo.familySize);
     }
 
-    text += '.\n\n';
+    text += strings.sectionBreak;
 
     // Family section
     if (personalInfo.location) {
-      text += `Wir **wohnen in ${personalInfo.location}**.`;
+      text += replacePlaceholder(strings.location, personalInfo.location);
     }
 
     if (personalInfo.child1Age && personalInfo.child1Grade) {
-      text += ` Meine ältere **Tochter** ist **${personalInfo.child1Age} Jahre alt** und **geht in die ${personalInfo.child1Grade}**.`;
+      // Handle multiple placeholders for child1 (age and grade)
+      text += replacePlaceholder(strings.child1, personalInfo.child1Age, personalInfo.child1Grade);
     }
 
     if (personalInfo.child2Age) {
-      text += ` Meine jüngere Tochter ist **${personalInfo.child2Age} Jahre alt** und **besucht den Kindergarten**.`;
+      text += replacePlaceholder(strings.child2, personalInfo.child2Age);
     }
 
-    text += '\n\n';
+    text += strings.professionalBreak;
 
     // Professional section
     if (personalInfo.profession) {
-      text += `**Beruflich bin ich ${personalInfo.profession}**`;
+      text += replacePlaceholder(strings.profession, personalInfo.profession);
     }
 
     if (personalInfo.company) {
-      text += ` und **arbeite bei ${personalInfo.company}**`;
+      text += replacePlaceholder(strings.company, personalInfo.company);
     }
 
-    text += '.';
+    text += strings.period;
 
     if (personalInfo.hobbies) {
-      text += ` **In meiner Freizeit ${personalInfo.hobbies}**.`;
+      text += replacePlaceholder(strings.hobbies, personalInfo.hobbies);
     }
 
     return text;
@@ -288,11 +308,11 @@ const SpeakingPart1Screen: React.FC = () => {
             {speakingPart1Data.vocabulary.map((item: any, index: number) => (
               <View key={index} style={styles.vocabRow}>
                 <View style={styles.vocabColumn}>
-                  <Text style={styles.vocabGerman}>{item.german}</Text>
+                  <Text style={styles.vocabGerman}>{item[studyLanguageName]}</Text>
                 </View>
-                <View style={styles.vocabColumn}>
-                  <Text style={styles.vocabEnglish}>{item.english}</Text>
-                </View>
+                {translatedLanguageName !== studyLanguageName && <View style={styles.vocabColumn}>
+                  <Text style={styles.vocabEnglish}>{item[translatedLanguageName]}</Text>
+                </View>}
               </View>
             ))}
           </View>
@@ -397,7 +417,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.name}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, name: text })}
-                placeholder={t('common.placeholders.exampleMuhammad')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.name || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -406,7 +426,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, age: text })}
-                placeholder={t('common.placeholders.example35')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.age || ''}
                 keyboardType="numeric"
                 placeholderTextColor={colors.text.tertiary}
               />
@@ -416,7 +436,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.birthCity}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, birthCity: text })}
-                placeholder={t('common.placeholders.exampleKairo')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.birthCity || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -425,7 +445,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.origin}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, origin: text })}
-                placeholder={t('common.placeholders.exampleEgypt')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.origin || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -434,7 +454,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.livingSince}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, livingSince: text })}
-                placeholder={t('common.placeholders.example2016')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.livingSince || ''}
                 keyboardType="numeric"
                 placeholderTextColor={colors.text.tertiary}
               />
@@ -444,7 +464,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.maritalStatus}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, maritalStatus: text })}
-                placeholder={t('common.placeholders.exampleMarried')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.maritalStatus || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -453,7 +473,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.familySize}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, familySize: text })}
-                placeholder={t('common.placeholders.exampleFamily')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.familySize || ''}
                 placeholderTextColor={colors.text.tertiary}
                 multiline
               />
@@ -463,7 +483,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.location}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, location: text })}
-                placeholder={t('common.placeholders.exampleCharlottenburg')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.location || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -472,7 +492,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.child1Age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child1Age: text })}
-                placeholder={t('common.placeholders.exampleEight')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.child1Age || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -481,7 +501,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.child1Grade}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child1Grade: text })}
-                placeholder={t('common.placeholders.exampleThirdGrade')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.child1Grade || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -490,7 +510,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.child2Age}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, child2Age: text })}
-                placeholder={t('common.placeholders.exampleThree')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.child2Age || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -499,7 +519,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.profession}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, profession: text })}
-                placeholder={t('common.placeholders.exampleEngineer')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.profession || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -508,7 +528,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={styles.input}
                 value={personalInfo.company}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, company: text })}
-                placeholder={t('common.placeholders.exampleHelloFresh')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.company || ''}
                 placeholderTextColor={colors.text.tertiary}
               />
 
@@ -517,7 +537,7 @@ const SpeakingPart1Screen: React.FC = () => {
                 style={[styles.input, styles.textArea]}
                 value={personalInfo.hobbies}
                 onChangeText={(text) => setPersonalInfo({ ...personalInfo, hobbies: text })}
-                placeholder={t('common.placeholders.exampleHobbies')}
+                placeholder={speakingPart1Data?.personalInfoPlaceholderText?.hobbies || ''}
                 placeholderTextColor={colors.text.tertiary}
                 multiline
                 numberOfLines={4}

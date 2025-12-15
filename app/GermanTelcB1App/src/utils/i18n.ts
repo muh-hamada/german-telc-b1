@@ -15,13 +15,22 @@ import ru from '../locales/ru.json';
 // RTL languages
 const RTL_LANGUAGES = ['ar'];
 
-export const LanguageNameToLanguageCodes = {
+export const LanguageNameToLanguageCodes: Record<string, string> = {
   'english': 'en',
   'german': 'de',
   'french': 'fr',
   'spanish': 'es',
   'russian': 'ru',
   'arabic': 'ar',
+};
+
+export const LanguageCodesToLanguageNames: Record<string, string> = {
+  'en': 'english',
+  'de': 'german',
+  'fr': 'french',
+  'es': 'spanish',
+  'ru': 'russian',
+  'ar': 'arabic',
 };
 
 const LANGUAGE_DETECTOR = {

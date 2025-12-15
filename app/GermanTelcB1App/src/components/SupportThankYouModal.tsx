@@ -177,7 +177,7 @@ const createStyles = (colors: ThemeColors) =>
     thankYouText: {
       fontSize: 42,
       fontWeight: typography.fontWeight.bold,
-      color: colors.text.primary,
+      color: colors.white,
       textAlign: 'center',
       marginBottom: spacing.margin.md,
       textShadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -186,7 +186,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     appreciationText: {
       ...typography.textStyles.bodyLarge,
-      color: colors.text.secondary,
+      color: colors.white,
       textAlign: 'center',
       opacity: 0.9,
       paddingHorizontal: spacing.padding.xl,

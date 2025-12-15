@@ -83,7 +83,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
     // Show ad after every N words (interval)
     // e.g., if interval is 5, show ad after words 5, 10, 15, etc.
     const wordNumber = index + 1; // 1-indexed word number
-    return wordNumber > 0 && wordNumber % 2 === 0;
+    return wordNumber > 0 && wordNumber % nativeAdConfig.interval === 0;
   }, [shouldShowAds, nativeAdConfig.interval]);
 
   useEffect(() => {
