@@ -430,7 +430,11 @@
     "consentStatusUnknown": "Estado desconocido",
     "data": "Datos",
     "accountManagement": "Gestión de cuentas",
-    "selectLanguage": "Seleccionar idioma"
+    "selectLanguage": "Seleccionar idioma",
+    "appearance": "Apariencia",
+    "darkMode": "modo oscuro",
+    "darkModeOn": "El tema oscuro reduce el deslumbramiento.",
+    "darkModeOff": "El tema claro mantiene una apariencia más brillante."
   },
   "review": {
     "title": "¿Disfrutando la aplicación?",

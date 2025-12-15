@@ -456,7 +456,11 @@
     "consentStatusUnknown": "Status unbekannt",
     "data": "Daten",
     "accountManagement": "Kontoverwaltung",
-    "selectLanguage": "Sprache auswählen"
+    "selectLanguage": "Sprache auswählen",
+    "appearance": "Aussehen",
+    "darkMode": "Dunkler Modus",
+    "darkModeOn": "Dunkles Thema reduziert Blendung.",
+    "darkModeOff": "Das helle Thema sorgt für ein helleres Aussehen."
   },
   "stats": {
     "title": "Statistiken",

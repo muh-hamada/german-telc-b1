@@ -689,7 +689,11 @@
     "consentStatusUnknown": "Statut inconnu",
     "data": "Données",
     "accountManagement": "Gestion des comptes",
-    "selectLanguage": "Sélectionnez la langue"
+    "selectLanguage": "Sélectionnez la langue",
+    "appearance": "Apparence",
+    "darkMode": "Mode sombre",
+    "darkModeOn": "Le thème sombre réduit l'éblouissement.",
+    "darkModeOff": "Le thème clair conserve un aspect plus lumineux."
   },
   "review": {
     "title": "Vous aimez l'application?",

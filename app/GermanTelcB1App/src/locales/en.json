@@ -457,7 +457,11 @@
     "consentStatusUnknown": "Status unknown",
     "data": "Data",
     "accountManagement": "Account Management",
-    "selectLanguage": "Select Language"
+    "selectLanguage": "Select Language",
+    "appearance": "Appearance",
+    "darkMode": "Dark mode",
+    "darkModeOn": "Dark theme reduces glare.",
+    "darkModeOff": "Light theme keeps a brighter look."
   },
   "stats": {
     "title": "Statistics",

@@ -26,7 +26,7 @@ import { useProgress } from '../contexts/ProgressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { checkRTLChange } from '../utils/i18n';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import FirestoreService from '../services/firestore.service';
+import FirestoreService, { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
@@ -56,7 +56,7 @@ const SettingsScreen: React.FC = () => {
   const [isClearing, setIsClearing] = useState(false);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
-  const [notificationHour, setNotificationHour] = useState(9); // Default to 9 AM
+  const [notificationHour, setNotificationHour] = useState<number>(DEFAULT_NOTIFICATION_HOUR);
   const [showHourPicker, setShowHourPicker] = useState(false);
   const [isLoadingSettings, setIsLoadingSettings] = useState(false);
   const [permissionStatus, setPermissionStatus] = useState<string>('');
@@ -102,7 +102,7 @@ const SettingsScreen: React.FC = () => {
       
       if (userSettings?.notificationSettings) {
         setNotificationsEnabled(userSettings.notificationSettings.enabled || false);
-        setNotificationHour(userSettings.notificationSettings.hour || 9);
+        setNotificationHour(userSettings.notificationSettings.hour || DEFAULT_NOTIFICATION_HOUR);
       }
     } catch (error) {
       console.error('Error loading notification settings:', error);
@@ -604,10 +604,10 @@ const SettingsScreen: React.FC = () => {
 
         {/* Appearance Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.appearance', { defaultValue: 'Appearance' })}</Text>
+          <Text style={styles.sectionTitle}>{t('settings.appearance')}</Text>
           <View style={styles.notificationsContainer}>
             <View style={styles.notificationsRow}>
-              <Text style={styles.settingLabel}>{t('settings.darkMode', { defaultValue: 'Dark mode' })}</Text>
+              <Text style={styles.settingLabel}>{t('settings.darkMode')}</Text>
               <Switch
                 value={isDarkMode}
                 onValueChange={handleThemeToggle}
@@ -618,8 +618,8 @@ const SettingsScreen: React.FC = () => {
             </View>
             <Text style={styles.helperText}>
               {isDarkMode
-                ? t('settings.darkModeOn', { defaultValue: 'Dark theme reduces glare.' })
-                : t('settings.darkModeOff', { defaultValue: 'Light theme keeps a brighter look.' })}
+                ? t('settings.darkModeOn')
+                : t('settings.darkModeOff')}
             </Text>
           </View>
         </View>

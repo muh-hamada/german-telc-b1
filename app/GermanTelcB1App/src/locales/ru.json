@@ -431,7 +431,11 @@
     "consentStatusUnknown": "Статус неизвестен",
     "data": "Данные",
     "accountManagement": "Управление аккаунтом",
-    "selectLanguage": "Выберите язык"
+    "selectLanguage": "Выберите язык",
+    "appearance": "Появление",
+    "darkMode": "Темный режим",
+    "darkModeOn": "Темная тема уменьшает блики.",
+    "darkModeOff": "Светлая тема сохраняет более яркий вид."
   },
   "review": {
     "title": "Нравится приложение?",

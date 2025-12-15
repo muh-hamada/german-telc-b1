@@ -2,6 +2,7 @@ import {
   AdsConsent,
   AdsConsentStatus,
   AdsConsentDebugGeography,
+  AdsConsentUserChoices,
 } from 'react-native-google-mobile-ads';
 
 /**
@@ -12,6 +13,7 @@ import {
  */
 class ConsentService {
   private consentStatus: AdsConsentStatus = AdsConsentStatus.UNKNOWN;
+  private userChoices: AdsConsentUserChoices | null = null;
 
   /**
    * Request consent information and show form if required
@@ -50,6 +52,28 @@ class ConsentService {
         const formResult = await AdsConsent.showForm();
         console.log('[Consent] Form shown, new status:', formResult.status);
         this.consentStatus = formResult.status;
+        
+        // Get actual user choices to determine if they consented to personalized ads
+        // This is critical because OBTAINED status can be returned even when user clicks "Do not consent"
+        try {
+          this.userChoices = await AdsConsent.getUserChoices();
+          const choices = this.userChoices as any;
+          console.log('[Consent] User choices - selectPersonalisedAds:', choices?.selectPersonalisedAds);
+          console.log('[Consent] Full user choices object:', JSON.stringify(this.userChoices, null, 2));
+        } catch (error) {
+          console.warn('[Consent] Could not get user choices:', error);
+          this.userChoices = null;
+        }
+      } else {
+        // Even if form wasn't shown, try to get user choices if available
+        try {
+          this.userChoices = await AdsConsent.getUserChoices();
+          const choices = this.userChoices as any;
+          console.log('[Consent] User choices (no form shown) - selectPersonalisedAds:', choices?.selectPersonalisedAds);
+        } catch (error) {
+          // getUserChoices might not be available if form wasn't shown
+          this.userChoices = null;
+        }
       }
 
       // Log final consent status
@@ -74,10 +98,53 @@ class ConsentService {
 
   /**
    * Check if user has given consent for personalized ads
+   * IMPORTANT: We check actual user choices, not just status, because
+   * OBTAINED status can be returned even when user clicks "Do not consent"
    * @returns true if user can receive personalized ads
    */
   canShowPersonalizedAds(): boolean {
+    // If we have user choices, check the actual property (most accurate)
+    if (this.userChoices !== null && typeof this.userChoices === 'object') {
+      const choices = this.userChoices as any;
+      // Check the actual property name from AdsConsentUserChoices
+      if ('selectPersonalisedAds' in choices) {
+        return choices.selectPersonalisedAds === true;
+      }
+    }
+    
+    // Fallback to status check (less reliable)
+    // OBTAINED means form was completed, but doesn't guarantee consent was given
+    // However, if status is REQUIRED after showing form, user likely declined
+    if (this.consentStatus === AdsConsentStatus.REQUIRED) {
+      return false; // User saw form but didn't consent
+    }
+    
     return this.consentStatus === AdsConsentStatus.OBTAINED;
+  }
+  
+  /**
+   * Check if user explicitly declined consent (clicked "Do not consent")
+   * @returns true if user declined consent
+   */
+  hasUserDeclinedConsent(): boolean {
+    // If we have user choices, check if personalized ads are explicitly NOT allowed
+    if (this.userChoices !== null && typeof this.userChoices === 'object') {
+      const choices = this.userChoices as any;
+      // Check the actual property name from AdsConsentUserChoices
+      if ('selectPersonalisedAds' in choices) {
+        return choices.selectPersonalisedAds === false;
+      }
+    }
+    
+    // If status is REQUIRED after showing form, user likely declined
+    // (form was shown but consent not obtained - user clicked "Do not consent")
+    // This is the key indicator: form was shown (status was REQUIRED), 
+    // form completed, but status is still REQUIRED = user declined
+    if (this.consentStatus === AdsConsentStatus.REQUIRED) {
+      return true;
+    }
+    
+    return false;
   }
 
   /**
@@ -104,6 +171,7 @@ class ConsentService {
       console.log('[Consent] Resetting consent...');
       await AdsConsent.reset();
       this.consentStatus = AdsConsentStatus.UNKNOWN;
+      this.userChoices = null; // Clear user choices on reset
       console.log('[Consent] Consent reset successfully');
     } catch (error) {
       console.error('[Consent] Error resetting consent:', error);
@@ -127,6 +195,18 @@ class ConsentService {
         const formResult = await AdsConsent.showForm();
         this.consentStatus = formResult.status;
         console.log('[Consent] Form completed, new status:', formResult.status);
+        
+        // Get actual user choices after form is shown
+        try {
+          this.userChoices = await AdsConsent.getUserChoices();
+          const choices = this.userChoices as any;
+          console.log('[Consent] User choices - selectPersonalisedAds:', choices?.selectPersonalisedAds);
+          console.log('[Consent] Full user choices object:', JSON.stringify(this.userChoices, null, 2));
+        } catch (error) {
+          console.warn('[Consent] Could not get user choices:', error);
+          this.userChoices = null;
+        }
+        
         return this.consentStatus;
       } else {
         console.log('[Consent] Consent form not available');

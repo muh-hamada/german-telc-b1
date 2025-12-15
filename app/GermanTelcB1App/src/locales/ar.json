@@ -431,7 +431,11 @@
     "consentStatusUnknown": "الحالة غير معروفة",
     "data": "البيانات",
     "accountManagement": "إدارة الحساب",
-    "selectLanguage": "اختر اللغة"
+    "selectLanguage": "اختر اللغة",
+    "appearance": "مظهر",
+    "darkMode": "الوضع المظلم",
+    "darkModeOn": "المظهر الداكن يقلل من الوهج.",
+    "darkModeOff": "يحافظ المظهر الفاتح على مظهر أكثر إشراقًا."
   },
   "review": {
     "title": "هل تستمتع بالتطبيق؟",

@@ -59,6 +59,9 @@ const HomeScreen: React.FC = () => {
    * Order of operations (CRITICAL for Apple compliance):
    * 1. Request GDPR/CCPA consent (UMP)
    * 2. Request App Tracking Transparency (ATT) permission (iOS only)
+   *    - ONLY if user consented to personalized ads in GDPR
+   *    - NEVER if user denied tracking in GDPR (respect user choice)
+   *    - NEVER if user already denied ATT previously
    * 3. Initialize ads SDK
    */
   const initializeAdsWithConsent = async () => {
@@ -80,10 +83,34 @@ const HomeScreen: React.FC = () => {
       console.log('[HomeScreen] UMP consent flow completed with status:', consentStatus);
 
       // Step 2: Request App Tracking Transparency (ATT) permission (iOS 14+)
-      // We request this AFTER the GDPR form to avoid confusing the user (asking for tracking after they might have just said no in ATT)
+      // Apple Guideline 5.1.1: Only request ATT if user has consented to personalized ads in GDPR prompt.
+      // If user denied tracking in GDPR, respect that choice and skip ATT entirely.
+      // Also, never request ATT again if user has already denied it.
       let attStatus: TrackingStatus = 'not-determined';
 
-      if (consentStatus === AdsConsentStatus.OBTAINED || consentStatus === AdsConsentStatus.NOT_REQUIRED) {
+      // Check current ATT status first (without requesting)
+      const currentAttStatus = await attService.getStatus();
+      
+      // Determine if we should request ATT permission:
+      // 1. User must have explicitly consented to personalized ads (check actual user choices, not just status)
+      //    OR be in a non-GDPR region (NOT_REQUIRED - they didn't see GDPR form)
+      // 2. ATT status must be not-determined (user hasn't been asked yet)
+      // 3. NEVER request if user explicitly declined in GDPR form
+      const userConsentedToPersonalizedAds = consentService.canShowPersonalizedAds();
+      const userDeclinedInGdpr = consentService.hasUserDeclinedConsent();
+      const isNonGdprRegion = consentStatus === AdsConsentStatus.NOT_REQUIRED;
+      
+      // Only request ATT if:
+      // - User consented to personalized ads (checked via actual user choices), OR
+      // - User is in non-GDPR region (didn't see GDPR form), AND
+      // - User did NOT decline in GDPR form, AND
+      // - ATT hasn't been determined yet
+      const canRequestAtt = 
+        !userDeclinedInGdpr &&
+        (userConsentedToPersonalizedAds || isNonGdprRegion) && 
+        currentAttStatus === 'not-determined';
+
+      if (canRequestAtt) {
         console.log('[HomeScreen] Requesting App Tracking Transparency permission...');
         // Add a small delay to ensure the UMP dialog is fully dismissed before showing ATT
         // This prevents UI conflicts and ensures the user is ready for the next prompt
@@ -91,7 +118,13 @@ const HomeScreen: React.FC = () => {
         attStatus = await attService.requestPermission();
         console.log('[HomeScreen] ATT permission status:', attStatus);
       } else {
-        console.log('[HomeScreen] Skipping ATT permission request due to consent status:', consentStatus);
+        console.log('[HomeScreen] Skipping ATT permission request - respecting user choice');
+        console.log('[HomeScreen]   - User consented to personalized ads:', userConsentedToPersonalizedAds);
+        console.log('[HomeScreen]   - Is non-GDPR region:', isNonGdprRegion);
+        console.log('[HomeScreen]   - User declined in GDPR:', userDeclinedInGdpr);
+        console.log('[HomeScreen]   - Current ATT status:', currentAttStatus);
+        // Use current status without requesting
+        attStatus = currentAttStatus;
       }
 
       // Step 3: Initialize Google Mobile Ads SDK after all consents

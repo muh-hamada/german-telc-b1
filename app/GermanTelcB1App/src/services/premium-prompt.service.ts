@@ -2,9 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ALWAYS_SHOW_PREMIUM_MODAL } from '../config/development.config';
 
 // Configuration
-const FIRST_PROMPT_AFTER_SECONDS = 3 * 60; // 3 minutes
+const FIRST_PROMPT_AFTER_SECONDS = 5 * 60; // 5 minutes
 const REPROMPT_AFTER_DAYS = 3;
-const REPROMPT_AFTER_MS = REPROMPT_AFTER_DAYS * 24 * 60 * 60 * 1000;
+const REPROMPT_AFTER_MS = REPROMPT_AFTER_DAYS * 24 * 60 * 60 * 1000; // 3 days
 
 // Storage keys
 const STORAGE_KEYS = {

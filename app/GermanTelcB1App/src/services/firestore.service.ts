@@ -5,6 +5,8 @@ import { activeExamConfig } from '../config/active-exam.config';
 import { Platform } from 'react-native';
 import i18n from '../utils/i18n';
 
+export const DEFAULT_NOTIFICATION_HOUR = 16; // 4 PM
+
 class FirestoreService {
   private readonly COLLECTIONS = {
     USERS: 'users',
@@ -59,7 +61,7 @@ class FirestoreService {
           },
           notificationSettings: {
             enabled: false,
-            hour: 16, // 4 PM
+            hour: DEFAULT_NOTIFICATION_HOUR,
           },
           stats: {
             totalExams: 0,
