@@ -37,6 +37,23 @@ export interface WritingAssessment {
   correctedAnswer: string;
 }
 
+export interface WritingAssessmentA1 {
+  overallScore: number;
+  maxScore: number; // 10 for A1
+  userInput: string;
+  contentPoints: Array<{
+    pointNumber: number;
+    pointText: string;
+    score: 3 | 1.5 | 0;
+    feedback: string;
+  }>;
+  communicativeDesign: {
+    score: 1 | 0.5 | 0;
+    feedback: string;
+  };
+  correctedAnswer: string;
+}
+
 export interface EvaluationRequest {
   userAnswer?: string;
   imageBase64?: string;
@@ -51,6 +68,28 @@ export interface ImageEvaluationRequest {
   incomingEmail: string;
   writingPoints: string[];
   examTitle: string;
+}
+
+export interface EvaluationRequestA1 {
+  userAnswer?: string;
+  imageBase64?: string;
+  examTitle: string;
+  instructionHeader: string;
+  taskPoints: Array<{
+    id: string;
+    text: string;
+  }>;
+}
+
+export interface ImageEvaluationRequestA1 {
+  imageUri?: string;
+  imageBase64?: string;
+  examTitle: string;
+  instructionHeader: string;
+  taskPoints: Array<{
+    id: string;
+    text: string;
+  }>;
 }
 
 /**
@@ -154,4 +193,83 @@ export async function evaluateWritingWithImage(
   request.imageBase64 = imageBase64;
   
   return await callCloudFunctions(request);
+}
+
+/**
+ * Calls Firebase Cloud Functions to assess the A1 writing
+ */
+async function callCloudFunctionsA1(request: EvaluationRequestA1): Promise<WritingAssessmentA1> {
+  try {
+    const response = await axios.post<WritingAssessmentA1>(CLOUD_FUNCTIONS_API_URL, {
+      userAnswer: request.userAnswer,
+      examTitle: request.examTitle,
+      instructionHeader: request.instructionHeader,
+      taskPoints: request.taskPoints,
+      imageBase64: request.imageBase64,
+    });
+
+    const assessment: WritingAssessmentA1 = response.data;
+    return assessment;
+  } catch (error: any) {
+    console.error('Error in callCloudFunctionsA1:', error);
+    
+    // Handle axios errors
+    if (error.response) {
+      // Server responded with error status
+      const errorMessage = error.response.data?.error || error.response.statusText;
+      console.error('Server error:', errorMessage);
+
+      let humanReadableErrorMessage;
+      if(request.imageBase64){
+        humanReadableErrorMessage = 'Das Bild konnte nicht gelesen werden. Bitte versuchen Sie es erneut.';
+      } else {
+        humanReadableErrorMessage = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
+      }
+
+      throw new Error(humanReadableErrorMessage);
+    } else if (error.request) {
+      // Request was made but no response received
+      console.error('No response received:', error.request);
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+    } else if (error instanceof Error) {
+      // If it's already a user-friendly message, pass it through
+      if (error.message.includes('Bewertung')) {
+        throw error;
+      }
+      throw new Error('Es ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+    }
+    throw new Error('Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+  }
+}
+
+/**
+ * Main function to evaluate A1 writing using Firebase Cloud Functions
+ */
+export async function evaluateWritingA1(
+  request: EvaluationRequestA1
+): Promise<WritingAssessmentA1> {
+  const assessment = await callCloudFunctionsA1(request);
+  return assessment;
+}
+
+/**
+ * Main function to evaluate A1 handwritten text from an image using Firebase Cloud Functions
+ */
+export async function evaluateWritingWithImageA1(
+  request: ImageEvaluationRequestA1
+): Promise<WritingAssessmentA1> {
+  let imageBase64: string;
+  
+  // Use provided base64 or convert from URI
+  if (request.imageBase64) {
+    imageBase64 = request.imageBase64;
+  } else if (request.imageUri) {
+    imageBase64 = await imageUriToBase64(request.imageUri);
+  } else {
+    throw new Error('Kein Bild gefunden. Bitte laden Sie ein Bild hoch.');
+  }
+
+  request.imageBase64 = imageBase64;
+  
+  return await callCloudFunctionsA1(request);
 }

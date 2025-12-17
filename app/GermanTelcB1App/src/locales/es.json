@@ -303,7 +303,8 @@
       "words": "Palabras",
       "pointsAddressed": "puntos abordados",
       "suggestedKeywords": "Palabras clave sugeridas",
-      "minCharactersRequired": "Por favor escribe al menos {{count}} caracteres."
+      "minCharactersRequired": "Por favor escribe al menos {{count}} caracteres.",
+      "communicativeDesign": "Diseño Comunicativo"
     },
     "speaking": {
       "title": "Expresión Oral",

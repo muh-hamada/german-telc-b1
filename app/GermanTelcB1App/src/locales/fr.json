@@ -299,7 +299,8 @@
       "words": "Mots",
       "pointsAddressed": "points abordés",
       "suggestedKeywords": "Mots-clés suggérés",
-      "minCharactersRequired": "Veuillez écrire au moins {{count}} caractères."
+      "minCharactersRequired": "Veuillez écrire au moins {{count}} caractères.",
+      "communicativeDesign": "Conception communicative"
     },
     "speaking": {
       "title": "Expression orale",

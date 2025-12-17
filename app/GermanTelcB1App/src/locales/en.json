@@ -330,7 +330,8 @@
       "words": "Words",
       "pointsAddressed": "points addressed",
       "suggestedKeywords": "Suggested keywords",
-      "minCharactersRequired": "Please write at least {{count}} characters."
+      "minCharactersRequired": "Please write at least {{count}} characters.",
+      "communicativeDesign": "Communicative Design"
     },
     "speaking": {
       "title": "Oral Expression",

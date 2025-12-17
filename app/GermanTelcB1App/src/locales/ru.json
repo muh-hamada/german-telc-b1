@@ -304,7 +304,8 @@
       "words": "Слов",
       "pointsAddressed": "пунктов рассмотрено",
       "suggestedKeywords": "Предлагаемые ключевые слова",
-      "minCharactersRequired": "Пожалуйста, напишите не менее {{count}} символов."
+      "minCharactersRequired": "Пожалуйста, напишите не менее {{count}} символов.",
+      "communicativeDesign": "Коммуникативный дизайн"
     },
     "speaking": {
       "title": "Устное выражение",

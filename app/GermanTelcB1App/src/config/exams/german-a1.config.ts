@@ -84,6 +84,6 @@ export const germanA1Config: ExamConfig = {
     },
   },
 
-  writingEvaluationFnName: 'evaluateWritingA1'
+  writingEvaluationFnName: 'evaluateWritingGermanA1'
 };
 

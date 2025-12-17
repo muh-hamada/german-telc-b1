@@ -304,7 +304,8 @@
       "words": "كلمات",
       "pointsAddressed": "نقاط تمت معالجتها",
       "suggestedKeywords": "الكلمات المفتاحية المقترحة",
-      "minCharactersRequired": "يرجى كتابة {{count}} حرفًا على الأقل."
+      "minCharactersRequired": "يرجى كتابة {{count}} حرفًا على الأقل.",
+      "communicativeDesign": "التصميم التواصلي"
     },
     "speaking": {
       "title": "التعبير الشفهي",

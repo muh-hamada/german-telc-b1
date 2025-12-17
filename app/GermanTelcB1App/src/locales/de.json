@@ -329,7 +329,8 @@
       "words": "Wörter",
       "pointsAddressed": "Punkte angesprochen",
       "suggestedKeywords": "Vorgeschlagene Schlüsselwörter",
-      "minCharactersRequired": "Bitte schreiben Sie mindestens {{count}} Zeichen."
+      "minCharactersRequired": "Bitte schreiben Sie mindestens {{count}} Zeichen.",
+      "communicativeDesign": "Kommunikatives Design"
     },
     "speaking": {
       "title": "Mündlicher Ausdruck",
