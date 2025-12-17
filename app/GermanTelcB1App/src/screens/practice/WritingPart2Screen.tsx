@@ -79,6 +79,7 @@ const WritingPart2Screen: React.FC = () => {
   const capturedImageBase64Ref = useRef<string | null>(null);
   const adEarnedRewardRef = useRef<boolean>(false);
   const userTextRef = useRef<string>('');
+  const currentExamRef = useRef<any | null>(null);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -194,6 +195,7 @@ const WritingPart2Screen: React.FC = () => {
       setIsLoading(true);
       const exam = await dataService.getWritingPart2Exam(examId);
       setCurrentExam(exam || null);
+      currentExamRef.current = exam || null; // Store in ref to persist across re-renders
     } catch (error) {
       console.error('Error loading exam:', error);
     } finally {
@@ -353,7 +355,11 @@ const WritingPart2Screen: React.FC = () => {
   };
 
   const proceedWithImageEvaluation = async () => {
-    if (!currentExam) return;
+    const exam = currentExamRef.current;
+    if (!exam) {
+      console.error('[WritingPart2Screen] No exam data available for evaluation');
+      return;
+    }
 
     setIsEvaluating(true);
     setIsUsingCachedResult(false);
@@ -367,16 +373,16 @@ const WritingPart2Screen: React.FC = () => {
       if (imageBase64) {
         result = await evaluateWritingWithImageA1({
           imageBase64: imageBase64,
-          examTitle: currentExam.title,
-          instructionHeader: currentExam.instruction_header,
-          taskPoints: currentExam.task_points,
+          examTitle: exam.title,
+          instructionHeader: exam.instruction_header,
+          taskPoints: exam.task_points,
         });
       } else if (imageUri) {
         result = await evaluateWritingWithImageA1({
           imageUri: imageUri,
-          examTitle: currentExam.title,
-          instructionHeader: currentExam.instruction_header,
-          taskPoints: currentExam.task_points,
+          examTitle: exam.title,
+          instructionHeader: exam.instruction_header,
+          taskPoints: exam.task_points,
         });
       } else {
         throw new Error('No image available');
@@ -449,7 +455,12 @@ const WritingPart2Screen: React.FC = () => {
 
   const proceedWithTextEvaluation = async () => {
     console.log('[WritingPart2Screen] proceedWithTextEvaluation called');
-    if (!currentExam) return;
+    const exam = currentExamRef.current;
+    if (!exam) {
+      console.error('[WritingPart2Screen] No exam data available for evaluation');
+      return;
+    }
+    console.log('[WritingPart2Screen] proceedWithTextEvaluation called 2', exam);
 
     setIsEvaluating(true);
     setIsUsingCachedResult(false);
@@ -460,9 +471,9 @@ const WritingPart2Screen: React.FC = () => {
 
       const result = await evaluateWritingA1({
         userAnswer: answerToEvaluate,
-        examTitle: currentExam.title,
-        instructionHeader: currentExam.instruction_header,
-        taskPoints: currentExam.task_points,
+        examTitle: exam.title,
+        instructionHeader: exam.instruction_header,
+        taskPoints: exam.task_points,
       });
 
       setLastEvaluatedAnswer(answerToEvaluate);
@@ -1016,6 +1027,7 @@ const createStyles = (colors: ThemeColors) =>
       alignItems: 'center',
       marginBottom: spacing.margin.sm,
       gap: spacing.margin.sm,
+      direction: 'ltr',
     },
     taskPointNumber: {
       width: 24,
@@ -1027,14 +1039,12 @@ const createStyles = (colors: ThemeColors) =>
     },
     taskPointNumberText: {
       ...typography.textStyles.bodySmall,
-      fontSize: 12,
       color: colors.white,
       fontWeight: typography.fontWeight.bold,
     },
     taskPointText: {
       ...typography.textStyles.body,
       color: colors.text.primary,
-      flex: 1,
       textAlign: 'left',
       lineHeight: 18,
     },
@@ -1046,6 +1056,7 @@ const createStyles = (colors: ThemeColors) =>
       borderLeftWidth: 4,
       borderLeftColor: colors.warning[500],
       gap: spacing.margin.xs,
+      direction: 'ltr',
     },
     hintText: {
       ...typography.textStyles.bodySmall,
@@ -1126,8 +1137,8 @@ const createStyles = (colors: ThemeColors) =>
       opacity: 0.6,
     },
     evaluateButtonText: {
-      ...typography.textStyles.h5,
-      color: colors.white,
+      ...typography.textStyles.body,
+      color: colors.text.primary,
       fontWeight: typography.fontWeight.bold,
     },
     // Modal Styles

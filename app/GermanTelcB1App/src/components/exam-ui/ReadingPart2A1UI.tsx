@@ -214,17 +214,17 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+    direction: 'ltr',
   },
   questionHeader: {
     flexDirection: 'row',
     marginBottom: spacing.margin.lg,
+    gap: spacing.margin.sm,
   },
   questionNumber: {
     ...typography.textStyles.h4,
     fontWeight: typography.fontWeight.bold,
     color: colors.primary[600],
-    marginRight: spacing.margin.sm,
-    minWidth: 30,
   },
   situationText: {
     ...typography.textStyles.body,

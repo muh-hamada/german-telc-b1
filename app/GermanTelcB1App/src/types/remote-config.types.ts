@@ -74,7 +74,7 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
 
 export const DEFAULT_VOCABULARY_NATIVE_AD_CONFIG: VocabularyNativeAdConfig = {
   enabled: true, // Disabled by default until configured
-  interval: 10, // Show ad every 5 words by default
+  interval: 8, // Show ad every 8 words by default
 };
 
 export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {

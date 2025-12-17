@@ -365,6 +365,7 @@ const createStyles = (colors: ThemeColors) =>
       ...typography.textStyles.h2,
       color: colors.primary[700],
       fontWeight: typography.fontWeight.bold,
+      direction: 'ltr',
     },
     cardsGrid: {
       flexDirection: 'row',
@@ -405,9 +406,11 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       fontStyle: 'italic',
       lineHeight: 22,
+      direction: 'ltr',
     },
     dialogueContainer: {
       gap: spacing.margin.md,
+      direction: 'ltr',
     },
     dialogueBubbleContainer: {
       flexDirection: 'row',
@@ -428,7 +431,7 @@ const createStyles = (colors: ThemeColors) =>
       backgroundColor: colors.primary[100],
     },
     dialogueBubblePartner: {
-      backgroundColor: colors.secondary[100],
+      backgroundColor: colors.secondary[300],
     },
     roleLabel: {
       ...typography.textStyles.bodySmall,

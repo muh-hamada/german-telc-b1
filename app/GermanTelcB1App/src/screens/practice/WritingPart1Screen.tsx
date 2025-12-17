@@ -618,6 +618,7 @@ const createStyles = (colors: ThemeColors) =>
       marginBottom: spacing.margin.md,
       borderLeftWidth: 4,
       borderLeftColor: colors.primary[500],
+      direction: 'ltr',
     },
     scenarioText: {
       ...typography.textStyles.body,
@@ -632,6 +633,7 @@ const createStyles = (colors: ThemeColors) =>
       marginBottom: spacing.margin.md,
       borderLeftWidth: 4,
       borderLeftColor: colors.warning[500],
+      direction: 'ltr',
     },
     instructionText: {
       ...typography.textStyles.body,
@@ -645,6 +647,7 @@ const createStyles = (colors: ThemeColors) =>
       borderRadius: spacing.borderRadius.md,
       borderWidth: 2,
       borderColor: colors.border.dark,
+      direction: 'ltr',
     },
     formRow: {
       marginBottom: spacing.margin.md,

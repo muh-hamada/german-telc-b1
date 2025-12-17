@@ -216,6 +216,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 26,
     fontSize: 16,
+    direction: 'ltr',
   },
   questionsSection: {
     marginBottom: spacing.margin.lg,
@@ -237,6 +238,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 3,
     elevation: 2,
+    direction: 'ltr',
   },
   questionNumber: {
     ...typography.textStyles.body,

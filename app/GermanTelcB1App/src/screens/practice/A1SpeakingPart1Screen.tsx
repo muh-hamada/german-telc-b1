@@ -343,6 +343,7 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       fontStyle: 'italic',
       lineHeight: 22,
+      direction: 'ltr',
     },
     stepContainer: {
       flexDirection: 'row',
@@ -395,6 +396,7 @@ const createStyles = (colors: ThemeColors) =>
       shadowOpacity: 0.05,
       shadowRadius: 4,
       elevation: 2,
+      direction: 'ltr',
     },
     exampleHeader: {
       marginBottom: spacing.margin.sm,
@@ -422,6 +424,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     dialogueContainer: {
       gap: spacing.margin.md,
+      direction: 'ltr',
     },
     dialogueBubbleContainer: {
       flexDirection: 'row',
@@ -439,7 +442,7 @@ const createStyles = (colors: ThemeColors) =>
       borderRadius: spacing.borderRadius.lg,
     },
     dialogueBubbleExaminer: {
-      backgroundColor: colors.secondary[100],
+      backgroundColor: colors.secondary[300],
     },
     dialogueBubbleCandidate: {
       backgroundColor: colors.primary[100],

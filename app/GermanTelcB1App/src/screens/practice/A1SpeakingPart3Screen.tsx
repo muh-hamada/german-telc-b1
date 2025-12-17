@@ -365,6 +365,7 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       fontStyle: 'italic',
       lineHeight: 22,
+      direction: 'ltr',
     },
     dialogueCard: {
       backgroundColor: colors.background.secondary,
@@ -375,6 +376,7 @@ const createStyles = (colors: ThemeColors) =>
       shadowOpacity: 0.1,
       shadowRadius: 8,
       elevation: 3,
+      direction: 'ltr',
     },
     exampleTurn: {
       marginBottom: spacing.margin.lg,
@@ -419,6 +421,7 @@ const createStyles = (colors: ThemeColors) =>
       ...typography.textStyles.h3,
       color: colors.primary[700],
       fontWeight: typography.fontWeight.bold,
+      direction: 'ltr',
     },
     imageContainer: {
       width: '100%',
@@ -426,9 +429,9 @@ const createStyles = (colors: ThemeColors) =>
       marginVertical: spacing.margin.md,
       borderRadius: spacing.borderRadius.md,
       overflow: 'hidden',
-      // backgroundColor: colors.secondary[50],
       justifyContent: 'center',
       alignItems: 'center',
+      direction: 'ltr',
     },
     cardImage: {
       width: '100%',
@@ -439,6 +442,7 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       marginBottom: spacing.margin.md,
       fontStyle: 'italic',
+      direction: 'ltr',
     },
     keywordsSection: {
       marginBottom: spacing.margin.md,
@@ -487,6 +491,7 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.primary,
       fontWeight: typography.fontWeight.semibold,
       lineHeight: 22,
+      direction: 'ltr',
     },
     centerContent: {
       flex: 1,

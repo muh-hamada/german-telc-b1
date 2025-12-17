@@ -1,0 +1,53 @@
+Writing Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- instruction_header: the context of the question for the writing evaluation
+- task_points: same exact number of points and structure. Only change the text content based on the instruction_header.
+- constraints: fixed constraints. similar to the one provided in the example below
+- id: int
+- title: general title for the question. 4-6 words long
+
+{
+  "task_points": [
+    {
+      "id": "point_1",
+      "keywords_expected": [
+        "August",
+        "Dresden",
+        "komme",
+        "reisen",
+        "besuchen"
+      ],
+      "text": "Sie kommen im August nach Dresden."
+    },
+    {
+      "keywords_expected": [
+        "Informationen",
+        "Film",
+        "Theater",
+        "Museen",
+        "Kulturprogramm",
+        "bitte"
+      ],
+      "text": "Bitten Sie um Informationen über Film, Theater, Museen usw. (Kulturprogramm).",
+      "id": "point_2"
+    },
+    {
+      "keywords_expected": [
+        "Hotel",
+        "Adressen",
+        "übernachten",
+        "Unterkunft"
+      ],
+      "id": "point_3",
+      "text": "Bitten Sie um Hoteladressen."
+    }
+  ],
+  "id": 0,
+  "title": "E-Mail für touristische Informationen in Dresden",
+  "constraints": {
+    "structure_hint": "Vergessen Sie nicht den passenden Anfang und Gruß am Schluss.",
+    "text_length_hint": "Schreiben Sie zu jedem Punkt ein bis zwei Sätze (circa 30 Wörter)."
+  },
+  "instruction_header": "Schreiben Sie an die Touristeninformation in Dresden:"
+}

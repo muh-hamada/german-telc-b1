@@ -214,6 +214,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+    direction: 'ltr',
   },
   questionNumber: {
     ...typography.textStyles.h4,
