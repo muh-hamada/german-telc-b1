@@ -6,7 +6,7 @@
  */
 
 export type ExamLanguage = 'german' | 'english' | 'french' | 'spanish';
-export type ExamLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+export type ExamLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'A1';
 
 export interface ExamConfig {
   // Basic Identity

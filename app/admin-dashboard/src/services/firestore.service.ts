@@ -510,7 +510,7 @@ class FirestoreService {
       }
 
       // Get progress for all apps
-      const progressCollections = ['progress', 'german_b2_progress', 'english_b1_progress', 'english_b2_progress'];
+      const progressCollections = ['progress', 'german_b2_progress', 'english_b1_progress', 'english_b2_progress', 'german_a1_progress'];
       for (const collectionName of progressCollections) {
         try {
           const progressRef = collection(this.db, 'users', uid, collectionName);
@@ -594,7 +594,7 @@ class FirestoreService {
       }
 
       // Get premium subscription info for all apps
-      const appIds = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
+      const appIds = ['german-b1', 'german-b2', 'english-b1', 'english-b2', 'german-a1'];
       userData.premium = {};
       userData.isPremium = false;
       

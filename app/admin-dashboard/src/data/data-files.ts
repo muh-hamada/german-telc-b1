@@ -1,5 +1,17 @@
 import { APP_CONFIGS } from '../config/apps.config';
 
+// German A1
+import germanA1ExamInfo from './german-a1/exam-info.json';
+import germanA1ReadingPart1 from './german-a1/reading-part1.json';
+import germanA1ReadingPart2 from './german-a1/reading-part2.json';
+import germanA1ReadingPart3 from './german-a1/reading-part3.json';
+import germanA1SpeakingPart1 from './german-a1/speaking-part1.json';
+import germanA1SpeakingPart2 from './german-a1/speaking-part2.json';
+import germanA1SpeakingPart3 from './german-a1/speaking-part3.json';
+import germanA1WritingPart1 from './german-a1/writing-part1.json';
+import germanA1WritingPart2 from './german-a1/writing-part2.json';
+
+
 // German B1
 import germanB1ExamInfo from './german-b1/exam-info.json';
 import germanB1GrammarPart1 from './german-b1/grammar-part1.json';
@@ -93,6 +105,8 @@ interface AppData {
     'grammar-study-questions'?: any;
     'oral-exam-structure'?: any;
     'listening-practice'?: any;
+    'writing-part1'?: any;
+    'writing-part2'?: any;
 }
 
 interface AppDataMap {
@@ -100,6 +114,17 @@ interface AppDataMap {
 }
 
 export const appDataMap: AppDataMap = {
+    [APP_CONFIGS['german-a1'].id]: {
+        'exam-info': germanA1ExamInfo,
+        'reading-part1': germanA1ReadingPart1,
+        'reading-part2': germanA1ReadingPart2,
+        'reading-part3': germanA1ReadingPart3,
+        'speaking-part1': germanA1SpeakingPart1,
+        'speaking-part2': germanA1SpeakingPart2,
+        'speaking-part3': germanA1SpeakingPart3,
+        'writing-part1': germanA1WritingPart1,
+        'writing-part2': germanA1WritingPart2,
+    },
     [APP_CONFIGS['german-b1'].id]: {
         'exam-info': germanB1ExamInfo,
         'grammar-part1': germanB1GrammarPart1,

@@ -81,11 +81,23 @@
     "failedToLoad": "Échec du chargement des données de l'examen",
     "selectAnExam": "Sélectionner un examen",
     "selectTask": "Sélectionner une tâche",
+    "completed": "Terminé",
+    "completedCount": "{{completed}}/{{total}} terminé",
     "markedCompleted": "Examen marqué comme terminé !",
     "markedIncomplete": "Examen marqué comme incomplet !",
     "completionFailed": "Échec de la mise à jour de l'état d'achèvement",
     "loginToSaveProgress": "Vous devez vous connecter pour sauvegarder votre progression",
-    "completedCount": "{{completed}}/{{total}} terminé"
+    "incomplete": "Réponses incomplètes",
+    "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre.",
+    "congratulations": "Félicitations !",
+    "keepPracticing": "Continuez à pratiquer",
+    "yourScore": "Votre score",
+    "retry": "Réessayer",
+    "submit": "Soumettre",
+    "detailedResults": "Résultats détaillés",
+    "yourAnswer": "Votre réponse",
+    "correctAnswer": "Bonne réponse",
+    "noAnswer": "(Pas de réponse)"
   },
   "onboarding": {
     "welcome": "Préparons ensemble l'examen {{language}} TELC {{level}}",
@@ -225,11 +237,21 @@
       "part1": "Partie 1 : Associer les titres",
       "part2": "Partie 2 : Questions à choix multiples",
       "part3": "Partie 3 : Associer les annonces",
+      "a1": {
+        "part1": "Partie 1 : Lettres et messages",
+        "part2": "Partie 2 : Sites web et annonces",
+        "part3": "Partie 3 : Panneaux et avis"
+      },
       "descriptions": {
         "main": "Pratiquez la compréhension écrite avec différents types de textes",
         "part1": "Associez les titres aux textes",
         "part2": "Questions à choix multiples sur un texte",
-        "part3": "Associez les situations aux annonces"
+        "part3": "Associez les situations aux annonces",
+        "a1": {
+          "part1": "Lisez des lettres et des messages, puis décidez si les affirmations sont vraies ou fausses",
+          "part2": "Lisez des situations et choisissez le bon site web ou la bonne annonce",
+          "part3": "Lisez des panneaux et des avis, puis jugez si les affirmations sont correctes"
+        }
       }
     },
     "listening": {
@@ -255,7 +277,29 @@
     },
     "writing": {
       "title": "Expression écrite",
-      "description": "Écrivez un e-mail formel ou semi-formel"
+      "description": "Écrivez un e-mail formel ou semi-formel",
+      "part1": "Partie 1 : Remplir un formulaire",
+      "part2": "Partie 2 : Rédiger un courriel/lettre",
+      "a1": {
+        "part1": "Partie 1 : Remplir un formulaire",
+        "part2": "Partie 2 : Écrire un courriel"
+      },
+      "descriptions": {
+        "part1": "Complétez un formulaire avec les informations manquantes",
+        "part2": "Rédigez un courriel ou une lettre en abordant des points spécifiques",
+        "a1": {
+          "part1": "Lisez un scénario et remplissez les informations manquantes dans un formulaire",
+          "part2": "Rédigez un court courriel ou une courte lettre en abordant les points donnés (environ 30 mots par point)"
+        }
+      },
+      "taskPoints": "Points de tâche",
+      "yourText": "Votre courriel/lettre",
+      "emailPlaceholder": "Commencez à écrire votre courriel ou lettre ici...",
+      "characters": "Caractères",
+      "words": "Mots",
+      "pointsAddressed": "points abordés",
+      "suggestedKeywords": "Mots-clés suggérés",
+      "minCharactersRequired": "Veuillez écrire au moins {{count}} caractères."
     },
     "speaking": {
       "title": "Expression orale",
@@ -602,6 +646,48 @@
       "help": {
         "dialogueNote": "Travaillez avec votre partenaire pour planifier quelque chose. Réfléchissez à ce qui doit être pris en compte, apportez vos idées et suggestions, et répondez aux propositions de votre partenaire."
       }
+    },
+    "a1Part1": {
+      "menuDescription": "Fournir des informations importantes sur vous-même",
+      "goal": "Objectif",
+      "steps": "Étapes",
+      "keywords": "Mots-clés",
+      "exampleIntroduction": "Exemple de présentation",
+      "followUpQuestions": "Questions de suivi",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Exemple",
+        "interaction": "Questions et réponses"
+      }
+    },
+    "a1Part2": {
+      "menuDescription": "Poser et répondre à des questions sur des sujets quotidiens",
+      "goal": "Objectif",
+      "steps": "Étapes",
+      "topic": "Sujet",
+      "cardWords": "Cartes de mots",
+      "cardDescription": "Tirez une carte et formulez une question avec ce mot.",
+      "exampleDialogue": "Dialogue exemple",
+      "tabs": {
+        "instructions": "Instructions",
+        "cards": "Cartes",
+        "example": "Exemple"
+      }
+    },
+    "a1Part3": {
+      "menuDescription": "Formuler des demandes et répondre aux demandes",
+      "goal": "Objectif",
+      "steps": "Étapes",
+      "exampleScenario": "Scénario exemple",
+      "practiceCards": "Cartes de pratique",
+      "cardsDescription": "Pratiquez la formulation de demandes pour différentes situations.",
+      "keywords": "Mots-clés",
+      "exampleRequest": "Demande exemple",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Exemple",
+        "cards": "Cartes de pratique"
+      }
     }
   },
   "results": {
@@ -805,10 +891,14 @@
       "subtitle": "Associer les titres aux textes",
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez les cinq textes suivants et attribuez un titre approprié à chaque texte. Il y a plus de titres que de textes. Chaque titre ne peut être utilisé qu'une seule fois.",
+      "a1TaskDescription": "Lisez le texte et décidez si les affirmations sont correctes (Richtig) ou incorrectes (Falsch).",
       "headings": "Titres (a-j):",
       "texts": "Textes (1-{{count}}):",
       "text": "Texte",
+      "questions": "Questions",
       "selectHeading": "Sélectionner le titre:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
       "incompleteMessage": "Veuillez attribuer un titre à tous les textes avant de continuer.",
@@ -820,6 +910,8 @@
       "subtitle": "Questions à choix multiples",
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez le texte suivant et répondez aux questions en sélectionnant la bonne réponse.",
+      "a1TaskDescription": "Lisez chaque situation et choisissez l'option correcte (site web ou annonce) qui correspond.",
+      "option": "Option",
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
@@ -830,9 +922,12 @@
       "subtitle": "Associer les annonces",
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez les annonces et les situations. Quelle annonce correspond à quelle situation? Il n'y a pas d'annonce appropriée pour chaque situation.",
+      "a1TaskDescription": "Lisez le contexte et l'affirmation, puis décidez si elle est correcte (Richtig) ou incorrecte (Falsch).",
       "advertisements": "Annonces:",
       "situations": "Situations:",
       "selectAdvertisement": "Sélectionner l'annonce:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
       "incompleteMessage": "Veuillez répondre à toutes les situations avant de soumettre. {{count}} situation(s) restante(s)."

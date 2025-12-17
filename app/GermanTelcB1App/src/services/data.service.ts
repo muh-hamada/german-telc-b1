@@ -18,8 +18,11 @@ import {
   GrammarPart1Exam,
   GrammarPart2Exam,
   ReadingPart1Exam,
+  ReadingPart1A1Exam,
   ReadingPart2Exam,
+  ReadingPart2A1Exam,
   ReadingPart3Exam,
+  ReadingPart3A1Exam,
   WritingExam,
   SpeakingPart1Content,
   SpeakingPart2Content,
@@ -182,7 +185,7 @@ class DataService {
     return exams.find(exam => exam.id === id);
   }
 
-  // Reading Part 1
+  // Reading Part 1 (B1/B2)
   async getReadingPart1Exams(): Promise<ReadingPart1Exam[]> {
     return await this.fetchFromFirestore('reading-part1', []);
   }
@@ -192,7 +195,17 @@ class DataService {
     return exams.find(exam => exam.id === id);
   }
 
-  // Reading Part 2
+  // Reading Part 1 A1 (True/False Questions)
+  async getReadingPart1A1Exams(): Promise<ReadingPart1A1Exam[]> {
+    return await this.fetchFromFirestore('reading-part1', []);
+  }
+
+  async getReadingPart1A1ExamById(id: number): Promise<ReadingPart1A1Exam | undefined> {
+    const exams = await this.getReadingPart1A1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // Reading Part 2 (B1/B2)
   async getReadingPart2Exams(): Promise<ReadingPart2Exam[]> {
     const data = await this.fetchFromFirestore('reading-part2', { exams: [] });
     return data.exams || [];
@@ -203,7 +216,18 @@ class DataService {
     return exams.find(exam => exam.id === id);
   }
 
-  // Reading Part 3
+  // Reading Part 2 A1 (Matching Situations to Options)
+  async getReadingPart2A1Exams(): Promise<ReadingPart2A1Exam[]> {
+    const data = await this.fetchFromFirestore('reading-part2', { exams: [] });
+    return data.exams || [];
+  }
+
+  async getReadingPart2A1ExamById(id: number): Promise<ReadingPart2A1Exam | undefined> {
+    const exams = await this.getReadingPart2A1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // Reading Part 3 (B1/B2)
   async getReadingPart3Exams(): Promise<ReadingPart3Exam[]> {
     const data = await this.fetchFromFirestore('reading-part3', { exams: [] });
     return data.exams || [];
@@ -211,6 +235,17 @@ class DataService {
 
   async getReadingPart3Exam(id: number): Promise<ReadingPart3Exam | undefined> {
     const exams = await this.getReadingPart3Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // Reading Part 3 A1 (True/False Questions with Context)
+  async getReadingPart3A1Exams(): Promise<ReadingPart3A1Exam[]> {
+    const data = await this.fetchFromFirestore('reading-part3', { exams: [] });
+    return data.exams || [];
+  }
+
+  async getReadingPart3A1ExamById(id: number): Promise<ReadingPart3A1Exam | undefined> {
+    const exams = await this.getReadingPart3A1Exams();
     return exams.find(exam => exam.id === id);
   }
 
@@ -222,6 +257,28 @@ class DataService {
 
   async getWritingExam(id: number): Promise<WritingExam | undefined> {
     const exams = await this.getWritingExams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // Writing Part 1 (A1)
+  async getWritingPart1Exams(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('writing-part1', { exams: [] });
+    return data.exams || [];
+  }
+
+  async getWritingPart1Exam(id: number): Promise<any | undefined> {
+    const exams = await this.getWritingPart1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // Writing Part 2 (A1)
+  async getWritingPart2Exams(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('writing-part2', { exams: [] });
+    return data.exams || [];
+  }
+
+  async getWritingPart2Exam(id: number): Promise<any | undefined> {
+    const exams = await this.getWritingPart2Exams();
     return exams.find(exam => exam.id === id);
   }
 
@@ -265,6 +322,21 @@ class DataService {
   // Speaking B2 Part 3
   async getSpeakingB2Part3Content(): Promise<any> {
     return await this.fetchFromFirestore('speaking-part3', { questions: [] });
+  }
+
+  // Speaking A1 Part 1
+  async getA1SpeakingPart1Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part1', {});
+  }
+
+  // Speaking A1 Part 2
+  async getA1SpeakingPart2Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part2', {});
+  }
+
+  // Speaking A1 Part 3
+  async getA1SpeakingPart3Content(): Promise<any> {
+    return await this.fetchFromFirestore('speaking-part3', {});
   }
 
   // Listening Part 1
@@ -361,6 +433,10 @@ class DataService {
         return await this.getReadingPart3Exams();
       case 'writing':
         return await this.getWritingExams();
+      case 'writing-part1':
+        return await this.getWritingPart1Exams();
+      case 'writing-part2':
+        return await this.getWritingPart2Exams();
       case 'speaking-part1':
         return [await this.getSpeakingPart1Content()];
       case 'speaking-part2':

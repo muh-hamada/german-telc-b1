@@ -86,7 +86,18 @@
     "markedCompleted": "Prüfung als abgeschlossen markiert!",
     "markedIncomplete": "Prüfung als unvollständig markiert!",
     "completionFailed": "Fehler beim Aktualisieren des Status",
-    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern"
+    "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern",
+    "incomplete": "Unvollständige Antworten",
+    "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden.",
+    "congratulations": "Herzlichen Glückwunsch!",
+    "keepPracticing": "Weiter üben",
+    "yourScore": "Ihre Punktzahl",
+    "retry": "Erneut versuchen",
+    "submit": "Absenden",
+    "detailedResults": "Detaillierte Ergebnisse",
+    "yourAnswer": "Ihre Antwort",
+    "correctAnswer": "Richtige Antwort",
+    "noAnswer": "(Keine Antwort)"
   },
   "onboarding": {
     "welcome": "Lass uns gemeinsam für die {{language}} TELC {{level}} Prüfung lernen",
@@ -256,11 +267,21 @@
       "part1": "Teil 1: Überschriften zuordnen",
       "part2": "Teil 2: Multiple Choice",
       "part3": "Teil 3: Anzeigen zuordnen",
+      "a1": {
+        "part1": "Teil 1: Briefe und Nachrichten",
+        "part2": "Teil 2: Webseiten und Anzeigen",
+        "part3": "Teil 3: Schilder und Hinweise"
+      },
       "descriptions": {
         "main": "Üben Sie Leseverstehen mit verschiedenen Textarten",
         "part1": "Ordnen Sie Überschriften Texten zu",
         "part2": "Multiple-Choice-Fragen zu einem Text",
-        "part3": "Ordnen Sie Situationen Anzeigen zu"
+        "part3": "Ordnen Sie Situationen Anzeigen zu",
+        "a1": {
+          "part1": "Lesen Sie Briefe und Nachrichten und entscheiden Sie, ob Aussagen richtig oder falsch sind",
+          "part2": "Lesen Sie Situationen und wählen Sie die richtige Website oder Anzeige",
+          "part3": "Lesen Sie Schilder und Hinweise und beurteilen Sie, ob Aussagen richtig sind"
+        }
       }
     },
     "listening": {
@@ -286,7 +307,29 @@
     },
     "writing": {
       "title": "Schriftlicher Ausdruck",
-      "description": "Schreiben Sie eine formelle oder halbformelle E-Mail"
+      "description": "Schreiben Sie eine formelle oder halbformelle E-Mail",
+      "part1": "Teil 1: Formular ausfüllen",
+      "part2": "Teil 2: E-Mail/Brief schreiben",
+      "a1": {
+        "part1": "Teil 1: Formular ausfüllen",
+        "part2": "Teil 2: E-Mail schreiben"
+      },
+      "descriptions": {
+        "part1": "Vervollständigen Sie ein Formular mit fehlenden Informationen",
+        "part2": "Schreiben Sie eine E-Mail oder einen Brief zu bestimmten Punkten",
+        "a1": {
+          "part1": "Lesen Sie ein Szenario und tragen Sie die fehlenden Informationen in ein Formular ein",
+          "part2": "Schreiben Sie eine kurze E-Mail oder einen Brief zu den angegebenen Punkten (circa 30 Wörter pro Punkt)"
+        }
+      },
+      "taskPoints": "Aufgabenpunkte",
+      "yourText": "Ihre E-Mail/Ihr Brief",
+      "emailPlaceholder": "Beginnen Sie hier mit Ihrer E-Mail oder Ihrem Brief...",
+      "characters": "Zeichen",
+      "words": "Wörter",
+      "pointsAddressed": "Punkte angesprochen",
+      "suggestedKeywords": "Vorgeschlagene Schlüsselwörter",
+      "minCharactersRequired": "Bitte schreiben Sie mindestens {{count}} Zeichen."
     },
     "speaking": {
       "title": "Mündlicher Ausdruck",
@@ -769,6 +812,48 @@
       "help": {
         "dialogueNote": "Arbeiten Sie mit Ihrem Partner zusammen, um etwas zu planen. Überlegen Sie, was getan werden muss, bringen Sie Ihre Ideen und Vorschläge ein und reagieren Sie auf die Vorschläge Ihres Partners."
       }
+    },
+    "a1Part1": {
+      "menuDescription": "Wichtige Informationen zur eigenen Person geben",
+      "goal": "Ziel",
+      "steps": "Schritte",
+      "keywords": "Stichwörter",
+      "exampleIntroduction": "Beispielvorstellung",
+      "followUpQuestions": "Nachfragen",
+      "tabs": {
+        "instructions": "Anleitung",
+        "example": "Beispiel",
+        "interaction": "Fragen & Antworten"
+      }
+    },
+    "a1Part2": {
+      "menuDescription": "Fragen stellen und auf Fragen zu Alltagsthemen antworten",
+      "goal": "Ziel",
+      "steps": "Schritte",
+      "topic": "Thema",
+      "cardWords": "Wortkarten",
+      "cardDescription": "Ziehen Sie eine Karte und formulieren Sie eine Frage mit diesem Wort.",
+      "exampleDialogue": "Beispieldialog",
+      "tabs": {
+        "instructions": "Anleitung",
+        "cards": "Karten",
+        "example": "Beispiel"
+      }
+    },
+    "a1Part3": {
+      "menuDescription": "Bitten formulieren und auf Bitten reagieren",
+      "goal": "Ziel",
+      "steps": "Schritte",
+      "exampleScenario": "Beispielszenario",
+      "practiceCards": "Übungskarten",
+      "cardsDescription": "Üben Sie das Formulieren von Bitten für verschiedene Situationen.",
+      "keywords": "Stichwörter",
+      "exampleRequest": "Beispielbitte",
+      "tabs": {
+        "instructions": "Anleitung",
+        "example": "Beispiel",
+        "cards": "Übungskarten"
+      }
     }
   },
   "results": {
@@ -839,10 +924,14 @@
       "subtitle": "Überschriften zu Texten zuordnen",
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie die folgenden fünf Texte und ordnen Sie jedem Text eine passende Überschrift zu. Es gibt mehr Überschriften als Texte. Jede Überschrift kann nur einmal verwendet werden.",
+      "a1TaskDescription": "Lesen Sie den Text und entscheiden Sie, ob die Aussagen richtig oder falsch sind.",
       "headings": "Überschriften (a-j):",
       "texts": "Texte (1-{{count}}):",
       "text": "Text",
+      "questions": "Fragen",
       "selectHeading": "Überschrift auswählen:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte ordnen Sie allen Texten eine Überschrift zu, bevor Sie fortfahren.",
@@ -854,6 +943,8 @@
       "subtitle": "Multiple-Choice-Fragen",
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie den folgenden Text und beantworten Sie die Fragen, indem Sie die richtige Antwort auswählen.",
+      "a1TaskDescription": "Lesen Sie jede Situation und wählen Sie die richtige Option (Website oder Anzeige), die passt.",
+      "option": "Option",
       "questions": "Fragen ({{first}}-{{last}}):",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
@@ -864,9 +955,12 @@
       "subtitle": "Anzeigen zuordnen",
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie die Anzeigen und die Situationen. Welche Anzeige passt zu welcher Situation? Nicht für jede Situation gibt es eine passende Anzeige.",
+      "a1TaskDescription": "Lesen Sie den Kontext und die Aussage, und entscheiden Sie dann, ob sie richtig oder falsch ist.",
       "advertisements": "Anzeigen:",
       "situations": "Situationen:",
       "selectAdvertisement": "Anzeige auswählen:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte beantworten Sie alle Situationen, bevor Sie absenden. {{count}} Situation(en) verbleiben."

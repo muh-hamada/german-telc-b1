@@ -41,6 +41,7 @@ This directory contains automation scripts for managing multi-app configurations
 - `german-b2` → `logos/ios/logo-ios-german-b2.png`
 - `english-b1` → `logos/ios/logo-ios-english-b1.png`
 - `english-b2` → `logos/ios/logo-ios-english-b2.png`
+- `german-a1` → `logos/ios/logo-ios-german-a1.png`
 
 ---
 
@@ -174,6 +175,7 @@ Examples:
 - `logos/ios/logo-ios-german-b2.png`
 - `logos/ios/logo-ios-english-b1.png`
 - `logos/ios/logo-ios-english-b2.png`
+- `logos/ios/logo-ios-german-a1.png`
 
 ### Android Logos
 - **Location**: Root directory (will be improved in future)

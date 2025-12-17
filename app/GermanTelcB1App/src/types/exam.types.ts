@@ -38,14 +38,28 @@ export interface GrammarPart2Exam {
   answers: Record<string, string>; // gap ID -> word key
 }
 
-// Reading Part 1 (Matching Headings)
+// Reading Part 1 (Matching Headings) - B1/B2
 export interface ReadingPart1Exam {
   id: number;
   headings: string[];
   texts: Text[];
 }
 
-// Reading Part 2 (Multiple Choice)
+// Reading Part 1 A1 (True/False Questions)
+export interface ReadingPart1A1Question {
+  id: number;
+  question: string;
+  is_correct: boolean;
+}
+
+export interface ReadingPart1A1Exam {
+  id: number;
+  title: string;
+  text: string;
+  questions: ReadingPart1A1Question[];
+}
+
+// Reading Part 2 (Multiple Choice) - B1/B2
 export interface ReadingPart2Exam {
   id: number;
   title: string;
@@ -53,7 +67,27 @@ export interface ReadingPart2Exam {
   questions: Question[];
 }
 
-// Reading Part 3 (Advertisement Matching)
+// Reading Part 2 A1 (Matching Situations to Options)
+export interface ReadingPart2A1Option {
+  id: number;
+  text?: string;
+  option?: string;
+  is_correct: boolean;
+}
+
+export interface ReadingPart2A1Question {
+  id: number;
+  situation: string;
+  options: ReadingPart2A1Option[];
+}
+
+export interface ReadingPart2A1Exam {
+  id: number;
+  title: string;
+  questions: ReadingPart2A1Question[];
+}
+
+// Reading Part 3 (Advertisement Matching) - B1/B2
 export interface ReadingPart3Situation {
   id: number;
   text: string;
@@ -65,6 +99,20 @@ export interface ReadingPart3Exam {
   title: string;
   advertisements: Record<string, string>; // a-l, x
   situations: ReadingPart3Situation[];
+}
+
+// Reading Part 3 A1 (True/False Questions with Context)
+export interface ReadingPart3A1Question {
+  id: number;
+  text: string;
+  question: string;
+  is_correct: boolean;
+}
+
+export interface ReadingPart3A1Exam {
+  id: number;
+  title: string;
+  questions: ReadingPart3A1Question[];
 }
 
 // Writing Section

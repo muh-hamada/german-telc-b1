@@ -1,0 +1,44 @@
+Reading Part 3
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- 5 questions. Ids start from number "11"
+-- each question have a "text" and one "question". Use \n to separate between lines in the text and _b_ for bold words
+- id: int
+- title: general title for the question - extract some info from the questions. 4-6 words long
+
+{
+  "id": 0,
+  "title": "Informationen über eine Sprachschule, eine Post, einen Bahnhof, ein Restaurant oder eine Haltestelle",
+  "questions": [
+    {
+      "id": 11,
+      "text": "In der _b_Sprachschule_b_\nIn der 10-Uhr-Pause bekommen Sie an\nder Rezeption ein Frühstücks­ paket:\nbelegte Brötchen und Getränke\nfür 2 Euro.",
+      "question": "In der Sprachschule können Sie etwas zu essen kaufen.",
+      "is_correct": true
+    },
+    {
+      "id": 12,
+      "text": "An der _b_Post_b_\n_b_Öffnungszeiten:_b_\nmontags–freitags\n8.00–12.00 Uhr und 13.00–18.00 Uhr\nsamstags\n8.00–12.00 Uhr",
+      "question": "Es ist Samstagnachmittag. Sie können auf der Post Briefmarken kaufen.",
+      "is_correct": false
+    },
+    {
+      "id": 13,
+      "text": "Am _b_Bahnhof_b_\nAuf dem gesamten\nBahnhof ist das\nRauchen verboten.",
+      "question": "Sie können hier Zigaretten rauchen.",
+      "is_correct": false
+    },
+    {
+      "id": 14,
+      "text": "Am Eingang des _b_Restaurants_b_\n_b_Heute im Bavaria:_b_\nBayerischer Abend\nBrezeln, Weißwürste, Sauerkraut\nVolksmusik, ab 20 Uhr Tanz",
+      "question": "Sie können hier Frischhaltepapier kaufen.",
+      "is_correct": true
+    },
+    {
+      "id": 15,
+      "text": "An der _b_Haltestelle_b_\n_b_In der Neujahrsnacht:_b_\nBusverkehr bis 23.00 Uhr\nund\n_b_von 1.00 Uhr bis 5.00 Uhr_b_\nalle 30 Minuten",
+      "question": "Von 23 Uhr bis 1 Uhr fährt kein Bus.",
+      "is_correct": true
+    }
+  ]
+}

@@ -15,7 +15,6 @@ import {
   Dimensions,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
-
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { usePremium } from '../../contexts/PremiumContext';

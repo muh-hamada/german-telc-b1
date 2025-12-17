@@ -9,18 +9,27 @@ import ExamStructureScreen from '../screens/ExamStructureScreen';
 import PracticeMenuScreen from '../screens/practice/PracticeMenuScreen';
 import ReadingMenuScreen from '../screens/practice/ReadingMenuScreen';
 import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
+import ReadingPart1A1Screen from '../screens/practice/ReadingPart1A1Screen';
 import ReadingPart2Screen from '../screens/practice/ReadingPart2Screen';
+import ReadingPart2A1Screen from '../screens/practice/ReadingPart2A1Screen';
 import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
+import ReadingPart3A1Screen from '../screens/practice/ReadingPart3A1Screen';
 import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
 import GrammarStudyScreen from '../screens/practice/GrammarStudyScreen';
 import WritingScreen from '../screens/practice/WritingScreen';
+import WritingMenuScreen from '../screens/practice/WritingMenuScreen';
+import WritingPart1Screen from '../screens/practice/WritingPart1Screen';
+import WritingPart2Screen from '../screens/practice/WritingPart2Screen';
 import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
 import SpeakingPart4Screen from '../screens/practice/SpeakingPart4Screen';
+import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
+import A1SpeakingPart2Screen from '../screens/practice/A1SpeakingPart2Screen';
+import A1SpeakingPart3Screen from '../screens/practice/A1SpeakingPart3Screen';
 import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
 import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
 import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
@@ -116,6 +125,13 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="ReadingPart1A1"
+        component={ReadingPart1A1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part1" />,
+        }}
+      />
+      <Stack.Screen
         name="ReadingPart2"
         component={ReadingPart2Screen}
         options={{
@@ -123,8 +139,22 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="ReadingPart2A1"
+        component={ReadingPart2A1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part2" />,
+        }}
+      />
+      <Stack.Screen
         name="ReadingPart3"
         component={ReadingPart3Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.reading.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ReadingPart3A1"
+        component={ReadingPart3A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.reading.part3" />,
         }}
@@ -165,6 +195,27 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="WritingMenu"
+        component={WritingMenuScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.writing.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="WritingPart1"
+        component={WritingPart1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.writing.part1" />,
+        }}
+      />
+      <Stack.Screen
+        name="WritingPart2"
+        component={WritingPart2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.writing.part2" />,
+        }}
+      />
+      <Stack.Screen
         name="SpeakingMenu"
         component={SpeakingMenuScreen}
         options={{
@@ -197,6 +248,27 @@ const HomeStackNavigator: React.FC = () => {
         component={SpeakingPart4Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.speaking.part4" />,
+        }}
+      />
+      <Stack.Screen
+        name="A1SpeakingPart1"
+        component={A1SpeakingPart1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part1" />,
+        }}
+      />
+      <Stack.Screen
+        name="A1SpeakingPart2"
+        component={A1SpeakingPart2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part2" />,
+        }}
+      />
+      <Stack.Screen
+        name="A1SpeakingPart3"
+        component={A1SpeakingPart3Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part3" />,
         }}
       />
       <Stack.Screen

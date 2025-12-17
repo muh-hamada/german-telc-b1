@@ -30,6 +30,7 @@ import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { HIDE_SUPPORT_US } from '../config/development.config';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { activeExamConfig } from '../config/active-exam.config';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -46,6 +47,8 @@ const HomeScreen: React.FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+
+  const isA1 = activeExamConfig.level === 'A1';
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -264,12 +267,14 @@ const HomeScreen: React.FC = () => {
         {!HIDE_SUPPORT_US && <SupportAdButton screen="home" style={styles.supportAdButton} />}
 
         {/* Grammar Study Card */}
-        <Card style={styles.card} onPress={handleGrammarStudyPress}>
+        {!isA1 && (
+          <Card style={styles.card} onPress={handleGrammarStudyPress}>
           <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
           <Text style={styles.cardDescription}>
-            {t('practice.grammar.study.description')}
-          </Text>
-        </Card>
+              {t('practice.grammar.study.description')}
+            </Text>
+          </Card>
+        )}
       </ScrollView>
 
       {isPremiumFeaturesEnabled() && !isPremium && !isPremiumLoading && (

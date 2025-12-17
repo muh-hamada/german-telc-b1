@@ -86,7 +86,18 @@
     "markedCompleted": "Exam marked as completed!",
     "markedIncomplete": "Exam marked as incomplete!",
     "completionFailed": "Failed to update completion status",
-    "loginToSaveProgress": "You need to log in to save your progress"
+    "loginToSaveProgress": "You need to log in to save your progress",
+    "incomplete": "Incomplete Answers",
+    "incompleteMessage": "Please answer all questions before submitting.",
+    "congratulations": "Congratulations!",
+    "keepPracticing": "Keep Practicing",
+    "yourScore": "Your Score",
+    "retry": "Retry",
+    "submit": "Submit",
+    "detailedResults": "Detailed Results",
+    "yourAnswer": "Your Answer",
+    "correctAnswer": "Correct Answer",
+    "noAnswer": "(No answer)"
   },
   "onboarding": {
     "welcome": "Let's prepare for the {{language}} TELC {{level}} exam together",
@@ -256,11 +267,21 @@
       "part1": "Part 1: Matching Headings",
       "part2": "Part 2: Multiple Choice",
       "part3": "Part 3: Advertisement Matching",
+      "a1": {
+        "part1": "Part 1: Letters and Messages",
+        "part2": "Part 2: Websites and Ads",
+        "part3": "Part 3: Signs and Notices"
+      },
       "descriptions": {
         "main": "Practice reading comprehension with various text types",
         "part1": "Match headings to texts",
         "part2": "Multiple choice questions about a text",
-        "part3": "Match situations to advertisements"
+        "part3": "Match situations to advertisements",
+        "a1": {
+          "part1": "Read letters and messages, then decide if statements are true or false",
+          "part2": "Read situations and choose the correct website or advertisement",
+          "part3": "Read signs and notices, then judge if statements are correct"
+        }
       }
     },
     "listening": {
@@ -287,7 +308,29 @@
     },
     "writing": {
       "title": "Written Expression",
-      "description": "Write a formal or semi-formal email"
+      "description": "Write a formal or semi-formal email",
+      "part1": "Part 1: Form Completion",
+      "part2": "Part 2: Email/Letter Writing",
+      "a1": {
+        "part1": "Part 1: Fill in a Form",
+        "part2": "Part 2: Write an Email"
+      },
+      "descriptions": {
+        "part1": "Complete a form with missing information",
+        "part2": "Write an email or letter addressing specific points",
+        "a1": {
+          "part1": "Read a scenario and fill in the missing information in a form",
+          "part2": "Write a short email or letter addressing the given points (circa 30 words per point)"
+        }
+      },
+      "taskPoints": "Task Points",
+      "yourText": "Your Email/Letter",
+      "emailPlaceholder": "Start writing your email or letter here...",
+      "characters": "Characters",
+      "words": "Words",
+      "pointsAddressed": "points addressed",
+      "suggestedKeywords": "Suggested keywords",
+      "minCharactersRequired": "Please write at least {{count}} characters."
     },
     "speaking": {
       "title": "Oral Expression",
@@ -770,6 +813,48 @@
       "help": {
         "dialogueNote": "Work together with your partner to plan something. Consider what needs to be done, bring in your ideas and suggestions, and respond to your partner's proposals."
       }
+    },
+    "a1Part1": {
+      "menuDescription": "Provide important information about yourself",
+      "goal": "Goal",
+      "steps": "Steps",
+      "keywords": "Template Keywords",
+      "exampleIntroduction": "Example Introduction",
+      "followUpQuestions": "Follow-up Questions",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Example",
+        "interaction": "Q&A"
+      }
+    },
+    "a1Part2": {
+      "menuDescription": "Ask and answer questions about everyday topics",
+      "goal": "Goal",
+      "steps": "Steps",
+      "topic": "Topic",
+      "cardWords": "Word Cards",
+      "cardDescription": "Draw a card and formulate a question using that word.",
+      "exampleDialogue": "Example Dialogue",
+      "tabs": {
+        "instructions": "Instructions",
+        "cards": "Cards",
+        "example": "Example"
+      }
+    },
+    "a1Part3": {
+      "menuDescription": "Formulate requests and respond to requests",
+      "goal": "Goal",
+      "steps": "Steps",
+      "exampleScenario": "Example Scenario",
+      "practiceCards": "Practice Cards",
+      "cardsDescription": "Practice formulating requests for different situations.",
+      "keywords": "Keywords",
+      "exampleRequest": "Example Request",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Example",
+        "cards": "Practice Cards"
+      }
     }
   },
   "results": {
@@ -840,10 +925,14 @@
       "subtitle": "Match headings to texts",
       "taskTitle": "Task:",
       "taskDescription": "Read the following five texts and assign a suitable heading to each text. There are more headings than texts. Each heading can only be used once.",
+      "a1TaskDescription": "Read the text and decide if the statements are correct (Richtig) or incorrect (Falsch).",
       "headings": "Headings (a-j):",
       "texts": "Texts (1-{{count}}):",
       "text": "Text",
+      "questions": "Questions",
       "selectHeading": "Select heading:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
       "incompleteMessage": "Please assign a heading to all texts before continuing.",
@@ -855,6 +944,8 @@
       "subtitle": "Multiple choice questions",
       "taskTitle": "Task:",
       "taskDescription": "Read the following text and answer the questions by selecting the correct answer.",
+      "a1TaskDescription": "Read each situation and choose the correct option (website or advertisement) that matches.",
+      "option": "Option",
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
@@ -865,9 +956,12 @@
       "subtitle": "Match advertisements",
       "taskTitle": "Task:",
       "taskDescription": "Read the advertisements and the situations. Which advertisement fits which situation? There is not a suitable advertisement for every situation.",
+      "a1TaskDescription": "Read the context and the statement, then decide if it is correct (Richtig) or incorrect (Falsch).",
       "advertisements": "Advertisements:",
       "situations": "Situations:",
       "selectAdvertisement": "Select advertisement:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
       "incompleteMessage": "Please answer all situations before submitting. {{count}} situation(s) remaining."

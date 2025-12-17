@@ -32,6 +32,7 @@ const SpeakingMenuScreen: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       const isB2 = activeExamConfig.level === 'B2';
+      const isA1 = activeExamConfig.level === 'A1';
       
       if (isB2) {
         // Load B2 data
@@ -58,6 +59,9 @@ const SpeakingMenuScreen: React.FC = () => {
           title: q.title 
         }));
         setB2Part3Questions(part3Questions);
+      } else if (isA1) {
+        // A1 level doesn't need to load data since parts don't have multiple exams
+        // Data is loaded directly in each screen
       } else {
         // Load B1 data
         const [part2Data, part3Data, part4Data] = await Promise.all([
@@ -142,12 +146,45 @@ const SpeakingMenuScreen: React.FC = () => {
     navigation.navigate('B2SpeakingPart3', { questionId });
   };
 
+  const handleA1Part1Press = () => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'a1-part1' });
+    navigation.navigate('A1SpeakingPart1');
+  };
+
+  const handleA1Part2Press = () => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'a1-part2' });
+    navigation.navigate('A1SpeakingPart2');
+  };
+
+  const handleA1Part3Press = () => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part: 'a1-part3' });
+    navigation.navigate('A1SpeakingPart3');
+  };
+
+  const isA1 = activeExamConfig.level === 'A1';
   const isB1 = activeExamConfig.level === 'B1';
   const isB2 = activeExamConfig.level === 'B2';
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
+        {isA1 && (
+          <>
+            <Card style={styles.card} onPress={handleA1Part1Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a1Part1.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleA1Part2Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part2')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a1Part2.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleA1Part3Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a1Part3.menuDescription')}</Text>
+            </Card>
+          </>
+        )}
+
         {isB2 && (
           <>
             <Card style={styles.card} onPress={handleB2StructurePress}>

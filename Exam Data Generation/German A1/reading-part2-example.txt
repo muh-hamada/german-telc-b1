@@ -1,0 +1,97 @@
+Reading Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- 5 questions. Ids start from number "6"
+-- each question have a "situation" and two "options". Use \n to separate between lines and _ for words with underline (links)
+- id: int
+- title: general title for the question - extract some info from the questions. 4-6 words long
+
+{
+    "id": 0,
+    "title": "Informationen über ein Schiff, ein Sprachinstitut oder ein Reisebüro",
+    "questions": [
+        {
+            "id": 6,
+            "situation": "Sie möchten mit dem Schiff auf dem Rhein fahren. Wo bekommen Sie Informationen?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "www.schiff-ruedesheim.de\nHotel – Pension – Schiff\nEinzel- und Doppelzimmer\nmit Dusche/WC\nRestaurant mit Rhein-Terrasse\n_Preise_ _über uns_ _Buchung_",
+                    "is_correct": false
+                },
+                {
+                    "id": 2,
+                    "option": "www.bingen-ruedesheimer.de\nBingen-Rüdesheimer Rheinschiffe\ntäglich von Rüdesheim nach Koblenz\nalle Abfahrtszeiten und Preise\n_hier_",
+                    "is_correct": true
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "situation": "Sie möchten Deutsch in Deutschland lernen. Wo finden Sie Informationen?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "www.sprachenfuchs.de\nSprachinstitut Fuchs\nDresden, Prager Str. 4\n– Deutsch – Englisch\n– Französisch – Russisch\n> Die Schule > Die Preise\n> Die Kurse > Kontakt",
+                    "is_correct": true
+                },
+                {
+                    "id": 2,
+                    "text": "www.eviva.com\nEviva-Idiomas\nSprachkurse für Deutsche\nSpanisch auf Mallorca, Englisch auf Malta\n• Unsere Preise\n• Buchungen\n• Unser Unterricht",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "situation": "Sie möchten ein Zugticket im Internet kaufen. Wo können Sie das?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "www.DER.com\nDeutsches Reisebüro\nTicketbestellungen und Reservierungen\nfür Flüge weltweit, Deutsche Bahn\nEurobus, 24-Stunden-Service\n_E-Mail_ _Ticketbestellung_",
+                    "is_correct": true
+                },
+                {
+                    "id": 2,
+                    "text": "www.RED.com\nReisedienst GmbH\nTicketservice für Theater, Konzerte,\nBusreisen in Deutschland und nach\nPolen, Tschechien und Ungarn\n_Konzertservice_ _Theater_ _Busreisen_",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "situation": "Sie möchten Informationen über den Bodensee. Wo finden Sie das?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "www.bodensee.de\nTouristeninformation\nBodensee\nUrlaubsorte\nHotelservice\nFerienwohnungen\nRundreisen",
+                    "is_correct": true
+                },
+                {
+                    "id": 2,
+                    "text": "www.rottenmeier.de\nHans Rottenmeier\nFerienwohnungen am Bodensee\n_Häuser_\n_Preise_\n_Kontakte_",
+                    "is_correct": false
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "situation": "Sie sind in Wiesbaden und möchten mit dem Zug am Mittag in Hamburg sein. Wo finden Sie den richtigen Zug, bei Information a oder b?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "www.reiseauskunft.bahn.de\nBahnhof Datum Zeit Dauer Umsteigen\nAngebot\nab Hamburg 17.02. 12:18 4:34 1 ICE, S\nan Wiesbaden 17.02. 16:52",
+                    "is_correct": false
+                },
+                {
+                    "id": 2,
+                    "text": "www.reiseauskunft.bahn.de\nBahnhof Datum Zeit Dauer Umsteigen\nAngebot\nab Wiesbaden 17.02. 12:18 4:34 1 S, ICE\nan Hamburg 17.02. 16:52",
+                    "is_correct": true
+                }
+            ]
+        }
+    ]
+}
+
+
+

@@ -1,0 +1,40 @@
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- 5 questions. Ids start from number "1"
+- text: email. Use \n and \n\n to seperate lines
+- id: int
+- title: general title for the question. 4-6 words long
+
+{
+  "id": 0,
+  "title": "Party bei Ralf",
+  "text": "Liebe Carmen, lieber José,\n\nam kommenden Sonntag habe ich Geburtstag. Ich möchte gerne mit euch feiern und lade euch herzlich zu meiner Party am Samstagabend ein. Wir fangen um 21 Uhr an. Ist das okay für euch? Es werden eine ganze Menge Leute da sein, die ihr auch kennt. Könntet ihr vielleicht einen Salat mit-bringen? Und vergesst bitte nicht einen Pullover oder eine Jacke! Wir wollen nämlich draußen im Garten feiern. Ich freue mich sehr auf euch!\n\nBis zum Wochenende\nRalf",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Lis Zug kommt nach halb eins an.",
+      "is_correct": true
+    },
+    {
+      "id": 2,
+      "question": "Karin wartet den ganzen Vormittag vor der Auskunft.",
+      "is_correct": false
+    },
+    {
+      "id": 3,
+      "question": "Ralf hatte am letzten Wochenende Geburtstag.",
+      "is_correct": false
+    },
+    {
+      "id": 4,
+      "question": "Ralf hat nur zwei oder drei Leute eingeladen.",
+      "is_correct": false
+    },
+    {
+      "id": 5,
+      "question": "Die Party findet draußen statt.",
+      "is_correct": true
+    }
+  ]
+}

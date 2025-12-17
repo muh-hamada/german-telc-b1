@@ -81,11 +81,23 @@
     "failedToLoad": "Error al cargar los datos del examen",
     "selectAnExam": "Seleccionar un examen",
     "selectTask": "Seleccionar tarea",
+    "completed": "Completado",
+    "completedCount": "{{completed}}/{{total}} completado",
     "markedCompleted": "¡Examen marcado como completado!",
     "markedIncomplete": "¡Examen marcado como incompleto!",
     "completionFailed": "Error al actualizar el estado de finalización",
     "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso",
-    "completedCount": "{{completed}}/{{total}} completado"
+    "incomplete": "Respuestas incompletas",
+    "incompleteMessage": "Por favor responda todas las preguntas antes de enviar.",
+    "congratulations": "¡Felicitaciones!",
+    "keepPracticing": "Sigue practicando",
+    "yourScore": "Tu puntuación",
+    "retry": "Reintentar",
+    "submit": "Enviar",
+    "detailedResults": "Resultados detallados",
+    "yourAnswer": "Tu respuesta",
+    "correctAnswer": "Respuesta correcta",
+    "noAnswer": "(Sin respuesta)"
   },
   "onboarding": {
     "welcome": "Preparémonos juntos para el examen de {{language}} TELC {{level}}",
@@ -229,11 +241,21 @@
       "part1": "Parte 1: Relacionar títulos",
       "part2": "Parte 2: Opción múltiple",
       "part3": "Parte 3: Relacionar anuncios",
+      "a1": {
+        "part1": "Parte 1: Cartas y mensajes",
+        "part2": "Parte 2: Sitios web y anuncios",
+        "part3": "Parte 3: Carteles y avisos"
+      },
       "descriptions": {
         "main": "Practica comprensión lectora con varios tipos de texto",
         "part1": "Relaciona títulos con textos",
         "part2": "Preguntas de opción múltiple sobre un texto",
-        "part3": "Relaciona situaciones con anuncios"
+        "part3": "Relaciona situaciones con anuncios",
+        "a1": {
+          "part1": "Lea cartas y mensajes, luego decida si las afirmaciones son verdaderas o falsas",
+          "part2": "Lea situaciones y elija el sitio web o anuncio correcto",
+          "part3": "Lea carteles y avisos, luego juzgue si las afirmaciones son correctas"
+        }
       }
     },
     "listening": {
@@ -259,7 +281,29 @@
     },
     "writing": {
       "title": "Expresión Escrita",
-      "description": "Escribe un correo electrónico formal o semiformal."
+      "description": "Escribe un correo electrónico formal o semiformal.",
+      "part1": "Parte 1: Completar un formulario",
+      "part2": "Parte 2: Escribir un correo/carta",
+      "a1": {
+        "part1": "Parte 1: Rellenar un formulario",
+        "part2": "Parte 2: Escribir un correo"
+      },
+      "descriptions": {
+        "part1": "Complete un formulario con información faltante",
+        "part2": "Escriba un correo electrónico o carta abordando puntos específicos",
+        "a1": {
+          "part1": "Lea un escenario y complete la información faltante en un formulario",
+          "part2": "Escriba un correo electrónico o carta corta abordando los puntos dados (aproximadamente 30 palabras por punto)"
+        }
+      },
+      "taskPoints": "Puntos de tarea",
+      "yourText": "Tu correo/carta",
+      "emailPlaceholder": "Comienza a escribir tu correo o carta aquí...",
+      "characters": "Caracteres",
+      "words": "Palabras",
+      "pointsAddressed": "puntos abordados",
+      "suggestedKeywords": "Palabras clave sugeridas",
+      "minCharactersRequired": "Por favor escribe al menos {{count}} caracteres."
     },
     "speaking": {
       "title": "Expresión Oral",
@@ -739,6 +783,48 @@
       "help": {
         "dialogueNote": "Trabaja con tu compañero para planificar algo. Considera lo que hay que tener en cuenta, aporta tus ideas y sugerencias, y responde a las propuestas de tu compañero."
       }
+    },
+    "a1Part1": {
+      "menuDescription": "Proporciona información importante sobre ti",
+      "goal": "Objetivo",
+      "steps": "Pasos",
+      "keywords": "Palabras clave",
+      "exampleIntroduction": "Ejemplo de presentación",
+      "followUpQuestions": "Preguntas de seguimiento",
+      "tabs": {
+        "instructions": "Instrucciones",
+        "example": "Ejemplo",
+        "interaction": "Preguntas y respuestas"
+      }
+    },
+    "a1Part2": {
+      "menuDescription": "Haz y responde preguntas sobre temas cotidianos",
+      "goal": "Objetivo",
+      "steps": "Pasos",
+      "topic": "Tema",
+      "cardWords": "Tarjetas de palabras",
+      "cardDescription": "Saca una tarjeta y formula una pregunta con esa palabra.",
+      "exampleDialogue": "Diálogo de ejemplo",
+      "tabs": {
+        "instructions": "Instrucciones",
+        "cards": "Tarjetas",
+        "example": "Ejemplo"
+      }
+    },
+    "a1Part3": {
+      "menuDescription": "Formula peticiones y responde a peticiones",
+      "goal": "Objetivo",
+      "steps": "Pasos",
+      "exampleScenario": "Escenario de ejemplo",
+      "practiceCards": "Tarjetas de práctica",
+      "cardsDescription": "Practica la formulación de peticiones para diferentes situaciones.",
+      "keywords": "Palabras clave",
+      "exampleRequest": "Petición de ejemplo",
+      "tabs": {
+        "instructions": "Instrucciones",
+        "example": "Ejemplo",
+        "cards": "Tarjetas de práctica"
+      }
     }
   },
   "results": {
@@ -809,10 +895,14 @@
       "subtitle": "Relacionar títulos con textos",
       "taskTitle": "Tarea:",
       "taskDescription": "Lea los siguientes cinco textos y asigne un título adecuado a cada texto. Hay más títulos que textos. Cada título solo se puede usar una vez.",
+      "a1TaskDescription": "Lea el texto y decida si las afirmaciones son correctas (Richtig) o incorrectas (Falsch).",
       "headings": "Títulos (a-j):",
       "texts": "Textos (1-{{count}}):",
       "text": "Texto",
+      "questions": "Preguntas",
       "selectHeading": "Seleccionar título:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor asigne un título a todos los textos antes de continuar.",
@@ -824,6 +914,8 @@
       "subtitle": "Preguntas de opción múltiple",
       "taskTitle": "Tarea:",
       "taskDescription": "Lea el siguiente texto y responda las preguntas seleccionando la respuesta correcta.",
+      "a1TaskDescription": "Lea cada situación y elija la opción correcta (sitio web o anuncio) que corresponda.",
+      "option": "Opción",
       "questions": "Preguntas ({{first}}-{{last}}):",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
@@ -834,9 +926,12 @@
       "subtitle": "Relacionar anuncios",
       "taskTitle": "Tarea:",
       "taskDescription": "Lea los anuncios y las situaciones. ¿Qué anuncio se ajusta a qué situación? No hay un anuncio adecuado para cada situación.",
+      "a1TaskDescription": "Lea el contexto y la afirmación, luego decida si es correcta (Richtig) o incorrecta (Falsch).",
       "advertisements": "Anuncios:",
       "situations": "Situaciones:",
       "selectAdvertisement": "Seleccionar anuncio:",
+      "richtig": "Richtig",
+      "falsch": "Falsch",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor responda todas las situaciones antes de enviar. {{count}} situación(es) restante(s)."

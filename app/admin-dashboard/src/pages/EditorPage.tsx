@@ -90,7 +90,7 @@ export const EditorPage: React.FC = () => {
   const handleValidate = () => {
     try {
       const parsedData = JSON.parse(content);
-      const level = (appConfig?.level || 'B1') as 'B1' | 'B2';
+      const level = (appConfig?.level || 'B1') as 'B1' | 'B2' | 'A1';
       const validation = validateDocument(documentId!, parsedData, level);
       
       if (validation.valid) {

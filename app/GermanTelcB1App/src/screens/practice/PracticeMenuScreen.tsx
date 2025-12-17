@@ -16,6 +16,7 @@ import { dataService } from '../../services/data.service';
 import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -24,6 +25,8 @@ const PracticeMenuScreen: React.FC = () => {
   const [writingExams, setWritingExams] = useState<any[]>([]);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+
+  const isA1 = activeExamConfig.level === 'A1';
 
   useEffect(() => {
     const loadWritingExams = async () => {
@@ -46,8 +49,15 @@ const PracticeMenuScreen: React.FC = () => {
   };
 
   const handleWritingPress = () => {
-    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });
-    setShowWritingModal(true);
+    if (isA1) {
+      // For A1, navigate to WritingMenu screen
+      logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'writing' });
+      navigation.navigate('WritingMenu');
+    } else {
+      // For B1/B2, show exam selection modal directly
+      logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });
+      setShowWritingModal(true);
+    }
   };
 
   const handleSelectWritingExam = (examId: number) => {
@@ -82,12 +92,14 @@ const PracticeMenuScreen: React.FC = () => {
           </Text>
         </Card>
 
-        <Card style={styles.card} onPress={handleGrammarPress}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.grammar.descriptions.main')}
-          </Text>
-        </Card>
+        {!isA1 && (
+          <Card style={styles.card} onPress={handleGrammarPress}>
+            <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('practice.grammar.descriptions.main')}
+            </Text>
+          </Card>
+        )}
 
         <Card style={styles.card} onPress={handleWritingPress}>
           <Text style={styles.cardTitle}>{t('practice.writing.title')}</Text>
@@ -103,16 +115,18 @@ const PracticeMenuScreen: React.FC = () => {
           </Text>
         </Card>
       </ScrollView>
-      
-      <ExamSelectionModal
-        visible={showWritingModal}
-        onClose={() => setShowWritingModal(false)}
-        exams={writingExams}
-        onSelectExam={handleSelectWritingExam}
-        examType="writing"
-        partNumber={1}
-        title={t('practice.writing.title')}
-      />
+
+      {!isA1 && (
+        <ExamSelectionModal
+          visible={showWritingModal}
+          onClose={() => setShowWritingModal(false)}
+          exams={writingExams}
+          onSelectExam={handleSelectWritingExam}
+          examType="writing"
+          partNumber={1}
+          title={t('practice.writing.title')}
+        />
+      )}
 
     </View>
   );

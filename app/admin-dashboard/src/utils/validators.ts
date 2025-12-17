@@ -9,14 +9,14 @@ export interface ValidationResult {
 const findDuplicateIds = (ids: (number | string)[]): (number | string)[] => {
   const seen = new Set<number | string>();
   const duplicates = new Set<number | string>();
-  
+
   ids.forEach(id => {
     if (seen.has(id)) {
       duplicates.add(id);
     }
     seen.add(id);
   });
-  
+
   return Array.from(duplicates);
 };
 
@@ -929,12 +929,24 @@ export const validateB2OralExamStructure = (data: any): ValidationResult => {
  * @param level - The exam level ('B1' or 'B2'), defaults to 'B1' for backward compatibility
  * @returns ValidationResult with valid flag and any errors found
  */
-export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' = 'B1'): ValidationResult => {
+export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' | 'A1' = 'B1'): ValidationResult => {
   try {
     // First check if data is valid JSON
     if (typeof data !== 'object' || data === null) {
       return { valid: false, errors: ['Invalid JSON structure'] };
     }
+
+    if (level === 'A1') {
+      switch (docId) {
+        case 'writing-part1':
+          return { valid: true, errors: [] }; // TODO: Implement writing part 1 validation
+        case 'writing-part2':
+          return { valid: true, errors: [] }; // TODO: Implement writing part 2 validation
+        default:
+          return { valid: false, errors: [`Unknown document type: ${docId}`] };
+      }
+    }
+
 
     // Route to specific validator based on document ID and level
     if (level === 'B2') {

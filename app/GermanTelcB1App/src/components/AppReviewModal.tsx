@@ -169,7 +169,7 @@ const createStyles = (colors: ThemeColors) =>
       elevation: 4,
     },
     rateButtonText: {
-      color: colors.text.primary,
+      color: colors.white,
       fontSize: 17,
       fontWeight: '600',
     },

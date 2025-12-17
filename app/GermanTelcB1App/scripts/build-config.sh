@@ -15,6 +15,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "Example: ./scripts/build-config.sh german-b1 android"
   echo ""
   echo "Available exam IDs:"
+  echo "  - german-a1"
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"
@@ -58,7 +59,7 @@ if [ "$PLATFORM" = "android" ]; then
   echo "Copying app icon logo for Android..."
   
   # Extract level from exam ID (e.g., german-b1 -> b1)
-  LEVEL=$(echo "$EXAM_ID" | grep -o 'b[12]')
+  LEVEL=$(echo "$EXAM_ID" | grep -o '[ab][12]')
   # Extract language from exam ID (e.g., german-b1 -> german)
   LANGUAGE=$(echo "$EXAM_ID" | sed 's/-b[12]$//')
   

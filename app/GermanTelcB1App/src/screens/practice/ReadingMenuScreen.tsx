@@ -14,6 +14,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const ReadingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -59,40 +60,75 @@ const ReadingMenuScreen: React.FC = () => {
 
   const handleSelectPart1Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
-    navigation.navigate('ReadingPart1', { examId });
+    // Check app level and navigate to appropriate screen
+    if (activeExamConfig.level === 'A1') {
+      navigation.navigate('ReadingPart1A1', { examId });
+    } else {
+      navigation.navigate('ReadingPart1', { examId });
+    }
   };
 
   const handleSelectPart2Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
-    navigation.navigate('ReadingPart2', { examId });
+    // Check app level and navigate to appropriate screen
+    if (activeExamConfig.level === 'A1') {
+      navigation.navigate('ReadingPart2A1', { examId });
+    } else {
+      navigation.navigate('ReadingPart2', { examId });
+    }
   };
 
   const handleSelectPart3Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
-    navigation.navigate('ReadingPart3', { examId });
+    // Check app level and navigate to appropriate screen
+    if (activeExamConfig.level === 'A1') {
+      navigation.navigate('ReadingPart3A1', { examId });
+    } else {
+      navigation.navigate('ReadingPart3', { examId });
+    }
   };
+
+  const isA1 = activeExamConfig.level === 'A1';
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>{t('practice.reading.part1')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.reading.a1.part1')
+              : t('practice.reading.part1')}
+          </Text>
           <Text style={styles.cardDescription}>
-            {t('practice.reading.descriptions.part1')}
+            {isA1 
+              ? t('practice.reading.descriptions.a1.part1')
+              : t('practice.reading.descriptions.part1')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>{t('practice.reading.part2')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.reading.a1.part2')
+              : t('practice.reading.part2')}
+          </Text>
           <Text style={styles.cardDescription}>
-            {t('practice.reading.descriptions.part2')}
+            {isA1 
+              ? t('practice.reading.descriptions.a1.part2')
+              : t('practice.reading.descriptions.part2')}
           </Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart3Press}>
-          <Text style={styles.cardTitle}>{t('practice.reading.part3')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.reading.a1.part3')
+              : t('practice.reading.part3')}
+          </Text>
           <Text style={styles.cardDescription}>
-            {t('practice.reading.descriptions.part3')}
+            {isA1 
+              ? t('practice.reading.descriptions.a1.part3')
+              : t('practice.reading.descriptions.part3')}
           </Text>
         </Card>
       </ScrollView>
