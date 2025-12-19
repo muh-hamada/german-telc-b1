@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { activeExamConfig } from '../config/active-exam.config';
 import ExamStepper from '../components/ExamStepper';
 import ReadingPart1Wrapper from '../components/exam-wrappers/ReadingPart1Wrapper';
 import ReadingPart2Wrapper from '../components/exam-wrappers/ReadingPart2Wrapper';
@@ -80,9 +81,6 @@ const MockExamRunningScreen: React.FC = () => {
   const currentStep = examProgress.steps.find(
     step => step.id === examProgress.currentStepId
   );
-  const currentStepIndex = examProgress.steps.findIndex(
-    step => step.id === examProgress.currentStepId
-  );
 
   const handleCompleteStep = async (score: number, answers: UserAnswer[]) => {
     try {
@@ -125,6 +123,7 @@ const MockExamRunningScreen: React.FC = () => {
 
     // Get testId for current step
     const testId = getTestIdForStep(currentStep.id, examProgress.selectedTests);
+    const isA1 = activeExamConfig.level === 'A1';
 
     // Check if it's a speaking section
     if (currentStep.sectionNumber === 5) {
@@ -174,11 +173,11 @@ const MockExamRunningScreen: React.FC = () => {
       return <ReadingPart3Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
 
-    // Section 2: Language (Sprachbausteine)
-    if (currentStep.id === 'language-1') {
+    // Section 2: Language (Sprachbausteine) - B1/B2 only
+    if (!isA1 && currentStep.id === 'language-1') {
       return <LanguagePart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
-    if (currentStep.id === 'language-2') {
+    if (!isA1 && currentStep.id === 'language-2') {
       return <LanguagePart2Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
 
@@ -194,8 +193,9 @@ const MockExamRunningScreen: React.FC = () => {
     }
 
     // Section 4: Writing (Schriftlicher Ausdruck)
-    if (currentStep.id === 'writing') {
-      return <WritingWrapper testId={testId} onComplete={handleCompleteStep} />;
+    // A1 has writing-part1 and writing-part2, B1/B2 have just 'writing'
+    if (currentStep.id === 'writing' || currentStep.id === 'writing-part1' || currentStep.id === 'writing-part2') {
+      return <WritingWrapper testId={testId} stepId={currentStep.id} onComplete={handleCompleteStep} />;
     }
 
     return null;
@@ -203,6 +203,8 @@ const MockExamRunningScreen: React.FC = () => {
 
 
   const renderResults = () => {
+    const isA1 = activeExamConfig.level === 'A1';
+    
     const writtenScore = examProgress.steps
       .filter(step => step.sectionNumber <= 4)
       .reduce((acc, step) => acc + (step.score || 0), 0);
@@ -211,16 +213,20 @@ const MockExamRunningScreen: React.FC = () => {
       .filter(step => step.sectionNumber === 5)
       .reduce((acc, step) => acc + (step.score || 0), 0);
 
-    const writtenMaxPoints = 225;
-    const oralMaxPoints = 75;
+    const writtenMaxPoints = examProgress.totalMaxPoints;
+    const oralMaxPoints = isA1 ? 15 : 75;
 
     const writtenPercentage = (writtenScore / writtenMaxPoints) * 100;
     const oralPercentage = oralScore > 0 ? (oralScore / oralMaxPoints) * 100 : 0;
     const totalPercentage = (examProgress.totalScore / examProgress.totalMaxPoints) * 100;
 
-    const passedWritten = writtenScore >= 135;
-    const passedOral = oralScore >= 45 || oralScore === 0; // Skip oral if not taken
-    const passedOverall = examProgress.totalScore >= 180 && passedWritten;
+    const passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
+    const passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
+    const passingTotalPoints = isA1 ? 36 : 180; // 60% of total
+    
+    const passedWritten = writtenScore >= passingWrittenPoints;
+    const passedOral = oralScore >= passingOralPoints || oralScore === 0; // Skip oral if not taken
+    const passedOverall = examProgress.totalScore >= passingTotalPoints && passedWritten;
 
     return (
       <ScrollView style={styles.resultsContainer} contentContainerStyle={styles.resultsContent}>
@@ -232,7 +238,7 @@ const MockExamRunningScreen: React.FC = () => {
           passedOverall ? styles.resultCardPass : styles.resultCardFail
         ]}>
           <Text style={styles.resultCardTitle}>
-            {passedOverall ? `✅ ${t('mockExam.passed')} (≥180%)` : `❌ ${t('mockExam.failed')} (<180%)`}
+            {passedOverall ? `✅ ${t('mockExam.passed')} (≥60%)` : `❌ ${t('mockExam.failed')} (<60%)`}
           </Text>
           <Text style={styles.resultScore}>
             {examProgress.totalScore} / {examProgress.totalMaxPoints}
@@ -250,7 +256,7 @@ const MockExamRunningScreen: React.FC = () => {
             styles.componentStatus,
             passedWritten ? styles.componentStatusPass : styles.componentStatusFail
           ]}>
-            {passedWritten ? `✓ ${t('mockExam.passed')} (≥135%)` : `✗ ${t('mockExam.failed')} (<135%)`}
+            {passedWritten ? `✓ ${t('mockExam.passed')} (≥60%)` : `✗ ${t('mockExam.failed')} (<60%)`}
           </Text>
         </View>
 

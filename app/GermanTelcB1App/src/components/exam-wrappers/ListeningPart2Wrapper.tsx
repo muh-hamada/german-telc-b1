@@ -3,8 +3,10 @@ import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
 import { ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../exam-ui/ListeningPart2UI';
+import ListeningPart2UIA1 from '../exam-ui/ListeningPart2UIA1';
 import { UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 interface ListeningPart2WrapperProps {
   testId: number;
@@ -24,6 +26,7 @@ interface Exam {
 }
 
 const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, onComplete }) => {
+  const isA1 = activeExamConfig.level === 'A1';
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +35,7 @@ const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, o
   
   useEffect(() => {
     loadData();
-  }, [testId]);
+  }, [testId, isA1]);
 
   const loadData = async () => {
     try {
@@ -70,11 +73,19 @@ const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, o
 
   return (
     <View style={styles.container}>
-      <ListeningPart2UI 
-        exam={exam} 
-        sectionDetails={sectionDetails}
-        onComplete={onComplete} 
-      />
+      {isA1 ? (
+        <ListeningPart2UIA1 
+          exam={exam} 
+          sectionDetails={sectionDetails}
+          onComplete={onComplete} 
+        />
+      ) : (
+        <ListeningPart2UI 
+          exam={exam} 
+          sectionDetails={sectionDetails}
+          onComplete={onComplete} 
+        />
+      )}
     </View>
   );
 };

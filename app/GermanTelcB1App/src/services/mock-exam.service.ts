@@ -3,6 +3,7 @@ import { MockExamProgress } from '../types/mock-exam.types';
 import { dataService } from './data.service';
 import { AnalyticsEvents, logEvent } from './analytics.events';
 import { UserAnswer } from '../types/exam.types';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
@@ -11,28 +12,59 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
  * Picks one random test from each section's available exams
  */
 export const generateRandomExamSelection = async () => {
+  const isA1 = activeExamConfig.level === 'A1';
+  
   // Fetch all available exams for each section
-  const [
-    readingPart1Exams,
-    readingPart2Exams,
-    readingPart3Exams,
-    grammarPart1Exams,
-    grammarPart2Exams,
-    writingExams,
-    listeningPart1Data,
-    listeningPart2Data,
-    listeningPart3Data
-  ] = await Promise.all([
+  const promises: Promise<any>[] = [
     dataService.getReadingPart1Exams(),
     dataService.getReadingPart2Exams(),
     dataService.getReadingPart3Exams(),
-    dataService.getGrammarPart1Exams(),
-    dataService.getGrammarPart2Exams(),
+  ];
+
+  // Only fetch grammar for B1/B2
+  if (!isA1) {
+    promises.push(
+      dataService.getGrammarPart1Exams(),
+      dataService.getGrammarPart2Exams()
+    );
+  }
+
+  promises.push(
     dataService.getWritingExams(),
     dataService.getListeningPart1Content(),
     dataService.getListeningPart2Content(),
-    dataService.getListeningPart3Content(),
-  ]);
+    dataService.getListeningPart3Content()
+  );
+
+  const results = await Promise.all(promises);
+  
+  let readingPart1Exams, readingPart2Exams, readingPart3Exams;
+  let grammarPart1Exams, grammarPart2Exams;
+  let writingExams, listeningPart1Data, listeningPart2Data, listeningPart3Data;
+
+  if (isA1) {
+    [
+      readingPart1Exams,
+      readingPart2Exams,
+      readingPart3Exams,
+      writingExams,
+      listeningPart1Data,
+      listeningPart2Data,
+      listeningPart3Data
+    ] = results;
+  } else {
+    [
+      readingPart1Exams,
+      readingPart2Exams,
+      readingPart3Exams,
+      grammarPart1Exams,
+      grammarPart2Exams,
+      writingExams,
+      listeningPart1Data,
+      listeningPart2Data,
+      listeningPart3Data
+    ] = results;
+  }
 
   const listeningPart1Exams = listeningPart1Data?.exams || [];
   const listeningPart2Exams = listeningPart2Data?.exams || [];
@@ -44,17 +76,25 @@ export const generateRandomExamSelection = async () => {
     return exams[randomIndex].id;
   };
 
-  const selectedTests = {
+  const selectedTests: any = {
     'reading-1': getRandomId(readingPart1Exams),
     'reading-2': getRandomId(readingPart2Exams),
     'reading-3': getRandomId(readingPart3Exams),
-    'language-1': getRandomId(grammarPart1Exams),
-    'language-2': getRandomId(grammarPart2Exams),
     'listening-1': getRandomId(listeningPart1Exams),
     'listening-2': getRandomId(listeningPart2Exams),
     'listening-3': getRandomId(listeningPart3Exams),
-    'writing': getRandomId(writingExams),
   };
+
+  if (isA1) {
+    // A1 has writing-part1 and writing-part2, use same writing exam for both
+    selectedTests['writing-part1'] = getRandomId(writingExams);
+    selectedTests['writing-part2'] = selectedTests['writing-part1'];
+  } else {
+    // B1/B2 have language sections and single writing
+    selectedTests['language-1'] = getRandomId(grammarPart1Exams);
+    selectedTests['language-2'] = getRandomId(grammarPart2Exams);
+    selectedTests['writing'] = getRandomId(writingExams);
+  }
 
   console.log('[generateRandomExamSelection] selectedTests', selectedTests);
 
@@ -127,11 +167,15 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
   const selectedTests = await generateRandomExamSelection();
   const examId = `mock-exam-${Date.now()}`;
 
-  // Import MOCK_EXAM_STEPS to initialize steps
-  const { MOCK_EXAM_STEPS } = require('../types/mock-exam.types');
+  // Import appropriate MOCK_EXAM_STEPS based on exam level
+  const isA1 = activeExamConfig.level === 'A1';
+  const { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, TOTAL_WRITTEN_MAX_POINTS, TOTAL_WRITTEN_MAX_POINTS_A1 } = require('../types/mock-exam.types');
+  
+  const examSteps = isA1 ? MOCK_EXAM_STEPS_A1 : MOCK_EXAM_STEPS;
+  const writtenMaxPoints = isA1 ? TOTAL_WRITTEN_MAX_POINTS_A1 : TOTAL_WRITTEN_MAX_POINTS;
   
   // Filter out speaking sections as they're not included in mock exam
-  const steps = MOCK_EXAM_STEPS
+  const steps = examSteps
     .filter((step: any) => step.sectionNumber !== 5) // Exclude speaking
     .map((step: any) => ({
       ...step,
@@ -148,7 +192,7 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
     steps,
     selectedTests,
     totalScore: 0,
-    totalMaxPoints: 225, // Written sections only (no speaking)
+    totalMaxPoints: writtenMaxPoints, // Written sections only (no speaking)
     isCompleted: false,
     hasStarted: false,
   };
@@ -212,12 +256,15 @@ export const updateStepProgress = async (
       progress.endDate = Date.now();
 
       // Track exam completed
+      const isA1 = activeExamConfig.level === 'A1';
       const writtenScore = progress.steps
         .filter(s => s.sectionNumber <= 4)
         .reduce((acc, s) => acc + (s.score || 0), 0);
-      const writtenMaxPoints = 225;
-      const passedWritten = writtenScore >= 135;
-      const passedOverall = progress.totalScore >= 180 && passedWritten;
+      const writtenMaxPoints = progress.totalMaxPoints;
+      const passingWrittenPoints = isA1 ? 27 : 135; // 60% of max points
+      const passingTotalPoints = isA1 ? 36 : 180; // 60% of total points
+      const passedWritten = writtenScore >= passingWrittenPoints;
+      const passedOverall = progress.totalScore >= passingTotalPoints && passedWritten;
 
       logEvent(AnalyticsEvents.MOCK_EXAM_COMPLETED, {
         exam_id: progress.examId,
@@ -270,7 +317,7 @@ export const getTestIdForStep = (
   stepId: string,
   selectedTests: MockExamProgress['selectedTests']
 ): number => {
-  return selectedTests[stepId as keyof typeof selectedTests] || 0;
+  return selectedTests[stepId] || 0;
 };
 
 export const mockExamService = {

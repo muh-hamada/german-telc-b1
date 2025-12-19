@@ -19,7 +19,7 @@ const HomeHeader: React.FC<HomeHeaderProps> = () => {
   return (
     <View style={styles.textContainer} >
       <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
-        {user ? t('home.welcomeUser', { name: DEMO_MODE ? 'Sarah Johnson' : user.displayName }) : t('home.welcomeGuest')}
+        {DEMO_MODE ? 'Welcome, Sarah Johnson' : (user ? t('home.welcomeUser', { name: user.displayName }) : t('home.welcomeGuest'))}
       </Text>
     </View>
   );

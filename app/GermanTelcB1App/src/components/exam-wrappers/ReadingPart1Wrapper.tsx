@@ -3,8 +3,10 @@ import { View, StyleSheet, Text } from 'react-native';
 import { ThemeColors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart1UI from '../exam-ui/ReadingPart1UI';
-import { ReadingPart1Exam, UserAnswer } from '../../types/exam.types';
+import ReadingPart1A1UI from '../exam-ui/ReadingPart1A1UI';
+import { ReadingPart1Exam, ReadingPart1A1Exam, UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 interface ReadingPart1WrapperProps {
   testId: number;
@@ -12,7 +14,8 @@ interface ReadingPart1WrapperProps {
 }
 
 const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onComplete }) => {
-  const [exam, setExam] = useState<ReadingPart1Exam | null>(null);
+  const isA1 = activeExamConfig.level === 'A1';
+  const [exam, setExam] = useState<ReadingPart1Exam | ReadingPart1A1Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -21,7 +24,12 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
     const loadExam = async () => {
       try {
         setIsLoading(true);
-        const loadedExam = await dataService.getReadingPart1ExamById(testId);
+        let loadedExam;
+        if (isA1) {
+          loadedExam = await dataService.getReadingPart1A1ExamById(testId);
+        } else {
+          loadedExam = await dataService.getReadingPart1ExamById(testId);
+        }
         setExam(loadedExam || null);
       } catch (error) {
         console.error('Error loading exam:', error);
@@ -30,7 +38,7 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
       }
     };
     loadExam();
-  }, [testId]);
+  }, [testId, isA1]);
 
   if (isLoading) {
     return (
@@ -46,7 +54,11 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
 
   return (
     <View style={styles.container}>
-      <ReadingPart1UI exam={exam} onComplete={onComplete} />
+      {isA1 ? (
+        <ReadingPart1A1UI exam={exam as ReadingPart1A1Exam} onComplete={onComplete} />
+      ) : (
+        <ReadingPart1UI exam={exam as ReadingPart1Exam} onComplete={onComplete} />
+      )}
     </View>
   );
 };
