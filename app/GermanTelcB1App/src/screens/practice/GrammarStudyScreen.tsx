@@ -75,7 +75,7 @@ const GrammarStudyScreen: React.FC = () => {
   const navigation = useNavigation();
   
   // Get support ad interval from remote config
-  const SUPPORT_AD_INTERVAL = 2;
+  const SUPPORT_AD_INTERVAL = getSupportAdInterval('grammarStudy');
 
   // Flatten all questions from all groups
   const [allQuestions, setAllQuestions] = useState<Array<{ question: Sentence; groupName: string; questionIndex: number }>>([]);

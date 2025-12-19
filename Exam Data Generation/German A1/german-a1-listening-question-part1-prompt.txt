@@ -1,0 +1,323 @@
+You are an expert in creating listening questions for the Telc German A1 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German A1 listening question.
+
+--- Conversations Start ---
+
+Nummer 1
+
+Speaker 1:Entschuldigung, was kostet dieser Pullover jetzt? Da steht 30% billiger.
+Speaker 2: Einen Moment bitte.
+Speaker 2: 19.95.
+Speaker 1: 19.95 Euro?
+Speaker 2: Ja, Euro natürlich.
+Speaker 1: Okay, den nehme ich.
+
+Question: Was kostet der Pullover?
+a) 30,00 €
+b) 95,00 €
+c) 19,95 €
+
+
+Nummer 2
+
+Speaker 1: Ach, entschuldigen Sie bitte.
+Speaker 2: Ja, bitte.
+Speaker 1: Haben Sie eine Uhr? Wie spät ist es bitte?
+Speaker 2: Ja, jetzt ist es gleich 5 Uhr.
+Speaker 1: Was? Schon 5? Vielen Dank. Wiedersehen.
+
+Question: Wie spät ist es?
+a) 15.00 Uhr
+b) Gleich 17.00 Uhr
+c) 16.30 Uhr
+
+Nummer 3
+
+Speaker 1: Was wünschen Sie bitte?
+Speaker 2: Ich hätte gern die Salatplatte. Und ein
+Speaker 1: Entschuldigung, die Salatplatte ist leider aus, aber die Bratwurst kann ich Ihnen empfehlen. Ganz frisch heute.
+Speaker 2: Nein, danke. Ich esse kein Fleisch. Gibt es etwas ohne Fleisch?
+Speaker 1: Ja, nicht mehr viel. Fisch oder Pommes?
+Speaker 2: Fisch. Tja, dann wohl die Pommes.
+
+Question: Was isst die Frau im Restaurant?
+a) Pommes
+b) Fisch
+c) Wurst
+
+Nummer 4
+
+Speaker 1: Haben Sie Kinder, Frau Heger?
+Speaker 2: Ja, einen Sohn.
+Speaker 1: Und wie alt ist er?
+Speaker 2: 9 Jahre seit gestern.
+Speaker 1: Ach, da geht er ja schon zur Schule.
+Speaker 2: Ja, klar, schon in die dritte Klasse.
+
+Question: In welche Klasse geht Frau Hegers Sohn?
+a) In die neunte Klasse
+b) In die dritte Klasse
+c) In die vierte Klasse
+
+Nummer 5
+
+Speaker 1: Ach. Entschuldigen Sie, wie komme ich denn hier in den zweiten Stock? Die Rolltreppe da vorne ist kaputt.
+Speaker 2: Da gehen Sie hier rechts um die Ecke und nehmen den Aufzug.
+Speaker 1: Um die Ecke rechts? Aha, danke.
+
+Question: Wie kommt die Frau in den 2. Stock?
+a) Mit dem Aufzug
+b) Auf der Treppe um die Ecke
+c) Mit der Rolltreppe
+
+Nummer 6
+
+Speaker 1: Guten Morgen, Herr Alb. So früh schon bei der Arbeit?
+Speaker 2: Ja, ich habe noch viel zu tun. Morgen fahre ich doch für drei Wochen weg.
+Speaker 1: Ach ja, das hat Ich vergessen. Wohin fahren Sie denn?
+Speaker 2: Zu meinen Verwandten nach Polen.
+Speaker 1: Na dann, schöne Zeit.
+
+Question: Wohin fährt Herr Albers?
+a) In Urlaub ans Meer
+b) Zur Arbeit
+c) Zur Familie
+
+--- Conversations End ---
+
+
+Create the conversation, then structure it into a JSON file with the following format:
+Then for each conversation, create a question and 3 multi-choices
+
+For phone numbers in the text, write them with letters like (45: vier fünf)
+
+For each person in a conversation, create a seperate "type: 'speech'" item. Each item will be processes seperaretely later for Text-to-Speech
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'a1-part-1-intro' },
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-1' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'individual person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 1 parts here
+        
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-2' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 2 parts here
+        
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-3' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 3 parts here
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-4' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 4 parts here
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-5' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 5 parts here
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-6' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "conversation-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all conversation 6 parts here
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-1-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in german>, // The title should be 4-6 words and related to the conversations
+    "questions": [
+        {
+          "id": 1,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-3-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-11" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hier ist der Kundenservice der Stadtwerke. Unser Büro ist heute geschlossen. Für Notfälle rufen Sie bitte unsere Hotline an. Die Nummer ist fünf sechs sieben sieben acht. Ich wiederhole: fünf sechs sieben sieben acht.",
+      "voiceId": "person1",
+      "id": "interview-11"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hier ist der Kundenservice der Stadtwerke. Unser Büro ist heute geschlossen. Für Notfälle rufen Sie bitte unsere Hotline an. Die Nummer ist fünf sechs sieben sieben acht. Ich wiederhole: fünf sechs sieben sieben acht.",
+      "voiceId": "person1",
+      "id": "interview-11"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-12" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Anna, hier ist Pedro. Ich bin jetzt im Hotel angekommen. Wir treffen uns aber nicht im Zimmer. Komm bitte runter ins Restaurant. Ich warte dort an der Bar auf dich.",
+      "voiceId": "person2",
+      "id": "interview-12"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Anna, hier ist Pedro. Ich bin jetzt im Hotel angekommen. Wir treffen uns aber nicht im Zimmer. Komm bitte runter ins Restaurant. Ich warte dort an der Bar auf dich.",
+      "voiceId": "person2",
+      "id": "interview-12"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-13" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Tina, hier Monika. Ich bin im Café. Ich habe nur eine halbe Stunde Mittagspause. Ich muss in 10 Minuten wieder ins Büro gehen. Kommst du noch schnell vorbei?",
+      "voiceId": "person4",
+      "id": "interview-13"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Tina, hier Monika. Ich bin im Café. Ich habe nur eine halbe Stunde Mittagspause. Ich muss in 10 Minuten wieder ins Büro gehen. Kommst du noch schnell vorbei?",
+      "voiceId": "person4",
+      "id": "interview-13"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-14" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Guten Tag, Frau Klein. Hier ist die Musikschule. Der Unterricht am Freitag fällt leider aus. Der Lehrer ist krank. Kommen Sie bitte erst am Samstag zum Kurs.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Guten Tag, Frau Klein. Hier ist die Musikschule. Der Unterricht am Freitag fällt leider aus. Der Lehrer ist krank. Kommen Sie bitte erst am Samstag zum Kurs.",
+      "voiceId": "person1",
+      "id": "interview-14"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-15" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Jens, hier ist Stefan. Du, mein Fernseher geht nicht mehr. Ich will doch heute Abend Fußball sehen. Kannst du mal vorbeikommen und mir helfen?",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hallo Jens, hier ist Stefan. Du, mein Fernseher geht nicht mehr. Ich will doch heute Abend Fußball sehen. Kannst du mal vorbeikommen und mir helfen?",
+      "voiceId": "person3",
+      "id": "interview-15"
+    },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-3-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

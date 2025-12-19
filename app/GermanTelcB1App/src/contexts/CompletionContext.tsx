@@ -4,6 +4,7 @@ import firebaseCompletionService, { CompletionData, CompletionStats, AllCompleti
 import { reviewTrigger } from '../utils/reviewTrigger';
 import { useStreak } from './StreakContext';
 import { useRemoteConfig } from './RemoteConfigContext';
+import { activeExamConfig } from '../config/active-exam.config';
 
 interface CompletionContextType {
   // State
@@ -58,12 +59,8 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
       // Load individual completion data for each exam type and part
       const newCompletionData = new Map<string, CompletionData>();
       
-      const examStructure = {
-        'grammar': [1, 2],
-        'reading': [1, 2, 3],
-        'writing': [1],
-        'speaking': [1, 2, 3],
-      };
+      // Use exam structure from active config
+      const examStructure = activeExamConfig.examStructure;
       
       for (const [examType, parts] of Object.entries(examStructure)) {
         for (const partNumber of parts) {

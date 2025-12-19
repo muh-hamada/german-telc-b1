@@ -269,7 +269,7 @@ export interface UserAnswer {
   correctAnswer?: string;
 }
 
-export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice';
+export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'writing-part1' | 'writing-part2' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice' | 'listening-part1' | 'listening-part2' | 'listening-part3';
 
 export interface ExamProgress {
   examId: number;
@@ -294,7 +294,7 @@ export interface ExamSection {
   id: string;
   title: string;
   description: string;
-  type: 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice';
+  type: 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'writing-part1' | 'writing-part2' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice' | 'listening-part1' | 'listening-part2' | 'listening-part3';
   available: boolean;
   examCount: number;
 }

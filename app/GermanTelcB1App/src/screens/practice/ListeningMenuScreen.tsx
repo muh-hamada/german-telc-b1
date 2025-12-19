@@ -10,6 +10,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import dataService from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const ListeningMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -22,6 +23,8 @@ const ListeningMenuScreen: React.FC = () => {
   const [part3Exams, setPart3Exams] = useState<any[]>([]);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+
+  const isA1 = activeExamConfig.level === 'A1';
 
   useEffect(() => {
     const loadData = async () => {
@@ -72,33 +75,72 @@ const ListeningMenuScreen: React.FC = () => {
 
   const handleSelectPart1Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 1, exam_id: examId });
-    navigation.navigate('ListeningPart1', { examId });
+    // Check app level and navigate to appropriate screen
+    if (isA1) {
+      navigation.navigate('ListeningPart1A1', { examId });
+    } else {
+      navigation.navigate('ListeningPart1', { examId });
+    }
   };
 
   const handleSelectPart2Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 2, exam_id: examId });
-    navigation.navigate('ListeningPart2', { examId });
+    // Check app level and navigate to appropriate screen
+    if (isA1) {
+      navigation.navigate('ListeningPart2A1', { examId });
+    } else {
+      navigation.navigate('ListeningPart2', { examId });
+    }
   };
 
   const handleSelectPart3Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 3, exam_id: examId });
-    navigation.navigate('ListeningPart3', { examId });
+    // Check app level and navigate to appropriate screen
+    if (isA1) {
+      navigation.navigate('ListeningPart3A1', { examId });
+    } else {
+      navigation.navigate('ListeningPart3', { examId });
+    }
   };
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>{t('practice.listening.part1')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.part1Description')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.listening.a1.part1')
+              : t('practice.listening.part1')}
+          </Text>
+          <Text style={styles.cardDescription}>
+            {isA1 
+              ? t('practice.listening.descriptions.a1.part1')
+              : t('practice.listening.part1Description')}
+          </Text>
         </Card>
         <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>{t('practice.listening.part2')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.part2Description')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.listening.a1.part2')
+              : t('practice.listening.part2')}
+          </Text>
+          <Text style={styles.cardDescription}>
+            {isA1 
+              ? t('practice.listening.descriptions.a1.part2')
+              : t('practice.listening.part2Description')}
+          </Text>
         </Card>
         <Card style={styles.card} onPress={handlePart3Press}>
-          <Text style={styles.cardTitle}>{t('practice.listening.part3')}</Text>
-          <Text style={styles.cardDescription}>{t('practice.listening.part3Description')}</Text>
+          <Text style={styles.cardTitle}>
+            {isA1 
+              ? t('practice.listening.a1.part3')
+              : t('practice.listening.part3')}
+          </Text>
+          <Text style={styles.cardDescription}>
+            {isA1 
+              ? t('practice.listening.descriptions.a1.part3')
+              : t('practice.listening.part3Description')}
+          </Text>
         </Card>
       </ScrollView>
 

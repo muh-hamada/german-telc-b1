@@ -16,7 +16,7 @@ const QUESTION_TYPES: { key: string; displayName: string }[] = [
   { key: 'listening-practice', displayName: 'Listening Practice' },
   { key: 'grammar-part1', displayName: 'Grammar Part 1' },
   { key: 'grammar-part2', displayName: 'Grammar Part 2' },
-  { key: 'writing', displayName: 'Writing' },
+  { key: 'writing', displayName: 'Writing (All Parts)' },
   { key: 'speaking-part1', displayName: 'Speaking Part 1' },
   { key: 'speaking-part2', displayName: 'Speaking Part 2' },
   { key: 'speaking-part3', displayName: 'Speaking Part 3' },
@@ -43,7 +43,25 @@ const countExams = (data: any, questionType: string): number => {
       case 'listening-part3':
       case 'grammar-part1':
       case 'grammar-part2':
+        // Has exams array - count the exams themselves
+        if (data.exams && Array.isArray(data.exams)) {
+          return data.exams.length;
+        }
+        return 0;
+
       case 'writing':
+        // Combine all writing parts (B1/B2 have 'writing', A1 has 'writing-part1' and 'writing-part2')
+        let writingCount = 0;
+        
+        // Check for standard writing (B1/B2)
+        if (data.exams && Array.isArray(data.exams)) {
+          writingCount += data.exams.length;
+        }
+        
+        return writingCount;
+
+      case 'writing-part1':
+      case 'writing-part2':
         // Has exams array - count the exams themselves
         if (data.exams && Array.isArray(data.exams)) {
           return data.exams.length;
@@ -58,9 +76,12 @@ const countExams = (data: any, questionType: string): number => {
         return 0;
 
       case 'speaking-part1':
-        // Has content (1 item) OR topics array (B2 style)
+        // Has content (1 item) OR topics array (B2 style) OR study_material (A1 style)
         if (data.content) {
           return 1;
+        }
+        if (data.study_material) {
+          return 1; // A1 has study material
         }
         if (data.topics && Array.isArray(data.topics)) {
           return data.topics.length;
@@ -68,7 +89,10 @@ const countExams = (data: any, questionType: string): number => {
         return 0;
 
       case 'speaking-part2':
-        // Has topics array at top level OR questions array (B2 style)
+        // Has topics array at top level OR questions array (B2 style) OR simulation_data (A1 style)
+        if (data.simulation_data) {
+          return 1; // A1 has one simulation topic
+        }
         if (data.topics && Array.isArray(data.topics)) {
           return data.topics.length;
         }
@@ -78,7 +102,10 @@ const countExams = (data: any, questionType: string): number => {
         return 0;
 
       case 'speaking-part3':
-        // Has scenarios array OR questions array (B2 style)
+        // Has scenarios array OR questions array (B2 style) OR simulation_data (A1 style)
+        if (data.simulation_data && data.simulation_data.cards_deck) {
+          return 1; // A1 has one content with cards_deck
+        }
         if (data.scenarios && Array.isArray(data.scenarios)) {
           return data.scenarios.length;
         }
@@ -181,8 +208,27 @@ export const QuestionsOverviewPage: React.FC = () => {
       const appData = examData[appId];
       
       for (const { key } of QUESTION_TYPES) {
-        const sectionData = appData?.sections?.[key]?.data;
-        counts[appId][key] = countExams(sectionData, key);
+        if (key === 'writing') {
+          // For writing, combine all writing parts
+          let totalWriting = 0;
+          
+          // Check for standard writing section (B1/B2)
+          const writingData = appData?.sections?.['writing']?.data;
+          totalWriting += countExams(writingData, 'writing');
+          
+          // Check for writing-part1 (A1)
+          const writingPart1Data = appData?.sections?.['writing-part1']?.data;
+          totalWriting += countExams(writingPart1Data, 'writing-part1');
+          
+          // Check for writing-part2 (A1)
+          const writingPart2Data = appData?.sections?.['writing-part2']?.data;
+          totalWriting += countExams(writingPart2Data, 'writing-part2');
+          
+          counts[appId][key] = totalWriting;
+        } else {
+          const sectionData = appData?.sections?.[key]?.data;
+          counts[appId][key] = countExams(sectionData, key);
+        }
       }
     }
     

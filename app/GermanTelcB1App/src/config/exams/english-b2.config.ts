@@ -85,6 +85,15 @@ export const englishB2Config: ExamConfig = {
     },
   },
 
-  writingEvaluationFnName: 'evaluateWritingEnglishB2'
+  writingEvaluationFnName: 'evaluateWritingEnglishB2',
+
+  // Exam Structure - B2 has same structure as B1
+  examStructure: {
+    'grammar': [1, 2],
+    'reading': [1, 2, 3],
+    'writing': [1],         // B2 has only 1 writing part
+    'speaking': [1, 2, 3],
+    'listening': [1, 2, 3],
+  },
 };
 

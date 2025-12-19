@@ -388,13 +388,29 @@ class DataService {
         return (await this.getReadingPart3Exams()).length;
       case 'writing':
         return (await this.getWritingExams()).length;
+      case 'writing-part1':
+        return (await this.getWritingPart1Exams()).length;
+      case 'writing-part2':
+        return (await this.getWritingPart2Exams()).length;
       case 'speaking-part1':
+        // A1 and B1 have 1 speaking part 1 (study material), B2 has topics
+        if (activeExamConfig.level === 'A1') {
+          return 1; // A1 has study material, not multiple exams
+        }
         return activeExamConfig.level === 'B2' ? (await this.getSpeakingB2Part1Content())?.topics?.length || 0 : 1;
       case 'speaking-part2':
         const part2Data = await this.getSpeakingPart2Content();
+        if (activeExamConfig.level === 'A1') {
+          // A1 has simulation_data with one topic and cards
+          return 1;
+        }
         return (activeExamConfig.level === 'B2' ? part2Data.questions?.length : part2Data.topics?.length) || 0;
       case 'speaking-part3':
         const part3Data = await this.getSpeakingPart3Content();
+        if (activeExamConfig.level === 'A1') {
+          // A1 has simulation_data with cards_deck
+          return 1; // We have one content 
+        }
         return  (activeExamConfig.level === 'B2' ? part3Data.questions?.length : part3Data.scenarios?.length) || 0;
       case 'speaking-important-phrases':
         // Not a count-based exam; treat as available if document exists

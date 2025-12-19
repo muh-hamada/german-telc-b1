@@ -1,0 +1,122 @@
+[
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "a1-part-3-intro" },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-11" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Hier ist die Praxis Dr. Klein. Unsere Telefonnummer hat sich geändert. Bitte rufen Sie uns an unter fünf sechs sieben sieben acht neun null. Vielen Dank.",
+            "voiceId": "person1",
+            "id": "interview-11"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Hier ist die Praxis Dr. Klein. Unsere Telefonnummer hat sich geändert. Bitte rufen Sie uns an unter fünf sechs sieben sieben acht neun null. Vielen Dank.",
+            "voiceId": "person1",
+            "id": "interview-11"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-12" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Julia, hier ist Stefan. Ich bin jetzt im Hotel. Ich warte an der Rezeption auf dich. Bitte komm schnell.",
+            "voiceId": "person3",
+            "id": "interview-12"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Julia, hier ist Stefan. Ich bin jetzt im Hotel. Ich warte an der Rezeption auf dich. Bitte komm schnell.",
+            "voiceId": "person3",
+            "id": "interview-12"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-13" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Jan, hier ist Claudia. Mein Zug hat Verspätung. Ich komme 30 Minuten später. Wir sehen uns dann um halb drei.",
+            "voiceId": "person2",
+            "id": "interview-13"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Jan, hier ist Claudia. Mein Zug hat Verspätung. Ich komme 30 Minuten später. Wir sehen uns dann um halb drei.",
+            "voiceId": "person2",
+            "id": "interview-13"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-14" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag, Herr Müller. Hier ist die Sprachschule. Der Kurs am Montag fällt aus. Bitte kommen Sie am Dienstag um 18 Uhr. Danke.",
+            "voiceId": "person1",
+            "id": "interview-14"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag, Herr Müller. Hier ist die Sprachschule. Der Kurs am Montag fällt aus. Bitte kommen Sie am Dienstag um 18 Uhr. Danke.",
+            "voiceId": "person1",
+            "id": "interview-14"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-15" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Markus, hier ist Tom. Mein Fahrrad ist kaputt. Ich kann nicht zum Training kommen. Kannst du mich vielleicht abholen?",
+            "voiceId": "person4",
+            "id": "interview-15"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Markus, hier ist Tom. Mein Fahrrad ist kaputt. Ich kann nicht zum Training kommen. Kannst du mich vielleicht abholen?",
+            "voiceId": "person4",
+            "id": "interview-15"
+        },
+        { "type": "pause", "durationSeconds": 3 },
+        { "type": "ready", "id": "part-3-outro" },
+        { "type": "pause", "durationSeconds": 5 }
+    ]

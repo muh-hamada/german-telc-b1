@@ -28,6 +28,8 @@ const ReadingMenuScreen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
+  const isA1 = activeExamConfig.level === 'A1';
+
   React.useEffect(() => {
     const loadExams = async () => {
       const [p1, p2, p3] = await Promise.all([
@@ -61,7 +63,7 @@ const ReadingMenuScreen: React.FC = () => {
   const handleSelectPart1Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
     // Check app level and navigate to appropriate screen
-    if (activeExamConfig.level === 'A1') {
+    if (isA1) {
       navigation.navigate('ReadingPart1A1', { examId });
     } else {
       navigation.navigate('ReadingPart1', { examId });
@@ -71,7 +73,7 @@ const ReadingMenuScreen: React.FC = () => {
   const handleSelectPart2Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
     // Check app level and navigate to appropriate screen
-    if (activeExamConfig.level === 'A1') {
+    if (isA1) {
       navigation.navigate('ReadingPart2A1', { examId });
     } else {
       navigation.navigate('ReadingPart2', { examId });
@@ -81,14 +83,12 @@ const ReadingMenuScreen: React.FC = () => {
   const handleSelectPart3Exam = (examId: number) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
     // Check app level and navigate to appropriate screen
-    if (activeExamConfig.level === 'A1') {
+    if (isA1) {
       navigation.navigate('ReadingPart3A1', { examId });
     } else {
       navigation.navigate('ReadingPart3', { examId });
     }
   };
-
-  const isA1 = activeExamConfig.level === 'A1';
 
   return (
     <View style={styles.container}>

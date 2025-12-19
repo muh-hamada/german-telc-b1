@@ -16,6 +16,8 @@ if (!language || !level || !examPart || !examId) {
 const jsonFilePath = path.join(import.meta.dirname, `${language}-${level}-${examPart}`, `${examId}.json`);
 const segmentsJSON = JSON.parse(await fs.readFile(jsonFilePath, 'utf-8'));
 
+const defaultSpeed = 1.0;
+
 interface SpeechSegment {
     type: 'speech';
     text: string;
@@ -109,6 +111,9 @@ async function generateSegment(filePath: string, segment: Segment) {
             console.log(`Used cached segment: ${segment.id} -> ${filePath}`);
             return;
         }
+
+        const speedValue = segment.speed || defaultSpeed;
+  
         const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${segment.voiceId}`, {
             method: 'POST',
             headers: {
@@ -118,9 +123,8 @@ async function generateSegment(filePath: string, segment: Segment) {
             },
             body: JSON.stringify({
                 text: segment.text,
-                model_id: 'eleven_flash_v2_5',
+                model_id: 'eleven_multilingual_v2',
                 language_code: 'de',
-                speed: segment.speed || 1.0,
                 voice_settings: {
                     stability: 0.5,
                     similarity_boost: 0.85,
@@ -136,8 +140,33 @@ async function generateSegment(filePath: string, segment: Segment) {
         }
 
         const buffer = await response.arrayBuffer();
-        await fs.writeFile(filePath, Buffer.from(buffer));
-        console.log(`Generated speech: ${filePath}`);
+        
+        // If speed adjustment is needed, use ffmpeg to adjust playback speed
+        if (speedValue !== 1.0) {
+            const tempPath = filePath.replace('.mp3', '-temp.mp3');
+            await fs.writeFile(tempPath, Buffer.from(buffer));
+            
+            // Use atempo filter to adjust speed (atempo accepts 0.5-2.0, chain if needed)
+            const atempoValue = Math.max(0.5, Math.min(2.0, speedValue));
+            await new Promise<void>((resolve, reject) => {
+                ffmpeg()
+                    .input(tempPath)
+                    .audioFilters(`atempo=${atempoValue}`)
+                    .audioCodec('libmp3lame')
+                    .audioBitrate('128k')
+                    .audioFrequency(44100)
+                    .output(filePath)
+                    .on('end', () => resolve())
+                    .on('error', (err) => reject(err))
+                    .run();
+            });
+            
+            await fs.unlink(tempPath); // cleanup temp file
+            console.log(`Generated speech with speed ${speedValue}: ${filePath}`);
+        } else {
+            await fs.writeFile(filePath, Buffer.from(buffer));
+            console.log(`Generated speech: ${filePath}`);
+        }
 
         // Cache this segment if it has an id (for potential repeated use)
         if (segment.id) {

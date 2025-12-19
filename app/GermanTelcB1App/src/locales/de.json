@@ -292,6 +292,18 @@
       "part2Description": "Sie hören ein langes Gespräch und sollen 10 Aufgaben lösen.",
       "part3": "Teil 3: Monologe",
       "part3Description": "Sie hören fünf Monologe und sollen fünf Aufgaben lösen.",
+      "a1": {
+        "part1": "Teil 1: Gespräche und Ansagen",
+        "part2": "Teil 2: Radiodurchsage",
+        "part3": "Teil 3: Telefongespräche"
+      },
+      "descriptions": {
+        "a1": {
+          "part1": "Hören Sie kurze Gespräche und Ansagen, dann beantworten Sie Multiple-Choice-Fragen",
+          "part2": "Hören Sie eine Radiodurchsage und beantworten Sie Fragen zu Details",
+          "part3": "Hören Sie Telefongespräche und identifizieren Sie wichtige Informationen"
+        }
+      },
       "comingSoon": "Hörübungen kommen bald",
       "practice": {
         "completed": "Hörübung abgeschlossen",
@@ -1070,7 +1082,13 @@
       "audioError": "Audiofehler",
       "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben.",
+      "a1": {
+        "questions": "Fragen",
+        "questionNumber": "Frage {{number}}",
+        "incomplete": "Unvollständig",
+        "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      }
     },
     "part2": {
       "title": "Hören Teil 2",

@@ -45,6 +45,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   
   // Native ad state
   const [showAdCard, setShowAdCard] = useState(false);
+  const [adCountdown, setAdCountdown] = useState(0);
 
   const dailyLimit = progress ? vocabularyProgressService.getDailyLimit(progress.persona) : 20;
   
@@ -89,6 +90,23 @@ const VocabularyStudyNewScreen: React.FC = () => {
   useEffect(() => {
     loadNewWords();
   }, []);
+  
+  // Countdown timer for ad continue button
+  useEffect(() => {
+    if (showAdCard) {
+      // Start countdown when ad card is shown (3 seconds)
+      setAdCountdown(3);
+    }
+  }, [showAdCard]);
+  
+  useEffect(() => {
+    if (adCountdown > 0) {
+      const timer = setTimeout(() => {
+        setAdCountdown(adCountdown - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [adCountdown]);
   
   // Handle native ad loaded
   const handleAdLoaded = useCallback(() => {
@@ -292,9 +310,10 @@ const VocabularyStudyNewScreen: React.FC = () => {
       <View style={styles.actionsContainer}>
         {showAdCard ? (
           <Button
-            title={t('common.continue')}
+            title={adCountdown > 0 ? `${t('common.continue')} (${adCountdown}s)` : t('common.continue')}
             onPress={handleAdContinue}
             style={styles.button}
+            disabled={adCountdown > 0}
           />
         ) : !isFlipped ? (
           <Button

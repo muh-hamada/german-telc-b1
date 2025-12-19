@@ -13,6 +13,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "Example: ./build-android.sh german-b1 apk"
   echo ""
   echo "Available exam IDs:"
+  echo "  - german-a1"
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"
@@ -33,6 +34,9 @@ fi
 
 # Map exam ID to flavor name
 case "$EXAM_ID" in
+  "german-a1")
+    FLAVOR="germanA1"
+    ;;
   "german-b1")
     FLAVOR="germanB1"
     ;;

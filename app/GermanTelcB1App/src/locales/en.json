@@ -292,6 +292,18 @@
       "part2Description": "You will hear a long conversation and you should solve 10 tasks.",
       "part3": "Part 3: Monologues",
       "part3Description": "You will hear five monologues and you should solve five tasks.",
+      "a1": {
+        "part1": "Part 1: Conversations and Announcements",
+        "part2": "Part 2: Radio Announcement",
+        "part3": "Part 3: Telephone Conversations"
+      },
+      "descriptions": {
+        "a1": {
+          "part1": "Listen to short conversations and announcements, then answer multiple choice questions",
+          "part2": "Listen to a radio announcement and answer questions about details",
+          "part3": "Listen to telephone conversations and identify key information"
+        }
+      },
       "comingSoon": "Listening exercises coming soon",
       "practice": {
         "title": "Listening Practice",
@@ -1071,7 +1083,13 @@
       "audioError": "Audio Error",
       "audioErrorMessage": "The audio file could not be loaded.",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining.",
+      "a1": {
+        "questions": "Questions",
+        "questionNumber": "Question {{number}}",
+        "incomplete": "Incomplete",
+        "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      }
     },
     "part2": {
       "title": "Listening Part 2",

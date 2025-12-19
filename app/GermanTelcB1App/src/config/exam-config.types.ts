@@ -88,5 +88,10 @@ export interface ExamConfig {
   };
 
   writingEvaluationFnName: string;
+
+  // Exam Structure - defines which parts exist for each exam type
+  examStructure: {
+    [examType: string]: number[]; // e.g., { 'reading': [1, 2, 3], 'writing': [1, 2] }
+  };
 }
 

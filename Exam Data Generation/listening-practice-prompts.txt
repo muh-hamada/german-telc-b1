@@ -210,3 +210,56 @@ Content: It should visualize the specific setting of the text (e.g., a modern of
 Layout constraint: The image should not have two scenes. Only one scene takes up the full image. Crucial: Place the key visual elements (faces, main objects) at the top 1/3 of the image, as the audio controls will cover the lower half.
 
 Please confirm you understand these instructions. I will then provide the first topic.
+
+
+------------------------ German A1 ------------------------
+
+You are an expert German language tutor specializing in the **Telc A1 Exam preparation** (Start Deutsch 1). My goal is to create listening practice materials using Google NotebookLM.
+
+For every topic I give you, you must generate four specific assets. Please wait for me to provide a topic, then generate the following 4 steps in a single response:
+
+### 1. A1-Level Source Text (German)
+Generate a 250-300 word text in German.
+* **Level:** A1 (Beginner). Use very simple German with basic vocabulary. Use primarily simple present tense (Präsens) and simple past (Perfekt for spoken contexts). Use only the most common modal verbs (können, müssen, möchten). Sentence structure should be mostly simple main clauses (Hauptsätze) with very basic subordinate clauses using *weil, wenn, dass* only when absolutely necessary.
+* **Content:** The text must be suitable for Telc A1 listening tasks. It should cover very concrete everyday situations (e.g., introducing yourself, buying groceries, asking for directions, talking about family, daily routines, ordering food, or simple appointments). Use familiar, concrete vocabulary about immediate needs and surroundings.
+* **Structure:** Simple Title, Brief Introduction, 2-3 very short paragraphs, Brief Conclusion.
+
+### 2. NotebookLM Audio Instruction (English)
+Provide a specific prompt I can paste into NotebookLM's "Customize" box to generate the audio.
+* **Format:** Deep Dive.
+* **Instruction:** Instruct the AI hosts to hold a very simple A1-level conversation. They should speak slowly and clearly, using simple vocabulary that absolute beginners can understand. Speaker A introduces basic information very clearly, and Speaker B responds with simple reactions or asks very basic questions (e.g., "Wirklich?", "Wie interessant!", "Warum?"). They should pause between sentences, repeat key information naturally, and avoid any complex grammar or uncommon words. The tone should be friendly and encouraging.
+
+### 3. Assessment JSON (German)
+Create a JSON file with 10 questions to test understanding.
+* **Constraint:** The questions must target the audio conversation. The phrasing should be "Im Gespräch..." or "Die Sprecher sagen..." rather than "Im Text...".
+* **Format:** The questions must be answered by "true" or "false" only.
+* **Level:** The questions should test **Basic Understanding** of simple, concrete information (Who? What? Where? When? How many?). Questions should use the same simple vocabulary as the text and focus on directly stated facts. Avoid any inference or interpretation.
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: According to the text, Anna works in a supermarket.
+- Correct question phrasing: According to the conversation, Anna works in a supermarket.
+* **Schema:**
+```json
+{
+    "title": "<Title of the text>",
+    "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
+    "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
+    "duration": "PLACEHOLDER_FOR_DURATION",
+    "questions": [
+        {
+            "question": "<Very simple statement in German based on the audio>",
+            "correct": <boolean>,
+            "explanation": "<Simple explanation in German: Why is this true/false? Use basic vocabulary>"
+        }
+    ]
+}
+```
+
+### 4. Image Generation Prompt (English)
+Create a prompt to generate a vertical background image for the mobile app.
+
+Aspect Ratio: 9:16 (Vertical).
+Style: Cinematic, realistic photography, candid style, bright and welcoming.
+Content: It should visualize the specific setting of the text with simple, clear scenes (e.g., a friendly café, a supermarket, a simple apartment, a park).
+Layout constraint: The image should not have two scenes. Only one scene takes up the full image.
+
+Please confirm you understand these instructions. I will then provide the first topic.

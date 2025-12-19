@@ -84,6 +84,15 @@ export const germanA1Config: ExamConfig = {
     },
   },
 
-  writingEvaluationFnName: 'evaluateWritingGermanA1'
+  writingEvaluationFnName: 'evaluateWritingGermanA1',
+
+  // Exam Structure - A1 specific structure
+  examStructure: {
+    'reading': [1, 2, 3],
+    'listening': [1, 2, 3],
+    'writing': [1, 2],      // A1 has 2 writing parts
+    'speaking': [1, 2, 3],
+    // No grammar section in A1
+  },
 };
 

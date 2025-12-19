@@ -1,0 +1,248 @@
+You are an expert in creating listening questions for the Telc German A1 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German A1 listening question.
+
+--- Interview Start ---
+
+Nummer 11.
+Telefonansagedienst der Deutschen Telekom. Die Rufnummer des Teilnehmers hat sich geändert. Bitte rufen Sie die Telefonauskunft an unter 11833. Telefonansagedienst der Deutschen Telekom. Die Rufnummer des Teilnehmers hat sich geändert. Bitte rufen Sie die Telefonauskunft an unter 11833.
+
+Question: Die Nummer ist:
+a) 11833
+b) 11883
+c) 12833
+
+Nummer 12.
+Hallo Jan, hier ist Boris. Du, ich bin noch im Zug. Du holst mich doch vom Bahnhof ab. Ich warte an der Information auf dich. Hallo Jan, hier ist Boris. Du, ich bin noch im Zug. Du holst mich doch vom Bahnhof ab. Ich warte an der Information auf dich.
+
+Question: Wo genau treffen sich die Männer?
+a) Am Zug
+b) Am Bahnhof
+c) An der Information
+
+Nummer 13.
+Mensch, Jan, du Penner. Hier noch mal, Boris. Ich bin jetzt am Bahnhof und du? Wo bist du denn? Ich warte schon. über 20 Minuten auf dich. Also 10 Minuten Zeit hast du noch bis zwei, dann nehme ich ein Taxi. Mensch, Jan, du Penner. Hier noch mal, Boris. Ich bin jetzt am Bahnhof und du? Wo bist du denn? Ich warte schon über 20 Minuten auf dich. Also 10 Minuten Zeit hast du noch bis zwei, dann nehme ich ein Taxi.
+
+Question: Wie lange will der Mann noch warten?
+a) 20 Minuten
+b) 2 Minuten
+c) 10 Minuten
+
+Nummer 14.
+Guten Tag, Hierogala. Wir können am Samstag leider nicht zu Ihnen kommen. Am Sonntag haben wir aber Zeit. Rufen Sie uns doch bitte zurück, ob Ihnen das passt. Danke. Guten Tag, Hierogala. Wir können am Samstag leider nicht zu Ihnen kommen. Am Sonntag haben wir aber Zeit. Rufen Sie uns doch bitte zurück, ob Ihnen das passt. Danke.
+
+Question: An welchem Tag will die Frau kommen?
+a) Am Montag
+b) Am Sonntag
+c) Am Samstag
+
+Nummer 15.
+Hallo Alex, Walter hier. Kannst du schnell mal rüberkommen? Mein Computer hat einen Fehler. Ich kann nichts drucken. Melde dich doch bitte gleich, wenn du nach Hause kommst. Hallo, Alex, Walter hier. Kannst du schnell mal rüberkommen? Mein Computer hat einen Fehler. Ich kann nichts drucken. Melde dich doch bitte. gleich, wenn du nach Hause kommst.
+
+Question: Was ist kaputt?
+a) Der Fernseher
+b) Der Computer
+c) Das Handy
+
+
+--- Interview End ---
+
+Create the interviews, then structure it into a JSON file with the following format:
+Then for each interview, create a question and 3 multi-choices
+For phone numbers in the text, write them with letters like: vier fünf neun null
+
+How to select voiceId:
+- for male speakers, use voiceId (moderator, person3, person4, person5)
+- for femalte speakers, use voiceId (person1, person2)
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'a1-part-3-intro' },
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-11' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'moderator|person1|person2|person3|person4|person5',
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy interview 11 part here
+        
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'number-12' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'moderator|person1|person2|person3|person4|person5',
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy interview 12 part here
+        
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-13' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'moderator|person1|person2|person3|person4|person5',
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy interview 13 part here
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-14' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'moderator|person1|person2|person3|person4|person5',
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy interview 14 part here
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'number-15' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'moderator|person1|person2|person3|person4|person5',
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy interview 15 part here
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-3-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in german>, // The title should be 4-6 words and extracted and related to the interviews
+    "questions": [
+        {
+          "id": 11,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "question": "<the question text>"
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        }
+    ]
+}

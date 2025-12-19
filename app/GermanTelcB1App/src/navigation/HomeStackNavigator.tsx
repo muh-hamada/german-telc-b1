@@ -36,8 +36,11 @@ import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
 import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
 import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
+import ListeningPart1A1Screen from '../screens/practice/ListeningPart1A1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
+import ListeningPart2A1Screen from '../screens/practice/ListeningPart2A1Screen';
 import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
+import ListeningPart3A1Screen from '../screens/practice/ListeningPart3A1Screen';
 import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
 import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
 import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
@@ -314,6 +317,13 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="ListeningPart1A1"
+        component={ListeningPart1A1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part1" />,
+        }}
+      />
+      <Stack.Screen
         name="ListeningPart2"
         component={ListeningPart2Screen}
         options={{
@@ -321,8 +331,22 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="ListeningPart2A1"
+        component={ListeningPart2A1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part2" />,
+        }}
+      />
+      <Stack.Screen
         name="ListeningPart3"
         component={ListeningPart3Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart3A1"
+        component={ListeningPart3A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
         }}

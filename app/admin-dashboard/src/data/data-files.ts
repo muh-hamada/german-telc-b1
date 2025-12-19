@@ -10,7 +10,10 @@ import germanA1SpeakingPart2 from './german-a1/speaking-part2.json';
 import germanA1SpeakingPart3 from './german-a1/speaking-part3.json';
 import germanA1WritingPart1 from './german-a1/writing-part1.json';
 import germanA1WritingPart2 from './german-a1/writing-part2.json';
-
+import germanA1ListeningPart1 from './german-a1/listening-part1.json';
+import germanA1ListeningPart2 from './german-a1/listening-part2.json';
+import germanA1ListeningPart3 from './german-a1/listening-part3.json';
+import germanA1ListeningPractice from './german-a1/listening-practice.json';
 
 // German B1
 import germanB1ExamInfo from './german-b1/exam-info.json';
@@ -124,6 +127,10 @@ export const appDataMap: AppDataMap = {
         'speaking-part3': germanA1SpeakingPart3,
         'writing-part1': germanA1WritingPart1,
         'writing-part2': germanA1WritingPart2,
+        'listening-part1': germanA1ListeningPart1,
+        'listening-part2': germanA1ListeningPart2,
+        'listening-part3': germanA1ListeningPart3,
+        'listening-practice': germanA1ListeningPractice,
     },
     [APP_CONFIGS['german-b1'].id]: {
         'exam-info': germanB1ExamInfo,

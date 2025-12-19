@@ -1,0 +1,52 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-2-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-7" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Kunden, heute haben wir tolle Angebote für das Frühstück. Frische Brötchen für nur 30 Cent und deutscher Kaffee für 3,50 Euro. Sie finden alles im Erdgeschoss, direkt am Eingang.",
+      "voiceId": "person1",
+      "id": "interview-7"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-8" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Achtung an Gleis 5. Der Intercity nach Berlin hat 20 Minuten Verspätung. Grund ist eine technische Störung am Zug. Bitte warten Sie auf dem Bahnsteig. Danke für Ihr Verständnis.",
+      "voiceId": "person2",
+      "id": "interview-8"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-9" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Besucher, unser Kaufhaus schließt in zehn Minuten. Bitte bringen Sie Ihre Waren jetzt zur Kasse. Morgen sind wir wieder ab 9 Uhr für Sie da. Auf Wiedersehen.",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-10" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Herr Müller, Herr Thomas Müller bitte. Kommen Sie bitte in Raum 212 zur Blutabnahme. Herr Thomas Müller, bitte in den zweiten Stock, Raum 212.",
+      "voiceId": "person4",
+      "id": "interview-10"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

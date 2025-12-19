@@ -1,0 +1,120 @@
+You are an expert in creating listening questions for the Telc German A1 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German A1 listening question.
+
+--- Interviews Start ---
+
+Nummer 7.
+Liebe Kunden, zu Weihnachten beten wir Ihnen super Preise an. Z.B. Erstklassiker italienischer Weißwein für 12,78 € die Flasche oder exklusiver argentinischer Rotwein für 9,68 €. Besuchen Sie uns im dritten Stock. Frohe Weihnachten.
+
+Question: Die Kunden sollen die Weihnachtsfeier besuchen.
+richtig/falsch (falsch)
+
+Nummer 8.
+Liebe Fahrgäste, wir sind kurz vor Würzburg. Sicherlich haben Sie schon Hunger. An der nächsten Städte halten wir für eine Stunde. Wir treffen uns wieder um :30 am Bus, aber bitte pünktlich sein.
+
+Question: Die Fahrgäste sollen sich im Restaurant treffen.
+richtig/falsch (falsch)
+
+Nummer 9.
+Liebe Fahrgäste, bitte beachten Sie, das ist ein außerplanmäßiger Halt. Bitte hier nicht aussteigen. In ein paar Minuten erreichen wir den Bahnhof Bonnbad Godberg.
+
+Question: Die Fahrgäste sollen im Zug bleiben.
+richtig/falsch (richtig)
+
+Nummer 10.
+Herr Stefan Jander, gebucht auf dem Flug LH737 nach Warschau, wird zum Schalter F7 gebeten. Der Flug wird in ein paar Minuten geschlossen. Herr Jander gebucht Nach Warschau, bitte nach F7.
+
+Question: Der Herr soll sofort zum Schalter kommen.
+richtig/falsch (richtig)
+
+--- Interviews End ---
+
+
+Create the interviews, then structure it into a JSON file with the following format:
+Then for each interviews, create a true/false question
+
+For phone numbers in the text, write them with letters like (45: vier fünf)
+
+{
+  "segments": [
+    { type: 'pause', durationSeconds: 1 },
+    { type: 'ready', id: 'a1-part-2-intro' },
+    { type: 'pause', durationSeconds: 5 },
+
+    { type: 'ready', id: 'number-7' },
+    { type: 'pause', durationSeconds: 2 },
+    {
+            type: 'speech',
+        speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1',
+            id: "interview-{index}"
+        },
+    { type: 'pause', durationSeconds: 5 },
+
+    { type: 'ready', id: 'number-8' },
+    { type: 'pause', durationSeconds: 2 },
+    {
+            type: 'speech',
+        speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person2',
+            id: "interview-{index}"
+        },
+    { type: 'pause', durationSeconds: 5 },
+
+    { type: 'ready', id: 'number-9' },
+    { type: 'pause', durationSeconds: 2 },
+    {
+            type: 'speech',
+        speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person3',
+            id: "interview-{index}"
+        },
+    { type: 'pause', durationSeconds: 5 },
+
+    { type: 'ready', id: 'number-10' },
+    { type: 'pause', durationSeconds: 2 },
+    {
+            type: 'speech',
+        speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person4',
+            id: "interview-{index}"
+        },
+    { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'part-2-outro' },
+        { type: 'pause', durationSeconds: 5 },
+  ],
+  "title": <title in german>, // The title should be 4-6 words and related to the conversations
+  "questions": [
+    {
+      "id": 6,
+      "question": "<the question text>"
+      "is_correct": <boolean>
+    },
+    {
+      "id": 7,
+      "question": "<the question text>"
+      "is_correct": <boolean>
+    },
+    {
+      "id": 8,
+      "question": "<the question text>"
+      "is_correct": <boolean>
+    },
+    {
+      "id": 9,
+      "question": "<the question text>"
+      "is_correct": <boolean>
+    },
+    {
+      "id": 10,
+      "question": "<the question text>"
+      "is_correct": <boolean>
+    }
+  ]
+}

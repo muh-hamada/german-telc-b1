@@ -35,7 +35,6 @@ import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import OfflineDownloadSection from '../components/OfflineDownloadSection';
 import { useAppTheme } from '../contexts/ThemeContext';
-import { SIMULATE_PREMIUM_USER } from '../config/development.config';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -340,7 +339,7 @@ const SettingsScreen: React.FC = () => {
 
   const handleThemeToggle = async (value: boolean) => {
     // Only allow enabling dark mode for premium users
-    if (value && !isPremium && !SIMULATE_PREMIUM_USER) {
+    if (value && !isPremium) {
       logEvent(AnalyticsEvents.SETTINGS_PREMIUM_DARK_MODE_MODAL_SHOWN);
       setShowPremiumDarkModeModal(true);
       return;

@@ -266,6 +266,18 @@
       "part2Description": "Escucharás una conversación larga y deberás resolver 10 tareas.",
       "part3": "Parte 3: Monólogos",
       "part3Description": "Escucharás cinco monólogos y deberás resolver cinco tareas.",
+      "a1": {
+        "part1": "Parte 1: Conversaciones y Anuncios",
+        "part2": "Parte 2: Anuncio de Radio",
+        "part3": "Parte 3: Conversaciones Telefónicas"
+      },
+      "descriptions": {
+        "a1": {
+          "part1": "Escuche conversaciones y anuncios cortos, luego responda preguntas de opción múltiple",
+          "part2": "Escuche un anuncio de radio y responda preguntas sobre detalles",
+          "part3": "Escuche conversaciones telefónicas e identifique información clave"
+        }
+      },
       "comingSoon": "Ejercicios de audición próximamente",
       "practice": {
         "completed": "Práctica de escucha completada",
@@ -1041,7 +1053,13 @@
       "audioError": "Error de Audio",
       "audioErrorMessage": "No se pudo cargar el archivo de audio.",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s).",
+      "a1": {
+        "questions": "Preguntas",
+        "questionNumber": "Pregunta {{number}}",
+        "incomplete": "Incompleto",
+        "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      }
     },
     "part2": {
       "title": "Comprensión auditiva Parte 2",

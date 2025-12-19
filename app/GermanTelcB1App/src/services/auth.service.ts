@@ -2,7 +2,7 @@ import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { Platform } from 'react-native';
 import appleAuth from '@invertase/react-native-apple-authentication';
-import { firebaseConfig, googleSignInConfig } from '../config/firebase.config';
+import { googleSignInConfig } from '../config/firebase.config';
 
 // User types
 export interface User {

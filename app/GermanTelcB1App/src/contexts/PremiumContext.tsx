@@ -15,6 +15,7 @@ import { useAuth } from './AuthContext';
 import { useRemoteConfig } from './RemoteConfigContext';
 import purchaseService from '../services/purchase.service';
 import { activeExamConfig } from '../config/active-exam.config';
+import { SIMULATE_PREMIUM_USER } from '../config/development.config';
 
 interface PremiumData {
   isPremium: boolean;
@@ -458,7 +459,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   }, [loadPremiumStatus]);
 
   const value: PremiumContextType = {
-    isPremium: premiumData?.isPremium ?? false,
+    isPremium: SIMULATE_PREMIUM_USER ? true : (premiumData?.isPremium ?? false),
     isLoading,
     isPurchasing,
     error,

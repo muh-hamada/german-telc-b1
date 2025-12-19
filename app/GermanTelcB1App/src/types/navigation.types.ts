@@ -50,8 +50,11 @@ export type HomeStackParamList = {
   B2SpeakingPart3: { questionId: number };
   ListeningMenu: undefined;
   ListeningPart1: { examId: number };
+  ListeningPart1A1: { examId: number };
   ListeningPart2: { examId: number };
+  ListeningPart2A1: { examId: number };
   ListeningPart3: { examId: number };
+  ListeningPart3A1: { examId: number };
   ListeningPracticeList: undefined;
   ListeningPractice: { interview: ListeningPracticeInterview; id: number };
   ListeningPracticeQuestions: { interview: ListeningPracticeInterview; id: number };

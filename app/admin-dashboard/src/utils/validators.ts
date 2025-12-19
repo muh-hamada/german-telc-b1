@@ -942,12 +942,20 @@ export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' | 
           return { valid: true, errors: [] }; // TODO: Implement writing part 1 validation
         case 'writing-part2':
           return { valid: true, errors: [] }; // TODO: Implement writing part 2 validation
-          case 'speaking-part1':            
+        case 'listening-part1':
+          return { valid: true, errors: [] }; // TODO: Implement listening part 1 validation
+        case 'listening-part2':
+          return { valid: true, errors: [] }; // TODO: Implement listening part 2 validation
+        case 'listening-part3':
+          return { valid: true, errors: [] }; // TODO: Implement listening part 3 validation
+        case 'speaking-part1':            
             return { valid: true, errors: [] }; // TODO: Implement speaking part 1 validation
         case 'speaking-part2':
           return { valid: true, errors: [] }; // TODO: Implement speaking part 2 validation
         case 'speaking-part3':
           return { valid: true, errors: [] }; // TODO: Implement speaking part 3 validation
+        case 'listening-practice':
+          return  validateListeningPractice(data);
         default:
           return { valid: false, errors: [`Unknown document type: ${docId}`] };
       }

@@ -178,14 +178,8 @@ class FirebaseCompletionService {
     try {
       const stats: AllCompletionStats = {};
       
-      // Define exam structure with parts (totals come from dataService)
-      const examStructure = {
-        'grammar': [1, 2],
-        'reading': [1, 2, 3],
-        'writing': [1],
-        'speaking': [1, 2, 3],
-        'listening': [1, 2, 3],
-      };
+      // Use exam structure from active config instead of hardcoded structure
+      const examStructure = activeExamConfig.examStructure;
       
       // Fetch stats for each exam type and part
       for (const [examType, parts] of Object.entries(examStructure)) {

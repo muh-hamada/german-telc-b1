@@ -10,6 +10,7 @@ import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import Button from './Button';
 import { AllCompletionStats } from '../services/firebase-completion.service';
+import { activeExamConfig } from '../config/active-exam.config';
 
 interface CompletionStatsCardProps {
   stats: AllCompletionStats;
@@ -36,16 +37,37 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
-  const examSections: ExamSection[] = [
-    { key: 'grammar', titleKey: 'practice.grammar.title', parts: [1, 2] },
-    { key: 'reading', titleKey: 'practice.reading.title', parts: [1, 2, 3] },
-    { key: 'writing', titleKey: 'practice.writing.title', parts: [1] },
-    { key: 'speaking', titleKey: 'practice.speaking.title', parts: [1, 2, 3] },
-    { key: 'listening', titleKey: 'practice.listening.title', parts: [1, 2, 3] },
-  ];
+  // Build exam sections dynamically from the active exam config
+  const examSections: ExamSection[] = useMemo(() => {
+    const sections: ExamSection[] = [];
+    const examStructure = activeExamConfig.examStructure;
+    
+    // Define title keys for each exam type
+    const titleKeys: { [key: string]: string } = {
+      'grammar': 'practice.grammar.title',
+      'reading': 'practice.reading.title',
+      'writing': 'practice.writing.title',
+      'speaking': 'practice.speaking.title',
+      'listening': 'practice.listening.title',
+    };
+    
+    // Build sections based on exam structure
+    for (const [examType, parts] of Object.entries(examStructure)) {
+      if (titleKeys[examType]) {
+        sections.push({
+          key: examType,
+          titleKey: titleKeys[examType],
+          parts: parts as number[],
+        });
+      }
+    }
+    
+    return sections;
+  }, []);
 
   const getPartTitle = (examType: string, partNumber: number): string => {
-    if (examType === 'writing') {
+    // For writing with only 1 part, don't show part number
+    if (examType === 'writing' && activeExamConfig.examStructure.writing.length === 1) {
       return t('practice.writing.title');
     }
     if (examType === 'speaking') {
@@ -140,11 +162,14 @@ const CompletionStatsCard: React.FC<CompletionStatsCardProps> = ({
                   const partStats = sectionStats[partNumber];
                   if (!partStats) return null;
 
+                  // Determine whether to show part number
+                  const showPartNumber = !(section.key === 'writing' && section.parts.length === 1);
+
                   return (
                     <View key={`${section.key}-${partNumber}`} style={styles.partRow}>
                       <View style={styles.partInfo}>
                         <Text style={styles.partTitle}>
-                          {section.key === 'writing' ? '' : `Part ${partNumber}`}
+                          {showPartNumber ? `Part ${partNumber}` : ''}
                         </Text>
                         <View style={styles.miniProgressBar}>
                           <View

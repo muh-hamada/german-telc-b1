@@ -84,6 +84,15 @@ export const germanB1Config: ExamConfig = {
     },
   },
 
-  writingEvaluationFnName: 'evaluateWriting'
+  writingEvaluationFnName: 'evaluateWriting',
+
+  // Exam Structure - B1 specific structure
+  examStructure: {
+    'grammar': [1, 2],
+    'reading': [1, 2, 3],
+    'writing': [1],         // B1 has only 1 writing part
+    'speaking': [1, 2, 3],
+    'listening': [1, 2, 3],
+  },
 };
 

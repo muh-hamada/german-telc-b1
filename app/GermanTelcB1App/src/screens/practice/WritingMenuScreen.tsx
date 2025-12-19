@@ -59,6 +59,9 @@ const WritingMenuScreen: React.FC = () => {
     navigation.navigate('WritingPart2', { examId });
   };
 
+  // Check if writing has multiple parts based on exam structure
+  const writingParts = activeExamConfig.examStructure.writing || [1];
+  const hasPart2 = writingParts.includes(2);
   const isA1 = activeExamConfig.level === 'A1';
 
   return (
@@ -77,18 +80,20 @@ const WritingMenuScreen: React.FC = () => {
           </Text>
         </Card>
 
-        <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.writing.a1.part2')
-              : t('practice.writing.part2')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.writing.descriptions.a1.part2')
-              : t('practice.writing.descriptions.part2')}
-          </Text>
-        </Card>
+        {hasPart2 && (
+          <Card style={styles.card} onPress={handlePart2Press}>
+            <Text style={styles.cardTitle}>
+              {isA1 
+                ? t('practice.writing.a1.part2')
+                : t('practice.writing.part2')}
+            </Text>
+            <Text style={styles.cardDescription}>
+              {isA1 
+                ? t('practice.writing.descriptions.a1.part2')
+                : t('practice.writing.descriptions.part2')}
+            </Text>
+          </Card>
+        )}
       </ScrollView>
       
       <ExamSelectionModal

@@ -14,6 +14,8 @@ const EXAM_DOCUMENT_IDS = [
   'grammar-part1',
   'grammar-part2',
   'writing',
+  'writing-part1',
+  'writing-part2',
   'speaking-part1',
   'speaking-part2',
   'speaking-part3',
@@ -35,7 +37,7 @@ class ExamDataService {
   private db = firebaseService.getFirestore();
   private cache: Record<string, AppExamData> = {};
   private cacheTimestamp: number = 0;
-  private cacheDuration = 5 * 60 * 1000; // 5 minutes cache
+  private cacheDuration = 1 * 60 * 1000; // 5 minutes cache
 
   /**
    * Get exam data for a specific app from Firebase
@@ -81,6 +83,8 @@ class ExamDataService {
         };
       }
     }
+
+    console.log('App Exam Data:', appData);
 
     return appData;
   }

@@ -262,6 +262,18 @@
       "part2Description": "Vous entendrez une longue conversation et vous devrez résoudre 10 tâches.",
       "part3": "Partie 3 : Monologues",
       "part3Description": "Vous entendrez cinq monologues et vous devrez résoudre cinq tâches.",
+      "a1": {
+        "part1": "Partie 1 : Conversations et Annonces",
+        "part2": "Partie 2 : Annonce Radio",
+        "part3": "Partie 3 : Conversations Téléphoniques"
+      },
+      "descriptions": {
+        "a1": {
+          "part1": "Écoutez de courtes conversations et annonces, puis répondez aux questions à choix multiples",
+          "part2": "Écoutez une annonce radio et répondez aux questions sur les détails",
+          "part3": "Écoutez des conversations téléphoniques et identifiez les informations clés"
+        }
+      },
       "comingSoon": "Exercices d'écoute à venir",
       "practice": {
         "completed": "Pratique d'écoute terminée",
@@ -1037,7 +1049,13 @@
       "audioError": "Erreur Audio",
       "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s).",
+      "a1": {
+        "questions": "Questions",
+        "questionNumber": "Question {{number}}",
+        "incomplete": "Incomplet",
+        "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      }
     },
     "part2": {
       "title": "Compréhension orale Partie 2",
