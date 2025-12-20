@@ -938,6 +938,12 @@ export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' | 
 
     if (level === 'A1') {
       switch (docId) {
+        case 'reading-part1':
+          return { valid: true, errors: [] }; // TODO: Implement reading part 1 validation
+        case 'reading-part2':
+          return { valid: true, errors: [] }; // TODO: Implement reading part 2 validation
+        case 'reading-part3':
+          return { valid: true, errors: [] }; // TODO: Implement reading part 3 validation
         case 'writing-part1':
           return { valid: true, errors: [] }; // TODO: Implement writing part 1 validation
         case 'writing-part2':
