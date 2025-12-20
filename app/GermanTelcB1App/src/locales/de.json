@@ -598,7 +598,10 @@
     "writtenExam": "Schriftliche Prüfung",
     "speakingCardTitle": "Sprechen Teil",
     "oralExam": "Mündliche Prüfung",
-    "examResultsNote": "ℹ️ Dies ist eine Testprüfung zur Übung. Die tatsächlichen Prüfungsergebnisse können variieren. Nutzen Sie diese Ergebnisse, um Ihre Stärken und Schwächen zu identifizieren."
+    "examResultsNote": "ℹ️ Dies ist eine Testprüfung zur Übung. Die tatsächlichen Prüfungsergebnisse können variieren. Nutzen Sie diese Ergebnisse, um Ihre Stärken und Schwächen zu identifizieren.",
+    "detailedBreakdown": "Detaillierte Aufschlüsselung",
+    "skipped": "Übersprungen",
+    "requirementText": "Mindestens {{percentage}}% erforderlich zum Bestehen"
   },
   "questions": {
     "checkAnswers": "Antworten prüfen",

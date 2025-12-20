@@ -569,7 +569,10 @@
     "writtenExam": "Examen escrito",
     "speakingCardTitle": "Sección de habla",
     "oralExam": "examen oral",
-    "examResultsNote": "ℹ️ Este es un examen simulado para practicar. \nLos resultados reales del examen pueden variar. \nUtilice estos resultados para identificar sus fortalezas y debilidades."
+    "examResultsNote": "ℹ️ Este es un examen simulado para practicar. \nLos resultados reales del examen pueden variar. \nUtilice estos resultados para identificar sus fortalezas y debilidades.",
+    "detailedBreakdown": "Desglose detallado",
+    "skipped": "Omitido",
+    "requirementText": "Mínimo {{percentage}}% requerido para aprobar"
   },
   "questions": {
     "checkAnswers": "Verificar respuestas",

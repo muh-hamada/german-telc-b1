@@ -218,7 +218,11 @@ const MockExamRunningScreen: React.FC = () => {
 
     const writtenPercentage = (writtenScore / writtenMaxPoints) * 100;
     const oralPercentage = oralScore > 0 ? (oralScore / oralMaxPoints) * 100 : 0;
-    const totalPercentage = (examProgress.totalScore / examProgress.totalMaxPoints) * 100;
+    
+    // When oral exam is skipped, only consider written portion for total
+    const totalPercentage = oralScore > 0 
+      ? (examProgress.totalScore / examProgress.totalMaxPoints) * 100
+      : writtenPercentage;
 
     const passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
     const passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
@@ -226,24 +230,41 @@ const MockExamRunningScreen: React.FC = () => {
     
     const passedWritten = writtenScore >= passingWrittenPoints;
     const passedOral = oralScore >= passingOralPoints || oralScore === 0; // Skip oral if not taken
-    const passedOverall = examProgress.totalScore >= passingTotalPoints && passedWritten;
+    
+    // When oral exam is skipped, only need to pass written portion
+    // When oral exam is taken, need to pass total (which includes both written and oral)
+    const passedOverall = oralScore > 0 
+      ? (examProgress.totalScore >= passingTotalPoints && passedWritten && passedOral)
+      : passedWritten;
 
     return (
       <ScrollView style={styles.resultsContainer} contentContainerStyle={styles.resultsContent}>
         <Text style={styles.resultsTitle}>🎉 Prüfung abgeschlossen!</Text>
 
         {/* Overall Result */}
-        <View style={[
-          styles.resultCard,
-          passedOverall ? styles.resultCardPass : styles.resultCardFail
-        ]}>
-          <Text style={styles.resultCardTitle}>
-            {passedOverall ? `✅ ${t('mockExam.passed')} (≥60%)` : `❌ ${t('mockExam.failed')} (<60%)`}
+        <View style={styles.resultCard}>
+          <Text style={[
+            styles.resultCardTitle,
+            passedOverall ? styles.resultCardTitlePass : styles.resultCardTitleFail
+          ]}>
+            {passedOverall ? '✅ ' : '❌ '}
+            {passedOverall ? t('mockExam.passed') : t('mockExam.failed')}
           </Text>
-          <Text style={styles.resultScore}>
+          <Text style={[
+            styles.resultScore,
+            passedOverall ? styles.resultScorePass : styles.resultScoreFail
+          ]}>
             {examProgress.totalScore} / {examProgress.totalMaxPoints}
           </Text>
-          <Text style={styles.resultPercentage}>{totalPercentage.toFixed(1)}%</Text>
+          <Text style={[
+            styles.resultPercentage,
+            passedOverall ? styles.resultPercentagePass : styles.resultPercentageFail
+          ]}>
+            {totalPercentage.toFixed(1)}%
+          </Text>
+          <Text style={styles.resultRequirement}>
+            {t('mockExam.requirementText', { percentage: '60' })}
+          </Text>
         </View>
 
         {/* Written Component */}
@@ -275,6 +296,47 @@ const MockExamRunningScreen: React.FC = () => {
             </Text>
           </View>
         )}
+
+        {/* Detailed Step Breakdown */}
+        <View style={styles.stepBreakdownSection}>
+          <Text style={styles.stepBreakdownTitle}>{t('mockExam.detailedBreakdown')}</Text>
+          
+          {examProgress.steps.map((step, index) => {
+            const stepPercentage = step.maxPoints > 0 
+              ? ((step.score || 0) / step.maxPoints) * 100 
+              : 0;
+            const isSkipped = step.sectionNumber === 5 && (step.score || 0) === 0;
+            
+            return (
+              <View key={step.id} style={styles.stepBreakdownCard}>
+                <View style={styles.stepBreakdownHeader}>
+                  <Text style={styles.stepBreakdownNumber}>{index + 1}</Text>
+                  <View style={styles.stepBreakdownInfo}>
+                    <Text style={styles.stepBreakdownPartName}>{step.partName}</Text>
+                    <Text style={styles.stepBreakdownSectionName}>{step.sectionName}</Text>
+                  </View>
+                </View>
+                <View style={styles.stepBreakdownScores}>
+                  {isSkipped ? (
+                    <Text style={styles.stepBreakdownSkipped}>{t('mockExam.skipped')}</Text>
+                  ) : (
+                    <>
+                      <Text style={styles.stepBreakdownScore}>
+                        {step.score || 0} / {step.maxPoints}
+                      </Text>
+                      <Text style={[
+                        styles.stepBreakdownPercentage,
+                        stepPercentage >= 60 ? styles.stepBreakdownPercentagePass : styles.stepBreakdownPercentageFail
+                      ]}>
+                        {stepPercentage.toFixed(1)}%
+                      </Text>
+                    </>
+                  )}
+                </View>
+              </View>
+            );
+          })}
+        </View>
 
         {/* Note */}
         <View style={styles.noteCard}>
@@ -519,37 +581,56 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.xl,
   },
   resultCard: {
+    backgroundColor: colors.background.secondary,
     padding: spacing.padding.xl,
     borderRadius: spacing.borderRadius.lg,
     marginBottom: spacing.margin.xl,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.15,
     shadowRadius: 8,
     elevation: 5,
-  },
-  resultCardPass: {
-    backgroundColor: colors.success[500],
-  },
-  resultCardFail: {
-    backgroundColor: colors.error[500],
+    borderWidth: 2,
+    borderColor: colors.secondary[200],
   },
   resultCardTitle: {
     ...typography.textStyles.h2,
-    color: colors.background.secondary,
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.md,
   },
+  resultCardTitlePass: {
+    color: colors.success[600],
+  },
+  resultCardTitleFail: {
+    color: colors.error[600],
+  },
   resultScore: {
     ...typography.textStyles.h1,
-    color: colors.background.secondary,
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
   },
+  resultScorePass: {
+    color: colors.success[700],
+  },
+  resultScoreFail: {
+    color: colors.error[700],
+  },
   resultPercentage: {
     ...typography.textStyles.h3,
-    color: colors.background.secondary,
+    fontWeight: typography.fontWeight.semibold,
+    marginBottom: spacing.margin.sm,
+  },
+  resultPercentagePass: {
+    color: colors.success[600],
+  },
+  resultPercentageFail: {
+    color: colors.error[600],
+  },
+  resultRequirement: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginTop: spacing.margin.xs,
   },
   componentCard: {
     backgroundColor: colors.background.secondary,
@@ -594,6 +675,86 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.primary[700],
     lineHeight: 20,
+  },
+  stepBreakdownSection: {
+    marginTop: spacing.margin.lg,
+    marginBottom: spacing.margin.lg,
+  },
+  stepBreakdownTitle: {
+    ...typography.textStyles.h3,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.md,
+  },
+  stepBreakdownCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.sm,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.primary[400],
+  },
+  stepBreakdownHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  stepBreakdownNumber: {
+    ...typography.textStyles.body,
+    color: colors.background.secondary,
+    backgroundColor: colors.primary[500],
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    textAlign: 'center',
+    lineHeight: 28,
+    fontWeight: typography.fontWeight.bold,
+    marginRight: spacing.margin.sm,
+  },
+  stepBreakdownInfo: {
+    flex: 1,
+  },
+  stepBreakdownPartName: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.semibold,
+    marginBottom: 2,
+  },
+  stepBreakdownSectionName: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  stepBreakdownScores: {
+    alignItems: 'flex-end',
+  },
+  stepBreakdownScore: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.semibold,
+  },
+  stepBreakdownPercentage: {
+    ...typography.textStyles.bodySmall,
+    fontWeight: typography.fontWeight.bold,
+    marginTop: 2,
+  },
+  stepBreakdownPercentagePass: {
+    color: colors.success[600],
+  },
+  stepBreakdownPercentageFail: {
+    color: colors.error[600],
+  },
+  stepBreakdownSkipped: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    fontStyle: 'italic',
   },
   primaryButton: {
     backgroundColor: colors.primary[500],

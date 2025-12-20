@@ -870,7 +870,10 @@
     "writtenExam": "Examen écrit",
     "speakingCardTitle": "Section parlante",
     "oralExam": "Examen oral",
-    "examResultsNote": "ℹ️ Il s'agit d'un examen blanc pour la pratique. \nLes résultats réels de l’examen peuvent varier. \nUtilisez ces résultats pour identifier vos forces et vos faiblesses."
+    "examResultsNote": "ℹ️ Il s'agit d'un examen blanc pour la pratique. \nLes résultats réels de l'examen peuvent varier. \nUtilisez ces résultats pour identifier vos forces et vos faiblesses.",
+    "detailedBreakdown": "Répartition détaillée",
+    "skipped": "Ignoré",
+    "requirementText": "Minimum {{percentage}}% requis pour réussir"
   },
   "grammar": {
     "part1": {

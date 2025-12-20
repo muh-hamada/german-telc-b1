@@ -599,7 +599,10 @@
     "writtenExam": "Written Exam",
     "speakingCardTitle": "Speaking Section",
     "oralExam": "Oral Exam",
-    "examResultsNote": "ℹ️ This is a mock exam for practice. Actual exam results may vary. Use these results to identify your strengths and weaknesses."
+    "examResultsNote": "ℹ️ This is a mock exam for practice. Actual exam results may vary. Use these results to identify your strengths and weaknesses.",
+    "detailedBreakdown": "Detailed Step Breakdown",
+    "skipped": "Skipped",
+    "requirementText": "Minimum {{percentage}}% required to pass"
   },
   "questions": {
     "checkAnswers": "Check Answers",

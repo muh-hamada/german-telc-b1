@@ -51,29 +51,29 @@ export const germanA1Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telca1german',
-    ios: '',
+    ios: '6756783649',
   },
 
   ads: {
     appID: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482~7598249331',
+      ios: 'ca-app-pub-5101905792101482~9095982078',
     },
     banner: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/7970602669',
+      ios: 'ca-app-pub-5101905792101482/5933813876',
     },
     rewarded: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/8559977211',
+      ios: 'ca-app-pub-5101905792101482/3603164006',
     },
     userSupport: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/5344439323',
+      ios: 'ca-app-pub-5101905792101482/1994568863',
     },
     vocabularyBuilder: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/1179524107',
+      ios: 'ca-app-pub-5101905792101482/7782900400',
     },
   },
 

@@ -61,7 +61,7 @@ if [ "$PLATFORM" = "android" ]; then
   # Extract level from exam ID (e.g., german-b1 -> b1)
   LEVEL=$(echo "$EXAM_ID" | grep -o '[ab][12]')
   # Extract language from exam ID (e.g., german-b1 -> german)
-  LANGUAGE=$(echo "$EXAM_ID" | sed 's/-b[12]$//')
+  LANGUAGE=$(echo "$EXAM_ID" | sed 's/-[ab][12]$//')
   
   if [ -n "$LEVEL" ]; then
     LOGO_SOURCE="../../logos/android/launcher-icon-${LEVEL}.png"
