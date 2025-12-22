@@ -16,7 +16,7 @@ if (!admin.apps.length) {
 
 // OpenAI API Configuration
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-const MODEL = 'gpt-4o';
+const MODEL = 'gpt-4o-mini';
 
 /**
  * System prompt that defines the AI's role as a Telc B1 German examiner
@@ -159,7 +159,7 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
       messageContent = userPrompt;
     }
 
-    console.log('Making fetch request to OpenAI...');
+    console.log('Making fetch request to OpenAI... Using model:', MODEL);
     const response = await fetch(OPENAI_API_URL, {
       method: 'POST',
       headers: {

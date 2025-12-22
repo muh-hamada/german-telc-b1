@@ -1063,7 +1063,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   evaluateButtonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
+    color: colors.white,
   },
   submitButton: {
     backgroundColor: colors.primary[500],

@@ -7,6 +7,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
 - id: int
 - title: general title for the question. 4-6 words long
 
+
 {
   "task_points": [
     {
@@ -49,5 +50,5 @@ You must follow the same exam JSON schema. The JSON must be complete.
     "structure_hint": "Vergessen Sie nicht den passenden Anfang und Gruß am Schluss.",
     "text_length_hint": "Schreiben Sie zu jedem Punkt ein bis zwei Sätze (circa 30 Wörter)."
   },
-  "instruction_header": "Schreiben Sie an die Touristeninformation in Dresden:"
+  "instruction_header": "Schreiben Sie an die Touristeninformation in Dresden."
 }

@@ -923,6 +923,631 @@ export const validateB2OralExamStructure = (data: any): ValidationResult => {
 };
 
 /**
+ * Validate A1 Reading Part 1 structure
+ */
+export const validateA1ReadingPart1 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!Array.isArray(data)) {
+    errors.push('Data must be an array of exams');
+    return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.text !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "text"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.question !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        }
+        if (typeof q.is_correct !== 'boolean') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "is_correct" boolean`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Reading Part 2 structure
+ */
+export const validateA1ReadingPart2 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.situation !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "situation" text`);
+        }
+        if (!Array.isArray(q.options)) {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "options" array`);
+        } else if (q.options.length !== 2) {
+          errors.push(`Exam ${index}, Question ${qIndex}: Should have exactly 2 options`);
+        } else {
+          q.options.forEach((opt: any, optIndex: number) => {
+            if (typeof opt.id !== 'number') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "id"`);
+            }
+            if (typeof opt.text !== 'string' && typeof opt.option !== 'string') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "text" or "option"`);
+            }
+            if (typeof opt.is_correct !== 'boolean') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "is_correct" boolean`);
+            }
+          });
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Reading Part 3 structure
+ */
+export const validateA1ReadingPart3 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.text !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "text"`);
+        }
+        if (typeof q.question !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        }
+        if (typeof q.is_correct !== 'boolean') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "is_correct" boolean`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Writing Part 1 structure
+ */
+export const validateA1WritingPart2 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.instruction_header !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "instruction_header"`);
+    }
+    if (!Array.isArray(exam.task_points)) {
+      errors.push(`Exam ${index}: Missing or invalid "task_points" array`);
+    } else {
+      exam.task_points.forEach((point: any, pIndex: number) => {
+        if (typeof point.id !== 'string') {
+          errors.push(`Exam ${index}, Task Point ${pIndex}: Missing "id"`);
+        }
+        if (typeof point.text !== 'string') {
+          errors.push(`Exam ${index}, Task Point ${pIndex}: Missing "text"`);
+        }
+        if (!Array.isArray(point.keywords_expected)) {
+          errors.push(`Exam ${index}, Task Point ${pIndex}: Missing "keywords_expected" array`);
+        }
+      });
+    }
+    if (!exam.constraints || typeof exam.constraints !== 'object') {
+      errors.push(`Exam ${index}: Missing or invalid "constraints" object`);
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Writing Part 2 structure
+ */
+export const validateA1WritingPart1 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: false, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.scenario_text !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "scenario_text"`);
+    }
+    if (typeof exam.instruction !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "instruction"`);
+    }
+    if (!Array.isArray(exam.form_fields)) {
+      errors.push(`Exam ${index}: Missing or invalid "form_fields" array`);
+    } else {
+      // Check for duplicate field IDs within this exam
+      const fieldIds = exam.form_fields.map((f: any) => f.id).filter((id: any) => typeof id === 'string');
+      const duplicateFieldIds = findDuplicateIds(fieldIds);
+      if (duplicateFieldIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate form field IDs found: ${duplicateFieldIds.join(', ')}`);
+      }
+
+      exam.form_fields.forEach((field: any, fIndex: number) => {
+        if (typeof field.id !== 'string') {
+          errors.push(`Exam ${index}, Field ${fIndex}: Missing "id"`);
+        }
+        if (typeof field.type !== 'string') {
+          errors.push(`Exam ${index}, Field ${fIndex}: Missing "type"`);
+        }
+        if (field.is_editable === true && field.validation) {
+          if (!field.validation.correct_value && !field.validation.acceptable_values) {
+            errors.push(`Exam ${index}, Field ${fIndex}: Editable field must have validation with correct_value or acceptable_values`);
+          }
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Listening Part 1 structure
+ */
+export const validateA1ListeningPart1 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.section_details || typeof data.section_details !== 'object') {
+    errors.push('Missing or invalid "section_details" object');
+  }
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: errors.length === 0, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.audio_url !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "audio_url"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.question !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        }
+        if (!Array.isArray(q.options)) {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "options" array`);
+        } else {
+          q.options.forEach((opt: any, optIndex: number) => {
+            if (typeof opt.text !== 'string') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "text"`);
+            }
+            if (typeof opt.is_correct !== 'boolean') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "is_correct" boolean`);
+            }
+          });
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Listening Part 2 structure
+ */
+export const validateA1ListeningPart2 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.section_details || typeof data.section_details !== 'object') {
+    errors.push('Missing or invalid "section_details" object');
+  }
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: errors.length === 0, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.audio_url !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "audio_url"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.question !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        }
+        if (typeof q.is_correct !== 'boolean') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "is_correct" boolean`);
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Listening Part 3 structure
+ */
+export const validateA1ListeningPart3 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.section_details || typeof data.section_details !== 'object') {
+    errors.push('Missing or invalid "section_details" object');
+  }
+
+  if (!data.exams || !Array.isArray(data.exams)) {
+    errors.push('Missing or invalid "exams" array');
+    return { valid: errors.length === 0, errors };
+  }
+
+  // Check for duplicate exam IDs
+  const examIds = data.exams.map((exam: any) => exam.id).filter((id: any) => typeof id === 'number');
+  const duplicateExamIds = findDuplicateIds(examIds);
+  if (duplicateExamIds.length > 0) {
+    errors.push(`Duplicate exam IDs found: ${duplicateExamIds.join(', ')}`);
+  }
+
+  data.exams.forEach((exam: any, index: number) => {
+    if (typeof exam.id !== 'number') {
+      errors.push(`Exam ${index}: Missing or invalid "id"`);
+    }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    }
+    if (typeof exam.audio_url !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "audio_url"`);
+    }
+    if (!Array.isArray(exam.questions)) {
+      errors.push(`Exam ${index}: Missing or invalid "questions" array`);
+    } else {
+      // Check for duplicate question IDs within this exam
+      const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
+      const duplicateQuestionIds = findDuplicateIds(questionIds);
+      if (duplicateQuestionIds.length > 0) {
+        errors.push(`Exam ${index}: Duplicate question IDs found: ${duplicateQuestionIds.join(', ')}`);
+      }
+
+      exam.questions.forEach((q: any, qIndex: number) => {
+        if (typeof q.id !== 'number') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
+        }
+        if (typeof q.question !== 'string') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        }
+        if (!Array.isArray(q.options)) {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing "options" array`);
+        } else {
+          q.options.forEach((opt: any, optIndex: number) => {
+            if (typeof opt.text !== 'string') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "text"`);
+            }
+            if (typeof opt.is_correct !== 'boolean') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Option ${optIndex}: Missing "is_correct" boolean`);
+            }
+          });
+        }
+      });
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Speaking Part 1 structure
+ */
+export const validateA1SpeakingPart1 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.instructions || typeof data.instructions !== 'object') {
+    errors.push('Missing or invalid "instructions" object');
+  }
+
+  if (!data.study_material || typeof data.study_material !== 'object') {
+    errors.push('Missing or invalid "study_material" object');
+    return { valid: errors.length === 0, errors };
+  }
+
+  const studyMaterial = data.study_material;
+  
+  if (!Array.isArray(studyMaterial.template_keywords)) {
+    errors.push('Missing or invalid "study_material.template_keywords" array');
+  }
+
+  if (!studyMaterial.example_monologue || typeof studyMaterial.example_monologue !== 'object') {
+    errors.push('Missing or invalid "study_material.example_monologue" object');
+  } else if (!Array.isArray(studyMaterial.example_monologue.text_segments)) {
+    errors.push('Missing or invalid "study_material.example_monologue.text_segments" array');
+  }
+
+  if (!studyMaterial.example_interaction || typeof studyMaterial.example_interaction !== 'object') {
+    errors.push('Missing or invalid "study_material.example_interaction" object');
+  } else if (!Array.isArray(studyMaterial.example_interaction.dialogue)) {
+    errors.push('Missing or invalid "study_material.example_interaction.dialogue" array');
+  }
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Speaking Part 2 structure
+ */
+export const validateA1SpeakingPart2 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.instructions || typeof data.instructions !== 'object') {
+    errors.push('Missing or invalid "instructions" object');
+  }
+
+  if (!data.simulation_data || typeof data.simulation_data !== 'object') {
+    errors.push('Missing or invalid "simulation_data" object');
+    return { valid: errors.length === 0, errors };
+  }
+
+  const simData = data.simulation_data;
+
+  if (typeof simData.topic !== 'string') {
+    errors.push('Missing or invalid "simulation_data.topic"');
+  }
+
+  if (!Array.isArray(simData.cards)) {
+    errors.push('Missing or invalid "simulation_data.cards" array');
+  } else {
+    // Check for duplicate card IDs
+    const cardIds = simData.cards.map((card: any) => card.id).filter((id: any) => typeof id === 'string');
+    const duplicateCardIds = findDuplicateIds(cardIds);
+    if (duplicateCardIds.length > 0) {
+      errors.push(`Duplicate card IDs found: ${duplicateCardIds.join(', ')}`);
+    }
+
+    simData.cards.forEach((card: any, index: number) => {
+      if (typeof card.id !== 'string') {
+        errors.push(`Card ${index}: Missing "id"`);
+      }
+      if (typeof card.word !== 'string') {
+        errors.push(`Card ${index}: Missing "word"`);
+      }
+      if (typeof card.image_icon !== 'string') {
+        errors.push(`Card ${index}: Missing "image_icon"`);
+      }
+    });
+  }
+
+  if (!simData.example_dialogue || typeof simData.example_dialogue !== 'object') {
+    errors.push('Missing or invalid "simulation_data.example_dialogue" object');
+  }
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validate A1 Speaking Part 3 structure
+ */
+export const validateA1SpeakingPart3 = (data: any): ValidationResult => {
+  const errors: string[] = [];
+
+  if (!data.instructions || typeof data.instructions !== 'object') {
+    errors.push('Missing or invalid "instructions" object');
+  }
+
+  if (!data.simulation_data || typeof data.simulation_data !== 'object') {
+    errors.push('Missing or invalid "simulation_data" object');
+    return { valid: errors.length === 0, errors };
+  }
+
+  const simData = data.simulation_data;
+
+  if (!Array.isArray(simData.cards_deck)) {
+    errors.push('Missing or invalid "simulation_data.cards_deck" array');
+  } else {
+    // Check for duplicate card IDs
+    const cardIds = simData.cards_deck.map((card: any) => card.id).filter((id: any) => typeof id === 'string');
+    const duplicateCardIds = findDuplicateIds(cardIds);
+    if (duplicateCardIds.length > 0) {
+      errors.push(`Duplicate card IDs found: ${duplicateCardIds.join(', ')}`);
+    }
+
+    simData.cards_deck.forEach((card: any, index: number) => {
+      if (typeof card.id !== 'string') {
+        errors.push(`Card ${index}: Missing "id"`);
+      }
+      if (typeof card.image_url !== 'string') {
+        errors.push(`Card ${index}: Missing "image_url"`);
+      }
+      if (typeof card.image_label !== 'string') {
+        errors.push(`Card ${index}: Missing "image_label"`);
+      }
+      if (typeof card.image_description !== 'string') {
+        errors.push(`Card ${index}: Missing "image_description"`);
+      }
+      if (typeof card.example_request !== 'string') {
+        errors.push(`Card ${index}: Missing "example_request"`);
+      }
+      if (!Array.isArray(card.expected_keywords)) {
+        errors.push(`Card ${index}: Missing "expected_keywords" array`);
+      }
+    });
+  }
+
+  if (!simData.example_scenario || typeof simData.example_scenario !== 'object') {
+    errors.push('Missing or invalid "simulation_data.example_scenario" object');
+  }
+
+  return { valid: errors.length === 0, errors };
+};
+
+/**
  * Main validator that routes to specific validators based on document ID and level
  * @param docId - The document identifier (e.g., 'speaking-part1', 'grammar-part1')
  * @param data - The parsed JSON data to validate
@@ -939,27 +1564,27 @@ export const validateDocument = (docId: string, data: any, level: 'B1' | 'B2' | 
     if (level === 'A1') {
       switch (docId) {
         case 'reading-part1':
-          return { valid: true, errors: [] }; // TODO: Implement reading part 1 validation
+          return validateA1ReadingPart1(data);
         case 'reading-part2':
-          return { valid: true, errors: [] }; // TODO: Implement reading part 2 validation
+          return validateA1ReadingPart2(data);
         case 'reading-part3':
-          return { valid: true, errors: [] }; // TODO: Implement reading part 3 validation
+          return validateA1ReadingPart3(data);
         case 'writing-part1':
-          return { valid: true, errors: [] }; // TODO: Implement writing part 1 validation
+          return validateA1WritingPart1(data);
         case 'writing-part2':
-          return { valid: true, errors: [] }; // TODO: Implement writing part 2 validation
+          return validateA1WritingPart2(data);
         case 'listening-part1':
-          return { valid: true, errors: [] }; // TODO: Implement listening part 1 validation
+          return validateA1ListeningPart1(data);
         case 'listening-part2':
-          return { valid: true, errors: [] }; // TODO: Implement listening part 2 validation
+          return validateA1ListeningPart2(data);
         case 'listening-part3':
-          return { valid: true, errors: [] }; // TODO: Implement listening part 3 validation
+          return validateA1ListeningPart3(data);
         case 'speaking-part1':            
-            return { valid: true, errors: [] }; // TODO: Implement speaking part 1 validation
+          return validateA1SpeakingPart1(data);
         case 'speaking-part2':
-          return { valid: true, errors: [] }; // TODO: Implement speaking part 2 validation
+          return validateA1SpeakingPart2(data);
         case 'speaking-part3':
-          return { valid: true, errors: [] }; // TODO: Implement speaking part 3 validation
+          return validateA1SpeakingPart3(data);
         case 'listening-practice':
           return  validateListeningPractice(data);
         default:
