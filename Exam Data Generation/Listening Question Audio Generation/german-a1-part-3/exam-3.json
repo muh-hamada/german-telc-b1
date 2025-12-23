@@ -1,0 +1,122 @@
+[
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "a1-part-3-intro" },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-11" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Hier ist die Zahnarztpraxis Dr. Bergmann. Unsere Praxis ist heute leider geschlossen. In dringenden Fällen wählen Sie bitte die Nummer: vier vier sieben zwei null. Ich wiederhole: vier vier sieben zwei null.",
+            "voiceId": "person1",
+            "id": "interview-11"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Hier ist die Zahnarztpraxis Dr. Bergmann. Unsere Praxis ist heute leider geschlossen. In dringenden Fällen wählen Sie bitte die Nummer: vier vier sieben zwei null. Ich wiederhole: vier vier sieben zwei null.",
+            "voiceId": "person1",
+            "id": "interview-11"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-12" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Lena, hier ist Thomas. Ich bin jetzt in der Stadt. Ich warte vor der Apotheke auf dich. Nicht an der Bushaltestelle, da ist es zu laut. Also, bis gleich vor der Apotheke.",
+            "voiceId": "person3",
+            "id": "interview-12"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Lena, hier ist Thomas. Ich bin jetzt in der Stadt. Ich warte vor der Apotheke auf dich. Nicht an der Bushaltestelle, da ist es zu laut. Also, bis gleich vor der Apotheke.",
+            "voiceId": "person3",
+            "id": "interview-12"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-13" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hi Michael, hier ist Sarah. Mein Zug hat Verspätung. Ich komme erst um achtzehn Uhr an. Bitte warte nicht am Gleis auf mich. Geh doch schon ins Café. Bis dann.",
+            "voiceId": "person2",
+            "id": "interview-13"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hi Michael, hier ist Sarah. Mein Zug hat Verspätung. Ich komme erst um achtzehn Uhr an. Bitte warte nicht am Gleis auf mich. Geh doch schon ins Café. Bis dann.",
+            "voiceId": "person2",
+            "id": "interview-13"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-14" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag, Firma Klein hier. Herr Bauer, Ihr Computer ist fertig. Sie können ihn am Freitag abholen. Am Samstag haben wir geschlossen. Bitte kommen Sie am Freitag.",
+            "voiceId": "person5",
+            "id": "interview-14"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag, Firma Klein hier. Herr Bauer, Ihr Computer ist fertig. Sie können ihn am Freitag abholen. Am Samstag haben wir geschlossen. Bitte kommen Sie am Freitag.",
+            "voiceId": "person5",
+            "id": "interview-14"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-15" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Julia, hier ist Florian. Du, mein Kühlschrank ist kaputt. Er kühlt nicht mehr. Hast du Platz für meine Sachen? Bitte ruf mich an.",
+            "voiceId": "person4",
+            "id": "interview-15"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-3-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Julia, hier ist Florian. Du, mein Kühlschrank ist kaputt. Er kühlt nicht mehr. Hast du Platz für meine Sachen? Bitte ruf mich an.",
+            "voiceId": "person4",
+            "id": "interview-15"
+        },
+        { "type": "pause", "durationSeconds": 3 },
+        { "type": "ready", "id": "part-3-outro" },
+        { "type": "pause", "durationSeconds": 5 }
+    ]

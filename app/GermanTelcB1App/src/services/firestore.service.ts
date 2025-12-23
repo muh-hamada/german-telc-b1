@@ -45,46 +45,49 @@ class FirestoreService {
         // Example: "Europe/Berlin" or "America/New_York"
         const deviceTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         
-        const userData = {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          provider: user.provider,
-          appId: activeExamConfig.id,
-          createdAt: Timestamp.fromDate(user.createdAt),
-          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
-          timezone: deviceTimezone,
-          platform: Platform.OS,
-          preferences: {
-            interfaceLanguage: i18n.language || 'en',
-          },
-          notificationSettings: {
-            enabled: false,
-            hour: DEFAULT_NOTIFICATION_HOUR,
-          },
-          stats: {
-            totalExams: 0,
-            completedExams: 0,
-            totalScore: 0,
-            totalMaxScore: 0,
-            averageScore: 0,
-            streak: 0,
-            lastActivity: Timestamp.fromDate(new Date()),
-          },
-        };
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        provider: user.provider,
+        appId: activeExamConfig.id,
+        createdAt: Timestamp.fromDate(user.createdAt),
+        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+        lastActiveAt: Timestamp.fromDate(new Date()),
+        timezone: deviceTimezone,
+        platform: Platform.OS,
+        preferences: {
+          interfaceLanguage: i18n.language || 'en',
+        },
+        notificationSettings: {
+          enabled: false,
+          hour: DEFAULT_NOTIFICATION_HOUR,
+        },
+        stats: {
+          totalExams: 0,
+          completedExams: 0,
+          totalScore: 0,
+          totalMaxScore: 0,
+          averageScore: 0,
+          streak: 0,
+          lastActivity: Timestamp.fromDate(new Date()),
+        },
+      };
         await userRef.set(userData);
         console.log('[FirestoreService] Created new user profile for:', user.uid);
-      } else {
-        // Existing user - only update basic auth fields that can change
-        await userRef.update({
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
-        });
-        console.log('[FirestoreService] Updated existing user profile for:', user.uid);
-      }
+    } else {
+      // Existing user - only update basic auth fields that can change
+      await userRef.update({
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+        lastActiveAt: Timestamp.fromDate(new Date()),
+        appId: activeExamConfig.id,
+      });
+      console.log('[FirestoreService] Updated existing user profile for:', user.uid);
+    }
     } catch (error) {
       console.error('Error creating/updating user profile:', error);
       throw error;
@@ -121,6 +124,21 @@ class FirestoreService {
     } catch (error) {
       console.error('Error updating user profile:', error);
       throw error;
+    }
+  }
+
+  // Track user activity (updates lastActiveAt)
+  async trackUserActivity(uid: string): Promise<void> {
+    try {
+      await firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(uid)
+        .update({
+          lastActiveAt: Timestamp.fromDate(new Date()),
+        });
+    } catch (error) {
+      // Silently fail - this is a non-critical update
+      console.warn('Error tracking user activity:', error);
     }
   }
 

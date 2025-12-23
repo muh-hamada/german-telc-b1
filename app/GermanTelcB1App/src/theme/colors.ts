@@ -100,6 +100,12 @@ export const lightColors = {
     google: '#4285F4',
     twitter: '#1DA1F2',
     apple: '#FFFFFF',
+  },
+
+  // Gradient colors for animated borders
+  gradients: {
+    premium: ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea'],
+    premiumBadge: ['#F59E0B', '#FBBF24', '#FCD34D', '#FF6A00', '#FCD34D', '#FBBF24', '#F59E0B'],
   }
 } as const;
 
@@ -203,6 +209,12 @@ export const darkColors = {
     google: '#4285F4',
     twitter: '#1DA1F2',
     apple: '#FFFFFF',
+  },
+
+  // Gradient colors for animated borders - Dark theme versions
+  gradients: {
+    premium: ['#3b4a8c', '#4a2f7a', '#7a3291', '#2b5a99', '#0c6b7d', '#0d7a5a', '#3b4a8c'],
+    premiumBadge: ['#a67c00', '#b8860b', '#c9932f', '#b8651d', '#c9932f', '#b8860b', '#a67c00'],
   }
 } as const;
 

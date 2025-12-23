@@ -1,7 +1,7 @@
 /**
- * German TELC B2 Exam Configuration
+ * German TELC B1 Exam Configuration
  * 
- * This is the configuration for the existing German B2 exam app.
+ * This is the configuration for the existing German B1 exam app.
  * It maintains backward compatibility with the current setup.
  */
 
@@ -18,7 +18,7 @@ export const englishB1Config: ExamConfig = {
   displayName: 'English TELC B1',
 
   bundleId: {
-    android: 'com.mhamada.telcb1english',
+    android: 'com.mhamada.telcb1english.v2',
     ios: 'com.mhamada.telcb1english',
   },
   
@@ -51,7 +51,7 @@ export const englishB1Config: ExamConfig = {
   
   // Store IDs
   storeIds: {
-    android: 'com.mhamada.telcb1english',
+    android: 'com.mhamada.telcb1english.v2',
     ios: '6755912773',
   },
 

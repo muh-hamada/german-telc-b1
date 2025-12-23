@@ -1,0 +1,52 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-2-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-7" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Kunden, heute haben wir ein tolles Angebot für Sie. Im zweiten Stock finden Sie Herrenschuhe für den Winter. Jedes Paar kostet nur 30 (dreißig) Euro. Kommen Sie bitte in den zweiten Stock.",
+      "voiceId": "person1",
+      "id": "interview-7"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-8" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Fahrgäste, wir kommen jetzt in München an. Bitte beachten Sie: Dieser Zug endet hier. Bitte steigen Sie alle aus. Wir wünschen Ihnen einen schönen Tag.",
+      "voiceId": "person2",
+      "id": "interview-8"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-9" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Achtung an Gleis 4 (vier). Der Eurocity nach Frankfurt hat 15 (fünfzehn) Minuten Verspätung. Die Abfahrt ist heute von Gleis 2 (zwei). Bitte gehen Sie zu Gleis 2 (zwei).",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-10" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Frau Maria Schmidt, gebucht auf dem Flug LH 200 (zwei null null) nach Berlin. Bitte kommen Sie sofort zum Ausgang B 12 (B zwölf). Ihr Flug ist zum Einsteigen bereit.",
+      "voiceId": "person4",
+      "id": "interview-10"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

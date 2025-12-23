@@ -174,6 +174,9 @@
       "reviewing": "Révision",
       "learningPace": "Rythme d'apprentissage",
       "dailyLimit": "{{count}} nouveaux mots par jour",
+      "currentStreak": "Actuel",
+      "longestStreak": "Le plus long",
+      "streakInfo": "Informations sur les séries",
       "selectPersona": "Sélectionnez le rythme d'apprentissage",
       "personaDescription": "Choisissez votre rythme d'apprentissage quotidien préféré. Vous pouvez modifier cela à tout moment."
     },
@@ -183,6 +186,11 @@
     },
     "stats": {
       "title": "Votre progression"
+    },
+    "persona": {
+      "casual": "Étudiant casual",
+      "beginner": "Étudiant novice",
+      "serious": "Étudiant sérieux"
     },
     "wordsMastered": "Mots maîtrisés",
     "dueToday": "À rendre aujourd'hui",
@@ -196,13 +204,35 @@
     "markAsLearned": "Marquer comme appris",
     "showAnswer": "Afficher la réponse",
     "noNewWords": "Pas de nouveaux mots",
+    "noNewWordsDesc": "Vous avez atteint votre limite quotidienne. Revenez demain !",
+    "noDueReviews": "Tout est fait !",
+    "noDueReviewsDesc": "Aucune révision prévue aujourd'hui. Bon travail !",
     "tapToSeeTranslation": "Appuyez pour voir la traduction",
     "example": "Exemple",
+    "masteredProgress": "{{mastered}} mots sur {{total}} maîtrisés",
+    "dailyGoal": "Objectif quotidien",
+    "currentStreak": "Série actuelle",
+    "dayStreak": "jour de série 🔥",
+    "errorLoading": "Échec du chargement des données de vocabulaire. Veuillez réessayer.",
+    "errorLoadingWords": "Échec du chargement des mots de vocabulaire",
+    "errorSavingProgress": "Échec de la sauvegarde de votre progression",
+    "celebration": "Excellent travail !",
+    "celebrationMessage": "Vous avez étudié {{count}} mots aujourd'hui !",
+    "reviewComplete": "Révision terminée !",
+    "reviewCompleteMessage": "Vous avez révisé {{count}} mots !",
+    "ratings": {
+      "again": "Encore",
+      "hard": "Difficile",
+      "good": "Bien",
+      "easy": "Facile"
+    },
     "completion": {
       "studyTitle": "Excellent travail !",
-      "reviewTitle": "Révision terminée !",
+      "reviewTitle": "Révision terminée !",
       "studyMessage": "Vous avez étudié {{count}} nouveau mot",
-      "reviewMessage": "Vous avez révisé {{count}} mots",
+      "studyMessage_plural": "Vous avez étudié {{count}} nouveaux mots",
+      "reviewMessage": "Vous avez révisé {{count}} mots",
+      "reviewMessage_plural": "Vous avez révisé {{count}} mots",
       "doneButton": "Fait"
     },
     "onboarding": {
@@ -284,6 +314,7 @@
         "assessUnderstanding": "Évaluer la compréhension",
         "goodJob": "Bon travail!",
         "explanation": "Explication",
+        "start": "Commencer",
         "finish": "Finition"
       }
     },
@@ -322,7 +353,9 @@
       "descriptions": {
         "main": "Pratiquez l'expression orale et les compétences de conversation"
       },
-      "part4": "Étude : Phrases importantes"
+      "part4": "Étude : Phrases importantes",
+      "a1Part2": "Partie 2: Demander et fournir des informations",
+      "a1Part3": "Partie 3 : Formation des demandes et des réponses"
     },
     "grammar": {
       "title": "Éléments de langage",
@@ -382,6 +415,10 @@
     "privacyPolicy": "Politique de confidentialité",
     "termsOfService": "Conditions d'utilisation",
     "rateApp": "Noter l'application",
+    "shareApp": "Partager avec des amis",
+    "shareMessage": "Découvrez cette incroyable application de préparation à l'examen {{language}} TELC {{level}} ! Téléchargez-la maintenant :",
+    "weeklyActivity": "Activité hebdomadaire",
+    "totalXP": "XP",
     "deleteAccount": "Supprimer le compte",
     "deleteAccountModal": {
       "title": "Supprimer le compte",
@@ -425,7 +462,8 @@
       "signedInSuccess": "Vous vous êtes connecté avec succès !",
       "signInFailed": "Échec de la connexion. Veuillez réessayer.",
       "couldNotOpenStore": "Impossible d'ouvrir la boutique d'applications.",
-      "iosRatingComingSoon": "Le lien d'évaluation iOS sera ajouté plus tard."
+      "iosRatingComingSoon": "Le lien d'évaluation iOS sera ajouté plus tard.",
+      "shareFailed": "Échec du partage. Veuillez réessayer."
     },
     "stats": {
       "examsCompleted": "Examens terminés",
@@ -989,7 +1027,8 @@
       "closeButton": "Fermer",
       "loading": "L'évaluation est en cours, cela prendra quelques secondes",
       "userInput": "Votre Réponse",
-      "noUserInput": "Aucune réponse n'a été reconnue. \nEssayez d'améliorer votre écriture."
+      "noUserInput": "Aucune réponse n'a été reconnue. \nEssayez d'améliorer votre écriture.",
+      "modalAnswer": "Réponse Modèle"
     },
     "imagePreview": {
       "title": "Vérifier l'image capturée",
@@ -1151,11 +1190,6 @@
   "stats": {
     "subtitle": "Vue détaillée de vos progrès dans toutes les sections de l'examen",
     "title": "Statistiques"
-  },
-  "persona": {
-    "casual": "Étudiant casual",
-    "beginner": "Étudiant novice",
-    "serious": "Étudiant sérieux"
   },
   "supportAd": {
     "title": "Soutenez-nous avec une pub",

@@ -58,10 +58,10 @@ export const appsConfig: AppConfig[] = [
     flag: '🇬🇧',
     isAvailable: true,
     storeLinks: {
-      android: 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1english',
+      android: 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1english.v2',
       ios: 'https://apps.apple.com/app/id6755912773',
     },
-    packageName: 'com.mhamada.telcb1english',
+    packageName: 'com.mhamada.telcb1english.v2',
     iosAppId: '6755912773',
   },
   {

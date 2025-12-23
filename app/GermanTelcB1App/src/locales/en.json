@@ -353,7 +353,9 @@
       "descriptions": {
         "main": "Practice oral expression and conversation skills"
       },
-      "part4": "Study: Important Phrases"
+      "part4": "Study: Important Phrases",
+      "a1Part2": "Part 2: To request and provide information",
+      "a1Part3": "Part 3: Request and response formation"
     },
     "grammar": {
       "title": "Language Building Blocks",
@@ -440,9 +442,12 @@
       "signedInSuccess": "You have been signed in successfully!",
       "signInFailed": "Failed to sign in. Please try again.",
       "couldNotOpenStore": "We couldn't open the app store",
-      "iosRatingComingSoon": "The iOS app is coming soon"
+      "iosRatingComingSoon": "The iOS app is coming soon",
+      "shareFailed": "Failed to share. Please try again."
     },
+    "shareMessage": "Check out this amazing {{language}} TELC {{level}} exam preparation app! Download it now:",
     "rateApp": "Rate our App",
+    "shareApp": "Share with friends",
     "deleteAccount": "Delete Account",
     "appName": "{{language}} TELC {{level}} Exam Preparation App",
     "weeklyActivity": "Weekly Activity",
@@ -1023,7 +1028,8 @@
       "closeButton": "Close",
       "loading": "Evaluation is in progress, this will take a few seconds",
       "userInput": "Your Answer",
-      "noUserInput": "No answer has been recognized. Try improving your handwriting."
+      "noUserInput": "No answer has been recognized. Try improving your handwriting.",
+      "modalAnswer": "Model Answer"
     },
     "imagePreview": {
       "title": "Review Captured Image",

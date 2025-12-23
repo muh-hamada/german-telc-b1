@@ -175,11 +175,11 @@ const SpeakingMenuScreen: React.FC = () => {
               <Text style={styles.cardDescription}>{t('speaking.a1Part1.menuDescription')}</Text>
             </Card>
             <Card style={styles.card} onPress={handleA1Part2Press}>
-              <Text style={styles.cardTitle}>{t('practice.speaking.part2')}</Text>
+              <Text style={styles.cardTitle}>{t('practice.speaking.a1Part2')}</Text>
               <Text style={styles.cardDescription}>{t('speaking.a1Part2.menuDescription')}</Text>
             </Card>
             <Card style={styles.card} onPress={handleA1Part3Press}>
-              <Text style={styles.cardTitle}>{t('practice.speaking.part3')}</Text>
+              <Text style={styles.cardTitle}>{t('practice.speaking.a1Part3')}</Text>
               <Text style={styles.cardDescription}>{t('speaking.a1Part3.menuDescription')}</Text>
             </Card>
           </>

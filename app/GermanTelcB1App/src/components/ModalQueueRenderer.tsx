@@ -23,9 +23,9 @@ import HourPickerModal from './HourPickerModal';
 import StreakModal from './StreakModal';
 import StreakRewardModal from './StreakRewardModal';
 import PremiumUpsellModal from './PremiumUpsellModal';
-import LoginModal from './LoginModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import premiumPromptService from '../services/premium-prompt.service';
+import { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
 
 const ModalQueueRenderer: React.FC = () => {
   const { currentModal, dismissCurrentModal } = useModalQueue();
@@ -50,9 +50,6 @@ const ModalQueueRenderer: React.FC = () => {
   // Track reward modal state
   const [showRewardModal, setShowRewardModal] = useState(false);
   const [rewardClaimSuccessful, setRewardClaimSuccessful] = useState(false);
-  
-  // Login modal state for premium upsell
-  const [showLoginModal, setShowLoginModal] = useState(false);
 
   // Reset reward modal state when current modal changes
   useEffect(() => {
@@ -161,10 +158,6 @@ const ModalQueueRenderer: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
-    if (!user) {
-      setShowLoginModal(true);
-      return;
-    }
     const success = await purchasePremium();
     if (success) {
       await premiumPromptService.recordPurchase();
@@ -214,7 +207,7 @@ const ModalQueueRenderer: React.FC = () => {
       return (
         <HourPickerModal
           visible={true}
-          selectedHour={currentModal.data?.selectedHour || 9}
+          selectedHour={currentModal.data?.selectedHour || DEFAULT_NOTIFICATION_HOUR}
           onClose={handleHourPickerClose}
           onHourSelect={handleHourPickerSelect}
         />
@@ -259,18 +252,12 @@ const ModalQueueRenderer: React.FC = () => {
       // Note: We don't check isPremium here anymore because we want to show
       // AlreadyPremiumView after successful purchase. User closes with the close button.
       return (
-        <>
-          <PremiumUpsellModal
-            visible={true}
-            onClose={handlePremiumUpsellDismiss}
-            onPurchase={handlePremiumUpsellPurchase}
-            isPurchasing={isPurchasing}
-          />
-          <LoginModal
-            visible={showLoginModal}
-            onClose={() => setShowLoginModal(false)}
-          />
-        </>
+        <PremiumUpsellModal
+          visible={true}
+          onClose={handlePremiumUpsellDismiss}
+          onPurchase={handlePremiumUpsellPurchase}
+          isPurchasing={isPurchasing}
+        />
       );
 
     default:

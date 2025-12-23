@@ -1,0 +1,13 @@
+{
+  "name": "video-generator-scripts",
+  "version": "1.0.0",
+  "description": "Helper scripts for video generator",
+  "scripts": {
+    "get-token": "node get-refresh-token.js"
+  },
+  "dependencies": {
+    "googleapis": "^133.0.0",
+    "open": "^10.0.0"
+  }
+}
+

@@ -121,6 +121,7 @@ export interface WritingExam {
   title: string;
   incomingEmail: string;
   writingPoints: string[];
+  modalAnswer?: string;
   themeNumber?: number;
   themeName?: string;
   uiStrings?: {

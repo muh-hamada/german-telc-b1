@@ -1,0 +1,77 @@
+.screen {
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.answer-screen {
+  width: 1080px;
+  height: 1920px;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-badge-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.answer-badge {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 50px;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(72, 187, 120, 0.4);
+}
+
+.checkmark {
+  font-size: 56px;
+  color: white;
+  font-weight: 700;
+}
+
+.answer-text {
+  font-size: 44px;
+  font-weight: 700;
+  color: white;
+}
+
+.option-card.correct {
+  border-color: #48bb78;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(72, 187, 120, 0.3);
+}
+
+.option-card.correct .option-label {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.option-card.incorrect {
+  border-color: #cbd5e0;
+  background: #f7fafc;
+  opacity: 0.5;
+}
+
+.option-card.incorrect .option-label {
+  background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+}
+
+.check-icon {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  font-size: 80px;
+  color: #48bb78;
+  font-weight: 700;
+}
+

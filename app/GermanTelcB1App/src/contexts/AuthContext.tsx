@@ -5,6 +5,7 @@ import AuthService from '../services/auth.service';
 import FirestoreService from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { activeExamConfig } from '../config/active-exam.config';
 
 // Auth Context Types
 interface AuthState {
@@ -124,6 +125,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               console.error('[AuthContext] Error registering FCM token:', fcmError);
               // Don't block auth flow if FCM fails
             }
+          }
+          
+          // Ensure old users have appId (migration for existing users)
+          if (!userSettings?.appId) {
+            console.log('[AuthContext] Migrating user: adding missing appId');
+            await FirestoreService.updateUserProfile(user.uid, { 
+              appId: activeExamConfig.id
+            });
           }
         } catch (error) {
           console.error('[AuthContext] Error creating user profile:', error);

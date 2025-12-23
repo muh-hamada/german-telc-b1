@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, type ThemeColors } from '../theme';
 import { usePremium } from '../contexts/PremiumContext';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
+import LoginModal from './LoginModal';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -85,15 +87,39 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   isModal = false,
 }) => {
   const { t } = useCustomTranslation();
+  const { user } = useAuth();
   const { productPrice, isProductAvailable, isLoadingProduct } = usePremium();
   const { colors, mode } = useAppTheme();
   const isDarkMode = mode === 'dark';
   const price = productPrice || '...';
   
+  // Internal state for login modal
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  
   // Disable purchase if product is loading or not available
   const isPurchaseDisabled = isPurchasing || isRestoring || isLoadingProduct || !isProductAvailable;
   const featureColors = useMemo(() => getFeatureColors(isDarkMode, colors), [colors, isDarkMode]);
   const styles = useMemo(() => createStyles(colors, isDarkMode), [colors, isDarkMode]);
+
+  // Handle purchase with authentication check
+  const handlePurchaseClick = () => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+    onPurchase();
+  };
+
+  // Handle restore with authentication check
+  const handleRestoreClick = () => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+    if (onRestore) {
+      onRestore();
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -170,7 +196,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       <View style={[styles.ctaSection, { paddingBottom: isModal ? spacing.padding.sm : spacing.padding.lg }]}>
         <TouchableOpacity
           style={[styles.purchaseButton, isPurchaseDisabled && styles.purchaseButtonDisabled]}
-          onPress={onPurchase}
+          onPress={handlePurchaseClick}
           disabled={isPurchaseDisabled}
           activeOpacity={0.85}
         >
@@ -187,7 +213,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         {showRestoreButton && onRestore ? (
           <TouchableOpacity
             style={styles.secondaryButton}
-            onPress={onRestore}
+            onPress={handleRestoreClick}
             disabled={isPurchasing || isRestoring}
           >
             {isRestoring ? (
@@ -206,6 +232,13 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
           </TouchableOpacity>
         )}
       </View>
+
+      {/* Login Modal */}
+      <LoginModal
+        visible={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onSuccess={() => setShowLoginModal(false)}
+      />
     </View>
   );
 };

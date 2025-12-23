@@ -8,6 +8,8 @@ import {
   Image,
   TouchableOpacity,
   I18nManager,
+  Share,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -78,6 +80,50 @@ const ProfileScreen: React.FC = () => {
     openAppRating('profile_screen');
   };
 
+  const handleShareApp = async () => {
+    try {
+      logEvent(AnalyticsEvents.PROFILE_SHARE_APP_CLICKED);
+      
+      // Get the share message with language and level
+      const shareMessage = t('profile.shareMessage', {
+        language: activeExamConfig.language.charAt(0).toUpperCase() + activeExamConfig.language.slice(1),
+        level: activeExamConfig.level.toUpperCase(),
+      });
+      
+      // Build the app store URLs
+      const appStoreUrl = `https://apps.apple.com/app/id${activeExamConfig.storeIds.ios}`;
+      const playStoreUrl = `https://play.google.com/store/apps/details?id=${activeExamConfig.storeIds.android}`;
+      
+      const url = Platform.OS === 'ios' ? appStoreUrl : playStoreUrl;
+      const message = `${shareMessage}\n\n${url}`;
+      
+      const result = await Share.share(
+        {
+          message: message,
+          url: Platform.OS === 'ios' ? url : undefined, // URL parameter only works on iOS
+        },
+        {
+          dialogTitle: t('profile.shareApp'), // Android only
+        }
+      );
+
+      if (result.action === Share.sharedAction) {
+        // User shared the content
+        logEvent(AnalyticsEvents.PROFILE_APP_SHARED, {
+          platform: Platform.OS,
+          sharedWith: result.activityType || 'unknown',
+        });
+      } else if (result.action === Share.dismissedAction) {
+        // User dismissed the share dialog
+        logEvent(AnalyticsEvents.PROFILE_SHARE_DISMISSED);
+      }
+    } catch (error) {
+      console.error('Error sharing app:', error);
+      logEvent(AnalyticsEvents.PROFILE_SHARE_DISMISSED, { error: String(error) });
+      Alert.alert(t('common.error'), t('profile.alerts.shareFailed'));
+    }
+  };
+
   // Auto-open login modal if parameter is passed
   useEffect(() => {
     if (route.params?.openLoginModal && !user) {
@@ -87,10 +133,12 @@ const ProfileScreen: React.FC = () => {
   }, [route.params?.openLoginModal, user]);
 
   const handleNavigateToSettings = () => {
+    logEvent(AnalyticsEvents.PROFILE_SETTINGS_OPENED);
     navigation.navigate('Settings');
   };
 
   const handleNavigateToStats = () => {
+    logEvent(AnalyticsEvents.PROFILE_STATS_OPENED);
     navigation.navigate('CompletionStats');
   };
 
@@ -134,6 +182,7 @@ const ProfileScreen: React.FC = () => {
   };
 
   const handleNavigateToPremium = () => {
+    logEvent(AnalyticsEvents.PROFILE_PREMIUM_CARD_CLICKED);
     navigation.navigate('Premium' as never);
   };
 
@@ -216,7 +265,7 @@ const ProfileScreen: React.FC = () => {
           <AnimatedGradientBorder
             borderWidth={2}
             borderRadius={16}
-            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+            colors={[...colors.gradients.premium]}
             duration={4000}
             style={styles.premiumUpgradeCardWrapper}
           >
@@ -250,12 +299,12 @@ const ProfileScreen: React.FC = () => {
           <AnimatedGradientBorder
             borderWidth={2}
             borderRadius={16}
-            colors={['#F59E0B', '#FBBF24', '#FCD34D', '#FDE68A', '#FCD34D', '#FBBF24', '#F59E0B']}
-            duration={3000}
+            colors={[...colors.gradients.premiumBadge]}
+            duration={10000}
             style={styles.premiumBadgeWrapper}
           >
             <View style={styles.premiumBadge}>
-              <Icon name="star" size={20} color="#F59E0B" />
+              <Icon name="star" size={20} color="#fff" />
               <Text style={styles.premiumBadgeText}>{t('premium.profile.premiumBadge')}</Text>
             </View>
           </AnimatedGradientBorder>
@@ -297,21 +346,42 @@ const ProfileScreen: React.FC = () => {
 
         {/* Actions Section */}
         <View style={styles.actionsSection}>
-          {user && (
-            <Button
-              title={t('profile.signOut')}
-              onPress={handleSignOut}
-              variant="outline"
-              style={styles.actionButton}
-              disabled={authLoading}
-            />
-          )}
-          <Button
-            title={t('profile.rateApp')}
+          <TouchableOpacity
+            style={styles.actionItem}
             onPress={handleRateApp}
-            variant="primary"
-            style={styles.actionButton}
-          />
+            activeOpacity={0.7}
+          >
+            <View style={styles.actionIconContainer}>
+              <Icon name="star" size={20} color={colors.primary[500]} />
+            </View>
+            <Text style={styles.actionItemText}>{t('profile.rateApp')}</Text>
+            <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.actionItem}
+            onPress={handleShareApp}
+            activeOpacity={0.7}
+          >
+            <View style={styles.actionIconContainer}>
+              <Icon name="share-alt" size={20} color={colors.success[500]} />
+            </View>
+            <Text style={styles.actionItemText}>{t('profile.shareApp')}</Text>
+            <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+          </TouchableOpacity>
+          {user && (
+            <TouchableOpacity
+              style={[styles.actionItem, styles.lastActionItem]}
+              onPress={handleSignOut}
+              disabled={authLoading}
+              activeOpacity={0.7}
+            >
+              <View style={styles.actionIconContainer}>
+                <Icon name="sign-out" size={20} color={colors.error[500]} />
+              </View>
+              <Text style={styles.actionItemText}>{t('profile.signOut')}</Text>
+              <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+            </TouchableOpacity>
+          )}
         </View>
 
         {/* About Section */}
@@ -457,17 +527,39 @@ const createStyles = (colors: ThemeColors) =>
       marginBottom: spacing.margin.sm,
     },
     actionsSection: {
-      marginTop: spacing.margin.lg,
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      overflow: 'hidden',
+      ...spacing.shadow.sm,
     },
-    actionButton: {
-      marginBottom: spacing.margin.sm,
+    actionItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border.light,
+      backgroundColor: colors.background.secondary,
+    },
+    lastActionItem: {
+      borderBottomWidth: 0,
+    },
+    actionIconContainer: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: colors.background.tertiary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: spacing.margin.md,
+    },
+    actionItemText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      flex: 1,
     },
     aboutSection: {
       alignItems: 'center',
-      paddingTop: spacing.padding.lg,
-      paddingBottom: spacing.padding.md,
-      borderTopWidth: 1,
-      borderTopColor: colors.border.light,
       marginTop: spacing.margin.lg,
     },
     aboutText: {
@@ -545,7 +637,7 @@ const createStyles = (colors: ThemeColors) =>
       marginBottom: spacing.margin.lg,
     },
     premiumBadge: {
-      backgroundColor: colors.background.secondary,
+      // backgroundColor: colors.background.secondary,
       borderRadius: 14,
       padding: spacing.padding.md,
       flexDirection: 'row',
@@ -556,7 +648,7 @@ const createStyles = (colors: ThemeColors) =>
     premiumBadgeText: {
       ...typography.textStyles.body,
       fontWeight: typography.fontWeight.semibold,
-      color: '#B45309',
+      color: '#fff',
     },
     raceGif: {
       width: 48,

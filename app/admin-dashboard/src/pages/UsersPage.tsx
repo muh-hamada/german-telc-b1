@@ -41,7 +41,21 @@ export const UsersPage: React.FC = () => {
     try {
       setLoading(true);
       const allUsers = await firestoreService.getAllUsers();
-      setUsers(allUsers);
+      const sortedByCreatedAt = allUsers.sort((a, b) => {
+        console.log('Comparing createdAt:', a.createdAt, b.createdAt);
+        // Firebase Timestamp objects can be compared with their .toMillis() or .seconds properties.
+        // This handles cases where createdAt may be undefined/null.
+        const getTimestamp = (user: User) => {
+          if (user.createdAt && typeof user.createdAt.toMillis === 'function') {
+            return user.createdAt.toMillis();
+          } else if (user.createdAt && typeof user.createdAt.seconds === 'number') {
+            return user.createdAt.seconds * 1000; // Convert to ms for consistency
+          }
+          return 0;
+        };
+        return getTimestamp(b) - getTimestamp(a);
+      });
+      setUsers(sortedByCreatedAt);
       toast.success(`Loaded ${allUsers.length} users`);
     } catch (error: any) {
       console.error('Error loading users:', error);

@@ -137,6 +137,7 @@
       "speaking": "Expresión Oral"
     },
     "descriptions": {
+      "examStructure": "Conozca el formato del examen TELC {{level}} y el sistema de puntuación",
       "vocabulary": "Aprende vocabulario con repetición espaciada",
       "solve": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla",
       "listeningPractice": "Escuche entrevistas y responda preguntas para practicar sus habilidades de escucha."
@@ -177,6 +178,9 @@
       "reviewing": "Revisando",
       "learningPace": "Ritmo de aprendizaje",
       "dailyLimit": "{{count}} palabras nuevas por día",
+      "currentStreak": "Actual",
+      "longestStreak": "Más largo",
+      "streakInfo": "Información de racha",
       "personaDescription": "Elija su ritmo de aprendizaje diario preferido. Puedes cambiar esto en cualquier momento.",
       "selectPersona": "Seleccione el ritmo de aprendizaje"
     },
@@ -200,13 +204,35 @@
     "markAsLearned": "Marcar como aprendido",
     "showAnswer": "Mostrar respuesta",
     "noNewWords": "Sin palabras nuevas",
+    "noNewWordsDesc": "Has alcanzado tu límite diario. ¡Vuelve mañana!",
+    "noDueReviews": "¡Todo listo!",
+    "noDueReviewsDesc": "No hay revisiones pendientes hoy. ¡Buen trabajo!",
     "tapToSeeTranslation": "Toca para ver la traducción",
     "example": "Ejemplo",
+    "masteredProgress": "{{mastered}} de {{total}} palabras dominadas",
+    "dailyGoal": "Objetivo diario",
+    "currentStreak": "Racha actual",
+    "dayStreak": "día de racha 🔥",
+    "errorLoading": "Error al cargar datos de vocabulario. Por favor, inténtalo de nuevo.",
+    "errorLoadingWords": "Error al cargar palabras de vocabulario",
+    "errorSavingProgress": "Error al guardar tu progreso",
+    "celebration": "¡Excelente trabajo!",
+    "celebrationMessage": "¡Has estudiado {{count}} palabras hoy!",
+    "reviewComplete": "¡Revisión completa!",
+    "reviewCompleteMessage": "¡Has revisado {{count}} palabras!",
+    "ratings": {
+      "again": "Otra vez",
+      "hard": "Difícil",
+      "good": "Bien",
+      "easy": "Fácil"
+    },
     "completion": {
       "studyTitle": "¡Excelente trabajo!",
       "reviewTitle": "¡Revisión completa!",
       "studyMessage": "Estudiaste {{count}} palabra nueva",
+      "studyMessage_plural": "Estudiaste {{count}} palabras nuevas",
       "reviewMessage": "Revisaste {{count}} palabra",
+      "reviewMessage_plural": "Revisaste {{count}} palabras",
       "doneButton": "Hecho"
     },
     "onboarding": {
@@ -288,6 +314,7 @@
         "assessUnderstanding": "Evaluar la comprensión",
         "goodJob": "¡Buen trabajo!",
         "explanation": "Explicación",
+        "start": "Comenzar",
         "finish": "Finalizar"
       }
     },
@@ -326,7 +353,9 @@
       "descriptions": {
         "main": "Practica expresión oral y habilidades de conversación"
       },
-      "part4": "Estudio: frases importantes"
+      "part4": "Estudio: frases importantes",
+      "a1Part2": "Parte 2: Solicitar y proporcionar información",
+      "a1Part3": "Parte 3: Formación de solicitudes y respuestas"
     },
     "grammar": {
       "title": "Bloques de construcción del idioma",
@@ -386,6 +415,10 @@
     "privacyPolicy": "Política de privacidad",
     "termsOfService": "Términos del servicio",
     "rateApp": "Valorar la app",
+    "shareApp": "Compartir con amigos",
+    "shareMessage": "¡Mira esta increíble aplicación de preparación para el examen {{language}} TELC {{level}}! Descárgala ahora:",
+    "weeklyActivity": "Actividad semanal",
+    "totalXP": "XP",
     "deleteAccount": "Eliminar cuenta",
     "deleteAccountModal": {
       "title": "Eliminar cuenta",
@@ -429,7 +462,8 @@
       "signedInSuccess": "¡Ha iniciado sesión exitosamente!",
       "signInFailed": "Error al iniciar sesión. Por favor inténtelo de nuevo.",
       "couldNotOpenStore": "No pudimos abrir la tienda de aplicaciones.",
-      "iosRatingComingSoon": "El enlace de valoración en iOS se añadirá más tarde."
+      "iosRatingComingSoon": "El enlace de valoración en iOS se añadirá más tarde.",
+      "shareFailed": "Error al compartir. Por favor inténtelo de nuevo."
     },
     "stats": {
       "examsCompleted": "Exámenes completados",
@@ -993,7 +1027,8 @@
       "closeButton": "Cerrar",
       "loading": "La evaluación está en progreso, esto tomará unos segundos.",
       "userInput": "Tu respuesta",
-      "noUserInput": "No se ha reconocido ninguna respuesta. \nIntenta mejorar tu letra."
+      "noUserInput": "No se ha reconocido ninguna respuesta. \nIntenta mejorar tu letra.",
+      "modalAnswer": "Respuesta Modelo"
     },
     "imagePreview": {
       "title": "Revisar imagen capturada",

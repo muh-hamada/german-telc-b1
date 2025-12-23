@@ -1,0 +1,65 @@
+.screen {
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.outro-screen {
+  width: 1080px;
+  height: 1920px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+}
+
+.outro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 80px;
+  text-align: center;
+}
+
+.app-name {
+  font-size: 80px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.cta-text {
+  font-size: 64px;
+  font-weight: 600;
+  color: white;
+  max-width: 800px;
+  line-height: 1.3;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.store-badges {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.badge-placeholder {
+  padding: 20px 50px;
+  background: white;
+  border-radius: 16px;
+  font-size: 36px;
+  font-weight: 600;
+  color: #667eea;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+

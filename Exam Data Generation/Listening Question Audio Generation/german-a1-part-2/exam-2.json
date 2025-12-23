@@ -1,0 +1,52 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-2-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-7" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Kunden, heute haben wir tolle Angebote für Sie. Frische Äpfel aus Deutschland für nur 1 Euro 99 das Kilo. Und probieren Sie unseren neuen Käse an der Theke im Erdgeschoss.",
+      "voiceId": "person1",
+      "id": "interview-7"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-8" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Achtung an Gleis 5. Der Regionalzug nach München hat heute 20 Minuten Verspätung. Die neue Abfahrtszeit ist 14 Uhr 35. Bitte achten Sie auf die Ansagen.",
+      "voiceId": "person2",
+      "id": "interview-8"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-9" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Fahrgäste, wir erreichen jetzt den Endbahnhof Köln Messe Deutz. Dieser Zug fährt nicht weiter. Bitte steigen Sie alle aus. Auf Wiedersehen.",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-10" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Herr Thomas Müller, gebucht auf Flug LH 400 nach New York, bitte kommen Sie sofort zum Informationsschalter in Halle A. Herr Müller, bitte zur Information.",
+      "voiceId": "person4",
+      "id": "interview-10"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

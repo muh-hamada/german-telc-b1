@@ -19,20 +19,16 @@ import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
-import { useAuth } from '../contexts/AuthContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import LoginModal from '../components/LoginModal';
 import PremiumContent from '../components/PremiumContent';
 import AlreadyPremiumView from '../components/AlreadyPremiumView';
 
 const PremiumScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
-  const { user } = useAuth();
   const { isPremium, isPurchasing, purchasePremium, restorePurchases, productPrice, productCurrency } = usePremium();
   const [isRestoring, setIsRestoring] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const insets = useSafeAreaInsets();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -49,10 +45,6 @@ const PremiumScreen: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
-    if (!user) {
-      setShowLoginModal(true);
-      return;
-    }
     await purchasePremium();
   };
 
@@ -61,10 +53,6 @@ const PremiumScreen: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
-    if (!user) {
-      setShowLoginModal(true);
-      return;
-    }
 
     setIsRestoring(true);
     const success = await restorePurchases();
@@ -110,12 +98,6 @@ const PremiumScreen: React.FC = () => {
           showRestoreButton={true}
         />
       </View>
-
-      <LoginModal
-        visible={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-        onSuccess={() => setShowLoginModal(false)}
-      />
     </SafeAreaView>
   );
 };

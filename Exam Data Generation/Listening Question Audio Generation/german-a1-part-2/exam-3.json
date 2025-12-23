@@ -1,0 +1,52 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-2-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-7" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Kunden, heute haben wir tolle Angebote für den Sommer. T-Shirts für nur 5 Euro und kurze Hosen für 10 Euro. Kommen Sie bitte in den zweiten Stock.",
+      "voiceId": "person1",
+      "id": "interview-7"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-8" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Fahrgäste, wir erreichen jetzt Hamburg Hauptbahnhof. Dieser Zug endet hier. Bitte steigen Sie alle aus. Wir wünschen Ihnen einen schönen Tag.",
+      "voiceId": "person2",
+      "id": "interview-8"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-9" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Achtung am Gleis 4. Der Zug nach München hat Verspätung. Die Abfahrt ist nicht um 14 Uhr, sondern erst um 14 Uhr 30. Bitte warten Sie am Gleis.",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-10" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Herr Müller, gebucht auf dem Flug LH405 nach Madrid, bitte kommen Sie sofort zum Ausgang B12. Das Flugzeug fliegt gleich ab.",
+      "voiceId": "person4",
+      "id": "interview-10"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

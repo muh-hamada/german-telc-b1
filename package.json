@@ -2,6 +2,8 @@
   "dependencies": {
     "@react-native-community/netinfo": "^11.4.1",
     "@types/react-slick": "^0.23.13",
+    "googleapis": "^169.0.0",
+    "open": "^11.0.0",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1"
   }

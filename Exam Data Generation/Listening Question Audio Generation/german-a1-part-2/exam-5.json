@@ -1,0 +1,52 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-2-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-7" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Liebe Kunden, herzlich willkommen in unserem Supermarkt. Heute haben wir frisches Obst im Angebot. Ein Kilo Bananen kostet nur 1 Euro 29. Bitte wiegen Sie das Obst und Gemüse selbst an der Waage.",
+      "voiceId": "person1",
+      "id": "interview-7"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-8" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Achtung an Gleis 4. Der Intercity nach München hat leider Verspätung. Die Abfahrt ist nicht um 14 Uhr, sondern erst um 14 Uhr 20. Wir bitten um Entschuldigung.",
+      "voiceId": "person2",
+      "id": "interview-8"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-9" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Nächster Halt: Marktplatz. Liebe Fahrgäste, dieser Bus fährt nicht weiter. Bitte steigen Sie alle aus. Sie können mit der Straßenbahn Linie 5 weiterfahren.",
+      "voiceId": "person3",
+      "id": "interview-9"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-10" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+      "type": "speech",
+      "speed": 0.8,
+      "text": "Herr Thomas Müller, bitte kommen Sie sofort zur Information im Erdgeschoss. Oder rufen Sie Ihre Frau an unter der Nummer 0176 99 88 (null eins sieben sechs neun neun acht acht). Es ist dringend.",
+      "voiceId": "person4",
+      "id": "interview-10"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "part-2-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

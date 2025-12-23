@@ -7,7 +7,7 @@
     "android:german-a1": "./scripts/build-config.sh german-a1 android && react-native run-android --mode=germanA1Debug --appId com.mhamada.telca1german",
     "android:german-b1": "./scripts/build-config.sh german-b1 android && react-native run-android --mode=germanB1Debug --appId com.mhamada.telcb1german",
     "android:german-b2": "./scripts/build-config.sh german-b2 android && react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
-    "android:english-b1": "./scripts/build-config.sh english-b1 android && react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",
+    "android:english-b1": "./scripts/build-config.sh english-b1 android && react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english.v2",
     "android:english-b2": "./scripts/build-config.sh english-b2 android && react-native run-android --mode=englishB2Debug --appId com.mhamada.telcb2english",
     "ios:pods": "cd ios && rm -rf build && rm -rf ~/Library/Developer/Xcode/DerivedData/TelcExamApp-* && pod install && cd ..",
     "ios:german-a1": "./scripts/build-config.sh german-a1 ios && react-native run-ios --scheme TelcExamApp",

@@ -70,6 +70,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
+  const [isUserInputExpanded, setIsUserInputExpanded] = useState(false);
+  const [isModalAnswerExpanded, setIsModalAnswerExpanded] = useState(false);
   const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
@@ -672,16 +674,40 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
               </View>
 
               <View style={styles.userInputSection}>
-                <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
-                <Text style={styles.userInputText}>{assessment.userInput || t('writing.evaluation.noUserInput')}</Text>
+                <TouchableOpacity 
+                  style={styles.userInputHeader}
+                  onPress={() => setIsUserInputExpanded(!isUserInputExpanded)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
+                  <Text style={styles.expandIcon}>{isUserInputExpanded ? '▼' : '▶'}</Text>
+                </TouchableOpacity>
+                {isUserInputExpanded && (
+                  assessment.userInput ?
+                    <Text style={styles.userInputText}>{assessment.userInput}</Text> :
+                    <Text style={styles.userInputText}>{t('writing.evaluation.noUserInput')}</Text>
+                )}
               </View>
 
-              <View style={styles.correctedAnswerSection}>
-                <Text style={styles.correctedAnswerTitle}>{t('writing.evaluation.correctedAnswer')}</Text>
-                <View style={styles.correctedAnswerContainer}>
-                  <MarkdownText text={assessment.correctedAnswer} />
+              {/* Modal Answer Section - Only show if modalAnswer exists in exam data */}
+              {exam.modalAnswer && (
+                <View style={styles.modalAnswerSection}>
+                  <TouchableOpacity 
+                    style={styles.modalAnswerHeader}
+                    onPress={() => setIsModalAnswerExpanded(!isModalAnswerExpanded)}
+                    activeOpacity={0.7}
+                  >
+                    <View style={styles.modalAnswerTitleContainer}>
+                      <Text style={styles.modalAnswerIcon}>⭐</Text>
+                      <Text style={styles.modalAnswerTitle}>{t('writing.evaluation.modalAnswer')}</Text>
+                    </View>
+                    <Text style={styles.expandIcon}>{isModalAnswerExpanded ? '▼' : '▶'}</Text>
+                  </TouchableOpacity>
+                  {isModalAnswerExpanded && (
+                    <Text style={styles.modalAnswerText}>{exam.modalAnswer}</Text>
+                  )}
                 </View>
-              </View>
+              )}
             </ScrollView>
 
             <TouchableOpacity
@@ -1098,7 +1124,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.primary[600],
     textAlign: 'center',
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   mockWarning: {
     backgroundColor: colors.warning[50],
@@ -1136,20 +1162,20 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     alignItems: 'center',
   },
   scoreLabel: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.h5,
     color: colors.text.primary,
   },
   scoreValue: {
-    ...typography.textStyles.h2,
+    ...typography.textStyles.h5,
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
   },
   criteriaSection: {
   },
   criteriaTitle: {
-    ...typography.textStyles.h4,
+    ...typography.textStyles.h5,
     color: colors.text.primary,
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
   },
   criterionCard: {
     padding: spacing.padding.md,
@@ -1192,21 +1218,66 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     lineHeight: 22,
   },
   userInputSection: {
-    backgroundColor: colors.background.secondary,
+    backgroundColor: colors.background.tertiary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.md,
+  },
+  userInputHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   userInputTitle: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
+    flex: 1,
+  },
+  expandIcon: {
+    fontSize: 16,
+    color: colors.text.secondary,
+    marginLeft: spacing.margin.sm,
   },
   userInputText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
+    marginTop: spacing.margin.sm,
+  },
+  modalAnswerSection: {
+    backgroundColor: colors.success[50],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.md,
+    borderWidth: 1,
+    borderColor: colors.success[200],
+  },
+  modalAnswerHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  modalAnswerTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  modalAnswerIcon: {
+    fontSize: 18,
+    marginRight: spacing.margin.xs,
+  },
+  modalAnswerTitle: {
+    ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.success[700],
+    flex: 1,
+  },
+  modalAnswerText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+    marginTop: spacing.margin.sm,
   },
   correctedAnswerSection: {
     backgroundColor: colors.primary[50],

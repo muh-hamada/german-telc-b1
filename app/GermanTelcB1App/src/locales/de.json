@@ -314,6 +314,7 @@
         "assessUnderstanding": "Bewerten Sie das Verständnis",
         "goodJob": "Gute Arbeit!",
         "explanation": "Erläuterung",
+        "start": "Starten",
         "finish": "Beenden"
       }
     },
@@ -352,7 +353,9 @@
       "descriptions": {
         "main": "Üben Sie mündlichen Ausdruck und Konversationsfähigkeiten"
       },
-      "part4": "Lernen: Wichtige Redewendungen"
+      "part4": "Lernen: Wichtige Redewendungen",
+      "a1Part2": "Teil 2: Informationen anfordern und bereitstellen",
+      "a1Part3": "Teil 3: Bitte formulieren und darauf reagieren"
     },
     "grammar": {
       "title": "Sprachbausteine",
@@ -439,9 +442,12 @@
       "signedInSuccess": "Sie haben sich erfolgreich angemeldet!",
       "signInFailed": "Fehler beim Anmelden. Bitte versuchen Sie es erneut.",
       "couldNotOpenStore": "Wir konnten den App Store nicht öffnen",
-      "iosRatingComingSoon": "Die iOS-App kommt bald"
+      "iosRatingComingSoon": "Die iOS-App kommt bald",
+      "shareFailed": "Teilen fehlgeschlagen. Bitte versuchen Sie es erneut."
     },
+    "shareMessage": "Schauen Sie sich diese großartige {{language}} TELC {{level}} Prüfungsvorbereitungs-App an! Laden Sie sie jetzt herunter:",
     "rateApp": "Bewerten Sie unsere App",
+    "shareApp": "Mit Freunden teilen",
     "deleteAccount": "Konto löschen",
     "appName": "{{language}} TELC {{level}} Prüfungsvorbereitungs-App",
     "weeklyActivity": "Wöchentliche Aktivität",
@@ -1022,7 +1028,8 @@
       "closeButton": "Schließen",
       "loading": "Bewertung läuft, dies dauert einige Sekunden",
       "userInput": "Ihre Antwort",
-      "noUserInput": "Keine Antwort erkannt. Versuchen Sie, Ihre Handschrift zu verbessern."
+      "noUserInput": "Keine Antwort erkannt. Versuchen Sie, Ihre Handschrift zu verbessern.",
+      "modalAnswer": "Musterantwort"
     },
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",

@@ -1,0 +1,24 @@
+# Video Generator
+
+node_modules/
+lib/
+*.log
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+.runtimeconfig.json

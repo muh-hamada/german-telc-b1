@@ -89,8 +89,8 @@ android {
         applicationId "com.mhamada.telcb1german"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 58
-        versionName "1.0.58"
+        versionCode 60
+        versionName "1.0.60"
         missingDimensionStrategy "store", "play"
     }
     
@@ -113,7 +113,7 @@ android {
         }
         englishB1 {
             dimension "exam"
-            applicationId "com.mhamada.telcb1english"
+            applicationId "com.mhamada.telcb1english.v2"
             resValue "string", "app_name", "English TELC B1"
         }
         englishB2 {

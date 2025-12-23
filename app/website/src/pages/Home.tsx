@@ -206,7 +206,7 @@ const Home: React.FC = () => {
               <div className="feature-icon">🇬🇧</div>
               <h3>English B1</h3>
               <p>Comprehensive preparation for TELC English B1 exam.</p>
-              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>Download Now →</a>
+              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1english.v2" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>Download Now →</a>
             </div>
             <div className="feature-item">
               <div className="feature-icon">🇬🇧</div>

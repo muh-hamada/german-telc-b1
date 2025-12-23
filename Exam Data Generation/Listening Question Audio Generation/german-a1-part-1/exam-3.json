@@ -1,0 +1,417 @@
+[
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "a1-part-1-intro" },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-1" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Entschuldigung, haben Sie diesen Rock auch in Größe 38?",
+            "voiceId": "person1",
+            "id": "conversation-1-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, tut mir leid. Größe 38 ist weg. Wir haben nur noch Größe 40 und 42.",
+            "voiceId": "person3",
+            "id": "conversation-1-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Schade. 40 ist mir zu groß. Danke.",
+            "voiceId": "person1",
+            "id": "conversation-1-3"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Entschuldigung, haben Sie diesen Rock auch in Größe 38?",
+            "voiceId": "person1",
+            "id": "conversation-1-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, tut mir leid. Größe 38 ist weg. Wir haben nur noch Größe 40 und 42.",
+            "voiceId": "person3",
+            "id": "conversation-1-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Schade. 40 ist mir zu groß. Danke.",
+            "voiceId": "person1",
+            "id": "conversation-1-3"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-2" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Guten Tag. Einmal Berlin und zurück, bitte.",
+            "voiceId": "person3",
+            "id": "conversation-2-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Gerne. Fahren Sie heute?",
+            "voiceId": "person1",
+            "id": "conversation-2-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, erst am Freitag um 8 Uhr.",
+            "voiceId": "person3",
+            "id": "conversation-2-3"
+        },
+         {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Alles klar. Das macht 45 Euro.",
+            "voiceId": "person1",
+            "id": "conversation-2-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Guten Tag. Einmal Berlin und zurück, bitte.",
+            "voiceId": "person3",
+            "id": "conversation-2-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Gerne. Fahren Sie heute?",
+            "voiceId": "person1",
+            "id": "conversation-2-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, erst am Freitag um 8 Uhr.",
+            "voiceId": "person3",
+            "id": "conversation-2-3"
+        },
+         {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Alles klar. Das macht 45 Euro.",
+            "voiceId": "person1",
+            "id": "conversation-2-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-3" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Möchten Sie noch etwas trinken?",
+            "voiceId": "person3",
+            "id": "conversation-3-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Ja, ich nehme noch einen Tee mit Zitrone.",
+            "voiceId": "person1",
+            "id": "conversation-3-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Tee haben wir leider nicht mehr. Vielleicht einen Kaffee?",
+            "voiceId": "person3",
+            "id": "conversation-3-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein danke, dann nur ein Wasser, bitte.",
+            "voiceId": "person1",
+            "id": "conversation-3-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Möchten Sie noch etwas trinken?",
+            "voiceId": "person3",
+            "id": "conversation-3-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Ja, ich nehme noch einen Tee mit Zitrone.",
+            "voiceId": "person1",
+            "id": "conversation-3-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Tee haben wir leider nicht mehr. Vielleicht einen Kaffee?",
+            "voiceId": "person3",
+            "id": "conversation-3-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein danke, dann nur ein Wasser, bitte.",
+            "voiceId": "person1",
+            "id": "conversation-3-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-4" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Hallo Herr Müller. Wie geht es Ihrer Frau?",
+            "voiceId": "person1",
+            "id": "conversation-4-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Danke, gut. Sie ist gerade in München bei ihrer Schwester.",
+            "voiceId": "person3",
+            "id": "conversation-4-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Ach schön. Und wann kommt sie zurück?",
+            "voiceId": "person1",
+            "id": "conversation-4-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Am Sonntagabend.",
+            "voiceId": "person3",
+            "id": "conversation-4-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Hallo Herr Müller. Wie geht es Ihrer Frau?",
+            "voiceId": "person1",
+            "id": "conversation-4-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Danke, gut. Sie ist gerade in München bei ihrer Schwester.",
+            "voiceId": "person3",
+            "id": "conversation-4-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Ach schön. Und wann kommt sie zurück?",
+            "voiceId": "person1",
+            "id": "conversation-4-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Am Sonntagabend.",
+            "voiceId": "person3",
+            "id": "conversation-4-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-5" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Entschuldigung, halten Sie auch am Bahnhof?",
+            "voiceId": "person3",
+            "id": "conversation-5-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, dieser Bus fährt zum Marktplatz.",
+            "voiceId": "person1",
+            "id": "conversation-5-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Oh, da bin ich falsch. Welche Linie fährt zum Bahnhof?",
+            "voiceId": "person3",
+            "id": "conversation-5-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Die Linie 5. Sie kommt in 10 Minuten.",
+            "voiceId": "person1",
+            "id": "conversation-5-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Entschuldigung, halten Sie auch am Bahnhof?",
+            "voiceId": "person3",
+            "id": "conversation-5-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, dieser Bus fährt zum Marktplatz.",
+            "voiceId": "person1",
+            "id": "conversation-5-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Oh, da bin ich falsch. Welche Linie fährt zum Bahnhof?",
+            "voiceId": "person3",
+            "id": "conversation-5-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Die Linie 5. Sie kommt in 10 Minuten.",
+            "voiceId": "person1",
+            "id": "conversation-5-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-6" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Guten Morgen. Haben Sie meine Nummer? Ich warte auf einen Anruf.",
+            "voiceId": "person3",
+            "id": "conversation-6-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, ich glaube nicht. Wie ist Ihre Nummer?",
+            "voiceId": "person1",
+            "id": "conversation-6-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Das ist die 9 4 3: neun vier drei, und dann 1 0: eins null.",
+            "voiceId": "person3",
+            "id": "conversation-6-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Okay, ich habe es notiert.",
+            "voiceId": "person1",
+            "id": "conversation-6-4"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+         {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Guten Morgen. Haben Sie meine Nummer? Ich warte auf einen Anruf.",
+            "voiceId": "person3",
+            "id": "conversation-6-1"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Nein, ich glaube nicht. Wie ist Ihre Nummer?",
+            "voiceId": "person1",
+            "id": "conversation-6-2"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Das ist die 9 4 3: neun vier drei, und dann 1 0: eins null.",
+            "voiceId": "person3",
+            "id": "conversation-6-3"
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "speed": 0.8,
+            "text": "Okay, ich habe es notiert.",
+            "voiceId": "person1",
+            "id": "conversation-6-4"
+        },
+        { "type": "pause", "durationSeconds": 3 },
+        { "type": "ready", "id": "part-1-outro" },
+        { "type": "pause", "durationSeconds": 5 }
+    ]

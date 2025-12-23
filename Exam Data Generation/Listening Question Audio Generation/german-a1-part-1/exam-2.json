@@ -1,0 +1,449 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a1-part-1-intro" },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-1" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Entschuldigung, ich suche die Post. Ist die hier in der Nähe?",
+        "voiceId": "person1",
+        "id": "conversation-1-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, gehen Sie hier geradeaus und dann links. Da ist die Post.",
+        "voiceId": "person3",
+        "id": "conversation-1-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Geradeaus und dann links? Danke schön.",
+        "voiceId": "person1",
+        "id": "conversation-1-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Bitte sehr. Auf Wiedersehen.",
+        "voiceId": "person3",
+        "id": "conversation-1-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Entschuldigung, ich suche die Post. Ist die hier in der Nähe?",
+        "voiceId": "person1",
+        "id": "conversation-1-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, gehen Sie hier geradeaus und dann links. Da ist die Post.",
+        "voiceId": "person3",
+        "id": "conversation-1-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Geradeaus und dann links? Danke schön.",
+        "voiceId": "person1",
+        "id": "conversation-1-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Bitte sehr. Auf Wiedersehen.",
+        "voiceId": "person3",
+        "id": "conversation-1-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-2" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Tag, ich möchte einen Termin beim Arzt. Geht es heute noch?",
+        "voiceId": "person3",
+        "id": "conversation-2-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Heute ist leider alles voll. Haben Sie morgen Zeit? Um 10 Uhr?",
+        "voiceId": "person1",
+        "id": "conversation-2-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Morgen um 10 Uhr? Ja, das passt gut.",
+        "voiceId": "person3",
+        "id": "conversation-2-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut, dann bis morgen, Herr Müller.",
+        "voiceId": "person1",
+        "id": "conversation-2-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Tag, ich möchte einen Termin beim Arzt. Geht es heute noch?",
+        "voiceId": "person3",
+        "id": "conversation-2-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Heute ist leider alles voll. Haben Sie morgen Zeit? Um 10 Uhr?",
+        "voiceId": "person1",
+        "id": "conversation-2-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Morgen um 10 Uhr? Ja, das passt gut.",
+        "voiceId": "person3",
+        "id": "conversation-2-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut, dann bis morgen, Herr Müller.",
+        "voiceId": "person1",
+        "id": "conversation-2-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-3" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Hallo, Thomas. Kommst du am Samstag zur Party?",
+        "voiceId": "person1",
+        "id": "conversation-3-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, leider nicht. Ich muss arbeiten.",
+        "voiceId": "person3",
+        "id": "conversation-3-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Am Samstag arbeiten? Das ist aber schade.",
+        "voiceId": "person1",
+        "id": "conversation-3-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, ich weiß. Aber Sonntag habe ich frei.",
+        "voiceId": "person3",
+        "id": "conversation-3-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Hallo, Thomas. Kommst du am Samstag zur Party?",
+        "voiceId": "person1",
+        "id": "conversation-3-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, leider nicht. Ich muss arbeiten.",
+        "voiceId": "person3",
+        "id": "conversation-3-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Am Samstag arbeiten? Das ist aber schade.",
+        "voiceId": "person1",
+        "id": "conversation-3-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, ich weiß. Aber Sonntag habe ich frei.",
+        "voiceId": "person3",
+        "id": "conversation-3-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-4" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Tag. Ich hätte gern ein Kilo Äpfel, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-4-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gerne. Rote oder grüne?",
+        "voiceId": "person1",
+        "id": "conversation-4-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Die roten, bitte. Und haben Sie auch Bananen?",
+        "voiceId": "person3",
+        "id": "conversation-4-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, Bananen sind heute leider aus.",
+        "voiceId": "person1",
+        "id": "conversation-4-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Tag. Ich hätte gern ein Kilo Äpfel, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-4-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gerne. Rote oder grüne?",
+        "voiceId": "person1",
+        "id": "conversation-4-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Die roten, bitte. Und haben Sie auch Bananen?",
+        "voiceId": "person3",
+        "id": "conversation-4-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, Bananen sind heute leider aus.",
+        "voiceId": "person1",
+        "id": "conversation-4-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-5" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Entschuldigung, wann fährt der nächste Zug nach München?",
+        "voiceId": "person1",
+        "id": "conversation-5-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Moment mal... Der nächste Zug fährt um 14 Uhr 30.",
+        "voiceId": "person3",
+        "id": "conversation-5-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Vierzehn Uhr dreißig? Von Gleis 2?",
+        "voiceId": "person1",
+        "id": "conversation-5-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, heute von Gleis 5.",
+        "voiceId": "person3",
+        "id": "conversation-5-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Entschuldigung, wann fährt der nächste Zug nach München?",
+        "voiceId": "person1",
+        "id": "conversation-5-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Moment mal... Der nächste Zug fährt um 14 Uhr 30.",
+        "voiceId": "person3",
+        "id": "conversation-5-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Vierzehn Uhr dreißig? Von Gleis 2?",
+        "voiceId": "person1",
+        "id": "conversation-5-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, heute von Gleis 5.",
+        "voiceId": "person3",
+        "id": "conversation-5-4"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-6" },
+    { "type": "pause", "durationSeconds": 2 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Abend. Ein Bier, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-6-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Tut mir leid, wir haben kein Bier mehr. Möchten Sie einen Wein?",
+        "voiceId": "person1",
+        "id": "conversation-6-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Kein Bier? Na gut, dann nehme ich ein Wasser.",
+        "voiceId": "person3",
+        "id": "conversation-6-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Groß oder klein?",
+        "voiceId": "person1",
+        "id": "conversation-6-4"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ein großes Wasser, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-6-5"
+    },
+    { "type": "pause", "durationSeconds": 5 },
+    { "type": "ready", "id": "part-2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Guten Abend. Ein Bier, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-6-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Tut mir leid, wir haben kein Bier mehr. Möchten Sie einen Wein?",
+        "voiceId": "person1",
+        "id": "conversation-6-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Kein Bier? Na gut, dann nehme ich ein Wasser.",
+        "voiceId": "person3",
+        "id": "conversation-6-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Groß oder klein?",
+        "voiceId": "person1",
+        "id": "conversation-6-4"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ein großes Wasser, bitte.",
+        "voiceId": "person3",
+        "id": "conversation-6-5"
+    },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-1-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+]

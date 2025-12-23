@@ -1,0 +1,98 @@
+[
+      {
+        "type": "pause",
+        "durationSeconds": 1
+      },
+      {
+        "type": "ready",
+        "id": "a1-part-2-intro"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      },
+      {
+        "type": "ready",
+        "id": "number-7"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 2
+      },
+      {
+        "type": "speech",
+        "speed": 0.8,
+        "text": "Liebe Kunden, heute haben wir ein tolles Angebot für Sie. In der ersten Etage finden Sie Kinderkleidung für den Sommer. Alles kostet heute nur die Hälfte. Besuchen Sie uns im ersten Stock.",
+        "voiceId": "person1",
+        "id": "interview-7"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      },
+      {
+        "type": "ready",
+        "id": "number-8"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 2
+      },
+      {
+        "type": "speech",
+        "speed": 0.8,
+        "text": "Achtung an Gleis drei. Der Intercity nach Hamburg hat Verspätung. Die Abfahrt ist nicht um vierzehn Uhr, sondern erst um vierzehn Uhr zwanzig. Bitte warten Sie am Bahnsteig.",
+        "voiceId": "person2",
+        "id": "interview-8"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      },
+      {
+        "type": "ready",
+        "id": "number-9"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 2
+      },
+      {
+        "type": "speech",
+        "speed": 0.8,
+        "text": "Liebe Fahrgäste, wir machen jetzt eine kurze Pause an der Raststätte. Wir halten hier für dreißig Minuten. Sie können etwas essen oder trinken. Bitte seien Sie pünktlich wieder am Bus.",
+        "voiceId": "person3",
+        "id": "interview-9"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      },
+      {
+        "type": "ready",
+        "id": "number-10"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 2
+      },
+      {
+        "type": "speech",
+        "speed": 0.8,
+        "text": "Eine Durchsage für Herrn Andreas Müller. Bitte kommen Sie sofort zur Information in Halle B. Ihre Frau wartet dort auf Sie. Herr Müller bitte zur Information.",
+        "voiceId": "person4",
+        "id": "interview-10"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      },
+      {
+        "type": "ready",
+        "id": "part-2-outro"
+      },
+      {
+        "type": "pause",
+        "durationSeconds": 5
+      }
+    ]

@@ -44,15 +44,15 @@
 }
 
 .app-selection-main {
-  padding: 3rem 2rem;
+  /* padding: 3rem 2rem; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
 .selection-content {
-  max-width: 1200px;
   width: 100%;
+  padding: 2rem;
 }
 
 .admin-actions-section {
@@ -70,7 +70,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }

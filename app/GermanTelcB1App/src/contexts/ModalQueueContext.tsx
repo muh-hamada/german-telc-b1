@@ -25,7 +25,7 @@ export const ModalQueueProvider: React.FC<ModalQueueProviderProps> = ({ children
   // When isProcessing was state, calling setIsProcessing(true) would trigger a re-render,
   // causing the useEffect cleanup to run and clear the timeout before it could fire
   const isProcessingRef = useRef(false);
-  const processingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const processingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentModalRef = useRef<QueuedModal | null>(null);
 
   // Keep ref in sync with state for use in enqueue callback
