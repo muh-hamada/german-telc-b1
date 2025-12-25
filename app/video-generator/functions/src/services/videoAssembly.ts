@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { ScreenshotSet } from '../types';
 
-const FPS = 30;
+const FPS = 20;
 
 /**
  * Assemble video from screenshots using FFmpeg

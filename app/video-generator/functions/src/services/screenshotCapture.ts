@@ -1,11 +1,12 @@
-import puppeteer, { Browser } from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import * as path from 'path';
 import * as fs from 'fs';
 import { QuestionData, ScreenshotSet } from '../types';
 
 const VIEWPORT_WIDTH = 1080;
 const VIEWPORT_HEIGHT = 1920;
-const FPS = 30;
+const FPS = 20;
 
 // Configuration from environment variables
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
@@ -64,14 +65,15 @@ export async function captureVideoScreenshots(
  * Launch Puppeteer browser with appropriate settings
  */
 async function launchBrowser(): Promise<Browser> {
+  const isLocal = process.env.FUNCTIONS_EMULATOR === 'true' || process.env.NODE_ENV === 'development';
+  
   return await puppeteer.launch({
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-    ],
+    args: isLocal ? puppeteer.defaultArgs() : chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: isLocal 
+      ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' // Common path for macOS
+      : await chromium.executablePath(),
+    headless: (isLocal ? true : chromium.headless) as any,
   });
 }
 

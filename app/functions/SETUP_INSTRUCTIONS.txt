@@ -16,7 +16,7 @@ Migrated from hardcoded API key to the NEW Firebase .env approach (not deprecate
 ```bash
 cd app/functions
 cat > .env << 'EOF'
-OPENAI_API_KEY=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
+OPENAI_API_KEY=...
 EOF
 ```
 
