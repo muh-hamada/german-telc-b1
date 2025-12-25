@@ -36,7 +36,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
 
 export const FIREBASE_COLLECTIONS: Record<string, string> = {
   'german-a1': 'german_a1_telc_exam_data',
-  'german-b1': 'b1_telc_exam_data',
+  'german-b1': 'b1_telc_exam_data', // Backward compatibility
   'german-b2': 'german_b2_telc_exam_data',
   'english-b1': 'english_b1_telc_exam_data',
   'english-b2': 'english_b2_telc_exam_data',
@@ -50,3 +50,15 @@ export const getFirebaseCollection = (appId: string): string => {
   return FIREBASE_COLLECTIONS[appId] || 'german_a1_telc_exam_data';
 };
 
+export const questionTexts: Record<string, any> = {
+  default: {
+    title: 'Exam Question',
+    description: 'Read the following text and answer the questions by selecting the correct answer.',
+  },
+  'german-a1': {
+    'reading-part2': {
+      title: 'Reading Question',
+      description: 'Read the following situation and choose the correct option that matches.',
+    }
+  },
+};

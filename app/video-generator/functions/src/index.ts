@@ -1,3 +1,7 @@
+// Load environment variables from .env file (for local development)
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as os from 'os';
@@ -25,7 +29,7 @@ export const generateYouTubeShort = functions
   .pubsub.schedule('0 10 * * *') // Daily at 10 AM UTC
   .timeZone('UTC')
   .onRun(async (context) => {
-    const appId = 'german-a1'; // Can be configured or randomized
+    const appId = process.env.APP_ID || 'german-a1';
     console.log(`Starting video generation for ${appId}`);
 
     const startTime = Date.now();
@@ -121,7 +125,7 @@ export const generateVideoManual = functions
     memory: '2GB',
   })
   .https.onRequest(async (req, res) => {
-    const appId = req.query.appId as string || 'german-a1';
+    const appId = (req.query.appId as string) || process.env.APP_ID || 'german-a1';
     const examId = req.query.examId ? parseInt(req.query.examId as string) : undefined;
     const questionIndex = req.query.questionIndex ? parseInt(req.query.questionIndex as string) : undefined;
 
@@ -163,7 +167,7 @@ export const generateVideoManual = functions
         const metadata = generateVideoMetadata(
           appId,
           appConfig.displayName,
-          questionData.questionId,
+          questionData.questionIndex,
           questionData.question.situation
         );
 

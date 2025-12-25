@@ -4,15 +4,18 @@ import { doc, getDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { getAppConfig, getFirebaseCollection } from '../config/apps';
 import { ReadingPart2A1Question } from '../types';
-import { formatText } from '../utils/text-formatter';
+import A1QuestionReadingPart2 from '../components/A1QuestionReadingPart2';
+import logoImage from '../assets/logo.jpg';
 import './QuestionScreen.css';
+import { questionTexts } from '../config/apps';
 
 const QuestionScreen: React.FC = () => {
   const [searchParams] = useSearchParams();
   const appId = searchParams.get('appId') || 'german-a1';
   const examId = parseInt(searchParams.get('examId') || '0');
-  const questionIndex = parseInt(searchParams.get('questionIndex') || '0'); // Use index instead of ID
+  const questionIndex = parseInt(searchParams.get('questionIndex') || '0');
   const timerDuration = parseInt(searchParams.get('timer') || '10');
+  const docName = searchParams.get('doc') || 'reading-part2';
 
   const [question, setQuestion] = useState<ReadingPart2A1Question | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,7 +30,7 @@ const QuestionScreen: React.FC = () => {
         console.log('Fetching from collection:', collectionName);
         console.log('Looking for examId:', examId, 'questionIndex:', questionIndex);
         
-        const docRef = doc(collection(db, collectionName), 'reading-part2');
+        const docRef = doc(collection(db, collectionName), docName);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -52,7 +55,7 @@ const QuestionScreen: React.FC = () => {
             console.log('Available questions:', exam?.questions);
           }
         } else {
-          console.error('Document reading-part2 does not exist in collection:', collectionName);
+          console.error(`Document ${docName} does not exist in collection:`, collectionName);
         }
       } catch (error) {
         console.error('Error fetching question:', error);
@@ -63,7 +66,7 @@ const QuestionScreen: React.FC = () => {
     };
 
     fetchQuestion();
-  }, [appId, examId, questionIndex]);
+  }, [appId, examId, questionIndex, docName]);
 
   useEffect(() => {
     if (!loading && countdown > 0) {
@@ -77,7 +80,7 @@ const QuestionScreen: React.FC = () => {
   if (loading) {
     return (
       <div className="screen question-screen">
-        <div className="loading">Loading...</div>
+        <div className="loading text-body-large">Loading...</div>
       </div>
     );
   }
@@ -85,84 +88,69 @@ const QuestionScreen: React.FC = () => {
   if (!question) {
     return (
       <div className="screen question-screen">
-        <div className="error">Question not found</div>
+        <div className="error text-body-large">Question not found</div>
       </div>
     );
   }
 
-  const optionA = question.options[0];
-  const optionB = question.options[1];
+  // Generic component selection based on level and docName
+  const renderQuestion = () => {
+    const level = appConfig.level; // e.g. "A1"
+    const texts = questionTexts[appId][docName];
+    
+    switch (docName) {
+      case 'reading-part2':
+        if (level === 'A1') {
+          return <A1QuestionReadingPart2 question={question} showAnswer={false} title={texts.title} description={texts.description} />;
+        }
+        // Add other levels here as they are implemented
+        return <div className="error text-body-large">Level {level} not supported for {docName}</div>;
+      
+      default:
+        return <div className="error text-body-large">Question type {docName} not supported</div>;
+    }
+  };
 
   return (
     <div className="screen question-screen">
       {/* Logo in top right */}
       <div className="screen-logo">
         <div className="logo-small">
-          <span className="logo-small-text">{appConfig.level}</span>
+          <img src={logoImage} alt={`${appConfig.level} TELC`} className="logo-small-image" />
         </div>
       </div>
 
       {/* Timer */}
       <div className="timer-container">
         <div className="timer-circle">
-          <svg width="120" height="120">
+          <svg width="100" height="100">
             <circle
-              cx="60"
-              cy="60"
-              r="54"
+              cx="50"
+              cy="50"
+              r="46"
               fill="none"
               stroke="#e0e0e0"
               strokeWidth="8"
             />
             <circle
-              cx="60"
-              cy="60"
-              r="54"
+              cx="50"
+              cy="50"
+              r="46"
               fill="none"
               stroke="#667eea"
               strokeWidth="8"
-              strokeDasharray={`${2 * Math.PI * 54}`}
-              strokeDashoffset={`${2 * Math.PI * 54 * (1 - countdown / timerDuration)}`}
-              transform="rotate(-90 60 60)"
+              strokeDasharray={`${2 * Math.PI * 46}`}
+              strokeDashoffset={`${2 * Math.PI * 46 * (1 - countdown / timerDuration)}`}
+              transform="rotate(-90 50 50)"
               style={{ transition: 'stroke-dashoffset 1s linear' }}
             />
           </svg>
-          <div className="timer-text">{countdown}</div>
+          <div className="timer-text text-heading">{countdown}</div>
         </div>
       </div>
 
       {/* Question Content */}
-      <div className="question-content">
-        <div className="question-header">
-          <span className="question-number">Question {questionIndex + 1}</span>
-        </div>
-        
-        <div className="situation-text">
-          {question.situation}
-        </div>
-
-        <div className="options-container">
-          <div className="option-card option-a">
-            <div className="option-label">A</div>
-            <div className="option-text">
-              {formatText(optionA.text || optionA.option || '', {
-                underlineStyle: { textDecoration: 'underline', fontWeight: '600' },
-                boldStyle: { fontWeight: 'bold' }
-              })}
-            </div>
-          </div>
-
-          <div className="option-card option-b">
-            <div className="option-label">B</div>
-            <div className="option-text">
-              {formatText(optionB.text || optionB.option || '', {
-                underlineStyle: { textDecoration: 'underline', fontWeight: '600' },
-                boldStyle: { fontWeight: 'bold' }
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
+      {renderQuestion()}
     </div>
   );
 };

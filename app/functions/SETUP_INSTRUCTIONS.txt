@@ -1,0 +1,85 @@
+# API Key Migration - Updated Instructions (NEW METHOD)
+
+## Summary
+Migrated from hardcoded API key to the NEW Firebase .env approach (not deprecated functions.config()).
+
+## What Changed
+
+1. **api-keys.ts**: Now reads from `process.env.OPENAI_API_KEY`
+2. **.gitignore**: Updated to exclude `.env` files
+3. **README.md**: Updated with new .env configuration instructions
+
+## Required Actions
+
+### Step 1: Create .env File
+
+```bash
+cd app/functions
+cat > .env << 'EOF'
+OPENAI_API_KEY=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
+EOF
+```
+
+That's it! The `.env` file is used for both local development AND production deployment.
+
+### Step 2: Deploy
+
+```bash
+npm run build
+firebase deploy --only functions
+```
+
+The `.env` file is automatically uploaded with your functions (but not committed to git).
+
+### Optional: Use Secret Manager (More Secure for Production)
+
+For enhanced security in production:
+
+```bash
+# Store in Google Cloud Secret Manager
+firebase functions:secrets:set OPENAI_API_KEY
+# Enter your API key when prompted
+
+# The secret is automatically injected at runtime
+```
+
+Then update `api-keys.ts` to use secrets (optional, current approach works fine).
+
+## What's Different from Before?
+
+**OLD WAY (DEPRECATED ❌):**
+- `firebase functions:config:set openai.key="..."`
+- `functions.config().openai.key`
+- `.runtimeconfig.json` for local dev
+- Being shut down in March 2026
+
+**NEW WAY (CURRENT ✅):**
+- `.env` file
+- `process.env.OPENAI_API_KEY`
+- Same file for local and production
+- Officially supported going forward
+
+## Verification
+
+1. Test locally:
+   ```bash
+   npm run serve
+   ```
+
+2. Deploy and test:
+   ```bash
+   firebase deploy --only functions
+   ```
+
+3. Check logs:
+   ```bash
+   firebase functions:log
+   ```
+
+## Security
+
+- ✅ `.env` file is gitignored
+- ✅ Not in source control
+- ✅ Automatically deployed with functions (securely)
+- ⚠️  Make sure to never commit the `.env` file!
+

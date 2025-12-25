@@ -7,8 +7,15 @@ const VIEWPORT_WIDTH = 1080;
 const VIEWPORT_HEIGHT = 1920;
 const FPS = 30;
 
-// Frontend app URL - adjust based on deployment
+// Configuration from environment variables
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const EXAM_DOCUMENT = process.env.EXAM_DOCUMENT || 'reading-part2';
+
+// Duration constants (in seconds) - configurable via environment variables
+const INTRO_DURATION = parseInt(process.env.VIDEO_INTRO_DURATION || '2', 10);
+const QUESTION_DURATION = parseInt(process.env.VIDEO_QUESTION_DURATION || '10', 10);
+const ANSWER_DURATION = parseInt(process.env.VIDEO_ANSWER_DURATION || '4', 10);
+const OUTRO_DURATION = parseInt(process.env.VIDEO_OUTRO_DURATION || '3', 10);
 
 /**
  * Capture screenshots for all video segments
@@ -69,7 +76,7 @@ async function launchBrowser(): Promise<Browser> {
 }
 
 /**
- * Capture intro screen (2 seconds at 30 FPS = 60 frames)
+ * Capture intro screen
  */
 async function captureIntro(
   browser: Browser,
@@ -81,30 +88,41 @@ async function captureIntro(
   const page = await browser.newPage();
   await page.setViewport({ width: VIEWPORT_WIDTH, height: VIEWPORT_HEIGHT });
 
-  const url = `${FRONTEND_URL}/intro?appId=${questionData.appId}`;
-  await page.goto(url, { waitUntil: 'networkidle0' });
+  const url = `${FRONTEND_URL}/intro?appId=${questionData.appId}&doc=${EXAM_DOCUMENT}`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
   // Wait for screen to be ready
-  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 10000 });
-  await new Promise(resolve => setTimeout(resolve, 500)); // Extra buffer
+  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 30000 });
+  
+  // No extra buffer here, we want to capture the start of animations
 
-  const duration = 2; // seconds
-  const frameCount = duration * FPS;
+  const frameCount = INTRO_DURATION * FPS;
   const screenshots: string[] = [];
+  const frameInterval = 1000 / FPS;
+
+  const startTime = Date.now();
 
   for (let i = 0; i < frameCount; i++) {
+    const targetTime = startTime + (i * frameInterval);
+    const currentTime = Date.now();
+    const delay = targetTime - currentTime;
+
+    if (delay > 0) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+
     const filename = path.join(outputDir, `frame_${String(i).padStart(4, '0')}.png`);
     await page.screenshot({ path: filename });
     screenshots.push(filename);
   }
 
   await page.close();
-  console.log(`Captured ${screenshots.length} intro frames`);
+  console.log(`Captured ${screenshots.length} intro frames (${INTRO_DURATION}s)`);
   return screenshots;
 }
 
 /**
- * Capture question screen with countdown timer (10 seconds)
+ * Capture question screen with countdown timer
  */
 async function captureQuestion(
   browser: Browser,
@@ -116,15 +134,15 @@ async function captureQuestion(
   const page = await browser.newPage();
   await page.setViewport({ width: VIEWPORT_WIDTH, height: VIEWPORT_HEIGHT });
 
-  const url = `${FRONTEND_URL}/question?appId=${questionData.appId}&examId=${questionData.examId}&questionIndex=${questionData.questionIndex}&timer=10`;
-  await page.goto(url, { waitUntil: 'networkidle0' });
+  const url = `${FRONTEND_URL}/question?appId=${questionData.appId}&examId=${questionData.examId}&questionIndex=${questionData.questionIndex}&timer=${QUESTION_DURATION}&doc=${EXAM_DOCUMENT}`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
   // Wait for screen to be ready
-  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 10000 });
-  await new Promise(resolve => setTimeout(resolve, 500));
+  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 30000 });
+  
+  // No extra buffer here, we want to capture the start of animations
 
-  const duration = 10; // seconds
-  const frameCount = duration * FPS;
+  const frameCount = QUESTION_DURATION * FPS;
   const screenshots: string[] = [];
   const frameInterval = 1000 / FPS; // milliseconds per frame
 
@@ -145,12 +163,12 @@ async function captureQuestion(
   }
 
   await page.close();
-  console.log(`Captured ${screenshots.length} question frames`);
+  console.log(`Captured ${screenshots.length} question frames (${QUESTION_DURATION}s)`);
   return screenshots;
 }
 
 /**
- * Capture answer reveal screen (4 seconds)
+ * Capture answer reveal screen
  */
 async function captureAnswer(
   browser: Browser,
@@ -162,30 +180,39 @@ async function captureAnswer(
   const page = await browser.newPage();
   await page.setViewport({ width: VIEWPORT_WIDTH, height: VIEWPORT_HEIGHT });
 
-  const url = `${FRONTEND_URL}/answer?appId=${questionData.appId}&examId=${questionData.examId}&questionIndex=${questionData.questionIndex}`;
-  await page.goto(url, { waitUntil: 'networkidle0' });
+  const url = `${FRONTEND_URL}/answer?appId=${questionData.appId}&examId=${questionData.examId}&questionIndex=${questionData.questionIndex}&doc=${EXAM_DOCUMENT}`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
   // Wait for screen to be ready
-  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 10000 });
-  await new Promise(resolve => setTimeout(resolve, 500));
+  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 30000 });
 
-  const duration = 4; // seconds
-  const frameCount = duration * FPS;
+  const frameCount = ANSWER_DURATION * FPS;
   const screenshots: string[] = [];
+  const frameInterval = 1000 / FPS;
+
+  const startTime = Date.now();
 
   for (let i = 0; i < frameCount; i++) {
+    const targetTime = startTime + (i * frameInterval);
+    const currentTime = Date.now();
+    const delay = targetTime - currentTime;
+
+    if (delay > 0) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+
     const filename = path.join(outputDir, `frame_${String(i).padStart(4, '0')}.png`);
     await page.screenshot({ path: filename });
     screenshots.push(filename);
   }
 
   await page.close();
-  console.log(`Captured ${screenshots.length} answer frames`);
+  console.log(`Captured ${screenshots.length} answer frames (${ANSWER_DURATION}s)`);
   return screenshots;
 }
 
 /**
- * Capture outro screen (3 seconds)
+ * Capture outro screen
  */
 async function captureOutro(
   browser: Browser,
@@ -197,25 +224,34 @@ async function captureOutro(
   const page = await browser.newPage();
   await page.setViewport({ width: VIEWPORT_WIDTH, height: VIEWPORT_HEIGHT });
 
-  const url = `${FRONTEND_URL}/outro?appId=${questionData.appId}`;
-  await page.goto(url, { waitUntil: 'networkidle0' });
+  const url = `${FRONTEND_URL}/outro?appId=${questionData.appId}&doc=${EXAM_DOCUMENT}`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
   // Wait for screen to be ready
-  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 10000 });
-  await new Promise(resolve => setTimeout(resolve, 500));
+  await page.waitForFunction(() => (window as any).screenReady === true, { timeout: 30000 });
 
-  const duration = 3; // seconds
-  const frameCount = duration * FPS;
+  const frameCount = OUTRO_DURATION * FPS;
   const screenshots: string[] = [];
+  const frameInterval = 1000 / FPS;
+
+  const startTime = Date.now();
 
   for (let i = 0; i < frameCount; i++) {
+    const targetTime = startTime + (i * frameInterval);
+    const currentTime = Date.now();
+    const delay = targetTime - currentTime;
+
+    if (delay > 0) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+
     const filename = path.join(outputDir, `frame_${String(i).padStart(4, '0')}.png`);
     await page.screenshot({ path: filename });
     screenshots.push(filename);
   }
 
   await page.close();
-  console.log(`Captured ${screenshots.length} outro frames`);
+  console.log(`Captured ${screenshots.length} outro frames (${OUTRO_DURATION}s)`);
   return screenshots;
 }
 

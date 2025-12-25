@@ -1,0 +1,117 @@
+.question-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.question-header {
+  text-align: center;
+}
+
+.question-title {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.question-description {
+  line-height: inherit;
+  color: #2d3748;
+  margin-top: 20px;
+  padding: 0 80px;
+}
+
+.situation-text {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: #2d3748;
+  padding: 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.option-card {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: white;
+  border-radius: 24px;
+  border: 4px solid #e2e8f0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.option-label {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.option-text {
+  flex: 1;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: #2d3748;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Correct/Incorrect Answer Styling */
+.option-card.correct {
+  border-color: #48bb78;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  box-shadow: 0 8px 32px rgba(72, 187, 120, 0.3);
+}
+
+.option-card.correct .option-label {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.option-card.incorrect {
+  border-color: #cbd5e0;
+  background: #f7fafc;
+  opacity: 0.5;
+}
+
+.option-card.incorrect .option-label {
+  background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+}
+
+.check-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 80px;
+  color: #48bb78;
+  font-weight: 700;
+}
+

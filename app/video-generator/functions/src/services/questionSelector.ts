@@ -2,12 +2,16 @@ import * as admin from 'firebase-admin';
 import { getAppConfig } from '../config/apps';
 import { QuestionData, ReadingPart2A1Exam } from '../types';
 
+// Configuration from environment variables
+const EXAM_DOCUMENT = process.env.EXAM_DOCUMENT || 'reading-part2';
+
 /**
  * Select the next unprocessed question for video generation
  */
 export async function selectNextQuestion(appId: string): Promise<QuestionData | null> {
   const db = admin.firestore();
   const appConfig = getAppConfig(appId);
+  const collectionName = process.env.EXAM_COLLECTION || appConfig.collectionName;
 
   try {
     // Get processed questions from tracking collection
@@ -21,14 +25,14 @@ export async function selectNextQuestion(appId: string): Promise<QuestionData | 
       }
     }
 
-    // Fetch all Reading Part 2 exams
+    // Fetch all exams for the specified document
     const examDoc = await db
-      .collection(appConfig.collectionName)
-      .doc('reading-part2')
+      .collection(collectionName)
+      .doc(EXAM_DOCUMENT)
       .get();
 
     if (!examDoc.exists) {
-      console.log('No reading-part2 document found');
+      console.log(`No ${EXAM_DOCUMENT} document found in ${collectionName}`);
       return null;
     }
 
@@ -40,7 +44,7 @@ export async function selectNextQuestion(appId: string): Promise<QuestionData | 
     for (const exam of exams) {
       for (let questionIndex = 0; questionIndex < exam.questions.length; questionIndex++) {
         const question = exam.questions[questionIndex];
-        const questionKey = `reading-part2-exam${exam.id}-index${questionIndex}`;
+        const questionKey = `${EXAM_DOCUMENT}-exam${exam.id}-index${questionIndex}`;
         
         if (!processedQuestions.has(questionKey)) {
           console.log(`Selected question: ${questionKey}`);
@@ -73,11 +77,12 @@ export async function getQuestion(
 ): Promise<QuestionData | null> {
   const db = admin.firestore();
   const appConfig = getAppConfig(appId);
+  const collectionName = process.env.EXAM_COLLECTION || appConfig.collectionName;
 
   try {
     const examDoc = await db
-      .collection(appConfig.collectionName)
-      .doc('reading-part2')
+      .collection(collectionName)
+      .doc(EXAM_DOCUMENT)
       .get();
 
     if (!examDoc.exists) {
