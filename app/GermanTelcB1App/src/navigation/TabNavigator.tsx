@@ -60,6 +60,15 @@ const HIDE_TAB_SCREENS = [
   'ListeningPractice',
   'ListeningPracticeQuestions',
   'Premium',
+  // Prep Plan screens
+  'PrepPlanOnboarding',
+  'DiagnosticAssessment',
+  'AssessmentResults',
+  'StudyPlanDashboard',
+  'WeeklyPlan',
+  'PrepPlanProgress',
+  'PrepPlanSettings',
+  'SpeakingAssessment',
 ];
 
 const HIDE_BANNER_SCREENS = [

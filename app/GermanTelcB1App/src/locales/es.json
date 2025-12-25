@@ -72,7 +72,24 @@
     "correct": "Correcto",
     "wrong": "Equivocado",
     "duration": "Duración",
-    "info": "Información"
+    "info": "Información",
+    "units": {
+      "hoursValue": "{{count}}h",
+      "hours": "{{count}} hora",
+      "hours_plural": "{{count}} horas",
+      "minutesValue": "{{count}} min",
+      "minutes": "{{count}} minuto",
+      "minutes_plural": "{{count}} minutos"
+    },
+    "days": {
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mié",
+      "thu": "Jue",
+      "fri": "Vie",
+      "sat": "Sáb",
+      "sun": "Dom"
+    }
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -143,7 +160,212 @@
       "listeningPractice": "Escuche entrevistas y responda preguntas para practicar sus habilidades de escucha."
     },
     "solve": "Resolver preguntas del examen",
-    "listeningPractice": "Práctica de escucha"
+    "listeningPractice": "Práctica de escucha",
+    "prepPlan": {
+      "new": {
+        "title": "Plan de Preparación del Examen",
+        "description": "Obtenga un plan de estudio personalizado impulsado por IA según su nivel y horario",
+        "badge": "⭐ PREMIUM"
+      },
+      "active": {
+        "title": "Mi Plan de Estudio",
+        "description": "Continúa tu viaje personalizado de preparación para el examen"
+      },
+      "inProgress": {
+        "badge": "En Progreso",
+        "config": {
+          "title": "Continuar Configuración",
+          "description": "Complete la configuración de su plan de estudio"
+        },
+        "assessment": {
+          "title": "Continuar Evaluación",
+          "description": "Complete su evaluación de nivel para generar su plan"
+        }
+      },
+      "onboarding": {
+        "title": "Plan de Preparación del Examen",
+        "startAssessment": "Iniciar Evaluación",
+        "welcome": {
+          "title": "Bienvenido al Plan de Preparación del Examen",
+          "subtitle": "Creemos un plan de estudio personalizado para tu éxito en el examen",
+          "step1": "Cuéntanos sobre tu fecha de examen y horario",
+          "step2": "Realiza una evaluación rápida de nivel",
+          "step3": "Obtén tu plan de estudio impulsado por IA",
+          "timeEstimate": "⏱️ Este proceso toma aproximadamente 30 minutos"
+        },
+        "examDate": {
+          "title": "¿Cuándo es tu examen?",
+          "subtitle": "Selecciona la fecha de tu examen para calcular tu cronograma de estudio",
+          "daysUntilExam": "{{days}} días hasta el examen",
+          "weeksUntilExam": "{{weeks}} semanas para prepararte"
+        },
+        "schedule": {
+          "title": "Planifica tu Tiempo de Estudio",
+          "subtitle": "¿Cuánto tiempo puedes dedicar al estudio?",
+          "dailyHours": "Horas de Estudio Diarias",
+          "studyDays": "Días de Estudio por Semana"
+        },
+        "studyTime": {
+          "title": "¿Cuándo prefieres estudiar?",
+          "subtitle": "Esto nos ayuda a enviarte recordatorios en el momento adecuado",
+          "morning": "Mañana",
+          "morningDesc": "6:00 AM - 12:00 PM",
+          "afternoon": "Tarde",
+          "afternoonDesc": "12:00 PM - 6:00 PM",
+          "evening": "Noche",
+          "eveningDesc": "6:00 PM - 11:00 PM",
+          "flexible": "Flexible",
+          "flexibleDesc": "Sin preferencia específica"
+        },
+        "summary": {
+          "title": "Resumen de tu Plan de Estudio",
+          "subtitle": "Revisa tu configuración antes de comenzar la evaluación",
+          "examDate": "Fecha del Examen",
+          "daysUntilExam": "Días hasta el Examen",
+          "totalWeeks": "Total de Semanas",
+          "studyHoursPerDay": "Horas por Día",
+          "studyDaysPerWeek": "Días por Semana",
+          "totalStudyHours": "Total de Horas de Estudio",
+          "nextStep": "Siguiente: Evaluación de Nivel",
+          "nextStepDesc": "Realiza una prueba rápida de 25 minutos para determinar tu nivel actual"
+        },
+        "errors": {
+          "saveFailed": "Error al guardar la configuración. Por favor, inténtelo de nuevo."
+        }
+      },
+      "diagnostic": {
+        "title": "Evaluación de Nivel",
+        "subtitle": "Prueba diagnóstica para evaluar su nivel actual",
+        "generating": "Generando su evaluación...",
+        "loadingSection": "Cargando sección...",
+        "loadError": "Error al cargar la evaluación. Por favor, inténtelo de nuevo.",
+        "sectionLoadError": "Error al cargar la sección. Por favor, inténtelo de nuevo.",
+        "evaluationError": "Error al evaluar la prueba. Por favor, inténtelo de nuevo.",
+        "sectionProgress": "Sección {{current}} de {{total}}",
+        "sectionComingSoon": "¡La sección {{section}} llegará pronto!",
+        "sections": {
+          "reading": "Comprensión Lectora",
+          "listening": "Comprensión Auditiva",
+          "grammar": "Gramática y Vocabulario",
+          "writing": "Escritura",
+          "speaking": "Expresión Oral"
+        }
+      },
+      "results": {
+        "title": "Sus Resultados de Evaluación",
+        "notFound": "Resultados de evaluación no encontrados",
+        "sectionBreakdown": "Desglose por Sección",
+        "strengths": "Sus Fortalezas",
+        "weaknesses": "Áreas a Mejorar",
+        "weaknessNote": "Su plan de estudio se centrará en un {{percentage}}% del tiempo de práctica en sus áreas débiles",
+        "generatePlan": "🎯 Generar Mi Plan de Estudio",
+        "generating": "Generando su plan...",
+        "level": {
+          "beginner": "Principiante",
+          "intermediate": "Intermedio",
+          "advanced": "Avanzado",
+          "weak": "Necesita Trabajo",
+          "moderate": "Bueno",
+          "strong": "Excelente"
+        }
+      },
+      "dashboard": {
+        "noPlan": "Sin Plan Activo",
+        "noPlanDesc": "No tienes un plan de estudio activo. Por favor crea uno primero.",
+        "loadError": "Error al cargar el plan de estudio. Por favor intenta de nuevo.",
+        "taskTypeNotSupported": "Este tipo de tarea aún no es compatible.",
+        "examIn": "Examen en",
+        "days": "días",
+        "overallProgress": "Progreso General",
+        "tasksCompleted": "tareas completadas",
+        "tasksCompletedRatio": "{{completed}} de {{total}} tareas completadas",
+        "completedRatio": "{{completed}}/{{total}} completado",
+        "weekRatio": "{{current}}/{{total}}",
+        "dayStreak": "días seguidos",
+        "hoursStudied": "horas estudiadas",
+        "currentWeek": "semana actual",
+        "todaysTasks": "Tareas de Hoy",
+        "noTasksToday": "¡Todo Listo por Hoy!",
+        "noTasksDesc": "Has completado todas tus tareas. ¡Excelente trabajo!",
+        "minutes": "min",
+        "quickActions": "Acciones Rápidas",
+        "viewWeeklyPlan": "Ver Plan Semanal",
+        "viewProgress": "Ver Progreso y Análisis",
+        "updateSettings": "Actualizar Configuración"
+      },
+      "weekly": {
+        "noPlan": "Sin Plan Activo",
+        "noPlanDesc": "No tienes un plan de estudio activo.",
+        "loadError": "Error al cargar el plan semanal. Por favor intenta de nuevo.",
+        "weekNotFound": "Semana no encontrada",
+        "week": "Semana",
+        "weekProgress": "Progreso Semanal",
+        "tasksCompleted": "tareas completadas",
+        "weekCompleted": "¡Semana Completada! 🎉",
+        "focusAreas": "Áreas de Enfoque",
+        "tasks": "Tareas",
+        "minutes": "min",
+        "hours": "horas",
+        "difficulty": {
+          "easy": "Fácil",
+          "medium": "Medio",
+          "hard": "Difícil"
+        },
+        "completedOn": "Completado el",
+        "totalTime": "Tiempo Total Estimado"
+      },
+      "progress": {
+        "noPlan": "Sin Plan Activo",
+        "noPlanDesc": "No tienes un plan de estudio activo.",
+        "loadError": "Error al cargar datos de progreso. Por favor intenta de nuevo.",
+        "examReadiness": "Preparación para el Examen",
+        "readiness": {
+          "excellent": "Excelente - ¡Estás Listo!",
+          "good": "Buen Progreso",
+          "fair": "Aceptable - Continúa",
+          "needsWork": "Necesita Más Trabajo"
+        },
+        "readinessDesc": {
+          "excellent": "¡Estás bien preparado y en camino al éxito!",
+          "good": "Estás haciendo un progreso sólido. ¡Sigue así!",
+          "fair": "Estás en el camino correcto. Enfócate en la consistencia.",
+          "needsWork": "Mantente comprometido y sigue tu plan de cerca."
+        },
+        "completion": "Completado",
+        "timeStudied": "Tiempo Estudiado",
+        "streak": "Racha",
+        "sectionProgress": "Progreso por Sección",
+        "sectionProgressDesc": "Tu nivel actual en cada sección",
+        "weeklyPerformance": "Rendimiento Semanal",
+        "weeklyPerformanceDesc": "Finalización de tareas por semana",
+        "studyConsistency": "Consistencia de Estudio",
+        "studyConsistencyDesc": "Últimas 4 semanas de actividad",
+        "studyDay": "Día de estudio",
+        "noStudy": "Sin estudio",
+        "strengthsWeaknesses": "Fortalezas y Debilidades"
+      },
+      "settings": {
+        "noPlan": "Sin Plan Activo",
+        "noPlanDesc": "No tienes un plan de estudio activo para actualizar.",
+        "loadError": "Error al cargar configuración del plan. Por favor intenta de nuevo.",
+        "updateInfo": "Actualizar tu configuración ajustará tu plan de estudio restante mientras preserva tu progreso.",
+        "selectedDate": "Fecha Seleccionada",
+        "daysSelected": "días seleccionados",
+        "daysSelectedCount": "{{count}} día seleccionado",
+        "daysSelectedCount_plural": "{{count}} días seleccionados",
+        "newPlanPreview": "Vista Previa del Nuevo Plan",
+        "saveChanges": "Guardar Cambios",
+        "noChanges": "Sin Cambios",
+        "noChangesDesc": "No has realizado ningún cambio para guardar.",
+        "examDateInPast": "La fecha del examen debe ser en el futuro.",
+        "noStudyDays": "Por favor selecciona al menos un día de estudio.",
+        "confirmUpdate": "¿Actualizar Plan de Estudio?",
+        "confirmUpdateDesc": "Esto ajustará tu horario de estudio basado en la nueva configuración. Tus tareas completadas se preservarán.",
+        "confirm": "Sí, Actualizar Plan",
+        "updateSuccess": "¡Tu plan de estudio ha sido actualizado exitosamente!",
+        "updateError": "Error al actualizar el plan. Por favor intenta de nuevo."
+      }
+    }
   },
   "vocabulary": {
     "title": "Constructor de Vocabulario",
@@ -652,230 +874,49 @@
     "continue": "Continuar"
   },
   "speaking": {
-    "part1": {
-      "title": "Habla Parte 1",
-      "subtitle": "Presentación personal",
-      "tabs": {
-        "myIntro": "Mi presentación",
-        "example": "Ejemplo",
-        "vocabulary": "Vocabulario",
-        "questions": "Preguntas"
-      },
-      "sections": {
-        "myProfile": "Mi perfil",
-        "personalIntro": "Presentación personal",
-        "keyVocabulary": "Vocabulario clave",
-        "completeExample": "Ejemplo completo",
-        "questions": "Pregunta y respuesta"
-      },
-      "buttons": {
-        "viewInfo": "Ver información personal",
-        "editInfo": "Editar información",
-        "saveInfo": "Guardar información"
-      },
-      "modal": {
-        "personalInfo": "Información personal",
-        "yourPersonalInfo": "Su información personal"
-      },
-      "help": {
-        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC {{level}}. Puede usarlo como referencia para crear el suyo propio.",
-        "enterInfoPrompt": "Por favor ingrese su información personal para generar su texto de presentación.",
-        "questionsNote": "Importante: esta parte del examen probablemente tendrá un estilo de conversación. \nUsted y su pareja se turnarán para hacer preguntas para conocerse. \nEs importante practicar cómo hacer y responder preguntas."
-      },
-      "infoLabels": {
-        "name": "Nombre:",
-        "age": "Edad:",
-        "birthCity": "Ciudad de nacimiento:",
-        "origin": "Origen:",
-        "livingSince": "Viviendo desde:",
-        "maritalStatus": "Estado civil:",
-        "family": "Familia:",
-        "location": "Ubicación:",
-        "profession": "Profesión:",
-        "company": "Empresa:",
-        "hobbies": "Pasatiempos:"
-      },
-      "questions": {
-        "formal": "Formal",
-        "informal": "Informal",
-        "answer": "Respuesta"
-      }
+    "title": "Práctica de habla",
+    "part": "Parte",
+    "turn": "Turno",
+    "you": "Tú",
+    "ai": "Examinador IA",
+    "personalIntroduction": "Presentación personal",
+    "permissions": {
+      "title": "Permiso de micrófono",
+      "message": "Necesitamos acceso a tu micrófono para grabar tu práctica de habla.",
+      "askLater": "Pregúntame más tarde",
+      "cancel": "Cancelar",
+      "ok": "Aceptar",
+      "required": "Se requiere permiso de micrófono para la práctica de habla",
+      "grant": "Conceder permiso",
+      "denied": "Permiso denegado",
+      "deniedMessage": "Por favor, habilita el acceso al micrófono en la configuración de tu dispositivo para usar la práctica de habla."
     },
-    "part2": {
-      "title": "Habla Parte 2",
-      "subtitle": "Presentación de tema",
-      "selectTopic": "Seleccione un tema",
-      "topicSelection": "Selección de tema",
-      "sections": {
-        "topicSelectionLabel": "Selección de tema:",
-        "presentationExample": "Ejemplo de presentación",
-        "discussion": "Discusión (Después de la presentación)",
-        "discussionNote": "Use estas preguntas para continuar la conversación con su compañero, expresar su opinión y compartir sus propias experiencias."
-      },
-      "tabs": {
-        "yourRole": "Participante A",
-        "partnerRole": "Participante B"
-      },
-      "buttons": {
-        "hideExample": "Ocultar ejemplo",
-        "showExample": "Vista de la persona presente (tercera persona)"
-      },
-      "instructions": {
-        "taskDescription": "Su tarea: Informe a su compañero de conversación sobre el siguiente texto y luego discutan sobre el tema.",
-        "startingText": "Su texto inicial para la presentación:"
-      }
-    },
-    "part3": {
-      "title": "Habla Parte 3",
-      "subtitle": "Planificar juntos",
-      "selectScenario": "Seleccione un escenario",
-      "scenarioSelection": "Selección de escenario",
-      "sections": {
-        "scenarioSelectionLabel": "Selección de escenario:"
-      },
-      "tabs": {
-        "dialog": "Diálogo",
-        "vocabulary": "Vocabulario",
-        "phrases": "Frases"
-      },
-      "tableHeaders": {
-        "german": "Alemán",
-        "english": "Inglés",
-        "suggestion": "Sugerencia / Tarea",
-        "response": "Respuesta de ejemplo"
-      }
-    },
-    "part4": {
-      "subtitle": "Frases comunes que puedes utilizar en muchas situaciones.",
-      "itemType": "Parte"
-    },
-    "b2Structure": {
-      "title": "Estructura del examen oral",
-      "menuTitle": "Estructura y guía del examen oral",
-      "menuDescription": "Aprende sobre la estructura, partes y requisitos del examen oral B2",
-      "tabs": {
-        "overview": "Visión general",
-        "examParts": "Partes del examen",
-        "hints": "Consejos"
-      },
-      "sections": {
-        "howItWorks": "Cómo funciona",
-        "expectations": "Qué se espera",
-        "hints": "Consejos importantes"
-      },
-      "labels": {
-        "duration": "Duración",
-        "participants": "Participantes",
-        "description": "Descripción",
-        "sample": "Tarea de ejemplo",
-        "topics": "Temas disponibles",
-        "exampleArticle": "Artículo de ejemplo"
-      }
-    },
-    "b2Part1": {
-      "title": "Hablar Parte 1: Presentación",
-      "menuTitle": "Parte 1: Presentación de tema",
-      "menuDescription": "Presenta un tema y discútelo",
-      "tabs": {
-        "presentation": "Presentación",
-        "discussion": "Discusión"
-      },
-      "sections": {
-        "topicTitle": "Tema",
-        "examplePresentation": "Presentación de ejemplo",
-        "discussionQuestions": "Preguntas de discusión"
-      },
-      "labels": {
-        "question": "Pregunta",
-        "answer": "Respuesta"
-      },
-      "help": {
-        "discussionNote": "Después de tu presentación, tu compañero te hará preguntas sobre el tema. Practica respondiendo este tipo de preguntas."
-      }
-    },
-    "b2Part2": {
-      "title": "Hablar Parte 2: Discusión",
-      "menuTitle": "Parte 2: Discusión de artículos",
-      "menuDescription": "Discute temas controvertidos de artículos de revistas",
-      "tabs": {
-        "article": "Artículo",
-        "summary": "Resumen",
-        "discussion": "Discusión"
-      },
-      "sections": {
-        "article": "Artículo de revista",
-        "summary": "Resumen del texto",
-        "discussion": "Discusión de ejemplo"
-      },
-      "labels": {
-        "speaker": "Hablante"
-      },
-      "help": {
-        "summaryNote": "Primero, resume brevemente los puntos principales del artículo. Concéntrate en los argumentos y hechos clave.",
-        "discussionNote": "Discute el tema con tu compañero. Aporta tus experiencias, expresa tu opinión, justifica tus argumentos y habla de posibles soluciones."
-      }
-    },
-    "b2Part3": {
-      "title": "Hablar Parte 3: Resolución de problemas",
-      "menuTitle": "Parte 3: Planificación conjunta",
-      "menuDescription": "Planifica algo junto con tu compañero",
-      "tabs": {
-        "task": "Tarea",
-        "dialogue": "Ejemplo"
-      },
-      "sections": {
-        "task": "Tarea de planificación",
-        "dialogue": "Diálogo de ejemplo"
-      },
-      "labels": {
-        "speaker": "Hablante"
-      },
-      "help": {
-        "dialogueNote": "Trabaja con tu compañero para planificar algo. Considera lo que hay que tener en cuenta, aporta tus ideas y sugerencias, y responde a las propuestas de tu compañero."
-      }
-    },
-    "a1Part1": {
-      "menuDescription": "Proporciona información importante sobre ti",
-      "goal": "Objetivo",
-      "steps": "Pasos",
-      "keywords": "Palabras clave",
-      "exampleIntroduction": "Ejemplo de presentación",
-      "followUpQuestions": "Preguntas de seguimiento",
-      "tabs": {
-        "instructions": "Instrucciones",
-        "example": "Ejemplo",
-        "interaction": "Preguntas y respuestas"
-      }
-    },
-    "a1Part2": {
-      "menuDescription": "Haz y responde preguntas sobre temas cotidianos",
-      "goal": "Objetivo",
-      "steps": "Pasos",
-      "topic": "Tema",
-      "cardWords": "Tarjetas de palabras",
-      "cardDescription": "Saca una tarjeta y formula una pregunta con esa palabra.",
-      "exampleDialogue": "Diálogo de ejemplo",
-      "tabs": {
-        "instructions": "Instrucciones",
-        "cards": "Tarjetas",
-        "example": "Ejemplo"
-      }
-    },
-    "a1Part3": {
-      "menuDescription": "Formula peticiones y responde a peticiones",
-      "goal": "Objetivo",
-      "steps": "Pasos",
-      "exampleScenario": "Escenario de ejemplo",
-      "practiceCards": "Tarjetas de práctica",
-      "cardsDescription": "Practica la formulación de peticiones para diferentes situaciones.",
-      "keywords": "Palabras clave",
-      "exampleRequest": "Petición de ejemplo",
-      "tabs": {
-        "instructions": "Instrucciones",
-        "example": "Ejemplo",
-        "cards": "Tarjetas de práctica"
-      }
-    }
+    "loading": "Cargando práctica de habla...",
+    "error": "Error",
+    "recordingError": "No se pudo grabar el audio. Por favor, inténtalo de nuevo.",
+    "processingError": "No se pudo procesar tu grabación. Por favor, inténtalo de nuevo.",
+    "loadError": "No se pudo cargar la práctica de habla. Por favor, verifica tu conexión e inténtalo de nuevo.",
+    "completionError": "No se pudo completar la práctica de habla. Por favor, inténtalo de nuevo.",
+    "recording": "Grabando",
+    "startRecording": "Iniciar grabación",
+    "stopRecording": "Detener grabación",
+    "processing": "Procesando tu respuesta...",
+    "playing": "Reproduciendo...",
+    "playAudio": "Reproducir audio",
+    "next": "Siguiente",
+    "previousTurns": "Turnos anteriores",
+    "complete": "¡Completado!",
+    "evaluating": "Evaluando tu desempeño...",
+    "yourScore": "Tu puntuación",
+    "pronunciation": "Pronunciación",
+    "fluency": "Fluidez",
+    "grammar": "Gramática",
+    "vocabulary": "Vocabulario",
+    "content": "Relevancia del contenido",
+    "feedback": "Comentarios",
+    "strengths": "Fortalezas",
+    "areasToImprove": "Áreas a mejorar",
+    "viewDetails": "Ver detalles"
   },
   "results": {
     "title": "Resultados del examen",
@@ -1291,5 +1332,64 @@
   },
   "errors": {
     "adLoadFailed": "Se produjo un error al cargar el anuncio."
+  },
+  "prepPlan": {
+    "onboarding": {
+      "title": "Plan de Preparación del Examen",
+      "startAssessment": "Iniciar Evaluación",
+      "welcome": {
+        "title": "Bienvenido al Plan de Preparación del Examen",
+        "subtitle": "Creemos un plan de estudio personalizado para tu éxito en el examen",
+        "step1": "Cuéntanos sobre la fecha de tu examen y horario",
+        "step2": "Realiza una evaluación rápida de nivel",
+        "step3": "Obtén tu plan de estudio con IA",
+        "timeEstimate": "⏱️ Este proceso toma aproximadamente 30 minutos"
+      },
+      "examDate": {
+        "title": "¿Cuándo es tu examen?",
+        "subtitle": "Selecciona la fecha de tu examen para calcular tu cronograma de estudio",
+        "daysUntilExam": "{{days}} días hasta el examen",
+        "daysUntilExamWithIcon": "📅 {{days}} días hasta el examen",
+        "weeksUntilExam": "{{weeks}} semanas para prepararte",
+        "weeksUntilExamWithIcon": "📆 {{weeks}} semanas para prepararte"
+      },
+      "schedule": {
+        "title": "Planifica Tu Tiempo de Estudio",
+        "subtitle": "¿Cuánto tiempo puedes dedicar al estudio?",
+        "dailyHours": "Horas de Estudio Diarias",
+        "studyDays": "Días de Estudio por Semana"
+      },
+      "studyTime": {
+        "title": "¿Cuándo prefieres estudiar?",
+        "subtitle": "Esto nos ayuda a enviarte recordatorios en el momento adecuado",
+        "morning": "Mañana",
+        "morningDesc": "6:00 AM - 12:00 PM",
+        "afternoon": "Tarde",
+        "afternoonDesc": "12:00 PM - 6:00 PM",
+        "evening": "Noche",
+        "eveningDesc": "6:00 PM - 11:00 PM",
+        "flexible": "Flexible",
+        "flexibleDesc": "Sin preferencia específica"
+      },
+      "summary": {
+        "title": "Resumen de Tu Plan de Estudio",
+        "subtitle": "Revisa tu configuración antes de comenzar la evaluación",
+        "examDate": "Fecha del Examen",
+        "daysUntilExam": "Días Hasta el Examen",
+        "daysValue": "{{count}} días",
+        "totalWeeks": "Semanas Totales",
+        "weeksValue": "{{count}} semanas",
+        "studyHoursPerDay": "Horas por Día",
+        "hoursValue": "{{count}}h",
+        "studyDaysPerWeek": "Días por Semana",
+        "totalStudyHours": "Horas Totales de Estudio",
+        "totalHoursValue": "~{{count}} horas",
+        "nextStep": "Siguiente: Evaluación de Nivel",
+        "nextStepDesc": "Realiza una prueba rápida de 25 minutos para determinar tu nivel actual"
+      },
+      "errors": {
+        "saveFailed": "Error al guardar tu configuración. Por favor intenta de nuevo."
+      }
+    }
   }
 }

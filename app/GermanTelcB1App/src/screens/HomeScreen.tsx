@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
@@ -27,10 +27,13 @@ import consentService, { AdsConsentStatus } from '../services/consent.service';
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import LoginModal from '../components/LoginModal';
 import { usePremium } from '../contexts/PremiumContext';
+import { useAuth } from '../contexts/AuthContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { HIDE_SUPPORT_US } from '../config/development.config';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { activeExamConfig } from '../config/active-exam.config';
+import { prepPlanService } from '../services/prep-plan.service';
+import { PrepPlanOnboardingProgress, StudyPlan } from '../types/prep-plan.types';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,
@@ -41,14 +44,54 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
+  const { user } = useAuth();
   const { isPremium, isLoading: isPremiumLoading, productPrice, productCurrency } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [onboardingProgress, setOnboardingProgress] = useState<PrepPlanOnboardingProgress | null>(null);
+  const [activePlan, setActivePlan] = useState<StudyPlan | null>(null);
+  const [isPrepPlanLoading, setIsPrepPlanLoading] = useState(true);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+
+  // Load prep plan state when screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      loadPrepPlanState();
+    }, [user])
+  );
+
+  const loadPrepPlanState = async () => {
+    setIsPrepPlanLoading(true);
+    console.log('[HomeScreen] Loading prep plan state...');
+    try {
+      if (!user) {
+        // User not logged in - still show the card
+        console.log('[HomeScreen] No user, clearing prep plan state');
+        setOnboardingProgress(null);
+        setActivePlan(null);
+        return;
+      }
+
+      // Check for onboarding progress
+      const progress = await prepPlanService.getOnboardingProgress();
+      console.log('[HomeScreen] Onboarding progress:', progress);
+      setOnboardingProgress(progress);
+
+      // Check for active plan
+      const plan = await prepPlanService.getActivePlan(user.uid);
+      console.log('[HomeScreen] Active plan:', plan);
+      setActivePlan(plan);
+    } catch (error) {
+      console.error('[HomeScreen] Error loading prep plan state:', error);
+    } finally {
+      console.log('[HomeScreen] Prep plan loading complete, setting loading to false');
+      setIsPrepPlanLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -203,6 +246,80 @@ const HomeScreen: React.FC = () => {
     });
   };
 
+  /**
+   * Determine the card title/description based on prep plan state
+   */
+  const getPrepPlanCardContent = () => {
+    // If user has an active plan - show dashboard entry
+    if (activePlan) {
+      return {
+        title: t('home.prepPlan.active.title'),
+        description: t('home.prepPlan.active.description'),
+        badge: null,
+      };
+    }
+
+    // If user has onboarding progress - show continue message
+    if (onboardingProgress && !onboardingProgress.isComplete) {
+      if (onboardingProgress.step === 'assessment' || onboardingProgress.step === 'results') {
+        return {
+          title: t('home.prepPlan.inProgress.assessment.title'),
+          description: t('home.prepPlan.inProgress.assessment.description'),
+          badge: t('home.prepPlan.inProgress.badge'),
+        };
+      }
+      return {
+        title: t('home.prepPlan.inProgress.config.title'),
+        description: t('home.prepPlan.inProgress.config.description'),
+        badge: t('home.prepPlan.inProgress.badge'),
+      };
+    }
+
+    // Default - new plan
+    return {
+      title: t('home.prepPlan.new.title'),
+      description: t('home.prepPlan.new.description'),
+      badge: t('home.prepPlan.new.badge'),
+    };
+  };
+
+  const handlePrepPlanPress = () => {
+    logEvent(AnalyticsEvents.PREP_PLAN_CARD_CLICKED);
+
+    // If not premium, show premium gate
+    if (!isPremium) {
+      logEvent(AnalyticsEvents.PREP_PLAN_PREMIUM_GATE_SHOWN);
+      // TODO: Show prep plan specific premium modal
+      enqueue('premium-upsell');
+      return;
+    }
+
+    // If user has active plan, go to dashboard
+    if (activePlan) {
+      logEvent(AnalyticsEvents.PREP_PLAN_DASHBOARD_OPENED);
+      navigation.navigate('StudyPlanDashboard');
+      return;
+    }
+
+    // If user has onboarding progress, resume where they left off
+    if (onboardingProgress && !onboardingProgress.isComplete) {
+      if (onboardingProgress.step === 'assessment') {
+        logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_RESUMED, { step: 'assessment' });
+        navigation.navigate('DiagnosticAssessment', {});
+        return;
+      }
+      if (onboardingProgress.step === 'results' && onboardingProgress.assessmentId) {
+        logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_RESUMED, { step: 'results' });
+        navigation.navigate('AssessmentResults', { assessmentId: onboardingProgress.assessmentId });
+        return;
+      }
+    }
+
+    // Start new onboarding
+    logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_STARTED);
+    navigation.navigate('PrepPlanOnboarding');
+  };
+
   return (
     <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView
@@ -216,6 +333,27 @@ const HomeScreen: React.FC = () => {
           onLoginPress={handleLoginPress}
           onViewFullStats={handleViewFullStats}
         />
+
+        {/* Exam Prep Plan Card - Visible to ALL users */}
+        {!isPrepPlanLoading && (
+          <AnimatedGradientBorder
+            borderWidth={2}
+            borderRadius={12}
+            colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+            duration={4000}
+            style={{ ...styles.card, ...styles.animatedCard }}
+          >
+            <Card style={styles.cardInner} onPress={handlePrepPlanPress}>
+              {getPrepPlanCardContent().badge && (
+                <Text style={styles.premiumBadge}>{getPrepPlanCardContent().badge}</Text>
+              )}
+              <Text style={styles.cardTitle}>{getPrepPlanCardContent().title}</Text>
+              <Text style={styles.cardDescription}>
+                {getPrepPlanCardContent().description}
+              </Text>
+            </Card>
+          </AnimatedGradientBorder>
+        )}
 
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
@@ -337,6 +475,15 @@ const createStyles = (colors: ThemeColors) =>
       textTransform: 'uppercase',
       color: colors.text.primary,
       fontSize: 10,
+    },
+    premiumBadge: {
+      position: 'absolute',
+      top: 10,
+      right: 11,
+      textTransform: 'uppercase',
+      color: colors.primary[500],
+      fontSize: 10,
+      fontWeight: '700',
     },
     cardTitle: {
       ...typography.textStyles.h3,

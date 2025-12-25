@@ -10,6 +10,7 @@
     "start": "tsx script.ts"
   },
   "dependencies": {
+    "@google/genai": "^1.34.0",
     "fluent-ffmpeg": "^2.1.3",
     "os": "^0.1.2"
   },

@@ -72,7 +72,24 @@
     "correct": "Richtig",
     "wrong": "Falsch",
     "duration": "Dauer",
-    "info": "Information"
+    "info": "Information",
+    "units": {
+      "hoursValue": "{{count}}Std",
+      "hours": "{{count}} Stunde",
+      "hours_plural": "{{count}} Stunden",
+      "minutesValue": "{{count}} Min",
+      "minutes": "{{count}} Minute",
+      "minutes_plural": "{{count}} Minuten"
+    },
+    "days": {
+      "mon": "Mo",
+      "tue": "Di",
+      "wed": "Mi",
+      "thu": "Do",
+      "fri": "Fr",
+      "sat": "Sa",
+      "sun": "So"
+    }
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",
@@ -143,7 +160,212 @@
       "listeningPractice": "Hören Sie sich Interviews an und beantworten Sie Fragen, um das Zuhören zu üben"
     },
     "solve": "Prüfungsfragen lösen",
-    "listeningPractice": "Hörübungen"
+    "listeningPractice": "Hörübungen",
+    "prepPlan": {
+      "new": {
+        "title": "Prüfungsvorbereitungsplan",
+        "description": "Erhalten Sie einen personalisierten KI-gestützten Lernplan basierend auf Ihrem Niveau und Zeitplan",
+        "badge": "⭐ PREMIUM"
+      },
+      "active": {
+        "title": "Mein Lernplan",
+        "description": "Setzen Sie Ihre personalisierte Prüfungsvorbereitung fort"
+      },
+      "inProgress": {
+        "badge": "In Bearbeitung",
+        "config": {
+          "title": "Einrichtung fortsetzen",
+          "description": "Vervollständigen Sie die Konfiguration Ihres Lernplans"
+        },
+        "assessment": {
+          "title": "Bewertung fortsetzen",
+          "description": "Schließen Sie Ihre Niveaubewertung ab, um Ihren Plan zu erstellen"
+        }
+      },
+      "onboarding": {
+        "title": "Prüfungsvorbereitungsplan",
+        "startAssessment": "Bewertung starten",
+        "welcome": {
+          "title": "Willkommen zum Prüfungsvorbereitungsplan",
+          "subtitle": "Lassen Sie uns einen personalisierten Lernplan für Ihren Prüfungserfolg erstellen",
+          "step1": "Teilen Sie uns Ihren Prüfungstermin und Zeitplan mit",
+          "step2": "Machen Sie eine kurze Niveaubewertung",
+          "step3": "Erhalten Sie Ihren KI-gestützten Lernplan",
+          "timeEstimate": "⏱️ Dieser Vorgang dauert etwa 30 Minuten"
+        },
+        "examDate": {
+          "title": "Wann ist Ihre Prüfung?",
+          "subtitle": "Wählen Sie Ihr Prüfungsdatum, um Ihren Lernzeitplan zu berechnen",
+          "daysUntilExam": "{{days}} Tage bis zur Prüfung",
+          "weeksUntilExam": "{{weeks}} Wochen Vorbereitungszeit"
+        },
+        "schedule": {
+          "title": "Planen Sie Ihre Lernzeit",
+          "subtitle": "Wie viel Zeit können Sie dem Lernen widmen?",
+          "dailyHours": "Tägliche Lernstunden",
+          "studyDays": "Lerntage pro Woche"
+        },
+        "studyTime": {
+          "title": "Wann lernen Sie am liebsten?",
+          "subtitle": "Dies hilft uns, Ihnen Erinnerungen zur richtigen Zeit zu senden",
+          "morning": "Morgen",
+          "morningDesc": "6:00 - 12:00 Uhr",
+          "afternoon": "Nachmittag",
+          "afternoonDesc": "12:00 - 18:00 Uhr",
+          "evening": "Abend",
+          "eveningDesc": "18:00 - 23:00 Uhr",
+          "flexible": "Flexibel",
+          "flexibleDesc": "Keine bestimmte Präferenz"
+        },
+        "summary": {
+          "title": "Überblick über Ihren Lernplan",
+          "subtitle": "Überprüfen Sie Ihre Konfiguration, bevor Sie die Bewertung starten",
+          "examDate": "Prüfungsdatum",
+          "daysUntilExam": "Tage bis zur Prüfung",
+          "totalWeeks": "Gesamte Wochen",
+          "studyHoursPerDay": "Stunden pro Tag",
+          "studyDaysPerWeek": "Tage pro Woche",
+          "totalStudyHours": "Gesamte Lernstunden",
+          "nextStep": "Nächster Schritt: Niveaubewertung",
+          "nextStepDesc": "Machen Sie einen 25-minütigen Test, um Ihr aktuelles Niveau zu bestimmen"
+        },
+        "errors": {
+          "saveFailed": "Konfiguration konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+        }
+      },
+      "diagnostic": {
+        "title": "Niveaubewertung",
+        "subtitle": "Diagnostischer Test zur Bewertung Ihres aktuellen Niveaus",
+        "generating": "Ihre Bewertung wird erstellt...",
+        "loadingSection": "Abschnitt wird geladen...",
+        "loadError": "Bewertung konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "sectionLoadError": "Abschnitt konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "evaluationError": "Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es erneut.",
+        "sectionProgress": "Abschnitt {{current}} von {{total}}",
+        "sectionComingSoon": "Abschnitt {{section}} kommt bald!",
+        "sections": {
+          "reading": "Leseverstehen",
+          "listening": "Hörverstehen",
+          "grammar": "Grammatik & Wortschatz",
+          "writing": "Schreiben",
+          "speaking": "Sprechen"
+        }
+      },
+      "results": {
+        "title": "Ihre Bewertungsergebnisse",
+        "notFound": "Bewertungsergebnisse nicht gefunden",
+        "sectionBreakdown": "Abschnitt-Aufschlüsselung",
+        "strengths": "Ihre Stärken",
+        "weaknesses": "Verbesserungsbereiche",
+        "weaknessNote": "Ihr Lernplan wird {{percentage}}% der Übungszeit auf Ihre schwachen Bereiche konzentrieren",
+        "generatePlan": "🎯 Meinen Lernplan erstellen",
+        "generating": "Ihr Plan wird erstellt...",
+        "level": {
+          "beginner": "Anfänger",
+          "intermediate": "Mittelstufe",
+          "advanced": "Fortgeschritten",
+          "weak": "Verbesserungsbedarf",
+          "moderate": "Gut",
+          "strong": "Ausgezeichnet"
+        }
+      },
+      "dashboard": {
+        "noPlan": "Kein aktiver Plan",
+        "noPlanDesc": "Sie haben keinen aktiven Lernplan. Bitte erstellen Sie zuerst einen.",
+        "loadError": "Lernplan konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "taskTypeNotSupported": "Dieser Aufgabentyp wird noch nicht unterstützt.",
+        "examIn": "Prüfung in",
+        "days": "Tagen",
+        "overallProgress": "Gesamtfortschritt",
+        "tasksCompleted": "Aufgaben erledigt",
+        "tasksCompletedRatio": "{{completed}} von {{total}} Aufgaben erledigt",
+        "completedRatio": "{{completed}}/{{total}} erledigt",
+        "weekRatio": "{{current}}/{{total}}",
+        "dayStreak": "Tage-Serie",
+        "hoursStudied": "Stunden gelernt",
+        "currentWeek": "aktuelle Woche",
+        "todaysTasks": "Heutige Aufgaben",
+        "noTasksToday": "Heute alles erledigt!",
+        "noTasksDesc": "Sie haben alle Aufgaben abgeschlossen. Sehr gut!",
+        "minutes": "Min",
+        "quickActions": "Schnellaktionen",
+        "viewWeeklyPlan": "Wochenplan anzeigen",
+        "viewProgress": "Fortschritt & Analysen",
+        "updateSettings": "Einstellungen aktualisieren"
+      },
+      "weekly": {
+        "noPlan": "Kein aktiver Plan",
+        "noPlanDesc": "Sie haben keinen aktiven Lernplan.",
+        "loadError": "Wochenplan konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "weekNotFound": "Woche nicht gefunden",
+        "week": "Woche",
+        "weekProgress": "Wochenfortschritt",
+        "tasksCompleted": "Aufgaben erledigt",
+        "weekCompleted": "Woche abgeschlossen! 🎉",
+        "focusAreas": "Schwerpunktbereiche",
+        "tasks": "Aufgaben",
+        "minutes": "Min",
+        "hours": "Stunden",
+        "difficulty": {
+          "easy": "Einfach",
+          "medium": "Mittel",
+          "hard": "Schwer"
+        },
+        "completedOn": "Abgeschlossen am",
+        "totalTime": "Geschätzte Gesamtzeit"
+      },
+      "progress": {
+        "noPlan": "Kein aktiver Plan",
+        "noPlanDesc": "Sie haben keinen aktiven Lernplan.",
+        "loadError": "Fortschrittsdaten konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "examReadiness": "Prüfungsbereitschaft",
+        "readiness": {
+          "excellent": "Ausgezeichnet - Sie sind bereit!",
+          "good": "Guter Fortschritt",
+          "fair": "Durchschnittlich - Weitermachen",
+          "needsWork": "Braucht mehr Arbeit"
+        },
+        "readinessDesc": {
+          "excellent": "Sie sind gut vorbereitet und auf dem Weg zum Erfolg!",
+          "good": "Sie machen solide Fortschritte. Weiter so!",
+          "fair": "Sie sind auf dem richtigen Weg. Bleiben Sie konsequent.",
+          "needsWork": "Bleiben Sie engagiert und folgen Sie Ihrem Plan genau."
+        },
+        "completion": "Abschluss",
+        "timeStudied": "Lernzeit",
+        "streak": "Serie",
+        "sectionProgress": "Fortschritt nach Bereichen",
+        "sectionProgressDesc": "Ihr aktuelles Niveau in jedem Bereich",
+        "weeklyPerformance": "Wöchentliche Leistung",
+        "weeklyPerformanceDesc": "Aufgabenabschluss pro Woche",
+        "studyConsistency": "Lernkonsistenz",
+        "studyConsistencyDesc": "Letzte 4 Wochen Aktivität",
+        "studyDay": "Lerntag",
+        "noStudy": "Kein Lernen",
+        "strengthsWeaknesses": "Stärken & Schwächen"
+      },
+      "settings": {
+        "noPlan": "Kein aktiver Plan",
+        "noPlanDesc": "Sie haben keinen aktiven Lernplan zum Aktualisieren.",
+        "loadError": "Planeinstellungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "updateInfo": "Das Aktualisieren Ihrer Einstellungen passt Ihren verbleibenden Lernplan an, während Ihr Fortschritt erhalten bleibt.",
+        "selectedDate": "Ausgewähltes Datum",
+        "daysSelected": "Tage ausgewählt",
+        "daysSelectedCount": "{{count}} Tag ausgewählt",
+        "daysSelectedCount_plural": "{{count}} Tage ausgewählt",
+        "newPlanPreview": "Neue Planvorschau",
+        "saveChanges": "Änderungen speichern",
+        "noChanges": "Keine Änderungen",
+        "noChangesDesc": "Sie haben keine Änderungen vorgenommen.",
+        "examDateInPast": "Das Prüfungsdatum muss in der Zukunft liegen.",
+        "noStudyDays": "Bitte wählen Sie mindestens einen Lerntag aus.",
+        "confirmUpdate": "Lernplan aktualisieren?",
+        "confirmUpdateDesc": "Dies passt Ihren Lernplan basierend auf den neuen Einstellungen an. Ihre abgeschlossenen Aufgaben bleiben erhalten.",
+        "confirm": "Ja, Plan aktualisieren",
+        "updateSuccess": "Ihr Lernplan wurde erfolgreich aktualisiert!",
+        "updateError": "Plan konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut."
+      }
+    }
   },
   "vocabulary": {
     "title": "Vokabeltrainer",
@@ -653,230 +875,49 @@
     }
   },
   "speaking": {
-    "part1": {
-      "title": "Sprechen Teil 1",
-      "subtitle": "Persönliche Vorstellung",
-      "tabs": {
-        "myIntro": "Meine Vorstellung",
-        "example": "Beispiel",
-        "vocabulary": "Vokabeln",
-        "questions": "Fragen"
-      },
-      "sections": {
-        "myProfile": "Mein Profil",
-        "personalIntro": "Persönliche Vorstellung",
-        "keyVocabulary": "Schlüsselvokabeln",
-        "completeExample": "Vollständiges Beispiel",
-        "questions": "Frage und Antwort"
-      },
-      "buttons": {
-        "viewInfo": "Persönliche Infos anzeigen",
-        "editInfo": "Infos bearbeiten",
-        "saveInfo": "Informationen speichern"
-      },
-      "modal": {
-        "personalInfo": "Persönliche Informationen",
-        "yourPersonalInfo": "Ihre persönlichen Informationen"
-      },
-      "help": {
-        "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Informationen ein, um Ihren Vorstellungstext zu generieren.",
-        "exampleNote": "Dies ist ein vollständiges Beispiel für eine persönliche Vorstellung für die TELC {{level}} mündliche Prüfung. Sie können dies als Referenz verwenden, um Ihre eigene zu erstellen.",
-        "questionsNote": "Wichtig: Dieser Teil der Prüfung wird wahrscheinlich im Gesprächsstil stattfinden. Sie und Ihr Partner werden sich abwechselnd Fragen stellen, um sich kennenzulernen. Es ist wichtig, das Fragen und Beantworten von Fragen zu üben."
-      },
-      "infoLabels": {
-        "name": "Name:",
-        "age": "Alter:",
-        "birthCity": "Geburtsort:",
-        "origin": "Herkunft:",
-        "livingSince": "Lebt seit:",
-        "maritalStatus": "Familienstand:",
-        "family": "Familie:",
-        "location": "Ort:",
-        "profession": "Beruf:",
-        "company": "Firma:",
-        "hobbies": "Hobbys:"
-      },
-      "questions": {
-        "formal": "Formell",
-        "informal": "Informell",
-        "answer": "Antwort"
-      }
+    "title": "Sprechpraxis",
+    "part": "Teil",
+    "turn": "Runde",
+    "you": "Sie",
+    "ai": "KI-Prüfer",
+    "personalIntroduction": "Persönliche Vorstellung",
+    "permissions": {
+      "title": "Mikrofon-Berechtigung",
+      "message": "Wir benötigen Zugriff auf Ihr Mikrofon, um Ihre Sprechpraxis aufzuzeichnen.",
+      "askLater": "Später fragen",
+      "cancel": "Abbrechen",
+      "ok": "OK",
+      "required": "Mikrofon-Berechtigung ist für die Sprechpraxis erforderlich",
+      "grant": "Berechtigung erteilen",
+      "denied": "Berechtigung verweigert",
+      "deniedMessage": "Bitte aktivieren Sie den Mikrofon-Zugriff in Ihren Geräteeinstellungen, um die Sprechpraxis zu nutzen."
     },
-    "part2": {
-      "title": "Sprechen Teil 2",
-      "subtitle": "Themenpräsentation",
-      "selectTopic": "Wählen Sie ein Thema",
-      "topicSelection": "Themenauswahl",
-      "sections": {
-        "topicSelectionLabel": "Themenauswahl:",
-        "presentationExample": "Präsentationsbeispiel",
-        "discussion": "Diskussion (Nach der Präsentation)",
-        "discussionNote": "Verwenden Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und Ihre eigenen Erfahrungen zu teilen."
-      },
-      "tabs": {
-        "yourRole": "Teilnehmer A",
-        "partnerRole": "Teilnehmer B"
-      },
-      "buttons": {
-        "hideExample": "Beispiel verbergen",
-        "showExample": "Sicht der Person präsentieren (dritte Person)"
-      },
-      "instructions": {
-        "taskDescription": "Ihre Aufgabe: Erzählen Sie Ihrem Gesprächspartner von dem folgenden Text und diskutieren Sie dann das Thema.",
-        "startingText": "Ihr Starttext für die Präsentation:"
-      }
-    },
-    "part3": {
-      "title": "Sprechen Teil 3",
-      "subtitle": "Gemeinsam etwas planen",
-      "selectScenario": "Wählen Sie ein Szenario",
-      "scenarioSelection": "Szenarioauswahl",
-      "sections": {
-        "scenarioSelectionLabel": "Szenarioauswahl:"
-      },
-      "tabs": {
-        "dialog": "Dialog",
-        "vocabulary": "Vokabeln",
-        "phrases": "Redewendungen"
-      },
-      "tableHeaders": {
-        "german": "Deutsch",
-        "english": "Englisch",
-        "suggestion": "Vorschlag / Aufgabe",
-        "response": "Beispielantwort"
-      }
-    },
-    "part4": {
-      "subtitle": "Häufige Redewendungen, die Sie in vielen Situationen verwenden können",
-      "itemType": "Teil"
-    },
-    "b2Structure": {
-      "title": "Mündliche Prüfung Struktur",
-      "menuTitle": "Mündliche Prüfung Struktur & Leitfaden",
-      "menuDescription": "Lernen Sie die Struktur, Teile und Anforderungen der mündlichen B2-Prüfung kennen",
-      "tabs": {
-        "overview": "Übersicht",
-        "examParts": "Prüfungsteile",
-        "hints": "Hinweise"
-      },
-      "sections": {
-        "howItWorks": "Wie es funktioniert",
-        "expectations": "Was erwartet wird",
-        "hints": "Wichtige Hinweise"
-      },
-      "labels": {
-        "duration": "Dauer",
-        "participants": "Teilnehmer",
-        "description": "Beschreibung",
-        "sample": "Beispielaufgabe",
-        "topics": "Verfügbare Themen",
-        "exampleArticle": "Beispielartikel"
-      }
-    },
-    "b2Part1": {
-      "title": "Sprechen Teil 1: Präsentation",
-      "menuTitle": "Teil 1: Themenpräsentation",
-      "menuDescription": "Ein Thema präsentieren und diskutieren",
-      "tabs": {
-        "presentation": "Präsentation",
-        "discussion": "Diskussion"
-      },
-      "sections": {
-        "topicTitle": "Thema",
-        "examplePresentation": "Beispielpräsentation",
-        "discussionQuestions": "Diskussionsfragen"
-      },
-      "labels": {
-        "question": "Frage",
-        "answer": "Antwort"
-      },
-      "help": {
-        "discussionNote": "Nach Ihrer Präsentation wird Ihr Partner Ihnen Fragen zum Thema stellen. Üben Sie die Beantwortung dieser Art von Fragen."
-      }
-    },
-    "b2Part2": {
-      "title": "Sprechen Teil 2: Diskussion",
-      "menuTitle": "Teil 2: Artikeldiskussion",
-      "menuDescription": "Kontroverse Themen aus Zeitschriftenartikeln diskutieren",
-      "tabs": {
-        "article": "Artikel",
-        "summary": "Zusammenfassung",
-        "discussion": "Diskussion"
-      },
-      "sections": {
-        "article": "Zeitschriftenartikel",
-        "summary": "Textzusammenfassung",
-        "discussion": "Beispieldiskussion"
-      },
-      "labels": {
-        "speaker": "Sprecher"
-      },
-      "help": {
-        "summaryNote": "Fassen Sie zunächst die Hauptpunkte des Artikels kurz zusammen. Konzentrieren Sie sich auf die wichtigsten Argumente und Fakten.",
-        "discussionNote": "Diskutieren Sie das Thema mit Ihrem Partner. Bringen Sie Ihre Erfahrungen ein, äußern Sie Ihre Meinung, begründen Sie Ihre Argumente und sprechen Sie über mögliche Lösungen."
-      }
-    },
-    "b2Part3": {
-      "title": "Sprechen Teil 3: Problemlösung",
-      "menuTitle": "Teil 3: Gemeinsam planen",
-      "menuDescription": "Planen Sie etwas gemeinsam mit Ihrem Partner",
-      "tabs": {
-        "task": "Aufgabe",
-        "dialogue": "Beispiel"
-      },
-      "sections": {
-        "task": "Planungsaufgabe",
-        "dialogue": "Beispieldialog"
-      },
-      "labels": {
-        "speaker": "Sprecher"
-      },
-      "help": {
-        "dialogueNote": "Arbeiten Sie mit Ihrem Partner zusammen, um etwas zu planen. Überlegen Sie, was getan werden muss, bringen Sie Ihre Ideen und Vorschläge ein und reagieren Sie auf die Vorschläge Ihres Partners."
-      }
-    },
-    "a1Part1": {
-      "menuDescription": "Wichtige Informationen zur eigenen Person geben",
-      "goal": "Ziel",
-      "steps": "Schritte",
-      "keywords": "Stichwörter",
-      "exampleIntroduction": "Beispielvorstellung",
-      "followUpQuestions": "Nachfragen",
-      "tabs": {
-        "instructions": "Anleitung",
-        "example": "Beispiel",
-        "interaction": "Fragen & Antworten"
-      }
-    },
-    "a1Part2": {
-      "menuDescription": "Fragen stellen und auf Fragen zu Alltagsthemen antworten",
-      "goal": "Ziel",
-      "steps": "Schritte",
-      "topic": "Thema",
-      "cardWords": "Wortkarten",
-      "cardDescription": "Ziehen Sie eine Karte und formulieren Sie eine Frage mit diesem Wort.",
-      "exampleDialogue": "Beispieldialog",
-      "tabs": {
-        "instructions": "Anleitung",
-        "cards": "Karten",
-        "example": "Beispiel"
-      }
-    },
-    "a1Part3": {
-      "menuDescription": "Bitten formulieren und auf Bitten reagieren",
-      "goal": "Ziel",
-      "steps": "Schritte",
-      "exampleScenario": "Beispielszenario",
-      "practiceCards": "Übungskarten",
-      "cardsDescription": "Üben Sie das Formulieren von Bitten für verschiedene Situationen.",
-      "keywords": "Stichwörter",
-      "exampleRequest": "Beispielbitte",
-      "tabs": {
-        "instructions": "Anleitung",
-        "example": "Beispiel",
-        "cards": "Übungskarten"
-      }
-    }
+    "loading": "Lade Sprechpraxis...",
+    "error": "Fehler",
+    "recordingError": "Audioaufnahme fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "processingError": "Ihre Aufnahme konnte nicht verarbeitet werden. Bitte versuchen Sie es erneut.",
+    "loadError": "Sprechpraxis konnte nicht geladen werden. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "completionError": "Sprechpraxis konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+    "recording": "Aufnahme",
+    "startRecording": "Aufnahme starten",
+    "stopRecording": "Aufnahme stoppen",
+    "processing": "Ihre Antwort wird verarbeitet...",
+    "playing": "Wiedergabe...",
+    "playAudio": "Audio abspielen",
+    "next": "Weiter",
+    "previousTurns": "Vorherige Runden",
+    "complete": "Abgeschlossen!",
+    "evaluating": "Ihre Leistung wird bewertet...",
+    "yourScore": "Ihre Punktzahl",
+    "pronunciation": "Aussprache",
+    "fluency": "Flüssigkeit",
+    "grammar": "Grammatik",
+    "vocabulary": "Wortschatz",
+    "content": "Inhaltsrelevanz",
+    "feedback": "Rückmeldung",
+    "strengths": "Stärken",
+    "areasToImprove": "Verbesserungsbereiche",
+    "viewDetails": "Details anzeigen"
   },
   "results": {
     "title": "Prüfungsergebnisse",
@@ -1288,5 +1329,64 @@
   },
   "errors": {
     "adLoadFailed": "Beim Laden der Anzeige ist ein Fehler aufgetreten"
+  },
+  "prepPlan": {
+    "onboarding": {
+      "title": "Prüfungsvorbereitungsplan",
+      "startAssessment": "Einstufung starten",
+      "welcome": {
+        "title": "Willkommen zum Prüfungsvorbereitungsplan",
+        "subtitle": "Lassen Sie uns einen personalisierten Lernplan für Ihren Prüfungserfolg erstellen",
+        "step1": "Erzählen Sie uns von Ihrem Prüfungsdatum und Zeitplan",
+        "step2": "Machen Sie einen kurzen Einstufungstest",
+        "step3": "Erhalten Sie Ihren KI-gestützten Lernplan",
+        "timeEstimate": "⏱️ Dieser Vorgang dauert etwa 30 Minuten"
+      },
+      "examDate": {
+        "title": "Wann ist Ihre Prüfung?",
+        "subtitle": "Wählen Sie Ihr Prüfungsdatum aus, um Ihren Lernzeitplan zu berechnen",
+        "daysUntilExam": "{{days}} Tage bis zur Prüfung",
+        "daysUntilExamWithIcon": "📅 {{days}} Tage bis zur Prüfung",
+        "weeksUntilExam": "{{weeks}} Wochen zur Vorbereitung",
+        "weeksUntilExamWithIcon": "📆 {{weeks}} Wochen zur Vorbereitung"
+      },
+      "schedule": {
+        "title": "Planen Sie Ihre Lernzeit",
+        "subtitle": "Wie viel Zeit können Sie dem Lernen widmen?",
+        "dailyHours": "Tägliche Lernstunden",
+        "studyDays": "Lerntage pro Woche"
+      },
+      "studyTime": {
+        "title": "Wann lernen Sie am liebsten?",
+        "subtitle": "Dies hilft uns, Ihnen Erinnerungen zur richtigen Zeit zu senden",
+        "morning": "Morgen",
+        "morningDesc": "6:00 - 12:00 Uhr",
+        "afternoon": "Nachmittag",
+        "afternoonDesc": "12:00 - 18:00 Uhr",
+        "evening": "Abend",
+        "eveningDesc": "18:00 - 23:00 Uhr",
+        "flexible": "Flexibel",
+        "flexibleDesc": "Keine spezielle Präferenz"
+      },
+      "summary": {
+        "title": "Ihr Lernplan-Übersicht",
+        "subtitle": "Überprüfen Sie Ihre Konfiguration, bevor Sie mit der Einstufung beginnen",
+        "examDate": "Prüfungsdatum",
+        "daysUntilExam": "Tage bis zur Prüfung",
+        "daysValue": "{{count}} Tage",
+        "totalWeeks": "Gesamtwochen",
+        "weeksValue": "{{count}} Wochen",
+        "studyHoursPerDay": "Stunden pro Tag",
+        "hoursValue": "{{count}}Std",
+        "studyDaysPerWeek": "Tage pro Woche",
+        "totalStudyHours": "Gesamte Lernstunden",
+        "totalHoursValue": "~{{count}} Stunden",
+        "nextStep": "Nächstes: Einstufung",
+        "nextStepDesc": "Machen Sie einen kurzen 25-minütigen Test, um Ihr aktuelles Niveau zu bestimmen"
+      },
+      "errors": {
+        "saveFailed": "Die Konfiguration konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+      }
+    }
   }
 }

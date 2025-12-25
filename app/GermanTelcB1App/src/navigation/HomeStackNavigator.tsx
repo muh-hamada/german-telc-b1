@@ -50,6 +50,15 @@ import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
 import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
 import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
+// Prep Plan Screens (Phase 1 - Placeholders)
+import PrepPlanOnboardingScreen from '../screens/prep-plan/PrepPlanOnboardingScreen';
+import DiagnosticAssessmentScreen from '../screens/prep-plan/DiagnosticAssessmentScreen';
+import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
+import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
+import StudyPlanDashboardScreen from '../screens/prep-plan/StudyPlanDashboardScreen';
+import WeeklyPlanScreen from '../screens/prep-plan/WeeklyPlanScreen';
+import PrepPlanProgressScreen from '../screens/prep-plan/PrepPlanProgressScreen';
+import PrepPlanSettingsScreen from '../screens/prep-plan/PrepPlanSettingsScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -412,6 +421,63 @@ const HomeStackNavigator: React.FC = () => {
         component={VocabularyStudiedListScreen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="vocabulary.studiedWordsList" />,
+        }}
+      />
+      {/* Prep Plan Screens (Phase 1 - Placeholders) */}
+      <Stack.Screen
+        name="PrepPlanOnboarding"
+        component={PrepPlanOnboardingScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.onboarding.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="DiagnosticAssessment"
+        component={DiagnosticAssessmentScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.diagnostic.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="AssessmentResults"
+        component={AssessmentResultsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.results.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="SpeakingAssessment"
+        component={SpeakingAssessmentScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.speaking.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="StudyPlanDashboard"
+        component={StudyPlanDashboardScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.dashboard.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="WeeklyPlan"
+        component={WeeklyPlanScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.weekly.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="PrepPlanProgress"
+        component={PrepPlanProgressScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.progress.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="PrepPlanSettings"
+        component={PrepPlanSettingsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="prepPlan.settings.title" />,
         }}
       />
     </Stack.Navigator>

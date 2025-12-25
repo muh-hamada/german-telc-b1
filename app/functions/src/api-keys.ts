@@ -1,1 +1,4 @@
-export const OPENAI_API_KEY = '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';
+// Environment variables are automatically loaded from .env file
+// For local development: create .env file with OPENAI_API_KEY
+// For production: set in Firebase Console or use Secret Manager
+export const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
