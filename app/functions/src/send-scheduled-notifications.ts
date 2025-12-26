@@ -150,6 +150,106 @@ const STREAK_MESSAGES_WITH_NAME: { [key: string]: string } = {
 // App IDs to check for streaks (in priority order)
 const STREAK_APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
 
+// Prep plan notification messages
+const PREP_PLAN_MESSAGES: { [key: string]: { [key: string]: string[] } } = {
+  en: {
+    tasks: [
+      "You have {count} study tasks for today. Let's get them done! 📚",
+      "Ready to study? You have {count} tasks waiting for you. 🚀",
+      "Keep the momentum! {count} tasks to complete today. 💪"
+    ],
+    countdown: [
+      "Only {days} days left until your exam! Every study session counts. ⏳",
+      "Your exam is in {days} days. Stay focused and keep practicing! 🎯",
+      "The countdown is on: {days} days to go. You've got this! 🌟"
+    ],
+    missed: [
+      "Consistency is key! Don't let your streak break. Study today! 🔥",
+      "Small steps every day lead to big results. Ready for today's tasks? 📈"
+    ]
+  },
+  de: {
+    tasks: [
+      "Du hast heute {count} Lernaufgaben. Packen wir es an! 📚",
+      "Bereit zum Lernen? {count} Aufgaben warten auf dich. 🚀",
+      "Bleib dran! Heute stehen {count} Aufgaben an. 💪"
+    ],
+    countdown: [
+      "Nur noch {days} Tage bis zu deiner Prüfung! Jede Lerneinheit zählt. ⏳",
+      "Deine Prüfung ist in {days} Tagen. Bleib fokussiert! 🎯",
+      "Der Countdown läuft: noch {days} Tage. Du schaffst das! 🌟"
+    ],
+    missed: [
+      "Beständigkeit ist der Schlüssel! Lass deine Serie nicht reißen. Lerne heute! 🔥",
+      "Kleine Schritte jeden Tag führen zum Ziel. Bereit für heute? 📈"
+    ]
+  },
+  ar: {
+    tasks: [
+      "لديك {count} مهام دراسية لليوم. فلننجزها! 📚",
+      "هل أنت مستعد للدراسة؟ هناك {count} مهام بانتظارك. 🚀",
+      "حافظ على الزخم! لديك {count} مهام لتكملها اليوم. 💪"
+    ],
+    countdown: [
+      "تبقى {days} أيام فقط على امتحانك! كل جلسة دراسية تفرق. ⏳",
+      "امتحانك بعد {days} أيام. ابقَ مركزاً وواصل التدريب! 🎯",
+      "بدأ العد التنازلي: بقي {days} أيام. أنت تستطيع فعلها! 🌟"
+    ],
+    missed: [
+      "الاستمرارية هي المفتاح! لا تدع سلسلتك تنقطع. ادرس اليوم! 🔥",
+      "الخطوات الصغيرة كل يوم تؤدي لنتائج كبيرة. مستعد لمهام اليوم؟ 📈"
+    ]
+  },
+  es: {
+    tasks: [
+      "Tienes {count} tareas de estudio para hoy. ¡Hagámoslas! 📚",
+      "¿Listo para estudiar? Tienes {count} tareas esperándote. 🚀",
+      "¡Mantén el impulso! {count} tareas para completar hoy. 💪"
+    ],
+    countdown: [
+      "¡Solo faltan {days} días para tu examen! Cada sesión de estudio cuenta. ⏳",
+      "Tu examen es en {days} días. ¡Mantén el enfoque! 🎯",
+      "La cuenta atrás ha comenzado: faltan {days} días. ¡Tú puedes! 🌟"
+    ],
+    missed: [
+      "¡La constancia es la clave! No dejes que tu racha se rompa. ¡Estudia hoy! 🔥",
+      "Pequeños pasos cada día llevan a grandes resultados. ¿Listo para hoy? 📈"
+    ]
+  },
+  ru: {
+    tasks: [
+      "У тебя на сегодня {count} учебных заданий. Давай сделаем это! 📚",
+      "Готов к занятиям? Тебя ждут {count} заданий. 🚀",
+      "Не теряй темп! Нужно выполнить {count} заданий сегодня. 💪"
+    ],
+    countdown: [
+      "До экзамена осталось всего {days} дней! Каждое занятие имеет значение. ⏳",
+      "Твой экзамен через {days} дней. Сохраняй концентрацию! 🎯",
+      "Обратный отсчет пошел: осталось {days} дней. У тебя всё получится! 🌟"
+    ],
+    missed: [
+      "Постоянство — залог успеха! Не дай своей серии прерваться. Поучись сегодня! 🔥",
+      "Маленькие шаги каждый день ведут к большим результатам. Готов? 📈"
+    ]
+  },
+  fr: {
+    tasks: [
+      "Vous avez {count} tâches d'étude pour aujourd'hui. C'est parti ! 📚",
+      "Prêt à étudier ? {count} tâches vous attendent. 🚀",
+      "Gardez l'élan ! {count} tâches à accomplir aujourd'hui. 💪"
+    ],
+    countdown: [
+      "Plus que {days} jours avant votre examen ! Chaque séance d'étude compte. ⏳",
+      "Votre examen est dans {days} jours. Restez concentré ! 🎯",
+      "Le compte à rebours est lancé : plus que {days} jours. Vous allez réussir ! 🌟"
+    ],
+    missed: [
+      "La régularité est la clé ! Ne laissez pas votre série s'interrompre. Étudiez aujourd'hui ! 🔥",
+      "De petits pas chaque jour mènent à de grands résultats. Prêt pour aujourd'hui ? 📈"
+    ]
+  }
+};
+
 // Placeholder image URL
 const NOTIFICATION_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification-logo.jpg?alt=media&token=9cb214fc-72c2-4d58-8d60-1e9fbc90558a';
 
@@ -210,6 +310,101 @@ async function getUserStreak(uid: string): Promise<number> {
   }
 
   return highestStreak;
+}
+
+/**
+ * Get active prep plan for a user
+ * @param uid User ID
+ * @returns Active study plan or null
+ */
+async function getActivePrepPlan(uid: string): Promise<any | null> {
+  const db = admin.firestore();
+  
+  try {
+    // Check common exam IDs for active plans
+    for (const examId of STREAK_APP_IDS) {
+      const planDoc = await db
+        .collection('users')
+        .doc(uid)
+        .collection('prep-plan')
+        .doc(examId)
+        .get();
+        
+      if (planDoc.exists) {
+        const plan = planDoc.data();
+        if (plan && plan.isActive && !plan.isPaused) {
+          return plan;
+        }
+      }
+    }
+  } catch (error) {
+    console.warn(`[getActivePrepPlan] Error fetching plan for user ${uid}:`, error);
+  }
+  
+  return null;
+}
+
+/**
+ * Build personalized notification body for prep plan
+ * @param plan Active study plan
+ * @param userLanguage User's language code
+ * @returns Personalized message or null if no appropriate message
+ */
+function buildPrepPlanNotificationBody(plan: any, userLanguage: string): string | null {
+  const lang = PREP_PLAN_MESSAGES[userLanguage] ? userLanguage : DEFAULT_LANGUAGE;
+  const messages = PREP_PLAN_MESSAGES[lang];
+  
+  const now = new Date();
+  
+  // 1. Check if exam is very soon (countdown)
+  const examDate = plan.endDate instanceof admin.firestore.Timestamp 
+    ? plan.endDate.toDate() 
+    : new Date(plan.endDate);
+    
+  const diffTime = examDate.getTime() - now.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  // Final week countdown (if 1-7 days left)
+  if (diffDays > 0 && diffDays <= 7) {
+    const countdownMessages = messages.countdown;
+    const index = now.getDay() % countdownMessages.length;
+    return countdownMessages[index].replace('{days}', diffDays.toString());
+  }
+  
+  // 2. Check for today's tasks
+  const currentWeekNum = plan.currentWeek || 1;
+  const currentWeek = plan.weeks?.find((w: any) => w.weekNumber === currentWeekNum);
+  
+  if (currentWeek && currentWeek.tasks) {
+    const incompleteTasks = currentWeek.tasks.filter((t: any) => !t.completed);
+    if (incompleteTasks.length > 0) {
+      // If user missed studying yesterday
+      const lastStudyDateStr = plan.progress?.lastStudyDate; // ISO string
+      if (lastStudyDateStr) {
+        const lastStudyDate = new Date(lastStudyDateStr);
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        
+        if (lastStudyDate.toDateString() !== now.toDateString() && 
+            lastStudyDate.toDateString() !== yesterday.toDateString()) {
+          const missedMessages = messages.missed;
+          return missedMessages[now.getDay() % missedMessages.length];
+        }
+      }
+      
+      // Default: Today's tasks reminder
+      const taskMessages = messages.tasks;
+      return taskMessages[now.getDay() % taskMessages.length].replace('{count}', incompleteTasks.length.toString());
+    }
+  }
+  
+  // 3. Middle-term countdown (every few days if not in final week)
+  if (diffDays > 0 && diffDays % 3 === 0) {
+    const countdownMessages = messages.countdown;
+    return countdownMessages[now.getDay() % countdownMessages.length].replace('{days}', diffDays.toString());
+  }
+  
+  return null;
 }
 
 /**
@@ -277,8 +472,23 @@ async function sendNotificationToUser(
   const firstName = extractFirstName(displayName);
   const streakDays = await getUserStreak(uid);
 
-  // Build personalized body
-  const body = buildNotificationBody(userLanguage, dayOfWeek, firstName, streakDays);
+  // Check for active prep plan
+  const activePlan = await getActivePrepPlan(uid);
+  let body = '';
+  let notificationType = 'daily_reminder';
+  
+  if (activePlan) {
+    const prepPlanBody = buildPrepPlanNotificationBody(activePlan, userLanguage);
+    if (prepPlanBody) {
+      body = prepPlanBody;
+      notificationType = 'prep_plan_reminder';
+    }
+  }
+
+  // Fallback to regular notification if no prep plan message
+  if (!body) {
+    body = buildNotificationBody(userLanguage, dayOfWeek, firstName, streakDays);
+  }
 
   // Send notification
   await admin.messaging().send({
@@ -289,8 +499,8 @@ async function sendNotificationToUser(
       imageUrl: NOTIFICATION_IMAGE_URL
     },
     data: {
-      type: 'daily_reminder',
-      screen: 'home'
+      type: notificationType,
+      screen: activePlan ? 'StudyPlanDashboard' : 'home'
     },
     apns: {
       payload: {

@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
 import { getAppConfig } from '../config/apps';
-import { QuestionData, ReadingPart2A1Exam } from '../types';
+import { QuestionData, ReadingPart2A1Exam, ReadingPart3A1Exam } from '../types';
 
 // Configuration from environment variables
 const EXAM_DOCUMENT = process.env.EXAM_DOCUMENT || 'reading-part2';
@@ -38,7 +38,7 @@ export async function selectNextQuestion(appId: string): Promise<QuestionData | 
 
     const examData = examDoc.data();
     // Handle nested data structure
-    const exams: ReadingPart2A1Exam[] = examData?.data?.exams || examData?.exams || [];
+    const exams: (ReadingPart2A1Exam | ReadingPart3A1Exam)[] = examData?.data?.exams || examData?.exams || [];
 
     // Find first unprocessed question
     for (const exam of exams) {
@@ -91,7 +91,7 @@ export async function getQuestion(
 
     const examData = examDoc.data();
     // Handle nested data structure
-    const exams: ReadingPart2A1Exam[] = examData?.data?.exams || examData?.exams || [];
+    const exams: (ReadingPart2A1Exam | ReadingPart3A1Exam)[] = examData?.data?.exams || examData?.exams || [];
     const exam = exams.find(e => e.id === examId);
 
     if (!exam) {

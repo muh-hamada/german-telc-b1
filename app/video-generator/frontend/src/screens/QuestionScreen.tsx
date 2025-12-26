@@ -3,8 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { doc, getDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { getAppConfig, getFirebaseCollection } from '../config/apps';
-import { ReadingPart2A1Question } from '../types';
+import { ReadingPart2A1Question, ReadingPart3A1Question } from '../types';
 import A1QuestionReadingPart2 from '../components/A1QuestionReadingPart2';
+import A1QuestionReadingPart3 from '../components/A1QuestionReadingPart3';
 import logoImage from '../assets/logo.jpg';
 import './QuestionScreen.css';
 import { questionTexts } from '../config/apps';
@@ -16,12 +17,34 @@ const QuestionScreen: React.FC = () => {
   const questionIndex = parseInt(searchParams.get('questionIndex') || '0');
   const timerDuration = parseInt(searchParams.get('timer') || '10');
   const docName = searchParams.get('doc') || 'reading-part2';
+  const isCapture = searchParams.get('capture') === 'true';
 
-  const [question, setQuestion] = useState<ReadingPart2A1Question | null>(null);
+  const [question, setQuestion] = useState<ReadingPart2A1Question | ReadingPart3A1Question | null>(null);
   const [loading, setLoading] = useState(true);
-  const [countdown, setCountdown] = useState(timerDuration);
+  const [countdown, setCountdown] = useState<number>(timerDuration);
 
   const appConfig = getAppConfig(appId);
+
+  useEffect(() => {
+    console.log('QuestionScreen: isCapture =', isCapture);
+    if (isCapture) {
+      (window as any).seekTo = (timeInMs: number) => {
+        return new Promise<void>((resolve) => {
+          // Calculate precise countdown (can be float for smoother circle)
+          const newCountdown = Math.max(0, timerDuration - (timeInMs / 1000));
+          setCountdown(newCountdown);
+          
+          // Use requestAnimationFrame to ensure React has a chance to render
+          // before we signal completion back to Puppeteer
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              resolve();
+            });
+          });
+        });
+      };
+    }
+  }, [isCapture, timerDuration]);
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -69,13 +92,13 @@ const QuestionScreen: React.FC = () => {
   }, [appId, examId, questionIndex, docName]);
 
   useEffect(() => {
-    if (!loading && countdown > 0) {
+    if (!loading && !isCapture && countdown > 0) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [countdown, loading]);
+  }, [countdown, loading, isCapture]);
 
   if (loading) {
     return (
@@ -101,9 +124,15 @@ const QuestionScreen: React.FC = () => {
     switch (docName) {
       case 'reading-part2':
         if (level === 'A1') {
-          return <A1QuestionReadingPart2 question={question} showAnswer={false} title={texts.title} description={texts.description} />;
+          return <A1QuestionReadingPart2 question={question as ReadingPart2A1Question} showAnswer={false} title={texts.title} description={texts.description} />;
         }
         // Add other levels here as they are implemented
+        return <div className="error text-body-large">Level {level} not supported for {docName}</div>;
+      
+      case 'reading-part3':
+        if (level === 'A1') {
+          return <A1QuestionReadingPart3 question={question as ReadingPart3A1Question} showAnswer={false} title={texts.title} description={texts.description} />;
+        }
         return <div className="error text-body-large">Level {level} not supported for {docName}</div>;
       
       default:
@@ -142,10 +171,10 @@ const QuestionScreen: React.FC = () => {
               strokeDasharray={`${2 * Math.PI * 46}`}
               strokeDashoffset={`${2 * Math.PI * 46 * (1 - countdown / timerDuration)}`}
               transform="rotate(-90 50 50)"
-              style={{ transition: 'stroke-dashoffset 1s linear' }}
+              style={{ transition: isCapture ? 'none' : 'stroke-dashoffset 1s linear' }}
             />
           </svg>
-          <div className="timer-text text-heading">{countdown}</div>
+          <div className="timer-text text-heading">{Math.ceil(countdown)}</div>
         </div>
       </div>
 

@@ -54,6 +54,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
   // Load existing progress if any
   useEffect(() => {
     loadExistingProgress();
+    logEvent(AnalyticsEvents.SCREEN_VIEW, { screen: 'PrepPlanOnboarding' });
   }, []);
 
   /**
@@ -72,6 +73,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
     try {
       const progress = await prepPlanService.getOnboardingProgress();
       if (progress && progress.config) {
+        logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_RESUMED, { step: progress.step });
         const config = progress.config;
         setExamDate(new Date(config.examDate));
         setDailyStudyHours(config.dailyStudyHours);
@@ -91,6 +93,8 @@ const PrepPlanOnboardingScreen: React.FC = () => {
             setConfigSubStep('exam-date');
           }
         }
+      } else {
+        logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_STARTED);
       }
     } catch (error) {
       console.error('[PrepPlanOnboarding] Error loading progress:', error);

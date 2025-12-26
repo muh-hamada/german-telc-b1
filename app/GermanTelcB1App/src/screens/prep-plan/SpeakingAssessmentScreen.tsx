@@ -125,10 +125,37 @@ export const SpeakingAssessmentScreen: React.FC = () => {
 
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error processing turn:', error);
-      Alert.alert(
-        t('speaking.error'),
-        error.message || t('speaking.processingError')
-      );
+      
+      // Detect specific error types
+      if (error.code === 'network-request-failed' || error.message?.includes('network')) {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.networkError'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
+          ]
+        );
+      } else if (error.message?.includes('audio') || error.message?.includes('recording')) {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.audioError')
+        );
+      } else if (error.code === 'functions/internal' || error.code === 'unavailable') {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.apiError'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
+          ]
+        );
+      } else {
+        Alert.alert(
+          t('speaking.error'),
+          error.message || t('speaking.processingError')
+        );
+      }
     }
   };
 
@@ -161,11 +188,33 @@ export const SpeakingAssessmentScreen: React.FC = () => {
 
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error completing dialogue:', error);
-      Alert.alert(
-        t('speaking.error'),
-        error.message || t('speaking.completionError')
-      );
       setIsEvaluating(false);
+      
+      // Detect specific error types
+      if (error.code === 'network-request-failed' || error.message?.includes('network')) {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.networkError'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
+          ]
+        );
+      } else if (error.code === 'functions/internal' || error.code === 'unavailable') {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.apiError'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
+          ]
+        );
+      } else {
+        Alert.alert(
+          t('speaking.error'),
+          error.message || t('speaking.completionError')
+        );
+      }
     }
   };
 

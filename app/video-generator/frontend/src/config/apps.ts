@@ -59,6 +59,10 @@ export const questionTexts: Record<string, any> = {
     'reading-part2': {
       title: 'Reading Question',
       description: 'Read the following situation and choose the correct option that matches.',
+    },
+    'reading-part3': {
+      title: 'Reading Part 3',
+      description: 'Read the text and decide if the statement is true or false.',
     }
   },
 };

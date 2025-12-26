@@ -225,6 +225,8 @@ export const AnalyticsEvents = {
   PREP_PLAN_SETTINGS_UPDATED: 'prep_plan_settings_updated',
   PREP_PLAN_TASK_STARTED: 'prep_plan_task_started',
   PREP_PLAN_TASK_COMPLETED: 'prep_plan_task_completed',
+  PREP_PLAN_TASK_NAVIGATION_FAILED: 'prep_plan_task_navigation_failed',
+  PREP_PLAN_QUICK_ACTION_CLICKED: 'prep_plan_quick_action_clicked',
   PREP_PLAN_WEEK_COMPLETED: 'prep_plan_week_completed',
   PREP_PLAN_UPDATED: 'prep_plan_updated',
   PREP_PLAN_UPDATE_CONFIRMED: 'prep_plan_update_confirmed',

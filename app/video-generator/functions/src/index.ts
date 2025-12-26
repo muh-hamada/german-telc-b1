@@ -60,11 +60,20 @@ export const generateYouTubeShort = onSchedule({
 
       // Step 4: Generate metadata
       const appConfig = getAppConfig(appId);
+      
+      // Get question text for metadata
+      let questionText = '';
+      if ('situation' in questionData.question) {
+        questionText = questionData.question.situation;
+      } else if ('question' in questionData.question) {
+        questionText = questionData.question.question;
+      }
+
       const metadata = generateVideoMetadata(
         appId,
         appConfig.displayName,
         questionData.questionIndex,
-        questionData.question.situation
+        questionText
       );
 
       // Step 5: Upload to YouTube
@@ -161,11 +170,20 @@ export const generateVideoManual = onRequest({
 
       // Generate metadata
       const appConfig = getAppConfig(appId);
+      
+      // Get question text for metadata
+      let questionText = '';
+      if ('situation' in questionData.question) {
+        questionText = questionData.question.situation;
+      } else if ('question' in questionData.question) {
+        questionText = questionData.question.question;
+      }
+
       const metadata = generateVideoMetadata(
         appId,
         appConfig.displayName,
         questionData.questionIndex,
-        questionData.question.situation
+        questionText
       );
 
       // Upload to YouTube

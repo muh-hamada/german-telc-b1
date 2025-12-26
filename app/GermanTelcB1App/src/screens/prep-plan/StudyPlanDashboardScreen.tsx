@@ -31,6 +31,7 @@ import { HomeStackParamList } from '../../types/navigation.types';
 import { StudyPlan, PrepPlanTask } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { SkeletonLoader } from '../../components/SkeletonLoader';
 
 type NavigationProp = StackNavigationProp<HomeStackParamList, 'StudyPlanDashboard'>;
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'StudyPlanDashboard'>;
@@ -105,40 +106,103 @@ const StudyPlanDashboardScreen: React.FC = () => {
     });
 
     // Navigate to appropriate screen based on task type
-    switch (task.type) {
-      case 'reading':
-        navigation.navigate('ReadingPractice' as any);
-        break;
-      case 'listening':
-        navigation.navigate('ListeningPractice' as any);
-        break;
-      case 'grammar':
-        navigation.navigate('LanguagePractice' as any);
-        break;
-      case 'writing':
-        navigation.navigate('WritingPractice' as any);
-        break;
-      case 'speaking':
-        navigation.navigate('SpeakingAssessment', { dialogueId: 'part1' });
-        break;
-      case 'vocabulary':
-        navigation.navigate('VocabularyBuilder' as any);
-        break;
-      case 'mock-exam':
-        navigation.navigate('MockExamsList' as any);
-        break;
-      default:
-        Alert.alert(t('common.error'), t('prepPlan.dashboard.taskTypeNotSupported'));
+    try {
+      switch (task.type) {
+        case 'reading':
+          navigation.navigate('ReadingPractice' as any);
+          break;
+        case 'listening':
+          navigation.navigate('ListeningPractice' as any);
+          break;
+        case 'grammar':
+          navigation.navigate('LanguagePractice' as any);
+          break;
+        case 'writing':
+          navigation.navigate('WritingPractice' as any);
+          break;
+        case 'speaking':
+          navigation.navigate('SpeakingAssessment', { dialogueId: 'part1' });
+          break;
+        case 'vocabulary':
+          navigation.navigate('VocabularyBuilder' as any);
+          break;
+        case 'mock-exam':
+          navigation.navigate('MockExamsList' as any);
+          break;
+        default:
+          logEvent(AnalyticsEvents.PREP_PLAN_TASK_NAVIGATION_FAILED, {
+            taskId: task.id,
+            taskType: task.type,
+            reason: 'unknown_task_type',
+          });
+          Alert.alert(t('common.error'), t('prepPlan.dashboard.taskTypeNotSupported'));
+      }
+    } catch (error) {
+      logEvent(AnalyticsEvents.PREP_PLAN_TASK_NAVIGATION_FAILED, {
+        taskId: task.id,
+        taskType: task.type,
+        reason: 'navigation_error',
+        error: String(error),
+      });
+      Alert.alert(t('common.error'), t('prepPlan.dashboard.taskTypeNotSupported'));
     }
   };
 
   // Render loading state
   if (isLoading) {
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color={colors.primary[500]} />
-        <Text style={styles.loadingText}>{t('common.loading')}</Text>
-      </View>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        {/* Header Skeleton */}
+        <View style={styles.header}>
+          <SkeletonLoader width={120} height={24} style={{ marginBottom: 8 }} />
+          <SkeletonLoader width={80} height={32} />
+        </View>
+
+        {/* Progress Card Skeleton */}
+        <View style={styles.progressCard}>
+          <SkeletonLoader width={150} height={20} style={{ marginBottom: 12 }} />
+          <SkeletonLoader width="100%" height={12} borderRadius={6} style={{ marginBottom: 8 }} />
+          <SkeletonLoader width={120} height={16} />
+        </View>
+
+        {/* Stats Row Skeleton */}
+        <View style={styles.statsRow}>
+          {[1, 2, 3].map((_, index) => (
+            <View key={index} style={styles.statCard}>
+              <SkeletonLoader width={40} height={40} borderRadius={20} style={{ marginBottom: 8 }} />
+              <SkeletonLoader width={40} height={24} style={{ marginBottom: 4 }} />
+              <SkeletonLoader width={60} height={16} />
+            </View>
+          ))}
+        </View>
+
+        {/* Tasks Section Skeleton */}
+        <View style={styles.section}>
+          <SkeletonLoader width={150} height={22} style={{ marginBottom: 16 }} />
+          {[1, 2, 3].map((_, index) => (
+            <View key={index} style={[styles.taskCard, { marginBottom: 12 }]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <SkeletonLoader width={40} height={40} borderRadius={20} style={{ marginRight: 12 }} />
+                <View style={{ flex: 1 }}>
+                  <SkeletonLoader width="80%" height={18} style={{ marginBottom: 6 }} />
+                  <SkeletonLoader width="40%" height={14} />
+                </View>
+                <SkeletonLoader width={24} height={24} borderRadius={12} />
+              </View>
+            </View>
+          ))}
+        </View>
+
+        {/* Quick Actions Skeleton */}
+        <View style={styles.section}>
+          <SkeletonLoader width={120} height={22} style={{ marginBottom: 16 }} />
+          {[1, 2, 3].map((_, index) => (
+            <View key={index} style={[styles.actionButton, { marginBottom: 8 }]}>
+              <SkeletonLoader width="100%" height={20} />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
     );
   }
 
@@ -298,7 +362,13 @@ const StudyPlanDashboardScreen: React.FC = () => {
         
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => navigation.navigate('WeeklyPlan', { weekNumber: plan.currentWeek })}
+          onPress={() => {
+            logEvent(AnalyticsEvents.PREP_PLAN_QUICK_ACTION_CLICKED, {
+              action: 'view_weekly_plan',
+              weekNumber: plan.currentWeek,
+            });
+            navigation.navigate('WeeklyPlan', { weekNumber: plan.currentWeek });
+          }}
         >
           <Icon name="calendar-text" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>
@@ -309,7 +379,12 @@ const StudyPlanDashboardScreen: React.FC = () => {
 
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => navigation.navigate('PrepPlanProgress')}
+          onPress={() => {
+            logEvent(AnalyticsEvents.PREP_PLAN_QUICK_ACTION_CLICKED, {
+              action: 'view_progress',
+            });
+            navigation.navigate('PrepPlanProgress');
+          }}
         >
           <Icon name="chart-line" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>
@@ -320,7 +395,12 @@ const StudyPlanDashboardScreen: React.FC = () => {
 
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => navigation.navigate('PrepPlanSettings')}
+          onPress={() => {
+            logEvent(AnalyticsEvents.PREP_PLAN_QUICK_ACTION_CLICKED, {
+              action: 'update_settings',
+            });
+            navigation.navigate('PrepPlanSettings');
+          }}
         >
           <Icon name="cog" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>

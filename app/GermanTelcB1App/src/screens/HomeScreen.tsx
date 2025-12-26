@@ -253,8 +253,8 @@ const HomeScreen: React.FC = () => {
     // If user has an active plan - show dashboard entry
     if (activePlan) {
       return {
-        title: t('home.prepPlan.active.title'),
-        description: t('home.prepPlan.active.description'),
+        title: t('prepPlan.home.active.title'),
+        description: t('prepPlan.home.active.description'),
         badge: null,
       };
     }
@@ -263,23 +263,23 @@ const HomeScreen: React.FC = () => {
     if (onboardingProgress && !onboardingProgress.isComplete) {
       if (onboardingProgress.step === 'assessment' || onboardingProgress.step === 'results') {
         return {
-          title: t('home.prepPlan.inProgress.assessment.title'),
-          description: t('home.prepPlan.inProgress.assessment.description'),
-          badge: t('home.prepPlan.inProgress.badge'),
+          title: t('prepPlan.home.inProgress.assessment.title'),
+          description: t('prepPlan.home.inProgress.assessment.description'),
+          badge: t('prepPlan.home.inProgress.badge'),
         };
       }
       return {
-        title: t('home.prepPlan.inProgress.config.title'),
-        description: t('home.prepPlan.inProgress.config.description'),
-        badge: t('home.prepPlan.inProgress.badge'),
+        title: t('prepPlan.home.inProgress.config.title'),
+        description: t('prepPlan.home.inProgress.config.description'),
+        badge: t('prepPlan.home.inProgress.badge'),
       };
     }
 
     // Default - new plan
     return {
-      title: t('home.prepPlan.new.title'),
-      description: t('home.prepPlan.new.description'),
-      badge: t('home.prepPlan.new.badge'),
+      title: t('prepPlan.home.new.title'),
+      description: t('prepPlan.home.new.description'),
+      badge: t('prepPlan.home.new.badge'),
     };
   };
 

@@ -30,6 +30,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { StudyPlan, PrepPlanConfig, PrepPlanUpdateRequest } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { hapticSuccess } from '../../utils/haptic';
 
 const PrepPlanSettingsScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -165,6 +166,9 @@ const PrepPlanSettingsScreen: React.FC = () => {
       };
 
       await prepPlanService.updatePlanConfig(user.uid, updateRequest);
+
+      // Trigger haptic feedback for success
+      hapticSuccess();
 
       logEvent(AnalyticsEvents.PREP_PLAN_SETTINGS_UPDATED, {
         hasDateChange: examDate.toDateString() !== new Date(plan.config.examDate).toDateString(),

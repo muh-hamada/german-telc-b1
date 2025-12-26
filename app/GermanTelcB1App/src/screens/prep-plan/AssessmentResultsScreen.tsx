@@ -5,7 +5,7 @@
  * strengths/weaknesses, and generates personalized study plan.
  */
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  Animated,
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -23,6 +24,8 @@ import { prepPlanService } from '../../services/prep-plan.service';
 import { DiagnosticAssessment } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HomeStackParamList } from '../../types/navigation.types';
+import { SkeletonLoader } from '../../components/SkeletonLoader';
+import { hapticSuccess } from '../../utils/haptic';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'AssessmentResults'>;
 
@@ -37,6 +40,10 @@ const AssessmentResultsScreen: React.FC = () => {
   const [assessment, setAssessment] = useState<DiagnosticAssessment | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isGeneratingPlan, setIsGeneratingPlan] = useState(false);
+  
+  // Animation values
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     loadAssessment();
@@ -86,6 +93,23 @@ const AssessmentResultsScreen: React.FC = () => {
       
       // Clear onboarding progress
       await prepPlanService.clearOnboardingProgress();
+      
+      // Trigger haptic feedback for success
+      hapticSuccess();
+      
+      // Success animation
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.spring(scaleAnim, {
+          toValue: 1,
+          friction: 4,
+          useNativeDriver: true,
+        }),
+      ]).start();
       
       logEvent(AnalyticsEvents.PREP_PLAN_GENERATED, {
         planId: plan.planId,
@@ -173,10 +197,47 @@ const AssessmentResultsScreen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color={colors.primary[500]} />
-        <Text style={styles.loadingText}>{t('common.loading')}</Text>
-      </View>
+      <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+        {/* Header Skeleton */}
+        <View style={styles.headerCard}>
+          <SkeletonLoader width={200} height={28} style={{ marginBottom: 12 }} />
+          <SkeletonLoader width="100%" height={80} borderRadius={12} />
+        </View>
+
+        {/* Section Breakdown Skeleton */}
+        <View style={styles.section}>
+          <SkeletonLoader width={150} height={22} style={{ marginBottom: 16 }} />
+          {[1, 2, 3].map((_, index) => (
+            <View key={index} style={styles.sectionCard}>
+              <View style={styles.sectionHeader}>
+                <SkeletonLoader width={120} height={20} />
+                <SkeletonLoader width={60} height={20} />
+              </View>
+              <SkeletonLoader width="100%" height={8} borderRadius={4} style={{ marginVertical: 12 }} />
+              <SkeletonLoader width={80} height={16} />
+            </View>
+          ))}
+        </View>
+
+        {/* Strengths/Weaknesses Skeleton */}
+        <View style={styles.swSection}>
+          <View style={styles.swColumn}>
+            <SkeletonLoader width={150} height={22} style={{ marginBottom: 12 }} />
+            {[1, 2, 3].map((_, index) => (
+              <SkeletonLoader key={index} width="90%" height={16} style={{ marginBottom: 8 }} />
+            ))}
+          </View>
+          <View style={styles.swColumn}>
+            <SkeletonLoader width={150} height={22} style={{ marginBottom: 12 }} />
+            {[1, 2, 3].map((_, index) => (
+              <SkeletonLoader key={index} width="90%" height={16} style={{ marginBottom: 8 }} />
+            ))}
+          </View>
+        </View>
+
+        {/* Generate Button Skeleton */}
+        <SkeletonLoader width="100%" height={56} borderRadius={12} style={{ marginTop: 24 }} />
+      </ScrollView>
     );
   }
 
@@ -188,7 +249,7 @@ const AssessmentResultsScreen: React.FC = () => {
           style={styles.retryButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.retryButtonText}>{t('common.goBack')}</Text>
+          <Text style={styles.retryButtonText}>{t('common.go')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -483,6 +544,24 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   sectionLevel: {
     ...typography.textStyles.bold,
     textTransform: 'capitalize',
+  },
+  headerCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.xl,
+    borderRadius: spacing.borderRadius.lg,
+    marginBottom: spacing.margin.xl,
+  },
+  section: {
+    marginBottom: spacing.margin.xl,
+  },
+  swSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: spacing.margin.xl,
+  },
+  swColumn: {
+    flex: 1,
+    marginHorizontal: spacing.margin.sm,
   },
   listContainer: {
     backgroundColor: colors.background.secondary,

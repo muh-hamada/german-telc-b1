@@ -101,21 +101,23 @@ export function generateVideoMetadata(
   appId: string,
   appDisplayName: string,
   questionIndex: number,
-  questionText: string
+  questionText: string | undefined
 ): VideoMetadata {
   // Truncate question text if too long
-  const truncatedQuestion = questionText.length > 60 
-    ? questionText.substring(0, 57) + '...'
-    : questionText;
+  const safeQuestionText = questionText || '';
+  const truncatedQuestion = safeQuestionText.length > 60 
+    ? safeQuestionText.substring(0, 57) + '...'
+    : safeQuestionText;
 
   const title = `${appDisplayName} Exam - Reading Question`;
   
   const description = `
 Practice your ${appDisplayName} exam skills with this quick question!
+https://telc-exam-preperation.web.app/
 
 Question: ${truncatedQuestion}
 
-📱 Download our app for hundreds more practice questions:
+Download our app for hundreds more practice questions:
 • Comprehensive exam preparation
 • Real exam format questions
 • Track your progress

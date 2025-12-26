@@ -7,12 +7,29 @@ import './IntroScreen.css';
 const IntroScreen: React.FC = () => {
   const [searchParams] = useSearchParams();
   const appId = searchParams.get('appId') || 'german-a1';
+  const isCapture = searchParams.get('capture') === 'true';
   const appConfig = getAppConfig(appId);
 
   // Signal to Puppeteer that screen is ready
   useEffect(() => {
+    if (isCapture) {
+      (window as any).seekTo = (timeInMs: number) => {
+        return new Promise<void>((resolve) => {
+          document.getAnimations().forEach(anim => {
+            anim.pause();
+            anim.currentTime = timeInMs;
+          });
+          
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              resolve();
+            });
+          });
+        });
+      };
+    }
     (window as any).screenReady = true;
-  }, []);
+  }, [isCapture]);
 
   return (
     <div className="screen intro-screen">

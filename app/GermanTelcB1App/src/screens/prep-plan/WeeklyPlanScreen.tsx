@@ -29,6 +29,7 @@ import { HomeStackParamList } from '../../types/navigation.types';
 import { StudyPlan, WeeklyGoal, PrepPlanTask } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { hapticSelection } from '../../utils/haptic';
 
 type NavigationProp = StackNavigationProp<HomeStackParamList, 'WeeklyPlan'>;
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'WeeklyPlan'>;
@@ -76,6 +77,7 @@ const WeeklyPlanScreen: React.FC = () => {
   // Navigate to previous week
   const handlePreviousWeek = () => {
     if (currentWeekNumber > 1) {
+      hapticSelection();
       setCurrentWeekNumber(currentWeekNumber - 1);
       logEvent(AnalyticsEvents.PREP_PLAN_WEEK_VIEWED, {
         weekNumber: currentWeekNumber - 1,
@@ -86,6 +88,7 @@ const WeeklyPlanScreen: React.FC = () => {
   // Navigate to next week
   const handleNextWeek = () => {
     if (plan && currentWeekNumber < plan.totalWeeks) {
+      hapticSelection();
       setCurrentWeekNumber(currentWeekNumber + 1);
       logEvent(AnalyticsEvents.PREP_PLAN_WEEK_VIEWED, {
         weekNumber: currentWeekNumber + 1,

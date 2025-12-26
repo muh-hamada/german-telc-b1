@@ -160,8 +160,10 @@
       "vocabulary": "Learn vocabulary with spaced repetition",
       "solve": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
     },
-    "solve": "Solve Exam Questions",
-    "prepPlan": {
+    "solve": "Solve Exam Questions"
+  },
+  "prepPlan": {
+    "home": {
       "new": {
         "title": "Exam Prep Plan",
         "description": "Get a personalized AI-powered study plan based on your level and schedule",
@@ -181,190 +183,202 @@
           "title": "Continue Assessment",
           "description": "Complete your level assessment to generate your plan"
         }
-      },
-      "onboarding": {
-        "title": "Exam Prep Plan",
-        "startAssessment": "Start Assessment",
-        "welcome": {
-          "title": "Welcome to Exam Prep Plan",
-          "subtitle": "Let's create a personalized study plan for your exam success",
-          "step1": "Tell us about your exam date and schedule",
-          "step2": "Take a quick level assessment",
-          "step3": "Get your AI-powered study plan",
-          "timeEstimate": "⏱️ This process takes about 30 minutes"
-        },
-        "examDate": {
-          "title": "When is your exam?",
-          "subtitle": "Select your exam date to calculate your study timeline",
-          "daysUntilExam": "{{days}} days until exam",
-          "weeksUntilExam": "{{weeks}} weeks to prepare"
-        },
-        "schedule": {
-          "title": "Plan Your Study Time",
-          "subtitle": "How much time can you dedicate to studying?",
-          "dailyHours": "Daily Study Hours",
-          "studyDays": "Study Days Per Week"
-        },
-        "studyTime": {
-          "title": "When do you prefer to study?",
-          "subtitle": "This helps us send you reminders at the right time",
-          "morning": "Morning",
-          "morningDesc": "6:00 AM - 12:00 PM",
-          "afternoon": "Afternoon",
-          "afternoonDesc": "12:00 PM - 6:00 PM",
-          "evening": "Evening",
-          "eveningDesc": "6:00 PM - 11:00 PM",
-          "flexible": "Flexible",
-          "flexibleDesc": "No specific preference"
-        },
-        "summary": {
-          "title": "Your Study Plan Overview",
-          "subtitle": "Review your configuration before starting the assessment",
-          "examDate": "Exam Date",
-          "daysUntilExam": "Days Until Exam",
-          "totalWeeks": "Total Weeks",
-          "studyHoursPerDay": "Hours Per Day",
-          "studyDaysPerWeek": "Days Per Week",
-          "totalStudyHours": "Total Study Hours",
-          "nextStep": "Next: Level Assessment",
-          "nextStepDesc": "Take a quick 25-minute test to determine your current level"
-        },
-        "errors": {
-          "saveFailed": "Failed to save your configuration. Please try again."
-        }
-      },
-      "diagnostic": {
-        "title": "Level Assessment",
-        "subtitle": "Diagnostic test to evaluate your current level",
-        "generating": "Generating your assessment...",
-        "loadingSection": "Loading section...",
-        "loadError": "Failed to load assessment. Please try again.",
-        "sectionLoadError": "Failed to load section. Please try again.",
-        "evaluationError": "Failed to evaluate assessment. Please try again.",
-        "sectionProgress": "Section {{current}} of {{total}}",
-        "sectionComingSoon": "{{section}} section is coming soon!",
-        "sections": {
-          "reading": "Reading Comprehension",
-          "listening": "Listening Comprehension",
-          "grammar": "Grammar & Vocabulary",
-          "writing": "Writing",
-          "speaking": "Speaking"
-        }
-      },
-      "results": {
-        "title": "Your Assessment Results",
-        "notFound": "Assessment results not found",
-        "sectionBreakdown": "Section Breakdown",
-        "strengths": "Your Strengths",
-        "weaknesses": "Areas to Improve",
-        "weaknessNote": "Your study plan will focus {{percentage}}% of practice time on your weak areas",
-        "generatePlan": "🎯 Generate My Study Plan",
-        "generating": "Generating your plan...",
-        "level": {
-          "beginner": "Beginner",
-          "intermediate": "Intermediate",
-          "advanced": "Advanced",
-          "weak": "Needs Work",
-          "moderate": "Good",
-          "strong": "Excellent"
-        }
-      },
-      "dashboard": {
-        "noPlan": "No Active Plan",
-        "noPlanDesc": "You don't have an active study plan. Please create one first.",
-        "loadError": "Failed to load your study plan. Please try again.",
-        "taskTypeNotSupported": "This task type is not yet supported.",
-        "examIn": "Exam in",
-        "days": "days",
-        "overallProgress": "Overall Progress",
-        "tasksCompleted": "tasks completed",
-        "tasksCompletedRatio": "{{completed}} of {{total}} tasks completed",
-        "completedRatio": "{{completed}}/{{total}} completed",
-        "weekRatio": "{{current}}/{{total}}",
-        "dayStreak": "day streak",
-        "hoursStudied": "hours studied",
-        "currentWeek": "current week",
-        "todaysTasks": "Today's Tasks",
-        "noTasksToday": "All Done for Today!",
-        "noTasksDesc": "You've completed all your tasks. Great job staying ahead!",
-        "minutes": "min",
-        "quickActions": "Quick Actions",
-        "viewWeeklyPlan": "View Weekly Plan",
-        "viewProgress": "View Progress & Analytics",
-        "updateSettings": "Update Settings"
-      },
-      "weekly": {
-        "noPlan": "No Active Plan",
-        "noPlanDesc": "You don't have an active study plan.",
-        "loadError": "Failed to load weekly plan. Please try again.",
-        "weekNotFound": "Week not found",
-        "week": "Week",
-        "weekProgress": "Week Progress",
-        "tasksCompleted": "tasks completed",
-        "weekCompleted": "Week Completed! 🎉",
-        "focusAreas": "Focus Areas",
-        "tasks": "Tasks",
-        "minutes": "min",
-        "hours": "hours",
-        "difficulty": {
-          "easy": "Easy",
-          "medium": "Medium",
-          "hard": "Hard"
-        },
-        "completedOn": "Completed on",
-        "totalTime": "Total Estimated Time"
-      },
-      "progress": {
-        "noPlan": "No Active Plan",
-        "noPlanDesc": "You don't have an active study plan.",
-        "loadError": "Failed to load progress data. Please try again.",
-        "examReadiness": "Exam Readiness Score",
-        "readiness": {
-          "excellent": "Excellent - You're Ready!",
-          "good": "Good Progress",
-          "fair": "Fair - Keep Going",
-          "needsWork": "Needs More Work"
-        },
-        "readinessDesc": {
-          "excellent": "You're well-prepared and on track for success!",
-          "good": "You're making solid progress. Keep up the good work!",
-          "fair": "You're on the right path. Focus on consistency.",
-          "needsWork": "Stay committed and follow your plan closely."
-        },
-        "completion": "Completion",
-        "timeStudied": "Time Studied",
-        "streak": "Streak",
-        "sectionProgress": "Section Progress",
-        "sectionProgressDesc": "Your current level in each section",
-        "weeklyPerformance": "Weekly Performance",
-        "weeklyPerformanceDesc": "Task completion by week",
-        "studyConsistency": "Study Consistency",
-        "studyConsistencyDesc": "Last 4 weeks of activity",
-        "studyDay": "Study day",
-        "noStudy": "No study",
-        "strengthsWeaknesses": "Strengths & Weaknesses"
-      },
-      "settings": {
-        "noPlan": "No Active Plan",
-        "noPlanDesc": "You don't have an active study plan to update.",
-        "loadError": "Failed to load plan settings. Please try again.",
-        "updateInfo": "Updating your settings will adjust your remaining study plan while preserving your progress.",
-        "selectedDate": "Selected Date",
-        "daysSelected": "days selected",
-        "daysSelectedCount": "{{count}} day selected",
-        "daysSelectedCount_plural": "{{count}} days selected",
-        "newPlanPreview": "New Plan Preview",
-        "saveChanges": "Save Changes",
-        "noChanges": "No Changes",
-        "noChangesDesc": "You haven't made any changes to save.",
-        "examDateInPast": "Exam date must be in the future.",
-        "noStudyDays": "Please select at least one study day.",
-        "confirmUpdate": "Update Study Plan?",
-        "confirmUpdateDesc": "This will adjust your study schedule based on the new settings. Your completed tasks will be preserved.",
-        "confirm": "Yes, Update Plan",
-        "updateSuccess": "Your study plan has been updated successfully!",
-        "updateError": "Failed to update plan. Please try again."
       }
+    },
+    "onboarding": {
+      "title": "Exam Prep Plan",
+      "startAssessment": "Start Assessment",
+      "welcome": {
+        "title": "Welcome to Exam Prep Plan",
+        "subtitle": "Let's create a personalized study plan for your exam success",
+        "step1": "Tell us about your exam date and schedule",
+        "step2": "Take a quick level assessment",
+        "step3": "Get your AI-powered study plan",
+        "timeEstimate": "⏱️ This process takes about 30 minutes"
+      },
+      "examDate": {
+        "title": "When is your exam?",
+        "subtitle": "Select your exam date to calculate your study timeline",
+        "daysUntilExam": "{{days}} days until exam",
+        "daysUntilExamWithIcon": "📅 {{days}} days until exam",
+        "weeksUntilExam": "{{weeks}} weeks to prepare",
+        "weeksUntilExamWithIcon": "📆 {{weeks}} weeks to prepare"
+      },
+      "schedule": {
+        "title": "Plan Your Study Time",
+        "subtitle": "How much time can you dedicate to studying?",
+        "dailyHours": "Daily Study Hours",
+        "studyDays": "Study Days Per Week"
+      },
+      "studyTime": {
+        "title": "When do you prefer to study?",
+        "subtitle": "This helps us send you reminders at the right time",
+        "morning": "Morning",
+        "morningDesc": "6:00 AM - 12:00 PM",
+        "afternoon": "Afternoon",
+        "afternoonDesc": "12:00 PM - 6:00 PM",
+        "evening": "Evening",
+        "eveningDesc": "6:00 PM - 11:00 PM",
+        "flexible": "Flexible",
+        "flexibleDesc": "No specific preference"
+      },
+      "summary": {
+        "title": "Your Study Plan Overview",
+        "subtitle": "Review your configuration before starting the assessment",
+        "examDate": "Exam Date",
+        "daysUntilExam": "Days Until Exam",
+        "daysValue": "{{count}} days",
+        "totalWeeks": "Total Weeks",
+        "weeksValue": "{{count}} weeks",
+        "studyHoursPerDay": "Hours Per Day",
+        "hoursValue": "{{count}}h",
+        "studyDaysPerWeek": "Days Per Week",
+        "totalStudyHours": "Total Study Hours",
+        "totalHoursValue": "~{{count}} hours",
+        "nextStep": "Next: Level Assessment",
+        "nextStepDesc": "Take a quick 25-minute test to determine your current level"
+      },
+      "errors": {
+        "saveFailed": "Failed to save your configuration. Please try again."
+      }
+    },
+    "diagnostic": {
+      "title": "Level Assessment",
+      "subtitle": "Diagnostic test to evaluate your current level",
+      "generating": "Generating your assessment...",
+      "loadingSection": "Loading section...",
+      "loadError": "Failed to load assessment. Please try again.",
+      "sectionLoadError": "Failed to load section. Please try again.",
+      "evaluationError": "Failed to evaluate assessment. Please try again.",
+      "sectionProgress": "Section {{current}} of {{total}}",
+      "sectionComingSoon": "{{section}} section is coming soon!",
+      "sections": {
+        "reading": "Reading Comprehension",
+        "listening": "Listening Comprehension",
+        "grammar": "Grammar & Vocabulary",
+        "writing": "Writing",
+        "speaking": "Speaking"
+      }
+    },
+    "results": {
+      "title": "Your Assessment Results",
+      "notFound": "Assessment results not found",
+      "sectionBreakdown": "Section Breakdown",
+      "strengths": "Your Strengths",
+      "strengthsWithIcon": "✅ Your Strengths",
+      "weaknesses": "Areas to Improve",
+      "weaknessesWithIcon": "📈 Areas to Improve",
+      "bulletPoint": "• {{text}}",
+      "scoreWithPoints": "{{score}} / {{max}} points",
+      "weaknessNote": "Your study plan will focus {{percentage}}% of practice time on your weak areas",
+      "generatePlan": "🎯 Generate My Study Plan",
+      "generating": "Generating your plan...",
+      "level": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced",
+        "weak": "Needs Work",
+        "moderate": "Good",
+        "strong": "Excellent"
+      }
+    },
+    "dashboard": {
+      "noPlan": "No Active Plan",
+      "noPlanDesc": "You don't have an active study plan. Please create one first.",
+      "loadError": "Failed to load your study plan. Please try again.",
+      "taskTypeNotSupported": "This task type is not yet supported.",
+      "examIn": "Exam in",
+      "days": "days",
+      "overallProgress": "Overall Progress",
+      "tasksCompleted": "tasks completed",
+      "tasksCompletedRatio": "{{completed}} of {{total}} tasks completed",
+      "completedRatio": "{{completed}}/{{total}} completed",
+      "weekRatio": "{{current}}/{{total}}",
+      "dayStreak": "day streak",
+      "hoursStudied": "hours studied",
+      "currentWeek": "current week",
+      "todaysTasks": "Today's Tasks",
+      "noTasksToday": "All Done for Today!",
+      "noTasksDesc": "You've completed all your tasks. Great job staying ahead!",
+      "minutes": "min",
+      "quickActions": "Quick Actions",
+      "viewWeeklyPlan": "View Weekly Plan",
+      "viewProgress": "View Progress & Analytics",
+      "updateSettings": "Update Settings"
+    },
+    "weekly": {
+      "noPlan": "No Active Plan",
+      "noPlanDesc": "You don't have an active study plan.",
+      "loadError": "Failed to load weekly plan. Please try again.",
+      "weekNotFound": "Week not found",
+      "week": "Week",
+      "weekProgress": "Week Progress",
+      "tasksCompleted": "tasks completed",
+      "tasksCompletedRatio": "{{completed}} of {{total}} tasks completed",
+      "weekCompleted": "Week Completed! 🎉",
+      "focusAreas": "Focus Areas",
+      "tasks": "Tasks",
+      "minutes": "min",
+      "hours": "hours",
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "scoreRatio": "Score: {{score}}/{{max}}",
+      "completedOn": "Completed on",
+      "totalTime": "Total Estimated Time"
+    },
+    "progress": {
+      "noPlan": "No Active Plan",
+      "noPlanDesc": "You don't have an active study plan.",
+      "loadError": "Failed to load progress data. Please try again.",
+      "examReadiness": "Exam Readiness Score",
+      "readiness": {
+        "excellent": "Excellent - You're Ready!",
+        "good": "Good Progress",
+        "fair": "Fair - Keep Going",
+        "needsWork": "Needs More Work"
+      },
+      "readinessDesc": {
+        "excellent": "You're well-prepared and on track for success!",
+        "good": "You're making solid progress. Keep up the good work!",
+        "fair": "You're on the right path. Focus on consistency.",
+        "needsWork": "Stay committed and follow your plan closely."
+      },
+      "completion": "Completion",
+      "timeStudied": "Time Studied",
+      "streak": "Streak",
+      "sectionProgress": "Section Progress",
+      "sectionProgressDesc": "Your current level in each section",
+      "weeklyPerformance": "Weekly Performance",
+      "weeklyPerformanceDesc": "Task completion by week",
+      "studyConsistency": "Study Consistency",
+      "studyConsistencyDesc": "Last 4 weeks of activity",
+      "studyDay": "Study day",
+      "noStudy": "No study",
+      "strengthsWeaknesses": "Strengths & Weaknesses"
+    },
+    "settings": {
+      "noPlan": "No Active Plan",
+      "noPlanDesc": "You don't have an active study plan to update.",
+      "loadError": "Failed to load plan settings. Please try again.",
+      "updateInfo": "Updating your settings will adjust your remaining study plan while preserving your progress.",
+      "selectedDate": "Selected Date",
+      "daysSelected": "days selected",
+      "daysSelectedCount": "{{count}} day selected",
+      "daysSelectedCount_plural": "{{count}} days selected",
+      "newPlanPreview": "New Plan Preview",
+      "saveChanges": "Save Changes",
+      "noChanges": "No Changes",
+      "noChangesDesc": "You haven't made any changes to save.",
+      "examDateInPast": "Exam date must be in the future.",
+      "noStudyDays": "Please select at least one study day.",
+      "confirmUpdate": "Update Study Plan?",
+      "confirmUpdateDesc": "This will adjust your study schedule based on the new settings. Your completed tasks will be preserved.",
+      "confirm": "Yes, Update Plan",
+      "updateSuccess": "Your study plan has been updated successfully!",
+      "updateError": "Failed to update plan. Please try again."
     }
   },
   "vocabulary": {
@@ -898,6 +912,11 @@
     "processingError": "Could not process your recording. Please try again.",
     "loadError": "Could not load speaking practice. Please check your connection and try again.",
     "completionError": "Could not complete speaking practice. Please try again.",
+    "networkError": "Network connection failed. Please check your internet and try again.",
+    "audioError": "Could not record audio. Please check microphone permissions.",
+    "apiError": "Our evaluation service is temporarily unavailable. Please try again later.",
+    "retryButton": "Retry",
+    "contactSupport": "Contact Support",
     "recording": "Recording",
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
@@ -1330,64 +1349,11 @@
   "errors": {
     "adLoadFailed": "An error occurred while loading the ad"
   },
-  "prepPlan": {
-    "onboarding": {
-      "title": "Exam Prep Plan",
-      "startAssessment": "Start Assessment",
-      "welcome": {
-        "title": "Welcome to Exam Prep Plan",
-        "subtitle": "Let's create a personalized study plan for your exam success",
-        "step1": "Tell us about your exam date and schedule",
-        "step2": "Take a quick level assessment",
-        "step3": "Get your AI-powered study plan",
-        "timeEstimate": "⏱️ This process takes about 30 minutes"
-      },
-      "examDate": {
-        "title": "When is your exam?",
-        "subtitle": "Select your exam date to calculate your study timeline",
-        "daysUntilExam": "{{days}} days until exam",
-        "daysUntilExamWithIcon": "📅 {{days}} days until exam",
-        "weeksUntilExam": "{{weeks}} weeks to prepare",
-        "weeksUntilExamWithIcon": "📆 {{weeks}} weeks to prepare"
-      },
-      "schedule": {
-        "title": "Plan Your Study Time",
-        "subtitle": "How much time can you dedicate to studying?",
-        "dailyHours": "Daily Study Hours",
-        "studyDays": "Study Days Per Week"
-      },
-      "studyTime": {
-        "title": "When do you prefer to study?",
-        "subtitle": "This helps us send you reminders at the right time",
-        "morning": "Morning",
-        "morningDesc": "6:00 AM - 12:00 PM",
-        "afternoon": "Afternoon",
-        "afternoonDesc": "12:00 PM - 6:00 PM",
-        "evening": "Evening",
-        "eveningDesc": "6:00 PM - 11:00 PM",
-        "flexible": "Flexible",
-        "flexibleDesc": "No specific preference"
-      },
-      "summary": {
-        "title": "Your Study Plan Overview",
-        "subtitle": "Review your configuration before starting the assessment",
-        "examDate": "Exam Date",
-        "daysUntilExam": "Days Until Exam",
-        "daysValue": "{{count}} days",
-        "totalWeeks": "Total Weeks",
-        "weeksValue": "{{count}} weeks",
-        "studyHoursPerDay": "Hours Per Day",
-        "hoursValue": "{{count}}h",
-        "studyDaysPerWeek": "Days Per Week",
-        "daysValue": "{{count}} days",
-        "totalStudyHours": "Total Study Hours",
-        "totalHoursValue": "~{{count}} hours",
-        "nextStep": "Next: Level Assessment",
-        "nextStepDesc": "Take a quick 25-minute test to determine your current level"
-      },
-      "errors": {
-        "saveFailed": "Failed to save your configuration. Please try again."
-      }
-    }
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "message": "We're sorry, but something unexpected happened. Please try again.",
+    "retry": "Retry",
+    "goHome": "Go Home",
+    "reportIssue": "Report Issue"
   }
 }
