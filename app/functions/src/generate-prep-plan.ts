@@ -9,10 +9,16 @@ import * as functions from 'firebase-functions';
 import OpenAI from 'openai';
 import * as admin from 'firebase-admin';
 
-// Initialize OpenAI
-const openai = new OpenAI({
-  apiKey: functions.config().openai?.key || process.env.OPENAI_API_KEY,
-});
+// Lazy-initialize OpenAI client to ensure environment variables are loaded
+let openaiClient: OpenAI | null = null;
+function getOpenAIClient(): OpenAI {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      apiKey: functions.config().openai?.key || process.env.OPENAI_API_KEY,
+    });
+  }
+  return openaiClient;
+}
 
 interface DiagnosticAssessment {
   assessmentId: string;
@@ -189,6 +195,7 @@ Format your response as JSON with this structure:
 Be specific and practical. Reference the student's actual scores and weaknesses.`;
 
   try {
+    const openai = getOpenAIClient();
     const response = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [

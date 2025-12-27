@@ -16,17 +16,19 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import type { StackScreenProps } from '@react-navigation/stack';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { diagnosticService } from '../../services/diagnostic.service';
 import { prepPlanService } from '../../services/prep-plan.service';
+import { speakingService } from '../../services/speaking.service';
 import { useAuth } from '../../contexts/AuthContext';
 import { activeExamConfig } from '../../config/active-exam.config';
 import { getEnabledSections, getPrepPlanConfig } from '../../config/prep-plan-level.config';
 import { DiagnosticExam, DiagnosticAnswers } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import type { HomeStackNavigationProp } from '../../types/navigation.types';
+import type { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 
 // Import existing exam UI components
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
@@ -34,12 +36,19 @@ import ReadingPart1A1UI from '../../components/exam-ui/ReadingPart1A1UI';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
 import ListeningPart1UIA1 from '../../components/exam-ui/ListeningPart1UIA1';
 import LanguagePart1UI from '../../components/exam-ui/LanguagePart1UI';
+import WritingUI from '../../components/exam-ui/WritingUI';
+import WritingPart1UIA1 from '../../components/exam-ui/WritingPart1UIA1';
+import WritingPart2UIA1 from '../../components/exam-ui/WritingPart2UIA1';
+import { SpeakingDialogueComponent } from '../../components/speaking/SpeakingDialogueComponent';
 import { dataService } from '../../services/data.service';
 import { UserAnswer } from '../../types/exam.types';
+import { SpeakingEvaluation } from '../../types/prep-plan.types';
 
 type SectionName = 'reading' | 'listening' | 'grammar' | 'writing' | 'speaking';
 
-const DiagnosticAssessmentScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'DiagnosticAssessment'>;
+
+const DiagnosticAssessmentScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { user } = useAuth();
@@ -65,6 +74,7 @@ const DiagnosticAssessmentScreen: React.FC = () => {
   const [startTime] = useState(Date.now());
   const [sectionData, setSectionData] = useState<any>(null);
   const [isLoadingSection, setIsLoadingSection] = useState(false);
+  const [speakingAudioPaths, setSpeakingAudioPaths] = useState<string[]>([]); // Store audio paths for batch upload
 
   const examLevel = activeExamConfig.level;
   const levelConfig = getPrepPlanConfig(examLevel);
@@ -76,26 +86,108 @@ const DiagnosticAssessmentScreen: React.FC = () => {
     loadDiagnosticExam();
   }, []);
 
+  // Save progress whenever section or answers change
+  useEffect(() => {
+    if (diagnosticExam && currentSectionIndex >= 0) {
+      saveDiagnosticProgress();
+    }
+  }, [currentSectionIndex, answers, diagnosticExam]);
+
+  // Add back button handler to save progress before leaving
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+      // If assessment is not complete, save progress
+      if (diagnosticExam && currentSectionIndex < enabledSections.length) {
+        saveDiagnosticProgress();
+      }
+    });
+
+    return unsubscribe;
+  }, [navigation, diagnosticExam, currentSectionIndex, answers]);
+
   const loadDiagnosticExam = async () => {
     try {
       setIsLoading(true);
-      const exam = await diagnosticService.generateDiagnosticExam();
-      setDiagnosticExam(exam);
-      setAnswers(prev => ({ ...prev, examId: exam.examId }));
       
-      logEvent(AnalyticsEvents.PREP_PLAN_DIAGNOSTIC_STARTED, {
-        examLevel,
-        examId: exam.examId,
-      });
+      // Check for saved progress first
+      const savedProgress = await prepPlanService.getDiagnosticProgress();
       
-      // Load first section data
-      await loadSectionData(0);
+      if (savedProgress) {
+        // Resume from saved progress
+        console.log('[DiagnosticAssessment] Resuming from saved progress');
+        
+        // Show confirmation dialog to user
+        Alert.alert(
+          t('prepPlan.diagnostic.resumeTitle'),
+          t('prepPlan.diagnostic.resumeMessage'),
+          [
+            {
+              text: t('prepPlan.diagnostic.startOver'),
+              style: 'destructive',
+              onPress: async () => {
+                // Clear saved progress and start fresh
+                await prepPlanService.clearDiagnosticProgress();
+                await generateNewDiagnostic();
+              },
+            },
+            {
+              text: t('prepPlan.diagnostic.resume'),
+              onPress: async () => {
+                // Load saved exam and continue
+                const exam = await diagnosticService.generateDiagnosticExam();
+                exam.examId = savedProgress.examId; // Use the same exam ID
+                
+                setDiagnosticExam(exam);
+                setAnswers(savedProgress.answers);
+                setCurrentSectionIndex(savedProgress.currentSectionIndex);
+                
+                // Load the current section data
+                await loadSectionData(savedProgress.currentSectionIndex);
+              },
+            },
+          ]
+        );
+      } else {
+        // No saved progress, generate new diagnostic
+        await generateNewDiagnostic();
+      }
     } catch (error) {
       console.error('[DiagnosticAssessment] Error loading exam:', error);
       Alert.alert(t('common.error'), t('prepPlan.diagnostic.loadError'));
       navigation.goBack();
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const generateNewDiagnostic = async () => {
+    const exam = await diagnosticService.generateDiagnosticExam();
+    setDiagnosticExam(exam);
+    setAnswers(prev => ({ ...prev, examId: exam.examId }));
+    
+    logEvent(AnalyticsEvents.PREP_PLAN_DIAGNOSTIC_STARTED, {
+      examLevel,
+      examId: exam.examId,
+    });
+    
+    // Load first section data
+    await loadSectionData(0);
+  };
+
+  const saveDiagnosticProgress = async () => {
+    if (!diagnosticExam) return;
+    
+    try {
+      await prepPlanService.saveDiagnosticProgress({
+        examId: diagnosticExam.examId,
+        currentSectionIndex,
+        answers,
+        startTime,
+        lastUpdated: Date.now(),
+      });
+    } catch (error) {
+      console.error('[DiagnosticAssessment] Error saving progress:', error);
+      // Don't show error to user, just log it
     }
   };
 
@@ -130,19 +222,39 @@ const DiagnosticAssessmentScreen: React.FC = () => {
           }
           break;
         case 'grammar':
-          const examId = diagnosticExam?.sections.grammar?.[0] || 1;
-          data = await dataService.getGrammarPart1Exam(examId);
+          const grammarExamId = diagnosticExam?.sections.grammar?.[0] || 1;
+          data = await dataService.getGrammarPart1Exam(grammarExamId);
           break;
         case 'writing':
-          // For writing, we should show a placeholder or skip for now
-          // since navigating away would interrupt the assessment flow
-          setSectionData({ placeholder: true });
-          return;
+          if (examLevel === 'A1') {
+            // A1 has two writing parts - for diagnostic, we just use the single writing ID for both
+            const writingExamId = typeof diagnosticExam?.sections.writing === 'number' 
+              ? diagnosticExam.sections.writing 
+              : 1;
+            
+            if (section.partNumber === 1) {
+              data = await dataService.getWritingPart1Exam(writingExamId);
+            } else {
+              data = await dataService.getWritingPart2Exam(writingExamId);
+            }
+          } else {
+            // B1/B2
+            Alert.alert('diagnosticExam', JSON.stringify(diagnosticExam));
+            const writingExamId = typeof diagnosticExam?.sections.writing === 'number'
+              ? diagnosticExam.sections.writing
+              : 1;
+            data = await dataService.getWritingExam(writingExamId);
+          }
+          break;
         case 'speaking':
-          // For speaking, we should show a placeholder or skip for now
-          // since navigating away would interrupt the assessment flow
-          setSectionData({ placeholder: true });
-          return;
+          // For speaking, use the dialogue from the exam
+          if (diagnosticExam?.sections.speaking) {
+            data = diagnosticExam.sections.speaking;
+          } else {
+            setSectionData({ placeholder: true });
+            return;
+          }
+          break;
       }
       
       setSectionData(data);
@@ -202,6 +314,20 @@ const DiagnosticAssessmentScreen: React.FC = () => {
       // Save assessment to user's prep plan progress
       await prepPlanService.saveAssessment(user.uid, assessment);
 
+      // Clear diagnostic progress since assessment is complete
+      await prepPlanService.clearDiagnosticProgress();
+
+      // Update onboarding progress to results step
+      const onboardingProgress = await prepPlanService.getOnboardingProgress();
+      if (onboardingProgress) {
+        await prepPlanService.saveOnboardingProgress({
+          ...onboardingProgress,
+          step: 'results',
+          assessmentId: assessment.assessmentId,
+          lastUpdated: Date.now(),
+        });
+      }
+
       const timeSpent = Math.round((Date.now() - startTime) / 1000 / 60); // minutes
       
       logEvent(AnalyticsEvents.PREP_PLAN_DIAGNOSTIC_COMPLETED, {
@@ -252,7 +378,25 @@ const DiagnosticAssessmentScreen: React.FC = () => {
       );
     }
 
+    // Check for placeholder data
+    if (sectionData.placeholder) {
+      return (
+        <View style={styles.placeholderContainer}>
+          <Text style={styles.placeholderText}>
+            {t('prepPlan.diagnostic.sectionComingSoon', { section: currentSection.displayName })}
+          </Text>
+          <TouchableOpacity
+            style={styles.skipButton}
+            onPress={() => handleSectionComplete(0, [])}
+          >
+            <Text style={styles.skipButtonText}>{t('common.skip')}</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+
     const sectionName = currentSection.sectionName;
+    const partNumber = currentSection.partNumber;
 
     switch (sectionName) {
       case 'reading':
@@ -299,6 +443,120 @@ const DiagnosticAssessmentScreen: React.FC = () => {
           />
         );
       
+      case 'writing':
+        // Use appropriate writing UI based on exam level
+        if (examLevel === 'A1') {
+          // A1 has two writing parts
+          if (partNumber === 1) {
+            return (
+              <WritingPart1UIA1
+                exam={sectionData}
+                onComplete={handleSectionComplete}
+              />
+            );
+          } else {
+            // Part 2
+            return (
+              <WritingPart2UIA1
+                exam={sectionData}
+                onComplete={handleSectionComplete}
+                isMockExam={true}
+              />
+            );
+          }
+        } else {
+          // B1/B2 use WritingUI
+          return (
+            <WritingUI
+              exam={sectionData}
+              onComplete={handleSectionComplete}
+              isMockExam={true}
+            />
+          );
+        }
+      
+      case 'speaking':
+        // Speaking assessment with dialogue component
+        if (sectionData && sectionData.turns && sectionData.turns.length > 0) {
+          return (
+            <SpeakingDialogueComponent
+              dialogue={sectionData.turns}
+              level={examLevel as 'A1' | 'B1' | 'B2'}
+              onTurnComplete={async (turnIndex, audioPath, transcription) => {
+                // Store audio path for later batch upload
+                setSpeakingAudioPaths(prev => {
+                  const updated = [...prev];
+                  updated[turnIndex] = audioPath;
+                  return updated;
+                });
+                console.log('[DiagnosticAssessment] Turn audio stored:', { turnIndex, audioPath });
+              }}
+              onComplete={async (evaluation: SpeakingEvaluation) => {
+                if (!user) return;
+                
+                try {
+                  console.log('[DiagnosticAssessment] Uploading', speakingAudioPaths.length, 'audio files...');
+                  
+                  // Upload all audio files to Firebase Storage
+                  const audioUrls: string[] = [];
+                  for (let i = 0; i < speakingAudioPaths.length; i++) {
+                    const audioPath = speakingAudioPaths[i];
+                    if (audioPath) {
+                      const audioUrl = await speakingService.uploadAudio(
+                        audioPath,
+                        user.uid,
+                        sectionData.dialogueId,
+                        i
+                      );
+                      audioUrls.push(audioUrl);
+                    }
+                  }
+                  
+                  console.log('[DiagnosticAssessment] All audio uploaded, URLs:', audioUrls);
+                  
+                  // Update answers with speaking data
+                  const updatedAnswers = {
+                    ...answers,
+                    answers: {
+                      ...answers.answers,
+                      speaking: {
+                        dialogueId: sectionData.dialogueId,
+                        audioUrls,
+                        transcriptions: [], // Will be generated during evaluation
+                      },
+                    },
+                  };
+                  setAnswers(updatedAnswers);
+                  
+                  // Complete the section (score will be calculated during evaluation)
+                  await handleSectionComplete(evaluation.totalScore, []);
+                } catch (error) {
+                  console.error('[DiagnosticAssessment] Error uploading audio:', error);
+                  Alert.alert(
+                    t('common.error'),
+                    t('prepPlan.diagnostic.speaking.uploadError')
+                  );
+                }
+              }}
+            />
+          );
+        } else {
+          // Fallback if dialogue not loaded
+          return (
+            <View style={styles.placeholderContainer}>
+              <Text style={styles.placeholderText}>
+                {t('prepPlan.diagnostic.speaking.loadError')}
+              </Text>
+              <TouchableOpacity
+                style={styles.skipButton}
+                onPress={() => handleSectionComplete(0, [])}
+              >
+                <Text style={styles.skipButtonText}>{t('common.skip')}</Text>
+              </TouchableOpacity>
+            </View>
+          );
+        }
+      
       default:
         return (
           <View style={styles.placeholderContainer}>
@@ -330,16 +588,27 @@ const DiagnosticAssessmentScreen: React.FC = () => {
       {/* Header with progress */}
       <View style={styles.header}>
         <Text style={styles.title}>{t('prepPlan.diagnostic.title')}</Text>
-        <Text style={styles.subtitle}>
-          {currentSection && t(`prepPlan.diagnostic.sections.${currentSection.sectionName}`)}
-        </Text>
-        {renderProgressBar()}
+        <View style={styles.subtitleRow}>
+          <Text style={styles.subtitle}>
+            {currentSection && t(`prepPlan.diagnostic.sections.${currentSection.sectionName}`)}
+          </Text>
+          <Text style={styles.sectionNumber}>
+            {t('prepPlan.diagnostic.sectionProgress', {
+              current: currentSectionIndex + 1,
+              total: enabledSections.length,
+            })}
+          </Text>
+        </View>
       </View>
 
       {/* Section Content */}
       <View style={styles.content}>
         {renderSectionContent()}
       </View>
+
+      {/* <TouchableOpacity style={styles.skipButton} onPress={() => setCurrentSectionIndex(currentSectionIndex + 1)}>
+        <Text style={styles.skipButtonText}>{t('common.next')}</Text>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -358,24 +627,34 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   header: {
     backgroundColor: colors.background.secondary,
-    padding: spacing.padding.lg,
-    paddingTop: spacing.padding.xl,
+    paddingHorizontal: spacing.padding.lg,
+    paddingVertical: spacing.padding.md,
     borderBottomWidth: 1,
     borderBottomColor: colors.border.light,
   },
   title: {
-    fontSize: typography.fontSize['2xl'],
+    fontSize: typography.fontSize.xl,
     fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
     marginBottom: spacing.margin.xs,
   },
+  subtitleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   subtitle: {
-    fontSize: typography.fontSize.base,
+    fontSize: typography.fontSize.sm,
     color: colors.text.secondary,
-    marginBottom: spacing.margin.md,
+    flex: 1,
+  },
+  sectionNumber: {
+    fontSize: typography.fontSize.sm,
+    color: colors.text.secondary,
+    fontWeight: typography.fontWeight.medium,
   },
   progressContainer: {
-    marginTop: spacing.margin.md,
+    marginTop: spacing.margin.xs,
   },
   progressInfo: {
     flexDirection: 'row',

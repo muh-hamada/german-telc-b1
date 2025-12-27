@@ -21,9 +21,9 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors, typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAuth } from '../../contexts/AuthContext';
@@ -36,7 +36,9 @@ import { SkeletonLoader } from '../../components/SkeletonLoader';
 type NavigationProp = StackNavigationProp<HomeStackParamList, 'StudyPlanDashboard'>;
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'StudyPlanDashboard'>;
 
-const StudyPlanDashboardScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'StudyPlanDashboard'>;
+
+const StudyPlanDashboardScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
   const navigation = useNavigation<NavigationProp>();
@@ -227,7 +229,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
       {/* Header - Exam Countdown */}
       <View style={styles.headerCard}>
         <View style={styles.examCountdownContainer}>
-          <Icon name="calendar-clock" size={32} color={colors.primary[500]} />
+          <Icon name="event" size={32} color={colors.primary[500]} />
           <View style={styles.examCountdownText}>
             <Text style={styles.examLabel}>{t('prepPlan.dashboard.examIn')}</Text>
             <Text style={styles.examDays}>
@@ -253,9 +255,9 @@ const StudyPlanDashboardScreen: React.FC = () => {
             />
           </View>
           <Text style={styles.progressSubtitle}>
-            {t('prepPlan.dashboard.tasksCompletedRatio', { 
-              completed: plan.progress.completedTasks, 
-              total: plan.progress.totalTasks 
+            {t('prepPlan.dashboard.tasksCompletedRatio', {
+              completed: plan.progress.completedTasks,
+              total: plan.progress.totalTasks
             })}
           </Text>
         </View>
@@ -264,19 +266,19 @@ const StudyPlanDashboardScreen: React.FC = () => {
       {/* Stats Row */}
       <View style={styles.statsRow}>
         <View style={styles.statCard}>
-          <Icon name="fire" size={24} color="#FF6B35" />
+          <Icon name="local-fire-department" size={24} color="#FF6B35" />
           <Text style={styles.statValue}>{plan.progress.currentStreak}</Text>
           <Text style={styles.statLabel}>{t('prepPlan.dashboard.dayStreak')}</Text>
         </View>
         <View style={styles.statCard}>
-          <Icon name="clock-outline" size={24} color={colors.primary[500]} />
+          <Icon name="access-time" size={24} color={colors.primary[500]} />
           <Text style={styles.statValue}>
             {Math.round(plan.progress.completedStudyHours)}
           </Text>
           <Text style={styles.statLabel}>{t('prepPlan.dashboard.hoursStudied')}</Text>
         </View>
         <View style={styles.statCard}>
-          <Icon name="calendar-week" size={24} color="#4ECDC4" />
+          <Icon name="date-range" size={24} color="#4ECDC4" />
           <Text style={styles.statValue}>
             {t('prepPlan.dashboard.weekRatio', { current: plan.currentWeek, total: plan.totalWeeks })}
           </Text>
@@ -292,9 +294,9 @@ const StudyPlanDashboardScreen: React.FC = () => {
           </Text>
           {todaysTasks.length > 0 && (
             <Text style={styles.sectionSubtitle}>
-              {t('prepPlan.dashboard.completedRatio', { 
-                completed: todaysTasks.filter(t => t.completed).length, 
-                total: todaysTasks.length 
+              {t('prepPlan.dashboard.completedRatio', {
+                completed: todaysTasks.filter(t => t.completed).length,
+                total: todaysTasks.length
               })}
             </Text>
           )}
@@ -338,7 +340,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
                   {task.title}
                 </Text>
                 <View style={styles.taskMeta}>
-                  <Icon name="clock-outline" size={14} color={colors.text.secondary} />
+                  <Icon name="access-time" size={14} color={colors.text.secondary} />
                   <Text style={styles.taskMetaText}>
                     {t('common.units.minutesValue', { count: task.estimatedMinutes })}
                   </Text>
@@ -359,7 +361,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
       {/* Quick Actions */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>{t('prepPlan.dashboard.quickActions')}</Text>
-        
+
         <TouchableOpacity
           style={styles.actionButton}
           onPress={() => {
@@ -370,7 +372,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
             navigation.navigate('WeeklyPlan', { weekNumber: plan.currentWeek });
           }}
         >
-          <Icon name="calendar-text" size={24} color={colors.primary[500]} />
+          <Icon name="event-note" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>
             {t('prepPlan.dashboard.viewWeeklyPlan')}
           </Text>
@@ -386,7 +388,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
             navigation.navigate('PrepPlanProgress');
           }}
         >
-          <Icon name="chart-line" size={24} color={colors.primary[500]} />
+          <Icon name="show-chart" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>
             {t('prepPlan.dashboard.viewProgress')}
           </Text>
@@ -402,7 +404,7 @@ const StudyPlanDashboardScreen: React.FC = () => {
             navigation.navigate('PrepPlanSettings');
           }}
         >
-          <Icon name="cog" size={24} color={colors.primary[500]} />
+          <Icon name="settings" size={24} color={colors.primary[500]} />
           <Text style={styles.actionButtonText}>
             {t('prepPlan.dashboard.updateSettings')}
           </Text>
@@ -445,6 +447,20 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.base,
     color: colors.text.secondary,
     marginTop: 12,
+  },
+  header: {
+    marginBottom: 16,
+  },
+  progressCard: {
+    backgroundColor: colors.background.secondary,
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 16,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   headerCard: {
     backgroundColor: colors.background.secondary,

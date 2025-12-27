@@ -89,7 +89,8 @@
       "fri": "Ven",
       "sat": "Sam",
       "sun": "Dim"
-    }
+    },
+    "skip": "Sauter"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -1571,6 +1572,10 @@
       "errors": {
         "saveFailed": "Échec de l'enregistrement de votre configuration. Veuillez réessayer."
       }
+    },
+    "diagnostic": {
+      "generating": "Générer votre évaluation...",
+      "loadError": "Échec du chargement de l'évaluation. \nVeuillez réessayer."
     }
   }
 }

@@ -89,7 +89,8 @@
       "fri": "Vie",
       "sat": "Sáb",
       "sun": "Dom"
-    }
+    },
+    "skip": "Saltar"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -243,12 +244,24 @@
         "evaluationError": "Error al evaluar la prueba. Por favor, inténtelo de nuevo.",
         "sectionProgress": "Sección {{current}} de {{total}}",
         "sectionComingSoon": "¡La sección {{section}} llegará pronto!",
+        "resumeTitle": "¿Reanudar Evaluación?",
+        "resumeMessage": "Tiene una evaluación incompleta. ¿Desea continuar donde lo dejó o empezar de nuevo?",
+        "resume": "Reanudar",
+        "startOver": "Empezar de Nuevo",
         "sections": {
           "reading": "Comprensión Lectora",
           "listening": "Comprensión Auditiva",
           "grammar": "Gramática y Vocabulario",
           "writing": "Escritura",
           "speaking": "Expresión Oral"
+        },
+        "speaking": {
+          "title": "Evaluación Oral",
+          "instructions": "Tendrá una conversación con el examinador de IA. Primero, preséntese brevemente, luego discutiremos un tema juntos.",
+          "evaluating": "Evaluando su desempeño oral...",
+          "completed": "¡Evaluación oral completada!",
+          "loadError": "Error al cargar el diálogo. Por favor, inténtelo de nuevo.",
+          "uploadError": "Error al subir el audio. Por favor, verifique su conexión e inténtelo de nuevo."
         }
       },
       "results": {
@@ -1390,6 +1403,10 @@
       "errors": {
         "saveFailed": "Error al guardar tu configuración. Por favor intenta de nuevo."
       }
+    },
+    "diagnostic": {
+      "generating": "Generando tu valoración...",
+      "loadError": "No se pudo cargar la evaluación. \nPor favor inténtalo de nuevo."
     }
   }
 }

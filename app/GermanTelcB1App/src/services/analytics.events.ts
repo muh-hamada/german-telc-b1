@@ -3,6 +3,9 @@ import { analyticsService } from './analytics.service';
 
 // Centralized event names
 export const AnalyticsEvents = {
+  // Error Boundary
+  ERROR_BOUNDARY_TRIGGERED: 'error_boundary_triggered',
+
   // Screen
   SCREEN_VIEW: 'screen_view',
 

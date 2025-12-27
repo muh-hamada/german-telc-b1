@@ -286,6 +286,11 @@ const HomeScreen: React.FC = () => {
   const handlePrepPlanPress = () => {
     logEvent(AnalyticsEvents.PREP_PLAN_CARD_CLICKED);
 
+    if(!user) {
+      setShowLoginModal(true);
+      return;
+    }
+
     // If not premium, show premium gate
     if (!isPremium) {
       logEvent(AnalyticsEvents.PREP_PLAN_PREMIUM_GATE_SHOWN);
@@ -311,6 +316,12 @@ const HomeScreen: React.FC = () => {
       if (onboardingProgress.step === 'results' && onboardingProgress.assessmentId) {
         logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_RESUMED, { step: 'results' });
         navigation.navigate('AssessmentResults', { assessmentId: onboardingProgress.assessmentId });
+        return;
+      }
+      // For any other in-progress onboarding (welcome, config, etc.), go to onboarding screen
+      if (onboardingProgress.step === 'config' || onboardingProgress.step === 'welcome') {
+        logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_RESUMED, { step: onboardingProgress.step });
+        navigation.navigate('PrepPlanOnboarding');
         return;
       }
     }

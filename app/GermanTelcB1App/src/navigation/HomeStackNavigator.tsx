@@ -424,7 +424,6 @@ const HomeStackNavigator: React.FC = () => {
           headerTitle: () => <HeaderTitle titleKey="vocabulary.studiedWordsList" />,
         }}
       />
-      {/* Prep Plan Screens (Phase 1 - Placeholders) */}
       <Stack.Screen
         name="PrepPlanOnboarding"
         options={{

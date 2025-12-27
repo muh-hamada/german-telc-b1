@@ -22,17 +22,21 @@ import {
   Modal,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import type { StackScreenProps } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import DatePicker from 'react-native-date-picker';
 import { colors, typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAuth } from '../../contexts/AuthContext';
+import { HomeStackParamList } from '../../types/navigation.types';
 import { StudyPlan, PrepPlanConfig, PrepPlanUpdateRequest } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { hapticSuccess } from '../../utils/haptic';
 
-const PrepPlanSettingsScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'PrepPlanSettings'>;
+
+const PrepPlanSettingsScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
   const navigation = useNavigation();
@@ -248,7 +252,7 @@ const PrepPlanSettingsScreen: React.FC = () => {
       >
         {/* Current Settings Info */}
         <View style={styles.infoCard}>
-          <Icon name="information" size={24} color={colors.primary[500]} />
+          <Icon name="info" size={24} color={colors.primary[500]} />
           <Text style={styles.infoText}>{t('prepPlan.settings.updateInfo')}</Text>
         </View>
 
@@ -259,7 +263,7 @@ const PrepPlanSettingsScreen: React.FC = () => {
             style={styles.dateButton}
             onPress={() => setShowDatePicker(true)}
           >
-            <Icon name="calendar" size={24} color={colors.primary[500]} />
+            <Icon name="calendar-today" size={24} color={colors.primary[500]} />
             <View style={styles.dateButtonText}>
               <Text style={styles.dateButtonLabel}>
                 {t('prepPlan.settings.selectedDate')}
@@ -349,12 +353,12 @@ const PrepPlanSettingsScreen: React.FC = () => {
                 <Icon
                   name={
                     time === 'morning'
-                      ? 'weather-sunny'
+                      ? 'wb-sunny'
                       : time === 'afternoon'
-                      ? 'weather-partly-cloudy'
+                      ? 'wb-cloudy'
                       : time === 'evening'
-                      ? 'weather-night'
-                      : 'clock-outline'
+                      ? 'nights-stay'
+                      : 'access-time'
                   }
                   size={24}
                   color={
@@ -426,7 +430,7 @@ const PrepPlanSettingsScreen: React.FC = () => {
             <ActivityIndicator size="small" color="#fff" />
           ) : (
             <>
-              <Icon name="content-save" size={20} color={colors.background.secondary} />
+              <Icon name="save" size={20} color={colors.background.secondary} />
               <Text style={styles.saveButtonText}>
                 {t('prepPlan.settings.saveChanges')}
               </Text>
@@ -458,7 +462,7 @@ const PrepPlanSettingsScreen: React.FC = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <Icon name="alert-circle" size={48} color={colors.primary[500]} />
+            <Icon name="error" size={48} color={colors.primary[500]} />
             <Text style={styles.modalTitle}>
               {t('prepPlan.settings.confirmUpdate')}
             </Text>

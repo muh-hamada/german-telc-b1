@@ -21,17 +21,21 @@ import {
   Dimensions,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import type { StackScreenProps } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors, typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAuth } from '../../contexts/AuthContext';
+import { HomeStackParamList } from '../../types/navigation.types';
 import { StudyPlan, DiagnosticAssessment } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 const { width } = Dimensions.get('window');
 
-const PrepPlanProgressScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'PrepPlanProgress'>;
+
+const PrepPlanProgressScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
   const navigation = useNavigation();
@@ -110,13 +114,13 @@ const PrepPlanProgressScreen: React.FC = () => {
       return {
         label: t('prepPlan.progress.readiness.fair'),
         color: '#FFC107',
-        icon: 'alert-circle',
+        icon: 'error',
       };
     } else {
       return {
         label: t('prepPlan.progress.readiness.needsWork'),
         color: '#FF5722',
-        icon: 'alert',
+        icon: 'warning',
       };
     }
   };
@@ -307,19 +311,19 @@ const PrepPlanProgressScreen: React.FC = () => {
       {/* Overall Stats */}
       <View style={styles.statsGrid}>
         <View style={styles.statBox}>
-          <Icon name="checkbox-marked-circle" size={32} color={colors.primary[500]} />
+          <Icon name="check-circle" size={32} color={colors.primary[500]} />
           <Text style={styles.statValue}>{completionPercentage}%</Text>
           <Text style={styles.statLabel}>{t('prepPlan.progress.completion')}</Text>
         </View>
         <View style={styles.statBox}>
-          <Icon name="clock-check" size={32} color="#4ECDC4" />
+          <Icon name="schedule" size={32} color="#4ECDC4" />
           <Text style={styles.statValue}>
             {t('common.units.hoursValue', { count: Math.round(plan.progress.completedStudyHours) })}
           </Text>
           <Text style={styles.statLabel}>{t('prepPlan.progress.timeStudied')}</Text>
         </View>
         <View style={styles.statBox}>
-          <Icon name="fire" size={32} color="#FF6B35" />
+          <Icon name="local-fire-department" size={32} color="#FF6B35" />
           <Text style={styles.statValue}>{plan.progress.currentStreak}</Text>
           <Text style={styles.statLabel}>{t('prepPlan.progress.streak')}</Text>
         </View>

@@ -89,7 +89,8 @@
       "minutesValue": "{{count}} min",
       "minutes": "{{count}} minute",
       "minutes_plural": "{{count}} minutes"
-    }
+    },
+    "skip": "Skip"
   },
   "exam": {
     "selectExam": "Select Exam:",
@@ -252,12 +253,24 @@
       "evaluationError": "Failed to evaluate assessment. Please try again.",
       "sectionProgress": "Section {{current}} of {{total}}",
       "sectionComingSoon": "{{section}} section is coming soon!",
+      "resumeTitle": "Resume Assessment?",
+      "resumeMessage": "You have an unfinished assessment. Would you like to continue where you left off or start over?",
+      "resume": "Resume",
+      "startOver": "Start Over",
       "sections": {
         "reading": "Reading Comprehension",
         "listening": "Listening Comprehension",
         "grammar": "Grammar & Vocabulary",
         "writing": "Writing",
         "speaking": "Speaking"
+      },
+      "speaking": {
+        "title": "Speaking Assessment",
+        "instructions": "You will have a conversation with the AI examiner. First, introduce yourself briefly, then we'll discuss a topic together.",
+        "evaluating": "Evaluating your speaking performance...",
+        "completed": "Speaking assessment completed!",
+        "loadError": "Failed to load speaking dialogue. Please try again.",
+        "uploadError": "Failed to upload audio. Please check your connection and try again."
       }
     },
     "results": {

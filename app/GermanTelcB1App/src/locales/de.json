@@ -89,7 +89,8 @@
       "fri": "Fr",
       "sat": "Sa",
       "sun": "So"
-    }
+    },
+    "skip": "Überspringen"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",
@@ -243,12 +244,24 @@
         "evaluationError": "Bewertung konnte nicht durchgeführt werden. Bitte versuchen Sie es erneut.",
         "sectionProgress": "Abschnitt {{current}} von {{total}}",
         "sectionComingSoon": "Abschnitt {{section}} kommt bald!",
+        "resumeTitle": "Bewertung fortsetzen?",
+        "resumeMessage": "Sie haben eine unvollständige Bewertung. Möchten Sie dort fortfahren oder von vorne beginnen?",
+        "resume": "Fortsetzen",
+        "startOver": "Neu beginnen",
         "sections": {
           "reading": "Leseverstehen",
           "listening": "Hörverstehen",
           "grammar": "Grammatik & Wortschatz",
           "writing": "Schreiben",
           "speaking": "Sprechen"
+        },
+        "speaking": {
+          "title": "Sprechprüfung",
+          "instructions": "Sie werden ein Gespräch mit dem KI-Prüfer führen. Stellen Sie sich zunächst kurz vor, dann besprechen wir gemeinsam ein Thema.",
+          "evaluating": "Ihre Sprechleistung wird bewertet...",
+          "completed": "Sprechprüfung abgeschlossen!",
+          "loadError": "Dialog konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+          "uploadError": "Audiodatei konnte nicht hochgeladen werden. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut."
         }
       },
       "results": {
@@ -1387,6 +1400,10 @@
       "errors": {
         "saveFailed": "Die Konfiguration konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
       }
+    },
+    "diagnostic": {
+      "generating": "Erstellung Ihrer Beurteilung...",
+      "loadError": "Die Bewertung konnte nicht geladen werden. \nBitte versuchen Sie es erneut."
     }
   }
 }

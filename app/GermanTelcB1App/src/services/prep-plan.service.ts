@@ -14,6 +14,7 @@ import {
   WeeklyGoal,
   PrepPlanTask,
   DiagnosticAssessment,
+  DiagnosticAssessmentProgress,
   StudyPlanProgress,
   SectionProgress,
   PrepPlanUpdateRequest,
@@ -28,6 +29,7 @@ import { AnalyticsEvents, logEvent } from './analytics.events';
 
 const ONBOARDING_STORAGE_KEY = '@prep_plan_onboarding_progress';
 const PLAN_STORAGE_KEY = '@prep_plan_active';
+const DIAGNOSTIC_PROGRESS_KEY = '@diagnostic_assessment_progress';
 
 class PrepPlanService {
   /**
@@ -75,6 +77,68 @@ class PrepPlanService {
       await AsyncStorage.removeItem(ONBOARDING_STORAGE_KEY);
     } catch (error) {
       console.error('[PrepPlanService] Error clearing onboarding progress:', error);
+    }
+  }
+
+  /**
+   * ===================================
+   * DIAGNOSTIC ASSESSMENT PROGRESS
+   * ===================================
+   */
+
+  /**
+   * Save diagnostic assessment progress to AsyncStorage
+   * Allows users to resume if they exit mid-assessment
+   */
+  async saveDiagnosticProgress(
+    progress: DiagnosticAssessmentProgress
+  ): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        DIAGNOSTIC_PROGRESS_KEY,
+        JSON.stringify(progress)
+      );
+      console.log('[PrepPlanService] Diagnostic progress saved:', {
+        examId: progress.examId,
+        currentSection: progress.currentSectionIndex,
+      });
+    } catch (error) {
+      console.error('[PrepPlanService] Error saving diagnostic progress:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get saved diagnostic assessment progress
+   */
+  async getDiagnosticProgress(): Promise<DiagnosticAssessmentProgress | null> {
+    try {
+      const data = await AsyncStorage.getItem(DIAGNOSTIC_PROGRESS_KEY);
+      if (!data) return null;
+      
+      const progress = JSON.parse(data);
+      console.log('[PrepPlanService] Diagnostic progress loaded:', {
+        examId: progress.examId,
+        currentSection: progress.currentSectionIndex,
+      });
+      
+      return progress;
+    } catch (error) {
+      console.error('[PrepPlanService] Error getting diagnostic progress:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Clear diagnostic assessment progress
+   * Called after completing or explicitly canceling the assessment
+   */
+  async clearDiagnosticProgress(): Promise<void> {
+    try {
+      await AsyncStorage.removeItem(DIAGNOSTIC_PROGRESS_KEY);
+      console.log('[PrepPlanService] Diagnostic progress cleared');
+    } catch (error) {
+      console.error('[PrepPlanService] Error clearing diagnostic progress:', error);
     }
   }
 

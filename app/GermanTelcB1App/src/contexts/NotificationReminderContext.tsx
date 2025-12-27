@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Alert, Platform, Linking, PermissionsAndroid } from 'react-native';
 import notificationReminderService, { TriggerType } from '../services/notification-reminder.service';
-import FirestoreService from '../services/firestore.service';
+import FirestoreService, { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useAuth } from './AuthContext';
@@ -167,7 +167,7 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
       }
 
       // Enqueue hour picker modal
-      enqueue('hour-picker', { selectedHour: 9 });
+      enqueue('hour-picker', { selectedHour: DEFAULT_NOTIFICATION_HOUR });
       
       console.log('[NotificationReminderContext] Starting enable flow');
     } catch (error) {

@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import type { StackScreenProps } from '@react-navigation/stack';
 import { HomeStackParamList } from '../../types/navigation.types';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -24,7 +25,9 @@ import { logEvent, AnalyticsEvents } from '../../services/analytics.events';
 
 type SpeakingAssessmentScreenRouteProp = RouteProp<HomeStackParamList, 'SpeakingAssessment'>;
 
-export const SpeakingAssessmentScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
+
+export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const route = useRoute<SpeakingAssessmentScreenRouteProp>();
   const navigation = useNavigation();
   const { user } = useAuth();

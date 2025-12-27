@@ -15,9 +15,9 @@ import {
   Clipboard,
   Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors, typography } from '../theme';
-import { logEvent } from '../services/analytics.events';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface Props {
   children: ReactNode;
@@ -55,7 +55,7 @@ class ErrorBoundary extends Component<Props, State> {
     });
 
     // Log to analytics
-    logEvent('ERROR_BOUNDARY_TRIGGERED', {
+    logEvent(AnalyticsEvents.ERROR_BOUNDARY_TRIGGERED, {
       error_message: error.message,
       error_stack: error.stack?.substring(0, 500) || 'No stack trace',
       component_stack: errorInfo.componentStack?.substring(0, 500) || 'No component stack',
@@ -111,7 +111,7 @@ ${errorInfo?.componentStack || 'No component stack'}
       return (
         <View style={styles.container}>
           <ScrollView contentContainerStyle={styles.content}>
-            <Icon name="alert-circle-outline" size={64} color={colors.error[500]} />
+            <Icon name="error-outline" size={64} color={colors.error[500]} />
             
             <Text style={styles.title}>Something went wrong</Text>
             
@@ -146,7 +146,7 @@ ${errorInfo?.componentStack || 'No component stack'}
                 style={[styles.button, styles.secondaryButton]}
                 onPress={this.handleReportIssue}
               >
-                <Icon name="bug" size={20} color={colors.primary[500]} />
+                <Icon name="bug-report" size={20} color={colors.primary[500]} />
                 <Text style={styles.secondaryButtonText}>Report Issue</Text>
               </TouchableOpacity>
             </View>

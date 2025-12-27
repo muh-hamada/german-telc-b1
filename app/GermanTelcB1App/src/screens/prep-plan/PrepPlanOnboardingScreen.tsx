@@ -20,7 +20,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { HomeStackNavigationProp } from '../../types/navigation.types';
+import type { StackScreenProps } from '@react-navigation/stack';
+import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { spacing, typography, type ThemeColors } from '../../theme';
@@ -28,13 +29,15 @@ import { PrepPlanConfig } from '../../types/prep-plan.types';
 import { prepPlanService } from '../../services/prep-plan.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import DatePicker from 'react-native-date-picker';
 
 type OnboardingStep = 'welcome' | 'config' | 'assessment' | 'results' | 'complete';
 type ConfigSubStep = 'exam-date' | 'study-schedule' | 'study-time' | 'summary';
 
-const PrepPlanOnboardingScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'PrepPlanOnboarding'>;
+
+const PrepPlanOnboardingScreen: React.FC<Props> = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
@@ -82,16 +85,26 @@ const PrepPlanOnboardingScreen: React.FC = () => {
         if (config.preferredStudyTime) {
           setPreferredStudyTime(config.preferredStudyTime);
         }
+
         // Resume from where they left off
         if (progress.step === 'welcome') {
           setCurrentStep('config');
           setConfigSubStep('exam-date');
+        } else if (progress.step === 'config') {
+          setCurrentStep('config');
+          setConfigSubStep('exam-date');
+        } else if (progress.step === 'assessment') {
+          // If user is on assessment step, they should be in DiagnosticAssessment screen
+          // Navigate them there
+          console.log('[PrepPlanOnboarding] User has assessment in progress, navigating to DiagnosticAssessment');
+          navigation.replace('DiagnosticAssessment', {});
+        } else if (progress.step === 'results' && progress.assessmentId) {
+          // If user has completed assessment, navigate to results
+          console.log('[PrepPlanOnboarding] User has completed assessment, navigating to results');
+          navigation.replace('AssessmentResults', { assessmentId: progress.assessmentId });
         } else {
-          setCurrentStep(progress.step);
-          // If they're on config step, start at first config sub-step
-          if (progress.step === 'config') {
-            setConfigSubStep('exam-date');
-          }
+          // Default to welcome step
+          setCurrentStep('welcome');
         }
       } else {
         logEvent(AnalyticsEvents.PREP_PLAN_ONBOARDING_STARTED);
@@ -268,7 +281,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
    */
   const renderWelcomeStep = () => (
     <View style={styles.stepContent}>
-      <Icon name="calendar-check" size={80} color={colors.primary[500]} style={styles.icon} />
+      <Icon name="event-available" size={80} color={colors.primary[500]} style={styles.icon} />
       <Text style={styles.title}>{t('prepPlan.onboarding.welcome.title')}</Text>
       <Text style={styles.subtitle}>{t('prepPlan.onboarding.welcome.subtitle')}</Text>
       
@@ -301,7 +314,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
         style={styles.dateButton}
         onPress={() => setIsDatePickerOpen(true)}
       >
-        <Icon name="calendar" size={24} color={colors.primary[500]} />
+        <Icon name="calendar-today" size={24} color={colors.primary[500]} />
         <Text style={styles.dateButtonText}>
           {examDate.toLocaleDateString(undefined, { 
             weekday: 'long', 
@@ -352,7 +365,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
           {t('prepPlan.onboarding.schedule.dailyHours')}
         </Text>
         <View style={styles.hoursGrid}>
-          {[0.5, 1, 1.5, 2, 3, 4, 5].map((hours) => (
+          {[0.5, 1, 1.5, 2, 3, 4].map((hours) => (
             <TouchableOpacity
               key={hours}
               style={[
@@ -475,7 +488,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
             <Text style={styles.summaryLabel}>{t('prepPlan.onboarding.summary.studyDaysPerWeek')}</Text>
             <Text style={styles.summaryValue}>{t('prepPlan.onboarding.summary.daysValue', { count: studyDaysPerWeek })}</Text>
           </View>
-          <View style={styles.summaryRow}>
+          <View style={[styles.summaryRow, styles.summaryLastRow]}>
             <Text style={styles.summaryLabel}>{t('prepPlan.onboarding.summary.totalStudyHours')}</Text>
             <Text style={[styles.summaryValue, styles.summaryValueHighlight]}>
               {t('prepPlan.onboarding.summary.totalHoursValue', { count: stats.totalStudyHours })}
@@ -484,7 +497,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
         </View>
 
         <View style={styles.nextStepCard}>
-          <Icon name="clipboard-check-outline" size={32} color={colors.primary[500]} />
+          <Icon name="assignment-turned-in" size={32} color={colors.primary[500]} />
           <Text style={styles.nextStepTitle}>{t('prepPlan.onboarding.summary.nextStep')}</Text>
           <Text style={styles.nextStepText}>{t('prepPlan.onboarding.summary.nextStepDesc')}</Text>
         </View>
@@ -497,10 +510,10 @@ const PrepPlanOnboardingScreen: React.FC = () => {
    */
   const getTimeIcon = (time: string): string => {
     switch (time) {
-      case 'morning': return 'weather-sunrise';
-      case 'afternoon': return 'weather-sunny';
-      case 'evening': return 'weather-night';
-      case 'flexible': return 'clock-outline';
+      case 'morning': return 'wb-sunny';
+      case 'afternoon': return 'wb-cloudy';
+      case 'evening': return 'nights-stay';
+      case 'flexible': return 'access-time';
       default: return 'clock-outline';
     }
   };
@@ -531,7 +544,7 @@ const PrepPlanOnboardingScreen: React.FC = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-          <Icon name="arrow-left" size={24} color={colors.text.primary} />
+          <Icon name="arrow-back" size={24} color={colors.text.primary} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{t('prepPlan.onboarding.title')}</Text>
         <View style={styles.headerSpacer} />
@@ -568,7 +581,7 @@ const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: colors.background.primary,
+      backgroundColor: colors.background.secondary,
     },
     progressBarContainer: {
       height: 4,
@@ -599,6 +612,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     scrollView: {
       flex: 1,
+      backgroundColor: colors.background.primary,
     },
     scrollContent: {
       padding: spacing.padding.lg,
@@ -691,16 +705,17 @@ const createStyles = (colors: ThemeColors) =>
     hoursGrid: {
       flexDirection: 'row',
       flexWrap: 'wrap',
+      gap: spacing.margin.sm,
       justifyContent: 'space-between',
     },
     hourButton: {
-      width: '30%',
+      width: '31%',
       padding: spacing.padding.md,
       borderRadius: 8,
       borderWidth: 2,
       borderColor: colors.border.medium,
       alignItems: 'center',
-      marginBottom: spacing.margin.sm,
+      // marginBottom: spacing.margin.sm,
     },
     hourButtonSelected: {
       borderColor: colors.primary[500],
@@ -744,15 +759,19 @@ const createStyles = (colors: ThemeColors) =>
     },
     timeOptions: {
       width: '100%',
+      gap: spacing.margin.sm,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
     },
     timeOption: {
       backgroundColor: colors.background.secondary,
       padding: spacing.padding.lg,
       borderRadius: 12,
-      marginBottom: spacing.margin.md,
       alignItems: 'center',
       borderWidth: 2,
       borderColor: colors.border.medium,
+      width: '48%',
     },
     timeOptionSelected: {
       borderColor: colors.primary[500],
@@ -785,10 +804,15 @@ const createStyles = (colors: ThemeColors) =>
     summaryRow: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginBottom: spacing.margin.md,
+      marginBottom: spacing.margin.sm,
       paddingBottom: spacing.padding.sm,
       borderBottomWidth: 1,
       borderBottomColor: colors.border.medium,
+    },
+    summaryLastRow: {
+      borderBottomWidth: 0,
+      marginBottom: 0,
+      paddingBottom: 0,
     },
     summaryLabel: {
       ...typography.textStyles.body,
@@ -825,8 +849,12 @@ const createStyles = (colors: ThemeColors) =>
     },
     footer: {
       padding: spacing.padding.lg,
+      paddingBottom: 0,
       borderTopWidth: 1,
-      borderTopColor: colors.border.medium,
+      borderTopColor: colors.border.light,
+      borderTopLeftRadius: 12,
+      borderTopRightRadius: 12,
+      backgroundColor: colors.background.secondary,
     },
     button: {
       padding: spacing.padding.md,

@@ -6,6 +6,8 @@
  * their diagnostic assessment and study schedule.
  */
 
+import { ExamLevel } from "../config/exam-config.types";
+
 /**
  * Onboarding Progress - Tracks user progress through prep plan setup
  * Used to resume onboarding if user exits mid-flow
@@ -16,6 +18,18 @@ export interface PrepPlanOnboardingProgress {
   assessmentId?: string;
   lastUpdated: number;
   isComplete: boolean;
+}
+
+/**
+ * Diagnostic Assessment Progress - Tracks progress through diagnostic test
+ * Used to resume assessment if user exits mid-test
+ */
+export interface DiagnosticAssessmentProgress {
+  examId: string;
+  currentSectionIndex: number;
+  answers: DiagnosticAnswers;
+  startTime: number;
+  lastUpdated: number;
 }
 
 /**
@@ -57,7 +71,7 @@ export interface SectionAssessment {
 export interface DiagnosticAssessment {
   assessmentId: string;
   completedAt: number;
-  examLevel: 'A1' | 'B1' | 'B2'; // Which exam level this assessment was for
+  examLevel: ExamLevel; // Which exam level this assessment was for
   sections: {
     reading?: SectionAssessment;
     listening?: SectionAssessment;
@@ -115,7 +129,7 @@ export interface WeeklyGoal {
 export interface StudyPlan {
   planId: string;
   userId: string;
-  examLevel: 'A1' | 'B1' | 'B2';
+  examLevel: ExamLevel;
   config: PrepPlanConfig;
   assessment: DiagnosticAssessment;
   weeks: WeeklyGoal[];
@@ -244,7 +258,7 @@ export interface SpeakingEvaluation {
 export interface SpeakingAssessmentDialogue {
   dialogueId: string;
   partNumber: 1 | 2 | 3; // Which part of speaking exam
-  level: 'A1' | 'B1' | 'B2';
+  level: ExamLevel;
   turns: SpeakingDialogueTurn[];
   totalTurns: number;
   currentTurn: number;
@@ -259,7 +273,7 @@ export interface SpeakingAssessmentDialogue {
  */
 export interface DiagnosticExam {
   examId: string;
-  level: 'A1' | 'B1' | 'B2';
+  level: ExamLevel;
   sections: {
     reading?: number[]; // Array of question IDs
     listening?: number[]; // Array of question IDs

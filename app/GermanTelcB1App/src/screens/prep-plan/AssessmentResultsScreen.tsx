@@ -16,6 +16,7 @@ import {
   Animated,
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import type { StackScreenProps } from '@react-navigation/stack';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
@@ -29,7 +30,9 @@ import { hapticSuccess } from '../../utils/haptic';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'AssessmentResults'>;
 
-const AssessmentResultsScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'AssessmentResults'>;
+
+const AssessmentResultsScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const route = useRoute<ScreenRouteProp>();

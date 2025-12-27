@@ -254,6 +254,7 @@ export interface ListeningPracticeQuestion {
 }
 
 export interface ListeningPracticeInterview {
+  id: number;
   title: string;
   audio_url: string;
   image_url: string;

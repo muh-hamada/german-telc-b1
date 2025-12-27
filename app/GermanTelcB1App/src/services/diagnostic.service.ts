@@ -21,6 +21,19 @@ import {
 } from '../config/prep-plan-level.config';
 import { dataService } from './data.service';
 import { AnalyticsEvents, logEvent } from './analytics.events';
+import axios from 'axios';
+import { Platform } from 'react-native';
+import { ExamLevel } from '../config/exam-config.types';
+
+// API Configuration for Cloud Functions
+const IS_DEV = __DEV__;
+const testPath = (Platform.OS === 'android' ? 'http://10.0.2.2' : 'http://localhost') + ':5001/telc-b1-german/us-central1';
+const GENERATE_DIALOGUE_URL = IS_DEV 
+  ? testPath + '/generateSpeakingDialogue'
+  : 'https://us-central1-telc-b1-german.cloudfunctions.net/generateSpeakingDialogue';
+const BATCH_EVALUATE_URL = IS_DEV
+  ? testPath + '/batchEvaluateSpeaking'
+  : 'https://us-central1-telc-b1-german.cloudfunctions.net/batchEvaluateSpeaking';
 
 class DiagnosticService {
   /**
@@ -67,7 +80,10 @@ class DiagnosticService {
             );
             break;
           case 'writing':
-            exam.sections.writing = await this.selectRandomWritingTask();
+            // Only generate one writing task (even if A1 has 2 parts, they share the same task)
+            if (!exam.sections.writing) {
+              exam.sections.writing = await this.selectRandomWritingTask();
+            }
             break;
           case 'speaking':
             exam.sections.speaking = await this.generateSpeakingDialogue(examLevel);
@@ -137,11 +153,25 @@ class DiagnosticService {
             }
             break;
           case 'writing':
-            sectionAssessment = await this.evaluateWritingSection(
-              answers.answers.writing,
-              section
-            );
-            sections.writing = sectionAssessment;
+            // For writing, evaluate once and use for all writing sections (A1 has 2 parts)
+            if (!sections.writing || !sections.writing.score) {
+              sectionAssessment = await this.evaluateWritingSection(
+                answers.answers.writing,
+                section
+              );
+              sections.writing = sectionAssessment;
+            } else {
+              // For subsequent writing sections (A1 Part 2), add to the existing score
+              sectionAssessment = await this.evaluateWritingSection(
+                answers.answers.writing,
+                section
+              );
+              // Merge the scores
+              sections.writing.score += sectionAssessment.score;
+              sections.writing.maxScore += sectionAssessment.maxScore;
+              sections.writing.percentage = (sections.writing.score / sections.writing.maxScore) * 100;
+              sections.writing.level = calculateSectionLevel(sections.writing.percentage, section);
+            }
             break;
           case 'speaking':
             sectionAssessment = await this.evaluateSpeakingSection(
@@ -206,8 +236,8 @@ class DiagnosticService {
       // Get all available reading exams
       const examLevel = activeExamConfig.level;
       const allExams = examLevel === 'A1' 
-        ? await dataService.getAllReadingPart1A1Exams()
-        : await dataService.getAllReadingPart1Exams();
+        ? await dataService.getReadingPart1A1Exams()
+        : await dataService.getReadingPart1Exams();
       
       if (!allExams || allExams.length === 0) {
         console.warn('[DiagnosticService] No reading exams found, using fallback');
@@ -229,7 +259,7 @@ class DiagnosticService {
   private async selectRandomListeningQuestions(count: number): Promise<number[]> {
     try {
       // Get all listening practice interviews
-      const allInterviews = await dataService.getAllListeningPractice();
+      const allInterviews = await dataService.getListeningPracticeInterviews();
       
       if (!allInterviews || allInterviews.length === 0) {
         console.warn('[DiagnosticService] No listening interviews found, using fallback');
@@ -249,7 +279,7 @@ class DiagnosticService {
    */
   private async selectRandomGrammarQuestions(count: number): Promise<number[]> {
     try {
-      const allExams = await dataService.getAllGrammarPart1Exams();
+      const allExams = await dataService.getGrammarPart1Exams();
       
       if (!allExams || allExams.length === 0) {
         console.warn('[DiagnosticService] No grammar exams found, using fallback');
@@ -269,7 +299,7 @@ class DiagnosticService {
    */
   private async selectRandomWritingTask(): Promise<number> {
     try {
-      const allExams = await dataService.getAllWritingExams();
+      const allExams = await dataService.getWritingExams();
       
       if (!allExams || allExams.length === 0) {
         console.warn('[DiagnosticService] No writing exams found, using fallback');
@@ -288,17 +318,34 @@ class DiagnosticService {
    * Generate speaking dialogue for assessment
    */
   private async generateSpeakingDialogue(
-    level: 'A1' | 'B1' | 'B2'
+    level: ExamLevel
   ): Promise<SpeakingAssessmentDialogue> {
     try {
-      // Speaking dialogue will be generated via Cloud Function when user starts speaking section
-      // For now, return a placeholder structure
+      const examConfig = activeExamConfig;
+      const language = examConfig.language as 'german' | 'english';
+      
+      console.log('[DiagnosticService] Generating diagnostic speaking dialogue...');
+      
+      // Call Cloud Function to generate diagnostic dialogue
+      const response = await axios.post(GENERATE_DIALOGUE_URL, {
+        level,
+        partNumber: 1, // Not used for diagnostic, but required by interface
+        language,
+        isDiagnostic: true, // Flag for unified diagnostic dialogue
+      });
+
+      const { dialogueId, dialogue, estimatedMinutes } = response.data as {
+        dialogueId: string;
+        dialogue: any[];
+        estimatedMinutes: number;
+      };
+
       return {
-        dialogueId: `speaking-diagnostic-${Date.now()}`,
+        dialogueId,
         partNumber: 1,
         level,
-        turns: [],
-        totalTurns: 5, // Diagnostic uses 5 turns
+        turns: dialogue,
+        totalTurns: dialogue.length,
         currentTurn: 0,
         isComplete: false,
       };
@@ -458,7 +505,7 @@ class DiagnosticService {
       let totalQuestions = 0;
       
       for (const examId of questionIds) {
-        const exam = await dataService.getGrammarPart1ExamById(examId);
+        const exam = await dataService.getGrammarPart1Exam(examId);
         if (exam && exam.questions) {
           totalQuestions += exam.questions.length;
           exam.questions.forEach((q: any) => {
@@ -548,15 +595,55 @@ class DiagnosticService {
     section: any
   ): Promise<SectionAssessment> {
     try {
-      // TODO: Implement AI-based speaking evaluation via Cloud Function
-      // For now, give a moderate score if they completed the dialogue
-      const maxScore = section.assessmentMaxPoints;
-      let score = 0;
+      const examConfig = activeExamConfig;
+      const language = examConfig.language as 'german' | 'english';
+      const level = examConfig.level as 'A1' | 'B1' | 'B2';
       
-      if (speakingAnswer.audioUrls && speakingAnswer.audioUrls.length > 0) {
-        score = Math.round(maxScore * 0.6); // 60% for attempting the speaking task
+      console.log('[DiagnosticService] Evaluating speaking section...', {
+        audioUrlCount: speakingAnswer.audioUrls.length,
+        dialogueId: speakingAnswer.dialogueId,
+      });
+
+      // If no audio responses, return minimal score
+      if (!speakingAnswer.audioUrls || speakingAnswer.audioUrls.length === 0) {
+        const maxScore = section.assessmentMaxPoints;
+        return {
+          sectionName: 'speaking',
+          score: 0,
+          maxScore,
+          percentage: 0,
+          level: 'weak',
+        };
       }
+
+      // Extract expected contexts from dialogue (stored in session or need to reconstruct)
+      // For now, we'll use generic contexts based on turn count
+      const expectedContexts = speakingAnswer.audioUrls.map((_, index) => {
+        if (index < 2) return 'Personal introduction';
+        return 'Conversation task response';
+      });
+
+      // Call Cloud Function for batch evaluation
+      const response = await axios.post(BATCH_EVALUATE_URL, {
+        audioUrls: speakingAnswer.audioUrls,
+        expectedContexts,
+        level,
+        language,
+        dialogueId: speakingAnswer.dialogueId,
+      });
+
+      const evaluation = response.data as {
+        overallScore: number;
+        pronunciation: number;
+        fluency: number;
+        grammar: number;
+        vocabulary: number;
+        contentRelevance: number;
+      };
       
+      const maxScore = section.assessmentMaxPoints;
+      // Map 0-100 overall score to section max score
+      const score = Math.round((evaluation.overallScore / 100) * maxScore);
       const percentage = (score / maxScore) * 100;
 
       return {
@@ -565,15 +652,28 @@ class DiagnosticService {
         maxScore,
         percentage,
         level: calculateSectionLevel(percentage, section),
+        details: {
+          pronunciation: evaluation.pronunciation,
+          fluency: evaluation.fluency,
+          grammarAccuracy: evaluation.grammar,
+          vocabularyRange: evaluation.vocabulary,
+          contentRelevance: evaluation.contentRelevance,
+        },
       };
     } catch (error) {
       console.error('[DiagnosticService] Error evaluating speaking section:', error);
       const maxScore = section.assessmentMaxPoints;
+      
+      // Give partial credit if they attempted
+      const attemptScore = speakingAnswer.audioUrls.length > 0 
+        ? Math.round(maxScore * 0.4) 
+        : 0;
+      
       return {
         sectionName: 'speaking',
-        score: 0,
+        score: attemptScore,
         maxScore,
-        percentage: 0,
+        percentage: (attemptScore / maxScore) * 100,
         level: 'weak',
       };
     }

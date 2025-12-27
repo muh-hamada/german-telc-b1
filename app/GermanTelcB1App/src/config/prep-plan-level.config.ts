@@ -18,6 +18,7 @@ export interface PrepPlanLevelSection {
   displayName: string;
   assessmentQuestions: number; // How many questions in diagnostic
   assessmentMaxPoints: number;
+  partNumber?: number; // For sections with multiple parts (e.g., A1 writing part 1 vs part 2)
   parts?: {
     partNumber: number;
     partName: string;
@@ -116,11 +117,27 @@ export const PREP_PLAN_CONFIG_A1: PrepPlanLevelConfig = {
     {
       sectionName: 'writing',
       enabled: true,
-      displayName: 'Schriftlicher Ausdruck',
-      assessmentQuestions: 1, // 1 writing task (simplified)
-      assessmentMaxPoints: 15,
+      displayName: 'Schriftlicher Ausdruck - Teil 1',
+      partNumber: 1,
+      assessmentQuestions: 1,
+      assessmentMaxPoints: 5,
       parts: [
         { partNumber: 1, partName: 'Teil 1: Formular ausfüllen', maxPoints: 5 },
+      ],
+      thresholds: {
+        weak: 50,
+        moderate: 70,
+        strong: 85,
+      },
+    },
+    {
+      sectionName: 'writing',
+      enabled: true,
+      displayName: 'Schriftlicher Ausdruck - Teil 2',
+      partNumber: 2,
+      assessmentQuestions: 1,
+      assessmentMaxPoints: 10,
+      parts: [
         { partNumber: 2, partName: 'Teil 2: Eine kurze Mitteilung', maxPoints: 10 },
       ],
       thresholds: {
@@ -147,7 +164,7 @@ export const PREP_PLAN_CONFIG_A1: PrepPlanLevelConfig = {
       },
     },
   ],
-  totalAssessmentPoints: 26, // 3 + 3 + 0 + 15 + 5
+  totalAssessmentPoints: 26, // 3 + 3 + 0 + 5 + 10 + 5
   assessmentTimeMinutes: 30,
   overallThresholds: {
     beginner: 50,

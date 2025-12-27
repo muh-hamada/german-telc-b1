@@ -19,9 +19,9 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors, typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAuth } from '../../contexts/AuthContext';
@@ -34,7 +34,9 @@ import { hapticSelection } from '../../utils/haptic';
 type NavigationProp = StackNavigationProp<HomeStackParamList, 'WeeklyPlan'>;
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'WeeklyPlan'>;
 
-const WeeklyPlanScreen: React.FC = () => {
+type Props = StackScreenProps<HomeStackParamList, 'WeeklyPlan'>;
+
+const WeeklyPlanScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
   const navigation = useNavigation<NavigationProp>();
@@ -263,14 +265,14 @@ const WeeklyPlanScreen: React.FC = () => {
                   {task.completed ? (
                     <Icon name="check-circle" size={24} color="#4CAF50" />
                   ) : (
-                    <Icon name="circle-outline" size={24} color={colors.border.light} />
+                    <Icon name="radio-button-unchecked" size={24} color={colors.border.light} />
                   )}
                 </View>
               </View>
 
               <View style={styles.taskMeta}>
                 <View style={styles.taskMetaItem}>
-                  <Icon name="clock-outline" size={14} color={colors.text.secondary} />
+                  <Icon name="access-time" size={14} color={colors.text.secondary} />
                   <Text style={styles.taskMetaText}>
                     {t('common.units.minutesValue', { count: task.estimatedMinutes })}
                   </Text>
@@ -278,7 +280,7 @@ const WeeklyPlanScreen: React.FC = () => {
 
                 {task.difficulty && (
                   <View style={styles.taskMetaItem}>
-                    <Icon name="speedometer" size={14} color={colors.text.secondary} />
+                    <Icon name="speed" size={14} color={colors.text.secondary} />
                     <Text style={styles.taskMetaText}>
                       {t(`prepPlan.weekly.difficulty.${task.difficulty}`)}
                     </Text>
@@ -307,7 +309,7 @@ const WeeklyPlanScreen: React.FC = () => {
 
         {/* Estimated Time */}
         <View style={styles.summaryCard}>
-          <Icon name="timer-sand" size={24} color={colors.primary[500]} />
+          <Icon name="hourglass-empty" size={24} color={colors.primary[500]} />
           <View style={styles.summaryText}>
             <Text style={styles.summaryTitle}>
               {t('prepPlan.weekly.totalTime')}

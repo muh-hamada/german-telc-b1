@@ -6,6 +6,7 @@ import {
   Modal,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { SafeAreaView } from 'react-native-safe-area-context';

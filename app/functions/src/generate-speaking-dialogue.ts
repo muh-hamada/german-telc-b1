@@ -1,10 +1,18 @@
 import * as functions from 'firebase-functions';
 import OpenAI from 'openai';
-import { OPENAI_API_KEY } from './api-keys';
+import { getOpenAIKey } from './api-keys';
+import { ExamLanguage, ExamLevel } from '../../GermanTelcB1App/src/config/exam-config.types';
 
-const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
-});
+// Lazy-initialize OpenAI client to ensure environment variables are loaded
+let openaiClient: OpenAI | null = null;
+function getOpenAIClient(): OpenAI {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      apiKey: getOpenAIKey(),
+    });
+  }
+  return openaiClient;
+}
 
 interface SpeakingDialogueTurn {
   speaker: 'user' | 'ai';
@@ -13,62 +21,64 @@ interface SpeakingDialogueTurn {
   aiAudioUrl?: string; // Will be generated separately
 }
 
-interface GenerateSpeakingDialogueRequest {
-  level: 'A1' | 'B1' | 'B2';
-  partNumber: 1 | 2 | 3;
-  language: 'de' | 'en'; // German or English exam
-}
-
-interface GenerateSpeakingDialogueResponse {
-  dialogueId: string;
-  dialogue: SpeakingDialogueTurn[];
-  estimatedMinutes: number;
-}
-
 /**
  * Cloud Function to generate a personalized speaking dialogue
  * for exam preparation or assessment
  */
-export const generateSpeakingDialogue = functions.https.onCall(
-  async (data: GenerateSpeakingDialogueRequest, context): Promise<GenerateSpeakingDialogueResponse> => {
-    // Authentication check
-    if (!context.auth) {
-      throw new functions.https.HttpsError(
-        'unauthenticated',
-        'User must be authenticated to generate speaking dialogues'
-      );
+export const generateSpeakingDialogue = functions.https.onRequest(
+  async (req, res) => {
+    // CORS headers
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
     }
 
-    const { level, partNumber, language } = data;
+    if (req.method !== 'POST') {
+      res.status(405).send('Method Not Allowed');
+      return;
+    }
+
+    const { level, partNumber, language, isDiagnostic } = req.body;
 
     // Validate input
     if (!['A1', 'B1', 'B2'].includes(level)) {
-      throw new functions.https.HttpsError('invalid-argument', 'Invalid level');
+      res.status(400).json({ error: 'Invalid level: ' + level });
+      return;
     }
 
-    if (!['de', 'en'].includes(language)) {
-      throw new functions.https.HttpsError('invalid-argument', 'Invalid language');
+    if (!['german', 'english'].includes(language)) {
+      res.status(400).json({ error: 'Invalid language: ' + language });
+      return;
     }
 
     if (![1, 2, 3].includes(partNumber)) {
-      throw new functions.https.HttpsError('invalid-argument', 'Invalid part number');
+      res.status(400).json({ error: 'Invalid part number: ' + partNumber });
+      return;
     }
 
     try {
-      const dialogue = await generateDialogueForPart(level, partNumber, language);
-      const dialogueId = `dialogue-${context.auth.uid}-${Date.now()}`;
+      // For diagnostic, generate unified dialogue
+      const dialogue = isDiagnostic 
+        ? await generateDiagnosticDialogue(level, language)
+        : await generateDialogueForPart(level, partNumber, language);
+      
+      const dialogueId = `dialogue-${Date.now()}`;
 
-      return {
+      res.status(200).json({
         dialogueId,
         dialogue,
         estimatedMinutes: calculateEstimatedTime(dialogue),
-      };
+      });
     } catch (error: any) {
       console.error('Error generating speaking dialogue:', error);
-      throw new functions.https.HttpsError(
-        'internal',
-        `Failed to generate dialogue: ${error.message}`
-      );
+      res.status(500).json({
+        error: 'Failed to generate dialogue',
+        message: error.message,
+      });
     }
   }
 );
@@ -77,11 +87,11 @@ export const generateSpeakingDialogue = functions.https.onCall(
  * Generate dialogue based on exam level and part
  */
 async function generateDialogueForPart(
-  level: 'A1' | 'B1' | 'B2',
+  level: ExamLevel,
   partNumber: number,
-  language: 'de' | 'en'
+  language: ExamLanguage
 ): Promise<SpeakingDialogueTurn[]> {
-  const examName = language === 'de' ? 'TELC German' : 'TELC English';
+  const examName = language === 'german' ? 'TELC German' : 'TELC English';
 
   // Part 1 is always personal introduction for all levels
   if (partNumber === 1) {
@@ -91,6 +101,7 @@ async function generateDialogueForPart(
   // For B1/B2, generate other parts using AI
   const prompt = buildPromptForPart(level, partNumber, language, examName);
   
+  const openai = getOpenAIClient();
   const completion = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     messages: [
@@ -112,14 +123,131 @@ async function generateDialogueForPart(
 }
 
 /**
+ * Generate unified diagnostic dialogue
+ * Combines quick personal introduction with level-appropriate tasks
+ */
+async function generateDiagnosticDialogue(
+  level: ExamLevel,
+  language: ExamLanguage
+): Promise<SpeakingDialogueTurn[]> {
+  const isGerman = language === 'german';
+  const examName = language === 'german' ? 'TELC German' : 'TELC English';
+  const lang = isGerman ? 'German' : 'English';
+
+  // Quick intro (2-3 questions) + task-based questions (4-6 exchanges)
+  const introQuestions = {
+    A1: isGerman ? [
+      { ai: 'Guten Tag! Wie heißt du?', expectedUser: 'Name introduction' },
+      { ai: 'Woher kommst du?', expectedUser: 'Country/city' },
+    ] : [
+      { ai: 'Hello! What is your name?', expectedUser: 'Name introduction' },
+      { ai: 'Where are you from?', expectedUser: 'Country/city' },
+    ],
+    B1: isGerman ? [
+      { ai: 'Guten Tag! Bitte stellen Sie sich kurz vor.', expectedUser: 'Brief introduction' },
+      { ai: 'Was machen Sie beruflich oder studieren Sie?', expectedUser: 'Work/study' },
+    ] : [
+      { ai: 'Good day! Please introduce yourself briefly.', expectedUser: 'Brief introduction' },
+      { ai: 'What do you do for work or are you studying?', expectedUser: 'Work/study' },
+    ],
+    B2: isGerman ? [
+      { ai: 'Guten Tag! Stellen Sie sich bitte vor.', expectedUser: 'Introduction' },
+      { ai: 'Was ist Ihr beruflicher Hintergrund?', expectedUser: 'Professional background' },
+    ] : [
+      { ai: 'Good day! Please introduce yourself.', expectedUser: 'Introduction' },
+      { ai: 'What is your professional background?', expectedUser: 'Professional background' },
+    ],
+  };
+
+  // Build intro turns
+  const dialogue: SpeakingDialogueTurn[] = [];
+  const selectedIntro = introQuestions[level as keyof typeof introQuestions];
+  
+  selectedIntro.forEach((q) => {
+    dialogue.push({
+      speaker: 'ai',
+      text: q.ai,
+      expectedResponse: q.expectedUser,
+    });
+    dialogue.push({
+      speaker: 'user',
+      text: '',
+      expectedResponse: q.expectedUser,
+    });
+  });
+
+  // Generate task-based portion using AI
+  const taskPrompt = buildDiagnosticTaskPrompt(level, language, lang, examName);
+  
+  const openai = getOpenAIClient();
+  const completion = await openai.chat.completions.create({
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `You are an expert ${examName} diagnostic assessment creator. Generate natural, level-appropriate speaking tasks.`,
+      },
+      {
+        role: 'user',
+        content: taskPrompt,
+      },
+    ],
+    temperature: 0.7,
+    max_tokens: 1000,
+  });
+
+  const responseText = completion.choices[0].message.content || '';
+  const taskTurns = parseDialogueFromAI(responseText);
+  
+  // Combine intro and task portions
+  return [...dialogue, ...taskTurns];
+}
+
+/**
+ * Build prompt for diagnostic task generation
+ */
+function buildDiagnosticTaskPrompt(
+  level: ExamLevel,
+  language: ExamLanguage,
+  lang: string,
+  examName: string
+): string {
+  const taskDescriptions = {
+    A1: 'simple everyday situations like ordering food, asking for directions, or talking about daily routines',
+    B1: 'planning a trip together, discussing hobbies and preferences, or sharing opinions about familiar topics',
+    B2: 'discussing a current event or complex topic, problem-solving scenarios, or expressing and defending opinions',
+  };
+
+  const exchanges = level === 'A1' ? '4-5' : level === 'B1' ? '5-6' : '5-6';
+
+  return `Generate ${exchanges} conversational exchanges in ${lang} for a ${examName} ${level} diagnostic speaking assessment.
+
+Context: The user has already introduced themselves. Now continue the conversation with ${taskDescriptions[level as keyof typeof taskDescriptions]}.
+
+Requirements:
+1. Create a smooth transition from the introduction
+2. Use ${level}-appropriate vocabulary and grammar
+3. Make it feel like a natural conversation, not an interrogation
+4. Include ${exchanges} complete exchanges (AI speaks, user responds)
+5. End with a brief closing statement from the AI examiner
+
+Format each turn as:
+[AI] The AI's question or statement in ${lang}
+[USER_EXPECTED] Brief description of expected response type
+[USER] (leave blank)
+
+Generate the dialogue now:`;
+}
+
+/**
  * Generate Part 1 dialogue (Personal Introduction)
  * This is standardized for all levels with difficulty variations
  */
 function generatePersonalIntroductionDialogue(
-  level: 'A1' | 'B1' | 'B2',
-  language: 'de' | 'en'
+  level: ExamLevel,
+  language: ExamLanguage
 ): SpeakingDialogueTurn[] {
-  const isGerman = language === 'de';
+  const isGerman = language === 'german';
 
   // Base questions adjusted by level
   const questions = {
@@ -164,7 +292,7 @@ function generatePersonalIntroductionDialogue(
     ],
   };
 
-  const selectedQuestions = questions[level];
+  const selectedQuestions = questions[level as keyof typeof questions];
   const dialogue: SpeakingDialogueTurn[] = [];
 
   // Build turn-based dialogue
@@ -193,12 +321,12 @@ function generatePersonalIntroductionDialogue(
  * Build prompt for AI to generate Part 2/3 dialogues
  */
 function buildPromptForPart(
-  level: 'A1' | 'B1' | 'B2',
+  level: ExamLevel,
   partNumber: number,
-  language: 'de' | 'en',
+  language: ExamLanguage,
   examName: string
 ): string {
-  const lang = language === 'de' ? 'German' : 'English';
+  const lang = language === 'german' ? 'German' : 'English';
   
   let partDescription = '';
   
