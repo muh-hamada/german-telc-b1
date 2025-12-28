@@ -158,11 +158,14 @@ class PrepPlanService {
     aiRecommendations?: string[]
   ): Promise<StudyPlan> {
     try {
+      // Normalize config - ensure examDate is a Date object
+      const normalizedConfig = this.normalizeConfig(config);
+
       const examLevel = activeExamConfig.level;
       const levelConfig = getPrepPlanConfig(examLevel);
 
       // Calculate time-related variables
-      const daysUntilExam = this.calculateDaysUntilExam(config.examDate);
+      const daysUntilExam = this.calculateDaysUntilExam(normalizedConfig.examDate);
       const weeksUntilExam = Math.ceil(daysUntilExam / 7);
       
       // Validate minimum time
@@ -175,8 +178,8 @@ class PrepPlanService {
       // Calculate total available study hours
       const totalStudyHours = this.calculateTotalStudyHours(
         daysUntilExam,
-        config.dailyStudyHours,
-        config.studyDaysPerWeek
+        normalizedConfig.dailyStudyHours,
+        normalizedConfig.studyDaysPerWeek
       );
 
       // Generate weekly goals
@@ -184,7 +187,7 @@ class PrepPlanService {
         weeksUntilExam,
         totalStudyHours,
         assessment,
-        config,
+        normalizedConfig,
         levelConfig
       );
 
@@ -203,13 +206,13 @@ class PrepPlanService {
         planId: `plan-${Date.now()}`,
         userId,
         examLevel,
-        config,
+        config: normalizedConfig,
         assessment,
         weeks,
         totalWeeks: weeksUntilExam,
         currentWeek: 1,
         startDate: new Date(),
-        endDate: config.examDate,
+        endDate: normalizedConfig.examDate,
         isActive: true,
         isPaused: false,
         progress: {
@@ -790,7 +793,7 @@ class PrepPlanService {
       // Try cache first
       const cached = await this.getCachedPlan();
       if (cached && cached.userId === userId && cached.isActive) {
-        return cached;
+        return this.ensurePlanIntegrity(cached);
       }
 
       // Fetch from Firestore
@@ -808,8 +811,10 @@ class PrepPlanService {
         return null;
       }
       
-      await this.cachePlan(plan);
-      return plan;
+      // Ensure plan has all required fields
+      const validPlan = this.ensurePlanIntegrity(plan);
+      await this.cachePlan(validPlan);
+      return validPlan;
     } catch (error) {
       console.error('[PrepPlanService] Error getting active plan:', error);
       return null;
@@ -817,13 +822,115 @@ class PrepPlanService {
   }
 
   /**
+   * Ensure plan has all required fields with proper defaults
+   * Fixes issues with plans that were created before certain fields existed
+   */
+  private ensurePlanIntegrity(plan: StudyPlan): StudyPlan {
+    // Initialize config if missing
+    if (!plan.config) {
+      console.warn('[PrepPlanService] Plan missing config object, initializing...');
+      const futureDate = new Date();
+      futureDate.setDate(futureDate.getDate() + 30); // Default 30 days from now
+      plan.config = {
+        examDate: futureDate,
+        dailyStudyHours: 2,
+        studyDaysPerWeek: 5,
+        studyDays: [true, true, true, true, true, false, false],
+        preferredStudyTime: 'flexible',
+        notificationsEnabled: true,
+        createdAt: Date.now(),
+        lastUpdated: Date.now(),
+      };
+    } else {
+      // Ensure config fields exist and have correct types
+      if (!plan.config.examDate) {
+        const futureDate = new Date();
+        futureDate.setDate(futureDate.getDate() + 30);
+        plan.config.examDate = futureDate;
+      } else if (typeof plan.config.examDate === 'string' || typeof plan.config.examDate === 'number') {
+        // Convert string/timestamp to Date object
+        plan.config.examDate = new Date(plan.config.examDate);
+      }
+      
+      if (!plan.config.dailyStudyHours) {
+        plan.config.dailyStudyHours = 2;
+      }
+      
+      if (!plan.config.studyDays) {
+        plan.config.studyDays = [true, true, true, true, true, false, false];
+      }
+      
+      if (!plan.config.studyDaysPerWeek) {
+        plan.config.studyDaysPerWeek = plan.config.studyDays.filter(d => d).length;
+      }
+    }
+
+    // Initialize progress if missing
+    if (!plan.progress) {
+      console.warn('[PrepPlanService] Plan missing progress object, initializing...');
+      plan.progress = {
+        totalTasks: 0,
+        completedTasks: 0,
+        totalStudyHours: 0,
+        completedStudyHours: 0,
+        currentStreak: 0,
+        longestStreak: 0,
+        lastStudyDate: null,
+        sectionProgress: [],
+        studySessions: [],
+        examReadinessScore: 0,
+      };
+    }
+
+    // Ensure weeks array exists
+    if (!plan.weeks) {
+      console.warn('[PrepPlanService] Plan missing weeks array, initializing...');
+      plan.weeks = [];
+    }
+
+    // Calculate progress from tasks if it's at 0
+    if (plan.progress.totalTasks === 0 && plan.weeks.length > 0) {
+      let totalTasks = 0;
+      let completedTasks = 0;
+      let totalEstimatedHours = 0;
+      let completedHours = 0;
+
+      plan.weeks.forEach(week => {
+        if (week.tasks) {
+          totalTasks += week.tasks.length;
+          completedTasks += week.tasks.filter(t => t.completed).length;
+          totalEstimatedHours += week.totalEstimatedHours || 0;
+          completedHours += week.completedHours || 0;
+        }
+      });
+
+      plan.progress.totalTasks = totalTasks;
+      plan.progress.completedTasks = completedTasks;
+      plan.progress.totalStudyHours = totalEstimatedHours;
+      plan.progress.completedStudyHours = completedHours;
+
+      console.log('[PrepPlanService] Recalculated progress:', {
+        totalTasks,
+        completedTasks,
+        totalEstimatedHours,
+        completedHours,
+      });
+    }
+
+    return plan;
+  }
+
+  /**
    * Save plan to Firestore
    */
   async savePlan(userId: string, plan: StudyPlan): Promise<void> {
     try {
+      // Sanitize plan to remove undefined values
+      const sanitizedPlan = this.sanitizePlanForFirestore(plan);
+
       const examId = activeExamConfig.id;
       const docPath = `users/${userId}/prep-plan/${examId}`;
-      await firestore().doc(docPath).set(plan);
+      await firestore().doc(docPath).set(sanitizedPlan);
     } catch (error) {
       console.error('[PrepPlanService] Error saving plan:', error);
       throw error;
@@ -1088,6 +1195,65 @@ class PrepPlanService {
     const now = new Date();
     const diff = examDate.getTime() - now.getTime();
     return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  }
+
+  /**
+   * Normalize config to ensure proper data types
+   * Converts serialized dates back to Date objects
+   */
+  private normalizeConfig(config: PrepPlanConfig): PrepPlanConfig {
+    const normalized = { ...config };
+    
+    // Ensure examDate is a Date object
+    if (typeof normalized.examDate === 'string' || typeof normalized.examDate === 'number') {
+      normalized.examDate = new Date(normalized.examDate);
+    } else if (!(normalized.examDate instanceof Date)) {
+      // If it's somehow undefined or invalid, set a default
+      const futureDate = new Date();
+      futureDate.setDate(futureDate.getDate() + 30);
+      normalized.examDate = futureDate;
+    }
+    
+    // Ensure other fields have defaults
+    if (!normalized.dailyStudyHours) {
+      normalized.dailyStudyHours = 2;
+    }
+    
+    if (!normalized.studyDays || !Array.isArray(normalized.studyDays)) {
+      normalized.studyDays = [true, true, true, true, true, false, false];
+    }
+    
+    if (!normalized.studyDaysPerWeek) {
+      normalized.studyDaysPerWeek = normalized.studyDays.filter(d => d).length;
+    }
+    
+    return normalized;
+  }
+
+  /**
+   * Sanitize plan object for Firestore
+   * Removes undefined values and converts dates to timestamps
+   */
+  private sanitizePlanForFirestore(plan: StudyPlan): any {
+    // Deep clone to avoid modifying original
+    const sanitized = JSON.parse(JSON.stringify(plan, (key, value) => {
+      // Convert Date objects to ISO strings for Firestore
+      if (value instanceof Date) {
+        return value.toISOString();
+      }
+      // Remove undefined values
+      if (value === undefined) {
+        return null; // Firestore accepts null but not undefined
+      }
+      return value;
+    }));
+    
+    // Remove null values from top-level optional fields
+    if (sanitized.aiInsights === null) {
+      delete sanitized.aiInsights;
+    }
+    
+    return sanitized;
   }
 
   /**

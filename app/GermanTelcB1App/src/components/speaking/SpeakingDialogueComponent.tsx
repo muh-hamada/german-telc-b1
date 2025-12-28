@@ -9,42 +9,51 @@ import {
   Alert,
   PermissionsAndroid,
   ScrollView,
+  Linking,
 } from 'react-native';
-import { Recorder } from '@react-native-community/audio-toolkit';
-import Sound from 'react-native-sound';
+import Sound from 'react-native-nitro-sound';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { SpeakingDialogueTurn, SpeakingEvaluation } from '../../types/prep-plan.types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { ExamLevel } from '../../config/exam-config.types';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];
+  currentTurnIndex: number; // Managed by parent
   onComplete: (evaluation: SpeakingEvaluation) => void;
   onTurnComplete: (turnIndex: number, audioUrl: string, transcription: string) => void;
-  level: 'A1' | 'B1' | 'B2';
+  onNextTurn: () => void; // Parent controls moving to next turn
+  level: ExamLevel;
 }
 
 export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps> = ({
   dialogue,
+  currentTurnIndex,
   onComplete,
   onTurnComplete,
+  onNextTurn,
   level,
 }) => {
   const { t } = useCustomTranslation();
-  const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [hasPermission, setHasPermission] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
-  const [userResponses, setUserResponses] = useState<Array<{
-    turnIndex: number;
-    audioUrl: string;
-    transcription: string;
-  }>>([]);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
-  const recorderRef = useRef<Recorder | null>(null);
-  const soundRef = useRef<Sound | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  // Debug logging
+  useEffect(() => {
+    console.log('[SpeakingDialogue] Props:', {
+      dialogueLength: dialogue.length,
+      currentTurnIndex,
+      currentTurnSpeaker: dialogue[currentTurnIndex]?.speaker,
+      currentTurnText: dialogue[currentTurnIndex]?.text,
+    });
+  }, [currentTurnIndex, dialogue]);
+
+  const soundPlayerRef = useRef<typeof Sound | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const currentTurn = dialogue[currentTurnIndex];
   const isUserTurn = currentTurn?.speaker === 'user';
@@ -55,17 +64,37 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     requestMicrophonePermission();
     return () => {
       // Cleanup
-      if (recorderRef.current) {
-        recorderRef.current.destroy();
-      }
-      if (soundRef.current) {
-        soundRef.current.release();
+      if (soundPlayerRef.current) {
+        Sound.stopPlayer();
       }
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
     };
   }, []);
+
+  // Call onComplete when dialogue is finished
+  useEffect(() => {
+    const isDialogueComplete = currentTurnIndex >= dialogue.length;
+    if (isDialogueComplete) {
+      // Create a mock evaluation for now (will be calculated by parent)
+      const mockEvaluation: SpeakingEvaluation = {
+        transcription: '',
+        scores: {
+          pronunciation: 0,
+          fluency: 0,
+          grammarAccuracy: 0,
+          vocabularyRange: 0,
+          contentRelevance: 0,
+        },
+        totalScore: 0,
+        feedback: '',
+        strengths: [],
+        areasToImprove: [],
+      };
+      onComplete(mockEvaluation);
+    }
+  }, [currentTurnIndex, dialogue.length, onComplete]);
 
   const requestMicrophonePermission = async () => {
     if (Platform.OS === 'android') {
@@ -80,7 +109,27 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
             buttonPositive: t('speaking.permissions.ok'),
           }
         );
-        setHasPermission(granted === PermissionsAndroid.RESULTS.GRANTED);
+        
+        const hasGranted = granted === PermissionsAndroid.RESULTS.GRANTED;
+        setHasPermission(hasGranted);
+        
+        // If permission was denied, show alert with option to open settings
+        if (!hasGranted) {
+          Alert.alert(
+            t('speaking.permissions.denied'),
+            t('speaking.permissions.deniedMessage'),
+            [
+              {
+                text: t('common.cancel'),
+                style: 'cancel'
+              },
+              {
+                text: t('settings.openSettings'),
+                onPress: () => Linking.openSettings()
+              }
+            ]
+          );
+        }
       } catch (err) {
         console.warn(err);
         setHasPermission(false);
@@ -101,138 +150,116 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     }
 
     try {
-      const filename = `speaking_${Date.now()}.m4a`;
+      console.log('[SpeakingDialogue] Starting recording...');
       
-      recorderRef.current = new Recorder(filename, {
-        bitrate: 256000,
-        channels: 2,
-        sampleRate: 44100,
-        quality: 'high',
-      });
-
-      recorderRef.current.prepare((err) => {
-        if (err) {
-          console.error('Recorder prepare error:', err);
-          Alert.alert(t('speaking.error'), t('speaking.recordingError'));
-          return;
-        }
-
-        recorderRef.current?.record((error) => {
-          if (error) {
-            console.error('Recording error:', error);
-            Alert.alert(t('speaking.error'), t('speaking.recordingError'));
-          }
-        });
+      // Start recording - returns file path
+      const audioPath = await Sound.startRecorder();
+      
+      console.log('[SpeakingDialogue] Recording started, path:', audioPath);
+      
+      // Add listener for recording duration updates
+      Sound.addRecordBackListener((e: any) => {
+        const seconds = Math.floor(e.currentPosition / 1000);
+        setRecordingDuration(seconds);
       });
 
       setIsRecording(true);
-      setRecordingDuration(0);
-
-      // Start timer
-      timerRef.current = setInterval(() => {
-        setRecordingDuration((prev) => prev + 1);
-      }, 1000);
 
     } catch (error) {
       console.error('Start recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
+      setIsRecording(false);
     }
   };
 
   const stopRecording = async () => {
     try {
-      if (!recorderRef.current) return;
+      console.log('[SpeakingDialogue] Stopping recording...');
+      
+      // Stop recording and get the file path
+      const audioPath = await Sound.stopRecorder();
+      
+      // Remove the listener
+      Sound.removeRecordBackListener();
+      
+      console.log('[SpeakingDialogue] Recording stopped, path:', audioPath);
+      
+      setIsRecording(false);
+      setRecordingDuration(0);
 
-      recorderRef.current.stop((err) => {
-        if (err) {
-          console.error('Stop recording error:', err);
-          Alert.alert(t('speaking.error'), t('speaking.recordingError'));
-          return;
-        }
-
-        const audioPath = recorderRef.current?.fsPath || '';
-        setIsRecording(false);
-        
-        if (timerRef.current) {
-          clearInterval(timerRef.current);
-          timerRef.current = null;
-        }
-
-        // Process the recording
+      // Process the recording
+      if (audioPath) {
         processRecording(audioPath);
-      });
+      } else {
+        Alert.alert(t('speaking.error'), t('speaking.recordingError'));
+      }
 
     } catch (error) {
       console.error('Stop recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
+      setIsRecording(false);
     }
   };
 
   const processRecording = async (audioPath: string) => {
     setIsProcessing(true);
+    setUploadProgress(0);
 
     try {
       // Call the onTurnComplete callback to upload and transcribe
-      // The parent component will handle the API calls
+      // The parent component will handle the API calls and state updates
       await onTurnComplete(currentTurnIndex, audioPath, '');
 
-      // Store response
-      setUserResponses(prev => [...prev, {
-        turnIndex: currentTurnIndex,
-        audioUrl: audioPath,
-        transcription: '', // Will be filled by parent
-      }]);
-
-      // Move to next turn
-      setTimeout(() => {
-        setIsProcessing(false);
-        setRecordingDuration(0);
-        setCurrentTurnIndex(prev => prev + 1);
-      }, 500);
-
-    } catch (error) {
-      console.error('Processing error:', error);
-      Alert.alert(t('speaking.error'), t('speaking.processingError'));
+      // Parent will update dialogue state and move to next turn
       setIsProcessing(false);
+      setUploadProgress(0);
+      setRecordingDuration(0);
+
+    } catch (error: any) {
+      console.error('Processing error:', error);
+      
+      // Show more specific error messages
+      let errorMessage = t('speaking.processingError');
+      if (error.message?.includes('timeout') || error.message?.includes('retry-limit')) {
+        errorMessage = t('speaking.uploadTimeout');
+      } else if (error.message?.includes('network')) {
+        errorMessage = t('speaking.networkError');
+      } else if (error.message?.includes('Permission denied')) {
+        errorMessage = t('speaking.permissionError');
+      }
+      
+      Alert.alert(t('speaking.error'), errorMessage);
+      setIsProcessing(false);
+      setUploadProgress(0);
     }
   };
 
   const playAIResponse = async () => {
-    if (!currentTurn || !currentTurn.aiAudioUrl) return;
+    if (!currentTurn || !currentTurn.audioUrl) return;
 
     setIsPlaying(true);
 
     try {
-      Sound.setCategory('Playback');
-
-      const sound = new Sound(currentTurn.aiAudioUrl, '', (error) => {
-        if (error) {
-          console.error('Sound loading error:', error);
-          setIsPlaying(false);
-          return;
-        }
-
-        sound.play((success) => {
-          if (success) {
-            console.log('AI response played successfully');
-          } else {
-            console.log('Playback failed');
-          }
-          setIsPlaying(false);
-          sound.release();
-        });
+      // Use nitro-sound for playback
+      await Sound.startPlayer(currentTurn.audioUrl);
+      
+      // Listen for playback end
+      Sound.addPlaybackEndListener(() => {
+        console.log('AI response played successfully');
+        setIsPlaying(false);
       });
 
-      soundRef.current = sound;
+      soundPlayerRef.current = Sound;
 
     } catch (error) {
       console.error('Play audio error:', error);
       setIsPlaying(false);
+      Alert.alert(t('speaking.error'), 'Failed to play audio');
     }
   };
 
   const handleNextAfterAI = () => {
-    setCurrentTurnIndex(prev => prev + 1);
+    onNextTurn();
   };
 
   const formatTime = (seconds: number): string => {
@@ -311,7 +338,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
           <Text style={styles.turnText}>{currentTurn?.text}</Text>
 
-          {!isUserTurn && currentTurn?.aiAudioUrl && (
+          {!isUserTurn && currentTurn?.audioUrl && (
             <TouchableOpacity
               style={[styles.playButton, isPlaying && styles.playButtonDisabled]}
               onPress={playAIResponse}
@@ -374,6 +401,21 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
               <Text style={styles.processingText}>
                 {t('speaking.processing')}
               </Text>
+              {uploadProgress > 0 && uploadProgress < 100 && (
+                <View style={styles.uploadProgressContainer}>
+                  <View style={styles.uploadProgressBar}>
+                    <View 
+                      style={[
+                        styles.uploadProgressFill, 
+                        { width: `${uploadProgress}%` }
+                      ]} 
+                    />
+                  </View>
+                  <Text style={styles.uploadProgressText}>
+                    {t('speaking.uploading')} {uploadProgress.toFixed(0)}%
+                  </Text>
+                </View>
+              )}
             </View>
           )}
         </View>
@@ -407,7 +449,9 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
               <Text style={styles.historyTurnSpeaker}>
                 {turn.speaker === 'user' ? t('speaking.you') : t('speaking.ai')}:
               </Text>
-              <Text style={styles.historyTurnText}>{turn.text}</Text>
+              <Text style={styles.historyTurnText}>
+                {turn.speaker === 'user' ? turn.transcription : turn.text}
+              </Text>
             </View>
           ))}
         </View>
@@ -653,6 +697,27 @@ const styles = StyleSheet.create({
   },
   loader: {
     marginTop: 24,
+  },
+  uploadProgressContainer: {
+    width: '100%',
+    marginTop: 16,
+  },
+  uploadProgressBar: {
+    height: 4,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 2,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  uploadProgressFill: {
+    height: '100%',
+    backgroundColor: '#667eea',
+    borderRadius: 2,
+  },
+  uploadProgressText: {
+    fontSize: 12,
+    color: '#666',
+    textAlign: 'center',
   },
 });
 

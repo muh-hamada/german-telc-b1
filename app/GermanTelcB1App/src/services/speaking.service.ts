@@ -14,6 +14,7 @@ import {
   SpeakingEvaluation,
 } from '../types/prep-plan.types';
 import { getActiveExamConfig } from '../config/active-exam.config';
+import { ExamLevel, ExamLanguage } from '../config/exam-config.types';
 
 class SpeakingService {
   /**
@@ -22,17 +23,19 @@ class SpeakingService {
    * 
    * @param level - Exam level (A1, B1, B2)
    * @param partNumber - Speaking part (1, 2, or 3)
+   * @param isTesting - If true, generates a short 2-turn dialogue for testing
    * @returns Speaking dialogue structure
    */
   async generateDialogue(
     level: 'A1' | 'B1' | 'B2',
-    partNumber: 1 | 2 | 3
+    partNumber: 1 | 2 | 3,
+    isTesting: boolean = false
   ): Promise<SpeakingAssessmentDialogue> {
     try {
       const activeExamConfig = getActiveExamConfig();
-      const language = activeExamConfig.language; // 'de' or 'en'
+      const language = activeExamConfig.language; // 'german' or 'english'
 
-      console.log('[SpeakingService] Generating dialogue...', { level, partNumber, language });
+      console.log('[SpeakingService] Generating dialogue...', { level, partNumber, language, isTesting });
 
       // Call Cloud Function
       const generateDialogueFn = functions().httpsCallable('generateSpeakingDialogue');
@@ -40,9 +43,16 @@ class SpeakingService {
         level,
         partNumber,
         language,
+        isTesting,
       });
 
-      const { dialogueId, dialogue, estimatedMinutes } = result.data;
+      console.log('[SpeakingService] Cloud Function returned, processing response...');
+
+      const { dialogueId, dialogue, estimatedMinutes } = result.data as {
+        dialogueId: string;
+        dialogue: any[];
+        estimatedMinutes: number;
+      };
 
       // Structure dialogue for app use
       const speakingDialogue: SpeakingAssessmentDialogue = {
@@ -85,7 +95,7 @@ class SpeakingService {
   ): Promise<SpeakingEvaluation> {
     try {
       const activeExamConfig = getActiveExamConfig();
-      const language = activeExamConfig.language;
+      const language = activeExamConfig.language; // 'german' or 'english'
 
       console.log('[SpeakingService] Evaluating response...', {
         audioUri,
@@ -113,7 +123,7 @@ class SpeakingService {
       const evaluation = result.data as any;
 
       // Map to our type structure
-      return {
+      const evaluationResult: SpeakingEvaluation = {
         transcription: evaluation.transcription,
         scores: {
           pronunciation: evaluation.pronunciation,
@@ -127,6 +137,22 @@ class SpeakingService {
         strengths: evaluation.strengths,
         areasToImprove: evaluation.areasToImprove,
       };
+
+      // Save evaluation to Firestore for later aggregation
+      await firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('speaking-evaluations')
+        .add({
+          dialogueId,
+          turnNumber,
+          ...evaluationResult,
+          createdAt: firestore.FieldValue.serverTimestamp(),
+        });
+
+      console.log('[SpeakingService] Evaluation saved to Firestore');
+
+      return evaluationResult;
     } catch (error: any) {
       console.error('[SpeakingService] Error evaluating response:', error);
       throw new Error(`Failed to evaluate response: ${error.message}`);
@@ -148,24 +174,95 @@ class SpeakingService {
     dialogueId: string,
     turnNumber: number
   ): Promise<string> {
+    const MAX_RETRIES = 3;
+    const MAX_FILE_SIZE_MB = 10; // 10MB limit for audio files
+    
     try {
       const filename = `turn-${turnNumber}.m4a`;
       const path = `users/${userId}/speaking-practice/${dialogueId}/${filename}`;
 
       console.log('[SpeakingService] Uploading audio...', { audioUri, path });
 
-      // Upload to Firebase Storage
+      // Validate file exists and size (optional, but good practice)
+      // Note: react-native-nitro-sound doesn't provide file size info directly
+      // We'll rely on Firebase Storage to handle this
+
+      // Upload to Firebase Storage with retry logic
       const reference = storage().ref(path);
-      await reference.putFile(audioUri);
+      
+      // Set metadata with longer timeout
+      const metadata = {
+        contentType: 'audio/m4a',
+        cacheControl: 'public, max-age=31536000', // 1 year
+      };
 
-      // Get download URL
-      const downloadUrl = await reference.getDownloadURL();
+      let lastError: any;
+      
+      for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        try {
+          console.log(`[SpeakingService] Upload attempt ${attempt}/${MAX_RETRIES}`);
+          
+          // Use putFile with metadata
+          const uploadTask = reference.putFile(audioUri, metadata);
+          
+          // Monitor upload progress (optional, but helpful for debugging)
+          uploadTask.on('state_changed', (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(`[SpeakingService] Upload progress: ${progress.toFixed(1)}%`);
+          });
 
-      console.log('[SpeakingService] Audio uploaded successfully:', downloadUrl);
+          // Wait for upload to complete
+          await uploadTask;
+          
+          console.log('[SpeakingService] Upload completed successfully');
+          
+          // Get download URL
+          const downloadUrl = await reference.getDownloadURL();
+          console.log('[SpeakingService] Download URL obtained:', downloadUrl);
 
-      return downloadUrl;
+          return downloadUrl;
+          
+        } catch (error: any) {
+          lastError = error;
+          console.error(`[SpeakingService] Upload attempt ${attempt} failed:`, error);
+          
+          // Check if it's a retry-limit error or network error
+          if (error.code === 'storage/retry-limit-exceeded' || 
+              error.code === 'storage/timeout' ||
+              error.message?.includes('timeout') ||
+              error.message?.includes('network')) {
+            
+            if (attempt < MAX_RETRIES) {
+              // Exponential backoff: wait 2^attempt seconds
+              const waitTime = Math.pow(2, attempt) * 1000;
+              console.log(`[SpeakingService] Waiting ${waitTime}ms before retry...`);
+              await new Promise(resolve => setTimeout(resolve, waitTime));
+              continue;
+            }
+          }
+          
+          // For other errors, don't retry
+          throw error;
+        }
+      }
+
+      // If we get here, all retries failed
+      throw lastError;
+
     } catch (error: any) {
       console.error('[SpeakingService] Error uploading audio:', error);
+      
+      // Provide more specific error messages
+      if (error.code === 'storage/retry-limit-exceeded' || error.message?.includes('retry-limit')) {
+        throw new Error('Upload timeout: Please check your internet connection and try again');
+      } else if (error.code === 'storage/unauthorized') {
+        throw new Error('Upload failed: Permission denied. Please check your login status');
+      } else if (error.code === 'storage/canceled') {
+        throw new Error('Upload was canceled');
+      } else if (error.code === 'storage/unknown' || error.message?.includes('network')) {
+        throw new Error('Upload failed: Network error. Please check your connection');
+      }
+      
       throw new Error(`Failed to upload audio: ${error.message}`);
     }
   }
@@ -176,13 +273,13 @@ class SpeakingService {
    * 
    * @param text - Text to convert to speech
    * @param level - Exam level (affects speaking speed)
-   * @param language - Language code ('de' or 'en')
+   * @param language - Language name ('german', 'english', etc.)
    * @returns URL to generated audio
    */
   async generateAIAudio(
     text: string,
-    level: 'A1' | 'B1' | 'B2',
-    language: 'de' | 'en'
+    level: ExamLevel,
+    language: ExamLanguage
   ): Promise<string> {
     try {
       // For now, return empty string - AI audio will be generated server-side

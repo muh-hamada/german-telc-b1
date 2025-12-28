@@ -90,7 +90,8 @@
       "sat": "Sa",
       "sun": "So"
     },
-    "skip": "Überspringen"
+    "skip": "Überspringen",
+    "loginRequired": "Anmeldung erforderlich"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",

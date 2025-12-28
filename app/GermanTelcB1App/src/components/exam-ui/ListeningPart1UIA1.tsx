@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import Sound from 'react-native-sound';
+import Sound from 'react-native-nitro-sound';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -48,17 +48,15 @@ const ListeningPart1UIA1: React.FC<ListeningPart1UIA1Props> = ({ exam, sectionDe
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const [sound, setSound] = useState<Sound | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     return () => {
-      if (sound) {
-        sound.release();
-      }
+      Sound.stopPlayer();
+      Sound.removePlayBackListener();
     };
-  }, [sound]);
+  }, []);
 
   const getInstructions = () => {
     const lang = i18n.language;
@@ -109,53 +107,43 @@ const ListeningPart1UIA1: React.FC<ListeningPart1UIA1Props> = ({ exam, sectionDe
   };
 
   const handlePlayAudio = async () => {
-    Sound.setCategory('Playback');
     setHasStarted(true);
     setIsPlaying(true);
     const startTs = Date.now();
     logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id });
 
-    // Use offline file if available
-    const audioPath = await offlineService.getLocalAudioPath(exam.audio_url);
-    console.log('[ListeningPart1A1] Playing audio from:', audioPath);
+    try {
+      // Use offline file if available
+      const audioPath = await offlineService.getLocalAudioPath(exam.audio_url);
+      console.log('[ListeningPart1A1] Playing audio from:', audioPath);
 
-    const audioSound = new Sound(
-      audioPath,
-      '',
-      (error: any) => {
-        if (error) {
-          console.error('Failed to load the sound', error);
-          Alert.alert(
-            t('listening.part1.audioError'),
-            t('listening.part1.audioErrorMessage'),
-            [{ text: 'OK' }]
-          );
-          setIsPlaying(false);
-          return;
+      // Add playback listener for progress tracking
+      Sound.addPlayBackListener((e: any) => {
+        if (e.currentPosition !== undefined && e.duration !== undefined) {
+          setCurrentTime(e.currentPosition / 1000);
+          setDuration(e.duration / 1000);
         }
+      });
 
-        audioSound.play((success: boolean) => {
-          if (success) {
-            logEvent(AnalyticsEvents.AUDIO_COMPLETED, { exam_id: exam.id, duration_ms: Date.now() - startTs });
-          } else {
-            console.log('Audio playback failed');
-          }
-          setIsPlaying(false);
-          audioSound.release();
-        });
+      // Add listener for playback completion
+      Sound.addPlaybackEndListener(() => {
+        console.log('Audio playback completed');
+        setIsPlaying(false);
+        logEvent(AnalyticsEvents.AUDIO_COMPLETED, { exam_id: exam.id, duration_ms: Date.now() - startTs });
+      });
 
-        const audioDuration = audioSound.getDuration();
-        setDuration(audioDuration);
+      // Start playback
+      await Sound.startPlayer(audioPath);
 
-        const interval = setInterval(() => {
-          audioSound.getCurrentTime((seconds: number) => {
-            setCurrentTime(seconds);
-          });
-        }, 1000);
-
-        setSound(audioSound);
-      }
-    );
+    } catch (error) {
+      console.error('Failed to load the sound', error);
+      Alert.alert(
+        t('listening.part1.audioError'),
+        t('listening.part1.audioErrorMessage'),
+        [{ text: 'OK' }]
+      );
+      setIsPlaying(false);
+    }
   };
 
   const handleSubmit = () => {

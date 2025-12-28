@@ -5,7 +5,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
-import Sound from 'react-native-sound';
+import Sound from 'react-native-nitro-sound';
 import { HomeStackParamList } from '../../types/navigation.types';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -29,7 +29,7 @@ const ListeningPracticeScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [sound, setSound] = useState<Sound | null>(null);
+  const [audioPath, setAudioPath] = useState<string | null>(null);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,111 +38,94 @@ const ListeningPracticeScreen: React.FC = () => {
   const isCompleted = userProgress?.exams?.some(e => e.examType === 'listening-practice' && e.examId === id && e.completed);
 
   useEffect(() => {
-    Sound.setCategory('Playback');
-
     if (!interview.audio_url) {
       Alert.alert('Error', 'Audio URL is missing');
       return;
     }
 
     let isMounted = true;
-    let newSound: Sound | null = null;
 
-    const loadSound = async () => {
+    const loadAudio = async () => {
       // Use offline file if available
-      const audioPath = await offlineService.getLocalAudioPath(interview.audio_url);
-      console.log('[ListeningPractice] Playing audio from:', audioPath);
+      const path = await offlineService.getLocalAudioPath(interview.audio_url);
+      console.log('[ListeningPractice] Audio path:', path);
 
-      if (!isMounted) return;
-
-      newSound = new Sound(audioPath, '', (error) => {
-        if (error) {
-          console.log('failed to load the sound', error);
-          Alert.alert('Error', 'Failed to load audio file');
-          return;
-        }
-        if (isMounted) {
-          setIsLoaded(true);
-          // newSound is not null here if successful
-          if (newSound) {
-            setDuration(newSound.getDuration());
-          }
-        }
-      });
-      
       if (isMounted) {
-        setSound(newSound);
+        setAudioPath(path);
+        setIsLoaded(true);
       }
     };
 
-    loadSound();
+    loadAudio();
+
+    // Add playback listener for progress tracking
+    Sound.addPlayBackListener((e: any) => {
+      if (e.currentPosition !== undefined && e.duration !== undefined) {
+        setCurrentTime(e.currentPosition / 1000);
+        setDuration(e.duration / 1000);
+      }
+    });
 
     return () => {
       isMounted = false;
-      if (newSound) {
-        newSound.release();
-      }
+      Sound.stopPlayer();
+      Sound.removePlayBackListener();
     };
   }, [interview.audio_url]);
 
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    if (isPlaying && sound) {
-      interval = setInterval(() => {
-        sound.getCurrentTime((seconds) => {
-          setCurrentTime(seconds);
+  const togglePlayback = async () => {
+    if (!audioPath || !isLoaded) return;
+
+    try {
+      if (isPlaying) {
+        await Sound.pausePlayer();
+        setIsPlaying(false);
+        logEvent(AnalyticsEvents.LISTENING_PRACTICE_PAUSED, {
+          title: interview.title,
+          id: id,
+          current_time: currentTime
         });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, sound]);
-
-  const togglePlayback = () => {
-    if (!sound) return;
-
-    if (isPlaying) {
-      sound.pause();
-      setIsPlaying(false);
-      logEvent(AnalyticsEvents.LISTENING_PRACTICE_PAUSED, {
-          title: interview.title,
-          id: id,
-          current_time: currentTime
-      });
-    } else {
-      sound.play((success) => {
-        if (success) {
-          setIsPlaying(false);
-          setCurrentTime(0);
-          logEvent(AnalyticsEvents.LISTENING_PRACTICE_COMPLETED, {
-              title: interview.title,
-              id: id,
-              duration: duration
-          });
+      } else {
+        if (currentTime === 0 || currentTime >= duration) {
+          // Start from beginning
+          await Sound.startPlayer(audioPath);
         } else {
-          console.log('playback failed due to audio decoding errors');
+          // Resume
+          await Sound.resumePlayer();
         }
-      });
-      setIsPlaying(true);
-      logEvent(AnalyticsEvents.LISTENING_PRACTICE_RESUMED, {
+        setIsPlaying(true);
+        logEvent(AnalyticsEvents.LISTENING_PRACTICE_RESUMED, {
           title: interview.title,
           id: id,
           current_time: currentTime
-      });
+        });
+      }
+    } catch (error) {
+      console.error('Playback error:', error);
+      setIsPlaying(false);
     }
   };
 
-  const skipBackward = () => {
-    if (!sound) return;
+  const skipBackward = async () => {
+    if (!audioPath || !isLoaded) return;
     const newTime = Math.max(0, currentTime - 10);
-    sound.setCurrentTime(newTime);
-    setCurrentTime(newTime);
+    try {
+      await Sound.seekToPlayer(newTime * 1000);
+      setCurrentTime(newTime);
+    } catch (error) {
+      console.error('Skip backward error:', error);
+    }
   };
 
-  const skipForward = () => {
-    if (!sound) return;
+  const skipForward = async () => {
+    if (!audioPath || !isLoaded) return;
     const newTime = Math.min(duration, currentTime + 10);
-    sound.setCurrentTime(newTime);
-    setCurrentTime(newTime);
+    try {
+      await Sound.seekToPlayer(newTime * 1000);
+      setCurrentTime(newTime);
+    } catch (error) {
+      console.error('Skip forward error:', error);
+    }
   };
 
   const formatTime = (seconds: number) => {
@@ -151,9 +134,9 @@ const ListeningPracticeScreen: React.FC = () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  const handleAssess = () => {
-    if (sound) {
-      sound.pause();
+  const handleAssess = async () => {
+    if (isPlaying) {
+      await Sound.pausePlayer();
       setIsPlaying(false);
     }
     logEvent(AnalyticsEvents.LISTENING_PRACTICE_ASSESSMENT_STARTED, {

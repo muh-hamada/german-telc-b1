@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions';
 import OpenAI from 'openai';
 import { getOpenAIKey } from './api-keys';
-import { ExamLanguage, ExamLevel } from '../../GermanTelcB1App/src/config/exam-config.types';
+import { ExamLanguage, ExamLevel } from './types';
 
 // Lazy-initialize OpenAI client to ensure environment variables are loaded
 let openaiClient: OpenAI | null = null;
@@ -19,6 +19,54 @@ interface SpeakingDialogueTurn {
   text: string;
   expectedResponse?: string; // For user turns, what kind of response is expected
   aiAudioUrl?: string; // Will be generated separately
+}
+
+/**
+ * Generate a short test dialogue for quick testing
+ */
+function generateTestDialogue(
+  level: ExamLevel,
+  language: ExamLanguage
+): SpeakingDialogueTurn[] {
+  const isGerman = language === 'german';
+  
+  const dialogue: SpeakingDialogueTurn[] = [];
+  
+  // AI greeting and first question
+  dialogue.push({
+    speaker: 'ai',
+    text: isGerman ? 'Guten Tag! Wie heißt du?' : 'Hello! What is your name?',
+    expectedResponse: 'Name introduction',
+  });
+  
+  // User response
+  dialogue.push({
+    speaker: 'user',
+    text: '',
+    expectedResponse: 'Name introduction',
+  });
+  
+  // AI second question
+  dialogue.push({
+    speaker: 'ai',
+    text: isGerman ? 'Woher kommst du?' : 'Where are you from?',
+    expectedResponse: 'Country/city',
+  });
+  
+  // User response
+  dialogue.push({
+    speaker: 'user',
+    text: '',
+    expectedResponse: 'Country/city',
+  });
+  
+  // AI closing
+  dialogue.push({
+    speaker: 'ai',
+    text: isGerman ? 'Vielen Dank!' : 'Thank you!',
+  });
+  
+  return dialogue;
 }
 
 /**
@@ -42,7 +90,15 @@ export const generateSpeakingDialogue = functions.https.onRequest(
       return;
     }
 
-    const { level, partNumber, language, isDiagnostic } = req.body;
+    const { level, partNumber, language, isDiagnostic, isTesting } = req.body;
+
+    console.log('[generateSpeakingDialogue] Request received:', {
+      level,
+      partNumber,
+      language,
+      isDiagnostic,
+      isTesting,
+    });
 
     // Validate input
     if (!['A1', 'B1', 'B2'].includes(level)) {
@@ -61,6 +117,26 @@ export const generateSpeakingDialogue = functions.https.onRequest(
     }
 
     try {
+      // For testing, return a short 2-turn dialogue
+      if (!isTesting) {
+        console.log('[generateSpeakingDialogue] Generating TEST dialogue');
+        const dialogue = generateTestDialogue(level, language);
+        const dialogueId = `dialogue-test-${Date.now()}`;
+        
+        console.log('[generateSpeakingDialogue] Test dialogue generated:', {
+          dialogueId,
+          turnsCount: dialogue.length,
+        });
+        
+        res.status(200).json({
+          dialogueId,
+          dialogue,
+          estimatedMinutes: 1,
+        });
+        return;
+      }
+      
+      console.log('[generateSpeakingDialogue] Generating FULL dialogue');
       // For diagnostic, generate unified dialogue
       const dialogue = isDiagnostic 
         ? await generateDiagnosticDialogue(level, language)

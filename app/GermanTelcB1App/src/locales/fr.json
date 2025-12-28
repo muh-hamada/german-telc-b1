@@ -90,7 +90,8 @@
       "sat": "Sam",
       "sun": "Dim"
     },
-    "skip": "Sauter"
+    "skip": "Sauter",
+    "loginRequired": "Connexion requise"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -962,6 +963,11 @@
         "example": "Exemple",
         "cards": "Cartes de pratique"
       }
+    },
+    "permissions": {
+      "required": "L'autorisation du microphone est requise pour la pratique orale",
+      "message": "Nous avons besoin d’accéder à votre microphone pour enregistrer votre pratique orale.",
+      "askLater": "Demandez-moi plus tard"
     }
   },
   "results": {

@@ -62,8 +62,16 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       });
 
       // Generate new dialogue
-      console.log('[SpeakingAssessmentScreen] Generating dialogue...');
-      const newDialogue = await speakingService.generateDialogue(level, partNumber);
+      const isTesting = __DEV__;
+      console.log('[SpeakingAssessmentScreen] Generating dialogue...', { isTesting });
+      const newDialogue = await speakingService.generateDialogue(level, partNumber, isTesting);
+      
+      console.log('[SpeakingAssessmentScreen] Dialogue generated:', {
+        dialogueId: newDialogue.dialogueId,
+        totalTurns: newDialogue.totalTurns,
+        currentTurn: newDialogue.currentTurn,
+        turnsLength: newDialogue.turns.length,
+      });
 
       setDialogue(newDialogue);
 
@@ -105,16 +113,18 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       console.log('[SpeakingAssessmentScreen] Turn evaluated:', evaluation);
 
-      // Update dialogue state
+      // Update dialogue state with transcription
       const updatedDialogue = {
         ...dialogue,
-        currentTurn: turnIndex + 1,
         turns: dialogue.turns.map((turn, idx) =>
           idx === turnIndex
-            ? { ...turn, userTranscription: evaluation.transcription }
+            ? { ...turn, transcription: evaluation.transcription, completed: true }
             : turn
         ),
       };
+
+      console.log('[SpeakingAssessmentScreen] Updated turn:', updatedDialogue.turns[turnIndex]);
+      console.log('[SpeakingAssessmentScreen] Updated dialogue currentTurn:', updatedDialogue.currentTurn);
 
       setDialogue(updatedDialogue);
 
@@ -126,11 +136,23 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         score: evaluation.totalScore,
       });
 
+      // Move to next turn after successful update
+      handleNextTurn();
+
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error processing turn:', error);
-      
+
       // Detect specific error types
-      if (error.code === 'network-request-failed' || error.message?.includes('network')) {
+      if (error.message?.includes('timeout') || error.message?.includes('retry-limit')) {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.uploadTimeout'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
+          ]
+        );
+      } else if (error.code === 'network-request-failed' || error.message?.includes('network')) {
         Alert.alert(
           t('speaking.error'),
           t('speaking.networkError'),
@@ -143,6 +165,11 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         Alert.alert(
           t('speaking.error'),
           t('speaking.audioError')
+        );
+      } else if (error.message?.includes('Permission denied')) {
+        Alert.alert(
+          t('speaking.error'),
+          t('speaking.permissionError')
         );
       } else if (error.code === 'functions/internal' || error.code === 'unavailable') {
         Alert.alert(
@@ -160,6 +187,22 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         );
       }
     }
+  };
+
+  const handleNextTurn = () => {
+    if (!dialogue) return;
+    
+    console.log('[SpeakingAssessmentScreen] Moving to next turn from:', dialogue.currentTurn);
+    
+    setDialogue(prev => {
+      if (!prev) return prev;
+      const newDialogue = {
+        ...prev,
+        currentTurn: prev.currentTurn + 1,
+      };
+      console.log('[SpeakingAssessmentScreen] New currentTurn:', newDialogue.currentTurn);
+      return newDialogue;
+    });
   };
 
   const handleDialogueComplete = async (evaluation: SpeakingEvaluation) => {
@@ -192,7 +235,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error completing dialogue:', error);
       setIsEvaluating(false);
-      
+
       // Detect specific error types
       if (error.code === 'network-request-failed' || error.message?.includes('network')) {
         Alert.alert(
@@ -360,12 +403,16 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       </View>
 
       {/* Dialogue Component */}
-      <SpeakingDialogueComponent
-        dialogue={dialogue.turns}
-        onComplete={handleDialogueComplete}
-        onTurnComplete={handleTurnComplete}
-        level={level}
-      />
+      {dialogue && (
+        <SpeakingDialogueComponent
+          dialogue={dialogue.turns}
+          currentTurnIndex={dialogue.currentTurn}
+          onComplete={handleDialogueComplete}
+          onTurnComplete={handleTurnComplete}
+          onNextTurn={handleNextTurn}
+          level={level}
+        />
+      )}
     </View>
   );
 };

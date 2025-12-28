@@ -75,6 +75,8 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
   const [sectionData, setSectionData] = useState<any>(null);
   const [isLoadingSection, setIsLoadingSection] = useState(false);
   const [speakingAudioPaths, setSpeakingAudioPaths] = useState<string[]>([]); // Store audio paths for batch upload
+  const [speakingCurrentTurn, setSpeakingCurrentTurn] = useState(0); // Track current speaking turn
+  const [preloadedSectionData, setPreloadedSectionData] = useState<Map<number, any>>(new Map()); // Cache for preloaded sections
 
   const examLevel = activeExamConfig.level;
   const levelConfig = getPrepPlanConfig(examLevel);
@@ -141,8 +143,8 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
                 setAnswers(savedProgress.answers);
                 setCurrentSectionIndex(savedProgress.currentSectionIndex);
                 
-                // Load the current section data
-                await loadSectionData(savedProgress.currentSectionIndex);
+                // Load the current section data, passing the exam directly
+                await loadSectionData(savedProgress.currentSectionIndex, exam);
               },
             },
           ]
@@ -170,8 +172,8 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
       examId: exam.examId,
     });
     
-    // Load first section data
-    await loadSectionData(0);
+    // Load first section data, passing the exam directly
+    await loadSectionData(0, exam);
   };
 
   const saveDiagnosticProgress = async () => {
@@ -191,45 +193,87 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
     }
   };
 
-  const loadSectionData = async (sectionIndex: number) => {
+  const loadSectionData = async (sectionIndex: number, exam?: DiagnosticExam, isPreload: boolean = false) => {
     if (sectionIndex >= enabledSections.length) return;
     
+    // Check if section is already preloaded
+    if (!isPreload && preloadedSectionData.has(sectionIndex)) {
+      console.log(`[DiagnosticAssessment] Using preloaded data for section ${sectionIndex}`);
+      setSectionData(preloadedSectionData.get(sectionIndex));
+      // Clear the preloaded data to free memory
+      setPreloadedSectionData(prev => {
+        const newMap = new Map(prev);
+        newMap.delete(sectionIndex);
+        return newMap;
+      });
+      
+      // Preload next section in background
+      if (sectionIndex + 1 < enabledSections.length) {
+        preloadNextSection(sectionIndex + 1, exam);
+      }
+      return;
+    }
+    
     const section = enabledSections[sectionIndex];
-    setIsLoadingSection(true);
+    const examToUse = exam || diagnosticExam;
+    
+    if (!examToUse) {
+      console.error('[DiagnosticAssessment] No exam available for loading section data');
+      if (!isPreload) {
+        Alert.alert(t('common.error'), t('prepPlan.diagnostic.examNotFound'));
+      }
+      return;
+    }
+    
+    if (!isPreload) {
+      setIsLoadingSection(true);
+    }
     
     try {
       let data = null;
       
       switch (section.sectionName) {
         case 'reading':
+          // Get the exam ID from the diagnostic exam
+          const readingExamId = examToUse?.sections.reading?.[0] || 1;
           if (examLevel === 'A1') {
-            const examId = diagnosticExam?.sections.reading?.[0] || 1;
-            data = await dataService.getReadingPart1A1ExamById(examId);
+            data = await dataService.getReadingPart1A1ExamById(readingExamId);
           } else {
-            const examId = diagnosticExam?.sections.reading?.[0] || 1;
-            data = await dataService.getReadingPart1ExamById(examId);
+            data = await dataService.getReadingPart1ExamById(readingExamId);
+          }
+          if (!data) {
+            console.error('[DiagnosticAssessment] Reading exam not found:', readingExamId);
+            throw new Error(`Reading exam ${readingExamId} not found`);
           }
           break;
         case 'listening':
-          if (examLevel === 'A1') {
-            const examId = diagnosticExam?.sections.listening?.[0] || 1;
-            const listeningData = await dataService.getListeningPart1Content();
-            data = listeningData.exams?.[examId - 1];
+          // Get the exam ID from the diagnostic exam
+          const examId = examToUse?.sections.listening?.[0] || 1;
+          // Fetch the listening exam data directly
+          const listeningData = await dataService.getListeningPart1Content();
+          // The data structure has exams array, get the exam by ID
+          if (listeningData?.exams && Array.isArray(listeningData.exams)) {
+            data = listeningData.exams.find((exam: any) => exam.id === examId) || listeningData.exams[0];
           } else {
-            const examId = diagnosticExam?.sections.listening?.[0] || 1;
-            const listeningData = await dataService.getListeningPart1Content();
-            data = listeningData.exams?.[examId - 1];
+            console.error('[DiagnosticAssessment] Invalid listening data structure:', listeningData);
+            throw new Error('Listening data not available');
+          }
+          if (!data) {
+            throw new Error(`Listening exam ${examId} not found`);
           }
           break;
         case 'grammar':
-          const grammarExamId = diagnosticExam?.sections.grammar?.[0] || 1;
+          const grammarExamId = examToUse?.sections.grammar?.[0] || 1;
           data = await dataService.getGrammarPart1Exam(grammarExamId);
+          if (!data) {
+            throw new Error(`Grammar exam ${grammarExamId} not found`);
+          }
           break;
         case 'writing':
           if (examLevel === 'A1') {
             // A1 has two writing parts - for diagnostic, we just use the single writing ID for both
-            const writingExamId = typeof diagnosticExam?.sections.writing === 'number' 
-              ? diagnosticExam.sections.writing 
+            const writingExamId = typeof examToUse?.sections.writing === 'number' 
+              ? examToUse.sections.writing 
               : 1;
             
             if (section.partNumber === 1) {
@@ -239,31 +283,90 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
             }
           } else {
             // B1/B2
-            Alert.alert('diagnosticExam', JSON.stringify(diagnosticExam));
-            const writingExamId = typeof diagnosticExam?.sections.writing === 'number'
-              ? diagnosticExam.sections.writing
+            const writingExamId = typeof examToUse?.sections.writing === 'number'
+              ? examToUse.sections.writing
               : 1;
             data = await dataService.getWritingExam(writingExamId);
+          }
+          if (!data) {
+            throw new Error('Writing exam not found');
           }
           break;
         case 'speaking':
           // For speaking, use the dialogue from the exam
-          if (diagnosticExam?.sections.speaking) {
-            data = diagnosticExam.sections.speaking;
+          if (examToUse?.sections.speaking) {
+            data = examToUse.sections.speaking;
           } else {
-            setSectionData({ placeholder: true });
+            console.warn('[DiagnosticAssessment] No speaking dialogue in exam, showing placeholder');
+            if (!isPreload) {
+              setSectionData({ placeholder: true });
+            }
             return;
           }
           break;
       }
       
-      setSectionData(data);
+      if (!data) {
+        throw new Error(`Failed to load ${section.sectionName} section data`);
+      }
+      
+      console.log(`[DiagnosticAssessment] Successfully loaded ${section.sectionName} data ${isPreload ? '(preloaded)' : ''}`);
+      
+      if (isPreload) {
+        // Store preloaded data
+        setPreloadedSectionData(prev => {
+          const newMap = new Map(prev);
+          newMap.set(sectionIndex, data);
+          return newMap;
+        });
+      } else {
+        setSectionData(data);
+        
+        // Preload next section in background
+        if (sectionIndex + 1 < enabledSections.length) {
+          preloadNextSection(sectionIndex + 1, examToUse);
+        }
+      }
     } catch (error) {
       console.error('[DiagnosticAssessment] Error loading section data:', error);
-      Alert.alert(t('common.error'), t('prepPlan.diagnostic.sectionLoadError'));
+      if (!isPreload) {
+        Alert.alert(
+          t('common.error'), 
+          t('prepPlan.diagnostic.sectionLoadError') + `: ${section.sectionName}`,
+          [
+            {
+              text: t('common.retry'),
+              onPress: () => loadSectionData(sectionIndex, exam, false),
+            },
+            {
+              text: t('common.skip'),
+              onPress: () => {
+                setSectionData({ placeholder: true });
+              },
+            },
+          ]
+        );
+      }
     } finally {
-      setIsLoadingSection(false);
+      if (!isPreload) {
+        setIsLoadingSection(false);
+      }
     }
+  };
+
+  /**
+   * Preload next section data in background to improve perceived performance
+   */
+  const preloadNextSection = async (sectionIndex: number, exam?: DiagnosticExam) => {
+    // Don't preload if already preloaded
+    if (preloadedSectionData.has(sectionIndex)) {
+      return;
+    }
+    
+    console.log(`[DiagnosticAssessment] Preloading section ${sectionIndex} in background...`);
+    
+    // Load with isPreload flag set to true (won't show loading state or errors)
+    await loadSectionData(sectionIndex, exam, true);
   };
 
   const handleSectionComplete = async (score: number, sectionAnswers: UserAnswer[]) => {
@@ -290,8 +393,11 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
 
     // Move to next section or complete
     if (currentSectionIndex < enabledSections.length - 1) {
-      setCurrentSectionIndex(currentSectionIndex + 1);
-      await loadSectionData(currentSectionIndex + 1);
+      const nextSectionIndex = currentSectionIndex + 1;
+      setCurrentSectionIndex(nextSectionIndex);
+      
+      // Load next section (will use preloaded data if available)
+      await loadSectionData(nextSectionIndex, diagnosticExam, false);
     } else {
       // All sections complete - evaluate
       await completeAssessment(updatedAnswers);
@@ -376,6 +482,21 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
           <Text style={styles.loadingText}>{t('prepPlan.diagnostic.loadingSection')}</Text>
         </View>
       );
+    }
+
+    // Debug logging for speaking section
+    if (currentSection.sectionName === 'speaking') {
+      console.log('[DiagnosticAssessment] Speaking section data:', {
+        hasDialogue: !!diagnosticExam?.sections.speaking,
+        dialogueId: diagnosticExam?.sections.speaking?.dialogueId,
+        totalTurns: diagnosticExam?.sections.speaking?.totalTurns,
+        currentTurn: diagnosticExam?.sections.speaking?.currentTurn,
+        turnsLength: diagnosticExam?.sections.speaking?.turns?.length,
+        sectionData,
+        sectionDataType: typeof sectionData,
+        hasPlaceholder: sectionData?.placeholder,
+        sectionDataKeys: sectionData ? Object.keys(sectionData) : []
+      });
     }
 
     // Check for placeholder data
@@ -481,7 +602,8 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
           return (
             <SpeakingDialogueComponent
               dialogue={sectionData.turns}
-              level={examLevel as 'A1' | 'B1' | 'B2'}
+              currentTurnIndex={speakingCurrentTurn}
+              level={examLevel}
               onTurnComplete={async (turnIndex, audioPath, transcription) => {
                 // Store audio path for later batch upload
                 setSpeakingAudioPaths(prev => {
@@ -490,6 +612,12 @@ const DiagnosticAssessmentScreen: React.FC<Props> = () => {
                   return updated;
                 });
                 console.log('[DiagnosticAssessment] Turn audio stored:', { turnIndex, audioPath });
+                
+                // Move to next turn (diagnostic doesn't evaluate immediately)
+                setSpeakingCurrentTurn(prev => prev + 1);
+              }}
+              onNextTurn={() => {
+                setSpeakingCurrentTurn(prev => prev + 1);
               }}
               onComplete={async (evaluation: SpeakingEvaluation) => {
                 if (!user) return;

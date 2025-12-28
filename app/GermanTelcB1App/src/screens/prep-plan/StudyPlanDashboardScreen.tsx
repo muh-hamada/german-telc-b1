@@ -212,11 +212,25 @@ const StudyPlanDashboardScreen: React.FC<Props> = () => {
     return null; // Will show alert and redirect
   }
 
+  // Safety checks for plan integrity
+  const safeProgress = plan.progress || {
+    totalTasks: 0,
+    completedTasks: 0,
+    totalStudyHours: 0,
+    completedStudyHours: 0,
+    currentStreak: 0,
+    longestStreak: 0,
+    lastStudyDate: null,
+    sectionProgress: [],
+    studySessions: [],
+    examReadinessScore: 0,
+  };
+
   const daysUntilExam = getDaysUntilExam();
-  const completionPercentage = Math.round(
-    (plan.progress.completedTasks / plan.progress.totalTasks) * 100
-  );
-  const currentWeek = plan.weeks[plan.currentWeek - 1];
+  const completionPercentage = safeProgress.totalTasks > 0 
+    ? Math.round((safeProgress.completedTasks / safeProgress.totalTasks) * 100)
+    : 0;
+  const currentWeek = plan.weeks && plan.weeks[plan.currentWeek - 1];
 
   return (
     <ScrollView
@@ -256,8 +270,8 @@ const StudyPlanDashboardScreen: React.FC<Props> = () => {
           </View>
           <Text style={styles.progressSubtitle}>
             {t('prepPlan.dashboard.tasksCompletedRatio', {
-              completed: plan.progress.completedTasks,
-              total: plan.progress.totalTasks
+              completed: safeProgress.completedTasks,
+              total: safeProgress.totalTasks
             })}
           </Text>
         </View>
@@ -267,13 +281,13 @@ const StudyPlanDashboardScreen: React.FC<Props> = () => {
       <View style={styles.statsRow}>
         <View style={styles.statCard}>
           <Icon name="local-fire-department" size={24} color="#FF6B35" />
-          <Text style={styles.statValue}>{plan.progress.currentStreak}</Text>
+          <Text style={styles.statValue}>{safeProgress.currentStreak}</Text>
           <Text style={styles.statLabel}>{t('prepPlan.dashboard.dayStreak')}</Text>
         </View>
         <View style={styles.statCard}>
           <Icon name="access-time" size={24} color={colors.primary[500]} />
           <Text style={styles.statValue}>
-            {Math.round(plan.progress.completedStudyHours)}
+            {Math.round(safeProgress.completedStudyHours)}
           </Text>
           <Text style={styles.statLabel}>{t('prepPlan.dashboard.hoursStudied')}</Text>
         </View>

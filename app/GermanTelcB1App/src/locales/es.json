@@ -90,7 +90,8 @@
       "sat": "Sáb",
       "sun": "Dom"
     },
-    "skip": "Saltar"
+    "skip": "Saltar",
+    "loginRequired": "Iniciar sesión requerido"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",

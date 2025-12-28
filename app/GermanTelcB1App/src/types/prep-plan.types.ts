@@ -225,10 +225,10 @@ export interface PrepPlanUpdateRequest {
 export interface SpeakingDialogueTurn {
   turnNumber: number;
   speaker: 'ai' | 'user';
-  text: string; // What should be said
+  text: string; // What should be said (for AI) or expected response context (for user)
   audioUrl?: string; // AI audio response
   userAudioUrl?: string; // User's recorded response
-  transcription?: string; // User's speech transcribed
+  transcription?: string; // User's actual transcribed speech (populated after evaluation)
   isQuestion: boolean; // Is this turn asking a question?
   completed: boolean;
   evaluatedAt?: number;
@@ -263,6 +263,7 @@ export interface SpeakingAssessmentDialogue {
   totalTurns: number;
   currentTurn: number;
   isComplete: boolean;
+  estimatedMinutes?: number; // Estimated time to complete
   evaluation?: SpeakingEvaluation;
   startedAt?: number;
   completedAt?: number;
@@ -279,7 +280,7 @@ export interface DiagnosticExam {
     listening?: number[]; // Array of question IDs
     grammar?: number[]; // Array of question IDs (B1/B2 only)
     writing: number; // Single writing task ID
-    speaking: SpeakingAssessmentDialogue; // Speaking dialogue
+    speaking?: SpeakingAssessmentDialogue; // Speaking dialogue
   };
   estimatedMinutes: number;
   createdAt: number;

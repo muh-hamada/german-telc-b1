@@ -5,8 +5,7 @@ import { getOpenAIKey } from './api-keys';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
-import { ExamLevel, ExamLanguage } from '../../GermanTelcB1App/src/config/exam-config.types';
-import { LANGUAGE_SHORT_CODES } from '../../GermanTelcB1App/src/utils/exam-variables';
+import { ExamLevel, ExamLanguage, LANGUAGE_SHORT_CODES } from './types';
 
 // Lazy-initialize OpenAI client to ensure environment variables are loaded
 let openaiClient: OpenAI | null = null;

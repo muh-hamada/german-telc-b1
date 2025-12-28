@@ -55,7 +55,6 @@ class DiagnosticService {
           listening: undefined,
           grammar: undefined,
           writing: 0, // Will be set below
-          speaking: {} as SpeakingAssessmentDialogue, // Will be generated
         },
         estimatedMinutes: levelConfig.assessmentTimeMinutes,
         createdAt: Date.now(),
@@ -258,16 +257,16 @@ class DiagnosticService {
    */
   private async selectRandomListeningQuestions(count: number): Promise<number[]> {
     try {
-      // Get all listening practice interviews
-      const allInterviews = await dataService.getListeningPracticeInterviews();
+      // Get listening part 1 exams (this has the exams array)
+      const listeningData = await dataService.getListeningPart1Content();
       
-      if (!allInterviews || allInterviews.length === 0) {
-        console.warn('[DiagnosticService] No listening interviews found, using fallback');
+      if (!listeningData?.exams || !Array.isArray(listeningData.exams) || listeningData.exams.length === 0) {
+        console.warn('[DiagnosticService] No listening exams found in listening-part1, using fallback');
         return [1];
       }
       
-      const selectedIndices = this.getRandomIndices(allInterviews.length, Math.min(count, allInterviews.length));
-      return selectedIndices.map(i => allInterviews[i].id);
+      const selectedIndices = this.getRandomIndices(listeningData.exams.length, Math.min(count, listeningData.exams.length));
+      return selectedIndices.map(i => listeningData.exams[i].id);
     } catch (error) {
       console.error('[DiagnosticService] Error selecting listening questions:', error);
       return [1];
@@ -400,7 +399,8 @@ class DiagnosticService {
             totalQuestions += exam.questions.length;
             exam.questions.forEach((q: any) => {
               const userAnswer = answers[`${examId}-${q.id}`];
-              if (userAnswer === q.is_correct) {
+              // For A1, is_correct is the correct answer (true/false)
+              if (userAnswer === q.is_correct || String(userAnswer) === String(q.is_correct)) {
                 correctCount++;
               }
             });
@@ -411,17 +411,22 @@ class DiagnosticService {
             totalQuestions += exam.texts.length;
             exam.texts.forEach((text: any) => {
               const userAnswer = answers[`${examId}-${text.id}`];
-              if (userAnswer === text.correct) {
+              // For B1/B2, correct field contains the correct answer
+              if (userAnswer === text.correct || String(userAnswer) === String(text.correct)) {
                 correctCount++;
               }
             });
           }
         }
+        
+        if (!exam) {
+          console.warn(`[DiagnosticService] Reading exam ${examId} not found`);
+        }
       }
       
       const maxScore = section.assessmentMaxPoints;
-      const score = Math.round((correctCount / totalQuestions) * maxScore);
-      const percentage = (score / maxScore) * 100;
+      const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * maxScore) : 0;
+      const percentage = maxScore > 0 ? (score / maxScore) * 100 : 0;
 
       return {
         sectionName: 'reading',
@@ -455,21 +460,39 @@ class DiagnosticService {
       let correctCount = 0;
       let totalQuestions = 0;
       
-      for (const interviewId of questionIds) {
-        const interview = await dataService.getListeningPracticeById(interviewId);
-        if (interview && interview.questions) {
-          totalQuestions += interview.questions.length;
-          interview.questions.forEach((q: any) => {
-            const userAnswer = answers[`${interviewId}-${q.id || q.question_id}`];
-            if (userAnswer === q.correct || userAnswer === q.is_correct) {
-              correctCount++;
-            }
-          });
+      // Fetch the listening exam data (listening-part1 has exams array)
+      const listeningData = await dataService.getListeningPart1Content();
+      
+      for (const examId of questionIds) {
+        // Find the exam by ID in the exams array
+        const exam = listeningData.exams?.find((e: any) => e.id === examId);
+        
+        if (exam) {
+          // Check if this is A1 (questions array) or B1/B2 (statements array)
+          const questionsOrStatements = exam.questions || exam.statements;
+          
+          if (questionsOrStatements && Array.isArray(questionsOrStatements)) {
+            totalQuestions += questionsOrStatements.length;
+            
+            questionsOrStatements.forEach((q: any) => {
+              // For A1: q.id and q.is_correct
+              // For B1/B2: statement.id and statement.is_correct
+              const questionId = q.id || q.question_id;
+              const userAnswer = answers[`${examId}-${questionId}`];
+              const correctAnswer = q.is_correct !== undefined ? q.is_correct : q.correct;
+              
+              if (userAnswer === correctAnswer || userAnswer === String(correctAnswer)) {
+                correctCount++;
+              }
+            });
+          }
+        } else {
+          console.warn(`[DiagnosticService] Listening exam ${examId} not found`);
         }
       }
       
       const maxScore = section.assessmentMaxPoints;
-      const score = Math.round((correctCount / totalQuestions) * maxScore);
+      const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * maxScore) : 0;
       const percentage = (score / maxScore) * 100;
 
       return {

@@ -14,6 +14,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Animated,
+  Alert,
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
@@ -22,7 +23,7 @@ import { useAppTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { prepPlanService } from '../../services/prep-plan.service';
-import { DiagnosticAssessment } from '../../types/prep-plan.types';
+import { DiagnosticAssessment, PrepPlanConfig } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HomeStackParamList } from '../../types/navigation.types';
 import { SkeletonLoader } from '../../components/SkeletonLoader';
@@ -80,21 +81,56 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
     try {
       setIsGeneratingPlan(true);
       
-      // Get onboarding config
-      const onboardingProgress = await prepPlanService.getOnboardingProgress();
-      if (!onboardingProgress?.config) {
-        console.error('[AssessmentResults] No onboarding config found');
+      // First check if there's already an active plan with config (from Firestore)
+      let config: PrepPlanConfig | null = null;
+      const existingPlan = await prepPlanService.getActivePlan(user.uid);
+      
+      if (existingPlan?.config) {
+        console.log('[AssessmentResults] Found existing plan config in Firestore');
+        config = existingPlan.config;
+      } else {
+        // Fall back to onboarding progress (from AsyncStorage)
+        const onboardingProgress = await prepPlanService.getOnboardingProgress();
+        if (onboardingProgress?.config) {
+          console.log('[AssessmentResults] Found onboarding config in AsyncStorage');
+          config = onboardingProgress.config;
+        }
+      }
+      
+      if (!config) {
+        console.error('[AssessmentResults] No config found in Firestore or AsyncStorage');
+        
+        // Show alert and redirect to onboarding to collect config
+        Alert.alert(
+          t('prepPlan.results.missingConfig'),
+          t('prepPlan.results.missingConfigDesc'),
+          [
+            { 
+              text: t('common.cancel'), 
+              style: 'cancel',
+              onPress: () => setIsGeneratingPlan(false)
+            },
+            { 
+              text: t('prepPlan.results.setupConfig'), 
+              onPress: () => {
+                setIsGeneratingPlan(false);
+                // Navigate to onboarding to collect config
+                navigation.navigate('PrepPlanOnboarding' as never);
+              }
+            }
+          ]
+        );
         return;
       }
       
       // Generate study plan
       const plan = await prepPlanService.generateStudyPlan(
         user.uid,
-        onboardingProgress.config,
+        config,
         assessment
       );
       
-      // Clear onboarding progress
+      // Clear onboarding progress (if any)
       await prepPlanService.clearOnboardingProgress();
       
       // Trigger haptic feedback for success
@@ -124,6 +160,13 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
       navigation.navigate('StudyPlanDashboard' as never);
     } catch (error) {
       console.error('[AssessmentResults] Error generating plan:', error);
+      
+      // Show user-friendly error
+      Alert.alert(
+        t('common.error'),
+        t('prepPlan.results.generateError'),
+        [{ text: t('common.ok') }]
+      );
     } finally {
       setIsGeneratingPlan(false);
     }

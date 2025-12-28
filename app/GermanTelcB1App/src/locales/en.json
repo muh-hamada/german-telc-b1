@@ -90,7 +90,8 @@
       "minutes": "{{count}} minute",
       "minutes_plural": "{{count}} minutes"
     },
-    "skip": "Skip"
+    "skip": "Skip",
+    "loginRequired": "Login Required"
   },
   "exam": {
     "selectExam": "Select Exam:",
@@ -286,6 +287,10 @@
       "weaknessNote": "Your study plan will focus {{percentage}}% of practice time on your weak areas",
       "generatePlan": "🎯 Generate My Study Plan",
       "generating": "Generating your plan...",
+      "missingConfig": "Setup Required",
+      "missingConfigDesc": "We need to know your exam date and study schedule to create your personalized plan. Would you like to set this up now?",
+      "setupConfig": "Setup Now",
+      "generateError": "Failed to generate your study plan. Please try again.",
       "level": {
         "beginner": "Beginner",
         "intermediate": "Intermediate",
@@ -934,6 +939,9 @@
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
     "processing": "Processing your response...",
+    "uploading": "Uploading",
+    "uploadTimeout": "Upload timeout. Please check your internet connection and try again.",
+    "permissionError": "Permission denied. Please check your login status and try again.",
     "playing": "Playing...",
     "playAudio": "Play Audio",
     "next": "Next",
@@ -941,6 +949,8 @@
     "complete": "Complete!",
     "evaluating": "Evaluating your performance...",
     "yourScore": "Your Score",
+    "scoreOutOf100": "Score: {{score}} / 100",
+    "finalScoreMessage": "Your total score is {{score}}. {{feedback}}",
     "pronunciation": "Pronunciation",
     "fluency": "Fluency",
     "grammar": "Grammar",
@@ -949,7 +959,14 @@
     "feedback": "Feedback",
     "strengths": "Strengths",
     "areasToImprove": "Areas to Improve",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "scoreRatio": {
+      "Pronunciation": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar": "{{score}} / {{max}}",
+      "Vocabulary": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}"
+    }
   },
   "results": {
     "title": "Exam Results",
