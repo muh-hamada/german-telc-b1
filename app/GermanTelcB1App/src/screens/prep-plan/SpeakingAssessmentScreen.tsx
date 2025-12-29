@@ -40,7 +40,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
   const activeExamConfig = getActiveExamConfig();
   const level = activeExamConfig.level as 'A1' | 'B1' | 'B2';
-  const partNumber = 1; // Start with Part 1 (Personal Introduction)
 
   useEffect(() => {
     loadOrGenerateDialogue();
@@ -58,13 +57,11 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       logEvent(AnalyticsEvents.SPEAKING_ASSESSMENT_STARTED, {
         level,
-        partNumber,
       });
 
       // Generate new dialogue
-      const isTesting = __DEV__;
-      console.log('[SpeakingAssessmentScreen] Generating dialogue...', { isTesting });
-      const newDialogue = await speakingService.generateDialogue(level, partNumber, isTesting);
+      console.log('[SpeakingAssessmentScreen] Generating dialogue...');
+      const newDialogue = await speakingService.generateDialogue(level);
       
       console.log('[SpeakingAssessmentScreen] Dialogue generated:', {
         dialogueId: newDialogue.dialogueId,
@@ -100,11 +97,13 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       console.log('[SpeakingAssessmentScreen] Processing turn...', { turnIndex });
 
       const currentTurn = dialogue.turns[turnIndex];
+      const previousAITurn = turnIndex > 0 ? dialogue.turns[turnIndex - 1] : null;
+      const context = currentTurn.text || previousAITurn?.text || 'Speaking practice';
 
       // Evaluate the user's response
       const evaluation = await speakingService.evaluateResponse(
         audioPath,
-        currentTurn.text,
+        context,
         level,
         user.uid,
         dialogue.dialogueId,
@@ -265,23 +264,18 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   };
 
   const showFinalResults = (evaluation: SpeakingEvaluation) => {
-    Alert.alert(
-      t('speaking.complete'),
-      t('speaking.finalScoreMessage', { score: evaluation.totalScore, feedback: evaluation.feedback }),
-      [
-        {
-          text: t('speaking.viewDetails'),
-          onPress: () => {
-            // Navigate to detailed results screen or show in modal
-            navigation.goBack();
-          },
+    if (!dialogue) return;
+    // Replace to prevent going back to this screen
+    navigation.reset({
+      index: 1, // Focus on the second route (AssessmentResults)
+      routes: [
+        { name: 'Home' as any },
+        { 
+          name: 'AssessmentResults' as any, 
+          params: { dialogueId: dialogue.dialogueId } 
         },
-        {
-          text: t('common.done'),
-          onPress: () => navigation.goBack(),
-        },
-      ]
-    );
+      ] as any,
+    });
   };
 
   if (isLoading) {
@@ -305,87 +299,13 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     );
   }
 
-  if (isEvaluating || finalEvaluation) {
+  if (isEvaluating) {
     return (
       <View style={styles.evaluatingContainer}>
         <Icon name="check-circle" size={80} color="#4CAF50" />
         <Text style={styles.evaluatingTitle}>{t('speaking.complete')}</Text>
-        {isEvaluating && (
-          <>
-            <ActivityIndicator size="large" color="#667eea" style={styles.loader} />
-            <Text style={styles.evaluatingText}>{t('speaking.evaluating')}</Text>
-          </>
-        )}
-        {finalEvaluation && (
-          <View style={styles.resultsContainer}>
-            <Text style={styles.scoreText}>
-              {t('speaking.scoreOutOf100', { score: finalEvaluation.totalScore })}
-            </Text>
-            <View style={styles.scoresBreakdown}>
-              <ScoreItem
-                label={t('speaking.pronunciation')}
-                score={finalEvaluation.scores.pronunciation}
-                maxScore={20}
-                t={t}
-              />
-              <ScoreItem
-                label={t('speaking.fluency')}
-                score={finalEvaluation.scores.fluency}
-                maxScore={20}
-                t={t}
-              />
-              <ScoreItem
-                label={t('speaking.grammar')}
-                score={finalEvaluation.scores.grammarAccuracy}
-                maxScore={20}
-                t={t}
-              />
-              <ScoreItem
-                label={t('speaking.vocabulary')}
-                score={finalEvaluation.scores.vocabularyRange}
-                maxScore={20}
-                t={t}
-              />
-              <ScoreItem
-                label={t('speaking.content')}
-                score={finalEvaluation.scores.contentRelevance}
-                maxScore={20}
-                t={t}
-              />
-            </View>
-            <Text style={styles.feedbackTitle}>{t('speaking.feedback')}</Text>
-            <Text style={styles.feedbackText}>{finalEvaluation.feedback}</Text>
-
-            {finalEvaluation.strengths.length > 0 && (
-              <>
-                <Text style={styles.sectionTitle}>{t('speaking.strengths')}</Text>
-                {finalEvaluation.strengths.map((strength, idx) => (
-                  <Text key={idx} style={styles.bulletPoint}>
-                    • {strength}
-                  </Text>
-                ))}
-              </>
-            )}
-
-            {finalEvaluation.areasToImprove.length > 0 && (
-              <>
-                <Text style={styles.sectionTitle}>{t('speaking.areasToImprove')}</Text>
-                {finalEvaluation.areasToImprove.map((area, idx) => (
-                  <Text key={idx} style={styles.bulletPoint}>
-                    • {area}
-                  </Text>
-                ))}
-              </>
-            )}
-
-            <TouchableOpacity
-              style={styles.doneButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Text style={styles.doneButtonText}>{t('common.done')}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
+        <ActivityIndicator size="large" color="#667eea" style={styles.loader} />
+        <Text style={styles.evaluatingText}>{t('speaking.evaluating')}</Text>
       </View>
     );
   }
@@ -395,10 +315,10 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
-          {t('speaking.part')} {partNumber}
+          {t('speaking.title')}
         </Text>
         <Text style={styles.headerSubtitle}>
-          {t('speaking.personalIntroduction')}
+          {t('speaking.unifiedDialogue')}
         </Text>
       </View>
 
@@ -417,7 +337,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   );
 };
 
-// Helper Component for Score Display
+// Helper Component for Score Display (Keeping for potential reuse, though results now show on separate screen)
 const ScoreItem: React.FC<{ label: string; score: number; maxScore: number, t: any }> = ({
   label,
   score,

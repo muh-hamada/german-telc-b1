@@ -19,10 +19,10 @@ import { ExamLevel } from '../../config/exam-config.types';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];
-  currentTurnIndex: number; // Managed by parent
+  currentTurnIndex: number;
   onComplete: (evaluation: SpeakingEvaluation) => void;
   onTurnComplete: (turnIndex: number, audioUrl: string, transcription: string) => void;
-  onNextTurn: () => void; // Parent controls moving to next turn
+  onNextTurn: () => void;
   level: ExamLevel;
 }
 
@@ -42,16 +42,6 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('[SpeakingDialogue] Props:', {
-      dialogueLength: dialogue.length,
-      currentTurnIndex,
-      currentTurnSpeaker: dialogue[currentTurnIndex]?.speaker,
-      currentTurnText: dialogue[currentTurnIndex]?.text,
-    });
-  }, [currentTurnIndex, dialogue]);
-
   const soundPlayerRef = useRef<typeof Sound | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -59,25 +49,22 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const isUserTurn = currentTurn?.speaker === 'user';
   const isDialogueComplete = currentTurnIndex >= dialogue.length;
 
-  // Request microphone permission
   useEffect(() => {
     requestMicrophonePermission();
     return () => {
-      // Cleanup
       if (soundPlayerRef.current) {
         Sound.stopPlayer();
       }
+      Sound.stopRecorder().catch(() => {});
+      Sound.removeRecordBackListener();
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
     };
   }, []);
 
-  // Call onComplete when dialogue is finished
   useEffect(() => {
-    const isDialogueComplete = currentTurnIndex >= dialogue.length;
-    if (isDialogueComplete) {
-      // Create a mock evaluation for now (will be calculated by parent)
+    if (currentTurnIndex >= dialogue.length) {
       const mockEvaluation: SpeakingEvaluation = {
         transcription: '',
         scores: {
@@ -109,62 +96,40 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
             buttonPositive: t('speaking.permissions.ok'),
           }
         );
-        
         const hasGranted = granted === PermissionsAndroid.RESULTS.GRANTED;
         setHasPermission(hasGranted);
-        
-        // If permission was denied, show alert with option to open settings
         if (!hasGranted) {
-          Alert.alert(
-            t('speaking.permissions.denied'),
-            t('speaking.permissions.deniedMessage'),
-            [
-              {
-                text: t('common.cancel'),
-                style: 'cancel'
-              },
-              {
-                text: t('settings.openSettings'),
-                onPress: () => Linking.openSettings()
-              }
-            ]
-          );
+          Alert.alert(t('speaking.permissions.denied'), t('speaking.permissions.deniedMessage'), [
+            { text: t('common.cancel'), style: 'cancel' },
+            { text: t('settings.openSettings'), onPress: () => Linking.openSettings() }
+          ]);
         }
       } catch (err) {
-        console.warn(err);
         setHasPermission(false);
       }
     } else {
-      // iOS permissions handled automatically
       setHasPermission(true);
     }
   };
 
   const startRecording = async () => {
     if (!hasPermission) {
-      Alert.alert(
-        t('speaking.permissions.denied'),
-        t('speaking.permissions.deniedMessage')
-      );
+      Alert.alert(t('speaking.permissions.denied'), t('speaking.permissions.deniedMessage'));
       return;
     }
 
     try {
       console.log('[SpeakingDialogue] Starting recording...');
-      
-      // Start recording - returns file path
+      await Sound.stopPlayer();
       const audioPath = await Sound.startRecorder();
-      
       console.log('[SpeakingDialogue] Recording started, path:', audioPath);
       
-      // Add listener for recording duration updates
       Sound.addRecordBackListener((e: any) => {
         const seconds = Math.floor(e.currentPosition / 1000);
         setRecordingDuration(seconds);
       });
 
       setIsRecording(true);
-
     } catch (error) {
       console.error('Start recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
@@ -174,26 +139,20 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   const stopRecording = async () => {
     try {
-      console.log('[SpeakingDialogue] Stopping recording...');
-      
-      // Stop recording and get the file path
+      console.log(`[SpeakingDialogue] Stopping recording... Duration: ${recordingDuration}s`);
       const audioPath = await Sound.stopRecorder();
-      
-      // Remove the listener
       Sound.removeRecordBackListener();
-      
-      console.log('[SpeakingDialogue] Recording stopped, path:', audioPath);
       
       setIsRecording(false);
       setRecordingDuration(0);
 
-      // Process the recording
+      await new Promise(resolve => setTimeout(resolve, 500));
+
       if (audioPath) {
         processRecording(audioPath);
       } else {
         Alert.alert(t('speaking.error'), t('speaking.recordingError'));
       }
-
     } catch (error) {
       console.error('Stop recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
@@ -204,30 +163,16 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const processRecording = async (audioPath: string) => {
     setIsProcessing(true);
     setUploadProgress(0);
-
     try {
-      // Call the onTurnComplete callback to upload and transcribe
-      // The parent component will handle the API calls and state updates
       await onTurnComplete(currentTurnIndex, audioPath, '');
-
-      // Parent will update dialogue state and move to next turn
       setIsProcessing(false);
       setUploadProgress(0);
       setRecordingDuration(0);
-
     } catch (error: any) {
       console.error('Processing error:', error);
-      
-      // Show more specific error messages
       let errorMessage = t('speaking.processingError');
-      if (error.message?.includes('timeout') || error.message?.includes('retry-limit')) {
-        errorMessage = t('speaking.uploadTimeout');
-      } else if (error.message?.includes('network')) {
-        errorMessage = t('speaking.networkError');
-      } else if (error.message?.includes('Permission denied')) {
-        errorMessage = t('speaking.permissionError');
-      }
-      
+      if (error.message?.includes('timeout')) errorMessage = t('speaking.uploadTimeout');
+      else if (error.message?.includes('network')) errorMessage = t('speaking.networkError');
       Alert.alert(t('speaking.error'), errorMessage);
       setIsProcessing(false);
       setUploadProgress(0);
@@ -236,30 +181,18 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   const playAIResponse = async () => {
     if (!currentTurn || !currentTurn.audioUrl) return;
-
     setIsPlaying(true);
-
     try {
-      // Use nitro-sound for playback
       await Sound.startPlayer(currentTurn.audioUrl);
-      
-      // Listen for playback end
       Sound.addPlaybackEndListener(() => {
-        console.log('AI response played successfully');
         setIsPlaying(false);
       });
-
       soundPlayerRef.current = Sound;
-
     } catch (error) {
       console.error('Play audio error:', error);
       setIsPlaying(false);
       Alert.alert(t('speaking.error'), 'Failed to play audio');
     }
-  };
-
-  const handleNextAfterAI = () => {
-    onNextTurn();
   };
 
   const formatTime = (seconds: number): string => {
@@ -272,16 +205,9 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     return (
       <View style={styles.container}>
         <Icon name="mic-off" size={64} color="#ccc" />
-        <Text style={styles.permissionText}>
-          {t('speaking.permissions.required')}
-        </Text>
-        <TouchableOpacity
-          style={styles.permissionButton}
-          onPress={requestMicrophonePermission}
-        >
-          <Text style={styles.permissionButtonText}>
-            {t('speaking.permissions.grant')}
-          </Text>
+        <Text style={styles.permissionText}>{t('speaking.permissions.required')}</Text>
+        <TouchableOpacity style={styles.permissionButton} onPress={requestMicrophonePermission}>
+          <Text style={styles.permissionButtonText}>{t('speaking.permissions.grant')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -291,12 +217,8 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     return (
       <View style={styles.container}>
         <Icon name="check-circle" size={64} color="#4CAF50" />
-        <Text style={styles.completeText}>
-          {t('speaking.complete')}
-        </Text>
-        <Text style={styles.completeSubtext}>
-          {t('speaking.evaluating')}
-        </Text>
+        <Text style={styles.completeText}>{t('speaking.complete')}</Text>
+        <Text style={styles.completeSubtext}>{t('speaking.evaluating')}</Text>
         <ActivityIndicator size="large" color="#667eea" style={styles.loader} />
       </View>
     );
@@ -304,154 +226,73 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      {/* Progress Indicator */}
       <View style={styles.progressContainer}>
-        <Text style={styles.progressText}>
-          {t('speaking.turn')} {currentTurnIndex + 1} / {dialogue.length}
-        </Text>
+        <Text style={styles.progressText}>{t('speaking.turn')} {currentTurnIndex + 1} / {dialogue.length}</Text>
         <View style={styles.progressBar}>
-          <View
-            style={[
-              styles.progressFill,
-              { width: `${((currentTurnIndex + 1) / dialogue.length) * 100}%` },
-            ]}
-          />
+          <View style={[styles.progressFill, { width: `${((currentTurnIndex + 1) / dialogue.length) * 100}%` }]} />
         </View>
       </View>
 
-      {/* Current Turn Display */}
       <View style={styles.turnContainer}>
-        <View style={[
-          styles.turnCard,
-          isUserTurn ? styles.userTurnCard : styles.aiTurnCard,
-        ]}>
+        <View style={[styles.turnCard, isUserTurn ? styles.userTurnCard : styles.aiTurnCard]}>
           <View style={styles.turnHeader}>
-            <Icon
-              name={isUserTurn ? "person" : "psychology"}
-              size={24}
-              color={isUserTurn ? "#667eea" : "#4facfe"}
-            />
-            <Text style={styles.turnSpeaker}>
-              {isUserTurn ? t('speaking.you') : t('speaking.ai')}
-            </Text>
+            <Icon name={isUserTurn ? "person" : "psychology"} size={24} color={isUserTurn ? "#667eea" : "#4facfe"} />
+            <Text style={styles.turnSpeaker}>{isUserTurn ? t('speaking.you') : t('speaking.ai')}</Text>
           </View>
-
           <Text style={styles.turnText}>{currentTurn?.text}</Text>
-
           {!isUserTurn && currentTurn?.audioUrl && (
-            <TouchableOpacity
-              style={[styles.playButton, isPlaying && styles.playButtonDisabled]}
-              onPress={playAIResponse}
-              disabled={isPlaying}
-            >
-              <Icon
-                name={isPlaying ? "volume-up" : "play-arrow"}
-                size={24}
-                color="#fff"
-              />
-              <Text style={styles.playButtonText}>
-                {isPlaying ? t('speaking.playing') : t('speaking.playAudio')}
-              </Text>
+            <TouchableOpacity style={[styles.playButton, isPlaying && styles.playButtonDisabled]} onPress={playAIResponse} disabled={isPlaying}>
+              <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={24} color="#fff" />
+              <Text style={styles.playButtonText}>{isPlaying ? t('speaking.playing') : t('speaking.playAudio')}</Text>
             </TouchableOpacity>
           )}
         </View>
       </View>
 
-      {/* Recording Controls */}
       {isUserTurn && (
         <View style={styles.recordingControls}>
           {!isRecording && !isProcessing && (
-            <TouchableOpacity
-              style={styles.recordButton}
-              onPress={startRecording}
-            >
+            <TouchableOpacity style={styles.recordButton} onPress={startRecording}>
               <Icon name="mic" size={32} color="#fff" />
-              <Text style={styles.recordButtonText}>
-                {t('speaking.startRecording')}
-              </Text>
+              <Text style={styles.recordButtonText}>{t('speaking.startRecording')}</Text>
             </TouchableOpacity>
           )}
-
           {isRecording && (
             <View style={styles.recordingActive}>
               <View style={styles.recordingIndicator}>
                 <View style={styles.recordingDot} />
-                <Text style={styles.recordingText}>
-                  {t('speaking.recording')}
-                </Text>
+                <Text style={styles.recordingText}>{t('speaking.recording')}</Text>
               </View>
-              <Text style={styles.recordingTime}>
-                {formatTime(recordingDuration)}
-              </Text>
-              <TouchableOpacity
-                style={styles.stopButton}
-                onPress={stopRecording}
-              >
+              <Text style={styles.recordingTime}>{formatTime(recordingDuration)}</Text>
+              <TouchableOpacity style={styles.stopButton} onPress={stopRecording}>
                 <Icon name="stop" size={32} color="#fff" />
-                <Text style={styles.stopButtonText}>
-                  {t('speaking.stopRecording')}
-                </Text>
+                <Text style={styles.stopButtonText}>{t('speaking.stopRecording')}</Text>
               </TouchableOpacity>
             </View>
           )}
-
           {isProcessing && (
             <View style={styles.processingContainer}>
               <ActivityIndicator size="large" color="#667eea" />
-              <Text style={styles.processingText}>
-                {t('speaking.processing')}
-              </Text>
-              {uploadProgress > 0 && uploadProgress < 100 && (
-                <View style={styles.uploadProgressContainer}>
-                  <View style={styles.uploadProgressBar}>
-                    <View 
-                      style={[
-                        styles.uploadProgressFill, 
-                        { width: `${uploadProgress}%` }
-                      ]} 
-                    />
-                  </View>
-                  <Text style={styles.uploadProgressText}>
-                    {t('speaking.uploading')} {uploadProgress.toFixed(0)}%
-                  </Text>
-                </View>
-              )}
+              <Text style={styles.processingText}>{t('speaking.processing')}</Text>
             </View>
           )}
         </View>
       )}
 
-      {/* Next Button for AI Turns */}
       {!isUserTurn && (
-        <TouchableOpacity
-          style={styles.nextButton}
-          onPress={handleNextAfterAI}
-        >
-          <Text style={styles.nextButtonText}>
-            {t('speaking.next')}
-          </Text>
+        <TouchableOpacity style={styles.nextButton} onPress={onNextTurn}>
+          <Text style={styles.nextButtonText}>{t('speaking.next')}</Text>
           <Icon name="arrow-forward" size={20} color="#fff" />
         </TouchableOpacity>
       )}
 
-      {/* Previous Turns (for context) */}
       {currentTurnIndex > 0 && (
         <View style={styles.historyContainer}>
           <Text style={styles.historyTitle}>{t('speaking.previousTurns')}</Text>
           {dialogue.slice(Math.max(0, currentTurnIndex - 3), currentTurnIndex).map((turn, index) => (
-            <View
-              key={index}
-              style={[
-                styles.historyTurn,
-                turn.speaker === 'user' ? styles.historyUserTurn : styles.historyAiTurn,
-              ]}
-            >
-              <Text style={styles.historyTurnSpeaker}>
-                {turn.speaker === 'user' ? t('speaking.you') : t('speaking.ai')}:
-              </Text>
-              <Text style={styles.historyTurnText}>
-                {turn.speaker === 'user' ? turn.transcription : turn.text}
-              </Text>
+            <View key={index} style={[styles.historyTurn, turn.speaker === 'user' ? styles.historyUserTurn : styles.historyAiTurn]}>
+              <Text style={styles.historyTurnSpeaker}>{turn.speaker === 'user' ? t('speaking.you') : t('speaking.ai')}:</Text>
+              <Text style={styles.historyTurnText}>{turn.speaker === 'user' ? turn.transcription : turn.text}</Text>
             </View>
           ))}
         </View>
@@ -461,263 +302,47 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  contentContainer: {
-    padding: 16,
-  },
-  progressContainer: {
-    marginBottom: 20,
-  },
-  progressText: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  progressBar: {
-    height: 4,
-    backgroundColor: '#e0e0e0',
-    borderRadius: 2,
-    overflow: 'hidden',
-  },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#667eea',
-    borderRadius: 2,
-  },
-  turnContainer: {
-    marginBottom: 24,
-  },
-  turnCard: {
-    padding: 16,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  userTurnCard: {
-    backgroundColor: '#fff',
-    borderLeftWidth: 4,
-    borderLeftColor: '#667eea',
-  },
-  aiTurnCard: {
-    backgroundColor: '#fff',
-    borderLeftWidth: 4,
-    borderLeftColor: '#4facfe',
-  },
-  turnHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  turnSpeaker: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 8,
-    color: '#333',
-  },
-  turnText: {
-    fontSize: 16,
-    color: '#333',
-    lineHeight: 24,
-  },
-  playButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#4facfe',
-    padding: 12,
-    borderRadius: 8,
-    marginTop: 12,
-  },
-  playButtonDisabled: {
-    opacity: 0.6,
-  },
-  playButtonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 8,
-  },
-  recordingControls: {
-    marginBottom: 24,
-  },
-  recordButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e74c3c',
-    padding: 20,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-  recordButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 12,
-  },
-  recordingActive: {
-    alignItems: 'center',
-  },
-  recordingIndicator: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  recordingDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: '#e74c3c',
-    marginRight: 8,
-  },
-  recordingText: {
-    fontSize: 16,
-    color: '#e74c3c',
-    fontWeight: '600',
-  },
-  recordingTime: {
-    fontSize: 32,
-    fontWeight: '700',
-    color: '#333',
-    marginBottom: 16,
-  },
-  stopButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e74c3c',
-    padding: 20,
-    borderRadius: 12,
-    width: '100%',
-  },
-  stopButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 12,
-  },
-  processingContainer: {
-    alignItems: 'center',
-    padding: 24,
-  },
-  processingText: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 12,
-  },
-  nextButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#667eea',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 24,
-  },
-  nextButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-    marginRight: 8,
-  },
-  historyContainer: {
-    marginTop: 24,
-    padding: 16,
-    backgroundColor: '#fff',
-    borderRadius: 12,
-  },
-  historyTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#666',
-    marginBottom: 12,
-  },
-  historyTurn: {
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-  },
-  historyUserTurn: {
-    backgroundColor: '#f0f0ff',
-  },
-  historyAiTurn: {
-    backgroundColor: '#f0f8ff',
-  },
-  historyTurnSpeaker: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#666',
-    marginBottom: 4,
-  },
-  historyTurnText: {
-    fontSize: 14,
-    color: '#333',
-  },
-  permissionText: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginTop: 16,
-    marginBottom: 24,
-  },
-  permissionButton: {
-    backgroundColor: '#667eea',
-    padding: 16,
-    borderRadius: 8,
-    paddingHorizontal: 32,
-  },
-  permissionButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  completeText: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#333',
-    marginTop: 16,
-    textAlign: 'center',
-  },
-  completeSubtext: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 8,
-    textAlign: 'center',
-  },
-  loader: {
-    marginTop: 24,
-  },
-  uploadProgressContainer: {
-    width: '100%',
-    marginTop: 16,
-  },
-  uploadProgressBar: {
-    height: 4,
-    backgroundColor: '#e0e0e0',
-    borderRadius: 2,
-    overflow: 'hidden',
-    marginBottom: 8,
-  },
-  uploadProgressFill: {
-    height: '100%',
-    backgroundColor: '#667eea',
-    borderRadius: 2,
-  },
-  uploadProgressText: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-  },
+  container: { flex: 1, backgroundColor: '#f5f5f5' },
+  contentContainer: { padding: 16 },
+  progressContainer: { marginBottom: 20 },
+  progressText: { fontSize: 14, color: '#666', marginBottom: 8, textAlign: 'center' },
+  progressBar: { height: 4, backgroundColor: '#e0e0e0', borderRadius: 2, overflow: 'hidden' },
+  progressFill: { height: '100%', backgroundColor: '#667eea', borderRadius: 2 },
+  turnContainer: { marginBottom: 24 },
+  turnCard: { padding: 16, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4, elevation: 3 },
+  userTurnCard: { backgroundColor: '#fff', borderLeftWidth: 4, borderLeftColor: '#667eea' },
+  aiTurnCard: { backgroundColor: '#fff', borderLeftWidth: 4, borderLeftColor: '#4facfe' },
+  turnHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
+  turnSpeaker: { fontSize: 16, fontWeight: '600', marginLeft: 8, color: '#333' },
+  turnText: { fontSize: 16, color: '#333', lineHeight: 24 },
+  playButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#4facfe', padding: 12, borderRadius: 8, marginTop: 12 },
+  playButtonDisabled: { opacity: 0.6 },
+  playButtonText: { color: '#fff', fontSize: 14, fontWeight: '600', marginLeft: 8 },
+  recordingControls: { marginBottom: 24 },
+  recordButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#e74c3c', padding: 20, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 4, elevation: 4 },
+  recordButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginLeft: 12 },
+  recordingActive: { alignItems: 'center' },
+  recordingIndicator: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
+  recordingDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: '#e74c3c', marginRight: 8 },
+  recordingText: { fontSize: 16, color: '#e74c3c', fontWeight: '600' },
+  recordingTime: { fontSize: 32, fontWeight: '700', color: '#333', marginBottom: 16 },
+  stopButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#e74c3c', padding: 20, borderRadius: 12, width: '100%' },
+  stopButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginLeft: 12 },
+  processingContainer: { alignItems: 'center', padding: 24 },
+  processingText: { fontSize: 14, color: '#666', marginTop: 12 },
+  nextButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#667eea', padding: 16, borderRadius: 12, marginBottom: 24 },
+  nextButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginRight: 8 },
+  historyContainer: { marginTop: 24, padding: 16, backgroundColor: '#fff', borderRadius: 12 },
+  historyTitle: { fontSize: 14, fontWeight: '600', color: '#666', marginBottom: 12 },
+  historyTurn: { padding: 12, borderRadius: 8, marginBottom: 8 },
+  historyUserTurn: { backgroundColor: '#f0f0ff' },
+  historyAiTurn: { backgroundColor: '#f0f8ff' },
+  historyTurnSpeaker: { fontSize: 12, fontWeight: '600', color: '#666', marginBottom: 4 },
+  historyTurnText: { fontSize: 14, color: '#333' },
+  permissionText: { fontSize: 16, color: '#666', textAlign: 'center', marginTop: 16, marginBottom: 24 },
+  permissionButton: { backgroundColor: '#667eea', padding: 16, borderRadius: 8, paddingHorizontal: 32 },
+  permissionButtonText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  completeText: { fontSize: 24, fontWeight: '700', color: '#333', marginTop: 16, textAlign: 'center' },
+  completeSubtext: { fontSize: 16, color: '#666', marginTop: 8, textAlign: 'center' },
+  loader: { marginTop: 24 },
 });
-

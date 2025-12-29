@@ -64,15 +64,9 @@ export type HomeStackParamList = {
   VocabularyReview: undefined;
   VocabularyProgress: undefined;
   VocabularyStudiedList: undefined;
-  // Prep Plan Routes
-  PrepPlanOnboarding: undefined;
-  DiagnosticAssessment: { examId?: string };
-  AssessmentResults: { assessmentId: string };
-  SpeakingAssessment: { dialogueId: string };
-  StudyPlanDashboard: undefined;
-  WeeklyPlan: { weekNumber: number };
-  PrepPlanProgress: undefined;
-  PrepPlanSettings: undefined;
+  // Speaking Assessment Routes
+  SpeakingAssessment: { dialogueId?: string };
+  AssessmentResults: { assessmentId?: string; dialogueId?: string };
 };
 
 // Profile Stack Navigator

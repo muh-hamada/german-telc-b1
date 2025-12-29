@@ -7,7 +7,9 @@
 
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
-import functions from '@react-native-firebase/functions';
+import axios from 'axios';
+import { Platform } from 'react-native';
+import RNFS from 'react-native-fs';
 import {
   SpeakingAssessmentDialogue,
   SpeakingDialogueTurn,
@@ -16,39 +18,37 @@ import {
 import { getActiveExamConfig } from '../config/active-exam.config';
 import { ExamLevel, ExamLanguage } from '../config/exam-config.types';
 
+const IS_DEV = __DEV__;
+const testPath = (Platform.OS === 'android' ? 'http://10.0.2.2' : 'http://localhost') + ':5001/telc-b1-german/us-central1';
+const CLOUD_FUNCTIONS_BASE_URL = IS_DEV ? testPath : 'https://us-central1-telc-b1-german.cloudfunctions.net';
+
 class SpeakingService {
   /**
    * Generate a speaking dialogue for assessment or practice
    * Calls Cloud Function to generate AI-powered dialogue
    * 
    * @param level - Exam level (A1, B1, B2)
-   * @param partNumber - Speaking part (1, 2, or 3)
    * @param isTesting - If true, generates a short 2-turn dialogue for testing
    * @returns Speaking dialogue structure
    */
   async generateDialogue(
-    level: 'A1' | 'B1' | 'B2',
-    partNumber: 1 | 2 | 3,
-    isTesting: boolean = false
+    level: 'A1' | 'B1' | 'B2'
   ): Promise<SpeakingAssessmentDialogue> {
     try {
       const activeExamConfig = getActiveExamConfig();
       const language = activeExamConfig.language; // 'german' or 'english'
 
-      console.log('[SpeakingService] Generating dialogue...', { level, partNumber, language, isTesting });
+      console.log('[SpeakingService] Generating dialogue...', { level, language });
 
-      // Call Cloud Function
-      const generateDialogueFn = functions().httpsCallable('generateSpeakingDialogue');
-      const result = await generateDialogueFn({
+      // Call Cloud Function using axios
+      const response = await axios.post(`${CLOUD_FUNCTIONS_BASE_URL}/generateSpeakingDialogue`, {
         level,
-        partNumber,
         language,
-        isTesting,
       });
 
       console.log('[SpeakingService] Cloud Function returned, processing response...');
 
-      const { dialogueId, dialogue, estimatedMinutes } = result.data as {
+      const { dialogueId, dialogue, estimatedMinutes } = response.data as {
         dialogueId: string;
         dialogue: any[];
         estimatedMinutes: number;
@@ -57,7 +57,7 @@ class SpeakingService {
       // Structure dialogue for app use
       const speakingDialogue: SpeakingAssessmentDialogue = {
         dialogueId,
-        partNumber,
+        partNumber: 1, // Fixed for unified dialogue
         level,
         turns: dialogue as SpeakingDialogueTurn[],
         totalTurns: dialogue.length,
@@ -69,7 +69,8 @@ class SpeakingService {
       return speakingDialogue;
     } catch (error: any) {
       console.error('[SpeakingService] Error generating dialogue:', error);
-      throw new Error(`Failed to generate dialogue: ${error.message}`);
+      const errorMessage = error.response?.data?.error || error.message;
+      throw new Error(`Failed to generate dialogue: ${errorMessage}`);
     }
   }
 
@@ -109,18 +110,24 @@ class SpeakingService {
       // Step 1: Upload audio to Firebase Storage
       const audioUrl = await this.uploadAudio(audioUri, userId, dialogueId, turnNumber);
 
-      // Step 2: Call Cloud Function to evaluate
-      const evaluateSpeakingFn = functions().httpsCallable('evaluateSpeaking');
-      const result = await evaluateSpeakingFn({
+      // Step 2: Call Cloud Function to evaluate using axios
+      console.log('[SpeakingService] Calling evaluation function with audio:', audioUrl);
+      console.log('--------------------------------------------------');
+      console.log('DEBUG: Listen to your recording here:');
+      console.log(audioUrl);
+      console.log('--------------------------------------------------');
+
+      const response = await axios.post(`${CLOUD_FUNCTIONS_BASE_URL}/evaluateSpeaking`, {
         audioUrl,
         expectedContext,
         level,
         language,
         dialogueId,
         turnNumber,
+        userId,
       });
 
-      const evaluation = result.data as any;
+      const evaluation = response.data;
 
       // Map to our type structure
       const evaluationResult: SpeakingEvaluation = {
@@ -138,24 +145,13 @@ class SpeakingService {
         areasToImprove: evaluation.areasToImprove,
       };
 
-      // Save evaluation to Firestore for later aggregation
-      await firestore()
-        .collection('users')
-        .doc(userId)
-        .collection('speaking-evaluations')
-        .add({
-          dialogueId,
-          turnNumber,
-          ...evaluationResult,
-          createdAt: firestore.FieldValue.serverTimestamp(),
-        });
-
-      console.log('[SpeakingService] Evaluation saved to Firestore');
+      console.log('[SpeakingService] Evaluation saved to Firestore (server-side)');
 
       return evaluationResult;
     } catch (error: any) {
       console.error('[SpeakingService] Error evaluating response:', error);
-      throw new Error(`Failed to evaluate response: ${error.message}`);
+      const errorMessage = error.response?.data?.error || error.message;
+      throw new Error(`Failed to evaluate response: ${errorMessage}`);
     }
   }
 
@@ -182,6 +178,19 @@ class SpeakingService {
       const path = `users/${userId}/speaking-practice/${dialogueId}/${filename}`;
 
       console.log('[SpeakingService] Uploading audio...', { audioUri, path });
+
+      // Check file size for debugging
+      try {
+        const cleanPath = audioUri.replace('file://', '');
+        const fileInfo = await RNFS.stat(cleanPath);
+        console.log(`[SpeakingService] Audio file size: ${fileInfo.size} bytes`);
+        
+        if (fileInfo.size < 5000) { // Less than 5KB is very suspicious for a recording
+          console.warn('[SpeakingService] Audio file is extremely small, transcription may fail');
+        }
+      } catch (err) {
+        console.warn('[SpeakingService] Could not check file size:', err);
+      }
 
       // Validate file exists and size (optional, but good practice)
       // Note: react-native-nitro-sound doesn't provide file size info directly
@@ -413,11 +422,14 @@ class SpeakingService {
       };
 
       evaluations.forEach((evaluation: any) => {
-        avgScores.pronunciation += evaluation.pronunciation || 0;
-        avgScores.fluency += evaluation.fluency || 0;
-        avgScores.grammarAccuracy += evaluation.grammar || 0;
-        avgScores.vocabularyRange += evaluation.vocabulary || 0;
-        avgScores.contentRelevance += evaluation.contentRelevance || 0;
+        // Handle both flat structure (server-side) and nested structure (legacy/client-side)
+        const scores = evaluation.scores || evaluation;
+        
+        avgScores.pronunciation += Number(scores.pronunciation) || 0;
+        avgScores.fluency += Number(scores.fluency) || 0;
+        avgScores.grammarAccuracy += Number(scores.grammar || scores.grammarAccuracy) || 0;
+        avgScores.vocabularyRange += Number(scores.vocabulary || scores.vocabularyRange) || 0;
+        avgScores.contentRelevance += Number(scores.contentRelevance) || 0;
       });
 
       Object.keys(avgScores).forEach((key) => {

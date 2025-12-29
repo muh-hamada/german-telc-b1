@@ -16,7 +16,6 @@ import { ReviewProvider } from './src/contexts/ReviewContext';
 import { StreakProvider } from './src/contexts/StreakContext';
 import { VocabularyProvider } from './src/contexts/VocabularyContext';
 import { ThemeProvider, useAppTheme } from './src/contexts/ThemeContext';
-import { PrepPlanProvider } from './src/contexts/PrepPlanContext';
 import RootNavigator from './src/navigation/RootNavigator';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
@@ -53,19 +52,17 @@ const App: React.FC = () => {
               <ReviewProvider>
                 <AuthProvider>
                   <PremiumProvider>
-                    <PrepPlanProvider>
-                      <VocabularyProvider>
-                        <StreakProvider>
-                          <NotificationReminderProvider>
-                            <ProgressProvider>
-                              <CompletionProvider>
-                                <AppContent />
-                              </CompletionProvider>
-                            </ProgressProvider>
-                          </NotificationReminderProvider>
-                        </StreakProvider>
-                      </VocabularyProvider>
-                    </PrepPlanProvider>
+                    <VocabularyProvider>
+                      <StreakProvider>
+                        <NotificationReminderProvider>
+                          <ProgressProvider>
+                            <CompletionProvider>
+                              <AppContent />
+                            </CompletionProvider>
+                          </ProgressProvider>
+                        </NotificationReminderProvider>
+                      </StreakProvider>
+                    </VocabularyProvider>
                   </PremiumProvider>
                 </AuthProvider>
               </ReviewProvider>

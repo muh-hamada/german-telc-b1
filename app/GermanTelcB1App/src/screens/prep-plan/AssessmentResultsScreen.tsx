@@ -22,12 +22,9 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { spacing, typography, type ThemeColors } from '../../theme';
-import { prepPlanService } from '../../services/prep-plan.service';
-import { DiagnosticAssessment, PrepPlanConfig } from '../../types/prep-plan.types';
+import { DiagnosticAssessment, PrepPlanConfig, SpeakingEvaluation } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { HomeStackParamList } from '../../types/navigation.types';
-import { SkeletonLoader } from '../../components/SkeletonLoader';
-import { hapticSuccess } from '../../utils/haptic';
+import { speakingService } from '../../services/speaking.service';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'AssessmentResults'>;
 
@@ -37,184 +34,59 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
   const route = useRoute<ScreenRouteProp>();
+  const { dialogueId } = route.params as { dialogueId?: string };
   const { user } = useAuth();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
-  const [assessment, setAssessment] = useState<DiagnosticAssessment | null>(null);
+  const [evaluation, setEvaluation] = useState<SpeakingEvaluation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isGeneratingPlan, setIsGeneratingPlan] = useState(false);
-  
-  // Animation values
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    loadAssessment();
+    loadEvaluation();
   }, []);
 
-  const loadAssessment = async () => {
-    if (!user) return;
+  const loadEvaluation = async () => {
+    if (!user || !dialogueId) {
+      setIsLoading(false);
+      return;
+    }
     
     try {
       setIsLoading(true);
-      const savedAssessment = await prepPlanService.getAssessment(user.uid);
+      console.log('[AssessmentResults] Loading dialogue:', dialogueId);
+      const dialogue = await speakingService.loadDialogueProgress(user.uid, dialogueId);
+      console.log('[AssessmentResults] Dialogue loaded:', JSON.stringify(dialogue?.overallEvaluation));
       
-      if (savedAssessment) {
-        setAssessment(savedAssessment);
+      if (dialogue?.overallEvaluation) {
+        setEvaluation(dialogue.overallEvaluation);
         logEvent(AnalyticsEvents.PREP_PLAN_RESULTS_VIEWED, {
-          assessmentId: savedAssessment.assessmentId,
-          overallScore: savedAssessment.overallScore,
-          overallPercentage: savedAssessment.overallPercentage,
+          dialogueId,
+          totalScore: dialogue.overallEvaluation.totalScore,
         });
       }
     } catch (error) {
-      console.error('[AssessmentResults] Error loading assessment:', error);
+      console.error('[AssessmentResults] Error loading evaluation:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleGeneratePlan = async () => {
-    if (!assessment || !user) return;
-    
-    try {
-      setIsGeneratingPlan(true);
-      
-      // First check if there's already an active plan with config (from Firestore)
-      let config: PrepPlanConfig | null = null;
-      const existingPlan = await prepPlanService.getActivePlan(user.uid);
-      
-      if (existingPlan?.config) {
-        console.log('[AssessmentResults] Found existing plan config in Firestore');
-        config = existingPlan.config;
-      } else {
-        // Fall back to onboarding progress (from AsyncStorage)
-        const onboardingProgress = await prepPlanService.getOnboardingProgress();
-        if (onboardingProgress?.config) {
-          console.log('[AssessmentResults] Found onboarding config in AsyncStorage');
-          config = onboardingProgress.config;
-        }
-      }
-      
-      if (!config) {
-        console.error('[AssessmentResults] No config found in Firestore or AsyncStorage');
-        
-        // Show alert and redirect to onboarding to collect config
-        Alert.alert(
-          t('prepPlan.results.missingConfig'),
-          t('prepPlan.results.missingConfigDesc'),
-          [
-            { 
-              text: t('common.cancel'), 
-              style: 'cancel',
-              onPress: () => setIsGeneratingPlan(false)
-            },
-            { 
-              text: t('prepPlan.results.setupConfig'), 
-              onPress: () => {
-                setIsGeneratingPlan(false);
-                // Navigate to onboarding to collect config
-                navigation.navigate('PrepPlanOnboarding' as never);
-              }
-            }
-          ]
-        );
-        return;
-      }
-      
-      // Generate study plan
-      const plan = await prepPlanService.generateStudyPlan(
-        user.uid,
-        config,
-        assessment
-      );
-      
-      // Clear onboarding progress (if any)
-      await prepPlanService.clearOnboardingProgress();
-      
-      // Trigger haptic feedback for success
-      hapticSuccess();
-      
-      // Success animation
-      Animated.parallel([
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 300,
-          useNativeDriver: true,
-        }),
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          friction: 4,
-          useNativeDriver: true,
-        }),
-      ]).start();
-      
-      logEvent(AnalyticsEvents.PREP_PLAN_GENERATED, {
-        planId: plan.planId,
-        totalWeeks: plan.totalWeeks,
-        totalTasks: plan.progress.totalTasks,
-      });
-      
-      // Navigate to dashboard
-      navigation.navigate('StudyPlanDashboard' as never);
-    } catch (error) {
-      console.error('[AssessmentResults] Error generating plan:', error);
-      
-      // Show user-friendly error
-      Alert.alert(
-        t('common.error'),
-        t('prepPlan.results.generateError'),
-        [{ text: t('common.ok') }]
-      );
-    } finally {
-      setIsGeneratingPlan(false);
-    }
+  const getScoreColor = (score: number, max: number) => {
+    const percentage = (score / max) * 100;
+    if (percentage >= 80) return colors.success[500];
+    if (percentage >= 60) return colors.warning[500];
+    return colors.error[500];
   };
 
-  const getSectionColor = (level: 'weak' | 'moderate' | 'strong') => {
-    switch (level) {
-      case 'strong':
-        return colors.success[500];
-      case 'moderate':
-        return colors.warning[500];
-      case 'weak':
-        return colors.error[500];
-    }
-  };
-
-  const getSectionIcon = (level: 'weak' | 'moderate' | 'strong') => {
-    switch (level) {
-      case 'strong':
-        return '✓';
-      case 'moderate':
-        return '~';
-      case 'weak':
-        return '!';
-    }
-  };
-
-  const renderSectionCard = (
-    sectionName: string,
-    score: number,
-    maxScore: number,
-    percentage: number,
-    level: 'weak' | 'moderate' | 'strong'
-  ) => {
-    const color = getSectionColor(level);
-    const icon = getSectionIcon(level);
+  const renderScoreBar = (label: string, score: number, max: number) => {
+    const percentage = (score / max) * 100;
+    const color = getScoreColor(score, max);
     
     return (
-      <View style={styles.sectionCard} key={sectionName}>
+      <View style={styles.sectionCard} key={label}>
         <View style={styles.sectionHeader}>
-          <View style={styles.sectionTitleContainer}>
-            <View style={[styles.sectionIcon, { backgroundColor: color }]}>
-              <Text style={styles.sectionIconText}>{icon}</Text>
-            </View>
-            <Text style={styles.sectionTitle}>
-              {t(`prepPlan.diagnostic.sections.${sectionName}`)}
-            </Text>
-          </View>
+          <Text style={styles.sectionTitle}>{label}</Text>
           <Text style={[styles.sectionPercentage, { color }]}>
             {Math.round(percentage)}%
           </Text>
@@ -231,10 +103,7 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
         
         <View style={styles.sectionFooter}>
           <Text style={styles.sectionScore}>
-            {t('prepPlan.results.scoreWithPoints', { score, max: maxScore })}
-          </Text>
-          <Text style={[styles.sectionLevel, { color }]}>
-            {t(`prepPlan.results.level.${level}`)}
+            {score} / {max} {t('examStructure.points')}
           </Text>
         </View>
       </View>
@@ -243,59 +112,22 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
 
   if (isLoading) {
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-        {/* Header Skeleton */}
-        <View style={styles.headerCard}>
-          <SkeletonLoader width={200} height={28} style={{ marginBottom: 12 }} />
-          <SkeletonLoader width="100%" height={80} borderRadius={12} />
-        </View>
-
-        {/* Section Breakdown Skeleton */}
-        <View style={styles.section}>
-          <SkeletonLoader width={150} height={22} style={{ marginBottom: 16 }} />
-          {[1, 2, 3].map((_, index) => (
-            <View key={index} style={styles.sectionCard}>
-              <View style={styles.sectionHeader}>
-                <SkeletonLoader width={120} height={20} />
-                <SkeletonLoader width={60} height={20} />
-              </View>
-              <SkeletonLoader width="100%" height={8} borderRadius={4} style={{ marginVertical: 12 }} />
-              <SkeletonLoader width={80} height={16} />
-            </View>
-          ))}
-        </View>
-
-        {/* Strengths/Weaknesses Skeleton */}
-        <View style={styles.swSection}>
-          <View style={styles.swColumn}>
-            <SkeletonLoader width={150} height={22} style={{ marginBottom: 12 }} />
-            {[1, 2, 3].map((_, index) => (
-              <SkeletonLoader key={index} width="90%" height={16} style={{ marginBottom: 8 }} />
-            ))}
-          </View>
-          <View style={styles.swColumn}>
-            <SkeletonLoader width={150} height={22} style={{ marginBottom: 12 }} />
-            {[1, 2, 3].map((_, index) => (
-              <SkeletonLoader key={index} width="90%" height={16} style={{ marginBottom: 8 }} />
-            ))}
-          </View>
-        </View>
-
-        {/* Generate Button Skeleton */}
-        <SkeletonLoader width="100%" height={56} borderRadius={12} style={{ marginTop: 24 }} />
-      </ScrollView>
+      <View style={styles.centerContainer}>
+        <ActivityIndicator size="large" color={colors.primary[500]} />
+        <Text style={styles.loadingText}>{t('common.loading')}</Text>
+      </View>
     );
   }
 
-  if (!assessment) {
+  if (!evaluation) {
     return (
       <View style={styles.centerContainer}>
-        <Text style={styles.errorText}>{t('prepPlan.results.notFound')}</Text>
+        <Text style={styles.errorText}>{t('speaking.loadError')}</Text>
         <TouchableOpacity
           style={styles.retryButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.retryButtonText}>{t('common.go')}</Text>
+          <Text style={styles.retryButtonText}>{t('common.back')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -309,132 +141,64 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
       >
         {/* Overall Score */}
         <View style={styles.overallCard}>
-          <Text style={styles.overallTitle}>{t('prepPlan.results.title')}</Text>
+          <Text style={styles.overallTitle}>{t('speaking.complete')}</Text>
           <View style={styles.overallScoreContainer}>
             <Text style={styles.overallScore}>
-              {Math.round(assessment.overallPercentage)}%
+              {Math.round(evaluation.totalScore)}
             </Text>
-            <View style={styles.starsContainer}>
-              {[1, 2, 3, 4, 5].map(star => (
-                <Text
-                  key={star}
-                  style={[
-                    styles.star,
-                    star <= Math.round(assessment.overallPercentage / 20) && styles.starFilled,
-                  ]}
-                >
-                  ⭐
-                </Text>
-              ))}
-            </View>
+            <Text style={styles.overallMax}>/ 100</Text>
           </View>
-          <Text style={styles.overallLevel}>
-            {t(`prepPlan.results.level.${assessment.overallLevel}`)}
-          </Text>
+          <Text style={styles.feedbackText}>{evaluation.feedback}</Text>
         </View>
 
         {/* Section Breakdown */}
         <View style={styles.sectionsContainer}>
           <Text style={styles.sectionGroupTitle}>
-            {t('prepPlan.results.sectionBreakdown')}
+            {t('speaking.scoresBreakdown')}
           </Text>
           
-          {assessment.sections.reading && renderSectionCard(
-            'reading',
-            assessment.sections.reading.score,
-            assessment.sections.reading.maxScore,
-            assessment.sections.reading.percentage,
-            assessment.sections.reading.level
-          )}
-          
-          {assessment.sections.listening && renderSectionCard(
-            'listening',
-            assessment.sections.listening.score,
-            assessment.sections.listening.maxScore,
-            assessment.sections.listening.percentage,
-            assessment.sections.listening.level
-          )}
-          
-          {assessment.sections.grammar && renderSectionCard(
-            'grammar',
-            assessment.sections.grammar.score,
-            assessment.sections.grammar.maxScore,
-            assessment.sections.grammar.percentage,
-            assessment.sections.grammar.level
-          )}
-          
-          {assessment.sections.writing && renderSectionCard(
-            'writing',
-            assessment.sections.writing.score,
-            assessment.sections.writing.maxScore,
-            assessment.sections.writing.percentage,
-            assessment.sections.writing.level
-          )}
-          
-          {assessment.sections.speaking && renderSectionCard(
-            'speaking',
-            assessment.sections.speaking.score,
-            assessment.sections.speaking.maxScore,
-            assessment.sections.speaking.percentage,
-            assessment.sections.speaking.level
-          )}
+          {renderScoreBar(t('speaking.pronunciation'), evaluation.scores.pronunciation, 20)}
+          {renderScoreBar(t('speaking.fluency'), evaluation.scores.fluency, 20)}
+          {renderScoreBar(t('speaking.grammar'), evaluation.scores.grammarAccuracy, 20)}
+          {renderScoreBar(t('speaking.vocabulary'), evaluation.scores.vocabularyRange, 20)}
+          {renderScoreBar(t('speaking.content'), evaluation.scores.contentRelevance, 20)}
         </View>
 
         {/* Strengths */}
-        {assessment.strengths.length > 0 && (
+        {evaluation.strengths.length > 0 && (
           <View style={styles.listContainer}>
             <Text style={styles.listTitle}>
-              {t('prepPlan.results.strengthsWithIcon')}
+              {t('speaking.strengths')}
             </Text>
-            {assessment.strengths.map((strength, index) => (
+            {evaluation.strengths.map((strength, index) => (
               <View key={index} style={styles.listItem}>
-                <Text style={styles.listItemText}>
-                  {t('prepPlan.results.bulletPoint', { text: t(`prepPlan.diagnostic.sections.${strength}`) })}
-                </Text>
+                <Text style={styles.listItemText}>• {strength}</Text>
               </View>
             ))}
           </View>
         )}
 
-        {/* Weaknesses */}
-        {assessment.weaknesses.length > 0 && (
+        {/* Areas to Improve */}
+        {evaluation.areasToImprove.length > 0 && (
           <View style={styles.listContainer}>
             <Text style={styles.listTitle}>
-              {t('prepPlan.results.weaknessesWithIcon')}
+              {t('speaking.areasToImprove')}
             </Text>
-            {assessment.weaknesses.map((weakness, index) => (
+            {evaluation.areasToImprove.map((area, index) => (
               <View key={index} style={styles.listItem}>
-                <Text style={styles.listItemText}>
-                  {t('prepPlan.results.bulletPoint', { text: t(`prepPlan.diagnostic.sections.${weakness}`) })}
-                </Text>
+                <Text style={styles.listItemText}>• {area}</Text>
               </View>
             ))}
-            <Text style={styles.weaknessNote}>
-              {t('prepPlan.results.weaknessNote', {
-                percentage: 60,
-              })}
-            </Text>
           </View>
         )}
 
-        {/* Generate Plan Button */}
         <TouchableOpacity
-          style={[styles.generateButton, isGeneratingPlan && styles.generateButtonDisabled]}
-          disabled={isGeneratingPlan}
-          onPress={handleGeneratePlan}
+          style={styles.generateButton}
+          onPress={() => (navigation as any).navigate('Home')}
         >
-          {isGeneratingPlan ? (
-            <>
-              <ActivityIndicator size="small" color={colors.text.inverse} />
-              <Text style={styles.generateButtonText}>
-                {t('prepPlan.results.generating')}
-              </Text>
-            </>
-          ) : (
-            <Text style={styles.generateButtonText}>
-              {t('prepPlan.results.generatePlan')}
-            </Text>
-          )}
+          <Text style={styles.generateButtonText}>
+            {t('common.done')}
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
@@ -504,6 +268,12 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.primary[500],
     fontWeight: 'bold',
   },
+  overallMax: {
+    ...typography.textStyles.h3,
+    color: colors.text.secondary,
+    marginBottom: spacing.margin.sm,
+    marginLeft: spacing.margin.xs,
+  },
   starsContainer: {
     flexDirection: 'row',
     marginTop: spacing.margin.sm,
@@ -523,6 +293,13 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   sectionsContainer: {
     marginBottom: spacing.margin.xl,
+  },
+  feedbackText: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'center',
+    marginTop: spacing.margin.md,
+    lineHeight: 24,
   },
   sectionGroupTitle: {
     ...typography.textStyles.h4,

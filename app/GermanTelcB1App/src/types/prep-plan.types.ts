@@ -265,6 +265,7 @@ export interface SpeakingAssessmentDialogue {
   isComplete: boolean;
   estimatedMinutes?: number; // Estimated time to complete
   evaluation?: SpeakingEvaluation;
+  overallEvaluation?: SpeakingEvaluation; // Comprehensive evaluation after completion
   startedAt?: number;
   completedAt?: number;
 }

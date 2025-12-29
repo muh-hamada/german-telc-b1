@@ -51,15 +51,9 @@ import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
 import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
 import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
-// Prep Plan Screens (Phase 1 - Placeholders)
-import PrepPlanOnboardingScreen from '../screens/prep-plan/PrepPlanOnboardingScreen';
-import DiagnosticAssessmentScreen from '../screens/prep-plan/DiagnosticAssessmentScreen';
+// Prep Plan Screens
 import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
 import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
-import StudyPlanDashboardScreen from '../screens/prep-plan/StudyPlanDashboardScreen';
-import WeeklyPlanScreen from '../screens/prep-plan/WeeklyPlanScreen';
-import PrepPlanProgressScreen from '../screens/prep-plan/PrepPlanProgressScreen';
-import PrepPlanSettingsScreen from '../screens/prep-plan/PrepPlanSettingsScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -425,35 +419,9 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
-        name="PrepPlanOnboarding"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.onboarding.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <PrepPlanOnboardingScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="DiagnosticAssessment"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.diagnostic.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <DiagnosticAssessmentScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
         name="AssessmentResults"
         options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.results.title" />,
+          headerTitle: () => <HeaderTitle titleKey="speaking.complete" />,
           ...TransitionPresets.SlideFromRightIOS,
         }}
       >
@@ -466,65 +434,13 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="SpeakingAssessment"
         options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.speaking.title" />,
+          headerTitle: () => <HeaderTitle titleKey="speaking.title" />,
           ...TransitionPresets.SlideFromRightIOS,
         }}
       >
         {(props) => (
           <ErrorBoundary>
             <SpeakingAssessmentScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="StudyPlanDashboard"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.dashboard.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <StudyPlanDashboardScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="WeeklyPlan"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.weekly.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <WeeklyPlanScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="PrepPlanProgress"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.progress.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <PrepPlanProgressScreen {...props} />
-          </ErrorBoundary>
-        )}
-      </Stack.Screen>
-      <Stack.Screen
-        name="PrepPlanSettings"
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="prepPlan.settings.title" />,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}
-      >
-        {(props) => (
-          <ErrorBoundary>
-            <PrepPlanSettingsScreen {...props} />
           </ErrorBoundary>
         )}
       </Stack.Screen>
