@@ -930,7 +930,9 @@
     "feedback": "Comentarios",
     "strengths": "Fortalezas",
     "areasToImprove": "Áreas a mejorar",
-    "viewDetails": "Ver detalles"
+    "viewDetails": "Ver detalles",
+    "networkError": "La conexión de red falló. \nPor favor revisa tu internet y vuelve a intentarlo.",
+    "uploadTimeout": "Tiempo de espera de carga. \nPor favor verifique su conexión a Internet e inténtelo nuevamente."
   },
   "results": {
     "title": "Resultados del examen",

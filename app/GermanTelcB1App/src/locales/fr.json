@@ -967,8 +967,26 @@
     "permissions": {
       "required": "L'autorisation du microphone est requise pour la pratique orale",
       "message": "Nous avons besoin d’accéder à votre microphone pour enregistrer votre pratique orale.",
-      "askLater": "Demandez-moi plus tard"
-    }
+      "askLater": "Demandez-moi plus tard",
+      "cancel": "Annuler",
+      "ok": "D'ACCORD",
+      "title": "Autorisation du microphone",
+      "denied": "Autorisation refusée",
+      "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale."
+    },
+    "complete": "Complet!",
+    "error": "Erreur",
+    "recordingError": "Impossible d'enregistrer l'audio. \nVeuillez réessayer.",
+    "ai": "Examinateur IA",
+    "you": "Toi",
+    "previousTurns": "Tours précédents",
+    "processing": "Traitement de votre réponse...",
+    "playAudio": "Lire l'audio",
+    "processingError": "Impossible de traiter votre enregistrement. \nVeuillez réessayer.",
+    "networkError": "La connexion réseau a échoué. \nVeuillez vérifier votre connexion Internet et réessayer.",
+    "startRecording": "Commencer l'enregistrement",
+    "uploadTimeout": "Expiration du délai de téléchargement. \nVeuillez vérifier votre connexion Internet et réessayer.",
+    "evaluating": "Évaluer vos performances..."
   },
   "results": {
     "title": "Résultats de l'examen",

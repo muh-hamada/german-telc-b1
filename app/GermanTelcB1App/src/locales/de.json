@@ -931,7 +931,9 @@
     "feedback": "Rückmeldung",
     "strengths": "Stärken",
     "areasToImprove": "Verbesserungsbereiche",
-    "viewDetails": "Details anzeigen"
+    "viewDetails": "Details anzeigen",
+    "networkError": "Netzwerkverbindung fehlgeschlagen. \nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "uploadTimeout": "Zeitüberschreitung beim Hochladen. \nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
   },
   "results": {
     "title": "Prüfungsergebnisse",
