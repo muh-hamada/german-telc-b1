@@ -986,6 +986,8 @@
     "networkError": "La connexion réseau a échoué. \nVeuillez vérifier votre connexion Internet et réessayer.",
     "startRecording": "Commencer l'enregistrement",
     "uploadTimeout": "Expiration du délai de téléchargement. \nVeuillez vérifier votre connexion Internet et réessayer.",
+    "noSpeechDetected": "Aucune parole détectée",
+    "noSpeechDetectedMessage": "Nous n'avons détecté aucune parole. Veuillez parler plus fort et vous assurer que votre microphone est activé.",
     "evaluating": "Évaluer vos performances..."
   },
   "results": {

@@ -906,6 +906,8 @@
       "denied": "Berechtigung verweigert",
       "deniedMessage": "Bitte aktivieren Sie den Mikrofon-Zugriff in Ihren Geräteeinstellungen, um die Sprechpraxis zu nutzen."
     },
+    "noSpeechDetected": "Keine Sprache erkannt",
+    "noSpeechDetectedMessage": "Wir konnten keine Sprache erkennen. Bitte sprechen Sie lauter und stellen Sie sicher, dass Ihr Mikrofon aktiviert ist.",
     "loading": "Lade Sprechpraxis...",
     "error": "Fehler",
     "recordingError": "Audioaufnahme fehlgeschlagen. Bitte versuchen Sie es erneut.",

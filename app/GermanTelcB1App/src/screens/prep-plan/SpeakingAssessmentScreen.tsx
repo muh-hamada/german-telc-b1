@@ -98,7 +98,21 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       const currentTurn = dialogue.turns[turnIndex];
       const previousAITurn = turnIndex > 0 ? dialogue.turns[turnIndex - 1] : null;
-      const context = currentTurn.text || previousAITurn?.text || 'Speaking practice';
+      
+      // Map exam language to instruction key
+      const examLangMap: Record<string, 'de' | 'en' | 'fr' | 'es'> = {
+        'german': 'de',
+        'english': 'en',
+        'french': 'fr',
+        'spanish': 'es'
+      };
+      const examLangCode = examLangMap[activeExamConfig.language] || 'de';
+      
+      // Use the instruction in the exam language as context for evaluation
+      const context = (currentTurn.instruction && currentTurn.instruction[examLangCode as keyof typeof currentTurn.instruction]) || 
+                      currentTurn.text || 
+                      previousAITurn?.text || 
+                      'Speaking practice';
 
       // Evaluate the user's response
       const evaluation = await speakingService.evaluateResponse(
@@ -111,6 +125,15 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       );
 
       console.log('[SpeakingAssessmentScreen] Turn evaluated:', evaluation);
+
+      // Check if no speech was detected
+      if (!evaluation.transcription || evaluation.transcription.trim() === '') {
+        Alert.alert(
+          t('speaking.noSpeechDetected'),
+          t('speaking.noSpeechDetectedMessage')
+        );
+        return; // Don't proceed to next turn, user must try again
+      }
 
       // Update dialogue state with transcription
       const updatedDialogue = {

@@ -189,6 +189,7 @@ async function transcribeAudio(filePath: string, language: ExamLanguage): Promis
       file: audioFile,
       model: 'whisper-1',
       language: langCode,
+      prompt: "If the audio is silent, contains only noise, or has no clear speech, please return an empty string. Do not transcribe background noise or hallucinations like 'Thank you for watching' or 'Subtitles'.",
       response_format: 'verbose_json',
     });
 
@@ -228,6 +229,8 @@ async function evaluateResponse(
 Expected Context (what the user was asked to do): "${expectedContext}"
 User's Actual Response (transcription): "${transcription}"
 
+CRITICAL: If the transcription consists of only noise, random characters, or common hallucinations from silent/noisy audio (e.g., "Thank you for watching", "Please subscribe", random letters, etc.) and does not contain clear speech relevant to the context, you must set the "transcription" field in the JSON to an empty string "" and set all scores to 0.
+
 Evaluate the response holistically based on these ${level} level criteria. Assign a score from 0 to 20 for each category:
 1. **Fluency** (0-20): Natural pace, smooth transitions, minimal hesitation.
 2. **Pronunciation** (0-20): Intelligibility, clarity of sounds, appropriate intonation.
@@ -244,6 +247,7 @@ Scoring Guide:
 
 Provide your evaluation in this EXACT JSON format (no markdown, no backticks, no other text):
 {
+  "transcription": "string (the user's response, or empty string if no clear speech was detected)",
   "fluency": <number>,
   "pronunciation": <number>,
   "grammar": <number>,
@@ -296,7 +300,7 @@ Provide your evaluation in this EXACT JSON format (no markdown, no backticks, no
     const overallScore = fluency + pronunciation + grammar + vocabulary + contentRelevance;
 
     return {
-      transcription,
+      transcription: parsed.transcription !== undefined ? parsed.transcription : transcription,
       overallScore,
       fluency,
       pronunciation,

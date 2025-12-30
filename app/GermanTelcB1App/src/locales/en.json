@@ -190,6 +190,8 @@
       "denied": "Permission Denied",
       "deniedMessage": "Please enable microphone access in your device settings to use speaking practice."
     },
+    "noSpeechDetected": "No speech detected",
+    "noSpeechDetectedMessage": "We couldn't detect any speech. Please speak louder and ensure your microphone is enabled.",
     "loading": "Loading speaking practice...",
     "error": "Error",
     "recordingError": "Could not record audio. Please try again.",

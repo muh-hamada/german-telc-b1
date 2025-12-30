@@ -905,6 +905,8 @@
       "denied": "Permiso denegado",
       "deniedMessage": "Por favor, habilita el acceso al micrófono en la configuración de tu dispositivo para usar la práctica de habla."
     },
+    "noSpeechDetected": "No se detectó voz",
+    "noSpeechDetectedMessage": "No pudimos detectar ninguna voz. Por favor, hable más fuerte y asegúrese de que su micrófono esté habilitado.",
     "loading": "Cargando práctica de habla...",
     "error": "Error",
     "recordingError": "No se pudo grabar el audio. Por favor, inténtalo de nuevo.",

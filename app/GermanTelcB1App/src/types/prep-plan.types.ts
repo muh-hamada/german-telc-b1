@@ -225,8 +225,17 @@ export interface PrepPlanUpdateRequest {
 export interface SpeakingDialogueTurn {
   turnNumber: number;
   speaker: 'ai' | 'user';
-  text: string; // What should be said (for AI) or expected response context (for user)
-  audioUrl?: string; // AI audio response
+  text?: string; // What should be said (for AI)
+  instruction?: { // User's instruction in multiple languages
+    de: string;
+    ar: string;
+    en: string;
+    ru: string;
+    es: string;
+    fr: string;
+  };
+  audioUrl?: string; // AI audio response (camelCase)
+  audio_url?: string; // AI audio response (snake_case from JSON)
   userAudioUrl?: string; // User's recorded response
   transcription?: string; // User's actual transcribed speech (populated after evaluation)
   isQuestion: boolean; // Is this turn asking a question?

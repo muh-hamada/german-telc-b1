@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import OpenAI from 'openai';
 import { getOpenAIKey } from './api-keys';
 import { ExamLanguage, ExamLevel } from './types';
+import dialoguesData from './speaking-dialogues.json';
 
 // Lazy-initialize OpenAI client to ensure environment variables are loaded
 let openaiClient: OpenAI | null = null;
@@ -16,12 +17,21 @@ function getOpenAIClient(): OpenAI {
 
 interface SpeakingDialogueTurn {
   speaker: 'user' | 'ai';
-  text: string;
+  text?: string;
+  instruction?: {
+    de: string;
+    ar: string;
+    en: string;
+    ru: string;
+    es: string;
+    fr: string;
+  };
   aiAudioUrl?: string; // Will be generated separately
+  audio_url?: string; // Pre-generated audio URL from JSON
 }
 
 /**
- * Cloud Function to generate a personalized speaking dialogue
+ * Cloud Function to return a pre-generated speaking dialogue
  * for exam preparation or assessment
  */
 export const generateSpeakingDialogue = functions.https.onRequest(
@@ -61,10 +71,12 @@ export const generateSpeakingDialogue = functions.https.onRequest(
     }
 
     try {
-      console.log('[generateSpeakingDialogue] Generating UNIFIED dialogue');
-      const dialogue = await generateUnifiedDialogue(level, language);
+      // Use static dialogue from JSON
+      const dialogue = getStaticDialogue(level, language);
       
-      const dialogueId = `dialogue-${Date.now()}`;
+      const dialogueId = `dialogue-static-${level.toLowerCase()}-${language}-${Date.now()}`;
+
+      console.log('[generateSpeakingDialogue] Static dialogue retrieved:', dialogueId);
 
       res.status(200).json({
         dialogueId,
@@ -72,9 +84,9 @@ export const generateSpeakingDialogue = functions.https.onRequest(
         estimatedMinutes: calculateEstimatedTime(dialogue),
       });
     } catch (error: any) {
-      console.error('Error generating speaking dialogue:', error);
-      res.status(500).json({
-        error: 'Failed to generate dialogue',
+      console.error('Error retrieving speaking dialogue:', error);
+      res.status(404).json({
+        error: 'Dialogue not found',
         message: error.message,
       });
     }
@@ -82,10 +94,31 @@ export const generateSpeakingDialogue = functions.https.onRequest(
 );
 
 /**
+ * Retrieve a pre-generated dialogue from the JSON data
+ */
+function getStaticDialogue(level: ExamLevel, language: ExamLanguage): SpeakingDialogueTurn[] {
+  const levelKey = level.toLowerCase() as keyof typeof dialoguesData;
+  const levelData = dialoguesData[levelKey];
+
+  if (!levelData) {
+    throw new Error(`No dialogues found for level: ${level}`);
+  }
+
+  const dialogue = (levelData as any)[language];
+  if (!dialogue) {
+    throw new Error(`No dialogue found for level: ${level} and language: ${language}`);
+  }
+
+  return dialogue as SpeakingDialogueTurn[];
+}
+
+/**
  * Generate a unified dialogue covering all 3 parts of the exam:
  * 1. Personal Introduction
  * 2. Planning Something Together
  * 3. Sharing an Opinion
+ * 
+ * NOTE: Currently unused in favor of getStaticDialogue
  */
 async function generateUnifiedDialogue(
   level: ExamLevel,
@@ -139,22 +172,7 @@ Generate the full unified dialogue now:`;
 
 /**
  * Parse AI-generated dialogue into structured format
- */
-
-/**
- * Build prompt for diagnostic task generation
- */
-
-/**
- * Generate Part 1 dialogue (Personal Introduction)
- */
-
-/**
- * Build prompt for AI to generate Part 2/3 dialogues
- */
-
-/**
- * Parse AI-generated dialogue into structured format
+ * NOTE: Currently unused in favor of getStaticDialogue
  */
 function parseDialogueFromAI(aiResponse: string): SpeakingDialogueTurn[] {
   const dialogue: SpeakingDialogueTurn[] = [];
@@ -220,4 +238,3 @@ function calculateEstimatedTime(dialogue: SpeakingDialogueTurn[]): number {
   const estimatedSeconds = numExchanges * 30 + 60; // +60s buffer
   return Math.ceil(estimatedSeconds / 60); // Convert to minutes
 }
-
