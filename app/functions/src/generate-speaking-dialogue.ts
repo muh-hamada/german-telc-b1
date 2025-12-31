@@ -120,6 +120,7 @@ function getStaticDialogue(level: ExamLevel, language: ExamLanguage): SpeakingDi
  * 
  * NOTE: Currently unused in favor of getStaticDialogue
  */
+// @ts-ignore - Kept for future use as requested
 async function generateUnifiedDialogue(
   level: ExamLevel,
   language: ExamLanguage
@@ -174,6 +175,7 @@ Generate the full unified dialogue now:`;
  * Parse AI-generated dialogue into structured format
  * NOTE: Currently unused in favor of getStaticDialogue
  */
+// @ts-ignore - Kept for future use as requested
 function parseDialogueFromAI(aiResponse: string): SpeakingDialogueTurn[] {
   const dialogue: SpeakingDialogueTurn[] = [];
   const lines = aiResponse.split('\n').filter(line => line.trim());

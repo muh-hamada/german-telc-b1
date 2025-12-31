@@ -24,6 +24,14 @@ const CLOUD_FUNCTIONS_BASE_URL = IS_DEV ? testPath : 'https://us-central1-telc-b
 
 class SpeakingService {
   /**
+   * Get the user's speaking dialogues path based on the active exam config
+   */
+  private getSpeakingDialoguesPath(userId: string): string {
+    const activeExamConfig = getActiveExamConfig();
+    return activeExamConfig.firebaseCollections.speakingDialogues.replace('{uid}', userId);
+  }
+
+  /**
    * Generate a speaking dialogue for assessment or practice
    * Calls Cloud Function to generate AI-powered dialogue
    * 
@@ -146,6 +154,27 @@ class SpeakingService {
       };
 
       console.log('[SpeakingService] Evaluation saved to Firestore (server-side)');
+
+      // Update local dialogue state in Firestore for consolidated storage
+      await firestore()
+        .collection(this.getSpeakingDialoguesPath(userId))
+        .doc(dialogueId)
+        .get()
+        .then(async (doc) => {
+          if (doc.exists()) {
+            const dialogue = doc.data() as SpeakingAssessmentDialogue;
+            const updatedTurns = [...dialogue.turns];
+            if (updatedTurns[turnNumber]) {
+              updatedTurns[turnNumber] = {
+                ...updatedTurns[turnNumber],
+                transcription: evaluationResult.transcription,
+                evaluation: evaluationResult,
+                completed: true,
+              };
+              await doc.ref.update({ turns: updatedTurns });
+            }
+          }
+        });
 
       return evaluationResult;
     } catch (error: any) {
@@ -319,10 +348,9 @@ class SpeakingService {
         currentTurn: dialogue.currentTurn,
       });
 
+      const path = this.getSpeakingDialoguesPath(userId);
       await firestore()
-        .collection('users')
-        .doc(userId)
-        .collection('speaking-dialogues')
+        .collection(path)
         .doc(dialogue.dialogueId)
         .set(
           {
@@ -357,14 +385,13 @@ class SpeakingService {
         dialogueId,
       });
 
+      const path = this.getSpeakingDialoguesPath(userId);
       const doc = await firestore()
-        .collection('users')
-        .doc(userId)
-        .collection('speaking-dialogues')
+        .collection(path)
         .doc(dialogueId)
         .get();
 
-      if (!doc.exists) {
+      if (!doc.exists()) {
         console.log('[SpeakingService] No saved dialogue found');
         return null;
       }
@@ -397,19 +424,24 @@ class SpeakingService {
         dialogueId,
       });
 
-      // Get all turn evaluations for this dialogue
-      const evaluationsSnapshot = await firestore()
-        .collection('users')
-        .doc(userId)
-        .collection('speaking-evaluations')
-        .where('dialogueId', '==', dialogueId)
+      // Get the dialogue document which now contains all turn evaluations
+      const doc = await firestore()
+        .collection(this.getSpeakingDialoguesPath(userId))
+        .doc(dialogueId)
         .get();
 
-      if (evaluationsSnapshot.empty) {
-        throw new Error('No evaluations found for this dialogue');
+      if (!doc.exists()) {
+        throw new Error('Dialogue not found');
       }
 
-      const evaluations = evaluationsSnapshot.docs.map(doc => doc.data());
+      const dialogue = doc.data() as SpeakingAssessmentDialogue;
+      const turns = dialogue.turns.filter(t => t.completed && t.evaluation);
+
+      if (turns.length === 0) {
+        throw new Error('No completed evaluations found for this dialogue');
+      }
+
+      const evaluations = turns.map(t => t.evaluation!);
 
       // Calculate averages
       const numEvaluations = evaluations.length;
@@ -421,14 +453,13 @@ class SpeakingService {
         contentRelevance: 0,
       };
 
-      evaluations.forEach((evaluation: any) => {
-        // Handle both flat structure (server-side) and nested structure (legacy/client-side)
-        const scores = evaluation.scores || evaluation;
+      evaluations.forEach((evaluation: SpeakingEvaluation) => {
+        const scores = evaluation.scores;
         
         avgScores.pronunciation += Number(scores.pronunciation) || 0;
         avgScores.fluency += Number(scores.fluency) || 0;
-        avgScores.grammarAccuracy += Number(scores.grammar || scores.grammarAccuracy) || 0;
-        avgScores.vocabularyRange += Number(scores.vocabulary || scores.vocabularyRange) || 0;
+        avgScores.grammarAccuracy += Number(scores.grammarAccuracy) || 0;
+        avgScores.vocabularyRange += Number(scores.vocabularyRange) || 0;
         avgScores.contentRelevance += Number(scores.contentRelevance) || 0;
       });
 
@@ -448,31 +479,46 @@ class SpeakingService {
       const allStrengths = new Set<string>();
       const allAreasToImprove = new Set<string>();
 
-      evaluations.forEach((evaluation: any) => {
-        (evaluation.strengths || []).forEach((s: string) => allStrengths.add(s));
-        (evaluation.areasToImprove || []).forEach((a: string) => allAreasToImprove.add(a));
+      evaluations.forEach((evaluation: SpeakingEvaluation) => {
+        (evaluation.strengths || []).forEach((s: string) => {
+          if (s && s.length > 5) {
+            allStrengths.add(s.trim());
+          }
+        });
+        (evaluation.areasToImprove || []).forEach((a: string) => {
+          if (a && a.length > 5) {
+            allAreasToImprove.add(a.trim());
+          }
+        });
       });
+
+      // Simple fuzzy deduplication: if a sentence is a substring of another, keep only the longer one
+      const deduplicate = (list: string[]) => {
+        const sorted = [...list].sort((a, b) => b.length - a.length);
+        const result: string[] = [];
+        for (const item of sorted) {
+          if (!result.some(r => r.toLowerCase().includes(item.toLowerCase()) || item.toLowerCase().includes(r.toLowerCase()))) {
+            result.push(item);
+          }
+        }
+        return result.slice(0, 5); // Limit to top 5 unique points
+      };
 
       const overallEvaluation: SpeakingEvaluation = {
         transcription: 'Overall dialogue evaluation',
         scores: avgScores,
         totalScore: Math.round(totalScore * 10) / 10,
         feedback: `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`,
-        strengths: Array.from(allStrengths),
-        areasToImprove: Array.from(allAreasToImprove),
+        strengths: deduplicate(Array.from(allStrengths)),
+        areasToImprove: deduplicate(Array.from(allAreasToImprove)),
       };
 
       // Mark dialogue as complete
-      await firestore()
-        .collection('users')
-        .doc(userId)
-        .collection('speaking-dialogues')
-        .doc(dialogueId)
-        .update({
-          isComplete: true,
-          overallEvaluation,
-          completedAt: firestore.FieldValue.serverTimestamp(),
-        });
+      await doc.ref.update({
+        isComplete: true,
+        overallEvaluation,
+        completedAt: firestore.FieldValue.serverTimestamp(),
+      });
 
       console.log('[SpeakingService] Dialogue completed successfully');
 
@@ -480,6 +526,77 @@ class SpeakingService {
     } catch (error: any) {
       console.error('[SpeakingService] Error completing dialogue:', error);
       throw new Error(`Failed to complete dialogue: ${error.message}`);
+    }
+  }
+
+  /**
+   * Get in-progress dialogue for a user
+   */
+  async getInProgressDialogue(userId: string): Promise<SpeakingAssessmentDialogue | null> {
+    try {
+      const path = this.getSpeakingDialoguesPath(userId);
+      const snapshot = await firestore()
+        .collection(path)
+        .where('isComplete', '==', false)
+        .orderBy('lastUpdated', 'desc')
+        .limit(1)
+        .get();
+
+      if (snapshot.empty) return null;
+      return snapshot.docs[0].data() as SpeakingAssessmentDialogue;
+    } catch (error: any) {
+      console.error('[SpeakingService] Error getting in-progress dialogue:', error);
+      return null;
+    }
+  }
+
+  /**
+   * List all dialogues for a user
+   */
+  async listDialogues(userId: string): Promise<SpeakingAssessmentDialogue[]> {
+    try {
+      const path = this.getSpeakingDialoguesPath(userId);
+      const snapshot = await firestore()
+        .collection(path)
+        .orderBy('lastUpdated', 'desc')
+        .get();
+
+      return snapshot.docs.map(doc => doc.data() as SpeakingAssessmentDialogue);
+    } catch (error: any) {
+      console.error('[SpeakingService] Error listing dialogues:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Delete a dialogue and its associated audio files
+   */
+  async deleteDialogue(userId: string, dialogueId: string): Promise<void> {
+    try {
+      console.log('[SpeakingService] Deleting dialogue...', { userId, dialogueId });
+      
+      // 1. Delete Firestore document
+      const path = this.getSpeakingDialoguesPath(userId);
+      await firestore()
+        .collection(path)
+        .doc(dialogueId)
+        .delete();
+
+      // 2. Delete audio files from Storage
+      const storagePath = `users/${userId}/speaking-practice/${dialogueId}`;
+      const reference = storage().ref(storagePath);
+      
+      try {
+        const listResult = await reference.listAll();
+        await Promise.all(listResult.items.map(item => item.delete()));
+      } catch (storageError) {
+        console.warn('[SpeakingService] Error deleting audio files (they might not exist):', storageError);
+      }
+
+      console.log('[SpeakingService] Dialogue deleted successfully');
+    } catch (error: any) {
+      console.error('[SpeakingService] Error deleting dialogue:', error);
+      throw new Error(`Failed to delete dialogue: ${error.message}`);
     }
   }
 }

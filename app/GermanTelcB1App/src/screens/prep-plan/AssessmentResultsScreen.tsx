@@ -5,7 +5,7 @@
  * strengths/weaknesses, and generates personalized study plan.
  */
 
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,6 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-  Animated,
   Alert,
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -22,9 +21,10 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { spacing, typography, type ThemeColors } from '../../theme';
-import { DiagnosticAssessment, PrepPlanConfig, SpeakingEvaluation } from '../../types/prep-plan.types';
+import { SpeakingEvaluation } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
+import { HomeStackParamList } from '../../types/navigation.types';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'AssessmentResults'>;
 
@@ -70,6 +70,34 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleDelete = async () => {
+    if (!user || !dialogueId) return;
+
+    Alert.alert(
+      t('speaking.delete.title'),
+      t('speaking.delete.message'),
+      [
+        { text: t('common.cancel'), style: 'cancel' },
+        {
+          text: t('common.delete'),
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              setIsLoading(true);
+              await speakingService.deleteDialogue(user.uid, dialogueId);
+              navigation.goBack();
+            } catch (error) {
+              console.error('[AssessmentResults] Error deleting dialogue:', error);
+              Alert.alert(t('common.error'), t('speaking.delete.error'));
+            } finally {
+              setIsLoading(false);
+            }
+          },
+        },
+      ]
+    );
   };
 
   const getScoreColor = (score: number, max: number) => {
@@ -200,6 +228,15 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
             {t('common.done')}
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={handleDelete}
+        >
+          <Text style={styles.deleteButtonText}>
+            {t('speaking.delete.button')}
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -259,7 +296,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   overallScoreContainer: {
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: spacing.margin.sm,
   },
   overallScore: {
@@ -292,7 +331,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     textTransform: 'capitalize',
   },
   sectionsContainer: {
-    marginBottom: spacing.margin.xl,
   },
   feedbackText: {
     ...typography.textStyles.body,
@@ -390,10 +428,10 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.md,
   },
   listTitle: {
-    ...typography.textStyles.bold,
+    ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
   },
@@ -404,12 +442,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
   },
-  weaknessNote: {
-    ...typography.textStyles.caption,
-    color: colors.text.secondary,
-    marginTop: spacing.margin.md,
-    fontStyle: 'italic',
-  },
   generateButton: {
     backgroundColor: colors.primary[500],
     paddingVertical: spacing.padding.lg,
@@ -418,8 +450,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    marginTop: spacing.margin.lg,
-    marginBottom: spacing.margin.xl,
   },
   generateButtonDisabled: {
     opacity: 0.6,
@@ -428,6 +458,17 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.button,
     color: colors.text.inverse,
     marginLeft: spacing.margin.sm,
+  },
+  deleteButton: {
+    marginTop: spacing.margin.md,
+    paddingVertical: spacing.padding.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  deleteButtonText: {
+    ...typography.textStyles.body,
+    color: colors.error[500],
+    fontWeight: '600',
   },
 });
 

@@ -3,7 +3,8 @@
         "german": [
             {
                 "speaker": "ai",
-                "text": "Guten Tag! Herzlich willkommen zur Prüfung. Wie heißen Sie bitte?"
+                "text": "Guten Tag! Herzlich willkommen zur Prüfung. Wie heißen Sie bitte?",
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-1.mp3?alt=media&token=b8b06713-a43c-4cbb-8cec-aecc332b59d9"
             },
             {
                 "speaker": "user",
@@ -18,7 +19,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Freut mich. Und woher kommen Sie?"
+                "text": "Freut mich. Und woher kommen Sie?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=16ec1649-fc1e-4d9c-9b5d-4fd21962a5fd"
             },
             {
                 "speaker": "user",
@@ -33,7 +35,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Danke. Kommen wir zu Teil 2: Wir möchten am Samstag zusammen im Park picknicken. Wann haben Sie Zeit?"
+                "text": "Danke. Kommen wir zu Teil 2: Wir möchten am Samstag zusammen im Park picknicken. Wann haben Sie Zeit?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=fe4aeed1-9e46-444e-aa3f-a4bd62807d2d"
             },
             {
                 "speaker": "user",
@@ -48,7 +51,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Das passt gut. Ich bringe die Getränke mit. Was bringen Sie zum Essen mit?"
+                "text": "Das passt gut. Ich bringe die Getränke mit. Was bringen Sie zum Essen mit?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=a0d6f9af-a8d9-433e-b6bd-b5c0d0628d10"
             },
             {
                 "speaker": "user",
@@ -63,7 +67,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Super, das machen wir so. Eine letzte Frage: Was machen Sie gerne in Ihrer Freizeit? Haben Sie ein Hobby?"
+                "text": "Super, das machen wir so. Eine letzte Frage: Was machen Sie gerne in Ihrer Freizeit? Haben Sie ein Hobby?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7dee911c-3a9e-42dc-88a9-a1765ae54cd2"
             },
             {
                 "speaker": "user",
@@ -78,7 +83,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Vielen Dank. Wir sind fertig. Auf Wiedersehen!"
+                "text": "Vielen Dank. Wir sind fertig. Auf Wiedersehen!",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=70200fcd-5cd3-4567-b0f3-c6f2286b66b9"
             },
             {
                 "speaker": "user",
@@ -186,7 +192,8 @@
         "german": [
             {
                 "speaker": "ai",
-                "text": "Herzlich willkommen zur mündlichen B2-Prüfung. Wir beginnen mit Teil 1: Die Präsentation. Welches Thema haben Sie vorbereitet? Bitte fangen Sie nun mit Ihrer Präsentation an."
+                "text": "Herzlich willkommen zur mündlichen B2-Prüfung. Wir beginnen mit Teil 1: Die Präsentation. Welches Thema haben Sie vorbereitet? Bitte fangen Sie nun mit Ihrer Präsentation an.",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-1.mp3?alt=media&token=53bc7e46-4fce-4d6c-b6b4-337af1ef0f1c"
             },
             {
                 "speaker": "user",
@@ -201,7 +208,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Vielen Dank für Ihre Ausführungen. Das war sehr interessant. Ich hätte dazu noch eine Frage: Was hat Sie an diesem Thema am meisten persönlich beeindruckt oder beeinflusst?"
+                "text": "Vielen Dank für Ihre Ausführungen. Das war sehr interessant. Ich hätte dazu noch eine Frage: Was hat Sie an diesem Thema am meisten persönlich beeindruckt oder beeinflusst?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-2.mp3?alt=media&token=e038e5aa-36f5-4287-880b-150901cd0979"
             },
             {
                 "speaker": "user",
@@ -216,7 +224,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Gut, kommen wir nun zu Teil 2: Die Diskussion. Wir haben hier einen Artikel zum Thema 'Sollten Handys an Schulen komplett verboten werden?'. Was ist Ihre Meinung dazu? Glauben Sie, dass ein Verbot sinnvoll ist?"
+                "text": "Gut, kommen wir nun zu Teil 2: Die Diskussion. Wir haben hier einen Artikel zum Thema 'Sollten Handys an Schulen komplett verboten werden?'. Was ist Ihre Meinung dazu? Glauben Sie, dass ein Verbot sinnvoll ist?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-3.mp3?alt=media&token=d268448b-e846-445c-b746-853ff8e3a784"
             },
             {
                 "speaker": "user",
@@ -231,7 +240,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Ich verstehe Ihren Punkt, aber meinen Sie nicht, dass Handys im Unterricht auch als nützliches Lernwerkzeug dienen können, wenn sie richtig eingesetzt werden?"
+                "text": "Ich verstehe Ihren Punkt, aber meinen Sie nicht, dass Handys im Unterricht auch als nützliches Lernwerkzeug dienen können, wenn sie richtig eingesetzt werden?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-4.mp3?alt=media&token=f4a2efda-9bff-478f-84de-ece50a2a312b"
             },
             {
                 "speaker": "user",
@@ -246,7 +256,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Ein interessantes Gespräch. Kommen wir nun zum letzten Teil, Teil 3: Gemeinsam etwas planen. Wir sollen für unsere Sprachschule ein internationales Buffet organisieren. Haben Sie Vorschläge, wie wir das am besten planen?"
+                "text": "Ein interessantes Gespräch. Kommen wir nun zum letzten Teil, Teil 3: Gemeinsam etwas planen. Wir sollen für unsere Sprachschule ein internationales Buffet organisieren. Haben Sie Vorschläge, wie wir das am besten planen?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7016e204-dd27-4077-9a94-569fff8cef98"
             },
             {
                 "speaker": "user",
@@ -261,7 +272,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Das klingt gut. Aber wir müssen auch an die Getränke und die Musik denken. Wer könnte sich darum kümmern? Und what machen wir, wenn es regnet, falls wir draußen feiern?"
+                "text": "Das klingt gut. Aber wir müssen auch an die Getränke und die Musik denken. Wer könnte sich darum kümmern? Und what machen wir, wenn es regnet, falls wir draußen feiern?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-6.mp3?alt=media&token=60d6a8d7-34df-4b04-bddc-75a1067cc505"
             },
             {
                 "speaker": "user",
@@ -276,7 +288,8 @@
             },
             {
                 "speaker": "ai",
-                "text": "Hervorragend, dann haben wir einen Plan. Ich werde die Liste für das Essen erstellen. Vielen Dank, wir sind am Ende der Prüfung angekommen."
+                "text": "Hervorragend, dann haben wir einen Plan. Ich werde die Liste für das Essen erstellen. Vielen Dank, wir sind am Ende der Prüfung angekommen.",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-7.mp3?alt=media&token=6428e619-0359-4a13-97f4-080f6f03ad3c"
             },
             {
                 "speaker": "user",

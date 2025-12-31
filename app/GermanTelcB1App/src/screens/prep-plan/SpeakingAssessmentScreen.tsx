@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
-import { HomeStackParamList } from '../../types/navigation.types';
+import { HomeStackParamList, HomeStackNavigationProp } from '../../types/navigation.types';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { speakingService } from '../../services/speaking.service';
@@ -22,14 +22,14 @@ import {
 import { getActiveExamConfig } from '../../config/active-exam.config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { logEvent, AnalyticsEvents } from '../../services/analytics.events';
+import { typography } from '../../theme';
 
 type SpeakingAssessmentScreenRouteProp = RouteProp<HomeStackParamList, 'SpeakingAssessment'>;
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
 
 export const SpeakingAssessmentScreen: React.FC<Props> = () => {
-  const route = useRoute<SpeakingAssessmentScreenRouteProp>();
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeStackNavigationProp>();
   const { user } = useAuth();
   const { t } = useCustomTranslation();
 
@@ -37,13 +37,77 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const [dialogue, setDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [finalEvaluation, setFinalEvaluation] = useState<SpeakingEvaluation | null>(null);
+  const [history, setHistory] = useState<SpeakingAssessmentDialogue[]>([]);
+  const [inProgressDialogue, setInProgressDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
 
   const activeExamConfig = getActiveExamConfig();
   const level = activeExamConfig.level as 'A1' | 'B1' | 'B2';
 
   useEffect(() => {
-    loadOrGenerateDialogue();
+    loadData();
   }, []);
+
+  const loadData = async () => {
+    if (!user) return;
+    
+    try {
+      setIsLoading(true);
+      const [dialogueHistory, currentInProgress] = await Promise.all([
+        speakingService.listDialogues(user.uid),
+        speakingService.getInProgressDialogue(user.uid)
+      ]);
+      
+      setHistory(dialogueHistory);
+      setInProgressDialogue(currentInProgress);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('[SpeakingAssessmentScreen] Error loading data:', error);
+      setIsLoading(false);
+    }
+  };
+
+  const handleRestart = async (oldDialogueId: string) => {
+    if (!user) return;
+    try {
+      await speakingService.deleteDialogue(user.uid, oldDialogueId);
+      setInProgressDialogue(null);
+      await loadOrGenerateDialogue();
+    } catch (error) {
+      console.error('[SpeakingAssessmentScreen] Error restarting:', error);
+    }
+  };
+
+  const handleStartAssessment = () => {
+    // Check if there's an in-progress dialogue
+    if (inProgressDialogue) {
+      Alert.alert(
+        t('speaking.resume.title'),
+        t('speaking.resume.message'),
+        [
+          {
+            text: t('speaking.resume.restart'),
+            style: 'destructive',
+            onPress: () => {
+              handleRestart(inProgressDialogue.dialogueId);
+            },
+          },
+          {
+            text: t('speaking.resume.continue'),
+            onPress: () => {
+              handleContinue(inProgressDialogue);
+            },
+          },
+        ]
+      );
+    } else {
+      // No in-progress dialogue, start new one
+      loadOrGenerateDialogue();
+    }
+  };
+
+  const handleContinue = (dialogueToContinue: SpeakingAssessmentDialogue) => {
+    setDialogue(dialogueToContinue);
+  };
 
   const loadOrGenerateDialogue = async () => {
     if (!user) {
@@ -53,8 +117,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     }
 
     try {
-      setIsLoading(true);
-
       logEvent(AnalyticsEvents.SPEAKING_ASSESSMENT_STARTED, {
         level,
       });
@@ -75,14 +137,12 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       // Save initial state
       await speakingService.saveDialogueProgress(user.uid, newDialogue);
 
-      setIsLoading(false);
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error loading dialogue:', error);
       Alert.alert(
         t('speaking.error'),
         error.message || t('speaking.loadError')
       );
-      setIsLoading(false);
     }
   };
 
@@ -126,7 +186,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       console.log('[SpeakingAssessmentScreen] Turn evaluated:', evaluation);
 
-      // Check if no speech was detected
+      // Check if no speech was detected (handled by backend returning empty transcription)
       if (!evaluation.transcription || evaluation.transcription.trim() === '') {
         Alert.alert(
           t('speaking.noSpeechDetected'),
@@ -164,50 +224,33 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error processing turn:', error);
 
-      // Detect specific error types
+      // Extract a user-friendly message from technical errors
+      let userMessage = t('speaking.processingError');
+      
+      // Detect specific error types and provide appropriate messages
       if (error.message?.includes('timeout') || error.message?.includes('retry-limit')) {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.uploadTimeout'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
-          ]
-        );
+        userMessage = t('speaking.uploadTimeout');
       } else if (error.code === 'network-request-failed' || error.message?.includes('network')) {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.networkError'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
-          ]
-        );
+        userMessage = t('speaking.networkError');
       } else if (error.message?.includes('audio') || error.message?.includes('recording')) {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.audioError')
-        );
+        userMessage = t('speaking.audioError');
       } else if (error.message?.includes('Permission denied')) {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.permissionError')
-        );
-      } else if (error.code === 'functions/internal' || error.code === 'unavailable') {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.apiError'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            { text: t('speaking.retryButton'), onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) },
-          ]
-        );
-      } else {
-        Alert.alert(
-          t('speaking.error'),
-          error.message || t('speaking.processingError')
-        );
+        userMessage = t('speaking.permissionError');
+      } else if (error.code === 'functions/internal' || error.code === 'unavailable' || error.message?.includes('Failed to evaluate')) {
+        userMessage = t('speaking.apiError');
       }
+
+      Alert.alert(
+        t('speaking.error'),
+        userMessage,
+        [
+          { text: t('common.cancel'), style: 'cancel' },
+          { 
+            text: t('speaking.retryButton'), 
+            onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) 
+          },
+        ]
+      );
     }
   };
 
@@ -258,31 +301,23 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       console.error('[SpeakingAssessmentScreen] Error completing dialogue:', error);
       setIsEvaluating(false);
 
-      // Detect specific error types
+      // Extract a user-friendly message from technical errors
+      let userMessage = t('speaking.completionError');
+      
       if (error.code === 'network-request-failed' || error.message?.includes('network')) {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.networkError'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
-          ]
-        );
-      } else if (error.code === 'functions/internal' || error.code === 'unavailable') {
-        Alert.alert(
-          t('speaking.error'),
-          t('speaking.apiError'),
-          [
-            { text: t('common.cancel'), style: 'cancel' },
-            { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
-          ]
-        );
-      } else {
-        Alert.alert(
-          t('speaking.error'),
-          error.message || t('speaking.completionError')
-        );
+        userMessage = t('speaking.networkError');
+      } else if (error.code === 'functions/internal' || error.code === 'unavailable' || error.message?.includes('Failed to')) {
+        userMessage = t('speaking.apiError');
       }
+
+      Alert.alert(
+        t('speaking.error'),
+        userMessage,
+        [
+          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
+        ]
+      );
     }
   };
 
@@ -310,18 +345,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     );
   }
 
-  if (!dialogue) {
-    return (
-      <View style={styles.errorContainer}>
-        <Icon name="error-outline" size={64} color="#e74c3c" />
-        <Text style={styles.errorText}>{t('speaking.loadError')}</Text>
-        <TouchableOpacity style={styles.retryButton} onPress={loadOrGenerateDialogue}>
-          <Text style={styles.retryButtonText}>{t('common.retry')}</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   if (isEvaluating) {
     return (
       <View style={styles.evaluatingContainer}>
@@ -333,20 +356,23 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     );
   }
 
-  return (
-    <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          {t('speaking.title')}
-        </Text>
-        <Text style={styles.headerSubtitle}>
-          {t('speaking.unifiedDialogue')}
-        </Text>
-      </View>
+  // Show dialogue component when dialogue is set
+  if (dialogue) {
+    return (
+      <View style={styles.container}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerTextContainer}>
+            <Text style={styles.headerTitle}>
+              {t('speaking.title')}
+            </Text>
+            <Text style={styles.headerSubtitle}>
+              {t('speaking.unifiedDialogue')}
+            </Text>
+          </View>
+        </View>
 
-      {/* Dialogue Component */}
-      {dialogue && (
+        {/* Dialogue Component */}
         <SpeakingDialogueComponent
           dialogue={dialogue.turns}
           currentTurnIndex={dialogue.currentTurn}
@@ -355,30 +381,114 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
           onNextTurn={handleNextTurn}
           level={level}
         />
-      )}
-    </View>
-  );
-};
-
-// Helper Component for Score Display (Keeping for potential reuse, though results now show on separate screen)
-const ScoreItem: React.FC<{ label: string; score: number; maxScore: number, t: any }> = ({
-  label,
-  score,
-  maxScore,
-  t,
-}) => {
-  const percentage = (score / maxScore) * 100;
-  return (
-    <View style={styles.scoreItem}>
-      <Text style={styles.scoreLabel}>{label}</Text>
-      <View style={styles.scoreBarContainer}>
-        <View style={[styles.scoreBar, { width: `${percentage}%` }]} />
       </View>
-      <Text style={styles.scoreValue}>
-        {t(`speaking.scoreRatio.${label}`, { score, max: maxScore })}
-      </Text>
-    </View>
-  );
+    );
+  }
+
+  // Default: show intro with history
+  return (
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.introContent}>
+          <Text style={styles.introSubtitle}>{t('speaking.intro.subtitle')}</Text>
+          
+          <View style={styles.stepContainer}>
+            <View style={[styles.stepIconContainer, { backgroundColor: '#E3F2FD' }]}>
+              <Icon name="forum" size={24} color="#1976D2" />
+            </View>
+            <View style={styles.stepTextContainer}>
+              <Text style={styles.stepTitle}>{t('speaking.intro.step1Title')}</Text>
+              <Text style={styles.stepDescription}>{t('speaking.intro.step1Desc')}</Text>
+            </View>
+          </View>
+
+          <View style={styles.stepContainer}>
+            <View style={[styles.stepIconContainer, { backgroundColor: '#F3E5F5' }]}>
+              <Icon name="mic" size={24} color="#7B1FA2" />
+            </View>
+            <View style={styles.stepTextContainer}>
+              <Text style={styles.stepTitle}>{t('speaking.intro.step2Title')}</Text>
+              <Text style={styles.stepDescription}>{t('speaking.intro.step2Desc')}</Text>
+            </View>
+          </View>
+
+          <View style={styles.stepContainer}>
+            <View style={[styles.stepIconContainer, { backgroundColor: '#E8F5E9' }]}>
+              <Icon name="psychology" size={24} color="#388E3C" />
+            </View>
+            <View style={styles.stepTextContainer}>
+              <Text style={styles.stepTitle}>{t('speaking.intro.step3Title')}</Text>
+              <Text style={styles.stepDescription}>{t('speaking.intro.step3Desc')}</Text>
+            </View>
+          </View>
+
+          <View style={styles.stepContainer}>
+            <View style={[styles.stepIconContainer, { backgroundColor: '#FFF3E0' }]}>
+              <Icon name="assignment" size={24} color="#F57C00" />
+            </View>
+            <View style={styles.stepTextContainer}>
+              <Text style={styles.stepTitle}>{t('speaking.intro.step4Title')}</Text>
+              <Text style={styles.stepDescription}>{t('speaking.intro.step4Desc')}</Text>
+            </View>
+          </View>
+
+          <View style={styles.stepContainer}>
+            <View style={[styles.stepIconContainer, { backgroundColor: '#FCE4EC' }]}>
+              <Icon name="trending-up" size={24} color="#C2185B" />
+            </View>
+            <View style={styles.stepTextContainer}>
+              <Text style={styles.stepTitle}>{t('speaking.intro.step5Title')}</Text>
+              <Text style={styles.stepDescription}>{t('speaking.intro.step5Desc')}</Text>
+            </View>
+          </View>
+
+          {history.length > 0 && (
+            <View style={styles.historyContainer}>
+              <Text style={styles.historyTitle}>{t('speaking.history.title')}</Text>
+              {history.map((item) => (
+                <TouchableOpacity
+                  key={item.dialogueId}
+                  style={styles.historyItem}
+                  onPress={() => {
+                    if (item.isComplete) {
+                      navigation.navigate('AssessmentResults', { dialogueId: item.dialogueId });
+                    } else {
+                      handleContinue(item);
+                    }
+                  }}
+                >
+                  <View style={styles.historyItemMain}>
+                    <Text style={styles.historyItemDate}>
+                      {new Date(item.startedAt || Date.now()).toLocaleDateString()}
+                    </Text>
+                    <Text style={styles.historyItemLevel}>{item.level}</Text>
+                  </View>
+                  <View style={styles.historyItemStatus}>
+                    {item.isComplete ? (
+                      <View style={styles.scoreBadge}>
+                        <Text style={styles.scoreBadgeText}>
+                          {Math.round(item.overallEvaluation?.totalScore || 0)}/100
+                        </Text>
+                      </View>
+                    ) : (
+                      <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
+                    )}
+                    <Icon name="chevron-right" size={20} color="#666" />
+                  </View>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
+        </ScrollView>
+        <View style={styles.footer}>
+          <TouchableOpacity 
+            style={styles.startButton} 
+            onPress={handleStartAssessment}
+          >
+            <Text style={styles.startButtonText}>{t('speaking.intro.startButton')}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
 };
 
 const styles = StyleSheet.create({
@@ -427,16 +537,82 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  backButton: {
+    marginRight: 16,
+    padding: 4,
+  },
+  headerTextContainer: {
+    flex: 1,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '700',
     color: '#333',
   },
   headerSubtitle: {
     fontSize: 14,
     color: '#666',
-    marginTop: 4,
+    marginTop: 2,
+  },
+  introContent: {
+    padding: 24,
+  },
+  introSubtitle: {
+    ...typography.textStyles.h3,
+    color: '#333',
+    marginBottom: 24,
+  },
+  stepContainer: {
+    flexDirection: 'row',
+    marginBottom: 24,
+    alignItems: 'flex-start',
+  },
+  stepIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+  },
+  stepTextContainer: {
+    flex: 1,
+  },
+  stepTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#333',
+    marginBottom: 4,
+  },
+  stepDescription: {
+    fontSize: 14,
+    color: '#666',
+    lineHeight: 20,
+  },
+  footer: {
+    padding: 24,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  startButton: {
+    backgroundColor: '#667eea',
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    shadowColor: '#667eea',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  startButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '700',
   },
   evaluatingContainer: {
     flex: 1,
@@ -478,12 +654,6 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     marginBottom: 24,
-  },
-  scoresBreakdown: {
-    marginBottom: 24,
-  },
-  scoreItem: {
-    marginBottom: 12,
   },
   scoreLabel: {
     fontSize: 14,
@@ -543,6 +713,62 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  historyContainer: {
+    marginTop: 32,
+    marginBottom: 24,
+  },
+  historyTitle: {
+    ...typography.textStyles.h3,
+    color: '#333',
+    marginBottom: 16,
+  },
+  historyItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    borderColor: '#e0e0e0',
+  },
+  historyItemMain: {
+    flex: 1,
+  },
+  historyItemDate: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 4,
+  },
+  historyItemLevel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+  },
+  historyItemStatus: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  scoreBadge: {
+    backgroundColor: '#E8F5E9',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+    marginRight: 8,
+  },
+  scoreBadgeText: {
+    color: '#2E7D32',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  inProgressText: {
+    color: '#F57C00',
+    fontSize: 14,
+    fontWeight: '600',
+    marginRight: 8,
   },
 });
 

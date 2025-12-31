@@ -239,7 +239,8 @@ const HomeScreen: React.FC = () => {
         />
 
         {/* Speaking Practice Card - Visible to ALL users */}
-        <AnimatedGradientBorder
+        {/* TODO: Add speaking practice card for other languages */}
+        {activeExamConfig.language === 'german' && <AnimatedGradientBorder
           borderWidth={2}
           borderRadius={12}
           colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
@@ -253,7 +254,7 @@ const HomeScreen: React.FC = () => {
               {t('home.speakingPractice.description')}
             </Text>
           </Card>
-        </AnimatedGradientBorder>
+        </AnimatedGradientBorder>}
 
         <Card style={styles.card} onPress={handleExamStructurePress}>
           <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>

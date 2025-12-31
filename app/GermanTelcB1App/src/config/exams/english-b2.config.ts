@@ -30,6 +30,7 @@ export const englishB2Config: ExamConfig = {
     streaks: 'users/{uid}/streaks/english-b2',              // Daily streaks tracking per exam
     vocabularyData: 'vocabulary_data_english_b2',           // Vocabulary words collection
     vocabularyProgress: 'users/{uid}/vocabulary_progress_english_b2/data', // User vocabulary progress
+    speakingDialogues: 'users/{uid}/speaking_dialogues_english_b2', // Speaking assessments
   },
   
   // Exam Metadata (from existing exam-info.json)

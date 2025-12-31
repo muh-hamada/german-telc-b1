@@ -238,6 +238,7 @@ export interface SpeakingDialogueTurn {
   audio_url?: string; // AI audio response (snake_case from JSON)
   userAudioUrl?: string; // User's recorded response
   transcription?: string; // User's actual transcribed speech (populated after evaluation)
+  evaluation?: SpeakingEvaluation; // Added for consolidated storage
   isQuestion: boolean; // Is this turn asking a question?
   completed: boolean;
   evaluatedAt?: number;

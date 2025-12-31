@@ -30,6 +30,7 @@ export interface ExamConfig {
     streaks: string;          // e.g., "users/{uid}/streaks" for daily streaks tracking
     vocabularyData: string;   // e.g., "vocabulary_data_german_a1"
     vocabularyProgress: string; // e.g., "users/{uid}/vocabulary_progress_german_a1/data"
+    speakingDialogues: string; // e.g., "users/{uid}/speaking_dialogues_german_b1" for speaking assessments
   };
   
   // Exam Metadata

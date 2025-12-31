@@ -29,6 +29,7 @@ export const germanB1Config: ExamConfig = {
     streaks: 'users/{uid}/streaks/german-b1',    // Daily streaks tracking per exam
     vocabularyData: 'vocabulary_data_german_a1', // Vocabulary words collection "a1" is a typo, leave it for backward compatibility
     vocabularyProgress: 'users/{uid}/vocabulary_progress_german_a1/data', // User vocabulary progress "a1" is a typo, leave it for backward compatibility
+    speakingDialogues: 'users/{uid}/speaking_dialogues_german_b1', // Speaking assessments
   },
   
   // Exam Metadata (from existing exam-info.json)

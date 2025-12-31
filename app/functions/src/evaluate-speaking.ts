@@ -92,8 +92,57 @@ export const evaluateSpeaking = functions
       console.log('[EvaluateSpeaking] Expected Context:', context);
       console.log('[EvaluateSpeaking] Transcribing audio...');
       const whisperResult = await transcribeAudio(localFilePath, language);
-      const transcription = whisperResult.text;
+      let transcription = whisperResult.text || '';
       
+      // Step 2.5: Filter out known Whisper hallucinations for empty/noisy audio
+      const hallucinations = [
+        'thank you for watching',
+        'please subscribe',
+        'subtitles by',
+        'thanks for watching',
+        'be sure to subscribe',
+        'subscribe to my channel',
+        'untertitel der amara.org',
+        'untertitelung der amara.org',
+        'amara.org-community',
+        'copyright wdr',
+        'zdf',
+        'vielen dank für das zuschauen',
+        'vielen dank fürs zuschauen',
+        'untertitel im auftrag des zdf',
+        'mooji.org',
+        'amara.org community',
+      ];
+      
+      const cleanTranscription = transcription.toLowerCase().trim();
+      const isHallucination = hallucinations.some(h => cleanTranscription.includes(h)) || cleanTranscription.length < 2;
+      
+      if (isHallucination) {
+        console.log('[EvaluateSpeaking] Hallucination detected, returning empty result:', transcription);
+        
+        // Cleanup temp file before returning
+        try {
+          fs.unlinkSync(localFilePath);
+        } catch (err) {
+          console.warn('Failed to delete temp file:', err);
+        }
+
+        res.status(200).json({
+          transcription: '',
+          overallScore: 0,
+          fluency: 0,
+          pronunciation: 0,
+          grammar: 0,
+          vocabulary: 0,
+          contentRelevance: 0,
+          feedback: 'No clear speech detected. Please speak louder or check your microphone.',
+          strengths: [],
+          areasToImprove: [],
+          success: true,
+        });
+        return;
+      }
+
       console.log('[EvaluateSpeaking] Transcription result:', {
         text: transcription,
         duration: whisperResult.duration,
@@ -160,11 +209,22 @@ async function downloadAudioFile(audioUrl: string, userId: string): Promise<stri
     filePath = decodeURIComponent(urlParts.split('?')[0]);
   }
 
+  console.log('[EvaluateSpeaking] Downloading from path:', filePath);
+
   // Create temp file
   const tempFilePath = path.join(os.tmpdir(), `speaking-${userId}-${Date.now()}.m4a`);
   
   try {
     await bucket.file(filePath).download({ destination: tempFilePath });
+    
+    // Verify downloaded file
+    const stats = fs.statSync(tempFilePath);
+    console.log('[EvaluateSpeaking] Downloaded file:', tempFilePath, 'Size:', stats.size, 'bytes');
+    
+    if (stats.size === 0) {
+      throw new Error('Downloaded file is empty');
+    }
+    
     return tempFilePath;
   } catch (error) {
     console.error('Error downloading audio file:', error);
@@ -177,6 +237,18 @@ async function downloadAudioFile(audioUrl: string, userId: string): Promise<stri
  */
 async function transcribeAudio(filePath: string, language: ExamLanguage): Promise<any> {
   try {
+    // Check if file exists and has content
+    const stats = fs.statSync(filePath);
+    console.log(`[EvaluateSpeaking] Audio file to transcribe: ${filePath}, size: ${stats.size} bytes`);
+    
+    if (stats.size === 0) {
+      throw new Error('Audio file is empty');
+    }
+    
+    if (stats.size < 1000) {
+      console.warn('[EvaluateSpeaking] Audio file is very small, might be corrupted');
+    }
+
     const openai = getOpenAIClient();
     const audioFile = fs.createReadStream(filePath);
     const langCode = LANGUAGE_SHORT_CODES[language];
@@ -185,11 +257,12 @@ async function transcribeAudio(filePath: string, language: ExamLanguage): Promis
       throw new Error(`Unsupported language: ${language}`);
     }
 
+    console.log('[EvaluateSpeaking] Sending to Whisper with language:', langCode);
+    
     const transcription = await openai.audio.transcriptions.create({
       file: audioFile,
       model: 'whisper-1',
       language: langCode,
-      prompt: "If the audio is silent, contains only noise, or has no clear speech, please return an empty string. Do not transcribe background noise or hallucinations like 'Thank you for watching' or 'Subtitles'.",
       response_format: 'verbose_json',
     });
 
@@ -204,7 +277,7 @@ async function transcribeAudio(filePath: string, language: ExamLanguage): Promis
     console.error('Whisper transcription error:', error);
     
     // If transcription fails, return a message
-    if (error.message.includes('audio') || error.message.includes('format')) {
+    if (error.message.includes('audio') || error.message.includes('format') || error.message.includes('empty')) {
       throw new Error('Could not transcribe audio. Please ensure you spoke clearly and the audio is not corrupted.');
     }
     
@@ -224,12 +297,17 @@ async function evaluateResponse(
   const lang = language === 'german' ? 'German' : 'English';
   const examName = `TELC ${lang}`;
 
-  const prompt = `You are an expert ${examName} ${level} speaking exam evaluator. Evaluate the following speaking response.
+  const prompt = `You are an expert ${examName} ${level} speaking exam evaluator. Evaluate the following speaking response for ONE SPECIFIC TURN in a dialogue.
 
-Expected Context (what the user was asked to do): "${expectedContext}"
+Expected Context for this turn: "${expectedContext}"
 User's Actual Response (transcription): "${transcription}"
 
-CRITICAL: If the transcription consists of only noise, random characters, or common hallucinations from silent/noisy audio (e.g., "Thank you for watching", "Please subscribe", random letters, etc.) and does not contain clear speech relevant to the context, you must set the "transcription" field in the JSON to an empty string "" and set all scores to 0.
+CRITICAL INSTRUCTIONS FOR FEEDBACK:
+1. BE SPECIFIC: Your feedback must relate directly to what the user said in THIS turn. Avoid generic praise or criticism.
+2. NO REPETITION: Do not repeat the instructions or context from the "Expected Context" as your strengths or areas to improve.
+3. CONCISE: Provide exactly 2 strengths and 2 areas to improve. Each must be a single, unique sentence.
+4. VARIETY: Avoid generic phrases like "Clear pronunciation", "Good grammar", or "Expand your response". Instead, specify WHAT was pronounced well or WHICH grammar structure was used correctly/incorrectly.
+5. NO HALLUCINATIONS: If the transcription is empty or gibberish (and was not caught by the silence filter), set all scores to 0 and transcription to "".
 
 Evaluate the response holistically based on these ${level} level criteria. Assign a score from 0 to 20 for each category:
 1. **Fluency** (0-20): Natural pace, smooth transitions, minimal hesitation.
@@ -247,15 +325,15 @@ Scoring Guide:
 
 Provide your evaluation in this EXACT JSON format (no markdown, no backticks, no other text):
 {
-  "transcription": "string (the user's response, or empty string if no clear speech was detected)",
+  "transcription": "string (the user's response)",
   "fluency": <number>,
   "pronunciation": <number>,
   "grammar": <number>,
   "vocabulary": <number>,
   "contentRelevance": <number>,
   "feedback": "string (max 2 sentences)",
-  "strengths": ["string"],
-  "areasToImprove": ["string"]
+  "strengths": ["specific strength 1", "specific strength 2"],
+  "areasToImprove": ["specific improvement 1", "specific improvement 2"]
 }
 `;
 
@@ -300,7 +378,7 @@ Provide your evaluation in this EXACT JSON format (no markdown, no backticks, no
     const overallScore = fluency + pronunciation + grammar + vocabulary + contentRelevance;
 
     return {
-      transcription: parsed.transcription !== undefined ? parsed.transcription : transcription,
+      transcription,
       overallScore,
       fluency,
       pronunciation,

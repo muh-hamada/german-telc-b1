@@ -40,7 +40,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [hasPermission, setHasPermission] = useState(false);
+  const [hasPermission, setHasPermission] = useState<boolean | null>(null); // null means not checked yet
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
@@ -61,21 +61,22 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const examLangCode = examLangMap[activeExamConfig.language] || 'de';
   const interfaceLangCode = (i18n.language || 'de').split('-')[0] as 'de' | 'ar' | 'en' | 'ru' | 'es' | 'fr';
 
-  const examInstruction = isUserTurn && currentTurn.instruction 
+  const examInstruction = isUserTurn && currentTurn.instruction
     ? (currentTurn.instruction[examLangCode] || currentTurn.instruction.de || currentTurn.instruction.en)
     : '';
-    
+
   const interfaceInstruction = isUserTurn && currentTurn.instruction && examLangCode !== interfaceLangCode
     ? (currentTurn.instruction[interfaceLangCode] || currentTurn.instruction.en || currentTurn.instruction.de)
     : '';
 
   useEffect(() => {
+    // Request permission when component mounts
     requestMicrophonePermission();
     return () => {
       if (soundPlayerRef.current) {
         Sound.stopPlayer();
       }
-      Sound.stopRecorder().catch(() => {});
+      Sound.stopRecorder().catch(() => { });
       Sound.removeRecordBackListener();
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -105,13 +106,13 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   const requestMicrophonePermission = async () => {
     try {
-      const permission = Platform.OS === 'ios' 
-        ? PERMISSIONS.IOS.MICROPHONE 
+      const permission = Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.MICROPHONE
         : PERMISSIONS.ANDROID.RECORD_AUDIO;
 
       // Check current permission status
       const checkResult = await check(permission);
-      
+
       if (checkResult === RESULTS.GRANTED) {
         setHasPermission(true);
         return;
@@ -134,7 +135,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       const requestResult = await request(permission);
       const hasGranted = requestResult === RESULTS.GRANTED;
       setHasPermission(hasGranted);
-      
+
       if (!hasGranted) {
         Alert.alert(
           t('speaking.permissions.denied'),
@@ -162,7 +163,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       await Sound.stopPlayer();
       const audioPath = await Sound.startRecorder();
       console.log('[SpeakingDialogue] Recording started, path:', audioPath);
-      
+
       Sound.addRecordBackListener((e: any) => {
         const seconds = Math.floor(e.currentPosition / 1000);
         setRecordingDuration(seconds);
@@ -181,7 +182,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       console.log(`[SpeakingDialogue] Stopping recording... Duration: ${recordingDuration}s`);
       const audioPath = await Sound.stopRecorder();
       Sound.removeRecordBackListener();
-      
+
       setIsRecording(false);
       setRecordingDuration(0);
 
@@ -219,15 +220,16 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   useEffect(() => {
     // Automatically play AI audio when turn changes to AI
-    if (!isUserTurn && currentTurn && (currentTurn.audioUrl || currentTurn.audio_url)) {
+    // But only if we have permission granted (to avoid playing while permission dialog is showing)
+    if (!isUserTurn && currentTurn && (currentTurn.audioUrl || currentTurn.audio_url) && hasPermission === true) {
       playAIResponse();
     }
-  }, [currentTurnIndex]);
+  }, [currentTurnIndex, hasPermission]);
 
   const playAIResponse = async () => {
     const url = currentTurn?.audioUrl || currentTurn?.audio_url;
     if (!url) return;
-    
+
     setIsPlaying(true);
     try {
       await Sound.startPlayer(url);
@@ -258,15 +260,30 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     onNextTurn();
   };
 
-  if (!hasPermission) {
+  if (hasPermission === null) {
+    // Still checking permissions
     return (
-      <View style={styles.container}>
-        <Icon name="mic-off" size={64} color="#ccc" />
-        <Text style={styles.permissionText}>{t('speaking.permissions.required')}</Text>
+      <View style={styles.contentContainer}>
+        <View style={styles.permissionContainer}>
+          <ActivityIndicator size="large" color="#667eea" />
+          <Text style={styles.permissionText}>{t('speaking.permissions.checking')}</Text>
+        </View>
+      </View>
+    );
+  }
+
+  if (hasPermission === false) {
+    // Permission denied or not granted
+    return (
+      <View style={styles.contentContainer}>
+        <View style={styles.permissionContainer}>
+          <Icon name="mic-off" size={64} color="#ccc" />
+          <Text style={styles.permissionText}>{t('speaking.permissions.required')}</Text>
+        </View>
         <TouchableOpacity style={styles.permissionButton} onPress={requestMicrophonePermission}>
           <Text style={styles.permissionButtonText}>{t('speaking.permissions.grant')}</Text>
         </TouchableOpacity>
-      </View>
+      </View >
     );
   }
 
@@ -298,9 +315,10 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
               <Text style={styles.turnSpeaker}>{isUserTurn ? t('speaking.you') : t('speaking.ai')}</Text>
             </View>
             {!isUserTurn && (currentTurn?.audioUrl || currentTurn?.audio_url) && (
-              <TouchableOpacity 
-                style={[styles.replayIconButton, isPlaying && styles.replayIconButtonActive]} 
+              <TouchableOpacity
+                style={[styles.replayIconButton, isPlaying && styles.replayIconButtonActive]}
                 onPress={playAIResponse}
+                disabled={isPlaying}
               >
                 <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={20} color={isPlaying ? "#4facfe" : "#666"} />
               </TouchableOpacity>
@@ -363,20 +381,20 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
           <Text style={styles.historyTitle}>{t('speaking.previousTurns')}</Text>
           {dialogue.slice(Math.max(0, currentTurnIndex - 3), currentTurnIndex).map((turn, index) => {
             const isTurnUser = turn.speaker === 'user';
-            const turnExamInstruction = isTurnUser && turn.instruction 
+            const turnExamInstruction = isTurnUser && turn.instruction
               ? (turn.instruction[examLangCode] || turn.instruction.de || turn.instruction.en)
               : '';
             const turnInterfaceInstruction = isTurnUser && turn.instruction && examLangCode !== interfaceLangCode
               ? (turn.instruction[interfaceLangCode] || turn.instruction.en || turn.instruction.de)
               : '';
-              
+
             return (
               <View key={index} style={[styles.historyTurn, isTurnUser ? styles.historyUserTurn : styles.historyAiTurn]}>
                 <Text style={styles.historyTurnSpeaker}>{isTurnUser ? t('speaking.you') : t('speaking.ai')}:</Text>
                 <View>
                   <Text style={styles.historyTurnText}>
-                    {isTurnUser 
-                      ? (turn.transcription || `(${turnExamInstruction})`) 
+                    {isTurnUser
+                      ? (turn.transcription || `(${turnExamInstruction})`)
                       : turn.text}
                   </Text>
                   {isTurnUser && !turn.transcription && !!turnInterfaceInstruction && (
@@ -397,6 +415,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f5f5f5' },
   contentContainer: { padding: 16 },
+  permissionContainer: { alignItems: 'center', justifyContent: 'center', padding: 24 },
   progressContainer: { marginBottom: 20 },
   progressText: { fontSize: 14, color: '#666', marginBottom: 8, textAlign: 'center' },
   progressBar: { height: 4, backgroundColor: '#e0e0e0', borderRadius: 2, overflow: 'hidden' },
@@ -455,7 +474,7 @@ const styles = StyleSheet.create({
   },
   permissionText: { fontSize: 16, color: '#666', textAlign: 'center', marginTop: 16, marginBottom: 24 },
   permissionButton: { backgroundColor: '#667eea', padding: 16, borderRadius: 8, paddingHorizontal: 32 },
-  permissionButtonText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  permissionButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', textAlign: 'center' },
   completeText: { fontSize: 24, fontWeight: '700', color: '#333', marginTop: 16, textAlign: 'center' },
   completeSubtext: { fontSize: 16, color: '#666', marginTop: 8, textAlign: 'center' },
   loader: { marginTop: 24 },
