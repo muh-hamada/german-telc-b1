@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
-import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
-import { HomeStackParamList, HomeStackNavigationProp } from '../../types/navigation.types';
+import React, { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { SpeakingDialogueComponent } from '../../components/speaking/SpeakingDialogueComponent';
+import { getActiveExamConfig } from '../../config/active-exam.config';
+import { ExamLevel } from '../../config/exam-config.types';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
-import { SpeakingDialogueComponent } from '../../components/speaking/SpeakingDialogueComponent';
+import { typography } from '../../theme';
+import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 import {
   SpeakingAssessmentDialogue,
   SpeakingEvaluation,
 } from '../../types/prep-plan.types';
-import { getActiveExamConfig } from '../../config/active-exam.config';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { logEvent, AnalyticsEvents } from '../../services/analytics.events';
-import { typography } from '../../theme';
-
-type SpeakingAssessmentScreenRouteProp = RouteProp<HomeStackParamList, 'SpeakingAssessment'>;
+import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
 
@@ -41,7 +41,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const [inProgressDialogue, setInProgressDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
 
   const activeExamConfig = getActiveExamConfig();
-  const level = activeExamConfig.level as 'A1' | 'B1' | 'B2';
+  const level: ExamLevel = activeExamConfig.level;
 
   useEffect(() => {
     loadData();
@@ -160,13 +160,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       const previousAITurn = turnIndex > 0 ? dialogue.turns[turnIndex - 1] : null;
       
       // Map exam language to instruction key
-      const examLangMap: Record<string, 'de' | 'en' | 'fr' | 'es'> = {
-        'german': 'de',
-        'english': 'en',
-        'french': 'fr',
-        'spanish': 'es'
-      };
-      const examLangCode = examLangMap[activeExamConfig.language] || 'de';
+      const examLangCode = LanguageNameToLanguageCodes[activeExamConfig.language] || 'de';
       
       // Use the instruction in the exam language as context for evaluation
       const context = (currentTurn.instruction && currentTurn.instruction[examLangCode as keyof typeof currentTurn.instruction]) || 
@@ -460,7 +454,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
                     <Text style={styles.historyItemDate}>
                       {new Date(item.startedAt || Date.now()).toLocaleDateString()}
                     </Text>
-                    <Text style={styles.historyItemLevel}>{item.level}</Text>
                   </View>
                   <View style={styles.historyItemStatus}>
                     {item.isComplete ? (

@@ -906,6 +906,21 @@
       "denied": "Berechtigung verweigert",
       "deniedMessage": "Bitte aktivieren Sie den Mikrofon-Zugriff in Ihren Geräteeinstellungen, um die Sprechpraxis zu nutzen."
     },
+    "intro": {
+      "title": "Sprechbewertung",
+      "subtitle": "Wie es funktioniert",
+      "step1Title": "Interaktiver Dialog",
+      "step1Desc": "Führen Sie ein natürliches Gespräch mit unserem KI-Prüfer durch mehrere Teile",
+      "step2Title": "Nehmen Sie Ihre Antworten auf",
+      "step2Desc": "Sprechen Sie deutlich in Ihr Mikrofon für jede Frage oder Aufgabe",
+      "step3Title": "KI-Bewertung",
+      "step3Desc": "Erhalten Sie sofortige Analyse Ihrer Aussprache, Flüssigkeit und Grammatik",
+      "step4Title": "Detailliertes Feedback",
+      "step4Desc": "Erhalten Sie umfassendes Feedback zu Stärken und Verbesserungsbereichen",
+      "step5Title": "Fortschritt verfolgen",
+      "step5Desc": "Überwachen Sie Ihre Verbesserung im Laufe der Zeit mit der Bewertungshistorie",
+      "startButton": "Fang an zu üben"
+    },
     "noSpeechDetected": "Keine Sprache erkannt",
     "noSpeechDetectedMessage": "Wir konnten keine Sprache erkennen. Bitte sprechen Sie lauter und stellen Sie sicher, dass Ihr Mikrofon aktiviert ist.",
     "loading": "Lade Sprechpraxis...",
@@ -935,7 +950,11 @@
     "areasToImprove": "Verbesserungsbereiche",
     "viewDetails": "Details anzeigen",
     "networkError": "Netzwerkverbindung fehlgeschlagen. \nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
-    "uploadTimeout": "Zeitüberschreitung beim Hochladen. \nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+    "uploadTimeout": "Zeitüberschreitung beim Hochladen. \nBitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "history": {
+      "inProgress": "Im Gange",
+      "title": "Bewertungsverlauf"
+    }
   },
   "results": {
     "title": "Prüfungsergebnisse",

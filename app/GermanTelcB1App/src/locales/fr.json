@@ -966,13 +966,28 @@
     },
     "permissions": {
       "required": "L'autorisation du microphone est requise pour la pratique orale",
-      "message": "Nous avons besoin d’accéder à votre microphone pour enregistrer votre pratique orale.",
+      "message": "Nous avons besoin d'accéder à votre microphone pour enregistrer votre pratique orale.",
       "askLater": "Demandez-moi plus tard",
       "cancel": "Annuler",
       "ok": "D'ACCORD",
       "title": "Autorisation du microphone",
       "denied": "Autorisation refusée",
       "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale."
+    },
+    "intro": {
+      "title": "Évaluation de l'expression orale",
+      "subtitle": "Comment ça marche",
+      "step1Title": "Dialogue interactif",
+      "step1Desc": "Ayez une conversation naturelle avec notre examinateur IA à travers plusieurs parties",
+      "step2Title": "Enregistrez vos réponses",
+      "step2Desc": "Parlez clairement dans votre microphone pour chaque question ou tâche",
+      "step3Title": "Évaluation par IA",
+      "step3Desc": "Obtenez une analyse instantanée de votre prononciation, fluidité et grammaire",
+      "step4Title": "Commentaires détaillés",
+      "step4Desc": "Recevez des commentaires complets sur les forces et les domaines à améliorer",
+      "step5Title": "Suivre les progrès",
+      "step5Desc": "Surveillez votre amélioration au fil du temps avec l'historique des scores",
+      "startButton": "Commencer la pratique"
     },
     "complete": "Complet!",
     "error": "Erreur",
@@ -988,7 +1003,11 @@
     "uploadTimeout": "Expiration du délai de téléchargement. \nVeuillez vérifier votre connexion Internet et réessayer.",
     "noSpeechDetected": "Aucune parole détectée",
     "noSpeechDetectedMessage": "Nous n'avons détecté aucune parole. Veuillez parler plus fort et vous assurer que votre microphone est activé.",
-    "evaluating": "Évaluer vos performances..."
+    "evaluating": "Évaluer vos performances...",
+    "history": {
+      "inProgress": "En cours",
+      "title": "Historique des évaluations"
+    }
   },
   "results": {
     "title": "Résultats de l'examen",

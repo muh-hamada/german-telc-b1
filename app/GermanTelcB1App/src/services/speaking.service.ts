@@ -16,7 +16,7 @@ import {
   SpeakingEvaluation,
 } from '../types/prep-plan.types';
 import { getActiveExamConfig } from '../config/active-exam.config';
-import { ExamLevel, ExamLanguage } from '../config/exam-config.types';
+import { ExamLanguage, ExamLevel } from '../config/exam-config.types';
 
 const IS_DEV = __DEV__;
 const testPath = (Platform.OS === 'android' ? 'http://10.0.2.2' : 'http://localhost') + ':5001/telc-b1-german/us-central1';
@@ -35,16 +35,16 @@ class SpeakingService {
    * Generate a speaking dialogue for assessment or practice
    * Calls Cloud Function to generate AI-powered dialogue
    * 
-   * @param level - Exam level (A1, B1, B2)
+   * @param level - Exam level
    * @param isTesting - If true, generates a short 2-turn dialogue for testing
    * @returns Speaking dialogue structure
    */
   async generateDialogue(
-    level: 'A1' | 'B1' | 'B2'
+    level: ExamLevel
   ): Promise<SpeakingAssessmentDialogue> {
     try {
       const activeExamConfig = getActiveExamConfig();
-      const language = activeExamConfig.language; // 'german' or 'english'
+      const language: ExamLanguage = activeExamConfig.language;
 
       console.log('[SpeakingService] Generating dialogue...', { level, language });
 
@@ -97,14 +97,14 @@ class SpeakingService {
   async evaluateResponse(
     audioUri: string,
     expectedContext: string,
-    level: 'A1' | 'B1' | 'B2',
+    level: ExamLevel,
     userId: string,
     dialogueId: string,
     turnNumber: number
   ): Promise<SpeakingEvaluation> {
     try {
       const activeExamConfig = getActiveExamConfig();
-      const language = activeExamConfig.language; // 'german' or 'english'
+      const language: ExamLanguage = activeExamConfig.language;
 
       console.log('[SpeakingService] Evaluating response...', {
         audioUri,

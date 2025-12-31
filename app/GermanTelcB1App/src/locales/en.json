@@ -190,6 +190,21 @@
       "denied": "Permission Denied",
       "deniedMessage": "Please enable microphone access in your device settings to use speaking practice."
     },
+    "intro": {
+      "title": "Speaking Assessment",
+      "subtitle": "How it Works",
+      "step1Title": "Interactive Dialogue",
+      "step1Desc": "Have a natural conversation with our AI examiner through multiple parts",
+      "step2Title": "Record Your Responses",
+      "step2Desc": "Speak clearly into your microphone for each question or task",
+      "step3Title": "AI Evaluation",
+      "step3Desc": "Get instant analysis of your pronunciation, fluency, and grammar",
+      "step4Title": "Detailed Feedback",
+      "step4Desc": "Receive comprehensive feedback on strengths and areas for improvement",
+      "step5Title": "Track Progress",
+      "step5Desc": "Monitor your improvement over time with scoring history",
+      "startButton": "Start Practice"
+    },
     "noSpeechDetected": "No speech detected",
     "noSpeechDetectedMessage": "We couldn't detect any speech. Please speak louder and ensure your microphone is enabled.",
     "loading": "Loading speaking practice...",
@@ -235,6 +250,10 @@
       "Grammar Accuracy": "{{score}} / {{max}}",
       "Vocabulary Range": "{{score}} / {{max}}",
       "Content Relevance": "{{score}} / {{max}}"
+    },
+    "history": {
+      "inProgress": "In progress",
+      "title": "Assessment History"
     }
   },
   "vocabulary": {

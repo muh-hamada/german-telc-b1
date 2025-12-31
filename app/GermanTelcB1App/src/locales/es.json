@@ -905,6 +905,21 @@
       "denied": "Permiso denegado",
       "deniedMessage": "Por favor, habilita el acceso al micrófono en la configuración de tu dispositivo para usar la práctica de habla."
     },
+    "intro": {
+      "title": "Evaluación de expresión oral",
+      "subtitle": "Cómo funciona",
+      "step1Title": "Diálogo interactivo",
+      "step1Desc": "Ten una conversación natural con nuestro examinador de IA a través de múltiples partes",
+      "step2Title": "Graba tus respuestas",
+      "step2Desc": "Habla claramente en tu micrófono para cada pregunta o tarea",
+      "step3Title": "Evaluación por IA",
+      "step3Desc": "Obtén análisis instantáneo de tu pronunciación, fluidez y gramática",
+      "step4Title": "Comentarios detallados",
+      "step4Desc": "Recibe comentarios completos sobre fortalezas y áreas de mejora",
+      "step5Title": "Seguimiento del progreso",
+      "step5Desc": "Monitorea tu mejora con el tiempo con el historial de puntuación",
+      "startButton": "Empezar a practicar"
+    },
     "noSpeechDetected": "No se detectó voz",
     "noSpeechDetectedMessage": "No pudimos detectar ninguna voz. Por favor, hable más fuerte y asegúrese de que su micrófono esté habilitado.",
     "loading": "Cargando práctica de habla...",
@@ -934,7 +949,11 @@
     "areasToImprove": "Áreas a mejorar",
     "viewDetails": "Ver detalles",
     "networkError": "La conexión de red falló. \nPor favor revisa tu internet y vuelve a intentarlo.",
-    "uploadTimeout": "Tiempo de espera de carga. \nPor favor verifique su conexión a Internet e inténtelo nuevamente."
+    "uploadTimeout": "Tiempo de espera de carga. \nPor favor verifique su conexión a Internet e inténtelo nuevamente.",
+    "history": {
+      "inProgress": "En curso",
+      "title": "Historial de evaluación"
+    }
   },
   "results": {
     "title": "Resultados del examen",
