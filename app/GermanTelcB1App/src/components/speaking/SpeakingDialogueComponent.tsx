@@ -20,6 +20,7 @@ import { getActiveExamConfig } from '../../config/active-exam.config';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { type ThemeColors } from '../../theme';
+import { I18nManager } from 'react-native';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];
@@ -372,7 +373,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       {!isUserTurn && (
         <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
           <Text style={styles.nextButtonText}>{t('speaking.next')}</Text>
-          <Icon name="arrow-forward" size={20} color={colors.text.inverse} />
+          <Icon name={I18nManager.isRTL ? "arrow-back" : "arrow-forward"} size={20} color={colors.text.inverse} />
         </TouchableOpacity>
       )}
 
@@ -428,6 +429,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.text.secondary,
     marginTop: 4,
     fontStyle: 'italic',
+    textAlign: 'left',
   },
   playButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary[600], padding: 12, borderRadius: 8, marginTop: 12 },
   playButtonDisabled: { opacity: 0.6 },
@@ -449,11 +451,11 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   nextButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary[500], padding: 16, borderRadius: 12, marginBottom: 24 },
   nextButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', marginRight: 8 },
   historyContainer: { marginTop: 24, padding: 16, backgroundColor: colors.background.secondary, borderRadius: 12 },
-  historyTitle: { fontSize: 14, fontWeight: '600', color: colors.text.secondary, marginBottom: 12 },
+  historyTitle: { fontSize: 14, fontWeight: '600', color: colors.text.secondary, marginBottom: 12, textAlign: 'left' },
   historyTurn: { padding: 12, borderRadius: 8, marginBottom: 8 },
   historyUserTurn: { backgroundColor: colors.primary[50] },
   historyAiTurn: { backgroundColor: colors.primary[100] },
-  historyTurnSpeaker: { fontSize: 12, fontWeight: '600', color: colors.text.secondary, marginBottom: 4 },
+  historyTurnSpeaker: { fontSize: 12, fontWeight: '600', color: colors.text.secondary, marginBottom: 4, textAlign: 'left' },
   historyTurnText: { fontSize: 14, color: colors.text.primary },
   historySecondaryInstructionText: {
     fontSize: 11,

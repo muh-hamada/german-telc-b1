@@ -92,6 +92,7 @@ class SpeakingService {
    * @param userId - User ID
    * @param dialogueId - Dialogue ID
    * @param turnNumber - Turn number
+   * @param feedbackLanguage - Language code for feedback (e.g., 'en', 'de', 'ar')
    * @returns Evaluation with scores and feedback
    */
   async evaluateResponse(
@@ -100,7 +101,8 @@ class SpeakingService {
     level: ExamLevel,
     userId: string,
     dialogueId: string,
-    turnNumber: number
+    turnNumber: number,
+    feedbackLanguage: string
   ): Promise<SpeakingEvaluation> {
     try {
       const activeExamConfig = getActiveExamConfig();
@@ -113,6 +115,7 @@ class SpeakingService {
         userId,
         dialogueId,
         turnNumber,
+        feedbackLanguage,
       });
 
       // Step 1: Upload audio to Firebase Storage
@@ -133,6 +136,7 @@ class SpeakingService {
         dialogueId,
         turnNumber,
         userId,
+        feedbackLanguage,
       });
 
       const evaluation = response.data;
@@ -484,11 +488,21 @@ class SpeakingService {
         return result.slice(0, 5); // Limit to top 5 unique points
       };
 
+      // Generate AI-powered overall summary in user's language
+      const feedbackLanguage = await this.getFeedbackLanguage();
+      const overallFeedback = await this.generateOverallSummary(
+        avgScores,
+        totalScore,
+        numEvaluations,
+        dialogue.level,
+        feedbackLanguage
+      );
+
       const overallEvaluation: SpeakingEvaluation = {
         transcription: 'Overall dialogue evaluation',
         scores: avgScores,
         totalScore: Math.round(totalScore * 10) / 10,
-        feedback: `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`,
+        feedback: overallFeedback,
         strengths: deduplicate(Array.from(allStrengths)),
         areasToImprove: deduplicate(Array.from(allAreasToImprove)),
       };
@@ -577,6 +591,67 @@ class SpeakingService {
     } catch (error: any) {
       console.error('[SpeakingService] Error deleting dialogue:', error);
       throw new Error(`Failed to delete dialogue: ${error.message}`);
+    }
+  }
+
+  /**
+   * Get feedback language from i18n
+   * Helper method to access the current interface language
+   */
+  private async getFeedbackLanguage(): Promise<string> {
+    try {
+      // Import i18n dynamically to avoid circular dependencies
+      const i18n = require('../utils/i18n').default;
+      return i18n.language || 'en';
+    } catch (error) {
+      console.warn('[SpeakingService] Could not get i18n language, defaulting to en');
+      return 'en';
+    }
+  }
+
+  /**
+   * Generate overall summary using AI
+   * Calls Cloud Function to generate localized feedback
+   */
+  private async generateOverallSummary(
+    averageScores: {
+      pronunciation: number;
+      fluency: number;
+      grammarAccuracy: number;
+      vocabularyRange: number;
+      contentRelevance: number;
+    },
+    totalScore: number,
+    numEvaluations: number,
+    level: ExamLevel,
+    feedbackLanguage: string
+  ): Promise<string> {
+    try {
+      const activeExamConfig = getActiveExamConfig();
+      const language: ExamLanguage = activeExamConfig.language;
+
+      console.log('[SpeakingService] Generating overall summary...', {
+        totalScore,
+        numEvaluations,
+        level,
+        language,
+        feedbackLanguage,
+      });
+
+      const response = await axios.post(`${CLOUD_FUNCTIONS_BASE_URL}/generateSpeakingSummary`, {
+        averageScores,
+        totalScore,
+        numEvaluations,
+        level,
+        language,
+        feedbackLanguage,
+      });
+
+      return response.data.feedback || `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`;
+    } catch (error: any) {
+      console.error('[SpeakingService] Error generating summary:', error);
+      // Fallback to generic English message
+      return `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`;
     }
   }
 }

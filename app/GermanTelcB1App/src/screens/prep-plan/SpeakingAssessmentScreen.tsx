@@ -22,6 +22,7 @@ import { spacing, typography, type ThemeColors } from '../../theme';
 import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 import { SpeakingAssessmentDialogue } from '../../types/prep-plan.types';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
+import i18n from '../../utils/i18n';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { I18nManager } from 'react-native';
 
@@ -174,7 +175,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         level,
         user.uid,
         dialogue.dialogueId,
-        turnIndex
+        turnIndex,
+        i18n.language // Pass interface language as feedback language
       );
 
       console.log('[SpeakingAssessmentScreen] Turn evaluated:', evaluation);

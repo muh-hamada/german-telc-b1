@@ -395,6 +395,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   listItemText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+    textAlign: 'left',
   },
   generateButton: {
     backgroundColor: colors.primary[500],

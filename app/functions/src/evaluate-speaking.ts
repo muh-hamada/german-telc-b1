@@ -1,6 +1,5 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import OpenAI from 'openai';
 import { getOpenAIKey } from './api-keys';
 import * as fs from 'fs';
@@ -61,7 +60,7 @@ export const evaluateSpeaking = functions
       return;
     }
 
-    const { audioUrl, expectedContext, level, language, dialogueId, turnNumber, userId } = req.body;
+    const { audioUrl, expectedContext, level, language, dialogueId, turnNumber, userId, feedbackLanguage } = req.body;
 
     console.log('[EvaluateSpeaking] Request body:', {
       audioUrl,
@@ -71,11 +70,12 @@ export const evaluateSpeaking = functions
       dialogueId,
       turnNumber,
       userId,
+      feedbackLanguage,
     });
 
     // Validate input
-    if (!audioUrl || !level || !language || !userId) {
-      res.status(400).json({ error: 'Missing required parameters (audioUrl, level, language, or userId)' });
+    if (!audioUrl || !level || !language || !userId || !feedbackLanguage) {
+      res.status(400).json({ error: 'Missing required parameters (audioUrl, level, language, feedbackLanguage, or userId)' });
       return;
     }
 
@@ -146,7 +146,7 @@ export const evaluateSpeaking = functions
       console.log('[EvaluateSpeaking] Transcription result:', {
         text: transcription,
         duration: whisperResult.duration,
-        segments: whisperResult.segments?.length
+        segments: whisperResult.segments?.length 
       });
 
       // Step 3: Evaluate using GPT-4
@@ -155,25 +155,13 @@ export const evaluateSpeaking = functions
         transcription,
         context,
         level,
-        language
+        language,
+        feedbackLanguage
       );
 
       console.log('[EvaluateSpeaking] Evaluation result:', JSON.stringify(evaluation));
 
-      // Step 4: Save evaluation to Firestore
-      await saveEvaluationToFirestore(
-        userId,
-        dialogueId,
-        turnNumber,
-        {
-          ...evaluation,
-          dialogueId, // Ensure dialogueId is stored for querying
-          audioUrl,
-          timestamp: FieldValue.serverTimestamp(),
-        }
-      );
-
-      // Step 5: Cleanup temp file
+      // Step 4: Cleanup temp file
       try {
         fs.unlinkSync(localFilePath);
       } catch (err) {
@@ -188,6 +176,71 @@ export const evaluateSpeaking = functions
       console.error('Error evaluating speaking:', error);
       res.status(500).json({
         error: 'Failed to evaluate speaking',
+        message: error.message,
+      });
+    }
+  });
+
+/**
+ * Cloud Function to generate overall speaking assessment summary
+ * Uses GPT-4 to create a comprehensive summary of all turn evaluations
+ */
+export const generateSpeakingSummary = functions
+  .runWith({
+    timeoutSeconds: 60,
+    memory: '512MB',
+  })
+  .https.onRequest(async (req, res) => {
+    // CORS headers
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+
+    if (req.method !== 'POST') {
+      res.status(405).send('Method Not Allowed');
+      return;
+    }
+
+    const { averageScores, totalScore, numEvaluations, level, language, feedbackLanguage } = req.body;
+
+    console.log('[GenerateSpeakingSummary] Request body:', {
+      averageScores,
+      totalScore,
+      numEvaluations,
+      level,
+      language,
+      feedbackLanguage,
+    });
+
+    // Validate input
+    if (!averageScores || !totalScore || !numEvaluations || !level || !language || !feedbackLanguage) {
+      res.status(400).json({ error: 'Missing required parameters' });
+      return;
+    }
+
+    try {
+      const summary = await generateOverallSummary(
+        averageScores,
+        totalScore,
+        numEvaluations,
+        level,
+        language,
+        feedbackLanguage
+      );
+
+      res.status(200).json({
+        feedback: summary,
+        success: true,
+      });
+    } catch (error: any) {
+      console.error('Error generating summary:', error);
+      res.status(500).json({
+        error: 'Failed to generate summary',
         message: error.message,
       });
     }
@@ -286,16 +339,103 @@ async function transcribeAudio(filePath: string, language: ExamLanguage): Promis
 }
 
 /**
+ * Generate overall speaking assessment summary using GPT-4
+ */
+async function generateOverallSummary(
+  averageScores: {
+    pronunciation: number;
+    fluency: number;
+    grammarAccuracy: number;
+    vocabularyRange: number;
+    contentRelevance: number;
+  },
+  totalScore: number,
+  numEvaluations: number,
+  level: ExamLevel,
+  language: ExamLanguage,
+  feedbackLanguage: string
+): Promise<string> {
+  const lang = language === 'german' ? 'German' : 'English';
+  const examName = `TELC ${lang}`;
+
+  // Map feedback language codes to full language names
+  const feedbackLanguageMap: Record<string, string> = {
+    'en': 'English',
+    'de': 'German',
+    'ar': 'Arabic',
+    'es': 'Spanish',
+    'fr': 'French',
+    'ru': 'Russian',
+  };
+  const feedbackLanguageName = feedbackLanguageMap[feedbackLanguage] || 'English';
+
+  const prompt = `You are an expert ${examName} ${level} speaking examiner. Generate a comprehensive overall summary for a speaking assessment.
+
+The student completed ${numEvaluations} speaking exchanges with the following average scores:
+- Pronunciation: ${averageScores.pronunciation}/20
+- Fluency: ${averageScores.fluency}/20
+- Grammar Accuracy: ${averageScores.grammarAccuracy}/20
+- Vocabulary Range: ${averageScores.vocabularyRange}/20
+- Content Relevance: ${averageScores.contentRelevance}/20
+- Total Score: ${totalScore}/100
+
+Generate a motivating and encouraging summary (2-3 sentences) in ${feedbackLanguageName} that:
+1. Acknowledges their effort in completing ${numEvaluations} exchanges
+2. Highlights their overall performance level
+3. Provides encouragement for continued practice
+
+The summary should be written entirely in ${feedbackLanguageName}. Return ONLY the summary text, no JSON, no formatting.`;
+
+  try {
+    const openai = getOpenAIClient();
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: `You are an expert ${examName} ${level} examiner. Provide encouraging feedback in ${feedbackLanguageName}.`,
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: 0.7, // Slightly higher for more natural language
+      max_tokens: 200,
+    });
+
+    const summary = completion.choices[0].message.content || `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`;
+    return summary.trim();
+  } catch (error: any) {
+    console.error('GPT summary generation error:', error);
+    // Fallback to English if AI fails
+    return `You completed ${numEvaluations} speaking exchanges. Your overall performance shows good progress!`;
+  }
+}
+
+/**
  * Evaluate transcription using GPT-4o-mini
  */
 async function evaluateResponse(
   transcription: string,
   expectedContext: string,
   level: ExamLevel,
-  language: ExamLanguage
+  language: ExamLanguage,
+  feedbackLanguage: string
 ): Promise<SpeakingEvaluation> {
   const lang = language === 'german' ? 'German' : 'English';
   const examName = `TELC ${lang}`;
+
+  // Map feedback language codes to full language names
+  const feedbackLanguageMap: Record<string, string> = {
+    'en': 'English',
+    'de': 'German',
+    'ar': 'Arabic',
+    'es': 'Spanish',
+    'fr': 'French',
+    'ru': 'Russian',
+  };
+  const feedbackLanguageName = feedbackLanguageMap[feedbackLanguage] || 'English';
 
   const prompt = `You are an expert ${examName} ${level} speaking exam evaluator. Evaluate the following speaking response for ONE SPECIFIC TURN in a dialogue.
 
@@ -308,6 +448,7 @@ CRITICAL INSTRUCTIONS FOR FEEDBACK:
 3. CONCISE: Provide exactly 2 strengths and 2 areas to improve. Each must be a single, unique sentence.
 4. VARIETY: Avoid generic phrases like "Clear pronunciation", "Good grammar", or "Expand your response". Instead, specify WHAT was pronounced well or WHICH grammar structure was used correctly/incorrectly.
 5. NO HALLUCINATIONS: If the transcription is empty or gibberish (and was not caught by the silence filter), set all scores to 0 and transcription to "".
+6. LANGUAGE REQUIREMENT: Provide ALL feedback, strengths, and areas to improve in ${feedbackLanguageName}. The user wants to receive their evaluation feedback in ${feedbackLanguageName}.
 
 Evaluate the response holistically based on these ${level} level criteria. Assign a score from 0 to 20 for each category:
 1. **Fluency** (0-20): Natural pace, smooth transitions, minimal hesitation.
@@ -408,22 +549,4 @@ Provide your evaluation in this EXACT JSON format (no markdown, no backticks, no
   }
 }
 
-/**
- * Save evaluation to Firestore
- */
-async function saveEvaluationToFirestore(
-  userId: string,
-  dialogueId: string,
-  turnNumber: number,
-  evaluation: any
-): Promise<void> {
-  const db = getFirestore();
-  
-  await db
-    .collection('users')
-    .doc(userId)
-    .collection('speaking-evaluations')
-    .doc(`${dialogueId}-turn-${turnNumber}`)
-    .set(evaluation, { merge: true });
-}
 
