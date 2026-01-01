@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -18,10 +18,11 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
-import { spacing, typography } from '../../theme';
+import { spacing, typography, type ThemeColors } from '../../theme';
 import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 import { SpeakingAssessmentDialogue } from '../../types/prep-plan.types';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
+import { useAppTheme } from '../../contexts/ThemeContext';
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
 
@@ -29,6 +30,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
   const { user } = useAuth();
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [dialogue, setDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
@@ -326,7 +329,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#667eea" />
+        <ActivityIndicator size="large" color={colors.primary[500]} />
         <Text style={styles.loadingText}>{t('speaking.loading')}</Text>
       </View>
     );
@@ -335,9 +338,9 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   if (isEvaluating) {
     return (
       <View style={styles.evaluatingContainer}>
-        <Icon name="check-circle" size={80} color="#4CAF50" />
+        <Icon name="check-circle" size={80} color={colors.success[500]} />
         <Text style={styles.evaluatingTitle}>{t('speaking.complete')}</Text>
-        <ActivityIndicator size="large" color="#667eea" style={styles.loader} />
+        <ActivityIndicator size="large" color={colors.primary[500]} style={styles.loader} />
         <Text style={styles.evaluatingText}>{t('speaking.evaluating')}</Text>
       </View>
     );
@@ -375,8 +378,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         <Text style={styles.introSubtitle}>{t('speaking.intro.subtitle')}</Text>
 
         <View style={styles.stepContainer}>
-          <View style={[styles.stepIconContainer, { backgroundColor: '#E3F2FD' }]}>
-            <Icon name="forum" size={24} color="#1976D2" />
+          <View style={[styles.stepIconContainer, { backgroundColor: colors.primary[50] }]}>
+            <Icon name="forum" size={24} color={colors.primary[600]} />
           </View>
           <View style={styles.stepTextContainer}>
             <Text style={styles.stepTitle}>{t('speaking.intro.step1Title')}</Text>
@@ -385,8 +388,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         </View>
 
         <View style={styles.stepContainer}>
-          <View style={[styles.stepIconContainer, { backgroundColor: '#F3E5F5' }]}>
-            <Icon name="mic" size={24} color="#7B1FA2" />
+          <View style={[styles.stepIconContainer, { backgroundColor: colors.secondary[100] }]}>
+            <Icon name="mic" size={24} color={colors.secondary[700]} />
           </View>
           <View style={styles.stepTextContainer}>
             <Text style={styles.stepTitle}>{t('speaking.intro.step2Title')}</Text>
@@ -395,8 +398,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         </View>
 
         <View style={styles.stepContainer}>
-          <View style={[styles.stepIconContainer, { backgroundColor: '#E8F5E9' }]}>
-            <Icon name="psychology" size={24} color="#388E3C" />
+          <View style={[styles.stepIconContainer, { backgroundColor: colors.success[50] }]}>
+            <Icon name="psychology" size={24} color={colors.success[700]} />
           </View>
           <View style={styles.stepTextContainer}>
             <Text style={styles.stepTitle}>{t('speaking.intro.step3Title')}</Text>
@@ -405,8 +408,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         </View>
 
         <View style={styles.stepContainer}>
-          <View style={[styles.stepIconContainer, { backgroundColor: '#FFF3E0' }]}>
-            <Icon name="assignment" size={24} color="#F57C00" />
+          <View style={[styles.stepIconContainer, { backgroundColor: colors.warning[50] }]}>
+            <Icon name="assignment" size={24} color={colors.warning[700]} />
           </View>
           <View style={styles.stepTextContainer}>
             <Text style={styles.stepTitle}>{t('speaking.intro.step4Title')}</Text>
@@ -415,8 +418,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         </View>
 
         <View style={styles.stepContainer}>
-          <View style={[styles.stepIconContainer, { backgroundColor: '#FCE4EC' }]}>
-            <Icon name="trending-up" size={24} color="#C2185B" />
+          <View style={[styles.stepIconContainer, { backgroundColor: colors.error[50] }]}>
+            <Icon name="trending-up" size={24} color={colors.error[600]} />
           </View>
           <View style={styles.stepTextContainer}>
             <Text style={styles.stepTitle}>{t('speaking.intro.step5Title')}</Text>
@@ -472,7 +475,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
                   ) : (
                     <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
                   )}
-                  <Icon name="chevron-right" size={20} color="#666" />
+                  <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
                 </View>
               </TouchableOpacity>
             ))}
@@ -491,52 +494,52 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.background.primary,
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.background.primary,
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#666',
+    color: colors.text.secondary,
   },
   errorContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.background.primary,
     padding: 24,
   },
   errorText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#666',
+    color: colors.text.secondary,
     textAlign: 'center',
   },
   retryButton: {
     marginTop: 24,
-    backgroundColor: '#667eea',
+    backgroundColor: colors.primary[500],
     paddingHorizontal: 32,
     paddingVertical: 12,
     borderRadius: 8,
   },
   retryButtonText: {
-    color: '#fff',
+    color: colors.text.inverse,
     fontSize: 16,
     fontWeight: '600',
   },
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.background.secondary,
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: colors.border.light,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -549,13 +552,14 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     ...typography.textStyles.h4,
+    color: colors.text.primary,
   },
   introContent: {
     padding: 24,
   },
   introSubtitle: {
     ...typography.textStyles.h3,
-    color: '#333',
+    color: colors.text.primary,
     marginBottom: 24,
   },
   stepContainer: {
@@ -577,34 +581,34 @@ const styles = StyleSheet.create({
   stepTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#333',
+    color: colors.text.primary,
     marginBottom: 4,
   },
   stepDescription: {
     fontSize: 14,
-    color: '#666',
+    color: colors.text.secondary,
     lineHeight: 20,
   },
   footer: {
     padding: spacing.lg,
     paddingBottom: spacing.xl,
-    backgroundColor: '#fff',
+    backgroundColor: colors.background.secondary,
     borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
+    borderTopColor: colors.border.light,
   },
   startButton: {
-    backgroundColor: '#667eea',
+    backgroundColor: colors.primary[500],
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',
-    shadowColor: '#667eea',
+    shadowColor: colors.primary[500],
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 4,
   },
   startButtonText: {
-    color: '#fff',
+    color: colors.text.inverse,
     fontSize: 18,
     fontWeight: '700',
   },
@@ -612,19 +616,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.background.primary,
     padding: 24,
   },
   evaluatingTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#333',
+    color: colors.text.primary,
     marginTop: 16,
     marginBottom: 24,
   },
   evaluatingText: {
     fontSize: 16,
-    color: '#666',
+    color: colors.text.secondary,
     marginTop: 12,
   },
   loader: {
@@ -632,7 +636,7 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: colors.background.secondary,
     borderRadius: 12,
     padding: 20,
     marginTop: 24,
@@ -645,66 +649,66 @@ const styles = StyleSheet.create({
   scoreText: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#333',
+    color: colors.text.primary,
     textAlign: 'center',
     marginBottom: 24,
   },
   scoreLabel: {
     fontSize: 14,
-    color: '#666',
+    color: colors.text.secondary,
     marginBottom: 4,
   },
   scoreBarContainer: {
     height: 8,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: colors.border.light,
     borderRadius: 4,
     overflow: 'hidden',
   },
   scoreBar: {
     height: '100%',
-    backgroundColor: '#667eea',
+    backgroundColor: colors.primary[500],
     borderRadius: 4,
   },
   scoreValue: {
     fontSize: 12,
-    color: '#333',
+    color: colors.text.primary,
     marginTop: 4,
     textAlign: 'right',
   },
   feedbackTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: colors.text.primary,
     marginBottom: 8,
   },
   feedbackText: {
     fontSize: 14,
-    color: '#666',
+    color: colors.text.secondary,
     lineHeight: 20,
     marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333',
+    color: colors.text.primary,
     marginTop: 16,
     marginBottom: 8,
   },
   bulletPoint: {
     fontSize: 14,
-    color: '#666',
+    color: colors.text.secondary,
     lineHeight: 20,
     marginBottom: 4,
   },
   doneButton: {
-    backgroundColor: '#667eea',
+    backgroundColor: colors.primary[500],
     padding: 16,
     borderRadius: 8,
     marginTop: 24,
     alignItems: 'center',
   },
   doneButtonText: {
-    color: '#fff',
+    color: colors.text.inverse,
     fontSize: 16,
     fontWeight: '600',
   },
@@ -714,52 +718,52 @@ const styles = StyleSheet.create({
   },
   historyTitle: {
     ...typography.textStyles.h3,
-    color: '#333',
+    color: colors.text.primary,
     marginBottom: 16,
   },
   historyItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.background.secondary,
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
     borderWidth: 1,
-    borderBottomColor: '#e0e0e0',
-    borderColor: '#e0e0e0',
+    borderBottomColor: colors.border.light,
+    borderColor: colors.border.light,
   },
   historyItemMain: {
     flex: 1,
   },
   historyItemDate: {
     fontSize: 14,
-    color: '#666',
+    color: colors.text.secondary,
     marginBottom: 4,
   },
   historyItemLevel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333',
+    color: colors.text.primary,
   },
   historyItemStatus: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   scoreBadge: {
-    backgroundColor: '#E8F5E9',
+    backgroundColor: colors.success[50],
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 6,
     marginRight: 8,
   },
   scoreBadgeText: {
-    color: '#2E7D32',
+    color: colors.success[700],
     fontSize: 14,
     fontWeight: '700',
   },
   inProgressText: {
-    color: '#F57C00',
+    color: colors.warning[600],
     fontSize: 14,
     fontWeight: '600',
     marginRight: 8,

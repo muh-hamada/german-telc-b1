@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -18,6 +18,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { LanguageCode } from '../../config/exam-config.types';
 import { getActiveExamConfig } from '../../config/active-exam.config';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
+import { useAppTheme } from '../../contexts/ThemeContext';
+import { type ThemeColors } from '../../theme';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];
@@ -35,6 +37,9 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   onNextTurn,
 }) => {
   const { t, i18n } = useCustomTranslation();
+  const { colors } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors), [colors]);
+  
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -236,7 +241,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     return (
       <View style={styles.contentContainer}>
         <View style={styles.permissionContainer}>
-          <ActivityIndicator size="large" color="#667eea" />
+          <ActivityIndicator size="large" color={colors.primary[500]} />
           <Text style={styles.permissionText}>{t('speaking.permissions.checking')}</Text>
         </View>
       </View>
@@ -248,7 +253,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     return (
       <View style={styles.contentContainer}>
         <View style={styles.permissionContainer}>
-          <Icon name="mic-off" size={64} color="#ccc" />
+          <Icon name="mic-off" size={64} color={colors.text.tertiary} />
           <Text style={styles.permissionText}>{t('speaking.permissions.required')}</Text>
         </View>
         <TouchableOpacity style={styles.permissionButton} onPress={requestMicrophonePermission}>
@@ -261,10 +266,10 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   if (isDialogueComplete) {
     return (
       <View style={styles.container}>
-        <Icon name="check-circle" size={64} color="#4CAF50" />
+        <Icon name="check-circle" size={64} color={colors.success[500]} />
         <Text style={styles.completeText}>{t('speaking.complete')}</Text>
         <Text style={styles.completeSubtext}>{t('speaking.evaluating')}</Text>
-        <ActivityIndicator size="large" color="#667eea" style={styles.loader} />
+        <ActivityIndicator size="large" color={colors.primary[500]} style={styles.loader} />
       </View>
     );
   }
@@ -282,7 +287,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
         <View style={[styles.turnCard, isUserTurn ? styles.userTurnCard : styles.aiTurnCard]}>
           <View style={styles.turnHeader}>
             <View style={styles.speakerInfo}>
-              <Icon name={isUserTurn ? "person" : "psychology"} size={24} color={isUserTurn ? "#667eea" : "#4facfe"} />
+              <Icon name={isUserTurn ? "person" : "psychology"} size={24} color={isUserTurn ? colors.primary[500] : colors.primary[600]} />
               <Text style={styles.turnSpeaker}>{isUserTurn ? t('speaking.you') : t('speaking.ai')}</Text>
             </View>
             {!isUserTurn && (currentTurn?.audioUrl || currentTurn?.audio_url) && (
@@ -291,7 +296,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
                 onPress={playAIResponse}
                 disabled={isPlaying}
               >
-                <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={20} color={isPlaying ? "#4facfe" : "#666"} />
+                <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={20} color={isPlaying ? colors.primary[600] : colors.text.secondary} />
               </TouchableOpacity>
             )}
           </View>
@@ -303,7 +308,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
           </View>
           {!isUserTurn && currentTurn?.audioUrl && (
             <TouchableOpacity style={[styles.playButton, isPlaying && styles.playButtonDisabled]} onPress={playAIResponse} disabled={isPlaying}>
-              <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={24} color="#fff" />
+              <Icon name={isPlaying ? "volume-up" : "play-arrow"} size={24} color={colors.text.inverse} />
               <Text style={styles.playButtonText}>{isPlaying ? t('speaking.playing') : t('speaking.playAudio')}</Text>
             </TouchableOpacity>
           )}
@@ -314,7 +319,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
         <View style={styles.recordingControls}>
           {!isRecording && !isProcessing && (
             <TouchableOpacity style={styles.recordButton} onPress={startRecording}>
-              <Icon name="mic" size={32} color="#fff" />
+              <Icon name="mic" size={32} color={colors.text.inverse} />
               <Text style={styles.recordButtonText}>{t('speaking.startRecording')}</Text>
             </TouchableOpacity>
           )}
@@ -326,14 +331,14 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
               </View>
               <Text style={styles.recordingTime}>{formatTime(recordingDuration)}</Text>
               <TouchableOpacity style={styles.stopButton} onPress={stopRecording}>
-                <Icon name="stop" size={32} color="#fff" />
+                <Icon name="stop" size={32} color={colors.text.inverse} />
                 <Text style={styles.stopButtonText}>{t('speaking.stopRecording')}</Text>
               </TouchableOpacity>
             </View>
           )}
           {isProcessing && (
             <View style={styles.processingContainer}>
-              <ActivityIndicator size="large" color="#667eea" />
+              <ActivityIndicator size="large" color={colors.primary[500]} />
               <Text style={styles.processingText}>{t('speaking.processing')}</Text>
             </View>
           )}
@@ -343,7 +348,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       {!isUserTurn && (
         <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
           <Text style={styles.nextButtonText}>{t('speaking.next')}</Text>
-          <Icon name="arrow-forward" size={20} color="#fff" />
+          <Icon name="arrow-forward" size={20} color={colors.text.inverse} />
         </TouchableOpacity>
       )}
 
@@ -370,70 +375,70 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   );
 };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f5' },
+const createStyles = (colors: ThemeColors) => StyleSheet.create({
+  container: { flex: 1, backgroundColor: colors.background.primary },
   contentContainer: { padding: 16 },
   permissionContainer: { alignItems: 'center', justifyContent: 'center', padding: 24 },
   progressContainer: { marginBottom: 20 },
-  progressText: { fontSize: 14, color: '#666', marginBottom: 8, textAlign: 'center' },
-  progressBar: { height: 4, backgroundColor: '#e0e0e0', borderRadius: 2, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: '#667eea', borderRadius: 2 },
+  progressText: { fontSize: 14, color: colors.text.secondary, marginBottom: 8, textAlign: 'center' },
+  progressBar: { height: 4, backgroundColor: colors.border.light, borderRadius: 2, overflow: 'hidden' },
+  progressFill: { height: '100%', backgroundColor: colors.primary[500], borderRadius: 2 },
   turnContainer: { marginBottom: 24 },
   turnCard: { padding: 16, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4, elevation: 3 },
-  userTurnCard: { backgroundColor: '#fff', borderLeftWidth: 4, borderLeftColor: '#667eea' },
-  aiTurnCard: { backgroundColor: '#fff', borderLeftWidth: 4, borderLeftColor: '#4facfe' },
+  userTurnCard: { backgroundColor: colors.background.secondary, borderLeftWidth: 4, borderLeftColor: colors.primary[500] },
+  aiTurnCard: { backgroundColor: colors.background.secondary, borderLeftWidth: 4, borderLeftColor: colors.primary[600] },
   turnHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
   speakerInfo: { flexDirection: 'row', alignItems: 'center' },
-  turnSpeaker: { fontSize: 16, fontWeight: '600', marginLeft: 8, color: '#333' },
+  turnSpeaker: { fontSize: 16, fontWeight: '600', marginLeft: 8, color: colors.text.primary },
   replayIconButton: {
     padding: 8,
     borderRadius: 20,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: colors.background.tertiary,
   },
   replayIconButtonActive: {
-    backgroundColor: '#e3f2fd',
+    backgroundColor: colors.primary[50],
   },
-  turnText: { fontSize: 16, color: '#333', lineHeight: 24 },
+  turnText: { fontSize: 16, color: colors.text.primary, lineHeight: 24 },
   secondaryInstructionText: {
     fontSize: 13,
-    color: '#666',
+    color: colors.text.secondary,
     marginTop: 4,
     fontStyle: 'italic',
   },
-  playButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#4facfe', padding: 12, borderRadius: 8, marginTop: 12 },
+  playButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary[600], padding: 12, borderRadius: 8, marginTop: 12 },
   playButtonDisabled: { opacity: 0.6 },
-  playButtonText: { color: '#fff', fontSize: 14, fontWeight: '600', marginLeft: 8 },
+  playButtonText: { color: colors.text.inverse, fontSize: 14, fontWeight: '600', marginLeft: 8 },
   recordingControls: { marginBottom: 24 },
-  recordButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#e74c3c', padding: 20, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 4, elevation: 4 },
-  recordButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginLeft: 12 },
+  recordButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.error[500], padding: 20, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 4, elevation: 4 },
+  recordButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', marginLeft: 12 },
   recordingActive: { alignItems: 'center' },
   recordingIndicator: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  recordingDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: '#e74c3c', marginRight: 8 },
-  recordingText: { fontSize: 16, color: '#e74c3c', fontWeight: '600' },
-  recordingTime: { fontSize: 32, fontWeight: '700', color: '#333', marginBottom: 16 },
-  stopButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#e74c3c', padding: 20, borderRadius: 12, width: '100%' },
-  stopButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginLeft: 12 },
+  recordingDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: colors.error[500], marginRight: 8 },
+  recordingText: { fontSize: 16, color: colors.error[500], fontWeight: '600' },
+  recordingTime: { fontSize: 32, fontWeight: '700', color: colors.text.primary, marginBottom: 16 },
+  stopButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.error[500], padding: 20, borderRadius: 12, width: '100%' },
+  stopButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', marginLeft: 12 },
   processingContainer: { alignItems: 'center', padding: 24 },
-  processingText: { fontSize: 14, color: '#666', marginTop: 12 },
-  nextButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#667eea', padding: 16, borderRadius: 12, marginBottom: 24 },
-  nextButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', marginRight: 8 },
-  historyContainer: { marginTop: 24, padding: 16, backgroundColor: '#fff', borderRadius: 12 },
-  historyTitle: { fontSize: 14, fontWeight: '600', color: '#666', marginBottom: 12 },
+  processingText: { fontSize: 14, color: colors.text.secondary, marginTop: 12 },
+  nextButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary[500], padding: 16, borderRadius: 12, marginBottom: 24 },
+  nextButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', marginRight: 8 },
+  historyContainer: { marginTop: 24, padding: 16, backgroundColor: colors.background.secondary, borderRadius: 12 },
+  historyTitle: { fontSize: 14, fontWeight: '600', color: colors.text.secondary, marginBottom: 12 },
   historyTurn: { padding: 12, borderRadius: 8, marginBottom: 8 },
-  historyUserTurn: { backgroundColor: '#f0f0ff' },
-  historyAiTurn: { backgroundColor: '#f0f8ff' },
-  historyTurnSpeaker: { fontSize: 12, fontWeight: '600', color: '#666', marginBottom: 4 },
-  historyTurnText: { fontSize: 14, color: '#333' },
+  historyUserTurn: { backgroundColor: colors.primary[50] },
+  historyAiTurn: { backgroundColor: colors.primary[100] },
+  historyTurnSpeaker: { fontSize: 12, fontWeight: '600', color: colors.text.secondary, marginBottom: 4 },
+  historyTurnText: { fontSize: 14, color: colors.text.primary },
   historySecondaryInstructionText: {
     fontSize: 11,
-    color: '#888',
+    color: colors.text.tertiary,
     marginTop: 2,
     fontStyle: 'italic',
   },
-  permissionText: { fontSize: 16, color: '#666', textAlign: 'center', marginTop: 16, marginBottom: 24 },
-  permissionButton: { backgroundColor: '#667eea', padding: 16, borderRadius: 8, paddingHorizontal: 32 },
-  permissionButtonText: { color: '#fff', fontSize: 16, fontWeight: '600', textAlign: 'center' },
-  completeText: { fontSize: 24, fontWeight: '700', color: '#333', marginTop: 16, textAlign: 'center' },
-  completeSubtext: { fontSize: 16, color: '#666', marginTop: 8, textAlign: 'center' },
+  permissionText: { fontSize: 16, color: colors.text.secondary, textAlign: 'center', marginTop: 16, marginBottom: 24 },
+  permissionButton: { backgroundColor: colors.primary[500], padding: 16, borderRadius: 8, paddingHorizontal: 32 },
+  permissionButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', textAlign: 'center' },
+  completeText: { fontSize: 24, fontWeight: '700', color: colors.text.primary, marginTop: 16, textAlign: 'center' },
+  completeSubtext: { fontSize: 16, color: colors.text.secondary, marginTop: 8, textAlign: 'center' },
   loader: { marginTop: 24 },
 });
