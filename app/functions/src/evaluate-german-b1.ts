@@ -243,7 +243,6 @@ export const evaluateWritingB1 = functions.https.onRequest(
 
     try {
       console.log('Parsing request body...');
-      console.log('Parsing request body...');
       const data: EvaluationRequest = req.body;
 
       // Validate input
@@ -270,7 +269,6 @@ export const evaluateWritingB1 = functions.https.onRequest(
         return;
       }
 
-      console.log('Validation passed, preparing to call OpenAI...');
       console.log('Validation passed, preparing to call OpenAI...');
       let userPrompt: string;
       let assessment: WritingAssessment;
