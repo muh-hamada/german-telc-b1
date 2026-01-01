@@ -171,7 +171,7 @@
   },
   "speaking": {
     "title": "Speaking Practice",
-    "unifiedDialogue": "Full Exam Simulation (Parts 1, 2 & 3)",
+    "unifiedDialogue": "Full Exam Simulation",
     "part": "Part",
     "turn": "Turn",
     "you": "You",
@@ -188,7 +188,8 @@
       "required": "Microphone permission is required for speaking practice",
       "grant": "Grant Permission",
       "denied": "Permission Denied",
-      "deniedMessage": "Please enable microphone access in your device settings to use speaking practice."
+      "deniedMessage": "Please enable microphone access in your device settings to use speaking practice.",
+      "checking": "Checking microphone permissions"
     },
     "intro": {
       "title": "Speaking Assessment",
@@ -254,6 +255,12 @@
     "history": {
       "inProgress": "In progress",
       "title": "Assessment History"
+    },
+    "resume": {
+      "continue": "Continue",
+      "message": "You already have a speaking practice in progress. Do you want to continue or start from scratch?",
+      "restart": "Restart",
+      "title": "Practice in progress"
     }
   },
   "vocabulary": {

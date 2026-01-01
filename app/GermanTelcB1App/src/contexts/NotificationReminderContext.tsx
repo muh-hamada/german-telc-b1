@@ -264,6 +264,20 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
 export const useNotificationReminder = (): NotificationReminderContextType => {
   const context = useContext(NotificationReminderContext);
   if (context === undefined) {
+    // During hot reload, context might temporarily be undefined
+    // Return a safe default instead of throwing to prevent crashes
+    if (__DEV__) {
+      console.warn('useNotificationReminder: Context is undefined (likely due to hot reload)');
+      // Return no-op functions during hot reload
+      return {
+        checkAndShowReminder: async () => {},
+        dismissReminder: () => {},
+        startEnableFlow: async () => {},
+        closeReminderModal: () => {},
+        handleHourSelect: async () => {},
+        closeHourPicker: () => {},
+      };
+    }
     throw new Error('useNotificationReminder must be used within a NotificationReminderProvider');
   }
   return context;

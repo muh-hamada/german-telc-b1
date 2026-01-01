@@ -18,7 +18,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
-import { typography } from '../../theme';
+import { spacing, typography } from '../../theme';
 import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
 import {
   SpeakingAssessmentDialogue,
@@ -49,14 +49,14 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
   const loadData = async () => {
     if (!user) return;
-    
+
     try {
       setIsLoading(true);
       const [dialogueHistory, currentInProgress] = await Promise.all([
         speakingService.listDialogues(user.uid),
         speakingService.getInProgressDialogue(user.uid)
       ]);
-      
+
       setHistory(dialogueHistory);
       setInProgressDialogue(currentInProgress);
       setIsLoading(false);
@@ -124,7 +124,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       // Generate new dialogue
       console.log('[SpeakingAssessmentScreen] Generating dialogue...');
       const newDialogue = await speakingService.generateDialogue(level);
-      
+
       console.log('[SpeakingAssessmentScreen] Dialogue generated:', {
         dialogueId: newDialogue.dialogueId,
         totalTurns: newDialogue.totalTurns,
@@ -158,15 +158,15 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       const currentTurn = dialogue.turns[turnIndex];
       const previousAITurn = turnIndex > 0 ? dialogue.turns[turnIndex - 1] : null;
-      
+
       // Map exam language to instruction key
       const examLangCode = LanguageNameToLanguageCodes[activeExamConfig.language] || 'de';
-      
+
       // Use the instruction in the exam language as context for evaluation
-      const context = (currentTurn.instruction && currentTurn.instruction[examLangCode as keyof typeof currentTurn.instruction]) || 
-                      currentTurn.text || 
-                      previousAITurn?.text || 
-                      'Speaking practice';
+      const context = (currentTurn.instruction && currentTurn.instruction[examLangCode as keyof typeof currentTurn.instruction]) ||
+        currentTurn.text ||
+        previousAITurn?.text ||
+        'Speaking practice';
 
       // Evaluate the user's response
       const evaluation = await speakingService.evaluateResponse(
@@ -220,7 +220,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       // Extract a user-friendly message from technical errors
       let userMessage = t('speaking.processingError');
-      
+
       // Detect specific error types and provide appropriate messages
       if (error.message?.includes('timeout') || error.message?.includes('retry-limit')) {
         userMessage = t('speaking.uploadTimeout');
@@ -239,9 +239,9 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         userMessage,
         [
           { text: t('common.cancel'), style: 'cancel' },
-          { 
-            text: t('speaking.retryButton'), 
-            onPress: () => handleTurnComplete(turnIndex, audioPath, transcription) 
+          {
+            text: t('speaking.retryButton'),
+            onPress: () => handleTurnComplete(turnIndex, audioPath, transcription)
           },
         ]
       );
@@ -250,9 +250,9 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
   const handleNextTurn = () => {
     if (!dialogue) return;
-    
+
     console.log('[SpeakingAssessmentScreen] Moving to next turn from:', dialogue.currentTurn);
-    
+
     setDialogue(prev => {
       if (!prev) return prev;
       const newDialogue = {
@@ -297,7 +297,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       // Extract a user-friendly message from technical errors
       let userMessage = t('speaking.completionError');
-      
+
       if (error.code === 'network-request-failed' || error.message?.includes('network')) {
         userMessage = t('speaking.networkError');
       } else if (error.code === 'functions/internal' || error.code === 'unavailable' || error.message?.includes('Failed to')) {
@@ -322,9 +322,9 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       index: 1, // Focus on the second route (AssessmentResults)
       routes: [
         { name: 'Home' as any },
-        { 
-          name: 'AssessmentResults' as any, 
-          params: { dialogueId: dialogue.dialogueId } 
+        {
+          name: 'AssessmentResults' as any,
+          params: { dialogueId: dialogue.dialogueId }
         },
       ] as any,
     });
@@ -358,9 +358,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         <View style={styles.header}>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>
-              {t('speaking.title')}
-            </Text>
-            <Text style={styles.headerSubtitle}>
               {t('speaking.unifiedDialogue')}
             </Text>
           </View>
@@ -381,107 +378,107 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
   // Default: show intro with history
   return (
-      <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.introContent}>
-          <Text style={styles.introSubtitle}>{t('speaking.intro.subtitle')}</Text>
-          
-          <View style={styles.stepContainer}>
-            <View style={[styles.stepIconContainer, { backgroundColor: '#E3F2FD' }]}>
-              <Icon name="forum" size={24} color="#1976D2" />
-            </View>
-            <View style={styles.stepTextContainer}>
-              <Text style={styles.stepTitle}>{t('speaking.intro.step1Title')}</Text>
-              <Text style={styles.stepDescription}>{t('speaking.intro.step1Desc')}</Text>
-            </View>
-          </View>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.introContent}>
+        <Text style={styles.introSubtitle}>{t('speaking.intro.subtitle')}</Text>
 
-          <View style={styles.stepContainer}>
-            <View style={[styles.stepIconContainer, { backgroundColor: '#F3E5F5' }]}>
-              <Icon name="mic" size={24} color="#7B1FA2" />
-            </View>
-            <View style={styles.stepTextContainer}>
-              <Text style={styles.stepTitle}>{t('speaking.intro.step2Title')}</Text>
-              <Text style={styles.stepDescription}>{t('speaking.intro.step2Desc')}</Text>
-            </View>
+        <View style={styles.stepContainer}>
+          <View style={[styles.stepIconContainer, { backgroundColor: '#E3F2FD' }]}>
+            <Icon name="forum" size={24} color="#1976D2" />
           </View>
-
-          <View style={styles.stepContainer}>
-            <View style={[styles.stepIconContainer, { backgroundColor: '#E8F5E9' }]}>
-              <Icon name="psychology" size={24} color="#388E3C" />
-            </View>
-            <View style={styles.stepTextContainer}>
-              <Text style={styles.stepTitle}>{t('speaking.intro.step3Title')}</Text>
-              <Text style={styles.stepDescription}>{t('speaking.intro.step3Desc')}</Text>
-            </View>
+          <View style={styles.stepTextContainer}>
+            <Text style={styles.stepTitle}>{t('speaking.intro.step1Title')}</Text>
+            <Text style={styles.stepDescription}>{t('speaking.intro.step1Desc')}</Text>
           </View>
-
-          <View style={styles.stepContainer}>
-            <View style={[styles.stepIconContainer, { backgroundColor: '#FFF3E0' }]}>
-              <Icon name="assignment" size={24} color="#F57C00" />
-            </View>
-            <View style={styles.stepTextContainer}>
-              <Text style={styles.stepTitle}>{t('speaking.intro.step4Title')}</Text>
-              <Text style={styles.stepDescription}>{t('speaking.intro.step4Desc')}</Text>
-            </View>
-          </View>
-
-          <View style={styles.stepContainer}>
-            <View style={[styles.stepIconContainer, { backgroundColor: '#FCE4EC' }]}>
-              <Icon name="trending-up" size={24} color="#C2185B" />
-            </View>
-            <View style={styles.stepTextContainer}>
-              <Text style={styles.stepTitle}>{t('speaking.intro.step5Title')}</Text>
-              <Text style={styles.stepDescription}>{t('speaking.intro.step5Desc')}</Text>
-            </View>
-          </View>
-
-          {history.length > 0 && (
-            <View style={styles.historyContainer}>
-              <Text style={styles.historyTitle}>{t('speaking.history.title')}</Text>
-              {history.map((item) => (
-                <TouchableOpacity
-                  key={item.dialogueId}
-                  style={styles.historyItem}
-                  onPress={() => {
-                    if (item.isComplete) {
-                      navigation.navigate('AssessmentResults', { dialogueId: item.dialogueId });
-                    } else {
-                      handleContinue(item);
-                    }
-                  }}
-                >
-                  <View style={styles.historyItemMain}>
-                    <Text style={styles.historyItemDate}>
-                      {new Date(item.startedAt || Date.now()).toLocaleDateString()}
-                    </Text>
-                  </View>
-                  <View style={styles.historyItemStatus}>
-                    {item.isComplete ? (
-                      <View style={styles.scoreBadge}>
-                        <Text style={styles.scoreBadgeText}>
-                          {Math.round(item.overallEvaluation?.totalScore || 0)}/100
-                        </Text>
-                      </View>
-                    ) : (
-                      <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
-                    )}
-                    <Icon name="chevron-right" size={20} color="#666" />
-                  </View>
-                </TouchableOpacity>
-              ))}
-            </View>
-          )}
-        </ScrollView>
-        <View style={styles.footer}>
-          <TouchableOpacity 
-            style={styles.startButton} 
-            onPress={handleStartAssessment}
-          >
-            <Text style={styles.startButtonText}>{t('speaking.intro.startButton')}</Text>
-          </TouchableOpacity>
         </View>
+
+        <View style={styles.stepContainer}>
+          <View style={[styles.stepIconContainer, { backgroundColor: '#F3E5F5' }]}>
+            <Icon name="mic" size={24} color="#7B1FA2" />
+          </View>
+          <View style={styles.stepTextContainer}>
+            <Text style={styles.stepTitle}>{t('speaking.intro.step2Title')}</Text>
+            <Text style={styles.stepDescription}>{t('speaking.intro.step2Desc')}</Text>
+          </View>
+        </View>
+
+        <View style={styles.stepContainer}>
+          <View style={[styles.stepIconContainer, { backgroundColor: '#E8F5E9' }]}>
+            <Icon name="psychology" size={24} color="#388E3C" />
+          </View>
+          <View style={styles.stepTextContainer}>
+            <Text style={styles.stepTitle}>{t('speaking.intro.step3Title')}</Text>
+            <Text style={styles.stepDescription}>{t('speaking.intro.step3Desc')}</Text>
+          </View>
+        </View>
+
+        <View style={styles.stepContainer}>
+          <View style={[styles.stepIconContainer, { backgroundColor: '#FFF3E0' }]}>
+            <Icon name="assignment" size={24} color="#F57C00" />
+          </View>
+          <View style={styles.stepTextContainer}>
+            <Text style={styles.stepTitle}>{t('speaking.intro.step4Title')}</Text>
+            <Text style={styles.stepDescription}>{t('speaking.intro.step4Desc')}</Text>
+          </View>
+        </View>
+
+        <View style={styles.stepContainer}>
+          <View style={[styles.stepIconContainer, { backgroundColor: '#FCE4EC' }]}>
+            <Icon name="trending-up" size={24} color="#C2185B" />
+          </View>
+          <View style={styles.stepTextContainer}>
+            <Text style={styles.stepTitle}>{t('speaking.intro.step5Title')}</Text>
+            <Text style={styles.stepDescription}>{t('speaking.intro.step5Desc')}</Text>
+          </View>
+        </View>
+
+        {history.length > 0 && (
+          <View style={styles.historyContainer}>
+            <Text style={styles.historyTitle}>{t('speaking.history.title')}</Text>
+            {history.map((item) => (
+              <TouchableOpacity
+                key={item.dialogueId}
+                style={styles.historyItem}
+                onPress={() => {
+                  if (item.isComplete) {
+                    navigation.navigate('AssessmentResults', { dialogueId: item.dialogueId });
+                  } else {
+                    handleContinue(item);
+                  }
+                }}
+              >
+                <View style={styles.historyItemMain}>
+                  <Text style={styles.historyItemDate}>
+                    {new Date(item.startedAt || Date.now()).toLocaleDateString()}
+                  </Text>
+                </View>
+                <View style={styles.historyItemStatus}>
+                  {item.isComplete ? (
+                    <View style={styles.scoreBadge}>
+                      <Text style={styles.scoreBadgeText}>
+                        {Math.round(item.overallEvaluation?.totalScore || 0)}/100
+                      </Text>
+                    </View>
+                  ) : (
+                    <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
+                  )}
+                  <Icon name="chevron-right" size={20} color="#666" />
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        )}
+      </ScrollView>
+      <View style={styles.footer}>
+        <TouchableOpacity
+          style={styles.startButton}
+          onPress={handleStartAssessment}
+        >
+          <Text style={styles.startButtonText}>{t('speaking.intro.startButton')}</Text>
+        </TouchableOpacity>
       </View>
-    );
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -541,14 +538,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#333',
-  },
-  headerSubtitle: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 2,
+    ...typography.textStyles.h4,
   },
   introContent: {
     padding: 24,
@@ -586,7 +576,8 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   footer: {
-    padding: 24,
+    padding: spacing.lg,
+    paddingBottom: spacing.xl,
     backgroundColor: '#fff',
     borderTopWidth: 1,
     borderTopColor: '#e0e0e0',

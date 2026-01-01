@@ -228,6 +228,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   const playAIResponse = async () => {
     const url = currentTurn?.audioUrl || currentTurn?.audio_url;
+    console.log('Playing AI response for turn:', url);
     if (!url) return;
 
     setIsPlaying(true);

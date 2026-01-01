@@ -903,7 +903,8 @@
       "required": "Se requiere permiso de micrófono para la práctica de habla",
       "grant": "Conceder permiso",
       "denied": "Permiso denegado",
-      "deniedMessage": "Por favor, habilita el acceso al micrófono en la configuración de tu dispositivo para usar la práctica de habla."
+      "deniedMessage": "Por favor, habilita el acceso al micrófono en la configuración de tu dispositivo para usar la práctica de habla.",
+      "checking": "Comprobando los permisos del micrófono"
     },
     "intro": {
       "title": "Evaluación de expresión oral",
@@ -953,7 +954,18 @@
     "history": {
       "inProgress": "En curso",
       "title": "Historial de evaluación"
-    }
+    },
+    "resume": {
+      "continue": "Continuar",
+      "message": "Ya tienes una práctica oral en curso. \n¿Quieres continuar o empezar desde cero?",
+      "restart": "Reanudar",
+      "title": "Práctica en progreso"
+    },
+    "apiError": "Nuestro servicio de evaluación no está disponible temporalmente. \nInténtelo de nuevo más tarde.",
+    "audioError": "No se pudo grabar audio. \nPor favor verifique los permisos del micrófono.",
+    "permissionError": "Permiso denegado. \nVerifique su estado de inicio de sesión e inténtelo nuevamente.",
+    "retryButton": "Rever",
+    "unifiedDialogue": "Simulación de examen completo"
   },
   "results": {
     "title": "Resultados del examen",

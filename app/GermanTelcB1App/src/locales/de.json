@@ -904,7 +904,8 @@
       "required": "Mikrofon-Berechtigung ist für die Sprechpraxis erforderlich",
       "grant": "Berechtigung erteilen",
       "denied": "Berechtigung verweigert",
-      "deniedMessage": "Bitte aktivieren Sie den Mikrofon-Zugriff in Ihren Geräteeinstellungen, um die Sprechpraxis zu nutzen."
+      "deniedMessage": "Bitte aktivieren Sie den Mikrofon-Zugriff in Ihren Geräteeinstellungen, um die Sprechpraxis zu nutzen.",
+      "checking": "Mikrofonberechtigungen prüfen"
     },
     "intro": {
       "title": "Sprechbewertung",
@@ -954,7 +955,18 @@
     "history": {
       "inProgress": "Im Gange",
       "title": "Bewertungsverlauf"
-    }
+    },
+    "resume": {
+      "continue": "Weitermachen",
+      "message": "Sie führen bereits eine Sprechübung durch. \nMöchten Sie weitermachen oder ganz von vorne beginnen?",
+      "restart": "Neustart",
+      "title": "Übung läuft"
+    },
+    "apiError": "Unser Bewertungsservice ist vorübergehend nicht verfügbar. \nBitte versuchen Sie es später noch einmal.",
+    "audioError": "Audio konnte nicht aufgenommen werden. \nBitte überprüfen Sie die Mikrofonberechtigungen.",
+    "permissionError": "Zugriff verweigert. \nBitte überprüfen Sie Ihren Anmeldestatus und versuchen Sie es erneut.",
+    "retryButton": "Wiederholen",
+    "unifiedDialogue": "Vollständige Prüfungssimulation"
   },
   "results": {
     "title": "Prüfungsergebnisse",

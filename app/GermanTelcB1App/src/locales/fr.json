@@ -972,7 +972,8 @@
       "ok": "D'ACCORD",
       "title": "Autorisation du microphone",
       "denied": "Autorisation refusée",
-      "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale."
+      "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale.",
+      "checking": "Vérification des autorisations du microphone"
     },
     "intro": {
       "title": "Évaluation de l'expression orale",
@@ -1007,7 +1008,21 @@
     "history": {
       "inProgress": "En cours",
       "title": "Historique des évaluations"
-    }
+    },
+    "resume": {
+      "continue": "Continuer",
+      "message": "Vous avez déjà une pratique orale en cours. \nVoulez-vous continuer ou repartir de zéro ?",
+      "restart": "Redémarrage",
+      "title": "Pratique en cours"
+    },
+    "apiError": "Notre service d'évaluation est temporairement indisponible. \nVeuillez réessayer plus tard.",
+    "loadError": "Impossible de charger la pratique orale. \nVeuillez vérifier votre connexion et réessayer.",
+    "audioError": "Impossible d'enregistrer l'audio. \nVeuillez vérifier les autorisations du microphone.",
+    "permissionError": "Autorisation refusée. \nVeuillez vérifier votre statut de connexion et réessayer.",
+    "retryButton": "Réessayer",
+    "completionError": "Impossible de terminer la pratique orale. \nVeuillez réessayer.",
+    "loading": "Chargement de la pratique orale...",
+    "unifiedDialogue": "Simulation d'examen complet"
   },
   "results": {
     "title": "Résultats de l'examen",
