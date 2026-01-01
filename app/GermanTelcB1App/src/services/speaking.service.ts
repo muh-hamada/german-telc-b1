@@ -153,29 +153,9 @@ class SpeakingService {
         areasToImprove: evaluation.areasToImprove,
       };
 
-      console.log('[SpeakingService] Evaluation saved to Firestore (server-side)');
+      console.log('[SpeakingService] Evaluation received from server');
 
-      // Update local dialogue state in Firestore for consolidated storage
-      await firestore()
-        .collection(this.getSpeakingDialoguesPath(userId))
-        .doc(dialogueId)
-        .get()
-        .then(async (doc) => {
-          if (doc.exists()) {
-            const dialogue = doc.data() as SpeakingAssessmentDialogue;
-            const updatedTurns = [...dialogue.turns];
-            if (updatedTurns[turnNumber]) {
-              updatedTurns[turnNumber] = {
-                ...updatedTurns[turnNumber],
-                transcription: evaluationResult.transcription,
-                evaluation: evaluationResult,
-                completed: true,
-              };
-              await doc.ref.update({ turns: updatedTurns });
-            }
-          }
-        });
-
+      // Return evaluation result without saving - let the caller handle state updates
       return evaluationResult;
     } catch (error: any) {
       console.error('[SpeakingService] Error evaluating response:', error);

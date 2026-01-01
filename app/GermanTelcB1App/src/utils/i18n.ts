@@ -11,11 +11,12 @@ import ar from '../locales/ar.json';
 import es from '../locales/es.json';
 import fr from '../locales/fr.json';
 import ru from '../locales/ru.json';
+import { ExamLanguage, LanguageCode } from '../config/exam-config.types';
 
 // RTL languages
 const RTL_LANGUAGES = ['ar'];
 
-export const LanguageNameToLanguageCodes: Record<string, string> = {
+export const LanguageNameToLanguageCodes: Record<ExamLanguage, LanguageCode> = {
   'english': 'en',
   'german': 'de',
   'french': 'fr',
@@ -24,7 +25,7 @@ export const LanguageNameToLanguageCodes: Record<string, string> = {
   'arabic': 'ar',
 };
 
-export const LanguageCodesToLanguageNames: Record<string, string> = {
+export const LanguageCodesToLanguageNames: Record<LanguageCode, ExamLanguage> = {
   'en': 'english',
   'de': 'german',
   'fr': 'french',

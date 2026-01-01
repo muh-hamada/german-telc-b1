@@ -7,25 +7,24 @@ import {
   StyleSheet,
   Platform,
   Alert,
-  PermissionsAndroid,
   ScrollView,
   Linking,
 } from 'react-native';
 import Sound from 'react-native-nitro-sound';
 import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { SpeakingDialogueTurn, SpeakingEvaluation } from '../../types/prep-plan.types';
+import { SpeakingDialogueTurn } from '../../types/prep-plan.types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { ExamLevel } from '../../config/exam-config.types';
+import { LanguageCode } from '../../config/exam-config.types';
 import { getActiveExamConfig } from '../../config/active-exam.config';
+import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];
   currentTurnIndex: number;
-  onComplete: (evaluation: SpeakingEvaluation) => void;
-  onTurnComplete: (turnIndex: number, audioUrl: string, transcription: string) => void;
+  onComplete: () => void;
+  onTurnComplete: (turnIndex: number, audioUrl: string) => void;
   onNextTurn: () => void;
-  level: ExamLevel;
 }
 
 export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps> = ({
@@ -34,7 +33,6 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   onComplete,
   onTurnComplete,
   onNextTurn,
-  level,
 }) => {
   const { t, i18n } = useCustomTranslation();
   const [isRecording, setIsRecording] = useState(false);
@@ -42,7 +40,6 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const [isProcessing, setIsProcessing] = useState(false);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null); // null means not checked yet
   const [recordingDuration, setRecordingDuration] = useState(0);
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const soundPlayerRef = useRef<typeof Sound | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -52,22 +49,13 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const isDialogueComplete = currentTurnIndex >= dialogue.length;
 
   const activeExamConfig = getActiveExamConfig();
-  const examLangMap: Record<string, 'de' | 'en' | 'fr' | 'es'> = {
-    'german': 'de',
-    'english': 'en',
-    'french': 'fr',
-    'spanish': 'es'
-  };
-  const examLangCode = examLangMap[activeExamConfig.language] || 'de';
-  const interfaceLangCode = (i18n.language || 'de').split('-')[0] as 'de' | 'ar' | 'en' | 'ru' | 'es' | 'fr';
 
-  const examInstruction = isUserTurn && currentTurn.instruction
-    ? (currentTurn.instruction[examLangCode] || currentTurn.instruction.de || currentTurn.instruction.en)
-    : '';
+  const examLangCode = LanguageNameToLanguageCodes[activeExamConfig.language] as LanguageCode;
+  const interfaceLangCode = i18n.language as LanguageCode;
 
-  const interfaceInstruction = isUserTurn && currentTurn.instruction && examLangCode !== interfaceLangCode
-    ? (currentTurn.instruction[interfaceLangCode] || currentTurn.instruction.en || currentTurn.instruction.de)
-    : '';
+  const examInstruction = isUserTurn && currentTurn.instruction ? currentTurn.instruction[examLangCode] : '';
+
+  const interfaceInstruction = isUserTurn && currentTurn.instruction && examLangCode !== interfaceLangCode ? currentTurn.instruction[interfaceLangCode] : '';
 
   useEffect(() => {
     // Request permission when component mounts
@@ -86,21 +74,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   useEffect(() => {
     if (currentTurnIndex >= dialogue.length) {
-      const mockEvaluation: SpeakingEvaluation = {
-        transcription: '',
-        scores: {
-          pronunciation: 0,
-          fluency: 0,
-          grammarAccuracy: 0,
-          vocabularyRange: 0,
-          contentRelevance: 0,
-        },
-        totalScore: 0,
-        feedback: '',
-        strengths: [],
-        areasToImprove: [],
-      };
-      onComplete(mockEvaluation);
+      // onComplete();
     }
   }, [currentTurnIndex, dialogue.length, onComplete]);
 
@@ -186,7 +160,6 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       setIsRecording(false);
       setRecordingDuration(0);
 
-
       if (audioPath) {
         processRecording(audioPath);
       } else {
@@ -201,11 +174,9 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
   const processRecording = async (audioPath: string) => {
     setIsProcessing(true);
-    setUploadProgress(0);
     try {
-      await onTurnComplete(currentTurnIndex, audioPath, '');
+      await onTurnComplete(currentTurnIndex, audioPath);
       setIsProcessing(false);
-      setUploadProgress(0);
       setRecordingDuration(0);
     } catch (error: any) {
       console.error('Processing error:', error);
@@ -214,7 +185,6 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       else if (error.message?.includes('network')) errorMessage = t('speaking.networkError');
       Alert.alert(t('speaking.error'), errorMessage);
       setIsProcessing(false);
-      setUploadProgress(0);
     }
   };
 
@@ -382,27 +352,14 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
           <Text style={styles.historyTitle}>{t('speaking.previousTurns')}</Text>
           {dialogue.slice(Math.max(0, currentTurnIndex - 3), currentTurnIndex).map((turn, index) => {
             const isTurnUser = turn.speaker === 'user';
-            const turnExamInstruction = isTurnUser && turn.instruction
-              ? (turn.instruction[examLangCode] || turn.instruction.de || turn.instruction.en)
-              : '';
-            const turnInterfaceInstruction = isTurnUser && turn.instruction && examLangCode !== interfaceLangCode
-              ? (turn.instruction[interfaceLangCode] || turn.instruction.en || turn.instruction.de)
-              : '';
 
             return (
               <View key={index} style={[styles.historyTurn, isTurnUser ? styles.historyUserTurn : styles.historyAiTurn]}>
                 <Text style={styles.historyTurnSpeaker}>{isTurnUser ? t('speaking.you') : t('speaking.ai')}:</Text>
                 <View>
                   <Text style={styles.historyTurnText}>
-                    {isTurnUser
-                      ? (turn.transcription || `(${turnExamInstruction})`)
-                      : turn.text}
+                    {isTurnUser ? turn.transcription : turn.text}
                   </Text>
-                  {isTurnUser && !turn.transcription && !!turnInterfaceInstruction && (
-                    <Text style={styles.historySecondaryInstructionText}>
-                      ({turnInterfaceInstruction})
-                    </Text>
-                  )}
                 </View>
               </View>
             );

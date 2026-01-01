@@ -6,7 +6,8 @@
  * their diagnostic assessment and study schedule.
  */
 
-import { ExamLevel } from "../config/exam-config.types";
+import { ExamLanguage, ExamLevel, LanguageCode } from "../config/exam-config.types";
+import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
 
 /**
  * Onboarding Progress - Tracks user progress through prep plan setup
@@ -227,12 +228,7 @@ export interface SpeakingDialogueTurn {
   speaker: 'ai' | 'user';
   text?: string; // What should be said (for AI)
   instruction?: { // User's instruction in multiple languages
-    de: string;
-    ar: string;
-    en: string;
-    ru: string;
-    es: string;
-    fr: string;
+    [key in LanguageCode]: string;
   };
   audioUrl?: string; // AI audio response (camelCase)
   audio_url?: string; // AI audio response (snake_case from JSON)
@@ -276,8 +272,8 @@ export interface SpeakingAssessmentDialogue {
   estimatedMinutes?: number; // Estimated time to complete
   evaluation?: SpeakingEvaluation;
   overallEvaluation?: SpeakingEvaluation; // Comprehensive evaluation after completion
-  startedAt?: number;
-  completedAt?: number;
+  lastUpdated?: FirebaseFirestoreTypes.Timestamp | Date;
+  completedAt?: FirebaseFirestoreTypes.Timestamp | Date;
 }
 
 /**

@@ -965,7 +965,11 @@
     "audioError": "No se pudo grabar audio. \nPor favor verifique los permisos del micrófono.",
     "permissionError": "Permiso denegado. \nVerifique su estado de inicio de sesión e inténtelo nuevamente.",
     "retryButton": "Rever",
-    "unifiedDialogue": "Simulación de examen completo"
+    "unifiedDialogue": "Simulación de examen completo",
+    "delete": {
+      "button": "Borrar"
+    },
+    "scoresBreakdown": "Detalles de la evaluación"
   },
   "results": {
     "title": "Resultados del examen",

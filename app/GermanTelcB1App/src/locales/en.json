@@ -261,7 +261,11 @@
       "message": "You already have a speaking practice in progress. Do you want to continue or start from scratch?",
       "restart": "Restart",
       "title": "Practice in progress"
-    }
+    },
+    "delete": {
+      "button": "Delete"
+    },
+    "scoresBreakdown": "Assessment Details"
   },
   "vocabulary": {
     "title": "Vocabulary Builder",

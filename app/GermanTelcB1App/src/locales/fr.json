@@ -1022,7 +1022,11 @@
     "retryButton": "Réessayer",
     "completionError": "Impossible de terminer la pratique orale. \nVeuillez réessayer.",
     "loading": "Chargement de la pratique orale...",
-    "unifiedDialogue": "Simulation d'examen complet"
+    "unifiedDialogue": "Simulation d'examen complet",
+    "delete": {
+      "button": "Supprimer"
+    },
+    "scoresBreakdown": "Détails de l'évaluation"
   },
   "results": {
     "title": "Résultats de l'examen",

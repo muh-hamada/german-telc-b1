@@ -72,34 +72,6 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
     }
   };
 
-  const handleDelete = async () => {
-    if (!user || !dialogueId) return;
-
-    Alert.alert(
-      t('speaking.delete.title'),
-      t('speaking.delete.message'),
-      [
-        { text: t('common.cancel'), style: 'cancel' },
-        {
-          text: t('common.delete'),
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              setIsLoading(true);
-              await speakingService.deleteDialogue(user.uid, dialogueId);
-              navigation.goBack();
-            } catch (error) {
-              console.error('[AssessmentResults] Error deleting dialogue:', error);
-              Alert.alert(t('common.error'), t('speaking.delete.error'));
-            } finally {
-              setIsLoading(false);
-            }
-          },
-        },
-      ]
-    );
-  };
-
   const getScoreColor = (score: number, max: number) => {
     const percentage = (score / max) * 100;
     if (percentage >= 80) return colors.success[500];
@@ -219,24 +191,6 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
             ))}
           </View>
         )}
-
-        <TouchableOpacity
-          style={styles.generateButton}
-          onPress={() => (navigation as any).navigate('Home')}
-        >
-          <Text style={styles.generateButtonText}>
-            {t('common.done')}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.deleteButton}
-          onPress={handleDelete}
-        >
-          <Text style={styles.deleteButtonText}>
-            {t('speaking.delete.button')}
-          </Text>
-        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -296,21 +250,17 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.md,
   },
   overallScoreContainer: {
-    alignItems: 'flex-end',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: spacing.margin.sm,
+    alignItems: 'center',
   },
   overallScore: {
     ...typography.textStyles.h1,
-    fontSize: 56,
     color: colors.primary[500],
-    fontWeight: 'bold',
   },
   overallMax: {
-    ...typography.textStyles.h3,
+    ...typography.textStyles.h2,
     color: colors.text.secondary,
-    marginBottom: spacing.margin.sm,
     marginLeft: spacing.margin.xs,
   },
   starsContainer: {
@@ -460,7 +410,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginLeft: spacing.margin.sm,
   },
   deleteButton: {
-    marginTop: spacing.margin.md,
     paddingVertical: spacing.padding.md,
     alignItems: 'center',
     justifyContent: 'center',

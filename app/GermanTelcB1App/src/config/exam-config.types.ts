@@ -5,8 +5,9 @@
  * Each exam (e.g., German B1, English B2) has its own configuration.
  */
 
-export type ExamLanguage = 'german' | 'english' | 'french' | 'spanish';
+export type ExamLanguage = 'german' | 'english' | 'french' | 'spanish' | 'russian' | 'arabic';
 export type ExamLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'A1';
+export type LanguageCode = 'en' | 'de' | 'fr' | 'es' | 'ru' | 'ar';
 
 export interface ExamConfig {
   // Basic Identity

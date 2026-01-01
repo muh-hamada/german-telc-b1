@@ -966,7 +966,11 @@
     "audioError": "Audio konnte nicht aufgenommen werden. \nBitte überprüfen Sie die Mikrofonberechtigungen.",
     "permissionError": "Zugriff verweigert. \nBitte überprüfen Sie Ihren Anmeldestatus und versuchen Sie es erneut.",
     "retryButton": "Wiederholen",
-    "unifiedDialogue": "Vollständige Prüfungssimulation"
+    "unifiedDialogue": "Vollständige Prüfungssimulation",
+    "delete": {
+      "button": "Löschen"
+    },
+    "scoresBreakdown": "Bewertungsdetails"
   },
   "results": {
     "title": "Prüfungsergebnisse",

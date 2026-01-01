@@ -20,10 +20,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
 import { spacing, typography } from '../../theme';
 import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigation.types';
-import {
-  SpeakingAssessmentDialogue,
-  SpeakingEvaluation,
-} from '../../types/prep-plan.types';
+import { SpeakingAssessmentDialogue } from '../../types/prep-plan.types';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
@@ -36,7 +33,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [dialogue, setDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
   const [isEvaluating, setIsEvaluating] = useState(false);
-  const [finalEvaluation, setFinalEvaluation] = useState<SpeakingEvaluation | null>(null);
   const [history, setHistory] = useState<SpeakingAssessmentDialogue[]>([]);
   const [inProgressDialogue, setInProgressDialogue] = useState<SpeakingAssessmentDialogue | null>(null);
 
@@ -148,8 +144,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
   const handleTurnComplete = async (
     turnIndex: number,
-    audioPath: string,
-    transcription: string
+    audioPath: string
   ) => {
     if (!user || !dialogue) return;
 
@@ -189,12 +184,12 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         return; // Don't proceed to next turn, user must try again
       }
 
-      // Update dialogue state with transcription
+      // Update dialogue state with evaluation and transcription
       const updatedDialogue = {
         ...dialogue,
         turns: dialogue.turns.map((turn, idx) =>
           idx === turnIndex
-            ? { ...turn, transcription: evaluation.transcription, completed: true }
+            ? { ...turn, transcription: evaluation.transcription, evaluation, completed: true }
             : turn
         ),
       };
@@ -214,7 +209,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       // Move to next turn after successful update
       handleNextTurn();
-
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error processing turn:', error);
 
@@ -241,7 +235,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
           { text: t('common.cancel'), style: 'cancel' },
           {
             text: t('speaking.retryButton'),
-            onPress: () => handleTurnComplete(turnIndex, audioPath, transcription)
+            onPress: () => handleTurnComplete(turnIndex, audioPath)
           },
         ]
       );
@@ -253,18 +247,25 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
     console.log('[SpeakingAssessmentScreen] Moving to next turn from:', dialogue.currentTurn);
 
+    const newTurn = dialogue.currentTurn + 1;
+
     setDialogue(prev => {
       if (!prev) return prev;
       const newDialogue = {
         ...prev,
-        currentTurn: prev.currentTurn + 1,
+        currentTurn: newTurn,
       };
       console.log('[SpeakingAssessmentScreen] New currentTurn:', newDialogue.currentTurn);
       return newDialogue;
     });
+
+    // Check if this is the last turn
+    if (newTurn >= dialogue.totalTurns) {
+      handleDialogueComplete();
+    }
   };
 
-  const handleDialogueComplete = async (evaluation: SpeakingEvaluation) => {
+  const handleDialogueComplete = async () => {
     if (!user || !dialogue) return;
 
     try {
@@ -278,8 +279,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         dialogue.dialogueId
       );
 
-      setFinalEvaluation(overallEvaluation);
-
       logEvent(AnalyticsEvents.PREP_PLAN_SPEAKING_COMPLETED, {
         dialogueId: dialogue.dialogueId,
         totalScore: overallEvaluation.totalScore,
@@ -289,8 +288,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       setIsEvaluating(false);
 
       // Show results
-      showFinalResults(overallEvaluation);
-
+      showFinalResults();
     } catch (error: any) {
       console.error('[SpeakingAssessmentScreen] Error completing dialogue:', error);
       setIsEvaluating(false);
@@ -309,25 +307,20 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         userMessage,
         [
           { text: t('common.cancel'), style: 'cancel' },
-          { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete(evaluation) },
+          { text: t('speaking.retryButton'), onPress: () => handleDialogueComplete() },
         ]
       );
     }
   };
 
-  const showFinalResults = (evaluation: SpeakingEvaluation) => {
+  const showFinalResults = () => {
     if (!dialogue) return;
-    // Replace to prevent going back to this screen
-    navigation.reset({
-      index: 1, // Focus on the second route (AssessmentResults)
-      routes: [
-        { name: 'Home' as any },
-        {
-          name: 'AssessmentResults' as any,
-          params: { dialogueId: dialogue.dialogueId }
-        },
-      ] as any,
-    });
+
+    // Clear dialogue state so when user presses back, they see the intro screen
+    setDialogue(null);
+
+    // Navigate to results screen
+    navigation.navigate('AssessmentResults', { dialogueId: dialogue.dialogueId });
   };
 
   if (isLoading) {
@@ -370,7 +363,6 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
           onComplete={handleDialogueComplete}
           onTurnComplete={handleTurnComplete}
           onNextTurn={handleNextTurn}
-          level={level}
         />
       </View>
     );
@@ -449,7 +441,25 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
               >
                 <View style={styles.historyItemMain}>
                   <Text style={styles.historyItemDate}>
-                    {new Date(item.startedAt || Date.now()).toLocaleDateString()}
+                    {(() => {
+                      const timestamp = item.lastUpdated;
+                      if (!timestamp) return new Date().toLocaleString(undefined, {
+                        day: 'numeric',
+                        month: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      });
+                      // Handle Firestore Timestamp
+                      const date = timestamp instanceof Date ? timestamp : timestamp.toDate();
+                      return date.toLocaleString(undefined, {
+                        day: 'numeric',
+                        month: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      });
+                    })()}
                   </Text>
                 </View>
                 <View style={styles.historyItemStatus}>
