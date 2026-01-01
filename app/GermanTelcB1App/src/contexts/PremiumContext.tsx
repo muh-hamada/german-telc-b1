@@ -122,6 +122,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       setIsLoading(true);
 
       const docPath = getPremiumPath(user.uid);
+      console.log('[PremiumContext] Doc path:', docPath);
       const docRef = firestore().doc(docPath);
       const docSnapshot = await docRef.get();
 

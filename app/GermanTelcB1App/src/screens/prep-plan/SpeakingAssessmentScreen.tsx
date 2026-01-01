@@ -1,6 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -25,6 +25,7 @@ import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 import i18n from '../../utils/i18n';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { I18nManager } from 'react-native';
+import { getScoreBadgeColors } from '../../utils/score-colors';
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
 
@@ -44,11 +45,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   const activeExamConfig = getActiveExamConfig();
   const level: ExamLevel = activeExamConfig.level;
 
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -65,13 +62,21 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       console.error('[SpeakingAssessmentScreen] Error loading data:', error);
       setIsLoading(false);
     }
-  };
+  }, [user]);
 
-  const handleRestart = async (oldDialogueId: string) => {
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, [loadData])
+  );
+
+  const handleRestart = async (oldPracticeId: string) => {
     if (!user) return;
     try {
-      await speakingService.deleteDialogue(user.uid, oldDialogueId);
+      await speakingService.deleteDialogue(user.uid, oldPracticeId);
       setInProgressDialogue(null);
+      // Reload history to exclude the deleted dialogue before generating a new one
+      await loadData();
       await loadOrGenerateDialogue();
     } catch (error) {
       console.error('[SpeakingAssessmentScreen] Error restarting:', error);
@@ -89,7 +94,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
             text: t('speaking.resume.restart'),
             style: 'destructive',
             onPress: () => {
-              handleRestart(inProgressDialogue.dialogueId);
+              handleRestart(inProgressDialogue.practiceId);
             },
           },
           {
@@ -122,11 +127,28 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         level,
       });
 
-      // Generate new dialogue
+      // Extract practiced dialogue IDs in chronological order (oldest to newest)
+      const practicedDialogueIds = history
+        .sort((a, b) => {
+          const timeA = a.lastUpdated instanceof Date 
+            ? a.lastUpdated.getTime() 
+            : a.lastUpdated?.toMillis?.() || 0;
+          const timeB = b.lastUpdated instanceof Date 
+            ? b.lastUpdated.getTime() 
+            : b.lastUpdated?.toMillis?.() || 0;
+          return timeA - timeB;
+        })
+        .map(d => d.dialogueId)
+        .filter(id => id); // Filter out any undefined/null values
+
+      console.log('[SpeakingAssessmentScreen] Practiced dialogue IDs:', practicedDialogueIds);
+
+      // Generate new dialogue with rotation logic
       console.log('[SpeakingAssessmentScreen] Generating dialogue...');
-      const newDialogue = await speakingService.generateDialogue(level);
+      const newDialogue = await speakingService.generateDialogue(level, practicedDialogueIds);
 
       console.log('[SpeakingAssessmentScreen] Dialogue generated:', {
+        practiceId: newDialogue.practiceId,
         dialogueId: newDialogue.dialogueId,
         totalTurns: newDialogue.totalTurns,
         currentTurn: newDialogue.currentTurn,
@@ -174,7 +196,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
         context,
         level,
         user.uid,
-        dialogue.dialogueId,
+        dialogue.practiceId,
         turnIndex,
         i18n.language // Pass interface language as feedback language
       );
@@ -193,6 +215,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       // Update dialogue state with evaluation and transcription
       const updatedDialogue = {
         ...dialogue,
+        currentTurn: turnIndex + 1,
         turns: dialogue.turns.map((turn, idx) =>
           idx === turnIndex
             ? { ...turn, transcription: evaluation.transcription, evaluation, completed: true }
@@ -282,10 +305,11 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
       // Get comprehensive evaluation
       const overallEvaluation = await speakingService.completeDialogue(
         user.uid,
-        dialogue.dialogueId
+        dialogue.practiceId
       );
 
       logEvent(AnalyticsEvents.PREP_PLAN_SPEAKING_COMPLETED, {
+        practiceId: dialogue.practiceId,
         dialogueId: dialogue.dialogueId,
         totalScore: overallEvaluation.totalScore,
         level,
@@ -326,7 +350,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     setDialogue(null);
 
     // Navigate to results screen
-    navigation.navigate('AssessmentResults', { dialogueId: dialogue.dialogueId });
+    navigation.navigate('AssessmentResults', { dialogueId: dialogue.practiceId });
   };
 
   if (isLoading) {
@@ -425,11 +449,11 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
             <Text style={styles.historyTitle}>{t('speaking.history.title')}</Text>
             {history.map((item) => (
               <TouchableOpacity
-                key={item.dialogueId}
+                key={item.practiceId}
                 style={styles.historyItem}
                 onPress={() => {
                   if (item.isComplete) {
-                    navigation.navigate('AssessmentResults', { dialogueId: item.dialogueId });
+                    navigation.navigate('AssessmentResults', { dialogueId: item.practiceId });
                   } else {
                     handleContinue(item);
                   }
@@ -460,11 +484,24 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
                 </View>
                 <View style={styles.historyItemStatus}>
                   {item.isComplete ? (
-                    <View style={styles.scoreBadge}>
-                      <Text style={styles.scoreBadgeText}>
-                        {Math.round(item.overallEvaluation?.totalScore || 0)}/100
-                      </Text>
-                    </View>
+                    (() => {
+                      const score = Math.round(item.overallEvaluation?.totalScore || 0);
+                      const badgeColors = getScoreBadgeColors(score, 100, colors);
+                      return (
+                        <View style={[
+                          styles.scoreBadge,
+                          {
+                            backgroundColor: badgeColors.backgroundColor,
+                            borderWidth: 1,
+                            borderColor: badgeColors.borderColor,
+                          }
+                        ]}>
+                          <Text style={[styles.scoreBadgeText, { color: badgeColors.textColor }]}>
+                            {score}/100
+                          </Text>
+                        </View>
+                      );
+                    })()
                   ) : (
                     <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
                   )}
@@ -737,36 +774,28 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     flex: 1,
   },
   historyItemDate: {
-    fontSize: 14,
+    ...typography.textStyles.body,
     color: colors.text.secondary,
-    marginBottom: 4,
     textAlign: 'left',
-  },
-  historyItemLevel: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text.primary,
   },
   historyItemStatus: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   scoreBadge: {
-    backgroundColor: colors.success[50],
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    // Background color is applied dynamically based on score
+    paddingHorizontal: 6,
+    paddingVertical: 1,
     borderRadius: 6,
     marginRight: 8,
   },
   scoreBadgeText: {
-    color: colors.success[700],
-    fontSize: 14,
-    fontWeight: '700',
+    // Text color is applied dynamically based on score
+    ...typography.textStyles.body,
   },
   inProgressText: {
     color: colors.warning[600],
-    fontSize: 14,
-    fontWeight: '600',
+    ...typography.textStyles.body,
     marginRight: 8,
   },
 });

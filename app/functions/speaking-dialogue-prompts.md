@@ -7,6 +7,7 @@ Use these prompts to generate the static dialogues. Save the output of each as a
 - **User Turns:** Use the key `"instruction"`.
 - **Instruction Format:** The `instruction` must be an object containing translations for the following language codes: `de`, `ar`, `en`, `ru`, `es`, `fr`.
 - **Instruction Content:** Describe what the user is expected to say or do in that turn, translated into each of the 6 languages.
+- audio_url: only for the AI turn. Keep it with the placeholder. I will add the url later.
 
 ---
 
@@ -22,7 +23,7 @@ Requirements:
 - Difficulty: Strictly A1 level.
 - Language: Entirely in German.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 6-8 exchanges.
 
@@ -40,7 +41,7 @@ Requirements:
 - Difficulty: Strictly B1 level.
 - Language: Entirely in German.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 8-10 exchanges.
 
@@ -58,7 +59,7 @@ Requirements:
 - Difficulty: Strictly B2 level.
 - Language: Entirely in German.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 10-12 exchanges.
 
@@ -76,7 +77,7 @@ Requirements:
 - Difficulty: Strictly A1 level.
 - Language: Entirely in English.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 6-8 exchanges.
 
@@ -94,7 +95,7 @@ Requirements:
 - Difficulty: Strictly B1 level.
 - Language: Entirely in English.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 8-10 exchanges.
 
@@ -112,6 +113,6 @@ Requirements:
 - Difficulty: Strictly B2 level.
 - Language: Entirely in English.
 - Format: Return ONLY a JSON array.
-  - For AI: `{"speaker": "ai", "text": "..."}`
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 10-12 exchanges.

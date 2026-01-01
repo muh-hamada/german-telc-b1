@@ -51,11 +51,12 @@ export const generateSpeakingDialogue = functions.https.onRequest(
       return;
     }
 
-    const { level, language } = req.body;
+    const { level, language, practicedDialogueIds } = req.body;
 
     console.log('[generateSpeakingDialogue] Request received:', {
       level,
       language,
+      practicedDialogueIds,
     });
 
     // Validate input
@@ -71,10 +72,8 @@ export const generateSpeakingDialogue = functions.https.onRequest(
     }
 
     try {
-      // Use static dialogue from JSON
-      const dialogue = getStaticDialogue(level, language);
-      
-      const dialogueId = `dialogue-static-${level.toLowerCase()}-${language}-${Date.now()}`;
+      // Use static dialogue from JSON with rotation logic
+      const { dialogueId, dialogue } = getStaticDialogue(level, language, practicedDialogueIds);
 
       console.log('[generateSpeakingDialogue] Static dialogue retrieved:', dialogueId);
 
@@ -93,10 +92,19 @@ export const generateSpeakingDialogue = functions.https.onRequest(
   }
 );
 
+interface DialogueWithId {
+  id: string;
+  turns: SpeakingDialogueTurn[];
+}
+
 /**
- * Retrieve a pre-generated dialogue from the JSON data
+ * Retrieve a pre-generated dialogue from the JSON data with rotation logic
  */
-function getStaticDialogue(level: ExamLevel, language: ExamLanguage): SpeakingDialogueTurn[] {
+function getStaticDialogue(
+  level: ExamLevel,
+  language: ExamLanguage,
+  practicedDialogueIds?: string[]
+): { dialogueId: string; dialogue: SpeakingDialogueTurn[] } {
   const levelKey = level.toLowerCase() as keyof typeof dialoguesData;
   const levelData = dialoguesData[levelKey];
 
@@ -104,12 +112,72 @@ function getStaticDialogue(level: ExamLevel, language: ExamLanguage): SpeakingDi
     throw new Error(`No dialogues found for level: ${level}`);
   }
 
-  const dialogue = (levelData as any)[language];
-  if (!dialogue) {
+  const dialogueData = (levelData as any)[language];
+  if (!dialogueData) {
     throw new Error(`No dialogue found for level: ${level} and language: ${language}`);
   }
 
-  return dialogue as SpeakingDialogueTurn[];
+  // Check if dialogueData is an array of dialogues with IDs (new schema)
+  if (Array.isArray(dialogueData)) {
+    // New schema: array of dialogue objects with id field
+    const availableDialogues = dialogueData as DialogueWithId[];
+    
+    if (availableDialogues.length === 0) {
+      throw new Error(`No dialogues available for level: ${level} and language: ${language}`);
+    }
+
+    // If no practice history provided, return the first dialogue
+    if (!practicedDialogueIds || practicedDialogueIds.length === 0) {
+      const firstDialogue = availableDialogues[0];
+      return {
+        dialogueId: firstDialogue.id,
+        dialogue: firstDialogue.turns,
+      };
+    }
+
+    // Count frequency of each dialogue ID in practice history
+    const counts = new Map<string, number>();
+    
+    // Initialize all available dialogues with count 0
+    availableDialogues.forEach(d => counts.set(d.id, 0));
+    
+    // Count how many times each dialogue was practiced
+    practicedDialogueIds.forEach(id => {
+      if (counts.has(id)) {
+        counts.set(id, (counts.get(id) || 0) + 1);
+      }
+    });
+
+    // Find the minimum count (least practiced)
+    const minCount = Math.min(...Array.from(counts.values()));
+    
+    // Find the first dialogue with the minimum count
+    const leastPracticedDialogue = availableDialogues.find(d => counts.get(d.id) === minCount);
+    
+    if (!leastPracticedDialogue) {
+      // Fallback to first dialogue if something goes wrong
+      const firstDialogue = availableDialogues[0];
+      return {
+        dialogueId: firstDialogue.id,
+        dialogue: firstDialogue.turns,
+      };
+    }
+
+    console.log('[getStaticDialogue] Selected dialogue:', leastPracticedDialogue.id, 'with count:', minCount);
+    
+    return {
+      dialogueId: leastPracticedDialogue.id,
+      dialogue: leastPracticedDialogue.turns,
+    };
+  } else {
+    // Old schema: single dialogue array (for B1, B2 that haven't been updated yet)
+    // Generate a unique ID for backward compatibility
+    const dialogueId = `dialogue-${level.toLowerCase()}-${language}`;
+    return {
+      dialogueId,
+      dialogue: dialogueData as SpeakingDialogueTurn[],
+    };
+  }
 }
 
 /**

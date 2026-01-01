@@ -2,100 +2,307 @@
     "a1": {
         "german": [
             {
-                "speaker": "ai",
-                "text": "Guten Tag! Herzlich willkommen zur Prüfung. Wie heißen Sie bitte?",
-                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-1.mp3?alt=media&token=b8b06713-a43c-4cbb-8cec-aecc332b59d9"
+                "id": "dialogue-a1-german-1",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Guten Tag! Herzlich willkommen zur Prüfung. Wie heißen Sie bitte?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-1.mp3?alt=media&token=b8b06713-a43c-4cbb-8cec-aecc332b59d9"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Nenne deinen Namen.",
+                            "ar": "اذكر اسمك.",
+                            "en": "State your name.",
+                            "ru": "Назовите свое имя.",
+                            "es": "Di tu nombre.",
+                            "fr": "Dites votre nom."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Freut mich. Und woher kommen Sie?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=16ec1649-fc1e-4d9c-9b5d-4fd21962a5fd"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sag, woher du kommst.",
+                            "ar": "قل من أين أنت.",
+                            "en": "Say where you come from.",
+                            "ru": "Скажите, откуда вы.",
+                            "es": "Di de dónde vienes.",
+                            "fr": "Dites d'où vous venez."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Danke. Kommen wir zu Teil 2: Wir möchten am Samstag zusammen im Park picknicken. Wann haben Sie Zeit?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=fe4aeed1-9e46-444e-aa3f-a4bd62807d2d"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Schlage eine Uhrzeit vor (z.B. um 14:00 Uhr).",
+                            "ar": "اقترح وقتاً (مثلاً الساعة 14:00).",
+                            "en": "Suggest a time (e.g., at 2:00 PM).",
+                            "ru": "Предложите время (например, в 14:00).",
+                            "es": "Sugiere una hora (por ejemplo, a las 14:00).",
+                            "fr": "Proposez une heure (par exemple, à 14h00)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Das passt gut. Ich bringe die Getränke mit. Was bringen Sie zum Essen mit?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=a0d6f9af-a8d9-433e-b6bd-b5c0d0628d10"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Schlage vor, etwas zu essen mitzubringen (z.B. Pizza oder Obst).",
+                            "ar": "اقترح إحضار شيء للأكل (مثلاً بيتزا أو فاكهة).",
+                            "en": "Suggest bringing something to eat (e.g., pizza or fruit).",
+                            "ru": "Предложите принести что-нибудь поесть (например, пиццу или фрукты).",
+                            "es": "Sugiere traer algo de comer (por ejemplo, pizza o fruta).",
+                            "fr": "Proposez d'apporter quelque chose à manger (par exemple, une pizza ou des fruits)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Super, das machen wir so. Eine letzte Frage: Was machen Sie gerne in Ihrer Freizeit? Haben Sie ein Hobby?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7dee911c-3a9e-42dc-88a9-a1765ae54cd2"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Erzähle kurz von einem Hobby (z.B. Sport, Lesen oder Musik).",
+                            "ar": "تحدث باختصار عن هواية (مثلاً الرياضة، القراءة أو الموسيقى).",
+                            "en": "Briefly talk about a hobby (e.g., sports, reading, or music).",
+                            "ru": "Кратко расскажите о своем хобби (например, спорт, чтение или музыка).",
+                            "es": "Habla brevemente de un pasatiempo (por ejemplo, deporte, lectura o música).",
+                            "fr": "Parlez brièvement d'un passe-temps (par exemple, le sport, la lecture ou la musique)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Vielen Dank. Wir sind fertig. Auf Wiedersehen!",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=70200fcd-5cd3-4567-b0f3-c6f2286b66b9"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschiede dich.",
+                            "ar": "قل وداعاً.",
+                            "en": "Say goodbye.",
+                            "ru": "Попрощайтесь.",
+                            "es": "Despídete.",
+                            "fr": "Dites au revoir."
+                        }
+                    }
+                ]
             },
             {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Nenne deinen Namen.",
-                    "ar": "اذكر اسمك.",
-                    "en": "State your name.",
-                    "ru": "Назовите свое имя.",
-                    "es": "Di tu nombre.",
-                    "fr": "Dites votre nom."
-                }
+                "id": "dialogue-a1-german-2",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Guten Tag! Ich bin Ihr Prüfer. Wir beginnen mit Teil 1. Wie heißen Sie und woher kommen Sie?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F1.mp3?alt=media&token=622773d4-235d-4d91-8c48-aa3557744bf1"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Nennen Sie Ihren Namen und Ihr Herkunftsland.",
+                            "ar": "اذكر اسمك والبلد الذي تنتمي إليه.",
+                            "en": "State your name and the country you come from.",
+                            "ru": "Назовите свое имя и страну, из которой вы приехали.",
+                            "es": "Diga su nombre y el país de donde viene.",
+                            "fr": "Dites votre nom et votre pays d'origine."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Danke. Und was sind Ihre Hobbys? Was machen Sie gerne in Ihrer Freizeit?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F2.mp3?alt=media&token=07af2d6b-c306-4311-a793-542f0a25b59e"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie zwei Hobbys, die Sie gerne machen.",
+                            "ar": "اذكر هوايتين تستمتع بالقيام بهما.",
+                            "en": "Mention two hobbies that you enjoy doing.",
+                            "ru": "Назовите два хобби, которыми вам нравится заниматься.",
+                            "es": "Mencione dos pasatiempos que le guste hacer.",
+                            "fr": "Citez deux passe-temps que vous aimez pratiquer."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Sehr gut. Jetzt kommen wir zu Teil 2. Wir planen etwas zusammen: Wollen wir am Samstag eine Party machen? Hast du Zeit?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F3.mp3?alt=media&token=a33a5e92-91f8-40ea-b372-56c9d0bb4674"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie ja und fragen Sie nach der Uhrzeit.",
+                            "ar": "قل نعم واسأل عن الوقت.",
+                            "en": "Say yes and ask for the time.",
+                            "ru": "Скажите «да» и спросите о времени.",
+                            "es": "Diga que sí y pregunte por la hora.",
+                            "fr": "Dites oui et demandez l'heure."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Die Party beginnt um 19 Uhr bei mir. Kannst du bitte Getränke mitbringen?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F4.mp3?alt=media&token=833883d8-0b72-4f51-a85a-174dd3acf8f1"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass Sie Saft und Wasser mitbringen.",
+                            "ar": "قل إنك ستحضر عصيرًا وماءً.",
+                            "en": "Say that you will bring juice and water.",
+                            "ru": "Скажите, что принесете сок и воду.",
+                            "es": "Diga que traerá zumo y agua.",
+                            "fr": "Dites que vous apporterez du jus et de l'eau."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Super, das passt. Nun zu Teil 3: Eine kurze Frage. Was trinken Sie lieber: Kaffee oder Tee?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F5.mp3?alt=media&token=36b1d7fe-ee5b-4319-85dd-5e9fd273154d"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, was Sie lieber trinken.",
+                            "ar": "قل ماذا تفضل أن تشرب.",
+                            "en": "Say which one you prefer to drink.",
+                            "ru": "Скажите, что вы предпочитаете пить.",
+                            "es": "Diga qué prefiere beber.",
+                            "fr": "Dites ce que vous préférez boire."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Vielen Dank. Das ist das Ende der Prüfung. Auf Wiedersehen!",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-2%2F6.mp3?alt=media&token=9f69cfc3-8fcd-4adb-8180-467b1384e97e"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschieden Sie sich höflich.",
+                            "ar": "ودّع بلباقة.",
+                            "en": "Say goodbye politely.",
+                            "ru": "Вежливо попрощайтесь.",
+                            "es": "Despídase cortésmente.",
+                            "fr": "Dites au revoir poliment."
+                        }
+                    }
+                ]
             },
             {
-                "speaker": "ai",
-                "text": "Freut mich. Und woher kommen Sie?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=16ec1649-fc1e-4d9c-9b5d-4fd21962a5fd"
-            },
-            {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Sag, woher du kommst.",
-                    "ar": "قل من أين أنت.",
-                    "en": "Say where you come from.",
-                    "ru": "Скажите, откуда вы.",
-                    "es": "Di de dónde vienes.",
-                    "fr": "Dites d'où vous venez."
-                }
-            },
-            {
-                "speaker": "ai",
-                "text": "Danke. Kommen wir zu Teil 2: Wir möchten am Samstag zusammen im Park picknicken. Wann haben Sie Zeit?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=fe4aeed1-9e46-444e-aa3f-a4bd62807d2d"
-            },
-            {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Schlage eine Uhrzeit vor (z.B. um 14:00 Uhr).",
-                    "ar": "اقترح وقتاً (مثلاً الساعة 14:00).",
-                    "en": "Suggest a time (e.g., at 2:00 PM).",
-                    "ru": "Предложите время (например, в 14:00).",
-                    "es": "Sugiere una hora (por ejemplo, a las 14:00).",
-                    "fr": "Proposez une heure (par exemple, à 14h00)."
-                }
-            },
-            {
-                "speaker": "ai",
-                "text": "Das passt gut. Ich bringe die Getränke mit. Was bringen Sie zum Essen mit?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=a0d6f9af-a8d9-433e-b6bd-b5c0d0628d10"
-            },
-            {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Schlage vor, etwas zu essen mitzubringen (z.B. Pizza oder Obst).",
-                    "ar": "اقترح إحضار شيء للأكل (مثلاً بيتزا أو فاكهة).",
-                    "en": "Suggest bringing something to eat (e.g., pizza or fruit).",
-                    "ru": "Предложите принести что-нибудь поесть (например, пиццу или фрукты).",
-                    "es": "Sugiere traer algo de comer (por ejemplo, pizza o fruta).",
-                    "fr": "Proposez d'apporter quelque chose à manger (par exemple, une pizza ou des fruits)."
-                }
-            },
-            {
-                "speaker": "ai",
-                "text": "Super, das machen wir so. Eine letzte Frage: Was machen Sie gerne in Ihrer Freizeit? Haben Sie ein Hobby?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7dee911c-3a9e-42dc-88a9-a1765ae54cd2"
-            },
-            {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Erzähle kurz von einem Hobby (z.B. Sport, Lesen oder Musik).",
-                    "ar": "تحدث باختصار عن هواية (مثلاً الرياضة، القراءة أو الموسيقى).",
-                    "en": "Briefly talk about a hobby (e.g., sports, reading, or music).",
-                    "ru": "Кратко расскажите о своем хобби (например, спорт, чтение или музыка).",
-                    "es": "Habla brevemente de un pasatiempo (por ejemplo, deporte, lectura o música).",
-                    "fr": "Parlez brièvement d'un passe-temps (par exemple, le sport, la lecture ou la musique)."
-                }
-            },
-            {
-                "speaker": "ai",
-                "text": "Vielen Dank. Wir sind fertig. Auf Wiedersehen!",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=70200fcd-5cd3-4567-b0f3-c6f2286b66b9"
-            },
-            {
-                "speaker": "user",
-                "instruction": {
-                    "de": "Verabschiede dich.",
-                    "ar": "قل وداعاً.",
-                    "en": "Say goodbye.",
-                    "ru": "Попрощайтесь.",
-                    "es": "Despídete.",
-                    "fr": "Dites au revoir."
-                }
+                "id": "dialogue-a1-german-3",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Guten Tag! Willkommen zur Prüfung. Zuerst Teil 1: Wie ist Ihr Name und welche Sprachen sprechen Sie?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F1.mp3?alt=media&token=22c5fb3b-fec6-4dc9-b5d1-f8a73029fbaa"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Nennen Sie Ihren Namen und die Sprachen, die Sie sprechen.",
+                            "ar": "اذكر اسمك واللغات التي تتحدثها.",
+                            "en": "State your name and the languages you speak.",
+                            "ru": "Назовите свое имя и языки, на которых вы говорите.",
+                            "es": "Diga su nombre y los idiomas que habla.",
+                            "fr": "Dites votre nom et les langues que vous parlez."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Sehr gut. Und was machen Sie von Beruf? Arbeiten Sie oder studieren Sie?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F2.mp3?alt=media&token=ab6b31f4-4c0c-4ad6-a5ca-62928e6e51ad"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, was Sie beruflich machen oder ob Sie Student sind.",
+                            "ar": "قل ما هي مهنتك أو إذا كنت طالباً.",
+                            "en": "Say what your profession is or if you are a student.",
+                            "ru": "Скажите, кем вы работаете или являетесь ли вы студентом.",
+                            "es": "Diga cuál es su profesión o si es estudiante.",
+                            "fr": "Dites quelle est votre profession ou si vous êtes étudiant."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Vielen Dank. Kommen wir zu Teil 2. Wir möchten zusammen ins Kino gehen. Hast du am Sonntag Zeit?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F3.mp3?alt=media&token=05e30153-1a0d-4dd6-8295-9b919c3aa8fa"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie Ja und fragen Sie, wann der Film beginnt.",
+                            "ar": "قل نعم واسأل متى يبدأ الفيلم.",
+                            "en": "Say yes and ask when the movie starts.",
+                            "ru": "Скажите «да» и спросите, когда начинается фильм.",
+                            "es": "Diga que sí y pregunte cuándo empieza la película.",
+                            "fr": "Dites oui et demandez quand le film commence."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Der Film beginnt um 20 Uhr. Treffen wir uns vor dem Kino?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F4.mp3?alt=media&token=543ae710-e36b-4dd4-86eb-cc2a8162cf2e"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Stimmen Sie zu und sagen Sie: 'Bis Sonntag'.",
+                            "ar": "وافق وقل 'أراك يوم الأحد'.",
+                            "en": "Agree and say 'See you Sunday'.",
+                            "ru": "Согласитесь и скажите: «До воскресенья».",
+                            "es": "Acepte y diga: 'Hasta el domingo'.",
+                            "fr": "Acceptez et dites : 'À dimanche'."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Schön. Nun der letzte Teil: Eine Frage zum Alltag. Was essen Sie gerne zum Frühstück?",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F5.mp3?alt=media&token=3fb9cd80-65ca-4e74-8b5a-76e5b096f357"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, was Sie morgens gerne essen.",
+                            "ar": "قل ماذا تحب أن تأكل في الصباح.",
+                            "en": "Say what you like to eat in the morning.",
+                            "ru": "Скажите, что вы любите есть по утрам.",
+                            "es": "Diga qué le gusta comer por la mañana.",
+                            "fr": "Dites ce que vous aimez manger le matin."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Das klingt lecker. Vielen Dank, wir sind fertig. Auf Wiedersehen!",
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-3%2F6.mp3?alt=media&token=67f467c2-f772-4b68-9abf-6159e2ac413f"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschieden Sie sich höflich.",
+                            "ar": "ودّع بلباقة.",
+                            "en": "Say goodbye politely.",
+                            "ru": "Вежливо попрощайтесь.",
+                            "es": "Despídase cortésmente.",
+                            "fr": "Dites au revoir poliment."
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -120,7 +327,7 @@
             {
                 "speaker": "ai",
                 "text": "Das klingt interessant. Und was machen Sie normalerweise in Ihrer Freizeit, um sich zu entspannen?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=550f2942-2053-488c-b7d2-8ef788ba7d31"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=550f2942-2053-488c-b7d2-8ef788ba7d31"
             },
             {
                 "speaker": "user",
@@ -136,7 +343,7 @@
             {
                 "speaker": "ai",
                 "text": "Schön. Kommen wir zu Teil 2: Unser gemeinsamer Freund Markus hat nächste Woche Geburtstag. Wollen wir zusammen eine Überraschungsparty für ihn organisieren?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=bf06d66a-ceab-4be0-9c7d-956148cd035c"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=bf06d66a-ceab-4be0-9c7d-956148cd035c"
             },
             {
                 "speaker": "user",
@@ -152,7 +359,7 @@
             {
                 "speaker": "ai",
                 "text": "Gute Idee! Ich kann mich um die Getränke kümmern. Könnten Sie vielleicht das Essen organisieren oder eine Einladung für die anderen Freunde schreiben?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=7f9816bd-42ed-49f2-9d15-a4edf588598a"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=7f9816bd-42ed-49f2-9d15-a4edf588598a"
             },
             {
                 "speaker": "user",
@@ -168,7 +375,7 @@
             {
                 "speaker": "ai",
                 "text": "Abgemacht. Zum Schluss noch eine Frage zu einem anderen Thema: Heutzutage wird viel über Umweltschutz diskutiert. Wie wichtig ist Ihnen dieses Thema im Alltag?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=f53b940e-f302-4bdc-916c-a81ef4c9555f"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=f53b940e-f302-4bdc-916c-a81ef4c9555f"
             },
             {
                 "speaker": "user",
@@ -184,7 +391,7 @@
             {
                 "speaker": "ai",
                 "text": "Vielen Dank für das Gespräch. Wir sind nun am Ende der Prüfung angekommen. Auf Wiedersehen!",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=bd9ebe61-d576-429b-857c-7f02d13f5d06"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=bd9ebe61-d576-429b-857c-7f02d13f5d06"
             }
         ]
     },
@@ -193,7 +400,7 @@
             {
                 "speaker": "ai",
                 "text": "Herzlich willkommen zur mündlichen B2-Prüfung. Wir beginnen mit Teil 1: Die Präsentation. Welches Thema haben Sie vorbereitet? Bitte fangen Sie nun mit Ihrer Präsentation an.",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-1.mp3?alt=media&token=53bc7e46-4fce-4d6c-b6b4-337af1ef0f1c"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-1.mp3?alt=media&token=53bc7e46-4fce-4d6c-b6b4-337af1ef0f1c"
             },
             {
                 "speaker": "user",
@@ -209,7 +416,7 @@
             {
                 "speaker": "ai",
                 "text": "Vielen Dank für Ihre Ausführungen. Das war sehr interessant. Ich hätte dazu noch eine Frage: Was hat Sie an diesem Thema am meisten persönlich beeindruckt oder beeinflusst?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-2.mp3?alt=media&token=e038e5aa-36f5-4287-880b-150901cd0979"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-2.mp3?alt=media&token=e038e5aa-36f5-4287-880b-150901cd0979"
             },
             {
                 "speaker": "user",
@@ -225,7 +432,7 @@
             {
                 "speaker": "ai",
                 "text": "Gut, kommen wir nun zu Teil 2: Die Diskussion. Wir haben hier einen Artikel zum Thema 'Sollten Handys an Schulen komplett verboten werden?'. Was ist Ihre Meinung dazu? Glauben Sie, dass ein Verbot sinnvoll ist?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-3.mp3?alt=media&token=d268448b-e846-445c-b746-853ff8e3a784"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-3.mp3?alt=media&token=d268448b-e846-445c-b746-853ff8e3a784"
             },
             {
                 "speaker": "user",
@@ -241,7 +448,7 @@
             {
                 "speaker": "ai",
                 "text": "Ich verstehe Ihren Punkt, aber meinen Sie nicht, dass Handys im Unterricht auch als nützliches Lernwerkzeug dienen können, wenn sie richtig eingesetzt werden?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-4.mp3?alt=media&token=f4a2efda-9bff-478f-84de-ece50a2a312b"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-4.mp3?alt=media&token=f4a2efda-9bff-478f-84de-ece50a2a312b"
             },
             {
                 "speaker": "user",
@@ -257,7 +464,7 @@
             {
                 "speaker": "ai",
                 "text": "Ein interessantes Gespräch. Kommen wir nun zum letzten Teil, Teil 3: Gemeinsam etwas planen. Wir sollen für unsere Sprachschule ein internationales Buffet organisieren. Haben Sie Vorschläge, wie wir das am besten planen?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7016e204-dd27-4077-9a94-569fff8cef98"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7016e204-dd27-4077-9a94-569fff8cef98"
             },
             {
                 "speaker": "user",
@@ -273,7 +480,7 @@
             {
                 "speaker": "ai",
                 "text": "Das klingt gut. Aber wir müssen auch an die Getränke und die Musik denken. Wer könnte sich darum kümmern? Und what machen wir, wenn es regnet, falls wir draußen feiern?",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-6.mp3?alt=media&token=60d6a8d7-34df-4b04-bddc-75a1067cc505"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-6.mp3?alt=media&token=60d6a8d7-34df-4b04-bddc-75a1067cc505"
             },
             {
                 "speaker": "user",
@@ -289,7 +496,7 @@
             {
                 "speaker": "ai",
                 "text": "Hervorragend, dann haben wir einen Plan. Ich werde die Liste für das Essen erstellen. Vielen Dank, wir sind am Ende der Prüfung angekommen.",
-                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-7.mp3?alt=media&token=6428e619-0359-4a13-97f4-080f6f03ad3c"
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-7.mp3?alt=media&token=6428e619-0359-4a13-97f4-080f6f03ad3c"
             },
             {
                 "speaker": "user",

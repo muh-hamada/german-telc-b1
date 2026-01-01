@@ -22,6 +22,17 @@ const IS_DEV = __DEV__;
 const testPath = (Platform.OS === 'android' ? 'http://10.0.2.2' : 'http://localhost') + ':5001/telc-b1-german/us-central1';
 const CLOUD_FUNCTIONS_BASE_URL = IS_DEV ? testPath : 'https://us-central1-telc-b1-german.cloudfunctions.net';
 
+/**
+ * Generate a simple UUID v4
+ */
+function generateUUID(): string {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 class SpeakingService {
   /**
    * Get the user's speaking dialogues path based on the active exam config
@@ -36,35 +47,41 @@ class SpeakingService {
    * Calls Cloud Function to generate AI-powered dialogue
    * 
    * @param level - Exam level
-   * @param isTesting - If true, generates a short 2-turn dialogue for testing
+   * @param practicedDialogueIds - Optional array of previously practiced dialogue IDs (in chronological order)
    * @returns Speaking dialogue structure
    */
   async generateDialogue(
-    level: ExamLevel
+    level: ExamLevel,
+    practicedDialogueIds?: string[]
   ): Promise<SpeakingAssessmentDialogue> {
     try {
       const activeExamConfig = getActiveExamConfig();
       const language: ExamLanguage = activeExamConfig.language;
 
-      console.log('[SpeakingService] Generating dialogue...', { level, language });
+      console.log('[SpeakingService] Generating dialogue...', { level, language, practicedDialogueIds });
 
       // Call Cloud Function using axios
       const response = await axios.post(`${CLOUD_FUNCTIONS_BASE_URL}/generateSpeakingDialogue`, {
         level,
         language,
+        practicedDialogueIds,
       });
 
       console.log('[SpeakingService] Cloud Function returned, processing response...');
 
-      const { dialogueId, dialogue, estimatedMinutes } = response.data as {
+      const { dialogueId: backendDialogueId, dialogue, estimatedMinutes } = response.data as {
         dialogueId: string;
         dialogue: any[];
         estimatedMinutes: number;
       };
 
+      // Generate unique practice ID for this session
+      const practiceId = generateUUID();
+
       // Structure dialogue for app use
       const speakingDialogue: SpeakingAssessmentDialogue = {
-        dialogueId,
+        practiceId,
+        dialogueId: backendDialogueId,
         partNumber: 1, // Fixed for unified dialogue
         level,
         turns: dialogue as SpeakingDialogueTurn[],
@@ -90,7 +107,7 @@ class SpeakingService {
    * @param expectedContext - Context for what should be said
    * @param level - Exam level
    * @param userId - User ID
-   * @param dialogueId - Dialogue ID
+   * @param practiceId - Practice ID (unique practice session identifier, used for storage)
    * @param turnNumber - Turn number
    * @param feedbackLanguage - Language code for feedback (e.g., 'en', 'de', 'ar')
    * @returns Evaluation with scores and feedback
@@ -100,7 +117,7 @@ class SpeakingService {
     expectedContext: string,
     level: ExamLevel,
     userId: string,
-    dialogueId: string,
+    practiceId: string,
     turnNumber: number,
     feedbackLanguage: string
   ): Promise<SpeakingEvaluation> {
@@ -113,13 +130,13 @@ class SpeakingService {
         expectedContext,
         level,
         userId,
-        dialogueId,
+        practiceId,
         turnNumber,
         feedbackLanguage,
       });
 
       // Step 1: Upload audio to Firebase Storage
-      const audioUrl = await this.uploadAudio(audioUri, userId, dialogueId, turnNumber);
+      const audioUrl = await this.uploadAudio(audioUri, userId, practiceId, turnNumber);
 
       // Step 2: Call Cloud Function to evaluate using axios
       console.log('[SpeakingService] Calling evaluation function with audio:', audioUrl);
@@ -133,7 +150,7 @@ class SpeakingService {
         expectedContext,
         level,
         language,
-        dialogueId,
+        dialogueId: practiceId, // Backend uses this for logging
         turnNumber,
         userId,
         feedbackLanguage,
@@ -173,14 +190,14 @@ class SpeakingService {
    * 
    * @param audioUri - Local audio file URI
    * @param userId - User ID
-   * @param dialogueId - Dialogue ID
+   * @param practiceId - Practice ID (unique practice session identifier)
    * @param turnNumber - Turn number in dialogue
    * @returns URL to uploaded audio
    */
   async uploadAudio(
     audioUri: string,
     userId: string,
-    dialogueId: string,
+    practiceId: string,
     turnNumber: number
   ): Promise<string> {
     const MAX_RETRIES = 3;
@@ -188,7 +205,7 @@ class SpeakingService {
     
     try {
       const filename = `turn-${turnNumber}.m4a`;
-      const path = `users/${userId}/speaking-practice/${dialogueId}/${filename}`;
+      const path = `users/${userId}/speaking-practice/${practiceId}/${filename}`;
 
       console.log('[SpeakingService] Uploading audio...', { audioUri, path });
 
@@ -328,6 +345,7 @@ class SpeakingService {
     try {
       console.log('[SpeakingService] Saving dialogue progress...', {
         userId,
+        practiceId: dialogue.practiceId,
         dialogueId: dialogue.dialogueId,
         currentTurn: dialogue.currentTurn,
       });
@@ -335,7 +353,7 @@ class SpeakingService {
       const path = this.getSpeakingDialoguesPath(userId);
       await firestore()
         .collection(path)
-        .doc(dialogue.dialogueId)
+        .doc(dialogue.practiceId)
         .set(
           {
             ...dialogue,
@@ -356,23 +374,23 @@ class SpeakingService {
    * Retrieves a previously saved dialogue to allow resuming
    * 
    * @param userId - User ID
-   * @param dialogueId - Dialogue ID
+   * @param practiceId - Practice ID (unique practice session identifier)
    * @returns Dialogue state or null if not found
    */
   async loadDialogueProgress(
     userId: string,
-    dialogueId: string
+    practiceId: string
   ): Promise<SpeakingAssessmentDialogue | null> {
     try {
       console.log('[SpeakingService] Loading dialogue progress...', {
         userId,
-        dialogueId,
+        practiceId,
       });
 
       const path = this.getSpeakingDialoguesPath(userId);
       const doc = await firestore()
         .collection(path)
-        .doc(dialogueId)
+        .doc(practiceId)
         .get();
 
       if (!doc.exists()) {
@@ -395,23 +413,23 @@ class SpeakingService {
    * Combines all turn evaluations into a comprehensive assessment
    * 
    * @param userId - User ID
-   * @param dialogueId - Dialogue ID
+   * @param practiceId - Practice ID (unique practice session identifier)
    * @returns Overall dialogue evaluation
    */
   async completeDialogue(
     userId: string,
-    dialogueId: string
+    practiceId: string
   ): Promise<SpeakingEvaluation> {
     try {
       console.log('[SpeakingService] Completing dialogue...', {
         userId,
-        dialogueId,
+        practiceId,
       });
 
       // Get the dialogue document which now contains all turn evaluations
       const doc = await firestore()
         .collection(this.getSpeakingDialoguesPath(userId))
-        .doc(dialogueId)
+        .doc(practiceId)
         .get();
 
       if (!doc.exists()) {
@@ -565,19 +583,19 @@ class SpeakingService {
   /**
    * Delete a dialogue and its associated audio files
    */
-  async deleteDialogue(userId: string, dialogueId: string): Promise<void> {
+  async deleteDialogue(userId: string, practiceId: string): Promise<void> {
     try {
-      console.log('[SpeakingService] Deleting dialogue...', { userId, dialogueId });
+      console.log('[SpeakingService] Deleting dialogue...', { userId, practiceId });
       
       // 1. Delete Firestore document
       const path = this.getSpeakingDialoguesPath(userId);
       await firestore()
         .collection(path)
-        .doc(dialogueId)
+        .doc(practiceId)
         .delete();
 
       // 2. Delete audio files from Storage
-      const storagePath = `users/${userId}/speaking-practice/${dialogueId}`;
+      const storagePath = `users/${userId}/speaking-practice/${practiceId}`;
       const reference = storage().ref(storagePath);
       
       try {

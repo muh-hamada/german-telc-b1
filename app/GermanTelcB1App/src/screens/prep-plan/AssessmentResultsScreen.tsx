@@ -25,6 +25,7 @@ import { SpeakingEvaluation } from '../../types/prep-plan.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { speakingService } from '../../services/speaking.service';
 import { HomeStackParamList } from '../../types/navigation.types';
+import { getScoreColor } from '../../utils/score-colors';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'AssessmentResults'>;
 
@@ -72,16 +73,9 @@ const AssessmentResultsScreen: React.FC<Props> = () => {
     }
   };
 
-  const getScoreColor = (score: number, max: number) => {
-    const percentage = (score / max) * 100;
-    if (percentage >= 80) return colors.success[500];
-    if (percentage >= 60) return colors.warning[500];
-    return colors.error[500];
-  };
-
   const renderScoreBar = (label: string, score: number, max: number) => {
     const percentage = (score / max) * 100;
-    const color = getScoreColor(score, max);
+    const color = getScoreColor(score, max, colors);
     
     return (
       <View style={styles.sectionCard} key={label}>
@@ -237,7 +231,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   overallCard: {
     backgroundColor: colors.background.secondary,
-    padding: spacing.padding.xl,
+    padding: spacing.padding.lg,
     borderRadius: spacing.borderRadius.lg,
     alignItems: 'center',
     marginBottom: spacing.margin.xl,

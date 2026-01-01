@@ -262,7 +262,8 @@ export interface SpeakingEvaluation {
  * Speaking Assessment Dialogue Structure
  */
 export interface SpeakingAssessmentDialogue {
-  dialogueId: string;
+  practiceId: string; // Unique ID for this practice session (user-specific)
+  dialogueId: string; // Original dialogue ID from backend (e.g., "dialogue-a1-german-1")
   partNumber: 1 | 2 | 3; // Which part of speaking exam
   level: ExamLevel;
   turns: SpeakingDialogueTurn[];
