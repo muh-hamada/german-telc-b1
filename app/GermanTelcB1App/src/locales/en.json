@@ -166,7 +166,7 @@
     "premiumBadge": "⭐ PREMIUM",
     "speakingPractice": {
       "title": "Speaking Practice",
-      "description": "Improve your speaking skills with an AI-powered unified assessment covering all exam parts"
+      "description": "Improve your speaking skills with an AI-powered assessment covering all exam parts"
     }
   },
   "speaking": {
@@ -222,6 +222,8 @@
     "recording": "Recording",
     "startRecording": "Start Recording",
     "stopRecording": "Stop Recording",
+    "preparing": "Preparing to record...",
+    "stopping": "Stopping recording...",
     "processing": "Processing your response...",
     "uploading": "Uploading",
     "uploadTimeout": "Upload timeout. Please check your internet connection and try again.",
@@ -1113,6 +1115,10 @@
         "title": "Ad-Free Experience",
         "description": "Enjoy learning without interruptions."
       },
+      "aiSpeaking": {
+        "title": "AI Speaking Evaluation",
+        "description": "Get detailed feedback on pronunciation, fluency, and grammar."
+      },
       "offline": {
         "title": "Offline Mode",
         "description": "Download and study anywhere."
@@ -1135,7 +1141,9 @@
         "title": "Upgrade to Premium",
         "description": "Ad-free, offline mode, and more"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "See Benefits",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1148,7 +1156,9 @@
       "restoreSuccess": "Purchases restored successfully!",
       "alreadyPremium": "You already have Premium!",
       "thankYou": "Thank you for your support!",
-      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees."
+      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees.",
+      "yourBenefits": "Your\nBenefits",
+      "fullPotential": "Unlock your full potenial"
     },
     "darkModeModal": {
       "title": "Dark Mode is Premium",

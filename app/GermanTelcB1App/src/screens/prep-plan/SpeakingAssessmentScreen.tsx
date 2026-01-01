@@ -23,6 +23,7 @@ import { HomeStackNavigationProp, HomeStackParamList } from '../../types/navigat
 import { SpeakingAssessmentDialogue } from '../../types/prep-plan.types';
 import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { I18nManager } from 'react-native';
 
 type Props = StackScreenProps<HomeStackParamList, 'SpeakingAssessment'>;
 
@@ -349,17 +350,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
   // Show dialogue component when dialogue is set
   if (dialogue) {
     return (
-      <View style={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>
-              {t('speaking.unifiedDialogue')}
-            </Text>
-          </View>
-        </View>
-
-        {/* Dialogue Component */}
+      <View style={[styles.container, styles.dialogueContainer]}>
         <SpeakingDialogueComponent
           dialogue={dialogue.turns}
           currentTurnIndex={dialogue.currentTurn}
@@ -475,7 +466,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
                   ) : (
                     <Text style={styles.inProgressText}>{t('speaking.history.inProgress')}</Text>
                   )}
-                  <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+                  <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
                 </View>
               </TouchableOpacity>
             ))}
@@ -498,6 +489,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
+  },
+  dialogueContainer: {
+    paddingTop: spacing.sm,
   },
   loadingContainer: {
     flex: 1,
@@ -561,6 +555,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     marginBottom: 24,
+    textAlign: 'left',
   },
   stepContainer: {
     flexDirection: 'row',
@@ -583,11 +578,13 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontWeight: '700',
     color: colors.text.primary,
     marginBottom: 4,
+    textAlign: 'left',
   },
   stepDescription: {
     fontSize: 14,
     color: colors.text.secondary,
     lineHeight: 20,
+    textAlign: 'left',
   },
   footer: {
     padding: spacing.lg,
@@ -720,6 +717,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     marginBottom: 16,
+    textAlign: 'left',
   },
   historyItem: {
     flexDirection: 'row',
@@ -740,6 +738,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontSize: 14,
     color: colors.text.secondary,
     marginBottom: 4,
+    textAlign: 'left',
   },
   historyItemLevel: {
     fontSize: 16,

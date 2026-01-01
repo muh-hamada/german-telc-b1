@@ -22,7 +22,6 @@ import { useAppTheme } from '../contexts/ThemeContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import PremiumContent from '../components/PremiumContent';
-import AlreadyPremiumView from '../components/AlreadyPremiumView';
 
 const PremiumScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -69,18 +68,6 @@ const PremiumScreen: React.FC = () => {
     navigation.goBack();
   };
 
-  // Already premium view
-  if (isPremium) {
-    return (
-      <SafeAreaView style={styles.container} edges={['top']}>
-        <TouchableOpacity onPress={handleBack} style={[styles.backButton, { top: insets.top + spacing.margin.md }]}>
-          <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
-        </TouchableOpacity>
-        <AlreadyPremiumView />
-      </SafeAreaView>
-    );
-  }
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Back button */}
@@ -88,9 +75,9 @@ const PremiumScreen: React.FC = () => {
         <Icon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={20} color={colors.text.primary} />
       </TouchableOpacity>
 
-      {/* Shared content */}
       <View style={styles.contentContainer}>
         <PremiumContent
+          isPremium={isPremium}
           onPurchase={handlePurchase}
           onRestore={handleRestore}
           isPurchasing={isPurchasing}

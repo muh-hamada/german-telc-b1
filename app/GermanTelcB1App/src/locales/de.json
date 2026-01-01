@@ -379,6 +379,11 @@
         "updateSuccess": "Ihr Lernplan wurde erfolgreich aktualisiert!",
         "updateError": "Plan konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut."
       }
+    },
+    "premiumBadge": "⭐ PREMIUM",
+    "speakingPractice": {
+      "title": "Sprechpraxis",
+      "description": "Verbessern Sie Ihre Sprechfähigkeiten mit einer KI-gestützten Bewertung, die alle Prüfungsteile abdeckt"
     }
   },
   "vocabulary": {
@@ -970,7 +975,9 @@
     "delete": {
       "button": "Löschen"
     },
-    "scoresBreakdown": "Bewertungsdetails"
+    "scoresBreakdown": "Bewertungsdetails",
+    "preparing": "Vorbereitung zur Aufnahme...",
+    "stopping": "Aufnahme stoppen..."
   },
   "results": {
     "title": "Prüfungsergebnisse",
@@ -1326,6 +1333,10 @@
       "darkTheme": {
         "title": "Dunkles Design",
         "description": "Augenschonend mit dunklem Modus."
+      },
+      "aiSpeaking": {
+        "title": "KI-Sprechbewertung",
+        "description": "Erhalten Sie detailliertes Feedback zu Aussprache, Sprachkompetenz und Grammatik."
       }
     },
     "profile": {
@@ -1333,7 +1344,9 @@
         "title": "Zu Premium upgraden",
         "description": "Werbefrei, Offline-Modus und mehr"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "Siehe Vorteile",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1346,7 +1359,9 @@
       "restoreSuccess": "Käufe erfolgreich wiederhergestellt!",
       "alreadyPremium": "Du hast bereits Premium!",
       "thankYou": "Danke für deine Unterstützung!",
-      "disclaimer": "Einmaliger Kauf. Schaltet alle Premium-Funktionen für immer frei. Kein Abo, keine wiederkehrenden Kosten."
+      "disclaimer": "Einmaliger Kauf. Schaltet alle Premium-Funktionen für immer frei. Kein Abo, keine wiederkehrenden Kosten.",
+      "yourBenefits": "Ihre\nVorteile",
+      "fullPotential": "Entfalten Sie Ihr volles Potenzial"
     },
     "darkModeModal": {
       "title": "Der Dunkelmodus ist Premium",

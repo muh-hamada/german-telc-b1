@@ -29,7 +29,9 @@ interface PremiumContentProps {
   isRestoring?: boolean;
   showCloseButton?: boolean;
   showRestoreButton?: boolean;
+  showPurchaseButton?: boolean;
   isModal?: boolean;
+  isPremium?: boolean;
 }
 
 interface FeatureItemProps {
@@ -85,6 +87,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   showCloseButton = false,
   showRestoreButton = false,
   isModal = false,
+  isPremium = false,
 }) => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
@@ -92,10 +95,10 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   const { colors, mode } = useAppTheme();
   const isDarkMode = mode === 'dark';
   const price = productPrice || '...';
-  
+
   // Internal state for login modal
   const [showLoginModal, setShowLoginModal] = useState(false);
-  
+
   // Disable purchase if product is loading or not available
   const isPurchaseDisabled = isPurchasing || isRestoring || isLoadingProduct || !isProductAvailable;
   const featureColors = useMemo(() => getFeatureColors(isDarkMode, colors), [colors, isDarkMode]);
@@ -146,11 +149,15 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{t('premium.screen.whyPremium')}</Text>
+          <Text style={styles.title}>{
+            isPremium ? t('premium.screen.yourBenefits') : t('premium.screen.whyPremium')
+          }</Text>
         </View>
 
         {/* Subtitle */}
-        <Text style={styles.subtitle}>{t('premium.screen.oneTimePurchase')}</Text>
+        <Text style={styles.subtitle}>{
+          isPremium ? t('premium.screen.fullPotential') : t('premium.screen.oneTimePurchase')
+        }</Text>
 
         {/* Features List */}
         <View style={styles.featuresSection}>
@@ -159,6 +166,13 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
             title={t('premium.features.adFree.title')}
             description={t('premium.features.adFree.description')}
             colorScheme={featureColors.adFree}
+            styles={styles}
+          />
+          <FeatureItem
+            icon="magic"
+            title={t('premium.features.aiSpeaking.title')}
+            description={t('premium.features.aiSpeaking.description')}
+            colorScheme={featureColors.aiSpeaking}
             styles={styles}
           />
           <FeatureItem
@@ -193,7 +207,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
       </ScrollView>
 
       {/* Fixed CTA Section at Bottom */}
-      <View style={[styles.ctaSection, { paddingBottom: isModal ? spacing.padding.sm : spacing.padding.lg }]}>
+      {!isPremium && <View style={[styles.ctaSection, { paddingBottom: isModal ? spacing.padding.sm : spacing.padding.lg }]}>
         <TouchableOpacity
           style={[styles.purchaseButton, isPurchaseDisabled && styles.purchaseButtonDisabled]}
           onPress={handlePurchaseClick}
@@ -231,7 +245,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
             <Text style={styles.laterButtonText}>{t('premium.upsell.maybeLater')}</Text>
           </TouchableOpacity>
         )}
-      </View>
+      </View>}
 
       {/* Login Modal */}
       <LoginModal
@@ -247,6 +261,10 @@ const getFeatureColors = (isDarkMode: boolean, colors: ThemeColors): Record<stri
   adFree: {
     bg: isDarkMode ? colors.secondary[300] : '#d6e8ff',
     icon: colors.primary[600],
+  },
+  aiSpeaking: {
+    bg: isDarkMode ? colors.secondary[300] : '#d5f0d7',
+    icon: colors.success[700],
   },
   offline: {
     bg: isDarkMode ? colors.primary[200] : '#F3E8FF',

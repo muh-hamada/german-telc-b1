@@ -367,6 +367,11 @@
         "updateSuccess": "Votre plan d'étude a été mis à jour avec succès!",
         "updateError": "Échec de la mise à jour du plan. Veuillez réessayer."
       }
+    },
+    "premiumBadge": "⭐PREMIUM",
+    "speakingPractice": {
+      "title": "Pratique orale",
+      "description": "Améliorez vos compétences orales avec une évaluation basée sur l'IA couvrant toutes les parties de l'examen"
     }
   },
   "vocabulary": {
@@ -1026,7 +1031,9 @@
     "delete": {
       "button": "Supprimer"
     },
-    "scoresBreakdown": "Détails de l'évaluation"
+    "scoresBreakdown": "Détails de l'évaluation",
+    "preparing": "Préparation de l'enregistrement...",
+    "stopping": "Arrêt de l'enregistrement..."
   },
   "results": {
     "title": "Résultats de l'examen",
@@ -1522,6 +1529,10 @@
       "darkTheme": {
         "title": "Thème Sombre",
         "description": "Confort visuel avec le mode sombre."
+      },
+      "aiSpeaking": {
+        "title": "Évaluation orale de l'IA",
+        "description": "Obtenez des commentaires détaillés sur la prononciation, la maîtrise et la grammaire."
       }
     },
     "profile": {
@@ -1529,7 +1540,9 @@
         "title": "Passer à Premium",
         "description": "Sans pub, mode hors ligne et plus"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "Voir les avantages",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1542,7 +1555,9 @@
       "restoreSuccess": "Achats restaurés avec succès !",
       "alreadyPremium": "Vous avez déjà Premium !",
       "thankYou": "Merci pour votre soutien !",
-      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents."
+      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents.",
+      "yourBenefits": "Vos\navantages",
+      "fullPotential": "Libérez tout votre potentiel"
     },
     "darkModeModal": {
       "title": "Le mode sombre est Premium",

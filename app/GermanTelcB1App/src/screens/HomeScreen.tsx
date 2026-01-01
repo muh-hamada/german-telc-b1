@@ -238,6 +238,21 @@ const HomeScreen: React.FC = () => {
           onViewFullStats={handleViewFullStats}
         />
 
+        <Card style={styles.card} onPress={handleExamStructurePress}>
+          <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('home.descriptions.examStructure')}
+          </Text>
+        </Card>
+
+        <Card style={styles.card} onPress={handleSolveQuestionsPress}>
+          <Text style={styles.cardTitle}>{t('home.solve')}</Text>
+          <Text style={styles.cardDescription}>
+            {t('home.descriptions.solve')}
+          </Text>
+        </Card>
+
+
         {/* Speaking Practice Card - Visible to ALL users */}
         {/* TODO: Add speaking practice card for other languages */}
         {activeExamConfig.language === 'german' && <AnimatedGradientBorder
@@ -255,20 +270,6 @@ const HomeScreen: React.FC = () => {
             </Text>
           </Card>
         </AnimatedGradientBorder>}
-
-        <Card style={styles.card} onPress={handleExamStructurePress}>
-          <Text style={styles.cardTitle}>{t('home.examStructure')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('home.descriptions.examStructure')}
-          </Text>
-        </Card>
-
-        <Card style={styles.card} onPress={handleSolveQuestionsPress}>
-          <Text style={styles.cardTitle}>{t('home.solve')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('home.descriptions.solve')}
-          </Text>
-        </Card>
 
         <AnimatedGradientBorder
           borderWidth={2}

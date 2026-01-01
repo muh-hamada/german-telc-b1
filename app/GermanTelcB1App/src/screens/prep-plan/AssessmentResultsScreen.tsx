@@ -253,6 +253,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    direction: 'ltr',
   },
   overallScore: {
     ...typography.textStyles.h1,
@@ -293,6 +294,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   sectionCard: {
     backgroundColor: colors.background.secondary,
@@ -327,6 +329,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.bold,
     color: colors.text.primary,
     flex: 1,
+    textAlign: 'left',
   },
   sectionPercentage: {
     ...typography.textStyles.h4,
@@ -384,6 +387,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.text.primary,
     marginBottom: spacing.margin.md,
+    textAlign: 'left',
   },
   listItem: {
     marginBottom: spacing.margin.sm,

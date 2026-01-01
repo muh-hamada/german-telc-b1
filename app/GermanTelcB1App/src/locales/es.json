@@ -379,6 +379,11 @@
         "updateSuccess": "¡Tu plan de estudio ha sido actualizado exitosamente!",
         "updateError": "Error al actualizar el plan. Por favor intenta de nuevo."
       }
+    },
+    "premiumBadge": "⭐PREMIUM",
+    "speakingPractice": {
+      "title": "Práctica de expresión oral",
+      "description": "Mejore sus habilidades orales con una evaluación impulsada por IA que cubre todas las partes del examen"
     }
   },
   "vocabulary": {
@@ -969,7 +974,9 @@
     "delete": {
       "button": "Borrar"
     },
-    "scoresBreakdown": "Detalles de la evaluación"
+    "scoresBreakdown": "Detalles de la evaluación",
+    "preparing": "Preparándose para grabar...",
+    "stopping": "Deteniendo la grabación..."
   },
   "results": {
     "title": "Resultados del examen",
@@ -1329,6 +1336,10 @@
       "darkTheme": {
         "title": "Tema Oscuro",
         "description": "Cuida tus ojos con el modo oscuro."
+      },
+      "aiSpeaking": {
+        "title": "Evaluación de habla por IA",
+        "description": "Obtenga comentarios detallados sobre pronunciación, fluidez y gramática."
       }
     },
     "profile": {
@@ -1336,7 +1347,9 @@
         "title": "Actualizar a Premium",
         "description": "Sin anuncios, modo sin conexión y más"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "Ver Beneficios",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1349,7 +1362,9 @@
       "restoreSuccess": "¡Compras restauradas exitosamente!",
       "alreadyPremium": "¡Ya tienes Premium!",
       "thankYou": "¡Gracias por tu apoyo!",
-      "disclaimer": "Compra única. Desbloquea todas las funciones premium para siempre. Sin suscripción ni pagos recurrentes."
+      "disclaimer": "Compra única. Desbloquea todas las funciones premium para siempre. Sin suscripción ni pagos recurrentes.",
+      "yourBenefits": "Tus\nbeneficios",
+      "fullPotential": "Libera todo tu potencial"
     },
     "darkModeModal": {
       "title": "El modo oscuro es premium",

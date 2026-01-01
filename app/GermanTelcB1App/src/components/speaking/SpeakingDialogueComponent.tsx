@@ -41,6 +41,8 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
   const styles = useMemo(() => createStyles(colors), [colors]);
   
   const [isRecording, setIsRecording] = useState(false);
+  const [isStartingRecording, setIsStartingRecording] = useState(false);
+  const [isStoppingRecording, setIsStoppingRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [hasPermission, setHasPermission] = useState<boolean | null>(null); // null means not checked yet
@@ -138,6 +140,9 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
     }
 
     try {
+      // Update state immediately for better UX
+      setIsStartingRecording(true);
+      
       console.log('[SpeakingDialogue] Starting recording...');
       await Sound.stopPlayer();
       const audioPath = await Sound.startRecorder();
@@ -149,20 +154,26 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       });
 
       setIsRecording(true);
+      setIsStartingRecording(false);
     } catch (error) {
       console.error('Start recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
       setIsRecording(false);
+      setIsStartingRecording(false);
     }
   };
 
   const stopRecording = async () => {
     try {
+      // Update state immediately for better UX
+      setIsStoppingRecording(true);
+      
       console.log(`[SpeakingDialogue] Stopping recording... Duration: ${recordingDuration}s`);
       const audioPath = await Sound.stopRecorder();
       Sound.removeRecordBackListener();
 
       setIsRecording(false);
+      setIsStoppingRecording(false);
       setRecordingDuration(0);
 
       if (audioPath) {
@@ -174,6 +185,7 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
       console.error('Stop recording error:', error);
       Alert.alert(t('speaking.error'), t('speaking.recordingError'));
       setIsRecording(false);
+      setIsStoppingRecording(false);
     }
   };
 
@@ -317,13 +329,19 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
 
       {isUserTurn && (
         <View style={styles.recordingControls}>
-          {!isRecording && !isProcessing && (
+          {!isRecording && !isProcessing && !isStartingRecording && (
             <TouchableOpacity style={styles.recordButton} onPress={startRecording}>
               <Icon name="mic" size={32} color={colors.text.inverse} />
               <Text style={styles.recordButtonText}>{t('speaking.startRecording')}</Text>
             </TouchableOpacity>
           )}
-          {isRecording && (
+          {isStartingRecording && (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color={colors.primary[500]} />
+              <Text style={styles.loadingText}>{t('speaking.preparing')}</Text>
+            </View>
+          )}
+          {isRecording && !isStoppingRecording && (
             <View style={styles.recordingActive}>
               <View style={styles.recordingIndicator}>
                 <View style={styles.recordingDot} />
@@ -334,6 +352,12 @@ export const SpeakingDialogueComponent: React.FC<SpeakingDialogueComponentProps>
                 <Icon name="stop" size={32} color={colors.text.inverse} />
                 <Text style={styles.stopButtonText}>{t('speaking.stopRecording')}</Text>
               </TouchableOpacity>
+            </View>
+          )}
+          {isStoppingRecording && (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color={colors.primary[500]} />
+              <Text style={styles.loadingText}>{t('speaking.stopping')}</Text>
             </View>
           )}
           {isProcessing && (
@@ -418,6 +442,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   recordingTime: { fontSize: 32, fontWeight: '700', color: colors.text.primary, marginBottom: 16 },
   stopButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.error[500], padding: 20, borderRadius: 12, width: '100%' },
   stopButtonText: { color: colors.text.inverse, fontSize: 16, fontWeight: '600', marginLeft: 12 },
+  loadingContainer: { alignItems: 'center', padding: 24 },
+  loadingText: { fontSize: 14, color: colors.text.secondary, marginTop: 12 },
   processingContainer: { alignItems: 'center', padding: 24 },
   processingText: { fontSize: 14, color: colors.text.secondary, marginTop: 12 },
   nextButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.primary[500], padding: 16, borderRadius: 12, marginBottom: 24 },
