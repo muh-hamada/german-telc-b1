@@ -7,8 +7,13 @@ const youtube = google.youtube('v3');
 /**
  * Upload video to YouTube
  * 
- * Note: This requires OAuth 2.0 credentials to be set up.
- * See YOUTUBE_SETUP.md for instructions.
+ * IMPORTANT: Videos will be uploaded to the channel associated with the OAuth2 credentials.
+ * To upload to a specific channel:
+ * 1. Create OAuth2 credentials for an account that owns or manages the target channel
+ * 2. Make sure the account has "Manager" permissions on the channel (if not the owner)
+ * 3. Use those credentials in YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, and YOUTUBE_REFRESH_TOKEN
+ * 
+ * Note: You cannot specify channelId in the API request. The channel is determined by the OAuth token.
  */
 export async function uploadToYouTube(
   videoPath: string,
@@ -22,23 +27,25 @@ export async function uploadToYouTube(
   try {
     const videoStream = fs.createReadStream(videoPath);
     
+    const requestBody: any = {
+      snippet: {
+        title: metadata.title,
+        description: metadata.description,
+        tags: metadata.tags,
+        categoryId: metadata.categoryId,
+        defaultLanguage: 'en',
+        defaultAudioLanguage: 'en',
+      },
+      status: {
+        privacyStatus: 'public',
+        selfDeclaredMadeForKids: false,
+      },
+    };
+
     const response = await youtube.videos.insert({
       auth: oauth2Client,
       part: ['snippet', 'status'],
-      requestBody: {
-        snippet: {
-          title: metadata.title,
-          description: metadata.description,
-          tags: metadata.tags,
-          categoryId: metadata.categoryId,
-          defaultLanguage: 'en',
-          defaultAudioLanguage: 'en',
-        },
-        status: {
-          privacyStatus: 'public',
-          selfDeclaredMadeForKids: false,
-        },
-      },
+      requestBody,
       media: {
         body: videoStream,
       },
@@ -86,6 +93,7 @@ function getOAuth2Client() {
   return oauth2Client;
 }
 
+
 /**
  * Generate video metadata from question data
  */
@@ -93,21 +101,23 @@ export function generateVideoMetadata(
   appId: string,
   appDisplayName: string,
   questionIndex: number,
-  questionText: string
+  questionText: string | undefined
 ): VideoMetadata {
   // Truncate question text if too long
-  const truncatedQuestion = questionText.length > 60 
-    ? questionText.substring(0, 57) + '...'
-    : questionText;
+  const safeQuestionText = questionText || '';
+  const truncatedQuestion = safeQuestionText.length > 60 
+    ? safeQuestionText.substring(0, 57) + '...'
+    : safeQuestionText;
 
-  const title = `${appDisplayName} Exam - Practice Question #${questionIndex + 1}`;
+  const title = `${appDisplayName} Exam - Reading Question`;
   
   const description = `
 Practice your ${appDisplayName} exam skills with this quick question!
+https://telc-exam-preperation.web.app/
 
 Question: ${truncatedQuestion}
 
-📱 Download our app for hundreds more practice questions:
+Download our app for hundreds more practice questions:
 • Comprehensive exam preparation
 • Real exam format questions
 • Track your progress

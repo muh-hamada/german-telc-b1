@@ -71,8 +71,27 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   }
 };
 
-// Context
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+// Create a default context value to prevent "undefined" errors during initialization
+const createDefaultContextValue = (): AuthContextType => ({
+  user: null,
+  isLoading: true,
+  isInitialized: false,
+  error: null,
+  signInWithGoogle: async () => { throw new Error('AuthContext not initialized'); },
+  signInWithApple: async () => { throw new Error('AuthContext not initialized'); },
+  signInWithTwitter: async () => { throw new Error('AuthContext not initialized'); },
+  signInWithEmail: async () => { throw new Error('AuthContext not initialized'); },
+  createAccountWithEmail: async () => { throw new Error('AuthContext not initialized'); },
+  signOut: async () => { throw new Error('AuthContext not initialized'); },
+  sendPasswordResetEmail: async () => { throw new Error('AuthContext not initialized'); },
+  updateProfile: async () => { throw new Error('AuthContext not initialized'); },
+  deleteAccount: async () => { throw new Error('AuthContext not initialized'); },
+  clearError: () => { throw new Error('AuthContext not initialized'); },
+  syncProgressToCloud: async () => { throw new Error('AuthContext not initialized'); },
+});
+
+// Context with a default value to prevent initialization errors
+export const AuthContext = createContext<AuthContextType>(createDefaultContextValue());
 
 // Provider Component
 interface AuthProviderProps {
@@ -372,9 +391,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 // Hook to use the context
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  // Context always has a value now (no need to check for undefined)
   return context;
 };
 

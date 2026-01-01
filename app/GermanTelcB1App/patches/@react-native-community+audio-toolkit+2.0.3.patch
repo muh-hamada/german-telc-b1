@@ -1,0 +1,21 @@
+diff --git a/node_modules/@react-native-community/audio-toolkit/android/build.gradle b/node_modules/@react-native-community/audio-toolkit/android/build.gradle
+index af922d7..1dd8ae8 100644
+--- a/node_modules/@react-native-community/audio-toolkit/android/build.gradle
++++ b/node_modules/@react-native-community/audio-toolkit/android/build.gradle
+@@ -1,7 +1,7 @@
+ buildscript {
+     repositories {
+         google()
+-        jcenter()
++        mavenCentral()
+     }
+ 
+     dependencies {
+@@ -30,7 +30,6 @@ android {
+ 
+ repositories {
+     google()
+-    jcenter()
+     mavenCentral()
+ }
+ 

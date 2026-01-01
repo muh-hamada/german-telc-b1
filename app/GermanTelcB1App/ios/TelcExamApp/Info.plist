@@ -7,13 +7,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>German A1 Exam</string>
+	<string>German B1 Exam</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mhamada.telca1german</string>
+	<string>com.mhamada.telcb1german</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -72,6 +72,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Diese App benötigt Zugriff auf die Kamera, um Fotos von handschriftlichen Antworten zu machen.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires access to the microphone to record your voice responses.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

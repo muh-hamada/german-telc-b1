@@ -14,6 +14,8 @@ import {
   onProgressUpdate,
   onPremiumUpdate
 } from './user-analytics';
+import { generateSpeakingDialogue } from './generate-speaking-dialogue';
+import { evaluateSpeaking, generateSpeakingSummary } from './evaluate-speaking';
 
 export {
   evaluateWritingB1 as evaluateWriting, // Backward compatibility
@@ -29,5 +31,8 @@ export {
   onVocabularyUpdate,
   onStreakUpdate,
   onProgressUpdate,
-  onPremiumUpdate
+  onPremiumUpdate,
+  generateSpeakingDialogue,
+  evaluateSpeaking,
+  generateSpeakingSummary
 };

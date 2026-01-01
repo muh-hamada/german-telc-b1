@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { ScreenshotSet } from '../types';
 
-const FPS = 30;
+const FPS = 20;
 
 /**
  * Assemble video from screenshots using FFmpeg
@@ -56,12 +56,13 @@ function createSegment(screenshotPaths: string[], outputPath: string): Promise<v
 
     ffmpeg()
       .input(pattern)
-      .inputFPS(FPS)
+      .inputOptions([`-framerate ${FPS}`])
       .videoCodec('libx264')
       .outputOptions([
         '-preset fast',
         '-crf 23',
         '-pix_fmt yuv420p',
+        `-r ${FPS}`,
       ])
       .output(outputPath)
       .on('start', (cmd: string) => {

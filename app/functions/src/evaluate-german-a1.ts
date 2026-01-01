@@ -7,7 +7,7 @@
 
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { OPENAI_API_KEY } from './api-keys';
+import { getOpenAIKey } from './api-keys';
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -157,7 +157,8 @@ Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine er
  * Calls OpenAI API to assess the writing
  */
 async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<WritingAssessmentA1> {
-  if (!OPENAI_API_KEY) {
+  const apiKey = getOpenAIKey();
+  if (!apiKey) {
     throw new Error('OpenAI API key is not configured');
   }
 
@@ -192,7 +193,7 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: MODEL,

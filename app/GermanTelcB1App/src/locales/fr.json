@@ -72,7 +72,26 @@
     "correct": "Correct",
     "wrong": "Faux",
     "duration": "Durée",
-    "info": "Information"
+    "info": "Information",
+    "units": {
+      "hoursValue": "{{count}}h",
+      "hours": "{{count}} heure",
+      "hours_plural": "{{count}} heures",
+      "minutesValue": "{{count}} min",
+      "minutes": "{{count}} minute",
+      "minutes_plural": "{{count}} minutes"
+    },
+    "days": {
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mer",
+      "thu": "Jeu",
+      "fri": "Ven",
+      "sat": "Sam",
+      "sun": "Dim"
+    },
+    "skip": "Sauter",
+    "loginRequired": "Connexion requise"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -143,7 +162,217 @@
       "listeningPractice": "Écoutez les entretiens et répondez aux questions pour pratiquer vos compétences d'écoute"
     },
     "solve": "Résoudre les questions d'examen",
-    "listeningPractice": "Pratique d'écoute"
+    "listeningPractice": "Pratique d'écoute",
+    "prepPlan": {
+      "new": {
+        "title": "Plan de Préparation à l'Examen",
+        "description": "Obtenez un plan d'études personnalisé alimenté par l'IA basé sur votre niveau et votre emploi du temps",
+        "badge": "⭐ PREMIUM"
+      },
+      "active": {
+        "title": "Mon Plan d'Études",
+        "description": "Continuez votre parcours personnalisé de préparation à l'examen"
+      },
+      "inProgress": {
+        "badge": "En Cours",
+        "config": {
+          "title": "Continuer la Configuration",
+          "description": "Terminez la configuration de votre plan d'études"
+        },
+        "assessment": {
+          "title": "Continuer l'Évaluation",
+          "description": "Terminez votre évaluation de niveau pour générer votre plan"
+        }
+      },
+      "onboarding": {
+        "title": "Plan de Préparation à l'Examen",
+        "startAssessment": "Commencer l'Évaluation",
+        "welcome": {
+          "title": "Bienvenue au Plan de Préparation à l'Examen",
+          "subtitle": "Créons un plan d'études personnalisé pour votre réussite à l'examen",
+          "step1": "Parlez-nous de votre date d'examen et de votre emploi du temps",
+          "step2": "Passez une évaluation rapide de niveau",
+          "step3": "Obtenez votre plan d'études alimenté par l'IA",
+          "timeEstimate": "⏱️ Ce processus prend environ 30 minutes"
+        },
+        "examDate": {
+          "title": "Quand est votre examen?",
+          "subtitle": "Sélectionnez la date de votre examen pour calculer votre planning d'études",
+          "daysUntilExam": "{{days}} jours jusqu'à l'examen",
+          "weeksUntilExam": "{{weeks}} semaines pour vous préparer"
+        },
+        "schedule": {
+          "title": "Planifiez Votre Temps d'Études",
+          "subtitle": "Combien de temps pouvez-vous consacrer aux études?",
+          "dailyHours": "Heures d'Études Quotidiennes",
+          "studyDays": "Jours d'Études par Semaine"
+        },
+        "studyTime": {
+          "title": "Quand préférez-vous étudier?",
+          "subtitle": "Cela nous aide à vous envoyer des rappels au bon moment",
+          "morning": "Matin",
+          "morningDesc": "6h00 - 12h00",
+          "afternoon": "Après-midi",
+          "afternoonDesc": "12h00 - 18h00",
+          "evening": "Soirée",
+          "eveningDesc": "18h00 - 23h00",
+          "flexible": "Flexible",
+          "flexibleDesc": "Pas de préférence particulière"
+        },
+        "summary": {
+          "title": "Aperçu de Votre Plan d'Études",
+          "subtitle": "Vérifiez votre configuration avant de commencer l'évaluation",
+          "examDate": "Date d'Examen",
+          "daysUntilExam": "Jours jusqu'à l'Examen",
+          "totalWeeks": "Total de Semaines",
+          "studyHoursPerDay": "Heures par Jour",
+          "studyDaysPerWeek": "Jours par Semaine",
+          "totalStudyHours": "Total d'Heures d'Études",
+          "nextStep": "Suivant: Évaluation de Niveau",
+          "nextStepDesc": "Passez un test rapide de 25 minutes pour déterminer votre niveau actuel"
+        },
+        "errors": {
+          "saveFailed": "Échec de l'enregistrement de la configuration. Veuillez réessayer."
+        }
+      },
+      "diagnostic": {
+        "title": "Évaluation du Niveau",
+        "subtitle": "Test diagnostique pour évaluer votre niveau actuel",
+        "generating": "Création de votre évaluation...",
+        "loadingSection": "Chargement de la section...",
+        "loadError": "Échec du chargement de l'évaluation. Veuillez réessayer.",
+        "sectionLoadError": "Échec du chargement de la section. Veuillez réessayer.",
+        "evaluationError": "Échec de l'évaluation du test. Veuillez réessayer.",
+        "sectionProgress": "Section {{current}} sur {{total}}",
+        "sectionComingSoon": "La section {{section}} arrive bientôt!",
+        "sections": {
+          "reading": "Compréhension Écrite",
+          "listening": "Compréhension Orale",
+          "grammar": "Grammaire et Vocabulaire",
+          "writing": "Expression Écrite",
+          "speaking": "Expression Orale"
+        }
+      },
+      "results": {
+        "title": "Vos Résultats d'Évaluation",
+        "notFound": "Résultats de l'évaluation introuvables",
+        "sectionBreakdown": "Détail par Section",
+        "strengths": "Vos Points Forts",
+        "weaknesses": "Domaines à Améliorer",
+        "weaknessNote": "Votre plan d'étude se concentrera à {{percentage}}% du temps de pratique sur vos domaines faibles",
+        "generatePlan": "🎯 Générer Mon Plan d'Études",
+        "generating": "Génération de votre plan...",
+        "level": {
+          "beginner": "Débutant",
+          "intermediate": "Intermédiaire",
+          "advanced": "Avancé",
+          "weak": "Nécessite du Travail",
+          "moderate": "Bon",
+          "strong": "Excellent"
+        }
+      },
+      "dashboard": {
+        "noPlan": "Aucun Plan Actif",
+        "noPlanDesc": "Vous n'avez pas de plan d'étude actif. Veuillez en créer un d'abord.",
+        "loadError": "Échec du chargement du plan d'étude. Veuillez réessayer.",
+        "taskTypeNotSupported": "Ce type de tâche n'est pas encore pris en charge.",
+        "examIn": "Examen dans",
+        "days": "jours",
+        "overallProgress": "Progrès Global",
+        "tasksCompleted": "tâches terminées",
+        "tasksCompletedRatio": "{{completed}} sur {{total}} tâches terminées",
+        "completedRatio": "{{completed}}/{{total}} terminé",
+        "weekRatio": "{{current}}/{{total}}",
+        "dayStreak": "jours consécutifs",
+        "hoursStudied": "heures étudiées",
+        "currentWeek": "semaine actuelle",
+        "todaysTasks": "Tâches d'Aujourd'hui",
+        "noTasksToday": "Tout Terminé Aujourd'hui!",
+        "noTasksDesc": "Vous avez terminé toutes vos tâches. Excellent travail!",
+        "minutes": "min",
+        "quickActions": "Actions Rapides",
+        "viewWeeklyPlan": "Voir le Plan Hebdomadaire",
+        "viewProgress": "Voir Progrès et Analyses",
+        "updateSettings": "Mettre à Jour les Paramètres"
+      },
+      "weekly": {
+        "noPlan": "Aucun Plan Actif",
+        "noPlanDesc": "Vous n'avez pas de plan d'étude actif.",
+        "loadError": "Échec du chargement du plan hebdomadaire. Veuillez réessayer.",
+        "weekNotFound": "Semaine non trouvée",
+        "week": "Semaine",
+        "weekProgress": "Progrès de la Semaine",
+        "tasksCompleted": "tâches terminées",
+        "weekCompleted": "Semaine Terminée! 🎉",
+        "focusAreas": "Domaines de Focus",
+        "tasks": "Tâches",
+        "minutes": "min",
+        "hours": "heures",
+        "difficulty": {
+          "easy": "Facile",
+          "medium": "Moyen",
+          "hard": "Difficile"
+        },
+        "completedOn": "Terminé le",
+        "totalTime": "Temps Total Estimé"
+      },
+      "progress": {
+        "noPlan": "Aucun Plan Actif",
+        "noPlanDesc": "Vous n'avez pas de plan d'étude actif.",
+        "loadError": "Échec du chargement des données de progrès. Veuillez réessayer.",
+        "examReadiness": "Préparation à l'Examen",
+        "readiness": {
+          "excellent": "Excellent - Vous êtes Prêt!",
+          "good": "Bon Progrès",
+          "fair": "Acceptable - Continuez",
+          "needsWork": "Nécessite Plus de Travail"
+        },
+        "readinessDesc": {
+          "excellent": "Vous êtes bien préparé et sur la voie du succès!",
+          "good": "Vous faites de solides progrès. Continuez comme ça!",
+          "fair": "Vous êtes sur la bonne voie. Concentrez-vous sur la régularité.",
+          "needsWork": "Restez engagé et suivez votre plan de près."
+        },
+        "completion": "Achèvement",
+        "timeStudied": "Temps Étudié",
+        "streak": "Série",
+        "sectionProgress": "Progrès par Section",
+        "sectionProgressDesc": "Votre niveau actuel dans chaque section",
+        "weeklyPerformance": "Performance Hebdomadaire",
+        "weeklyPerformanceDesc": "Achèvement des tâches par semaine",
+        "studyConsistency": "Régularité d'Étude",
+        "studyConsistencyDesc": "Les 4 dernières semaines d'activité",
+        "studyDay": "Jour d'étude",
+        "noStudy": "Pas d'étude",
+        "strengthsWeaknesses": "Forces et Faiblesses"
+      },
+      "settings": {
+        "noPlan": "Aucun Plan Actif",
+        "noPlanDesc": "Vous n'avez pas de plan d'étude actif à mettre à jour.",
+        "loadError": "Échec du chargement des paramètres du plan. Veuillez réessayer.",
+        "updateInfo": "La mise à jour de vos paramètres ajustera votre plan d'étude restant tout en préservant vos progrès.",
+        "selectedDate": "Date Sélectionnée",
+        "daysSelected": "jours sélectionnés",
+        "daysSelectedCount": "{{count}} jour sélectionné",
+        "daysSelectedCount_plural": "{{count}} jours sélectionnés",
+        "newPlanPreview": "Aperçu du Nouveau Plan",
+        "saveChanges": "Enregistrer les Modifications",
+        "noChanges": "Aucune Modification",
+        "noChangesDesc": "Vous n'avez apporté aucune modification à enregistrer.",
+        "examDateInPast": "La date d'examen doit être dans le futur.",
+        "noStudyDays": "Veuillez sélectionner au moins un jour d'étude.",
+        "confirmUpdate": "Mettre à Jour le Plan d'Étude?",
+        "confirmUpdateDesc": "Cela ajustera votre emploi du temps d'étude en fonction des nouveaux paramètres. Vos tâches terminées seront préservées.",
+        "confirm": "Oui, Mettre à Jour le Plan",
+        "updateSuccess": "Votre plan d'étude a été mis à jour avec succès!",
+        "updateError": "Échec de la mise à jour du plan. Veuillez réessayer."
+      }
+    },
+    "premiumBadge": "⭐PREMIUM",
+    "speakingPractice": {
+      "title": "Pratique orale",
+      "description": "Améliorez vos compétences orales avec une évaluation basée sur l'IA couvrant toutes les parties de l'examen"
+    }
   },
   "vocabulary": {
     "title": "Constructeur de vocabulaire",
@@ -739,7 +968,72 @@
         "example": "Exemple",
         "cards": "Cartes de pratique"
       }
-    }
+    },
+    "permissions": {
+      "required": "L'autorisation du microphone est requise pour la pratique orale",
+      "message": "Nous avons besoin d'accéder à votre microphone pour enregistrer votre pratique orale.",
+      "askLater": "Demandez-moi plus tard",
+      "cancel": "Annuler",
+      "ok": "D'ACCORD",
+      "title": "Autorisation du microphone",
+      "denied": "Autorisation refusée",
+      "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale.",
+      "checking": "Vérification des autorisations du microphone"
+    },
+    "intro": {
+      "title": "Évaluation de l'expression orale",
+      "subtitle": "Comment ça marche",
+      "step1Title": "Dialogue interactif",
+      "step1Desc": "Ayez une conversation naturelle avec notre examinateur IA à travers plusieurs parties",
+      "step2Title": "Enregistrez vos réponses",
+      "step2Desc": "Parlez clairement dans votre microphone pour chaque question ou tâche",
+      "step3Title": "Évaluation par IA",
+      "step3Desc": "Obtenez une analyse instantanée de votre prononciation, fluidité et grammaire",
+      "step4Title": "Commentaires détaillés",
+      "step4Desc": "Recevez des commentaires complets sur les forces et les domaines à améliorer",
+      "step5Title": "Suivre les progrès",
+      "step5Desc": "Surveillez votre amélioration au fil du temps avec l'historique des scores",
+      "startButton": "Commencer la pratique"
+    },
+    "complete": "Complet!",
+    "error": "Erreur",
+    "recordingError": "Impossible d'enregistrer l'audio. \nVeuillez réessayer.",
+    "ai": "Examinateur IA",
+    "you": "Toi",
+    "previousTurns": "Tours précédents",
+    "processing": "Traitement de votre réponse...",
+    "playAudio": "Lire l'audio",
+    "processingError": "Impossible de traiter votre enregistrement. \nVeuillez réessayer.",
+    "networkError": "La connexion réseau a échoué. \nVeuillez vérifier votre connexion Internet et réessayer.",
+    "startRecording": "Commencer l'enregistrement",
+    "uploadTimeout": "Expiration du délai de téléchargement. \nVeuillez vérifier votre connexion Internet et réessayer.",
+    "noSpeechDetected": "Aucune parole détectée",
+    "noSpeechDetectedMessage": "Nous n'avons détecté aucune parole. Veuillez parler plus fort et vous assurer que votre microphone est activé.",
+    "evaluating": "Évaluer vos performances...",
+    "history": {
+      "inProgress": "En cours",
+      "title": "Historique des évaluations"
+    },
+    "resume": {
+      "continue": "Continuer",
+      "message": "Vous avez déjà une pratique orale en cours. \nVoulez-vous continuer ou repartir de zéro ?",
+      "restart": "Redémarrage",
+      "title": "Pratique en cours"
+    },
+    "apiError": "Notre service d'évaluation est temporairement indisponible. \nVeuillez réessayer plus tard.",
+    "loadError": "Impossible de charger la pratique orale. \nVeuillez vérifier votre connexion et réessayer.",
+    "audioError": "Impossible d'enregistrer l'audio. \nVeuillez vérifier les autorisations du microphone.",
+    "permissionError": "Autorisation refusée. \nVeuillez vérifier votre statut de connexion et réessayer.",
+    "retryButton": "Réessayer",
+    "completionError": "Impossible de terminer la pratique orale. \nVeuillez réessayer.",
+    "loading": "Chargement de la pratique orale...",
+    "unifiedDialogue": "Simulation d'examen complet",
+    "delete": {
+      "button": "Supprimer"
+    },
+    "scoresBreakdown": "Détails de l'évaluation",
+    "preparing": "Préparation de l'enregistrement...",
+    "stopping": "Arrêt de l'enregistrement..."
   },
   "results": {
     "title": "Résultats de l'examen",
@@ -1235,6 +1529,10 @@
       "darkTheme": {
         "title": "Thème Sombre",
         "description": "Confort visuel avec le mode sombre."
+      },
+      "aiSpeaking": {
+        "title": "Évaluation orale de l'IA",
+        "description": "Obtenez des commentaires détaillés sur la prononciation, la maîtrise et la grammaire."
       }
     },
     "profile": {
@@ -1242,7 +1540,9 @@
         "title": "Passer à Premium",
         "description": "Sans pub, mode hors ligne et plus"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "Voir les avantages",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1255,7 +1555,9 @@
       "restoreSuccess": "Achats restaurés avec succès !",
       "alreadyPremium": "Vous avez déjà Premium !",
       "thankYou": "Merci pour votre soutien !",
-      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents."
+      "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents.",
+      "yourBenefits": "Vos\navantages",
+      "fullPotential": "Libérez tout votre potentiel"
     },
     "darkModeModal": {
       "title": "Le mode sombre est Premium",
@@ -1291,5 +1593,68 @@
   },
   "errors": {
     "adLoadFailed": "Une erreur s'est produite lors du chargement de l'annonce"
+  },
+  "prepPlan": {
+    "onboarding": {
+      "title": "Plan de Préparation à l'Examen",
+      "startAssessment": "Commencer l'Évaluation",
+      "welcome": {
+        "title": "Bienvenue au Plan de Préparation à l'Examen",
+        "subtitle": "Créons un plan d'étude personnalisé pour votre réussite à l'examen",
+        "step1": "Parlez-nous de la date de votre examen et de votre emploi du temps",
+        "step2": "Faites une évaluation rapide de niveau",
+        "step3": "Obtenez votre plan d'étude avec IA",
+        "timeEstimate": "⏱️ Ce processus prend environ 30 minutes"
+      },
+      "examDate": {
+        "title": "Quand est votre examen?",
+        "subtitle": "Sélectionnez la date de votre examen pour calculer votre calendrier d'étude",
+        "daysUntilExam": "{{days}} jours jusqu'à l'examen",
+        "daysUntilExamWithIcon": "📅 {{days}} jours jusqu'à l'examen",
+        "weeksUntilExam": "{{weeks}} semaines pour se préparer",
+        "weeksUntilExamWithIcon": "📆 {{weeks}} semaines pour se préparer"
+      },
+      "schedule": {
+        "title": "Planifiez Votre Temps d'Étude",
+        "subtitle": "Combien de temps pouvez-vous consacrer à l'étude?",
+        "dailyHours": "Heures d'Étude Quotidiennes",
+        "studyDays": "Jours d'Étude par Semaine"
+      },
+      "studyTime": {
+        "title": "Quand préférez-vous étudier?",
+        "subtitle": "Cela nous aide à vous envoyer des rappels au bon moment",
+        "morning": "Matin",
+        "morningDesc": "6h00 - 12h00",
+        "afternoon": "Après-midi",
+        "afternoonDesc": "12h00 - 18h00",
+        "evening": "Soir",
+        "eveningDesc": "18h00 - 23h00",
+        "flexible": "Flexible",
+        "flexibleDesc": "Pas de préférence spécifique"
+      },
+      "summary": {
+        "title": "Aperçu de Votre Plan d'Étude",
+        "subtitle": "Vérifiez votre configuration avant de commencer l'évaluation",
+        "examDate": "Date de l'Examen",
+        "daysUntilExam": "Jours Jusqu'à l'Examen",
+        "daysValue": "{{count}} jours",
+        "totalWeeks": "Semaines Totales",
+        "weeksValue": "{{count}} semaines",
+        "studyHoursPerDay": "Heures par Jour",
+        "hoursValue": "{{count}}h",
+        "studyDaysPerWeek": "Jours par Semaine",
+        "totalStudyHours": "Heures d'Étude Totales",
+        "totalHoursValue": "~{{count}} heures",
+        "nextStep": "Suivant: Évaluation de Niveau",
+        "nextStepDesc": "Faites un test rapide de 25 minutes pour déterminer votre niveau actuel"
+      },
+      "errors": {
+        "saveFailed": "Échec de l'enregistrement de votre configuration. Veuillez réessayer."
+      }
+    },
+    "diagnostic": {
+      "generating": "Générer votre évaluation...",
+      "loadError": "Échec du chargement de l'évaluation. \nVeuillez réessayer."
+    }
   }
 }

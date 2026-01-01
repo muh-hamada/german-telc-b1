@@ -1,9 +1,10 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { Text} from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
 import { colors, spacing } from '../theme';
+import ErrorBoundary from '../components/ErrorBoundary';
 import HomeScreen from '../screens/HomeScreen';
 import ExamStructureScreen from '../screens/ExamStructureScreen';
 import PracticeMenuScreen from '../screens/practice/PracticeMenuScreen';
@@ -50,6 +51,9 @@ import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
 import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
 import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
+// Prep Plan Screens
+import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
+import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -414,6 +418,32 @@ const HomeStackNavigator: React.FC = () => {
           headerTitle: () => <HeaderTitle titleKey="vocabulary.studiedWordsList" />,
         }}
       />
+      <Stack.Screen
+        name="AssessmentResults"
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.complete" />,
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      >
+        {(props) => (
+          <ErrorBoundary>
+            <AssessmentResultsScreen {...props} />
+          </ErrorBoundary>
+        )}
+      </Stack.Screen>
+      <Stack.Screen
+        name="SpeakingAssessment"
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.title" />,
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      >
+        {(props) => (
+          <ErrorBoundary>
+            <SpeakingAssessmentScreen {...props} />
+          </ErrorBoundary>
+        )}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 };

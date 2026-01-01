@@ -1,0 +1,370 @@
+[
+        { "type": "pause", "durationSeconds": 1 },
+        { "type": "ready", "id": "a1-part-1-intro" },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-1" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Entschuldigung, ich suche die Tomaten. Wo sind die denn?",
+            "voiceId": "person1",
+            "id": "conversation-1-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Die sind heute im Angebot, gleich hier vorne links. Neben den Kartoffeln.",
+            "voiceId": "person3",
+            "id": "conversation-1-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Ah, gut. Ein Kilo kostet 1 Euro 50, richtig?",
+            "voiceId": "person1",
+            "id": "conversation-1-c"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, heute nur 1 Euro.",
+            "voiceId": "person3",
+            "id": "conversation-1-d"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Entschuldigung, ich suche die Tomaten. Wo sind die denn?",
+            "voiceId": "person1",
+            "id": "conversation-1-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Die sind heute im Angebot, gleich hier vorne links. Neben den Kartoffeln.",
+            "voiceId": "person3",
+            "id": "conversation-1-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Ah, gut. Ein Kilo kostet 1 Euro 50, richtig?",
+            "voiceId": "person1",
+            "id": "conversation-1-c"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, heute nur 1 Euro.",
+            "voiceId": "person3",
+            "id": "conversation-1-d"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-2" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Wann fährt der Zug nach München ab?",
+            "voiceId": "person3",
+            "id": "conversation-2-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Moment... Der ICE fährt um 14 Uhr 30. Gleis 10.",
+            "voiceId": "person1",
+            "id": "conversation-2-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "14 Uhr 30? Gut, dann habe ich noch Zeit für einen Kaffee.",
+            "voiceId": "person3",
+            "id": "conversation-2-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Wann fährt der Zug nach München ab?",
+            "voiceId": "person3",
+            "id": "conversation-2-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Moment... Der ICE fährt um 14 Uhr 30. Gleis 10.",
+            "voiceId": "person1",
+            "id": "conversation-2-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "14 Uhr 30? Gut, dann habe ich noch Zeit für einen Kaffee.",
+            "voiceId": "person3",
+            "id": "conversation-2-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-3" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Ich möchte gerne das Hähnchen mit Reis.",
+            "voiceId": "person1",
+            "id": "conversation-3-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Tut mir leid, Hähnchen haben wir nicht mehr. Aber der Fisch ist sehr gut.",
+            "voiceId": "person3",
+            "id": "conversation-3-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Oh, schade. Ich esse keinen Fisch. Dann nehme ich nur eine Suppe.",
+            "voiceId": "person1",
+            "id": "conversation-3-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Guten Tag. Ich möchte gerne das Hähnchen mit Reis.",
+            "voiceId": "person1",
+            "id": "conversation-3-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Tut mir leid, Hähnchen haben wir nicht mehr. Aber der Fisch ist sehr gut.",
+            "voiceId": "person3",
+            "id": "conversation-3-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Oh, schade. Ich esse keinen Fisch. Dann nehme ich nur eine Suppe.",
+            "voiceId": "person1",
+            "id": "conversation-3-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-4" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Herr Müller. Ist das Ihre Tochter?",
+            "voiceId": "person1",
+            "id": "conversation-4-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, das ist meine Nichte. Meine Tochter ist schon 20, sie studiert in Berlin.",
+            "voiceId": "person3",
+            "id": "conversation-4-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Ach so. Sie sieht Ihnen aber ähnlich.",
+            "voiceId": "person1",
+            "id": "conversation-4-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Hallo Herr Müller. Ist das Ihre Tochter?",
+            "voiceId": "person1",
+            "id": "conversation-4-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, das ist meine Nichte. Meine Tochter ist schon 20, sie studiert in Berlin.",
+            "voiceId": "person3",
+            "id": "conversation-4-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Ach so. Sie sieht Ihnen aber ähnlich.",
+            "voiceId": "person1",
+            "id": "conversation-4-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-5" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Entschuldigung, halten Sie hier an?",
+            "voiceId": "person3",
+            "id": "conversation-5-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, das ist kein Parkplatz. Sie können da drüben im Parkhaus parken.",
+            "voiceId": "person1",
+            "id": "conversation-5-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Im Parkhaus? Ist das teuer?",
+            "voiceId": "person3",
+            "id": "conversation-5-c"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, die erste Stunde ist kostenlos.",
+            "voiceId": "person1",
+            "id": "conversation-5-d"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Entschuldigung, halten Sie hier an?",
+            "voiceId": "person3",
+            "id": "conversation-5-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, das ist kein Parkplatz. Sie können da drüben im Parkhaus parken.",
+            "voiceId": "person1",
+            "id": "conversation-5-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Im Parkhaus? Ist das teuer?",
+            "voiceId": "person3",
+            "id": "conversation-5-c"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, die erste Stunde ist kostenlos.",
+            "voiceId": "person1",
+            "id": "conversation-5-d"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+
+        { "type": "ready", "id": "number-6" },
+        { "type": "pause", "durationSeconds": 2 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Was machst du am Wochenende, Julia? Gehst du ins Kino?",
+            "voiceId": "person3",
+            "id": "conversation-6-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, ich muss arbeiten. Ich habe am Samstag Dienst im Krankenhaus.",
+            "voiceId": "person1",
+            "id": "conversation-6-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Oh je, am Wochenende arbeiten ist nicht schön.",
+            "voiceId": "person3",
+            "id": "conversation-6-c"
+        },
+        { "type": "pause", "durationSeconds": 5 },
+        { "type": "ready", "id": "part-2-2nd-time" },
+        { "type": "pause", "durationSeconds": 3 },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Was machst du am Wochenende, Julia? Gehst du ins Kino?",
+            "voiceId": "person3",
+            "id": "conversation-6-a"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Nein, ich muss arbeiten. Ich habe am Samstag Dienst im Krankenhaus.",
+            "voiceId": "person1",
+            "id": "conversation-6-b"
+        },
+        {
+            "type": "speech",
+            "repeated": true,
+            "speed": 0.8,
+            "text": "Oh je, am Wochenende arbeiten ist nicht schön.",
+            "voiceId": "person3",
+            "id": "conversation-6-c"
+        },
+        
+        { "type": "pause", "durationSeconds": 3 },
+        { "type": "ready", "id": "part-1-outro" },
+        { "type": "pause", "durationSeconds": 5 }
+    ]

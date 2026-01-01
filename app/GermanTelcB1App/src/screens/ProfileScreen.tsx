@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -296,18 +297,22 @@ const ProfileScreen: React.FC = () => {
 
         {/* Premium Badge - show when user is premium */}
         {isPremiumFeaturesEnabled() && isPremium && (
-          <AnimatedGradientBorder
-            borderWidth={2}
-            borderRadius={16}
-            colors={[...colors.gradients.premiumBadge]}
-            duration={10000}
-            style={styles.premiumBadgeWrapper}
-          >
-            <View style={styles.premiumBadge}>
-              <Icon name="star" size={20} color="#fff" />
-              <Text style={styles.premiumBadgeText}>{t('premium.profile.premiumBadge')}</Text>
+          <View style={styles.premiumBadgeCard}>
+            <View style={styles.premiumBadgeLeft}>
+              <Icon name="star" size={20} color="#F59E0B" style={styles.premiumBadgeIcon} />
+              <Text style={styles.premiumBadgeText}>{t('premium.profile.premiumEnabled')}</Text>
             </View>
-          </AnimatedGradientBorder>
+            <TouchableOpacity
+              style={styles.premiumBenefitsButton}
+              onPress={handleNavigateToPremium}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.premiumBenefitsButtonText}>
+                {t('premium.profile.seeBenefits')}
+              </Text>
+              <MaterialIcons name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={16} color={colors.text.secondary} />
+            </TouchableOpacity>
+          </View>
         )}
 
         {/* Stats Grid */}
@@ -633,22 +638,41 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       textAlign: 'left',
     },
-    premiumBadgeWrapper: {
-      marginBottom: spacing.margin.lg,
-    },
-    premiumBadge: {
-      // backgroundColor: colors.background.secondary,
-      borderRadius: 14,
-      padding: spacing.padding.md,
+    premiumBadgeCard: {
+      backgroundColor: colors.background.secondary,
+      borderRadius: spacing.borderRadius.lg,
+      padding: spacing.padding.lg,
+      marginBottom: spacing.margin.md,
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'center',
-      gap: spacing.margin.sm,
+      justifyContent: 'space-between',
+      ...spacing.shadow.sm,
+    },
+    premiumBadgeLeft: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 1,
+    },
+    premiumBadgeIcon: {
+      marginRight: spacing.margin.sm,
     },
     premiumBadgeText: {
       ...typography.textStyles.body,
       fontWeight: typography.fontWeight.semibold,
-      color: '#fff',
+      color: colors.text.primary,
+    },
+    premiumBenefitsButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: spacing.padding.sm,
+      paddingVertical: spacing.padding.xs,
+      borderRadius: spacing.borderRadius.md,
+      backgroundColor: colors.background.tertiary,
+    },
+    premiumBenefitsButtonText: {
+      ...typography.textStyles.bodySmall,
+      color: colors.text.secondary,
+      marginRight: spacing.margin.xs,
     },
     raceGif: {
       width: 48,

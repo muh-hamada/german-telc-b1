@@ -60,10 +60,16 @@ const HIDE_TAB_SCREENS = [
   'ListeningPractice',
   'ListeningPracticeQuestions',
   'Premium',
+  'AssessmentResults',
+  'SpeakingAssessment',
 ];
 
 const HIDE_BANNER_SCREENS = [
   'Premium',
+];
+
+const HIDE_BOTTOM_PADDING_SCREENS = [
+  'SpeakingAssessment',
 ];
 
 /**
@@ -92,10 +98,14 @@ const CustomTabBar = ({ colors, ...props }: any) => {
 
   const shouldHideBanner = routeName && HIDE_BANNER_SCREENS.includes(routeName);
 
+  const shouldHideBottomPadding = routeName && HIDE_BOTTOM_PADDING_SCREENS.includes(routeName);
+
+  const shouldHaveBottomEdge = shouldHideTabBar && !shouldHideBanner && !shouldHideBottomPadding;
+
   const styles = useMemo(() => createTabBarStyles(colors), [colors]);
 
   return (
-    <SafeAreaView edges={(shouldHideTabBar && !shouldHideBanner) ? ['bottom'] : []} style={styles.tabBarWrapper}>
+    <SafeAreaView edges={shouldHaveBottomEdge ? ['bottom'] : []} style={styles.tabBarWrapper}>
       {/* Banner is ALWAYS visible - persistent across all screens */}
       {!shouldHideBanner && (
         <View style={styles.bannerContainer}>

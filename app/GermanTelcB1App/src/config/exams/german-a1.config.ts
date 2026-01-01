@@ -29,6 +29,7 @@ export const germanA1Config: ExamConfig = {
     streaks: 'users/{uid}/streaks/german-a1',              // Daily streaks tracking per exam
     vocabularyData: 'vocabulary_data_german_a1',           // Vocabulary words collection
     vocabularyProgress: 'users/{uid}/vocabulary_progress_german_a1/data', // User vocabulary progress
+    speakingDialogues: 'users/{uid}/speaking_dialogues_german_a1', // Speaking assessments
   },
   
   // Exam Metadata (from existing exam-info.json)

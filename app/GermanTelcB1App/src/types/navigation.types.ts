@@ -64,6 +64,9 @@ export type HomeStackParamList = {
   VocabularyReview: undefined;
   VocabularyProgress: undefined;
   VocabularyStudiedList: undefined;
+  // Speaking Assessment Routes
+  SpeakingAssessment: { dialogueId?: string };
+  AssessmentResults: { assessmentId?: string; dialogueId?: string };
 };
 
 // Profile Stack Navigator

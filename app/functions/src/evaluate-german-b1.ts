@@ -8,7 +8,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { WritingAssessment, EvaluationRequest } from './types';
-import { OPENAI_API_KEY } from './api-keys';
+import { getOpenAIKey } from './api-keys';
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -129,7 +129,8 @@ Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine er
  * Calls OpenAI API to assess the writing
  */
 async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<WritingAssessment> {
-  if (!OPENAI_API_KEY) {
+  const apiKey = getOpenAIKey();
+  if (!apiKey) {
     throw new Error('OpenAI API key is not configured');
   }
 
@@ -164,7 +165,7 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: MODEL,
@@ -217,6 +218,10 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
  */
 export const evaluateWritingB1 = functions.https.onRequest(
   async (req, res) => {
+    console.log('=== Function Started ===');
+    console.log('Method:', req.method);
+    console.log('Body:', JSON.stringify(req.body, null, 2));
+    
     // Enable CORS
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -224,21 +229,32 @@ export const evaluateWritingB1 = functions.https.onRequest(
 
     // Handle preflight request
     if (req.method === 'OPTIONS') {
+      console.log('OPTIONS request - returning 204');
       res.status(204).send('');
       return;
     }
 
     // Only allow POST
     if (req.method !== 'POST') {
+      console.log('Non-POST request - returning 405');
       res.status(405).json({ error: 'Method not allowed' });
       return;
     }
 
     try {
+      console.log('Parsing request body...');
       const data: EvaluationRequest = req.body;
 
       // Validate input
+      console.log('Validating input...');
+      console.log('Has incomingEmail:', !!data.incomingEmail);
+      console.log('Has writingPoints:', !!data.writingPoints);
+      console.log('Has examTitle:', !!data.examTitle);
+      console.log('Has userAnswer:', !!data.userAnswer);
+      console.log('Has imageBase64:', !!data.imageBase64);
+      
       if (!data.incomingEmail || !data.writingPoints || !data.examTitle) {
+        console.log('Missing required fields');
         res.status(400).json({
           error: 'Missing required fields: incomingEmail, writingPoints, or examTitle'
         });
@@ -246,21 +262,25 @@ export const evaluateWritingB1 = functions.https.onRequest(
       }
 
       if (!data.userAnswer && !data.imageBase64) {
+        console.log('Missing both userAnswer and imageBase64');
         res.status(400).json({
           error: 'Either userAnswer or imageBase64 must be provided'
         });
         return;
       }
 
+      console.log('Validation passed, preparing to call OpenAI...');
       let userPrompt: string;
       let assessment: WritingAssessment;
 
       if (data.imageBase64) {
         // Image evaluation
+        console.log('Processing image evaluation...');
         userPrompt = createImageUserPrompt(data);
         assessment = await callOpenAI(userPrompt, data.imageBase64);
       } else {
         // Text evaluation
+        console.log('Processing text evaluation...');
         userPrompt = createUserPrompt(data);
         assessment = await callOpenAI(userPrompt);
       }
@@ -272,6 +292,7 @@ export const evaluateWritingB1 = functions.https.onRequest(
         hasImage: !!data.imageBase64,
       });
 
+      console.log('Sending response...');
       res.status(200).json(assessment);
     } catch (error) {
       console.error('Error in evaluateWriting function:', error);

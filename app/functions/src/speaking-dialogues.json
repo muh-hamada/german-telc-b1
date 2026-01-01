@@ -1,0 +1,307 @@
+{
+    "a1": {
+        "german": [
+            {
+                "speaker": "ai",
+                "text": "Guten Tag! Herzlich willkommen zur Prüfung. Wie heißen Sie bitte?",
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-1.mp3?alt=media&token=b8b06713-a43c-4cbb-8cec-aecc332b59d9"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Nenne deinen Namen.",
+                    "ar": "اذكر اسمك.",
+                    "en": "State your name.",
+                    "ru": "Назовите свое имя.",
+                    "es": "Di tu nombre.",
+                    "fr": "Dites votre nom."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Freut mich. Und woher kommen Sie?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=16ec1649-fc1e-4d9c-9b5d-4fd21962a5fd"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Sag, woher du kommst.",
+                    "ar": "قل من أين أنت.",
+                    "en": "Say where you come from.",
+                    "ru": "Скажите, откуда вы.",
+                    "es": "Di de dónde vienes.",
+                    "fr": "Dites d'où vous venez."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Danke. Kommen wir zu Teil 2: Wir möchten am Samstag zusammen im Park picknicken. Wann haben Sie Zeit?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=fe4aeed1-9e46-444e-aa3f-a4bd62807d2d"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Schlage eine Uhrzeit vor (z.B. um 14:00 Uhr).",
+                    "ar": "اقترح وقتاً (مثلاً الساعة 14:00).",
+                    "en": "Suggest a time (e.g., at 2:00 PM).",
+                    "ru": "Предложите время (например, в 14:00).",
+                    "es": "Sugiere una hora (por ejemplo, a las 14:00).",
+                    "fr": "Proposez une heure (par exemple, à 14h00)."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Das passt gut. Ich bringe die Getränke mit. Was bringen Sie zum Essen mit?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=a0d6f9af-a8d9-433e-b6bd-b5c0d0628d10"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Schlage vor, etwas zu essen mitzubringen (z.B. Pizza oder Obst).",
+                    "ar": "اقترح إحضار شيء للأكل (مثلاً بيتزا أو فاكهة).",
+                    "en": "Suggest bringing something to eat (e.g., pizza or fruit).",
+                    "ru": "Предложите принести что-нибудь поесть (например, пиццу или фрукты).",
+                    "es": "Sugiere traer algo de comer (por ejemplo, pizza o fruta).",
+                    "fr": "Proposez d'apporter quelque chose à manger (par exemple, une pizza ou des fruits)."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Super, das machen wir so. Eine letzte Frage: Was machen Sie gerne in Ihrer Freizeit? Haben Sie ein Hobby?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7dee911c-3a9e-42dc-88a9-a1765ae54cd2"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Erzähle kurz von einem Hobby (z.B. Sport, Lesen oder Musik).",
+                    "ar": "تحدث باختصار عن هواية (مثلاً الرياضة، القراءة أو الموسيقى).",
+                    "en": "Briefly talk about a hobby (e.g., sports, reading, or music).",
+                    "ru": "Кратко расскажите о своем хобби (например, спорт, чтение или музыка).",
+                    "es": "Habla brevemente de un pasatiempo (por ejemplo, deporte, lectura o música).",
+                    "fr": "Parlez brièvement d'un passe-temps (par exemple, le sport, la lecture ou la musique)."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Vielen Dank. Wir sind fertig. Auf Wiedersehen!",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=70200fcd-5cd3-4567-b0f3-c6f2286b66b9"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Verabschiede dich.",
+                    "ar": "قل وداعاً.",
+                    "en": "Say goodbye.",
+                    "ru": "Попрощайтесь.",
+                    "es": "Despídete.",
+                    "fr": "Dites au revoir."
+                }
+            }
+        ]
+    },
+    "b1": {
+        "german": [
+            {
+                "speaker": "ai",
+                "text": "Guten Tag. Beginnen wir mit der Prüfung. Erzählen Sie mir bitte ein wenig über sich: Was machen Sie beruflich oder studieren Sie noch?",
+                "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-1.mp3?alt=media&token=2f06f432-9270-489d-b876-b7950fea66d6"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Erzähle von deinem Beruf oder deinem Studium und erwähne, was dir daran gefällt.",
+                    "ar": "تحدث عن مهنتك أو دراستك واذكر ما يعجبك فيها.",
+                    "en": "Talk about your profession or your studies and mention what you like about it.",
+                    "ru": "Расскажите о своей профессии или учебе и упомяните, что вам в ней нравится.",
+                    "es": "Habla de tu profesión o de tus estudios y menciona qué es lo que más te gusta.",
+                    "fr": "Parlez de votre profession ou de vos études et mentionnez ce qui vous plaît."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Das klingt interessant. Und was machen Sie normalerweise in Ihrer Freizeit, um sich zu entspannen?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-2.mp3?alt=media&token=550f2942-2053-488c-b7d2-8ef788ba7d31"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Beschreibe ein Hobby und erkläre, warum es dir Spaß macht.",
+                    "ar": "صف هواية واشرح لماذا تستمتع بها.",
+                    "en": "Describe a hobby and explain why you enjoy it.",
+                    "ru": "Опишите свое хобби и объясните, почему оно вам нравится.",
+                    "es": "Describe un pasatiempo y explica por qué te divierte.",
+                    "fr": "Décrivez un passe-temps et expliquez pourquoi vous l'appréciez."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Schön. Kommen wir zu Teil 2: Unser gemeinsamer Freund Markus hat nächste Woche Geburtstag. Wollen wir zusammen eine Überraschungsparty für ihn organisieren?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-3.mp3?alt=media&token=bf06d66a-ceab-4be0-9c7d-956148cd035c"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Stimme dem Vorschlag zu und schlage einen Ort für die Party vor (z.B. in einem Café oder im Garten).",
+                    "ar": "وافق على الاقتراح واقترح مكاناً للحفلة (مثلاً في مقهى أو في الحديقة).",
+                    "en": "Agree to the proposal and suggest a location for the party (e.g., in a café or in the garden).",
+                    "ru": "Согласитесь с предложением и предложите место для вечеринки (например, в кафе или в саду).",
+                    "es": "Acepta la propuesta y sugiere un lugar para la fiesta (por ejemplo, en una cafetería o en el jardín).",
+                    "fr": "Acceptez la proposition et suggérez un lieu pour la fête (par exemple, dans un café ou dans le jardin)."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Gute Idee! Ich kann mich um die Getränke kümmern. Könnten Sie vielleicht das Essen organisieren oder eine Einladung für die anderen Freunde schreiben?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-4.mp3?alt=media&token=7f9816bd-42ed-49f2-9d15-a4edf588598a"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Übernimm eine der Aufgaben und schlage einen konkreten Termin (Tag und Uhrzeit) vor.",
+                    "ar": "تولى إحدى المهام واقترح موعداً محدداً (اليوم والوقت).",
+                    "en": "Take on one of the tasks and suggest a specific date and time.",
+                    "ru": "Возьмите на себя одну из задач и предложите конкретную дату и время.",
+                    "es": "Asume una de las tareas y sugiere una fecha y hora específicas.",
+                    "fr": "Prenez en charge l'une des tâches et suggérez une date et une heure précises."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Abgemacht. Zum Schluss noch eine Frage zu einem anderen Thema: Heutzutage wird viel über Umweltschutz diskutiert. Wie wichtig ist Ihnen dieses Thema im Alltag?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-5.mp3?alt=media&token=f53b940e-f302-4bdc-916c-a81ef4c9555f"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Äußere deine Meinung zum Umweltschutz und nenne ein Beispiel, was du selbst für die Umwelt tust.",
+                    "ar": "عبر عن رأيك في حماية البيئة واذكر مثالاً لما تفعله أنت من أجل البيئة.",
+                    "en": "Express your opinion on environmental protection and give an example of what you do for the environment.",
+                    "ru": "Выскажите свое мнение об охране окружающей среды и приведите пример того, что вы сами делаете для экологии.",
+                    "es": "Expresa tu opinión sobre la protección del medio ambiente y da un ejemplo de lo que haces por el entorno.",
+                    "fr": "Exprimez votre opinion sur la protection de l'environnement et donnez un exemple de ce que vous faites pour l'environnement."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Vielen Dank für das Gespräch. Wir sind nun am Ende der Prüfung angekommen. Auf Wiedersehen!",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b1_speaking_practice%2Fai-turn-6.mp3?alt=media&token=bd9ebe61-d576-429b-857c-7f02d13f5d06"
+            }
+        ]
+    },
+    "b2": {
+        "german": [
+            {
+                "speaker": "ai",
+                "text": "Herzlich willkommen zur mündlichen B2-Prüfung. Wir beginnen mit Teil 1: Die Präsentation. Welches Thema haben Sie vorbereitet? Bitte fangen Sie nun mit Ihrer Präsentation an.",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-1.mp3?alt=media&token=53bc7e46-4fce-4d6c-b6b4-337af1ef0f1c"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Beginnen Sie Ihre Präsentation über ein Buch, einen Film oder eine Reise. Sprechen Sie ca. 2 Minuten.",
+                    "ar": "ابدأ عرضك التقديمي حول كتاب أو فيلم أو رحلة. تحدث لمدة دقيقتين تقريبًا.",
+                    "en": "Start your presentation about a book, a movie, or a trip. Speak for about 2 minutes.",
+                    "ru": "Начните свою презентацию о книге, фильме или путешествии. Говорите около 2 минут.",
+                    "es": "Comience su presentación sobre un libro, una película o un viaje. Hable durante unos 2 minutos.",
+                    "fr": "Commencez votre présentation sur un livre, un film ou un voyage. Parlez pendant environ 2 minutes."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Vielen Dank für Ihre Ausführungen. Das war sehr interessant. Ich hätte dazu noch eine Frage: Was hat Sie an diesem Thema am meisten persönlich beeindruckt oder beeinflusst?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-2.mp3?alt=media&token=e038e5aa-36f5-4287-880b-150901cd0979"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Beantworten Sie die Anschlussfrage des Prüfers kurz und begründen Sie Ihre Meinung.",
+                    "ar": "أجب على سؤال الممتحن المتابعة بإيجاز ووضح سبب رأيك.",
+                    "en": "Answer the examiner's follow-up question briefly and justify your opinion.",
+                    "ru": "Кратко ответьте на уточняющий вопрос экзаменатора и обоснуйте свое мнение.",
+                    "es": "Responda brevemente a la pregunta de seguimiento del examinador y justifique su opinión.",
+                    "fr": "Répondez brièvement à la question complémentaire de l'examinateur et justifiez votre opinion."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Gut, kommen wir nun zu Teil 2: Die Diskussion. Wir haben hier einen Artikel zum Thema 'Sollten Handys an Schulen komplett verboten werden?'. Was ist Ihre Meinung dazu? Glauben Sie, dass ein Verbot sinnvoll ist?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-3.mp3?alt=media&token=d268448b-e846-445c-b746-853ff8e3a784"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Geben Sie Ihre Meinung zum Handyverbot an Schulen ab und nennen Sie mindestens zwei Argumente dafür oder dagegen.",
+                    "ar": "أبدِ رأيك في حظر الهواتف المحمولة في المدارس واذكر حجتين على الأقل مؤيدة أو معارضة.",
+                    "en": "Give your opinion on the mobile phone ban in schools and mention at least two arguments for or against it.",
+                    "ru": "Выскажите свое мнение о запрете мобильных телефонов в школах и приведите как минимум два аргумента «за» или «против».",
+                    "es": "Dé su opinión sobre la prohibición de los teléfonos móviles en las escuelas y mencione al menos dos argumentos a favor o en contra.",
+                    "fr": "Donnez votre avis sur l'interdiction des téléphones portables à l'école et mentionnez au moins deux arguments pour ou contre."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Ich verstehe Ihren Punkt, aber meinen Sie nicht, dass Handys im Unterricht auch als nützliches Lernwerkzeug dienen können, wenn sie richtig eingesetzt werden?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-4.mp3?alt=media&token=f4a2efda-9bff-478f-84de-ece50a2a312b"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Reagieren Sie auf das Gegenargument des Prüfers und wägen Sie die Vor- und Nachteile ab.",
+                    "ar": "رد على الحجة المضادة للممتحن ووازن بين المزايا والعيوب.",
+                    "en": "Respond to the examiner's counter-argument and weigh the pros and cons.",
+                    "ru": "Ответьте на контаргумент экзаменатора и взвесьте все «за» и «против».",
+                    "es": "Responda al contraargumento del examinador y sopesen los pros y los contras.",
+                    "fr": "Répondez au contre-argument de l'examinateur et pesez le pour et le contre."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Ein interessantes Gespräch. Kommen wir nun zum letzten Teil, Teil 3: Gemeinsam etwas planen. Wir sollen für unsere Sprachschule ein internationales Buffet organisieren. Haben Sie Vorschläge, wie wir das am besten planen?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-5.mp3?alt=media&token=7016e204-dd27-4077-9a94-569fff8cef98"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Machen Sie erste Vorschläge zur Organisation (Termin, Ort, was jeder mitbringen soll).",
+                    "ar": "قدم المقترحات الأولى بخصوص التنظيم (الموعد، المكان، وما يجب على كل شخص إحضاره).",
+                    "en": "Make initial suggestions regarding the organization (date, location, what everyone should bring).",
+                    "ru": "Сделайте первые предложения по организации (дата, место, что каждый должен принести).",
+                    "es": "Haga sugerencias iniciales sobre la organización (fecha, lugar, qué debe traer cada uno).",
+                    "fr": "Faites des suggestions initiales concernant l'organisation (date, lieu, ce que chacun doit apporter)."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Das klingt gut. Aber wir müssen auch an die Getränke und die Musik denken. Wer könnte sich darum kümmern? Und what machen wir, wenn es regnet, falls wir draußen feiern?",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-6.mp3?alt=media&token=60d6a8d7-34df-4b04-bddc-75a1067cc505"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Gehen Sie auf die Bedenken ein, schlagen Sie eine Aufgabenverteilung vor und finden Sie eine Lösung für das Wetterproblem.",
+                    "ar": "عالج المخاوف المقترحة، واقترح توزيع المهام وجد حلاً لمشكلة الطقس.",
+                    "en": "Address the concerns, suggest a distribution of tasks, and find a solution for the weather problem.",
+                    "ru": "Рассмотрите опасения, предложите распределение задач и найдите решение проблемы с погодой.",
+                    "es": "Aborde las preocupaciones, sugiera una distribución de tareas y encuentre una solución para el problema del clima.",
+                    "fr": "Répondez aux préoccupations, suggérez une répartition des tâches et trouvez une solution au problème météo."
+                }
+            },
+            {
+                "speaker": "ai",
+                "text": "Hervorragend, dann haben wir einen Plan. Ich werde die Liste für das Essen erstellen. Vielen Dank, wir sind am Ende der Prüfung angekommen.",
+                "audio_url":"https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_b2_speaking_practice%2Fai-turn-7.mp3?alt=media&token=6428e619-0359-4a13-97f4-080f6f03ad3c"
+            },
+            {
+                "speaker": "user",
+                "instruction": {
+                    "de": "Bestätigen Sie die Vereinbarung kurz und verabschieden Sie sich höflich.",
+                    "ar": "أكد الاتفاق باختصار وودع الممتحن بأدب.",
+                    "en": "Confirm the agreement briefly and say goodbye politely.",
+                    "ru": "Кратко подтвердите договоренность и вежливо попрощайтесь.",
+                    "es": "Confirme el acuerdo brevemente y despídase cortésmente.",
+                    "fr": "Confirmez brièvement l'accord et dites au revoir poliment."
+                }
+            }
+        ]
+    }
+}

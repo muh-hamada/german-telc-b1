@@ -110,6 +110,11 @@ export const UsersPage: React.FC = () => {
     }
   };
 
+  const handleCopyUid = (uid: string) => {
+    navigator.clipboard.writeText(uid);
+    toast.success('UID copied to clipboard');
+  };
+
   const handleLogout = async () => {
     try {
       await logout();
@@ -279,7 +284,15 @@ export const UsersPage: React.FC = () => {
               <tbody>
                 {filteredUsers.map((user) => (
                   <tr key={user.uid}>
-                    <td className="email-cell">{user.email || 'N/A'}</td>
+                    <td className="email-cell">{user.email || 'N/A'}
+                      <button
+                        onClick={() => handleCopyUid(user.uid)}
+                        className="mr-2 btn-copy"
+                        style={{ background: 'transparent', border: 'none', marginLeft: 8, padding: 0, cursor: 'pointer' }}
+                      >
+                        <img src="/copy.png" alt="Copy" style={{ width: 16, height: 16 }} />
+                      </button>
+                    </td>
                     <td>{user.displayName || 'N/A'}</td>
                     <td>
                       <span className="app-badge">{user.appId || 'N/A'}</span>

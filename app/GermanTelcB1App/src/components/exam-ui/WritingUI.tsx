@@ -822,23 +822,27 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         </View>
 
         {/* Incoming Email */}
-        <View style={styles.emailSection}>
-          <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
-          <View style={styles.emailCard}>
-            <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+        {exam.incomingEmail && (
+          <View style={styles.emailSection}>
+            <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
+            <View style={styles.emailCard}>
+              <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+            </View>
           </View>
-        </View>
+        )}
 
         {/* Writing Points */}
-        <View style={styles.pointsSection}>
-          <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
-          {exam.writingPoints.map((point, index) => (
-            <View key={index} style={styles.pointItem}>
-              <Text style={styles.pointBullet}>•</Text>
-              <Text style={styles.pointText}>{point}</Text>
-            </View>
-          ))}
-        </View>
+        {exam.writingPoints && exam.writingPoints.length > 0 && (
+          <View style={styles.pointsSection}>
+            <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
+            {exam.writingPoints.map((point, index) => (
+              <View key={index} style={styles.pointItem}>
+                <Text style={styles.pointBullet}>•</Text>
+                <Text style={styles.pointText}>{point}</Text>
+              </View>
+            ))}
+          </View>
+        )}
       </>
     )
   }
@@ -852,22 +856,26 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         </View>
 
         {/* Incoming Email */}
-        <View style={styles.emailSection}>
-          <View style={styles.emailCard}>
-            <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+        {exam.incomingEmail && (
+          <View style={styles.emailSection}>
+            <View style={styles.emailCard}>
+              <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+            </View>
           </View>
-        </View>
+        )}
 
         {/* Writing Points */}
-        <View style={styles.pointsSection}>
-          <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskDescription}</Text>
-          {exam.writingPoints.map((point, index) => (
-            <View key={index} style={styles.pointItem}>
-              <Text style={styles.pointText}>• {point}</Text>
-            </View>
-          ))}
-          <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskFooter}</Text>
-        </View>
+        {exam.writingPoints && exam.writingPoints.length > 0 && (
+          <View style={styles.pointsSection}>
+            <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskDescription}</Text>
+            {exam.writingPoints.map((point, index) => (
+              <View key={index} style={styles.pointItem}>
+                <Text style={styles.pointText}>• {point}</Text>
+              </View>
+            ))}
+            <Text style={[styles.sectionTitle, styles.b2Theme1SectionTitle]}>{exam.uiStrings?.taskFooter}</Text>
+          </View>
+        )}
       </>
     )
   }

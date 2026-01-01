@@ -3,6 +3,9 @@ import { analyticsService } from './analytics.service';
 
 // Centralized event names
 export const AnalyticsEvents = {
+  // Error Boundary
+  ERROR_BOUNDARY_TRIGGERED: 'error_boundary_triggered',
+
   // Screen
   SCREEN_VIEW: 'screen_view',
 
@@ -200,6 +203,53 @@ export const AnalyticsEvents = {
   PREMIUM_SCREEN_PURCHASE_CLICKED: 'premium_screen_purchase_clicked',
   PREMIUM_SCREEN_RESTORE_CLICKED: 'premium_screen_restore_clicked',
   PREMIUM_HOME_BUTTON_CLICKED: 'premium_home_button_clicked',
+
+  // Prep Plan Events
+  PREP_PLAN_RESULTS_VIEWED: 'prep_plan_results_viewed',
+  PREP_PLAN_CARD_VIEWED: 'prep_plan_card_viewed',
+  PREP_PLAN_CARD_CLICKED: 'prep_plan_card_clicked',
+  PREP_PLAN_PREMIUM_GATE_SHOWN: 'prep_plan_premium_gate_shown',
+  PREP_PLAN_ONBOARDING_STARTED: 'prep_plan_onboarding_started',
+  PREP_PLAN_ONBOARDING_RESUMED: 'prep_plan_onboarding_resumed',
+  PREP_PLAN_CONFIG_SAVED: 'prep_plan_config_saved',
+  PREP_PLAN_DIAGNOSTIC_STARTED: 'prep_plan_diagnostic_started',
+  PREP_PLAN_DIAGNOSTIC_SECTION_STARTED: 'prep_plan_diagnostic_section_started',
+  PREP_PLAN_DIAGNOSTIC_SECTION_COMPLETED: 'prep_plan_diagnostic_section_completed',
+  PREP_PLAN_DIAGNOSTIC_COMPLETED: 'prep_plan_diagnostic_completed',
+  PREP_PLAN_ASSESSMENT_RESULTS_VIEWED: 'prep_plan_assessment_results_viewed',
+  PREP_PLAN_GENERATED: 'prep_plan_generated',
+  PREP_PLAN_GENERATION_FAILED: 'prep_plan_generation_failed',
+  PREP_PLAN_DASHBOARD_OPENED: 'prep_plan_dashboard_opened',
+  PREP_PLAN_WEEKLY_VIEW_OPENED: 'prep_plan_weekly_view_opened',
+  PREP_PLAN_WEEK_VIEWED: 'prep_plan_week_viewed',
+  PREP_PLAN_PROGRESS_OPENED: 'prep_plan_progress_opened',
+  PREP_PLAN_PROGRESS_VIEWED: 'prep_plan_progress_viewed',
+  PREP_PLAN_SETTINGS_OPENED: 'prep_plan_settings_opened',
+  PREP_PLAN_SETTINGS_UPDATED: 'prep_plan_settings_updated',
+  PREP_PLAN_TASK_STARTED: 'prep_plan_task_started',
+  PREP_PLAN_TASK_COMPLETED: 'prep_plan_task_completed',
+  PREP_PLAN_TASK_NAVIGATION_FAILED: 'prep_plan_task_navigation_failed',
+  PREP_PLAN_QUICK_ACTION_CLICKED: 'prep_plan_quick_action_clicked',
+  PREP_PLAN_WEEK_COMPLETED: 'prep_plan_week_completed',
+  PREP_PLAN_UPDATED: 'prep_plan_updated',
+  PREP_PLAN_UPDATE_CONFIRMED: 'prep_plan_update_confirmed',
+  PREP_PLAN_UPDATE_CANCELLED: 'prep_plan_update_cancelled',
+  PREP_PLAN_PAUSED: 'prep_plan_paused',
+  PREP_PLAN_RESUMED: 'prep_plan_resumed',
+  PREP_PLAN_COMPLETED: 'prep_plan_completed',
+  PREP_PLAN_ABANDONED: 'prep_plan_abandoned',
+  PREP_PLAN_SPEAKING_TURN_COMPLETED: 'prep_plan_speaking_turn_completed',
+  PREP_PLAN_SPEAKING_COMPLETED: 'prep_plan_speaking_completed',
+
+  // Speaking Assessment Events
+  SPEAKING_ASSESSMENT_STARTED: 'speaking_assessment_started',
+  SPEAKING_DIALOGUE_TURN_COMPLETED: 'speaking_dialogue_turn_completed',
+  SPEAKING_RECORDING_STARTED: 'speaking_recording_started',
+  SPEAKING_RECORDING_STOPPED: 'speaking_recording_stopped',
+  SPEAKING_EVALUATION_REQUESTED: 'speaking_evaluation_requested',
+  SPEAKING_EVALUATION_COMPLETED: 'speaking_evaluation_completed',
+  SPEAKING_EVALUATION_FAILED: 'speaking_evaluation_failed',
+  SPEAKING_ASSESSMENT_COMPLETED: 'speaking_assessment_completed',
 } as const;
 
 type EventName = (typeof AnalyticsEvents)[keyof typeof AnalyticsEvents];

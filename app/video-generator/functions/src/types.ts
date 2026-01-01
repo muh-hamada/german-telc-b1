@@ -19,6 +19,19 @@ export interface ReadingPart2A1Exam {
   questions: ReadingPart2A1Question[];
 }
 
+export interface ReadingPart3A1Question {
+  id: number;
+  text: string;
+  question: string;
+  is_correct: boolean;
+}
+
+export interface ReadingPart3A1Exam {
+  id: number;
+  title: string;
+  questions: ReadingPart3A1Question[];
+}
+
 export interface AppConfig {
   id: string;
   displayName: string;
@@ -31,8 +44,8 @@ export interface QuestionData {
   appId: string;
   examId: number;
   questionIndex: number; // Changed from questionId to questionIndex
-  question: ReadingPart2A1Question;
-  exam: ReadingPart2A1Exam;
+  question: ReadingPart2A1Question | ReadingPart3A1Question;
+  exam: ReadingPart2A1Exam | ReadingPart3A1Exam;
 }
 
 export interface VideoMetadata {

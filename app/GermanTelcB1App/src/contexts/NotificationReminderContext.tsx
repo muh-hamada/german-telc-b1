@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Alert, Platform, Linking, PermissionsAndroid } from 'react-native';
 import notificationReminderService, { TriggerType } from '../services/notification-reminder.service';
-import FirestoreService from '../services/firestore.service';
+import FirestoreService, { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
 import FCMService from '../services/fcm.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useAuth } from './AuthContext';
@@ -167,7 +167,7 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
       }
 
       // Enqueue hour picker modal
-      enqueue('hour-picker', { selectedHour: 9 });
+      enqueue('hour-picker', { selectedHour: DEFAULT_NOTIFICATION_HOUR });
       
       console.log('[NotificationReminderContext] Starting enable flow');
     } catch (error) {
@@ -264,6 +264,20 @@ export const NotificationReminderProvider: React.FC<NotificationReminderProvider
 export const useNotificationReminder = (): NotificationReminderContextType => {
   const context = useContext(NotificationReminderContext);
   if (context === undefined) {
+    // During hot reload, context might temporarily be undefined
+    // Return a safe default instead of throwing to prevent crashes
+    if (__DEV__) {
+      console.warn('useNotificationReminder: Context is undefined (likely due to hot reload)');
+      // Return no-op functions during hot reload
+      return {
+        checkAndShowReminder: async () => {},
+        dismissReminder: () => {},
+        startEnableFlow: async () => {},
+        closeReminderModal: () => {},
+        handleHourSelect: async () => {},
+        closeHourPicker: () => {},
+      };
+    }
     throw new Error('useNotificationReminder must be used within a NotificationReminderProvider');
   }
   return context;

@@ -48,17 +48,41 @@ npm install
 
 ### Configuration
 
-The OpenAI API key is currently hardcoded in `src/index.ts`. For production, it's recommended to use environment variables:
+**IMPORTANT: Set up your OpenAI API key before deploying**
 
-1. Set the environment variable:
+Firebase now uses `.env` files for environment variables (the old `functions.config()` API is deprecated).
+
+#### For Both Local Development and Production:
+
+1. Create a `.env` file in the `functions` directory:
 ```bash
-firebase functions:config:set openai.key="your-api-key-here"
+cd app/functions
+cat > .env << 'EOF'
+OPENAI_API_KEY=your-openai-api-key-here
+EOF
 ```
 
-2. Update the code to use it:
-```typescript
-const OPENAI_API_KEY = functions.config().openai.key;
+2. The `.env` file is automatically loaded by Firebase Functions (v5.0.0+)
+
+3. For production deployment, the `.env` file is uploaded with your functions
+
+**Note**: The `.env` file is gitignored to prevent accidentally committing secrets. Use `.env.example` as a template.
+
+#### Alternative: Firebase Secret Manager (More Secure for Production)
+
+For production, you can use Google Cloud Secret Manager:
+
+```bash
+# Store secret in Secret Manager
+firebase functions:secrets:set OPENAI_API_KEY
+
+# Grant access to the function
+# Then update your function to use it:
+# import { defineSecret } from 'firebase-functions/params';
+# const openaiApiKey = defineSecret('OPENAI_API_KEY');
 ```
+
+See: https://firebase.google.com/docs/functions/config-env
 
 ## Development
 
@@ -198,7 +222,8 @@ export const evaluateWriting = functions
 
 ## Security Notes
 
-- **API Key**: Currently hardcoded. Move to environment variables for production.
+- **API Key**: Now stored securely using `.env` file (gitignored). Never commit the `.env` file!
+- **Production**: Consider using Firebase Secret Manager for enhanced security.
 - **Authentication**: Consider enabling authentication to prevent unauthorized access.
 - **Rate Limiting**: Implement rate limiting to prevent abuse.
 - **CORS**: Firebase callable functions handle CORS automatically.

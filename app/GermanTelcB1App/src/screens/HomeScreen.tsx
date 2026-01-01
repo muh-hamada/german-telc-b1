@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
@@ -27,6 +27,7 @@ import consentService, { AdsConsentStatus } from '../services/consent.service';
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import LoginModal from '../components/LoginModal';
 import { usePremium } from '../contexts/PremiumContext';
+import { useAuth } from '../contexts/AuthContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { HIDE_SUPPORT_US } from '../config/development.config';
 import { useAppTheme } from '../contexts/ThemeContext';
@@ -41,6 +42,7 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const { t } = useCustomTranslation();
   const { enqueue } = useModalQueue();
+  const { user } = useAuth();
   const { isPremium, isLoading: isPremiumLoading, productPrice, productCurrency } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
@@ -203,6 +205,25 @@ const HomeScreen: React.FC = () => {
     });
   };
 
+  const handleSpeakingPracticePress = () => {
+    logEvent(AnalyticsEvents.PREP_PLAN_CARD_CLICKED);
+
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+
+    // If not premium, show premium gate
+    if (!isPremium) {
+      logEvent(AnalyticsEvents.PREP_PLAN_PREMIUM_GATE_SHOWN);
+      enqueue('premium-upsell');
+      return;
+    }
+
+    logEvent(AnalyticsEvents.SPEAKING_ASSESSMENT_STARTED);
+    navigation.navigate('SpeakingAssessment', {});
+  };
+
   return (
     <SafeAreaView edges={['top']} style={styles.container}>
       <ScrollView
@@ -230,6 +251,25 @@ const HomeScreen: React.FC = () => {
             {t('home.descriptions.solve')}
           </Text>
         </Card>
+
+
+        {/* Speaking Practice Card - Visible to ALL users */}
+        {/* TODO: Add speaking practice card for other languages */}
+        {activeExamConfig.language === 'german' && <AnimatedGradientBorder
+          borderWidth={2}
+          borderRadius={12}
+          colors={['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#667eea']}
+          duration={4000}
+          style={{ ...styles.card, ...styles.animatedCard }}
+        >
+          <Card style={styles.cardInner} onPress={handleSpeakingPracticePress}>
+            <Text style={styles.premiumBadge}>{t('home.premiumBadge')}</Text>
+            <Text style={styles.cardTitle}>{t('home.speakingPractice.title')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('home.speakingPractice.description')}
+            </Text>
+          </Card>
+        </AnimatedGradientBorder>}
 
         <AnimatedGradientBorder
           borderWidth={2}
@@ -337,6 +377,15 @@ const createStyles = (colors: ThemeColors) =>
       textTransform: 'uppercase',
       color: colors.text.primary,
       fontSize: 10,
+    },
+    premiumBadge: {
+      position: 'absolute',
+      top: 10,
+      right: 11,
+      textTransform: 'uppercase',
+      color: colors.primary[500],
+      fontSize: 10,
+      fontWeight: '700',
     },
     cardTitle: {
       ...typography.textStyles.h3,

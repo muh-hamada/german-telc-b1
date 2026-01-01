@@ -373,6 +373,11 @@ class DataService {
     return data.interviews || [];
   }
 
+  async getListeningPracticeById(id: number): Promise<ListeningPracticeInterview | undefined> {
+    const interviews = await this.getListeningPracticeInterviews();
+    return interviews.find(interview => interview.id === id);
+  }
+
   // Utility methods
   async getExamCount(examType: string): Promise<number> {
     switch (examType) {

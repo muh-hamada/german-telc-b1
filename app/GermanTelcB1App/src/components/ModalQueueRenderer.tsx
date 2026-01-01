@@ -26,6 +26,7 @@ import PremiumUpsellModal from './PremiumUpsellModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import premiumPromptService from '../services/premium-prompt.service';
 import { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
+import { Alert } from 'react-native';
 
 const ModalQueueRenderer: React.FC = () => {
   const { currentModal, dismissCurrentModal } = useModalQueue();

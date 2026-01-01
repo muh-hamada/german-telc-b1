@@ -16,6 +16,15 @@
     "retry": "Retry",
     "later": "Later",
     "user": "User",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
     "labels": {
       "name": "Name",
       "email": "Email",
@@ -72,7 +81,17 @@
     "correct": "Correct",
     "wrong": "Wrong",
     "duration": "Duration",
-    "info": "Information"
+    "info": "Information",
+    "units": {
+      "hoursValue": "{{count}}h",
+      "hours": "{{count}} hour",
+      "hours_plural": "{{count}} hours",
+      "minutesValue": "{{count}} min",
+      "minutes": "{{count}} minute",
+      "minutes_plural": "{{count}} minutes"
+    },
+    "skip": "Skip",
+    "loginRequired": "Login Required"
   },
   "exam": {
     "selectExam": "Select Exam:",
@@ -143,7 +162,112 @@
       "vocabulary": "Learn vocabulary with spaced repetition",
       "solve": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
     },
-    "solve": "Solve Exam Questions"
+    "solve": "Solve Exam Questions",
+    "premiumBadge": "⭐ PREMIUM",
+    "speakingPractice": {
+      "title": "Speaking Practice",
+      "description": "Improve your speaking skills with an AI-powered assessment covering all exam parts"
+    }
+  },
+  "speaking": {
+    "title": "Speaking Practice",
+    "unifiedDialogue": "Full Exam Simulation",
+    "part": "Part",
+    "turn": "Turn",
+    "you": "You",
+    "ai": "AI Examiner",
+    "personalIntroduction": "Personal Introduction",
+    "planningTask": "Planning Together",
+    "opinionSharing": "Sharing Opinions",
+    "permissions": {
+      "title": "Microphone Permission",
+      "message": "We need access to your microphone to record your speaking practice.",
+      "askLater": "Ask Me Later",
+      "cancel": "Cancel",
+      "ok": "OK",
+      "required": "Microphone permission is required for speaking practice",
+      "grant": "Grant Permission",
+      "denied": "Permission Denied",
+      "deniedMessage": "Please enable microphone access in your device settings to use speaking practice.",
+      "checking": "Checking microphone permissions"
+    },
+    "intro": {
+      "title": "Speaking Assessment",
+      "subtitle": "How it Works",
+      "step1Title": "Interactive Dialogue",
+      "step1Desc": "Have a natural conversation with our AI examiner through multiple parts",
+      "step2Title": "Record Your Responses",
+      "step2Desc": "Speak clearly into your microphone for each question or task",
+      "step3Title": "AI Evaluation",
+      "step3Desc": "Get instant analysis of your pronunciation, fluency, and grammar",
+      "step4Title": "Detailed Feedback",
+      "step4Desc": "Receive comprehensive feedback on strengths and areas for improvement",
+      "step5Title": "Track Progress",
+      "step5Desc": "Monitor your improvement over time with scoring history",
+      "startButton": "Start Practice"
+    },
+    "noSpeechDetected": "No speech detected",
+    "noSpeechDetectedMessage": "We couldn't detect any speech. Please speak louder and ensure your microphone is enabled.",
+    "loading": "Loading speaking practice...",
+    "error": "Error",
+    "recordingError": "Could not record audio. Please try again.",
+    "processingError": "Could not process your recording. Please try again.",
+    "loadError": "Could not load speaking practice. Please check your connection and try again.",
+    "completionError": "Could not complete speaking practice. Please try again.",
+    "networkError": "Network connection failed. Please check your internet and try again.",
+    "audioError": "Could not record audio. Please check microphone permissions.",
+    "apiError": "Our evaluation service is temporarily unavailable. Please try again later.",
+    "retryButton": "Retry",
+    "contactSupport": "Contact Support",
+    "recording": "Recording",
+    "startRecording": "Start Recording",
+    "stopRecording": "Stop Recording",
+    "preparing": "Preparing to record...",
+    "stopping": "Stopping recording...",
+    "processing": "Processing your response...",
+    "uploading": "Uploading",
+    "uploadTimeout": "Upload timeout. Please check your internet connection and try again.",
+    "permissionError": "Permission denied. Please check your login status and try again.",
+    "playing": "Playing...",
+    "playAudio": "Play Audio",
+    "next": "Next",
+    "previousTurns": "Previous Turns",
+    "complete": "Complete!",
+    "evaluating": "Evaluating your performance...",
+    "yourScore": "Your Score",
+    "scoreOutOf100": "Score: {{score}} / 100",
+    "finalScoreMessage": "Your total score is {{score}}. {{feedback}}",
+    "pronunciation": "Pronunciation",
+    "fluency": "Fluency",
+    "grammar": "Grammar Accuracy",
+    "vocabulary": "Vocabulary Range",
+    "content": "Content Relevance",
+    "feedback": "Expert Feedback",
+    "strengths": "Strengths",
+    "areasToImprove": "Areas to Improve",
+    "viewDetails": "View Details",
+    "done": "Done",
+    "scoreRatio": {
+      "Pronunciation": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}",
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}"
+    },
+    "history": {
+      "inProgress": "In progress",
+      "title": "Assessment History"
+    },
+    "resume": {
+      "continue": "Continue",
+      "message": "You already have a speaking practice in progress. Do you want to continue or start from scratch?",
+      "restart": "Restart",
+      "title": "Practice in progress"
+    },
+    "delete": {
+      "button": "Delete"
+    },
+    "scoresBreakdown": "Assessment Details"
   },
   "vocabulary": {
     "title": "Vocabulary Builder",
@@ -652,232 +776,6 @@
       "adLoadFailed": "Unable to load content. Please continue."
     }
   },
-  "speaking": {
-    "part1": {
-      "title": "Speaking Part 1",
-      "subtitle": "Personal Introduction",
-      "tabs": {
-        "myIntro": "My Intro",
-        "example": "Example",
-        "vocabulary": "Vocabulary",
-        "questions": "Questions"
-      },
-      "sections": {
-        "myProfile": "My Profile",
-        "personalIntro": "Personal Introduction",
-        "keyVocabulary": "Key Vocabulary",
-        "completeExample": "Complete Example",
-        "questions": "Question and Answer"
-      },
-      "buttons": {
-        "viewInfo": "View Personal Info",
-        "editInfo": "Edit Info",
-        "saveInfo": "Save Information"
-      },
-      "modal": {
-        "personalInfo": "Personal Information",
-        "yourPersonalInfo": "Your Personal Information"
-      },
-      "help": {
-        "enterInfoPrompt": "Please enter your personal information to generate your introduction text.",
-        "exampleNote": "This is a complete example of a personal introduction for the TELC {{level}} oral exam. You can use this as a reference to create your own.",
-        "questionsNote": "Important: This part of the exam will likely be in a conversation style. You and your partner will take turns asking questions to get to know each other. It's important to practice asking and answering questions."
-      },
-      "infoLabels": {
-        "name": "Name:",
-        "age": "Age:",
-        "birthCity": "Birth City:",
-        "origin": "Origin:",
-        "livingSince": "Living Since:",
-        "maritalStatus": "Marital Status:",
-        "family": "Family:",
-        "location": "Location:",
-        "profession": "Profession:",
-        "company": "Company:",
-        "hobbies": "Hobbies:"
-      },
-      "questions": {
-        "formal": "Formal",
-        "informal": "Informal",
-        "answer": "Answer"
-      }
-    },
-    "part2": {
-      "title": "Speaking Part 2",
-      "subtitle": "Topic Presentation",
-      "selectTopic": "Select a topic",
-      "topicSelection": "Topic Selection",
-      "sections": {
-        "topicSelectionLabel": "Topic Selection:",
-        "presentationExample": "Presentation Example",
-        "discussion": "Discussion (After the Presentation)",
-        "discussionNote": "Use these questions to continue the conversation with your partner, express your opinion, and share your own experiences."
-      },
-      "tabs": {
-        "yourRole": "Participant A",
-        "partnerRole": "Participant B"
-      },
-      "buttons": {
-        "hideExample": "Hide Example",
-        "showExample": "Present person's view (third person)"
-      },
-      "instructions": {
-        "taskDescription": "Your task: Tell your conversation partner about the following text and then discuss the topic.",
-        "startingText": "Your starting text for presentation:"
-      }
-    },
-    "part3": {
-      "title": "Speaking Part 3",
-      "subtitle": "Planning Together",
-      "selectScenario": "Select a scenario",
-      "scenarioSelection": "Scenario Selection",
-      "sections": {
-        "scenarioSelectionLabel": "Scenario Selection:"
-      },
-      "tabs": {
-        "dialog": "Dialog",
-        "vocabulary": "Vocabulary",
-        "phrases": "Phrases"
-      },
-      "tableHeaders": {
-        "german": "German",
-        "english": "English",
-        "suggestion": "Suggestion / Task",
-        "response": "Example Response"
-      }
-    },
-    "part4": {
-      "subtitle": "Common phrases that you can use in many situations",
-      "itemType": "Part"
-    },
-    "b2Structure": {
-      "title": "Oral Exam Structure",
-      "menuTitle": "Oral Exam Structure & Guide",
-      "menuDescription": "Learn about the B2 oral exam structure, parts, and requirements",
-      "tabs": {
-        "overview": "Overview",
-        "examParts": "Exam Parts",
-        "hints": "Hints"
-      },
-      "sections": {
-        "howItWorks": "How It Works",
-        "expectations": "What Is Expected",
-        "hints": "Important Hints"
-      },
-      "labels": {
-        "duration": "Duration",
-        "participants": "Participants",
-        "description": "Description",
-        "sample": "Sample Task",
-        "topics": "Available Topics",
-        "exampleArticle": "Example Article"
-      }
-    },
-    "b2Part1": {
-      "title": "Speaking Part 1: Presentation",
-      "menuTitle": "Part 1: Topic Presentation",
-      "menuDescription": "Present a topic and discuss it",
-      "tabs": {
-        "presentation": "Presentation",
-        "discussion": "Discussion"
-      },
-      "sections": {
-        "topicTitle": "Topic",
-        "examplePresentation": "Example Presentation",
-        "discussionQuestions": "Discussion Questions"
-      },
-      "labels": {
-        "question": "Question",
-        "answer": "Answer"
-      },
-      "help": {
-        "discussionNote": "After your presentation, your partner will ask you questions about the topic. Practice answering these types of questions."
-      }
-    },
-    "b2Part2": {
-      "title": "Speaking Part 2: Discussion",
-      "menuTitle": "Part 2: Article Discussion",
-      "menuDescription": "Discuss controversial topics from magazine articles",
-      "tabs": {
-        "article": "Article",
-        "summary": "Summary",
-        "discussion": "Discussion"
-      },
-      "sections": {
-        "article": "Magazine Article",
-        "summary": "Text Summary",
-        "discussion": "Example Discussion"
-      },
-      "labels": {
-        "speaker": "Speaker"
-      },
-      "help": {
-        "summaryNote": "First, summarize the main points of the article briefly. Focus on the key arguments and facts.",
-        "discussionNote": "Discuss the topic with your partner. Bring in your experiences, express your opinion, justify your arguments, and talk about possible solutions."
-      }
-    },
-    "b2Part3": {
-      "title": "Speaking Part 3: Problem Solving",
-      "menuTitle": "Part 3: Planning Together",
-      "menuDescription": "Plan something together with your partner",
-      "tabs": {
-        "task": "Task",
-        "dialogue": "Example"
-      },
-      "sections": {
-        "task": "Planning Task",
-        "dialogue": "Example Dialogue"
-      },
-      "labels": {
-        "speaker": "Speaker"
-      },
-      "help": {
-        "dialogueNote": "Work together with your partner to plan something. Consider what needs to be done, bring in your ideas and suggestions, and respond to your partner's proposals."
-      }
-    },
-    "a1Part1": {
-      "menuDescription": "Provide important information about yourself",
-      "goal": "Goal",
-      "steps": "Steps",
-      "keywords": "Template Keywords",
-      "exampleIntroduction": "Example Introduction",
-      "followUpQuestions": "Follow-up Questions",
-      "tabs": {
-        "instructions": "Instructions",
-        "example": "Example",
-        "interaction": "Q&A"
-      }
-    },
-    "a1Part2": {
-      "menuDescription": "Ask and answer questions about everyday topics",
-      "goal": "Goal",
-      "steps": "Steps",
-      "topic": "Topic",
-      "cardWords": "Word Cards",
-      "cardDescription": "Draw a card and formulate a question using that word.",
-      "exampleDialogue": "Example Dialogue",
-      "tabs": {
-        "instructions": "Instructions",
-        "cards": "Cards",
-        "example": "Example"
-      }
-    },
-    "a1Part3": {
-      "menuDescription": "Formulate requests and respond to requests",
-      "goal": "Goal",
-      "steps": "Steps",
-      "exampleScenario": "Example Scenario",
-      "practiceCards": "Practice Cards",
-      "cardsDescription": "Practice formulating requests for different situations.",
-      "keywords": "Keywords",
-      "exampleRequest": "Example Request",
-      "tabs": {
-        "instructions": "Instructions",
-        "example": "Example",
-        "cards": "Practice Cards"
-      }
-    }
-  },
   "results": {
     "title": "Exam Results",
     "detailedResults": "Detailed Results",
@@ -1217,6 +1115,10 @@
         "title": "Ad-Free Experience",
         "description": "Enjoy learning without interruptions."
       },
+      "aiSpeaking": {
+        "title": "AI Speaking Evaluation",
+        "description": "Get detailed feedback on pronunciation, fluency, and grammar."
+      },
       "offline": {
         "title": "Offline Mode",
         "description": "Download and study anywhere."
@@ -1239,7 +1141,9 @@
         "title": "Upgrade to Premium",
         "description": "Ad-free, offline mode, and more"
       },
-      "premiumBadge": "Premium"
+      "premiumBadge": "Premium",
+      "seeBenefits": "See Benefits",
+      "premiumEnabled": "Premium"
     },
     "screen": {
       "title": "Premium",
@@ -1252,7 +1156,9 @@
       "restoreSuccess": "Purchases restored successfully!",
       "alreadyPremium": "You already have Premium!",
       "thankYou": "Thank you for your support!",
-      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees."
+      "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees.",
+      "yourBenefits": "Your\nBenefits",
+      "fullPotential": "Unlock your full potential"
     },
     "darkModeModal": {
       "title": "Dark Mode is Premium",
@@ -1288,5 +1194,12 @@
   },
   "errors": {
     "adLoadFailed": "An error occurred while loading the ad"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "message": "We're sorry, but something unexpected happened. Please try again.",
+    "retry": "Retry",
+    "goHome": "Go Home",
+    "reportIssue": "Report Issue"
   }
 }

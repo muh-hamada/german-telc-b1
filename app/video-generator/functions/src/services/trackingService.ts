@@ -1,5 +1,10 @@
 import * as admin from 'firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 import { ProcessedQuestion } from '../types';
+
+// Configuration from environment variables
+const EXAM_DOCUMENT = process.env.EXAM_DOCUMENT || 'reading-part2';
+const TRACKING_COLLECTION = process.env.TRACKING_COLLECTION || 'video_generation_data';
 
 /**
  * Mark a question as processed with metadata
@@ -11,20 +16,20 @@ export async function markQuestionProcessed(
   metadata: Partial<ProcessedQuestion>
 ): Promise<void> {
   const db = admin.firestore();
-  const questionKey = `reading-part2-exam${examId}-index${questionIndex}`;
+  const questionKey = `${EXAM_DOCUMENT}-exam${examId}-index${questionIndex}`;
 
   try {
-    const docRef = db.collection('video_generation_data').doc(appId);
+    const docRef = db.collection(TRACKING_COLLECTION).doc(appId);
     
     await docRef.set({
       processed_questions: {
         [questionKey]: {
-          processed_at: admin.firestore.FieldValue.serverTimestamp(),
+          processed_at: FieldValue.serverTimestamp(),
           ...metadata,
         },
       },
-      last_processed: admin.firestore.FieldValue.serverTimestamp(),
-      total_videos: admin.firestore.FieldValue.increment(1),
+      last_processed: FieldValue.serverTimestamp(),
+      total_videos: FieldValue.increment(1),
     }, { merge: true });
 
     console.log(`Marked ${questionKey} as processed`);
@@ -62,7 +67,7 @@ export async function getProcessingStats(appId: string): Promise<{
   const db = admin.firestore();
   
   try {
-    const docSnap = await db.collection('video_generation_data').doc(appId).get();
+    const docSnap = await db.collection(TRACKING_COLLECTION).doc(appId).get();
     
     if (!docSnap.exists) {
       return {
