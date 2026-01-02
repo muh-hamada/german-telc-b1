@@ -1040,7 +1040,8 @@
         "description": "Descripción",
         "participants": "Participantes",
         "duration": "Duración"
-      }
+      },
+      "title": "Estructura del examen oral"
     },
     "b2Part1": {
       "menuTitle": "Parte 1: Presentación del tema",
@@ -1113,7 +1114,8 @@
       },
       "buttons": {
         "viewInfo": "Ver información personal",
-        "editInfo": "Editar información"
+        "editInfo": "Editar información",
+        "saveInfo": "Guardar información"
       },
       "sections": {
         "keyVocabulary": "Vocabulario clave",
@@ -1149,7 +1151,8 @@
         "profession": "Profesión:",
         "company": "Compañía:",
         "hobbies": "Pasatiempos:"
-      }
+      },
+      "title": "Hablando Parte 1"
     },
     "part2": {
       "subtitle": "Presentación del tema",
@@ -1164,12 +1167,16 @@
       "sections": {
         "presentationExample": "Ejemplo de presentación",
         "discussion": "Discusión (después de la presentación)",
-        "discussionNote": "Utilice estas preguntas para continuar la conversación con su pareja, expresar su opinión y compartir sus propias experiencias."
+        "discussionNote": "Utilice estas preguntas para continuar la conversación con su pareja, expresar su opinión y compartir sus propias experiencias.",
+        "topicSelectionLabel": "Selección de tema:"
       },
       "buttons": {
         "hideExample": "Ocultar ejemplo",
         "showExample": "La perspectiva del presentador (tercera persona)"
-      }
+      },
+      "topicSelection": "Selección de tema",
+      "title": "Hablando Parte 2",
+      "selectTopic": "Seleccione un tema"
     },
     "part4": {
       "itemType": "Parte",
@@ -1187,8 +1194,28 @@
         "suggestion": "Sugerencia / Tarea",
         "english": "Inglés",
         "german": "Alemán"
-      }
-    }
+      },
+      "scenarioSelection": "Selección de escenario",
+      "sections": {
+        "scenarioSelectionLabel": "Selección de escenario:"
+      },
+      "selectScenario": "Seleccione un escenario",
+      "title": "Hablando Parte 3"
+    },
+    "contactSupport": "Contactar con soporte",
+    "done": "Hecho",
+    "finalScoreMessage": "Tu puntuación total es {{score}}. \n{{feedback}}",
+    "opinionSharing": "Compartir opiniones",
+    "uploading": "Subiendo",
+    "scoreRatio": {
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Pronunciation": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}"
+    },
+    "scoreOutOf100": "Puntuación: {{score}} / 100",
+    "planningTask": "Planificar juntos"
   },
   "results": {
     "title": "Resultados del examen",

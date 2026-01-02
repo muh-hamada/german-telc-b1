@@ -1028,7 +1028,8 @@
         "description": "وصف",
         "participants": "مشاركون",
         "duration": "مدة"
-      }
+      },
+      "title": "هيكل الامتحان الشفهي"
     },
     "b2Part1": {
       "menuTitle": "الجزء الأول: عرض الموضوع",
@@ -1101,7 +1102,8 @@
       },
       "buttons": {
         "viewInfo": "عرض المعلومات الشخصية",
-        "editInfo": "تحرير المعلومات"
+        "editInfo": "تحرير المعلومات",
+        "saveInfo": "حفظ المعلومات"
       },
       "sections": {
         "keyVocabulary": "المفردات الرئيسية",
@@ -1137,7 +1139,8 @@
         "profession": "مهنة:",
         "company": "شركة:",
         "hobbies": "هوايات:"
-      }
+      },
+      "title": "الحديث الجزء الأول"
     },
     "part2": {
       "subtitle": "عرض الموضوع",
@@ -1152,12 +1155,16 @@
       "sections": {
         "presentationExample": "مثال العرض التقديمي",
         "discussion": "مناقشة (بعد العرض)",
-        "discussionNote": "استخدم هذه الأسئلة لمواصلة المحادثة مع شريكك والتعبير عن رأيك ومشاركة تجاربك الخاصة."
+        "discussionNote": "استخدم هذه الأسئلة لمواصلة المحادثة مع شريكك والتعبير عن رأيك ومشاركة تجاربك الخاصة.",
+        "topicSelectionLabel": "اختيار الموضوع:"
       },
       "buttons": {
         "hideExample": "إخفاء المثال",
         "showExample": "وجهة نظر المقدم (الشخص الثالث)"
-      }
+      },
+      "topicSelection": "اختيار الموضوع",
+      "title": "الحديث الجزء الثاني",
+      "selectTopic": "اختر موضوعا"
     },
     "part4": {
       "itemType": "جزء",
@@ -1175,8 +1182,28 @@
         "suggestion": "اقتراح / مهمة",
         "english": "إنجليزي",
         "german": "الألمانية"
-      }
-    }
+      },
+      "scenarioSelection": "اختيار السيناريو",
+      "sections": {
+        "scenarioSelectionLabel": "اختيار السيناريو:"
+      },
+      "selectScenario": "حدد السيناريو",
+      "title": "الحديث الجزء 3"
+    },
+    "contactSupport": "اتصل بالدعم",
+    "done": "منتهي",
+    "finalScoreMessage": "مجموع درجاتك هو {{score}}. \n{{feedback}}",
+    "opinionSharing": "تبادل الآراء",
+    "uploading": "جارٍ التحميل",
+    "scoreRatio": {
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Pronunciation": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}"
+    },
+    "scoreOutOf100": "النتيجة: {{score}} / 100",
+    "planningTask": "التخطيط معًا"
   },
   "results": {
     "title": "نتائج الامتحان",

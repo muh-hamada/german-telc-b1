@@ -1433,12 +1433,5 @@
     "error": "Submission Failed",
     "errorMessage": "Failed to submit your report. Please try again later.",
     "characterCount": "{{current}}/{{max}} characters"
-  },
-  "errorBoundary": {
-    "title": "Something went wrong",
-    "message": "We're sorry, but something unexpected happened. Please try again.",
-    "retry": "Retry",
-    "goHome": "Go Home",
-    "reportIssue": "Report Issue"
   }
 }

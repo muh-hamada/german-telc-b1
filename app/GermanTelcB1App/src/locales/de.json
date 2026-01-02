@@ -1041,7 +1041,8 @@
         "description": "Beschreibung",
         "participants": "Teilnehmer",
         "duration": "Dauer"
-      }
+      },
+      "title": "Struktur der mündlichen Prüfung"
     },
     "b2Part1": {
       "menuTitle": "Teil 1: Themenpräsentation",
@@ -1114,7 +1115,8 @@
       },
       "buttons": {
         "viewInfo": "Persönliche Informationen anzeigen",
-        "editInfo": "Informationen bearbeiten"
+        "editInfo": "Informationen bearbeiten",
+        "saveInfo": "Informationen speichern"
       },
       "sections": {
         "keyVocabulary": "Schlüsselwortschatz",
@@ -1150,7 +1152,8 @@
         "profession": "Beruf:",
         "company": "Unternehmen:",
         "hobbies": "Hobbys:"
-      }
+      },
+      "title": "Sprechen Teil 1"
     },
     "part2": {
       "subtitle": "Themenpräsentation",
@@ -1165,12 +1168,16 @@
       "sections": {
         "presentationExample": "Präsentationsbeispiel",
         "discussion": "Diskussion (nach der Präsentation)",
-        "discussionNote": "Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und Ihre eigenen Erfahrungen zu teilen."
+        "discussionNote": "Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und Ihre eigenen Erfahrungen zu teilen.",
+        "topicSelectionLabel": "Themenauswahl:"
       },
       "buttons": {
         "hideExample": "Beispiel ausblenden",
         "showExample": "Die Perspektive des Moderators (dritte Person)"
-      }
+      },
+      "topicSelection": "Themenauswahl",
+      "title": "Sprechen Teil 2",
+      "selectTopic": "Wählen Sie ein Thema aus"
     },
     "part4": {
       "itemType": "Teil",
@@ -1188,8 +1195,28 @@
         "suggestion": "Vorschlag / Aufgabe",
         "english": "Englisch",
         "german": "Deutsch"
-      }
-    }
+      },
+      "scenarioSelection": "Szenarioauswahl",
+      "sections": {
+        "scenarioSelectionLabel": "Szenarioauswahl:"
+      },
+      "selectScenario": "Wählen Sie ein Szenario aus",
+      "title": "Sprechen Teil 3"
+    },
+    "contactSupport": "Kontaktieren Sie den Support",
+    "done": "Erledigt",
+    "finalScoreMessage": "Ihre Gesamtpunktzahl beträgt {{score}}. \n{{feedback}}",
+    "opinionSharing": "Meinungen teilen",
+    "uploading": "Hochladen",
+    "scoreRatio": {
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Pronunciation": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}"
+    },
+    "scoreOutOf100": "Punktzahl: {{score}} / 100",
+    "planningTask": "Gemeinsam planen"
   },
   "results": {
     "title": "Prüfungsergebnisse",

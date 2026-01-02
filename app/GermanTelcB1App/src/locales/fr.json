@@ -979,7 +979,8 @@
       "title": "Autorisation du microphone",
       "denied": "Autorisation refusée",
       "deniedMessage": "Veuillez activer l'accès au microphone dans les paramètres de votre appareil pour utiliser la pratique orale.",
-      "checking": "Vérification des autorisations du microphone"
+      "checking": "Vérification des autorisations du microphone",
+      "grant": "Accorder l'autorisation"
     },
     "intro": {
       "title": "Évaluation de l'expression orale",
@@ -1034,7 +1035,39 @@
     },
     "scoresBreakdown": "Détails de l'évaluation",
     "preparing": "Préparation de l'enregistrement...",
-    "stopping": "Arrêt de l'enregistrement..."
+    "stopping": "Arrêt de l'enregistrement...",
+    "contactSupport": "Contacter l'assistance",
+    "done": "Fait",
+    "finalScoreMessage": "Votre score total est de {{score}}. \n{{feedback}}",
+    "opinionSharing": "Partager des avis",
+    "uploading": "Téléchargement",
+    "scoreRatio": {
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Pronunciation": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}"
+    },
+    "scoreOutOf100": "Note : {{score}} / 100",
+    "planningTask": "Planifier ensemble",
+    "areasToImprove": "Domaines à améliorer",
+    "strengths": "Points forts",
+    "content": "Pertinence du contenu",
+    "vocabulary": "Gamme de vocabulaire",
+    "grammar": "Précision de la grammaire",
+    "fluency": "Aisance",
+    "pronunciation": "Prononciation",
+    "next": "Suivant",
+    "feedback": "Commentaires d'experts",
+    "yourScore": "Votre score",
+    "viewDetails": "Afficher les détails",
+    "turn": "Tourner",
+    "stopRecording": "Arrêter l'enregistrement",
+    "recording": "Enregistrement",
+    "part": "Partie",
+    "personalIntroduction": "Présentation personnelle",
+    "playing": "Jouant...",
+    "title": "Pratique orale"
   },
   "results": {
     "title": "Résultats de l'examen",

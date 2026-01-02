@@ -1115,7 +1115,8 @@
       "title": "Разрешение микрофона",
       "denied": "Доступ запрещен",
       "deniedMessage": "Пожалуйста, включите доступ к микрофону в настройках вашего устройства, чтобы использовать разговорную практику.",
-      "checking": "Проверка разрешений микрофона"
+      "checking": "Проверка разрешений микрофона",
+      "grant": "Предоставить разрешение"
     },
     "intro": {
       "title": "Оценка устной речи",
@@ -1170,7 +1171,39 @@
     },
     "scoresBreakdown": "Детали оценки",
     "preparing": "Готовимся к записи...",
-    "stopping": "Остановка записи..."
+    "stopping": "Остановка записи...",
+    "contactSupport": "Обратиться в службу поддержки",
+    "done": "Сделанный",
+    "finalScoreMessage": "Ваш общий балл — {{score}}. \n{{feedback}}",
+    "opinionSharing": "Обмен мнениями",
+    "uploading": "Загрузка",
+    "scoreRatio": {
+      "Vocabulary Range": "{{score}} / {{max}}",
+      "Pronunciation": "{{score}} / {{max}}",
+      "Content Relevance": "{{score}} / {{max}}",
+      "Fluency": "{{score}} / {{max}}",
+      "Grammar Accuracy": "{{score}} / {{max}}"
+    },
+    "scoreOutOf100": "Оценка: {{score}} / 100",
+    "planningTask": "Планируем вместе",
+    "areasToImprove": "Области для улучшения",
+    "strengths": "Сильные стороны",
+    "content": "Актуальность контента",
+    "vocabulary": "Словарный диапазон",
+    "grammar": "Грамматическая точность",
+    "fluency": "Беглость",
+    "pronunciation": "Произношение",
+    "next": "Следующий",
+    "feedback": "Отзывы экспертов",
+    "yourScore": "Ваш счет",
+    "viewDetails": "Посмотреть детали",
+    "turn": "Повернуть",
+    "stopRecording": "Остановить запись",
+    "recording": "Запись",
+    "part": "Часть",
+    "personalIntroduction": "Личное представление",
+    "playing": "Играю...",
+    "title": "Разговорная практика"
   },
   "results": {
     "title": "Результаты экзамена",
