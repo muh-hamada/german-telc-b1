@@ -179,6 +179,230 @@
     "personalIntroduction": "Personal Introduction",
     "planningTask": "Planning Together",
     "opinionSharing": "Sharing Opinions",
+    "part1": {
+      "title": "Speaking Part 1",
+      "subtitle": "Personal presentation",
+      "tabs": {
+        "myIntro": "My Presentation",
+        "example": "Example",
+        "vocabulary": "Vocabulary",
+        "questions": "Questions"
+      },
+      "sections": {
+        "myProfile": "My Profile",
+        "personalIntro": "Personal Introduction",
+        "keyVocabulary": "Key Vocabulary",
+        "completeExample": "Complete Example",
+        "questions": "Questions and Answers"
+      },
+      "buttons": {
+        "viewInfo": "View Personal Information",
+        "editInfo": "Edit Information",
+        "saveInfo": "Save Information"
+      },
+      "modal": {
+        "personalInfo": "Personal Information",
+        "yourPersonalInfo": "Your Personal Information"
+      },
+      "help": {
+        "exampleNote": "This is a complete example of a personal presentation for the TELC {{level}} oral exam. You can use it as a reference to create your own.",
+        "enterInfoPrompt": "Please enter your personal information to generate your presentation text.",
+        "questionsNote": "Important: This part of the exam will likely be in conversation form. \nYou and your partner will take turns asking questions to get to know each other. \nIt's important to practice both asking questions and answering them."
+      },
+      "infoLabels": {
+        "name": "Name:",
+        "age": "Age:",
+        "birthCity": "City of birth:",
+        "origin": "Origin:",
+        "livingSince": "Living since:",
+        "maritalStatus": "Marital status:",
+        "family": "Family:",
+        "location": "Location:",
+        "profession": "Profession:",
+        "company": "Company:",
+        "hobbies": "Hobbies:"
+      },
+      "questions": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "answer": "Answer"
+      }
+    },
+    "part2": {
+      "title": "Speaking Part 2",
+      "subtitle": "Topic presentation",
+      "selectTopic": "Select a topic",
+      "topicSelection": "Topic Selection",
+      "sections": {
+        "topicSelectionLabel": "Topic Selection:",
+        "presentationExample": "Presentation Example",
+        "discussion": "Discussion (After presentation)",
+        "discussionNote": "Use these questions to continue the conversation with your partner, express your opinion, and share your own experiences."
+      },
+      "tabs": {
+        "yourRole": "Participant A",
+        "partnerRole": "Participant B"
+      },
+      "buttons": {
+        "hideExample": "Hide Example",
+        "showExample": "The presenter's perspective (third person)"
+      },
+      "instructions": {
+        "taskDescription": "Your task: Inform your conversation partner about the following text, then discuss the topic.",
+        "startingText": "Your starting text for the presentation:"
+      }
+    },
+    "part3": {
+      "title": "Speaking Part 3",
+      "subtitle": "Planning together",
+      "selectScenario": "Select a scenario",
+      "scenarioSelection": "Scenario Selection",
+      "sections": {
+        "scenarioSelectionLabel": "Scenario Selection:"
+      },
+      "tabs": {
+        "dialog": "Dialogue",
+        "vocabulary": "Vocabulary",
+        "phrases": "Phrases"
+      },
+      "tableHeaders": {
+        "german": "German",
+        "english": "English",
+        "suggestion": "Suggestion / Task",
+        "response": "Sample Response"
+      }
+    },
+    "part4": {
+      "subtitle": "Common phrases you can use in many situations",
+      "itemType": "Part"
+    },
+    "b2Structure": {
+      "title": "Oral Exam Structure",
+      "menuTitle": "Oral Exam Structure and Guide",
+      "menuDescription": "Learn about the structure, parts, and requirements of the B2 oral exam",
+      "tabs": {
+        "overview": "Overview",
+        "examParts": "Exam Parts",
+        "hints": "Tips"
+      },
+      "sections": {
+        "howItWorks": "How it Works",
+        "expectations": "What's Expected",
+        "hints": "Important Tips"
+      },
+      "labels": {
+        "duration": "Duration",
+        "participants": "Participants",
+        "description": "Description",
+        "sample": "Sample Task",
+        "topics": "Available Topics",
+        "exampleArticle": "Sample Article"
+      }
+    },
+    "b2Part1": {
+      "title": "Oral Part 1: Presentation",
+      "menuTitle": "Part 1: Topic Presentation",
+      "menuDescription": "Present a topic and discuss it",
+      "tabs": {
+        "presentation": "Presentation",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "topicTitle": "Topic",
+        "examplePresentation": "Sample Presentation",
+        "discussionQuestions": "Discussion Questions"
+      },
+      "labels": {
+        "question": "Question",
+        "answer": "Answer"
+      },
+      "help": {
+        "discussionNote": "After your presentation, your partner will ask you questions about the topic. Practice answering these types of questions."
+      }
+    },
+    "b2Part2": {
+      "title": "Oral Part 2: Discussion",
+      "menuTitle": "Part 2: Article Discussion",
+      "menuDescription": "Discuss controversial topics from magazine articles",
+      "tabs": {
+        "article": "Article",
+        "summary": "Summary",
+        "discussion": "Discussion"
+      },
+      "sections": {
+        "article": "Magazine Article",
+        "summary": "Text Summary",
+        "discussion": "Sample Discussion"
+      },
+      "labels": {
+        "speaker": "Speaker"
+      },
+      "help": {
+        "summaryNote": "First briefly summarize the main points of the article. Focus on key arguments and facts.",
+        "discussionNote": "Discuss the topic with your partner. Bring in your experiences, express your opinion, justify your arguments, and talk about possible solutions."
+      }
+    },
+    "b2Part3": {
+      "title": "Oral Part 3: Problem Solving",
+      "menuTitle": "Part 3: Planning Together",
+      "menuDescription": "Plan something with your partner",
+      "tabs": {
+        "task": "Task",
+        "dialogue": "Example"
+      },
+      "sections": {
+        "task": "Planning Task",
+        "dialogue": "Sample Dialogue"
+      },
+      "labels": {
+        "speaker": "Speaker"
+      },
+      "help": {
+        "dialogueNote": "Work with your partner to plan something. Think about what needs to be considered, bring in your ideas and suggestions, and respond to your partner's proposals."
+      }
+    },
+    "a1Part1": {
+      "menuDescription": "Provide important information about yourself",
+      "goal": "Goal",
+      "steps": "Steps",
+      "keywords": "Keywords",
+      "exampleIntroduction": "Example Introduction",
+      "followUpQuestions": "Follow Up Questions",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Example",
+        "interaction": "Questions and Answers"
+      }
+    },
+    "a1Part2": {
+      "menuDescription": "Ask and answer questions about everyday topics",
+      "goal": "Goal",
+      "steps": "Steps",
+      "topic": "Topic",
+      "cardWords": "Word Cards",
+      "cardDescription": "Draw a card and formulate a question using that word.",
+      "exampleDialogue": "Dialogue example",
+      "tabs": {
+        "instructions": "Instructions",
+        "cards": "Cards",
+        "example": "Example"
+      }
+    },
+    "a1Part3": {
+      "menuDescription": "Formulate requests and respond to requests",
+      "goal": "Goal",
+      "steps": "Steps",
+      "exampleScenario": "Example scenario",
+      "practiceCards": "Practice cards",
+      "cardsDescription": "Practice formulating requests for different situations.",
+      "keywords": "Keywords",
+      "exampleRequest": "Example request",
+      "tabs": {
+        "instructions": "Instructions",
+        "example": "Example",
+        "cards": "Practice Cards"
+      }
+    },
     "permissions": {
       "title": "Microphone Permission",
       "message": "We need access to your microphone to record your speaking practice.",
@@ -1194,6 +1418,20 @@
   },
   "errors": {
     "adLoadFailed": "An error occurred while loading the ad"
+  },
+  "issueReport": {
+    "reportIssue": "Report Issue",
+    "title": "Report Issue with Question",
+    "instruction": "Please describe the issue you found with this question. Your feedback helps us improve the exam quality.",
+    "feedbackPlaceholder": "Describe the issue here...",
+    "feedbackRequired": "Please provide feedback (minimum 10 characters)",
+    "submit": "Submit Report",
+    "submitting": "Submitting...",
+    "success": "Thank you!",
+    "successMessage": "Your report has been submitted successfully. We appreciate your feedback!",
+    "error": "Submission Failed",
+    "errorMessage": "Failed to submit your report. Please try again later.",
+    "characterCount": "{{current}}/{{max}} characters"
   },
   "errorBoundary": {
     "title": "Something went wrong",

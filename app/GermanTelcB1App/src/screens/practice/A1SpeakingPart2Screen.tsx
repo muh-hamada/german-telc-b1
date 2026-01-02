@@ -127,7 +127,7 @@ const A1SpeakingPart2Screen: React.FC = () => {
     return (
       <View style={styles.container}>
         <View style={styles.centerContent}>
-          <Text style={styles.errorText}>Failed to load speaking data</Text>
+          <Text style={styles.errorText}>{t('exam.failedToLoad')}</Text>
         </View>
       </View>
     );

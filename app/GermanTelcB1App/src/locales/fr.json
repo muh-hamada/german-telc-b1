@@ -947,7 +947,7 @@
       "topic": "Sujet",
       "cardWords": "Cartes de mots",
       "cardDescription": "Tirez une carte et formulez une question avec ce mot.",
-      "exampleDialogue": "Dialogue exemple",
+      "exampleDialogue": "Exemple de dialogue",
       "tabs": {
         "instructions": "Instructions",
         "cards": "Cartes",
@@ -1593,6 +1593,20 @@
   },
   "errors": {
     "adLoadFailed": "Une erreur s'est produite lors du chargement de l'annonce"
+  },
+  "issueReport": {
+    "reportIssue": "Signaler un Problème",
+    "title": "Signaler un Problème avec la Question",
+    "instruction": "Veuillez décrire le problème que vous avez trouvé avec cette question. Vos commentaires nous aident à améliorer la qualité de l'examen.",
+    "feedbackPlaceholder": "Décrivez le problème ici...",
+    "feedbackRequired": "Veuillez fournir des commentaires (minimum 10 caractères)",
+    "submit": "Soumettre le Rapport",
+    "submitting": "Envoi en cours...",
+    "success": "Merci !",
+    "successMessage": "Votre rapport a été soumis avec succès. Nous apprécions vos commentaires !",
+    "error": "Échec de l'Envoi",
+    "errorMessage": "Impossible de soumettre votre rapport. Veuillez réessayer plus tard.",
+    "characterCount": "{{current}}/{{max}} caractères"
   },
   "prepPlan": {
     "onboarding": {

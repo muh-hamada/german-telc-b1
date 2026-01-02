@@ -976,7 +976,111 @@
     },
     "scoresBreakdown": "Detalles de la evaluación",
     "preparing": "Preparándose para grabar...",
-    "stopping": "Deteniendo la grabación..."
+    "stopping": "Deteniendo la grabación...",
+    "a1Part2": {
+      "goal": "Meta",
+      "steps": "Pasos",
+      "topic": "Tema",
+      "cardWords": "Tarjetas de palabras",
+      "cardDescription": "Saca una tarjeta y formula una pregunta usando esa palabra.",
+      "exampleDialogue": "Ejemplo de diálogo",
+      "tabs": {
+        "instructions": "Instrucciones",
+        "cards": "Tarjetas",
+        "example": "Ejemplo"
+      },
+      "menuDescription": "Hacer y responder preguntas sobre temas cotidianos."
+    },
+    "a1Part1": {
+      "goal": "Meta",
+      "steps": "Pasos",
+      "keywords": "Palabras clave",
+      "exampleIntroduction": "Ejemplo de introducción",
+      "followUpQuestions": "Preguntas de seguimiento",
+      "tabs": {
+        "instructions": "Instrucciones",
+        "example": "Ejemplo",
+        "interaction": "Preguntas y respuestas"
+      },
+      "menuDescription": "Proporcione información importante sobre usted"
+    },
+    "a1Part3": {
+      "menuDescription": "Formular solicitudes y responder a solicitudes."
+    },
+    "b2Structure": {
+      "menuTitle": "Estructura y guía del examen oral",
+      "menuDescription": "Conoce la estructura, partes y requisitos del examen oral B2"
+    },
+    "b2Part1": {
+      "menuTitle": "Parte 1: Presentación del tema",
+      "menuDescription": "Presentar un tema y discutirlo.",
+      "title": "Parte Oral 1: Presentación"
+    },
+    "b2Part2": {
+      "menuTitle": "Parte 2: Discusión del artículo",
+      "menuDescription": "Discutir temas controvertidos de artículos de revistas.",
+      "title": "Parte Oral 2: Discusión"
+    },
+    "b2Part3": {
+      "menuTitle": "Parte 3: Planificar juntos",
+      "menuDescription": "Planea algo con tu pareja",
+      "title": "Oral Parte 3: Resolución de problemas"
+    },
+    "part1": {
+      "subtitle": "presentación personal",
+      "help": {
+        "enterInfoPrompt": "Por favor ingrese su información personal para generar su texto de presentación.",
+        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC {{level}}. \nPuedes usarlo como referencia para crear el tuyo propio.",
+        "questionsNote": "Importante: esta parte del examen probablemente se realizará en forma de conversación. \n\nUsted y su pareja se turnarán para hacer preguntas para conocerse. \n\nEs importante practicar tanto haciendo preguntas como respondiéndolas."
+      },
+      "buttons": {
+        "viewInfo": "Ver información personal",
+        "editInfo": "Editar información"
+      },
+      "sections": {
+        "keyVocabulary": "Vocabulario clave",
+        "completeExample": "Ejemplo completo",
+        "questions": "Preguntas y respuestas"
+      },
+      "tabs": {
+        "example": "Ejemplo",
+        "myIntro": "Mi presentación",
+        "questions": "Preguntas",
+        "vocabulary": "Vocabulario"
+      },
+      "questions": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "answer": "Respuesta"
+      },
+      "modal": {
+        "personalInfo": "Información personal",
+        "yourPersonalInfo": "Su información personal"
+      },
+      "infoLabels": {
+        "name": "Nombre:",
+        "age": "Edad:",
+        "birthCity": "Ciudad de nacimiento:",
+        "origin": "Origen:",
+        "livingSince": "Viviendo desde:",
+        "maritalStatus": "Estado civil:",
+        "family": "Familia:",
+        "location": "Ubicación:",
+        "profession": "Profesión:",
+        "company": "Compañía:",
+        "hobbies": "Pasatiempos:"
+      }
+    },
+    "part2": {
+      "subtitle": "Presentación del tema"
+    },
+    "part4": {
+      "itemType": "Parte",
+      "subtitle": "Frases comunes que puedes usar en muchas situaciones."
+    },
+    "part3": {
+      "subtitle": "Planificando juntos"
+    }
   },
   "results": {
     "title": "Resultados del examen",
@@ -1400,6 +1504,20 @@
   },
   "errors": {
     "adLoadFailed": "Se produjo un error al cargar el anuncio."
+  },
+  "issueReport": {
+    "reportIssue": "Reportar Problema",
+    "title": "Reportar Problema con la Pregunta",
+    "instruction": "Por favor describe el problema que encontraste con esta pregunta. Tus comentarios nos ayudan a mejorar la calidad del examen.",
+    "feedbackPlaceholder": "Describe el problema aquí...",
+    "feedbackRequired": "Por favor proporciona comentarios (mínimo 10 caracteres)",
+    "submit": "Enviar Reporte",
+    "submitting": "Enviando...",
+    "success": "¡Gracias!",
+    "successMessage": "Tu reporte ha sido enviado exitosamente. ¡Apreciamos tus comentarios!",
+    "error": "Envío Fallido",
+    "errorMessage": "No se pudo enviar tu reporte. Por favor intenta de nuevo más tarde.",
+    "characterCount": "{{current}}/{{max}} caracteres"
   },
   "prepPlan": {
     "onboarding": {

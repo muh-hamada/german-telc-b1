@@ -18,6 +18,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
 import { UserAnswer } from '../../types/exam.types';
 import WritingPart2UIA1 from '../../components/exam-ui/WritingPart2UIA1';
+import ReportIssueModal from '../../components/ReportIssueModal';
 
 const WritingPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -33,6 +34,7 @@ const WritingPart2Screen: React.FC = () => {
   const [currentExam, setCurrentExam] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState(0);
+  const [showReportIssueModal, setShowReportIssueModal] = useState(false);
 
   useEffect(() => {
     loadExam();
@@ -50,20 +52,32 @@ const WritingPart2Screen: React.FC = () => {
     }
   };
 
-  // Set up header button
+  // Set up header buttons
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => setShowReportIssueModal(true)}
+            style={styles.headerButton}
+          >
+            <Icon
+              name="warning"
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleToggleCompletion}
+            style={styles.headerButton}
+          >
+            <Icon
+              name={isCompleted ? 'check-circle' : 'circle-o'}
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [isCompleted, navigation]);
@@ -126,6 +140,15 @@ const WritingPart2Screen: React.FC = () => {
   return (
     <View style={styles.container}>
       <WritingPart2UIA1 exam={currentExam} onComplete={handleComplete} isMockExam={false} />
+      
+      <ReportIssueModal
+        visible={showReportIssueModal}
+        onClose={() => setShowReportIssueModal(false)}
+        examData={currentExam}
+        section="writing"
+        part={2}
+        examId={examId}
+      />
     </View>
   );
 };

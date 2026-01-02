@@ -18,6 +18,7 @@ import { WritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
+import ReportIssueModal from '../../components/ReportIssueModal';
 
 const WritingScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -33,6 +34,7 @@ const WritingScreen: React.FC = () => {
   const [examResult, setExamResult] = useState<{ score: number } | null>(null);
   const [currentExam, setCurrentExam] = useState<WritingExam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showReportIssueModal, setShowReportIssueModal] = useState(false);
 
   useEffect(() => {
     loadExam();
@@ -50,20 +52,32 @@ const WritingScreen: React.FC = () => {
     }
   };
 
-  // Set up header button
+  // Set up header buttons
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => setShowReportIssueModal(true)}
+            style={styles.headerButton}
+          >
+            <Icon
+              name="warning"
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleToggleCompletion}
+            style={styles.headerButton}
+          >
+            <Icon
+              name={isCompleted ? 'check-circle' : 'circle-o'}
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [isCompleted, navigation]);
@@ -129,6 +143,15 @@ const WritingScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <WritingUI exam={currentExam} onComplete={handleComplete} />
+      
+      <ReportIssueModal
+        visible={showReportIssueModal}
+        onClose={() => setShowReportIssueModal(false)}
+        examData={currentExam}
+        section="writing"
+        part={1}
+        examId={examId}
+      />
     </View>
   );
 };

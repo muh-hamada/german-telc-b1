@@ -322,6 +322,17 @@ service cloud.firestore {
                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }
 
+    // Issue Reports Collection
+    // All users (authenticated and anonymous) can create issue reports
+    // Only admin can read, update, or delete
+    match /issueReports/{reportId} {
+      allow read: if request.auth != null && 
+                    request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+      allow create: if true; // Allow all users to create reports (authenticated and anonymous)
+      allow update, delete: if request.auth != null && 
+                              request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+    }
+
     // User Analytics Collection
     // Only admin can read analytics data
     // Cloud Functions (service account) can write

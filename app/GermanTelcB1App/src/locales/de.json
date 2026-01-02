@@ -977,7 +977,111 @@
     },
     "scoresBreakdown": "Bewertungsdetails",
     "preparing": "Vorbereitung zur Aufnahme...",
-    "stopping": "Aufnahme stoppen..."
+    "stopping": "Aufnahme stoppen...",
+    "a1Part2": {
+      "goal": "Ziel",
+      "steps": "Schritte",
+      "topic": "Thema",
+      "cardWords": "Wortkarten",
+      "cardDescription": "Ziehen Sie eine Karte und formulieren Sie eine Frage mit diesem Wort.",
+      "exampleDialogue": "Dialogbeispiel",
+      "tabs": {
+        "instructions": "Anweisungen",
+        "cards": "Karten",
+        "example": "Beispiel"
+      },
+      "menuDescription": "Stellen und beantworten Sie Fragen zu alltäglichen Themen"
+    },
+    "a1Part1": {
+      "goal": "Ziel",
+      "steps": "Schritte",
+      "keywords": "Schlüsselwörter",
+      "exampleIntroduction": "Beispieleinführung",
+      "followUpQuestions": "Folgefragen",
+      "tabs": {
+        "instructions": "Anweisungen",
+        "example": "Beispiel",
+        "interaction": "Fragen und Antworten"
+      },
+      "menuDescription": "Geben Sie wichtige Informationen über sich selbst an"
+    },
+    "a1Part3": {
+      "menuDescription": "Formulieren Sie Anfragen und reagieren Sie auf Anfragen"
+    },
+    "b2Structure": {
+      "menuTitle": "Struktur und Leitfaden für mündliche Prüfungen",
+      "menuDescription": "Erfahren Sie mehr über den Aufbau, die Teile und die Anforderungen der mündlichen B2-Prüfung"
+    },
+    "b2Part1": {
+      "menuTitle": "Teil 1: Themenpräsentation",
+      "menuDescription": "Stellen Sie ein Thema vor und diskutieren Sie darüber",
+      "title": "Mündlicher Teil 1: Präsentation"
+    },
+    "b2Part2": {
+      "menuTitle": "Teil 2: Artikeldiskussion",
+      "menuDescription": "Besprechen Sie kontroverse Themen aus Zeitschriftenartikeln",
+      "title": "Mündlicher Teil 2: Diskussion"
+    },
+    "b2Part3": {
+      "menuTitle": "Teil 3: Gemeinsam planen",
+      "menuDescription": "Planen Sie etwas mit Ihrem Partner",
+      "title": "Mündlicher Teil 3: Problemlösung"
+    },
+    "part1": {
+      "subtitle": "Persönliche Präsentation",
+      "help": {
+        "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Daten ein, um Ihren Präsentationstext zu erstellen.",
+        "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Präsentation für die mündliche TELC {{level}}-Prüfung. \nSie können es als Referenz verwenden, um Ihr eigenes zu erstellen.",
+        "questionsNote": "Wichtig: Dieser Teil der Prüfung wird wahrscheinlich in Konversationsform stattfinden. \n\nSie und Ihr Partner werden abwechselnd Fragen stellen, um sich kennenzulernen. \n\nEs ist wichtig, sowohl das Stellen von Fragen als auch das Beantworten dieser Fragen zu üben."
+      },
+      "buttons": {
+        "viewInfo": "Persönliche Informationen anzeigen",
+        "editInfo": "Informationen bearbeiten"
+      },
+      "sections": {
+        "keyVocabulary": "Schlüsselwortschatz",
+        "completeExample": "Vollständiges Beispiel",
+        "questions": "Fragen und Antworten"
+      },
+      "tabs": {
+        "example": "Beispiel",
+        "myIntro": "Meine Präsentation",
+        "questions": "Fragen",
+        "vocabulary": "Vokabular"
+      },
+      "questions": {
+        "formal": "Formell",
+        "informal": "Informell",
+        "answer": "Antwort"
+      },
+      "modal": {
+        "personalInfo": "Persönliche Informationen",
+        "yourPersonalInfo": "Ihre persönlichen Daten"
+      },
+      "infoLabels": {
+        "name": "Name:",
+        "age": "Alter:",
+        "birthCity": "Geburtsort:",
+        "origin": "Herkunft:",
+        "livingSince": "Lebt seit:",
+        "maritalStatus": "Familienstand:",
+        "family": "Familie:",
+        "location": "Standort:",
+        "profession": "Beruf:",
+        "company": "Unternehmen:",
+        "hobbies": "Hobbys:"
+      }
+    },
+    "part2": {
+      "subtitle": "Themenpräsentation"
+    },
+    "part4": {
+      "itemType": "Teil",
+      "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können"
+    },
+    "part3": {
+      "subtitle": "Gemeinsam planen"
+    }
   },
   "results": {
     "title": "Prüfungsergebnisse",
@@ -1397,6 +1501,20 @@
   },
   "errors": {
     "adLoadFailed": "Beim Laden der Anzeige ist ein Fehler aufgetreten"
+  },
+  "issueReport": {
+    "reportIssue": "Problem melden",
+    "title": "Problem mit der Frage melden",
+    "instruction": "Bitte beschreiben Sie das Problem, das Sie mit dieser Frage gefunden haben. Ihr Feedback hilft uns, die Prüfungsqualität zu verbessern.",
+    "feedbackPlaceholder": "Beschreiben Sie hier das Problem...",
+    "feedbackRequired": "Bitte geben Sie Feedback an (mindestens 10 Zeichen)",
+    "submit": "Bericht senden",
+    "submitting": "Wird gesendet...",
+    "success": "Vielen Dank!",
+    "successMessage": "Ihr Bericht wurde erfolgreich übermittelt. Wir schätzen Ihr Feedback!",
+    "error": "Übermittlung fehlgeschlagen",
+    "errorMessage": "Ihr Bericht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
+    "characterCount": "{{current}}/{{max}} Zeichen"
   },
   "prepPlan": {
     "onboarding": {

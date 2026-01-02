@@ -16,6 +16,7 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
+import ReportIssueModal from '../../components/ReportIssueModal';
 import { ReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
 import { HomeStackRouteProp } from '../../types/navigation.types';
@@ -37,25 +38,38 @@ const ReadingPart2Screen: React.FC = () => {
   const [showResults, setShowResults] = useState(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showReportIssueModal, setShowReportIssueModal] = useState(false);
 
   useEffect(() => {
     loadExam(examId);
   }, [examId]);
 
-  // Set up header button
+  // Set up header buttons
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => setShowReportIssueModal(true)}
+            style={styles.headerButton}
+          >
+            <Icon
+              name="warning"
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleToggleCompletion}
+            style={styles.headerButton}
+          >
+            <Icon
+              name={isCompleted ? 'check-circle' : 'circle-o'}
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [isCompleted, navigation]);
@@ -152,6 +166,15 @@ const ReadingPart2Screen: React.FC = () => {
         }}
         examTitle={`Reading Part 2 - Test ${examId + 1}`}
         result={examResult}
+      />
+
+      <ReportIssueModal
+        visible={showReportIssueModal}
+        onClose={() => setShowReportIssueModal(false)}
+        examData={currentExam}
+        section="reading"
+        part={2}
+        examId={examId}
       />
     </View>
   );

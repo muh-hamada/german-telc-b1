@@ -14,6 +14,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
+import ReportIssueModal from '../../components/ReportIssueModal';
 import { ExamResult, UserAnswer } from '../../types/exam.types';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -48,6 +49,7 @@ const ListeningPart2Screen: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [showResults, setShowResults] = useState(false);
+  const [showReportIssueModal, setShowReportIssueModal] = useState(false);
   const { updateExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
@@ -60,20 +62,32 @@ const ListeningPart2Screen: React.FC = () => {
     loadData();
   }, [examId]);
 
-  // Set up header button
+  // Set up header buttons
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => setShowReportIssueModal(true)}
+            style={styles.headerButton}
+          >
+            <Icon
+              name="warning"
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleToggleCompletion}
+            style={styles.headerButton}
+          >
+            <Icon
+              name={isCompleted ? 'check-circle' : 'circle-o'}
+              size={24}
+              color={colors.white}
+            />
+          </TouchableOpacity>
+        </View>
       ),
     });
   }, [isCompleted, navigation, examId]);
@@ -166,6 +180,15 @@ const ListeningPart2Screen: React.FC = () => {
         }}
         examTitle={`Listening Part 2 - Test ${examId + 1}`}
         result={examResult}
+      />
+      
+      <ReportIssueModal
+        visible={showReportIssueModal}
+        onClose={() => setShowReportIssueModal(false)}
+        examData={currentExam}
+        section="listening"
+        part={2}
+        examId={examId}
       />
     </View>
   );

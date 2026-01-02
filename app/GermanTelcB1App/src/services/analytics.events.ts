@@ -204,6 +204,12 @@ export const AnalyticsEvents = {
   PREMIUM_SCREEN_RESTORE_CLICKED: 'premium_screen_restore_clicked',
   PREMIUM_HOME_BUTTON_CLICKED: 'premium_home_button_clicked',
 
+  // Issue Report
+  ISSUE_REPORT_MODAL_OPENED: 'issue_report_modal_opened',
+  ISSUE_REPORT_MODAL_CLOSED: 'issue_report_modal_closed',
+  ISSUE_REPORT_SUBMITTED: 'issue_report_submitted',
+  ISSUE_REPORT_SUBMISSION_FAILED: 'issue_report_submission_failed',
+
   // Prep Plan Events
   PREP_PLAN_RESULTS_VIEWED: 'prep_plan_results_viewed',
   PREP_PLAN_CARD_VIEWED: 'prep_plan_card_viewed',
