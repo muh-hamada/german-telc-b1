@@ -363,7 +363,7 @@ const ProfileScreen: React.FC = () => {
               <Icon name="star" size={20} color={colors.primary[500]} />
             </View>
             <Text style={styles.actionItemText}>{t('profile.rateApp')}</Text>
-            <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionItem}
@@ -374,7 +374,7 @@ const ProfileScreen: React.FC = () => {
               <Icon name="share-alt" size={20} color={colors.success[500]} />
             </View>
             <Text style={styles.actionItemText}>{t('profile.shareApp')}</Text>
-            <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
           </TouchableOpacity>
           {user && (
             <TouchableOpacity
@@ -387,7 +387,7 @@ const ProfileScreen: React.FC = () => {
                 <Icon name="sign-out" size={20} color={colors.error[500]} />
               </View>
               <Text style={styles.actionItemText}>{t('profile.signOut')}</Text>
-              <Icon name="chevron-right" size={20} color={colors.text.tertiary} />
+              <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
             </TouchableOpacity>
           )}
         </View>

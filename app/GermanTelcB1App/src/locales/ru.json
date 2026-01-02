@@ -91,7 +91,8 @@
       "sun": "Вс"
     },
     "skip": "Пропускать",
-    "loginRequired": "Требуется вход"
+    "loginRequired": "Требуется вход",
+    "failedToLoad": "Не удалось загрузить"
   },
   "exam": {
     "selectExam": "Выберите экзамен:",

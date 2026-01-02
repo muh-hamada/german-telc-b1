@@ -134,12 +134,13 @@ for locale in "${LOCALES[@]}"; do
             MISSING_KEYS_FOUND=true
         fi
         
-        if [ -n "$EXTRA" ]; then
-            echo -e "${YELLOW}⚠ Extra keys in ${locale}.json (not in en.json):${NC}"
-            echo "$EXTRA" | while read key; do
-                echo -e "${YELLOW}  + $key${NC}"
-            done
-        fi
+        # Extra keys check (not logged to console)
+        # if [ -n "$EXTRA" ]; then
+        #     echo -e "${YELLOW}⚠ Extra keys in ${locale}.json (not in en.json):${NC}"
+        #     echo "$EXTRA" | while read key; do
+        #         echo -e "${YELLOW}  + $key${NC}"
+        #     done
+        # fi
     fi
 done
 

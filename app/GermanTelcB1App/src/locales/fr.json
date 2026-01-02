@@ -91,7 +91,8 @@
       "sun": "Dim"
     },
     "skip": "Sauter",
-    "loginRequired": "Connexion requise"
+    "loginRequired": "Connexion requise",
+    "failedToLoad": "Échec du chargement"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",

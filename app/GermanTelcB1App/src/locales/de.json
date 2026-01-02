@@ -91,7 +91,8 @@
       "sun": "So"
     },
     "skip": "Überspringen",
-    "loginRequired": "Anmeldung erforderlich"
+    "loginRequired": "Anmeldung erforderlich",
+    "failedToLoad": "Laden fehlgeschlagen"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",
@@ -1006,26 +1007,103 @@
       "menuDescription": "Geben Sie wichtige Informationen über sich selbst an"
     },
     "a1Part3": {
-      "menuDescription": "Formulieren Sie Anfragen und reagieren Sie auf Anfragen"
+      "menuDescription": "Formulieren Sie Anfragen und reagieren Sie auf Anfragen",
+      "cardsDescription": "Üben Sie, Anfragen für verschiedene Situationen zu formulieren.",
+      "steps": "Schritte",
+      "tabs": {
+        "cards": "Übungskarten",
+        "example": "Beispiel",
+        "instructions": "Anweisungen"
+      },
+      "exampleRequest": "Beispielanfrage",
+      "keywords": "Schlüsselwörter",
+      "practiceCards": "Übungskarten",
+      "exampleScenario": "Beispielszenario",
+      "goal": "Ziel"
     },
     "b2Structure": {
       "menuTitle": "Struktur und Leitfaden für mündliche Prüfungen",
-      "menuDescription": "Erfahren Sie mehr über den Aufbau, die Teile und die Anforderungen der mündlichen B2-Prüfung"
+      "menuDescription": "Erfahren Sie mehr über den Aufbau, die Teile und die Anforderungen der mündlichen B2-Prüfung",
+      "tabs": {
+        "hints": "Tipps",
+        "examParts": "Prüfungsteile",
+        "overview": "Überblick"
+      },
+      "sections": {
+        "hints": "Wichtige Tipps",
+        "howItWorks": "Wie es funktioniert",
+        "expectations": "Was wird erwartet"
+      },
+      "labels": {
+        "exampleArticle": "Beispielartikel",
+        "topics": "Verfügbare Themen",
+        "sample": "Beispielaufgabe",
+        "description": "Beschreibung",
+        "participants": "Teilnehmer",
+        "duration": "Dauer"
+      }
     },
     "b2Part1": {
       "menuTitle": "Teil 1: Themenpräsentation",
       "menuDescription": "Stellen Sie ein Thema vor und diskutieren Sie darüber",
-      "title": "Mündlicher Teil 1: Präsentation"
+      "title": "Mündlicher Teil 1: Präsentation",
+      "tabs": {
+        "discussion": "Diskussion",
+        "presentation": "Präsentation"
+      },
+      "labels": {
+        "answer": "Antwort",
+        "question": "Frage"
+      },
+      "help": {
+        "discussionNote": "Nach Ihrer Präsentation wird Ihnen Ihr Partner Fragen zum Thema stellen. \nÜben Sie die Beantwortung dieser Art von Fragen."
+      },
+      "sections": {
+        "discussionQuestions": "Diskussionsfragen",
+        "examplePresentation": "Beispielpräsentation",
+        "topicTitle": "Thema"
+      }
     },
     "b2Part2": {
       "menuTitle": "Teil 2: Artikeldiskussion",
       "menuDescription": "Besprechen Sie kontroverse Themen aus Zeitschriftenartikeln",
-      "title": "Mündlicher Teil 2: Diskussion"
+      "title": "Mündlicher Teil 2: Diskussion",
+      "sections": {
+        "article": "Zeitschriftenartikel",
+        "summary": "Textzusammenfassung",
+        "discussion": "Beispieldiskussion"
+      },
+      "help": {
+        "summaryNote": "Fassen Sie zunächst kurz die Hauptpunkte des Artikels zusammen. \nKonzentrieren Sie sich auf die wichtigsten Argumente und Fakten.",
+        "discussionNote": "Besprechen Sie das Thema mit Ihrem Partner. \nBringen Sie Ihre Erfahrungen ein, äußern Sie Ihre Meinung, begründen Sie Ihre Argumente und sprechen Sie über Lösungsansätze."
+      },
+      "labels": {
+        "speaker": "Lautsprecher"
+      },
+      "tabs": {
+        "article": "Artikel",
+        "summary": "Zusammenfassung",
+        "discussion": "Diskussion"
+      }
     },
     "b2Part3": {
       "menuTitle": "Teil 3: Gemeinsam planen",
       "menuDescription": "Planen Sie etwas mit Ihrem Partner",
-      "title": "Mündlicher Teil 3: Problemlösung"
+      "title": "Mündlicher Teil 3: Problemlösung",
+      "tabs": {
+        "dialogue": "Beispiel",
+        "task": "Aufgabe"
+      },
+      "labels": {
+        "speaker": "Lautsprecher"
+      },
+      "help": {
+        "dialogueNote": "Arbeiten Sie mit Ihrem Partner zusammen, um etwas zu planen. \nÜberlegen Sie, was zu beachten ist, bringen Sie Ihre Ideen und Vorschläge ein und gehen Sie auf die Vorschläge Ihres Partners ein."
+      },
+      "sections": {
+        "dialogue": "Beispieldialog",
+        "task": "Planungsaufgabe"
+      }
     },
     "part1": {
       "subtitle": "Persönliche Präsentation",
@@ -1041,7 +1119,9 @@
       "sections": {
         "keyVocabulary": "Schlüsselwortschatz",
         "completeExample": "Vollständiges Beispiel",
-        "questions": "Fragen und Antworten"
+        "questions": "Fragen und Antworten",
+        "personalIntro": "Persönliche Vorstellung",
+        "myProfile": "Mein Profil"
       },
       "tabs": {
         "example": "Beispiel",
@@ -1073,14 +1153,42 @@
       }
     },
     "part2": {
-      "subtitle": "Themenpräsentation"
+      "subtitle": "Themenpräsentation",
+      "instructions": {
+        "taskDescription": "Ihre Aufgabe: Informieren Sie Ihren Gesprächspartner über den folgenden Text und besprechen Sie anschließend das Thema.",
+        "startingText": "Ihr Starttext für die Präsentation:"
+      },
+      "tabs": {
+        "yourRole": "Teilnehmer A",
+        "partnerRole": "Teilnehmer B"
+      },
+      "sections": {
+        "presentationExample": "Präsentationsbeispiel",
+        "discussion": "Diskussion (nach der Präsentation)",
+        "discussionNote": "Nutzen Sie diese Fragen, um das Gespräch mit Ihrem Partner fortzusetzen, Ihre Meinung zu äußern und Ihre eigenen Erfahrungen zu teilen."
+      },
+      "buttons": {
+        "hideExample": "Beispiel ausblenden",
+        "showExample": "Die Perspektive des Moderators (dritte Person)"
+      }
     },
     "part4": {
       "itemType": "Teil",
       "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können"
     },
     "part3": {
-      "subtitle": "Gemeinsam planen"
+      "subtitle": "Gemeinsam planen",
+      "tabs": {
+        "phrases": "Phrasen",
+        "vocabulary": "Vokabular",
+        "dialog": "Dialog"
+      },
+      "tableHeaders": {
+        "response": "Beispielantwort",
+        "suggestion": "Vorschlag / Aufgabe",
+        "english": "Englisch",
+        "german": "Deutsch"
+      }
     }
   },
   "results": {

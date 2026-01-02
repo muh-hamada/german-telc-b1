@@ -91,7 +91,8 @@
       "sun": "Dom"
     },
     "skip": "Saltar",
-    "loginRequired": "Iniciar sesión requerido"
+    "loginRequired": "Iniciar sesión requerido",
+    "failedToLoad": "No se pudo cargar"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -1005,26 +1006,103 @@
       "menuDescription": "Proporcione información importante sobre usted"
     },
     "a1Part3": {
-      "menuDescription": "Formular solicitudes y responder a solicitudes."
+      "menuDescription": "Formular solicitudes y responder a solicitudes.",
+      "cardsDescription": "Practique la formulación de solicitudes para diferentes situaciones.",
+      "steps": "Pasos",
+      "tabs": {
+        "cards": "Tarjetas de práctica",
+        "example": "Ejemplo",
+        "instructions": "Instrucciones"
+      },
+      "exampleRequest": "Solicitud de ejemplo",
+      "keywords": "Palabras clave",
+      "practiceCards": "Tarjetas de practica",
+      "exampleScenario": "Escenario de ejemplo",
+      "goal": "Meta"
     },
     "b2Structure": {
       "menuTitle": "Estructura y guía del examen oral",
-      "menuDescription": "Conoce la estructura, partes y requisitos del examen oral B2"
+      "menuDescription": "Conoce la estructura, partes y requisitos del examen oral B2",
+      "tabs": {
+        "hints": "Consejos",
+        "examParts": "Partes del examen",
+        "overview": "Descripción general"
+      },
+      "sections": {
+        "hints": "Consejos importantes",
+        "howItWorks": "Cómo funciona",
+        "expectations": "Lo que se espera"
+      },
+      "labels": {
+        "exampleArticle": "Artículo de muestra",
+        "topics": "Temas disponibles",
+        "sample": "Tarea de muestra",
+        "description": "Descripción",
+        "participants": "Participantes",
+        "duration": "Duración"
+      }
     },
     "b2Part1": {
       "menuTitle": "Parte 1: Presentación del tema",
       "menuDescription": "Presentar un tema y discutirlo.",
-      "title": "Parte Oral 1: Presentación"
+      "title": "Parte Oral 1: Presentación",
+      "tabs": {
+        "discussion": "Discusión",
+        "presentation": "Presentación"
+      },
+      "labels": {
+        "answer": "Respuesta",
+        "question": "Pregunta"
+      },
+      "help": {
+        "discussionNote": "Después de tu presentación, tu compañero te hará preguntas sobre el tema. \nPractica respondiendo este tipo de preguntas."
+      },
+      "sections": {
+        "discussionQuestions": "Preguntas de discusión",
+        "examplePresentation": "Presentación de muestra",
+        "topicTitle": "Tema"
+      }
     },
     "b2Part2": {
       "menuTitle": "Parte 2: Discusión del artículo",
       "menuDescription": "Discutir temas controvertidos de artículos de revistas.",
-      "title": "Parte Oral 2: Discusión"
+      "title": "Parte Oral 2: Discusión",
+      "sections": {
+        "article": "Artículo de revista",
+        "summary": "Resumen de texto",
+        "discussion": "Discusión de muestra"
+      },
+      "help": {
+        "summaryNote": "Primero resuma brevemente los puntos principales del artículo. \nConcéntrese en argumentos y hechos clave.",
+        "discussionNote": "Comenta el tema con tu pareja. \nTraiga sus experiencias, exprese su opinión, justifique sus argumentos y hable sobre posibles soluciones."
+      },
+      "labels": {
+        "speaker": "Vocero"
+      },
+      "tabs": {
+        "article": "Artículo",
+        "summary": "Resumen",
+        "discussion": "Discusión"
+      }
     },
     "b2Part3": {
       "menuTitle": "Parte 3: Planificar juntos",
       "menuDescription": "Planea algo con tu pareja",
-      "title": "Oral Parte 3: Resolución de problemas"
+      "title": "Oral Parte 3: Resolución de problemas",
+      "tabs": {
+        "dialogue": "Ejemplo",
+        "task": "Tarea"
+      },
+      "labels": {
+        "speaker": "Vocero"
+      },
+      "help": {
+        "dialogueNote": "Trabaja con tu pareja para planificar algo. \nPiense en lo que debe considerarse, aporte sus ideas y sugerencias y responda a las propuestas de su socio."
+      },
+      "sections": {
+        "dialogue": "Diálogo de muestra",
+        "task": "Tarea de planificación"
+      }
     },
     "part1": {
       "subtitle": "presentación personal",
@@ -1040,7 +1118,9 @@
       "sections": {
         "keyVocabulary": "Vocabulario clave",
         "completeExample": "Ejemplo completo",
-        "questions": "Preguntas y respuestas"
+        "questions": "Preguntas y respuestas",
+        "personalIntro": "Introducción personal",
+        "myProfile": "Mi perfil"
       },
       "tabs": {
         "example": "Ejemplo",
@@ -1072,14 +1152,42 @@
       }
     },
     "part2": {
-      "subtitle": "Presentación del tema"
+      "subtitle": "Presentación del tema",
+      "instructions": {
+        "taskDescription": "Su tarea: informar a su interlocutor sobre el siguiente texto y luego discutir el tema.",
+        "startingText": "Su texto inicial para la presentación:"
+      },
+      "tabs": {
+        "yourRole": "Participante A",
+        "partnerRole": "Participante B"
+      },
+      "sections": {
+        "presentationExample": "Ejemplo de presentación",
+        "discussion": "Discusión (después de la presentación)",
+        "discussionNote": "Utilice estas preguntas para continuar la conversación con su pareja, expresar su opinión y compartir sus propias experiencias."
+      },
+      "buttons": {
+        "hideExample": "Ocultar ejemplo",
+        "showExample": "La perspectiva del presentador (tercera persona)"
+      }
     },
     "part4": {
       "itemType": "Parte",
       "subtitle": "Frases comunes que puedes usar en muchas situaciones."
     },
     "part3": {
-      "subtitle": "Planificando juntos"
+      "subtitle": "Planificando juntos",
+      "tabs": {
+        "phrases": "Frases",
+        "vocabulary": "Vocabulario",
+        "dialog": "Diálogo"
+      },
+      "tableHeaders": {
+        "response": "Respuesta de muestra",
+        "suggestion": "Sugerencia / Tarea",
+        "english": "Inglés",
+        "german": "Alemán"
+      }
     }
   },
   "results": {
