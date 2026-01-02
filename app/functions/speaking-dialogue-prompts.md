@@ -1,9 +1,7 @@
-# Speaking Dialogue Generation Prompts
-
-Use these prompts to generate the static dialogues. Save the output of each as a JSON file in `app/functions/src/data/` or append them to a central JSON file.
+# Speaking Dialogue Generation
 
 ### Important Format Rules:
-- **AI Turns:** Use the key `"text"`.
+- **AI Turns:** Use the key `"text"`. The text should NOT mention "telc". Use greetings that fit all times of the day, like Hello and Welcome.
 - **User Turns:** Use the key `"instruction"`.
 - **Instruction Format:** The `instruction` must be an object containing translations for the following language codes: `de`, `ar`, `en`, `ru`, `es`, `fr`.
 - **Instruction Content:** Describe what the user is expected to say or do in that turn, translated into each of the 6 languages.
@@ -12,7 +10,6 @@ Use these prompts to generate the static dialogues. Save the output of each as a
 ---
 
 ## 1. German A1 (TELC)
-**Prompt:**
 Generate a realistic TELC German A1 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Personal Introduction** (AI asks simple introductory questions)
@@ -30,7 +27,6 @@ Requirements:
 ---
 
 ## 2. German B1 (TELC)
-**Prompt:**
 Generate a realistic TELC German B1 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Personal Introduction** (AI asks about hobbies/work)
@@ -48,7 +44,6 @@ Requirements:
 ---
 
 ## 3. German B2 (TELC)
-**Prompt:**
 Generate a realistic TELC German B2 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Presentation** (AI asks the user to start their presentation; User gives a short presentation; AI asks 1-2 follow-up questions)
@@ -66,7 +61,6 @@ Requirements:
 ---
 
 ## 4. English A1 (TELC)
-**Prompt:**
 Generate a realistic TELC English A1 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Personal Introduction** (AI asks simple introductory questions)
@@ -84,7 +78,6 @@ Requirements:
 ---
 
 ## 5. English B1 (TELC)
-**Prompt:**
 Generate a realistic TELC English B1 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Personal Introduction** (AI asks about interests/routine)
@@ -102,7 +95,6 @@ Requirements:
 ---
 
 ## 6. English B2 (TELC)
-**Prompt:**
 Generate a realistic TELC English B2 speaking assessment dialogue in JSON format.
 The dialogue must cover:
 1. **Part 1: Presentation** (AI asks the user to start their presentation; User gives a short presentation; AI asks 1-2 follow-up questions)

@@ -20,7 +20,7 @@ interface LoginModalProps {
   visible: boolean;
   onClose: () => void;
   onSuccess?: () => void;
-  onFailure?: () => void;
+  onFailure?: (error?: any) => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({
@@ -72,7 +72,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
       }
 
       // Error is handled by the auth context and will be displayed
-      onFailure?.();
+      onFailure?.(error);
     }
   };
 

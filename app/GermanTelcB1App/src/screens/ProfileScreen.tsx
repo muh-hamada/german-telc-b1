@@ -173,8 +173,11 @@ const ProfileScreen: React.FC = () => {
     Alert.alert(t('common.success'), t('profile.alerts.signedInSuccess'));
   };
 
-  const handleLoginFailure = () => {
-    logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED);
+  const handleLoginFailure = (error?: any) => {
+    logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, {
+      error_code: error?.code || 'unknown',
+      error_message: error?.message || 'Unknown error'
+    });
     Alert.alert(t('common.error'), t('profile.alerts.signInFailed'));
   };
 

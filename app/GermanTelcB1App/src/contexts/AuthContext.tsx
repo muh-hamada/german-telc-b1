@@ -196,7 +196,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'google' });
     } catch (error: any) {
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'google' });
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { 
+        method: 'google',
+        error_code: error?.code || 'unknown',
+        error_message: error?.message || 'Unknown error'
+      });
       handleAuthError(error);
     }
   };
@@ -216,7 +220,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'apple' });
     } catch (error: any) {
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'apple' });
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { 
+        method: 'apple',
+        error_code: error?.code || 'unknown',
+        error_message: error?.message || 'Unknown error'
+      });
       handleAuthError(error);
     }
   };
@@ -231,7 +239,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'twitter' });
     } catch (error: any) {
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'twitter' });
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { 
+        method: 'twitter',
+        error_code: error?.code || 'unknown',
+        error_message: error?.message || 'Unknown error'
+      });
       handleAuthError(error);
     }
   };
@@ -246,7 +258,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'email' });
     } catch (error: any) {
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'email' });
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { 
+        method: 'email',
+        error_code: error?.code || 'unknown',
+        error_message: error?.message || 'Unknown error'
+      });
       handleAuthError(error);
     }
   };
@@ -270,7 +286,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_USER', payload: user });
       logEvent(AnalyticsEvents.AUTH_LOGIN_SUCCESS, { method: 'email_signup' });
     } catch (error: any) {
-      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { method: 'email_signup' });
+      logEvent(AnalyticsEvents.PROFILE_LOGIN_FAILED, { 
+        method: 'email_signup',
+        error_code: error?.code || 'unknown',
+        error_message: error?.message || 'Unknown error'
+      });
       handleAuthError(error);
     }
   };
