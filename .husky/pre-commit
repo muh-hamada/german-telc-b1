@@ -1,0 +1,16 @@
+echo "🔍 Running i18n translation key verification..."
+
+# Run the i18n verification script from the GermanTelcB1App directory
+cd app/GermanTelcB1App && ./scripts/verify-i18n.sh
+
+# If the script fails, prevent commit
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "❌ Commit blocked: Translation keys are missing in one or more locales"
+    echo "Please add the missing translation keys before committing"
+    exit 1
+fi
+
+echo ""
+echo "✅ Translation verification passed - proceeding with commit"
+exit 0

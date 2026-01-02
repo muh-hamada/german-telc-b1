@@ -103,7 +103,7 @@ node scripts/apply-exam-config.js <exam-id> <platform>
 ---
 
 ### 4. `verify-i18n.sh`
-**Purpose**: Verifies translation file consistency across all languages.
+**Purpose**: Verifies translation file consistency across all languages and ensures all locales have matching keys with the English reference.
 
 **Usage**:
 ```bash
@@ -111,9 +111,58 @@ node scripts/apply-exam-config.js <exam-id> <platform>
 ```
 
 **What it does**:
-- Checks for missing translation keys
-- Validates translation file structure
-- Reports inconsistencies across languages
+1. Clears Metro bundler and watchman caches
+2. Verifies all translation files exist (en, de, ar, es, fr, ru)
+3. Validates JSON syntax for all locale files
+4. Extracts all keys from each locale file
+5. Compares each locale against English (reference) to find:
+   - Missing keys (keys in en.json but not in other locales)
+   - Reports missing locale files
+6. Verifies i18n.ts configuration
+7. Checks active exam configuration
+
+**Exit Codes**:
+- `0` - All translation keys are in sync across all locales
+- `1` - Missing translation keys detected or validation failed
+
+**Pre-commit Hook**:
+This script runs automatically as a pre-commit hook to prevent commits with missing translation keys. If any locale is missing keys that exist in en.json, the commit will be blocked.
+
+**Important**:
+- English (en.json) is always used as the reference
+- All other locales must have exactly the same keys as English
+- Missing locale files are treated as failures
+- Invalid JSON syntax will fail the verification
+
+---
+
+## Git Hooks
+
+### Pre-commit Hook
+The project uses [Husky](https://typicode.github.io/husky/) to manage git hooks. A pre-commit hook is configured at the repository root (`../../.husky/pre-commit`) that automatically runs the `verify-i18n.sh` script before every commit.
+
+**What happens during pre-commit**:
+1. The hook runs `verify-i18n.sh` automatically
+2. If translation keys are missing in any locale:
+   - The commit is **blocked**
+   - An error message shows which keys are missing in which locales
+   - You must add the missing translation keys before committing
+3. If all translations are in sync:
+   - The commit proceeds normally
+
+**Setup** (already configured):
+```bash
+# Husky is installed and configured at the project root
+# Pre-commit hook location: ../../.husky/pre-commit
+```
+
+**Bypassing the hook** (not recommended):
+```bash
+# Only use this if absolutely necessary
+git commit --no-verify -m "your message"
+```
+
+**Important**: The pre-commit hook ensures that incomplete translations are never pushed to GitHub, maintaining translation consistency across all languages.
 
 ---
 

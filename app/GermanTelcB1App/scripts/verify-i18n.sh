@@ -110,6 +110,8 @@ for locale in "${LOCALES[@]}"; do
     
     FILE="src/locales/${locale}.json"
     if [ ! -f "$FILE" ]; then
+        echo -e "${RED}✗ Missing locale file: ${locale}.json${NC}"
+        MISSING_KEYS_FOUND=true
         continue
     fi
     
@@ -129,7 +131,7 @@ for locale in "${LOCALES[@]}"; do
         if [ -n "$MISSING" ]; then
             echo -e "${RED}✗ Missing keys in ${locale}.json:${NC}"
             echo "$MISSING" | while read key; do
-                echo -e "${RED}  - $key${NC}"
+                [ -n "$key" ] && echo -e "${RED}  - $key${NC}"
             done
             MISSING_KEYS_FOUND=true
         fi
@@ -166,19 +168,15 @@ fi
 # Final summary
 echo -e "\n${GREEN}========================================${NC}"
 if [ "$MISSING_KEYS_FOUND" = true ]; then
-    echo -e "${RED}⚠ Missing translation keys detected!${NC}"
-    echo -e "${YELLOW}Please add the missing keys to the respective locale files${NC}"
+    echo -e "${RED}❌ Translation verification FAILED!${NC}"
+    echo -e "${RED}Missing translation keys detected!${NC}"
+    echo -e "${YELLOW}Please add the missing keys to the respective locale files before committing${NC}"
     echo -e "${GREEN}========================================${NC}"
     exit 1
 else
     echo -e "${GREEN}✓ i18n verification complete!${NC}"
+    echo -e "${GREEN}All translation keys are in sync${NC}"
     echo -e "${GREEN}========================================${NC}"
 fi
-
-echo -e "\n${YELLOW}Next steps:${NC}"
-echo -e "1. Start Metro bundler with cache reset:"
-echo -e "   ${GREEN}npm start -- --reset-cache${NC}"
-echo -e "\n2. In a new terminal, run the app:"
-echo -e "   ${GREEN}npm run ios${NC} or ${GREEN}npm run android${NC}"
 
 exit 0
