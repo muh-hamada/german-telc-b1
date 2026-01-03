@@ -98,6 +98,20 @@ const MockExamRunningScreen: React.FC = () => {
     }
   };
 
+  const handleGoBack = () => {
+    // Check if we can go back, otherwise navigate to Main
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+    } else {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: 'Main' }],
+        })
+      );
+    }
+  };
+
   const handleExitExam = () => {
     logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_PROMPT_SHOWN);
     Alert.alert(
@@ -110,17 +124,7 @@ const MockExamRunningScreen: React.FC = () => {
           style: 'destructive',
           onPress: () => {
             logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CONFIRMED);
-            // Check if we can go back, otherwise navigate to Main
-            if (navigation.canGoBack()) {
-              navigation.goBack();
-            } else {
-              navigation.dispatch(
-                CommonActions.reset({
-                  index: 0,
-                  routes: [{ name: 'Main' }],
-                })
-              );
-            }
+            handleGoBack();
           },
         },
       ]

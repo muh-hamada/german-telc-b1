@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState, useMemo, useEffect } from 'react';
+import { StyleSheet, View, Image } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { RootStackParamList } from '../types/navigation.types';
 import { spacing, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
@@ -26,6 +27,31 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   } = useLanguageChange();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  const { globalConfig } = useRemoteConfig();
+
+  // Preload onboarding images for better UX
+  useEffect(() => {
+    const prefetchImages = async () => {
+      const images = globalConfig?.onboardingImages || [];
+      if (images.length > 0) {
+        console.log('[OnboardingScreen] Prefetching onboarding images...');
+        try {
+          await Promise.all(
+            images.map((url) => 
+              Image.prefetch(url).catch((error) => {
+                console.warn('[OnboardingScreen] Failed to prefetch image:', url, error);
+              })
+            )
+          );
+          console.log('[OnboardingScreen] Successfully prefetched all onboarding images');
+        } catch (error) {
+          console.error('[OnboardingScreen] Error prefetching images:', error);
+        }
+      }
+    };
+
+    prefetchImages();
+  }, [globalConfig?.onboardingImages]);
 
   const handleLanguageChange = async (lang: string) => {
     setSelectedLanguage(lang);

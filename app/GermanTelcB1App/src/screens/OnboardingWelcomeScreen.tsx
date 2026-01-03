@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { View, StyleSheet, Modal, Text, TouchableOpacity } from 'react-native';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { View, StyleSheet, Modal, Text, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -14,6 +14,7 @@ import Button from '../components/Button';
 import PremiumContent from '../components/PremiumContent';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createInitialMockExamProgress, saveMockExamProgress } from '../services/mock-exam.service';
 
 type OnboardingWelcomeScreenProps = StackScreenProps<RootStackParamList, 'OnboardingWelcome'>;
 
@@ -31,35 +32,114 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
   // Get onboarding images from remote config
   const onboardingImages = globalConfig?.onboardingImages || [];
 
+  // Track screen view on mount
+  useEffect(() => {
+    logEvent(AnalyticsEvents.ONBOARDING_WELCOME_SCREEN_VIEWED, {
+      timestamp: Date.now(),
+    });
+  }, []);
+
+  // Track step views
+  useEffect(() => {
+    logEvent(AnalyticsEvents.ONBOARDING_STEP_VIEWED, {
+      step: currentStep + 1,
+      stepName: getStepName(currentStep),
+      totalSteps: TOTAL_STEPS,
+    });
+  }, [currentStep]);
+
+  // Track when user leaves the screen (abandons flow)
+  useEffect(() => {
+    return () => {
+      // Only log abandonment if user hasn't completed onboarding
+      AsyncStorage.getItem('hasLaunched').then((hasLaunched) => {
+        if (!hasLaunched) {
+          logEvent(AnalyticsEvents.ONBOARDING_FLOW_ABANDONED, {
+            lastStep: currentStep + 1,
+            lastStepName: getStepName(currentStep),
+          });
+        }
+      });
+    };
+  }, [currentStep]);
+
+  const getStepName = (step: number): string => {
+    const stepNames = ['welcome', 'coverage', 'writing', 'speaking', 'ready'];
+    return stepNames[step] || 'unknown';
+  };
+
   const handleNext = useCallback(() => {
     if (currentStep < TOTAL_STEPS - 1) {
+      logEvent(AnalyticsEvents.ONBOARDING_NEXT_CLICKED, {
+        fromStep: currentStep + 1,
+        fromStepName: getStepName(currentStep),
+        toStep: currentStep + 2,
+        toStepName: getStepName(currentStep + 1),
+      });
+      
+      logEvent(AnalyticsEvents.ONBOARDING_STEP_COMPLETED, {
+        step: currentStep + 1,
+        stepName: getStepName(currentStep),
+      });
+      
       setCurrentStep(prev => prev + 1);
-      logEvent(AnalyticsEvents.ONBOARDING_STEP_COMPLETED, { step: currentStep + 1 });
     }
   }, [currentStep]);
 
   const handleBack = useCallback(() => {
     if (currentStep === 0) {
       // On first step, go back to language selection
+      logEvent(AnalyticsEvents.ONBOARDING_BACK_CLICKED, {
+        fromStep: 1,
+        fromStepName: 'welcome',
+        destination: 'language_selection',
+      });
       navigation.goBack();
     } else {
+      logEvent(AnalyticsEvents.ONBOARDING_BACK_CLICKED, {
+        fromStep: currentStep + 1,
+        fromStepName: getStepName(currentStep),
+        toStep: currentStep,
+        toStepName: getStepName(currentStep - 1),
+      });
       setCurrentStep(prev => prev - 1);
     }
   }, [currentStep, navigation]);
 
   const handleStartExam = useCallback(async () => {
-    logEvent(AnalyticsEvents.ONBOARDING_START_EXAM_CLICKED);
+    logEvent(AnalyticsEvents.ONBOARDING_START_EXAM_CLICKED, {
+      step: TOTAL_STEPS,
+      stepName: 'ready',
+    });
 
     await AsyncStorage.setItem('hasLaunched', 'true');
 
     // Show premium upsell modal
     setShowPremiumModal(true);
+    
+    logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_MODAL_SHOWN, {
+      source: 'start_exam_button',
+    });
   }, []);
 
   const handleViewSections = useCallback(async () => {
-    logEvent(AnalyticsEvents.ONBOARDING_VIEW_SECTIONS_CLICKED);
+    logEvent(AnalyticsEvents.ONBOARDING_LATER_CLICKED, {
+      step: TOTAL_STEPS,
+      stepName: 'ready',
+    });
+    
+    logEvent(AnalyticsEvents.ONBOARDING_VIEW_SECTIONS_CLICKED, {
+      step: TOTAL_STEPS,
+      stepName: 'ready',
+    });
 
     await AsyncStorage.setItem('hasLaunched', 'true');
+    
+    logEvent(AnalyticsEvents.ONBOARDING_COMPLETED, {
+      completedSteps: TOTAL_STEPS,
+      action: 'view_sections',
+      timestamp: Date.now(),
+    });
 
     // Navigate to main app
     navigation.reset({
@@ -69,7 +149,19 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
   }, [navigation]);
 
   const handlePremiumModalClose = useCallback(() => {
+    logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_MODAL_CLOSED, {
+      source: 'close_button',
+      hadPurchase: false,
+    });
+    
     setShowPremiumModal(false);
+    
+    logEvent(AnalyticsEvents.ONBOARDING_COMPLETED, {
+      completedSteps: TOTAL_STEPS,
+      action: 'dismiss_premium',
+      timestamp: Date.now(),
+    });
+    
     // After modal closed, navigate to main app
     navigation.reset({
       index: 0,
@@ -78,9 +170,33 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
   }, [navigation]);
 
   const handlePurchasePress = useCallback(async () => {
+    logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_PURCHASE_CLICKED, {
+      source: 'onboarding_modal',
+    });
+    
     try {
       const success = await purchasePremium();
       if (success) {
+        logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_PURCHASE_SUCCESS, {
+          source: 'onboarding_modal',
+        });
+        
+        logEvent(AnalyticsEvents.ONBOARDING_COMPLETED, {
+          completedSteps: TOTAL_STEPS,
+          action: 'purchased_premium',
+          timestamp: Date.now(),
+        });
+        
+        try {
+          // Create and save initial progress
+          const initialProgress = await createInitialMockExamProgress();
+          await saveMockExamProgress(initialProgress);
+          navigation.navigate('MockExamRunning');
+        } catch (error) {
+          console.error('Error starting exam:', error);
+          Alert.alert(t('common.error'), t('mockExam.couldNotStartExam'));
+        }
+
         // After successful purchase, close modal and go to main app
         setShowPremiumModal(false);
         navigation.reset({
@@ -90,8 +206,12 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
       }
     } catch (error) {
       console.error('[OnboardingWelcome] Purchase error:', error);
+      logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_PURCHASE_FAILED, {
+        source: 'onboarding_modal',
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
     }
-  }, [purchasePremium, navigation]);
+  }, [purchasePremium, navigation, t]);
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -152,7 +272,7 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
         <View style={[styles.ctaButtonsContainer]}>
           <TouchableOpacity onPress={handleViewSections} style={styles.secondaryTextButton}>
             <Text style={styles.secondaryButtonText}>
-              {t('onboarding.buttons.viewSections')}
+              {t('onboarding.buttons.later')}
             </Text>
           </TouchableOpacity>
           <Button
@@ -161,7 +281,7 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
             style={styles.primaryButton}
             textStyle={styles.primaryButtonText}
             variant="primary"
-            size="large"
+            size="medium"
           />
         </View>
       );
@@ -251,7 +371,6 @@ const createStyles = (colors: ThemeColors) =>
     nextButton: {
       width: '70%',
       borderRadius: 20,
-      // minHeight: 56,
     },
     ctaButtonsContainer: {
       flexDirection: 'row',
@@ -260,8 +379,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     primaryButton: {
       flex: 1,
-      borderRadius: 28,
-      minHeight: 56,
+      borderRadius: 20,
     },
     primaryButtonText: {
       textAlign: 'center',
