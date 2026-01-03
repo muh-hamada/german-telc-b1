@@ -9,7 +9,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { activeExamConfig } from '../config/active-exam.config';
@@ -110,7 +110,17 @@ const MockExamRunningScreen: React.FC = () => {
           style: 'destructive',
           onPress: () => {
             logEvent(AnalyticsEvents.MOCK_EXAM_EXIT_CONFIRMED);
-            navigation.goBack();
+            // Check if we can go back, otherwise navigate to Main
+            if (navigation.canGoBack()) {
+              navigation.goBack();
+            } else {
+              navigation.dispatch(
+                CommonActions.reset({
+                  index: 0,
+                  routes: [{ name: 'Main' }],
+                })
+              );
+            }
           },
         },
       ]

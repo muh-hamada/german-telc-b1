@@ -19,6 +19,7 @@ export interface SupportAdIntervalsConfig {
  */
 export interface GlobalConfig {
   supportAdIntervals: SupportAdIntervalsConfig;
+  onboardingImages: string[]; // Array of 5 image URLs for onboarding steps
   updatedAt: number;
 }
 
@@ -69,6 +70,13 @@ export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
 
 export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
   supportAdIntervals: DEFAULT_SUPPORT_AD_INTERVALS,
+  onboardingImages: [
+    'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-1.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-2.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-3.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-4.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-5.png?alt=media',
+  ],
   updatedAt: Date.now(),
 };
 

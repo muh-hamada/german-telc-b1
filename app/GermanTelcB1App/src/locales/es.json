@@ -120,7 +120,10 @@
     "noAnswer": "(Sin respuesta)"
   },
   "onboarding": {
-    "welcome": "Preparémonos juntos para el examen de {{language}} TELC {{level}}",
+    "welcome": {
+      "title": "Prepárate para tu examen Telc con confianza",
+      "text": "Practica con exámenes de práctica realistas diseñados para coincidir con el formato, dificultad y estructura del examen real."
+    },
     "selectLanguage": "Selecciona tu idioma de interfaz",
     "languages": {
       "en": "English",
@@ -136,6 +139,28 @@
       "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen TELC real.",
       "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen TELC real. Esta es sólo una herramienta de práctica y preparación.",
       "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC {{level}} real."
+    },
+    "buttons": {
+      "next": "Siguiente",
+      "back": "Atrás",
+      "startExam": "Empezar mi primer examen simulado",
+      "viewSections": "Ver todas las secciones"
+    },
+    "coverage": {
+      "title": "Todo lo que necesitas para el examen Telc",
+      "text": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla."
+    },
+    "writing": {
+      "title": "Obtén comentarios reales sobre tu escritura",
+      "text": "Evaluación con IA entrenada con criterios oficiales de Telc te da puntuaciones claras, comentarios detallados, fortalezas y áreas a mejorar, y respuestas modelo."
+    },
+    "speaking": {
+      "title": "Prepárate para el examen oral",
+      "text": "Practica hablar con módulos estructurados para cada tarea del examen y comentarios de IA sobre pronunciación, gramática, vocabulario y fluidez."
+    },
+    "ready": {
+      "title": "¿Listo para probar tu primer examen de práctica?",
+      "text": "Experimenta el examen Telc exactamente como será el día del examen."
     }
   },
   "navigation": {

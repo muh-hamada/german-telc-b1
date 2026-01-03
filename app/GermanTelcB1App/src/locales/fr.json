@@ -120,7 +120,10 @@
     "noAnswer": "(Pas de réponse)"
   },
   "onboarding": {
-    "welcome": "Préparons ensemble l'examen {{language}} TELC {{level}}",
+    "welcome": {
+      "title": "Préparez-vous à votre examen Telc en toute confiance",
+      "text": "Pratiquez avec des examens blancs réalistes conçus pour correspondre au format, à la difficulté et à la structure de l'examen réel."
+    },
     "selectLanguage": "Sélectionnez la langue de votre interface",
     "languages": {
       "en": "English",
@@ -136,6 +139,28 @@
       "text2": "Tous les matériaux de pratique, questions et exercices de cette application sont créés de manière indépendante en utilisant la technologie de l'IA et des ressources gratuites disponibles en ligne. Nous utilisons ces ressources pour générer des questions qui simulent la complexité et le format du véritable examen TELC.",
       "text3": "La réalisation des exercices dans cette application ne garantit pas le succès ou l'échec de l'examen TELC proprement dit. Ceci est uniquement un outil de pratique et de préparation.",
       "checkboxLabel": "Je comprends que cette application n'est qu'un outil de simulation pour la préparation à l'examen et n'est pas une application officielle TELC. Je reconnais que l'utilisation de cette application ne garantit aucun résultat spécifique à l'examen TELC {{level}} réel."
+    },
+    "buttons": {
+      "next": "Suivant",
+      "back": "Retour",
+      "startExam": "Commencer mon premier examen blanc",
+      "viewSections": "Voir toutes les rubriques"
+    },
+    "coverage": {
+      "title": "Tout ce dont vous avez besoin pour l'examen Telc",
+      "text": "Pratiquez toutes les sections de l'examen: Lecture, Écoute, Écriture et Expression orale."
+    },
+    "writing": {
+      "title": "Obtenez de vrais commentaires sur votre écriture",
+      "text": "Évaluation par IA formée sur les critères officiels Telc vous donne des notes claires, des commentaires détaillés, points forts et domaines à améliorer, et réponses modèles."
+    },
+    "speaking": {
+      "title": "Préparez-vous à l'examen oral",
+      "text": "Pratiquez la parole avec modules structurés pour chaque tâche de l'examen et commentaires IA sur la prononciation, la grammaire, le vocabulaire et la fluidité."
+    },
+    "ready": {
+      "title": "Prêt à essayer votre premier examen blanc?",
+      "text": "Vivez l'examen Telc exactement comme il sera le jour du test."
     }
   },
   "navigation": {

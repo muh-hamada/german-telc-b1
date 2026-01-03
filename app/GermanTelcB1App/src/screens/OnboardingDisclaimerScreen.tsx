@@ -28,7 +28,7 @@ const OnboardingDisclaimerScreen: React.FC<OnboardingDisclaimerScreenProps> = ({
       await AsyncStorage.setItem('disclaimerAccepted', 'true');
       navigation.reset({
         index: 0,
-        routes: [{ name: 'Main' }],
+        routes: [{ name: 'OnboardingWelcome' }],
       });
     } catch (error) {
       console.log('Error saving launch state:', error);

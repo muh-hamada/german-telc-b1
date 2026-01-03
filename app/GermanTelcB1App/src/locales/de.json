@@ -120,7 +120,10 @@
     "noAnswer": "(Keine Antwort)"
   },
   "onboarding": {
-    "welcome": "Lass uns gemeinsam für die {{language}} TELC {{level}} Prüfung lernen",
+    "welcome": {
+      "title": "Bereiten Sie sich mit Zuversicht auf Ihre Telc-Prüfung vor",
+      "text": "Üben Sie mit realistischen Probeprüfungen, die dem echten Prüfungsformat, Schwierigkeitsgrad und der Struktur entsprechen."
+    },
     "selectLanguage": "Wählen Sie Ihre Sprache",
     "languages": {
       "en": "English",
@@ -136,6 +139,28 @@
       "text2": "Alle Übungsmaterialien, Fragen und Übungen in dieser App werden unabhängig mithilfe von KI-Technologie und öffentlich verfügbaren kostenlosen Online-Ressourcen erstellt. Wir verwenden diese Ressourcen, um Fragen zu generieren, die die Komplexität und das Format der echten TELC-Prüfung simulieren.",
       "text3": "Das Abschließen von Übungen in dieser App garantiert weder Erfolg noch Misserfolg in der tatsächlichen TELC-Prüfung. Dies ist nur ein Übungs- und Vorbereitungstool.",
       "checkboxLabel": "Ich verstehe, dass diese App nur ein Simulationstool zur Prüfungsvorbereitung ist und keine offizielle TELC-Anwendung. Ich bestätige, dass die Nutzung dieser App keine bestimmten Ergebnisse in der tatsächlichen TELC {{level}} Prüfung garantiert."
+    },
+    "buttons": {
+      "next": "Weiter",
+      "back": "Zurück",
+      "startExam": "Beginne meine erste Probeprüfung",
+      "viewSections": "Alle Abschnitte anzeigen"
+    },
+    "coverage": {
+      "title": "Alles, was Sie für die Telc-Prüfung brauchen",
+      "text": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen."
+    },
+    "writing": {
+      "title": "Erhalten Sie echtes Feedback zu Ihrem Schreiben",
+      "text": "KI-gestützte Bewertung nach offiziellen Telc-Kriterien gibt Ihnen klare Bewertungen, detailliertes Feedback, Stärken und Verbesserungsbereiche sowie Musterantworten."
+    },
+    "speaking": {
+      "title": "Bereiten Sie sich auf die mündliche Prüfung vor",
+      "text": "Üben Sie das Sprechen mit strukturierten Modulen für jede Prüfungsaufgabe und KI-Feedback zu Aussprache, Grammatik, Wortschatz und Flüssigkeit."
+    },
+    "ready": {
+      "title": "Bereit für Ihre erste Probeklausur?",
+      "text": "Erleben Sie die Telc-Prüfung genau so, wie sie am Prüfungstag sein wird."
     }
   },
   "navigation": {

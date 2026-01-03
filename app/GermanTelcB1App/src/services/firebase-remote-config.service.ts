@@ -193,6 +193,9 @@ class FirebaseRemoteConfigService {
           grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
           vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
         },
+        onboardingImages: Array.isArray(data.onboardingImages)
+          ? data.onboardingImages
+          : DEFAULT_GLOBAL_CONFIG.onboardingImages,
         updatedAt: data.updatedAt || Date.now(),
       };
 
@@ -235,6 +238,9 @@ class FirebaseRemoteConfigService {
               grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
               vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
             },
+            onboardingImages: Array.isArray(data.onboardingImages)
+              ? data.onboardingImages
+              : DEFAULT_GLOBAL_CONFIG.onboardingImages,
             updatedAt: data.updatedAt || Date.now(),
           };
 

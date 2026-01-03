@@ -120,7 +120,10 @@
     "noAnswer": "(No answer)"
   },
   "onboarding": {
-    "welcome": "Let's prepare for the {{language}} TELC {{level}} exam together",
+    "welcome": {
+      "title": "Prepare for your Telc exam with confidence",
+      "text": "Practice with realistic mock exams designed to match the real exam format, difficulty, and structure."
+    },
     "selectLanguage": "Select your interface language",
     "languages": {
       "en": "English",
@@ -136,6 +139,28 @@
       "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real TELC exam.",
       "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only.",
       "checkboxLabel": "I understand that this app is only a simulation tool for exam preparation and is not an official TELC application. I acknowledge that using this app does not guarantee any specific results in the actual TELC {{level}} exam."
+    },
+    "buttons": {
+      "next": "Next",
+      "back": "Back",
+      "startExam": "Start my first mock exam",
+      "viewSections": "View all sections"
+    },
+    "coverage": {
+      "title": "Everything you need for the Telc exam",
+      "text": "Practice all exam sections: Reading, Listening, Writing, and Speaking."
+    },
+    "writing": {
+      "title": "Get real feedback on your writing",
+      "text": "AI-powered evaluation trained on official Telc criteria gives you clear scores, detailed feedback, strengths and areas to improve, and model answers."
+    },
+    "speaking": {
+      "title": "Prepare for the speaking exam",
+      "text": "Practice speaking with structured modules for each exam task and AI feedback on pronunciation, grammar, vocabulary, and fluency."
+    },
+    "ready": {
+      "title": "Ready to try your first mock exam?",
+      "text": "Experience the Telc exam exactly as it will be on test day."
     }
   },
   "navigation": {

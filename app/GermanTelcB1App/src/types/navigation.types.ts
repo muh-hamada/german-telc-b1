@@ -4,6 +4,7 @@ import { ListeningPracticeInterview } from './exam.types';
 // Root Stack Navigator
 export type RootStackParamList = {
   Onboarding: undefined;
+  OnboardingWelcome: undefined;
   OnboardingDisclaimer: undefined;
   Main: NavigatorScreenParams<MainTabParamList>;
   MockExamRunning: undefined;

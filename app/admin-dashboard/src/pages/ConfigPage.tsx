@@ -39,7 +39,15 @@ export const ConfigPage: React.FC = () => {
         configService.getAllAppConfigs(),
       ]);
 
-      setGlobalConfig(global || DEFAULT_GLOBAL_CONFIG);
+      // Ensure global config has all required fields with defaults
+      const fullGlobalConfig: GlobalConfig = {
+        ...DEFAULT_GLOBAL_CONFIG,
+        ...global,
+        // Ensure onboardingImages is always an array
+        onboardingImages: global?.onboardingImages || DEFAULT_GLOBAL_CONFIG.onboardingImages,
+      };
+
+      setGlobalConfig(fullGlobalConfig);
       setAppConfigs(allAppConfigs);
     } catch (error: any) {
       console.error('Error loading configs:', error);
@@ -248,6 +256,34 @@ export const ConfigPage: React.FC = () => {
                     className="config-input"
                   />
                 </div>
+              </div>
+
+              <div className="config-group">
+                <h3>Onboarding Images</h3>
+                <p className="config-group-description">
+                  Configure the 5 images shown in the onboarding flow (Firebase Storage URLs)
+                </p>
+
+                {[0, 1, 2, 3, 4].map((index) => (
+                  <div className="config-field" key={index}>
+                    <label htmlFor={`onboardingImage${index}`}>
+                      Step {index + 1} Image URL
+                      <span className="field-hint">Firebase Storage URL for onboarding step {index + 1}</span>
+                    </label>
+                    <input
+                      id={`onboardingImage${index}`}
+                      type="text"
+                      value={globalConfig.onboardingImages?.[index] || ''}
+                      onChange={(e) => {
+                        const newImages = [...(globalConfig.onboardingImages || [])];
+                        newImages[index] = e.target.value;
+                        updateGlobalConfig({ onboardingImages: newImages });
+                      }}
+                      className="config-input"
+                      placeholder="https://firebasestorage.googleapis.com/..."
+                    />
+                  </div>
+                ))}
               </div>
 
               <div className="config-actions">

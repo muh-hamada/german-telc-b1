@@ -34,7 +34,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
 
   const handleGoPress = () => {
     logEvent(AnalyticsEvents.ONBOARDING_LANGUAGE_SELECTED, { language: selectedLanguage });
-    navigation.navigate('OnboardingDisclaimer');
+    navigation.navigate('OnboardingWelcome');
   };
 
   return (

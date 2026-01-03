@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from '../types/navigation.types';
 import OnboardingScreen from '../screens/OnboardingScreen';
+import OnboardingWelcomeScreen from '../screens/OnboardingWelcomeScreen';
 import OnboardingDisclaimerScreen from '../screens/OnboardingDisclaimerScreen';
 import TabNavigator from './TabNavigator';
 import MockExamRunningScreen from '../screens/MockExamRunningScreen';
@@ -62,15 +63,10 @@ const RootNavigator: React.FC = () => {
           // no-op
         }
       }}
-      onError={(error) => {
-        // Log the error but don't crash the app
-        console.warn('Navigation error caught:', error);
-        // Error is logged but app continues to function
-      }}
       theme={navigationTheme}
     >
       <Stack.Navigator
-        initialRouteName={isFirstLaunch ? 'Onboarding' : 'Main'}
+        initialRouteName={!isFirstLaunch ? 'Onboarding' : 'Main'}
         screenOptions={{
           headerShown: false,
           cardStyle: { backgroundColor: colors.background.primary },
@@ -78,6 +74,7 @@ const RootNavigator: React.FC = () => {
       >
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="OnboardingDisclaimer" component={OnboardingDisclaimerScreen} />
+        <Stack.Screen name="OnboardingWelcome" component={OnboardingWelcomeScreen} />
         <Stack.Screen name="Main" component={TabNavigator} />
         <Stack.Screen name="MockExamRunning" component={MockExamRunningScreen} />
       </Stack.Navigator>

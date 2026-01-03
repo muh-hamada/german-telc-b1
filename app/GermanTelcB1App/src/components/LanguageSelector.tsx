@@ -39,7 +39,6 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   
   const handleLanguageSelect = (languageCode: string) => {
     setSelectedLanguage(languageCode);
-    i18n.changeLanguage(languageCode);
     onLanguageSelect?.(languageCode);
   };
 
