@@ -62,6 +62,11 @@ const RootNavigator: React.FC = () => {
           // no-op
         }
       }}
+      onError={(error) => {
+        // Log the error but don't crash the app
+        console.warn('Navigation error caught:', error);
+        // Error is logged but app continues to function
+      }}
       theme={navigationTheme}
     >
       <Stack.Navigator

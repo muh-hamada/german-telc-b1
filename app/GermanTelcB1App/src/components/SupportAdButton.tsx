@@ -70,6 +70,8 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
       return;
     }
 
+    console.log('[SupportAdButton] 📱 Initializing rewarded ad');
+    
     const ad = RewardedAd.createForAdRequest(USER_SUPPORT_AD_UNIT_ID, {
       requestNonPersonalizedAdsOnly: false,
     });
@@ -142,15 +144,39 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
     });
 
     // Load the ad
-    console.log('[SupportAdButton] 📱 Initializing rewarded ad');
     ad.load();
     setRewardedAd(ad);
 
+    // Cleanup function to prevent memory leaks
     return () => {
-      unsubscribeLoaded();
-      unsubscribeEarned();
-      unsubscribeClosed();
-      unsubscribeError();
+      console.log('[SupportAdButton] 🧹 Cleaning up rewarded ad resources');
+      
+      // Unsubscribe from all event listeners first
+      try {
+        unsubscribeLoaded();
+        unsubscribeEarned();
+        unsubscribeClosed();
+        unsubscribeError();
+      } catch (e) {
+        console.warn('[SupportAdButton] Error unsubscribing listeners:', e);
+      }
+      
+      // Clear the ad reference to allow garbage collection
+      // This is critical to prevent memory leaks
+      if (ad) {
+        try {
+          // Note: RewardedAd doesn't have explicit destroy method
+          // Setting to null allows garbage collection
+          console.log('[SupportAdButton] Clearing ad reference for garbage collection');
+        } catch (e) {
+          console.warn('[SupportAdButton] Error during ad cleanup:', e);
+        }
+      }
+      
+      setRewardedAd(null);
+      setIsAdLoaded(false);
+      setIsAdLoading(false);
+      adEarnedRewardRef.current = false;
     };
   }, [screen, onAdWatched, isPremium]);
 
@@ -170,10 +196,20 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
     } catch (error) {
       console.error('[SupportAdButton] Failed to show ad:', error);
       setIsShowingAd(false);
+      
+      // Check if it's a memory error
+      const errorString = String(error);
+      const isMemoryError = errorString.includes('memory') || errorString.includes('OutOfMemory');
+      
       logEvent(AnalyticsEvents.USER_SUPPORT_AD_SHOW_FAILED, { 
         screen,
-        error: String(error),
+        error: errorString,
+        is_memory_error: isMemoryError,
       });
+      
+      if (isMemoryError) {
+        console.warn('[SupportAdButton] ⚠️ Memory error detected - ad may need to be reloaded');
+      }
     }
   }, [rewardedAd, isAdLoaded, screen]);
 

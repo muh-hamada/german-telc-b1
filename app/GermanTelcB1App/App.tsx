@@ -17,6 +17,7 @@ import { StreakProvider } from './src/contexts/StreakContext';
 import { VocabularyProvider } from './src/contexts/VocabularyContext';
 import { ThemeProvider, useAppTheme } from './src/contexts/ThemeContext';
 import RootNavigator from './src/navigation/RootNavigator';
+import memoryMonitorService from './src/services/memory-monitor.service';
 import './src/utils/i18n';
 import { applyRTLLayout } from './src/utils/i18n';
 
@@ -41,6 +42,14 @@ const App: React.FC = () => {
   useEffect(() => {
     // Apply RTL layout based on saved language
     applyRTLLayout();
+    
+    // Start memory monitoring to prevent OOM crashes
+    memoryMonitorService.startMonitoring();
+    console.log('[App] Memory monitoring started');
+
+    return () => {
+      memoryMonitorService.stopMonitoring();
+    };
   }, []);
 
   return (

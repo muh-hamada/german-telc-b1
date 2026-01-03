@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
+import { Platform, StyleSheet, View, AppState } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { activeExamConfig } from '../config/active-exam.config';
@@ -11,6 +11,7 @@ import { useStreak } from '../contexts/StreakContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import consentService from '../services/consent.service';
+import memoryMonitorService from '../services/memory-monitor.service';
 import { ThemeColors } from '../theme';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
@@ -37,6 +38,12 @@ interface AdBannerProps {
  * 
  * Optimized with React.memo and useMemo to prevent unnecessary re-renders
  * and reduce excessive ad requests that can cause "no-fill" errors.
+ * 
+ * Memory Management:
+ * - Uses key prop to force new ad instance only when screen changes
+ * - Properly unmounts ad when component is destroyed
+ * - Monitors app state and recreates ad on foreground to prevent stale ads
+ * - Prevents multiple banner ad instances from accumulating in memory
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   const { user } = useAuth();
@@ -45,6 +52,15 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   const { isPremium } = usePremium();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  
+  // Track if component is mounted to prevent memory leaks
+  const isMountedRef = useRef(true);
+  // Use screen name as stable key - only changes when screen changes
+  const adKeyRef = useRef(`banner-${screen || 'default'}`);
+  // Track app state for background/foreground handling
+  const [appState, setAppState] = useState(AppState.currentState);
+  // Force ad refresh on app state change
+  const [adRefreshKey, setAdRefreshKey] = useState(0);
 
   // Memoize app version to prevent recalculation on every render
   const appVersion = useMemo(() => DeviceInfo.getVersion(), []);
@@ -80,6 +96,53 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
     };
   }, [screen, appVersion, requestNonPersonalizedAdsOnly]);
 
+  // Cleanup effect to prevent memory leaks
+  useEffect(() => {
+    isMountedRef.current = true;
+    console.log(`[AdBanner] Mounted for screen: ${screen || 'default'}`);
+
+    return () => {
+      isMountedRef.current = false;
+      console.log(`[AdBanner] Unmounting for screen: ${screen || 'default'} - cleaning up ad resources`);
+      // The BannerAd component will handle its own cleanup when unmounted via key change
+      // This ensures we don't try to update state after unmount
+    };
+  }, [screen]);
+
+  // Monitor app state changes - refresh ad when coming back from background
+  // This prevents stale ads and clears memory from old ad instances
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (appState.match(/inactive|background/) && nextAppState === 'active') {
+        console.log('[AdBanner] App came to foreground - refreshing ad to clear memory');
+        // Force ad refresh by changing key - old ad will be garbage collected
+        setAdRefreshKey(prev => prev + 1);
+      }
+      setAppState(nextAppState);
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, [appState]);
+
+  // Listen for low memory warnings and refresh ad to free up memory
+  useEffect(() => {
+    const unsubscribe = memoryMonitorService.addMemoryWarningListener(() => {
+      console.log('[AdBanner] Low memory warning - refreshing ad to free memory');
+      logEvent(AnalyticsEvents.BANNER_AD_FAILED, {
+        screen,
+        version: appVersion,
+        error_code: 'low_memory_refresh',
+        personalized: !requestNonPersonalizedAdsOnly,
+      });
+      // Force ad refresh - old ad will be destroyed and memory freed
+      setAdRefreshKey(prev => prev + 1);
+    });
+
+    return unsubscribe;
+  }, [screen, appVersion, requestNonPersonalizedAdsOnly]);
+
   // Check if ads should be hidden
   if (HIDE_ADS) {
     return null;
@@ -100,7 +163,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   return (
     <View style={[styles.container, style]}>
       <BannerAd
-        key={`banner-${screen || 'default'}`}
+        key={`${adKeyRef.current}-${adRefreshKey}`}
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
