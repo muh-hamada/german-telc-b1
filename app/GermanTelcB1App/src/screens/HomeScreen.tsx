@@ -208,11 +208,6 @@ const HomeScreen: React.FC = () => {
   const handleSpeakingPracticePress = () => {
     logEvent(AnalyticsEvents.PREP_PLAN_CARD_CLICKED);
 
-    if (!user) {
-      setShowLoginModal(true);
-      return;
-    }
-
     // If not premium, show premium gate
     if (!isPremium) {
       logEvent(AnalyticsEvents.PREP_PLAN_PREMIUM_GATE_SHOWN);

@@ -45,6 +45,7 @@ export const AnalyticsEvents = {
   // Ads
   BANNER_AD_LOADED: 'banner_ad_loaded',
   BANNER_AD_FAILED: 'banner_ad_failed',
+  LOW_MEMORY_WARNING: 'low_memory_warning',
 
   // Misc
   EXAM_STRUCTURE_OPENED: 'exam_structure_opened',
