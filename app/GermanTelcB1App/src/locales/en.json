@@ -1399,8 +1399,7 @@
       "title": "Premium",
       "whyPremium": "Why\nPremium?",
       "oneTimePurchase": "Buy once, access forever",
-      "unlockNow": "Unlock Now",
-      "specialOffer": "Special Offer",
+      "unlockNow": "Unlock",
       "restorePurchases": "Restore Purchases",
       "restoring": "Restoring...",
       "noRestoreFound": "No previous purchases found",
@@ -1409,7 +1408,10 @@
       "thankYou": "Thank you for your support!",
       "disclaimer": "One-time purchase. Unlocks all premium features forever. No subscription, no recurring fees.",
       "yourBenefits": "Your\nBenefits",
-      "fullPotential": "Unlock your full potential"
+      "fullPotential": "Unlock your full potential",
+      "limitedTimeOffer": "Limited Time Offer",
+      "off": "OFF",
+      "limitedOffer": "Limited Offer"
     },
     "darkModeModal": {
       "title": "Dark Mode is Premium",

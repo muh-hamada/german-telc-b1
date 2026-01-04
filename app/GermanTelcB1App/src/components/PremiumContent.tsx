@@ -7,10 +7,12 @@ import {
   Dimensions,
   ActivityIndicator,
   ScrollView,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LinearGradient from 'react-native-linear-gradient';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { spacing, type ThemeColors } from '../theme';
+import { spacing, typography, type ThemeColors } from '../theme';
 import { usePremium } from '../contexts/PremiumContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -91,7 +93,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
 }) => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
-  const { productPrice, productOriginalPrice, isProductAvailable, isLoadingProduct } = usePremium();
+  const { productPrice, productOriginalPrice, discountPercentage, isProductAvailable, isLoadingProduct } = usePremium();
   const { colors, mode } = useAppTheme();
   const isDarkMode = mode === 'dark';
   const price = productPrice || '...';
@@ -125,6 +127,103 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
     }
   };
 
+  // New prominent offer component
+  const ProminentOfferBanner = () => {
+    // Always show for testing - remove this condition later if needed
+    const showBanner = hasOffer && discountPercentage > 0;
+
+    if (!showBanner) {
+      return null;
+    }
+
+    return (
+      <>
+        <View style={{
+          width: SCREEN_WIDTH,
+          height: 30,
+          marginLeft: -spacing.padding.lg,
+          marginRight: -spacing.padding.lg,
+        }}>
+          <Image
+            source={require('../../assets/images/arrow-premium-content.png')}
+            style={{
+              width: SCREEN_WIDTH,
+              height: '100%',
+            }}
+            tintColor={colors.gold}
+            resizeMode="stretch"
+          />
+        </View>
+        <LinearGradient
+          colors={[
+            isDarkMode ? '#1e3a8a' : colors.gold,
+            isDarkMode ? '#1e1b4b' : colors.gold,
+            colors.background.primary,
+          ]}
+          locations={[0, 0.3, 1]}
+          style={{
+            marginLeft: -spacing.padding.lg,
+            marginRight: -spacing.padding.lg,
+            marginTop: -1,
+            marginBottom: 24,
+            paddingBottom: 40,
+          }}>
+          {/* Content */}
+          <View style={{
+            alignItems: 'center',
+          }}>
+            {/* Limited Time Offer text */}
+            <Text style={{
+              fontSize: 18,
+              fontWeight: '600',
+              color: colors.black,
+              letterSpacing: 1,
+            }}>
+              {t('premium.screen.limitedTimeOffer')}
+            </Text>
+
+            {/* Discount percentage */}
+            <Text style={{
+              fontSize: 64,
+              fontWeight: '900',
+              color: colors.white,
+              letterSpacing: 1,
+            }}>
+              {discountPercentage}<Text style={{ fontWeight: '300' }}>%</Text> {t('premium.screen.off')}
+            </Text>
+
+            {/* Original and new price */}
+            <View style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <Text style={{
+                ...typography.textStyles.h5,
+                color: colors.black,
+                textDecorationLine: 'line-through',
+                marginRight: 10,
+              }}>
+                {productOriginalPrice}
+              </Text>
+              <Text style={{
+                ...typography.textStyles.h2,
+                color: colors.primary[700],
+              }}>
+                {price}
+              </Text>
+            </View>
+
+          </View>
+        </LinearGradient>
+      </>
+    );
+  };
+
+  const newVerison = () => {
+    return <ProminentOfferBanner />;
+  };
+
   return (
     <View style={styles.container}>
       {/* Background decorative shapes */}
@@ -156,9 +255,12 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         </View>
 
         {/* Subtitle */}
-        <Text style={styles.subtitle}>{
+        <Text style={[styles.subtitle, { marginBottom: hasOffer ? spacing.margin.lg : spacing.margin.xl }]}>{
           isPremium ? t('premium.screen.fullPotential') : t('premium.screen.oneTimePurchase')
         }</Text>
+
+        {/* New Prominent Offer Banner */}
+        {!isPremium && <ProminentOfferBanner />}
 
         {/* Features List */}
         <View style={styles.featuresSection}>
@@ -224,23 +326,14 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
                 <View style={styles.offerBadge}>
                   <Icon name="tag" size={14} color={colors.success[700]} />
                   <Text style={styles.offerBadgeText}>
-                    {t('premium.screen.specialOffer')}
+                    {t('premium.screen.limitedOffer')}
                   </Text>
                 </View>
               )}
               <View style={styles.priceTextContainer}>
                 <Text style={styles.purchaseButtonText}>
-                  {t('premium.screen.unlockNow')} •
-                  <Text style={styles.priceText}>
-                    {hasOffer && (
-                      <Text style={styles.originalPriceText}>
-                        {productOriginalPrice}
-                      </Text>)}
-                    {price}
-                  </Text>
+                  {t('premium.screen.unlockNow')} • {price}
                 </Text>
-
-
               </View>
             </View>
           )}
@@ -381,7 +474,6 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
     subtitle: {
       fontSize: 18,
       color: colors.text.secondary,
-      marginBottom: spacing.margin['2xl'],
       textAlign: 'left',
     },
 
@@ -397,7 +489,6 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
     },
     sparklesInnerContainer: {
       position: 'relative',
-      zIndex: 1,
       width: '100%',
       height: '100%',
     },
@@ -537,7 +628,6 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       borderRadius: 16,
       paddingVertical: 6,
       paddingHorizontal: 12,
-      // marginBottom: spacing.margin.md,
       alignSelf: 'center',
     },
     offerBadgeText: {
@@ -550,7 +640,6 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       backgroundColor: colors.success[500],
       borderRadius: 28,
       paddingVertical: 18,
-      paddingHorizontal: spacing.padding.xl,
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: spacing.margin.sm,
@@ -559,6 +648,7 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       shadowOpacity: 0.25,
       shadowRadius: 8,
       elevation: 6,
+
     },
     purchaseButtonDisabled: {
       opacity: 0.7,
@@ -573,18 +663,6 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      position: 'relative',
-    },
-    originalPriceText: {
-      fontSize: 13,
-      fontWeight: '500',
-      color: colors.text.inverse,
-      opacity: 0.75,
-      textDecorationLine: 'line-through',
-      marginBottom: 2,
-      position: 'absolute',
-      left: 0,
-      top: 0,
     },
     purchaseButtonText: {
       fontSize: 17,

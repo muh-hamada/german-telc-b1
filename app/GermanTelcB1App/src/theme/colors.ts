@@ -61,6 +61,7 @@ export const lightColors = {
   // Neutral colors
   white: '#FFFFFF',
   black: '#000000',
+  gold: '#fbbf24',
   transparent: 'transparent',
   
   // Gray colors

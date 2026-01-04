@@ -1616,8 +1616,7 @@
       "title": "Premium",
       "whyPremium": "Warum\nPremium?",
       "oneTimePurchase": "Einmal kaufen, für immer nutzen",
-      "unlockNow": "Jetzt freischalten",
-      "specialOffer": "Sonderangebot",
+      "unlockNow": "Entsperren",
       "restorePurchases": "Käufe wiederherstellen",
       "restoring": "Wird wiederhergestellt...",
       "noRestoreFound": "Keine vorherigen Käufe gefunden",
@@ -1626,7 +1625,10 @@
       "thankYou": "Danke für deine Unterstützung!",
       "disclaimer": "Einmaliger Kauf. Schaltet alle Premium-Funktionen für immer frei. Kein Abo, keine wiederkehrenden Kosten.",
       "yourBenefits": "Ihre\nVorteile",
-      "fullPotential": "Entfalten Sie Ihr volles Potenzial"
+      "fullPotential": "Entfalten Sie Ihr volles Potenzial",
+      "limitedTimeOffer": "Zeitlich begrenztes Angebot",
+      "off": "AUS",
+      "limitedOffer": "Begrenztes Angebot"
     },
     "darkModeModal": {
       "title": "Der Dunkelmodus ist Premium",

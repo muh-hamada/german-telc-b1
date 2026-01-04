@@ -36,6 +36,7 @@ interface PremiumContextType {
   productPrice: string | null;        // Localized price e.g., "$4.99", "€4,99", "£3.99"
   productCurrency: string | null;     // Currency code e.g., "USD", "EUR"
   productOriginalPrice: string | null; // Original price if there's a discount
+  discountPercentage: number;         // Discount percentage from remote config
   isLoadingProduct: boolean;
   isProductAvailable: boolean;        // Whether the product was successfully loaded from store
 
@@ -380,15 +381,25 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         const numericPrice = parseFloat(priceMatch[0].replace(',', '.'));
         const calculatedOriginal = numericPrice / discountMultiplier;
         
+        // Round to nearest 0.5 (e.g., 15.37 → 15.5, 10.1 → 10, 18.93 → 19)
+        const roundedOriginal = Math.round(calculatedOriginal * 2) / 2;
+        
         // Format back to currency string with same symbol
         const currencySymbol = price.replace(/[\d.,\s]+/g, '').trim();
-        const formattedOriginal = calculatedOriginal.toFixed(2);
+        
+        // Format original price (whole number or .5)
+        const formattedOriginal = roundedOriginal % 1 === 0 
+          ? roundedOriginal.toFixed(0) 
+          : roundedOriginal.toFixed(1);
+        
         originalPrice = currencySymbol ? `${currencySymbol}${formattedOriginal}` : formattedOriginal;
         
         console.log('[PremiumContext] Server-side offer active:', {
           discountPercentage: offerConfig.discountPercentage,
           currentPrice: price,
           calculatedOriginal: originalPrice,
+          roundedOriginalNumeric: roundedOriginal,
+          actualDiscountFromRounded: ((roundedOriginal - numericPrice) / roundedOriginal * 100).toFixed(1) + '%',
         });
       }
     }
@@ -527,6 +538,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     productPrice,
     productCurrency,
     productOriginalPrice,
+    discountPercentage: remoteConfig?.premiumOffer?.discountPercentage || 0,
     isLoadingProduct,
     isProductAvailable,
     purchasePremium,

@@ -1607,7 +1607,7 @@
       "title": "Premium",
       "whyPremium": "Pourquoi\nPremium ?",
       "oneTimePurchase": "Achetez une fois, accédez pour toujours",
-      "unlockNow": "Débloquer maintenant",
+      "unlockNow": "Ouvrir",
       "restorePurchases": "Restaurer les achats",
       "restoring": "Restauration...",
       "noRestoreFound": "Aucun achat précédent trouvé",
@@ -1617,7 +1617,9 @@
       "disclaimer": "Achat unique. Débloque toutes les fonctionnalités premium pour toujours. Pas d'abonnement, pas de frais récurrents.",
       "yourBenefits": "Vos\navantages",
       "fullPotential": "Libérez tout votre potentiel",
-      "specialOffer": "Offre spéciale"
+      "limitedTimeOffer": "Offre à durée limitée",
+      "off": "OFF",
+      "limitedOffer": "Offre limitée"
     },
     "darkModeModal": {
       "title": "Le mode sombre est Premium",

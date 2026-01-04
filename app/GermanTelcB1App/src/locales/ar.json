@@ -1607,7 +1607,7 @@
       "title": "بريميوم",
       "whyPremium": "لماذا\nبريميوم؟",
       "oneTimePurchase": "اشترِ مرة واحدة، استخدم للأبد",
-      "unlockNow": "افتح الآن",
+      "unlockNow": "اشتري الآن",
       "restorePurchases": "استعادة المشتريات",
       "restoring": "جارٍ الاستعادة...",
       "noRestoreFound": "لم يتم العثور على مشتريات سابقة",
@@ -1617,7 +1617,9 @@
       "disclaimer": "عملية شراء لمرة واحدة. يفتح جميع الميزات المميزة للأبد. بدون اشتراك أو رسوم متكررة.",
       "yourBenefits": "فوائدك",
       "fullPotential": "أطلق العنان لإمكاناتك الكاملة",
-      "specialOffer": "عرض خاص"
+      "limitedTimeOffer": "عرض لفترة محدودة",
+      "off": "خصم",
+      "limitedOffer": "عرض محدود"
     },
     "darkModeModal": {
       "title": "الوضع الداكن مميز",
