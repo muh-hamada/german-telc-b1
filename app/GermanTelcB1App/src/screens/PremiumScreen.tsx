@@ -44,7 +44,7 @@ const PremiumScreen: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
-    await purchasePremium();
+    await purchasePremium('PremiumScreen');
   };
 
   const handleRestore = async () => {
@@ -83,6 +83,7 @@ const PremiumScreen: React.FC = () => {
           isPurchasing={isPurchasing}
           isRestoring={isRestoring}
           showRestoreButton={true}
+          sourceScreen="PremiumScreen"
         />
       </View>
     </SafeAreaView>

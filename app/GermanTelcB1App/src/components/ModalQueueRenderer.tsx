@@ -159,7 +159,7 @@ const ModalQueueRenderer: React.FC = () => {
       price: productPrice,
       currency: productCurrency,
     });
-    const success = await purchasePremium();
+    const success = await purchasePremium('PremiumUpsellModal');
     if (success) {
       await premiumPromptService.recordPurchase();
       // Don't dismiss automatically - let the modal show AlreadyPremiumView
@@ -258,6 +258,7 @@ const ModalQueueRenderer: React.FC = () => {
           onClose={handlePremiumUpsellDismiss}
           onPurchase={handlePremiumUpsellPurchase}
           isPurchasing={isPurchasing}
+          sourceScreen="PremiumUpsellModal"
         />
       );
 

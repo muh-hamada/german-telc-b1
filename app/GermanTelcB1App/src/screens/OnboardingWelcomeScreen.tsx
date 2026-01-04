@@ -175,7 +175,7 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
     });
     
     try {
-      const success = await purchasePremium();
+      const success = await purchasePremium('OnboardingWelcomeScreen');
       if (success) {
         logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_PURCHASE_SUCCESS, {
           source: 'onboarding_modal',
@@ -332,6 +332,7 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
           showCloseButton={true}
           showRestoreButton={true}
           isModal={true}
+          sourceScreen="OnboardingWelcomeScreen"
         />
       </Modal>
     </SafeAreaView>

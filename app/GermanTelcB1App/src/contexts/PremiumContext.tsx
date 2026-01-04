@@ -41,7 +41,7 @@ interface PremiumContextType {
   isProductAvailable: boolean;        // Whether the product was successfully loaded from store
 
   // Actions
-  purchasePremium: () => Promise<boolean>;
+  purchasePremium: (sourceScreen?: string) => Promise<boolean>;
   restorePurchases: () => Promise<boolean>;
   refreshPremiumStatus: () => Promise<void>;
 }
@@ -428,7 +428,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   /**
    * Purchase premium
    */
-  const purchasePremium = useCallback(async (): Promise<boolean> => {
+  const purchasePremium = useCallback(async (sourceScreen?: string): Promise<boolean> => {
     if (!user?.uid) {
       setError('Please sign in to purchase premium');
       return false;
@@ -467,7 +467,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       }
 
       // No existing purchase found, proceed with new purchase
-      await purchaseService.purchasePremium();
+      await purchaseService.purchasePremium(sourceScreen);
       // Result will come through handlePurchaseComplete callback
       return true;
     } catch (err) {

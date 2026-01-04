@@ -183,7 +183,7 @@ class PurchaseService {
   /**
    * Purchase premium
    */
-  async purchasePremium(): Promise<void> {
+  async purchasePremium(sourceScreen?: string): Promise<void> {
     if (!this.isInitialized) {
       console.error('[PurchaseService] Cannot purchase - not initialized');
       throw new Error('IAP not initialized');
@@ -197,6 +197,7 @@ class PurchaseService {
         productId,
         price: this.productPrice,
         currency: this.productCurrency,
+        sourceScreen: sourceScreen || 'unknown',
       });
       
       // v12 API: simpler requestPurchase format

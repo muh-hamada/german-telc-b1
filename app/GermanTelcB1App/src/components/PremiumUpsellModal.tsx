@@ -26,6 +26,7 @@ interface PremiumUpsellModalProps {
   onClose: () => void;
   onPurchase: () => void;
   isPurchasing?: boolean;
+  sourceScreen?: string; // Screen name for analytics tracking
 }
 
 const PremiumUpsellModal: React.FC<PremiumUpsellModalProps> = ({
@@ -33,6 +34,7 @@ const PremiumUpsellModal: React.FC<PremiumUpsellModalProps> = ({
   onClose,
   onPurchase,
   isPurchasing = false,
+  sourceScreen = 'unknown',
 }) => {
   const { isPremium } = usePremium();
   const { colors } = useAppTheme();
@@ -59,6 +61,7 @@ const PremiumUpsellModal: React.FC<PremiumUpsellModalProps> = ({
               isPurchasing={isPurchasing}
               showCloseButton={true}
               isModal={true}
+              sourceScreen={sourceScreen}
             />
           )}
         </View>

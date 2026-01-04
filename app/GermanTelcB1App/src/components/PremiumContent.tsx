@@ -34,6 +34,7 @@ interface PremiumContentProps {
   showPurchaseButton?: boolean;
   isModal?: boolean;
   isPremium?: boolean;
+  sourceScreen?: string; // Screen name for analytics tracking
 }
 
 interface FeatureItemProps {
@@ -90,6 +91,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
   showRestoreButton = false,
   isModal = false,
   isPremium = false,
+  sourceScreen = 'unknown',
 }) => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
