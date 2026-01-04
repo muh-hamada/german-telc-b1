@@ -138,6 +138,8 @@ export const ConfigPage: React.FC = () => {
         ...appConfigs[selectedAppId],
         // Ensure arrays are always defined
         streaksWhitelistedUserIDs: appConfigs[selectedAppId].streaksWhitelistedUserIDs || [],
+        // Ensure premiumOffer is always defined
+        premiumOffer: appConfigs[selectedAppId].premiumOffer || DEFAULT_REMOTE_CONFIG.premiumOffer,
       }
     : { 
         ...DEFAULT_REMOTE_CONFIG, 
@@ -451,6 +453,58 @@ export const ConfigPage: React.FC = () => {
                     value={currentAppConfig.vocabularyNativeAdInterval}
                     onChange={(e) => updateAppConfig({ vocabularyNativeAdInterval: parseInt(e.target.value) || 1 })}
                     className="config-input"
+                  />
+                </div>
+              </div>
+
+              {/* Premium Offer Configuration */}
+              <div className="config-group">
+                <h3>Premium Offer</h3>
+                <p className="config-group-description">
+                  Configure promotional pricing for premium purchases. Manually reduce the store price on iOS/Android, 
+                  then activate the offer here to show the original price with strikethrough.
+                </p>
+
+                <div className="config-field-checkbox">
+                  <input
+                    id="premiumOfferActive"
+                    type="checkbox"
+                    checked={currentAppConfig.premiumOffer?.isActive || false}
+                    onChange={(e) => updateAppConfig({
+                      premiumOffer: {
+                        ...currentAppConfig.premiumOffer,
+                        isActive: e.target.checked,
+                      }
+                    })}
+                  />
+                  <label htmlFor="premiumOfferActive">
+                    Offer Active
+                    <span className="field-hint">Enable to show offer badge and original price with strikethrough</span>
+                  </label>
+                </div>
+
+                <div className="config-field">
+                  <label htmlFor="discountPercentage">
+                    Discount Percentage
+                    <span className="field-hint">
+                      The app will calculate the original price based on this percentage. 
+                      Example: If store price is $3.74 and discount is 25%, original will be calculated as $4.99
+                    </span>
+                  </label>
+                  <input
+                    id="discountPercentage"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={currentAppConfig.premiumOffer?.discountPercentage || 0}
+                    onChange={(e) => updateAppConfig({
+                      premiumOffer: {
+                        ...currentAppConfig.premiumOffer,
+                        discountPercentage: parseInt(e.target.value) || 0,
+                      }
+                    })}
+                    className="config-input"
+                    placeholder="e.g., 25 for 25% off"
                   />
                 </div>
               </div>

@@ -32,6 +32,14 @@ export interface VocabularyNativeAdConfig {
 }
 
 /**
+ * Premium Offer Configuration
+ */
+export interface PremiumOfferConfig {
+  isActive: boolean;        // Whether to show offer UI
+  discountPercentage: number; // e.g., 25 for 25% off
+}
+
+/**
  * App-specific Remote Configuration
  * Stored in app_configs/{appId}
  */
@@ -48,6 +56,8 @@ export interface RemoteConfig {
   // Vocabulary native ad configuration
   enableVocabularyNativeAd: boolean;
   vocabularyNativeAdInterval: number;
+  // Premium offer configuration
+  premiumOffer: PremiumOfferConfig;
   updatedAt: number;
 }
 
@@ -73,6 +83,11 @@ export const DEFAULT_VOCABULARY_NATIVE_AD_CONFIG: VocabularyNativeAdConfig = {
   interval: 10,
 };
 
+export const DEFAULT_PREMIUM_OFFER_CONFIG: PremiumOfferConfig = {
+  isActive: false,
+  discountPercentage: 0,
+};
+
 export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   appId: '',
   enableStreaksForAllUsers: false,
@@ -91,6 +106,7 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   enablePremiumFeatures: false,
   enableVocabularyNativeAd: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
   vocabularyNativeAdInterval: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
+  premiumOffer: DEFAULT_PREMIUM_OFFER_CONFIG,
   updatedAt: Date.now(),
 };
 

@@ -124,7 +124,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
     });
 
     const unsubscribeError = ad.addAdEventListener(AdEventType.ERROR, error => {
-      console.error('[SupportAdButton] 💥 Rewarded ad error:', error);
+      console.log('[SupportAdButton] 💥 Rewarded ad error:', error);
       logEvent(AnalyticsEvents.USER_SUPPORT_AD_ERROR, { 
         screen,
         error_code: String((error as any)?.code || 'unknown'),
@@ -194,7 +194,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
       await rewardedAd.show();
       logEvent(AnalyticsEvents.USER_SUPPORT_AD_SHOWN, { screen });
     } catch (error) {
-      console.error('[SupportAdButton] Failed to show ad:', error);
+      console.log('[SupportAdButton] Failed to show ad:', error);
       setIsShowingAd(false);
       
       // Check if it's a memory error

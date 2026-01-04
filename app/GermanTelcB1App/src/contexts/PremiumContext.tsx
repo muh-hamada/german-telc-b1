@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Purchase, PurchaseError, Product, ErrorCode } from 'react-native-iap';
 import { useAuth } from './AuthContext';
 import { useRemoteConfig } from './RemoteConfigContext';
+import { DEFAULT_REMOTE_CONFIG } from '../types/remote-config.types';
 import purchaseService from '../services/purchase.service';
 import { activeExamConfig } from '../config/active-exam.config';
 import { SIMULATE_PREMIUM_USER } from '../config/development.config';
@@ -34,6 +35,7 @@ interface PremiumContextType {
   // Product info (fetched from store)
   productPrice: string | null;        // Localized price e.g., "$4.99", "€4,99", "£3.99"
   productCurrency: string | null;     // Currency code e.g., "USD", "EUR"
+  productOriginalPrice: string | null; // Original price if there's a discount
   isLoadingProduct: boolean;
   isProductAvailable: boolean;        // Whether the product was successfully loaded from store
 
@@ -60,7 +62,7 @@ const PREMIUM_STORAGE_KEY = 'premium_status_v1';
 
 export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) => {
   const { user, isInitialized } = useAuth();
-  const { isPremiumFeaturesEnabled } = useRemoteConfig();
+  const { isPremiumFeaturesEnabled, config: remoteConfig } = useRemoteConfig();
 
   const [premiumData, setPremiumData] = useState<PremiumData>(DEFAULT_PREMIUM_DATA);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,9 +89,16 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
   // Product info from store (localized price)
   const [productPrice, setProductPrice] = useState<string | null>(null);
   const [productCurrency, setProductCurrency] = useState<string | null>(null);
+  const [productOriginalPrice, setProductOriginalPrice] = useState<string | null>(null);
   const [isLoadingProduct, setIsLoadingProduct] = useState(true);
   const [isProductAvailable, setIsProductAvailable] = useState(false);
   const [isIAPReady, setIsIAPReady] = useState(false);
+  
+  // Store raw product data for recalculation when config changes
+  const [rawProductData, setRawProductData] = useState<{
+    price: string;
+    currency: string | null;
+  } | null>(null);
 
   /**
    * Get Firestore path for user's premium data
@@ -302,15 +311,22 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
             const product = products[0] as any; // Type assertion for cross-platform properties
             console.log('[PremiumContext] Product info loaded:', product);
 
-            // react-native-iap v14+: Android uses displayPrice, iOS uses localizedPrice
+            // Get current price from store (this is the discounted price if manually reduced)
             const price = product.displayPrice || product.localizedPrice || null;
             const currency = product.currency ||
               product.oneTimePurchaseOfferDetailsAndroid?.priceCurrencyCode || null;
-
-            console.log('[PremiumContext] Extracted price:', price, 'currency:', currency);
-            setProductPrice(price);
-            setProductCurrency(currency);
-            setIsProductAvailable(true);
+            
+            if (price) {
+              // Store raw product data for offer calculation
+              setRawProductData({ price, currency });
+              setProductPrice(price);
+              setProductCurrency(currency);
+              setIsProductAvailable(true);
+              console.log('[PremiumContext] Product data stored:', { price, currency });
+            } else {
+              console.warn('[PremiumContext] Product has no price information');
+              setIsProductAvailable(false);
+            }
           } else {
             console.log('[PremiumContext] No products found - purchase will not be available');
             setIsProductAvailable(false);
@@ -336,6 +352,50 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Run once on mount
+
+  /**
+   * Recalculate offer pricing when remote config or product data changes
+   */
+  useEffect(() => {
+    if (!rawProductData) {
+      return;
+    }
+
+    const { price, currency } = rawProductData;
+    let originalPrice = null;
+    
+    // Check if offer is active via remote config
+    const offerConfig = remoteConfig?.premiumOffer || DEFAULT_REMOTE_CONFIG.premiumOffer;
+    
+    console.log('[PremiumContext] Recalculating offer with config:', offerConfig);
+
+    if (isPremiumFeaturesEnabled() && price && offerConfig.isActive && offerConfig.discountPercentage > 0) {
+      // Calculate original price from discount percentage
+      // If current price is $3.74 and discount is 25%, original = $3.74 / (1 - 0.25) = $4.99
+      const discountMultiplier = 1 - (offerConfig.discountPercentage / 100);
+      
+      // Parse price string (remove currency symbols, convert to number)
+      const priceMatch = price.match(/[\d.,]+/);
+      if (priceMatch) {
+        const numericPrice = parseFloat(priceMatch[0].replace(',', '.'));
+        const calculatedOriginal = numericPrice / discountMultiplier;
+        
+        // Format back to currency string with same symbol
+        const currencySymbol = price.replace(/[\d.,\s]+/g, '').trim();
+        const formattedOriginal = calculatedOriginal.toFixed(2);
+        originalPrice = currencySymbol ? `${currencySymbol}${formattedOriginal}` : formattedOriginal;
+        
+        console.log('[PremiumContext] Server-side offer active:', {
+          discountPercentage: offerConfig.discountPercentage,
+          currentPrice: price,
+          calculatedOriginal: originalPrice,
+        });
+      }
+    }
+
+    console.log('[PremiumContext] Final prices - Current:', price, 'Original:', originalPrice, 'Currency:', currency);
+    setProductOriginalPrice(originalPrice);
+  }, [rawProductData, remoteConfig, isPremiumFeaturesEnabled]);
 
   /**
    * Update purchase callbacks when IAP is ready or callbacks change
@@ -466,6 +526,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
     error,
     productPrice,
     productCurrency,
+    productOriginalPrice,
     isLoadingProduct,
     isProductAvailable,
     purchasePremium,

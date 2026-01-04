@@ -91,10 +91,11 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
 }) => {
   const { t } = useCustomTranslation();
   const { user } = useAuth();
-  const { productPrice, isProductAvailable, isLoadingProduct } = usePremium();
+  const { productPrice, productOriginalPrice, isProductAvailable, isLoadingProduct } = usePremium();
   const { colors, mode } = useAppTheme();
   const isDarkMode = mode === 'dark';
   const price = productPrice || '...';
+  const hasOffer = !!productOriginalPrice;
 
   // Internal state for login modal
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -217,9 +218,31 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
           {isPurchasing || isLoadingProduct ? (
             <ActivityIndicator color="#FFFFFF" size="small" />
           ) : (
-            <Text style={styles.purchaseButtonText}>
-              {t('premium.screen.unlockNow')} • {price}
-            </Text>
+            <View style={styles.priceContainer}>
+              {/* Offer Badge */}
+              {hasOffer && (
+                <View style={styles.offerBadge}>
+                  <Icon name="tag" size={14} color={colors.success[700]} />
+                  <Text style={styles.offerBadgeText}>
+                    {t('premium.screen.specialOffer')}
+                  </Text>
+                </View>
+              )}
+              <View style={styles.priceTextContainer}>
+                <Text style={styles.purchaseButtonText}>
+                  {t('premium.screen.unlockNow')} •
+                  <Text style={styles.priceText}>
+                    {hasOffer && (
+                      <Text style={styles.originalPriceText}>
+                        {productOriginalPrice}
+                      </Text>)}
+                    {price}
+                  </Text>
+                </Text>
+
+
+              </View>
+            </View>
           )}
         </TouchableOpacity>
 
@@ -504,6 +527,25 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       borderTopWidth: 1,
       borderTopColor: colors.border.light,
     },
+    offerBadge: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: isDarkMode ? colors.success[100] : colors.success[50],
+      borderWidth: 1,
+      borderColor: colors.success[500],
+      borderRadius: 16,
+      paddingVertical: 6,
+      paddingHorizontal: 12,
+      // marginBottom: spacing.margin.md,
+      alignSelf: 'center',
+    },
+    offerBadgeText: {
+      fontSize: 13,
+      fontWeight: '600',
+      color: colors.success[700],
+      marginLeft: 6,
+    },
     purchaseButton: {
       backgroundColor: colors.success[500],
       borderRadius: 28,
@@ -520,6 +562,29 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
     },
     purchaseButtonDisabled: {
       opacity: 0.7,
+    },
+    priceContainer: {
+      flexDirection: 'row',
+      gap: spacing.margin.sm,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    priceTextContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+    },
+    originalPriceText: {
+      fontSize: 13,
+      fontWeight: '500',
+      color: colors.text.inverse,
+      opacity: 0.75,
+      textDecorationLine: 'line-through',
+      marginBottom: 2,
+      position: 'absolute',
+      left: 0,
+      top: 0,
     },
     purchaseButtonText: {
       fontSize: 17,

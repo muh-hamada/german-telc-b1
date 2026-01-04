@@ -6,6 +6,7 @@ import {
   DEFAULT_GLOBAL_CONFIG,
   DEFAULT_SUPPORT_AD_INTERVALS,
   DEFAULT_VOCABULARY_NATIVE_AD_CONFIG,
+  DEFAULT_PREMIUM_OFFER_CONFIG,
 } from '../types/remote-config.types';
 
 /**
@@ -20,6 +21,41 @@ import {
 class FirebaseRemoteConfigService {
   private readonly COLLECTION_NAME = 'app_configs';
   private readonly GLOBAL_DOC_ID = 'global';
+
+  /**
+   * Build RemoteConfig object from Firestore data with proper defaults
+   * @param data - Raw data from Firestore
+   * @param appId - The app identifier
+   * @returns Properly formatted RemoteConfig object
+   */
+  private buildRemoteConfig(data: any, appId: string): RemoteConfig {
+    return {
+      appId: data.appId || appId,
+      enableStreaksForAllUsers: data.enableStreaksForAllUsers !== undefined 
+        ? data.enableStreaksForAllUsers 
+        : DEFAULT_REMOTE_CONFIG.enableStreaksForAllUsers,
+      streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
+        ? data.streaksWhitelistedUserIDs
+        : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
+      minRequiredVersion: data.minRequiredVersion || DEFAULT_REMOTE_CONFIG.minRequiredVersion,
+      latestVersion: data.latestVersion || DEFAULT_REMOTE_CONFIG.latestVersion,
+      forceUpdate: data.forceUpdate !== undefined 
+        ? data.forceUpdate 
+        : DEFAULT_REMOTE_CONFIG.forceUpdate,
+      updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
+      updatedAt: data.updatedAt || Date.now(),
+      enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
+        ? data.enablePremiumFeatures 
+        : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
+      enableVocabularyNativeAd: data.enableVocabularyNativeAd !== undefined
+        ? data.enableVocabularyNativeAd
+        : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
+      vocabularyNativeAdInterval: data.vocabularyNativeAdInterval !== undefined
+        ? data.vocabularyNativeAdInterval
+        : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
+      premiumOffer: data.premiumOffer || DEFAULT_PREMIUM_OFFER_CONFIG,
+    };
+  }
 
   /**
    * Get remote configuration for a specific app
@@ -50,31 +86,7 @@ class FirebaseRemoteConfigService {
         };
       }
 
-      const config: RemoteConfig = {
-        appId: data.appId || appId,
-        enableStreaksForAllUsers: data.enableStreaksForAllUsers !== undefined 
-          ? data.enableStreaksForAllUsers 
-          : DEFAULT_REMOTE_CONFIG.enableStreaksForAllUsers,
-        streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
-          ? data.streaksWhitelistedUserIDs
-          : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
-        minRequiredVersion: data.minRequiredVersion || DEFAULT_REMOTE_CONFIG.minRequiredVersion,
-        latestVersion: data.latestVersion || DEFAULT_REMOTE_CONFIG.latestVersion,
-        forceUpdate: data.forceUpdate !== undefined 
-          ? data.forceUpdate 
-          : DEFAULT_REMOTE_CONFIG.forceUpdate,
-        updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
-        updatedAt: data.updatedAt || Date.now(),
-        enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
-          ? data.enablePremiumFeatures 
-          : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
-        enableVocabularyNativeAd: data.enableVocabularyNativeAd !== undefined
-          ? data.enableVocabularyNativeAd
-          : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
-        vocabularyNativeAdInterval: data.vocabularyNativeAdInterval !== undefined
-          ? data.vocabularyNativeAdInterval
-          : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
-      };
+      const config = this.buildRemoteConfig(data, appId);
 
       console.log('[RemoteConfigService] Config loaded successfully:', config);
       return config;
@@ -124,31 +136,7 @@ class FirebaseRemoteConfigService {
             return;
           }
 
-          const config: RemoteConfig = {
-            appId: data.appId || appId,
-            enableStreaksForAllUsers: data.enableStreaksForAllUsers !== undefined 
-              ? data.enableStreaksForAllUsers 
-              : DEFAULT_REMOTE_CONFIG.enableStreaksForAllUsers,
-            streaksWhitelistedUserIDs: Array.isArray(data.streaksWhitelistedUserIDs)
-              ? data.streaksWhitelistedUserIDs
-              : DEFAULT_REMOTE_CONFIG.streaksWhitelistedUserIDs,
-            minRequiredVersion: data.minRequiredVersion || DEFAULT_REMOTE_CONFIG.minRequiredVersion,
-            latestVersion: data.latestVersion || DEFAULT_REMOTE_CONFIG.latestVersion,
-            forceUpdate: data.forceUpdate !== undefined 
-              ? data.forceUpdate 
-              : DEFAULT_REMOTE_CONFIG.forceUpdate,
-            updateMessage: data.updateMessage || DEFAULT_REMOTE_CONFIG.updateMessage,
-            updatedAt: data.updatedAt || Date.now(),
-            enablePremiumFeatures: data.enablePremiumFeatures !== undefined 
-              ? data.enablePremiumFeatures 
-              : DEFAULT_REMOTE_CONFIG.enablePremiumFeatures,
-            enableVocabularyNativeAd: data.enableVocabularyNativeAd !== undefined
-              ? data.enableVocabularyNativeAd
-              : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
-            vocabularyNativeAdInterval: data.vocabularyNativeAdInterval !== undefined
-              ? data.vocabularyNativeAdInterval
-              : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
-          };
+          const config = this.buildRemoteConfig(data, appId);
 
           console.log('[RemoteConfigService] Config updated:', config);
           callback(config);
