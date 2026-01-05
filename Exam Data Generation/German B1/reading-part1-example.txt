@@ -1,0 +1,51 @@
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- headings: 10 headings. Some headings should confuse the student to ensure they understand the meaning and not just select the matching words.
+- texts: 5 items with ids from 1 to 5. Each text must have only ONE correct matching heading.
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long -  Try to capture 1-2 meaning of the headings, it doesn't of course need to capture all of them
+
+{
+  "id": ID_PLACEHOLDER,
+  "headings": [
+    "Immer mehr deutsche Familien reisen mit der Bahn",
+    "Buchtipp: Hilfe bei Schlafproblemen",
+    "Der Computer: Liebstes Hobby von Deutschlands Frauen",
+    "Neu bei der Bahn: Spezielle Informationen und Angebote für Radfahrer",
+    "Neu am Markt: Billige Schlaftabletten",
+    "Familien reisen billiger",
+    "Urlaub mit dem Fahrrad in Deutschland immer beliebter",
+    "Kultur im Urlaub: Interessen je nach Alter unterschiedlich",
+    "Umfrage: Wer verwendet den Computer am häufigsten?",
+    "Deutschland: Immer mehr Touristen reisen in den Westen"
+  ],
+  "title": "Moderne Lifestyle-Trends: Reisen und Gesundheit in Deutschland",
+  "texts": [
+    {
+      "text": "Wer ist der typische Computerfan? Das B.A.T. Freizeitforschungsinstitut Hamburg ermittelte einige Eigenschaften: Er ist männlich, jung und hat einen höheren Schulabschluss. Bei der Beschäftigung am heimischen Computer stehen Textverarbeitung und Spiele ganz oben, es folgen private Buchhaltung, Grafikprogramme und Tabellenkalkulation.",
+      "correct": "i",
+      "id": 1
+    },
+    {
+      "text": "„Bahn&Bike\" heißt ein 222-seitiger Prospekt, den die Deutsche Bahn AG in Zusammenarbeit mit der Deutschen Zentrale für Tourismus herausgebracht hat und der wichtige Informationen für jene bereitstellt, die ihren Radurlaub mit Bahnfahren verbinden wollen. Das Motto lautet: Hin mit der Bahn - das Rad vor Ort mieten. Der Prospekt enthält Angaben zur Streckenlänge und Wegbeschaffenheit, Adressen von Verleihstationen, verweist auf Sehenswürdigkeiten sowie Unterkünfte und wird durch Karten ergänzt. Die Broschüre kostet 5 Euro und ist im Buchhandel beziehungsweise an Fahrkartenschaltern zu beziehen.",
+      "id": 2,
+      "correct": "d"
+    },
+    {
+      "id": 3,
+      "correct": "b",
+      "text": "Ausführliche Informationen zum Thema „Schlafstörungen\" finden Sie im gleichnamigen Patientenratgeber von Dr. med. Fritz Hohagen. Sie erfahren, was den Schlaf stört und was Sie dagegen unternehmen können. Für 9,95 Euro erhalten Sie das Buch in Apotheken oder direkt beim Wort&Bild Verlag, 82065 Baierbrunn."
+    },
+    {
+      "correct": "f",
+      "text": "Jetzt wird für Familien Reisen mit der Bahn zwischen Österreich und Deutschland noch ein gutes Stück günstiger. Denn ab 6. Oktober gibt es den Familien-Super-Sparpreis. Ein echter Traumpreis für die ganze Familie vom Baby bis zum Großpapa da kann man wirklich sparen. Der Familien-Super-Sparpreis gilt für Familien, bestehend aus ein oder zwei Erwachsenen (Eltern, auch Großeltern) und deren Kindern/Enkelkindern bis zum vollendeten 17. Lebensjahr, wobei mindestens ein Kind/Enkelkind an der Reise teilnehmen muss.",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "text": "Touristen zwischen 14 und 29 Jahren sowie zwischen 40 und 49 Jahren haben ein besonders großes Interesse an der Kultur des jeweiligen Reiselandes, während die Gruppe der 30- bis 39-jährigen im Urlaub eine Kulturpause einlegt. Dies geht aus der neuesten Analyse der Forschungsgemeinschaft Urlaub und Reisen e. V. hervor. Urlauber aus Ostdeutschland, so die Studie, zeigen wiederum mehr Kulturinteresse als Reisende aus dem Westen. Grundsätzlich gelte: Je höher das Einkommen und die Schulbildung sind, umso mehr besteht im Urlaub der Wunsch, Land und Leute kennenzulernen.",
+      "correct": "h"
+    }
+  ]
+}

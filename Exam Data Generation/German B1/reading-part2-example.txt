@@ -1,0 +1,105 @@
+Reading Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text: long text matching the same length and complexity of the example below.
+- questions: 5 items with ids from 6 to 10. Each question must have one question and 3 answers
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long - capture the general meaning of the text
+
+{
+  "id": ID_PLACEHOLDER,
+  "text": "Margit, die junge Frau im Rollstuhl, erledigt die Lohnverrechnung für einen Verlag. Reinhard, seit der Geburt gehbehindert, tippt für die Direktion von Hewlett Packard Protokolle und Preislisten. Martin, seine Unterarme sind verkürzt, layoutet die Speisekarte eines Wiener Restaurants. Drei junge körperbehinderte Menschen am Computer - alle drei können auf eine abgeschlossene kaufmännische Ausbildung verweisen. Dennoch hat man sie auf dem Arbeitsamt als \"schwer vermittelbar\" eingestuft. Zurzeit arbeiten Margit, Reinhard und Martin - gemeinsam mit sieben anderen behinderten Menschen - in der „Büro-Werkstatt\" in Wien-Stadlau. Hier werden körperbehinderte Schulabgänger auf das Berufsleben vorbereitet. In einem fünfmonatigen Kurs lernen sie, das in der Schule Gelernte in die Praxis umzusetzen. Ihre Dienste werden von Privatfirmen (darunter auch die OMV und zwei Banken) zugekauft. Gleichzeitig wird ihnen bei der Jobsuche geholfen. \"Leicht ist das nicht\", sagt Betreuer Günther Hos. \"Es gibt so viele Arbeitslose, die nicht behindert sind. Wer nimmt schon einen Mitarbeiter mit Handicap?\" Zwar wären die Firmen gesetzlich verpflichtet, pro 25 Beschäftigte einen Behinderten einzustellen. Die meisten Firmen nützen jedoch die Möglichkeit, sich \"freizukaufen\" (die sogenannte „Ausgleichstaxe\" beträgt rund 150 Euro monatlich). Trotz der Rahmenbedingungen kann Hos mit einer durchaus positiven Bilanz aufwarten: \"Immerhin haben wir seit der Vereinsgründung vor drei Jahren ein Drittel unserer Leute untergebracht.\" Auch ein Dienst an der Allgemeinheit, denn jede Vermittlung bedeutet: ein Arbeitsloser weniger, ein Steuerzahler mehr. Gegründet wurde die Büro-Werkstatt von einer Lehrerin: Heide Hanisch, die in einer Wiener berufsbildenden Schule Geografie und Geschichte unterrichtet, wollte nicht länger hinnehmen, dass ihre behinderten Schüler erst ausgebildet werden, um dann als Arbeitnehmer nicht gebraucht zu werden.",
+  "title": "Büro-Werkstatt: Chance für behinderte Menschen",
+  "questions": [
+    {
+      "id": 6,
+      "answers": [
+        {
+          "text": "eine berufliche Ausbildung abschließen.",
+          "correct": false
+        },
+        {
+          "correct": false,
+          "text": "lernen, was sie in der Schule verpasst haben."
+        },
+        {
+          "correct": true,
+          "text": "praktische Erfahrungen mit der Büroarbeit sammeln."
+        }
+      ],
+      "question": "In einem fünfmonatigen Kurs können die Teilnehmer"
+    },
+    {
+      "id": 7,
+      "question": "Die Büro-Werkstatt versucht außerdem,",
+      "answers": [
+        {
+          "text": "auch jenen Arbeitslosen zu helfen, die nicht behindert sind.",
+          "correct": false
+        },
+        {
+          "text": "Behinderte auf die Abschlussprüfungen vorzubereiten.",
+          "correct": false
+        },
+        {
+          "correct": true,
+          "text": "für die behinderten Menschen eine Arbeit zu finden."
+        }
+      ]
+    },
+    {
+      "question": "Laut Gesetz müssen österreichische Firmen pro 25 Beschäftigte",
+      "id": 8,
+      "answers": [
+        {
+          "text": "eine besondere Steuer zahlen.",
+          "correct": false
+        },
+        {
+          "correct": true,
+          "text": "einen Behinderten einstellen oder eine monatliche Gebühr bezahlen."
+        },
+        {
+          "text": "für jeden Behinderten monatlich 150 Euro bezahlen.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "answers": [
+        {
+          "text": "konnte für ein Drittel der behinderten Kursteilnehmer eine Arbeit gefunden werden.",
+          "correct": true
+        },
+        {
+          "text": "konnte Günther Hos für den Verein schon viel Geld sparen.",
+          "correct": false
+        },
+        {
+          "text": "zahlen Arbeitslose um ein Drittel weniger Steuern.",
+          "correct": false
+        }
+      ],
+      "question": "Seit der Vereinsgründung"
+    },
+    {
+      "question": "Die Lehrerin, die die Büro-Werkstatt gegründet hat,",
+      "answers": [
+        {
+          "text": "wollte etwas tun, damit Behinderte einen Arbeitsplatz erhalten.",
+          "correct": true
+        },
+        {
+          "text": "wollte nicht länger Geografie und Geschichte unterrichten.",
+          "correct": false
+        },
+        {
+          "text": "wird nach der Ausbildung der Behinderten nicht mehr gebraucht.",
+          "correct": false
+        }
+      ],
+      "id": 10
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+Reading Part 3
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long -  Try to capture 1-2 meaning of the advertisements, it doesn't of course need to capture all of them
+- advertisements: 12 advertisements. Use the same IDs. You always add "x": "Keine passende Anzeige"
+  - Up to 2 situations may not have matching advertisement and the answer should be "x".
+- situations: 10 items with ids from 11 to 20. Each situation must have a text and the matching advertisement. Each text must have only ONE correct matching advertisement or None.
+
+{
+  "title": "Kleinanzeigen für Bildung, Reisen und lokale Gastronomie",
+  "id": ID_PLACEHOLDER,
+  "advertisements": {
+    "f": "**Kreittmayr** Kneipe mit **Biergarten**.",
+    "i": "**Unterricht**. **Nachhilfe in Mathe-Physik** mit viel Geduld u. Erfahrung von Gymnasiallehrer. ***Erf. Dipl.-Math. gibt*** **MATHE** (alles für Abi u. Studium) **PHYSIK** (für ABI).",
+    "j": "**City-Reisebüro**. Campmobile **USA/CANADA** z.B. San Francisco/Los Angeles **ab € 35,- pro Tag**. Früh buchen lohnt!",
+    "l": "**SPRACHBÖRSE**. **Deutsch als Fremdsprache** | Fremdsprachen | Kindersprachkurse. **muttersprachl. Lehrkräfte**, Minigruppen.",
+    "k": "**Kurse** Für Erwachsene und Kinder mit **(Sprach-)Schwierigkeiten**.",
+    "e": "**COUNCIL TRAVEL** Für **Studenten/Jugendliche** (Flugpreise, z.B. New York/Boston 329,-). **Alle Preise zzgl. Sicherheitsgebühr u. Steuern**.",
+    "h": "**Nachprüfung**. Lehrerin bereitet intensiv vor in: Latein, Englisch, Französisch, Deutsch.",
+    "c": "Wir wünschen unseren Kunden... schöne Ferien und gute Erholung. ... sind Sie für den Urlaub auch gut versichert? Fragen Sie: **Helmut Schwabe** (Versicherungen).",
+    "a": "Thai-China-Vietnam Asiatisches Spezialitäten-Restaurant **Bong - Hong**. Alle Gerichte auch zum **Mitnehmen** und Heimservice.",
+    "g": "**Internationaler Stammtisch**. Deutsche und ausländische Jugendliche in München diskutieren über die Probleme.",
+    "b": "Ristorante **OLINDO**. Italienisches Restaurant. Bei schönem Wetter **Gartenbetrieb**.",
+    "d": "**SEATOP Reisen**. Der Flug- und Hotelspezialist **WELTWEIT REISEN**. Sommertermine nach USA noch Plätze frei.",
+    "x": "Keine passende Anzeige"
+  },
+  "situations": [
+    {
+      "id": 11,
+      "answer": "b",
+      "text": "Sie möchten mit Freunden in einem Restaurant essen. Da das Wetter schön ist, möchten Sie gerne **draußen sitzen**."
+    },
+    {
+      "text": "Sie möchten heute nicht selbst kochen, sondern lieber ein warmes Essen kaufen und **mit nach Hause nehmen**.",
+      "answer": "a",
+      "id": 12
+    },
+    {
+      "answer": "j",
+      "id": 13,
+      "text": "In den Sommerferien möchten Sie gerne in die USA fliegen. Sie brauchen dort auch eine **Unterkunft**."
+    },
+    {
+      "id": 14,
+      "text": "Reisebüros bieten billigere Flüge an, wenn man in **letzter Minute** bucht. Sie suchen so einen Flug.",
+      "answer": "d"
+    },
+    {
+      "answer": "e",
+      "text": "Ihre Tochter, die **studiert**, möchte in die USA fliegen. Sie suchen einen **billigen Flug** für sie.",
+      "id": 15
+    },
+    {
+      "text": "Ihr Sohn ist schlecht in **Mathematik** und braucht deshalb noch **Unterricht** außerhalb der Schule.",
+      "id": 16,
+      "answer": "i"
+    },
+    {
+      "text": "Das Kind Ihrer Freunde hat Probleme beim **Sprechen** und braucht deshalb Hilfe.",
+      "id": 17,
+      "answer": "k"
+    },
+    {
+      "text": "Sie haben einen jungen Franzosen zu Besuch. Sie möchten, dass er in einen **Deutschkurs** geht.",
+      "answer": "l",
+      "id": 18
+    },
+    {
+      "text": "Sie möchten, dass Ihr Sohn in einen **Jugendclub** geht.",
+      "id": 19,
+      "answer": "x"
+    },
+    {
+      "id": 20,
+      "text": "Sie interessieren sich für die Probleme **ausländischer Jugendlicher** in Deutschland.",
+      "answer": "g"
+    }
+  ]
+}
