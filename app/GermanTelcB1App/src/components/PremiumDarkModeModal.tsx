@@ -38,7 +38,7 @@ const PremiumDarkModeModal: React.FC<PremiumDarkModeModalProps> = ({
       setShowLoginModal(true);
       return;
     }
-    await purchasePremium();
+    await purchasePremium('PremiumDarkModeModal');
     onClose();
   };
 

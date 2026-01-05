@@ -195,7 +195,7 @@ const ProfileScreen: React.FC = () => {
       setShowLoginModal(true);
       return;
     }
-    await purchasePremium();
+    await purchasePremium('ProfileScreen');
   };
 
   return (
