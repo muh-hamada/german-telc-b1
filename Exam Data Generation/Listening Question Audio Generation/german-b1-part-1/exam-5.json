@@ -1,0 +1,116 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "text": "Wir beschäftigen uns heute mit dem Thema Urlaub und haben Passanten in der Fußgängerzone gefragt: Wie verbringen Sie am liebsten Ihre Ferien? Fahren Sie weg oder bleiben Sie zu Hause? Hören Sie dazu einige Stellungnahmen.",
+        "voiceId": "moderator"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "number-41"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Also für mich muss ein Urlaub warm sein. Ich arbeite das ganze Jahr hart und will mich dann erholen. Deshalb fliege ich eigentlich immer in den Süden, ans Meer. Am Strand liegen, Sonne tanken und nichts tun, das ist für mich perfekt. Aktivurlaub oder Wandern, das ist mir viel zu anstrengend.",
+        "voiceId": "person1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-42"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Urlaub zu Hause? Auf keinen Fall. Ich will etwas sehen von der Welt. Aber ich mag keine Pauschalreisen und großen Hotels. Ich nehme meinen Rucksack und reise alleine durch fremde Länder. Letztes Jahr war ich in Asien. Man lernt so viel mehr über die Kultur, wenn man nicht im Hotel sitzt.",
+        "voiceId": "person2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-43"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Tja, wir haben drei Kinder und da ist das Reisen oft teuer und stressig. Früher sind wir oft geflogen, aber jetzt bleiben wir meistens hier in der Region. Wir machen Tagesausflüge, gehen in den Zoo oder ins Schwimmbad. Den Kindern gefällt das gut, und wir schlafen am liebsten im eigenen Bett.",
+        "voiceId": "person3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-44"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Mein Mann und ich lieben die Berge. Wir fahren jeden Sommer nach Österreich oder in die Schweiz. Da ist die Luft frisch und wir können jeden Tag wandern gehen. Meer ist zwar auch nett, aber die Hitze vertrage ich nicht so gut. In den Bergen ist es einfach angenehmer.",
+        "voiceId": "person4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-45"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Ich bin ein absoluter Stadtmensch. Natur ist okay, aber im Urlaub will ich Museen besuchen, gut essen gehen und shoppen. Letzte Woche waren wir in London, das war fantastisch. Camping oder so etwas kommt für mich nicht infrage, ich brauche schon etwas Komfort und Kultur.",
+        "voiceId": "person5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

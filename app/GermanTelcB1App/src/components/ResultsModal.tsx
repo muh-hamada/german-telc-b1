@@ -103,7 +103,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
           >
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>{examTitle || t('results.title')}</Text>
+              <Text style={styles.title}>{t('results.title')}</Text>
               <TouchableOpacity style={styles.closeButton} onPress={onClose}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>

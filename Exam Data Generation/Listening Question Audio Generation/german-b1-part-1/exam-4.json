@@ -1,0 +1,116 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "text": "Wir beschäftigen uns heute mit dem Thema Ernährung und haben Passanten in der Fußgängerzone gefragt: Wie wichtig ist Ihnen gesundes Essen im stressigen Alltag?",
+        "voiceId": "moderator"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "number-41"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Na, für mich steht die Gesundheit an erster Stelle. Ich kaufe eigentlich nur auf dem Wochenmarkt ein, wissen Sie, frisches Obst und Gemüse. Fleisch esse ich gar nicht mehr, das ist mir auch zu teuer geworden und ich fühle mich ohne einfach besser. Kochen tue ich jeden Abend selbst, das entspannt mich nach der Arbeit.",
+        "voiceId": "person1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-42"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Puh, ehrlich gesagt, unter der Woche ist das eine Katastrophe bei mir. Ich arbeite bis achtzehn oder neunzehn Uhr im Büro. Mittags gehe ich schnell zur Imbissbude oder hole mir ein belegtes Brötchen beim Bäcker. Abends bin ich dann viel zu müde zum Kochen. Da gibt es dann oft nur eine Pizza aus dem Tiefkühlfach.",
+        "voiceId": "person2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-43"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Also bei uns zu Hause wird Tradition großgeschrieben. Meine Frau steht gerne in der Küche und bereitet fast jeden Sonntag einen Braten zu. Ich selbst kann gar nicht kochen, nicht mal Nudeln. Aber das muss ich ja auch nicht. Wichtig ist mir, dass es schmeckt und dass wir alle zusammen am Tisch sitzen.",
+        "voiceId": "person3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-44"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Tja, ich würde gerne alles essen, aber das geht leider nicht. Ich habe seit zwei Jahren eine Allergie gegen Milchprodukte. Das ist manchmal echt kompliziert, besonders wenn ich im Restaurant essen gehe. Ich muss immer genau auf die Zutatenliste schauen. Zu Hause koche ich deshalb spezielle Gerichte ohne Laktose.",
+        "voiceId": "person4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-45"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "text": "Essen? Ach, das ist für mich reine Nebensache. Ich frühstücke nie, dazu fehlt mir morgens die Zeit. Ich trinke nur zwei Tassen Kaffee. Tagsüber vergesse ich das Essen oft vor lauter Stress. Erst spät am Abend bekomme ich dann riesigen Hunger und esse dann leider viel zu viele Süßigkeiten.",
+        "voiceId": "person5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

@@ -1,0 +1,318 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 60
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Herzlich willkommen zu unserer Sendung „Lokales Leben“. Heute geht es um das Projekt „Grüne Stadt“. Ich begrüße dazu Frau Weber, die Gründerin des Gemeinschaftsgartens im Stadtzentrum. Hallo, Frau Weber.",
+        "voiceId": "person3",
+        "id": "interview-1"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Hallo. Vielen Dank für die Einladung.",
+        "voiceId": "person1",
+        "id": "interview-2"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Frau Weber, Ihr Gartenprojekt ist inzwischen sehr bekannt. Wie lange gibt es Sie schon?",
+        "voiceId": "person3",
+        "id": "interview-3"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wir feiern dieses Jahr tatsächlich schon unser fünfjähriges Jubiläum. Angefangen haben wir damals auf einer alten Baulücke, die niemand genutzt hat.",
+        "voiceId": "person1",
+        "id": "interview-4"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Und was war Ihre Motivation? Warum wollten Sie diesen Garten gründen?",
+        "voiceId": "person3",
+        "id": "interview-5"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ich wollte einfach, dass die Menschen in der Stadt wieder mehr Kontakt zur Natur haben. Außerdem fehlte ein Ort, an dem sich Nachbarn treffen und austauschen können.",
+        "voiceId": "person1",
+        "id": "interview-6"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wer kommt denn zu Ihnen in den Garten? Sind das hauptsächlich Familien?",
+        "voiceId": "person3",
+        "id": "interview-7"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Nein, das ist ganz unterschiedlich. Zu Beginn waren es fast nur Studenten von der Universität nebenan. Aber heute gärtnern bei uns auch Senioren, Familien und Berufstätige gemeinsam. Das Alter spielt keine Rolle.",
+        "voiceId": "person1",
+        "id": "interview-8"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das klingt nach viel Arbeit. Wer bezahlt denn die Pflanzen und Geräte?",
+        "voiceId": "person3",
+        "id": "interview-9"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Die Geräte bekommen wir oft geschenkt. Für die laufenden Kosten wie Wasser und Erde bekommen wir Geld von der Stadtverwaltung. Ohne diese Hilfe wäre das Projekt nicht möglich, da wir keine hohen Beiträge verlangen wollen.",
+        "voiceId": "person1",
+        "id": "interview-10"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Und was bauen Sie dort genau an?",
+        "voiceId": "person3",
+        "id": "interview-11"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wir konzentrieren uns auf Gemüse, das schnell wächst, wie Salat, Tomaten und Kräuter. Für große Obstbäume haben wir leider nicht genug Platz auf dem Grundstück.",
+        "voiceId": "person1",
+        "id": "interview-12"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Können Besucher das Gemüse bei Ihnen kaufen?",
+        "voiceId": "person3",
+        "id": "interview-13"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Nein, wir sind kein Geschäft. Wir kochen oft zusammen direkt im Garten. Was übrig bleibt, dürfen die Mitglieder mit nach Hause nehmen. Der Verkauf ist nicht unser Ziel.",
+        "voiceId": "person1",
+        "id": "interview-14"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Machen Sie auch etwas für Kinder?",
+        "voiceId": "person3",
+        "id": "interview-15"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ja, das ist uns sehr wichtig. Wir arbeiten mit zwei Schulen zusammen. Die Kinder kommen einmal pro Woche und lernen bei uns, wie man Gemüse pflanzt und pflegt.",
+        "voiceId": "person1",
+        "id": "interview-16"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das ist eine tolle Initiative. Wer betreut die Kinder dabei?",
+        "voiceId": "person3",
+        "id": "interview-17"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das machen unsere erfahrenen Mitglieder ehrenamtlich. Wir haben zum Glück zwei pensionierte Biologielehrer im Team, die das übernehmen.",
+        "voiceId": "person1",
+        "id": "interview-18"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Frau Weber, das ist ein wunderbares Projekt. Ich wünsche Ihnen weiterhin viel Erfolg und eine gute Ernte.",
+        "voiceId": "person3",
+        "id": "interview-19"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Vielen Dank!",
+        "voiceId": "person1",
+        "id": "interview-20"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Herzlich willkommen zu unserer Sendung „Lokales Leben“. Heute geht es um das Projekt „Grüne Stadt“. Ich begrüße dazu Frau Weber, die Gründerin des Gemeinschaftsgartens im Stadtzentrum. Hallo, Frau Weber.",
+        "voiceId": "person3",
+        "id": "interview-1-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Hallo. Vielen Dank für die Einladung.",
+        "voiceId": "person1",
+        "id": "interview-2-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Frau Weber, Ihr Gartenprojekt ist inzwischen sehr bekannt. Wie lange gibt es Sie schon?",
+        "voiceId": "person3",
+        "id": "interview-3-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wir feiern dieses Jahr tatsächlich schon unser fünfjähriges Jubiläum. Angefangen haben wir damals auf einer alten Baulücke, die niemand genutzt hat.",
+        "voiceId": "person1",
+        "id": "interview-4-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Und was war Ihre Motivation? Warum wollten Sie diesen Garten gründen?",
+        "voiceId": "person3",
+        "id": "interview-5-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ich wollte einfach, dass die Menschen in der Stadt wieder mehr Kontakt zur Natur haben. Außerdem fehlte ein Ort, an dem sich Nachbarn treffen und austauschen können.",
+        "voiceId": "person1",
+        "id": "interview-6-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wer kommt denn zu Ihnen in den Garten? Sind das hauptsächlich Familien?",
+        "voiceId": "person3",
+        "id": "interview-7-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Nein, das ist ganz unterschiedlich. Zu Beginn waren es fast nur Studenten von der Universität nebenan. Aber heute gärtnern bei uns auch Senioren, Familien und Berufstätige gemeinsam. Das Alter spielt keine Rolle.",
+        "voiceId": "person1",
+        "id": "interview-8-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das klingt nach viel Arbeit. Wer bezahlt denn die Pflanzen und Geräte?",
+        "voiceId": "person3",
+        "id": "interview-9-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Die Geräte bekommen wir oft geschenkt. Für die laufenden Kosten wie Wasser und Erde bekommen wir Geld von der Stadtverwaltung. Ohne diese Hilfe wäre das Projekt nicht möglich, da wir keine hohen Beiträge verlangen wollen.",
+        "voiceId": "person1",
+        "id": "interview-10-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Und was bauen Sie dort genau an?",
+        "voiceId": "person3",
+        "id": "interview-11-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Wir konzentrieren uns auf Gemüse, das schnell wächst, wie Salat, Tomaten und Kräuter. Für große Obstbäume haben wir leider nicht genug Platz auf dem Grundstück.",
+        "voiceId": "person1",
+        "id": "interview-12-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Können Besucher das Gemüse bei Ihnen kaufen?",
+        "voiceId": "person3",
+        "id": "interview-13-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Nein, wir sind kein Geschäft. Wir kochen oft zusammen direkt im Garten. Was übrig bleibt, dürfen die Mitglieder mit nach Hause nehmen. Der Verkauf ist nicht unser Ziel.",
+        "voiceId": "person1",
+        "id": "interview-14-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Machen Sie auch etwas für Kinder?",
+        "voiceId": "person3",
+        "id": "interview-15-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Ja, das ist uns sehr wichtig. Wir arbeiten mit zwei Schulen zusammen. Die Kinder kommen einmal pro Woche und lernen bei uns, wie man Gemüse pflanzt und pflegt.",
+        "voiceId": "person1",
+        "id": "interview-16-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das ist eine tolle Initiative. Wer betreut die Kinder dabei?",
+        "voiceId": "person3",
+        "id": "interview-17-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das machen unsere erfahrenen Mitglieder ehrenamtlich. Wir haben zum Glück zwei pensionierte Biologielehrer im Team, die das übernehmen.",
+        "voiceId": "person1",
+        "id": "interview-18-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Frau Weber, das ist ein wunderbares Projekt. Ich wünsche Ihnen weiterhin viel Erfolg und eine gute Ernte.",
+        "voiceId": "person3",
+        "id": "interview-19-rep"
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Vielen Dank!",
+        "voiceId": "person1",
+        "id": "interview-20-rep"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

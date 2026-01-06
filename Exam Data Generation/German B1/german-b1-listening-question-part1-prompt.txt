@@ -28,8 +28,10 @@ Also mein Mann, der ist ziemlich voll. Der macht überhaupt nur das, was ihm Spa
 
 --- Interview End ---
 
-
 Create the interview, then structure it into a JSON file with the following format:
+- Create 5 statements with ids from 41 to 45
+- For phone numbers in the text, write them with letters like (vier fünf sieben)
+
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
@@ -84,6 +86,9 @@ Create the interview, then structure it into a JSON file with the following form
         { type: 'ready', id: 'part-1-outro' },
         { type: 'pause', durationSeconds: 5 },
     ],
+    "title": <title in german>, // The title should be 4-6 words and related to the conversations
+    "audio_url": "PLACEHOLDER",
+    "id": INT_PLACEHOLDER,
     "statements": [
         {
           "is_correct": <boolean>,

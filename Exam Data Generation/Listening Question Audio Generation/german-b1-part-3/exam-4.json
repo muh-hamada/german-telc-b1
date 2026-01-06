@@ -1,0 +1,252 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Guten Tag. Sie möchten wissen, wie Sie zu unserem Hotel kommen? Wenn Sie den Hauptbahnhof verlassen, gehen Sie bitte nach links in die Kaiserstraße. Laufen Sie immer geradeaus, bis Sie den großen Park sehen. Unser Hotel ist das gelbe Gebäude direkt gegenüber dem Parkeingang.",
+        "voiceId": "person1",
+        "id": "speech-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Guten Tag. Sie möchten wissen, wie Sie zu unserem Hotel kommen? Wenn Sie den Hauptbahnhof verlassen, gehen Sie bitte nach links in die Kaiserstraße. Laufen Sie immer geradeaus, bis Sie den großen Park sehen. Unser Hotel ist das gelbe Gebäude direkt gegenüber dem Parkeingang.",
+        "voiceId": "person1",
+        "id": "speech-56"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Guten Tag, hier ist die automatische Auskunft des Stadttheaters. Für die Vorstellung von 'Romeo und Julia' heute Abend um 20 Uhr sind leider alle Karten ausverkauft. Für die morgige Vorstellung um 18 Uhr gibt es noch wenige Restkarten an der Abendkasse.",
+        "voiceId": "person3",
+        "id": "speech-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Guten Tag, hier ist die automatische Auskunft des Stadttheaters. Für die Vorstellung von 'Romeo und Julia' heute Abend um 20 Uhr sind leider alle Karten ausverkauft. Für die morgige Vorstellung um 18 Uhr gibt es noch wenige Restkarten an der Abendkasse.",
+        "voiceId": "person3",
+        "id": "speech-57"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Der Wetterbericht für das Wochenende im Rheinland. Am Samstagvormittag ist es noch stark bewölkt, aber trocken. Ab dem Mittag kommt die Sonne raus und wir erreichen angenehme 20 Grad. Am Sonntag bleibt es sonnig und warm. Perfektes Ausflugswetter.",
+        "voiceId": "person1",
+        "id": "speech-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Der Wetterbericht für das Wochenende im Rheinland. Am Samstagvormittag ist es noch stark bewölkt, aber trocken. Ab dem Mittag kommt die Sonne raus und wir erreichen angenehme 20 Grad. Am Sonntag bleibt es sonnig und warm. Perfektes Ausflugswetter.",
+        "voiceId": "person1",
+        "id": "speech-58"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Achtung am Gleis 5. Der Intercity Express nach München, planmäßige Abfahrt 14 Uhr 30, hat heute ca. 20 Minuten Verspätung. Grund dafür ist eine Reparatur am Zug. Wir bitten um Ihr Verständnis.",
+        "voiceId": "person3",
+        "id": "speech-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Achtung am Gleis 5. Der Intercity Express nach München, planmäßige Abfahrt 14 Uhr 30, hat heute ca. 20 Minuten Verspätung. Grund dafür ist eine Reparatur am Zug. Wir bitten um Ihr Verständnis.",
+        "voiceId": "person3",
+        "id": "speech-59"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "number-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-3-listen-text"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Liebe Kunden, willkommen in unserem Möbelhaus. Besuchen Sie heute unsere Küchenabteilung im zweiten Stock. Wir feiern Jubiläum und bieten Ihnen 10 Prozent Rabatt auf alle Esstische und Stühle. Nur heute bis 20 Uhr.",
+        "voiceId": "person1",
+        "id": "speech-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-3-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "text": "Liebe Kunden, willkommen in unserem Möbelhaus. Besuchen Sie heute unsere Küchenabteilung im zweiten Stock. Wir feiern Jubiläum und bieten Ihnen 10 Prozent Rabatt auf alle Esstische und Stühle. Nur heute bis 20 Uhr.",
+        "voiceId": "person1",
+        "id": "speech-60"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    }
+]

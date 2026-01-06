@@ -25,8 +25,9 @@ Sie sind im Kaufhaus und hören folgende Durchsage. Das ist Spitze. Sommerschlus
 
 --- Interview End ---
 
-
 Create the interview, then structure it into a JSON file with the following format:
+- Create 5 statements with ids from 56 to 60
+
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
@@ -127,6 +128,8 @@ Create the interview, then structure it into a JSON file with the following form
         { type: 'pause', durationSeconds: 2 },
     ],
     "title": "<title in German>", // Short title of the interviews in 4-6 words, make the title related to the interviews
+    "audio_url": "PLACEHOLDER",
+    "id": INT_PLACEHOLDER,
     "statements": [
         {
           "id": 56,
