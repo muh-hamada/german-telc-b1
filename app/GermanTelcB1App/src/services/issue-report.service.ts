@@ -15,12 +15,12 @@ interface SubmitIssueReportParams {
 interface IssueReport {
   userId: string | null;
   timestamp: number;
-  examId: string;
+  appId: string;
   platform: 'ios' | 'android';
   appVersion: string;
   section: string;
   part: number;
-  examIndex: number;
+  examId: number;
   questionSnapshot: any;
   userFeedback: string;
   status: 'pending';
@@ -47,18 +47,18 @@ class IssueReportService {
       // Gather device metadata
       const appVersion = DeviceInfo.getVersion();
       const platform = Platform.OS as 'ios' | 'android';
-      const currentExamId = activeExamConfig.id;
+      const currentAppId = activeExamConfig.id;
 
       // Create the issue report document
       const issueReport: IssueReport = {
         userId,
         timestamp: Date.now(),
-        examId: currentExamId,
+        appId: currentAppId,
         platform,
         appVersion,
         section,
         part,
-        examIndex: examId,
+        examId: examId,
         questionSnapshot: examData,
         userFeedback: userFeedback.trim(),
         status: 'pending',

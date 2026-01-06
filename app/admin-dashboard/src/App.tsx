@@ -13,6 +13,7 @@ import { VocabularyUploadPage } from './pages/VocabularyUploadPage';
 import { QuestionsOverviewPage } from './pages/QuestionsOverviewPage';
 import { ConfigPage } from './pages/ConfigPage';
 import { UsersPage } from './pages/UsersPage';
+import { IssueReportsPage } from './pages/IssueReportsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -100,6 +101,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <UsersPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/issue-reports"
+            element={
+              <ProtectedRoute>
+                <IssueReportsPage />
               </ProtectedRoute>
             }
           />

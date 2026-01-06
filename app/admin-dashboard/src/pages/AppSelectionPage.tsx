@@ -140,6 +140,17 @@ export const AppSelectionPage: React.FC = () => {
               View Overview →
             </button>
           </div>
+          <div
+            className="admin-action-card issue-reports"
+            onClick={() => navigate('/issue-reports')}
+          >
+            <div className="admin-action-icon">🐛</div>
+            <h3>Issue Reports</h3>
+            <p>Manage user-reported issues from all apps</p>
+            <button className="btn-action-select">
+              View Reports →
+            </button>
+          </div>
         </div>
       </div>
     </div>
