@@ -1,0 +1,104 @@
+Grammar Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text: This is the core of the question. Follow these instructions VERY CAREFULLY:
+-- Create a formal or informal text (e.g., email or letter).
+-- The text must be grammatically correct, coherent, and the flow must make sense.
+-- Decide which parts you will replace with question gaps.
+-- Use \n to create new lines.
+-- Use [] for the gaps. The [] includes the question numbers. IDs must range from 31 to 40. Examples: [31], [40].
+- id: int - just leave the placeholder.
+- title: in German. 5-7 words long. Capture the essence of the text.
+- words: A list of 15 words (options A to O).
+-- The list must contain the 10 correct answers and 5 distractors.
+-- The words must be sorted alphabetically by the "key" field.
+-- Keys must be "A", "B", "C", ... up to "O".
+- answers: A simple key-value object mapping the Question ID (e.g., "31") to the correct Word Key (e.g., "B").
+
+Instructions for Quality Control:
+- Reconstruction & Review: Before finalizing the JSON, ensure that every gap [31-40] has exactly one logically and grammatically correct word from the list.
+-- Fill in the gaps with your intended correct answers to reconstruct the full text. Read this full text to check for:
+--- Logical Consistency: Ensure timelines make sense if applicable.
+-- Grammatical Accuracy: Ensure all cases, prepositions, and conjunctions are strictly B1 level.
+-- Correction: If you find any errors in this step, fix the text and the answers immediately.
+- Distractors: Ensure the 5 unused words are plausible distractors (e.g., similar prepositions or conjunctions) but are definitely incorrect in the specific context.
+
+{
+  "answers": {
+    "31": "B",
+    "32": "H",
+    "33": "K",
+    "34": "G",
+    "35": "A",
+    "36": "B",
+    "37": "O",
+    "38": "J",
+    "39": "M",
+    "40": "L"
+  },
+  "title": "Anfrage bezüglich eines Familienurlaubs im Hotel",
+  "words": [
+    {
+      "key": "A",
+      "word": "BESONDERS"
+    },
+    {
+      "key": "B",
+      "word": "DA"
+    },
+    {
+      "key": "C",
+      "word": "DAFÜR"
+    },
+    {
+      "key": "D",
+      "word": "DAMALS"
+    },
+    {
+      "key": "E",
+      "word": "DAMIT"
+    },
+    {
+      "key": "F",
+      "word": "DANKBAR"
+    },
+    {
+      "key": "G",
+      "word": "DESHALB"
+    },
+    {
+      "key": "H",
+      "word": "FÜR"
+    },
+    {
+      "key": "I",
+      "word": "GERNE"
+    },
+    {
+      "key": "J",
+      "word": "KÖNNTEN"
+    },
+    {
+      "key": "K",
+      "word": "MIT"
+    },
+    {
+      "key": "L",
+      "word": "MÜSSTEN"
+    },
+    {
+      "key": "M",
+      "word": "SCHLIESSLICH"
+    },
+    {
+      "key": "N",
+      "word": "WANN"
+    },
+    {
+      "key": "O",
+      "word": "WENN"
+    }
+  ],
+  "text": "Sehr geehrter Herr Janosch,\n\n[31] ich Ihre Anzeige gelesen habe, interessiere ich mich sehr [32] Ihr Angebot. Ich möchte [33] meiner Familie vom 10.-24. August in Österreich Urlaub machen und hätte [34] noch nähere Informationen.\n\nMeine Frau und mich interessiert ganz [35] das Freizeitprogramm für Kinder, [36] wir zwei Kinder (3 und 8 Jahre) haben. Gibt es Schwimm- und Tenniskurse für Kinder und [37] ja, was kosten sie?\n\nIn Ihrer Anzeige steht auch, dass Sie für die Unterkunft günstige Angebote für Kinder haben. Wie viel [38] wir pro Woche für unsere Kinder bezahlen? Und [39] noch eine letzte Frage: Wir haben einen kleinen Hund, von dem sich meine Kinder nicht trennen können und den wir [40] auch mitnehmen müssten. Wäre das möglich?\n\nBitte schreiben Sie uns so bald wie möglich, damit wir uns bald entscheiden können.\n\nMit freundlichen Grüßen\nIhr Anton Müller",
+  "id": 0
+}

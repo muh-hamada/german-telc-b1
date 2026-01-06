@@ -1,15 +1,20 @@
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { Platform } from 'react-native';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 
 /**
  * Custom hook that wraps react-i18next's useTranslation
- * Automatically removes "Telc" from all translated strings on iOS
+ * Automatically removes "Telc" from all translated strings on iOS if enabled via remote config
  */
 export function useCustomTranslation(): UseTranslationResponse<'translation', undefined> {
     const translation = useTranslation();
+    const { globalConfig } = useRemoteConfig();
 
-    // Only apply transformation on iOS
-    if (Platform.OS !== 'ios') {
+    // Check if we should remove telc text on iOS (controlled by remote config)
+    const shouldRemoveTelc = Platform.OS === 'ios' && (globalConfig?.removeTelcFromText_iOS ?? true);
+
+    // Only apply transformation if enabled
+    if (!shouldRemoveTelc) {
         return translation;
     }
 

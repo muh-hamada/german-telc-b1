@@ -20,6 +20,7 @@ export interface SupportAdIntervalsConfig {
 export interface GlobalConfig {
   supportAdIntervals: SupportAdIntervalsConfig;
   onboardingImages: string[]; // Array of 5 image URLs for onboarding steps
+  removeTelcFromText_iOS: boolean; // Whether to remove "telc" text from translations on iOS
   updatedAt: number;
 }
 
@@ -87,6 +88,7 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
     'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-4.png?alt=media',
     'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-5.png?alt=media',
   ],
+  removeTelcFromText_iOS: true, // Default: remove telc text on iOS (initial behavior)
   updatedAt: Date.now(),
 };
 

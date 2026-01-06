@@ -288,6 +288,26 @@ export const ConfigPage: React.FC = () => {
                 ))}
               </div>
 
+              <div className="config-group">
+                <h3>iOS Settings</h3>
+                <p className="config-group-description">
+                  Platform-specific settings for iOS apps
+                </p>
+
+                <div className="config-field-checkbox">
+                  <input
+                    id="removeTelcFromText_iOS"
+                    type="checkbox"
+                    checked={globalConfig.removeTelcFromText_iOS ?? true}
+                    onChange={(e) => updateGlobalConfig({ removeTelcFromText_iOS: e.target.checked })}
+                  />
+                  <label htmlFor="removeTelcFromText_iOS">
+                    Remove "Telc" from Text on iOS
+                    <span className="field-hint">Automatically remove "Telc" references from all translations on iOS</span>
+                  </label>
+                </div>
+              </div>
+
               <div className="config-actions">
                 <button
                   onClick={handleSaveGlobalConfig}

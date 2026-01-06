@@ -18,6 +18,7 @@ const APP_DISPLAY_NAMES: { [key: string]: string } = {
   'german-b2': 'German B2',
   'english-b1': 'English B1',
   'english-b2': 'English B2',
+  'german-a1': 'German A1',
 };
 
 export const ReportsPage: React.FC = () => {
@@ -106,6 +107,46 @@ export const ReportsPage: React.FC = () => {
       }
       return { date: snap.date, value };
     });
+  };
+
+  // Extract combined trend data across all apps
+  const getCombinedTrendData = (metric: MetricKey): TrendData[] => {
+    const dateMap: { [date: string]: number } = {};
+    
+    allAppsData.forEach(app => {
+      app.snapshots.forEach(snap => {
+        if (!dateMap[snap.date]) {
+          dateMap[snap.date] = 0;
+        }
+        
+        let value = 0;
+        switch (metric) {
+          case 'totalUsers':
+            value = snap.totalUsers;
+            break;
+          case 'activeStreaks':
+            value = snap.streaks?.activeStreaks || 0;
+            break;
+          case 'wordsStudied':
+            value = snap.vocabulary?.totalWordsStudied || 0;
+            break;
+          case 'examsCompleted':
+            value = snap.progress?.examsCompleted || 0;
+            break;
+          case 'notificationsEnabled':
+            value = snap.notifications?.enabled || 0;
+            break;
+          case 'premiumUsers':
+            value = snap.premium?.total || 0;
+            break;
+        }
+        dateMap[snap.date] += value;
+      });
+    });
+    
+    return Object.entries(dateMap)
+      .map(([date, value]) => ({ date, value }))
+      .sort((a, b) => a.date.localeCompare(b.date));
   };
 
   // Calculate streak distribution for display
@@ -205,6 +246,13 @@ export const ReportsPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Global Trends */}
+        <TrendsGrid 
+          title="Global Trends (All Apps Combined)"
+          daysBack={daysBack}
+          getTrendDataFn={getCombinedTrendData}
+        />
+
         {/* Per-App Summary */}
         <section className="reports-section">
           <h2 className="section-title">Per-App Summary</h2>
@@ -250,45 +298,11 @@ export const ReportsPage: React.FC = () => {
         {/* Selected App Details */}
         {selectedAppData && selectedAppData.current && (
           <>
-            <section className="reports-section">
-              <h2 className="section-title">{APP_DISPLAY_NAMES[selectedApp]} - Detailed View</h2>
-              
-              {/* Trends */}
-              <div className="trends-section">
-                <h3 className="subsection-title">Trends (Last {daysBack} Days)</h3>
-                {selectedAppData.snapshots.length > 0 ? (
-                  <div className="trends-grid">
-                    <TrendChart 
-                      title="Total Users" 
-                      data={getTrendData(selectedAppData.snapshots, 'totalUsers')} 
-                      color="#4285f4"
-                    />
-                    <TrendChart 
-                      title="Active Streaks" 
-                      data={getTrendData(selectedAppData.snapshots, 'activeStreaks')} 
-                      color="#34a853"
-                    />
-                    <TrendChart 
-                      title="Words Studied" 
-                      data={getTrendData(selectedAppData.snapshots, 'wordsStudied')} 
-                      color="#9c27b0"
-                    />
-                    <TrendChart 
-                      title="Exams Completed" 
-                      data={getTrendData(selectedAppData.snapshots, 'examsCompleted')} 
-                      color="#ff9800"
-                    />
-                    <TrendChart 
-                      title="Premium Users" 
-                      data={getTrendData(selectedAppData.snapshots, 'premiumUsers')} 
-                      color="#ffc107"
-                    />
-                  </div>
-                ) : (
-                  <p className="no-snapshots">No historical snapshots available yet.</p>
-                )}
-              </div>
-            </section>
+            <TrendsGrid 
+              title={`${APP_DISPLAY_NAMES[selectedApp]} - Detailed View`}
+              daysBack={daysBack}
+              getTrendDataFn={(metric) => getTrendData(selectedAppData.snapshots, metric)}
+            />
 
             {/* Distributions */}
             <section className="reports-section">
@@ -366,6 +380,57 @@ export const ReportsPage: React.FC = () => {
   );
 };
 
+// Trends Grid Component - Reusable section for displaying all trend charts
+interface TrendsGridProps {
+  title: string;
+  daysBack: number;
+  getTrendDataFn: (metric: MetricKey) => TrendData[];
+}
+
+const TrendsGrid: React.FC<TrendsGridProps> = ({ title, daysBack, getTrendDataFn }) => {
+  const hasData = getTrendDataFn('totalUsers').length > 0;
+
+  return (
+    <section className="reports-section">
+      <h2 className="section-title">{title}</h2>
+      <div className="trends-section">
+        <h3 className="subsection-title">Trends (Last {daysBack} Days)</h3>
+        {hasData ? (
+          <div className="trends-grid">
+            <TrendChart 
+              title="Total Users" 
+              data={getTrendDataFn('totalUsers')} 
+              color="#4285f4"
+            />
+            <TrendChart 
+              title="Active Streaks" 
+              data={getTrendDataFn('activeStreaks')} 
+              color="#34a853"
+            />
+            <TrendChart 
+              title="Words Studied" 
+              data={getTrendDataFn('wordsStudied')} 
+              color="#9c27b0"
+            />
+            <TrendChart 
+              title="Exams Completed" 
+              data={getTrendDataFn('examsCompleted')} 
+              color="#ff9800"
+            />
+            <TrendChart 
+              title="Premium Users" 
+              data={getTrendDataFn('premiumUsers')} 
+              color="#ffc107"
+            />
+          </div>
+        ) : (
+          <p className="no-snapshots">No historical snapshots available yet.</p>
+        )}
+      </div>
+    </section>
+  );
+};
+
 // Simple Trend Chart Component
 interface TrendChartProps {
   title: string;
@@ -374,6 +439,8 @@ interface TrendChartProps {
 }
 
 const TrendChart: React.FC<TrendChartProps> = ({ title, data, color }) => {
+  const [hoveredPoint, setHoveredPoint] = useState<{ index: number; x: number; y: number } | null>(null);
+
   if (data.length === 0) {
     return (
       <div className="trend-chart">
@@ -464,9 +531,33 @@ const TrendChart: React.FC<TrendChartProps> = ({ title, data, color }) => {
                   top: `${yPercent}%`,
                   backgroundColor: color,
                 }}
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setHoveredPoint({ 
+                    index: i, 
+                    x: rect.left + rect.width / 2, 
+                    y: rect.top 
+                  });
+                }}
+                onMouseLeave={() => setHoveredPoint(null)}
               />
             );
           })}
+          {/* Tooltip */}
+          {hoveredPoint !== null && (
+            <div
+              className="trend-tooltip"
+              style={{
+                position: 'fixed',
+                left: `${hoveredPoint.x}px`,
+                top: `${hoveredPoint.y - 40}px`,
+                transform: 'translateX(-50%)',
+              }}
+            >
+              <div className="trend-tooltip-date">{data[hoveredPoint.index].date}</div>
+              <div className="trend-tooltip-value">{data[hoveredPoint.index].value.toLocaleString()}</div>
+            </div>
+          )}
         </div>
       </div>
       <div className="trend-chart-labels">

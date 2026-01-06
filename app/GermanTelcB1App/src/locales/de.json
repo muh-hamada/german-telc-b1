@@ -898,7 +898,7 @@
     "loginModal": {
       "welcomeBack": "Willkommen zurück",
       "signInCreateAccount": "Anmelden / Konto erstellen",
-      "subtitle": "Melden Sie sich an, um Ihren Fortschritt zu speichern und über Geräte hinweg zu synchronisieren",
+      "subtitle": "Melden Sie sich an, um Ihren Fortschritt zu speichern, geräteübergreifend zu synchronisieren und vieles mehr",
       "orDivider": "oder",
       "continueWithEmail": "Weiter mit E-Mail",
       "backToSocialLogin": "← Zurück zum sozialen Login",

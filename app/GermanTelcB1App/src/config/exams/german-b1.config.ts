@@ -27,8 +27,8 @@ export const germanB1Config: ExamConfig = {
     userProgress: 'users/{uid}/progress/data',   // Fixed: Must be 4 segments for .doc() to work
     completions: 'users/{uid}/completions',      // Backward compatible path
     streaks: 'users/{uid}/streaks/german-b1',    // Daily streaks tracking per exam
-    vocabularyData: 'vocabulary_data_german_a1', // Vocabulary words collection "a1" is a typo, leave it for backward compatibility
-    vocabularyProgress: 'users/{uid}/vocabulary_progress_german_a1/data', // User vocabulary progress "a1" is a typo, leave it for backward compatibility
+    vocabularyData: 'vocabulary_data_german_b1', // Vocabulary words collection
+    vocabularyProgress: 'users/{uid}/vocabulary_progress_german_b1/data', // User vocabulary progress
     speakingDialogues: 'users/{uid}/speaking_dialogues_german_b1', // Speaking assessments
   },
   

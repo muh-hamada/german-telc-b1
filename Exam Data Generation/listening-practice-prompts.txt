@@ -179,16 +179,16 @@ Provide a specific prompt I can paste into NotebookLM's "Customize" box to gener
 
 ### 3. Assessment JSON (German)
 Create a JSON file with 10 questions to test understanding.
-* **Constraint:** The questions must target the audio conversation. The phrasing should be "Im Gespräch..." or "Die Sprecher..." rather than "Im Text...".
+* **Constraint:** The questions must target the audio conversation. The phrasing should be "Im Gespräch..." or "Die Sprecher..." rather than "Im Text...". Never mention "Im Text" or anything similar in the questions. Also, don't ask the question as this is an article (don't mention 'author', etc). The questions must target the audio interview with two hosts.
 * **Format:** The questions must be answered by "true" or "false" only.
 * **Level:** The questions should test **Global Understanding** (the main theme) and **Detail Understanding** (specific facts, numbers, rules, or dates mentioned).
 IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
-- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
-- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
+-- Incorrect question phrasing: According to the text, 'digital burnout' is caused by the technology itself failing to work properly.
+-- Correct question phrasing: According to the interview, 'digital burnout' is caused by the technology itself failing to work properly.
 * **Schema:**
 ```json
 {
-    "title": "<Title of the text>",
+    "title": "<Title of the text in German>",
     "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
     "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
     "duration": "PLACEHOLDER_FOR_DURATION",
@@ -196,21 +196,17 @@ IMPORTANT: in the Assessment questions, phrase the questions considering that th
         {
             "question": "<Statement in German based on the audio>",
             "correct": <boolean>,
-            "explanation": "<Explanation in German: Why is this true/false? Cite the fact from the text>"
+            "explanation": "<Explanation in German: Why is this true/false? Cite the fact from the interview>"
         }
     ]
 }
 
 4. Image Generation Prompt (English)
 Create a prompt to generate a vertical background image for the mobile app.
-
 Aspect Ratio: 9:16 (Vertical).
 Style: Cinematic, realistic photography, candid style.
 Content: It should visualize the specific setting of the text (e.g., a modern office desk, a hotel reception, a train platform).
-Layout constraint: The image should not have two scenes. Only one scene takes up the full image. Crucial: Place the key visual elements (faces, main objects) at the top 1/3 of the image, as the audio controls will cover the lower half.
-
-Please confirm you understand these instructions. I will then provide the first topic.
-
+Layout constraint: The image should not have two scenes. Only one scene takes up the full image. Crucial: Place the key visual elements (faces, main objects) at the top part of the image, as the audio controls will cover the lower half.
 
 ------------------------ German A1 ------------------------
 

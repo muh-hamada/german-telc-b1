@@ -28,12 +28,27 @@ const ListeningPracticeScreen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
+  // Parse duration from "MM:SS" format to seconds
+  const parseDuration = (timeString: string): number => {
+    if (!timeString) return 0;
+    const parts = timeString.split(':');
+    if (parts.length === 2) {
+      const minutes = parseInt(parts[0], 10) || 0;
+      const seconds = parseInt(parts[1], 10) || 0;
+      return minutes * 60 + seconds;
+    }
+    return 0;
+  };
+
+  const duration = parseDuration(interview.duration);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioPath, setAudioPath] = useState<string | null>(null);
-  const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [isToggling, setIsToggling] = useState(false);
+  const [isSeeking, setIsSeeking] = useState(false);
 
   const isCompleted = userProgress?.exams?.some(e => e.examType === 'listening-practice' && e.examId === id && e.completed);
 
@@ -60,9 +75,8 @@ const ListeningPracticeScreen: React.FC = () => {
 
     // Add playback listener for progress tracking
     Sound.addPlayBackListener((e: any) => {
-      if (e.currentPosition !== undefined && e.duration !== undefined) {
+      if (e.currentPosition !== undefined) {
         setCurrentTime(e.currentPosition / 1000);
-        setDuration(e.duration / 1000);
       }
     });
 
@@ -74,8 +88,9 @@ const ListeningPracticeScreen: React.FC = () => {
   }, [interview.audio_url]);
 
   const togglePlayback = async () => {
-    if (!audioPath || !isLoaded) return;
+    if (!audioPath || !isLoaded || isToggling) return;
 
+    setIsToggling(true);
     try {
       if (isPlaying) {
         await Sound.pausePlayer();
@@ -103,28 +118,38 @@ const ListeningPracticeScreen: React.FC = () => {
     } catch (error) {
       console.error('Playback error:', error);
       setIsPlaying(false);
+    } finally {
+      setIsToggling(false);
     }
   };
 
   const skipBackward = async () => {
-    if (!audioPath || !isLoaded) return;
+    if (!audioPath || !isLoaded || isSeeking) return;
+    
+    setIsSeeking(true);
     const newTime = Math.max(0, currentTime - 10);
     try {
       await Sound.seekToPlayer(newTime * 1000);
       setCurrentTime(newTime);
     } catch (error) {
       console.error('Skip backward error:', error);
+    } finally {
+      setIsSeeking(false);
     }
   };
 
   const skipForward = async () => {
-    if (!audioPath || !isLoaded) return;
+    if (!audioPath || !isLoaded || isSeeking) return;
+    
+    setIsSeeking(true);
     const newTime = Math.min(duration, currentTime + 10);
     try {
       await Sound.seekToPlayer(newTime * 1000);
       setCurrentTime(newTime);
     } catch (error) {
       console.error('Skip forward error:', error);
+    } finally {
+      setIsSeeking(false);
     }
   };
 
@@ -208,11 +233,11 @@ const ListeningPracticeScreen: React.FC = () => {
                   </View>
 
                   <View style={styles.controlsRow}>
-                    <TouchableOpacity onPress={skipBackward} disabled={!isLoaded} style={styles.controlButton}>
+                    <TouchableOpacity onPress={skipBackward} disabled={!isLoaded} style={[styles.controlButton, !isLoaded && styles.buttonDisabled]}>
                       <MaterialIcon name={I18nManager.isRTL ? "forward-10" : "replay-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={togglePlayback} disabled={!isLoaded} style={styles.playButton}>
+                    <TouchableOpacity onPress={togglePlayback} disabled={!isLoaded} style={[styles.playButton, !isLoaded && styles.buttonDisabled]}>
                       {isLoaded ? (
                         <MaterialIcon name={isPlaying ? "pause" : "play-arrow"} size={40} color={colors.white} />
                       ) : (
@@ -220,7 +245,7 @@ const ListeningPracticeScreen: React.FC = () => {
                       )}
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={skipForward} disabled={!isLoaded} style={styles.controlButton}>
+                    <TouchableOpacity onPress={skipForward} disabled={!isLoaded} style={[styles.controlButton, !isLoaded && styles.buttonDisabled]}>
                       <MaterialIcon name={I18nManager.isRTL ? "replay-10" : "forward-10"} size={36} color={colors.white} />
                     </TouchableOpacity>
                   </View>
@@ -352,6 +377,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.4)',
+  },
+  buttonDisabled: {
+    opacity: 0.5,
   },
   assessButtonText: {
     ...typography.textStyles.h4,

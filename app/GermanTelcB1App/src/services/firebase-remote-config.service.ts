@@ -184,6 +184,7 @@ class FirebaseRemoteConfigService {
         onboardingImages: Array.isArray(data.onboardingImages)
           ? data.onboardingImages
           : DEFAULT_GLOBAL_CONFIG.onboardingImages,
+        removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
         updatedAt: data.updatedAt || Date.now(),
       };
 
@@ -229,6 +230,7 @@ class FirebaseRemoteConfigService {
             onboardingImages: Array.isArray(data.onboardingImages)
               ? data.onboardingImages
               : DEFAULT_GLOBAL_CONFIG.onboardingImages,
+            removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
             updatedAt: data.updatedAt || Date.now(),
           };
 

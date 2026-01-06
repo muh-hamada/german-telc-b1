@@ -279,6 +279,7 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       textAlign: 'center',
       marginBottom: spacing.margin.xl,
+      paddingHorizontal: spacing.padding.md,
       lineHeight: 24,
     },
     socialButtons: {

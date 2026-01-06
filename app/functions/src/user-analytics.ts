@@ -194,7 +194,8 @@ export const onUserUpdate = functions.firestore
 // Monitors: users/{uid}/vocabulary_progress_*/data
 // We map the collection name to the App ID
 const VOCAB_COLLECTIONS = {
-  'vocabulary_progress_german_a1': 'german-b1',
+  'vocabulary_progress_german_a1': 'german-a1',
+  'vocabulary_progress_german_b1': 'german-b1',
   'vocabulary_progress_german_b2': 'german-b2',
   'vocabulary_progress_english_b1': 'english-b1',
   'vocabulary_progress_english_b2': 'english-b2',
@@ -361,9 +362,9 @@ export const onStreakUpdate = functions.firestore
 // 1. users/{uid}/progress/data (German B1)
 // 2. users/{uid}/german_b2_progress/data (German B2)
 // 3. users/{uid}/english_b1_progress/data (English B1)
-
 const PROGRESS_COLLECTIONS = {
   'progress': 'german-b1',
+  'german_a1_progress': 'german-a1',
   'german_b2_progress': 'german-b2',
   'english_b1_progress': 'english-b1',
   'english_b2_progress': 'english-b2',

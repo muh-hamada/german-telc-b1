@@ -1,0 +1,201 @@
+Grammar Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text: This is the most critical component of the question. Following the following instructions VERY CAREFULLY
+-- You must create the full text first. The text must be grammatically correct, coherent, and the flow makes sense.
+-- Decide on which part you will replace with the question gaps.
+-- Create text with the similar length and complexity to the provided example below.
+-- Use \n to create new lines.
+-- use [] for the gaps. The [] includes the question numbers. Examples: [21], [25]
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long - Capture the meaning of the text.
+- questions: 10 questions with IDs from 21 to 30. 
+-- Each question should have 3 answers. Only one must be the correct answer.
+-- The answers should be possible or confusing to test the student grammar understanding but ONLY one must be correct.
+
+Instructions for Quality Control: Before outputting the final JSON, you must perform the following steps sequentially in your response:
+- Reconstruction & Review: Fill in the gaps with your intended correct answers to reconstruct the full text. Read this full text to check for:
+-- Logical Consistency: Ensure timelines make sense (e.g., don't say you moved yesterday and unpacked two days ago).
+-- Grammatical Accuracy: Ensure all cases, prepositions, and conjunctions are strictly B1 level.
+-- Correction: If you find any errors in step 2, fix the text and the answers immediately.
+-- Only one answer from the 3 multi-choice is correct.
+- Final Output: Generate the final, error-free JSON object based on the corrected version.
+- Output format: Provide the 'Reconstruction & Review' analysis first, followed by the final JSON block.
+
+{
+  "text": "Liebe Karin,\n\nnach meinem Praktikum in Frankreich bin ich jetzt wieder zu Hause. Wie du ja weißt, wollte ich eigentlich nach Paris, [21] das hat dann leider nicht geklappt. Doch dann habe ich eine Stelle als Praktikant bei [22] Firma in Straßburg gefunden.\n\nDort [23] ich drei Monate geblieben. Die Arbeit war sehr [24], ich musste schon um 8.00 Uhr im Büro sein, hat mir aber [25] sehr gut gefallen.\nIch habe [26] dieser Zeit in verschiedenen Abteilungen gearbeitet und so nicht nur etwas über die Herstellung von Fernsehgeräten [27], sondern auch über den Verkauf. Und die Kollegen, mit [28] ich am meisten zu tun hatte, waren wirklich sehr nett.\n\nNach dem Praktikum habe ich noch zwei Wochen Urlaub bei [29] Freunden gemacht. Darüber erzähle ich [30] bald mehr – für heute muss ich Schluss machen.\n\nLiebe Grüße\nFritz",
+  "questions": [
+    {
+      "id": 21,
+      "answers": [
+        {
+          "correct": true,
+          "text": "aber"
+        },
+        {
+          "text": "denn",
+          "correct": false
+        },
+        {
+          "text": "sondern",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "answers": [
+        {
+          "text": "eine",
+          "correct": false
+        },
+        {
+          "correct": false,
+          "text": "einen"
+        },
+        {
+          "text": "einer",
+          "correct": true
+        }
+      ],
+      "id": 22
+    },
+    {
+      "answers": [
+        {
+          "correct": true,
+          "text": "bin"
+        },
+        {
+          "correct": false,
+          "text": "habe"
+        },
+        {
+          "text": "wurde",
+          "correct": false
+        }
+      ],
+      "id": 23
+    },
+    {
+      "id": 24,
+      "answers": [
+        {
+          "correct": true,
+          "text": "anstrengend"
+        },
+        {
+          "correct": false,
+          "text": "anstrengende"
+        },
+        {
+          "correct": false,
+          "text": "anstrengendes"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "answers": [
+        {
+          "text": "trotzdem",
+          "correct": true
+        },
+        {
+          "text": "wegen",
+          "correct": false
+        },
+        {
+          "correct": false,
+          "text": "weshalb"
+        }
+      ]
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "text": "bis"
+        },
+        {
+          "correct": true,
+          "text": "in"
+        },
+        {
+          "text": "nach",
+          "correct": false
+        }
+      ],
+      "id": 26
+    },
+    {
+      "answers": [
+        {
+          "correct": true,
+          "text": "gelernt"
+        },
+        {
+          "text": "lernen",
+          "correct": false
+        },
+        {
+          "text": "lernte",
+          "correct": false
+        }
+      ],
+      "id": 27
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "text": "dem"
+        },
+        {
+          "correct": true,
+          "text": "denen"
+        },
+        {
+          "correct": false,
+          "text": "die"
+        }
+      ],
+      "id": 28
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "text": "meine"
+        },
+        {
+          "correct": true,
+          "text": "meinen"
+        },
+        {
+          "text": "meiner",
+          "correct": false
+        }
+      ],
+      "id": 29
+    },
+    {
+      "id": 30,
+      "answers": [
+        {
+          "correct": true,
+          "text": "dir"
+        },
+        {
+          "text": "Ihnen",
+          "correct": false
+        },
+        {
+          "correct": false,
+          "text": "uns"
+        }
+      ]
+    }
+  ],
+  "id": 0,
+  "title": "Praktikum in Frankreich"
+}
