@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
@@ -30,6 +29,7 @@ const ReportedIssuesScreen: React.FC = () => {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
   const loadReports = useCallback(async (isRefresh = false) => {
+    console.log('[ReportedIssuesScreen] Loading reports...', isRefresh);
     try {
       if (!isRefresh) {
         setIsLoading(true);
@@ -45,6 +45,18 @@ const ReportedIssuesScreen: React.FC = () => {
 
       const reportDetails = await issueReportService.getReportedIssues(reportIds);
       setReports(reportDetails);
+      
+      // Mark reports as seen when successfully loaded (only if not refreshing)
+      if (!isRefresh && reportDetails.length > 0) {
+        issueReportService.markReportsAsSeen(reportIds, 'screen');
+        
+        logEvent(AnalyticsEvents.ISSUE_REPORTS_SCREEN_VIEWED, {
+          count: reportDetails.length,
+          pendingCount: reportDetails.filter(r => r.displayStatus === 'pending').length,
+          inProgressCount: reportDetails.filter(r => r.displayStatus === 'in_progress').length,
+          resolvedCount: reportDetails.filter(r => r.displayStatus === 'resolved').length,
+        });
+      }
     } catch (err) {
       console.error('[ReportedIssuesScreen] Error loading reports:', err);
       setError(t('reportedIssues.error'));
@@ -55,27 +67,13 @@ const ReportedIssuesScreen: React.FC = () => {
   }, [t]);
 
   useEffect(() => {
+    console.log('[ReportedIssuesScreen] inside useEffect');
     loadReports();
-  }, [loadReports]);
-
-  // Mark reports as seen when screen is focused
-  useFocusEffect(
-    useCallback(() => {
-      if (reports.length > 0) {
-        const reportIds = reports.map(r => r.id);
-        issueReportService.markReportsAsSeen(reportIds, 'screen');
-        
-        logEvent(AnalyticsEvents.ISSUE_REPORTS_SCREEN_VIEWED, {
-          count: reports.length,
-          pendingCount: reports.filter(r => r.displayStatus === 'pending').length,
-          inProgressCount: reports.filter(r => r.displayStatus === 'in_progress').length,
-          resolvedCount: reports.filter(r => r.displayStatus === 'resolved').length,
-        });
-      }
-    }, [reports])
-  );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty array = run only once on mount
 
   const handleRefresh = () => {
+    console.log('[ReportedIssuesScreen] inside handleRefresh');
     setIsRefreshing(true);
     loadReports(true);
   };

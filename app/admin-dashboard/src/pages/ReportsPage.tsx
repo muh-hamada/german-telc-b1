@@ -253,6 +253,126 @@ export const ReportsPage: React.FC = () => {
           getTrendDataFn={getCombinedTrendData}
         />
 
+        {/* Global Distributions */}
+        <section className="reports-section">
+          <h2 className="section-title">Global Distributions (All Apps Combined)</h2>
+          <div className="charts-grid">
+            <DistributionChart
+              title="Platform Distribution"
+              data={(() => {
+                const platformCounts: { [key: string]: number } = {};
+                allAppsData.forEach(app => {
+                  if (app.current?.platforms) {
+                    Object.entries(app.current.platforms).forEach(([platform, count]) => {
+                      platformCounts[platform] = (platformCounts[platform] || 0) + count;
+                    });
+                  }
+                });
+                return Object.entries(platformCounts)
+                  .filter(([_, count]) => count > 0)
+                  .map(([platform, count]) => ({
+                    label: platform.charAt(0).toUpperCase() + platform.slice(1),
+                    value: count,
+                  }));
+              })()}
+            />
+            <DistributionChart
+              title="Interface Language"
+              data={(() => {
+                const langCounts: { [key: string]: number } = {};
+                allAppsData.forEach(app => {
+                  if (app.current?.languages) {
+                    Object.entries(app.current.languages).forEach(([lang, count]) => {
+                      langCounts[lang] = (langCounts[lang] || 0) + count;
+                    });
+                  }
+                });
+                return Object.entries(langCounts)
+                  .filter(([_, count]) => count > 0)
+                  .map(([lang, count]) => ({
+                    label: lang.toUpperCase(),
+                    value: count,
+                  }))
+                  .sort((a, b) => b.value - a.value)
+                  .slice(0, 10);
+              })()}
+            />
+            <DistributionChart
+              title="Notification Status"
+              data={(() => {
+                let enabled = 0;
+                let disabled = 0;
+                allAppsData.forEach(app => {
+                  if (app.current?.notifications) {
+                    enabled += app.current.notifications.enabled || 0;
+                    disabled += app.current.notifications.disabled || 0;
+                  }
+                });
+                return [
+                  { label: 'Enabled', value: enabled },
+                  { label: 'Disabled', value: disabled },
+                ];
+              })()}
+            />
+            <DistributionChart
+              title="Vocabulary Persona"
+              data={(() => {
+                const personaCounts: { [key: string]: number } = {};
+                allAppsData.forEach(app => {
+                  if (app.current?.personas) {
+                    Object.entries(app.current.personas).forEach(([persona, count]) => {
+                      personaCounts[persona] = (personaCounts[persona] || 0) + count;
+                    });
+                  }
+                });
+                return Object.entries(personaCounts)
+                  .sort((a, b) => a[0].localeCompare(b[0]))
+                  .map(([persona, count]) => ({
+                    label: persona.charAt(0).toUpperCase() + persona.slice(1),
+                    value: count,
+                  }));
+              })()}
+            />
+          </div>
+        </section>
+
+        {/* Global Streak Analysis */}
+        <section className="reports-section">
+          <h2 className="section-title">Global Streak Analysis (All Apps Combined)</h2>
+          <div className="charts-grid">
+            <DistributionChart
+              title="Current Streak Distribution"
+              data={(() => {
+                const combined: { [key: string]: number } = {};
+                allAppsData.forEach(app => {
+                  if (app.current?.streaks?.currentStreakDistribution) {
+                    Object.entries(app.current.streaks.currentStreakDistribution).forEach(([range, count]) => {
+                      combined[range] = (combined[range] || 0) + count;
+                    });
+                  }
+                });
+                return getStreakDistribution(combined);
+              })()}
+              showPercentage={false}
+            />
+            <DistributionChart
+              title="Longest Streak Distribution"
+              data={(() => {
+                const combined: { [key: string]: number } = {};
+                allAppsData.forEach(app => {
+                  if (app.current?.streaks?.longestStreakDistribution) {
+                    Object.entries(app.current.streaks.longestStreakDistribution).forEach(([range, count]) => {
+                      combined[range] = (combined[range] || 0) + count;
+                    });
+                  }
+                });
+                return getStreakDistribution(combined);
+              })()}
+              showPercentage={false}
+            />
+          </div>
+        </section>
+
         {/* Per-App Summary */}
         <section className="reports-section">
           <h2 className="section-title">Per-App Summary</h2>

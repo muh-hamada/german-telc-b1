@@ -348,7 +348,7 @@ service cloud.firestore {
       // Check that deviceUUID matches and only specific fields are being updated
       allow update: if request.resource.data.deviceUUID == resource.data.deviceUUID &&
                        request.resource.data.diff(resource.data).affectedKeys()
-                         .hasOnly(['seenByUserAt', 'seenByUserSource', 'deviceUUID', 'updatedAt']);
+                         .hasOnly(['seenByUserAt', 'seenByUserSource', 'deviceUUID']);
       
       // Admin can update and delete any report
       allow update, delete: if request.auth != null && 

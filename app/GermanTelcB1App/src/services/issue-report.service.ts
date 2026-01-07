@@ -256,7 +256,6 @@ class IssueReportService {
           seenByUserAt: now,
           seenByUserSource: source,
           deviceUUID, // Include deviceUUID to ensure security rule compliance
-          updatedAt: firestore.FieldValue.serverTimestamp(),
         });
       });
 

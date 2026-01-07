@@ -169,15 +169,14 @@ const createStyles = (colors: ThemeColors, compact: boolean) =>
       ...typography.textStyles.caption,
       color: colors.text.secondary,
       fontWeight: typography.fontWeight.semibold,
-      marginBottom: 4,
+      textAlign: 'left',
     },
     value: {
       ...typography.textStyles.bodySmall,
       color: colors.text.primary,
     },
     messageSection: {
-      marginBottom: spacing.sm,
-      paddingTop: spacing.xs,
+      paddingTop: spacing.sm,
       borderTopWidth: 1,
       borderTopColor: colors.border.light,
     },

@@ -386,7 +386,7 @@ const ProfileScreen: React.FC = () => {
             activeOpacity={0.7}
           >
             <View style={styles.actionIconContainer}>
-              <MaterialIcons name="flag" size={20} color={colors.primary[500]} />
+              <MaterialIcons name="flag" size={20} color={colors.warning[500]} />
             </View>
             <Text style={styles.actionItemText}>{t('profile.reportedIssues')}</Text>
             <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
@@ -580,6 +580,7 @@ const createStyles = (colors: ThemeColors) =>
       ...typography.textStyles.body,
       color: colors.text.primary,
       flex: 1,
+      textAlign: 'left',
     },
     aboutSection: {
       alignItems: 'center',
