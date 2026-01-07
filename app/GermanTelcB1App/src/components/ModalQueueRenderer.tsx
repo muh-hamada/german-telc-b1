@@ -5,28 +5,29 @@
  * Connects queued modals to their respective context handlers.
  */
 
-import React, { useState, useEffect } from 'react';
-import { useModalQueue } from '../contexts/ModalQueueContext';
+import React, { useEffect, useState } from 'react';
 import { useAppUpdate } from '../contexts/AppUpdateContext';
-import { useReview } from '../contexts/ReviewContext';
-import { useNotificationReminder } from '../contexts/NotificationReminderContext';
-import { useStreak } from '../contexts/StreakContext';
 import { useAuth } from '../contexts/AuthContext';
-import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { useModalQueue } from '../contexts/ModalQueueContext';
+import { useNotificationReminder } from '../contexts/NotificationReminderContext';
 import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { useReview } from '../contexts/ReviewContext';
+import { useStreak } from '../contexts/StreakContext';
 
 // Import modal components
-import AppUpdateModal from './AppUpdateModal';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
+import { ReportedIssueDetails } from '../services/issue-report.service';
+import premiumPromptService from '../services/premium-prompt.service';
 import AppReviewModal from './AppReviewModal';
-import NotificationReminderModal from './NotificationReminderModal';
+import AppUpdateModal from './AppUpdateModal';
 import HourPickerModal from './HourPickerModal';
+import { IssueUpdateNotificationModal } from './IssueUpdateNotificationModal';
+import NotificationReminderModal from './NotificationReminderModal';
+import PremiumUpsellModal from './PremiumUpsellModal';
 import StreakModal from './StreakModal';
 import StreakRewardModal from './StreakRewardModal';
-import PremiumUpsellModal from './PremiumUpsellModal';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import premiumPromptService from '../services/premium-prompt.service';
-import { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
-import { Alert } from 'react-native';
 
 const ModalQueueRenderer: React.FC = () => {
   const { currentModal, dismissCurrentModal } = useModalQueue();
@@ -259,6 +260,21 @@ const ModalQueueRenderer: React.FC = () => {
           onPurchase={handlePremiumUpsellPurchase}
           isPurchasing={isPurchasing}
           sourceScreen="PremiumUpsellModal"
+        />
+      );
+
+    case 'issue-updates':
+      const updatedReports = (currentModal.data?.updatedReports || []) as ReportedIssueDetails[];
+      
+      const handleIssueUpdatesDismiss = () => {
+        dismissCurrentModal();
+      };
+
+      return (
+        <IssueUpdateNotificationModal
+          visible={true}
+          onClose={handleIssueUpdatesDismiss}
+          updatedReports={updatedReports}
         />
       );
 

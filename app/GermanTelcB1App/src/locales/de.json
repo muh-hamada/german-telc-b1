@@ -715,6 +715,7 @@
     "shareMessage": "Schauen Sie sich diese großartige {{language}} TELC {{level}} Prüfungsvorbereitungs-App an! Laden Sie sie jetzt herunter:",
     "rateApp": "Bewerten Sie unsere App",
     "shareApp": "Mit Freunden teilen",
+    "reportedIssues": "Gemeldete Probleme",
     "deleteAccount": "Konto löschen",
     "appName": "{{language}} TELC {{level}} Prüfungsvorbereitungs-App",
     "weeklyActivity": "Wöchentliche Aktivität",
@@ -735,6 +736,35 @@
       "inProgressMessage": "Ihre Anfrage zur Kontolöschung wird bereits bearbeitet. Ihr Konto wird innerhalb von 7 Tagen nach dem ursprünglichen Anfragedatum gelöscht.",
       "error": "Fehler beim Einreichen der Löschanfrage. Bitte versuchen Sie es erneut."
     }
+  },
+  "reportedIssues": {
+    "title": "Gemeldete Probleme",
+    "emptyState": "Sie haben noch keine Probleme gemeldet. Wenn Sie Fehler oder Probleme bei Fragen finden, melden Sie diese bitte, damit Sie uns helfen, die Qualität der Fragen zu verbessern, was allen hilft.",
+    "refreshing": "Wird aktualisiert...",
+    "loadingReports": "Ihre Berichte werden geladen...",
+    "date": "Gemeldet am",
+    "question": "Frage",
+    "yourMessage": "Ihre Nachricht",
+    "status": "Status",
+    "adminResponse": "Admin-Antwort",
+    "underReview": "Wird überprüft",
+    "statusValues": {
+      "pending": "Ausstehend",
+      "in_progress": "In Bearbeitung",
+      "resolved": "Gelöst"
+    },
+    "error": "Fehler beim Laden der Berichte",
+    "retry": "Erneut versuchen",
+    "showLess": "▲ Weniger anzeigen",
+    "showMore": "▲ Mehr anzeigen"
+  },
+  "issueUpdates": {
+    "modalTitle": "Updates zu Ihren Meldungen",
+    "updatesAvailable": "{{count}} Ihrer gemeldeten Probleme wurden aktualisiert",
+    "updatesAvailableSingle": "1 Ihrer gemeldeten Probleme wurde aktualisiert",
+    "viewAllReports": "Alle Meldungen anzeigen",
+    "gotIt": "Verstanden",
+    "noUpdates": "Keine neuen Updates"
   },
   "settings": {
     "title": "Einstellungen",

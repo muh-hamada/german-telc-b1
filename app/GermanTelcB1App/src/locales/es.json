@@ -683,6 +683,7 @@
     "termsOfService": "Términos del servicio",
     "rateApp": "Valorar la app",
     "shareApp": "Compartir con amigos",
+    "reportedIssues": "Problemas Reportados",
     "shareMessage": "¡Mira esta increíble aplicación de preparación para el examen {{language}} TELC {{level}}! Descárgala ahora:",
     "weeklyActivity": "Actividad semanal",
     "totalXP": "XP",
@@ -738,6 +739,35 @@
       "totalScore": "Puntuación total",
       "completionRate": "Tasa de finalización"
     }
+  },
+  "reportedIssues": {
+    "title": "Problemas Reportados",
+    "emptyState": "Aún no has reportado ningún problema. Si encuentras algún error o problema con las preguntas, por favor repórtalos para ayudarnos a mejorar la calidad de las preguntas, lo que ayudará a todos.",
+    "refreshing": "Actualizando...",
+    "loadingReports": "Cargando tus reportes...",
+    "date": "Reportado el",
+    "question": "Pregunta",
+    "yourMessage": "Tu Mensaje",
+    "status": "Estado",
+    "adminResponse": "Respuesta del Administrador",
+    "underReview": "En revisión",
+    "statusValues": {
+      "pending": "Pendiente",
+      "in_progress": "En Progreso",
+      "resolved": "Resuelto"
+    },
+    "error": "Error al cargar los reportes",
+    "retry": "Reintentar",
+    "showLess": "▲ Mostrar menos",
+    "showMore": "▲ Mostrar más"
+  },
+  "issueUpdates": {
+    "modalTitle": "Actualizaciones sobre tus reportes",
+    "updatesAvailable": "{{count}} de tus problemas reportados han sido actualizados",
+    "updatesAvailableSingle": "1 de tus problemas reportados ha sido actualizado",
+    "viewAllReports": "Ver todos los reportes",
+    "gotIt": "Entendido",
+    "noUpdates": "Sin actualizaciones nuevas"
   },
   "settings": {
     "title": "Configuración",

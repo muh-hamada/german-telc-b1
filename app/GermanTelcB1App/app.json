@@ -1,8 +1,8 @@
 {
-  "name": "TelcExamApp",
-  "displayName": "English TELC B2",
+  "name": "EnglishTelcB1App",
+  "displayName": "English TELC B1",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-5101905792101482~4246632658",
-    "ios_app_id": "ca-app-pub-5101905792101482~3435279711"
+    "android_app_id": "ca-app-pub-5101905792101482~2261614095",
+    "ios_app_id": "ca-app-pub-5101905792101482~2868118756"
   }
 }

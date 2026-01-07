@@ -1,0 +1,105 @@
+Reading Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- text: long text matching the same length and complexity of the example below.
+- questions: 5 items with ids from 6 to 10. Each question must have one question and 3 answers
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long - capture the general meaning of the text
+
+{
+  "questions": [
+    {
+      "answers": [
+        {
+          "correct": false,
+          "text": "weil sie viel lernen."
+        },
+        {
+          "correct": false,
+          "text": "falls sie viel lernen."
+        },
+        {
+          "correct": true,
+          "text": "obwohl sie viel lernen."
+        }
+      ],
+      "id": 6,
+      "question": "Manche Schüler oder Studenten erzielen in Prüfungen schlechte Ergebnisse,"
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "text": "braucht man keine Bücher."
+        },
+        {
+          "correct": true,
+          "text": "soll man nicht nur pausenlos Bücher lesen."
+        },
+        {
+          "text": "muss man kleine Bildchen in die Bücher zeichnen.",
+          "correct": false
+        }
+      ],
+      "id": 7,
+      "question": "Zum richtigen Lernen"
+    },
+    {
+      "question": "Menschen vergessen mit der Zeit,",
+      "answers": [
+        {
+          "text": "was sie in der Schule gut verstanden haben.",
+          "correct": false
+        },
+        {
+          "correct": false,
+          "text": "was für ihr Leben wichtig ist."
+        },
+        {
+          "text": "was sie nicht angewendet haben.",
+          "correct": true
+        }
+      ],
+      "id": 8
+    },
+    {
+      "question": "Beim Lernen braucht man Pausen,",
+      "answers": [
+        {
+          "text": "um das Gelernte mental zu verarbeiten.",
+          "correct": true
+        },
+        {
+          "text": "um sich zu setzen.",
+          "correct": false
+        },
+        {
+          "text": "um das Gehirn zu überfordern.",
+          "correct": false
+        }
+      ],
+      "id": 9
+    },
+    {
+      "question": "Wer zu lange mit dem Lernen wartet,",
+      "id": 10,
+      "answers": [
+        {
+          "text": "besteht Prüfungen oft nicht mit den besten Noten.",
+          "correct": true
+        },
+        {
+          "correct": false,
+          "text": "hat keine Zeit, Kontakt mit seinen Bekannten zu knüpfen."
+        },
+        {
+          "correct": false,
+          "text": "geht nach der Prüfung gleich weg."
+        }
+      ]
+    }
+  ],
+  "text": "Lernen will gelernt sein – Falsches Lernen bringt schlechte Noten – trotz fleißiger Vorbereitung.\n\nFalsches Lernen und falsche Vorbereitung sind oft Gründe, weshalb Schüler und Studenten trotz fleißigen und ausführlichen Memorierens des Lernstoffes in Prüfungen versagen und schlechte Noten bekommen. Experten raten, Lernstrategien zu verwenden, und Lerninhalte nicht nur zu lesen, sondern sie mehrfach wiederzugeben.\n\nDas menschliche Gedächtnis neigt dazu, unwichtige Information zu vergessen. Lernregel Nummer 1 ist: Stoff nach dem Lesen des Buchs wegle-gen und das Gelesene in eigenen Worten nacherzählen.\n\nLernregel Nummer 2: Man soll sich Zeit für neue Informationen nehmen, da das Gehirn überfordert wird, wenn man zu viel auf einmal lernt. Eine 45-minütige Pause soll zwischen den Lerneinheiten gemacht werden.\n\nLernregel Nummer 3: Rechtzeitig mit dem Lernen beginnen, nicht nur kurz vor der Prüfung. Man soll mit dem neuen Stoff an Bekanntes anknüpfen. Der Text handelt auch von Lernstrategien, die trainiert werden sollen, und betont, dass Lernen Zeit, Mut und Fleiß erfordert.",
+  "title": "Erfolgreich Lernen: Strategien und Tipps",
+  "id": INT_ID_PLACEHOLDER
+}

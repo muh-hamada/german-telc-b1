@@ -8,6 +8,7 @@ import OnboardingWelcomeScreen from '../screens/OnboardingWelcomeScreen';
 import OnboardingDisclaimerScreen from '../screens/OnboardingDisclaimerScreen';
 import TabNavigator from './TabNavigator';
 import MockExamRunningScreen from '../screens/MockExamRunningScreen';
+import { useIssueUpdateChecker } from '../hooks/useIssueUpdateChecker';
 import { logScreenView } from '../services/analytics.events';
 import { useAppTheme } from '../contexts/ThemeContext';
 
@@ -16,6 +17,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 const RootNavigator: React.FC = () => {
   const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
   const { colors, mode } = useAppTheme();
+  
+  // Check for updated issue reports (will enqueue modal if updates found)
+  useIssueUpdateChecker();
 
   const navigationTheme = useMemo(() => {
     const baseTheme = mode === 'dark' ? DarkTheme : DefaultTheme;

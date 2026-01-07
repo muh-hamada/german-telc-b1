@@ -76,6 +76,7 @@ export type ProfileStackParamList = {
   Settings: undefined;
   CompletionStats: undefined;
   Premium: undefined;
+  ReportedIssues: undefined;
 };
 
 // Navigation prop types

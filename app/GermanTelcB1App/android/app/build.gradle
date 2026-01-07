@@ -86,7 +86,7 @@ android {
     namespace "com.mhamada.telcb1german"
     
     defaultConfig {
-        applicationId "com.mhamada.telcb2english"
+        applicationId "com.mhamada.telcb1english"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 64
@@ -113,7 +113,7 @@ android {
         }
         englishB1 {
             dimension "exam"
-            applicationId "com.mhamada.telcb1english.v2"
+            applicationId "com.mhamada.telcb1english"
             resValue "string", "app_name", "English TELC B1"
         }
         englishB2 {

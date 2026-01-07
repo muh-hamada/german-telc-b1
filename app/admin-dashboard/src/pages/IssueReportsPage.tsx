@@ -34,7 +34,9 @@ export const IssueReportsPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedReport, setSelectedReport] = useState<IssueReport | null>(null);
   const [editingComments, setEditingComments] = useState(false);
+  const [editingResponse, setEditingResponse] = useState(false);
   const [internalComments, setInternalComments] = useState('');
+  const [adminResponse, setAdminResponse] = useState('');
   const [updatingStatus, setUpdatingStatus] = useState(false);
   
   // Filters
@@ -103,7 +105,8 @@ export const IssueReportsPage: React.FC = () => {
         r.userFeedback.toLowerCase().includes(query) ||
         r.section.toLowerCase().includes(query) ||
         r.examId.toString().includes(query) ||
-        (r.internalComments && r.internalComments.toLowerCase().includes(query))
+        (r.internalComments && r.internalComments.toLowerCase().includes(query)) ||
+        (r.adminResponse && r.adminResponse.toLowerCase().includes(query))
       );
     }
 
@@ -159,10 +162,36 @@ export const IssueReportsPage: React.FC = () => {
     }
   };
 
+  const handleSaveResponse = async () => {
+    if (!selectedReport) return;
+
+    try {
+      setUpdatingStatus(true);
+      await issueReportsService.updateIssueReport(selectedReport.id, {
+        adminResponse: adminResponse,
+      });
+
+      // Update local state
+      setReports(reports.map(r => 
+        r.id === selectedReport.id ? { ...r, adminResponse: adminResponse } : r
+      ));
+      setSelectedReport({ ...selectedReport, adminResponse: adminResponse });
+      
+      setEditingResponse(false);
+      toast.success('Response saved successfully');
+    } catch (error: any) {
+      toast.error(error.message || 'Failed to save response');
+    } finally {
+      setUpdatingStatus(false);
+    }
+  };
+
   const handleSelectReport = (report: IssueReport) => {
     setSelectedReport(report);
     setInternalComments(report.internalComments || '');
+    setAdminResponse(report.adminResponse || '');
     setEditingComments(false);
+    setEditingResponse(false);
   };
 
   const formatDate = (timestamp: number | Date | any) => {
@@ -457,7 +486,7 @@ export const IssueReportsPage: React.FC = () => {
                 {/* Internal Comments */}
                 <div className="detail-section">
                   <div className="detail-label-with-action">
-                    <label className="detail-label">Internal Comments</label>
+                    <label className="detail-label">Internal Comments (Private)</label>
                     {!editingComments && (
                       <button
                         className="btn-edit-comments"
@@ -474,7 +503,7 @@ export const IssueReportsPage: React.FC = () => {
                         value={internalComments}
                         onChange={(e) => setInternalComments(e.target.value)}
                         className="comments-textarea"
-                        placeholder="Add internal notes about this report..."
+                        placeholder="Add internal notes about this report (not visible to users)..."
                         rows={6}
                       />
                       <div className="comments-actions">
@@ -499,7 +528,65 @@ export const IssueReportsPage: React.FC = () => {
                     </div>
                   ) : (
                     <div className="detail-value comments-display">
-                      {selectedReport.internalComments || 'No comments yet'}
+                      {selectedReport.internalComments || 'No internal comments yet'}
+                    </div>
+                  )}
+                </div>
+
+                {/* Admin Response (Public - visible to users) */}
+                <div className="detail-section">
+                  <div className="detail-label-with-action">
+                    <label className="detail-label">
+                      Admin Response (Public - Visible to User) 
+                      <span style={{ fontSize: '0.85em', color: '#666', fontWeight: 'normal' }}> ⚠️ Users can see this</span>
+                    </label>
+                    {!editingResponse && (
+                      <button
+                        className="btn-edit-comments"
+                        onClick={() => setEditingResponse(true)}
+                      >
+                        {selectedReport.adminResponse ? 'Edit' : 'Add Response'}
+                      </button>
+                    )}
+                  </div>
+                  
+                  {editingResponse ? (
+                    <div className="comments-editor">
+                      <textarea
+                        value={adminResponse}
+                        onChange={(e) => setAdminResponse(e.target.value)}
+                        className="comments-textarea"
+                        placeholder="Write your response to the user. This will be visible in their 'Reported Issues' screen..."
+                        rows={6}
+                      />
+                      <div className="comments-actions">
+                        <button
+                          className="btn-save"
+                          onClick={handleSaveResponse}
+                          disabled={updatingStatus}
+                        >
+                          {updatingStatus ? 'Saving...' : 'Save Response'}
+                        </button>
+                        <button
+                          className="btn-cancel"
+                          onClick={() => {
+                            setEditingResponse(false);
+                            setAdminResponse(selectedReport.adminResponse || '');
+                          }}
+                          disabled={updatingStatus}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="detail-value comments-display" style={{ 
+                      backgroundColor: selectedReport.adminResponse ? '#e8f5e9' : '#fff3e0',
+                      border: selectedReport.adminResponse ? '1px solid #4caf50' : '1px solid #ff9800',
+                      padding: '12px',
+                      borderRadius: '4px'
+                    }}>
+                      {selectedReport.adminResponse || '⚠️ No response yet - User will see "Under review"'}
                     </div>
                   )}
                 </div>

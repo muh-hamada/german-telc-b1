@@ -18,7 +18,7 @@ export const englishB1Config: ExamConfig = {
   displayName: 'English TELC B1',
 
   bundleId: {
-    android: 'com.mhamada.telcb1english.v2',
+    android: 'com.mhamada.telcb1english',
     ios: 'com.mhamada.telcb1english',
   },
   
@@ -52,7 +52,7 @@ export const englishB1Config: ExamConfig = {
   
   // Store IDs
   storeIds: {
-    android: 'com.mhamada.telcb1english.v2',
+    android: 'com.mhamada.telcb1english',
     ios: '6755912773',
   },
 
@@ -92,7 +92,7 @@ export const englishB1Config: ExamConfig = {
   examStructure: {
     'grammar': [1, 2],
     'reading': [1, 2, 3],
-    'writing': [1],         // B1 has only 1 writing part
+    'writing': [1],
     'speaking': [1, 2, 3],
     'listening': [1, 2, 3],
   },

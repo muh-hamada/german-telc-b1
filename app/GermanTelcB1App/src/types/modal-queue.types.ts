@@ -12,7 +12,8 @@ export type GlobalModalType =
   | 'streak'
   | 'streak-reward'
   | 'app-review'
-  | 'premium-upsell';
+  | 'premium-upsell'
+  | 'issue-updates';
 
 export interface QueuedModal {
   id: string;

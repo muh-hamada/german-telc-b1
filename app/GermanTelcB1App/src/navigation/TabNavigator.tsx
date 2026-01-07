@@ -62,6 +62,7 @@ const HIDE_TAB_SCREENS = [
   'Premium',
   'AssessmentResults',
   'SpeakingAssessment',
+  'ReportedIssues',
 ];
 
 const HIDE_BANNER_SCREENS = [

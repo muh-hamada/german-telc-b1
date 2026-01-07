@@ -1,0 +1,51 @@
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- headings: 10 headings. Some headings should confuse the student to ensure they understand the meaning and not just select the matching words.
+- texts: 5 items with ids from 1 to 5. Each text must have only ONE correct matching heading.
+- id: int - just leave the placeholder
+- title: in German for the question. 5-7 words long -  Try to capture 1-2 meaning of the headings, it doesn't of course need to capture all of them
+
+{
+  "texts": [
+    {
+      "correct": "c",
+      "id": 1,
+      "text": "Seinen schönsten und größten Erfolg feierte der Jugendstil in der Schmuckkunst. Aus verschiedenen kostbaren Metallen, Edelsteinen, Gold, Silber und Emaille wurden Broschen, Ringe oder Ketten mit feinen Details und von großer Farbenfreude hergestellt. Beliebte Motive waren weibliche Profile oder insekten- bzw. Pflanzenhafte Formen. Eine 1901 von dem französischen Künstler R. Lalique stammte eine Gürtelschließe, die einen Frauenkopf umrahmt, von Blüten zeigt. Zentren des Jugendstils in Deutschland waren München und Darmstadt."
+    },
+    {
+      "id": 2,
+      "correct": "e",
+      "text": "Im 20. Jahrhundert trugen die jungen Leute am liebsten Schmuck, der sich von dem ihrer Eltern unterschied. Heute sind T-Shirts, Armreifen oder Ohrringe beliebt. In Europa hat Männerschmuck seit Jahrhunderten mehr rituelle Gründe als schmückende. Die Tätowierung ist nicht nur Schmuck oder Ausdruck des Glaubens, sondern stellt den Stechen des Körperschmucks zum persönlichen Ritual einer Mutprobe."
+    },
+    {
+      "correct": "h",
+      "text": "Ein wahres Schmuckstück im Nahetal ist die Stadt Idar-Oberstein, Deutschlands Hauptstadt der Edelsteine. Dort gibt es keinen Edelsteinabbau mehr, aber man kann hier dem Handwerkern bei ihrer Arbeit zusehen. Mit über 9.000 Exponaten erhält man einen Überblick über die Geschichte der Edelsteingewinnung, deren Verarbeitung und dem Handwerkern bei ihrer Arbeit zusehen.",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "text": "Deutsche Volkshochschulen bieten zur Schmuckherstellung schon Programme an. Hier lernen Sie, mit Goldschmiede- oder Schmuckdesignerwerkzeugen umzugehen. In einem Kurs von etwa 20 Wochenstunden lernen Sie, wie man einfache Gold- oder Silberschmiedegegenstände herstellt. Die Absolventen sind in der Lage, Schmuck als Geschenk herzustellen.",
+      "correct": "j"
+    },
+    {
+      "correct": "f",
+      "text": "Farbig bemaltes Glas ist das Material, das am eindrucksvollsten die Wirkung eines Gebäudes beeinflusst. Es ist das Medium, das das Tageslicht in das Gebäude eindringt und die Atmosphäre eines Innenraums verstärkt. Viele Glasscheiben und Fenster betrachten im Lauf eines Tages oder eines Jahres die Witterung und verändern ihre Farben. Heutige Fenster mit künstlerischen Ornamenten gehören zu den Fenstern und Scheiben im Büro- und Wohnhaus.",
+      "id": 5
+    }
+  ],
+  "title": "Schmuck, Edelsteine und Glas: Trends und Kurse",
+  "id": INT_ID_PLACEHOLDER,
+  "headings": [
+    "Edelsteinminen in Idar-Oberstein erfolgreich",
+    "Moderner Männerschmuck hat rituelle Gründe",
+    "Feiner über 100-jähriger Schmuck mit naturhaften Motiven",
+    "Volkshochschule Idar-Oberstein bietet Kurs für Hobby-Schmuckdesigner an",
+    "Hautschmuck wieder sehr modern",
+    "Wirkung des Glasschmucks vom Licht abhängig",
+    "Lichtschein verändert Farben von Fensterscheiben",
+    "Ein Ort für Edelsucher",
+    "Junger Schmuck, der krank macht",
+    "Schmuck herstellen als Freizeitbeschäftigung"
+  ]
+}

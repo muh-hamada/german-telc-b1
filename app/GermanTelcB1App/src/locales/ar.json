@@ -671,6 +671,7 @@
     "termsOfService": "شروط الخدمة",
     "rateApp": "قيّم التطبيق",
     "shareApp": "شارك مع الأصدقاء",
+    "reportedIssues": "المشاكل المبلغ عنها",
     "shareMessage": "تحقق من تطبيق التحضير لامتحان {{language}} TELC {{level}} الرائع! حمله الآن:",
     "deleteAccount": "حذف الحساب",
     "weeklyActivity": "النشاط الأسبوعي",
@@ -726,6 +727,35 @@
       "totalScore": "مجموع النقاط",
       "completionRate": "معدل الإنجاز"
     }
+  },
+  "reportedIssues": {
+    "title": "المشاكل المبلغ عنها",
+    "emptyState": "لم تبلغ عن أي مشاكل بعد. إذا وجدت أي أخطاء أو مشاكل في الأسئلة، يرجى الإبلاغ عنها لمساعدتنا في تحسين جودة الأسئلة مما يساعد الجميع.",
+    "refreshing": "جاري التحديث...",
+    "loadingReports": "جاري تحميل تقاريرك...",
+    "date": "تم الإبلاغ في",
+    "question": "السؤال",
+    "yourMessage": "رسالتك",
+    "status": "الحالة",
+    "adminResponse": "رد المسؤول",
+    "underReview": "قيد المراجعة",
+    "statusValues": {
+      "pending": "قيد الانتظار",
+      "in_progress": "قيد المعالجة",
+      "resolved": "تم الحل"
+    },
+    "error": "فشل تحميل التقارير",
+    "retry": "إعادة المحاولة",
+    "showLess": "▲ أظهر أقل",
+    "showMore": "▲ عرض المزيد"
+  },
+  "issueUpdates": {
+    "modalTitle": "تحديثات على تقاريرك",
+    "updatesAvailable": "تم تحديث {{count}} من المشاكل المبلغ عنها",
+    "updatesAvailableSingle": "تم تحديث 1 من المشاكل المبلغ عنها",
+    "viewAllReports": "عرض جميع التقارير",
+    "gotIt": "فهمت",
+    "noUpdates": "لا توجد تحديثات جديدة"
   },
   "settings": {
     "title": "الإعدادات",

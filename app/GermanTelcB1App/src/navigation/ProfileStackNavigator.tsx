@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CompletionStatsScreen from '../screens/CompletionStatsScreen';
 import PremiumScreen from '../screens/PremiumScreen';
+import ReportedIssuesScreen from '../screens/ReportedIssuesScreen';
 
 const Stack = createStackNavigator<ProfileStackParamList>();
 
@@ -56,6 +57,13 @@ const ProfileStackNavigator: React.FC = () => {
         component={PremiumScreen}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ReportedIssues"
+        component={ReportedIssuesScreen}
+        options={{
+          title: t('reportedIssues.title'),
         }}
       />
     </Stack.Navigator>

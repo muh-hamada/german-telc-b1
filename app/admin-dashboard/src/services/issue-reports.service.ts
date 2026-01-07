@@ -25,6 +25,7 @@ export interface IssueReport {
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
   createdAt: Timestamp | Date;
   internalComments?: string;
+  adminResponse?: string;
   updatedAt?: Timestamp | Date;
 }
 
@@ -73,13 +74,14 @@ class IssueReportsService {
   }
 
   /**
-   * Update an issue report's status and/or internal comments
+   * Update an issue report's status, internal comments, and/or admin response
    */
   async updateIssueReport(
     reportId: string, 
     updates: {
       status?: IssueReport['status'];
       internalComments?: string;
+      adminResponse?: string;
     }
   ): Promise<void> {
     try {

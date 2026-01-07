@@ -671,6 +671,7 @@
     "termsOfService": "Conditions d'utilisation",
     "rateApp": "Noter l'application",
     "shareApp": "Partager avec des amis",
+    "reportedIssues": "Problèmes Signalés",
     "shareMessage": "Découvrez cette incroyable application de préparation à l'examen {{language}} TELC {{level}} ! Téléchargez-la maintenant :",
     "weeklyActivity": "Activité hebdomadaire",
     "totalXP": "XP",
@@ -1129,6 +1130,35 @@
       "needsImprovement": "À améliorer"
     },
     "login": "Se connecter"
+  },
+  "reportedIssues": {
+    "title": "Problèmes Signalés",
+    "emptyState": "Vous n'avez encore signalé aucun problème. Si vous trouvez des erreurs ou des problèmes avec les questions, veuillez les signaler pour nous aider à améliorer la qualité des questions, ce qui aidera tout le monde.",
+    "refreshing": "Actualisation...",
+    "loadingReports": "Chargement de vos rapports...",
+    "date": "Signalé le",
+    "question": "Question",
+    "yourMessage": "Votre Message",
+    "status": "Statut",
+    "adminResponse": "Réponse de l'Administrateur",
+    "underReview": "En cours d'examen",
+    "statusValues": {
+      "pending": "En Attente",
+      "in_progress": "En Cours",
+      "resolved": "Résolu"
+    },
+    "error": "Échec du chargement des rapports",
+    "retry": "Réessayer",
+    "showLess": "▲ Afficher moins",
+    "showMore": "▲ Afficher plus"
+  },
+  "issueUpdates": {
+    "modalTitle": "Mises à jour sur vos rapports",
+    "updatesAvailable": "{{count}} de vos problèmes signalés ont été mis à jour",
+    "updatesAvailableSingle": "1 de vos problèmes signalés a été mis à jour",
+    "viewAllReports": "Voir tous les rapports",
+    "gotIt": "Compris",
+    "noUpdates": "Aucune nouvelle mise à jour"
   },
   "settings": {
     "title": "Paramètres",

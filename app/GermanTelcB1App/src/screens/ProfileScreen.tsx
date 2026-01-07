@@ -125,6 +125,10 @@ const ProfileScreen: React.FC = () => {
     }
   };
 
+  const handleNavigateToReportedIssues = () => {
+    navigation.navigate('ReportedIssues');
+  };
+
   // Auto-open login modal if parameter is passed
   useEffect(() => {
     if (route.params?.openLoginModal && !user) {
@@ -374,6 +378,17 @@ const ProfileScreen: React.FC = () => {
               <Icon name="share-alt" size={20} color={colors.success[500]} />
             </View>
             <Text style={styles.actionItemText}>{t('profile.shareApp')}</Text>
+            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.actionItem}
+            onPress={handleNavigateToReportedIssues}
+            activeOpacity={0.7}
+          >
+            <View style={styles.actionIconContainer}>
+              <MaterialIcons name="flag" size={20} color={colors.primary[500]} />
+            </View>
+            <Text style={styles.actionItemText}>{t('profile.reportedIssues')}</Text>
             <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
           </TouchableOpacity>
           {user && (

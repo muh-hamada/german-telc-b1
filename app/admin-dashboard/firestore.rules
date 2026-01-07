@@ -337,10 +337,10 @@ service cloud.firestore {
 
     // Issue Reports Collection
     // All users (authenticated and anonymous) can create issue reports
-    // Only admin can read, update, or delete
+    // Users can read any report (needed because anonymous users store IDs locally)
+    // Only admin can update or delete
     match /issueReports/{reportId} {
-      allow read: if request.auth != null && 
-                    request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+      allow read: if true; // Allow all users to read reports (they have the document IDs from local storage)
       allow create: if true; // Allow all users to create reports (authenticated and anonymous)
       allow update, delete: if request.auth != null && 
                               request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";

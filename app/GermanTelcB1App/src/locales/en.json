@@ -822,6 +822,7 @@
     "shareMessage": "Check out this amazing {{language}} TELC {{level}} exam preparation app! Download it now:",
     "rateApp": "Rate our App",
     "shareApp": "Share with friends",
+    "reportedIssues": "Reported Issues",
     "deleteAccount": "Delete Account",
     "appName": "{{language}} TELC {{level}} Exam Preparation App",
     "weeklyActivity": "Weekly Activity",
@@ -842,6 +843,35 @@
       "inProgressMessage": "Your account deletion request is already being processed. Your account will be deleted within 7 days from the original request date.",
       "error": "Failed to submit deletion request. Please try again."
     }
+  },
+  "reportedIssues": {
+    "title": "Reported Issues",
+    "emptyState": "You haven't reported any issues yet. If you find any mistakes or issues with questions, please report them so you help us improve the quality of the questions which will help everyone.",
+    "refreshing": "Refreshing...",
+    "loadingReports": "Loading your reports...",
+    "date": "Reported on",
+    "question": "Question",
+    "yourMessage": "Your Message",
+    "status": "Status",
+    "adminResponse": "Admin Response",
+    "underReview": "Under review",
+    "statusValues": {
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "resolved": "Resolved"
+    },
+    "error": "Failed to load reports",
+    "retry": "Retry",
+    "showLess": "▲ Show less",
+    "showMore": "▲ Show more"
+  },
+  "issueUpdates": {
+    "modalTitle": "Updates on Your Reports",
+    "updatesAvailable": "{{count}} of your reported issues have been updated",
+    "updatesAvailableSingle": "1 of your reported issues has been updated",
+    "viewAllReports": "View All Reports",
+    "gotIt": "Got it",
+    "noUpdates": "No new updates"
   },
   "settings": {
     "title": "Settings",
