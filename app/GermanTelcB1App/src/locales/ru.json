@@ -750,7 +750,7 @@
     "showMore": "▲ Показать больше"
   },
   "issueUpdates": {
-    "modalTitle": "Обновления ваших отчетов",
+    "modalTitle": "",
     "updatesAvailable": "{{count}} из ваших отчетов о проблемах были обновлены",
     "updatesAvailableSingle": "1 из ваших отчетов о проблемах был обновлен",
     "viewAllReports": "Посмотреть все отчеты",
