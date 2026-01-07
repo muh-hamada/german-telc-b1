@@ -4,7 +4,11 @@ import { useModalQueue } from '../contexts/ModalQueueContext';
 
 /**
  * Hook to check for updated issue reports on app launch
- * Enqueues a modal in the global modal queue if updates are found
+ * 
+ * Checks Firebase for reports that have been updated by admin
+ * (status changed or adminResponse added) but not yet seen by the user.
+ * 
+ * Enqueues a modal in the global modal queue if updates are found.
  */
 export const useIssueUpdateChecker = (): void => {
   const { enqueue } = useModalQueue();
@@ -22,6 +26,8 @@ export const useIssueUpdateChecker = (): void => {
           console.log('[useIssueUpdateChecker] Found', updates.length, 'updated reports');
           // Enqueue the modal with updated reports data
           enqueue('issue-updates', { updatedReports: updates });
+        } else {
+          console.log('[useIssueUpdateChecker] No updated reports found');
         }
       } catch (error) {
         console.error('[useIssueUpdateChecker] Error checking for updates:', error);

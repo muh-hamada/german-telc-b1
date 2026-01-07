@@ -18,7 +18,7 @@ const RootNavigator: React.FC = () => {
   const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
   const { colors, mode } = useAppTheme();
   
-  // Check for updated issue reports (will enqueue modal if updates found)
+  // Check for updated issue reports on app launch (will enqueue modal if updates found)
   useIssueUpdateChecker();
 
   const navigationTheme = useMemo(() => {

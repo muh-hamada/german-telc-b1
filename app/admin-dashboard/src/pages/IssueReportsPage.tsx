@@ -458,9 +458,32 @@ export const IssueReportsPage: React.FC = () => {
                 </div>
 
                 <div className="detail-section">
+                  <label className="detail-label">Device UUID</label>
+                  <div className="detail-value" style={{ fontFamily: 'monospace', fontSize: '0.9em' }}>
+                    {selectedReport.deviceUUID || 'N/A'}
+                  </div>
+                </div>
+
+                <div className="detail-section">
                   <label className="detail-label">Reported At</label>
                   <div className="detail-value">
                     {formatDate(selectedReport.timestamp)}
+                  </div>
+                </div>
+
+                <div className="detail-section">
+                  <label className="detail-label">Seen By User</label>
+                  <div className="detail-value">
+                    {selectedReport.seenByUserAt ? (
+                      <>
+                        <div>{formatDate(selectedReport.seenByUserAt)}</div>
+                        <div style={{ fontSize: '0.85em', color: '#666', marginTop: '4px' }}>
+                          via {selectedReport.seenByUserSource === 'modal' ? '🔔 Update Modal' : '📱 Reports Screen'}
+                        </div>
+                      </>
+                    ) : (
+                      <span style={{ color: '#999', fontStyle: 'italic' }}>Not yet viewed</span>
+                    )}
                   </div>
                 </div>
 

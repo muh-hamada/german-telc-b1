@@ -338,10 +338,19 @@ service cloud.firestore {
     // Issue Reports Collection
     // All users (authenticated and anonymous) can create issue reports
     // Users can read any report (needed because anonymous users store IDs locally)
-    // Only admin can update or delete
+    // Users can update ONLY their own reports (matched by deviceUUID) to mark as seen
+    // Admin can update/delete any report
     match /issueReports/{reportId} {
       allow read: if true; // Allow all users to read reports (they have the document IDs from local storage)
       allow create: if true; // Allow all users to create reports (authenticated and anonymous)
+      
+      // Allow device owner to update their own report (for marking as seen)
+      // Check that deviceUUID matches and only specific fields are being updated
+      allow update: if request.resource.data.deviceUUID == resource.data.deviceUUID &&
+                       request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['seenByUserAt', 'seenByUserSource', 'deviceUUID', 'updatedAt']);
+      
+      // Admin can update and delete any report
       allow update, delete: if request.auth != null && 
                               request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
     }

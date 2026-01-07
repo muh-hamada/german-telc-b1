@@ -2,7 +2,7 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-01-07T16:16:34.798Z
+ * Generated at: 2026-01-07T19:49:02.654Z
  * Exam: English TELC B1
  * 
  * This file determines which exam configuration is active for the current build.

@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { activeExamConfig } from '../config/active-exam.config';
+import { AnalyticsEvents, logEvent } from './analytics.events';
 
 interface SubmitIssueReportParams {
   userId: string | null;
@@ -19,6 +20,7 @@ interface IssueReport {
   appId: string;
   platform: 'ios' | 'android';
   appVersion: string;
+  deviceUUID: string;
   section: string;
   part: number;
   examId: number;
@@ -26,6 +28,8 @@ interface IssueReport {
   userFeedback: string;
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
   adminResponse?: string;
+  seenByUserAt?: number;
+  seenByUserSource?: 'modal' | 'screen';
   createdAt: ReturnType<typeof firestore.FieldValue.serverTimestamp>;
   updatedAt: ReturnType<typeof firestore.FieldValue.serverTimestamp>;
 }
@@ -40,22 +44,34 @@ export interface ReportedIssueDetails {
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
   displayStatus: 'pending' | 'in_progress' | 'resolved'; // Mapped status for display
   adminResponse?: string;
-  updatedAt?: number; // For tracking updates
-}
-
-interface ReportMetadata {
-  reportedAt: number;
-  lastSeenAt: number;
-}
-
-interface ReportsMetadataStorage {
-  [reportId: string]: ReportMetadata;
+  seenByUserAt?: number;
+  seenByUserSource?: 'modal' | 'screen';
 }
 
 class IssueReportService {
   private readonly COLLECTION_NAME = 'issueReports';
   private readonly STORAGE_KEY = `reportedIssueIds_${activeExamConfig.id}`;
-  private readonly METADATA_KEY = `reportedIssuesMetadata_${activeExamConfig.id}`;
+  private deviceUUID: string | null = null;
+
+  /**
+   * Get or generate device UUID
+   */
+  private async getDeviceUUID(): Promise<string> {
+    if (this.deviceUUID) {
+      return this.deviceUUID;
+    }
+
+    try {
+      this.deviceUUID = await DeviceInfo.getUniqueId();
+      console.log('[IssueReportService] Device UUID obtained:', this.deviceUUID);
+      return this.deviceUUID;
+    } catch (error) {
+      console.error('[IssueReportService] Error getting device UUID:', error);
+      // Fallback to a generated UUID if device UUID fails
+      this.deviceUUID = `fallback-${Date.now()}-${Math.random().toString(36).substring(7)}`;
+      return this.deviceUUID;
+    }
+  }
 
   /**
    * Map admin status to user-friendly display status
@@ -90,6 +106,7 @@ class IssueReportService {
       const appVersion = DeviceInfo.getVersion();
       const platform = Platform.OS as 'ios' | 'android';
       const currentAppId = activeExamConfig.id;
+      const deviceUUID = await this.getDeviceUUID();
 
       // Create the issue report document
       const issueReport: IssueReport = {
@@ -98,6 +115,7 @@ class IssueReportService {
         appId: currentAppId,
         platform,
         appVersion,
+        deviceUUID,
         section,
         part,
         examId: examId,
@@ -130,80 +148,21 @@ class IssueReportService {
   }
 
   /**
-   * Store a report ID with metadata in local storage
+   * Store a report ID in local storage
    */
   private async storeReportId(reportId: string): Promise<void> {
     try {
-      const metadata = await this.getMetadataStorage();
-      const now = Date.now();
+      const stored = await AsyncStorage.getItem(this.STORAGE_KEY);
+      const reportIds: string[] = stored ? JSON.parse(stored) : [];
       
-      metadata[reportId] = {
-        reportedAt: now,
-        lastSeenAt: now,
-      };
-      
-      await AsyncStorage.setItem(this.METADATA_KEY, JSON.stringify(metadata));
-      console.log('[IssueReportService] Report ID stored with metadata:', reportId);
+      if (!reportIds.includes(reportId)) {
+        reportIds.push(reportId);
+        await AsyncStorage.setItem(this.STORAGE_KEY, JSON.stringify(reportIds));
+        console.log('[IssueReportService] Report ID stored:', reportId);
+      }
     } catch (error) {
       console.error('[IssueReportService] Error storing report ID:', error);
       // Don't throw - this is not critical enough to fail the whole operation
-    }
-  }
-
-  /**
-   * Get metadata storage object
-   */
-  private async getMetadataStorage(): Promise<ReportsMetadataStorage> {
-    try {
-      const stored = await AsyncStorage.getItem(this.METADATA_KEY);
-      if (!stored) {
-        // Try to migrate from old format
-        return await this.migrateFromOldFormat();
-      }
-      return JSON.parse(stored) as ReportsMetadataStorage;
-    } catch (error) {
-      console.error('[IssueReportService] Error reading metadata storage:', error);
-      return {};
-    }
-  }
-
-  /**
-   * Migrate from old array format to new metadata format
-   */
-  private async migrateFromOldFormat(): Promise<ReportsMetadataStorage> {
-    try {
-      const oldStored = await AsyncStorage.getItem(this.STORAGE_KEY);
-      if (!oldStored) {
-        return {};
-      }
-      
-      const oldIds = JSON.parse(oldStored);
-      if (!Array.isArray(oldIds)) {
-        return {};
-      }
-      
-      // Convert old format to new format
-      const now = Date.now();
-      const metadata: ReportsMetadataStorage = {};
-      
-      oldIds.forEach(id => {
-        metadata[id] = {
-          reportedAt: now,
-          lastSeenAt: now,
-        };
-      });
-      
-      // Save new format
-      await AsyncStorage.setItem(this.METADATA_KEY, JSON.stringify(metadata));
-      
-      // Optionally remove old format
-      await AsyncStorage.removeItem(this.STORAGE_KEY);
-      
-      console.log('[IssueReportService] Migrated', oldIds.length, 'reports to new format');
-      return metadata;
-    } catch (error) {
-      console.error('[IssueReportService] Error migrating from old format:', error);
-      return {};
     }
   }
 
@@ -212,45 +171,11 @@ class IssueReportService {
    */
   async getLocalReportIds(): Promise<string[]> {
     try {
-      const metadata = await this.getMetadataStorage();
-      return Object.keys(metadata);
+      const stored = await AsyncStorage.getItem(this.STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
     } catch (error) {
       console.error('[IssueReportService] Error reading report IDs:', error);
       return [];
-    }
-  }
-
-  /**
-   * Get metadata for a specific report
-   */
-  async getReportMetadata(reportId: string): Promise<ReportMetadata | null> {
-    try {
-      const metadata = await this.getMetadataStorage();
-      return metadata[reportId] || null;
-    } catch (error) {
-      console.error('[IssueReportService] Error reading report metadata:', error);
-      return null;
-    }
-  }
-
-  /**
-   * Update lastSeenAt for multiple reports
-   */
-  async updateLastSeenAt(reportIds: string[]): Promise<void> {
-    try {
-      const metadata = await this.getMetadataStorage();
-      const now = Date.now();
-      
-      reportIds.forEach(id => {
-        if (metadata[id]) {
-          metadata[id].lastSeenAt = now;
-        }
-      });
-      
-      await AsyncStorage.setItem(this.METADATA_KEY, JSON.stringify(metadata));
-      console.log('[IssueReportService] Updated lastSeenAt for', reportIds.length, 'reports');
-    } catch (error) {
-      console.error('[IssueReportService] Error updating lastSeenAt:', error);
     }
   }
 
@@ -291,7 +216,8 @@ class IssueReportService {
             status: data.status || 'pending',
             displayStatus: this.mapStatusToDisplay(data.status || 'pending'),
             adminResponse: data.adminResponse,
-            updatedAt: data.updatedAt?.toMillis ? data.updatedAt.toMillis() : data.timestamp,
+            seenByUserAt: data.seenByUserAt,
+            seenByUserSource: data.seenByUserSource,
           });
         });
       }
@@ -308,12 +234,56 @@ class IssueReportService {
   }
 
   /**
-   * Get updated reports (reports that have been updated since last seen)
+   * Mark reports as seen by updating Firebase with timestamp and source
+   */
+  async markReportsAsSeen(reportIds: string[], source: 'modal' | 'screen'): Promise<void> {
+    if (reportIds.length === 0) {
+      return;
+    }
+
+    try {
+      const deviceUUID = await this.getDeviceUUID();
+      const now = Date.now();
+      const batch = firestore().batch();
+
+      // Update each report in the batch
+      reportIds.forEach(reportId => {
+        const reportRef = firestore()
+          .collection(this.COLLECTION_NAME)
+          .doc(reportId);
+        
+        batch.update(reportRef, {
+          seenByUserAt: now,
+          seenByUserSource: source,
+          deviceUUID, // Include deviceUUID to ensure security rule compliance
+          updatedAt: firestore.FieldValue.serverTimestamp(),
+        });
+      });
+
+      // Commit the batch
+      await batch.commit();
+      
+      logEvent(AnalyticsEvents.ISSUE_REPORT_MARKED_AS_SEEN, {
+        count: reportIds.length,
+        source,
+      });
+      
+      console.log('[IssueReportService] Marked', reportIds.length, 'reports as seen from', source);
+    } catch (error) {
+      console.error('[IssueReportService] Error marking reports as seen:', error);
+      // Don't throw - this is not critical enough to fail the UI
+    }
+  }
+
+  /**
+   * Get reports that have been updated by admin but not yet seen by user
+   * A report is considered "updated" if:
+   * - It has an adminResponse or non-pending status
+   * - AND either seenByUserAt is not set, or updatedAt is newer than seenByUserAt
    */
   async getUpdatedReports(): Promise<ReportedIssueDetails[]> {
     try {
-      const metadata = await this.getMetadataStorage();
-      const reportIds = Object.keys(metadata);
+      const reportIds = await this.getLocalReportIds();
       
       if (reportIds.length === 0) {
         return [];
@@ -322,16 +292,70 @@ class IssueReportService {
       // Fetch all reports from Firebase
       const allReports = await this.getReportedIssues(reportIds);
       
-      // Filter reports that have been updated since lastSeenAt
-      const updatedReports = allReports.filter(report => {
-        const meta = metadata[report.id];
-        if (!meta) return false;
-        
-        // Check if report has been updated after lastSeenAt
-        const updatedAt = report.updatedAt || report.timestamp;
-        console.log('[IssueReportService] Updated at:', updatedAt, 'Last seen at:', meta.lastSeenAt);
-        return updatedAt > meta.lastSeenAt;
+      // Get full report data from Firebase to check updatedAt timestamps
+      const batchSize = 10;
+      const batches: string[][] = [];
+      
+      for (let i = 0; i < reportIds.length; i += batchSize) {
+        batches.push(reportIds.slice(i, i + batchSize));
+      }
+
+      const updatedReports: ReportedIssueDetails[] = [];
+
+      for (const batch of batches) {
+        const snapshot = await firestore()
+          .collection(this.COLLECTION_NAME)
+          .where(firestore.FieldPath.documentId(), 'in', batch)
+          .get();
+
+        snapshot.docs.forEach(doc => {
+          const data = doc.data();
+          
+          // Check if report has admin updates
+          const hasAdminUpdate = data.adminResponse || 
+                                 (data.status && data.status !== 'pending');
+          
+          if (!hasAdminUpdate) {
+            return; // Skip reports with no admin updates
+          }
+
+          // Check if user has seen the update
+          const updatedAtTimestamp = data.updatedAt?.toMillis ? data.updatedAt.toMillis() : data.timestamp;
+          const seenByUserAt = data.seenByUserAt || 0;
+          
+          // Report is "updated" if updatedAt is newer than when user last saw it
+          if (updatedAtTimestamp > seenByUserAt) {
+            updatedReports.push({
+              id: doc.id,
+              timestamp: data.timestamp,
+              section: data.section,
+              part: data.part,
+              examId: data.examId,
+              userFeedback: data.userFeedback,
+              status: data.status || 'pending',
+              displayStatus: this.mapStatusToDisplay(data.status || 'pending'),
+              adminResponse: data.adminResponse,
+              seenByUserAt: data.seenByUserAt,
+              seenByUserSource: data.seenByUserSource,
+            });
+          }
+        });
+      }
+      
+      // Sort by timestamp (newest first)
+      updatedReports.sort((a, b) => b.timestamp - a.timestamp);
+      
+      logEvent(AnalyticsEvents.ISSUE_REPORT_UPDATE_CHECK_COMPLETED, {
+        totalReports: reportIds.length,
+        updatedReportsFound: updatedReports.length,
       });
+      
+      if (updatedReports.length > 0) {
+        logEvent(AnalyticsEvents.ISSUE_REPORT_UPDATES_FOUND, {
+          count: updatedReports.length,
+          statuses: updatedReports.map(r => r.status).join(','),
+        });
+      }
       
       console.log('[IssueReportService] Found', updatedReports.length, 'updated reports');
       return updatedReports;

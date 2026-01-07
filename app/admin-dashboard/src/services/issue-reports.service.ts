@@ -17,6 +17,7 @@ export interface IssueReport {
   appId: string;
   platform: 'ios' | 'android';
   appVersion: string;
+  deviceUUID?: string;
   section: string;
   part: number;
   examId: number;
@@ -26,6 +27,8 @@ export interface IssueReport {
   createdAt: Timestamp | Date;
   internalComments?: string;
   adminResponse?: string;
+  seenByUserAt?: number;
+  seenByUserSource?: 'modal' | 'screen';
   updatedAt?: Timestamp | Date;
 }
 

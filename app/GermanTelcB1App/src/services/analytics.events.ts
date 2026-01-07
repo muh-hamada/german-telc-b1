@@ -225,6 +225,14 @@ export const AnalyticsEvents = {
   ISSUE_REPORT_MODAL_CLOSED: 'issue_report_modal_closed',
   ISSUE_REPORT_SUBMITTED: 'issue_report_submitted',
   ISSUE_REPORT_SUBMISSION_FAILED: 'issue_report_submission_failed',
+  
+  // Issue Report Updates & Tracking
+  ISSUE_REPORT_UPDATE_CHECK_COMPLETED: 'issue_report_update_check_completed',
+  ISSUE_REPORT_UPDATES_FOUND: 'issue_report_updates_found',
+  ISSUE_REPORT_UPDATE_MODAL_SHOWN: 'issue_report_update_modal_shown',
+  ISSUE_REPORT_UPDATE_MODAL_DISMISSED: 'issue_report_update_modal_dismissed',
+  ISSUE_REPORT_MARKED_AS_SEEN: 'issue_report_marked_as_seen',
+  ISSUE_REPORTS_SCREEN_VIEWED: 'issue_reports_screen_viewed',
 
   // Prep Plan Events
   PREP_PLAN_RESULTS_VIEWED: 'prep_plan_results_viewed',

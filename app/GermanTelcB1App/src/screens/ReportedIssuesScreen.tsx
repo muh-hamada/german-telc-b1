@@ -16,6 +16,7 @@ import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { issueReportService, ReportedIssueDetails } from '../services/issue-report.service';
 import { IssueReportCard } from '../components/IssueReportCard';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const ReportedIssuesScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -62,7 +63,14 @@ const ReportedIssuesScreen: React.FC = () => {
     useCallback(() => {
       if (reports.length > 0) {
         const reportIds = reports.map(r => r.id);
-        issueReportService.updateLastSeenAt(reportIds);
+        issueReportService.markReportsAsSeen(reportIds, 'screen');
+        
+        logEvent(AnalyticsEvents.ISSUE_REPORTS_SCREEN_VIEWED, {
+          count: reports.length,
+          pendingCount: reports.filter(r => r.displayStatus === 'pending').length,
+          inProgressCount: reports.filter(r => r.displayStatus === 'in_progress').length,
+          resolvedCount: reports.filter(r => r.displayStatus === 'resolved').length,
+        });
       }
     }, [reports])
   );

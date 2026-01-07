@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   Modal,
   ScrollView,
@@ -13,6 +13,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { ReportedIssueDetails, issueReportService } from '../services/issue-report.service';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { IssueReportCard } from './IssueReportCard';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface IssueUpdateNotificationModalProps {
   visible: boolean;
@@ -31,6 +32,19 @@ export const IssueUpdateNotificationModal: React.FC<IssueUpdateNotificationModal
 
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
+  // Mark reports as seen when modal is shown
+  useEffect(() => {
+    if (visible && updatedReports.length > 0) {
+      const reportIds = updatedReports.map(r => r.id);
+      issueReportService.markReportsAsSeen(reportIds, 'modal');
+      
+      logEvent(AnalyticsEvents.ISSUE_REPORT_UPDATE_MODAL_SHOWN, {
+        count: updatedReports.length,
+        statuses: updatedReports.map(r => r.status).join(','),
+      });
+    }
+  }, [visible, updatedReports]);
+
   const toggleExpanded = (id: string) => {
     setExpandedIds(prev => {
       const newSet = new Set(prev);
@@ -43,10 +57,10 @@ export const IssueUpdateNotificationModal: React.FC<IssueUpdateNotificationModal
     });
   };
 
-  const handleDismiss = async () => {
-    // Mark all shown reports as seen
-    const reportIds = updatedReports.map(r => r.id);
-    await issueReportService.updateLastSeenAt(reportIds);
+  const handleDismiss = () => {
+    logEvent(AnalyticsEvents.ISSUE_REPORT_UPDATE_MODAL_DISMISSED, {
+      count: updatedReports.length,
+    });
     onClose();
   };
 
