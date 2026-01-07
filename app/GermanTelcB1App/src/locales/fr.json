@@ -1153,7 +1153,7 @@
     "showMore": "▲ Afficher plus"
   },
   "issueUpdates": {
-    "modalTitle": "Mises à jour sur vos rapports",
+    "modalTitle": "Mises à jour de vos rapports",
     "updatesAvailable": "{{count}} de vos problèmes signalés ont été mis à jour",
     "updatesAvailableSingle": "1 de vos problèmes signalés a été mis à jour",
     "viewAllReports": "Voir tous les rapports",

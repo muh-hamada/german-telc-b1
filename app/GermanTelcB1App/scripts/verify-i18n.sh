@@ -90,6 +90,27 @@ extract_keys() {
     "
 }
 
+# Helper function to extract empty value keys from JSON
+extract_empty_keys() {
+    node -e "
+    const fs = require('fs');
+    const extractEmptyKeys = (obj, prefix = '') => {
+        let keys = [];
+        for (let key in obj) {
+            const path = prefix ? \`\${prefix}.\${key}\` : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                keys = keys.concat(extractEmptyKeys(obj[key], path));
+            } else if (obj[key] === '' || obj[key] === null || obj[key] === undefined) {
+                keys.push(path);
+            }
+        }
+        return keys;
+    };
+    const data = JSON.parse(fs.readFileSync('$1', 'utf8'));
+    console.log(extractEmptyKeys(data).join('\n'));
+    "
+}
+
 # Use English as the reference
 REFERENCE_FILE="src/locales/en.json"
 if [ ! -f "$REFERENCE_FILE" ]; then
@@ -125,13 +146,24 @@ for locale in "${LOCALES[@]}"; do
     # Find extra keys (in locale but not in reference)
     EXTRA=$(comm -13 <(echo "$REFERENCE_KEYS") <(echo "$LOCALE_KEYS"))
     
-    if [ -z "$MISSING" ] && [ -z "$EXTRA" ]; then
+    # Find empty/null values in locale file
+    EMPTY_VALUES=$(extract_empty_keys "$FILE" | sort)
+    
+    if [ -z "$MISSING" ] && [ -z "$EXTRA" ] && [ -z "$EMPTY_VALUES" ]; then
         echo -e "${GREEN}✓ All keys match ($(echo "$REFERENCE_KEYS" | wc -l | xargs) keys)${NC}"
     else
         if [ -n "$MISSING" ]; then
             echo -e "${RED}✗ Missing keys in ${locale}.json:${NC}"
             echo "$MISSING" | while read key; do
                 [ -n "$key" ] && echo -e "${RED}  - $key${NC}"
+            done
+            MISSING_KEYS_FOUND=true
+        fi
+        
+        if [ -n "$EMPTY_VALUES" ]; then
+            echo -e "${RED}✗ Empty/null values in ${locale}.json:${NC}"
+            echo "$EMPTY_VALUES" | while read key; do
+                [ -n "$key" ] && echo -e "${RED}  - $key (empty value)${NC}"
             done
             MISSING_KEYS_FOUND=true
         fi
@@ -169,8 +201,8 @@ fi
 echo -e "\n${GREEN}========================================${NC}"
 if [ "$MISSING_KEYS_FOUND" = true ]; then
     echo -e "${RED}❌ Translation verification FAILED!${NC}"
-    echo -e "${RED}Missing translation keys detected!${NC}"
-    echo -e "${YELLOW}Please add the missing keys to the respective locale files before committing${NC}"
+    echo -e "${RED}Missing/empty translation keys detected!${NC}"
+    echo -e "${YELLOW}Please add the missing keys and fill empty values in the respective locale files before committing${NC}"
     echo -e "${GREEN}========================================${NC}"
     exit 1
 else
