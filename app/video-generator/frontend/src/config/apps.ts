@@ -7,30 +7,35 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     displayName: 'German TELC A1',
     language: 'German',
     level: 'A1',
+    vocabularyCollection: 'vocabulary_data_german_a1',
   },
   'german-b1': {
     id: 'german-b1',
     displayName: 'German TELC B1',
     language: 'German',
     level: 'B1',
+    vocabularyCollection: 'vocabulary_data_german_b1',
   },
   'german-b2': {
     id: 'german-b2',
     displayName: 'German TELC B2',
     language: 'German',
     level: 'B2',
+    vocabularyCollection: 'vocabulary_data_german_b2',
   },
   'english-b1': {
     id: 'english-b1',
     displayName: 'English TELC B1',
     language: 'English',
     level: 'B1',
+    vocabularyCollection: 'vocabulary_data_english_b1',
   },
   'english-b2': {
     id: 'english-b2',
     displayName: 'English TELC B2',
     language: 'English',
     level: 'B2',
+    vocabularyCollection: 'vocabulary_data_english_b2',
   },
 };
 

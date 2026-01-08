@@ -4,6 +4,8 @@ import IntroScreen from './screens/IntroScreen';
 import QuestionScreen from './screens/QuestionScreen';
 import AnswerScreen from './screens/AnswerScreen';
 import OutroScreen from './screens/OutroScreen';
+import VocabularyWordScreen from './screens/VocabularyWordScreen';
+import VocabularyExampleScreen from './screens/VocabularyExampleScreen';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +15,8 @@ const App: React.FC = () => {
         <Route path="/question" element={<QuestionScreen />} />
         <Route path="/answer" element={<AnswerScreen />} />
         <Route path="/outro" element={<OutroScreen />} />
+        <Route path="/vocabulary-word" element={<VocabularyWordScreen />} />
+        <Route path="/vocabulary-example" element={<VocabularyExampleScreen />} />
         <Route path="/" element={<IntroScreen />} />
       </Routes>
     </Router>

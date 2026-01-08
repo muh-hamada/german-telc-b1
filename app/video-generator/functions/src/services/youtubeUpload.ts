@@ -153,3 +153,72 @@ Download our app for hundreds more practice questions:
   };
 }
 
+/**
+ * Generate video metadata for vocabulary videos
+ */
+export function generateVocabularyVideoMetadata(
+  appId: string,
+  appDisplayName: string,
+  word: string,
+  article: string,
+  translation: string,
+  exampleSentence: string
+): VideoMetadata {
+  // Extract language and level from appId (e.g., "german-a1" -> ["german", "a1"])
+  const [language, level] = appId.split('-');
+  const languageCapitalized = language.charAt(0).toUpperCase() + language.slice(1);
+  const levelUppercase = level.toUpperCase();
+
+  // Format word with article for title
+  const wordWithArticle = article ? `${article} ${word}` : word;
+  
+  const title = `Learn ${languageCapitalized}: ${wordWithArticle} - ${translation} 🇩🇪 | TELC ${levelUppercase} Vocabulary`;
+  
+  const description = `
+📚 Word of the Day: ${wordWithArticle}
+📝 Translation: ${translation}
+🗣️ Example: ${exampleSentence}
+
+Master ${languageCapitalized} vocabulary for your TELC ${levelUppercase} exam!
+
+Download our app for comprehensive vocabulary practice:
+https://telc-exam-preperation.web.app/
+
+✨ App Features:
+• 1000+ vocabulary words with audio pronunciation
+• Example sentences with translations
+• Progress tracking
+• Spaced repetition learning
+• Exam-focused content
+
+Perfect for TELC exam preparation and ${languageCapitalized} language learners!
+
+#${languageCapitalized}Learning #TELC${levelUppercase} #Vocabulary #LanguageLearning #${languageCapitalized}Language #LearnGerman #StudyGerman #GermanVocabulary #TELCExam #LanguageStudy
+`.trim();
+
+  const tags = [
+    'TELC',
+    `TELC ${levelUppercase}`,
+    `${languageCapitalized} learning`,
+    'vocabulary',
+    `${languageCapitalized} vocabulary`,
+    'language learning',
+    `learn ${language}`,
+    language,
+    levelUppercase,
+    `${language} ${level}`,
+    'word of the day',
+    'pronunciation',
+    'education',
+    'language study',
+    `${languageCapitalized} words`,
+  ];
+
+  return {
+    title,
+    description,
+    tags,
+    categoryId: '27', // Education category
+  };
+}
+

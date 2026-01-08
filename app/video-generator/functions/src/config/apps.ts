@@ -8,6 +8,8 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     language: 'German',
     level: 'A1',
     collectionName: 'german_a1_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_german_a1',
+    ttsLanguageCode: 'de-DE',
   },
   'german-b1': {
     id: 'german-b1',
@@ -15,6 +17,8 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     language: 'German',
     level: 'B1',
     collectionName: 'b1_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_german_b1',
+    ttsLanguageCode: 'de-DE',
   },
   'german-b2': {
     id: 'german-b2',
@@ -22,6 +26,8 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     language: 'German',
     level: 'B2',
     collectionName: 'german_b2_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_german_b2',
+    ttsLanguageCode: 'de-DE',
   },
   'english-b1': {
     id: 'english-b1',
@@ -29,6 +35,8 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     language: 'English',
     level: 'B1',
     collectionName: 'english_b1_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_english_b1',
+    ttsLanguageCode: 'en-US',
   },
   'english-b2': {
     id: 'english-b2',
@@ -36,6 +44,8 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     language: 'English',
     level: 'B2',
     collectionName: 'english_b2_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_english_b2',
+    ttsLanguageCode: 'en-US',
   },
 };
 

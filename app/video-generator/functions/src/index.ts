@@ -12,8 +12,9 @@ import { selectNextQuestion } from './services/questionSelector';
 import { captureVideoScreenshots } from './services/screenshotCapture';
 import { assembleVideo, getVideoDuration, cleanupTempFiles } from './services/videoAssembly';
 import { uploadToYouTube, generateVideoMetadata } from './services/youtubeUpload';
-import { markQuestionProcessed, markQuestionFailed } from './services/trackingService';
+import { markQuestionProcessed, markQuestionFailed, getVocabularyStats } from './services/trackingService';
 import { getAppConfig } from './config/apps';
+import { generateWordOfTheDayVideo } from './generators/wordOfTheDayGenerator';
 
 // Initialize Firebase Admin
 admin.initializeApp();
@@ -244,6 +245,94 @@ export const getProcessingStats = onRequest(async (req, res) => {
     console.error('Error getting stats:', error);
     res.status(500).json({
       error: 'Failed to get stats',
+      message: error instanceof Error ? error.message : 'Unknown error',
+    });
+  }
+});
+
+/**
+ * Scheduled function to generate Word of the Day YouTube Shorts video
+ * Runs twice daily at 9 AM and 9 PM UTC
+ */
+export const generateWordOfTheDayShort = onSchedule({
+  schedule: '0 9,21 * * *', // 9 AM and 9 PM UTC
+  timeoutSeconds: 1200, // 20 minutes
+  memory: '4GiB',
+  timeZone: 'UTC',
+}, async (event) => {
+  const appId = process.env.APP_ID || 'german-a1';
+  console.log(`Starting Word of the Day video generation for ${appId}`);
+
+  try {
+    const result = await generateWordOfTheDayVideo(appId);
+
+    if (result.success) {
+      console.log(`Word of the Day video generated successfully: ${result.videoUrl}`);
+      console.log(`Word: ${result.word}`);
+    } else {
+      console.error(`Word of the Day video generation failed: ${result.error}`);
+    }
+  } catch (error) {
+    console.error('Error in scheduled Word of the Day generation:', error);
+    throw error;
+  }
+});
+
+/**
+ * HTTP function to manually trigger Word of the Day video generation
+ * Useful for testing and manual runs
+ */
+export const generateWordOfTheDayManual = onRequest({
+  timeoutSeconds: 1200, // 20 minutes
+  memory: '4GiB',
+}, async (req, res) => {
+  const appId = (req.query.appId as string) || process.env.APP_ID || 'german-a1';
+
+  console.log(`Manual Word of the Day video generation triggered for ${appId}`);
+
+  try {
+    const result = await generateWordOfTheDayVideo(appId);
+
+    if (result.success) {
+      res.json({
+        success: true,
+        videoUrl: result.videoUrl,
+        videoId: result.videoId,
+        word: result.word,
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        error: result.error,
+      });
+    }
+  } catch (error) {
+    console.error('Error generating Word of the Day video:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Video generation failed',
+      message: error instanceof Error ? error.message : 'Unknown error',
+    });
+  }
+});
+
+/**
+ * HTTP function to check vocabulary video stats
+ */
+export const getVocabularyVideoStats = onRequest(async (req, res) => {
+  const appId = req.query.appId as string || 'german-a1';
+
+  try {
+    const stats = await getVocabularyStats(appId);
+
+    res.json({
+      appId,
+      stats,
+    });
+  } catch (error) {
+    console.error('Error getting vocabulary stats:', error);
+    res.status(500).json({
+      error: 'Failed to get vocabulary stats',
       message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
