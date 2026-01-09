@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useRef } from 'react';
 import { 
   RemoteConfig, 
   RemoteConfigContextType, 
@@ -12,6 +12,7 @@ import {
 import firebaseRemoteConfigService from '../services/firebase-remote-config.service';
 import StorageService from '../services/storage.service';
 import { activeExamConfig } from '../config/active-exam.config';
+import dataService from '../services/data.service';
 
 const RemoteConfigContext = createContext<RemoteConfigContextType | undefined>(undefined);
 
@@ -24,6 +25,9 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
   const [globalConfig, setGlobalConfig] = useState<GlobalConfig | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Track current dataVersion to detect changes in real-time listener
+  const currentDataVersionRef = useRef<number>(0);
 
   const appId = activeExamConfig.id;
 
@@ -60,6 +64,16 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
         firebaseRemoteConfigService.getRemoteConfig(appId),
         firebaseRemoteConfigService.getGlobalConfig(),
       ]);
+
+      // Step 2.5: Check if data version changed and clear exam data cache if needed
+      const cachedDataVersion = cachedConfig?.dataVersion ?? 0;
+      const freshDataVersion = freshConfig.dataVersion ?? 1;
+      if (freshDataVersion > cachedDataVersion) {
+        console.log(`[RemoteConfigContext] Data version changed (${cachedDataVersion} -> ${freshDataVersion}), clearing exam data cache`);
+        await dataService.clearCache();
+      }
+      // Update the ref so real-time listener can detect future changes
+      currentDataVersionRef.current = freshDataVersion;
       
       // Step 3: Update state and cache with fresh configs
       setConfig(freshConfig);
@@ -99,6 +113,15 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
       appId,
       async (updatedConfig) => {
         console.log('[RemoteConfigContext] App config updated from Firebase:', updatedConfig);
+        
+        // Check if data version changed and clear cache if needed
+        const newDataVersion = updatedConfig.dataVersion ?? 1;
+        if (newDataVersion > currentDataVersionRef.current) {
+          console.log(`[RemoteConfigContext] Real-time: Data version changed (${currentDataVersionRef.current} -> ${newDataVersion}), clearing exam data cache`);
+          await dataService.clearCache();
+          currentDataVersionRef.current = newDataVersion;
+        }
+        
         setConfig(updatedConfig);
         await StorageService.saveRemoteConfig(updatedConfig);
         setError(null);

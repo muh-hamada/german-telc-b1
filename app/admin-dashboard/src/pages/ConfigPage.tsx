@@ -140,6 +140,8 @@ export const ConfigPage: React.FC = () => {
         streaksWhitelistedUserIDs: appConfigs[selectedAppId].streaksWhitelistedUserIDs || [],
         // Ensure premiumOffer is always defined
         premiumOffer: appConfigs[selectedAppId].premiumOffer || DEFAULT_REMOTE_CONFIG.premiumOffer,
+        // Ensure dataVersion is always defined
+        dataVersion: appConfigs[selectedAppId].dataVersion ?? DEFAULT_REMOTE_CONFIG.dataVersion,
       }
     : { 
         ...DEFAULT_REMOTE_CONFIG, 
@@ -363,6 +365,49 @@ export const ConfigPage: React.FC = () => {
               <div className="config-form-header">
                 <h2>{APP_DISPLAY_NAMES[selectedAppId]} Configuration</h2>
                 <p>App-specific settings for {selectedAppId}</p>
+              </div>
+
+              {/* Data Cache Version */}
+              <div className="config-group">
+                <h3>📦 Data Cache Version</h3>
+                <p className="config-group-description">
+                  Increment this number when you update exam data (questions, content) to force users to refresh their cached data.
+                  Users' app will automatically clear their local cache and fetch fresh data when this version increases.
+                </p>
+
+                <div className="config-field">
+                  <label htmlFor="dataVersion">
+                    Data Version
+                    <span className="field-hint">Current: {currentAppConfig.dataVersion ?? 1}. Increment when exam data changes.</span>
+                  </label>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                    <input
+                      id="dataVersion"
+                      type="number"
+                      min="1"
+                      value={currentAppConfig.dataVersion ?? 1}
+                      onChange={(e) => updateAppConfig({ dataVersion: parseInt(e.target.value) || 1 })}
+                      className="config-input"
+                      style={{ width: '120px' }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => updateAppConfig({ dataVersion: (currentAppConfig.dataVersion ?? 1) + 1 })}
+                      className="btn-increment"
+                      style={{
+                        padding: '8px 16px',
+                        backgroundColor: '#4CAF50',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      + Increment
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Version Configuration */}

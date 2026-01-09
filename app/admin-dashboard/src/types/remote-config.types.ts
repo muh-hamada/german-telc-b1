@@ -59,6 +59,8 @@ export interface RemoteConfig {
   vocabularyNativeAdInterval: number;
   // Premium offer configuration
   premiumOffer: PremiumOfferConfig;
+  // Data version for cache invalidation - increment when exam data changes
+  dataVersion: number;
   updatedAt: number;
 }
 
@@ -109,6 +111,7 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   enableVocabularyNativeAd: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
   vocabularyNativeAdInterval: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
   premiumOffer: DEFAULT_PREMIUM_OFFER_CONFIG,
+  dataVersion: 1, // Increment when exam data changes to invalidate client cache
   updatedAt: Date.now(),
 };
 

@@ -54,6 +54,7 @@ class FirebaseRemoteConfigService {
         ? data.vocabularyNativeAdInterval
         : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
       premiumOffer: data.premiumOffer || DEFAULT_PREMIUM_OFFER_CONFIG,
+      dataVersion: data.dataVersion ?? DEFAULT_REMOTE_CONFIG.dataVersion,
     };
   }
 

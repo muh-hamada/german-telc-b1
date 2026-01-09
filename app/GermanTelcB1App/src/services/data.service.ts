@@ -32,8 +32,8 @@ import {
 } from '../types/exam.types';
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
-// TODO: Change to 24 hours in milliseconds once the data is stable
-const CACHE_EXPIRATION = 10 * 1000; // 10 seconds in milliseconds
+// Cache for 10 days - invalidation is handled by dataVersion in remote config
+const CACHE_EXPIRATION = 10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {
