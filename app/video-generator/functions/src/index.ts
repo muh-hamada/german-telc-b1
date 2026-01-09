@@ -251,32 +251,49 @@ export const getProcessingStats = onRequest(async (req, res) => {
 });
 
 /**
- * Scheduled function to generate Word of the Day YouTube Shorts video
- * Runs twice daily at 9 AM and 9 PM UTC
+ * Dynamic scheduled functions for Word of the Day video generation
+ * Creates one scheduled function per app defined in schedule-config.json
  */
-export const generateWordOfTheDayShort = onSchedule({
-  schedule: '0 9,15,21 * * *', // 9 AM, 3 PM, and 9 PM UTC
-  timeoutSeconds: 1200, // 20 minutes
-  memory: '4GiB',
-  timeZone: 'UTC',
-}, async (event) => {
-  const appId = process.env.APP_ID || 'german-a1';
-  console.log(`Starting Word of the Day video generation for ${appId}`);
+import scheduleConfig from '../schedule-config.json';
 
-  try {
-    const result = await generateWordOfTheDayVideo(appId);
+interface ScheduleEntry {
+  name: string;
+  schedule: string;
+  appId: string;
+}
 
-    if (result.success) {
-      console.log(`Word of the Day video generated successfully: ${result.videoUrl}`);
-      console.log(`Word: ${result.word}`);
-    } else {
-      console.error(`Word of the Day video generation failed: ${result.error}`);
+// Create scheduled functions dynamically from config
+const scheduledFunctions: Record<string, ReturnType<typeof onSchedule>> = {};
+
+(scheduleConfig as ScheduleEntry[]).forEach((entry) => {
+  scheduledFunctions[entry.name] = onSchedule({
+    schedule: entry.schedule,
+    timeoutSeconds: 1200, // 20 minutes
+    memory: '4GiB',
+    timeZone: 'UTC',
+  }, async () => {
+    console.log(`Starting Word of the Day video generation for ${entry.appId} (${entry.name})`);
+
+    try {
+      const result = await generateWordOfTheDayVideo(entry.appId);
+
+      if (result.success) {
+        console.log(`Word of the Day video generated successfully: ${result.videoUrl}`);
+        console.log(`Word: ${result.word}`);
+      } else {
+        console.error(`Word of the Day video generation failed: ${result.error}`);
+      }
+    } catch (error) {
+      console.error(`Error in scheduled Word of the Day generation for ${entry.appId}:`, error);
+      throw error;
     }
-  } catch (error) {
-    console.error('Error in scheduled Word of the Day generation:', error);
-    throw error;
-  }
+  });
 });
+
+// Export all scheduled functions
+export const generate_a1_german_vocabulary_video = scheduledFunctions['generate_a1_german_vocabulary_video'];
+export const generate_b1_german_vocabulary_video = scheduledFunctions['generate_b1_german_vocabulary_video'];
+export const generate_b2_german_vocabulary_video = scheduledFunctions['generate_b2_german_vocabulary_video'];
 
 /**
  * HTTP function to manually trigger Word of the Day video generation
