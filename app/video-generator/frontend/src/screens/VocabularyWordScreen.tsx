@@ -125,6 +125,16 @@ const VocabularyWordScreen: React.FC = () => {
         </div>
 
         {/* Optional: Additional translations */}
+        {word.translations.ar && (
+          <div className="secondary-translation">
+            🇸🇦 {word.translations.ar}
+          </div>
+        )}
+        {word.translations.fr && (
+          <div className="secondary-translation">
+            🇫🇷 {word.translations.fr}
+          </div>
+        )}
         {word.translations.es && (
           <div className="secondary-translation">
             🇪🇸 {word.translations.es}

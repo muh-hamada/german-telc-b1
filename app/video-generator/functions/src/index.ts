@@ -255,7 +255,7 @@ export const getProcessingStats = onRequest(async (req, res) => {
  * Runs twice daily at 9 AM and 9 PM UTC
  */
 export const generateWordOfTheDayShort = onSchedule({
-  schedule: '0 9,21 * * *', // 9 AM and 9 PM UTC
+  schedule: '0 9,15,21 * * *', // 9 AM, 3 PM, and 9 PM UTC
   timeoutSeconds: 1200, // 20 minutes
   memory: '4GiB',
   timeZone: 'UTC',

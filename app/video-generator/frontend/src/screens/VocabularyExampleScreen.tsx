@@ -86,8 +86,9 @@ const VocabularyExampleScreen: React.FC = () => {
 
   // Highlight the word in the sentence
   const highlightWord = (sentence: string, targetWord: string): JSX.Element => {
+    const withoutDotAtTheEnd = sentence.replace(/\.$/, '');
     const regex = new RegExp(`(${targetWord})`, 'gi');
-    const parts = sentence.split(regex);
+    const parts = withoutDotAtTheEnd.split(regex);
 
     return (
       <>
