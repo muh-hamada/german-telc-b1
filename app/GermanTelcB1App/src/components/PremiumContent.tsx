@@ -160,7 +160,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
           colors={[
             isDarkMode ? '#1e3a8a' : colors.gold,
             isDarkMode ? '#1e1b4b' : colors.gold,
-            colors.background.primary,
+            'transparent',
           ]}
           locations={[0, 0.3, 1]}
           style={{
@@ -220,10 +220,6 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
         </LinearGradient>
       </>
     );
-  };
-
-  const newVerison = () => {
-    return <ProminentOfferBanner />;
   };
 
   return (

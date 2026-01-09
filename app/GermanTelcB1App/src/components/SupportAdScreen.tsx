@@ -125,6 +125,13 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
       setIsAdLoading(false);
       setIsShowingAd(false);
       adEarnedRewardRef.current = false;
+
+      // Retry loading after a delay
+      setTimeout(() => {
+        console.log('[SupportAdScreen] 🔄 Retrying ad load after error');
+        setIsAdLoading(true);
+        ad.load();
+      }, 5000);
     });
 
     // Load the ad

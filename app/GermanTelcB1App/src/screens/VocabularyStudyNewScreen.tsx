@@ -23,6 +23,8 @@ import { VocabularyWord } from '../types/vocabulary.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import vocabularyProgressService from '../services/vocabulary-progress.service';
 
+const COUNTDOWN_TIME = 5;
+
 const VocabularyStudyNewScreen: React.FC = () => {
   const navigation = useNavigation();
   const { t } = useCustomTranslation();
@@ -95,7 +97,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   useEffect(() => {
     if (showAdCard) {
       // Start countdown when ad card is shown (3 seconds)
-      setAdCountdown(3);
+      setAdCountdown(COUNTDOWN_TIME);
     }
   }, [showAdCard]);
   

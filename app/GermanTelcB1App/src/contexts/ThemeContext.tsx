@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { darkColors, lightColors, type ThemeColors, type ThemeMode } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
+import { FORCE_DARK_MODE } from '../config/development.config';
 
 const THEME_STORAGE_KEY = 'app_theme';
 
@@ -31,6 +32,10 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   useEffect(() => {
     const loadTheme = async () => {
+      if (FORCE_DARK_MODE) {
+        setMode('dark');
+        return;
+      }
       try {
         const storedMode = await AsyncStorage.getItem(THEME_STORAGE_KEY);
         if (storedMode === 'light' || storedMode === 'dark') {

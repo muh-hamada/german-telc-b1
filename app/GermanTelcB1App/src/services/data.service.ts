@@ -6,7 +6,7 @@
  * Features:
  * - Fetches exam data from Firestore
  * - Returns empty data if Firestore document doesn't exist
- * - Caches data for 24 hours to reduce Firestore reads
+ * - Caches data for 20 days to reduce Firestore reads
  * - Supports cache clearing and force refresh
  * - Dynamically uses collection names based on active exam configuration
  */
@@ -33,7 +33,7 @@ import {
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
 // Cache for 10 days - invalidation is handled by dataVersion in remote config
-const CACHE_EXPIRATION = 10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds
+const CACHE_EXPIRATION = 20 * 24 * 60 * 60 * 1000; // 20 days in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {

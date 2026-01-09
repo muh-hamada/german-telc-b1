@@ -35,6 +35,7 @@ export const AnalyticsEvents = {
   REWARDED_AD_CLOSED: 'rewarded_ad_closed',
   REWARDED_AD_ERROR: 'rewarded_ad_error',
   REWARDED_AD_SKIPPED: 'rewarded_ad_skipped',
+  WRITING_EVAL_FREE_AD_FAILED: 'writing_eval_free_ad_failed',
   WRITING_EVAL_COMPLETED: 'writing_eval_completed',
   WRITING_EVAL_FAILED: 'writing_eval_failed',
 

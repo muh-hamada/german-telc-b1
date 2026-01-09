@@ -29,12 +29,13 @@ import {
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import MarkdownText from '../MarkdownText';
 import { activeExamConfig } from '../../config/active-exam.config';
 
 // In the Telc exam, the initiatial evaluation if from 15
 // Then we multiply by 3 to reach a max score of 45
 const SCORE_MULTIPLIER = 3;
+
+const MIN_ANSWER_LENGTH = 50;
 
 interface WritingUIProps {
   exam: WritingExam;
@@ -63,12 +64,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [isResultsModalOpen, setIsResultsModalOpen] = useState(false);
   const [lastEvaluatedAnswer, setLastEvaluatedAnswer] = useState('');
   const [capturedImageUri, setCapturedImageUri] = useState<string | null>(null);
-  const [capturedImageBase64, setCapturedImageBase64] = useState<string | null>(null);
   const [isImagePreviewModalOpen, setIsImagePreviewModalOpen] = useState(false);
   const [isUsingCachedResult, setIsUsingCachedResult] = useState(false);
   const [showRewardedAdModal, setShowRewardedAdModal] = useState(false);
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
+  const [adLoadFailed, setAdLoadFailed] = useState(false);
   const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
   const [isUserInputExpanded, setIsUserInputExpanded] = useState(false);
   const [isModalAnswerExpanded, setIsModalAnswerExpanded] = useState(false);
@@ -88,6 +89,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     const unsubscribeLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
       console.log('[WritingScreen] ✅ Rewarded ad loaded successfully');
       setIsAdLoaded(true);
+      setAdLoadFailed(false); // Reset failure flag on successful load
     });
 
     const unsubscribeEarned = ad.addAdEventListener(
@@ -156,6 +158,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       // Reset all modal and loading states on error
       console.log('[WritingScreen] 🧹 Error cleanup - resetting all states');
       setIsAdLoaded(false);
+      setAdLoadFailed(true); // Mark ad as failed so user can still evaluate
       setShowRewardedAdModal(false);
       setIsEvaluating(false);
       setPendingEvaluationType(null);
@@ -210,7 +213,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const handleAnswerChange = (text: string) => {
     setUserAnswer(text);
     userAnswerRef.current = text; // Keep ref in sync
-    if (showWarning && text.trim().length >= 50) {
+    if (showWarning && text.trim().length >= MIN_ANSWER_LENGTH) {
       setShowWarning(false);
     }
   };
@@ -280,14 +283,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
         if (imageUri && imageBase64) {
           setCapturedImageUri(imageUri);
-          setCapturedImageBase64(imageBase64);
           capturedImageUriRef.current = imageUri;
           capturedImageBase64Ref.current = imageBase64;
           setIsImagePreviewModalOpen(true);
         } else if (imageUri) {
           // Fallback if base64 is not available
           setCapturedImageUri(imageUri);
-          setCapturedImageBase64(null);
           capturedImageUriRef.current = imageUri;
           capturedImageBase64Ref.current = null;
           setIsImagePreviewModalOpen(true);
@@ -320,8 +321,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
 
-    // Skip rewarded ad for premium users or if SKIP_REWARDED_ADS is enabled
-    if (SKIP_REWARDED_ADS || isPremium) {
+    // Skip rewarded ad for premium users, if SKIP_REWARDED_ADS is enabled, or if ad failed to load
+    if (SKIP_REWARDED_ADS || isPremium || adLoadFailed) {
+      if(adLoadFailed) {
+        logEvent(AnalyticsEvents.WRITING_EVAL_FREE_AD_FAILED, { evaluation_type: 'image' });
+      }
       await proceedWithImageEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -389,7 +393,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   };
 
   const handleEvaluate = async () => {
-    if (userAnswer.trim().length < 50) {
+    if (userAnswer.trim().length < MIN_ANSWER_LENGTH) {
       setShowWarning(true);
       return;
     }
@@ -410,8 +414,11 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
 
-    // Skip rewarded ad for premium users or if SKIP_REWARDED_ADS is enabled
-    if (SKIP_REWARDED_ADS || isPremium) {
+    // Skip rewarded ad for premium users, if SKIP_REWARDED_ADS is enabled, or if ad failed to load
+    if (SKIP_REWARDED_ADS || isPremium || adLoadFailed) {
+      if(adLoadFailed) {
+        logEvent(AnalyticsEvents.WRITING_EVAL_FREE_AD_FAILED, { evaluation_type: 'text' });
+      }
       await proceedWithTextEvaluation();
     } else {
       logEvent(AnalyticsEvents.REWARDED_AD_PROMPT_SHOWN, { reason: 'writing_evaluation' });
@@ -755,8 +762,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                     setTimeout(handleTakePhoto, 300);
                   }}
                 >
-                  <Text style={styles.retakeIcon}>📷</Text>
-                  <Text style={[styles.imagePreviewButtonText, styles.retakeButtonText]}>{t('writing.imagePreview.retakeButton')}</Text>
+
+                  <Text style={[styles.imagePreviewButtonText]}>{t('writing.imagePreview.retakeButton')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -768,8 +775,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                     <ActivityIndicator color={colors.text.primary} size="small" />
                   ) : (
                     <>
-                      <Text style={styles.evaluateIcon}>✓</Text>
-                      <Text style={[styles.imagePreviewButtonText, styles.evaluateButtonText]}>{t('writing.imagePreview.evaluateButton')}</Text>
+                      <Text style={[styles.imagePreviewButtonText]}>{t('writing.imagePreview.evaluateButton')}</Text>
                     </>
                   )}
                 </TouchableOpacity>
@@ -780,7 +786,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                 onPress={() => {
                   setIsImagePreviewModalOpen(false);
                   setCapturedImageUri(null);
-                  setCapturedImageBase64(null);
                   capturedImageUriRef.current = null;
                   capturedImageBase64Ref.current = null;
                 }}
@@ -1322,7 +1327,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.background.secondary,
   },
   cameraSection: {
-    marginBottom: spacing.margin.lg,
+    marginBottom: spacing.margin.sm,
     alignItems: 'center',
   },
   orText: {
@@ -1361,16 +1366,10 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.primary[600],
     textAlign: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  imagePreviewSubtitle: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.margin.sm,
+    marginBottom: spacing.margin.md,
   },
   imageContainer: {
-    marginBottom: spacing.margin.sm,
+    marginBottom: spacing.margin.md,
   },
   previewImage: {
     width: '100%',
@@ -1393,9 +1392,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     gap: spacing.margin.xs,
   },
   retakeButton: {
-    backgroundColor: colors.warning[100],
+    backgroundColor: colors.background.secondary,
     borderWidth: 1,
-    borderColor: colors.warning[500],
+    borderColor: colors.border.medium,
   },
   evaluateImageButton: {
     backgroundColor: colors.background.secondary,
@@ -1404,19 +1403,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
   imagePreviewButtonText: {
     ...typography.textStyles.bodySmall,
-    fontWeight: typography.fontWeight.semibold,
     color: colors.text.primary,
     textAlign: 'center',
-  },
-  retakeButtonText: {
-    color: colors.warning[700],
-  },
-  retakeIcon: {
-    fontSize: 14,
-  },
-  evaluateIcon: {
-    fontSize: 14,
-    color: colors.text.primary,
   },
   cancelImageButton: {
     backgroundColor: 'transparent',

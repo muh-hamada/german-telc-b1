@@ -25,6 +25,8 @@ export const HIDE_SUPPORT_US = false; // Set to false for production
 
 export const SIMULATE_PREMIUM_USER = false; // Set to true to simulate a premium user
 
+export const FORCE_DARK_MODE = false; // Set to true to force dark mode
+
 /**
  * Streak Feature Flags
  */
