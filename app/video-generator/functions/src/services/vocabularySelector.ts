@@ -5,6 +5,18 @@ import { VocabularyWord, VocabularyData } from '../types';
 import { generateAndUploadVocabularyAudio, VocabularyAudioUrls } from './audioService';
 
 /**
+ * Extract the base word from compound vocabulary entries
+ * Examples:
+ * - "Profisportler, -die Profisportlerin, -nen" → "Profisportler"
+ * - "Junge, -n (D) ! A, CH: Bub" → "Junge"
+ * - "Haus" → "Haus"
+ */
+function extractBaseWord(word: string): string {
+  // Split by comma and take the first part, then trim
+  return word.split(',')[0].trim();
+}
+
+/**
  * Select the next unprocessed vocabulary word for video generation
  */
 export async function selectNextVocabularyWord(appId: string): Promise<VocabularyData | null> {
@@ -88,11 +100,12 @@ export async function ensureVocabularyAudioExists(
   
   const languageCode = appConfig.ttsLanguageCode || 'de-DE';
   const exampleSentence = word.exampleSentences[0].text;
+  const wordText = extractBaseWord(word.word);
 
   const audioUrls = await generateAndUploadVocabularyAudio(
     appId,
     wordId,
-    word.word,
+    wordText,
     word.article,
     exampleSentence,
     languageCode

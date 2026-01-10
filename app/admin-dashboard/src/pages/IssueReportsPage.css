@@ -240,6 +240,24 @@
   font-weight: 600;
 }
 
+.report-header-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.report-seen-badge {
+  font-size: 1rem;
+  cursor: help;
+  opacity: 0.9;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.report-seen-badge:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .report-status-badge {
   color: white;
   padding: 0.25rem 0.75rem;

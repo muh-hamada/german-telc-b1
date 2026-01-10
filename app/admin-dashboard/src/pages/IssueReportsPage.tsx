@@ -368,12 +368,22 @@ export const IssueReportsPage: React.FC = () => {
                   <div className="report-app-badge">
                     {APP_DISPLAY_NAMES[report.appId] || report.appId}
                   </div>
-                  <span 
-                    className="report-status-badge"
-                    style={{ backgroundColor: STATUS_COLORS[report.status] }}
-                  >
-                    {STATUS_LABELS[report.status]}
-                  </span>
+                  <div className="report-header-badges">
+                    {report.seenByUserAt && (
+                      <span 
+                        className="report-seen-badge"
+                        title={`Seen by user on ${formatDate(report.seenByUserAt)}`}
+                      >
+                        👁️
+                      </span>
+                    )}
+                    <span 
+                      className="report-status-badge"
+                      style={{ backgroundColor: STATUS_COLORS[report.status] }}
+                    >
+                      {STATUS_LABELS[report.status]}
+                    </span>
+                  </div>
                 </div>
                 
                 <div className="report-item-content">

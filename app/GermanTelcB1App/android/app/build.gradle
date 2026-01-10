@@ -86,11 +86,11 @@ android {
     namespace "com.mhamada.telcb1german"
     
     defaultConfig {
-        applicationId "com.mhamada.telcb1german"
+        applicationId "com.mhamada.telcb2english"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 66
-        versionName "1.0.66"
+        versionCode 67
+        versionName "1.0.67"
         missingDimensionStrategy "store", "play"
     }
     

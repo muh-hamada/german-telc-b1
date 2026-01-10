@@ -76,6 +76,8 @@ export async function generateVocabularyAudio(
   // Generate word audio (with article if it's a noun)
   const wordText = article ? `${article} ${word}` : word;
   const wordPath = path.join(tempDir, 'word.mp3');
+
+  console.log(`GENERATE AUDIO: >>>>>>>>>>>> Generating word audio for: "${wordText}"`);
   
   await generateAudio(
     {
