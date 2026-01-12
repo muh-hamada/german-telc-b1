@@ -5,6 +5,10 @@ import { db } from '../firebase';
 import { getAppConfig } from '../config/apps';
 import { VocabularyWord } from '../types';
 import logoImage from '../assets/logo.jpg';
+import SA from 'country-flag-icons/react/3x2/SA';
+import FR from 'country-flag-icons/react/3x2/FR';
+import ES from 'country-flag-icons/react/3x2/ES';
+import RU from 'country-flag-icons/react/3x2/RU';
 import './VocabularyWordScreen.css';
 
 const VocabularyWordScreen: React.FC = () => {
@@ -127,17 +131,22 @@ const VocabularyWordScreen: React.FC = () => {
         {/* Optional: Additional translations */}
         {word.translations.ar && (
           <div className="secondary-translation">
-            🇸🇦 {word.translations.ar}
+            <SA className="flag-icon" /> {word.translations.ar}
           </div>
         )}
         {word.translations.fr && (
           <div className="secondary-translation">
-            🇫🇷 {word.translations.fr}
+            <FR className="flag-icon" /> {word.translations.fr}
           </div>
         )}
         {word.translations.es && (
           <div className="secondary-translation">
-            🇪🇸 {word.translations.es}
+            <ES className="flag-icon" /> {word.translations.es}
+          </div>
+        )}
+        {word.translations.ru && (
+          <div className="secondary-translation">
+            <RU className="flag-icon" /> {word.translations.ru}
           </div>
         )}
       </div>

@@ -89,8 +89,24 @@ class FirebaseProgressService {
         // Update existing exam if local is newer
         const localAttempt = localExam.lastAttempt ?? 0;
         const cloudAttempt = mergedExams[existingIndex].lastAttempt ?? 0;
+        
+        // Merge historical results from both sources
+        const mergedHistoricalResults = this.mergeHistoricalResults(
+          mergedExams[existingIndex].historicalResults,
+          localExam.historicalResults
+        );
+        
         if (localAttempt > cloudAttempt) {
-          mergedExams[existingIndex] = localExam;
+          mergedExams[existingIndex] = {
+            ...localExam,
+            historicalResults: mergedHistoricalResults,
+          };
+        } else {
+          // Keep cloud exam but merge historical results
+          mergedExams[existingIndex] = {
+            ...mergedExams[existingIndex],
+            historicalResults: mergedHistoricalResults,
+          };
         }
       } else {
         // Add new exam
@@ -102,12 +118,47 @@ class FirebaseProgressService {
     const totalScore = mergedExams.reduce((sum, exam) => sum + (exam.score || 0), 0);
     const totalMaxScore = mergedExams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
 
+    // Merge historical total scores
+    const mergedHistoricalTotalScores = this.mergeHistoricalTotalScores(
+      cloud.historicalTotalScores,
+      local.historicalTotalScores
+    );
+
     return {
       exams: mergedExams,
       totalScore,
       totalMaxScore,
       lastUpdated: Math.max(local.lastUpdated, cloud.lastUpdated),
+      historicalTotalScores: mergedHistoricalTotalScores,
     };
+  }
+
+  // Merge historical results from two sources, removing duplicates by timestamp
+  private mergeHistoricalResults(
+    arr1?: { timestamp: number; score: number; maxScore: number }[],
+    arr2?: { timestamp: number; score: number; maxScore: number }[]
+  ): { timestamp: number; score: number; maxScore: number }[] | undefined {
+    if (!arr1 && !arr2) return undefined;
+    const combined = [...(arr1 || []), ...(arr2 || [])];
+    // Remove duplicates by timestamp and sort by timestamp
+    const uniqueByTimestamp = Array.from(
+      new Map(combined.map(item => [item.timestamp, item])).values()
+    );
+    return uniqueByTimestamp.sort((a, b) => a.timestamp - b.timestamp);
+  }
+
+  // Merge historical total scores from two sources, removing duplicates by timestamp
+  private mergeHistoricalTotalScores(
+    arr1?: { timestamp: number; totalScore: number; totalMaxScore: number }[],
+    arr2?: { timestamp: number; totalScore: number; totalMaxScore: number }[]
+  ): { timestamp: number; totalScore: number; totalMaxScore: number }[] | undefined {
+    if (!arr1 && !arr2) return undefined;
+    const combined = [...(arr1 || []), ...(arr2 || [])];
+    // Remove duplicates by timestamp and sort by timestamp
+    const uniqueByTimestamp = Array.from(
+      new Map(combined.map(item => [item.timestamp, item])).values()
+    );
+    return uniqueByTimestamp.sort((a, b) => a.timestamp - b.timestamp);
   }
 
   // Save exam result to Firebase only

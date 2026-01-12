@@ -93,6 +93,16 @@
   margin-top: 20px;
 }
 
+.flag-icon {
+  display: inline-block;
+  width: 44px;
+  height: auto;
+  margin-right: 16px;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Logo positioning */
 .screen-logo {
   position: absolute;

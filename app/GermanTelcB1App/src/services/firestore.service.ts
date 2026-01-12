@@ -1,5 +1,5 @@
 import firestore, { Timestamp } from '@react-native-firebase/firestore';
-import { UserProgress, ExamProgress, UserAnswer } from '../types/exam.types';
+import { UserProgress, ExamProgress, UserAnswer, HistoricalResult, HistoricalTotalScore } from '../types/exam.types';
 import { User } from './auth.service';
 import { activeExamConfig } from '../config/active-exam.config';
 import { Platform } from 'react-native';
@@ -151,6 +151,8 @@ class FirestoreService {
         totalScore: typeof progress.totalScore === 'number' ? progress.totalScore : 0,
         totalMaxScore: typeof progress.totalMaxScore === 'number' ? progress.totalMaxScore : 0,
         lastUpdated: typeof progress.lastUpdated === 'number' ? progress.lastUpdated : Date.now(),
+        // Preserve historical total scores if they exist
+        historicalTotalScores: Array.isArray(progress.historicalTotalScores) ? progress.historicalTotalScores : undefined,
       };
 
       const progressData = {
@@ -161,6 +163,8 @@ class FirestoreService {
           lastAttempt: Timestamp.fromDate(
             new Date(typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now())
           ),
+          // Preserve historical results for each exam
+          historicalResults: Array.isArray(exam.historicalResults) ? exam.historicalResults : undefined,
         })),
       };
 
@@ -205,10 +209,12 @@ class FirestoreService {
         exams: Array.isArray(data.exams) ? data.exams.map((exam: any) => ({
           ...exam,
           lastAttempt: convertTimestamp(exam.lastAttempt),
+          historicalResults: Array.isArray(exam.historicalResults) ? exam.historicalResults : undefined,
         })) : [],
         totalScore: typeof data.totalScore === 'number' ? data.totalScore : 0,
         totalMaxScore: typeof data.totalMaxScore === 'number' ? data.totalMaxScore : 0,
         lastUpdated: convertTimestamp(data.lastUpdated),
+        historicalTotalScores: Array.isArray(data.historicalTotalScores) ? data.historicalTotalScores : undefined,
       } as UserProgress;
     } catch (error) {
       console.error('Error getting user progress:', error);
@@ -261,11 +267,24 @@ class FirestoreService {
           answers: [],
           completed: false,
           lastAttempt: now,
+          historicalResults: [],
         };
         progressData.exams.push(examProgress);
       }
 
-      // Update exam progress
+      // Initialize historical array if it doesn't exist (backward compatibility)
+      if (!examProgress.historicalResults) {
+        examProgress.historicalResults = [];
+      }
+
+      // Append new historical entry for this exam
+      examProgress.historicalResults.push({
+        timestamp: Date.now(),
+        score: score || 0,
+        maxScore: maxScore || 0,
+      });
+
+      // Update exam progress (current values for quick access)
       examProgress.answers = answers;
       examProgress.completed = completed;
       examProgress.score = score;
@@ -282,6 +301,18 @@ class FirestoreService {
         0
       );
       progressData.lastUpdated = now;
+
+      // Initialize historical total scores array if it doesn't exist (backward compatibility)
+      if (!progressData.historicalTotalScores) {
+        progressData.historicalTotalScores = [];
+      }
+
+      // Append new aggregated historical entry
+      progressData.historicalTotalScores.push({
+        timestamp: Date.now(),
+        totalScore: progressData.totalScore,
+        totalMaxScore: progressData.totalMaxScore,
+      });
 
       await progressRef.set(progressData, { merge: true });
 
@@ -413,6 +444,7 @@ class FirestoreService {
       totalScore: local.totalScore ?? 0,
       totalMaxScore: local.totalMaxScore ?? 0,
       lastUpdated: local.lastUpdated ?? Date.now(),
+      historicalTotalScores: local.historicalTotalScores,
     };
 
     const safeCloud: UserProgress = {
@@ -420,6 +452,7 @@ class FirestoreService {
       totalScore: cloud.totalScore ?? 0,
       totalMaxScore: cloud.totalMaxScore ?? 0,
       lastUpdated: cloud.lastUpdated ?? Date.now(),
+      historicalTotalScores: cloud.historicalTotalScores,
     };
 
     const mergedExams = [...safeCloud.exams];
@@ -435,7 +468,25 @@ class FirestoreService {
         const localAttempt = localExam.lastAttempt ?? 0;
         const cloudAttempt = mergedExams[existingIndex].lastAttempt ?? 0;
         if (localAttempt > cloudAttempt) {
-          mergedExams[existingIndex] = localExam;
+          // Merge historical results from both sources
+          const mergedHistoricalResults = this.mergeHistoricalResults(
+            mergedExams[existingIndex].historicalResults,
+            localExam.historicalResults
+          );
+          mergedExams[existingIndex] = {
+            ...localExam,
+            historicalResults: mergedHistoricalResults,
+          };
+        } else {
+          // Keep cloud exam but merge historical results
+          const mergedHistoricalResults = this.mergeHistoricalResults(
+            mergedExams[existingIndex].historicalResults,
+            localExam.historicalResults
+          );
+          mergedExams[existingIndex] = {
+            ...mergedExams[existingIndex],
+            historicalResults: mergedHistoricalResults,
+          };
         }
       } else {
         // Add new exam
@@ -447,12 +498,47 @@ class FirestoreService {
     const totalScore = mergedExams.reduce((sum, exam) => sum + (exam.score || 0), 0);
     const totalMaxScore = mergedExams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
 
+    // Merge historical total scores
+    const mergedHistoricalTotalScores = this.mergeHistoricalTotalScores(
+      safeCloud.historicalTotalScores,
+      safeLocal.historicalTotalScores
+    );
+
     return {
       exams: mergedExams,
       totalScore,
       totalMaxScore,
       lastUpdated: Math.max(safeLocal.lastUpdated, safeCloud.lastUpdated),
+      historicalTotalScores: mergedHistoricalTotalScores,
     };
+  }
+
+  // Merge historical results from two sources, removing duplicates by timestamp
+  private mergeHistoricalResults(
+    arr1?: { timestamp: number; score: number; maxScore: number }[],
+    arr2?: { timestamp: number; score: number; maxScore: number }[]
+  ): { timestamp: number; score: number; maxScore: number }[] | undefined {
+    if (!arr1 && !arr2) return undefined;
+    const combined = [...(arr1 || []), ...(arr2 || [])];
+    // Remove duplicates by timestamp and sort by timestamp
+    const uniqueByTimestamp = Array.from(
+      new Map(combined.map(item => [item.timestamp, item])).values()
+    );
+    return uniqueByTimestamp.sort((a, b) => a.timestamp - b.timestamp);
+  }
+
+  // Merge historical total scores from two sources, removing duplicates by timestamp
+  private mergeHistoricalTotalScores(
+    arr1?: { timestamp: number; totalScore: number; totalMaxScore: number }[],
+    arr2?: { timestamp: number; totalScore: number; totalMaxScore: number }[]
+  ): { timestamp: number; totalScore: number; totalMaxScore: number }[] | undefined {
+    if (!arr1 && !arr2) return undefined;
+    const combined = [...(arr1 || []), ...(arr2 || [])];
+    // Remove duplicates by timestamp and sort by timestamp
+    const uniqueByTimestamp = Array.from(
+      new Map(combined.map(item => [item.timestamp, item])).values()
+    );
+    return uniqueByTimestamp.sort((a, b) => a.timestamp - b.timestamp);
   }
 
   // Delete user data

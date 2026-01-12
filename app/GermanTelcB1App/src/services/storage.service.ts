@@ -43,6 +43,8 @@ class StorageService {
         totalScore: typeof progress.totalScore === 'number' ? progress.totalScore : 0,
         totalMaxScore: typeof progress.totalMaxScore === 'number' ? progress.totalMaxScore : 0,
         lastUpdated: typeof progress.lastUpdated === 'number' ? progress.lastUpdated : Date.now(),
+        // Preserve historical total scores if they exist (backward compatibility)
+        historicalTotalScores: Array.isArray(progress.historicalTotalScores) ? progress.historicalTotalScores : undefined,
       };
 
       // Validate each exam progress
@@ -54,6 +56,8 @@ class StorageService {
         score: typeof exam.score === 'number' ? exam.score : undefined,
         maxScore: typeof exam.maxScore === 'number' ? exam.maxScore : undefined,
         lastAttempt: typeof exam.lastAttempt === 'number' ? exam.lastAttempt : Date.now(),
+        // Preserve historical results if they exist (backward compatibility)
+        historicalResults: Array.isArray(exam.historicalResults) ? exam.historicalResults : undefined,
       }));
 
       return validatedProgress;
@@ -90,18 +94,18 @@ class StorageService {
     completed: boolean = true
   ): Promise<boolean> {
     try {
-      const currentProgress = await this.getUserProgress();
+      let currentProgress = await this.getUserProgress();
       const now = Date.now();
 
+      // Initialize progress if it doesn't exist
       if (!currentProgress) {
-        // Create new progress
-        const newProgress: UserProgress = {
+        currentProgress = {
           exams: [],
           totalScore: 0,
           totalMaxScore: 0,
           lastUpdated: now,
+          historicalTotalScores: [],
         };
-        return await this.saveUserProgress(newProgress);
       }
 
       // Find existing exam progress or create new one
@@ -116,11 +120,24 @@ class StorageService {
           answers: [],
           completed: false,
           lastAttempt: now,
+          historicalResults: [],
         };
         currentProgress.exams.push(examProgress);
       }
 
-      // Update exam progress
+      // Initialize historical array if it doesn't exist (backward compatibility)
+      if (!examProgress.historicalResults) {
+        examProgress.historicalResults = [];
+      }
+
+      // Append new historical entry for this exam
+      examProgress.historicalResults.push({
+        timestamp: now,
+        score: score || 0,
+        maxScore: maxScore || 0,
+      });
+
+      // Update exam progress (current values for quick access)
       examProgress.answers = answers;
       examProgress.completed = completed;
       examProgress.score = score;
@@ -137,6 +154,18 @@ class StorageService {
         0
       );
       currentProgress.lastUpdated = now;
+
+      // Initialize historical total scores array if it doesn't exist (backward compatibility)
+      if (!currentProgress.historicalTotalScores) {
+        currentProgress.historicalTotalScores = [];
+      }
+
+      // Append new aggregated historical entry
+      currentProgress.historicalTotalScores.push({
+        timestamp: now,
+        totalScore: currentProgress.totalScore,
+        totalMaxScore: currentProgress.totalMaxScore,
+      });
 
       return await this.saveUserProgress(currentProgress);
     } catch (error) {

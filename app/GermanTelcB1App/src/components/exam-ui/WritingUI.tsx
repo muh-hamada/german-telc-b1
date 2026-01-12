@@ -368,6 +368,19 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setAssessment(result);
       setIsResultsModalOpen(true);
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
+
+      // Call onComplete to save progress (for non-mock exam mode)
+      if (!isMockExam) {
+        const answers: UserAnswer[] = [];
+        answers.push({
+          questionId: 0,
+          answer: '[IMAGE]',
+          isCorrect: true,
+          timestamp: Date.now(),
+          correctAnswer: undefined,
+        });
+        onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
+      }
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -449,6 +462,19 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setAssessment(result);
       setIsResultsModalOpen(true);
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
+
+      // Call onComplete to save progress (for non-mock exam mode)
+      if (!isMockExam) {
+        const answers: UserAnswer[] = [];
+        answers.push({
+          questionId: 0,
+          answer: result.userInput,
+          isCorrect: true,
+          timestamp: Date.now(),
+          correctAnswer: undefined,
+        });
+        onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
+      }
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';

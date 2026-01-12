@@ -79,6 +79,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
         totalScore: 0,
         totalMaxScore: 0,
         lastUpdated: now,
+        historicalTotalScores: [],
       };
       
       // Create a mutable copy of exams array
@@ -89,6 +90,18 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
         exam => exam.examId === examId && exam.examType === examType
       );
       
+      // Get existing historical results if they exist
+      const existingHistoricalResults = existingIndex >= 0 
+        ? exams[existingIndex].historicalResults || []
+        : [];
+      
+      // Create new historical entry
+      const newHistoricalEntry = {
+        timestamp: now,
+        score: score || 0,
+        maxScore: maxScore || 0,
+      };
+      
       const examProgress: ExamProgress = {
         examId,
         examType: examType as any,
@@ -97,6 +110,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
         score,
         maxScore,
         lastAttempt: now,
+        historicalResults: [...existingHistoricalResults, newHistoricalEntry],
       };
       
       if (existingIndex >= 0) {
@@ -111,6 +125,16 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
       const totalScore = exams.reduce((sum, exam) => sum + (exam.score || 0), 0);
       const totalMaxScore = exams.reduce((sum, exam) => sum + (exam.maxScore || 0), 0);
       
+      // Get existing historical total scores or initialize empty array
+      const existingHistoricalTotalScores = currentProgress.historicalTotalScores || [];
+      
+      // Create new aggregated historical entry
+      const newAggregatedHistoricalEntry = {
+        timestamp: now,
+        totalScore,
+        totalMaxScore,
+      };
+      
       return {
         ...state,
         userProgress: {
@@ -118,6 +142,7 @@ const progressReducer = (state: ProgressState, action: ProgressAction): Progress
           totalScore,
           totalMaxScore,
           lastUpdated: now,
+          historicalTotalScores: [...existingHistoricalTotalScores, newAggregatedHistoricalEntry],
         },
       };
     }

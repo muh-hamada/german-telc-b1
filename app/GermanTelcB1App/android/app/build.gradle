@@ -86,7 +86,7 @@ android {
     namespace "com.mhamada.telcb1german"
     
     defaultConfig {
-        applicationId "com.mhamada.telcb2english"
+        applicationId "com.mhamada.telcb1german"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 67
