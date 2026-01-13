@@ -45,6 +45,13 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
       const cachedConfig = await StorageService.getRemoteConfig();
       const cachedGlobalConfig = await StorageService.getGlobalConfig();
       
+      // CRITICAL: Initialize the ref immediately with cached version to prevent race condition
+      // The real-time listener may fire before we finish fetching fresh config
+      if (cachedConfig?.dataVersion != null) {
+        currentDataVersionRef.current = cachedConfig.dataVersion;
+        console.log(`[RemoteConfigContext] Initialized dataVersion ref with cached value: ${cachedConfig.dataVersion}`);
+      }
+      
       if (cachedConfig) {
         console.log('[RemoteConfigContext] Loaded app config from cache:', cachedConfig);
         setConfig(cachedConfig);
@@ -66,14 +73,22 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
       ]);
 
       // Step 2.5: Check if data version changed and clear exam data cache if needed
-      const cachedDataVersion = cachedConfig?.dataVersion ?? 0;
-      const freshDataVersion = freshConfig.dataVersion ?? 1;
-      if (freshDataVersion > cachedDataVersion) {
+      // Only clear cache if we have BOTH versions AND they actually differ
+      const cachedDataVersion = cachedConfig?.dataVersion;
+      const freshDataVersion = freshConfig.dataVersion;
+      
+      if (cachedDataVersion != null && freshDataVersion != null && freshDataVersion > cachedDataVersion) {
         console.log(`[RemoteConfigContext] Data version changed (${cachedDataVersion} -> ${freshDataVersion}), clearing exam data cache`);
         await dataService.clearCache();
+      } else if (cachedDataVersion == null && freshDataVersion != null) {
+        console.log(`[RemoteConfigContext] First time loading config with dataVersion: ${freshDataVersion} - keeping existing cache`);
       }
-      // Update the ref so real-time listener can detect future changes
-      currentDataVersionRef.current = freshDataVersion;
+      
+      // Update the ref with fresh version (if available)
+      if (freshDataVersion != null) {
+        currentDataVersionRef.current = freshDataVersion;
+        console.log(`[RemoteConfigContext] Updated dataVersion ref with fresh value: ${freshDataVersion}`);
+      }
       
       // Step 3: Update state and cache with fresh configs
       setConfig(freshConfig);
@@ -115,8 +130,12 @@ export const RemoteConfigProvider: React.FC<RemoteConfigProviderProps> = ({ chil
         console.log('[RemoteConfigContext] App config updated from Firebase:', updatedConfig);
         
         // Check if data version changed and clear cache if needed
-        const newDataVersion = updatedConfig.dataVersion ?? 1;
-        if (newDataVersion > currentDataVersionRef.current) {
+        const newDataVersion = updatedConfig.dataVersion;
+        
+        // Don't clear cache if ref is still 0 (not yet initialized by loadConfig)
+        if (currentDataVersionRef.current === 0) {
+          console.log(`[RemoteConfigContext] Real-time: Ignoring update while ref not initialized (dataVersion: ${newDataVersion})`);
+        } else if (newDataVersion != null && newDataVersion > currentDataVersionRef.current) {
           console.log(`[RemoteConfigContext] Real-time: Data version changed (${currentDataVersionRef.current} -> ${newDataVersion}), clearing exam data cache`);
           await dataService.clearCache();
           currentDataVersionRef.current = newDataVersion;

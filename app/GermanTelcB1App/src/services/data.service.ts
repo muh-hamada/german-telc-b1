@@ -52,16 +52,25 @@ class DataService {
    * Returns empty/default data if document doesn't exist
    */
   private async fetchFromFirestore(docId: string, defaultValue: any = {}): Promise<any> {
+    console.log(`[CACHE_DEBUG] ========================================`);
+    console.log(`[CACHE_DEBUG] fetchFromFirestore START for docId: "${docId}"`);
+    console.log(`[CACHE_DEBUG] ========================================`);
+    
     try {
       // Check cache first
+      console.log(`[CACHE_DEBUG] Step 1: Checking cache...`);
       const cachedData = await this.getCachedData(docId);
+      
       if (cachedData) {
-        console.log(`[DataService] Using cached data for ${docId}`);
+        console.log(`[CACHE_DEBUG] ✅✅✅ USING CACHED DATA for "${docId}" - NO Firebase fetch needed`);
+        console.log(`[CACHE_DEBUG] ========================================`);
         return cachedData;
       }
 
       // Fetch from Firestore using dynamic collection name
-      console.log(`[DataService] Fetching ${docId} from Firestore collection: ${this.collectionName}...`);
+      console.log(`[CACHE_DEBUG] Step 2: Cache miss - Fetching from Firebase...`);
+      console.log(`[CACHE_DEBUG] Collection: "${this.collectionName}", Doc: "${docId}"`);
+      
       const docSnapshot = await firestore()
         .collection(this.collectionName)
         .doc(docId)
@@ -71,21 +80,28 @@ class DataService {
         ? (docSnapshot as any).exists()
         : (docSnapshot as any).exists;
       
+      console.log(`[CACHE_DEBUG] Firebase document exists: ${exists}`);
+      
       if (exists) {
         const firestoreData = docSnapshot.data();
         const data = firestoreData?.data || firestoreData || defaultValue;
         
-        console.log(`[DataService] Successfully fetched ${docId} from Firestore`);
+        console.log(`[CACHE_DEBUG] ✅ Successfully fetched "${docId}" from Firebase`);
+        console.log(`[CACHE_DEBUG] Step 3: Caching the fetched data...`);
+        
         // Cache the data
         await this.cacheData(docId, data);
         
+        console.log(`[CACHE_DEBUG] ========================================`);
         return data;
       } else {
-        console.warn(`[DataService] Document ${docId} not found in Firestore, returning empty data`);
+        console.warn(`[CACHE_DEBUG] ⚠️ Document "${docId}" not found in Firebase, returning default`);
+        console.log(`[CACHE_DEBUG] ========================================`);
         return defaultValue;
       }
     } catch (error) {
-      console.error(`[DataService] Error fetching ${docId} from Firestore:`, error);
+      console.error(`[CACHE_DEBUG] ❌ ERROR fetching "${docId}" from Firebase:`, error);
+      console.log(`[CACHE_DEBUG] ========================================`);
       return defaultValue;
     }
   }
@@ -94,32 +110,50 @@ class DataService {
    * Get cached data if still valid
    */
   private async getCachedData(docId: string): Promise<any | null> {
+    console.log(`[CACHE_DEBUG] getCachedData called for docId: "${docId}"`);
+    console.log(`[CACHE_DEBUG] DISABLE_DATA_CACHE value: ${DISABLE_DATA_CACHE}`);
+    
     if (DISABLE_DATA_CACHE) {
-      console.log(`[DataService] Data cache is disabled, returning null for ${docId}`);
+      console.log(`[CACHE_DEBUG] Cache is DISABLED by config, returning null for ${docId}`);
       return null;
     }
 
     try {
       const cacheKey = CACHE_KEY_PREFIX + docId;
+      console.log(`[CACHE_DEBUG] Looking up cache with key: "${cacheKey}"`);
+      
       const cachedStr = await AsyncStorage.getItem(cacheKey);
+      console.log(`[CACHE_DEBUG] AsyncStorage returned: ${cachedStr ? `string of length ${cachedStr.length}` : 'null'}`);
       
       if (!cachedStr) {
+        console.log(`[CACHE_DEBUG] No cached data found for key: "${cacheKey}"`);
         return null;
       }
 
       const cached: CachedData = JSON.parse(cachedStr);
       const now = Date.now();
+      const cacheAge = now - cached.timestamp;
+      const cacheAgeHours = (cacheAge / (1000 * 60 * 60)).toFixed(2);
+      const expirationHours = (CACHE_EXPIRATION / (1000 * 60 * 60)).toFixed(2);
+      
+      console.log(`[CACHE_DEBUG] Cache found for "${docId}":`);
+      console.log(`[CACHE_DEBUG]   - Timestamp: ${new Date(cached.timestamp).toISOString()}`);
+      console.log(`[CACHE_DEBUG]   - Age: ${cacheAgeHours} hours`);
+      console.log(`[CACHE_DEBUG]   - Expiration threshold: ${expirationHours} hours`);
+      console.log(`[CACHE_DEBUG]   - Is valid: ${cacheAge < CACHE_EXPIRATION}`);
       
       // Check if cache is still valid
       if (now - cached.timestamp < CACHE_EXPIRATION) {
+        console.log(`[CACHE_DEBUG] ✅ CACHE HIT - Returning cached data for "${docId}"`);
         return cached.data;
       } else {
         // Cache expired, remove it
+        console.log(`[CACHE_DEBUG] ❌ CACHE EXPIRED - Removing stale cache for "${docId}"`);
         await AsyncStorage.removeItem(cacheKey);
         return null;
       }
     } catch (error) {
-      console.error('[DataService] Error reading cache:', error);
+      console.error(`[CACHE_DEBUG] ❌ ERROR reading cache for "${docId}":`, error);
       return null;
     }
   }
@@ -128,15 +162,19 @@ class DataService {
    * Cache data with timestamp
    */
   private async cacheData(docId: string, data: any): Promise<void> {
+    console.log(`[CACHE_DEBUG] cacheData called for docId: "${docId}"`);
     try {
       const cacheKey = CACHE_KEY_PREFIX + docId;
       const cached: CachedData = {
         data,
         timestamp: Date.now(),
       };
-      await AsyncStorage.setItem(cacheKey, JSON.stringify(cached));
+      const jsonStr = JSON.stringify(cached);
+      console.log(`[CACHE_DEBUG] Storing cache with key: "${cacheKey}", data size: ${jsonStr.length} bytes`);
+      await AsyncStorage.setItem(cacheKey, jsonStr);
+      console.log(`[CACHE_DEBUG] ✅ Successfully cached data for "${docId}"`);
     } catch (error) {
-      console.error('[DataService] Error caching data:', error);
+      console.error(`[CACHE_DEBUG] ❌ ERROR caching data for "${docId}":`, error);
     }
   }
 
@@ -144,13 +182,15 @@ class DataService {
    * Clear all cached data
    */
   async clearCache(): Promise<void> {
+    console.log(`[CACHE_DEBUG] ⚠️ clearCache() called - CLEARING ALL CACHED DATA`);
     try {
       const keys = await AsyncStorage.getAllKeys();
       const cacheKeys = keys.filter(key => key.startsWith(CACHE_KEY_PREFIX));
+      console.log(`[CACHE_DEBUG] Found ${cacheKeys.length} cache keys to remove:`, cacheKeys);
       await AsyncStorage.multiRemove(cacheKeys);
-      console.log('[DataService] Cache cleared successfully');
+      console.log(`[CACHE_DEBUG] ✅ All cache cleared successfully`);
     } catch (error) {
-      console.error('[DataService] Error clearing cache:', error);
+      console.error(`[CACHE_DEBUG] ❌ Error clearing cache:`, error);
     }
   }
 
@@ -158,9 +198,10 @@ class DataService {
    * Force refresh data from Firestore
    */
   async refreshData(docId: string): Promise<void> {
+    console.log(`[CACHE_DEBUG] ⚠️ refreshData() called for "${docId}" - REMOVING CACHE`);
     const cacheKey = CACHE_KEY_PREFIX + docId;
     await AsyncStorage.removeItem(cacheKey);
-    console.log(`[DataService] Cache cleared for ${docId}`);
+    console.log(`[CACHE_DEBUG] ✅ Cache removed for "${docId}"`);
   }
 
   // Grammar Part 1
