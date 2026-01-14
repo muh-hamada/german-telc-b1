@@ -1,9 +1,9 @@
 import firestore, { Timestamp } from '@react-native-firebase/firestore';
-import { UserProgress, ExamProgress, UserAnswer, HistoricalResult, HistoricalTotalScore } from '../types/exam.types';
-import { User } from './auth.service';
-import { activeExamConfig } from '../config/active-exam.config';
 import { Platform } from 'react-native';
+import { activeExamConfig } from '../config/active-exam.config';
+import { UserAnswer, UserProgress } from '../types/exam.types';
 import i18n from '../utils/i18n';
+import { User } from './auth.service';
 
 export const DEFAULT_NOTIFICATION_HOUR = 16; // 4 PM
 

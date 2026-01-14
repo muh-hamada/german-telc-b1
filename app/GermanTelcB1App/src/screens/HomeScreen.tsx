@@ -1,37 +1,35 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { CompositeNavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useMemo, useState } from 'react';
 import {
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
   Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import mobileAds from 'react-native-google-mobile-ads';
-import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../theme';
-import Card from '../components/Card';
-import HomeProgressCard from '../components/HomeProgressCard';
-import HomeHeader from '../components/HomeHeader';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
+import Card from '../components/Card';
+import HomeHeader from '../components/HomeHeader';
+import HomeProgressCard from '../components/HomeProgressCard';
+import LoginModal from '../components/LoginModal';
 import SupportAdButton from '../components/SupportAdButton';
-import { HomeStackNavigationProp } from '../types/navigation.types';
-import { CompositeNavigationProp } from '@react-navigation/native';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { MainTabParamList } from '../types/navigation.types';
+import { activeExamConfig } from '../config/active-exam.config';
+import { HIDE_SUPPORT_US } from '../config/development.config';
+import { useAuth } from '../contexts/AuthContext';
+import { useModalQueue } from '../contexts/ModalQueueContext';
+import { usePremium } from '../contexts/PremiumContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import { useAppTheme } from '../contexts/ThemeContext';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
 import consentService, { AdsConsentStatus } from '../services/consent.service';
-import { useModalQueue } from '../contexts/ModalQueueContext';
-import LoginModal from '../components/LoginModal';
-import { usePremium } from '../contexts/PremiumContext';
-import { useAuth } from '../contexts/AuthContext';
-import { useRemoteConfig } from '../contexts/RemoteConfigContext';
-import { HIDE_SUPPORT_US } from '../config/development.config';
-import { useAppTheme } from '../contexts/ThemeContext';
-import { activeExamConfig } from '../config/active-exam.config';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { HomeStackNavigationProp, MainTabParamList } from '../types/navigation.types';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
   HomeStackNavigationProp,

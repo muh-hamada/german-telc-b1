@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@react-native-community/netinfo": "^11.4.1",
+    "@react-native-firebase/crashlytics": "^23.8.2",
     "@types/react-slick": "^0.23.13",
     "googleapis": "^169.0.0",
     "open": "^11.0.0",
