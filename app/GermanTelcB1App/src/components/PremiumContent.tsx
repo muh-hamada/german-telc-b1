@@ -160,7 +160,7 @@ const PremiumContent: React.FC<PremiumContentProps> = ({
           colors={[
             isDarkMode ? '#1e3a8a' : colors.gold,
             isDarkMode ? '#1e1b4b' : colors.gold,
-            'transparent',
+            'rgba(255,255,255,0)',
           ]}
           locations={[0, 0.3, 1]}
           style={{
