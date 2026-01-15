@@ -32,7 +32,7 @@ const VocabularyStudiedListScreen: React.FC = () => {
 
   useEffect(() => {
     if (!isLoading && studiedWords.length > 0) {
-      logEvent(AnalyticsEvents.VOCABULARY_STUDIED_LIST_OPENED, {
+      logEvent(AnalyticsEvents.VOCABULARY_STUDIED_LIST_LOADED, {
         word_count: studiedWords.length,
       });
     }

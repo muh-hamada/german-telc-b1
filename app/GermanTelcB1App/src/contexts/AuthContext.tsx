@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import crashlytics from '@react-native-firebase/crashlytics';
 import { User, AuthError } from '../services/auth.service';
 import AuthService from '../services/auth.service';
 import FirestoreService from '../services/firestore.service';
@@ -125,6 +126,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       console.log('[AuthContext] Auth state changed:', user ? `User ${user.uid}` : 'No user');
       
       if (user) {
+        // Update Crashlytics user info
+        crashlytics().setUserId(user.uid);
+        crashlytics().setAttributes({
+          email: user.email || 'anonymous',
+          displayName: user.displayName || 'none',
+          provider: user.provider,
+        });
+
         // Update cache
         AsyncStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user)).catch(e => 
           console.error('[AuthContext] Error caching user:', e)
@@ -157,6 +166,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           console.error('[AuthContext] Error creating user profile:', error);
         }
       } else {
+        // Clear Crashlytics user info
+        crashlytics().setUserId('');
         // Clear cache if no user (and we are sure it's not just a temp loading state)
         // But be careful: onAuthStateChanged calls with null on init sometimes?
         // Actually, it calls with null if not logged in.

@@ -1,17 +1,17 @@
 [
     {
         "name": "generate_a1_german_vocabulary_video",
-        "schedule": "0 9,14,19 * * *",
+        "schedule": "0 12 * * *",
         "appId": "german-a1"
     },
     {
         "name": "generate_b1_german_vocabulary_video",
-        "schedule": "0 10,15,20 * * *",
+        "schedule": "0 13 * * *",
         "appId": "german-b1"
     },
     {
         "name": "generate_b2_german_vocabulary_video",
-        "schedule": "0 11,16,21 * * *",
+        "schedule": "0 14 * * *",
         "appId": "german-b2"
     }
 ]

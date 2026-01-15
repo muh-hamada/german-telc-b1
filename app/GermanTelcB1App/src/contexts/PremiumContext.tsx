@@ -9,6 +9,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import firestore from '@react-native-firebase/firestore';
+import crashlytics from '@react-native-firebase/crashlytics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Purchase, PurchaseError, Product, ErrorCode } from 'react-native-iap';
 import { useAuth } from './AuthContext';
@@ -79,6 +80,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
           const data = JSON.parse(cached);
           console.log('[PremiumContext] Loaded cached premium status:', data);
           setPremiumData(prev => ({ ...prev, ...data }));
+          crashlytics().setAttribute('isPremium', String(data.isPremium));
         }
       } catch (e) {
         console.error('[PremiumContext] Error loading cached status:', e);
@@ -140,6 +142,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         const data = docSnapshot.data() as PremiumData;
         console.log('[PremiumContext] Premium data loaded:', data);
         setPremiumData(data);
+        crashlytics().setAttribute('isPremium', String(data.isPremium));
         // Cache the data
         await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(data));
       } else {
@@ -149,6 +152,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
         // But since this is a check against Firestore, it IS authoritative.
         const newData = DEFAULT_PREMIUM_DATA;
         setPremiumData(newData);
+        crashlytics().setAttribute('isPremium', 'false');
         await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(newData));
       }
 
@@ -179,6 +183,7 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       // Save to cache first for immediate feedback next time
       await AsyncStorage.setItem(PREMIUM_STORAGE_KEY, JSON.stringify(data));
       setPremiumData(data); // Optimistic update
+      crashlytics().setAttribute('isPremium', String(data.isPremium));
 
       const docPath = getPremiumPath(user.uid);
       const docRef = firestore().doc(docPath);

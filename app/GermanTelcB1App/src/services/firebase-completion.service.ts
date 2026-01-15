@@ -125,10 +125,11 @@ class FirebaseCompletionService {
     try {
       const completionsBasePath = this.getCompletionsPath(userId);
       const collectionPath = `${completionsBasePath}/${examType}/${partNumber}`;
-      const snapshot = await firestore().collection(collectionPath).get();
       
-      // Cap completed count to not exceed total (in case exams were removed)
-      const completedCount = snapshot.size;
+      // Use the count() aggregation query for efficiency
+      const snapshot = await firestore().collection(collectionPath).count().get();
+      const completedCount = snapshot.data().count;
+      
       const completed = Math.min(completedCount, totalExams);
       const percentage = totalExams > 0 ? Math.round((completed / totalExams) * 100) : 0;
       

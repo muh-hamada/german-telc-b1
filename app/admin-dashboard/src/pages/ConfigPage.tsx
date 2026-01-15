@@ -24,12 +24,28 @@ export const ConfigPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [confirmModalConfig, setConfirmModalConfig] = useState<{
+    title: string;
+    message: string;
+    onConfirm: () => void;
+  } | null>(null);
 
   const apps = getAllAppConfigs();
 
   useEffect(() => {
     loadConfigs();
   }, []);
+
+  const openConfirmModal = (title: string, message: string, onConfirm: () => void) => {
+    setConfirmModalConfig({ title, message, onConfirm });
+    setShowConfirmModal(true);
+  };
+
+  const closeConfirmModal = () => {
+    setShowConfirmModal(false);
+    setConfirmModalConfig(null);
+  };
 
   const loadConfigs = async () => {
     try {
@@ -110,9 +126,11 @@ export const ConfigPage: React.FC = () => {
   };
 
   const confirmApplyToAll = () => {
-    if (window.confirm('Are you sure you want to apply these changes to ALL apps? This will overwrite their current configurations.')) {
-      handleSaveAppConfig(true);
-    }
+    openConfirmModal(
+      'Apply to All Apps',
+      'Are you sure you want to apply these changes to ALL apps? This will overwrite their current configurations.',
+      () => handleSaveAppConfig(true)
+    );
   };
 
   const updateGlobalConfig = (updates: Partial<GlobalConfig>) => {
@@ -183,11 +201,18 @@ export const ConfigPage: React.FC = () => {
           <button
             className={`config-tab ${activeTab === 'global' ? 'active' : ''}`}
             onClick={() => {
-              if (hasChanges && !window.confirm('You have unsaved changes. Discard them?')) {
-                return;
+              if (hasChanges) {
+                openConfirmModal(
+                  'Unsaved Changes',
+                  'You have unsaved changes. Discard them?',
+                  () => {
+                    setActiveTab('global');
+                    setHasChanges(false);
+                  }
+                );
+              } else {
+                setActiveTab('global');
               }
-              setActiveTab('global');
-              setHasChanges(false);
             }}
           >
             🌍 Global Configuration
@@ -195,11 +220,18 @@ export const ConfigPage: React.FC = () => {
           <button
             className={`config-tab ${activeTab === 'app' ? 'active' : ''}`}
             onClick={() => {
-              if (hasChanges && !window.confirm('You have unsaved changes. Discard them?')) {
-                return;
+              if (hasChanges) {
+                openConfirmModal(
+                  'Unsaved Changes',
+                  'You have unsaved changes. Discard them?',
+                  () => {
+                    setActiveTab('app');
+                    setHasChanges(false);
+                  }
+                );
+              } else {
+                setActiveTab('app');
               }
-              setActiveTab('app');
-              setHasChanges(false);
             }}
           >
             📱 App-Specific Configuration
@@ -346,11 +378,18 @@ export const ConfigPage: React.FC = () => {
                     key={app.id}
                     className={`app-selector-card ${selectedAppId === app.id ? 'selected' : ''}`}
                     onClick={() => {
-                      if (hasChanges && !window.confirm('You have unsaved changes. Discard them?')) {
-                        return;
+                      if (hasChanges) {
+                        openConfirmModal(
+                          'Unsaved Changes',
+                          'You have unsaved changes. Discard them?',
+                          () => {
+                            setSelectedAppId(app.id);
+                            setHasChanges(false);
+                          }
+                        );
+                      } else {
+                        setSelectedAppId(app.id);
                       }
-                      setSelectedAppId(app.id);
-                      setHasChanges(false);
                     }}
                   >
                     <div className="app-selector-name">{app.displayName}</div>
@@ -636,6 +675,37 @@ export const ConfigPage: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Confirmation Modal */}
+      {showConfirmModal && confirmModalConfig && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>{confirmModalConfig.title}</h3>
+            </div>
+            <div className="modal-body">
+              <p>{confirmModalConfig.message}</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                className="btn-modal-cancel"
+                onClick={closeConfirmModal}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn-modal-confirm"
+                onClick={() => {
+                  confirmModalConfig.onConfirm();
+                  closeConfirmModal();
+                }}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

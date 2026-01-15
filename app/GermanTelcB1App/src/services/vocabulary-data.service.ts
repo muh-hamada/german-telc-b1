@@ -1,20 +1,63 @@
-/**
- * Vocabulary Data Service
- * 
- * Handles fetching vocabulary words from Firebase Firestore with cursor-based pagination.
- * Words are stored in collections like: vocabulary_data_german_a1
- */
-
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { activeExamConfig } from '../config/active-exam.config';
 import { VocabularyWord } from '../types/vocabulary.types';
+import { DISABLE_DATA_CACHE } from '../config/development.config';
 
 const BATCH_SIZE = 50; // Fetch words in batches
+const CACHE_EXPIRATION = 30 * 24 * 60 * 60 * 1000; // 30 days
+const CACHE_KEY_PREFIX = '@vocabulary_batch_';
+
+interface CachedBatch {
+  data: { words: VocabularyWord[]; lastDocId: string | null; hasMore: boolean };
+  timestamp: number;
+}
 
 class VocabularyDataService {
   // Lazy-loaded to avoid initialization order issues
   private get collectionName(): string {
     return activeExamConfig.firebaseCollections.vocabularyData;
+  }
+
+  /**
+   * Get cached batch if still valid
+   */
+  private async getCachedBatch(cacheKey: string): Promise<any | null> {
+    if (DISABLE_DATA_CACHE) return null;
+
+    try {
+      const cachedStr = await AsyncStorage.getItem(cacheKey);
+      if (!cachedStr) return null;
+
+      const cached: CachedBatch = JSON.parse(cachedStr);
+      const now = Date.now();
+      
+      if (now - cached.timestamp < CACHE_EXPIRATION) {
+        console.log(`[VocabularyDataService] Cache HIT for key: ${cacheKey}`);
+        return cached.data;
+      } else {
+        await AsyncStorage.removeItem(cacheKey);
+        return null;
+      }
+    } catch (error) {
+      console.error('[VocabularyDataService] Error reading cache:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Cache a batch of words
+   */
+  private async cacheBatch(cacheKey: string, data: any): Promise<void> {
+    try {
+      const cached: CachedBatch = {
+        data,
+        timestamp: Date.now(),
+      };
+      await AsyncStorage.setItem(cacheKey, JSON.stringify(cached));
+    } catch (error) {
+      console.error('[VocabularyDataService] Error caching batch:', error);
+    }
   }
 
   /**
@@ -27,8 +70,16 @@ class VocabularyDataService {
     startAfterDocId: string | null = null,
     limit: number = BATCH_SIZE
   ): Promise<{ words: VocabularyWord[]; lastDocId: string | null; hasMore: boolean }> {
+    const cacheKey = `${CACHE_KEY_PREFIX}${this.collectionName}_${startAfterDocId || 'root'}_${limit}`;
+    
     try {
-      console.log(`[VocabularyDataService] Fetching words, startAfter: ${startAfterDocId}, limit: ${limit}`);
+      // Check cache first
+      const cachedData = await this.getCachedBatch(cacheKey);
+      if (cachedData) {
+        return cachedData;
+      }
+
+      console.log(`[VocabularyDataService] Fetching words from Firestore, startAfter: ${startAfterDocId}, limit: ${limit}`);
       
       // Build query with ordering by document ID
       let query = firestore()
@@ -42,10 +93,16 @@ class VocabularyDataService {
       }
 
       const snapshot = await query.get();
+      
+      const readCount = snapshot.docs.length;
+      const isFromCache = snapshot.metadata.fromCache;
+      console.log(`[Firestore READ] Collection: ${this.collectionName} | Count: ${readCount} docs | Source: ${isFromCache ? 'CACHE (Free)' : 'SERVER (Billed)'}`);
 
       if (snapshot.empty) {
         console.log(`[VocabularyDataService] No words found`);
-        return { words: [], lastDocId: null, hasMore: false };
+        const result = { words: [], lastDocId: null, hasMore: false };
+        await this.cacheBatch(cacheKey, result);
+        return result;
       }
 
       // Check if there are more documents beyond this batch
@@ -72,7 +129,12 @@ class VocabularyDataService {
 
       console.log(`[VocabularyDataService] Fetched ${words.length} words, hasMore: ${hasMore}, lastDocId: ${lastDocId}`);
 
-      return { words, lastDocId, hasMore };
+      const result = { words, lastDocId, hasMore };
+      
+      // Cache the result
+      await this.cacheBatch(cacheKey, result);
+
+      return result;
     } catch (error) {
       console.error('[VocabularyDataService] Error fetching vocabulary words:', error);
       return { words: [], lastDocId: null, hasMore: false };
@@ -119,7 +181,6 @@ class VocabularyDataService {
       // Return only the requested number
       const result = newWords.slice(0, limit);
       console.log(`[VocabularyDataService] Returning ${result.length} new words`);
-      console.log(`[VocabularyDataService] result:::`, result[0]);
       
       return result;
     } catch (error) {
@@ -176,11 +237,13 @@ class VocabularyDataService {
     try {
       console.log(`[VocabularyDataService] Fetching total word count from Firestore`);
       
+      // Use the count() aggregation query for efficiency
       const snapshot = await firestore()
         .collection(this.collectionName)
+        .count()
         .get();
       
-      const count = snapshot.size;
+      const count = snapshot.data().count;
       console.log(`[VocabularyDataService] Total word count: ${count}`);
 
       return count;

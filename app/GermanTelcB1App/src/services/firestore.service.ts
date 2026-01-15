@@ -1,4 +1,5 @@
 import firestore, { Timestamp } from '@react-native-firebase/firestore';
+import crashlytics from '@react-native-firebase/crashlytics';
 import { Platform } from 'react-native';
 import { activeExamConfig } from '../config/active-exam.config';
 import { UserAnswer, UserProgress } from '../types/exam.types';
@@ -103,6 +104,17 @@ class FirestoreService {
 
       const data = doc.data();
       if (data) {
+        // Set detailed user attributes for Crashlytics
+        crashlytics().setAttributes({
+          totalExams: String(data.stats?.totalExams || 0),
+          averageScore: String(data.stats?.averageScore || 0),
+          streak: String(data.stats?.streak || 0),
+          interfaceLanguage: data.preferences?.interfaceLanguage || 'en',
+          timezone: data.timezone || 'unknown',
+          platform: Platform.OS,
+          appId: data.appId || activeExamConfig.id,
+        });
+
         return data;
       }
       return null;

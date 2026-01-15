@@ -152,6 +152,7 @@ export const AnalyticsEvents = {
   VOCABULARY_PERSONA_MODAL_OPENED: 'vocabulary_persona_modal_opened',
   VOCABULARY_PERSONA_MODAL_CLOSED: 'vocabulary_persona_modal_closed',
   VOCABULARY_STUDIED_LIST_OPENED: 'vocabulary_studied_list_opened',
+  VOCABULARY_STUDIED_LIST_LOADED: 'vocabulary_studied_list_loaded',
   VOCABULARY_WORD_EXPANDED: 'vocabulary_word_expanded',
   VOCABULARY_WORD_COLLAPSED: 'vocabulary_word_collapsed',
   VOCABULARY_LOGIN_MODAL_OPENED: 'vocabulary_login_modal_opened',

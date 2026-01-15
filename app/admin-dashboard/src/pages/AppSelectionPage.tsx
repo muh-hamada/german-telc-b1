@@ -34,6 +34,15 @@ export const AppSelectionPage: React.FC = () => {
           Logout
         </button>
       </header>
+      
+      <div className="quick-links">
+        <button onClick={() => navigate('/reports')} className="btn-quick-link">
+          <span className="icon">📈</span> Reports
+        </button>
+        <button onClick={() => navigate('/issue-reports')} className="btn-quick-link">
+          <span className="icon">🐛</span> Issue Reports
+        </button>
+      </div>
 
       <main className="app-selection-main">
         <div className="selection-content">

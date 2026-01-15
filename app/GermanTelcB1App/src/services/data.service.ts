@@ -1,18 +1,6 @@
-/**
- * Data Service with Firebase Support
- * 
- * This service fetches exam data from Firebase Firestore with caching for offline support.
- * 
- * Features:
- * - Fetches exam data from Firestore
- * - Returns empty data if Firestore document doesn't exist
- * - Caches data for 20 days to reduce Firestore reads
- * - Supports cache clearing and force refresh
- * - Dynamically uses collection names based on active exam configuration
- */
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
+import crashlytics from '@react-native-firebase/crashlytics';
 import { activeExamConfig } from '../config/active-exam.config';
 import {
   GrammarPart1Exam,
@@ -33,7 +21,7 @@ import {
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
 // Cache for 10 days - invalidation is handled by dataVersion in remote config
-const CACHE_EXPIRATION = 20 * 24 * 60 * 60 * 1000; // 20 days in milliseconds
+const CACHE_EXPIRATION = 30 * 24 * 60 * 60 * 1000; // 30 days in milliseconds
 const CACHE_KEY_PREFIX = '@exam_data_';
 
 interface CachedData {
@@ -59,9 +47,11 @@ class DataService {
     try {
       // Check cache first
       console.log(`[CACHE_DEBUG] Step 1: Checking cache...`);
+      crashlytics().log(`DataService: Fetching doc "${docId}"`);
       const cachedData = await this.getCachedData(docId);
       
       if (cachedData) {
+        crashlytics().log(`DataService: Cache HIT for "${docId}"`);
         console.log(`[CACHE_DEBUG] ✅✅✅ USING CACHED DATA for "${docId}" - NO Firebase fetch needed`);
         console.log(`[CACHE_DEBUG] ========================================`);
         return cachedData;
@@ -69,12 +59,16 @@ class DataService {
 
       // Fetch from Firestore using dynamic collection name
       console.log(`[CACHE_DEBUG] Step 2: Cache miss - Fetching from Firebase...`);
+      crashlytics().log(`DataService: Cache MISS for "${docId}", fetching from Firebase`);
       console.log(`[CACHE_DEBUG] Collection: "${this.collectionName}", Doc: "${docId}"`);
       
       const docSnapshot = await firestore()
         .collection(this.collectionName)
         .doc(docId)
         .get();
+
+      const isFromCache = docSnapshot.metadata.fromCache;
+      console.log(`[Firestore READ] Doc: ${docId} | Source: ${isFromCache ? 'CACHE (Free)' : 'SERVER (Billed)'}`);
 
       const exists = typeof (docSnapshot as any).exists === 'function'
         ? (docSnapshot as any).exists()
@@ -86,6 +80,7 @@ class DataService {
         const firestoreData = docSnapshot.data();
         const data = firestoreData?.data || firestoreData || defaultValue;
         
+        crashlytics().log(`DataService: Successfully fetched "${docId}" from Firebase`);
         console.log(`[CACHE_DEBUG] ✅ Successfully fetched "${docId}" from Firebase`);
         console.log(`[CACHE_DEBUG] Step 3: Caching the fetched data...`);
         
@@ -95,11 +90,13 @@ class DataService {
         console.log(`[CACHE_DEBUG] ========================================`);
         return data;
       } else {
+        crashlytics().log(`DataService: Document "${docId}" NOT FOUND in Firebase`);
         console.warn(`[CACHE_DEBUG] ⚠️ Document "${docId}" not found in Firebase, returning default`);
         console.log(`[CACHE_DEBUG] ========================================`);
         return defaultValue;
       }
-    } catch (error) {
+    } catch (error: any) {
+      crashlytics().log(`DataService: Error fetching "${docId}": ${error?.message || 'Unknown error'}`);
       console.error(`[CACHE_DEBUG] ❌ ERROR fetching "${docId}" from Firebase:`, error);
       console.log(`[CACHE_DEBUG] ========================================`);
       return defaultValue;

@@ -5,6 +5,39 @@
   flex-direction: column;
 }
 
+.quick-links {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background-color: #0d1117;
+  border-bottom: 1px solid #30363d;
+  justify-content: center;
+}
+
+.btn-quick-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-quick-link:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.btn-quick-link .icon {
+  font-size: 1rem;
+}
+
 .app-selection-header {
   background: #161b22;
   padding: 1.5rem 2rem;
