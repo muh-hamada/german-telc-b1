@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
@@ -40,12 +41,12 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   useEffect(() => {
     if (visible && result && result.percentage > 60 && !hasLoggedButtonShown.current) {
       hasLoggedButtonShown.current = true;
-      logEvent(AnalyticsEvents.USER_SUPPORT_AD_BUTTON_SHOWN, { 
+      logEvent(AnalyticsEvents.USER_SUPPORT_AD_BUTTON_SHOWN, {
         screen: 'results_modal',
         score_percentage: result.percentage,
       });
     }
-    
+
     // Reset the flag when modal is closed
     if (!visible) {
       hasLoggedButtonShown.current = false;
@@ -95,97 +96,103 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
       onRequestClose={onClose}
     >
       <View style={styles.overlay}>
-        <View style={styles.modalContainer}>
-          <ScrollView
-            style={styles.scrollView}
-            contentContainerStyle={styles.contentContainer}
-            showsVerticalScrollIndicator={false}
-          >
-            {/* Header */}
-            <View style={styles.header}>
-              <Text style={styles.title}>{t('results.title')}</Text>
-              <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-                <Text style={styles.closeButtonText}>✕</Text>
-              </TouchableOpacity>
-            </View>
+        <SafeAreaView style={styles.safeArea}>
+          <View style={styles.modalContainer}>
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.contentContainer}
+              showsVerticalScrollIndicator={false}
+            >
+              {/* Header */}
+              <View style={styles.header}>
+                <Text style={styles.title}>{t('results.title')}</Text>
+                <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+                  <Text style={styles.closeButtonText}>✕</Text>
+                </TouchableOpacity>
+              </View>
 
-            {/* Score Summary */}
-            <View style={styles.scoreContainer}>
-              <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
-              <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
-                {result.percentage}%
-              </Text>
-              <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
-              <Text style={styles.scoreDetails}>
-                {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
-              </Text>
-            </View>
+              {/* Score Summary */}
+              <View style={styles.scoreContainer}>
+                <View style={styles.scoreContainerInner}>
+                  <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
+                </View>
+                <View style={styles.scoreContainerInner}>
+                  <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
+                    {result.percentage}%
+                  </Text>
+                  <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
+                  <Text style={styles.scoreDetails}>
+                    {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
+                  </Text>
+                </View>
+              </View>
 
-            {/* Detailed Results */}
-            {result.answers.length > 0 && (
-              <View style={styles.detailsContainer}>
-                <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
+              {/* Detailed Results */}
+              {result.answers.length > 0 && (
+                <View style={styles.detailsContainer}>
+                  <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
 
-                {result.answers.map((answer, index) => (
-                  <View
-                    key={index}
-                    style={[
-                      styles.answerRow,
-                      answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
-                    ]}
-                  >
-                    <View style={styles.answerHeader}>
-                      <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                      <Text style={[
-                        styles.status,
-                        answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
-                      ]}>
-                        {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
-                      </Text>
-                    </View>
-
-                    {/* <View style={styles.answerDetails}>
-                      <Text style={styles.answerLabel}>{t('results.yourAnswer')}
-                        <Text style={styles.answerText}>{' ' + answer.answer}</Text>
-                      </Text>
-
-                    </View> */}
-
-                    {!answer.isCorrect && answer.correctAnswer && (
-                      <View style={styles.answerDetails}>
-                        <Text style={styles.answerLabel}>{t('results.correctAnswer')}
-                          <Text style={styles.answerText}>{' ' + answer.correctAnswer}</Text>
+                  {result.answers.map((answer, index) => (
+                    <View
+                      key={index}
+                      style={[
+                        styles.answerRow,
+                        answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
+                      ]}
+                    >
+                      <View style={styles.answerHeader}>
+                        <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
+                        <Text style={[
+                          styles.status,
+                          answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
+                        ]}>
+                          {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
                         </Text>
                       </View>
-                    )}
-                  </View>
-                ))}
-              </View>
-            )}
 
-            {/* Support Ad Button - Only show for scores > 60% */}
-            {result.percentage > 60 && (
-              <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
-            )}
+                      {/* <View style={styles.answerDetails}>
+                        <Text style={styles.answerLabel}>{t('results.yourAnswer')}
+                          <Text style={styles.answerText}>{' ' + answer.answer}</Text>
+                        </Text>
 
-            {/* Action Buttons */}
-            <View style={styles.buttonContainer}>
-              {onRetry && (
-                <Button
-                  title={t('questions.tryAgain')}
-                  onPress={handleRetry}
-                  variant="outline"
-                  style={styles.retryButton}
-                />
+                      </View> */}
+
+                      {!answer.isCorrect && answer.correctAnswer && (
+                        <View style={styles.answerDetails}>
+                          <Text style={styles.answerLabel}>{t('results.correctAnswer')}
+                            <Text style={styles.answerText}>{' ' + answer.correctAnswer}</Text>
+                          </Text>
+                        </View>
+                      )}
+                    </View>
+                  ))}
+                </View>
               )}
-              <Button
-                title={t('common.continue')}
-                onPress={onClose}
-                style={styles.continueButton}
-              />
-            </View>
-          </ScrollView>
-        </View>
+
+              {/* Support Ad Button - Only show for scores > 60% */}
+              {result.percentage > 60 && (
+                <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
+              )}
+
+              {/* Action Buttons */}
+              <View style={styles.buttonContainer}>
+                {onRetry && (
+                  <Button
+                    title={t('questions.tryAgain')}
+                    onPress={handleRetry}
+                    variant="outline"
+                    style={styles.retryButton}
+                  />
+                )}
+                <Button
+                  title={t('common.continue')}
+                  onPress={onClose}
+                  style={styles.continueButton}
+                />
+              </View>
+            </ScrollView>
+          </View>
+        </SafeAreaView>
       </View>
     </Modal>
   );
@@ -196,16 +203,18 @@ const createStyles = (colors: ThemeColors) =>
     overlay: {
       flex: 1,
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: spacing.padding.md,
+      justifyContent: 'flex-end',
+    },
+    safeArea: {
+      flex: 1,
+      justifyContent: 'flex-end',
     },
     modalContainer: {
       backgroundColor: colors.background.secondary,
-      borderRadius: spacing.borderRadius.lg,
-      maxHeight: '85%',
-      width: '92%',
-      alignSelf: 'center',
+      borderTopLeftRadius: spacing.borderRadius.xl,
+      borderTopRightRadius: spacing.borderRadius.xl,
+      maxHeight: '80%',
+      width: '100%',
     },
     scrollView: {
       maxHeight: '100%',
@@ -239,13 +248,20 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
     },
     scoreContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
       alignItems: 'center',
       paddingVertical: spacing.padding.lg,
       paddingHorizontal: spacing.padding.md,
       backgroundColor: colors.background.primary,
+      gap: spacing.margin.md,
+    },
+    scoreContainerInner: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
     },
     emoji: {
-      fontSize: 40,
+      fontSize: 60,
       marginBottom: spacing.margin.xs,
     },
     score: {
