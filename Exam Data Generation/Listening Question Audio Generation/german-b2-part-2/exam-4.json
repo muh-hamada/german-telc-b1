@@ -1,0 +1,120 @@
+[
+      { "type": "pause", "durationSeconds": 1 },
+      { "type": "ready", "id": "b2-part-2-intro" },
+      { "type": "pause", "durationSeconds": 60 },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Liebe Hörerinnen und Hörer, nachdem wir letzte Woche über das Leben in der Großstadt berichtet haben, geht es heute ins genaue Gegenteil. Wir schalten in den hohen Norden, mitten ins Wattenmeer. Am Telefon ist Frau Hansen, die auf einer kleinen Hallig lebt. Hallo Frau Hansen!",
+        "voiceId": "person3",
+        "id": "interview-1"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Moin moin aus der Nordsee! Ja, schön, dass ich dabei sein darf.",
+        "voiceId": "person1",
+        "id": "interview-2"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Frau Hansen, hier in Frankfurt schwitzen wir bei 32 Grad im Schatten und der Straßenlärm ist unerträglich. Wie sieht es denn gerade bei Ihnen aus? Haben Sie auch Hochsommer?",
+        "voiceId": "person3",
+        "id": "interview-3"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Na ja, Hochsommer haben wir schon, aber das fühlt sich hier etwas anders an. Es weht eine steife Brise, wie wir sagen. Wir haben angenehme 22 Grad, aber durch den Wind braucht man abends schon eine dicke Jacke. Die Luft ist herrlich klar, aber von Hitzewelle keine Spur.",
+        "voiceId": "person1",
+        "id": "interview-4"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das klingt ja fast beneidenswert für uns hitzegeplagte Städter. Aber das Leben auf einer Hallig ist ja nicht nur Urlaub. Sie sind ja oft vom Wasser umschlossen. Ist das nicht schwierig mit der Versorgung? Sie können ja nicht mal eben schnell zum Supermarkt gehen.",
+        "voiceId": "person3",
+        "id": "interview-5"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Nein, spontan einkaufen geht nicht. Das muss alles gut geplant sein. Wir sind abhängig von den Fährzeiten und natürlich von den Gezeiten, also Ebbe und Flut. Einmal die Woche fahre ich aufs Festland für Großeinkäufe. Frische Sachen wie Milch oder Eier bekommen wir aber auch von den Nachbarn, wir helfen uns da gegenseitig aus.",
+        "voiceId": "person1",
+        "id": "interview-6"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Sie sprachen die Gezeiten an. Jetzt im Sommer kommen sicher viele Tagestouristen zu Ihnen. Wissen die Gäste eigentlich immer über die Gefahren des Wattenmeers Bescheid?",
+        "voiceId": "person3",
+        "id": "interview-7"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das ist tatsächlich ein Thema. Die meisten informieren sich gut und buchen geführte Wattwanderungen. Aber es gibt immer wieder Leichtsinnsfehler. Manche Gäste unterschätzen, wie schnell das Wasser zurückkommt. Wenn die Flut kommt, laufen die Priele – also die Wasserläufe im Watt – zuerst voll. Da kann einem schnell der Rückweg abgeschnitten werden.",
+        "voiceId": "person1",
+        "id": "interview-8"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das klingt gefährlich. Müssen Sie da oft eingreifen?",
+        "voiceId": "person3",
+        "id": "interview-9"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Zum Glück selten. Wir haben hier Warntafeln und die Einheimischen haben immer ein Auge auf die Gäste. Aber wenn „Land unter“ ist, also wenn die ganze Hallig außer den Häusern unter Wasser steht, dann wird es ruhig hier. Dann reisen keine Touristen an.",
+        "voiceId": "person1",
+        "id": "interview-10"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Fühlen Sie sich manchmal einsam dort draußen, besonders wenn das Wetter schlecht ist und keine Schiffe fahren?",
+        "voiceId": "person3",
+        "id": "interview-11"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Einsam eigentlich nie. Wir sind eine kleine Gemeinschaft von knapp 100 Leuten, man kennt sich. Im Winter, wenn es stürmt und dunkel ist, rücken wir eher noch enger zusammen. Man trifft sich zum Tee oder Basteln. Ich genieße diese Ruhe sehr, das ist für mich Luxus, den man in der Stadt so nicht findet.",
+        "voiceId": "person1",
+        "id": "interview-12"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Und wie sieht es mit der Zukunft aus? Können Sie sich vorstellen, irgendwann wieder aufs Festland zu ziehen, vielleicht wenn Sie älter sind?",
+        "voiceId": "person3",
+        "id": "interview-13"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Sag niemals nie, aber im Moment kann ich mir das nicht vorstellen. Die medizinische Versorgung ist per Hubschrauber gesichert, falls wirklich was passiert. Solange ich fit bin, bleibe ich hier. Das Meer und die Weite, das lässt einen nicht mehr los.",
+        "voiceId": "person1",
+        "id": "interview-14"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Vielen Dank, Frau Hansen, für diesen erfrischenden Einblick in Ihr Leben. Genießen Sie die Nordseeluft für uns mit!",
+        "voiceId": "person3",
+        "id": "interview-15"
+      },
+      {
+        "type": "speech",
+        "repeated": true,
+        "text": "Das mache ich gerne. Tschüss!",
+        "voiceId": "person1",
+        "id": "interview-16"
+      },
+      { "type": "pause", "durationSeconds": 5 },
+      { "type": "ready", "id": "part-2-outro" },
+      { "type": "pause", "durationSeconds": 5 }
+    ]

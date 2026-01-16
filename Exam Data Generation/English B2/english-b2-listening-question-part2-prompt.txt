@@ -21,9 +21,10 @@ That was really interesting. Thank you very much, Peter. Our listeners can now c
 
 --- Interview End ---
 
-Topic: Cyclying and reduce reliance on Cars
-
 Create the interview, then structure it into a JSON file with the following format:
+- Split the interview into truns between the interviewer and the guest
+- Create 10 statements with ids from 46 to 55
+
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },

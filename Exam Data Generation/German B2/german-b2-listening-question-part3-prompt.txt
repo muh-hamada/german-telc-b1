@@ -1,0 +1,214 @@
+You are an expert in creating listening questions for the Telc German B2 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German B2 listening question.
+
+--- Interview Start ---
+
+Interview 56
+Sehr geehrte Kundin, sehr geehrter Kunde, Sie haben den
+Macrohard Software Service in Central Europe Deutsch-
+land angerufen. Sie rufen uns außerhalb der Geschäftszei-
+ten an. Sie erreichen uns von Montag bis Freitag von 8–18
+Uhr sowie Samstag von 9–17 Uhr. Wir bedanken uns für
+Ihren Anruf. Ihr Macrohard Software Service.
+
+Interview 57
+Am Sonntag gastiert der junge Startenor Romano Castelli
+im Aschaffenburger Schloss Johannisburg. Wer Lust hat
+auf den Mann mit der außergewöhnlichen Stimme – Rest-
+karten gibt es noch an der Abendkasse. Allerdings müssen
+die Fans bei Eintrittspreisen bis zu 100 Euro für Ihren Klas-
+sik-Genuss doch gehörig in die Tasche greifen.
+
+Interview 58
+Herzlich willkommen im T-Upline Service Center. Am neuen
+Tarif „T-Upline Flat“ interessiert? Tarifwechsel ab sofort nut-
+zen. Infos auf unserer Homepage im Servicebereich unter
+www.upline.de. Ist Ihr Anschluss gesperrt, haben Sie Ihr
+Passwort vergessen oder möchten Sie Ihre Kundendaten
+ändern, können Sie sich direkt an den Auftragsservice wen-
+den, erreichbar unter der Fax-Nummer 0800-330 50 00
+
+Interview 59
+Und nun unser Wochenendtipp. Diesmal schicken wir Sie
+zum Museumsuferfest. Ist es nun ein Treffen der Kulturen
+oder die längste Frittenbude der Stadt? Wie immer kommt
+es ganz auf Sie selbst an, was Sie aus dem reichhaltigen
+Angebot an Kultur, Film und Gastronomie machen. Mehr als
+300 Veranstaltungen konkurrieren in diesem Jahr um Auf-
+merksamkeit. Viele davon zum Thema „Japan“, das sich wie
+ein roter Faden durch die Darbietungen zieht. Zwei andere
+Höhepunkte sind der Weltgarten im Park des Museums für
+Völkerkunde. Hier ist Musik aus aller Welt zu hören, live und
+vom Plattenteller. Und im kommunalen Kino läuft nonstop
+das Zeichentrickprogramm mit der Kultfigur „La Linea“. An-
+sonsten: Lassen Sie sich einfach treiben.
+
+Interview 60
+Jede Menge Musik gibt’s bei folgendem Festival: In guter
+alter Tradition findet auch dieses Jahr wieder im Schloss-
+park Freudenberg das Festival „Folklore im Garten“ statt.
+Fast ein Vierteljahrhundert besteht es nun und wartet auch
+diesmal mit einem bunten, abwechslungsreichen Pro-
+gramm auf. Über 180 Künstler an drei Tagen für zehn Euro
+auf vier Spielstätten. Neben Musik, Kabarett und Literatur
+gibt es außerdem auch jede Menge Stände mit internatio-
+nalen Spezialitäten und kulinarischen Schmankerln aus
+Hessen beim 24. Festival im Garten im Schlosspark Freu-
+denberg in Wiesbaden. Heute und morgen ab 14.00 Uhr.
+
+--- Interview End ---
+
+Create the interview, then structure it into a JSON file with the following format:
+- Create 5 statements with ids from 56 to 60
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'b2-part-3-intro' },
+        { type: 'pause', durationSeconds: 2 },
+
+        { type: 'ready', id: 'number-56' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: false,
+            text: 'statement text 56',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'number-57' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: false,
+            text: 'statement text 57',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'number-58' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: false,
+            text: 'statement text 58',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'number-59' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: false,
+            text: 'statement text 59',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'number-60' },
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-3-listen-text' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: false,
+            text: 'statement text 60',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "speech-{index}"
+        },
+        
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'part-2-outro' },
+        { type: 'pause', durationSeconds: 2 },
+    ],
+    "title": "<title in German>", // Short title of the interviews in 4-6 words, make the title related to the interviews
+    "audio_url": "PLACEHOLDER",
+    "id": INT_PLACEHOLDER,
+    "statements": [
+        {
+          "id": 56,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "audio_transcript": "<the exact transcript of the audio number 56, do not include the question number>,
+          "explanation": {
+            "ar": "<the explanation in Arabic for why this statement is correct or incorrect according to the audio",
+            "de": "<the explanation in German for why this statement is correct or incorrect according to the audio",
+            "en": "<the explanation in English for why this statement is correct or incorrect according to the audio",
+            "fr": "<the explanation in French for why this statement is correct or incorrect according to the audio",
+            "ru": "<the explanation in Russian for why this statement is correct or incorrect according to the audio",
+            "es": "<the explanation in Spanish for why this statement is correct or incorrect according to the audio",
+          }
+        },
+        {
+          "id": 57,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "audio_transcript": "<the exact transcript of the audio number 57, do not include the question number>,
+          "explanation": {
+            "ar": "<the explanation in Arabic for why this statement is correct or incorrect according to the audio",
+            "de": "<the explanation in German for why this statement is correct or incorrect according to the audio",
+            "en": "<the explanation in English for why this statement is correct or incorrect according to the audio",
+            "fr": "<the explanation in French for why this statement is correct or incorrect according to the audio",
+            "ru": "<the explanation in Russian for why this statement is correct or incorrect according to the audio",
+            "es": "<the explanation in Spanish for why this statement is correct or incorrect according to the audio",
+          }
+        },
+        {
+          "id": 58,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "audio_transcript": "<the exact transcript of the audio number 58, do not include the question number>,
+          "explanation": {
+            "ar": "<the explanation in Arabic for why this statement is correct or incorrect according to the audio",
+            "de": "<the explanation in German for why this statement is correct or incorrect according to the audio",
+            "en": "<the explanation in English for why this statement is correct or incorrect according to the audio",
+            "fr": "<the explanation in French for why this statement is correct or incorrect according to the audio",
+            "ru": "<the explanation in Russian for why this statement is correct or incorrect according to the audio",
+            "es": "<the explanation in Spanish for why this statement is correct or incorrect according to the audio",
+          }
+        },
+        {
+          "id": 59,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "audio_transcript": "<the exact transcript of the audio number 59, do not include the question number>,
+          "explanation": {
+            "ar": "<the explanation in Arabic for why this statement is correct or incorrect according to the audio",
+            "de": "<the explanation in German for why this statement is correct or incorrect according to the audio",
+            "en": "<the explanation in English for why this statement is correct or incorrect according to the audio",
+            "fr": "<the explanation in French for why this statement is correct or incorrect according to the audio",
+            "ru": "<the explanation in Russian for why this statement is correct or incorrect according to the audio",
+            "es": "<the explanation in Spanish for why this statement is correct or incorrect according to the audio",
+          }
+        },
+        {
+          "id": 60,
+          "is_correct": <boolean>,
+          "statement": "<the statement text, it should be correct or incorrect according to the interview>",
+          "audio_transcript": "<the exact transcript of the audio number 60, do not include the question number>,
+          "explanation": {
+            "ar": "<the explanation in Arabic for why this statement is correct or incorrect according to the audio",
+            "de": "<the explanation in German for why this statement is correct or incorrect according to the audio",
+            "en": "<the explanation in English for why this statement is correct or incorrect according to the audio",
+            "fr": "<the explanation in French for why this statement is correct or incorrect according to the audio",
+            "ru": "<the explanation in Russian for why this statement is correct or incorrect according to the audio",
+            "es": "<the explanation in Spanish for why this statement is correct or incorrect according to the audio",
+          }
+        }
+      ]
+}

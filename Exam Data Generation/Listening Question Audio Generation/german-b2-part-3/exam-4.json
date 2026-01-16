@@ -1,0 +1,157 @@
+[
+        {
+            "type": "pause",
+            "durationSeconds": 1
+        },
+        {
+            "type": "ready",
+            "id": "b2-part-3-intro"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "ready",
+            "id": "number-56"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-3-listen-text"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "text": "Hier ist die Zahnarztpraxis Dr. Weber. Wir machen Urlaub vom 1. bis zum 15. August. In dringenden Fällen wenden Sie sich bitte an den zahnärztlichen Notdienst unter der Nummer 11 22 33. Ab dem 16. August sind wir wieder wie gewohnt für Sie da.",
+            "voiceId": "person1",
+            "id": "speech-56"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "ready",
+            "id": "number-57"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-3-listen-text"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "text": "Am kommenden Wochenende öffnen sich wieder die Tore für die jährliche Buchmesse im Kulturzentrum. Über 50 Verlage präsentieren ihre Neuerscheinungen. Für Kinder gibt es am Samstag eine spezielle Lesestunde. Der Eintritt kostet für Erwachsene 5 Euro, für Schüler ist der Besuch kostenlos.",
+            "voiceId": "person3",
+            "id": "speech-57"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "ready",
+            "id": "number-58"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-3-listen-text"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "text": "Nutzen Sie unser Sommer-Spezial-Ticket! Fahren Sie für nur 29 Euro quer durch Deutschland. Das Angebot gilt für alle Regionalzüge, jedoch nicht für den ICE oder IC. Tickets erhalten Sie an allen Automaten oder bequem per App auf unserer Webseite.",
+            "voiceId": "person1",
+            "id": "speech-58"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "ready",
+            "id": "number-59"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-3-listen-text"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "text": "Lust auf frische Luft? Dann auf zum „Grünen Markt“ im Stadtpark! Neben frischem Obst und Gemüse aus der Region gibt es diesmal auch handgemachte Kunstwerke zu bestaunen. Musikalische Begleitung bietet die lokale Blaskapelle. Der Markt ist bis 14 Uhr geöffnet.",
+            "voiceId": "person3",
+            "id": "speech-59"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "ready",
+            "id": "number-60"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-3-listen-text"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        },
+        {
+            "type": "speech",
+            "repeated": false,
+            "text": "Achtung Autofahrer: Wegen des großen Stadtmarathons am Sonntag ist die Innenstadt von 8 bis 14 Uhr für den Verkehr komplett gesperrt. Bitte nutzen Sie die ausgeschilderten Umleitungen oder steigen Sie auf die U-Bahn um. Die Parkhäuser am Stadtrand bleiben erreichbar.",
+            "voiceId": "person1",
+            "id": "speech-60"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 5
+        },
+        {
+            "type": "ready",
+            "id": "part-2-outro"
+        },
+        {
+            "type": "pause",
+            "durationSeconds": 2
+        }
+    ]

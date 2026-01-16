@@ -178,7 +178,7 @@ const ListeningPart2Screen: React.FC = () => {
           // Resume global modal queue
           setContextualModalActive(false);
         }}
-        examTitle={`Listening Part 2 - Test ${examId + 1}`}
+        examTitle={`Test ${examId + 1}`}
         result={examResult}
       />
       

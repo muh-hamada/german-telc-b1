@@ -1,0 +1,107 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "b2-part-1-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 30
+    },
+    {
+      "type": "ready",
+      "id": "number-41"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "Verbraucher müssen sich im kommenden Jahr auf höhere Strompreise einstellen. Wie der Verband der Energieversorger mitteilt, seien die Kosten für den Ausbau der Stromnetze deutlich gestiegen. Für einen durchschnittlichen Haushalt bedeute dies Mehrkosten von etwa fünfzig Euro pro Jahr. Eine Senkung der Preise sei erst mittelfristig wieder zu erwarten.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-42"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "Die Bundesregierung plant, die Einwanderung von ausländischen Fachkräften zu erleichtern. Ein neuer Gesetzentwurf sieht vor, dass gut ausgebildete Handwerker und Pflegekräfte schneller eine Arbeitserlaubnis erhalten. Damit reagiert die Politik auf den wachsenden Personalmangel in vielen Branchen. Kritiker befürchten jedoch einen zu hohen bürokratischen Aufwand.",
+      "voiceId": "person2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-43"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "Bei den Internationalen Filmfestspielen in Berlin ist der Goldene Bär vergeben worden. Überraschend ging der Hauptpreis gestern Abend an einen Dokumentarfilm über den Klimawandel. Die Jury lobte besonders die eindrucksvollen Bilder und die wichtige Botschaft des Films. Es ist das erste Mal seit zehn Jahren, dass eine Dokumentation gewinnt.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-44"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "Der schwere Sturm an der Ostküste der USA hat an Stärke verloren. Der Hurrikan wurde vom nationalen Wetterdienst heute Morgen auf einen Tropensturm herabgestuft. Dennoch warnen die Behörden weiterhin vor Überschwemmungen, da der starke Regen voraussichtlich noch zwei Tage anhalten soll. Die Evakuierungsbefehle bleiben daher bestehen.",
+      "voiceId": "person4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-45"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "text": "Großeinsatz der Feuerwehr in Hamburg. In einer Lagerhalle im Hafen ist in der Nacht ein Feuer ausgebrochen. Verletzte gab es nach Angaben der Polizei nicht, da sich zum Zeitpunkt des Brandes keine Arbeiter in der Halle befanden. Die Löscharbeiten dauerten bis in den frühen Morgen. Die Brandursache ist noch unklar.",
+      "voiceId": "person5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "part-1-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]
