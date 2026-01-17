@@ -17,6 +17,7 @@ import Button from './Button';
 import SupportAdButton from './SupportAdButton';
 import ExplanationModal from './ExplanationModal';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface ResultsModalProps {
   visible: boolean;
@@ -172,6 +173,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                                   transcript: answer.transcript
                                 })}
                               >
+                                <Icon name="info-outline" size={16} color={colors.primary[500]} />
                                 <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
                               </TouchableOpacity>
                             )}
@@ -377,12 +379,14 @@ const createStyles = (colors: ThemeColors) =>
     },
     explainButton: {
       marginTop: spacing.margin.xs,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.margin.xs,
     },
     explainButtonText: {
       ...typography.textStyles.bodySmall,
       color: colors.primary[500],
       fontWeight: typography.fontWeight.semibold,
-      textDecorationLine: 'underline',
     },
   });
 

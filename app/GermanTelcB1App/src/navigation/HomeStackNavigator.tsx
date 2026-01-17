@@ -107,7 +107,7 @@ const HomeStackNavigator: React.FC = () => {
         name="ExamStructure"
         component={ExamStructureScreen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="examStructure.title" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.examStructure.title" />,
         }}
       />
       <Stack.Screen
@@ -128,42 +128,42 @@ const HomeStackNavigator: React.FC = () => {
         name="ReadingPart1"
         component={ReadingPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.part1" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart1A1"
         component={ReadingPart1A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part1" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart2"
         component={ReadingPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.part2" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart2A1"
         component={ReadingPart2A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part2" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart3"
         component={ReadingPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.part3" />,
         }}
       />
       <Stack.Screen
         name="ReadingPart3A1"
         component={ReadingPart3A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.reading.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part3" />,
         }}
       />
       <Stack.Screen
@@ -177,14 +177,14 @@ const HomeStackNavigator: React.FC = () => {
         name="GrammarPart1"
         component={GrammarPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.grammar.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.grammar.part1" />,
         }}
       />
       <Stack.Screen
         name="GrammarPart2"
         component={GrammarPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.grammar.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.grammar.part2" />,
         }}
       />
       <Stack.Screen
@@ -212,14 +212,14 @@ const HomeStackNavigator: React.FC = () => {
         name="WritingPart1"
         component={WritingPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.writing.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.writing.a1.part1" />,
         }}
       />
       <Stack.Screen
         name="WritingPart2"
         component={WritingPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.writing.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.writing.a1.part2" />,
         }}
       />
       <Stack.Screen
@@ -233,49 +233,49 @@ const HomeStackNavigator: React.FC = () => {
         name="SpeakingPart1"
         component={SpeakingPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part1" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart2"
         component={SpeakingPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part2" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart3"
         component={SpeakingPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part3" />,
         }}
       />
       <Stack.Screen
         name="SpeakingPart4"
         component={SpeakingPart4Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part4" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part4" />,
         }}
       />
       <Stack.Screen
         name="A1SpeakingPart1"
         component={A1SpeakingPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part1" />,
         }}
       />
       <Stack.Screen
         name="A1SpeakingPart2"
         component={A1SpeakingPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.a1.part2" />,
         }}
       />
       <Stack.Screen
         name="A1SpeakingPart3"
         component={A1SpeakingPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.speaking.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.a1.part3" />,
         }}
       />
       <Stack.Screen
@@ -317,42 +317,42 @@ const HomeStackNavigator: React.FC = () => {
         name="ListeningPart1"
         component={ListeningPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part1" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart1A1"
         component={ListeningPart1A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part1" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a1.part1" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart2"
         component={ListeningPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part2" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart2A1"
         component={ListeningPart2A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part2" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a1.part2" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart3"
         component={ListeningPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part3" />,
         }}
       />
       <Stack.Screen
         name="ListeningPart3A1"
         component={ListeningPart3A1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.listening.part3" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a1.part3" />,
         }}
       />
       <Stack.Screen

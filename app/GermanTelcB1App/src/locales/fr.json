@@ -501,7 +501,6 @@
     }
   },
   "examStructure": {
-    "title": "Structure de l'examen",
     "description": "Apprenez le format et le système de notation de l'examen TELC {{level}}",
     "comingSoon": "Contenu à venir...",
     "cefrLevel": "Niveau CECR",
@@ -518,7 +517,6 @@
   "practice": {
     "reading": {
       "title": "Compréhension écrite",
-      "part1": "Partie 1 : Associer les titres",
       "part2": "Partie 2 : Questions à choix multiples",
       "part3": "Partie 3 : Associer les annonces",
       "a1": {
@@ -536,7 +534,8 @@
           "part2": "Lisez des situations et choisissez le bon site web ou la bonne annonce",
           "part3": "Lisez des panneaux et des avis, puis jugez si les affirmations sont correctes"
         }
-      }
+      },
+      "part1": "Partie 1 : Correspondance des titres"
     },
     "listening": {
       "title": "Compréhension orale",
@@ -1769,5 +1768,54 @@
   },
   "general": {
     "loadingDataError": "Échec du chargement des données. \nNotre équipe travaille sur le correctif."
+  },
+  "nav": {
+    "examStructure": {
+      "title": "Structure de l'examen"
+    },
+    "practice": {
+      "reading": {
+        "part1": "Titres correspondants",
+        "part2": "Choix multiples",
+        "part3": "Correspondance des publicités",
+        "a1": {
+          "part1": "Lettres et messages",
+          "part2": "Sites Web et publicités",
+          "part3": "Panneaux et avis"
+        }
+      },
+      "grammar": {
+        "part1": "Choix multiples",
+        "part2": "Liste de mots"
+      },
+      "listening": {
+        "part1": "Courts dialogues",
+        "part2": "Conversation plus longue",
+        "part3": "Monologues",
+        "a1": {
+          "part1": "Conversations et annonces",
+          "part2": "Annonce radio",
+          "part3": "Conversations téléphoniques"
+        }
+      },
+      "writing": {
+        "part1": "Remplissage du formulaire",
+        "part2": "Rédaction d'e-mails/lettres",
+        "a1": {
+          "part1": "Remplissez un formulaire",
+          "part2": "Écrire un e-mail"
+        }
+      },
+      "speaking": {
+        "part1": "Présentation personnelle",
+        "part2": "Présentation du sujet",
+        "part3": "Planifier ensemble",
+        "part4": "Phrases importantes",
+        "a1": {
+          "part2": "Pour demander et fournir des informations",
+          "part3": "Formation de demandes et de réponses"
+        }
+      }
+    }
   }
 }

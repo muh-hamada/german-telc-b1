@@ -513,7 +513,6 @@
     "example": "Beispiel"
   },
   "examStructure": {
-    "title": "Prüfungsstruktur",
     "description": "Erfahren Sie mehr über das Format und die Bewertung der TELC {{level}} Prüfung",
     "comingSoon": "Inhalt folgt bald...",
     "cefrLevel": "GER-Niveau",
@@ -530,7 +529,6 @@
   "practice": {
     "reading": {
       "title": "Leseverstehen",
-      "part1": "Teil 1: Überschriften zuordnen",
       "part2": "Teil 2: Multiple Choice",
       "part3": "Teil 3: Anzeigen zuordnen",
       "a1": {
@@ -548,7 +546,8 @@
           "part2": "Lesen Sie Situationen und wählen Sie die richtige Website oder Anzeige",
           "part3": "Lesen Sie Schilder und Hinweise und beurteilen Sie, ob Aussagen richtig sind"
         }
-      }
+      },
+      "part1": "Teil 1: Passende Überschriften"
     },
     "listening": {
       "title": "Hörverstehen",
@@ -1778,5 +1777,54 @@
   },
   "general": {
     "loadingDataError": "Die Daten konnten nicht geladen werden. \nUnser Team arbeitet an der Lösung."
+  },
+  "nav": {
+    "examStructure": {
+      "title": "Prüfungsstruktur"
+    },
+    "practice": {
+      "reading": {
+        "part1": "Passende Überschriften",
+        "part2": "Multiple Choice",
+        "part3": "Anzeigen-Matching",
+        "a1": {
+          "part1": "Briefe und Nachrichten",
+          "part2": "Websites und Anzeigen",
+          "part3": "Schilder und Hinweise"
+        }
+      },
+      "grammar": {
+        "part1": "Multiple Choice",
+        "part2": "Wortliste"
+      },
+      "listening": {
+        "part1": "Kurze Dialoge",
+        "part2": "Längeres Gespräch",
+        "part3": "Monologe",
+        "a1": {
+          "part1": "Gespräche und Ankündigungen",
+          "part2": "Radioankündigung",
+          "part3": "Telefongespräche"
+        }
+      },
+      "writing": {
+        "part1": "Ausfüllen des Formulars",
+        "part2": "Schreiben von E-Mails/Briefen",
+        "a1": {
+          "part1": "Füllen Sie ein Formular aus",
+          "part2": "Schreiben Sie eine E-Mail"
+        }
+      },
+      "speaking": {
+        "part1": "Persönliche Vorstellung",
+        "part2": "Themenpräsentation",
+        "part3": "Gemeinsam planen",
+        "part4": "Wichtige Sätze",
+        "a1": {
+          "part2": "Zur Anforderung und Bereitstellung von Informationen",
+          "part3": "Anfrage- und Antwortbildung"
+        }
+      }
+    }
   }
 }

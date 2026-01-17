@@ -69,28 +69,20 @@ const WritingMenuScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.writing.a1.part1')
-              : t('practice.writing.part1')}
+            {t('practice.writing.a1.part1')}
           </Text>
           <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.writing.descriptions.a1.part1')
-              : t('practice.writing.descriptions.part1')}
+            {t('practice.writing.descriptions.a1.part1')}
           </Text>
         </Card>
 
         {hasPart2 && (
           <Card style={styles.card} onPress={handlePart2Press}>
             <Text style={styles.cardTitle}>
-              {isA1 
-                ? t('practice.writing.a1.part2')
-                : t('practice.writing.part2')}
+              {t('practice.writing.a1.part2')}
             </Text>
             <Text style={styles.cardDescription}>
-              {isA1 
-                ? t('practice.writing.descriptions.a1.part2')
-                : t('practice.writing.descriptions.part2')}
+              {t('practice.writing.descriptions.a1.part2')}
             </Text>
           </Card>
         )}
@@ -103,7 +95,7 @@ const WritingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart1Exam}
         examType="writing"
         partNumber={1}
-        title={t('practice.writing.part1')}
+        title={t('practice.writing.a1.part1')}
       />
 
       <ExamSelectionModal
@@ -113,7 +105,7 @@ const WritingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart2Exam}
         examType="writing"
         partNumber={2}
-        title={t('practice.writing.part2')}
+        title={t('practice.writing.a1.part2')}
       />
 
     </View>

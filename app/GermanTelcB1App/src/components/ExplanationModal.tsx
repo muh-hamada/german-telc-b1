@@ -47,7 +47,7 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
           <View style={styles.modalContent}>
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>{t('results.explanationTitle') || 'Explanation'}</Text>
+              <Text style={styles.title}>{t('results.explanationTitle')}</Text>
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
@@ -61,7 +61,6 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
               {/* Explanation Section */}
               {localizedExplanation ? (
                 <View style={styles.section}>
-                  <Text style={styles.sectionTitle}>{t('results.explanation') || 'Explanation'}</Text>
                   <Text style={styles.explanationText}>{localizedExplanation}</Text>
                 </View>
               ) : null}
@@ -69,14 +68,14 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
               {/* Transcript Section */}
               {transcript ? (
                 <View style={[styles.section, styles.transcriptSection]}>
-                  <Text style={styles.sectionTitle}>{t('results.transcript') || 'Transcript'}</Text>
+                  <Text style={styles.sectionTitle}>{t('results.transcript')}</Text>
                   <Text style={styles.transcriptText}>{transcript}</Text>
                 </View>
               ) : null}
 
               {!localizedExplanation && !transcript && (
                 <View style={styles.emptyState}>
-                  <Text style={styles.emptyText}>{t('results.noExplanationAvailable') || 'No explanation available.'}</Text>
+                  <Text style={styles.emptyText}>{t('results.noExplanationAvailable')}</Text>
                 </View>
               )}
             </ScrollView>

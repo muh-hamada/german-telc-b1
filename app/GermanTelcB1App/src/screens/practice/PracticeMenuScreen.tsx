@@ -33,7 +33,11 @@ const PracticeMenuScreen: React.FC = () => {
       const exams = await dataService.getWritingExams();
       setWritingExams(exams);
     };
-    loadWritingExams();
+
+    // Skip loading writing exams for A1 as it will be loaded from the WritingMenuScreen
+    if (!isA1) {
+      loadWritingExams();
+    }
     // Section opened
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
   }, []);

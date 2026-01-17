@@ -513,7 +513,6 @@
     }
   },
   "examStructure": {
-    "title": "Estructura del Examen",
     "description": "Aprende sobre el formato y puntuación del examen TELC {{level}}",
     "comingSoon": "Contenido próximamente...",
     "cefrLevel": "Nivel MCER",
@@ -530,7 +529,6 @@
   "practice": {
     "reading": {
       "title": "Comprensión Lectora",
-      "part1": "Parte 1: Relacionar títulos",
       "part2": "Parte 2: Opción múltiple",
       "part3": "Parte 3: Relacionar anuncios",
       "a1": {
@@ -548,7 +546,8 @@
           "part2": "Lea situaciones y elija el sitio web o anuncio correcto",
           "part3": "Lea carteles y avisos, luego juzgue si las afirmaciones son correctas"
         }
-      }
+      },
+      "part1": "Parte 1: Encabezados coincidentes"
     },
     "listening": {
       "title": "Comprensión Auditiva",
@@ -1781,5 +1780,54 @@
   },
   "general": {
     "loadingDataError": "No se pudieron cargar los datos. \nNuestro equipo está trabajando en la solución."
+  },
+  "nav": {
+    "examStructure": {
+      "title": "Estructura del Examen"
+    },
+    "practice": {
+      "reading": {
+        "part1": "Encabezados coincidentes",
+        "part2": "Opción múltiple",
+        "part3": "Coincidencia de anuncios",
+        "a1": {
+          "part1": "Cartas y mensajes",
+          "part2": "Sitios web y anuncios",
+          "part3": "Señales y avisos"
+        }
+      },
+      "grammar": {
+        "part1": "Opción múltiple",
+        "part2": "Lista de palabras"
+      },
+      "listening": {
+        "part1": "Diálogos cortos",
+        "part2": "Conversación más larga",
+        "part3": "Monólogos",
+        "a1": {
+          "part1": "Conversaciones y anuncios",
+          "part2": "Anuncio de radio",
+          "part3": "Conversaciones telefónicas"
+        }
+      },
+      "writing": {
+        "part1": "Completar formulario",
+        "part2": "Correo electrónico/escritura de cartas",
+        "a1": {
+          "part1": "Llenar la forma",
+          "part2": "Escribe un correo electrónico"
+        }
+      },
+      "speaking": {
+        "part1": "Introducción personal",
+        "part2": "Presentación del tema",
+        "part3": "Planificar juntos",
+        "part4": "Frases importantes",
+        "a1": {
+          "part2": "Para solicitar y proporcionar información",
+          "part3": "Formación de solicitudes y respuestas."
+        }
+      }
+    }
   }
 }

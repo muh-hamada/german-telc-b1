@@ -620,7 +620,6 @@
     "example": "Example"
   },
   "examStructure": {
-    "title": "Exam Structure",
     "description": "Learn about the TELC {{level}} exam format and scoring",
     "comingSoon": "Content coming soon...",
     "cefrLevel": "CEFR Level",
@@ -694,8 +693,6 @@
     "writing": {
       "title": "Written Expression",
       "description": "Write a formal or semi-formal email",
-      "part1": "Part 1: Form Completion",
-      "part2": "Part 2: Email/Letter Writing",
       "a1": {
         "part1": "Part 1: Fill in a Form",
         "part2": "Part 2: Write an Email"
@@ -723,10 +720,10 @@
       "part1": "Part 1: Personal Introduction",
       "part2": "Part 2: Topic Presentation",
       "part3": "Part 3: Planning Together",
+      "part4": "Study: Important Phrases",
       "descriptions": {
         "main": "Practice oral expression and conversation skills"
       },
-      "part4": "Study: Important Phrases",
       "a1Part2": "Part 2: To request and provide information",
       "a1Part3": "Part 3: Request and response formation"
     },
@@ -1498,5 +1495,54 @@
   },
   "general": {
     "loadingDataError": "Failed to load the data. Our team is working on the fix."
+  },
+  "nav": {
+    "examStructure": {
+      "title": "Exam Structure"
+    },
+    "practice": {
+      "reading": {
+        "part1": "Matching Headings",
+        "part2": "Multiple Choice",
+        "part3": "Advertisement Matching",
+        "a1": {
+          "part1": "Letters and Messages",
+          "part2": "Websites and Ads",
+          "part3": "Signs and Notices"
+        }
+      },
+      "grammar": {
+        "part1": "Multiple Choice",
+        "part2": "Word List"
+      },
+      "listening": {
+        "part1": "Short Dialogues",
+        "part2": "Longer Conversation",
+        "part3": "Monologues",
+        "a1": {
+          "part1": "Conversations and Announcements",
+          "part2": "Radio Announcement",
+          "part3": "Telephone Conversations"
+        }
+      },
+      "writing": {
+        "part1": "Form Completion",
+        "part2": "Email/Letter Writing",
+        "a1": {
+          "part1": "Fill in a Form",
+          "part2": "Write an Email"
+        }
+      },
+      "speaking": {
+        "part1": "Personal Introduction",
+        "part2": "Topic Presentation",
+        "part3": "Planning Together",
+        "part4": "Important Phrases",
+        "a1": {
+          "part2": "To request and provide information",
+          "part3": "Request and response formation"
+        }
+      }
+    }
   }
 }

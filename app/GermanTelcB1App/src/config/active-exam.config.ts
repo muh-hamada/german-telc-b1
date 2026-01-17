@@ -2,8 +2,8 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-01-17T16:45:50.597Z
- * Exam: English TELC B1
+ * Generated at: 2026-01-17T17:45:20.876Z
+ * Exam: German TELC A1
  * 
  * This file determines which exam configuration is active for the current build.
  * To change the active exam, run the build script with a different exam ID.
@@ -12,7 +12,7 @@
 import { ExamConfig } from './exam-config.types';
 import { getExamConfig } from './exams';
 
-const ACTIVE_EXAM_ID = 'english-b1';
+const ACTIVE_EXAM_ID = 'german-a1';
 
 /**
  * Get the active exam configuration
