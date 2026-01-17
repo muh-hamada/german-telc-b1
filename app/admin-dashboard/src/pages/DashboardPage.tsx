@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { firestoreService, DocumentMetadata } from '../services/firestore.service';
 import { getAppConfig, AppConfig } from '../config/apps.config';
+import { getExplanationStats } from '../utils/explanationHelper';
 import { MigrationPanel } from '../components/MigrationPanel';
 import { GrammarStudyUpload } from '../components/GrammarStudyUpload';
 import { toast } from 'react-toastify';
@@ -151,41 +152,52 @@ export const DashboardPage: React.FC = () => {
               </div>
             ) : (
               <div className="documents-grid">
-                {documents.map((doc) => (
-                  <div key={doc.id} className="document-card">
-                    <div className="document-header">
-                      <h3>{doc.id}</h3>
-                    </div>
-                    <div className="document-info">
-                      <div className="info-row">
-                        <span className="info-label">Size:</span>
-                        <span className="info-value">{formatSize(doc.size)}</span>
+                {documents.map((doc) => {
+                  const stats = getExplanationStats(doc.id, doc.data);
+                  return (
+                    <div key={doc.id} className="document-card">
+                      <div className="document-header">
+                        <h3>{doc.id}</h3>
                       </div>
-                      <div className="info-row">
-                        <span className="info-label">Updated:</span>
-                        <span className="info-value">{formatDate(doc.updatedAt)}</span>
+                      <div className="document-info">
+                        <div className="info-row">
+                          <span className="info-label">Size:</span>
+                          <span className="info-value">{formatSize(doc.size)}</span>
+                        </div>
+                        {stats && (
+                          <div className="info-row">
+                            <span className="info-label">Explanations:</span>
+                            <span className="info-value explanation-value">
+                              {stats.count} / {stats.total}
+                            </span>
+                          </div>
+                        )}
+                        <div className="info-row">
+                          <span className="info-label">Updated:</span>
+                          <span className="info-value">{formatDate(doc.updatedAt)}</span>
+                        </div>
+                        <div className="info-row">
+                          <span className="info-label">Created:</span>
+                          <span className="info-value">{formatDate(doc.createdAt)}</span>
+                        </div>
                       </div>
-                      <div className="info-row">
-                        <span className="info-label">Created:</span>
-                        <span className="info-value">{formatDate(doc.createdAt)}</span>
+                      <div className="document-actions">
+                        <button
+                          onClick={() => handleEdit(doc.id)}
+                          className="btn-action btn-edit"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(doc.id)}
+                          className="btn-action btn-delete"
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
-                    <div className="document-actions">
-                      <button
-                        onClick={() => handleEdit(doc.id)}
-                        className="btn-action btn-edit"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(doc.id)}
-                        className="btn-action btn-delete"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </>

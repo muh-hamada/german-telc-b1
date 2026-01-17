@@ -107,8 +107,8 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) =
         answer: userAnswer,
         isCorrect,
         timestamp: Date.now(),
-        correctAnswer: correctAnswer,
-        explanation: exam.explanations?.[gapId.toString()],
+        correctAnswer: correctAnswer + ': ' + exam.words.find(w => w.key === correctAnswer)?.word,
+        explanation: exam.explanation?.[gapId.toString()],
       });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'grammar',

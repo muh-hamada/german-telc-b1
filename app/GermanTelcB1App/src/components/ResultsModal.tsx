@@ -41,6 +41,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   const [selectedExplanation, setSelectedExplanation] = React.useState<{
     explanation: Record<string, string> | undefined;
     transcript?: string;
+    correctAnswer?: string;
   } | null>(null);
 
   // Track when support ad button is shown (only for scores > 60%)
@@ -150,12 +151,18 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                         <View style={styles.answerHeader}>
                           <View style={styles.questionNumberContainer}>
                             <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                            {!answer.isCorrect && answer.correctAnswer && (
-                              <View style={styles.answerDetails}>
-                                <Text style={styles.answerLabel}>{t('results.correctAnswer')}
-                                  <Text style={styles.answerText}>{' ' + answer.correctAnswer}</Text>
-                                </Text>
-                              </View>
+                            {!answer.isCorrect && answer.explanation && (
+                              <TouchableOpacity
+                                style={styles.explainButton}
+                                onPress={() => setSelectedExplanation({
+                                  explanation: answer.explanation,
+                                  transcript: answer.transcript,
+                                  correctAnswer: answer.correctAnswer,
+                                })}
+                              >
+                                <Icon name="info-outline" size={16} color={colors.primary[500]} />
+                                <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
+                              </TouchableOpacity>
                             )}
                           </View>
                           <View style={styles.statusContainer}>
@@ -165,18 +172,6 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                             ]}>
                               {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
                             </Text>
-                            {!answer.isCorrect && answer.explanation && (
-                              <TouchableOpacity
-                                style={styles.explainButton}
-                                onPress={() => setSelectedExplanation({
-                                  explanation: answer.explanation,
-                                  transcript: answer.transcript
-                                })}
-                              >
-                                <Icon name="info-outline" size={16} color={colors.primary[500]} />
-                                <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
-                              </TouchableOpacity>
-                            )}
                           </View>
                         </View>
                       </View>
@@ -216,6 +211,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
         onClose={() => setSelectedExplanation(null)}
         explanation={selectedExplanation?.explanation}
         transcript={selectedExplanation?.transcript}
+        correctAnswer={selectedExplanation?.correctAnswer}
       />
     </>
   );
@@ -330,8 +326,9 @@ const createStyles = (colors: ThemeColors) =>
       alignItems: 'flex-start',
     },
     questionNumberContainer: {
-      flexDirection: 'column',
-      alignItems: 'flex-start',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.margin.sm,
     },
     statusContainer: {
       flexDirection: 'column',
@@ -352,15 +349,6 @@ const createStyles = (colors: ThemeColors) =>
     incorrectStatus: {
       color: colors.error[700],
     },
-    answerDetails: {},
-    answerLabel: {
-      ...typography.textStyles.bodySmall,
-      color: colors.text.secondary,
-    },
-    answerText: {
-      ...typography.textStyles.bodySmall,
-      color: colors.text.primary,
-    },
     supportAdButton: {
       marginHorizontal: spacing.margin.md,
       marginBottom: spacing.margin.sm,
@@ -378,7 +366,6 @@ const createStyles = (colors: ThemeColors) =>
       flex: 1,
     },
     explainButton: {
-      marginTop: spacing.margin.xs,
       flexDirection: 'row',
       alignItems: 'center',
       gap: spacing.margin.xs,

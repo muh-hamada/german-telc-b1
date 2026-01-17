@@ -38,7 +38,7 @@ export interface GrammarPart2Exam {
   words: Word[];
   text: string;
   answers: Record<string, string>; // gap ID -> word key
-  explanations?: Record<string, Record<string, string>>; // gap ID -> explanation object
+  explanation?: Record<string, Record<string, string>>; // gap ID -> explanation object
 }
 
 // Reading Part 1 (Matching Headings) - B1/B2

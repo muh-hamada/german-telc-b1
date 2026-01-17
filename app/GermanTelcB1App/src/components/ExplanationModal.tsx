@@ -17,6 +17,7 @@ interface ExplanationModalProps {
   onClose: () => void;
   explanation: Record<string, string> | undefined;
   transcript?: string;
+  correctAnswer?: string;
 }
 
 const ExplanationModal: React.FC<ExplanationModalProps> = ({
@@ -24,6 +25,7 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
   onClose,
   explanation,
   transcript,
+  correctAnswer,
 }) => {
   const { t, i18n } = useCustomTranslation();
   const { colors } = useAppTheme();
@@ -58,6 +60,14 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
               contentContainerStyle={styles.scrollContent}
               showsVerticalScrollIndicator={false}
             >
+              {/* Correct Answer Section */}
+              {correctAnswer ? (
+                <View style={styles.correctAnswerSection}>
+                  <Text style={styles.answerLabel}>{t('results.correctAnswer')}</Text>
+                  <Text style={styles.answerText}>{correctAnswer}</Text>
+                </View>
+              ) : null}
+
               {/* Explanation Section */}
               {localizedExplanation ? (
                 <View style={styles.section}>
@@ -73,7 +83,7 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
                 </View>
               ) : null}
 
-              {!localizedExplanation && !transcript && (
+              {!localizedExplanation && !transcript && !correctAnswer && (
                 <View style={styles.emptyState}>
                   <Text style={styles.emptyText}>{t('results.noExplanationAvailable')}</Text>
                 </View>
@@ -133,6 +143,25 @@ const createStyles = (colors: ThemeColors) =>
     },
     scrollContent: {
       paddingBottom: spacing.padding.xl,
+    },
+    correctAnswerSection: {
+      backgroundColor: colors.success[50],
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.md,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.success[500],
+    },
+    answerLabel: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: 2,
+    },
+    answerText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.semibold,
     },
     section: {
       // marginBottom: spacing.margin.md,

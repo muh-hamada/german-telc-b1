@@ -189,6 +189,11 @@
   color: #e6edf3;
 }
 
+.explanation-value {
+  color: #79c0ff;
+  font-weight: 600;
+}
+
 .document-actions {
   display: flex;
   gap: 10px;

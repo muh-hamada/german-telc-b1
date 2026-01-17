@@ -164,7 +164,6 @@ const GrammarPart2Screen: React.FC = () => {
           // Resume global modal queue
           setContextualModalActive(false);
         }}
-        examTitle={`Grammar Part 2 - Test ${examId + 1}`}
         result={examResult}
       />
 
