@@ -513,8 +513,7 @@
     "preparation": "التحضير",
     "passingScore": "درجة النجاح",
     "important": "مهم",
-    "totalMaxPoints": "إجمالي النقاط القصوى",
-    "error": "فشل في تحميل هيكل الامتحان. يعمل فريقنا على الإصلاح."
+    "totalMaxPoints": "إجمالي النقاط القصوى"
   },
   "practice": {
     "reading": {
@@ -1268,6 +1267,11 @@
     "correctAnswer": "الإجابة الصحيحة:",
     "outOf": "من",
     "points": "نقاط",
+    "explain": "اشرح",
+    "explanationTitle": "التوضيح",
+    "explanation": "التوضيح",
+    "transcript": "النص الصوتي",
+    "noExplanationAvailable": "لا يوجد توضيح متاح.",
     "feedback": {
       "excellent": "ممتاز!",
       "goodJob": "عمل جيد!",
@@ -1762,5 +1766,8 @@
       "generating": "جارٍ إنشاء تقييمك...",
       "loadError": "فشل تحميل التقييم. \nيرجى المحاولة مرة أخرى."
     }
+  },
+  "general": {
+    "loadingDataError": "فشل تحميل البيانات. \nيعمل فريقنا على الإصلاح."
   }
 }

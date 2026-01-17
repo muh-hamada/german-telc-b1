@@ -34,7 +34,7 @@ const ExamStructureScreen: React.FC = () => {
       setExamInfoData(data);
     } catch (err) {
       console.error('Error loading exam info data:', err);
-      setError('Failed to load exam structure data');
+      setError(t('general.loadingDataError'));
     } finally {
       setIsLoading(false);
     }
@@ -54,7 +54,7 @@ const ExamStructureScreen: React.FC = () => {
     return (
       <View style={styles.container}>
         <View style={styles.centerContent}>
-          <Text style={styles.errorText}>{error || t('examStructure.error')}</Text>
+          <Text style={styles.errorText}>{t('general.loadingDataError')}</Text>
         </View>
       </View>
     );
@@ -125,7 +125,7 @@ const ExamStructureScreen: React.FC = () => {
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>📝 {removeTelcFromText(getLocalizedText(examInfo.title))}</Text>
+          <Text style={styles.title}>📝 {removeTelcFromText(getLocalizedText(examInfo?.title))}</Text>
           <View style={styles.overviewCard}>
             <View style={styles.overviewRow}>
               <Text style={styles.overviewLabel}>{t('examStructure.cefrLevel')}:</Text>
@@ -160,7 +160,7 @@ const ExamStructureScreen: React.FC = () => {
 
         {/* Exam Structure Sections */}
         <Text style={styles.structureTitle}>
-          {getLocalizedText(examInfo.exam_structure.title)}
+          {getLocalizedText(examInfo.exam_structure?.title)}
         </Text>
 
         {examInfo.exam_structure.sections.map((section: any, index: number) =>
@@ -170,7 +170,7 @@ const ExamStructureScreen: React.FC = () => {
         {/* Assessment Criteria */}
         <View style={styles.assessmentSection}>
           <Text style={styles.structureTitle}>
-            {getLocalizedText(examInfo.assessment_score.title)}
+            {getLocalizedText(examInfo.assessment_score?.title)}
           </Text>
 
           {examInfo.assessment_score.assessment_details.map((detail: any, index: number) => (
@@ -241,6 +241,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   errorText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+    padding: spacing.padding['2xl'],
+    textAlign: 'center',
   },
   header: {
     marginBottom: spacing.margin.xl,

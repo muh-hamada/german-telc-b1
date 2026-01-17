@@ -120,7 +120,7 @@ const ListeningPart3A1Screen: React.FC = () => {
       setListeningData(data);
     } catch (err) {
       console.error('Error loading listening part 3 A1 data:', err);
-      setError('Failed to load exam data');
+      setError(t('general.loadingDataError'));
     } finally {
       setIsLoading(false);
     }
@@ -165,7 +165,7 @@ const ListeningPart3A1Screen: React.FC = () => {
     return (
       <View style={styles.container}>
         <View style={styles.centerContent}>
-          <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
+          <Text style={styles.errorText}>{t('general.loadingDataError')}</Text>
         </View>
       </View>
     );

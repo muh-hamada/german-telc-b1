@@ -26,6 +26,8 @@ interface Question {
   id: number;
   question: string;
   options: Option[];
+  explanation?: Record<string, string>;
+  audio_transcript?: string;
 }
 
 interface Exam {
@@ -177,6 +179,9 @@ const ListeningPart3UIA1: React.FC<ListeningPart3UIA1Props> = ({ exam, sectionDe
         answer: userAnswer?.answer || '',
         isCorrect,
         timestamp: Date.now(),
+        correctAnswer: question.options.find(o => o.is_correct)?.text,
+        explanation: question.explanation,
+        transcript: question.audio_transcript,
       });
 
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {

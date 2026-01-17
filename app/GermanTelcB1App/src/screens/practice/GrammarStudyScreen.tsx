@@ -351,6 +351,21 @@ const GrammarStudyScreen: React.FC = () => {
     return langMap[i18n.language] || 'en';
   };
 
+  const getExplanation = (): string => {
+    const data = getSelectedOption()?.explanation;
+    if(!data) return '';
+
+    const explanations = Object.keys(data).reduce((acc, key) => {
+      const lcKey = key.toLowerCase();
+      acc[lcKey] = data[key as keyof typeof data];
+      return acc;
+    }, {} as Record<string, string>);
+
+    console.log('[GrammarStudyScreen] Explanations:', explanations);
+    console.log('[GrammarStudyScreen] Language key:', getLanguageKey());
+    return explanations[getLanguageKey()] || '';
+  };
+
   const getExampleTranslation = () => {
     let translationKey = getLanguageKey();
   
@@ -537,7 +552,7 @@ const GrammarStudyScreen: React.FC = () => {
             </View> */}
             
             <View style={styles.explanationContainer}>
-              <MarkdownText text={selectedOption.explanation[getLanguageKey()]}/>
+              <MarkdownText text={getExplanation()}/>
             </View>
 
             <View style={styles.actionButtons}>

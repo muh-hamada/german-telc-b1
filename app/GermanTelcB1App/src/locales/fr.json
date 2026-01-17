@@ -513,8 +513,7 @@
     "preparation": "Préparation",
     "passingScore": "Note de passage",
     "important": "Important",
-    "totalMaxPoints": "Total maximum de points",
-    "error": "Échec du chargement de la structure de l'examen. Notre équipe travaille sur le correctif."
+    "totalMaxPoints": "Total maximum de points"
   },
   "practice": {
     "reading": {
@@ -1103,6 +1102,11 @@
     "correctAnswer": "Réponse correcte :",
     "outOf": "sur",
     "points": "points",
+    "explain": "Expliquer",
+    "explanationTitle": "Explication",
+    "explanation": "Explication",
+    "transcript": "Transcription",
+    "noExplanationAvailable": "Aucune explication disponible.",
     "feedback": {
       "excellent": "Excellent !",
       "goodJob": "Bon travail !",
@@ -1762,5 +1766,8 @@
       "generating": "Générer votre évaluation...",
       "loadError": "Échec du chargement de l'évaluation. \nVeuillez réessayer."
     }
+  },
+  "general": {
+    "loadingDataError": "Échec du chargement des données. \nNotre équipe travaille sur le correctif."
   }
 }

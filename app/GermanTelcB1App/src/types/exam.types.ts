@@ -8,6 +8,7 @@ export interface Question {
   id: number;
   question?: string; // Question text for Reading Part 2
   answers: Answer[];
+  explanation?: Record<string, string>;
 }
 
 export interface Word {
@@ -19,6 +20,7 @@ export interface Text {
   id: number;
   text: string;
   correct?: string; // For reading comprehension
+  explanation?: Record<string, string>;
 }
 
 // Grammar Part 1 (Multiple Choice Gap Fill)
@@ -36,6 +38,7 @@ export interface GrammarPart2Exam {
   words: Word[];
   text: string;
   answers: Record<string, string>; // gap ID -> word key
+  explanations?: Record<string, Record<string, string>>; // gap ID -> explanation object
 }
 
 // Reading Part 1 (Matching Headings) - B1/B2
@@ -50,6 +53,7 @@ export interface ReadingPart1A1Question {
   id: number;
   question: string;
   is_correct: boolean;
+  explanation?: Record<string, string>;
 }
 
 export interface ReadingPart1A1Exam {
@@ -79,6 +83,7 @@ export interface ReadingPart2A1Question {
   id: number;
   situation: string;
   options: ReadingPart2A1Option[];
+  explanation?: Record<string, string>;
 }
 
 export interface ReadingPart2A1Exam {
@@ -92,6 +97,7 @@ export interface ReadingPart3Situation {
   id: number;
   text: string;
   answer: string;
+  explanation?: Record<string, string>;
 }
 
 export interface ReadingPart3Exam {
@@ -107,6 +113,7 @@ export interface ReadingPart3A1Question {
   text: string;
   question: string;
   is_correct: boolean;
+  explanation?: Record<string, string>;
 }
 
 export interface ReadingPart3A1Exam {
@@ -269,6 +276,8 @@ export interface UserAnswer {
   isCorrect: boolean;
   timestamp: number;
   correctAnswer?: string;
+  explanation?: Record<string, string>;
+  transcript?: string;
 }
 
 export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'writing-part1' | 'writing-part2' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice' | 'listening-part1' | 'listening-part2' | 'listening-part3';

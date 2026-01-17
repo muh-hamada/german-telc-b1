@@ -53,7 +53,8 @@ const ListeningPracticeQuestionsScreen: React.FC = () => {
         answer: answer ? 'true' : 'false',
         isCorrect: isCorrect,
         timestamp: Date.now(),
-        correctAnswer: currentQuestion.correct ? 'true' : 'false'
+        correctAnswer: currentQuestion.correct ? 'true' : 'false',
+        explanation: { de: currentQuestion.explanation }, // Listening practice only has German explanation currently
     };
     
     setUserAnswers(prev => [...prev, userAnswer]);

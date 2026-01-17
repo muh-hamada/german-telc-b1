@@ -525,8 +525,7 @@
     "preparation": "Vorbereitung",
     "passingScore": "Mindestpunktzahl",
     "important": "Wichtig",
-    "totalMaxPoints": "Gesamtpunktzahl",
-    "error": "Fehler beim Laden der Prüfungsstruktur. Unser Team arbeitet an der Behebung."
+    "totalMaxPoints": "Gesamtpunktzahl"
   },
   "practice": {
     "reading": {
@@ -1281,6 +1280,11 @@
     "correctAnswer": "Richtige Antwort:",
     "outOf": "von",
     "points": "Punkte",
+    "explain": "Erklären",
+    "explanationTitle": "Erklärung",
+    "explanation": "Erklärung",
+    "transcript": "Transkript",
+    "noExplanationAvailable": "Keine Erklärung verfügbar.",
     "feedback": {
       "excellent": "Ausgezeichnet!",
       "goodJob": "Gute Arbeit!",
@@ -1771,5 +1775,8 @@
       "generating": "Erstellung Ihrer Beurteilung...",
       "loadError": "Die Bewertung konnte nicht geladen werden. \nBitte versuchen Sie es erneut."
     }
+  },
+  "general": {
+    "loadingDataError": "Die Daten konnten nicht geladen werden. \nUnser Team arbeitet an der Lösung."
   }
 }

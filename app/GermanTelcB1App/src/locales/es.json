@@ -525,8 +525,7 @@
     "preparation": "Preparación",
     "passingScore": "Puntaje de aprobación",
     "important": "Importante",
-    "totalMaxPoints": "Puntos máximos totales",
-    "error": "No se pudo cargar la estructura del examen. Nuestro equipo está trabajando en la solución."
+    "totalMaxPoints": "Puntos máximos totales"
   },
   "practice": {
     "reading": {
@@ -1280,6 +1279,11 @@
     "correctAnswer": "Respuesta correcta:",
     "outOf": "de",
     "points": "puntos",
+    "explain": "Explicar",
+    "explanationTitle": "Explicación",
+    "explanation": "Explicación",
+    "transcript": "Transcripción",
+    "noExplanationAvailable": "No hay explicación disponible.",
     "feedback": {
       "excellent": "¡Excelente!",
       "goodJob": "¡Buen trabajo!",
@@ -1774,5 +1778,8 @@
       "generating": "Generando tu valoración...",
       "loadError": "No se pudo cargar la evaluación. \nPor favor inténtalo de nuevo."
     }
+  },
+  "general": {
+    "loadingDataError": "No se pudieron cargar los datos. \nNuestro equipo está trabajando en la solución."
   }
 }

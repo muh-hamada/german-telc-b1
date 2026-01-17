@@ -20,12 +20,14 @@ interface Statement {
   id: number;
   statement: string;
   is_correct: boolean;
+  explanation?: Record<string, string>;
 }
 
 interface Exam {
   id: number;
   audio_url: string;
   statements: Statement[];
+  audio_transcript?: { speaker: string; transcript: string }[];
 }
 
 interface ListeningPart2UIProps {
@@ -148,6 +150,10 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
 
     let correctCount = 0;
     const answers: UserAnswer[] = [];
+    const fullTranscript = exam.audio_transcript
+      ? exam.audio_transcript.map(t => `${t.speaker}: ${t.transcript}`).join('\n\n')
+      : undefined;
+
     exam.statements.forEach(statement => {
       const userAnswer = userAnswers.find(a => a.questionId === statement.id);
       const isCorrect = userAnswer?.answer === 'true' === statement.is_correct;
@@ -159,6 +165,9 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
         answer: userAnswer?.answer || '',
         isCorrect,
         timestamp: Date.now(),
+        correctAnswer: statement.is_correct ? 'true' : 'false',
+        explanation: statement.explanation,
+        transcript: fullTranscript,
       });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'listening',

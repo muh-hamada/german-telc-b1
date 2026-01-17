@@ -109,6 +109,7 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
         isCorrect,
         timestamp: Date.now(),
         correctAnswer: correctAnswerIndex !== -1 ? question.answers[correctAnswerIndex]?.text : undefined,
+        explanation: question.explanation,
       });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'grammar',

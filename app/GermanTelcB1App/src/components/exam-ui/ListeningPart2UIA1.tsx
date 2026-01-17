@@ -20,6 +20,8 @@ interface Question {
   id: number;
   question: string;
   is_correct: boolean;
+  explanation?: Record<string, string>;
+  audio_transcript?: string;
 }
 
 interface Exam {
@@ -160,6 +162,9 @@ const ListeningPart2UIA1: React.FC<ListeningPart2UIA1Props> = ({ exam, sectionDe
         answer: userAnswer?.answer || '',
         isCorrect,
         timestamp: Date.now(),
+        correctAnswer: question.is_correct ? 'true' : 'false',
+        explanation: question.explanation,
+        transcript: question.audio_transcript,
       });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'listening',

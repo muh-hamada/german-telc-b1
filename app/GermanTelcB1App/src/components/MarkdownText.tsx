@@ -23,7 +23,7 @@ interface TextPart {
  * - Line breaks
  */
 const MarkdownText: React.FC<MarkdownTextProps> = ({ 
-  text, 
+  text = '', 
   baseStyle, 
   boldStyle,
   italicStyle,

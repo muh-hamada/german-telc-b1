@@ -87,6 +87,7 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete }) => 
         isCorrect,
         timestamp: Date.now(),
         correctAnswer: text.correct,
+        explanation: text.explanation,
       });
 
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {

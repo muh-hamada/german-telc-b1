@@ -64,6 +64,7 @@ const ReadingPart2A1UI: React.FC<ReadingPart2A1UIProps> = ({ exam, onComplete })
         isCorrect,
         timestamp: Date.now(),
         correctAnswer: question.options.find(opt => opt.is_correct)?.id.toString() || '',
+        explanation: question.explanation,
       });
 
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {

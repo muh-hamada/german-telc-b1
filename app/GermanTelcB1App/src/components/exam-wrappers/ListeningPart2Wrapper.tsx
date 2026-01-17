@@ -4,9 +4,10 @@ import { ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../exam-ui/ListeningPart2UI';
 import ListeningPart2UIA1 from '../exam-ui/ListeningPart2UIA1';
-import { UserAnswer } from '../../types/exam.types';
+import { Question, UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 
 interface ListeningPart2WrapperProps {
   testId: number;
@@ -21,11 +22,14 @@ interface Statement {
 
 interface Exam {
   id: number;
+  title: string;
+  questions: Question[];
   audio_url: string;
   statements: Statement[];
 }
 
 const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, onComplete }) => {
+  const { t } = useCustomTranslation();
   const isA1 = activeExamConfig.level === 'A1';
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
@@ -45,7 +49,7 @@ const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, o
       setListeningData(data);
     } catch (err) {
       console.error('Error loading listening part 2 data:', err);
-      setError('Failed to load exam data');
+      setError(t('general.loadingDataError'));
     } finally {
       setIsLoading(false);
     }
@@ -62,7 +66,7 @@ const ListeningPart2Wrapper: React.FC<ListeningPart2WrapperProps> = ({ testId, o
   if (error || !listeningData) {
     return (
       <View style={[styles.container, styles.centerContent]}>
-        <Text style={styles.errorText}>{error || 'Failed to load exam'}</Text>
+        <Text style={styles.errorText}>{t('general.loadingDataError')}</Text>
       </View>
     );
   }

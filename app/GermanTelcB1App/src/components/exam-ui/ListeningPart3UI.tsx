@@ -20,6 +20,8 @@ interface Statement {
   id: number;
   statement: string;
   is_correct: boolean;
+  explanation?: Record<string, string>;
+  audio_transcript?: string;
 }
 
 interface Exam {
@@ -159,6 +161,9 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
         answer: userAnswer?.answer || '',
         isCorrect,
         timestamp: Date.now(),
+        correctAnswer: statement.is_correct ? 'true' : 'false',
+        explanation: statement.explanation,
+        transcript: statement.audio_transcript,
       });
       logEvent(AnalyticsEvents.QUESTION_ANSWERED, {
         section: 'listening',

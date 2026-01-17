@@ -632,8 +632,7 @@
     "preparation": "Preparation",
     "passingScore": "Passing Score",
     "important": "Important",
-    "totalMaxPoints": "Total Max Points",
-    "error": "Failed to load the exam structure. Our team is working on the fix."
+    "totalMaxPoints": "Total Max Points"
   },
   "practice": {
     "reading": {
@@ -1064,6 +1063,11 @@
     "correctAnswer": "Correct answer:",
     "outOf": "out of",
     "points": "points",
+    "explain": "Explain",
+    "explanationTitle": "Explanation",
+    "explanation": "Explanation",
+    "transcript": "Transcript",
+    "noExplanationAvailable": "No explanation available.",
     "feedback": {
       "excellent": "Excellent!",
       "goodJob": "Good job!",
@@ -1491,5 +1495,8 @@
     "error": "Submission Failed",
     "errorMessage": "Failed to submit your report. Please try again later.",
     "characterCount": "{{current}}/{{max}} characters"
+  },
+  "general": {
+    "loadingDataError": "Failed to load the data. Our team is working on the fix."
   }
 }
