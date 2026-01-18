@@ -11,6 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
+import MarkdownText from './MarkdownText';
 
 interface ExplanationModalProps {
   visible: boolean;
@@ -79,7 +80,7 @@ const ExplanationModal: React.FC<ExplanationModalProps> = ({
               {transcript ? (
                 <View style={[styles.section, styles.transcriptSection]}>
                   <Text style={styles.sectionTitle}>{t('results.transcript')}</Text>
-                  <Text style={styles.transcriptText}>{transcript}</Text>
+                  <MarkdownText baseStyle={styles.transcriptText} text={transcript} />
                 </View>
               ) : null}
 

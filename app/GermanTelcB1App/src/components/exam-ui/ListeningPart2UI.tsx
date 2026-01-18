@@ -134,6 +134,10 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
     }
   };
 
+  const captizaleFirstLetter = (text: string) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
   const handleSubmit = () => {
     const unansweredStatements = exam.statements.filter(
       s => !userAnswers.find(a => a.questionId === s.id && a.answer !== null)
@@ -151,7 +155,7 @@ const ListeningPart2UI: React.FC<ListeningPart2UIProps> = ({ exam, sectionDetail
     let correctCount = 0;
     const answers: UserAnswer[] = [];
     const fullTranscript = exam.audio_transcript
-      ? exam.audio_transcript.map(t => `${t.speaker}: ${t.transcript}`).join('\n\n')
+      ? exam.audio_transcript.map(t => `**${captizaleFirstLetter(t.speaker)}**: ${t.transcript}`).join('\n')
       : undefined;
 
     exam.statements.forEach(statement => {

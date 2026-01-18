@@ -26,6 +26,11 @@ export const AnalyticsEvents = {
   PRACTICE_EXAM_OPENED: 'practice_exam_opened',
   QUESTION_ANSWERED: 'question_answered',
   PRACTICE_EXAM_COMPLETED: 'practice_exam_completed',
+  
+  // Results & Explanations
+  RESULTS_MODAL_SHOWN: 'results_modal_shown',
+  RESULTS_EXPLANATION_OPENED: 'results_explanation_opened',
+  RESULTS_EXPLANATION_CLOSED: 'results_explanation_closed',
 
   // Writing evaluation
   WRITING_EVAL_REQUESTED: 'writing_eval_requested',
@@ -136,6 +141,9 @@ export const AnalyticsEvents = {
   LISTENING_PRACTICE_ASSESSMENT_COMPLETED: 'listening_practice_assessment_completed',
   LISTENING_PRACTICE_LISTEN_AGAIN: 'listening_practice_listen_again',
   LISTENING_PRACTICE_BACK_TO_HOME: 'listening_practice_back_to_home',
+  LISTENING_PRACTICE_TRANSCRIPT_TOGGLED: 'listening_practice_transcript_toggled',
+  LISTENING_PRACTICE_TRANSCRIPT_LOADED: 'listening_practice_transcript_loaded',
+  LISTENING_PRACTICE_TRANSCRIPT_LOAD_FAILED: 'listening_practice_transcript_load_failed',
 
   // Vocabulary Builder
   VOCABULARY_HOME_OPENED: 'vocabulary_home_opened',

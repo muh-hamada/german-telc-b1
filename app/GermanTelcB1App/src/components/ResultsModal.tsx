@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
-import { ExamResult, UserAnswer } from '../types/exam.types';
+import { ExamResult } from '../types/exam.types';
 import Button from './Button';
 import SupportAdButton from './SupportAdButton';
 import ExplanationModal from './ExplanationModal';
@@ -38,11 +38,37 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const hasLoggedButtonShown = useRef<boolean>(false);
+  const hasLoggedModalShown = useRef<boolean>(false);
   const [selectedExplanation, setSelectedExplanation] = React.useState<{
     explanation: Record<string, string> | undefined;
     transcript?: string;
     correctAnswer?: string;
   } | null>(null);
+
+  // Track when result modal is shown with explanation count
+  useEffect(() => {
+    if (visible && result && !hasLoggedModalShown.current) {
+      const answersWithExplanations = result.answers.filter(
+        answer => !answer.isCorrect && answer.explanation
+      ).length;
+      
+      hasLoggedModalShown.current = true;
+      logEvent(AnalyticsEvents.RESULTS_MODAL_SHOWN, {
+        score: result.score,
+        max_score: result.maxScore,
+        percentage: result.percentage,
+        total_questions: result.answers.length,
+        correct_answers: result.answers.filter(a => a.isCorrect).length,
+        answers_with_explanations: answersWithExplanations,
+        exam_title: examTitle,
+      });
+    }
+
+    // Reset the flag when modal is closed
+    if (!visible) {
+      hasLoggedModalShown.current = false;
+    }
+  }, [visible, result, examTitle]);
 
   // Track when support ad button is shown (only for scores > 60%)
   useEffect(() => {
@@ -61,8 +87,6 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   }, [visible, result]);
 
   if (!result) return null;
-
-  console.log('-------------> result', result);
 
   const getScoreColor = (percentage: number): string => {
     if (percentage >= 80) return colors.success[500];
@@ -93,6 +117,33 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
         { text: t('common.retry'), style: 'destructive', onPress: onRetry },
       ]
     );
+  };
+
+  const handleShowExplanation = (
+    questionId: number,
+    explanation: Record<string, string> | undefined,
+    transcript?: string,
+    correctAnswer?: string
+  ) => {
+    setSelectedExplanation({
+      explanation,
+      transcript,
+      correctAnswer,
+    });
+
+    logEvent(AnalyticsEvents.RESULTS_EXPLANATION_OPENED, {
+      question_id: questionId,
+      has_transcript: !!transcript,
+      exam_title: examTitle,
+      score_percentage: result.percentage, // result is guaranteed to be non-null here
+    });
+  };
+
+  const handleCloseExplanation = () => {
+    logEvent(AnalyticsEvents.RESULTS_EXPLANATION_CLOSED, {
+      exam_title: examTitle,
+    });
+    setSelectedExplanation(null);
   };
 
   return (
@@ -142,7 +193,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
 
                     {result.answers.map((answer, index) => (
                       <View
-                        key={index}
+                        key={answer.questionId || `answer-${index}`}
                         style={[
                           styles.answerRow,
                           answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
@@ -154,11 +205,12 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                             {!answer.isCorrect && answer.explanation && (
                               <TouchableOpacity
                                 style={styles.explainButton}
-                                onPress={() => setSelectedExplanation({
-                                  explanation: answer.explanation,
-                                  transcript: answer.transcript,
-                                  correctAnswer: answer.correctAnswer,
-                                })}
+                                onPress={() => handleShowExplanation(
+                                  answer.questionId,
+                                  answer.explanation,
+                                  answer.transcript,
+                                  answer.correctAnswer
+                                )}
                               >
                                 <Icon name="info-outline" size={16} color={colors.primary[500]} />
                                 <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
@@ -208,7 +260,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
 
       <ExplanationModal
         visible={selectedExplanation !== null}
-        onClose={() => setSelectedExplanation(null)}
+        onClose={handleCloseExplanation}
         explanation={selectedExplanation?.explanation}
         transcript={selectedExplanation?.transcript}
         correctAnswer={selectedExplanation?.correctAnswer}

@@ -15,6 +15,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import { useAuth } from '../../contexts/AuthContext';
 import LoginModal from '../../components/LoginModal';
 import offlineService from '../../services/offline.service';
+import { Transcription, TranscriptionSegment } from '../../types/exam.types';
 
 type ScreenRouteProp = RouteProp<HomeStackParamList, 'ListeningPractice'>;
 
@@ -33,8 +34,8 @@ const ListeningPracticeScreen: React.FC = () => {
     if (!timeString) return 0;
     const parts = timeString.split(':');
     if (parts.length === 2) {
-      const minutes = parseInt(parts[0], 10) || 0;
-      const seconds = parseInt(parts[1], 10) || 0;
+      const minutes = Number.parseInt(parts[0], 10) || 0;
+      const seconds = Number.parseInt(parts[1], 10) || 0;
       return minutes * 60 + seconds;
     }
     return 0;
@@ -49,8 +50,55 @@ const ListeningPracticeScreen: React.FC = () => {
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [isToggling, setIsToggling] = useState(false);
   const [isSeeking, setIsSeeking] = useState(false);
+  const [transcription, setTranscription] = useState<Transcription | null>(null);
+  const [currentSegment, setCurrentSegment] = useState<TranscriptionSegment | null>(null);
+  const [showTranscript, setShowTranscript] = useState(false);
 
   const isCompleted = userProgress?.exams?.some(e => e.examType === 'listening-practice' && e.examId === id && e.completed);
+
+  // Load transcription
+  useEffect(() => {
+    console.log('[ListeningPractice] Loading transcription from URL:', interview.transcription_url);
+    if (!interview.transcription_url) return;
+
+    const loadTranscription = async () => {
+      try {
+        const response = await fetch(interview.transcription_url!);
+        const data = await response.json() as Transcription;
+        console.log('[ListeningPractice] Loaded transcription:', data);
+        setTranscription(data);
+        logEvent(AnalyticsEvents.LISTENING_PRACTICE_TRANSCRIPT_LOADED, {
+          title: interview.title,
+          id: id,
+          segments_count: data.segments.length
+        });
+      } catch (error) {
+        console.error('Failed to load transcription:', error);
+        logEvent(AnalyticsEvents.LISTENING_PRACTICE_TRANSCRIPT_LOAD_FAILED, {
+          title: interview.title,
+          id: id,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    };
+
+    loadTranscription();
+  }, [interview.transcription_url, interview.title, id]);
+
+  // Update current segment based on playback time
+  useEffect(() => {
+    if (!transcription || !isPlaying) return;
+
+    const segment = transcription.segments.find(
+      seg => currentTime >= seg.start && currentTime <= seg.end
+    );
+
+    if (segment && segment.id !== currentSegment?.id) {
+      setCurrentSegment(segment);
+    }
+  }, [currentTime, transcription, isPlaying, currentSegment]);
+
+
 
   useEffect(() => {
     if (!interview.audio_url) {
@@ -188,6 +236,16 @@ const ListeningPracticeScreen: React.FC = () => {
     });
   };
 
+  const handleTranscriptToggle = () => {
+    const newState = !showTranscript;
+    setShowTranscript(newState);
+    logEvent(AnalyticsEvents.LISTENING_PRACTICE_TRANSCRIPT_TOGGLED, {
+      title: interview.title,
+      id: id,
+      enabled: newState
+    });
+  };
+
   return (
     <View style={styles.container}>
       <LoginModal
@@ -212,13 +270,32 @@ const ListeningPracticeScreen: React.FC = () => {
               <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
                 <FontAwesomeIcon name={I18nManager.isRTL ? "angle-right" : "angle-left"} size={24} color={colors.white} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleMarkCompleted} style={styles.actionButton}>
-                <MaterialIcon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={colors.white} />
-              </TouchableOpacity>
+              <View style={styles.topRightButtons}>
+                {transcription && (
+                  <TouchableOpacity 
+                    onPress={handleTranscriptToggle} 
+                    style={styles.actionButton}
+                  >
+                    <MaterialIcon name={showTranscript ? "subtitles-off" : "subtitles"} size={28} color={colors.white} />
+                  </TouchableOpacity>
+                )}
+                <TouchableOpacity onPress={handleMarkCompleted} style={styles.actionButton}>
+                  <MaterialIcon name={isCompleted ? "check-circle" : "check-circle-outline"} size={28} color={colors.white} />
+                </TouchableOpacity>
+              </View>
             </View>
 
             <View style={styles.contentContainer}>
               <Text style={styles.title}>{interview.title}</Text>
+
+              {/* Transcript Display - Current Segment Only */}
+              {showTranscript && currentSegment && (
+                <View style={styles.transcriptContainer}>
+                  <Text style={styles.transcriptText}>
+                    {currentSegment.text}
+                  </Text>
+                </View>
+              )}
 
               <View style={styles.bottomContainer}>
                 {/* Audio Controls */}
@@ -286,6 +363,11 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
+  },
+  topRightButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.margin.sm,
   },
   backButton: {
     width: 40,
@@ -385,6 +467,20 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h4,
     color: colors.white,
     fontWeight: 'bold',
+  },
+  transcriptContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.md,
+    marginBottom: spacing.margin.lg,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  transcriptText: {
+    ...typography.textStyles.h4,
+    color: colors.white,
+    textAlign: 'center',
+    lineHeight: 24,
   },
 });
 

@@ -408,6 +408,7 @@ class DataService {
   // Listening Practice
   async getListeningPracticeInterviews(): Promise<ListeningPracticeInterview[]> {
     const data = await this.fetchFromFirestore('listening-practice', null);
+    console.log('[ListeningPractice] Loaded interviews:', data?.interviews);
     return data?.interviews || [];
   }
 

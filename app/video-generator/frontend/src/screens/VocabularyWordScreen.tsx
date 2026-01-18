@@ -4,7 +4,6 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { getAppConfig } from '../config/apps';
 import { VocabularyWord } from '../types';
-import logoImage from '../assets/logo.jpg';
 import SA from 'country-flag-icons/react/3x2/SA';
 import FR from 'country-flag-icons/react/3x2/FR';
 import ES from 'country-flag-icons/react/3x2/ES';
@@ -21,6 +20,9 @@ const VocabularyWordScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const appConfig = getAppConfig(appId);
+  
+  // Generate logo path based on language and level
+  const logoPath = `/src/assets/${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}-logo.png`;
 
   useEffect(() => {
     if (isCapture) {
@@ -102,7 +104,7 @@ const VocabularyWordScreen: React.FC = () => {
       {/* Logo in top right */}
       <div className="screen-logo">
         <div className="logo-small">
-          <img src={logoImage} alt={`${appConfig.level} TELC`} className="logo-small-image" />
+          <img src={logoPath} alt={`${appConfig.level} TELC`} className="logo-small-image" />
         </div>
       </div>
 

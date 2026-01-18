@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getAppConfig } from '../config/apps';
-import logoImage from '../assets/logo.jpg';
 import appStoreImage from '../assets/app-store.png';
 import googlePlayImage from '../assets/google-play.png';
 import './OutroScreen.css';
@@ -11,6 +10,9 @@ const OutroScreen: React.FC = () => {
   const appId = searchParams.get('appId') || 'german-a1';
   const isCapture = searchParams.get('capture') === 'true';
   const appConfig = getAppConfig(appId);
+  
+  // Generate logo path based on language and level
+  const logoPath = `/src/assets/${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}-logo.png`;
 
   // Signal to Puppeteer that screen is ready
   useEffect(() => {
@@ -38,7 +40,7 @@ const OutroScreen: React.FC = () => {
       <div className="outro-content">
         <div className="logo-container">
           <div className="logo-circle">
-            <img src={logoImage} alt={`${appConfig.level} TELC`} className="logo-image" />
+            <img src={logoPath} alt={`${appConfig.level} TELC`} className="logo-image" />
           </div>
         </div>
         

@@ -6,7 +6,6 @@ import { getAppConfig, getFirebaseCollection, questionTexts } from '../config/ap
 import { ReadingPart2A1Question, ReadingPart3A1Question } from '../types';
 import A1QuestionReadingPart2 from '../components/A1QuestionReadingPart2';
 import A1QuestionReadingPart3 from '../components/A1QuestionReadingPart3';
-import logoImage from '../assets/logo.jpg';
 import './AnswerScreen.css';
 
 const AnswerScreen: React.FC = () => {
@@ -21,6 +20,9 @@ const AnswerScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const appConfig = getAppConfig(appId);
+  
+  // Generate logo path based on language and level
+  const logoPath = `/src/assets/${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}-logo.png`;
 
   useEffect(() => {
     if (isCapture) {
@@ -130,7 +132,7 @@ const AnswerScreen: React.FC = () => {
       {/* Logo in top right */}
       <div className="screen-logo">
         <div className="logo-small">
-          <img src={logoImage} alt={`${appConfig.level} TELC`} className="logo-small-image" />
+          <img src={logoPath} alt={`${appConfig.level} TELC`} className="logo-small-image" />
         </div>
       </div>
 

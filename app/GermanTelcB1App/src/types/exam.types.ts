@@ -267,6 +267,28 @@ export interface ListeningPracticeInterview {
   image_url: string;
   questions: ListeningPracticeQuestion[];
   duration: string;
+  transcription_url?: string;
+}
+
+export interface TranscriptionWord {
+  word: string;
+  start: number;
+  end: number;
+  probability: number;
+  line_number: number;
+}
+
+export interface TranscriptionSegment {
+  id: string;
+  start: number;
+  end: number;
+  text: string;
+  words: TranscriptionWord[];
+}
+
+export interface Transcription {
+  createdAt: string;
+  segments: TranscriptionSegment[];
 }
 
 // User Progress Types
