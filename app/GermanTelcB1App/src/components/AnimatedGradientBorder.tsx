@@ -20,19 +20,33 @@ const AnimatedGradientBorder: React.FC<AnimatedGradientBorderProps> = ({
   duration = 3000,
 }) => {
   const rotateAnim = useRef(new Animated.Value(0)).current;
+  const animationRef = useRef<Animated.CompositeAnimation | null>(null);
 
   useEffect(() => {
-    // Create infinite rotation animation
-    Animated.loop(
+    // Create and store animation reference
+    animationRef.current = Animated.loop(
       Animated.timing(rotateAnim, {
         toValue: 1,
         duration,
         useNativeDriver: true,
       })
-    ).start();
+    );
+    
+    animationRef.current.start();
 
-    console.log(Dimensions.get('window').width)
-  }, [duration]);
+    console.log(Dimensions.get('window').width);
+
+    // Cleanup: stop animation and reset to prevent orphaned nodes
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+        animationRef.current = null;
+      }
+      // Stop any ongoing animation and reset value
+      rotateAnim.stopAnimation();
+      rotateAnim.setValue(0);
+    };
+  }, [duration, rotateAnim]);
 
   // Interpolate rotation value to degrees
   const rotate = rotateAnim.interpolate({

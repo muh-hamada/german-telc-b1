@@ -4,7 +4,7 @@
  * Screen for reviewing vocabulary words with SM-2 ratings.
  */
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -40,12 +40,23 @@ const VocabularyReviewScreen: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [reviewsCompleted, setReviewsCompleted] = useState(0);
-  const [fadeAnim] = useState(new Animated.Value(1));
+  // Use useRef instead of useState for stable animated value
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  const animationRef = useRef<Animated.CompositeAnimation | null>(null);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
 
   useEffect(() => {
     loadDueWords();
-  }, []);
+
+    // Cleanup on unmount: stop any ongoing animations
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+        animationRef.current = null;
+      }
+      fadeAnim.stopAnimation();
+    };
+  }, [fadeAnim]);
 
   const loadDueWords = async () => {
     try {
@@ -73,12 +84,19 @@ const VocabularyReviewScreen: React.FC = () => {
     const currentWord = words[currentIndex];
     
     try {
+      // Stop any ongoing animation
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
+
       // Fade out animation
-      Animated.timing(fadeAnim, {
+      animationRef.current = Animated.timing(fadeAnim, {
         toValue: 0,
         duration: 200,
         useNativeDriver: true,
-      }).start(async () => {
+      });
+      
+      animationRef.current.start(async () => {
         await reviewWord(currentWord.id, rating);
         
         logEvent(AnalyticsEvents.VOCABULARY_WORD_REVIEWED, {
@@ -96,11 +114,12 @@ const VocabularyReviewScreen: React.FC = () => {
           setIsFlipped(false);
           
           // Fade in animation
-          Animated.timing(fadeAnim, {
+          animationRef.current = Animated.timing(fadeAnim, {
             toValue: 1,
             duration: 200,
             useNativeDriver: true,
-          }).start();
+          });
+          animationRef.current.start();
         } else {
           handleComplete(newReviewsCompleted);
         }
@@ -109,6 +128,9 @@ const VocabularyReviewScreen: React.FC = () => {
       console.error('[VocabularyReviewScreen] Error reviewing word:', error);
       
       // Reset animation
+      if (animationRef.current) {
+        animationRef.current.stop();
+      }
       fadeAnim.setValue(1);
     }
   };

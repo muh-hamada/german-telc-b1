@@ -184,14 +184,46 @@ class PurchaseService {
    * Purchase premium
    */
   async purchasePremium(sourceScreen?: string): Promise<void> {
+    // Check if initialized, if not try to initialize
     if (!this.isInitialized) {
-      console.error('[PurchaseService] Cannot purchase - not initialized');
-      throw new Error('IAP not initialized');
+      console.log('[PurchaseService] Not initialized, attempting to initialize...');
+      const initialized = await this.initialize();
+      if (!initialized) {
+        console.error('[PurchaseService] Cannot purchase - initialization failed');
+        throw new Error('Billing service not available. Please check your Google Play Services.');
+      }
     }
 
     try {
       const productId = getProductId();
       console.log('[PurchaseService] Requesting purchase for:', productId);
+      
+      // Verify product details are available before purchase
+      // This prevents null PendingIntent crashes in ProxyBillingActivity
+      // We validate by fetching products again to ensure:
+      // 1. Billing connection is still active
+      // 2. Product details are available to Google Play
+      // 3. All data needed for PendingIntent creation exists
+      // The small delay (~100-500ms) is acceptable to prevent crashes
+      console.log('[PurchaseService] Verifying product availability before purchase...');
+      const products = await this.getProducts();
+      
+      if (!products || products.length === 0) {
+        console.error('[PurchaseService] No products available - cannot proceed with purchase');
+        throw new Error('Product not available. Please try again later.');
+      }
+      
+      const product = products.find(p => p.productId === productId);
+      if (!product) {
+        console.error('[PurchaseService] Product not found:', productId);
+        throw new Error('Product not found. Please try again later.');
+      }
+      
+      console.log('[PurchaseService] Product verified, proceeding with purchase:', {
+        productId: product.productId,
+        hasPrice: !!this.productPrice,
+        hasCurrency: !!this.productCurrency,
+      });
       
       logEvent(AnalyticsEvents.PREMIUM_PURCHASE_INITIATED, {
         productId,

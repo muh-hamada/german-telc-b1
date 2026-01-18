@@ -4,7 +4,7 @@
  * Flashcard component for displaying vocabulary words with flip animation.
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -31,15 +31,33 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, isFlipped, onFlip
   const { i18n, t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
-  const [flipAnim] = useState(new Animated.Value(0));
+  // Use useRef instead of useState to ensure stable animated value across re-renders
+  const flipAnim = useRef(new Animated.Value(0)).current;
+  const animationRef = useRef<Animated.CompositeAnimation | null>(null);
 
   React.useEffect(() => {
-    Animated.spring(flipAnim, {
+    // Stop any ongoing animation before starting a new one
+    if (animationRef.current) {
+      animationRef.current.stop();
+    }
+
+    animationRef.current = Animated.spring(flipAnim, {
       toValue: isFlipped ? 180 : 0,
       friction: 8,
       tension: 10,
       useNativeDriver: true,
-    }).start();
+    });
+    
+    animationRef.current.start();
+
+    // Cleanup on unmount
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+        animationRef.current = null;
+      }
+      flipAnim.stopAnimation();
+    };
   }, [isFlipped, flipAnim]);
 
   const frontInterpolate = flipAnim.interpolate({

@@ -38,6 +38,7 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
   const textScaleAnim = useRef(new Animated.Value(0.9)).current;
   const textFadeAnim = useRef(new Animated.Value(0)).current;
   const hintFadeAnim = useRef(new Animated.Value(0)).current;
+  const animationRef = useRef<Animated.CompositeAnimation | null>(null);
 
   useEffect(() => {
     if (visible) {
@@ -49,7 +50,7 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
       hintFadeAnim.setValue(0);
 
       // Run all animations in parallel with staggered timing for smooth effect
-      Animated.parallel([
+      animationRef.current = Animated.parallel([
         // Container fade and scale
         Animated.timing(containerFadeAnim, {
           toValue: 1,
@@ -86,14 +87,28 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
             useNativeDriver: true,
           }),
         ]),
-      ]).start();
+      ]);
+      
+      animationRef.current.start();
 
       // Auto close after 4 seconds
       const timer = setTimeout(() => {
         onClose();
       }, 4000);
 
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        // Stop all animations and reset values to prevent orphaned nodes
+        if (animationRef.current) {
+          animationRef.current.stop();
+          animationRef.current = null;
+        }
+        containerScaleAnim.stopAnimation();
+        containerFadeAnim.stopAnimation();
+        textScaleAnim.stopAnimation();
+        textFadeAnim.stopAnimation();
+        hintFadeAnim.stopAnimation();
+      };
     }
   }, [visible, containerScaleAnim, containerFadeAnim, textScaleAnim, textFadeAnim, hintFadeAnim, onClose]);
 

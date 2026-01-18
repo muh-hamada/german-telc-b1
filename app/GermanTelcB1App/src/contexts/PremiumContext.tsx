@@ -445,6 +445,13 @@ export const PremiumProvider: React.FC<PremiumProviderProps> = ({ children }) =>
       return false;
     }
 
+    // Check if IAP service is ready before attempting purchase
+    if (!purchaseService.isReady()) {
+      console.error('[PremiumContext] Cannot purchase - IAP service not ready');
+      setError('Billing service not ready. Please try again.');
+      return false;
+    }
+
     try {
       // Analytics logged in purchase.service.ts
       setIsPurchasing(true);

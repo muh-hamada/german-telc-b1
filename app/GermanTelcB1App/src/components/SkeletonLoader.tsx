@@ -22,9 +22,11 @@ export const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
   style,
 }) => {
   const opacity = useRef(new Animated.Value(0.3)).current;
+  const animationRef = useRef<Animated.CompositeAnimation | null>(null);
 
   useEffect(() => {
-    const animation = Animated.loop(
+    // Create and store animation reference
+    animationRef.current = Animated.loop(
       Animated.sequence([
         Animated.timing(opacity, {
           toValue: 1,
@@ -39,9 +41,18 @@ export const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
       ])
     );
 
-    animation.start();
+    animationRef.current.start();
 
-    return () => animation.stop();
+    // Cleanup: stop animation and reset value to prevent orphaned nodes
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.stop();
+        animationRef.current = null;
+      }
+      // Reset the animated value to prevent dangling references
+      opacity.stopAnimation();
+      opacity.setValue(0.3);
+    };
   }, [opacity]);
 
   return (
