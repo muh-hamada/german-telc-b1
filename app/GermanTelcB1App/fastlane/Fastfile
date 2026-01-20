@@ -1,0 +1,208 @@
+# Fastfile for Telc Exam Apps
+# This file contains the fastlane.tools configuration for Android and iOS releases
+
+default_platform(:android)
+
+# Path to update messages JSON file
+UPDATE_MESSAGES_PATH = File.expand_path("../../update-messages.json", __dir__)
+
+# Helper method to load update messages
+def load_update_message(index)
+  unless File.exist?(UPDATE_MESSAGES_PATH)
+    UI.user_error!("Update messages file not found at: #{UPDATE_MESSAGES_PATH}")
+  end
+  
+  messages = JSON.parse(File.read(UPDATE_MESSAGES_PATH))
+  
+  if index < 0 || index >= messages.length
+    UI.user_error!("Invalid message index: #{index}. Must be between 0 and #{messages.length - 1}")
+  end
+  
+  messages[index]
+end
+
+# Helper method to remove emojis from text (for App Store)
+def remove_emojis(text)
+  # Remove all emoji characters and extra spaces
+  text.gsub(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/u, '')
+      .gsub(/\s+/, ' ')  # Replace multiple spaces with single space
+      .strip             # Remove leading/trailing whitespace
+end
+
+# Helper method to get app configuration
+def get_app_config(app_id)
+  case app_id
+  when "german-a1"
+    {
+      android_package: "com.mhamada.telca1german",
+      ios_bundle_id: "com.mhamada.telca1german"
+    }
+  when "german-b1"
+    {
+      android_package: "com.mhamada.telcb1german",
+      ios_bundle_id: "com.mhamada.telcb1german"
+    }
+  when "german-b2"
+    {
+      android_package: "com.mhamada.telcb2german",
+      ios_bundle_id: "com.mhamada.telcb2german"
+    }
+  when "english-b1"
+    {
+      android_package: "com.mhamada.telcb1english",
+      ios_bundle_id: "com.mhamada.telcb1english"
+    }
+  when "english-b2"
+    {
+      android_package: "com.mhamada.telcb2english",
+      ios_bundle_id: "com.mhamada.telcb2english"
+    }
+  else
+    UI.user_error!("Unknown app ID: #{app_id}")
+  end
+end
+
+platform :android do
+  desc "Upload AAB to Google Play Store and create release"
+  lane :release do |options|
+    # Validate required parameters
+    unless options[:app_id]
+      UI.user_error!("app_id parameter is required")
+    end
+    
+    unless options[:aab_path]
+      UI.user_error!("aab_path parameter is required")
+    end
+    
+    unless options[:message_index]
+      UI.user_error!("message_index parameter is required")
+    end
+    
+    app_config = get_app_config(options[:app_id])
+    package_name = app_config[:android_package]
+    aab_path = options[:aab_path]
+    message_index = options[:message_index].to_i
+    rollout = options[:rollout] || 1.0  # Default to 100% rollout
+    track = options[:track] || "production"
+    
+    # Validate AAB file exists
+    unless File.exist?(aab_path)
+      UI.user_error!("AAB file not found at: #{aab_path}")
+    end
+    
+    # Load update message
+    update_message = load_update_message(message_index)
+    
+    UI.message("📦 Uploading to Play Store...")
+    UI.message("   App: #{options[:app_id]}")
+    UI.message("   Package: #{package_name}")
+    UI.message("   AAB: #{aab_path}")
+    UI.message("   Track: #{track}")
+    UI.message("   Rollout: #{(rollout * 100).to_i}%")
+    
+    # Upload to Google Play
+    upload_to_play_store(
+      package_name: package_name,
+      aab: aab_path,
+      track: track,
+      rollout: rollout.to_s,
+      release_status: "completed",
+      skip_upload_metadata: false,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: false,
+      
+      # Release notes in multiple languages
+      release_notes: {
+        "en-US" => update_message["en"],
+        "de-DE" => update_message["de"],
+        "es-ES" => update_message["es"],
+        "fr-FR" => update_message["fr"],
+        "it-IT" => update_message["it"],
+        "pt-PT" => update_message["pt"],
+        "ru-RU" => update_message["ru"],
+        "ar" => update_message["ar"],
+        "tr-TR" => update_message["tr"]
+      }
+    )
+    
+    UI.success("✅ Successfully uploaded #{options[:app_id]} to Google Play Store!")
+  end
+end
+
+platform :ios do
+  desc "Create release in App Store Connect and submit for review"
+  lane :release do |options|
+    # Validate required parameters
+    unless options[:app_id]
+      UI.user_error!("app_id parameter is required")
+    end
+    
+    unless options[:version]
+      UI.user_error!("version parameter is required")
+    end
+    
+    unless options[:build_number]
+      UI.user_error!("build_number parameter is required")
+    end
+    
+    unless options[:message_index]
+      UI.user_error!("message_index parameter is required")
+    end
+    
+    app_config = get_app_config(options[:app_id])
+    # Remove emojis from messages for App Store (App Store rejects emojis in release notes)
+    ios_message = {
+      "en-US" => remove_emojis(update_message["en"]),
+      "de-DE" => remove_emojis(update_message["de"]),
+      "es-ES" => remove_emojis(update_message["es"]),
+      "fr-FR" => remove_emojis(update_message["fr"]),
+      "it-IT" => remove_emojis(update_message["it"]),
+      "pt-PT" => remove_emojis(update_message["pt"]),
+      "ru-RU" => remove_emojis(update_message["ru"]),
+      "ar" => remove_emojis(update_message["ar"]),
+      "tr-TR" => remove_emojis(update_message["tr"])
+    }
+    
+    UI.message("🍎 Creating App Store release...")
+    UI.message("   App: #{options[:app_id]}")
+    UI.message("   Bundle ID: #{bundle_id}")
+    UI.message("   Version: #{version}")
+    UI.message("   Build: #{build_number}")
+    
+    # Create/update app version in App Store Connect
+    deliver(
+      app_identifier: bundle_id,
+      app_version: version,
+      build_number: build_number,
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: false,
+      force: true,
+      submit_for_review: true,
+      automatic_release: true,
+      
+      # Release notes in multiple languages (without emojis)
+      release_notes: ios_message "de-DE" => update_message["de"],
+        "es-ES" => update_message["es"],
+        "fr-FR" => update_message["fr"],
+        "it-IT" => update_message["it"],
+        "pt-PT" => update_message["pt"],
+        "ru-RU" => update_message["ru"],
+        "ar" => update_message["ar"],
+        "tr-TR" => update_message["tr"]
+      },
+      
+      # Compliance answers
+      submission_information: {
+        export_compliance_uses_encryption: true,
+        export_compliance_encryption_updated: false,
+        export_compliance_is_exempt: true,
+        content_rights_contains_third_party_content: false,
+        add_id_info_uses_idfa: false
+      }
+    )
+    
+    UI.success("✅ Successfully created release for #{options[:app_id]} in App Store Connect!")
+  end
+end

@@ -53,6 +53,10 @@ yarn-error.log
 **/fastlane/screenshots
 **/fastlane/test_output
 
+# Release automation
+dist/
+release-logs/
+
 # Bundle artifact
 *.jsbundle
 
