@@ -29,6 +29,53 @@ def remove_emojis(text)
       .strip             # Remove leading/trailing whitespace
 end
 
+# Helper method to write Play Store changelogs
+def write_play_store_changelogs(package_name, update_message)
+  # Base metadata path (absolute path using fastlane directory)
+  # Use File.expand_path to ensure we get an absolute path
+  # NOTE: We don't include package_name in the path - fastlane handles that via the package_name parameter
+  base_metadata_path = File.expand_path(File.join(__dir__, "metadata", "android"))
+  
+  # Create base metadata directory first
+  FileUtils.mkdir_p(base_metadata_path)
+  
+  # Language mapping for Play Store (Play Store uses different locale codes)
+  locale_mapping = {
+    "en" => "en-US",
+    "de" => "de-DE",
+    "es" => "es-ES",
+    "fr" => "fr-FR",
+    "it" => "it-IT",
+    "pt" => "pt-PT",
+    "ru" => "ru-RU",
+    "ar" => "ar",
+    "tr" => "tr-TR"
+  }
+  
+  locale_mapping.each do |msg_key, play_locale|
+    # Validate that the message exists for this language
+    unless update_message[msg_key]
+      UI.error("⚠️  Warning: Missing translation for '#{msg_key}', using English as fallback")
+      changelog_text = update_message["en"] || "Bug fixes and improvements"
+    else
+      changelog_text = update_message[msg_key]
+    end
+    
+    # Write changelogs directly under locale directories (no package name in path)
+    changelog_dir = File.join(base_metadata_path, play_locale, "changelogs")
+    FileUtils.mkdir_p(changelog_dir)
+    
+    # Write the changelog (filename doesn't matter for new releases)
+    changelog_file = File.join(changelog_dir, "default.txt")
+    File.write(changelog_file, changelog_text)
+  end
+  
+  UI.message("   📝 Changelogs written to: #{base_metadata_path}")
+  
+  # Return absolute path to base metadata directory
+  base_metadata_path
+end
+
 # Helper method to get app configuration
 def get_app_config(app_id)
   case app_id
@@ -100,30 +147,21 @@ platform :android do
     UI.message("   Track: #{track}")
     UI.message("   Rollout: #{(rollout * 100).to_i}%")
     
+    # Write changelogs to metadata directory
+    metadata_path = write_play_store_changelogs(package_name, update_message)
+    
     # Upload to Google Play
     upload_to_play_store(
       package_name: package_name,
       aab: aab_path,
       track: track,
-      rollout: rollout.to_s,
+      rollout: rollout,  # Already a float, no need to convert to string
       release_status: "completed",
-      skip_upload_metadata: false,
+      metadata_path: metadata_path,
+      skip_upload_metadata: true,
       skip_upload_images: true,
       skip_upload_screenshots: true,
-      skip_upload_changelogs: false,
-      
-      # Release notes in multiple languages
-      release_notes: {
-        "en-US" => update_message["en"],
-        "de-DE" => update_message["de"],
-        "es-ES" => update_message["es"],
-        "fr-FR" => update_message["fr"],
-        "it-IT" => update_message["it"],
-        "pt-PT" => update_message["pt"],
-        "ru-RU" => update_message["ru"],
-        "ar" => update_message["ar"],
-        "tr-TR" => update_message["tr"]
-      }
+      skip_upload_changelogs: false
     )
     
     UI.success("✅ Successfully uploaded #{options[:app_id]} to Google Play Store!")
@@ -151,7 +189,17 @@ platform :ios do
     end
     
     app_config = get_app_config(options[:app_id])
+    bundle_id = app_config[:ios_bundle_id]
+    version = options[:version]
+    build_number = options[:build_number]
+    message_index = options[:message_index].to_i
+    
+    # Load update message
+    update_message = load_update_message(message_index)
+    
     # Remove emojis from messages for App Store (App Store rejects emojis in release notes)
+    # NOTE: Only include languages that are enabled in App Store Connect
+    # To add more languages: App Store Connect > Your App > Version > Click "+" next to language selector
     ios_message = {
       "en-US" => remove_emojis(update_message["en"]),
       "de-DE" => remove_emojis(update_message["de"]),
@@ -174,24 +222,16 @@ platform :ios do
     deliver(
       app_identifier: bundle_id,
       app_version: version,
-      build_number: build_number,
+      build_number: build_number.to_s,  # Ensure build_number is a string
       skip_binary_upload: true,
       skip_screenshots: true,
-      skip_metadata: false,
+      skip_metadata: true,  # Skip metadata to avoid localization errors - only update release notes
       force: true,
       submit_for_review: true,
       automatic_release: true,
       
-      # Release notes in multiple languages (without emojis)
-      release_notes: ios_message "de-DE" => update_message["de"],
-        "es-ES" => update_message["es"],
-        "fr-FR" => update_message["fr"],
-        "it-IT" => update_message["it"],
-        "pt-PT" => update_message["pt"],
-        "ru-RU" => update_message["ru"],
-        "ar" => update_message["ar"],
-        "tr-TR" => update_message["tr"]
-      },
+      # Release notes in English only (safest approach)
+      release_notes: ios_message,
       
       # Compliance answers
       submission_information: {

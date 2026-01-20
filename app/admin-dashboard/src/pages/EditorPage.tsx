@@ -127,9 +127,15 @@ export const EditorPage: React.FC = () => {
       const level = (appConfig?.level || 'B1') as 'B1' | 'B2';
       const validation = validateDocument(documentId, parsedData, level);
       if (!validation.valid) {
-        toast.error('Cannot save: Validation failed');
         setValidationErrors(validation.errors);
-        return;
+        const confirmSave = window.confirm(
+          `Validation failed with ${validation.errors.length} error(s).\n\nDo you want to save anyway?`
+        );
+        if (!confirmSave) {
+          toast.error('Save cancelled due to validation errors');
+          return;
+        }
+        toast.warning('Saving document with validation errors...');
       }
 
       // Save to Firestore

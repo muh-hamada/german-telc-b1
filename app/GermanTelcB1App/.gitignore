@@ -58,6 +58,9 @@ yarn-error.log
 **/fastlane/*.p12
 **/fastlane/*.mobileprovision
 
+# Fastlane metadata (generated dynamically)
+**/fastlane/metadata/
+
 # Release automation
 dist/
 release-logs/
