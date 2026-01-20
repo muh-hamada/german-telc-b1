@@ -169,16 +169,16 @@ const Home: React.FC = () => {
             </p>
             <div className="stats">
               <div className="stat-item">
-                <h3>Multiple Levels</h3>
-                <p>B1, B2 & More</p>
+                <h3>5 Apps Available</h3>
+                <p>A1, B1, B2 Levels</p>
               </div>
               <div className="stat-item">
-                <h3>Multiple Languages</h3>
-                <p>German, English & More</p>
+                <h3>2 Languages</h3>
+                <p>German & English</p>
               </div>
               <div className="stat-item">
-                <h3>Track Progress</h3>
-                <p>Monitor Your Success</p>
+                <h3>Both Platforms</h3>
+                <p>iOS & Android</p>
               </div>
             </div>
           </div>
@@ -192,27 +192,48 @@ const Home: React.FC = () => {
           <div className="features-grid">
             <div className="feature-item">
               <div className="feature-icon">🇩🇪</div>
+              <h3>German A1</h3>
+              <p>Beginner level preparation for TELC German A1 exam with comprehensive exercises.</p>
+              <div style={{ marginTop: '10px' }}>
+                <a href="https://play.google.com/store/apps/details?id=com.mhamada.telca1german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
+                <a href="https://apps.apple.com/app/id6756783649" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
+              </div>
+            </div>
+            <div className="feature-item">
+              <div className="feature-icon">🇩🇪</div>
               <h3>German B1</h3>
               <p>Complete preparation for TELC German B1 exam with all sections covered.</p>
-              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>Download Now →</a>
+              <div style={{ marginTop: '10px' }}>
+                <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
+                <a href="https://apps.apple.com/app/id6754566955" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
+              </div>
             </div>
             <div className="feature-item">
               <div className="feature-icon">🇩🇪</div>
               <h3>German B2</h3>
               <p>Advanced level preparation for TELC German B2 exam.</p>
-              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb2german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>Download Now →</a>
+              <div style={{ marginTop: '10px' }}>
+                <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb2german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
+                <a href="https://apps.apple.com/app/id6755521000" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
+              </div>
             </div>
             <div className="feature-item">
               <div className="feature-icon">🇬🇧</div>
               <h3>English B1</h3>
               <p>Comprehensive preparation for TELC English B1 exam.</p>
-              <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>Download Now →</a>
+              <div style={{ marginTop: '10px' }}>
+                <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
+                <a href="https://apps.apple.com/app/id6755912773" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
+              </div>
             </div>
             <div className="feature-item">
               <div className="feature-icon">🇬🇧</div>
               <h3>English B2</h3>
               <p>Advanced level preparation for TELC English B2 exam.</p>
-              <span style={{ color: '#999' }}>Coming Soon</span>
+              <div style={{ marginTop: '10px' }}>
+                <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb2english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
+                <a href="https://apps.apple.com/app/id6756295159" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
+              </div>
             </div>
           </div>
         </div>

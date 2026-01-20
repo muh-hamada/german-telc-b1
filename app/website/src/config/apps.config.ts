@@ -4,7 +4,7 @@
  */
 
 export type AppLanguage = 'german' | 'english';
-export type AppLevel = 'B1' | 'B2';
+export type AppLevel = 'A1' | 'B1' | 'B2';
 
 export interface AppConfig {
   id: string;
@@ -22,6 +22,20 @@ export interface AppConfig {
 }
 
 export const appsConfig: AppConfig[] = [
+  {
+    id: 'german-a1',
+    language: 'german',
+    level: 'A1',
+    displayName: 'German TELC A1',
+    flag: '🇩🇪',
+    isAvailable: true,
+    storeLinks: {
+      android: 'https://play.google.com/store/apps/details?id=com.mhamada.telca1german',
+      ios: 'https://apps.apple.com/app/id6756783649',
+    },
+    packageName: 'com.mhamada.telca1german',
+    iosAppId: '6756783649',
+  },
   {
     id: 'german-b1',
     language: 'german',
@@ -70,13 +84,13 @@ export const appsConfig: AppConfig[] = [
     level: 'B2',
     displayName: 'English TELC B2',
     flag: '🇬🇧',
-    isAvailable: false, // Coming soon
+    isAvailable: true,
     storeLinks: {
-      android: '',
-      ios: '',
+      android: 'https://play.google.com/store/apps/details?id=com.mhamada.telcb2english',
+      ios: 'https://apps.apple.com/app/id6756295159',
     },
     packageName: 'com.mhamada.telcb2english',
-    iosAppId: '',
+    iosAppId: '6756295159',
   },
 ];
 

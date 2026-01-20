@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import { useAppTheme } from '../contexts/ThemeContext';
 import { ExamResult } from '../types/exam.types';
 import Button from './Button';
 import SupportAdButton from './SupportAdButton';
-import ExplanationModal from './ExplanationModal';
+import MarkdownText from './MarkdownText';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -34,16 +34,29 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   onRetry,
   examTitle,
 }) => {
-  const { t } = useCustomTranslation();
+  const { t, i18n } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const hasLoggedButtonShown = useRef<boolean>(false);
   const hasLoggedModalShown = useRef<boolean>(false);
-  const [selectedExplanation, setSelectedExplanation] = React.useState<{
+  
+  // View mode state: 'results' or 'explanation'
+  const [viewMode, setViewMode] = useState<'results' | 'explanation'>('results');
+  const [selectedExplanation, setSelectedExplanation] = useState<{
     explanation: Record<string, string> | undefined;
     transcript?: string;
     correctAnswer?: string;
   } | null>(null);
+
+  const currentLang = i18n.language;
+
+  // Reset view mode when modal closes
+  useEffect(() => {
+    if (!visible) {
+      setViewMode('results');
+      setSelectedExplanation(null);
+    }
+  }, [visible]);
 
   // Track when result modal is shown with explanation count
   useEffect(() => {
@@ -130,6 +143,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
       transcript,
       correctAnswer,
     });
+    setViewMode('explanation');
 
     logEvent(AnalyticsEvents.RESULTS_EXPLANATION_OPENED, {
       question_id: questionId,
@@ -143,129 +157,178 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
     logEvent(AnalyticsEvents.RESULTS_EXPLANATION_CLOSED, {
       exam_title: examTitle,
     });
+    setViewMode('results');
     setSelectedExplanation(null);
   };
 
+  // Get localized explanation
+  const getLocalizedExplanation = () => {
+    if (!selectedExplanation?.explanation) return '';
+    const explanation = selectedExplanation.explanation;
+    return explanation[currentLang] || explanation['en'] || explanation['de'] || Object.values(explanation)[0];
+  };
+
   return (
-    <>
-      <Modal
-        visible={visible}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={onClose}
-      >
-        <View style={styles.overlay}>
-          <SafeAreaView style={styles.safeArea}>
-            <View style={styles.modalContainer}>
-              <ScrollView
-                style={styles.scrollView}
-                contentContainerStyle={styles.contentContainer}
-                showsVerticalScrollIndicator={false}
-              >
-                {/* Header */}
-                <View style={styles.header}>
-                  <Text style={styles.title}>{t('results.title')}</Text>
-                  <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-                    <Text style={styles.closeButtonText}>✕</Text>
-                  </TouchableOpacity>
-                </View>
+    <Modal
+      visible={visible}
+      animationType="slide"
+      transparent={true}
+      onRequestClose={onClose}
+    >
+      <View style={styles.overlay}>
+        <SafeAreaView style={styles.safeArea}>
+          <View style={styles.modalContainer}>
+            {/* Header */}
+            <View style={styles.header}>
+              {viewMode === 'explanation' && (
+                <TouchableOpacity 
+                  style={styles.backButton} 
+                  onPress={handleCloseExplanation}
+                >
+                  <Icon name="arrow-back" size={24} color={colors.text.primary} />
+                </TouchableOpacity>
+              )}
+              <Text style={styles.title}>
+                {viewMode === 'results' ? t('results.title') : t('results.explanationTitle')}
+              </Text>
+              <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+                <Icon name="close" size={20} color={colors.text.secondary} />
+              </TouchableOpacity>
+            </View>
 
-                {/* Score Summary */}
-                <View style={styles.scoreContainer}>
-                  <View style={styles.scoreContainerInner}>
-                    <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
+            {/* Content */}
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={styles.contentContainer}
+              showsVerticalScrollIndicator={false}
+            >
+              {viewMode === 'results' ? (
+                // Results View
+                <>
+                  {/* Score Summary */}
+                  <View style={styles.scoreContainer}>
+                    <View style={styles.scoreContainerInner}>
+                      <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
+                    </View>
+                    <View style={styles.scoreContainerInner}>
+                      <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
+                        {result.percentage}%
+                      </Text>
+                      <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
+                      <Text style={styles.scoreDetails}>
+                        {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
+                      </Text>
+                    </View>
                   </View>
-                  <View style={styles.scoreContainerInner}>
-                    <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
-                      {result.percentage}%
-                    </Text>
-                    <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
-                    <Text style={styles.scoreDetails}>
-                      {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
-                    </Text>
-                  </View>
-                </View>
 
-                {/* Detailed Results */}
-                {result.answers.length > 0 && (
-                  <View style={styles.detailsContainer}>
-                    <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
+                  {/* Detailed Results */}
+                  {result.answers.length > 0 && (
+                    <View style={styles.detailsContainer}>
+                      <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
 
-                    {result.answers.map((answer, index) => (
-                      <View
-                        key={answer.questionId || `answer-${index}`}
-                        style={[
-                          styles.answerRow,
-                          answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
-                        ]}
-                      >
-                        <View style={styles.answerHeader}>
-                          <View style={styles.questionNumberContainer}>
-                            <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                            {!answer.isCorrect && answer.explanation && (
-                              <TouchableOpacity
-                                style={styles.explainButton}
-                                onPress={() => handleShowExplanation(
-                                  answer.questionId,
-                                  answer.explanation,
-                                  answer.transcript,
-                                  answer.correctAnswer
-                                )}
-                              >
-                                <Icon name="info-outline" size={16} color={colors.primary[500]} />
-                                <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
-                              </TouchableOpacity>
-                            )}
-                          </View>
-                          <View style={styles.statusContainer}>
-                            <Text style={[
-                              styles.status,
-                              answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
-                            ]}>
-                              {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
-                            </Text>
+                      {result.answers.map((answer, index) => (
+                        <View
+                          key={answer.questionId || `answer-${index}`}
+                          style={[
+                            styles.answerRow,
+                            answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
+                          ]}
+                        >
+                          <View style={styles.answerHeader}>
+                            <View style={styles.questionNumberContainer}>
+                              <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
+                              {!answer.isCorrect && answer.explanation && (
+                                <TouchableOpacity
+                                  style={styles.explainButton}
+                                  onPress={() => handleShowExplanation(
+                                    answer.questionId,
+                                    answer.explanation,
+                                    answer.transcript,
+                                    answer.correctAnswer
+                                  )}
+                                >
+                                  <Icon name="info-outline" size={16} color={colors.primary[500]} />
+                                  <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
+                                </TouchableOpacity>
+                              )}
+                            </View>
+                            <View style={styles.statusContainer}>
+                              <Text style={[
+                                styles.status,
+                                answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
+                              ]}>
+                                {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
+                              </Text>
+                            </View>
                           </View>
                         </View>
-                      </View>
-                    ))}
-                  </View>
-                )}
-
-                {/* Support Ad Button - Only show for scores > 60% */}
-                {result.percentage > 60 && (
-                  <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
-                )}
-
-                {/* Action Buttons */}
-                <View style={styles.buttonContainer}>
-                  {onRetry && (
-                    <Button
-                      title={t('questions.tryAgain')}
-                      onPress={handleRetry}
-                      variant="outline"
-                      style={styles.retryButton}
-                    />
+                      ))}
+                    </View>
                   )}
-                  <Button
-                    title={t('common.continue')}
-                    onPress={onClose}
-                    style={styles.continueButton}
-                  />
-                </View>
-              </ScrollView>
-            </View>
-          </SafeAreaView>
-        </View>
-      </Modal>
 
-      <ExplanationModal
-        visible={selectedExplanation !== null}
-        onClose={handleCloseExplanation}
-        explanation={selectedExplanation?.explanation}
-        transcript={selectedExplanation?.transcript}
-        correctAnswer={selectedExplanation?.correctAnswer}
-      />
-    </>
+                  {/* Support Ad Button - Only show for scores > 60% */}
+                  {result.percentage > 60 && (
+                    <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
+                  )}
+
+                  {/* Action Buttons */}
+                  <View style={styles.buttonContainer}>
+                    {onRetry && (
+                      <Button
+                        title={t('questions.tryAgain')}
+                        onPress={handleRetry}
+                        variant="outline"
+                        style={styles.retryButton}
+                      />
+                    )}
+                    <Button
+                      title={t('common.continue')}
+                      onPress={onClose}
+                      style={styles.continueButton}
+                    />
+                  </View>
+                </>
+              ) : (
+                // Explanation View
+                <View style={styles.explanationContainer}>
+                  {/* Correct Answer Section */}
+                  {selectedExplanation?.correctAnswer && (
+                    <View style={styles.correctAnswerSection}>
+                      <Text style={styles.answerLabel}>{t('results.correctAnswer')}</Text>
+                      <Text style={styles.answerText}>{selectedExplanation.correctAnswer}</Text>
+                    </View>
+                  )}
+
+                  {/* Explanation Section */}
+                  {getLocalizedExplanation() && (
+                    <View style={styles.section}>
+                      <Text style={styles.explanationText}>{getLocalizedExplanation()}</Text>
+                    </View>
+                  )}
+
+                  {/* Transcript Section */}
+                  {selectedExplanation?.transcript && (
+                    <View style={[styles.section, styles.transcriptSection]}>
+                      <Text style={styles.sectionTitle}>{t('results.transcript')}</Text>
+                      <MarkdownText 
+                        baseStyle={styles.transcriptText} 
+                        text={selectedExplanation.transcript} 
+                      />
+                    </View>
+                  )}
+
+                  {!getLocalizedExplanation() && !selectedExplanation?.transcript && !selectedExplanation?.correctAnswer && (
+                    <View style={styles.emptyState}>
+                      <Text style={styles.emptyText}>{t('results.noExplanationAvailable')}</Text>
+                    </View>
+                  )}
+                </View>
+              )}
+            </ScrollView>
+          </View>
+        </SafeAreaView>
+      </View>
+    </Modal>
   );
 };
 
@@ -284,11 +347,12 @@ const createStyles = (colors: ThemeColors) =>
       backgroundColor: colors.background.secondary,
       borderTopLeftRadius: spacing.borderRadius.xl,
       borderTopRightRadius: spacing.borderRadius.xl,
-      maxHeight: '80%',
+      maxHeight: '85%',
       width: '100%',
+      overflow: 'hidden',
     },
     scrollView: {
-      maxHeight: '100%',
+      flexGrow: 0,
     },
     contentContainer: {
       paddingBottom: spacing.padding.md,
@@ -300,10 +364,20 @@ const createStyles = (colors: ThemeColors) =>
       padding: spacing.padding.md,
       borderBottomWidth: 1,
       borderBottomColor: colors.border.light,
+      backgroundColor: colors.background.secondary,
+    },
+    backButton: {
+      width: 40,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: -spacing.margin.xs,
     },
     title: {
       ...typography.textStyles.h4,
       color: colors.text.primary,
+      flex: 1,
+      marginLeft: spacing.margin.xs,
     },
     closeButton: {
       width: 32,
@@ -312,10 +386,6 @@ const createStyles = (colors: ThemeColors) =>
       backgroundColor: colors.secondary[100],
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    closeButtonText: {
-      fontSize: 18,
-      color: colors.text.secondary,
     },
     scoreContainer: {
       flexDirection: 'row',
@@ -426,6 +496,62 @@ const createStyles = (colors: ThemeColors) =>
       ...typography.textStyles.bodySmall,
       color: colors.primary[500],
       fontWeight: typography.fontWeight.semibold,
+    },
+    // Explanation View Styles
+    explanationContainer: {
+      padding: spacing.padding.lg,
+    },
+    correctAnswerSection: {
+      backgroundColor: colors.success[50],
+      padding: spacing.padding.md,
+      borderRadius: spacing.borderRadius.md,
+      marginBottom: spacing.margin.md,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.success[500],
+    },
+    answerLabel: {
+      ...typography.textStyles.bodySmall,
+      color: colors.success[700],
+      fontWeight: typography.fontWeight.bold,
+      marginBottom: 2,
+    },
+    answerText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      fontWeight: typography.fontWeight.semibold,
+    },
+    section: {
+      marginBottom: spacing.margin.md,
+    },
+    sectionTitle: {
+      ...typography.textStyles.h4,
+      color: colors.text.primary,
+      marginBottom: spacing.margin.sm,
+    },
+    explanationText: {
+      ...typography.textStyles.body,
+      color: colors.text.primary,
+      lineHeight: 24,
+    },
+    transcriptSection: {
+      marginTop: spacing.margin.md,
+      paddingTop: spacing.padding.md,
+      borderTopWidth: 1,
+      borderTopColor: colors.border.light,
+    },
+    transcriptText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
+      fontStyle: 'italic',
+      lineHeight: 22,
+    },
+    emptyState: {
+      padding: spacing.padding.xl,
+      alignItems: 'center',
+    },
+    emptyText: {
+      ...typography.textStyles.body,
+      color: colors.text.secondary,
     },
   });
 

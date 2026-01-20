@@ -74,6 +74,15 @@ const AppSelectorModal: React.FC = () => {
             <div className="selection-section">
               <h3>Choose Level</h3>
               <div className="selection-grid">
+                {selectedLanguage === 'german' && (
+                  <button
+                    className={`selection-card ${selectedLevel === 'A1' ? 'selected' : ''}`}
+                    onClick={() => handleLevelSelect('A1')}
+                  >
+                    <span className="card-level">A1</span>
+                    <span className="card-sublabel">Beginner</span>
+                  </button>
+                )}
                 <button
                   className={`selection-card ${selectedLevel === 'B1' ? 'selected' : ''}`}
                   onClick={() => handleLevelSelect('B1')}
