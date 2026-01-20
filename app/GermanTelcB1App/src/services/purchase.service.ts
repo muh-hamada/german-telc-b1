@@ -30,6 +30,7 @@ class PurchaseService {
   // Store product price for analytics
   private productPrice: string | null = null;
   private productCurrency: string | null = null;
+  private purchaseSource: string | null = null;
 
   /**
    * Initialize IAP connection
@@ -102,7 +103,11 @@ class PurchaseService {
               transactionId: purchase.transactionId,
               price: this.productPrice,
               currency: this.productCurrency,
+              purchaseSource: this.purchaseSource || 'unknown',
             });
+
+            // Reset source after a successful purchase to avoid stale data
+            this.purchaseSource = null;
           } catch (finishError) {
             console.error('[PurchaseService] Error finishing transaction:', finishError);
           }
@@ -123,7 +128,11 @@ class PurchaseService {
         message: error.message,
         price: this.productPrice,
         currency: this.productCurrency,
+        purchaseSource: this.purchaseSource || 'unknown',
       });
+
+      // Reset source to avoid carrying over to unrelated flows
+      this.purchaseSource = null;
     });
   }
 
@@ -225,6 +234,8 @@ class PurchaseService {
         hasCurrency: !!this.productCurrency,
       });
       
+      this.purchaseSource = sourceScreen || 'unknown';
+
       logEvent(AnalyticsEvents.PREMIUM_PURCHASE_INITIATED, {
         productId,
         price: this.productPrice,
@@ -241,6 +252,7 @@ class PurchaseService {
       // The result will come through the purchaseUpdatedListener
     } catch (error) {
       console.error('[PurchaseService] Error requesting purchase:', error);
+      this.purchaseSource = null;
       throw error;
     }
   }
