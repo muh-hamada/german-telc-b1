@@ -53,6 +53,11 @@ yarn-error.log
 **/fastlane/screenshots
 **/fastlane/test_output
 
+# Fastlane credentials (NEVER commit these!)
+**/fastlane/playstore-service-account.json
+**/fastlane/*.p12
+**/fastlane/*.mobileprovision
+
 # Release automation
 dist/
 release-logs/
@@ -77,3 +82,5 @@ release-logs/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+telc-b1-german-4648d0b326f8.json

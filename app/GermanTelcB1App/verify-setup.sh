@@ -89,7 +89,19 @@ check_file "$SCRIPT_DIR/Gemfile" "Ruby Gemfile"
 
 echo ""
 echo -e "${BLUE}Checking Store Credentials (Optional)...${NC}"
-check_optional "$HOME/.playstore_credentials.json" "SUPPLY_JSON_KEY" "Google Play Store credentials"
+# Check for Play Store credentials (file in fastlane directory or env var)
+if [ -f "$SCRIPT_DIR/fastlane/playstore-service-account.json" ]; then
+  echo -e "${GREEN}✓${NC} Google Play Store credentials configured (fastlane/playstore-service-account.json)"
+  ((SUCCESS_COUNT++))
+elif [ -f "$HOME/.playstore_credentials.json" ] || [ -n "$SUPPLY_JSON_KEY" ]; then
+  echo -e "${GREEN}✓${NC} Google Play Store credentials configured"
+  ((SUCCESS_COUNT++))
+else
+  echo -e "${YELLOW}⚠${NC} Google Play Store credentials not configured (required for releases)"
+  ((WARNING_COUNT++))
+fi
+
+# Check for App Store credentials
 if [ -n "$FASTLANE_PASSWORD" ]; then
   echo -e "${GREEN}✓${NC} App Store Connect password (env var)"
   ((SUCCESS_COUNT++))
