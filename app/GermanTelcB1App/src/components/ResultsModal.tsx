@@ -84,9 +84,9 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
     }
   }, [visible, result, examTitle]);
 
-  // Track when support ad button is shown (only for scores > 60%)
+  // Track when support ad button is shown
   useEffect(() => {
-    if (visible && result && result.percentage > 60 && !hasLoggedButtonShown.current) {
+    if (visible && result && !hasLoggedButtonShown.current) {
       hasLoggedButtonShown.current = true;
       logEvent(AnalyticsEvents.USER_SUPPORT_AD_BUTTON_SHOWN, {
         screen: 'results_modal',
