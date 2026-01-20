@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  LayoutAnimation,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
@@ -143,6 +144,9 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
       transcript,
       correctAnswer,
     });
+    
+    // Animate the height change (works on both iOS and Android with new architecture)
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setViewMode('explanation');
 
     logEvent(AnalyticsEvents.RESULTS_EXPLANATION_OPENED, {
@@ -157,6 +161,9 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
     logEvent(AnalyticsEvents.RESULTS_EXPLANATION_CLOSED, {
       exam_title: examTitle,
     });
+    
+    // Animate the height change (works on both iOS and Android with new architecture)
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setViewMode('results');
     setSelectedExplanation(null);
   };
