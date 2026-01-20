@@ -1,7 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getAppConfig } from '../config/apps';
 import './IntroScreen.css';
+
+// Import all logos
+import germanA1Logo from '../assets/german-a1-logo.png';
+import germanB1Logo from '../assets/german-b1-logo.png';
+import germanB2Logo from '../assets/german-b2-logo.png';
 
 const IntroScreen: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -10,7 +15,15 @@ const IntroScreen: React.FC = () => {
   const appConfig = getAppConfig(appId);
   
   // Generate logo path based on language and level
-  const logoPath = `/src/assets/${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}-logo.png`;
+  const logoPath = useMemo(() => {
+    const key = `${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}`;
+    const logoMap: Record<string, string> = {
+      'german-a1': germanA1Logo,
+      'german-b1': germanB1Logo,
+      'german-b2': germanB2Logo,
+    };
+    return logoMap[key] || germanA1Logo;
+  }, [appConfig.language, appConfig.level]);
 
   // Signal to Puppeteer that screen is ready
   useEffect(() => {

@@ -113,6 +113,7 @@ export const validateGrammarPart2 = (data: any): ValidationResult => {
  */
 export const validateReadingPart1 = (data: any): ValidationResult => {
   const errors: string[] = [];
+  const requiredLanguages = ['en', 'de', 'ar', 'fr', 'es', 'ru'];
 
   if (!Array.isArray(data)) {
     errors.push('Data must be an array of exams');
@@ -130,12 +131,34 @@ export const validateReadingPart1 = (data: any): ValidationResult => {
     if (typeof exam.id !== 'number') {
       errors.push(`Exam ${index}: Missing or invalid "id"`);
     }
+    if (typeof exam.title !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "title"`);
+    } else if (exam.title.trim().length === 0) {
+      errors.push(`Exam ${index}: "title" cannot be empty`);
+    }
+    
     if (!Array.isArray(exam.headings)) {
       errors.push(`Exam ${index}: Missing or invalid "headings" array`);
+    } else {
+      if (exam.headings.length === 0) {
+        errors.push(`Exam ${index}: "headings" array cannot be empty`);
+      }
+      exam.headings.forEach((heading: any, hIndex: number) => {
+        if (typeof heading !== 'string') {
+          errors.push(`Exam ${index}, Heading ${hIndex}: Must be a string`);
+        } else if (heading.trim().length === 0) {
+          errors.push(`Exam ${index}, Heading ${hIndex}: Cannot be empty`);
+        }
+      });
     }
+    
     if (!Array.isArray(exam.texts)) {
       errors.push(`Exam ${index}: Missing or invalid "texts" array`);
     } else {
+      if (exam.texts.length === 0) {
+        errors.push(`Exam ${index}: "texts" array cannot be empty`);
+      }
+      
       // Check for duplicate text IDs within this exam
       const textIds = exam.texts.map((t: any) => t.id).filter((id: any) => typeof id === 'number');
       const duplicateTextIds = findDuplicateIds(textIds);
@@ -145,13 +168,38 @@ export const validateReadingPart1 = (data: any): ValidationResult => {
 
       exam.texts.forEach((text: any, tIndex: number) => {
         if (typeof text.id !== 'number') {
-          errors.push(`Exam ${index}, Text ${tIndex}: Missing "id"`);
+          errors.push(`Exam ${index}, Text ${tIndex}: Missing or invalid "id"`);
         }
         if (typeof text.text !== 'string') {
-          errors.push(`Exam ${index}, Text ${tIndex}: Missing "text"`);
+          errors.push(`Exam ${index}, Text ${tIndex}: Missing or invalid "text"`);
+        } else if (text.text.trim().length === 0) {
+          errors.push(`Exam ${index}, Text ${tIndex}: "text" cannot be empty`);
         }
+        
         if (typeof text.correct !== 'string') {
-          errors.push(`Exam ${index}, Text ${tIndex}: Missing "correct" answer`);
+          errors.push(`Exam ${index}, Text ${tIndex}: Missing or invalid "correct" answer`);
+        } else if (text.correct.trim().length === 0) {
+          errors.push(`Exam ${index}, Text ${tIndex}: "correct" answer cannot be empty`);
+        }
+        
+        // Validate explanation field (multilingual object)
+        if (!text.explanation || typeof text.explanation !== 'object') {
+          errors.push(`Exam ${index}, Text ${tIndex}: Missing or invalid "explanation" object`);
+        } else {
+          requiredLanguages.forEach((lang) => {
+            if (typeof text.explanation[lang] !== 'string') {
+              errors.push(`Exam ${index}, Text ${tIndex}: Missing or invalid "${lang}" translation in explanation`);
+            } else if (text.explanation[lang].trim().length === 0) {
+              errors.push(`Exam ${index}, Text ${tIndex}: "${lang}" translation in explanation cannot be empty`);
+            }
+          });
+          
+          // Check for extra language keys that shouldn't be there
+          const explanationKeys = Object.keys(text.explanation);
+          const extraKeys = explanationKeys.filter(key => !requiredLanguages.includes(key));
+          if (extraKeys.length > 0) {
+            errors.push(`Exam ${index}, Text ${tIndex}: Unexpected language keys in explanation: ${extraKeys.join(', ')}`);
+          }
         }
       });
     }
@@ -165,6 +213,7 @@ export const validateReadingPart1 = (data: any): ValidationResult => {
  */
 export const validateReadingPart2 = (data: any): ValidationResult => {
   const errors: string[] = [];
+  const requiredLanguages = ['en', 'de', 'ar', 'fr', 'es', 'ru'];
 
   if (!data.exams || !Array.isArray(data.exams)) {
     errors.push('Missing or invalid "exams" array');
@@ -184,13 +233,23 @@ export const validateReadingPart2 = (data: any): ValidationResult => {
     }
     if (typeof exam.title !== 'string') {
       errors.push(`Exam ${index}: Missing or invalid "title"`);
+    } else if (exam.title.trim().length === 0) {
+      errors.push(`Exam ${index}: "title" cannot be empty`);
     }
+    
     if (typeof exam.text !== 'string') {
       errors.push(`Exam ${index}: Missing or invalid "text"`);
+    } else if (exam.text.trim().length === 0) {
+      errors.push(`Exam ${index}: "text" cannot be empty`);
     }
+    
     if (!Array.isArray(exam.questions)) {
       errors.push(`Exam ${index}: Missing or invalid "questions" array`);
     } else {
+      if (exam.questions.length === 0) {
+        errors.push(`Exam ${index}: "questions" array cannot be empty`);
+      }
+      
       // Check for duplicate question IDs within this exam
       const questionIds = exam.questions.map((q: any) => q.id).filter((id: any) => typeof id === 'number');
       const duplicateQuestionIds = findDuplicateIds(questionIds);
@@ -202,11 +261,60 @@ export const validateReadingPart2 = (data: any): ValidationResult => {
         if (typeof q.id !== 'number') {
           errors.push(`Exam ${index}, Question ${qIndex}: Missing "id"`);
         }
+        
         if (typeof q.question !== 'string') {
           errors.push(`Exam ${index}, Question ${qIndex}: Missing "question" text`);
+        } else if (q.question.trim().length === 0) {
+          errors.push(`Exam ${index}, Question ${qIndex}: "question" text cannot be empty`);
         }
+        
+        // Validate explanation field (multilingual object)
+        if (!q.explanation || typeof q.explanation !== 'object') {
+          errors.push(`Exam ${index}, Question ${qIndex}: Missing or invalid "explanation" object`);
+        } else {
+          requiredLanguages.forEach((lang) => {
+            if (typeof q.explanation[lang] !== 'string') {
+              errors.push(`Exam ${index}, Question ${qIndex}: Missing or invalid "${lang}" translation in explanation`);
+            } else if (q.explanation[lang].trim().length === 0) {
+              errors.push(`Exam ${index}, Question ${qIndex}: "${lang}" translation in explanation cannot be empty`);
+            }
+          });
+          
+          // Check for extra language keys that shouldn't be there
+          const explanationKeys = Object.keys(q.explanation);
+          const extraKeys = explanationKeys.filter(key => !requiredLanguages.includes(key));
+          if (extraKeys.length > 0) {
+            errors.push(`Exam ${index}, Question ${qIndex}: Unexpected language keys in explanation: ${extraKeys.join(', ')}`);
+          }
+        }
+        
         if (!Array.isArray(q.answers)) {
           errors.push(`Exam ${index}, Question ${qIndex}: Missing "answers" array`);
+        } else {
+          if (q.answers.length === 0) {
+            errors.push(`Exam ${index}, Question ${qIndex}: "answers" array cannot be empty`);
+          }
+          
+          // Count correct answers
+          const correctAnswers = q.answers.filter((a: any) => a.correct === true);
+          if (correctAnswers.length === 0) {
+            errors.push(`Exam ${index}, Question ${qIndex}: Must have at least one correct answer`);
+          }
+          if (correctAnswers.length > 1) {
+            errors.push(`Exam ${index}, Question ${qIndex}: Should have exactly one correct answer, found ${correctAnswers.length}`);
+          }
+          
+          q.answers.forEach((answer: any, aIndex: number) => {
+            if (typeof answer.text !== 'string') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Answer ${aIndex}: Missing or invalid "text"`);
+            } else if (answer.text.trim().length === 0) {
+              errors.push(`Exam ${index}, Question ${qIndex}, Answer ${aIndex}: "text" cannot be empty`);
+            }
+            
+            if (typeof answer.correct !== 'boolean') {
+              errors.push(`Exam ${index}, Question ${qIndex}, Answer ${aIndex}: Missing or invalid "correct" boolean`);
+            }
+          });
         }
       });
     }
@@ -220,6 +328,7 @@ export const validateReadingPart2 = (data: any): ValidationResult => {
  */
 export const validateReadingPart3 = (data: any): ValidationResult => {
   const errors: string[] = [];
+  const requiredLanguages = ['en', 'de', 'ar', 'fr', 'es', 'ru'];
 
   if (!data.exams || !Array.isArray(data.exams)) {
     errors.push('Missing or invalid "exams" array');
@@ -240,12 +349,45 @@ export const validateReadingPart3 = (data: any): ValidationResult => {
     if (typeof exam.title !== 'string') {
       errors.push(`Exam ${index}: Missing or invalid "title"`);
     }
-    if (typeof exam.advertisements !== 'object') {
+    if (!exam.advertisements || typeof exam.advertisements !== 'object') {
       errors.push(`Exam ${index}: Missing or invalid "advertisements" object`);
+    } else {
+      // Validate that advertisements is a non-empty object with string values
+      const adKeys = Object.keys(exam.advertisements);
+      if (adKeys.length === 0) {
+        errors.push(`Exam ${index}: "advertisements" object is empty`);
+      }
+      
+      // Check for required "x" key (for "no suitable advertisement" option)
+      if (!adKeys.includes('x')) {
+        errors.push(`Exam ${index}: "advertisements" must include key "x" for "no suitable advertisement" option`);
+      }
+      
+      // Validate all advertisement values are non-empty strings
+      adKeys.forEach((key) => {
+        if (typeof exam.advertisements[key] !== 'string') {
+          errors.push(`Exam ${index}: Advertisement "${key}" must be a string`);
+        } else if (exam.advertisements[key].trim().length === 0) {
+          errors.push(`Exam ${index}: Advertisement "${key}" cannot be empty`);
+        }
+      });
+      
+      // Check for duplicate advertisement keys (case-insensitive)
+      const lowerCaseKeys = adKeys.map(k => k.toLowerCase());
+      const duplicateKeys = adKeys.filter((key, idx) => 
+        lowerCaseKeys.indexOf(key.toLowerCase()) !== idx
+      );
+      if (duplicateKeys.length > 0) {
+        errors.push(`Exam ${index}: Duplicate advertisement keys found: ${duplicateKeys.join(', ')}`);
+      }
     }
     if (!Array.isArray(exam.situations)) {
       errors.push(`Exam ${index}: Missing or invalid "situations" array`);
     } else {
+      if (exam.situations.length === 0) {
+        errors.push(`Exam ${index}: "situations" array cannot be empty`);
+      }
+      
       // Check for duplicate situation IDs within this exam
       const situationIds = exam.situations.map((s: any) => s.id).filter((id: any) => typeof id === 'number');
       const duplicateSituationIds = findDuplicateIds(situationIds);
@@ -255,13 +397,45 @@ export const validateReadingPart3 = (data: any): ValidationResult => {
 
       exam.situations.forEach((situation: any, sIndex: number) => {
         if (typeof situation.id !== 'number') {
-          errors.push(`Exam ${index}, Situation ${sIndex}: Missing "id"`);
+          errors.push(`Exam ${index}, Situation ${sIndex}: Missing or invalid "id"`);
         }
         if (typeof situation.text !== 'string') {
-          errors.push(`Exam ${index}, Situation ${sIndex}: Missing "text"`);
+          errors.push(`Exam ${index}, Situation ${sIndex}: Missing or invalid "text"`);
+        } else if (situation.text.trim().length === 0) {
+          errors.push(`Exam ${index}, Situation ${sIndex}: "text" cannot be empty`);
         }
+        
         if (typeof situation.answer !== 'string') {
-          errors.push(`Exam ${index}, Situation ${sIndex}: Missing "answer"`);
+          errors.push(`Exam ${index}, Situation ${sIndex}: Missing or invalid "answer"`);
+        } else {
+          // Validate that the answer key exists in advertisements
+          if (exam.advertisements && !exam.advertisements.hasOwnProperty(situation.answer)) {
+            errors.push(`Exam ${index}, Situation ${sIndex}: Answer "${situation.answer}" does not exist in advertisements`);
+          }
+          // Validate answer is not empty
+          if (situation.answer.trim().length === 0) {
+            errors.push(`Exam ${index}, Situation ${sIndex}: "answer" cannot be empty`);
+          }
+        }
+        
+        // Validate explanation field (multilingual object)
+        if (!situation.explanation || typeof situation.explanation !== 'object') {
+          errors.push(`Exam ${index}, Situation ${sIndex}: Missing or invalid "explanation" object`);
+        } else {
+          requiredLanguages.forEach((lang) => {
+            if (typeof situation.explanation[lang] !== 'string') {
+              errors.push(`Exam ${index}, Situation ${sIndex}: Missing or invalid "${lang}" translation in explanation`);
+            } else if (situation.explanation[lang].trim().length === 0) {
+              errors.push(`Exam ${index}, Situation ${sIndex}: "${lang}" translation in explanation cannot be empty`);
+            }
+          });
+          
+          // Check for extra language keys that shouldn't be there
+          const explanationKeys = Object.keys(situation.explanation);
+          const extraKeys = explanationKeys.filter(key => !requiredLanguages.includes(key));
+          if (extraKeys.length > 0) {
+            errors.push(`Exam ${index}, Situation ${sIndex}: Unexpected language keys in explanation: ${extraKeys.join(', ')}`);
+          }
         }
       });
     }

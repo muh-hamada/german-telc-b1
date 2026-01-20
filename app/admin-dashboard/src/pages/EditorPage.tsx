@@ -18,6 +18,7 @@ export const EditorPage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
+  const [isErrorsExpanded, setIsErrorsExpanded] = useState(true);
   
   const editorRef = useRef<any>(null);
 
@@ -99,10 +100,12 @@ export const EditorPage: React.FC = () => {
       } else {
         toast.error(`Validation failed with ${validation.errors.length} error(s)`);
         setValidationErrors(validation.errors);
+        setIsErrorsExpanded(true); // Auto-expand when new errors are found
       }
     } catch (error: any) {
       toast.error('Invalid JSON syntax');
       setValidationErrors(['Invalid JSON syntax: ' + error.message]);
+      setIsErrorsExpanded(true); // Auto-expand when new errors are found
     }
   };
 
@@ -209,12 +212,23 @@ export const EditorPage: React.FC = () => {
 
       {validationErrors.length > 0 && (
         <div className="validation-errors">
-          <h3>Validation Errors ({validationErrors.length})</h3>
-          <ul>
-            {validationErrors.map((error, index) => (
-              <li key={index}>{error}</li>
-            ))}
-          </ul>
+          <div className="validation-errors-header">
+            <h3>Validation Errors ({validationErrors.length})</h3>
+            <button 
+              className="btn-toggle-errors"
+              onClick={() => setIsErrorsExpanded(!isErrorsExpanded)}
+              title={isErrorsExpanded ? "Collapse errors" : "Expand errors"}
+            >
+              {isErrorsExpanded ? '▼ Collapse' : '▶ Expand'}
+            </button>
+          </div>
+          {isErrorsExpanded && (
+            <ul className="validation-errors-list">
+              {validationErrors.map((error, index) => (
+                <li key={index}>{error}</li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
 

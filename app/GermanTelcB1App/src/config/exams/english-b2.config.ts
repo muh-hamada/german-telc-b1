@@ -77,6 +77,10 @@ export const englishB2Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/1293799088',
       ios: 'ca-app-pub-5101905792101482/8252947346',
     },
+    appOpen: {
+      android: 'ca-app-pub-5101905792101482/7436130058',
+      ios: 'ca-app-pub-5101905792101482/2951742524',
+    },
   },
 
   premium: {

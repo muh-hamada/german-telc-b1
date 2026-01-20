@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -9,6 +9,11 @@ import FR from 'country-flag-icons/react/3x2/FR';
 import ES from 'country-flag-icons/react/3x2/ES';
 import RU from 'country-flag-icons/react/3x2/RU';
 import './VocabularyWordScreen.css';
+
+// Import all logos
+import germanA1Logo from '../assets/german-a1-logo.png';
+import germanB1Logo from '../assets/german-b1-logo.png';
+import germanB2Logo from '../assets/german-b2-logo.png';
 
 const VocabularyWordScreen: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -22,7 +27,15 @@ const VocabularyWordScreen: React.FC = () => {
   const appConfig = getAppConfig(appId);
   
   // Generate logo path based on language and level
-  const logoPath = `/src/assets/${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}-logo.png`;
+  const logoPath = useMemo(() => {
+    const key = `${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}`;
+    const logoMap: Record<string, string> = {
+      'german-a1': germanA1Logo,
+      'german-b1': germanB1Logo,
+      'german-b2': germanB2Logo,
+    };
+    return logoMap[key] || germanA1Logo;
+  }, [appConfig.language, appConfig.level]);
 
   useEffect(() => {
     if (isCapture) {

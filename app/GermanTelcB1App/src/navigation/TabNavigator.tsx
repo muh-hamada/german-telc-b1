@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import { View, StyleSheet, AppState } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
@@ -16,6 +16,7 @@ import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { usePremium } from '../contexts/PremiumContext';
 import notificationReminderService from '../services/notification-reminder.service';
 import premiumPromptService from '../services/premium-prompt.service';
+import appOpenAdService from '../services/app-open-ad.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { type ThemeColors } from '../theme';
@@ -132,7 +133,36 @@ const TabNavigator: React.FC = () => {
   const appState = useRef(AppState.currentState);
   const usageTrackingRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasEnqueuedPremiumModalRef = useRef(false);
+  const hasShownAppOpenAdRef = useRef(false); // Track if we've shown the app open ad this session
   const { colors } = useAppTheme();
+
+  // Load and show app open ad (defined as callback to maintain hook order)
+  const loadAndShowAppOpenAd = useCallback(async () => {
+    // Only show once per session
+    if (hasShownAppOpenAdRef.current) {
+      console.log('[TabNavigator] App open ad already shown this session');
+      return;
+    }
+
+    console.log('[TabNavigator] Loading app open ad...');
+    
+    // Load the ad (this will preload it in background)
+    await appOpenAdService.loadAd();
+    
+    // Wait a bit to ensure ad is fully loaded and user sees main screen
+    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 seconds
+    
+    // Try to show the ad
+    console.log('[TabNavigator] Attempting to show app open ad...');
+    const wasShown = await appOpenAdService.showAdIfAvailable(isPremium);
+    
+    if (wasShown) {
+      console.log('[TabNavigator] App open ad was shown');
+      hasShownAppOpenAdRef.current = true;
+    } else {
+      console.log('[TabNavigator] App open ad was not shown (check logs for reason)');
+    }
+  }, [isPremium]);
 
   // Check for notification reminder triggers on mount and app foreground
   useEffect(() => {
@@ -199,6 +229,11 @@ const TabNavigator: React.FC = () => {
       });
     }
   }, [isPremiumFeaturesEnabled, isPremium, enqueue, productPrice, productCurrency]);
+
+  // Show app open ad on mount
+  useEffect(() => {
+    loadAndShowAppOpenAd();
+  }, [loadAndShowAppOpenAd]);
 
   // Initialize premium prompt service and start usage tracking
   useEffect(() => {

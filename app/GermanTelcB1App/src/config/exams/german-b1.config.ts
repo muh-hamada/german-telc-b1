@@ -76,6 +76,10 @@ export const germanB1Config: ExamConfig = {
       android: 'ca-app-pub-5101905792101482/7872839243',
       ios: 'ca-app-pub-5101905792101482/5626784006',
     },
+    appOpen: {
+      android: 'ca-app-pub-5101905792101482/2325056568',
+      ios: 'ca-app-pub-5101905792101482/5623520781',
+    },
   },
 
   premium: {

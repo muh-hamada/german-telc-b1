@@ -51,6 +51,12 @@ export const AnalyticsEvents = {
   // Ads
   BANNER_AD_LOADED: 'banner_ad_loaded',
   BANNER_AD_FAILED: 'banner_ad_failed',
+  APP_OPEN_AD_REQUESTED: 'app_open_ad_requested',
+  APP_OPEN_AD_LOADED: 'app_open_ad_loaded',
+  APP_OPEN_AD_FAILED_TO_LOAD: 'app_open_ad_failed_to_load',
+  APP_OPEN_AD_SHOWN: 'app_open_ad_shown',
+  APP_OPEN_AD_CLOSED: 'app_open_ad_closed',
+  APP_OPEN_AD_ERROR: 'app_open_ad_error',
   LOW_MEMORY_WARNING: 'low_memory_warning',
 
   // Misc

@@ -87,12 +87,32 @@ android {
     namespace "com.mhamada.telcb1german"
     
     defaultConfig {
-        applicationId "com.mhamada.telcb2english"
+        applicationId "com.mhamada.telcb1german"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 72
         versionName "1.0.72"
         missingDimensionStrategy "store", "play"
+        
+        // Explicitly specify ABI filters to ensure all architectures are included
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+    
+    // Configure packaging options to handle native libraries correctly
+    packagingOptions {
+        // Ensure React Native native libraries are not stripped
+        doNotStrip '**/libreactnative.so'
+        doNotStrip '**/libhermes.so'
+        doNotStrip '**/libjsc.so'
+        doNotStrip '**/libfbjni.so'
+        
+        // Pick first occurrence if there are duplicate libraries
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
     }
     
     flavorDimensions "exam"
@@ -155,6 +175,20 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             manifestPlaceholders = [enableCrashReporting:true]
             resValue "string", "google_analytics_disabled", "false"
+        }
+    }
+    
+    // Configure APK splits for different architectures
+    splits {
+        abi {
+            // Enable APK splitting by ABI
+            enable true
+            // Clear the default list
+            reset()
+            // Specify the ABIs to build for
+            include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            // Generate a universal APK that includes all ABIs (for testing)
+            universalApk true
         }
     }
 }

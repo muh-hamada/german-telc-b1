@@ -77,6 +77,10 @@ export interface ExamConfig {
     vocabularyBuilder: {
       android: string;
       ios: string;
+    },
+    appOpen: {
+      android: string;
+      ios: string;
     }
   };
 
