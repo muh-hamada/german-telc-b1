@@ -40,7 +40,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
   const styles = useMemo(() => createStyles(colors), [colors]);
   const hasLoggedButtonShown = useRef<boolean>(false);
   const hasLoggedModalShown = useRef<boolean>(false);
-  
+
   // View mode state: 'results' or 'explanation'
   const [viewMode, setViewMode] = useState<'results' | 'explanation'>('results');
   const [selectedExplanation, setSelectedExplanation] = useState<{
@@ -65,7 +65,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
       const answersWithExplanations = result.answers.filter(
         answer => !answer.isCorrect && answer.explanation
       ).length;
-      
+
       hasLoggedModalShown.current = true;
       logEvent(AnalyticsEvents.RESULTS_MODAL_SHOWN, {
         score: result.score,
@@ -144,7 +144,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
       transcript,
       correctAnswer,
     });
-    
+
     // Animate the height change (works on both iOS and Android with new architecture)
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setViewMode('explanation');
@@ -161,7 +161,7 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
     logEvent(AnalyticsEvents.RESULTS_EXPLANATION_CLOSED, {
       exam_title: examTitle,
     });
-    
+
     // Animate the height change (works on both iOS and Android with new architecture)
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setViewMode('results');
@@ -188,8 +188,8 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
             {/* Header */}
             <View style={styles.header}>
               {viewMode === 'explanation' && (
-                <TouchableOpacity 
-                  style={styles.backButton} 
+                <TouchableOpacity
+                  style={styles.backButton}
                   onPress={handleCloseExplanation}
                 >
                   <Icon name="arrow-back" size={24} color={colors.text.primary} />
@@ -209,94 +209,92 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
               contentContainerStyle={styles.contentContainer}
               showsVerticalScrollIndicator={false}
             >
-              {viewMode === 'results' ? (
-                // Results View
-                <>
-                  {/* Score Summary */}
-                  <View style={styles.scoreContainer}>
-                    <View style={styles.scoreContainerInner}>
-                      <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
-                    </View>
-                    <View style={styles.scoreContainerInner}>
-                      <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
-                        {result.percentage}%
-                      </Text>
-                      <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
-                      <Text style={styles.scoreDetails}>
-                        {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
-                      </Text>
-                    </View>
+
+              {/* Results View */}
+              <View style={viewMode === 'results' ? styles.visible : styles.hidden}>
+                {/* Score Summary */}
+                <View style={styles.scoreContainer}>
+                  <View style={styles.scoreContainerInner}>
+                    <Text style={styles.emoji}>{getScoreEmoji(result.percentage)}</Text>
                   </View>
+                  <View style={styles.scoreContainerInner}>
+                    <Text style={[styles.score, { color: getScoreColor(result.percentage) }]}>
+                      {result.percentage}%
+                    </Text>
+                    <Text style={styles.scoreText}>{getScoreText(result.percentage)}</Text>
+                    <Text style={styles.scoreDetails}>
+                      {result.score} {t('results.outOf')} {result.maxScore} {t('results.points')}
+                    </Text>
+                  </View>
+                </View>
 
-                  {/* Detailed Results */}
-                  {result.answers.length > 0 && (
-                    <View style={styles.detailsContainer}>
-                      <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
+                {/* Detailed Results */}
+                {result.answers.length > 0 && (
+                  <View style={styles.detailsContainer}>
+                    <Text style={styles.detailsTitle}>{t('results.detailedResults')}</Text>
 
-                      {result.answers.map((answer, index) => (
-                        <View
-                          key={answer.questionId || `answer-${index}`}
-                          style={[
-                            styles.answerRow,
-                            answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
-                          ]}
-                        >
-                          <View style={styles.answerHeader}>
-                            <View style={styles.questionNumberContainer}>
-                              <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
-                              {!answer.isCorrect && answer.explanation && (
-                                <TouchableOpacity
-                                  style={styles.explainButton}
-                                  onPress={() => handleShowExplanation(
-                                    answer.questionId,
-                                    answer.explanation,
-                                    answer.transcript,
-                                    answer.correctAnswer
-                                  )}
-                                >
-                                  <Icon name="info-outline" size={16} color={colors.primary[500]} />
-                                  <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
-                                </TouchableOpacity>
-                              )}
-                            </View>
-                            <View style={styles.statusContainer}>
-                              <Text style={[
-                                styles.status,
-                                answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
-                              ]}>
-                                {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
-                              </Text>
-                            </View>
+                    {result.answers.map((answer, index) => (
+                      <View
+                        key={answer.questionId || `answer-${index}`}
+                        style={[
+                          styles.answerRow,
+                          answer.isCorrect ? styles.correctAnswer : styles.incorrectAnswer,
+                        ]}
+                      >
+                        <View style={styles.answerHeader}>
+                          <View style={styles.questionNumberContainer}>
+                            <Text style={styles.questionNumber}>{t('results.question')} {answer.questionId}</Text>
+                            {!answer.isCorrect && answer.explanation && (
+                              <TouchableOpacity
+                                style={styles.explainButton}
+                                onPress={() => handleShowExplanation(
+                                  answer.questionId,
+                                  answer.explanation,
+                                  answer.transcript,
+                                  answer.correctAnswer
+                                )}
+                              >
+                                <Icon name="info-outline" size={16} color={colors.primary[500]} />
+                                <Text style={styles.explainButtonText}>{t('results.explain')}</Text>
+                              </TouchableOpacity>
+                            )}
+                          </View>
+                          <View style={styles.statusContainer}>
+                            <Text style={[
+                              styles.status,
+                              answer.isCorrect ? styles.correctStatus : styles.incorrectStatus,
+                            ]}>
+                              {answer.isCorrect ? `✓ ${t('questions.correct')}` : `✗ ${t('questions.incorrect')}`}
+                            </Text>
                           </View>
                         </View>
-                      ))}
-                    </View>
-                  )}
-
-                  {/* Support Ad Button - Only show for scores > 60% */}
-                  {result.percentage > 60 && (
-                    <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
-                  )}
-
-                  {/* Action Buttons */}
-                  <View style={styles.buttonContainer}>
-                    {onRetry && (
-                      <Button
-                        title={t('questions.tryAgain')}
-                        onPress={handleRetry}
-                        variant="outline"
-                        style={styles.retryButton}
-                      />
-                    )}
-                    <Button
-                      title={t('common.continue')}
-                      onPress={onClose}
-                      style={styles.continueButton}
-                    />
+                      </View>
+                    ))}
                   </View>
-                </>
-              ) : (
-                // Explanation View
+                )}
+
+                <SupportAdButton screen="results_modal" style={styles.supportAdButton} />
+
+                {/* Action Buttons */}
+                <View style={styles.buttonContainer}>
+                  {onRetry && (
+                    <Button
+                      title={t('questions.tryAgain')}
+                      onPress={handleRetry}
+                      variant="outline"
+                      style={styles.retryButton}
+                    />
+                  )}
+                  <Button
+                    title={t('common.continue')}
+                    onPress={onClose}
+                    style={styles.continueButton}
+                  />
+                </View>
+              </View>
+
+              {/* Explanation View */}
+              {viewMode === 'explanation' && (
                 <View style={styles.explanationContainer}>
                   {/* Correct Answer Section */}
                   {selectedExplanation?.correctAnswer && (
@@ -317,9 +315,9 @@ const ResultsModal: React.FC<ResultsModalProps> = ({
                   {selectedExplanation?.transcript && (
                     <View style={[styles.section, styles.transcriptSection]}>
                       <Text style={styles.sectionTitle}>{t('results.transcript')}</Text>
-                      <MarkdownText 
-                        baseStyle={styles.transcriptText} 
-                        text={selectedExplanation.transcript} 
+                      <MarkdownText
+                        baseStyle={styles.transcriptText}
+                        text={selectedExplanation.transcript}
                       />
                     </View>
                   )}
@@ -357,6 +355,12 @@ const createStyles = (colors: ThemeColors) =>
       maxHeight: '85%',
       width: '100%',
       overflow: 'hidden',
+    },
+    visible: {
+      display: 'flex',
+    },
+    hidden: {
+      display: 'none',
     },
     scrollView: {
       flexGrow: 0,

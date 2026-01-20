@@ -23,8 +23,6 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
-    // Initialize SoLoader before any other React Native code
-    SoLoader.init(this, /* native exopackage */ false)
     loadReactNative(this)
   }
 }
