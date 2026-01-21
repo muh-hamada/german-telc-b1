@@ -6,6 +6,9 @@ default_platform(:android)
 # Path to update messages JSON file
 UPDATE_MESSAGES_PATH = File.expand_path("../../update-messages.json", __dir__)
 
+# Path to App Store metadata JSON file
+APP_STORE_METADATA_PATH = File.expand_path("app-store-metadata.json", __dir__)
+
 # Helper method to load update messages
 def load_update_message(index)
   unless File.exist?(UPDATE_MESSAGES_PATH)
@@ -19,6 +22,90 @@ def load_update_message(index)
   end
   
   messages[index]
+end
+
+# Helper method to load and process App Store metadata
+def load_app_store_metadata(app_id)
+  unless File.exist?(APP_STORE_METADATA_PATH)
+    UI.user_error!("App Store metadata file not found at: #{APP_STORE_METADATA_PATH}")
+  end
+  
+  metadata = JSON.parse(File.read(APP_STORE_METADATA_PATH))
+  
+  # Parse app_id to extract language and level
+  # Format: "german-a1", "german-b1", "german-b2", "english-b1", "english-b2"
+  parts = app_id.split('-')
+  language = parts[0]  # "german" or "english"
+  level = parts[1].upcase  # "A1", "B1", "B2"
+  
+  # Create a processed metadata hash with placeholders replaced
+  processed = {}
+  
+  # Process descriptions for all locales
+  processed[:description] = {}
+  metadata["description"].each do |locale, template|
+    # Map locale codes (en, de, etc.) to full locale codes for App Store
+    locale_map = {
+      "en" => "en-US",
+      "de" => "de-DE",
+      "es" => "es-ES",
+      "fr" => "fr-FR",
+      "it" => "it-IT",
+      "pt" => "pt-PT",
+      "ru" => "ru-RU",
+      "ar" => "ar",
+      "tr" => "tr-TR"
+    }
+    
+    full_locale = locale_map[locale] || locale
+    
+    # Get localized language name
+    language_name = metadata["languages"][language][locale]
+    
+    # Get localized country name
+    country_name = metadata["countries"][language][locale]
+    
+    # Get localized level name
+    level_name = metadata["level_names"][level][locale]
+    
+    # Replace placeholders
+    text = template.gsub("{{LANGUAGE}}", language_name)
+                   .gsub("{{LEVEL}}", level)
+                   .gsub("{{LEVEL_NAME}}", level_name)
+                   .gsub("{{COUNTRY}}", country_name)
+    
+    processed[:description][full_locale] = text
+  end
+  
+  # Process keywords for all locales
+  processed[:keywords] = {}
+  metadata["keywords"].each do |locale, template|
+    locale_map = {
+      "en" => "en-US",
+      "de" => "de-DE",
+      "es" => "es-ES",
+      "fr" => "fr-FR",
+      "it" => "it-IT",
+      "pt" => "pt-PT",
+      "ru" => "ru-RU",
+      "ar" => "ar",
+      "tr" => "tr-TR"
+    }
+    
+    full_locale = locale_map[locale] || locale
+    language_name = metadata["languages"][language][locale]
+    
+    text = template.gsub("{{LANGUAGE}}", language_name)
+                   .gsub("{{LEVEL}}", level)
+    
+    processed[:keywords][full_locale] = text
+  end
+  
+  # URLs are the same for all apps
+  processed[:support_url] = metadata["support_url"]
+  processed[:marketing_url] = metadata["marketing_url"]
+  
+  processed
 end
 
 # Helper method to remove emojis from text (for App Store)
@@ -109,6 +196,67 @@ def get_app_config(app_id)
   end
 end
 
+# Helper method to wait for build to be available in App Store Connect
+def wait_for_build_processing(bundle_id, build_number, max_wait_minutes: 10)
+  UI.message("⏳ Waiting for build #{build_number} to be processed by TestFlight...")
+  
+  max_attempts = max_wait_minutes * 4  # Check every 15 seconds
+  attempt = 0
+  
+  while attempt < max_attempts
+    begin
+      # Login to App Store Connect first
+      Spaceship::ConnectAPI.login
+      
+      # Get the app
+      app = Spaceship::ConnectAPI::App.find(bundle_id)
+      
+      unless app
+        UI.error("Could not find app with bundle ID: #{bundle_id}")
+        sleep(15)
+        attempt += 1
+        next
+      end
+      
+      # Get all builds for this app
+      builds = app.get_builds(
+        filter: { version: build_number.to_s },
+        includes: "preReleaseVersion",
+        limit: 1
+      )
+      
+      build = builds.first
+      
+      if build
+        # Check if build is processed
+        if build.processing_state == "VALID" || build.processing_state == "PROCESSING_COMPLETE"
+          UI.success("✅ Build #{build_number} is ready! (State: #{build.processing_state})")
+          return true
+        else
+          UI.message("   Build found but still processing... State: #{build.processing_state} (attempt #{attempt + 1}/#{max_attempts})")
+        end
+      else
+        UI.message("   Build #{build_number} not found yet... (attempt #{attempt + 1}/#{max_attempts})")
+      end
+      
+      sleep(15)  # Wait 15 seconds before checking again
+      attempt += 1
+      
+    rescue => e
+      UI.message("   Error checking build: #{e.message} (attempt #{attempt + 1}/#{max_attempts})")
+      sleep(15)
+      attempt += 1
+    end
+  end
+  
+  UI.error("⚠️  Build #{build_number} was not processed within #{max_wait_minutes} minutes")
+  UI.error("   This could mean:")
+  UI.error("   1. The build is taking longer than usual to process")
+  UI.error("   2. There was an issue with the build upload")
+  UI.error("   Please check TestFlight in App Store Connect manually")
+  return false
+end
+
 platform :android do
   desc "Upload AAB to Google Play Store and create release"
   lane :release do |options|
@@ -197,26 +345,51 @@ platform :ios do
     # Load update message
     update_message = load_update_message(message_index)
     
+    # Load App Store metadata with placeholders replaced
+    app_metadata = load_app_store_metadata(options[:app_id])
+    
     # Remove emojis from messages for App Store (App Store rejects emojis in release notes)
-    # NOTE: Only include languages that are enabled in App Store Connect
-    # To add more languages: App Store Connect > Your App > Version > Click "+" next to language selector
+    # TODO: Enable multi-language support once localizations are set up in App Store Connect
+    # For now, only using English (en-US)
     ios_message = {
-      "en-US" => remove_emojis(update_message["en"]),
-      "de-DE" => remove_emojis(update_message["de"]),
-      "es-ES" => remove_emojis(update_message["es"]),
-      "fr-FR" => remove_emojis(update_message["fr"]),
-      "it-IT" => remove_emojis(update_message["it"]),
-      "pt-PT" => remove_emojis(update_message["pt"]),
-      "ru-RU" => remove_emojis(update_message["ru"]),
-      "ar" => remove_emojis(update_message["ar"]),
-      "tr-TR" => remove_emojis(update_message["tr"])
+      "en-US" => remove_emojis(update_message["en"])
     }
+    
+    # Use English-only metadata
+    english_metadata = {
+      description: { "en-US" => app_metadata[:description]["en-US"] },
+      keywords: { "en-US" => app_metadata[:keywords]["en-US"] },
+      support_url: { "en-US" => app_metadata[:support_url] },
+      marketing_url: { "en-US" => app_metadata[:marketing_url] }
+    }
+    
+    # Multi-language support (commented out until localizations are set up):
+    # ios_message = {}
+    # update_message.each do |locale_key, msg|
+    #   locale_map = {
+    #     "en" => "en-US", "de" => "de-DE", "es" => "es-ES", "fr" => "fr-FR",
+    #     "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar", "tr" => "tr-TR"
+    #   }
+    #   full_locale = locale_map[locale_key] || locale_key
+    #   ios_message[full_locale] = remove_emojis(msg)
+    # end
+    #
+    # Multi-language metadata (commented out):
+    # description: app_metadata[:description],
+    # keywords: app_metadata[:keywords],
+    # support_url: app_metadata[:description].keys.map { |locale| [locale, app_metadata[:support_url]] }.to_h,
+    # marketing_url: app_metadata[:description].keys.map { |locale| [locale, app_metadata[:marketing_url]] }.to_h,
     
     UI.message("🍎 Creating App Store release...")
     UI.message("   App: #{options[:app_id]}")
     UI.message("   Bundle ID: #{bundle_id}")
     UI.message("   Version: #{version}")
     UI.message("   Build: #{build_number}")
+    
+    # Wait for build to be processed by TestFlight (max 10 minutes)
+    unless wait_for_build_processing(bundle_id, build_number, max_wait_minutes: 10)
+      UI.user_error!("Build #{build_number} not ready. Please check TestFlight and try again later.")
+    end
     
     # Create/update app version in App Store Connect
     deliver(
@@ -225,24 +398,23 @@ platform :ios do
       build_number: build_number.to_s,  # Ensure build_number is a string
       skip_binary_upload: true,
       skip_screenshots: true,
-      skip_metadata: true,  # Skip metadata to avoid localization errors - only update release notes
+      skip_metadata: false,  # Enable metadata upload
       force: true,
-      submit_for_review: true,
+      submit_for_review: true,  # Auto-submit enabled (ITSAppUsesNonExemptEncryption in Info.plist handles encryption)
       automatic_release: true,
       
-      # Release notes in English only (safest approach)
+      # Release notes (English only)
       release_notes: ios_message,
       
-      # Compliance answers
-      submission_information: {
-        export_compliance_uses_encryption: true,
-        export_compliance_encryption_updated: false,
-        export_compliance_is_exempt: true,
-        content_rights_contains_third_party_content: false,
-        add_id_info_uses_idfa: false
-      }
+      # App metadata (English only)
+      description: english_metadata[:description],
+      keywords: english_metadata[:keywords],
+      support_url: english_metadata[:support_url],
+      marketing_url: english_metadata[:marketing_url]
     )
     
-    UI.success("✅ Successfully created release for #{options[:app_id]} in App Store Connect!")
+    UI.success("✅ Successfully created and submitted release for #{options[:app_id]} in App Store Connect!")
+    
+    UI.success("✅ Successfully created and submitted release for #{options[:app_id]} in App Store Connect!")
   end
 end
