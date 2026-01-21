@@ -1,0 +1,58 @@
+Reading Part 3
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: UUID v4. Generate a new UUID
+- texts: 3 texts with keys from a to c. Use \n to create new lines in the text.
+- 6 questions. Ids start from number 13 to 18. Each question have a "question" and the correct "answer".
+- title: general title for the question in Spanish. 4-6 words long
+
+{
+  "id": "ab066599-c197-44b7-9f1d-4198d3780fdd",
+  "title": "Tres Formas de Organizar Fiestas Infantiles",
+  "texts": {
+    "a": {
+      "person": "Pablo",
+      "text": "Debía decorar el salón para el cumpleaños de mi hijo pequeño, pero mi presupuesto era bajo y no resultaba fácil. De repente se me ocurrió: ¡cubrir las paredes con carteles! Todo lo que les guste a los niños está bien: sus actores y cantantes favoritos de TV, los personajes de los dibujos animados, etc.\nEn una de las paredes del salón puse un gran papel blanco que la cubría entera para que los niños hicieran sus propias creaciones con pinturas al agua, ya que estas se lavan fácilmente. Fue un éxito rotundo. Los niños disfrutaron mucho dejando volar su imaginación y manchándose las manos y la pared sin que ningún adulto les riñera. Al final, cada pequeño recibió un premio como recompensa a su esfuerzo creativo."
+    },
+    "b": {
+      "person": "Ana",
+      "text": "Creo firmemente que hay que ser respetuoso con el medio ambiente. Por eso decidí organizar un cumpleaños un poco diferente a lo que estaba acostumbrada, aunque eso representara un mayor esfuerzo y gasto.\nEmpecé con el tema de las invitaciones. Usé Internet en lugar de invitaciones de papel, así ahorré papel y dinero. Luego también compré vasos y platos reutilizables en vez de comprarlos de papel.\nPara la decoración, rechacé la idea de usar globos, que a menudo explotan antes de que finalice la fiesta. En su lugar, utilicé papel reciclado para hacer flores y carteles e hice sombreros de fiesta que los niños colorearon con pinturas y les sirvieron de disfraz"
+    },
+    "c": {
+      "person": "Nicolás",
+      "text": "Mi hijo tiene seis años. A esa edad los niños tienen una energía agotadora y, cuantos más niños hay, más energía parecen tener. Por eso hice caso a mis padres, que viven en una urbanización, y celebré el cumpleaños en su casa. Para evitar las quejas, pedí permiso a todos los vecinos.\nCelebramos el cumpleaños en la zona comunitaria ajardinada de la urbanización, lo que me permitió organizar actividades que en el salón de casa hubiera sido complicado llevar a cabo. Por ejemplo, contraté a unos payasos que lograron entretener un buen rato a los niños.\nTambién organizamos una fiesta de disfraces, y al final los críos votaron el disfraz más original, el más divertido..., y entregamos un obsequio a cada uno de los niños."
+    }
+  }
+  "questions": [
+    {
+      "id": 13,
+      "question": "¿Qué persona dice que celebraron la fiesta al aire libre?",
+      "answer": "c"
+    },
+    {
+      "id": 14,
+      "question": "¿Qué persona dice que en la fiesta hubo un espectáculo?",
+      "answer": "c"
+    },
+    {
+      "id": 15,
+      "question": "¿Qué persona dice que organizar el cumpleaños le supuso más trabajo del habitual?",
+      "answer": "b"
+    },
+    {
+      "id": 16,
+      "question": "¿Qué persona dice que disponía de poco dinero para los adornos?",
+      "answer": "a"
+    },
+    {
+      "id": 17,
+      "question": "¿Qué persona dice que su idea triunfó entre los niños?",
+      "answer": "a"
+    },
+    {
+      "id": 18,
+      "question": "¿Qué persona dice que hubo un concurso en la celebración?",
+      "answer": "c"
+    }
+  ]
+}

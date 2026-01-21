@@ -1,0 +1,211 @@
+You are an expert in creating listening questions for the Dele Spanish B1 exam.
+
+Create a similar Interview to this one below; it should have the same language difficulty, text length, etc. This is from the Dele Spanish B1 listening question.
+
+--- Interview Start ---
+
+Me llamo Juli y soy argentina. Llevo trece años en España. Vivo con mi pareja y mi hijo. Al
+principio vivíamos en una caravana y estuvimos tres años recorriendo España. Teníamos los mejores paisajes como si fueran el jardín de nuestra casa. Después de ver el país, decidimos quedarnos
+en Asturias, en una zona entre las montañas y la costa.
+Llegué acá porque, como mis abuelos eran de Bilbao, pensaba mucho en España. Además, mi padre siempre nos animaba a salir, a conocer otras cosas y de ahí me viene mi espíritu aventurero.
+Por eso, en cuanto tuve una oferta de trabajo acá, dejé la carrera. Aunque extraño mucho mi país,
+este es un lugar increíble para vivir.
+Mi marido y yo trabajamos como monitores en un centro de esquí. La montaña es nuestra oficina, y
+la verdad es que es hermosa. Damos clases particulares o a grupos, tanto a chicos como a adultos.
+Cuando llegamos a las pistas, nos saludamos chocando las manos, porque con los cascos no nos
+podemos besar. Después hacemos calentamiento antes de subir a la montaña. A veces volamos en
+helicóptero para hacer heliesquí. Y bueno, cuando acá llega el verano, vamos a Argentina y nos
+dedicamos a lo mismo.
+Lo mío es la nieve desde que a los cuatro años, en Argentina, me puse unos esquíes. Allá, en mi
+región, era un deporte bastante elitista, solo para gente con dinero. Mi familia es de clase media,
+pero mi papá trabajó mucho para darnos la oportunidad de disfrutar de la montaña. Para mí esquiar es como una forma de meditación. Son muchas sensaciones y es difícil transmitirlas.
+Mi hijo tiene tres años. Hasta los seis meses de embarazo estuve esquiando. Algunos decían que
+era una locura, pero para mí es más natural esquiar que caminar. Quiero que a mi hijo le guste la
+montaña; además, como mi marido es español, unimos dos mundos, y nos gustaría que el chico
+supiera las costumbres de los dos. ¡Siempre me está preguntando cómo son las cosas de mi país!:
+«¿Hay playas? ¿Hay montañas?» Y cosas así.
+Mi hobby es tejer. Empezó como un entretenimiento, pero después me di cuenta de que podía sacar un poco de plata. Como siempre estamos en contacto con escuelas de esquí, rodeados de frío,
+monté una tiendecita de gorros y guantes de lana cerca de mi casa. A tejer me enseñó mi mamá,
+una antigua tejedora. Es otra forma de meditación: estás sola con vos y tu tejido, por eso me relaja
+tanto
+
+--- Interview End ---
+
+--- Questions Start ---
+
+7. En la audición Juli cuenta que, al principio, cuando llegó a España,…
+a) viajó para conocer el país.
+b) se instaló en una casa con jardín.
+c) se fue a vivir a Asturias.
+
+8. Según la grabación, Juli decidió ir a España...
+a) porque tiene raíces españolas.
+b) para conocer a sus parientes.
+c) cuando terminó la carrera.
+
+9. Con respecto a su trabajo, Juli explica en la audición que…
+a) es propietaria de un centro de esquí.
+b) se encarga de organizar los cursos.
+c) trabaja también en Argentina.
+
+10. Juli dice que se dedica al esquí porque…
+a) le gusta desde la infancia.
+b) era un deporte popular en su región.
+c) su padre era un gran aficionado.
+
+11. Según la grabación, el hijo de Juli...
+a) empezó a esquiar hace seis meses.
+b) ama las montañas.
+c) muestra curiosidad por Argentina.
+
+12. Juli cuenta en la audición que su afición a tejer le...
+a) sirve de ayuda económica.
+b) ofrece la posibilidad de conocer gente.
+c) hace sentirse cerca de su madre.
+
+--- Questions End ---
+
+Create the interview, then structure it into a JSON file with the following format:
+- The person name should be random. Don't use the same name from the provided example interview.
+-- Also change the details to make the new interview unique.
+- For the interview, create 6 questions and with ID from 7 to 12. Each question has 3 multi-choices
+
+{
+  "segments": [
+    { type: 'pause', durationSeconds: 1 },
+    { type: 'ready', id: 'part-2-intro' },
+    { type: 'pause', durationSeconds: 30 },
+
+    {
+      type: 'speech',
+      speed: 0.85,
+      text: 'person speech, full interview',
+      voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+      id: "interview-{index}"
+    },
+
+    { type: 'pause', durationSeconds: 5 },
+    { type: 'ready', id: 'part-1-2nd-time' },
+    { type: 'pause', durationSeconds: 2 },
+
+    // Copy the person speech item here
+    
+    { type: 'pause', durationSeconds: 5 },
+
+    { type: 'ready', id: 'part-2-outro' },
+    { type: 'pause', durationSeconds: 5 },
+  ],
+  "title": <title in Spanish>, // The title should be 4-6 words and related to the interview
+  "id": "", // Generate UUIDv4 ID
+  "audio_transcription": "", // Copy the person speech here
+  "questions": [
+    {
+      "id": 7,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "<the question text>",
+      "options": [
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        },
+        {
+          "is_correct": <boolean>,
+          "text": "<choice text>",
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+You are an expert in creating listening questions for the Dele Spanish B1 exam.
+
+Create a similar Interview to this one below; it should have the same language difficulty, text length, etc. This is from the Dele Spanish B1 listening question.
+
+--- Interviews Start ---
+
+VOZ DE LOCUTOR MASCULINO:
+La empresa Tecnova, dedicada desde su creación, hace tres años, a importar motocicletas y camiones eléctricos, decidió ampliar su negocio y pondrá próximamente en Cali y en Bogotá dos fábricas para la elaboración de vehículos eléctricos. Su director, Camilo Matiz, declaró ayer que esperan tener éxito a nivel nacional e internacional, y que ya tienen acuerdos para vender motocicletas eléctricas a Europa.
+
+Parte 1
+Colombiamoda 2013, la gran feria de la moda de Medellín, abre hoy, martes, oficialmente sus
+puertas. Con 450 expositores y 1500 compradores internacionales llegados de más de 50 países, la
+feria estará abierta hasta el próximo jueves. Los organizadores del evento prevén que, en el curso
+de estos tres días, más de 60.000 visitantes recorrerán los pabellones de la feria, un 20% más que
+en la versión del año pasado.
+
+Parte 2
+La actriz colombiana Juana Acosta obtuvo ayer el premio de «La Unión de Actores Españoles» a la
+mejor actriz de reparto por su interpretación en la serie española «La señal», que podrá verse en
+Colombia a partir de enero. Juana Acosta, que acaba de estrenar en televisión una nueva serie,
+«Familia», se encuentra rodando en nuestro país una película basada en la vida de Simón Bolívar.
+
+Parte 3
+La escultora Eva López ha presentado esta mañana en la galería Casas de Bogotá un libro que recopila toda su obra artística. El libro ha sido publicado por la Universidad Nacional de Colombia, en
+la que la artista trabaja como profesora. También está previsto que el próximo día 9 Eva López pronuncie en Medellín, en cuyo Museo de Arte Moderno se expone desde hace dos semanas su obra
+más reciente, una conferencia sobre el sentido religioso de su escultura.
+
+Parte 4
+El Atlético Nacional se mantiene como líder de la liga colombiana de fútbol tras derrotar ayer al
+Medellín por 1-0, con un gol del delantero Óscar Murillo en el último minuto. El entrenador del
+Nacional, Juan Carlos Osorio, declaró que, aunque el equipo no jugó bien, mereció la victoria, y
+recordó que el año pasado la suerte favoreció al equipo de Medellín.
+
+Parte 5
+El servicio meteorológico pronostica pocas nubes para hoy en Bogotá. Será un día realmente seco,
+aunque es posible que para mañana ese calentamiento nos traiga algunas lluvias. Para el lunes se
+espera la llegada de una fuerte ola de calor. 
+
+--- Interviews End ---
+
+--- Questions Start ---
+
+13. La empresa Tecnova...
+a) lleva tres años fabricando motos eléctricas.
+b) ha inaugurado dos fábricas en Colombia.
+c) exportará vehículos eléctricos.
+
+Noticia 2
+14. La feria Colombiamoda 2013...
+a) cuenta con 50 firmas extranjeras.
+b) tiene una duración de tres días
+c) ha ampliado un 20% su espacio.
+
+Noticia 3
+15. La actriz colombiana Juana Acosta…
+a) ha recibido un premio en Colombia.
+b) ha participado en una serie española.
+c) ha estrenado una película en su país.
+
+Noticia 4
+16. Las esculturas de Eva López pueden verse actualmente en…
+a) la Galería Casas de Bogotá.
+b) la Universidad Nacional de Colombia.
+c) el Museo de Arte Moderno de Medellín.
+
+Noticia 5
+17. Ayer el equipo de fútbol Atlético Nacional...
+a) ganó un partido contra el Medellín.
+b) perdió por un gol de diferencia.
+c) empató al final del partido.
+
+Noticia 6
+18. Según el pronóstico del tiempo en Bogotá...
+a) hoy el cielo estará nublado.
+b) mañana hará sol.
+c) el lunes subirán las temperaturas.
+
+
+--- Questions End ---
+
+Create the radio progream, then structure it into a JSON file with the following format:
+- The topic of the radio program should be random. Don't use the same topic from the provided example.
+- For the radio program, create 6 questions and with ID from 13 to 18. Each question has 3 multi-choices
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-3-intro' },
+        { type: 'pause', durationSeconds: 30 },
+
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'announcer speech',
+            voiceId: 'moderator', // always use the moderador id for the announcer
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'music' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'part 1 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'music' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'part 2 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'music' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'part 3 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'music' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'part 4 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'music' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'part 5 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        }
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all 5 parts here with the type pause and "music" parts
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-3-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in spanish>, // The title should be 4-6 words and related to the radio program
+    "id": "", // Generate UUIDv4 ID
+    "questions": [
+        {
+          "id": 13,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 1 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 2 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 3 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 4 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 5 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy part 6 speed text here
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+Writing Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- scenario_text: the scenario the user needs to read to get context about the form they will fill
+- form_fields: same exact number of fields and structure. Only change the text content based on the scenario.
+- instruction: fixed instruction. similar to the one provided in the example below
+- id: int
+- title: general title for the question. 4-6 words long
+
+{
+      "id": 0,
+      "form_fields": [
+        {
+          "id": "field_0",
+          "type": "text",
+          "value": "Kadavy, Eva",
+          "label": "Familienname, Vorname:",
+          "is_editable": false
+        },
+        {
+          "label": "Anzahl der Personen:",
+          "id": "field_1",
+          "type": "number",
+          "value": null,
+          "is_editable": true,
+          "hint": "Eva + Mann + 2 Söhne",
+          "question_number": 1,
+          "validation": {
+            "acceptable_values": [
+              "4",
+              "vier"
+            ],
+            "correct_value": "4"
+          }
+        },
+        {
+          "is_editable": true,
+          "hint": "8 und 11 Jahre alt",
+          "type": "number",
+          "question_number": 2,
+          "label": "Davon Kinder:",
+          "value": null,
+          "id": "field_2",
+          "validation": {
+            "acceptable_values": [
+              "2",
+              "zwei"
+            ],
+            "correct_value": "2"
+          }
+        },
+        {
+          "id": "field_3_static",
+          "label": "Urlaubsadresse:",
+          "value": "Hotel Schönblick",
+          "is_editable": false,
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "id": "field_4_static",
+          "is_editable": false,
+          "label": "Straße, Hausnummer:",
+          "value": "Burgstraße 34"
+        },
+        {
+          "id": "field_3",
+          "parts": [
+            {
+              "value": "78014",
+              "is_editable": false,
+              "width_weight": 0.3
+            },
+            {
+              "placeholder": "Ort",
+              "value": null,
+              "width_weight": 0.7,
+              "validation": {
+                "correct_value": "Seeheim",
+                "acceptable_values": [
+                  "Seeheim"
+                ]
+              },
+              "is_editable": true
+            }
+          ],
+          "question_number": 3,
+          "label": "PLZ, Urlaubsort:",
+          "type": "composite_text"
+        },
+        {
+          "value": "Der Reisepreis ist mit der Anmeldung zu bezahlen.",
+          "type": "label",
+          "style": "caption",
+          "id": "info_text"
+        },
+        {
+          "question_number": 4,
+          "validation": {
+            "correct_value": "bar"
+          },
+          "hint": "Frau Kadavy hat keine Kreditkarte",
+          "type": "single_choice",
+          "options": [
+            {
+              "value": "bar",
+              "label": "Bar"
+            },
+            {
+              "value": "kreditkarte",
+              "label": "Kreditkarte"
+            }
+          ],
+          "id": "field_4",
+          "label": "Zahlungsweise:"
+        },
+        {
+          "id": "field_5",
+          "value": null,
+          "type": "text",
+          "label": "Reisetermin:",
+          "validation": {
+            "acceptable_values": [
+              "Sonntag",
+              "nächsten Sonntag"
+            ],
+            "correct_value": "Sonntag"
+          },
+          "question_number": 5,
+          "is_editable": true
+        },
+        {
+          "id": "signature",
+          "type": "text",
+          "label": "Unterschrift",
+          "is_editable": false,
+          "value": "Eva Kadavy",
+          "style": "handwritten"
+        }
+      ],
+      "scenario_text": "Ihre Freundin, Eva Kadavy, macht mit ihrem Mann und ihren beiden Söhnen (8 und 11 Jahre alt) Urlaub in Seeheim. Im Reisebüro bucht sie für den nächsten Sonntag eine Busfahrt um den Bodensee. Frau Kadavy hat keine Kreditkarte.",
+      "instruction": "Schreiben Sie die fünf fehlenden Informationen in das Formular.",
+      "title": "Bodensee Rundfahrt Anmeldung"
+}

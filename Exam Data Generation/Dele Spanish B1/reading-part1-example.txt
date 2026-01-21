@@ -1,0 +1,62 @@
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: UUID v4. Generate a new UUID
+- 6 questions. Ids start from number 1 to 6
+- programs: 10 texts that include 4 distractors. Use \n to seperate lines. the keys are from a to j
+- title: general title for the question in Spanish. 4-6 words long
+
+{
+  "id": "915325ec-bc00-4e45-a867-6025a5c869af",
+  "title": "Guía variada de programación televisiva",
+  "programs": {
+    "a": "¡Artzooka!\nEste programa desarrolla habilidades manuales de manera lúdica y sencilla. El presentador, Bruno, explica a los niños cómo pueden hacer obras de arte con material de desecho que hay en cualquier lugar de su casa. En el próximo capítulo aprenderemos a hacer unas simpáticas marionetas.",
+    "b": "El escarabajo rojo\nEsta semana el programa estará dedicado al agua, el elemento considerado por muchos expertos como el petróleo del tercer milenio. Un reportaje que analiza en profundidad los pros y los contras de la privatización del agua con expertos en la materia.",
+    "c": "Redes\nEn el próximo capítulo Vlatko Vedral, físico de la Universidad de Oxford, explicará a Eduard Punset cómo los objetos subatómicos pueden estar en más de un sitio a la vez y cómo dos partículas situadas en extremos opuestos de una galaxia pueden compartir información instantáneamente.",
+    "d": "La fuerza del destino\nAdolfo logra hablar a escondidas con Matilde y aclarar los malentendidos. Ella le confiesa que está esperando un hijo. Para salvar la hacienda de la ruina, Humberto obliga a su hija, Matilde, a casarse con el adinerado Mendoza. Cuando Matilde le cuenta a Adolfo los planes de su padre, estos deciden huir juntos",
+    "e": "59 segundos\nCinco expertos en diversos ámbitos disponen de 59 segundos para exponer sus puntos de vista y responder a las cuestiones planteadas en la mesa del plató. Destaca la labor de Mario Casado, que actúa como moderador del programa. El programa se puede seguir en directo por la web, donde los internautas pueden participar a través de las redes sociales.",
+    "f": "La sirena Rita\nRita, la sirena, se da cuenta de que algunos animales del mar están enfermando. La culpa la tiene una bacteria maligna. Veremos cómo, en su lucha por salvar el océano, Rita y el cangrejo Sebastián enseñan a los más pequeños de la casa a respetar el medio ambiente.",
+    "g": "El buscador de historias\nEste programa describe la realidad de manera cercana con un lenguaje coloquial y próximo que crea empatía con el espectador. El hilo conductor es un reportero, y cada programa recoge un solo tema que se expone desde varios puntos de vista.",
+    "h": "Que pase el siguiente\nEl reconocido presentador Carlos Soriano es el encargado de conducir el programa y formular las preguntas a los jugadores. Soriano estará acompañado de actores, cantantes, magos y gente del espectáculo, que a través de distintos números sorprenderán al público y a los espectadores.",
+    "i": "Origen\nHace cinco años una agencia espacial descubrió la posibilidad de vida extraterrestre en nuestro Sistema Solar. Para recolectar muestras, puso en órbita una nave tripulada que alcanzó el objetivo, pero, al regresar a la Tierra, la nave se perdió en la selva de América Central. Así arranca este largometraje, que recibió numerosos premios por sus efectos especiales.",
+    "j": "La inteligencia del pulpo\nEl pulpo es una de las especies más complejas de los océanos. Y también estamos ante la inteligencia más avanzada de todo lo que no respira aire en este planeta. Una clase de inteligencia distinta, extraña, que a veces es capaz de poner los pelos de punta e invitarnos a soñar. O a tener pesadillas."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "persona": "ISABEL",
+      "statement": "Soy una gran aficionada a los programas de divulgación científica. Me interesan sobre todo los programas que hablan del universo.",
+      "answer": "c"
+    },
+    {
+      "id": 2,
+      "persona": "ÓSCAR",
+      "statement": "Me gusta mantenerme informado de lo que está ocurriendo en cada momento, pero no me conformo solo con una opinión. Por eso los debates son mis programas favoritos. ",
+      "answer": "e"
+    },
+    {
+      "id": 3,
+      "persona": "TINA",
+      "statement": "Soy muy competitiva y por eso me apasionan los concursos. Los sigo incluso por Internet, porque en muchos de ellos puedes participar a través de las redes sociales. ",
+      "answer": "h"
+    },
+    {
+      "id": 4,
+      "persona": "ADRIÁN",
+      "statement": "Soy aficionado al buceo y me encantan los animales, así que no me pierdo los documentales que te ayudan a descubrir la espectacular fauna marina.",
+      "answer": "j"
+    },
+    {
+      "id": 5,
+      "persona": "EVA MARÍA ",
+      "statement": "Desde que tuve a Carla, apenas tengo tiempo para ver la televisión. Lo único que puedo ver son los dibujos que echan mientras le doy la merienda.",
+      "answer": "f"
+    },
+    {
+      "id": 6,
+      "persona": "DAVID",
+      "statement": "Quiero transmitir a mis alumnos de secundaria la importancia de estar concienciado con los problemas medioambientales. Y una manera de hacerlo es viendo programas que traten de estos temas.",
+      "answer": "b"
+    } 
+  ]
+}

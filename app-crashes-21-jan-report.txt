@@ -1,0 +1,246 @@
+          Fatal Exception: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+	existing SO sources: 
+		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~EtdErF9yEV_2Zd3ssP_koA==/com.mhamada.telca1german-UwdhD3QCgnucRvzPhK94sA==/lib/arm64 flags = 0]]
+		SoSource 1: DirectApkSoSource[root = [/data/app/~~EtdErF9yEV_2Zd3ssP_koA==/com.mhamada.telca1german-UwdhD3QCgnucRvzPhK94sA==/base.apk!/lib/arm64-v8a]]
+		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 2]
+		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 2]
+	Native lib dir: /data/app/~~EtdErF9yEV_2Zd3ssP_koA==/com.mhamada.telca1german-UwdhD3QCgnucRvzPhK94sA==/lib/arm64
+
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+       at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.override(ReactNativeFeatureFlagsCxxInterop.kt)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:725)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:468)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+       at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+       at com.mhamada.telcb1german.MainApplication.onCreate(MainApplication.kt:26)
+       at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1223)
+       at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6762)
+       at android.app.ActivityThread.access$1500(ActivityThread.java:256)
+       at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2091)
+       at android.os.Handler.dispatchMessage(Handler.java:106)
+       at android.os.Looper.loopOnce(Looper.java:201)
+       at android.os.Looper.loop(Looper.java:288)
+       at android.app.ActivityThread.main(ActivityThread.java:7870)
+       at java.lang.reflect.Method.invoke(Method.java)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1009)
+        
+
+
+------
+
+
+          Fatal Exception: java.lang.IllegalArgumentException: Invalid parent node provided
+       at com.facebook.react.animated.InterpolationAnimatedNode.onDetachedFromNode$ReactAndroid_release(InterpolationAnimatedNode.kt:60)
+       at com.facebook.react.animated.AnimatedNode.removeChild$ReactAndroid_release(AnimatedNode.kt:41)
+       at com.facebook.react.animated.NativeAnimatedNodesManager.disconnectAnimatedNodes(NativeAnimatedNodesManager.kt:379)
+       at com.facebook.react.animated.NativeAnimatedModule$disconnectAnimatedNodes$1.execute(NativeAnimatedModule.kt:755)
+       at com.facebook.react.animated.NativeAnimatedModule$ConcurrentOperationQueue.executeBatch(NativeAnimatedModule.kt:149)
+       at com.facebook.react.animated.NativeAnimatedModule.didDispatchMountItems(NativeAnimatedModule.kt:304)
+       at com.facebook.react.fabric.FabricUIManager$MountItemDispatchListener.didDispatchMountItems(FabricUIManager.java:1413)
+       at com.facebook.react.fabric.mounting.MountItemDispatcher.tryDispatchMountItems(MountItemDispatcher.kt:98)
+       at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(FabricUIManager.java:1514)
+       at com.facebook.react.uimanager.GuardedFrameCallback.doFrame(GuardedFrameCallback.kt:25)
+       at com.facebook.react.modules.core.ReactChoreographer.frameCallback$lambda$1(ReactChoreographer.kt:59)
+       at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1036)
+       at android.view.Choreographer.doCallbacks(Choreographer.java:846)
+       at android.view.Choreographer.doFrame(Choreographer.java:776)
+       at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1023)
+       at android.os.Handler.handleCallback(Handler.java:938)
+       at android.os.Handler.dispatchMessage(Handler.java:99)
+       at android.os.Looper.loopOnce(Looper.java:201)
+       at android.os.Looper.loop(Looper.java:288)
+       at android.app.ActivityThread.main(ActivityThread.java:7981)
+       at java.lang.reflect.Method.invoke(Method.java)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:553)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+        
+
+-------
+
+          Fatal Exception: java.lang.NoClassDefFoundError: Class not found using the boot class loader; no stack trace available
+
+-------
+
+
+          Fatal Exception: com.facebook.soloader.B: couldn't find DSO to load: libreactnative.so
+	existing SO sources: 
+		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/lib/arm64 flags = 0]]
+		SoSource 1: DirectApkSoSource[root = [/data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/base.apk!/lib/x86_64, /data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/split_config.xxhdpi.apk!/lib/x86_64, /data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/split_config.arm64_v8a.apk!/lib/x86_64, /data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/split_config.de.apk!/lib/x86_64]]
+		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+	Native lib dir: /data/app/~~6_g8OqvmsOxnF9WQ1N-s3g==/com.mhamada.telcb1german-Yu1DAJPrlrLkGmnYV56xLA==/lib/arm64
+
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+       at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:725)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:468)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+       at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+       at com.mhamada.telcb1german.MainApplication.onCreate(MainApplication.kt:25)
+       at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1277)
+       at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6759)
+       at android.app.ActivityThread.handleBindApplication(ActivityThread.java)
+       at android.app.ActivityThread.-$$Nest$mhandleBindApplication()
+       at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2133)
+       at android.os.Handler.dispatchMessage(Handler.java:106)
+       at android.os.Looper.loopOnce(Looper.java:201)
+       at android.os.Looper.loop(Looper.java:288)
+       at android.app.ActivityThread.main(ActivityThread.java:7872)
+       at java.lang.reflect.Method.invoke(Method.java)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+
+----        
+
+
+          Fatal Exception: com.facebook.soloader.B: couldn't find DSO to load: libc++_shared.so
+	existing SO sources: 
+		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/lib/x86_64 flags = 0]]
+		SoSource 1: DirectApkSoSource[root = [/data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.armeabi_v7a.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.kk.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.sl.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.km.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.es.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.lv.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.zu.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.az.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.xxhdpi.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.eu.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.th.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.iw.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.nl.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.sr.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgd<truncated: 9169 chars>
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadDependency(SoLoader.java:920)
+       at com.facebook.soloader.DirectApkSoSource.loadDependencies(DirectApkSoSource.java:166)
+       at com.facebook.soloader.DirectApkSoSource.loadLibrary(DirectApkSoSource.java:76)
+       at com.facebook.soloader.SoLoader.loadLibraryFromSoSource(SoLoader.java:1246)
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1210)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+       at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:725)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:468)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+       at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+       at com.mhamada.telcb1german.MainApplication.onCreate(MainApplication.kt:25)
+       at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1194)
+       at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6735)
+       at android.app.ActivityThread.access$1300(ActivityThread.java:239)
+       at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1915)
+       at android.os.Handler.dispatchMessage(Handler.java:106)
+       at android.os.Looper.loop(Looper.java:223)
+       at android.app.ActivityThread.main(ActivityThread.java:7680)
+       at java.lang.reflect.Method.invokeNative(Method.java)
+       at java.lang.reflect.Method.invoke(Method.java:423)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:592)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:947)
+        
+
+-------
+
+          Fatal Exception: com.facebook.soloader.B: couldn't find DSO to load: libc++_shared.so
+	existing SO sources: 
+		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/lib/x86_64 flags = 0]]
+		SoSource 1: DirectApkSoSource[root = [/data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.armeabi_v7a.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.kk.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.sl.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.km.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.es.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.lv.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.zu.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.az.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.xxhdpi.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.eu.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.th.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.iw.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.nl.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgdaQP9tiN1Lihg==/com.mhamada.telcb2english-MQ9bsipToZuD-KRFGYQ7rw==/split_config.sr.apk!/lib/arm64-v8a, /data/app/~~dtW3nDfbgd<truncated: 9169 chars>
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadDependency(SoLoader.java:920)
+       at com.facebook.soloader.DirectApkSoSource.loadDependencies(DirectApkSoSource.java:166)
+       at com.facebook.soloader.DirectApkSoSource.loadLibrary(DirectApkSoSource.java:76)
+       at com.facebook.soloader.SoLoader.loadLibraryFromSoSource(SoLoader.java:1246)
+       at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1210)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+       at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+       at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+       at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:725)
+       at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:468)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+       at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+       at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+       at com.mhamada.telcb1german.MainApplication.onCreate(MainApplication.kt:25)
+       at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1194)
+       at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6735)
+       at android.app.ActivityThread.access$1300(ActivityThread.java:239)
+       at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1915)
+       at android.os.Handler.dispatchMessage(Handler.java:106)
+       at android.os.Looper.loop(Looper.java:223)
+       at android.app.ActivityThread.main(ActivityThread.java:7680)
+       at java.lang.reflect.Method.invokeNative(Method.java)
+       at java.lang.reflect.Method.invoke(Method.java:423)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:592)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:947)
+        
+
+
+------
+
+
+
+          Fatal Exception: com.facebook.react.bridge.JSApplicationIllegalArgumentException: connectAnimatedNodeToView: Animated node with tag [6575] does not exist
+       at com.facebook.react.animated.NativeAnimatedNodesManager.connectAnimatedNodeToView(NativeAnimatedNodesManager.kt:387)
+       at com.facebook.react.animated.NativeAnimatedModule$connectAnimatedNodeToView$1.execute(NativeAnimatedModule.kt:782)
+       at com.facebook.react.animated.NativeAnimatedModule$ConcurrentOperationQueue.executeBatch(NativeAnimatedModule.kt:149)
+       at com.facebook.react.animated.NativeAnimatedModule.didDispatchMountItems(NativeAnimatedModule.kt:304)
+       at com.facebook.react.fabric.FabricUIManager$MountItemDispatchListener.didDispatchMountItems(FabricUIManager.java:1413)
+       at com.facebook.react.fabric.mounting.MountItemDispatcher.tryDispatchMountItems(MountItemDispatcher.kt:98)
+       at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(FabricUIManager.java:1514)
+       at com.facebook.react.uimanager.GuardedFrameCallback.doFrame(GuardedFrameCallback.kt:25)
+       at com.facebook.react.modules.core.ReactChoreographer.frameCallback$lambda$1(ReactChoreographer.kt:59)
+       at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1036)
+       at android.view.Choreographer.doCallbacks(Choreographer.java:846)
+       at android.view.Choreographer.doFrame(Choreographer.java:776)
+       at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1023)
+       at android.os.Handler.handleCallback(Handler.java:938)
+       at android.os.Handler.dispatchMessage(Handler.java:99)
+       at android.os.Looper.loopOnce(Looper.java:201)
+       at android.os.Looper.loop(Looper.java:288)
+       at android.app.ActivityThread.main(ActivityThread.java:7986)
+       at java.lang.reflect.Method.invoke(Method.java)
+       at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:553)
+       at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+        
+	#	
+Time
+ 
+(newest first)
+Source	Log
+1	05:16:31.608 PM	
+practice_section_opened
+Parameters
+app_name: GermanTelcB2_android
+firebase_screen: Main
+section: listening_practice_list
+firebase_screen_class: MainActivity
+platform: android
+ts: 1768752991488
+2	05:16:31.496 PM	
+screen_view
+Parameters
+firebase_screen: Main
+firebase_screen_class: MainActivity
+3	05:16:31.373 PM	
+DataService: Cache HIT for "listening-practice"
+4	05:16:31.349 PM	
+DataService: Fetching doc "listening-practice"
+5	05:16:31.263 PM	
+listening_practice_section_opened
+Parameters
+app_name: GermanTelcB2_android
+firebase_screen: Main
+firebase_screen_class: MainActivity
+platform: android
+ts: 1768752991297
+6	05:16:28.164 PM	
+screen_view
+
+

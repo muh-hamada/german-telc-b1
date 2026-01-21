@@ -1,0 +1,118 @@
+Grammar Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: UUID v4. Generate a new UUID
+- text: the text will fragment gaps with Id from 19 to 24. The removed fragments are placed with this format "[{fragment_nr}]". Use \n to create new lines.
+- answers: the correct answer of each fragment gap in the text.
+- fragments: 8 fragments with keys from a to h. Two fragments are used as distractors.
+- title: general title for the question. 4-6 words long
+
+{
+  "id": "4e0973d3-6c8a-4e45-99fc-eafac6059248",
+  "title": "Poniéndose al Día con una Amiga"
+  "text": "Querida Ana:\nDisculpá que no te haya escrito antes, pero tuve problemas con la computadora y estuve dos semanas sin poder conectarme a Internet.\nPor acá todo bien, sin demasiadas novedades. La semana pasada [25] haciendo un curso de formación de dos días en Buenos Aires. Una de las noches arreglé con Celia para ir a cenar. Me dijo que [26] muy bien: consiguió un trabajo nuevo y está saliendo con un chico muy simpático. Me preguntó por vos y me dijo que muere por verte. ¿Por qué no [27] mandás un mail?\nYo también tengo muchas ganas de verte. ¿[28] planes tenés para las vacaciones? Se me ocurre que podríamos ir a la casa que tiene mi hermana en la playa. Cuando [29] los días que vas a venir, escribime, así ya le pido la casa. Espero que esta vez puedas quedarte más [30] dos días porque la última vez no tuvimos tiempo para hacer nada.\nBueno, Anita, te dejo que tengo que hacer un montón de cosas hoy. Seguimos en contacto.\nUn beso enorme,\nMariana"
+  "questions": [
+    {
+      "id": 25,
+      "answers": [
+        {
+          "text": "estuve",
+          "correct": true
+        },
+        {
+          "text": "estaba",
+          "correct": false
+        },
+        {
+          "text": "había estado",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "answers": [
+        {
+          "text": "era",
+          "correct": false
+        },
+        {
+          "text": "estaba",
+          "correct": true
+        },
+        {
+          "text": "llevaba",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "answers": [
+        {
+          "text": "la",
+          "correct": false
+        },
+        {
+          "text": "lo",
+          "correct": false
+        },
+        {
+          "text": "le",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "answers": [
+        {
+          "text": "Cuál",
+          "correct": false
+        },
+        {
+          "text": "Qué",
+          "correct": true
+        },
+        {
+          "text": "Cuáles",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "answers": [
+        {
+          "text": "sepas",
+          "correct": true
+        },
+        {
+          "text": "sabes",
+          "correct": false
+        },
+        {
+          "text": "sabrías",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "answers": [
+        {
+          "text": "que",
+          "correct": false
+        },
+        {
+          "text": "de",
+          "correct": true
+        },
+        {
+          "text": "por",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

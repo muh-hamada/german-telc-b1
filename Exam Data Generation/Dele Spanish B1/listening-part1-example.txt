@@ -1,0 +1,376 @@
+You are an expert in creating listening questions for the Dele Spanish B1 exam.
+
+Create a similar Voicemail messages to this one below; it should have the same language difficulty, text length, etc. This is from the Dele Spanish B1 listening question.
+
+--- Voicemail messages Start ---
+
+Mensaje 1
+HOMBRE: Hola, Cristina, soy Roberto. Seguro que has estado buscando por toda la casa tu agenda. La tengo yo, se te olvidó ayer en el restaurante. Me la llevé sin querer entre mis carpetas. Esta tarde tengo una cita cerca de tu oficina, así que, si te parece bien, me paso por allí y te la doy. Llámame para decirme si vas a estar.
+NARRADOR: ¿Para qué llama Roberto a Cristina?
+
+¿Para qué llama Roberto a Cristina?
+a) Para devolverle su agenda.
+b) Para proponerle salir a comer.
+c) Para recordarle que tienen una cita.
+
+----
+
+Mensaje 2
+MUJER: Hola, Pedro. Mañana tengo una reunión con el director general y en el informe comercial que me enviaste no aparecen los gastos de marketing y publicidad. En cuanto puedas, me mandas por correo electrónico esta información, me corre mucha prisa. Gracias.
+NARRADOR: ¿Qué tiene que hacer Pedro? 
+
+¿Qué tiene que hacer Pedro?
+a) Acudir a una reunión.
+b) Elaborar un informe.
+c) Enviar unos datos.
+
+----
+
+Mensaje 3
+HOMBRE: Buenos días, este mensaje es para Claudia Ríos. La llamamos de la empresa Conecta. Hemos visto su currículum y nos gustaría hacerle una entrevista de trabajo. Si le viene bien, podría ser el viernes de la semana que viene, en horario de mañana. Por favor, llámenos en cuanto pueda para fijar la hora.
+NARRADOR: ¿Para qué llama el hombre a la mujer?
+
+¿Para qué llama el hombre a la mujer?
+a) Para que le envíe el currículum.
+b) Para concertar una cita.
+c) Para aplazar una entrevista.
+ 
+----
+
+Mensaje 4
+MUJER: Mario, soy Julia. Tengo un problema y necesito que me eches una mano porque no me funciona el portátil. ¿Podrías hacer algo? Es que el viernes tengo que entregar un trabajo de Biología y todavía no lo he terminado. Si te va bien, te lo llevo a tu casa esta tarde y, de paso, te doy el DVD que me dejaste.
+NARRADOR: ¿Qué le pide Julia a Mario?
+
+¿Qué le pide Julia a Mario?
+a) Que le arregle el ordenador.
+b) Que la ayude a hacer un trabajo de clase.
+c) Que le preste una película.
+
+----
+
+Mensaje 5
+HOMBRE: Hola, Marta. Me acaba de llamar Ana Costa y me ha dicho que nos han concedido la hipoteca. ¡Por fin! Oye, otra cosa, cuando salgas del despacho, recoge la tarta que encargué ayer. Te recuerdo que ya está pagada. Un beso.
+NARRADOR: ¿Dónde tiene que ir Marta?
+
+¿A dónde tiene que ir Marta?
+a) Al banco.
+b) A su oficina.
+c) A la pastelería.
+
+----
+
+Mensaje 6
+MUJER: Hola Carlos, soy Paz. Te llamo por lo del viaje. A ver… la agencia que me recomendó Elena me gustó, pero el viaje a París que nos ofrecían me pareció caro. Anda, mira los vuelos en esa página web de ofertas de última hora. Por cierto, Elena me dijo que pasaras por su casa a buscar la guía de París. Llámame luego.
+NARRADOR: ¿Qué quiere Paz que haga Carlos? 
+
+¿Qué quiere Paz que haga Carlos?
+a) Que vaya a la agencia de viajes.
+b) Que busque los billetes por Internet.
+c) Que hable con Elena del viaje.
+
+--- Voicemail messages End ---
+
+Create the Voicemail messages, then structure it into a JSON file with the following format:
+- Each part has a person part (male or female) and a NARRATOR
+- For each voicemail message, create a question and 3 multi-choices
+- For each part, create a two seperate "type: 'speech'" items. One item for the speaker and one for the narrator. They will be processes seperaretely later for Text-to-Speech
+- questions array must have 6 questions with Id from 1 to 6
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-1-intro' },
+        { type: 'pause', durationSeconds: 30 },
+
+
+
+        { type: 'ready', id: 'message-1' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 1 parts here
+        
+
+
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'message-2' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 2 parts here
+
+
+
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'message-3' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 3 parts here
+
+
+
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'message-4' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 4 parts here
+
+
+
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'message-5' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 5 parts here
+
+
+
+        { type: 'pause', durationSeconds: 5 },
+        { type: 'ready', id: 'message-6' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "message-speaker-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.8,
+            text: 'narrator speech',
+            voiceId: 'moderador', // always use moderador for the narrator part
+            id: "message-narrator-{index}"
+        },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+        
+        // copy all voicemail message 6 parts here
+        
+
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-1-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in spanish>, // The title should be 4-6 words and related to the messages,
+    "id": "", // Generate UUIDv4 ID
+    "questions": [
+        {
+          "id": 1,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "<the question text>",
+          "audio_transcription": "", // Copy the person speech here 
+          "options": [
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            },
+            {
+              "is_correct": <boolean>,
+              "text": "<choice text>",
+            }
+          ]
+        }
+    ]
+}
