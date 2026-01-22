@@ -30,6 +30,14 @@
 -keep class com.facebook.soloader.** { *; }
 -dontwarn com.facebook.soloader.**
 
+# Keep React Native feature flags - critical for New Architecture
+-keep class com.facebook.react.internal.featureflags.** { *; }
+-dontwarn com.facebook.react.internal.featureflags.**
+
+# Keep all classes related to native library loading
+-keep class com.facebook.react.defaults.** { *; }
+-keep class com.facebook.react.ReactNativeApplicationEntryPoint { *; }
+
 # Keep native methods and classes
 -keepclasseswithmembernames class * {
     native <methods>;

@@ -91,7 +91,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'announcer speech',
             voiceId: 'moderator', // always use the moderador id for the announcer
             id: "interview-{index}"
@@ -103,7 +103,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'part 1 speech',
             voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "part-{index}"
@@ -116,7 +116,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'part 2 speech',
             voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "part-{index}"
@@ -129,7 +129,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'part 3 speech',
             voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "part-{index}"
@@ -142,7 +142,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'part 4 speech',
             voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "part-{index}"
@@ -155,7 +155,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
             type: 'speech',
             repeated: true,
-            speed: 0.85,
+            speech: 0.85,
             text: 'part 5 speech',
             voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "part-{index}"
@@ -177,7 +177,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 13,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 1 speed text here
+          "audio_transcription": "", // Copy part 1 speech text here
           "options": [
             {
               "is_correct": <boolean>,
@@ -196,7 +196,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 14,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 2 speed text here
+          "audio_transcription": "", // Copy part 2 speech text here
           "options": [
             {
               "is_correct": <boolean>,
@@ -215,7 +215,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 15,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 3 speed text here
+          "audio_transcription": "", // Copy part 3 speech text here
           "options": [
             {
               "is_correct": <boolean>,
@@ -234,7 +234,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 16,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 4 speed text here
+          "audio_transcription": "", // Copy part 4 speech text here
           "options": [
             {
               "is_correct": <boolean>,
@@ -253,7 +253,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 17,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 5 speed text here
+          "audio_transcription": "", // Copy part 5 speech text here
           "options": [
             {
               "is_correct": <boolean>,
@@ -272,7 +272,7 @@ Create the radio progream, then structure it into a JSON file with the following
         {
           "id": 18,
           "question": "<the question text>",
-          "audio_transcription": "", // Copy part 6 speed text here
+          "audio_transcription": "", // Copy part 6 speech text here
           "options": [
             {
               "is_correct": <boolean>,

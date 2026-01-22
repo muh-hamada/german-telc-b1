@@ -1,0 +1,105 @@
+You are an expert in creating listening questions for the Dele Spanish B1 exam.
+
+Create a similar Interview to this one below; it should have the same language difficulty, text length, etc. This is from the Dele Spanish B1 listening question.
+
+--- Conversation Start ---
+
+HOMBRE: ¡Vaya, Bea, qué sorpresa! No te esperaba. Como dijiste que me llamarías antes de venir… ¿A qué se debe tu visita?
+MUJER: Hombre, después de tantos años de amistad, no creo que haga falta llamarnos con cinco
+días de antelación para tomar un café contigo y charlar un poco…
+HOMBRE: ¡Claro, desde luego! Pero me habría gustado saber que venías para comprar unos pasteles y tomarlos con el café.
+MUJER: Da igual. Si quieres bajamos al bar de la esquina y nos tomamos allí el café.
+HOMBRE: Vale, pero dame cinco minutos para arreglarme un poco.
+MUJER: La verdad es que he venido para contarte una noticia de Ana.
+HOMBRE: ¿Sí? ¿Le han ofrecido un trabajo mejor? Me dijo que estaba pensando en cambiar de trabajo.
+MUJER: No, qué va. Es una bomba. Se casa este verano en México.
+HOMBRE: ¡No me digas! ¿Hablas en serio? ¡Ana se casa! Si ni siquiera sabía que tenía novio.
+MUJER: Es mexicano y llevan saliendo un año. Me lo presentó ayer y me contó que ya está empezando a mandar las invitaciones de boda. Me pidió tu dirección.
+HOMBRE: Me alegro mucho por ella, pero esta boda es lo que me faltaba. Se casa un amigo íntimo
+en junio y me va a salir carísimo comprar los dos regalos, el hotel y el viaje en avión a México…, y
+con el miedo que me da volar… A lo mejor no voy…
+MUJER: A Ana le haría mucha ilusión que fueras. Además, conozco un par de páginas web con
+ofertas para viajes de última hora. Seguro que encontramos un vuelo barato, aunque no sea directo y tengamos que coger varios aviones. La verdad es que me apetece mucho ir.
+HOMBRE: Bueno, me lo pensaré, aunque yo preferiría un vuelo directo. En cuanto me llegue la invitación te llamo. ¡Y vamos de una vez a tomar ese café! 
+
+--- Conversation End ---
+
+--- Statements Start ---
+
+1. Propone salir a tomar algo.
+2. Conoce al novio de Ana.
+3. Le preocupa gastarse mucho dinero.
+4. Duda si asistirá a la boda de Ana.
+5. Ha sacado el billete por Internet.
+6. Le da igual que el vuelo haga escalas.
+
+--- Statements End ---
+
+Create the Conversation between two people (one male and one female), then structure it into a JSON file with the following format:
+- The topic of the Conversation should be random. Don't use the same topic from the provided example.
+- Create 6 statements with Ids from 25 to 30
+- Create 6 questions about which person of the two people said that statement. Some statement are distractors (none of them said it)
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-5-intro' },
+        { type: 'pause', durationSeconds: 20 },
+
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "part-{index}"
+        },
+
+        // Repeat the speech part to cover the entire Conversation
+
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-5-2nd-time' },
+        { type: 'pause', durationSeconds: 3 },
+
+        // Copy person all Conversation speech parts here
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-5-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in spanish>, // The title should be 4-6 words and related to the interviews
+    "id": "", // Generate UUIDv4 ID,
+    "audio_transcription": []
+    "questions": [
+        {
+          "id": 25,
+          "statement": "<statement number 1>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        },
+        {
+          "id": 26,
+          "statement": "<statement number 2>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        },
+        {
+          "id": 27,
+          "statement": "<statement number 3>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        },
+        {
+          "id": 28,
+          "statement": "<statement number 4>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        },
+        {
+          "id": 29,
+          "statement": "<statement number 5>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        },
+        {
+          "id": 30,
+          "statement": "<statement number 6>",
+          "answer": "a|b|c" // a: male person , b: female person, c: neither of them
+        }
+    ]
+}

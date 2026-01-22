@@ -4,289 +4,222 @@ Create a similar Interview to this one below; it should have the same language d
 
 --- Interviews Start ---
 
-VOZ DE LOCUTOR MASCULINO:
-La empresa Tecnova, dedicada desde su creación, hace tres años, a importar motocicletas y camiones eléctricos, decidió ampliar su negocio y pondrá próximamente en Cali y en Bogotá dos fábricas para la elaboración de vehículos eléctricos. Su director, Camilo Matiz, declaró ayer que esperan tener éxito a nivel nacional e internacional, y que ya tienen acuerdos para vender motocicletas eléctricas a Europa.
+Persona 1
+MUJER: Desde luego que fue una experiencia estupenda. Estudié Sociología y estaba ocupadísima porque, además de no saltarme ni una clase de la facultad, era voluntaria en una institución internacional que atendía a inmigrantes. Por eso creo que aprendí tanto fuera como dentro de las aulas. Además, me enamoré de un chico maravilloso, el mejor deportista de la clase. ¡Ah!, solo tengo un mal recuerdo: ¡los exámenes orales!
 
-Parte 1
-Colombiamoda 2013, la gran feria de la moda de Medellín, abre hoy, martes, oficialmente sus
-puertas. Con 450 expositores y 1500 compradores internacionales llegados de más de 50 países, la
-feria estará abierta hasta el próximo jueves. Los organizadores del evento prevén que, en el curso
-de estos tres días, más de 60.000 visitantes recorrerán los pabellones de la feria, un 20% más que
-en la versión del año pasado.
+Persona 2
+HOMBRE: Pues yo empecé Derecho en Salamanca. Mis padres querían tener un abogado en la familia, pero ya sabía yo que aquello no era para mí, así que, después de tres años lo dejé y me metí en lo que me gustaba: Historia del Arte. Y la terminé con facilidad, como un juego. Sigo sin imaginarme a mí mismo en un juzgado. 
 
-Parte 2
-La actriz colombiana Juana Acosta obtuvo ayer el premio de «La Unión de Actores Españoles» a la
-mejor actriz de reparto por su interpretación en la serie española «La señal», que podrá verse en
-Colombia a partir de enero. Juana Acosta, que acaba de estrenar en televisión una nueva serie,
-«Familia», se encuentra rodando en nuestro país una película basada en la vida de Simón Bolívar.
+Persona 3
+MUJER: Yo tengo una clínica para animales; estudié Veterinaria. En aquellos tiempos, llevaba puesto el chándal tanto como la bata del laboratorio, porque me encantaba el balonmano. Tenía todos los fines de semana ocupados con partidos que nos llevaban de una ciudad a otra. Bueno, también tengo que decir que estaba enamorada del entrenador. ¡Qué buenos recuerdos!
 
-Parte 3
-La escultora Eva López ha presentado esta mañana en la galería Casas de Bogotá un libro que recopila toda su obra artística. El libro ha sido publicado por la Universidad Nacional de Colombia, en
-la que la artista trabaja como profesora. También está previsto que el próximo día 9 Eva López pronuncie en Medellín, en cuyo Museo de Arte Moderno se expone desde hace dos semanas su obra
-más reciente, una conferencia sobre el sentido religioso de su escultura.
+Persona 4
+HOMBRE: Sí, yo hice Biología y, aunque estaba más en la cafetería que en la biblioteca, sacaba buenas notas. Así que pedí una ayuda económica para estudiar en el extranjero y estuve un año en Alemania. Conocí muy bien el país y la lengua. ¡Fue una experiencia extraordinaria! Claro que a causa de eso rompí con mi novia, que quería que me quedara a su lado. Pero no me arrepiento.
 
-Parte 4
-El Atlético Nacional se mantiene como líder de la liga colombiana de fútbol tras derrotar ayer al
-Medellín por 1-0, con un gol del delantero Óscar Murillo en el último minuto. El entrenador del
-Nacional, Juan Carlos Osorio, declaró que, aunque el equipo no jugó bien, mereció la victoria, y
-recordó que el año pasado la suerte favoreció al equipo de Medellín.
+Persona 5
+MUJER: ¡Uf, hace tanto tiempo! Fíjese que entonces las chicas no podíamos participar en la tuna, una especie de grupo musical estudiantil de la universidad. ¡Con lo que me gustaba a mí tocar la guitarra! Estuve en la Facultad de Químicas. El caso es que no conseguí aprobar la Química orgánica y no terminé la carrera, pero pronto encontré trabajo en una buena empresa y me olvidé de los átomos, las moléculas y hasta de la tabla de los elementos.
 
-Parte 5
-El servicio meteorológico pronostica pocas nubes para hoy en Bogotá. Será un día realmente seco,
-aunque es posible que para mañana ese calentamiento nos traiga algunas lluvias. Para el lunes se
-espera la llegada de una fuerte ola de calor. 
+Persona 6
+HOMBRE: Mire, hice Periodismo en Barcelona. Yo me sentaba en la primera fila en clase y en la última en el cine. Lo digo porque, para ayudar a pagar todo aquello, estuve empleado en un cine. Cuando los demás se iban de excursión de fin de curso, yo me iba a recoger fruta a Lérida. Supuso un gran esfuerzo del que me siento muy orgulloso. 
 
 --- Interviews End ---
 
---- Questions Start ---
+--- STATEMENTS Start ---
 
-13. La empresa Tecnova...
-a) lleva tres años fabricando motos eléctricas.
-b) ha inaugurado dos fábricas en Colombia.
-c) exportará vehículos eléctricos.
+A. Obtuvo una beca.
+B. Tocaba en un grupo de música.
+C. Suspendió una asignatura.
+D. Estudió por tradición familiar.
+E. Cambió de carrera.
+F. Conoció a su actual pareja.
+G. Colaboraba con una ONG.
+H. Estudiaba y trabajaba al mismo tiempo.
+I. Practicaba deporte.
+J. Le gustaba ir al cine.
 
-Noticia 2
-14. La feria Colombiamoda 2013...
-a) cuenta con 50 firmas extranjeras.
-b) tiene una duración de tres días
-c) ha ampliado un 20% su espacio.
+--- STATEMENTS End ---
 
-Noticia 3
-15. La actriz colombiana Juana Acosta…
-a) ha recibido un premio en Colombia.
-b) ha participado en una serie española.
-c) ha estrenado una película en su país.
-
-Noticia 4
-16. Las esculturas de Eva López pueden verse actualmente en…
-a) la Galería Casas de Bogotá.
-b) la Universidad Nacional de Colombia.
-c) el Museo de Arte Moderno de Medellín.
-
-Noticia 5
-17. Ayer el equipo de fútbol Atlético Nacional...
-a) ganó un partido contra el Medellín.
-b) perdió por un gol de diferencia.
-c) empató al final del partido.
-
-Noticia 6
-18. Según el pronóstico del tiempo en Bogotá...
-a) hoy el cielo estará nublado.
-b) mañana hará sol.
-c) el lunes subirán las temperaturas.
-
-
---- Questions End ---
-
-Create the radio progream, then structure it into a JSON file with the following format:
-- The topic of the radio program should be random. Don't use the same topic from the provided example.
-- For the radio program, create 6 questions and with ID from 13 to 18. Each question has 3 multi-choices
+Create the interviews about people talking about a specific topic (same topic for all people), then structure it into a JSON file with the following format:
+- The topic of the interviews should be random. Don't use the same topic from the provided example.
+- Create 10 statements and with ID from a to j. Four statements are distractors
+- Create 6 questions with the statement that corresponds to the topic each person is talking about
 
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
-        { type: 'ready', id: 'part-3-intro' },
-        { type: 'pause', durationSeconds: 30 },
+        { type: 'ready', id: 'part-4-intro' },
 
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'person-1' },
+        { type: 'pause', durationSeconds: 2 },
         {
             type: 'speech',
             repeated: true,
             speed: 0.85,
-            text: 'announcer speech',
-            voiceId: 'moderator', // always use the moderador id for the announcer
+            text: 'person 1 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
             id: "interview-{index}"
         },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
-        { type: 'pause', durationSeconds: 2 },
-        
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'part 1 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
-        
-        { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
-        { type: 'pause', durationSeconds: 2 },
-        
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'part 2 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
-        
-        { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
-        { type: 'pause', durationSeconds: 2 },
-        
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'part 3 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
-        
-        { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
-        { type: 'pause', durationSeconds: 2 },
-        
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'part 4 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
-        
-        { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
-        { type: 'pause', durationSeconds: 2 },
-        
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'part 5 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+
+        // Copy person 1 speech here
+
         
+
         { type: 'pause', durationSeconds: 3 },
-        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'ready', id: 'person-2' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person 2 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // Copy person 2 speech here
+
+
+
         { type: 'pause', durationSeconds: 3 },
-        
-        // copy all 5 parts here with the type pause and "music" parts
+        { type: 'ready', id: 'person-3' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person 3 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // Copy person 3 speech here
+
+
+
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'person-4' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person 4 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // Copy person 4 speech here
+
+
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'person-5' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person 5 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // Copy person 5 speech here
+
+
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'person-6' },
+        { type: 'pause', durationSeconds: 2 },
+        {
+            type: 'speech',
+            repeated: true,
+            speed: 0.85,
+            text: 'person 6 speech',
+            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
+            id: "interview-{index}"
+        },
+        { type: 'pause', durationSeconds: 4 },
+
+        { type: 'ready', id: 'part-4-2nd-time' },
+        { type: 'pause', durationSeconds: 2 },
+
+        // Copy person 6 speech here
+
         
         { type: 'pause', durationSeconds: 3 },
-        { type: 'ready', id: 'part-3-outro' },
+        { type: 'ready', id: 'part-4-outro' },
         { type: 'pause', durationSeconds: 5 },
     ],
-    "title": <title in spanish>, // The title should be 4-6 words and related to the radio program
+    "title": <title in spanish>, // The title should be 4-6 words and related to the interviews
     "id": "", // Generate UUIDv4 ID
+    "statements": {
+      "a": "<statement>",
+      "b": "<statement>",
+      "c": "<statement>",
+      "d": "<statement>",
+      "e": "<statement>",
+      "f": "<statement>",
+      "g": "<statement>",
+      "h": "<statement>",
+      "i": "<statement>",
+      "j": "<statement>"
+    },
     "questions": [
         {
-          "id": 13,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 1 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 19,
+          "person": 1,
+          "audio_transcription": "", // Copy interview 1 speech text here
+          "answer": ""
         },
         {
-          "id": 14,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 2 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 20,
+          "person": 2,
+          "audio_transcription": "", // Copy interview 2 speech text here
+          "answer": ""
         },
         {
-          "id": 15,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 3 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 21,
+          "person": 3,
+          "audio_transcription": "", // Copy interview 3 speech text here
+          "answer": ""
         },
         {
-          "id": 16,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 4 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 22,
+          "person": 4,
+          "audio_transcription": "", // Copy interview 4 speech text here
+          "answer": ""
         },
         {
-          "id": 17,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 5 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 23,
+          "person": 5,
+          "audio_transcription": "", // Copy interview 5 speech text here
+          "answer": ""
         },
         {
-          "id": 18,
-          "question": "<the question text>",
-          "audio_transcription": "", // Copy part 6 speed text here
-          "options": [
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            },
-            {
-              "is_correct": <boolean>,
-              "text": "<choice text>",
-            }
-          ]
+          "id": 24,
+          "person": 6,
+          "audio_transcription": "", // Copy interview 6 speech text here
+          "answer": ""
         }
     ]
 }
