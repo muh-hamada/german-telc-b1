@@ -1,0 +1,182 @@
+{
+  "section_details": {
+    "title": "Listening Part 2: Detail Comprehension",
+    "instructions_de": "",
+    "instructions_en": "",
+    "instructions_ar": "",
+    "instructions_ru": "",
+    "instructions_fr": "",
+    "instructions_es": "",
+    "duration_minutes": 5,
+    "prep_time_seconds": 30
+  },
+  "exams": [
+    {
+      "segments": [
+        {
+          "type": "pause",
+          "durationSeconds": 1
+        },
+        {
+          "type": "ready",
+          "id": "part-2-intro"
+        },
+        {
+          "type": "pause",
+          "durationSeconds": 30
+        },
+        {
+          "type": "speech",
+          "speed": 0.85,
+          "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
+          "voiceId": "person3",
+          "id": "full-interview"
+        },
+        {
+          "type": "pause",
+          "durationSeconds": 5
+        },
+        {
+          "type": "ready",
+          "id": "part-2-2nd-time"
+        },
+        {
+          "type": "pause",
+          "durationSeconds": 2
+        },
+        {
+          "type": "speech",
+          "speed": 0.85,
+          "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
+          "voiceId": "person3",
+          "id": "full-interview"
+        },
+        {
+          "type": "pause",
+          "durationSeconds": 5
+        },
+        {
+          "type": "ready",
+          "id": "part-2-outro"
+        },
+        {
+          "type": "pause",
+          "durationSeconds": 5
+        }
+      ],
+      "title": "La vida de Mateo en Barcelona",
+      "id": "a4d92e18-3b7f-4c91-9e2a-1b5c8d3e4f6a",
+      "audio_transcription": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Mateo cuenta que, cuando llegó a Barcelona, vivía...",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "solo en el centro."
+            },
+            {
+              "is_correct": true,
+              "text": "con otros estudiantes."
+            },
+            {
+              "is_correct": false,
+              "text": "cerca de la universidad."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "question": "Según la grabación, Mateo fue a España para...",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "buscar trabajo."
+            },
+            {
+              "is_correct": true,
+              "text": "cursar estudios."
+            },
+            {
+              "is_correct": false,
+              "text": "conocer la ciudad."
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "question": "Sobre su vida laboral actual, Mateo explica que...",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "trabaja para una revista de moda."
+            },
+            {
+              "is_correct": true,
+              "text": "dirige su propio estudio."
+            },
+            {
+              "is_correct": false,
+              "text": "enseña fotografía documental."
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "question": "Mateo dice que lo que más le gusta de su trabajo es...",
+          "options": [
+            {
+              "is_correct": true,
+              "text": "la variedad de actividades."
+            },
+            {
+              "is_correct": false,
+              "text": "estar cerca del mar."
+            },
+            {
+              "is_correct": false,
+              "text": "conocer a mucha gente."
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "question": "Según la grabación, la hija de Mateo...",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "solo habla catalán."
+            },
+            {
+              "is_correct": false,
+              "text": "quiere visitar México."
+            },
+            {
+              "is_correct": true,
+              "text": "le ayuda con el idioma."
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "question": "Mateo cuenta que cocina comida mexicana porque...",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "quiere abrir un restaurante."
+            },
+            {
+              "is_correct": true,
+              "text": "le conecta con sus orígenes."
+            },
+            {
+              "is_correct": false,
+              "text": "a su mujer le encanta."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+    "teil": "2: Conversación",
+    "instruction": "Cuando haya terminado su exposición (Tarea 1), usted deberá mantener una conversación con el entrevistador sobre el mismo tema durante 3 o 4 minutos. El entrevistador le hará preguntas relacionadas con su presentación para profundizar en el tema y conocer mejor sus opiniones y experiencias.",
+    "questions": [
+        {
+            "title": "Conversación sobre: Un país donde le gustaría vivir",
+            "content": "Después de la presentación del candidato sobre el país donde le gustaría vivir, el entrevistador mantiene una conversación para explorar más aspectos relacionados con vivir en diferentes lugares, la adaptación cultural y las experiencias de expatriados.",
+            "exampleQuestions": [
+                "¿Ha vivido usted en diferentes países o ciudades? ¿Dónde?",
+                "De los sitios en que ha vivido, ¿cuál es el que más le ha gustado? ¿Por qué?",
+                "¿Cuáles son los aspectos más importantes en su opinión para decidir vivir en un determinado país o ciudad? ¿Por qué?",
+                "¿Cree que es fácil adaptarse a una nueva cultura? ¿Qué dificultades puede haber?",
+                "¿Qué echaría de menos de su país si viviera en el extranjero?",
+                "¿Ha conocido a personas que hayan emigrado a otro país? ¿Cómo les fue?",
+                "¿Cree que es importante aprender el idioma del país donde vives? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Ha vivido usted en diferentes países o ciudades? ¿Dónde?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, he vivido en tres ciudades diferentes. Nací en una ciudad pequeña en el norte de mi país, luego me mudé a la capital para estudiar en la universidad, y después pasé seis meses en Londres trabajando. Cada experiencia fue muy diferente y me enseñó cosas nuevas."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De los sitios en que ha vivido, ¿cuál es el que más le ha gustado? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Definitivamente la capital de mi país. Me gustó porque tiene muchas oportunidades de trabajo y educación, pero al mismo tiempo conserva una atmósfera tranquila comparada con otras grandes ciudades. Además, está bien comunicada con transporte público y hay mucha vida cultural: teatros, museos, conciertos. Y puedo visitar a mi familia fácilmente."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cuáles son los aspectos más importantes en su opinión para decidir vivir en un determinado país o ciudad? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Para mí, los aspectos más importantes son tres: primero, las oportunidades laborales, porque necesito ganarme la vida y desarrollarme profesionalmente; segundo, el clima y el entorno natural, porque afecta mucho a mi estado de ánimo y bienestar; y tercero, la posibilidad de hacer amigos y sentirme integrado en la comunidad. Sin estos elementos, creo que sería difícil ser feliz en un lugar, por muy bonito que sea."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Una experiencia que le haya enseñado algo",
+            "content": "Después de la presentación sobre una experiencia significativa, el entrevistador profundiza en temas relacionados con el aprendizaje personal, los desafíos y el crecimiento personal.",
+            "exampleQuestions": [
+                "¿Qué otras lecciones importantes ha aprendido en su vida?",
+                "¿Cree que es importante salir de la zona de confort? ¿Por qué?",
+                "¿Ha participado en otras actividades de voluntariado o proyectos comunitarios?",
+                "¿Qué valores considera más importantes en la vida?",
+                "¿Cómo ha cambiado usted como persona en los últimos años?",
+                "¿Cree que los errores son oportunidades de aprendizaje? ¿Por qué?",
+                "¿Qué consejo daría a los jóvenes sobre cómo enfrentar desafíos?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué otras lecciones importantes ha aprendido en su vida?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "He aprendido muchas cosas con el tiempo. Por ejemplo, que el fracaso no es el final, sino una oportunidad para aprender y mejorar. También que las relaciones personales son más importantes que el dinero o el éxito profesional. Y algo fundamental: que ser honesto, aunque sea difícil, siempre es la mejor opción a largo plazo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que es importante salir de la zona de confort? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, absolutamente. Cuando te quedas siempre en tu zona de confort, no creces ni evolucionas. Hacer cosas nuevas, aunque den miedo, te permite descubrir capacidades que no sabías que tenías y te hace más fuerte y adaptable. Por supuesto, hay que hacerlo con prudencia, pero enfrentar nuevos desafíos es esencial para el desarrollo personal."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Un libro favorito",
+            "content": "Después de la presentación sobre un libro, el entrevistador explora los hábitos de lectura, preferencias literarias y la importancia de la literatura en la vida del candidato.",
+            "exampleQuestions": [
+                "¿Lee usted con frecuencia? ¿Qué tipo de libros prefiere?",
+                "¿Ha leído otros libros de ese autor u otros autores similares?",
+                "¿Prefiere leer libros en papel o en formato digital? ¿Por qué?",
+                "¿Participa en algún club de lectura o grupo de discusión literaria?",
+                "¿Cree que leer es importante para el desarrollo personal? ¿Por qué?",
+                "¿Qué libro está leyendo actualmente o cuál será su próxima lectura?",
+                "¿Le gusta regalar libros? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Lee usted con frecuencia? ¿Qué tipo de libros prefiere?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, intento leer al menos un libro al mes, aunque algunos meses leo más dependiendo del tiempo libre que tenga. Me gustan especialmente las novelas, tanto clásicas como contemporáneas. También leo ensayos y biografías de vez en cuando. Prefiero la ficción literaria porque me permite escapar de la realidad y explorar otros mundos, otras épocas y otras perspectivas."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere leer libros en papel o en formato digital? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Personalmente prefiero los libros en papel. Me gusta la sensación física de tener un libro en las manos, pasar las páginas y oler el papel. También puedo subrayar y hacer anotaciones fácilmente en los márgenes. Sin embargo, reconozco que los libros digitales son más prácticos para viajar porque pesan menos y puedes llevar toda una biblioteca en un solo dispositivo."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Un viaje memorable",
+            "content": "Después de la presentación sobre un viaje, el entrevistador indaga sobre experiencias viajeras, preferencias al viajar y el impacto de los viajes en la persona.",
+            "exampleQuestions": [
+                "¿Le gusta viajar? ¿Qué otros lugares ha visitado?",
+                "¿Prefiere viajar solo, con amigos o con familia? ¿Por qué?",
+                "¿Qué es más importante para usted cuando viaja: conocer monumentos, probar la comida local o conocer gente?",
+                "¿Prefiere viajes organizados o prefiere improvisar? ¿Por qué?",
+                "¿Ha tenido alguna experiencia negativa viajando? ¿Qué pasó?",
+                "¿Qué país o lugar le gustaría visitar próximamente?",
+                "¿Cree que viajar es importante para la educación? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Le gusta viajar? ¿Qué otros lugares ha visitado?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, me encanta viajar y conocer nuevas culturas. He visitado varios países de Europa como Francia, Italia y Alemania, principalmente ciudades históricas. También estuve en Japón hace dos años, que fue una experiencia completamente diferente porque la cultura es muy distinta a la occidental. Cada viaje me enseña algo nuevo sobre el mundo y sobre mí mismo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué es más importante para usted cuando viaja: conocer monumentos, probar la comida local o conocer gente?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Para mí, lo más importante es probar la comida local porque creo que la gastronomía es una parte fundamental de la cultura de un lugar. A través de la comida puedes entender mucho sobre las tradiciones y el estilo de vida. Sin embargo, también me gusta mucho conocer monumentos históricos y aprender sobre la historia. Conocer gente local es interesante, aunque a veces es difícil por la barrera del idioma, pero siempre intento conversar con la gente del lugar."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Una película o serie",
+            "content": "Después de la presentación sobre una película o serie, el entrevistador explora los gustos cinematográficos, hábitos de consumo audiovisual y opiniones sobre el cine.",
+            "exampleQuestions": [
+                "¿Ve muchas películas o series? ¿Qué género prefiere?",
+                "¿Prefiere ver películas en el cine o en casa? ¿Por qué?",
+                "¿Ha visto otras películas del mismo director o actor?",
+                "¿Le gusta el cine de su país? ¿Por qué?",
+                "¿Cree que las películas reflejan la sociedad? ¿Cómo?",
+                "¿Qué opina de las películas basadas en libros? ¿Son mejores los libros o las películas?",
+                "¿Ve películas en versión original o dobladas? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Ve muchas películas? ¿Qué género prefiere?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, veo bastantes películas, especialmente los fines de semana cuando tengo más tiempo libre. Me gustan varios géneros, pero prefiero el drama y las películas basadas en historias reales porque me hacen reflexionar sobre temas profundos. También disfruto del cine de suspense y las películas de ciencia ficción ocasionalmente, pero no soy muy fan de las películas de terror."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere ver películas en el cine o en casa? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Depende del tipo de película. Prefiero verlas en el cine cuando son películas de acción o con efectos especiales impresionantes, porque la pantalla grande y el sistema de sonido hacen que la experiencia sea mucho mejor. Pero para dramas o películas más tranquilas, prefiero verlas en casa donde estoy más cómodo, puedo pausar si necesito y no tengo que preocuparme por la gente que habla durante la película."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Una persona importante",
+            "content": "Después de la presentación sobre una persona importante en la vida del candidato, el entrevistador explora las relaciones familiares, valores transmitidos y la importancia de las relaciones personales.",
+            "exampleQuestions": [
+                "¿Tiene usted una relación cercana con otros miembros de su familia?",
+                "¿Qué valores le han transmitido las personas importantes de su vida?",
+                "¿Cree que es importante mantener el contacto con la familia? ¿Por qué?",
+                "¿A quién acude cuando tiene problemas o necesita consejo?",
+                "¿Cree que la familia es más importante que los amigos? ¿Por qué?",
+                "¿Cómo celebra las fechas importantes con su familia?",
+                "¿Le gustaría que sus hijos tuvieran una relación similar con sus abuelos? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Tiene usted una relación cercana con otros miembros de su familia?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, tengo buena relación con toda mi familia, especialmente con mis padres y mi hermano menor. Con mis padres hablo casi todos los días por teléfono, aunque vivo en otra ciudad por motivos de trabajo. Y con mi hermano compartimos muchas aficiones como el deporte y la música, así que nos vemos a menudo y tenemos una relación muy estrecha."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que es importante mantener el contacto con la familia? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, creo que es muy importante. La familia es tu red de apoyo fundamental en la vida. Son las personas que te conocen desde siempre, que te aceptan como eres y que están ahí en los buenos y malos momentos. Mantener el contacto fortalece esos lazos emocionales y te hace sentir que perteneces a algo más grande que tú mismo. Además, especialmente con los abuelos, es importante porque no sabemos cuánto tiempo tendremos con ellos."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Un hobby o pasión",
+            "content": "Después de la presentación sobre un hobby, el entrevistador profundiza en las actividades de tiempo libre, la importancia del ocio y el equilibrio entre trabajo y vida personal.",
+            "exampleQuestions": [
+                "¿Tiene otros hobbies además del que mencionó?",
+                "¿Cree que es importante tener hobbies? ¿Por qué?",
+                "¿Cuánto tiempo dedica a la semana a sus hobbies?",
+                "¿Ha ganado algún premio o reconocimiento relacionado con su hobby?",
+                "¿Le gustaría convertir su hobby en profesión? ¿Por qué?",
+                "¿Qué hobbies eran populares cuando usted era niño?",
+                "¿Cree que los jóvenes de hoy tienen suficiente tiempo libre? ¿Por qué?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Tiene otros hobbies además de la fotografía?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, también me gusta mucho el senderismo, que combina perfectamente con la fotografía porque puedo hacer fotos de paisajes naturales. Además, toco la guitarra aunque no soy muy bueno, solo por placer personal. Y me encanta cocinar recetas nuevas los fines de semana. Intento tener varios hobbies para mantenerme activo, creativo y equilibrado mentalmente."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que es importante tener hobbies? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Definitivamente. Los hobbies son esenciales para el bienestar mental y emocional. Te permiten desconectar del estrés del trabajo o los estudios, desarrollar nuevas habilidades y hacer cosas que realmente disfrutas sin presión. También son una forma excelente de conocer gente con intereses similares y de expresar tu creatividad. Sin hobbies, la vida sería solo trabajo y obligaciones, lo cual no es saludable."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Un restaurante favorito",
+            "content": "Después de la presentación sobre un restaurante o tipo de comida, el entrevistador explora los hábitos alimenticios, preferencias gastronómicas y la relación con la comida.",
+            "exampleQuestions": [
+                "¿Le gusta cocinar o prefiere comer fuera? ¿Por qué?",
+                "¿Qué tipo de cocina internacional prefiere?",
+                "¿Es importante para usted la presentación de la comida? ¿Por qué?",
+                "¿Con qué frecuencia come en restaurantes?",
+                "¿Ha probado alguna comida exótica o inusual? ¿Cuál?",
+                "¿Cree que la comida rápida es perjudicial para la salud? ¿Por qué?",
+                "¿Tiene alguna restricción alimentaria o dieta especial?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Le gusta cocinar o prefiere comer fuera? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Me gusta hacer las dos cosas. Cocino casi todos los días en casa porque es más saludable, económico y puedo controlar los ingredientes que uso. También disfruto experimentando con recetas nuevas. Pero comer fuera es un placer especial porque puedes probar platos que no sabes hacer o que requieren mucho tiempo de preparación, y disfrutar sin tener que preocuparte por limpiar después."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué tipo de cocina internacional prefiere?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Me encanta la cocina italiana, especialmente la pasta fresca y las pizzas auténticas hechas en horno de leña. También me gusta mucho la comida japonesa, sobre todo el sushi y el ramen. Y últimamente he descubierto la cocina tailandesa, que tiene sabores muy interesantes con el equilibrio perfecto entre dulce, picante y ácido. Cada cocina tiene su encanto especial."
+                }
+            ]
+        },
+        {
+            "title": "Conversación sobre: Superar un momento difícil",
+            "content": "Después de la presentación sobre superar dificultades, el entrevistador explora la resiliencia, el manejo del estrés y las estrategias para enfrentar desafíos.",
+            "exampleQuestions": [
+                "¿Cómo maneja usted el estrés en situaciones difíciles?",
+                "¿Cree que las experiencias difíciles nos hacen más fuertes? ¿Por qué?",
+                "¿Qué consejo daría a alguien que está pasando por un momento similar?",
+                "¿A quién acude cuando tiene problemas?",
+                "¿Ha ayudado a alguien a superar una situación difícil? ¿Cómo?",
+                "¿Cree que es importante hablar de los problemas o es mejor guardarlos para uno mismo?",
+                "¿Qué factores cree que ayudan más a superar los problemas?"
+            ],
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cómo maneja usted el estrés en situaciones difíciles?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Intento mantener la calma y analizar la situación de forma racional, sin dejarme llevar por las emociones del momento. También me ayuda mucho hablar con personas de confianza como mi familia o amigos cercanos. Además, hago ejercicio físico regularmente, como correr o yoga, porque me ayuda a despejar la mente. A veces también escribo en un diario para ordenar mis pensamientos y emociones, lo cual me resulta terapéutico."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que las experiencias difíciles nos hacen más fuertes? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, definitivamente. Las dificultades nos sacan de nuestra zona de confort y nos obligan a desarrollar nuevas habilidades y recursos internos que no sabíamos que teníamos. Aprendemos a ser más resilientes, a buscar soluciones creativas y a valorar más las cosas buenas cuando las tenemos. Como dice el dicho, 'lo que no te mata te hace más fuerte'. Claro que en el momento es duro, pero después agradeces esas experiencias porque te han hecho crecer como persona."
+                }
+            ]
+        }
+    ]
+}

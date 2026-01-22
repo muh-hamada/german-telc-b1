@@ -1,0 +1,406 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "ready",
+        "id": "message-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, Laura, soy Javi. Oye, que te dejaste las gafas de sol en mi coche ayer cuando fuimos a la playa. Si vas a estar en casa luego, me paso y te las dejo, que me pilla de camino al gimnasio. Avísame."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Para qué llama Javi?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, Laura, soy Javi. Oye, que te dejaste las gafas de sol en mi coche ayer cuando fuimos a la playa. Si vas a estar en casa luego, me paso y te las dejo, que me pilla de camino al gimnasio. Avísame."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Para qué llama Javi?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "message-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Buenos días, Sr. Gómez, soy Luisa. Le llamo porque no podré asistir a la reunión de las cuatro. Me acaban de llamar del colegio de mi hijo porque se encuentra mal y tengo que ir a recogerlo. Mañana le cuento los detalles."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Por qué no puede ir Luisa a la reunión?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Buenos días, Sr. Gómez, soy Luisa. Le llamo porque no podré asistir a la reunión de las cuatro. Me acaban de llamar del colegio de mi hijo porque se encuentra mal y tengo que ir a recogerlo. Mañana le cuento los detalles."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Por qué no puede ir Luisa a la reunión?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "message-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, buenas tardes. Llamo del taller mecánico 'Motores'. Solo quería informarle de que ya hemos reparado su vehículo. Le hemos cambiado los frenos y revisado el aceite. Puede pasar a recogerlo hoy mismo antes de las ocho."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué informa el mecánico?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, buenas tardes. Llamo del taller mecánico 'Motores'. Solo quería informarle de que ya hemos reparado su vehículo. Le hemos cambiado los frenos y revisado el aceite. Puede pasar a recogerlo hoy mismo antes de las ocho."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué informa el mecánico?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "message-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hola, Ana, soy Carmen. ¿Te acuerdas del libro que me prestaste el mes pasado? Me ha encantado, pero ya lo he terminado. ¿Te viene bien si quedamos mañana para tomar un café y te lo devuelvo?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué quiere hacer Carmen?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hola, Ana, soy Carmen. ¿Te acuerdas del libro que me prestaste el mes pasado? Me ha encantado, pero ya lo he terminado. ¿Te viene bien si quedamos mañana para tomar un café y te lo devuelvo?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué quiere hacer Carmen?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "message-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, buenos días. Soy Pedro Martínez. Llamo por el anuncio de alquiler de su piso en la calle Mayor. Me interesa mucho y me gustaría saber si todavía está libre para concertar una visita este fin de semana. Gracias."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Para qué llama Pedro?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hola, buenos días. Soy Pedro Martínez. Llamo por el anuncio de alquiler de su piso en la calle Mayor. Me interesa mucho y me gustaría saber si todavía está libre para concertar una visita este fin de semana. Gracias."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Para qué llama Pedro?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "message-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-6",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hola, cariño. Estoy en el supermercado haciendo la compra de la semana. ¿Me puedes mirar en la despensa si nos queda arroz? Es que quiero hacer paella el domingo y no estoy segura de si tenemos. Mándame un mensaje, porfa."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-6",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué le pide la mujer a su marido?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "part-1-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-6",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hola, cariño. Estoy en el supermercado haciendo la compra de la semana. ¿Me puedes mirar en la despensa si nos queda arroz? Es que quiero hacer paella el domingo y no estoy segura de si tenemos. Mándame un mensaje, porfa."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-narrator-6",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "moderator",
+        "text": "¿Qué le pide la mujer a su marido?"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

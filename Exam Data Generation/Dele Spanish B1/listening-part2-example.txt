@@ -66,9 +66,14 @@ c) hace sentirse cerca de su madre.
 --- Questions End ---
 
 Create the interview, then structure it into a JSON file with the following format:
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - The person name should be random. Don't use the same name from the provided example interview.
 -- Also change the details to make the new interview unique.
 - For the interview, create 6 questions and with ID from 7 to 12. Each question has 3 multi-choices
+- The JSON output must include a "segments" array that strictly follows the provided structure.
+
+
+---- FULL JSON ----
 
 {
   "segments": [
@@ -76,28 +81,22 @@ Create the interview, then structure it into a JSON file with the following form
     { type: 'ready', id: 'part-2-intro' },
     { type: 'pause', durationSeconds: 30 },
 
-    {
-      type: 'speech',
-      speed: 0.85,
-      text: 'person speech, full interview',
-      voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-      id: "interview-{index}"
-    },
+    { type: 'speech', speed: 0.85, repeated: true,  text: 'person speech, full interview', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "full-interview" },
 
+    // SEPARATOR
     { type: 'pause', durationSeconds: 5 },
     { type: 'ready', id: 'part-2-2nd-time' },
     { type: 'pause', durationSeconds: 2 },
 
-    // Copy the person speech item here
+    { type: 'speech', speed: 0.85, repeated: true, text: 'person speech, full interview', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "full-interview" },
     
     { type: 'pause', durationSeconds: 5 },
-
     { type: 'ready', id: 'part-2-outro' },
     { type: 'pause', durationSeconds: 5 },
   ],
   "title": <title in Spanish>, // The title should be 4-6 words and related to the interview
   "id": "", // Generate UUIDv4 ID
-  "audio_transcription": "", // Copy the person speech here
+  "audio_transcription": "", // Copy the full person speech here
   "questions": [
     {
       "id": 7,

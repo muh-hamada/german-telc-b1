@@ -1,0 +1,240 @@
+{
+    "exam_info": {
+        "title": {
+            "en": "DELE Spanish Diploma Level B1",
+            "ar": "شهادة DELE الإسبانية المستوى B1",
+            "ru": "Диплом DELE испанского уровня B1",
+            "fr": "Diplôme DELE d'espagnol niveau B1",
+            "es": "Diploma DELE de Español Nivel B1",
+            "de": "DELE Spanisch Diplom Niveau B1"
+        },
+        "cefr_level": "B1",
+        "total_duration_minutes": 200,
+        "total_max_points": 100,
+        "passing_score": {
+            "overall_points": 60,
+            "written_component_min_points": 30,
+            "oral_component_min_points": 30,
+            "note": {
+                "en": "To pass, candidates must earn at least 60 points out of 100 overall AND a minimum of 30 points out of 50 in each test group (Group 1: Reading + Writing; Group 2: Listening + Speaking).",
+                "ar": "للنجاح، يجب على المرشحين الحصول على 60 نقطة على الأقل من 100 بشكل عام وما لا يقل عن 30 نقطة من 50 في كل مجموعة اختبار (المجموعة 1: القراءة + الكتابة؛ المجموعة 2: الاستماع + التحدث).",
+                "ru": "Для сдачи кандидаты должны набрать минимум 60 баллов из 100 в целом И минимум 30 баллов из 50 в каждой группе тестов (Группа 1: Чтение + Письмо; Группа 2: Аудирование + Говорение).",
+                "fr": "Pour réussir, les candidats doivent obtenir au moins 60 points sur 100 au total ET un minimum de 30 points sur 50 dans chaque groupe de tests (Groupe 1 : Lecture + Écriture ; Groupe 2 : Écoute + Expression orale).",
+                "es": "Para aprobar, los candidatos deben obtener al menos 60 puntos sobre 100 en total Y un mínimo de 30 puntos sobre 50 en cada grupo de pruebas (Grupo 1: Lectura + Escritura; Grupo 2: Audición + Expresión oral).",
+                "de": "Zum Bestehen müssen die Kandidaten mindestens 60 von 100 Punkten insgesamt UND mindestens 30 von 50 Punkten in jeder Testgruppe erreichen (Gruppe 1: Lesen + Schreiben; Gruppe 2: Hören + Sprechen)."
+            }
+        },
+        "exam_structure": {
+            "title": {
+                "en": "Detailed Exam Structure and Timing",
+                "ar": "الهيكل التفصيلي للاختبار والتوقيت",
+                "ru": "Подробная структура и тайминг экзамена",
+                "fr": "Structure détaillée de l'examen et calendrier",
+                "es": "Estructura detallada del examen y horarios",
+                "de": "Detaillierte Prüfungsstruktur und Zeitrahmen"
+            },
+            "sections": [
+                {
+                    "name": "Group 1: Reading & Writing",
+                    "total_time_minutes": 130,
+                    "max_points": 50,
+                    "weight_percent": 50,
+                    "parts": [
+                        {
+                            "part_name": "1. Reading Comprehension (Comprensión de Lectura)",
+                            "time_minutes": 70,
+                            "max_points": 25,
+                            "question_type_detail": {
+                                "en": "Five reading tasks testing comprehension of clear texts in standard Spanish on familiar topics related to work, studies, and leisure. Tasks include matching, multiple-choice questions, and identifying main ideas.",
+                                "ar": "خمس مهام قراءة لاختبار فهم النصوص الواضحة بالإسبانية القياسية حول مواضيع مألوفة متعلقة بالعمل والدراسات والترفيه. تتضمن المهام المطابقة وأسئلة الاختيار من متعدد وتحديد الأفكار الرئيسية.",
+                                "ru": "Пять заданий на чтение для проверки понимания четких текстов на стандартном испанском языке на знакомые темы, связанные с работой, учебой и досугом. Задания включают сопоставление, вопросы с множественным выбором и определение основных идей.",
+                                "fr": "Cinq tâches de lecture testant la compréhension de textes clairs en espagnol standard sur des sujets familiers liés au travail, aux études et aux loisirs. Les tâches comprennent l'appariement, les questions à choix multiples et l'identification des idées principales.",
+                                "es": "Cinco tareas de lectura que evalúan la comprensión de textos claros en español estándar sobre temas familiares relacionados con el trabajo, los estudios y el ocio. Las tareas incluyen emparejamiento, preguntas de opción múltiple e identificación de ideas principales.",
+                                "de": "Fünf Leseaufgaben zur Überprüfung des Verständnisses klarer Texte in Standardspanisch zu vertrauten Themen aus Arbeit, Studium und Freizeit. Die Aufgaben umfassen Zuordnung, Multiple-Choice-Fragen und die Identifizierung von Hauptideen."
+                            }
+                        },
+                        {
+                            "part_name": "2. Written Expression and Interaction (Expresión e Interacción Escritas)",
+                            "time_minutes": 60,
+                            "max_points": 25,
+                            "question_type_detail": {
+                                "en": "Two writing tasks requiring production of simple, coherent texts. Tasks typically include writing personal emails, short texts, or letters about familiar topics or personal interests. IMPORTANT: Candidates must follow instructions about word count and text format.",
+                                "ar": "مهمتان كتابيتان تتطلبان إنتاج نصوص بسيطة ومتماسكة. تتضمن المهام عادةً كتابة رسائل بريد إلكتروني شخصية أو نصوص قصيرة أو رسائل حول مواضيع مألوفة أو اهتمامات شخصية. مهم: يجب على المرشحين اتباع التعليمات المتعلقة بعدد الكلمات وشكل النص.",
+                                "ru": "Два письменных задания, требующих создания простых, связных текстов. Задания обычно включают написание личных электронных писем, коротких текстов или писем на знакомые темы или личные интересы. ВАЖНО: Кандидаты должны следовать инструкциям относительно количества слов и формата текста.",
+                                "fr": "Deux tâches d'écriture nécessitant la production de textes simples et cohérents. Les tâches incluent généralement la rédaction d'e-mails personnels, de textes courts ou de lettres sur des sujets familiers ou d'intérêt personnel. IMPORTANT : Les candidats doivent suivre les instructions concernant le nombre de mots et le format du texte.",
+                                "es": "Dos tareas de escritura que requieren la producción de textos simples y coherentes. Las tareas suelen incluir escribir correos electrónicos personales, textos cortos o cartas sobre temas familiares o de interés personal. IMPORTANTE: Los candidatos deben seguir las instrucciones sobre el número de palabras y el formato del texto.",
+                                "de": "Zwei Schreibaufgaben, die die Erstellung einfacher, zusammenhängender Texte erfordern. Die Aufgaben umfassen typischerweise das Schreiben persönlicher E-Mails, kurzer Texte oder Briefe zu vertrauten Themen oder persönlichen Interessen. WICHTIG: Die Kandidaten müssen die Anweisungen zur Wortanzahl und zum Textformat befolgen."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Group 2: Listening & Speaking",
+                    "total_time_minutes": 55,
+                    "max_points": 50,
+                    "weight_percent": 50,
+                    "parts": [
+                        {
+                            "part_name": "3. Listening Comprehension (Comprensión Auditiva)",
+                            "time_minutes": 40,
+                            "max_points": 25,
+                            "question_type_detail": {
+                                "en": "Five listening tasks testing comprehension of spoken Spanish in everyday situations. Includes understanding main points, specific information, and attitudes in conversations, announcements, and dialogues.",
+                                "ar": "خمس مهام استماع لاختبار فهم اللغة الإسبانية المنطوقة في المواقف اليومية. يشمل فهم النقاط الرئيسية والمعلومات المحددة والمواقف في المحادثات والإعلانات والحوارات.",
+                                "ru": "Пять заданий на аудирование для проверки понимания разговорного испанского языка в повседневных ситуациях. Включает понимание основных моментов, конкретной информации и отношений в разговорах, объявлениях и диалогах.",
+                                "fr": "Cinq tâches d'écoute testant la compréhension de l'espagnol parlé dans des situations quotidiennes. Comprend la compréhension des points principaux, des informations spécifiques et des attitudes dans les conversations, les annonces et les dialogues.",
+                                "es": "Cinco tareas de audición que evalúan la comprensión del español hablado en situaciones cotidianas. Incluye la comprensión de los puntos principales, información específica y actitudes en conversaciones, anuncios y diálogos.",
+                                "de": "Fünf Höraufgaben zur Überprüfung des Verständnisses gesprochenen Spanisch in Alltagssituationen. Umfasst das Verstehen von Hauptpunkten, spezifischen Informationen und Einstellungen in Gesprächen, Ankündigungen und Dialogen."
+                            }
+                        },
+                        {
+                            "part_name": "4. Oral Expression and Interaction (Expresión e Interacción Orales)",
+                            "time_minutes": 15,
+                            "preparation_time_minutes": 15,
+                            "max_points": 25,
+                            "question_type_detail": {
+                                "en": "Three speaking tasks: 1) Short monologue describing experiences or personal topics, 2) Dialogue based on a given situation, 3) Role-play or conversation expressing opinions and describing events. Candidates receive 15 minutes preparation time before the 15-minute speaking test.",
+                                "ar": "ثلاث مهام تحدث: 1) مونولوج قصير يصف التجارب أو المواضيع الشخصية، 2) حوار بناءً على موقف معين، 3) لعب دور أو محادثة للتعبير عن الآراء ووصف الأحداث. يحصل المرشحون على 15 دقيقة وقت تحضير قبل اختبار التحدث الذي يستغرق 15 دقيقة.",
+                                "ru": "Три устных задания: 1) Короткий монолог, описывающий опыт или личные темы, 2) Диалог на основе заданной ситуации, 3) Ролевая игра или разговор с выражением мнений и описанием событий. Кандидаты получают 15 минут на подготовку перед 15-минутным устным тестом.",
+                                "fr": "Trois tâches orales : 1) Bref monologue décrivant des expériences ou des sujets personnels, 2) Dialogue basé sur une situation donnée, 3) Jeu de rôle ou conversation exprimant des opinions et décrivant des événements. Les candidats disposent de 15 minutes de préparation avant le test oral de 15 minutes.",
+                                "es": "Tres tareas orales: 1) Monólogo breve describiendo experiencias o temas personales, 2) Diálogo basado en una situación dada, 3) Juego de roles o conversación expresando opiniones y describiendo eventos. Los candidatos reciben 15 minutos de preparación antes de la prueba oral de 15 minutos.",
+                                "de": "Drei mündliche Aufgaben: 1) Kurzer Monolog zur Beschreibung von Erfahrungen oder persönlichen Themen, 2) Dialog basierend auf einer gegebenen Situation, 3) Rollenspiel oder Gespräch mit Meinungsäußerung und Ereignisbeschreibung. Die Kandidaten erhalten 15 Minuten Vorbereitungszeit vor der 15-minütigen mündlichen Prüfung."
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "assessment_score": {
+            "title": {
+                "en": "Assessment Criteria and Scoring",
+                "ar": "معايير التقييم والتسجيل",
+                "ru": "Критерии оценки и подсчет баллов",
+                "fr": "Critères d'évaluation et notation",
+                "es": "Criterios de evaluación y puntuación",
+                "de": "Bewertungskriterien und Punktevergabe"
+            },
+            "assessment_details": [
+                {
+                    "section_name": "Written Expression and Interaction (Expresión e Interacción Escritas)",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "Coherence and Cohesion",
+                            "max_points": 8,
+                            "explanation": {
+                                "en": "Evaluates the logical structure, organization, and flow of the text. Assesses use of connectors and cohesive devices to link ideas clearly.",
+                                "ar": "يقيّم البنية المنطقية والتنظيم وتدفق النص. يقيّم استخدام الروابط والأدوات المتماسكة لربط الأفكار بوضوح.",
+                                "ru": "Оценивает логическую структуру, организацию и поток текста. Оценивает использование связующих элементов и средств связи для четкого соединения идей.",
+                                "fr": "Évalue la structure logique, l'organisation et le flux du texte. Évalue l'utilisation de connecteurs et de dispositifs de cohésion pour relier clairement les idées.",
+                                "es": "Evalúa la estructura lógica, la organización y el flujo del texto. Evalúa el uso de conectores y dispositivos cohesivos para vincular ideas claramente.",
+                                "de": "Bewertet die logische Struktur, Organisation und den Fluss des Textes. Bewertet die Verwendung von Konnektoren und Kohäsionsmitteln zur klaren Verknüpfung von Ideen."
+                            }
+                        },
+                        {
+                            "name": "Task Completion",
+                            "max_points": 9,
+                            "explanation": {
+                                "en": "Assesses whether the required text format, word count, and content requirements are met. Evaluates appropriateness of register and style for the given task.",
+                                "ar": "يقيّم ما إذا تم تلبية شكل النص المطلوب وعدد الكلمات ومتطلبات المحتوى. يقيّم مدى ملاءمة السجل والأسلوب للمهمة المعطاة.",
+                                "ru": "Оценивает, соблюдены ли требуемый формат текста, количество слов и требования к содержанию. Оценивает соответствие регистра и стиля данному заданию.",
+                                "fr": "Évalue si le format de texte requis, le nombre de mots et les exigences de contenu sont respectés. Évalue l'adéquation du registre et du style pour la tâche donnée.",
+                                "es": "Evalúa si se cumplen el formato de texto requerido, el número de palabras y los requisitos de contenido. Evalúa la adecuación del registro y el estilo para la tarea dada.",
+                                "de": "Bewertet, ob das erforderliche Textformat, die Wortanzahl und die Inhaltsanforderungen erfüllt sind. Bewertet die Angemessenheit von Register und Stil für die gegebene Aufgabe."
+                            }
+                        },
+                        {
+                            "name": "Range and Accuracy",
+                            "max_points": 8,
+                            "explanation": {
+                                "en": "Assessment of vocabulary range, grammatical structures, and accuracy. Evaluates variety of language used and correctness of grammar, spelling, and punctuation.",
+                                "ar": "تقييم نطاق المفردات والتراكيب النحوية والدقة. يقيّم تنوع اللغة المستخدمة وصحة القواعد النحوية والإملاء وعلامات الترقيم.",
+                                "ru": "Оценка диапазона словарного запаса, грамматических структур и точности. Оценивает разнообразие используемого языка и правильность грамматики, орфографии и пунктуации.",
+                                "fr": "Évaluation de l'étendue du vocabulaire, des structures grammaticales et de l'exactitude. Évalue la variété du langage utilisé et l'exactitude de la grammaire, de l'orthographe et de la ponctuation.",
+                                "es": "Evaluación del rango de vocabulario, estructuras gramaticales y precisión. Evalúa la variedad del lenguaje utilizado y la corrección de la gramática, la ortografía y la puntuación.",
+                                "de": "Bewertung des Wortschatzumfangs, der grammatischen Strukturen und der Genauigkeit. Bewertet die Vielfalt der verwendeten Sprache und die Korrektheit von Grammatik, Rechtschreibung und Zeichensetzung."
+                            }
+                        }
+                    ],
+                    "note": {
+                        "en": "Strict adherence to word count and text format is required. Failing to follow instructions may result in significant point deductions.",
+                        "ar": "يُطلب الالتزام الصارم بعدد الكلمات وشكل النص. قد يؤدي عدم اتباع التعليمات إلى خصم نقاط كبير.",
+                        "ru": "Требуется строгое соблюдение количества слов и формата текста. Несоблюдение инструкций может привести к значительному снижению баллов.",
+                        "fr": "Le respect strict du nombre de mots et du format de texte est requis. Le non-respect des instructions peut entraîner des déductions de points importantes.",
+                        "es": "Se requiere un cumplimiento estricto del número de palabras y el formato del texto. No seguir las instrucciones puede resultar en deducciones significativas de puntos.",
+                        "de": "Strenge Einhaltung der Wortanzahl und des Textformats ist erforderlich. Die Nichtbeachtung der Anweisungen kann zu erheblichen Punktabzügen führen."
+                    }
+                },
+                {
+                    "section_name": "Oral Expression and Interaction (Expresión e Interacción Orales)",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "1. Coherence",
+                            "explanation": {
+                                "en": "Evaluates the logical flow, organization of ideas, and ability to maintain discourse on familiar topics.",
+                                "ar": "يقيّم التدفق المنطقي وتنظيم الأفكار والقدرة على الحفاظ على الخطاب حول المواضيع المألوفة.",
+                                "ru": "Оценивает логический поток, организацию идей и способность поддерживать дискурс на знакомые темы.",
+                                "fr": "Évalue le flux logique, l'organisation des idées et la capacité à maintenir un discours sur des sujets familiers.",
+                                "es": "Evalúa el flujo lógico, la organización de ideas y la capacidad de mantener el discurso sobre temas familiares.",
+                                "de": "Bewertet den logischen Fluss, die Organisation von Ideen und die Fähigkeit, den Diskurs über vertraute Themen aufrechtzuerhalten."
+                            }
+                        },
+                        {
+                            "name": "2. Fluency",
+                            "explanation": {
+                                "en": "Assesses speaking fluency, pace, and ability to express oneself without excessive hesitation or pauses. Evaluates naturalness of speech.",
+                                "ar": "يقيّم طلاقة التحدث والوتيرة والقدرة على التعبير عن النفس دون تردد أو توقفات مفرطة. يقيّم طبيعية الكلام.",
+                                "ru": "Оценивает беглость речи, темп и способность выражать себя без чрезмерных колебаний или пауз. Оценивает естественность речи.",
+                                "fr": "Évalue la fluidité de la parole, le rythme et la capacité à s'exprimer sans hésitation ou pauses excessives. Évalue le naturel de la parole.",
+                                "es": "Evalúa la fluidez del habla, el ritmo y la capacidad de expresarse sin vacilación o pausas excesivas. Evalúa la naturalidad del habla.",
+                                "de": "Bewertet die Redegewandtheit, das Tempo und die Fähigkeit, sich ohne übermäßiges Zögern oder Pausen auszudrücken. Bewertet die Natürlichkeit der Rede."
+                            }
+                        },
+                        {
+                            "name": "3. Range and Accuracy",
+                            "explanation": {
+                                "en": "Assessment of vocabulary range, grammatical structures, and accuracy in spoken Spanish. Evaluates variety and correctness of language used in conversation.",
+                                "ar": "تقييم نطاق المفردات والتراكيب النحوية والدقة في اللغة الإسبانية المنطوقة. يقيّم تنوع وصحة اللغة المستخدمة في المحادثة.",
+                                "ru": "Оценка диапазона словарного запаса, грамматических структур и точности в разговорном испанском. Оценивает разнообразие и правильность языка, используемого в разговоре.",
+                                "fr": "Évaluation de l'étendue du vocabulaire, des structures grammaticales et de l'exactitude en espagnol parlé. Évalue la variété et l'exactitude du langage utilisé dans la conversation.",
+                                "es": "Evaluación del rango de vocabulario, estructuras gramaticales y precisión en español hablado. Evalúa la variedad y corrección del lenguaje utilizado en la conversación.",
+                                "de": "Bewertung des Wortschatzumfangs, der grammatischen Strukturen und der Genauigkeit im gesprochenen Spanisch. Bewertet die Vielfalt und Korrektheit der in der Konversation verwendeten Sprache."
+                            }
+                        },
+                        {
+                            "name": "4. Interactive Communication",
+                            "explanation": {
+                                "en": "Evaluates ability to initiate and maintain conversation, respond appropriately to partner, and handle typical social interactions in Spanish-speaking contexts.",
+                                "ar": "يقيّم القدرة على بدء المحادثة والحفاظ عليها، والرد بشكل مناسب على الشريك، والتعامل مع التفاعلات الاجتماعية النموذجية في السياقات الناطقة بالإسبانية.",
+                                "ru": "Оценивает способность инициировать и поддерживать разговор, адекватно отвечать партнеру и справляться с типичными социальными взаимодействиями в испаноязычных контекстах.",
+                                "fr": "Évalue la capacité à initier et maintenir une conversation, à répondre de manière appropriée au partenaire et à gérer les interactions sociales typiques dans des contextes hispanophones.",
+                                "es": "Evalúa la capacidad de iniciar y mantener una conversación, responder adecuadamente al compañero y manejar interacciones sociales típicas en contextos de habla hispana.",
+                                "de": "Bewertet die Fähigkeit, ein Gespräch zu beginnen und aufrechtzuerhalten, angemessen auf den Partner zu reagieren und typische soziale Interaktionen in spanischsprachigen Kontexten zu bewältigen."
+                            }
+                        },
+                        {
+                            "name": "5. Pronunciation and Intonation",
+                            "explanation": {
+                                "en": "Evaluates clarity of pronunciation and appropriate intonation patterns. Accent is acceptable as long as it does not hinder comprehension.",
+                                "ar": "يقيّم وضوح النطق وأنماط التنغيم المناسبة. اللهجة مقبولة طالما أنها لا تعيق الفهم.",
+                                "ru": "Оценивает четкость произношения и соответствующие интонационные модели. Акцент допустим, если он не препятствует пониманию.",
+                                "fr": "Évalue la clarté de la prononciation et les schémas d'intonation appropriés. L'accent est acceptable tant qu'il n'entrave pas la compréhension.",
+                                "es": "Evalúa la claridad de la pronunciación y los patrones de entonación apropiados. El acento es aceptable siempre que no dificulte la comprensión.",
+                                "de": "Bewertet die Klarheit der Aussprache und angemessene Intonationsmuster. Ein Akzent ist akzeptabel, solange er das Verständnis nicht beeinträchtigt."
+                            }
+                        }
+                    ],
+                    "points_distribution": {
+                        "en": "Points are distributed across the three speaking tasks: monologue, dialogue, and role-play/conversation, evaluating both content and communication skills.",
+                        "ar": "يتم توزيع النقاط على مهام التحدث الثلاث: المونولوج، والحوار، ولعب الأدوار/المحادثة، وتقييم كل من المحتوى ومهارات الاتصال.",
+                        "ru": "Баллы распределяются по трем устным заданиям: монолог, диалог и ролевая игра/разговор, оценивая как содержание, так и коммуникативные навыки.",
+                        "fr": "Les points sont répartis sur les trois tâches orales : monologue, dialogue et jeu de rôle/conversation, en évaluant à la fois le contenu et les compétences de communication.",
+                        "es": "Los puntos se distribuyen en las tres tareas orales: monólogo, diálogo y juego de roles/conversación, evaluando tanto el contenido como las habilidades de comunicación.",
+                        "de": "Die Punkte werden auf die drei mündlichen Aufgaben verteilt: Monolog, Dialog und Rollenspiel/Gespräch, wobei sowohl Inhalt als auch Kommunikationsfähigkeiten bewertet werden."
+                    }
+                }
+            ]
+        }
+    }
+}

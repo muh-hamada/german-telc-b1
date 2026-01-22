@@ -1,7 +1,7 @@
 Reading Part 2
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- id: UUID v4. Generate a new UUID
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - 6 questions. Ids start from number 7 to 12. Each question have a "question" and three "options".
 - text: create a text with a matching lengeth and complexity for Spanish B1 level. Use \n and \n\n to create new lines
 - title: general title for the question in Spanish. 4-6 words long

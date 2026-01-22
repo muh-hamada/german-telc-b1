@@ -37,6 +37,7 @@ HOMBRE: Bueno, me lo pensaré, aunque yo preferiría un vuelo directo. En cuanto
 
 Create the Conversation between two people (one male and one female), then structure it into a JSON file with the following format:
 - The topic of the Conversation should be random. Don't use the same topic from the provided example.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - Create 6 statements with Ids from 25 to 30
 - Create 6 questions about which person of the two people said that statement. Some statement are distractors (none of them said it)
 

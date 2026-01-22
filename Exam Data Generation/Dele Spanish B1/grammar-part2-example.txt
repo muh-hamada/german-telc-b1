@@ -1,7 +1,7 @@
 Grammar Part 2
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- id: UUID v4. Generate a new UUID
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - text: the text will fragment gaps with Id from 19 to 24. The removed fragments are placed with this format "[{fragment_nr}]". Use \n to create new lines.
 - answers: the correct answer of each fragment gap in the text.
 - fragments: 8 fragments with keys from a to h. Two fragments are used as distractors.

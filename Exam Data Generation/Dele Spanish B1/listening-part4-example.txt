@@ -40,6 +40,7 @@ J. Le gustaba ir al cine.
 --- STATEMENTS End ---
 
 Create the interviews about people talking about a specific topic (same topic for all people), then structure it into a JSON file with the following format:
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - The topic of the interviews should be random. Don't use the same topic from the provided example.
 - Create 10 statements and with ID from a to j. Four statements are distractors
 - Create 6 questions with the statement that corresponds to the topic each person is talking about

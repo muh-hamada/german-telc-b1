@@ -1,0 +1,67 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "part-3-intro" },
+    { "type": "pause", "durationSeconds": 30 },
+    
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.", "voiceId": "moderator", "id": "interview-0" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.", "voiceId": "person1", "id": "part-1" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.", "voiceId": "person3", "id": "part-2" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.", "voiceId": "person1", "id": "part-3" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.", "voiceId": "person3", "id": "part-4" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.", "voiceId": "person1", "id": "part-5" },
+    
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-3-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.", "voiceId": "moderator", "id": "interview-0-r" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.", "voiceId": "person1", "id": "part-1-r" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.", "voiceId": "person3", "id": "part-2-r" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.", "voiceId": "person1", "id": "part-3-r" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.", "voiceId": "person3", "id": "part-4-r" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "part-3-next-item" },
+    { "type": "pause", "durationSeconds": 2 },
+
+    { "type": "speech", "repeated": true, "speech": 0.85, "text": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.", "voiceId": "person1", "id": "part-5-r" },
+
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-3-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

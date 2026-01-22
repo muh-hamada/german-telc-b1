@@ -7,31 +7,26 @@ Create a similar Interview to this one below; it should have the same language d
 VOZ DE LOCUTOR MASCULINO:
 La empresa Tecnova, dedicada desde su creación, hace tres años, a importar motocicletas y camiones eléctricos, decidió ampliar su negocio y pondrá próximamente en Cali y en Bogotá dos fábricas para la elaboración de vehículos eléctricos. Su director, Camilo Matiz, declaró ayer que esperan tener éxito a nivel nacional e internacional, y que ya tienen acuerdos para vender motocicletas eléctricas a Europa.
 
-Parte 1
 Colombiamoda 2013, la gran feria de la moda de Medellín, abre hoy, martes, oficialmente sus
 puertas. Con 450 expositores y 1500 compradores internacionales llegados de más de 50 países, la
 feria estará abierta hasta el próximo jueves. Los organizadores del evento prevén que, en el curso
 de estos tres días, más de 60.000 visitantes recorrerán los pabellones de la feria, un 20% más que
 en la versión del año pasado.
 
-Parte 2
 La actriz colombiana Juana Acosta obtuvo ayer el premio de «La Unión de Actores Españoles» a la
 mejor actriz de reparto por su interpretación en la serie española «La señal», que podrá verse en
 Colombia a partir de enero. Juana Acosta, que acaba de estrenar en televisión una nueva serie,
 «Familia», se encuentra rodando en nuestro país una película basada en la vida de Simón Bolívar.
 
-Parte 3
 La escultora Eva López ha presentado esta mañana en la galería Casas de Bogotá un libro que recopila toda su obra artística. El libro ha sido publicado por la Universidad Nacional de Colombia, en
 la que la artista trabaja como profesora. También está previsto que el próximo día 9 Eva López pronuncie en Medellín, en cuyo Museo de Arte Moderno se expone desde hace dos semanas su obra
 más reciente, una conferencia sobre el sentido religioso de su escultura.
 
-Parte 4
 El Atlético Nacional se mantiene como líder de la liga colombiana de fútbol tras derrotar ayer al
 Medellín por 1-0, con un gol del delantero Óscar Murillo en el último minuto. El entrenador del
 Nacional, Juan Carlos Osorio, declaró que, aunque el equipo no jugó bien, mereció la victoria, y
 recordó que el año pasado la suerte favoreció al equipo de Medellín.
 
-Parte 5
 El servicio meteorológico pronostica pocas nubes para hoy en Bogotá. Será un día realmente seco,
 aunque es posible que para mañana ese calentamiento nos traiga algunas lluvias. Para el lunes se
 espera la llegada de una fuerte ola de calor. 
@@ -79,8 +74,11 @@ c) el lunes subirán las temperaturas.
 --- Questions End ---
 
 Create the radio progream, then structure it into a JSON file with the following format:
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - The topic of the radio program should be random. Don't use the same topic from the provided example.
 - For the radio program, create 6 questions and with ID from 13 to 18. Each question has 3 multi-choices
+- The JSON output must include a "segments" array that strictly follows the provided structure.
+- DO NOT include "Parte ..." in the speech text
 
 {
     "segments": [
@@ -88,84 +86,74 @@ Create the radio progream, then structure it into a JSON file with the following
         { type: 'ready', id: 'part-3-intro' },
         { type: 'pause', durationSeconds: 30 },
 
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'announcer speech',
-            voiceId: 'moderator', // always use the moderador id for the announcer
-            id: "interview-{index}"
-        },
+        // PROGRAM - FIRST TIME
+        { type: 'speech', repeated: true, speech: 0.85, text: 'announcer speech', voiceId: 'moderator', // always use the moderador id for the announcer  id: "part-announcer" },
         { type: 'pause', durationSeconds: 2 },
         { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'part 1 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 1 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-1" }
         
         { type: 'pause', durationSeconds: 2 },
         { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'part 2 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 2 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-2" }
         
         { type: 'pause', durationSeconds: 2 },
         { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'part 3 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 3 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-3" }
         
         { type: 'pause', durationSeconds: 2 },
         { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'part 4 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 4 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-4" }
         
         { type: 'pause', durationSeconds: 2 },
         { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
-        {
-            type: 'speech',
-            repeated: true,
-            speech: 0.85,
-            text: 'part 5 speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        }
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 5 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-5" }
         
+        // SEPARATOR
         { type: 'pause', durationSeconds: 3 },
         { type: 'ready', id: 'part-3-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all 5 parts here with the type pause and "part-3-next-item" parts
+        // PROGRAM - SECOND TIME
+        { type: 'speech', repeated: true, speech: 0.85, text: 'announcer speech', voiceId: 'moderator', // always use the moderador id for the announcer  id: "part-announcer" },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-3-next-item' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 1 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-1" }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-3-next-item' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 2 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-2" }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-3-next-item' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 3 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-3" }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-3-next-item' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 4 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-4" }
+        
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'ready', id: 'part-3-next-item' },
+        { type: 'pause', durationSeconds: 2 },
+        
+        { type: 'speech', repeated: true, speech: 0.85, text: 'part 5 speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "part-5" }
         
         { type: 'pause', durationSeconds: 3 },
         { type: 'ready', id: 'part-3-outro' },

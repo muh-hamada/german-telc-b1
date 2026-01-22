@@ -1,0 +1,373 @@
+Batch 1 – DELE Spanish B1 Grammar Sentences
+
+Mañana **voy** a empezar un nuevo trabajo. (iré, iba)
+
+Cuando era niño, **vivía** en un pueblo pequeño. (viví, vivo)
+
+Ayer **llovió** durante toda la tarde. (llovía, llueve)
+
+No puedo salir porque **tengo** que estudiar. (soy, estoy)
+
+Si tuviera más tiempo, **viajaría** por América Latina. (viajo, viajé)
+
+Es importante que **llegues** a tiempo a la entrevista. (llegas, llegarás)
+
+Estoy cansado **de** trabajar tantas horas. (por, con)
+
+¿Has **visto** mis llaves? No las encuentro. (ver, veía)
+
+El informe **fue** enviado ayer por correo electrónico. (era, será)
+
+Siempre **me** levanto temprano los días laborables. (te, se)
+
+Este regalo es **para** ti. (por, a)
+
+Trabajo aquí **desde** hace cinco años. (por, durante)
+
+No sabía **que** ya habías terminado el proyecto. (si, porque)
+
+Mi hermana **está** muy contenta con su nuevo piso. (es, fue)
+
+Te llamo **cuando** llegue a casa. (mientras, donde)
+
+**Aunque** estaba cansado, siguió trabajando. (Porque, Si)
+
+¿Puedes **decirme** la verdad, por favor? (decir, decirme lo)
+
+El tren sale **a** las siete de la mañana. (en, por)
+
+No **se** permite fumar en este edificio. (lo, le)
+
+Me gusta este barrio **porque** es tranquilo. (pero, aunque)
+
+Marta **se** compró un coche nuevo la semana pasada. (le, lo)
+
+No salimos **hasta** que terminó la reunión. (desde, durante)
+
+¿**Cuánto** tiempo llevas estudiando español? (Cuántos, Cuánta)
+
+El jefe nos pidió **que** entregáramos el informe hoy. (si, como)
+
+Estoy **seguro** de que todo saldrá bien. (segura, seguridad)
+
+Siempre **trato** de llegar puntual al trabajo. (traté, tratar)
+
+No me gusta nada **hacer** cola. (hace, hizo)
+
+Llegó tarde **porque** había mucho tráfico. (aunque, si)
+
+Me quedé en casa **viendo** una serie. (ver, visto)
+
+¿Te importa si **abro** la ventana? (abría, abrir)
+
+El médico le recomendó **descansar** unos días. (descansa, descansó)
+
+Nunca **he** probado comida mexicana. (había, fui)
+
+Estoy buscando un piso **que** sea luminoso. (quien, donde)
+
+El examen fue **más** difícil de lo esperado. (muy, tan)
+
+Me llamó **para** confirmar la cita. (por, a)
+
+No sabía **cómo** resolver el problema. (qué, cuándo)
+
+Siempre **lleva** un cuaderno en la mochila. (llevó, llevando)
+
+Llegamos **tarde** al concierto. (tardes, tardar)
+
+Me dijo que **estaría** de vuelta a las ocho. (está, estuvo)
+
+Antes de salir, **apaga** las luces. (apagó, apagar)
+
+If you like this structure, I’ll continue with Batch 2 (next 40) and make sure:
+
+Grammar coverage stays balanced
+
+Difficulty stays strictly B1
+
+Sentences are reusable directly in your JSON pipeline
+
+Just say “send batch 2” or tell me if you want adjustments (more subjunctive, more pronouns, exam-style wording, etc.).
+
+batch 2
+
+Nice 😄
+Here’s Batch 2 (40 more sentences) — same rules: DELE B1 level, mixed grammar, one gap, and two distractors each.
+
+Batch 2 – DELE Spanish B1 Grammar Sentences
+
+No creo que **sea** una buena idea salir tan tarde. (es, será)
+
+Me acostumbré **a** levantarme temprano. (de, en)
+
+¿**Has** terminado ya tus deberes? (Habías, Tienes)
+
+El coche **que** compraron es muy cómodo. (quien, cual)
+
+Prefiero quedarme en casa **en** lugar de salir. (a, por)
+
+Mi abuelo **trabajó** como profesor durante muchos años. (trabajaba, trabaja)
+
+Es mejor **decir** la verdad desde el principio. (dice, dicho)
+
+Llegué a la oficina **antes** de las ocho. (hasta, desde)
+
+No me acuerdo **de** su nombre. (a, con)
+
+Ojalá **pueda** venir a la fiesta mañana. (puede, podrá)
+
+El problema **se** resolvió rápidamente. (lo, le)
+
+Estoy pensando **en** cambiar de trabajo. (a, por)
+
+El jefe habló **con** todos los empleados. (a, de)
+
+Nunca **había** visto algo así. (he, fui)
+
+Cerró la puerta **sin** hacer ruido. (no, para)
+
+Si no comes bien, **te** sentirás mal. (se, lo)
+
+El hotel **donde** nos alojamos era muy céntrico. (que, quien)
+
+No me gusta **nada** levantarme tan temprano. (nunca, nadie)
+
+Tienes **que** estudiar más si quieres aprobar. (de, por)
+
+Llegaron **cansados** después del viaje. (cansado, cansar)
+
+Me pidió **ayuda** para terminar el informe. (ayudar, ayudas)
+
+El avión **despegó** con retraso. (despegaba, despega)
+
+Habló **tan** rápido que no entendí nada. (más, muy)
+
+El curso empieza **el** lunes que viene. (en, al)
+
+Me gusta trabajar **en** equipo. (a, por)
+
+No salgas **sin** avisarme antes. (no, para)
+
+El niño **se** durmió en el sofá. (lo, le)
+
+Estoy **orgulloso** de tu esfuerzo. (orgullo, orgullosa)
+
+**Mientras** cocinaba, escuchaba música. (Cuando, Aunque)
+
+Nos vimos **después** de la reunión. (antes, durante)
+
+Siempre **olvido** su cumpleaños. (olvidé, olvidar)
+
+El profesor explicó el tema **claramente**. (claro, claridad)
+
+No hay **nadie** en la oficina hoy. (nada, ninguno)
+
+Me llamó **para** pedirme un favor. (por, de)
+
+Estoy **acostumbrado** a trabajar bajo presión. (acostumbro, acostumbrar)
+
+Llegó **tarde** otra vez al trabajo. (tardar, tardó)
+
+El restaurante **abre** a las doce. (abrió, abrirá)
+
+Me alegro **de** verte otra vez. (a, con)
+
+Busco un trabajo **donde** pueda crecer profesionalmente. (que, quien)
+
+**Antes** de acostarte, apaga el móvil. (Después, Durante)
+
+Next up I can:
+
+▶️ Continue with Batch 3 (81–120)
+
+🎯 Focus more on subjuntivo / por vs para / ser vs estar
+
+🧩 Slightly increase difficulty (upper B1)
+
+Just tell me how you want to proceed.
+
+batch 3
+
+You got it 👍
+Here’s Batch 3 (40 more sentences) — numbers 81–120, still clean B1, varied grammar, one gap per sentence, two distractors each.
+
+Batch 3 – DELE Spanish B1 Grammar Sentences
+
+Espero que **tengas** un buen viaje. (tienes, tendrás)
+
+No **me** gusta nada el café. (te, se)
+
+El informe fue **escrito** por el director. (escribe, escribir)
+
+Salimos temprano **para** evitar el tráfico. (por, a)
+
+Siempre **olvida** apagar la luz. (olvidó, olvidar)
+
+No sabía **si** vendrías hoy. (que, cuando)
+
+El problema **se** solucionó rápidamente. (lo, le)
+
+Estoy **seguro** de que vendrá. (segura, seguridad)
+
+Llegó **tan** cansado que se durmió enseguida. (muy, más)
+
+Me pidió que **lo** ayudara con el trabajo. (le, la)
+
+El coche **estaba** sucio después del viaje. (era, está)
+
+No quiero **hacer** la compra hoy. (hace, hecho)
+
+El jefe **nos** explicó el plan. (os, les)
+
+Llevamos dos horas **esperando** el autobús. (esperar, esperado)
+
+Me quedé en casa **porque** llovía. (aunque, si)
+
+Este ejercicio es **más** fácil de lo que parece. (muy, tan)
+
+**Desde** que llegué, no ha parado de llover. (Por, Hasta)
+
+Siempre **dice** la verdad. (dijo, decir)
+
+El estudiante **que** llegó tarde se disculpó. (quien, cual)
+
+No salgas **sin** el abrigo. (no, para)
+
+Me **encanta** viajar en tren. (encantó, encantar)
+
+Terminamos el trabajo **antes** de lo previsto. (durante, desde)
+
+No **había** nadie en casa cuando llegué. (he, hubo)
+
+El hotel **donde** dormimos era muy cómodo. (que, cual)
+
+Estoy pensando **en** mudarme de ciudad. (a, por)
+
+Me dijo que **volvería** más tarde. (vuelve, volvió)
+
+Siempre **llevo** mi móvil conmigo. (llevé, llevar)
+
+El examen fue **demasiado** difícil para mí. (muy, tan)
+
+¿Te importa que **lleguemos** un poco tarde? (llegamos, llegaremos)
+
+El niño **se** puso a llorar. (lo, le)
+
+No me gusta **trabajar** los fines de semana. (trabaja, trabajado)
+
+Llegaron **agotados** después del partido. (agotado, agotar)
+
+El profesor nos pidió **silencio**. (silenciar, silencioso)
+
+Estoy **contento** con los resultados. (contentar, contenta)
+
+**Aunque** hacía frío, salimos a caminar. (Porque, Si)
+
+Me explicó **cómo** usar la aplicación. (qué, cuándo)
+
+El vuelo **saldrá** a las nueve. (sale, salía)
+
+No conozco **a** nadie aquí. (de, con)
+
+Me fui **sin** decir nada. (no, para)
+
+Siempre **intento** hacerlo mejor. (intenté, intentar)
+
+You’re now at 120 / 150–200 🎯
+Next steps:
+
+▶️ Batch 4 (121–160) to reach 160
+
+➕ Batch 5 (161–200) if you want the full set
+
+🧠 Or I can start mapping these to JSON structure once the text list is done
+
+Just say the word.
+
+next
+
+Awesome — let’s finish strong 💪
+Here’s Batch 4 (40 sentences), 121–160. Still clean DELE B1, exam-style, one gap, two distractors.
+
+Batch 4 – DELE Spanish B1 Grammar Sentences
+
+No creo que **tenga** tiempo hoy. (tiene, tendrá)
+
+Siempre **me** olvido de su nombre. (te, se)
+
+El correo fue **enviado** esta mañana. (envía, enviar)
+
+Salió temprano **porque** tenía una reunión. (aunque, si)
+
+Me gusta este lugar **por** su tranquilidad. (para, a)
+
+No sabía **qué** responder en ese momento. (cómo, cuándo)
+
+El tren **llegó** con diez minutos de retraso. (llegaba, llega)
+
+Estoy **acostumbrado** a madrugar. (acostumbro, acostumbrar)
+
+Me dijo que **vendría** mañana. (viene, vino)
+
+No salgas **sin** avisar. (no, para)
+
+El jefe **nos** felicitó por el trabajo. (os, les)
+
+El niño **se** cayó en el parque. (lo, le)
+
+Estoy **seguro** de haber cerrado la puerta. (segura, seguridad)
+
+**Mientras** estudiaba, sonó el teléfono. (Antes, Después)
+
+No **he** terminado todavía. (había, fui)
+
+Busco un piso **que** tenga balcón. (cual, quien)
+
+Llegaron **temprano** a la estación. (temprana, temprano de)
+
+Me pidió **ayuda** con el proyecto. (ayudar, ayudas)
+
+No me gusta **nada** ese programa. (nunca, nadie)
+
+El curso empieza **en** septiembre. (a, por)
+
+Siempre **intenta** hacerlo bien. (intentó, intentar)
+
+El médico le recomendó **dejar** de fumar. (deja, dejado)
+
+Estoy pensando **en** aprender otro idioma. (a, por)
+
+No recuerdo **dónde** dejé las llaves. (qué, cómo)
+
+El informe fue **revisado** por el equipo. (revisa, revisar)
+
+Llegué tarde **porque** perdí el autobús. (aunque, si)
+
+Me gusta trabajar **con** gente diferente. (a, de)
+
+**Antes** de salir, cierra la puerta. (Después, Durante)
+
+No hay **nada** que hacer. (nadie, ninguno)
+
+Me llamó **para** disculparse. (por, de)
+
+Siempre **lleva** una botella de agua. (llevó, llevar)
+
+El restaurante **está** cerrado hoy. (es, fue)
+
+No **sabía** la respuesta correcta. (sé, supe)
+
+El estudiante habló **con** el profesor. (a, de)
+
+Estoy **orgulloso** de mi trabajo. (orgullo, orgullosa)
+
+Llegaron **agotados** al final del día. (agotado, agotar)
+
+Me explicó **por qué** no vino ayer. (qué, cómo)
+
+No salgas **hasta** que termine la reunión. (desde, durante)
+
+El tren **sale** a las seis. (salió, saldrá)
+
+Siempre **prefiero** caminar. (preferí, preferir)

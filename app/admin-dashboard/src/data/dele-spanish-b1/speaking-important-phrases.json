@@ -1,0 +1,208 @@
+{
+    "groups": [
+        {
+            "id": 1,
+            "name": "Presentaciones e Introducciones",
+            "phrases": [
+                "Buenos días / Buenas tardes. Me gustaría hablarles sobre...",
+                "Hoy voy a presentarles / hablarles de...",
+                "El tema que he elegido es...",
+                "Quisiera compartir con ustedes...",
+                "Me gustaría comenzar diciendo que...",
+                "En primer lugar, / Primero, / Para empezar,",
+                "En segundo lugar, / Después, / A continuación,",
+                "Por último, / Finalmente, / Para concluir,",
+                "Voy a dividir mi presentación en tres partes:",
+                "Para terminar, me gustaría decir que...",
+                "En conclusión, / Para resumir,",
+                "Desde hace... años / Desde que era niño/a",
+                "Siempre me ha gustado / interesado...",
+                "Me apasiona / Me encanta / Me fascina..."
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Expresar Opiniones y Argumentar",
+            "phrases": [
+                "En mi opinión, / A mi parecer, / Desde mi punto de vista,",
+                "Creo que... / Pienso que... / Considero que...",
+                "Estoy de acuerdo con... / Estoy totalmente de acuerdo",
+                "No estoy de acuerdo con... / No comparto esa opinión",
+                "Tienes razón, pero... / Es cierto, sin embargo...",
+                "Por un lado... por otro lado...",
+                "La ventaja / El inconveniente es que...",
+                "Lo que más me gusta es... / Lo que menos me gusta es...",
+                "Me parece importante / fundamental / esencial que...",
+                "No me parece bien que... / Me parece mal que...",
+                "Estoy a favor de... / Estoy en contra de...",
+                "Yo diría que... / En mi experiencia...",
+                "Personalmente, / Para mí,",
+                "Sin duda, / Definitivamente, / Absolutamente,"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Describir y Narrar",
+            "phrases": [
+                "En la fotografía se puede ver...",
+                "Puedo observar que... / Veo que...",
+                "En primer plano hay... / En el fondo se ve...",
+                "A la derecha / A la izquierda / En el centro...",
+                "Parece que... / Da la impresión de que...",
+                "Imagino que... / Supongo que... / Creo que...",
+                "Las personas están... (hablando, trabajando, comiendo)",
+                "El ambiente es... (alegre, tranquilo, animado)",
+                "Llevan ropa... (formal, casual, deportiva)",
+                "Tienen aproximadamente... años",
+                "Lo que más me llama la atención es...",
+                "Se trata de... / Es un lugar donde...",
+                "Hay varios objetos como... / Se pueden ver...",
+                "La escena muestra / representa / refleja..."
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Pedir y Dar Información",
+            "phrases": [
+                "¿Podría decirme... ? / ¿Me podría informar sobre... ?",
+                "¿Sería posible... ? / ¿Se puede... ?",
+                "Me gustaría saber... / Quisiera información sobre...",
+                "¿Cuánto cuesta / vale... ? / ¿Qué precio tiene... ?",
+                "¿A qué hora... ? / ¿Cuándo... ?",
+                "¿Dónde está... ? / ¿Cómo se llega a... ?",
+                "¿Tiene / Hay... ? / ¿Disponen de... ?",
+                "Necesito... / Busco... / Quiero...",
+                "El precio es... / Cuesta... / Son... euros",
+                "Está abierto de... a... / El horario es...",
+                "Se encuentra en... / Está situado en...",
+                "Para más información puede... / Si necesita algo más...",
+                "¿En qué puedo ayudarle? / ¿Qué desea?",
+                "Por supuesto, / Claro que sí, / Sin problema,"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Funciones Comunicativas (Quejas, Peticiones, Agradecimientos)",
+            "phrases": [
+                "Disculpe, tengo que decirle que...",
+                "Me gustaría hacer una queja sobre...",
+                "No estoy nada contento/a con...",
+                "Esto no es aceptable / Esto es inaceptable",
+                "Quiero que me... (cambien, devuelvan, solucionen)",
+                "¿Sería posible que... ? / ¿Podría... ?",
+                "Le agradecería que... / Le ruego que...",
+                "Muchas gracias por su ayuda / comprensión",
+                "Se lo agradezco mucho",
+                "Perdone las molestias / Disculpe",
+                "Lo siento mucho / Lamento mucho lo ocurrido",
+                "Tiene toda la razón / Comprendo su situación",
+                "¿Qué le parece si... ? / ¿Le vendría bien... ?",
+                "Me parece bien / perfecto / estupendo",
+                "No me viene bien / No me conviene",
+                "¿Le importaría... ? / ¿Tendría inconveniente en... ?"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Conectores y Transiciones",
+            "phrases": [
+                "Además, / Asimismo, / También,",
+                "Sin embargo, / No obstante, / Aunque,",
+                "Por lo tanto, / Por eso, / Por esta razón,",
+                "Es decir, / O sea, / En otras palabras,",
+                "Por ejemplo, / Por instance, / Como...",
+                "En cambio, / Por el contrario, / Al contrario,",
+                "De hecho, / En realidad, / La verdad es que",
+                "En primer/segundo/tercer lugar,",
+                "Por una parte... por otra parte,",
+                "Tanto... como... / Ni... ni...",
+                "Debido a... / A causa de... / Gracias a...",
+                "A pesar de que... / Aunque...",
+                "Mientras que... / Cuando... / Antes de que...",
+                "Como resultado, / Así que, / De modo que,",
+                "En resumen, / Para resumir, / En definitiva,"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Expresiones de Tiempo",
+            "phrases": [
+                "Hace... (dos años, un mes, una semana)",
+                "Desde hace... / Desde que...",
+                "El año pasado / El mes pasado / La semana pasada",
+                "Ayer / Anteayer / Hoy / Mañana / Pasado mañana",
+                "En el futuro / Próximamente / Dentro de...",
+                "Actualmente / Hoy en día / En la actualidad",
+                "Antes / Después / Luego / Más tarde",
+                "Al principio / Al final / En ese momento",
+                "Durante / Mientras / Cuando",
+                "Siempre / A menudo / A veces / Nunca",
+                "Todavía / Ya / Aún no",
+                "De vez en cuando / De cuando en cuando",
+                "Últimamente / Recientemente",
+                "Todos los días / Cada día / Cada semana"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Expresiones de Frecuencia e Intensidad",
+            "phrases": [
+                "Muy / Mucho / Muchísimo / Bastante",
+                "Poco / Un poco / Nada",
+                "Demasiado / Demasiado... (caro, lejos, tarde)",
+                "Casi / Apenas / Solamente / Solo",
+                "Totalmente / Completamente / Absolutamente",
+                "Más o menos / Aproximadamente / Alrededor de",
+                "Sobre todo / Especialmente / Particularmente",
+                "En general / Por lo general / Normalmente",
+                "Frecuentemente / A menudo / Habitualmente",
+                "Raramente / Pocas veces / Casi nunca",
+                "Siempre / Todo el tiempo / Constantemente",
+                "De vez en cuando / Ocasionalmente",
+                "Lo más importante es... / Lo fundamental es...",
+                "Es muy probable que... / Es posible que..."
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Expresiones para Conversación y Debate",
+            "phrases": [
+                "¿Qué opinas de... ? / ¿Qué piensas sobre... ?",
+                "¿Estás de acuerdo conmigo? / ¿No crees?",
+                "Déjame explicarte... / Te lo explico:",
+                "¿Me entiendes? / ¿Me sigues? / ¿Está claro?",
+                "Entiendo lo que dices, pero...",
+                "Eso es exactamente lo que pienso",
+                "Tienes razón en que... / Es verdad que...",
+                "Eso depende de... / Depende del punto de vista",
+                "No estoy seguro/a, pero creo que...",
+                "Ahora que lo mencionas... / A propósito de eso...",
+                "Cambiando de tema, / Por cierto,",
+                "Como decía antes, / Como ya he mencionado,",
+                "Si me permites añadir algo... / Me gustaría añadir que...",
+                "Déjame terminar, por favor / Un momento, por favor",
+                "¿Podrías repetir eso? / No he entendido bien"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Expresiones para Situaciones Formales",
+            "phrases": [
+                "Buenos días, señor/señora / Buenas tardes",
+                "Encantado/a de conocerle / Mucho gusto",
+                "¿Me permite... ? / ¿Le importa si... ?",
+                "Quisiera solicitar... / Me gustaría pedir...",
+                "Le agradecería que... / Le rogaría que...",
+                "Lamento las molestias / Disculpe las molestias",
+                "Quedo a su disposición / Estoy a su servicio",
+                "No dude en contactar conmigo / Cualquier cosa, avíseme",
+                "Le mantendr informado/a / Le comunicaré...",
+                "Con su permiso, / Si no le importa,",
+                "Muchas gracias por su atención / tiempo",
+                "Ha sido un placer / Fue un placer",
+                "Le deseo un buen día / que tenga un buen día",
+                "Reciba un cordial saludo / Atentamente,"
+            ]
+        }
+    ]
+}

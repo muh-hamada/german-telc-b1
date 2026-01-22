@@ -1,7 +1,7 @@
 Writing Part 1
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- id: UUID v4. Generate a new UUID
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - incomingEmail: the incoming email from a friend that we will respond to. Use \n and \n\n to seperate lines.
 - title: general title for the email in Spanish. 4-6 words long
 - modalAnswer: the complete answer to this question responding to the email. It must be a modal answer for the students to use it as a reference.

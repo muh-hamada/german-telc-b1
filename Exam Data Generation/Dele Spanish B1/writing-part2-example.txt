@@ -1,7 +1,7 @@
 Writing Part 2
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- id: UUID v4. Generate a new UUID
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - publishedMessage: create a message that was published on a blog similar to the example. Use \n and \n\n to seperate lines.
 - title: general title for the message in Spanish. 4-6 words long
 - modalAnswer: the complete answer to this question responding to the message. It must be a modal answer for the students to use it as a reference.

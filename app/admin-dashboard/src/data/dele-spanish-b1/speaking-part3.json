@@ -1,0 +1,254 @@
+{
+    "teil": "3: Descripción de fotografía",
+    "instruction": "Describa con detalle, durante 1 o 2 minutos, lo que ve en la foto y lo que imagina que está ocurriendo. Estos son algunos aspectos que puede comentar: Las personas (dónde están, cómo son, qué hacen), el lugar en el que se encuentran (cómo es), los objetos (qué objetos hay, dónde están, cómo son), qué relación cree que existe entre estas personas, de qué cree que están hablando. Posteriormente, el entrevistador le hará algunas preguntas. La duración total de esta tarea es de 2 a 3 minutos.",
+    "questions": [
+        {
+            "title": "Foto: Personas trabajando en una oficina moderna",
+            "question": "Describa la fotografía donde se ven varias personas trabajando en un entorno de oficina.",
+            "exampleDescription": "En esta fotografía puedo ver un ambiente de oficina moderna y luminosa. Hay cuatro personas trabajando, dos hombres y dos mujeres, que parecen tener entre treinta y cuarenta años. Están sentados alrededor de una mesa grande de color claro, probablemente de madera o material similar. La oficina tiene grandes ventanas por las que entra mucha luz natural, lo que crea un ambiente agradable. Las paredes son blancas y hay algunas plantas verdes que decoran el espacio. En la mesa hay varios objetos: ordenadores portátiles abiertos, algunos papeles, libretas, bolígrafos y tazas de café. Las personas llevan ropa informal pero profesional: camisas, jerseys. Uno de los hombres está señalando algo en la pantalla de su ordenador mientras los demás observan con atención. Parece que están colaborando en un proyecto o revisando algo importante. La mujer que está a la derecha está tomando notas en su libreta. Por sus expresiones y lenguaje corporal, parecen estar concentrados pero relajados. Imagino que están discutiendo ideas para un proyecto nuevo o resolviendo algún problema de trabajo. Tal vez están en una reunión de equipo donde cada persona aporta sus ideas. La atmósfera parece positiva y cooperativa. Creo que estas personas son compañeros de trabajo, posiblemente del mismo departamento, y tienen una buena relación profesional. El ambiente abierto y luminoso de la oficina sugiere que es una empresa moderna que valora el trabajo en equipo y la colaboración.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Ha trabajado usted en algún lugar parecido al de la imagen?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, en mi trabajo anterior trabajaba en una oficina similar, con espacios abiertos y mesas compartidas. Era un ambiente muy colaborativo donde podíamos comunicarnos fácilmente con los compañeros. Había mucha luz natural y plantas, lo cual hacía que el espacio fuera agradable para pasar muchas horas trabajando."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Le gustaría trabajar en algún lugar parecido? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, me gustaría. Creo que los espacios de oficina abiertos facilitan la comunicación y el trabajo en equipo. Es más fácil pedir ayuda o compartir ideas cuando todos están cerca. Además, un ambiente luminoso y bien decorado mejora el estado de ánimo y la productividad. Sin embargo, también valoro tener espacios privados para concentrarme cuando necesito hacer tareas que requieren mucha atención."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué tipo de trabajo le gustaría hacer en el futuro?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Me gustaría trabajar en el área de marketing digital o comunicación. Me interesa la creatividad combinada con el análisis de datos. También valoro mucho tener un equilibrio entre trabajo y vida personal, así que busco un trabajo que me permita desarrollarme profesionalmente pero también tener tiempo para mi familia y hobbies."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Familia cenando en casa",
+            "question": "Describa la fotografía donde aparece una familia compartiendo una comida.",
+            "exampleDescription": "En esta fotografía veo una escena muy acogedora de una familia cenando junta en casa. Hay cinco personas sentadas alrededor de una mesa: dos adultos que parecen ser los padres, una mujer mayor que probablemente sea la abuela, y dos niños, un niño y una niña de aproximadamente ocho y diez años. La mesa está puesta con manteles, platos, vasos y cubiertos. En el centro hay varias fuentes con comida que parece casera: un pollo asado, ensalada, patatas y una jarra con bebida. El comedor es acogedor, con una lámpara colgante sobre la mesa que proporciona una luz cálida. En el fondo se puede ver parte de la cocina y hay algunos cuadros en las paredes. Las personas están sonriendo y parecen estar conversando animadamente. El padre está sirviendo comida en los platos de los niños. La abuela está al lado de la niña y parece estar contándole algo, porque la niña la mira con atención. La madre está pasando una fuente de ensalada. Todos llevan ropa casual y cómoda. Imagino que es una cena típica de entre semana o quizá del domingo, un momento en que toda la familia se reúne para compartir no solo la comida sino también las experiencias del día. Creo que están hablando sobre cómo les fue en el colegio a los niños, sobre el trabajo de los padres, o quizá la abuela está contando historias de cuando era joven. Es evidente que hay un ambiente familiar cálido y cercano. Este tipo de momentos son importantes para mantener los lazos familiares fuertes.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Come usted habitualmente con su familia? ¿Con qué frecuencia?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Ahora como con mi familia principalmente los fines de semana, porque durante la semana trabajo y llego tarde a casa. Pero cuando era más joven, comíamos juntos todos los días. Los domingos intentamos hacer una comida especial donde todos los miembros de la familia se reúnen, incluyendo abuelos y tíos. Es un momento importante para mantenernos unidos."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que es importante que las familias coman juntas? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, creo que es muy importante. Comer juntos es mucho más que solo alimentarse. Es un momento de conexión donde la familia puede hablar, compartir experiencias y preocupaciones. Para los niños especialmente, es importante porque aprenden hábitos alimenticios saludables y habilidades sociales. También fortalece los vínculos familiares en un mundo donde todos están muy ocupados."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué papel juegan los abuelos en las familias de su país?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "En mi país, los abuelos tienen un papel muy importante. Muchas veces cuidan a los nietos cuando los padres trabajan, transmiten tradiciones y valores familiares, y sus consejos son muy valorados. En muchas familias, los abuelos viven con sus hijos y nietos, lo cual crea una convivencia multigeneracional enriquecedora aunque a veces también puede haber desafíos."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Estudiantes en una biblioteca",
+            "question": "Describa la fotografía donde se ven estudiantes en una biblioteca universitaria.",
+            "exampleDescription": "Esta fotografía muestra el interior de una biblioteca universitaria. Puedo ver a varios estudiantes, aproximadamente seis o siete personas, trabajando en diferentes espacios. La biblioteca es grande y moderna, con estanterías altas llenas de libros que llegan casi hasta el techo. Hay grandes ventanas que dejan entrar luz natural. En primer plano, hay dos estudiantes sentados en una mesa trabajando con sus portátiles. Ambos parecen estar concentrados en sus estudios. La chica lleva el pelo recogido y usa gafas, mientras escribe algo en su ordenador. El chico a su lado tiene varios libros abiertos y toma notas en un cuaderno. Más atrás, puedo ver a otros estudiantes en diferentes mesas, algunos trabajando solos y otros en pequeños grupos. Las mesas son individuales y están espaciadas, lo que permite a cada persona tener su propio espacio de estudio. Hay lámparas de escritorio en cada mesa que proporcionan iluminación adicional. También veo una escalera que conduce a un segundo piso donde hay más estanterías. El ambiente es silencioso y tranquilo, perfecto para concentrarse. Los estudiantes llevan ropa casual: vaqueros, camisetas, sudaderas. Algunos tienen mochilas en el suelo junto a sus sillas. Imagino que están preparando exámenes o trabajando en proyectos de clase. Probablemente están investigando información en libros y también utilizando recursos digitales en sus ordenadores. La biblioteca parece ser un lugar donde los estudiantes pasan muchas horas, especialmente durante la época de exámenes. Creo que valoran este espacio porque les ofrece un ambiente tranquilo lejos de las distracciones de casa.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Estudia usted frecuentemente en bibliotecas? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Cuando estaba en la universidad, sí estudiaba mucho en la biblioteca, especialmente durante la época de exámenes. Me gustaba porque había silencio y podía concentrarme mejor que en casa donde hay muchas distracciones. Además, tener todos los recursos bibliográficos cerca era muy útil. Ahora que trabajo, voy menos a bibliotecas pero a veces las uso para leer o investigar sobre temas personales."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere estudiar solo o en grupo? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Depende del tipo de estudio. Para memorizar o leer, prefiero estudiar solo porque necesito silencio y concentración. Pero para resolver problemas o preparar presentaciones, me gusta estudiar en grupo porque puedes discutir ideas diferentes y ayudarte mutuamente. También es más motivador porque ves que otros están en la misma situación."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que las bibliotecas son importantes en la era digital? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, absolutamente. Aunque ahora tenemos mucha información en internet, las bibliotecas siguen siendo importantes por varias razones. Primero, ofrecen un espacio tranquilo de estudio que no todos tienen en casa. Segundo, los libros físicos siguen siendo valiosos y no todo está digitalizado. Tercero, las bibliotecas democratizan el acceso a la cultura y la educación para personas que no tienen recursos para comprar libros. Y cuarto, los bibliotecarios pueden ayudar a investigar y encontrar información fiable."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Personas en un mercado tradicional",
+            "question": "Describa la fotografía de un mercado tradicional con vendedores y compradores.",
+            "exampleDescription": "Esta fotografía captura la animada atmósfera de un mercado tradicional. Es un espacio al aire libre o semicubierto, lleno de color y movimiento. Puedo ver varios puestos de venta con frutas y verduras frescas de colores brillantes: tomates rojos, pimientos verdes y amarillos, naranjas, manzanas, plátanos. Los productos están organizados en cajas de madera y canastas, formando pilas atractivas. Hay al menos tres vendedores visibles en la foto. Son hombres y mujeres de diferentes edades, algunos mayores que parecen tener mucha experiencia. Llevan delantales y están de pie detrás de sus puestos. Uno de los vendedores está pesando algo en una balanza antigua mientras habla con una clienta. Los compradores son variados: veo a una señora mayor con un carrito de compra lleno de verduras, una mujer joven con una bolsa de tela, y un hombre que está examinando cuidadosamente las frutas antes de comprar. Las personas parecen estar conversando, no solo comprando. Hay interacción social, lo cual es característico de los mercados tradicionales. El ambiente es informal y bullicioso. En el fondo se pueden ver más puestos con otros productos: posiblemente pescado, carne o productos artesanales. Hay toldos de colores que protegen del sol o la lluvia. El suelo es de piedra o cemento, típico de mercados antiguos. Imagino que están hablando sobre precios, sobre la calidad de los productos, o quizá compartiendo recetas. En los mercados tradicionales, la gente no solo compra, sino que también socializa. Los vendedores conocen a sus clientes habituales y hay una relación de confianza. Este tipo de mercados son lugares importantes en la comunidad, centros de vida social y comercial que conservan tradiciones antiguas frente a los supermercados modernos.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Compra usted en mercados tradicionales o prefiere supermercados? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Me gusta comprar en ambos lugares dependiendo de lo que necesite. Voy al supermercado para compras grandes y productos envasados porque es más cómodo y rápido. Pero prefiero el mercado tradicional para frutas, verduras y pescado fresco porque la calidad suele ser mejor y más fresco. Además, me gusta el ambiente del mercado y la posibilidad de regatear un poco los precios."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que los mercados tradicionales van a desaparecer? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Es posible que algunos desaparezcan, especialmente en ciudades grandes donde los supermercados son más convenientes. Sin embargo, creo que muchos sobrevivirán porque ofrecen algo que los supermercados no tienen: productos más frescos, trato personalizado y un aspecto cultural y social importante. Además, cada vez más gente valora lo local y lo auténtico, lo que puede ayudar a mantener estos mercados."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué ventajas y desventajas tienen los mercados tradicionales comparados con supermercados?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Las ventajas de los mercados son: productos más frescos y de temporada, precios a veces más bajos, posibilidad de regatear, trato personal con vendedores, y ambiente social. Las desventajas son: horarios más limitados, menos variedad de productos, no hay aire acondicionado, y puede ser incómodo en mal tiempo. Los supermercados son más cómodos y tienen todo en un lugar, pero pierden ese contacto humano y productos frescos."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Personas haciendo ejercicio en un parque",
+            "question": "Describa la fotografía donde se ven personas realizando actividades deportivas al aire libre.",
+            "exampleDescription": "En esta imagen veo un parque público grande y verde donde varias personas están haciendo ejercicio físico. Es un día soleado con cielo despejado, parece ser por la mañana temprano o al atardecer por la calidad de la luz. El parque tiene césped verde, árboles que proporcionan sombra, y caminos pavimentados para correr o pasear. Puedo ver diferentes actividades deportivas. En primer plano, hay tres personas corriendo juntas por el camino. Llevan ropa deportiva: camisetas, pantalones cortos y zapatillas de deporte. Parecen estar disfrutando del ejercicio, conversan mientras corren a un ritmo moderado. Un poco más lejos, hay una mujer joven haciendo yoga sobre una esterilla en el césped. Está en una posición de estiramiento con los brazos levantados hacia el cielo. Parece muy concentrada y relajada. A la derecha de la imagen, veo a un grupo de unas cinco personas haciendo ejercicios de estiramiento o calentamiento en círculo, posiblemente antes o después de una sesión de entrenamiento. También hay personas paseando, algunas con perros. Al fondo se pueden ver más árboles y bancos donde algunas personas descansan o observan. El ambiente es saludable y activo. Las personas son de diferentes edades: jóvenes, adultos y también algunas personas mayores. Esto muestra que el ejercicio al aire libre es para todos. Imagino que estas personas valoran la actividad física y prefieren hacer ejercicio al aire libre en contacto con la naturaleza en lugar de ir a un gimnasio cerrado. Probablemente vienen a este parque regularmente, quizá tienen una rutina diaria o semanal. El parque es un espacio de salud, socialización y bienestar para la comunidad.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Hace usted ejercicio regularmente? ¿Qué tipo de ejercicio practica?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, intento hacer ejercicio tres o cuatro veces por semana. Normalmente salgo a correr por las mañanas antes de ir al trabajo, porque me ayuda a despertarme y empezar el día con energía. También voy al gimnasio dos veces por semana para hacer ejercicios de fuerza. Los fines de semana, si hace buen tiempo, me gusta hacer senderismo en las montañas cercanas."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere hacer ejercicio al aire libre o en un gimnasio? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Prefiero hacer ejercicio al aire libre cuando el clima lo permite. Me gusta estar en contacto con la naturaleza, respirar aire fresco y sentir el sol. Es más agradable mentalmente que estar en un espacio cerrado. Sin embargo, voy al gimnasio en invierno cuando hace mucho frío o llueve, y también para usar equipos específicos que no tengo en casa."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que la gente hace suficiente ejercicio hoy en día? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "No, creo que en general la gente no hace suficiente ejercicio. Muchas personas tienen trabajos sedentarios donde pasan todo el día sentados frente a un ordenador. Cuando llegan a casa están cansados y no tienen energía para hacer deporte. Además, el estilo de vida moderno con coches y tecnología nos hace menos activos físicamente. Esto está causando problemas de salud como obesidad, diabetes y enfermedades cardíacas. Deberíamos priorizar más el ejercicio físico."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Turistas visitando un monumento histórico",
+            "question": "Describa la fotografía de turistas visitando un lugar de interés cultural.",
+            "exampleDescription": "Esta fotografía muestra una escena turística en un lugar histórico importante. Veo un gran monumento o edificio antiguo en el fondo, que parece ser un castillo, catedral o palacio de arquitectura clásica, con columnas, arcos y detalles ornamentales. Es una construcción de piedra que claramente tiene siglos de antigüedad. En la plaza frente al monumento hay muchos turistas, probablemente unas veinte o treinta personas visibles en la foto. Son de diferentes nacionalidades y edades. Algunos están tomando fotografías con sus cámaras o teléfonos móviles, otros están escuchando a un guía turístico que explica la historia del lugar. Veo a un grupo de turistas con auriculares, siguiendo una visita guiada con audio. Hay familias con niños, parejas jóvenes, y grupos de amigos. Muchos llevan mochilas, gorras y gafas de sol porque hace un día soleado. Algunos consultan mapas o sus teléfonos, probablemente buscando información o decidiendo qué visitar después. En la plaza hay también algunos vendedores ambulantes ofreciendo souvenirs, postales o bebidas. Se puede ver un puesto con recuerdos típicos del lugar. El suelo de la plaza es de piedra antigua, desgastada por millones de pisadas a lo largo del tiempo. Hay algunas fuentes o elementos decorativos. La atmósfera es animada pero ordenada. Imagino que el guía está explicando datos históricos importantes sobre el monumento: cuándo se construyó, quién vivió allí, qué eventos importantes ocurrieron. Los turistas parecen interesados, haciendo preguntas y tomando notas. Este tipo de visitas culturales son importantes porque permiten a las personas aprender sobre historia, arte y diferentes culturas, y apreciar el patrimonio de la humanidad.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Le gusta visitar monumentos históricos cuando viaja? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, me encanta. Creo que los monumentos históricos te permiten conectar con el pasado y entender mejor la historia y cultura de un lugar. Es fascinante pensar en las personas que vivieron allí hace siglos, en los eventos que ocurrieron. Además, la arquitectura y el arte de estos lugares suelen ser impresionantes. Para mí, visitar estos sitios es una forma de educación y también de inspiración."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere visitas guiadas o explorar por su cuenta? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Generalmente prefiero combinar ambas cosas. Me gusta hacer una visita guiada al principio porque los guías expertos te dan información histórica y datos interesantes que no encontrarías solo. Después me gusta explorar por mi cuenta, tomar fotografías con calma y pasar más tiempo en las partes que más me interesan sin seguir el ritmo del grupo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que es importante conservar los monumentos históricos? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Absolutamente. Los monumentos históricos son parte de nuestro patrimonio cultural y nos conectan con nuestras raíces. Son testimonios físicos de la historia que las generaciones futuras también deben poder disfrutar y aprender. Además, muchos monumentos son obras de arte arquitectónicas únicas. Su conservación también es importante económicamente porque atraen turismo. Debemos invertir en mantenerlos en buen estado."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Personas en transporte público",
+            "question": "Describa la fotografía del interior de un metro o autobús con pasajeros.",
+            "exampleDescription": "En esta fotografía veo el interior de un vagón de metro o tren urbano lleno de pasajeros. Es hora punta, probablemente por la mañana o al final de la tarde cuando la gente va o viene del trabajo. El vagón está bastante lleno, algunas personas están sentadas y otras de pie agarradas a las barras y asideros. Los asientos son de plástico de colores, típicos del transporte público, distribuidos a los lados del vagón. El suelo es antideslizante y las paredes tienen anuncios publicitarios y mapas del recorrido del metro. En primer plano veo a una mujer joven sentada que está mirando su teléfono móvil, probablemente leyendo mensajes o navegando por redes sociales. Lleva ropa de oficina y tiene una bolsa en su regazo. A su lado hay un hombre mayor con un periódico abierto, leyendo las noticias. Lleva traje y corbata. De pie, agarrados a las barras, hay varios pasajeros más. Un joven con auriculares escucha música con los ojos cerrados. Una mujer con bolsas de compra mira por la ventana. Otro hombre revisa documentos en una carpeta, aprovechando el tiempo de trayecto para trabajar. Las expresiones de las personas son variadas: algunos parecen cansados, otros concentrados en sus actividades, algunos aburridos esperando llegar a su destino. No hay mucha interacción entre los pasajeros, cada uno está en su propio mundo. La luz del vagón es artificial, fluorescente. Por las ventanas se pueden ver las estaciones pasando rápidamente. El ambiente es típico del transporte público urbano: funcional, anónimo, pero eficiente. Imagino que estas personas hacen este mismo trayecto todos los días. Es parte de su rutina diaria. El transporte público es esencial en ciudades grandes donde tener coche sería impractical por el tráfico y el estacionamiento.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Utiliza usted transporte público habitualmente? ¿Cuál?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, uso el metro todos los días para ir al trabajo. Vivo en una ciudad grande donde el tráfico es terrible y el estacionamiento es caro y difícil de encontrar. El metro es rápido, económico y confiable. Aunque a veces está lleno en hora punta, sigue siendo la mejor opción. También uso el autobús ocasionalmente para rutas donde no llega el metro."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Qué ventajas y desventajas tiene el transporte público?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Las ventajas son: es económico comparado con tener coche, es mejor para el medio ambiente porque reduce la contaminación, evitas el estrés del tráfico, y puedes aprovechar el tiempo leyendo o usando el móvil. Las desventajas son: puede estar muy lleno en horas punta, a veces hay retrasos, no tienes la privacidad y comodidad de un coche propio, y puede ser incómodo si tienes que llevar muchas cosas."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que las ciudades deberían invertir más en transporte público? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Definitivamente sí. Un buen sistema de transporte público reduce el tráfico, la contaminación del aire y hace las ciudades más habitables. También es una cuestión de igualdad social porque no todos pueden permitirse un coche. Invertir en metro, autobuses, tranvías y carriles bici modernos y eficientes mejora la calidad de vida de todos los ciudadanos. Es una inversión a largo plazo que vale la pena."
+                }
+            ]
+        },
+        {
+            "title": "Foto: Personas en una cafetería o bar",
+            "question": "Describa la fotografía de un grupo de amigos en una cafetería.",
+            "exampleDescription": "Esta fotografía captura un momento agradable en una cafetería moderna y acogedora. Veo a cuatro personas, dos hombres y dos mujeres, que parecen ser amigos cercanos, sentados alrededor de una mesa pequeña. Tienen aproximadamente entre veinticinco y treinta y cinco años. La cafetería tiene un estilo contemporáneo con decoración minimalista: paredes de ladrillo visto o pintadas en colores suaves, muebles de madera, plantas decorativas, y lámparas colgantes que crean una iluminación cálida. Hay ventanas grandes que dejan ver la calle. La mesa tiene tazas de café, algunos platos con pasteles o bocadillos, servilletas y posiblemente azúcar o edulcorantes. Las personas están conversando animadamente. Una de las mujeres está riendo con la mano cerca de la boca, claramente divirtiéndose. Los hombres están sonriendo también. Uno de ellos está gesticulando con las manos mientras cuenta algo, parece ser el centro de atención en ese momento. Llevan ropa casual moderna: camisas, suéteres, vaqueros. Todos parecen relajados y cómodos. En la mesa también hay teléfonos móviles pero nadie los está usando en este momento, están enfocados en la conversación. El ambiente es informal y social. Se puede ver en el fondo otras mesas con más clientes y el mostrador de la cafetería donde trabaja el personal. Hay una máquina de café espresso profesional. La cafetería parece ser un lugar popular, acogedor. Imagino que están poniéndose al día, compartiendo noticias sobre sus vidas, tal vez hablando sobre trabajo, relaciones, planes futuros. Quizá uno de ellos acaba de contar un chiste o una anécdota divertida que hizo reír a todos. Este tipo de encuentros son importantes para mantener amistades y desconectar del estrés diario. Las cafeterías son espacios sociales donde las personas se reúnen no solo para tomar café sino para disfrutar de compañía.",
+            "exampleDiscussion": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Frecuenta usted cafeterías? ¿Con qué frecuencia?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, voy a cafeterías bastante a menudo, probablemente dos o tres veces por semana. A veces voy solo para trabajar con mi portátil en un ambiente diferente al de casa u oficina. Otras veces quedo con amigos para charlar tomando un café. Me gusta el ambiente de las cafeterías, la música de fondo, el olor a café. Es un espacio neutral y relajado para socializar o ser productivo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Prefiere cafeterías independientes o cadenas grandes como Starbucks? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Prefiero las cafeterías independientes porque suelen tener más personalidad y carácter único. El café a menudo es de mejor calidad, hecho por baristas apasionados. También me gusta apoyar a negocios locales en lugar de grandes corporaciones. Sin embargo, reconozco que las cadenas grandes son convenientes porque sabes qué esperar dondequiera que vayas, tienen wifi confiable y espacios cómodos para trabajar."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "¿Cree que las cafeterías son importantes para la vida social? ¿Por qué?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, son muy importantes. Las cafeterías son espacios sociales accesibles donde la gente se puede reunir sin el compromiso formal de una comida en restaurante. Son lugares democráticos donde personas de diferentes edades y profesiones coinciden. También son lugares de trabajo para freelancers y artistas, espacios de estudio para estudiantes. Históricamente, las cafeterías han sido centros de conversación intelectual y social, y siguen siéndolo hoy."
+                }
+            ]
+        }
+    ]
+}

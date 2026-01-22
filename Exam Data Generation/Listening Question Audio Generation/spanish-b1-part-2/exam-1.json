@@ -1,0 +1,52 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 30
+    },
+    {
+        "type": "speech",
+        "speed": 0.85,
+        "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
+        "voiceId": "person3",
+        "id": "full-interview"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "speed": 0.85,
+        "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
+        "voiceId": "person3",
+        "id": "full-interview"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

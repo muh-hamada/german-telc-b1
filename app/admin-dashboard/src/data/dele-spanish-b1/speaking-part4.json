@@ -1,0 +1,614 @@
+{
+    "teil": "4: Diálogo en situación simulada",
+    "instruction": "Usted debe dialogar con el entrevistador en una situación simulada durante dos o tres minutos. El entrevistador hará el papel de otra persona (empleado de tienda, recepcionista, amigo, etc.) y usted debe completar la tarea que se le indica, siguiendo las instrucciones proporcionadas.",
+    "questions": [
+        {
+            "title": "En una tienda de informática: Reclamar por un producto defectuoso",
+            "situation": "Usted compró hace unos días un ordenador portátil en una tienda de informática. Ahora el ordenador no funciona y usted decide ir a la tienda para pedir que se lo cambien por otro.",
+            "roleInstructions": "Durante la conversación con el empleado de la tienda de informática usted debe: indicarle cuándo compró el ordenador; explicarle cuál es el problema; pedirle que se lo cambie por otro; quejarse si no quiere cambiárselo y pedirle otra solución.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Buenos días. Bienvenido a TechStore. ¿En qué puedo ayudarle?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenos días. Mire, compré un ordenador portátil aquí hace cinco días y ya no funciona. Vengo a ver si pueden cambiármelo por otro."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Oh, lo siento mucho. ¿Cuándo dice que compró el ordenador? Quizá le atendió otro compañero..."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, fue el viernes pasado por la tarde. Aquí tengo la factura. Era un portátil marca HP, modelo Pavilion, que costó 650 euros."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Ah, sí, aquí veo la factura. Pues vamos a ver... Dígame cuál es el problema exactamente."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Pues al principio funcionaba perfectamente, pero ayer por la noche dejó de encenderse. Cuando presiono el botón de encendido, no pasa nada, ni siquiera se enciende ninguna luz. He intentado cargarlo durante toda la noche pensando que quizá era la batería, pero nada. Esta mañana seguía sin funcionar."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entiendo. Es muy extraño que ocurra tan pronto. Lo que podemos hacer es enviarlo al servicio técnico para que lo revisen. Tardarían aproximadamente dos semanas..."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Dos semanas? No, no, eso no me sirve. Necesito el ordenador para trabajar todos los días. Además, solo lo he tenido cinco días y ya está roto. No es justo que tenga que esperar tanto tiempo. Quiero que me lo cambien por otro nuevo ahora mismo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Comprendo su frustración, pero nuestra política dice que primero debemos comprobar que el problema no es por mal uso del cliente. Por eso hay que mandarlo al técnico."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Mal uso? ¡Si solo lo he usado cinco días y con mucho cuidado! Esto es inaceptable. He pagado mucho dinero por un producto que no funciona. Según la ley de garantía del consumidor, tengo derecho a que me lo cambien inmediatamente si el producto es defectuoso. Quiero hablar con el gerente, por favor."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De acuerdo, de acuerdo. Deje que hable con mi supervisor a ver qué podemos hacer. Un momento, por favor... Bueno, en vista de la situación y dado que solo han pasado cinco días, voy a hacer una excepción. Tenemos otro modelo similar en stock. ¿Le parece bien si se lo cambio por ese?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, me parece perfecto. Muchas gracias por comprenderlo. Solo quiero un ordenador que funcione correctamente."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Déjeme traerlo. Aquí está. Por favor, compruebe que todo funciona bien antes de irse."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, claro. Lo enciendo... sí, funciona perfectamente. Muchas gracias por su ayuda y por solucionar el problema."
+                }
+            ]
+        },
+        {
+            "title": "En un hotel: Hacer una reserva y pedir información",
+            "situation": "Usted quiere hacer una reserva en un hotel para sus próximas vacaciones. Llama por teléfono para pedir información y hacer la reserva.",
+            "roleInstructions": "Durante la conversación con el recepcionista del hotel usted debe: indicar las fechas en que quiere alojarse; preguntar por el precio y qué incluye; preguntar sobre servicios del hotel (piscina, wifi, desayuno, etc.); hacer la reserva si las condiciones le convienen.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Hotel Mar Azul, buenos días. Soy Carmen. ¿En qué puedo ayudarle?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenos días, Carmen. Llamo porque me gustaría hacer una reserva para el mes que viene. Querría información sobre disponibilidad y precios."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Por supuesto. ¿Para qué fechas exactamente?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sería del 15 al 22 de julio, siete noches en total. Somos dos adultos."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Déjeme comprobar... Sí, tenemos disponibilidad para esas fechas. Tenemos habitaciones dobles con vistas al mar por 120 euros la noche, o habitaciones interiores por 90 euros."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Entiendo. ¿Y esos precios incluyen el desayuno?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, incluyen desayuno buffet. También incluyen el uso de la piscina y el gimnasio, y tenemos wifi gratuito en todo el hotel."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Perfecto. Y dígame, ¿el hotel está cerca de la playa? ¿Tienen servicio de playa?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, estamos a solo 100 metros de la playa. Tenemos un acuerdo con un chiringuito de playa que ofrece hamacas y sombrillas a nuestros huéspedes con descuento."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Excelente. ¿Y hay restaurante en el hotel por si queremos cenar allí alguna noche?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, tenemos un restaurante con cocina mediterránea que abre para la cena. También hay un bar junto a la piscina."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Me parece muy bien. Me gustaría hacer la reserva entonces. Querría la habitación con vistas al mar."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Necesito algunos datos: su nombre completo, número de teléfono y correo electrónico, por favor."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, claro. Mi nombre es Ana López Martínez, mi teléfono es el 666 123 456 y mi correo es ana.lopez@email.com."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Gracias. ¿Necesita una tarjeta de crédito para garantizar la reserva. ¿Tiene alguna?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, tengo Visa. ¿Cuánto me van a cobrar ahora?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Solo tomamos el número como garantía. El pago se realiza en el hotel al hacer el check-in o al salir."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Perfecto. Aquí tiene el número: 4532 1234 5678 9012."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Gracias. Su reserva está confirmada. Le enviaré un correo con todos los detalles. ¿Alguna pregunta más?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "No, eso es todo. Muchas gracias por su ayuda. Hasta julio."
+                }
+            ]
+        },
+        {
+            "title": "En un restaurante: Hacer una queja sobre la comida",
+            "situation": "Usted está cenando en un restaurante pero hay varios problemas con la comida y el servicio. Decide hablar con el camarero para quejarse.",
+            "roleInstructions": "Durante la conversación con el camarero usted debe: explicar qué problemas ha tenido; quejarse educadamente; pedir una solución (cambiar el plato, descuento, etc.); aceptar o rechazar las soluciones que le ofrezcan.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Candidato",
+                    "text": "Disculpe, ¿podría hablar un momento con usted?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Por supuesto, señor. Dígame, ¿qué necesita?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Mire, tengo que decirle que no estoy nada contento con la cena. Hay varios problemas y creo que deberían saberlo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Oh, lo siento mucho. ¿Qué ha ocurrido exactamente?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Primero, hemos esperado más de 40 minutos para que nos trajeran los platos principales. Eso me parece demasiado tiempo. Y segundo, mi filete está muy hecho, prácticamente quemado, cuando pedí que estuviera al punto."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Tiene toda la razón, y le pido disculpas. Hoy tenemos más clientes de lo normal y la cocina va más lenta. Pero eso no es excusa."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Además, la ensalada llegó sin el queso de cabra que indicaba en el menú, y las patatas fritas están frías. La verdad es que para los precios que tienen, esperaba una calidad mucho mejor."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Tiene toda la razón y lo siento muchísimo. ¿Qué le parece si le preparo un filete nuevo exactamente como lo quiere? Y por supuesto, no le cobraremos este plato."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "La verdad es que ya he perdido el apetito después de esperar tanto. No quiero esperar otros 40 minutos por un nuevo plato. Preferiría que nos hicieran un descuento en la cuenta."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Por supuesto, lo entiendo perfectamente. Le haré un 50% de descuento en toda su cuenta. Y también les invito a los cafés y postres. ¿Le parece bien?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Bueno, me parece justo. Acepto el descuento y los cafés. Pero espero que mejoren el servicio porque el restaurante tiene buena reputación y hoy ha sido una decepción."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Tiene razón y le aseguro que hablaré con el chef y tomaremos medidas para que no vuelva a ocurrir. ¿Desean tomar postre o café ahora?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, tomaremos dos cafés, por favor. Y gracias por entender la situación."
+                }
+            ]
+        },
+        {
+            "title": "En una estación: Comprar billetes de tren",
+            "situation": "Usted necesita comprar billetes de tren para un viaje que va a hacer este fin de semana. Va a la estación para comprarlos y pedir información.",
+            "roleInstructions": "Durante la conversación en la taquilla usted debe: indicar su destino y fechas de viaje; preguntar por horarios y precios; preguntar sobre tipos de billetes (ida y vuelta, flexible, etc.); comprar los billetes si le conviene.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenos días. Necesito comprar billetes de tren para este fin de semana."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Buenos días. ¿A qué destino viaja y para qué fechas?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Quiero ir a Barcelona el viernes por la tarde y volver el domingo por la tarde o noche."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De acuerdo. ¿Prefiere tren de alta velocidad AVE o tren convencional?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Cuál es la diferencia de precio y tiempo?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "El AVE tarda 2 horas y 30 minutos y cuesta 65 euros por trayecto. El tren convencional tarda 4 horas y 45 minutos pero cuesta 35 euros."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Mmm, prefiero el AVE porque es mucho más rápido. ¿Qué horarios tienen disponibles el viernes por la tarde?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Tenemos salidas a las 15:00, 17:00, 18:30 y 20:00 horas."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "El de las 18:30 me viene perfecto. ¿Y para volver el domingo?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Para el domingo tenemos trenes a las 16:00, 18:00, 19:30 y 21:00."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "El de las 19:30 está bien. Y dígame, ¿si compro ida y vuelta hay algún descuento?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, hay un 20% de descuento si compra ida y vuelta juntos. En total serían 104 euros en lugar de 130."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Perfecto. Y si necesito cambiar la hora del tren, ¿se puede?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Depende del tipo de billete. El billete estándar no admite cambios. Pero tenemos un billete flexible que cuesta 15 euros más por trayecto y puede cambiarlo sin cargo hasta 30 minutos antes de la salida."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "No sé si mis planes pueden cambiar... Mejor compro el flexible, por si acaso. ¿Cuánto sería en total?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Con el billete flexible, el total sería 134 euros por los dos viajes."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "De acuerdo. Los compro. ¿Aceptan tarjeta?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, por supuesto. Necesito también su documento de identidad, por favor."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Aquí tiene mi DNI. Y la tarjeta."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Ya está. Aquí tiene sus billetes y el recibo. Buen viaje."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Muchas gracias. ¿Los billetes son electrónicos o tengo que imprimirlos?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Puede mostrarlos en su móvil o imprimirlos, como prefiera. También le hemos enviado una copia a su correo."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Excelente. Gracias por todo."
+                }
+            ]
+        },
+        {
+            "title": "En el médico: Explicar síntomas y pedir cita",
+            "situation": "Usted no se siente bien y llama a su centro de salud para pedir cita con el médico. Debe explicar sus síntomas para que le den cita lo antes posible.",
+            "roleInstructions": "Durante la conversación con el personal del centro de salud usted debe: explicar cómo se siente y qué síntomas tiene; indicar desde cuándo está enfermo; preguntar cuándo puede ver al médico; pedir cita urgente si lo necesita.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Centro de Salud Ciudad Jardín, buenos días."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenos días. Llamo porque necesito pedir cita con el médico lo antes posible. No me encuentro nada bien."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De acuerdo. ¿Cuál es su nombre y número de la seguridad social?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Soy Carlos Ruiz, y mi número es 12 3456789 01."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Gracias, señor Ruiz. ¿Puede decirme qué síntomas tiene?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Tengo fiebre alta desde anteayer, me duele mucho la cabeza, y también la garganta al tragar. Además, me duele todo el cuerpo y estoy muy cansado."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entiendo. ¿Ha tomado algún medicamento?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, he tomado paracetamol para la fiebre pero solo me baja un poco y luego vuelve a subir. La fiebre ha llegado a 39 grados."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Ya veo. Déjeme mirar la agenda del doctor... La próxima cita disponible es el jueves a las 11:00."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿El jueves? Pero eso es dentro de tres días. No puedo esperar tanto, me siento muy mal. ¿No hay nada antes? ¿No tienen citas de urgencia?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entiendo su preocupación. Tenemos consulta de urgencias que atiende sin cita, pero tendría que venir y esperar. Normalmente hay una hora o dos de espera."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Está bien, prefiero ir a urgencias y esperar. ¿A qué hora puedo ir?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "El servicio de urgencias abre de 8:00 a 21:00 de lunes a viernes. Le recomendaría venir temprano por la mañana que suele haber menos gente, sobre las 8:00 o 8:30."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Perfecto. Iré mañana por la mañana temprano. ¿Necesito llevar algo?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, traiga su tarjeta sanitaria y su DNI. Y si tiene informes médicos anteriores, también."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "De acuerdo. Muchas gracias por la información."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De nada. Que se mejore pronto, señor Ruiz."
+                }
+            ]
+        },
+        {
+            "title": "En una tienda de ropa: Devolver un artículo",
+            "situation": "Usted compró una chaqueta hace una semana pero cuando llegó a casa se dio cuenta de que no le queda bien. Vuelve a la tienda para devolverla.",
+            "roleInstructions": "Durante la conversación con el dependiente usted debe: explicar por qué quiere devolver la chaqueta; mostrar el ticket de compra; pedir que le devuelvan el dinero o cambiarla por otra talla; insistir si hay algún problema.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Buenas tardes. ¿En qué puedo ayudarle?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenas tardes. Compré esta chaqueta la semana pasada pero me gustaría devolverla porque no me queda bien."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Vaya, lo siento. ¿La probó en la tienda?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, me la probé aquí y me pareció que estaba bien. Pero cuando llegué a casa y me la volví a probar con más calma, me di cuenta de que me queda un poco ajustada en los hombros. No me siento cómodo con ella."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entiendo. ¿Tiene el ticket de compra?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, aquí está. Y también tiene todas las etiquetas puestas, no me la he puesto fuera de casa."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. ¿Prefiere cambiarla por otra talla o quiere que le devolvamos el dinero?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Tienen una talla más grande de este modelo?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Déjeme comprobarlo... Lo siento, pero este modelo se ha agotado en tallas más grandes. Tengo la misma talla en otros colores, o puedo mostrarle modelos similares."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "No, en realidad me gustaba específicamente este color. Si no tienen mi talla, prefiero que me devuelvan el dinero."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Claro, sin problema. Pero le tengo que informar que las devoluciones de dinero tardan entre 5 y 7 días laborables en aparecer en su cuenta bancaria."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Ah, no sabía que tardaba tanto. ¿No me pueden dar el dinero en efectivo ahora mismo?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Lo siento, pero como pagó con tarjeta, la devolución debe hacerse a la misma tarjeta. Es política de la tienda por temas de seguridad."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Bueno, está bien. No tengo otra opción. Por favor, proceda con la devolución."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Déjeme procesar la devolución... Listo. Recibirá 79 euros en su cuenta en los próximos días. ¿Le doy un comprobante de la devolución?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, por favor. Por si hay algún problema."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Aquí tiene. Lamento que la chaqueta no le haya servido. Si necesita algo más, estaremos encantados de ayudarle."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Gracias. Adiós."
+                }
+            ]
+        },
+        {
+            "title": "En una agencia de viajes: Planificar unas vacaciones",
+            "situation": "Usted quiere organizar unas vacaciones para su familia y va a una agencia de viajes para pedir información y consejo.",
+            "roleInstructions": "Durante la conversación con el agente de viajes usted debe: indicar qué tipo de vacaciones busca (playa, ciudad, aventura, etc.); decir cuántas personas viajan y las fechas; preguntar por opciones y precios; pedir recomendaciones.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Buenas tardes. Bienvenido a Viajes Mundo. ¿En qué puedo ayudarle?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenas tardes. Quiero organizar unas vacaciones familiares para el verano y me gustaría que me asesorara sobre posibles destinos."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. ¿Cuántas personas viajan y qué edades tienen?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Somos cuatro: mi esposa, yo y nuestros dos hijos de 8 y 11 años."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Muy bien. ¿Y para qué fechas exactamente?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sería en agosto, sobre dos semanas. Del 5 al 19 aproximadamente. Todavía somos flexibles con las fechas exactas."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entendido. ¿Qué tipo de vacaciones les gustaría? ¿Playa, montaña, ciudad, algo más aventurero?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Nos gusta la playa, pero también queremos que haya actividades para los niños. No queremos solo estar tirados en la arena todo el día. Nos interesa que haya parques acuáticos, excursiones, cosas así."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto. Tengo varias opciones que podrían interesarles. Por ejemplo, la Costa Brava en España tiene playas hermosas y muchos parques de atracciones. O si prefieren algo más exótico, Turquía ofrece resorts all-inclusive con muchas actividades para familias."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Qué diferencia de precio hay entre las dos opciones?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Para la Costa Brava, con hotel de 4 estrellas, media pensión, estaríamos hablando de unos 3.500 euros para los cuatro. Turquía sería más caro por los vuelos, unos 5.000 euros, pero con todo incluido."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Mmm, 5.000 euros es bastante. ¿El paquete de España incluye vuelos?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Sí, incluye vuelos, traslados al hotel, y el alojamiento. Las comidas serían desayuno y cena."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "¿Y hay opciones de excursiones o actividades incluidas?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Las excursiones no están incluidas pero puedo ofrecerles paquetes con descuento. Por ejemplo, visita a Barcelona, un parque acuático, y un crucero por la costa."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Suena interesante. ¿Podría darme más información en un folleto o por correo? Quiero comentarlo con mi esposa antes de decidir."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Por supuesto. Le preparo un presupuesto detallado con varias opciones y se lo envío por email. ¿Cuál es su correo?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Es miguel.sanchez@email.com. Muchas gracias por su ayuda."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "De nada. Le enviaré la información hoy mismo. Cualquier duda, puede llamarme o volver a visitarnos."
+                }
+            ]
+        },
+        {
+            "title": "En el trabajo: Pedir un día libre",
+            "situation": "Usted necesita pedir un día libre a su jefe para ir a una cita médica importante. Habla con él/ella para explicar la situación.",
+            "roleInstructions": "Durante la conversación con su jefe usted debe: explicar por qué necesita el día libre; indicar qué día necesita; asegurar que su trabajo está al día; proponer soluciones para que no afecte al equipo.",
+            "exampleDialogue": [
+                {
+                    "speaker": "Candidato",
+                    "text": "Buenos días, señora García. ¿Tiene un momento? Necesito hablar con usted sobre algo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Buenos días, Juan. Sí, claro. Dime, ¿de qué se trata?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Necesito pedir un día libre el próximo miércoles. Tengo que ir al hospital para una cita médica bastante importante y no puedo cambiarla porque llevo meses esperando."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Entiendo. ¿Es algo grave? ¿Estás bien?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Gracias por preguntar. No es nada grave, pero necesito hacerme unas pruebas médicas que llevo posponiendo. Es un chequeo importante y el médico insistió en que no lo retrase más."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Por supuesto, la salud es lo primero. Pero el miércoles tenemos la reunión importante con el cliente de Sevilla. ¿Puedes cambiar la cita médica para otro día?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "He intentado cambiarla pero la próxima cita disponible sería dentro de tres meses. El problema es que es para el miércoles a las 10 de la mañana. Pensaba que quizá podría ir a la cita y venir a la oficina después del mediodía para la reunión. ¿La reunión es por la mañana o por la tarde?"
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "La reunión está programada para las 15:00. Si puedes estar aquí a esa hora, no hay problema."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Perfecto. Las pruebas duran como mucho dos horas, así que podré estar en la oficina sobre las 13:00, con tiempo de sobra. Además, he dejado todo el trabajo de esta semana adelantado para que no afecte al equipo."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Me parece bien. ¿Has hablado con María para que te cubra por la mañana si surge algo urgente?"
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Sí, ya hablé con ella y está de acuerdo. Le he dejado todo explicado y tiene acceso a mis archivos por si necesita algo. También estaré disponible por teléfono por cualquier emergencia."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "Perfecto entonces. No hay problema, Juan. Ve tranquilo a tu cita y nos vemos el miércoles por la tarde."
+                },
+                {
+                    "speaker": "Candidato",
+                    "text": "Muchas gracias por entenderlo, señora García. Le agradezco mucho su flexibilidad."
+                },
+                {
+                    "speaker": "Entrevistador",
+                    "text": "No hay de qué. Cuídate y espero que todo salga bien."
+                }
+            ]
+        }
+    ]
+}

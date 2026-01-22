@@ -1,7 +1,7 @@
 Reading Part 3
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- id: UUID v4. Generate a new UUID
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - texts: 3 texts with keys from a to c. Use \n to create new lines in the text.
 - 6 questions. Ids start from number 13 to 18. Each question have a "question" and the correct "answer".
 - title: general title for the question in Spanish. 4-6 words long
