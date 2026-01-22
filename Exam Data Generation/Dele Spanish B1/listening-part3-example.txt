@@ -97,7 +97,7 @@ Create the radio progream, then structure it into a JSON file with the following
             id: "interview-{index}"
         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
+        { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
         {
@@ -110,7 +110,7 @@ Create the radio progream, then structure it into a JSON file with the following
         }
         
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
+        { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
         {
@@ -123,7 +123,7 @@ Create the radio progream, then structure it into a JSON file with the following
         }
         
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
+        { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
         {
@@ -136,7 +136,7 @@ Create the radio progream, then structure it into a JSON file with the following
         }
         
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
+        { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
         {
@@ -149,7 +149,7 @@ Create the radio progream, then structure it into a JSON file with the following
         }
         
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'music' },
+        { type: 'ready', id: 'part-3-next-item' },
         { type: 'pause', durationSeconds: 2 },
         
         {
@@ -165,7 +165,7 @@ Create the radio progream, then structure it into a JSON file with the following
         { type: 'ready', id: 'part-3-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all 5 parts here with the type pause and "music" parts
+        // copy all 5 parts here with the type pause and "part-3-next-item" parts
         
         { type: 'pause', durationSeconds: 3 },
         { type: 'ready', id: 'part-3-outro' },

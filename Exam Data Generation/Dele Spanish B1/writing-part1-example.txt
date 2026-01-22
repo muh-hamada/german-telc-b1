@@ -1,144 +1,22 @@
 Writing Part 1
 
 You must follow the same exam JSON schema. The JSON must be complete.
-- scenario_text: the scenario the user needs to read to get context about the form they will fill
-- form_fields: same exact number of fields and structure. Only change the text content based on the scenario.
-- instruction: fixed instruction. similar to the one provided in the example below
-- id: int
-- title: general title for the question. 4-6 words long
+- id: UUID v4. Generate a new UUID
+- incomingEmail: the incoming email from a friend that we will respond to. Use \n and \n\n to seperate lines.
+- title: general title for the email in Spanish. 4-6 words long
+- modalAnswer: the complete answer to this question responding to the email. It must be a modal answer for the students to use it as a reference.
+- writingPoints: create writing points similar to the example for the student to fulfill.
 
 {
-      "id": 0,
-      "form_fields": [
-        {
-          "id": "field_0",
-          "type": "text",
-          "value": "Kadavy, Eva",
-          "label": "Familienname, Vorname:",
-          "is_editable": false
-        },
-        {
-          "label": "Anzahl der Personen:",
-          "id": "field_1",
-          "type": "number",
-          "value": null,
-          "is_editable": true,
-          "hint": "Eva + Mann + 2 Söhne",
-          "question_number": 1,
-          "validation": {
-            "acceptable_values": [
-              "4",
-              "vier"
-            ],
-            "correct_value": "4"
-          }
-        },
-        {
-          "is_editable": true,
-          "hint": "8 und 11 Jahre alt",
-          "type": "number",
-          "question_number": 2,
-          "label": "Davon Kinder:",
-          "value": null,
-          "id": "field_2",
-          "validation": {
-            "acceptable_values": [
-              "2",
-              "zwei"
-            ],
-            "correct_value": "2"
-          }
-        },
-        {
-          "id": "field_3_static",
-          "label": "Urlaubsadresse:",
-          "value": "Hotel Schönblick",
-          "is_editable": false,
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "id": "field_4_static",
-          "is_editable": false,
-          "label": "Straße, Hausnummer:",
-          "value": "Burgstraße 34"
-        },
-        {
-          "id": "field_3",
-          "parts": [
-            {
-              "value": "78014",
-              "is_editable": false,
-              "width_weight": 0.3
-            },
-            {
-              "placeholder": "Ort",
-              "value": null,
-              "width_weight": 0.7,
-              "validation": {
-                "correct_value": "Seeheim",
-                "acceptable_values": [
-                  "Seeheim"
-                ]
-              },
-              "is_editable": true
-            }
-          ],
-          "question_number": 3,
-          "label": "PLZ, Urlaubsort:",
-          "type": "composite_text"
-        },
-        {
-          "value": "Der Reisepreis ist mit der Anmeldung zu bezahlen.",
-          "type": "label",
-          "style": "caption",
-          "id": "info_text"
-        },
-        {
-          "question_number": 4,
-          "validation": {
-            "correct_value": "bar"
-          },
-          "hint": "Frau Kadavy hat keine Kreditkarte",
-          "type": "single_choice",
-          "options": [
-            {
-              "value": "bar",
-              "label": "Bar"
-            },
-            {
-              "value": "kreditkarte",
-              "label": "Kreditkarte"
-            }
-          ],
-          "id": "field_4",
-          "label": "Zahlungsweise:"
-        },
-        {
-          "id": "field_5",
-          "value": null,
-          "type": "text",
-          "label": "Reisetermin:",
-          "validation": {
-            "acceptable_values": [
-              "Sonntag",
-              "nächsten Sonntag"
-            ],
-            "correct_value": "Sonntag"
-          },
-          "question_number": 5,
-          "is_editable": true
-        },
-        {
-          "id": "signature",
-          "type": "text",
-          "label": "Unterschrift",
-          "is_editable": false,
-          "value": "Eva Kadavy",
-          "style": "handwritten"
-        }
-      ],
-      "scenario_text": "Ihre Freundin, Eva Kadavy, macht mit ihrem Mann und ihren beiden Söhnen (8 und 11 Jahre alt) Urlaub in Seeheim. Im Reisebüro bucht sie für den nächsten Sonntag eine Busfahrt um den Bodensee. Frau Kadavy hat keine Kreditkarte.",
-      "instruction": "Schreiben Sie die fünf fehlenden Informationen in das Formular.",
-      "title": "Bodensee Rundfahrt Anmeldung"
+  "title": "Reencuentro y Planes entre Amigos",
+  "id": "658047de-24d5-46e6-8a12-ef04d9febffd",
+  "modalAnswer": "¡Hola, Diego!\n\n¡Qué alegría recibir noticias tuyas! Perdona que no te haya escrito antes, pero he estado muy ocupado estas últimas semanas.\n\nEs verdad, ¡lo de Miguel fue una casualidad increíble! Te cuento: fui a Madrid el fin de semana pasado porque tenía que asistir a un curso de formación para mi trabajo. Justo cuando estaba paseando por la Gran Vía, me encontré con él.\n\nComo los dos teníamos la tarde libre, decidimos ir a comer unas tapas al Mercado de San Miguel y después estuvimos caminando por el Parque del Retiro hasta que anocheció. Nos reímos mucho recordando viejos tiempos.\n\nSobre mi viaje a Barcelona, ¡no se me ha olvidado! Tengo pensado ir a visitarte el próximo mes, durante el puente de mayo. Ya he mirado los billetes de tren. ¿Te viene bien esa fecha? Escríbeme pronto y confirmamos los planes.\n\nUn fuerte abrazo,\nAlex",
+  "writingPoints": [
+    "saludar;",
+    "contar los motivos del viaje a Madrid;",
+    "decir dónde y cómo fue el encuentro con Miguel y qué hicieron juntos;",
+    "explicar cuándo tiene pensado ir a Barcelona;",
+    "despedirse."
+  ],
+  "incomingEmail": "¡Cuánto tiempo sin saber de ti! Hace semanas que quería escribirte pero no he podido hasta ahora. Estuve con Miguel y me dijo que os habíais encontrado por casualidad en Madrid y que pasasteis el día juntos, pero no me contó más. ¿Qué hacías tú en Madrid? Escríbeme y cuéntame lo que hicisteis.\n\nA ver si nos vemos pronto. ¿Cuándo vas a venir a verme a Barcelona? Llevo meses esperando tu visita.\n\nUn abrazo,\nDiego"
 }

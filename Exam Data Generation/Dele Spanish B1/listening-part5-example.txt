@@ -69,7 +69,7 @@ Create the Conversation between two people (one male and one female), then struc
     ],
     "title": <title in spanish>, // The title should be 4-6 words and related to the interviews
     "id": "", // Generate UUIDv4 ID,
-    "audio_transcription": []
+    "audio_transcription": [] // Copy all Conversation speech text here
     "questions": [
         {
           "id": 25,

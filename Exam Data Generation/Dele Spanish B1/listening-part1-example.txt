@@ -83,7 +83,6 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'pause', durationSeconds: 30 },
 
 
-
         { type: 'ready', id: 'message-1' },
         { type: 'pause', durationSeconds: 2 },
         {
@@ -107,7 +106,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 1 parts here
+        // copy all voicemail message 1 parts here including the narrator
         
 
 
@@ -135,7 +134,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 2 parts here
+        // copy all voicemail message 2 parts here including the narrator
 
 
 
@@ -163,7 +162,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 3 parts here
+        // copy all voicemail message 3 parts here including the narrator
 
 
 
@@ -191,7 +190,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 4 parts here
+        // copy all voicemail message 4 parts here including the narrator
 
 
 
@@ -219,7 +218,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 5 parts here
+        // copy all voicemail message 5 parts here including the narrator
 
 
 
@@ -247,7 +246,7 @@ Create the Voicemail messages, then structure it into a JSON file with the follo
         { type: 'ready', id: 'part-1-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
-        // copy all voicemail message 6 parts here
+        // copy all voicemail message 6 parts here including the narrator
         
 
         
