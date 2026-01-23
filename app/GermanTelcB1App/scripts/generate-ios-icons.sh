@@ -41,9 +41,12 @@ case "$EXAM_ID" in
     "german-a1")
         SOURCE_IMAGE="../../logos/ios/logo-ios-german-a1.png"
         ;;
+    "dele-spanish-b1")
+        SOURCE_IMAGE="../../logos/ios/logo-ios-dele-spanish-b1.png"
+        ;;
     *)
         echo -e "${RED}Error: Unknown exam ID: ${EXAM_ID}${NC}"
-        echo "Supported: german-b1, german-b2, english-b1, english-b2, german-a1"
+        echo "Supported: german-b1, german-b2, english-b1, english-b2, german-a1, dele-spanish-b1"
         exit 1
         ;;
 esac

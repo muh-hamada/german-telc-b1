@@ -58,13 +58,30 @@ if [ "$PLATFORM" = "android" ]; then
   echo ""
   echo "Copying app icon logo for Android..."
   
-  # Extract level from exam ID (e.g., german-b1 -> b1)
+  # Extract level from exam ID (e.g., german-b1 -> b1, dele-spanish-b1 -> b1)
   LEVEL=$(echo "$EXAM_ID" | grep -o '[ab][12]')
-  # Extract language from exam ID (e.g., german-b1 -> german)
-  LANGUAGE=$(echo "$EXAM_ID" | sed 's/-[ab][12]$//')
+  
+  # Check if exam ID has a provider (three parts: provider-language-level)
+  # Count the number of hyphens to determine format
+  HYPHEN_COUNT=$(echo "$EXAM_ID" | tr -cd '-' | wc -c | tr -d ' ')
+  
+  if [ "$HYPHEN_COUNT" -eq 2 ]; then
+    # Three parts: provider-language-level (e.g., dele-spanish-b1)
+    PROVIDER=$(echo "$EXAM_ID" | cut -d'-' -f1)
+    LANGUAGE=$(echo "$EXAM_ID" | cut -d'-' -f2)
+  else
+    # Two parts: language-level (e.g., german-b1)
+    PROVIDER=""
+    LANGUAGE=$(echo "$EXAM_ID" | sed 's/-[ab][12]$//')
+  fi
   
   if [ -n "$LEVEL" ]; then
-    LOGO_SOURCE="../../logos/android/launcher-icon-${LEVEL}.png"
+    # Determine logo filename based on whether provider exists
+    if [ -n "$PROVIDER" ]; then
+      LOGO_SOURCE="../../logos/android/launcher-icon-${PROVIDER}-${LEVEL}.png"
+    else
+      LOGO_SOURCE="../../logos/android/launcher-icon-${LEVEL}.png"
+    fi
     
     if [ -f "$LOGO_SOURCE" ]; then
       # Copy logo to all Android mipmap directories

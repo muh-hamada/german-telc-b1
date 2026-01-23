@@ -65,7 +65,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     id: 'dele-spanish-b1',
     language: 'spanish',
     level: 'B1',
-    displayName: 'DELE Spanish B1',
+    displayName: 'Spanish DELE B1',
     collectionName: 'spanish_b1_dele_exam_data',
     description: 'Spanish language exam preparation for DELE B1 level',
     dataFolder: 'dele-spanish-b1',

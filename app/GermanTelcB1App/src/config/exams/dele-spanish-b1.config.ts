@@ -15,7 +15,7 @@ export const deleSpanishB1Config: ExamConfig = {
   
   // App Identity
   appName: 'DeleSpanishB1',
-  displayName: 'DELE Spanish B1',
+  displayName: 'Spanish DELE B1',
 
   bundleId: {
     android: 'com.mhamada.deleb1spanish',
@@ -36,12 +36,12 @@ export const deleSpanishB1Config: ExamConfig = {
   // Exam Metadata (from existing exam-info.json)
   metadata: {
     cefrLevel: 'B1',
-    totalDurationMinutes: 180,
-    totalMaxPoints: 300,
-    passingScore: 180,
+    totalDurationMinutes: 200,
+    totalMaxPoints: 100,
+    passingScore: 60,
   },
   
-  // All features enabled for German B2
+  // All features enabled for Spanish DELE B1
   features: {
     reading: true,
     listening: true,
