@@ -1,6 +1,18 @@
 {
   "projects": {
     "default": "telc-b1-german"
+  },
+  "targets": {
+    "telc-b1-german": {
+      "hosting": {
+        "telc": [
+          "telc-exam-preperation"
+        ],
+        "dele": [
+          "dele-exam-preperation"
+        ]
+      }
+    }
   }
 }
 

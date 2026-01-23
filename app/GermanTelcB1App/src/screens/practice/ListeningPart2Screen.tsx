@@ -10,18 +10,20 @@ import {
 import { spacing, type ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart2UI from '../../components/exam-ui/ListeningPart2UI';
+import DeleListeningUI from '../../components/exam-ui/DeleListeningUI';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
-import { ExamResult, UserAnswer } from '../../types/exam.types';
+import { ExamResult, UserAnswer, DeleListeningExam } from '../../types/exam.types';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { HomeStackParamList } from '../../types/navigation.types';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 type ListeningPart2RouteProp = RouteProp<HomeStackParamList, 'ListeningPart2'>;
 
@@ -44,6 +46,9 @@ const ListeningPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  
+  const isDele = activeExamConfig.provider === 'dele';
+  
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -53,8 +58,10 @@ const ListeningPart2Screen: React.FC = () => {
   const { updateExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
-  const exams = listeningData?.exams as Exam[] || [];
-  const currentExam = exams.find(exam => exam.id === examId) || null;
+  const exams = listeningData?.exams as Exam[] | DeleListeningExam[] || [];
+  const currentExam = isDele 
+    ? (exams as DeleListeningExam[]).find(exam => exam.id === String(examId))
+    : (exams as Exam[]).find(exam => exam.id === examId);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('listening', 2, examId);
 
@@ -109,7 +116,9 @@ const ListeningPart2Screen: React.FC = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const data = await dataService.getListeningPart2Content();
+      const data = isDele 
+        ? await dataService.getDeleListeningPart2Content()
+        : await dataService.getListeningPart2Content();
       setListeningData(data);
     } catch (err) {
       console.error('Error loading listening part 2 data:', err);
@@ -122,7 +131,9 @@ const ListeningPart2Screen: React.FC = () => {
   const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const totalQuestions = currentExam.statements.length;
+    const totalQuestions = isDele
+      ? (currentExam as DeleListeningExam).questions.length
+      : (currentExam as Exam).statements.length;
     const percentage = Math.round((score / totalQuestions) * 100);
 
     const result: ExamResult = {
@@ -166,11 +177,20 @@ const ListeningPart2Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ListeningPart2UI
-        exam={currentExam}
-        sectionDetails={sectionDetails}
-        onComplete={handleComplete}
-      />
+      {isDele ? (
+        <DeleListeningUI
+          exam={currentExam as DeleListeningExam}
+          sectionDetails={sectionDetails}
+          part={2}
+          onComplete={handleComplete}
+        />
+      ) : (
+        <ListeningPart2UI
+          exam={currentExam as Exam}
+          sectionDetails={sectionDetails}
+          onComplete={handleComplete}
+        />
+      )}
       <ResultsModal
         visible={showResults}
         onClose={() => {

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { AppLanguage, AppLevel, getAppConfig } from '../config/apps.config';
 import { useAppSelection } from '../contexts/AppSelectionContext';
+import { useExamType } from '../contexts/ExamTypeContext';
+import { getAvailableAppsForExamType } from '../config/available-apps.config';
 import './AppSelectorModal.css';
 
 const AppSelectorModal: React.FC = () => {
   const { showModal, setShowModal, setSelection, selection } = useAppSelection();
+  const { examType, getExamTypeName } = useExamType();
+  const availableLanguages = getAvailableAppsForExamType(examType);
+  
   const [selectedLanguage, setSelectedLanguage] = useState<AppLanguage | null>(
     selection?.language || null
   );
@@ -34,8 +39,10 @@ const AppSelectorModal: React.FC = () => {
     }
   };
 
-  const isComingSoon = selectedLanguage && selectedLevel && 
-    !getAppConfig(selectedLanguage, selectedLevel)?.isAvailable;
+  // Check if selected combination is available
+  const selectedLanguageConfig = availableLanguages.find(lang => lang.id === selectedLanguage);
+  const selectedLevelConfig = selectedLanguageConfig?.availableLevels.find(lvl => lvl.level === selectedLevel);
+  const isComingSoon = selectedLanguage && selectedLevel && selectedLevelConfig && !selectedLevelConfig.isAvailable;
 
   const canConfirm = selectedLanguage && selectedLevel && !isComingSoon;
 
@@ -43,7 +50,7 @@ const AppSelectorModal: React.FC = () => {
     <div className="modal-overlay">
       <div className="modal-container">
         <div className="modal-header">
-          <h2>Welcome to TELC Exam Prep</h2>
+          <h2>Welcome to {getExamTypeName()} Exam Prep</h2>
           <p>Select your language and level to get started</p>
         </div>
 
@@ -52,51 +59,37 @@ const AppSelectorModal: React.FC = () => {
           <div className="selection-section">
             <h3>Choose Language</h3>
             <div className="selection-grid">
-              <button
-                className={`selection-card ${selectedLanguage === 'german' ? 'selected' : ''}`}
-                onClick={() => handleLanguageSelect('german')}
-              >
-                <span className="card-flag">🇩🇪</span>
-                <span className="card-label">German</span>
-              </button>
-              <button
-                className={`selection-card ${selectedLanguage === 'english' ? 'selected' : ''}`}
-                onClick={() => handleLanguageSelect('english')}
-              >
-                <span className="card-flag">🇬🇧</span>
-                <span className="card-label">English</span>
-              </button>
+              {availableLanguages.map((language) => (
+                <button
+                  key={language.id}
+                  className={`selection-card ${selectedLanguage === language.id ? 'selected' : ''}`}
+                  onClick={() => handleLanguageSelect(language.id)}
+                >
+                  <span className="card-flag">{language.flag}</span>
+                  <span className="card-label">{language.label}</span>
+                </button>
+              ))}
             </div>
           </div>
 
           {/* Level Selection */}
-          {selectedLanguage && (
+          {selectedLanguage && selectedLanguageConfig && (
             <div className="selection-section">
               <h3>Choose Level</h3>
               <div className="selection-grid">
-                {selectedLanguage === 'german' && (
+                {selectedLanguageConfig.availableLevels.map((levelOption) => (
                   <button
-                    className={`selection-card ${selectedLevel === 'A1' ? 'selected' : ''}`}
-                    onClick={() => handleLevelSelect('A1')}
+                    key={levelOption.level}
+                    className={`selection-card ${selectedLevel === levelOption.level ? 'selected' : ''} ${!levelOption.isAvailable ? 'coming-soon' : ''}`}
+                    onClick={() => handleLevelSelect(levelOption.level)}
                   >
-                    <span className="card-level">A1</span>
-                    <span className="card-sublabel">Beginner</span>
+                    <span className="card-level">{levelOption.level}</span>
+                    <span className="card-sublabel">{levelOption.label}</span>
+                    {!levelOption.isAvailable && (
+                      <span className="coming-soon-badge">Soon</span>
+                    )}
                   </button>
-                )}
-                <button
-                  className={`selection-card ${selectedLevel === 'B1' ? 'selected' : ''}`}
-                  onClick={() => handleLevelSelect('B1')}
-                >
-                  <span className="card-level">B1</span>
-                  <span className="card-sublabel">Intermediate</span>
-                </button>
-                <button
-                  className={`selection-card ${selectedLevel === 'B2' ? 'selected' : ''}`}
-                  onClick={() => handleLevelSelect('B2')}
-                >
-                  <span className="card-level">B2</span>
-                  <span className="card-sublabel">Upper Intermediate</span>
-                </button>
+                ))}
               </div>
             </div>
           )}
@@ -107,7 +100,7 @@ const AppSelectorModal: React.FC = () => {
               <span className="coming-soon-icon">🚀</span>
               <h4>Coming Soon!</h4>
               <p>
-                {selectedLanguage === 'english' ? 'English' : 'German'} {selectedLevel} app is currently in development.
+                {selectedLanguageConfig?.label} {selectedLevel} app is currently in development.
                 <br />
                 Please select another combination or check back later!
               </p>

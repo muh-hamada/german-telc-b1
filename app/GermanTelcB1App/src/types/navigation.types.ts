@@ -56,6 +56,8 @@ export type HomeStackParamList = {
   ListeningPart2A1: { examId: number };
   ListeningPart3: { examId: number };
   ListeningPart3A1: { examId: number };
+  ListeningPart4: { examId: number };
+  ListeningPart5: { examId: number };
   ListeningPracticeList: undefined;
   ListeningPractice: { interview: ListeningPracticeInterview; id: number };
   ListeningPracticeQuestions: { interview: ListeningPracticeInterview; id: number };
@@ -68,6 +70,23 @@ export type HomeStackParamList = {
   // Speaking Assessment Routes
   SpeakingAssessment: { dialogueId?: string };
   AssessmentResults: { assessmentId?: string; dialogueId?: string };
+  // Spanish DELE Exam Routes
+  DeleReadingPart1: { examId: string };
+  DeleReadingPart2: { examId: string };
+  DeleReadingPart3: { examId: string };
+  DeleGrammarPart1: { examId: string };
+  DeleGrammarPart2: { examId: string };
+  DeleListeningPart1: { examId: string };
+  DeleListeningPart2: { examId: string };
+  DeleListeningPart3: { examId: string };
+  DeleListeningPart4: { examId: string };
+  DeleListeningPart5: { examId: string };
+  DeleWritingPart1: { examId: string };
+  DeleWritingPart2: { examId: string };
+  DeleSpeakingPart1: { topicId: number };
+  DeleSpeakingPart2: { topicId: number };
+  DeleSpeakingPart3: { topicId: number };
+  DeleSpeakingPart4: { topicId: number };
 };
 
 // Profile Stack Navigator

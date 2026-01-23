@@ -29,21 +29,33 @@ const ReadingMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.provider === 'dele';
 
   React.useEffect(() => {
     const loadExams = async () => {
-      const [p1, p2, p3] = await Promise.all([
-        dataService.getReadingPart1Exams(),
-        dataService.getReadingPart2Exams(),
-        dataService.getReadingPart3Exams()
-      ]);
-      setPart1Exams(p1);
-      setPart2Exams(p2);
-      setPart3Exams(p3);
+      if (isDele) {
+        const [p1, p2, p3] = await Promise.all([
+          dataService.getDeleReadingPart1Exams(),
+          dataService.getDeleReadingPart2Exams(),
+          dataService.getDeleReadingPart3Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+        setPart3Exams(p3);
+      } else {
+        const [p1, p2, p3] = await Promise.all([
+          dataService.getReadingPart1Exams(),
+          dataService.getReadingPart2Exams(),
+          dataService.getReadingPart3Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+        setPart3Exams(p3);
+      }
     };
     loadExams();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
-  }, []);
+  }, [isDele]);
 
   const handlePart1Press = () => {
     logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'reading', part: 1 });

@@ -11,6 +11,7 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "env-cmd": "^10.1.0",
     "firebase": "^12.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -22,9 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:telc": "env-cmd -f .env.telc react-scripts build",
+    "build:dele": "rm -rf build-dele && env-cmd -f .env.dele react-scripts build && mv build build-dele",
+    "build:all": "npm run build:dele && npm run build:telc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "npm run build:all && firebase deploy --only hosting",
     "serve": "firebase serve"
   },
   "eslintConfig": {

@@ -12,6 +12,7 @@ export const germanB2Config: ExamConfig = {
   id: 'german-b2',
   language: 'german',
   level: 'B2',
+  provider: 'telc',
   
   // App Identity
   appName: 'GermanTelcB2',

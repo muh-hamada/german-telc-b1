@@ -17,10 +17,12 @@ import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
-import { ReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
+import { ReadingPart1Exam, DeleReadingPart1Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart1UI from '../../components/exam-ui/ReadingPart1UI';
+import DeleReadingPart1UI from '../../components/exam-ui/DeleReadingPart1UI';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const ReadingPart1Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -31,10 +33,11 @@ const ReadingPart1Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
+  const isDele = activeExamConfig.provider === 'dele';
   
   const { isCompleted, toggleCompletion } = useExamCompletion('reading', 1, examId);
   
-  const [currentExam, setCurrentExam] = useState<ReadingPart1Exam | null>(null);
+  const [currentExam, setCurrentExam] = useState<ReadingPart1Exam | DeleReadingPart1Exam | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -90,7 +93,16 @@ const ReadingPart1Screen: React.FC = () => {
   const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = await dataService.getReadingPart1ExamById(id);
+      let exam;
+      
+      if (isDele) {
+        // DELE uses string IDs
+        exam = await dataService.getDeleReadingPart1ExamById(String(id));
+      } else {
+        // Telc uses number IDs
+        exam = await dataService.getReadingPart1ExamById(id);
+      }
+      
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);
@@ -107,7 +119,11 @@ const ReadingPart1Screen: React.FC = () => {
   const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const totalQuestions = currentExam.texts.length;
+    // Get total questions based on exam type
+    const totalQuestions = isDele
+      ? (currentExam as DeleReadingPart1Exam).questions.length
+      : (currentExam as ReadingPart1Exam).texts.length;
+    
     const percentage = Math.round((score / totalQuestions) * 100);
     
     const result: ExamResult = {
@@ -151,7 +167,11 @@ const ReadingPart1Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ReadingPart1UI exam={currentExam} onComplete={handleComplete} />
+      {isDele ? (
+        <DeleReadingPart1UI exam={currentExam as DeleReadingPart1Exam} onComplete={handleComplete} />
+      ) : (
+        <ReadingPart1UI exam={currentExam as ReadingPart1Exam} onComplete={handleComplete} />
+      )}
 
       <ResultsModal
         visible={showResults}

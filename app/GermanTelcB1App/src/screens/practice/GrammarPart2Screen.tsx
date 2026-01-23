@@ -17,10 +17,12 @@ import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
-import { GrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
+import { GrammarPart2Exam, DeleGrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import LanguagePart2UI from '../../components/exam-ui/LanguagePart2UI';
+import DeleGrammarPart2UI from '../../components/exam-ui/DeleGrammarPart2UI';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const GrammarPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -31,10 +33,11 @@ const GrammarPart2Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
+  const isDele = activeExamConfig.provider === 'dele';
   
   const { isCompleted, toggleCompletion } = useExamCompletion('grammar', 2, examId);
   
-  const [currentExam, setCurrentExam] = useState<GrammarPart2Exam | null>(null);
+  const [currentExam, setCurrentExam] = useState<GrammarPart2Exam | DeleGrammarPart2Exam | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -94,7 +97,16 @@ const GrammarPart2Screen: React.FC = () => {
   const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = await dataService.getGrammarPart2Exam(id);
+      let exam;
+      
+      if (isDele) {
+        // DELE uses string IDs
+        exam = await dataService.getDeleGrammarPart2ExamById(String(id));
+      } else {
+        // Telc uses number IDs
+        exam = await dataService.getGrammarPart2Exam(id);
+      }
+      
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);
@@ -111,7 +123,11 @@ const GrammarPart2Screen: React.FC = () => {
   const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const totalQuestions = Object.keys(currentExam.answers).length;
+    // Get total questions based on exam type
+    const totalQuestions = isDele
+      ? (currentExam as DeleGrammarPart2Exam).questions.length
+      : Object.keys((currentExam as GrammarPart2Exam).answers).length;
+    
     const percentage = Math.round((score / totalQuestions) * 100);
     
     const result: ExamResult = {
@@ -155,7 +171,11 @@ const GrammarPart2Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <LanguagePart2UI exam={currentExam} onComplete={handleComplete} />
+      {isDele ? (
+        <DeleGrammarPart2UI exam={currentExam as DeleGrammarPart2Exam} onComplete={handleComplete} />
+      ) : (
+        <LanguagePart2UI exam={currentExam as GrammarPart2Exam} onComplete={handleComplete} />
+      )}
 
       <ResultsModal
         visible={showResults}

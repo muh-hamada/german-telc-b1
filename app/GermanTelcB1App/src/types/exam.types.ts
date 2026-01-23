@@ -359,3 +359,160 @@ export interface ExamResult {
   answers: UserAnswer[];
   timestamp: number;
 }
+
+// ==========================================
+// DELE SPANISH EXAM TYPES
+// ==========================================
+
+// DELE Reading Part 1 (Matching Programs to Personas)
+export interface DeleReadingPart1Question {
+  id: number;
+  persona: string;
+  statement: string;
+  answer: string;
+  explanation?: Record<string, string>;
+}
+
+export interface DeleReadingPart1Exam {
+  id: string;
+  title: string;
+  programs: Record<string, string>; // a-j
+  questions: DeleReadingPart1Question[];
+}
+
+// DELE Reading Part 2 (Text Comprehension with MCQ)
+export interface DeleReadingPart2Option {
+  id: number;
+  text?: string;
+  option?: string;
+  is_correct: boolean;
+}
+
+export interface DeleReadingPart2Question {
+  id: number;
+  question: string;
+  options: DeleReadingPart2Option[];
+  explanation?: Record<string, string>;
+}
+
+export interface DeleReadingPart2Exam {
+  id: string;
+  title: string;
+  text: string;
+  questions: DeleReadingPart2Question[];
+}
+
+// DELE Reading Part 3 (Multiple Texts Matching)
+export interface DeleReadingPart3Text {
+  person: string;
+  text: string;
+}
+
+export interface DeleReadingPart3Question {
+  id: number;
+  question: string;
+  answer: string;
+  explanation?: Record<string, string>;
+}
+
+export interface DeleReadingPart3Exam {
+  id: string;
+  title: string;
+  texts: Record<string, DeleReadingPart3Text>; // a, b, c
+  questions: DeleReadingPart3Question[];
+}
+
+// DELE Grammar Part 1 (Text with Fragments to Insert)
+export interface DeleGrammarPart1Exam {
+  id: string;
+  title: string;
+  text: string;
+  fragments: Record<string, string>; // a-h
+  answers: Record<string, string>; // 19-24 -> a-h
+  explanation?: Record<string, Record<string, string>>; // answer number -> explanation object
+}
+
+// DELE Grammar Part 2 (Grammar Exercises)
+export interface DeleGrammarPart2Question {
+  id: number;
+  question: string;
+  options: Array<{
+    id: number;
+    text: string;
+    is_correct: boolean;
+  }>;
+  explanation?: Record<string, string>;
+}
+
+export interface DeleGrammarPart2Exam {
+  id: string;
+  title: string;
+  text?: string;
+  questions: DeleGrammarPart2Question[];
+}
+
+// DELE Listening Parts (Audio-based Questions)
+export interface DeleListeningOption {
+  text?: string;
+  option?: string;
+  is_correct: boolean;
+}
+
+export interface DeleListeningQuestion {
+  id: number;
+  question: string;
+  audio_transcription?: string;
+  options: DeleListeningOption[];
+  explanation?: Record<string, string>;
+}
+
+export interface DeleListeningSectionDetails {
+  title: string;
+  instructions_es?: string;
+  instructions_en?: string;
+  instructions_de?: string;
+  instructions_fr?: string;
+  instructions_ar?: string;
+  instructions_ru?: string;
+  duration_minutes?: number;
+  prep_time_seconds?: number;
+}
+
+export interface DeleListeningExam {
+  title: string;
+  id: string;
+  questions: DeleListeningQuestion[];
+}
+
+export interface DeleListeningPart {
+  section_details: DeleListeningSectionDetails;
+  exams: DeleListeningExam[];
+}
+
+// DELE Writing Parts
+export interface DeleWritingExam {
+  title: string;
+  id: string;
+  modalAnswer: string;
+  writingPoints: string[];
+  incomingEmail: string;
+}
+
+export interface DeleWritingPart {
+  exams: DeleWritingExam[];
+}
+
+// DELE Speaking Parts
+export interface DeleSpeakingTopic {
+  title: string;
+  examplePresentation: string;
+  exampleDiscussion: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+export interface DeleSpeakingPart {
+  topics: DeleSpeakingTopic[];
+}
+

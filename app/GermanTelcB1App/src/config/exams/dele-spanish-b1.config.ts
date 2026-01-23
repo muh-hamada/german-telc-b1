@@ -12,6 +12,7 @@ export const deleSpanishB1Config: ExamConfig = {
   id: 'dele-spanish-b1',
   language: 'spanish',
   level: 'B1',
+  provider: 'dele',
   
   // App Identity
   appName: 'DeleSpanishB1',

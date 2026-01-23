@@ -15,6 +15,7 @@ import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -25,19 +26,30 @@ const GrammarMenuScreen: React.FC = () => {
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  
+  const isDele = activeExamConfig.provider === 'dele';
 
   React.useEffect(() => {
     const loadExams = async () => {
-      const [p1, p2] = await Promise.all([
-        dataService.getGrammarPart1Exams(),
-        dataService.getGrammarPart2Exams()
-      ]);
-      setPart1Exams(p1);
-      setPart2Exams(p2);
+      if (isDele) {
+        const [p1, p2] = await Promise.all([
+          dataService.getDeleGrammarPart1Exams(),
+          dataService.getDeleGrammarPart2Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+      } else {
+        const [p1, p2] = await Promise.all([
+          dataService.getGrammarPart1Exams(),
+          dataService.getGrammarPart2Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+      }
     };
     loadExams();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
-  }, []);
+  }, [isDele]);
 
   const handlePart1Press = () => {
     logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'grammar', part: 1 });

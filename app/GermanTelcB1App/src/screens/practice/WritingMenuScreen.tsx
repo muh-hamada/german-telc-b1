@@ -25,19 +25,30 @@ const WritingMenuScreen: React.FC = () => {
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  
+  const isDele = activeExamConfig.provider === 'dele';
 
   React.useEffect(() => {
     const loadExams = async () => {
-      const [p1, p2] = await Promise.all([
-        dataService.getWritingPart1Exams(),
-        dataService.getWritingPart2Exams()
-      ]);
-      setPart1Exams(p1);
-      setPart2Exams(p2);
+      if (isDele) {
+        const [p1, p2] = await Promise.all([
+          dataService.getDeleWritingPart1Exams(),
+          dataService.getDeleWritingPart2Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+      } else {
+        const [p1, p2] = await Promise.all([
+          dataService.getWritingPart1Exams(),
+          dataService.getWritingPart2Exams()
+        ]);
+        setPart1Exams(p1);
+        setPart2Exams(p2);
+      }
     };
     loadExams();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'writing' });
-  }, []);
+  }, [isDele]);
 
   const handlePart1Press = () => {
     logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });

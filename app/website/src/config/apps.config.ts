@@ -3,13 +3,15 @@
  * Contains store links and metadata for all available apps
  */
 
-export type AppLanguage = 'german' | 'english';
+export type AppLanguage = 'german' | 'english' | 'spanish';
 export type AppLevel = 'A1' | 'B1' | 'B2';
+export type ExamType = 'telc' | 'dele';
 
 export interface AppConfig {
   id: string;
   language: AppLanguage;
   level: AppLevel;
+  examType: ExamType;
   displayName: string;
   flag: string;
   isAvailable: boolean;
@@ -26,6 +28,7 @@ export const appsConfig: AppConfig[] = [
     id: 'german-a1',
     language: 'german',
     level: 'A1',
+    examType: 'telc',
     displayName: 'German TELC A1',
     flag: '🇩🇪',
     isAvailable: true,
@@ -40,6 +43,7 @@ export const appsConfig: AppConfig[] = [
     id: 'german-b1',
     language: 'german',
     level: 'B1',
+    examType: 'telc',
     displayName: 'German TELC B1',
     flag: '🇩🇪',
     isAvailable: true,
@@ -54,6 +58,7 @@ export const appsConfig: AppConfig[] = [
     id: 'german-b2',
     language: 'german',
     level: 'B2',
+    examType: 'telc',
     displayName: 'German TELC B2',
     flag: '🇩🇪',
     isAvailable: true,
@@ -68,6 +73,7 @@ export const appsConfig: AppConfig[] = [
     id: 'english-b1',
     language: 'english',
     level: 'B1',
+    examType: 'telc',
     displayName: 'English TELC B1',
     flag: '🇬🇧',
     isAvailable: true,
@@ -82,6 +88,7 @@ export const appsConfig: AppConfig[] = [
     id: 'english-b2',
     language: 'english',
     level: 'B2',
+    examType: 'telc',
     displayName: 'English TELC B2',
     flag: '🇬🇧',
     isAvailable: true,

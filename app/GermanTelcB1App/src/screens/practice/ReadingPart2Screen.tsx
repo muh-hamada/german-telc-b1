@@ -17,10 +17,12 @@ import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
-import { ReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
+import { ReadingPart2Exam, DeleReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
+import DeleReadingPart2UI from '../../components/exam-ui/DeleReadingPart2UI';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const ReadingPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -31,10 +33,11 @@ const ReadingPart2Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
+  const isDele = activeExamConfig.provider === 'dele';
   
   const { isCompleted, toggleCompletion } = useExamCompletion('reading', 2, examId);
   
-  const [currentExam, setCurrentExam] = useState<ReadingPart2Exam | null>(null);
+  const [currentExam, setCurrentExam] = useState<ReadingPart2Exam | DeleReadingPart2Exam | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -94,7 +97,14 @@ const ReadingPart2Screen: React.FC = () => {
   const loadExam = async (id: number) => {
     try {
       setIsLoading(true);
-      const exam = await dataService.getReadingPart2Exam(id);
+      let exam;
+      
+      if (isDele) {
+        exam = await dataService.getDeleReadingPart2ExamById(String(id));
+      } else {
+        exam = await dataService.getReadingPart2Exam(id);
+      }
+      
       if (exam) {
         setCurrentExam(exam);
         setShowResults(false);
@@ -155,7 +165,17 @@ const ReadingPart2Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ReadingPart2UI exam={currentExam} onComplete={handleComplete} />
+      {isDele ? (
+        <DeleReadingPart2UI 
+          exam={currentExam as DeleReadingPart2Exam} 
+          onComplete={handleComplete} 
+        />
+      ) : (
+        <ReadingPart2UI 
+          exam={currentExam as ReadingPart2Exam} 
+          onComplete={handleComplete} 
+        />
+      )}
 
       <ResultsModal
         visible={showResults}

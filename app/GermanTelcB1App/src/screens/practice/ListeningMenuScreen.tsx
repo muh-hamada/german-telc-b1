@@ -18,45 +18,85 @@ const ListeningMenuScreen: React.FC = () => {
   const [showPart1Modal, setShowPart1Modal] = useState(false);
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [showPart3Modal, setShowPart3Modal] = useState(false);
+  const [showPart4Modal, setShowPart4Modal] = useState(false);
+  const [showPart5Modal, setShowPart5Modal] = useState(false);
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
   const [part3Exams, setPart3Exams] = useState<any[]>([]);
+  const [part4Exams, setPart4Exams] = useState<any[]>([]);
+  const [part5Exams, setPart5Exams] = useState<any[]>([]);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
     const loadData = async () => {
-      const [part1Data, part2Data, part3Data] = await Promise.all([
-        dataService.getListeningPart1Content(),
-        dataService.getListeningPart2Content(),
-        dataService.getListeningPart3Content(),
-      ]);
+      if (isDele) {
+        const [part1Data, part2Data, part3Data, part4Data, part5Data] = await Promise.all([
+          dataService.getDeleListeningPart1Content(),
+          dataService.getDeleListeningPart2Content(),
+          dataService.getDeleListeningPart3Content(),
+          dataService.getDeleListeningPart4Content(),
+          dataService.getDeleListeningPart5Content(),
+        ]);
 
-      console.log('part1Data', part1Data);
+        setPart1Exams((part1Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+        })));
 
-      const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
-        id: exam.id,
-        title: exam.title || `Test ${exam.id + 1}`
-      }));
-      setPart1Exams(part1ExamsList);
+        setPart2Exams((part2Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+        })));
 
-      const part2ExamsList = (part2Data.exams || []).map((exam: any) => ({
-        id: exam.id,
-        title: exam.title || `Test ${exam.id + 1}`
-      }));
-      setPart2Exams(part2ExamsList);
+        setPart3Exams((part3Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+        })));
 
-      const part3ExamsList = (part3Data.exams || []).map((exam: any) => ({
-        id: exam.id,
-        title: exam.title || `Test ${exam.id + 1}`
-      }));
-      setPart3Exams(part3ExamsList);
+        setPart4Exams((part4Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+        })));
+
+        setPart5Exams((part5Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+        })));
+      } else {
+        const [part1Data, part2Data, part3Data] = await Promise.all([
+          dataService.getListeningPart1Content(),
+          dataService.getListeningPart2Content(),
+          dataService.getListeningPart3Content(),
+        ]);
+
+        console.log('part1Data', part1Data);
+
+        const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${exam.id + 1}`
+        }));
+        setPart1Exams(part1ExamsList);
+
+        const part2ExamsList = (part2Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${exam.id + 1}`
+        }));
+        setPart2Exams(part2ExamsList);
+
+        const part3ExamsList = (part3Data.exams || []).map((exam: any) => ({
+          id: exam.id,
+          title: exam.title || `Test ${exam.id + 1}`
+        }));
+        setPart3Exams(part3ExamsList);
+      }
     };
     loadData();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' });
-  }, []);
+  }, [isDele]);
 
   const handlePart1Press = () => {
     logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'listening', part: 1 });
@@ -103,6 +143,24 @@ const ListeningMenuScreen: React.FC = () => {
     }
   };
 
+  const handlePart4Press = () => {
+    setShowPart4Modal(true);
+  };
+
+  const handleSelectPart4Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 4, exam_id: examId });
+    navigation.navigate('ListeningPart4', { examId });
+  };
+
+  const handlePart5Press = () => {
+    setShowPart5Modal(true);
+  };
+
+  const handleSelectPart5Exam = (examId: number) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 5, exam_id: examId });
+    navigation.navigate('ListeningPart5', { examId });
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
@@ -142,6 +200,27 @@ const ListeningMenuScreen: React.FC = () => {
               : t('practice.listening.part3Description')}
           </Text>
         </Card>
+        
+        {isDele && (
+          <>
+            <Card style={styles.card} onPress={handlePart4Press}>
+              <Text style={styles.cardTitle}>
+                {t('practice.listening.part4')}
+              </Text>
+              <Text style={styles.cardDescription}>
+                {t('practice.listening.part4Description')}
+              </Text>
+            </Card>
+            <Card style={styles.card} onPress={handlePart5Press}>
+              <Text style={styles.cardTitle}>
+                {t('practice.listening.part5')}
+              </Text>
+              <Text style={styles.cardDescription}>
+                {t('practice.listening.part5Description')}
+              </Text>
+            </Card>
+          </>
+        )}
       </ScrollView>
 
       <ExamSelectionModal
@@ -173,6 +252,30 @@ const ListeningMenuScreen: React.FC = () => {
         partNumber={3}
         title={t('practice.listening.part3')}
       />
+
+      {isDele && (
+        <>
+          <ExamSelectionModal
+            visible={showPart4Modal}
+            onClose={() => setShowPart4Modal(false)}
+            exams={part4Exams}
+            onSelectExam={handleSelectPart4Exam}
+            examType="listening"
+            partNumber={4}
+            title={t('practice.listening.part4')}
+          />
+
+          <ExamSelectionModal
+            visible={showPart5Modal}
+            onClose={() => setShowPart5Modal(false)}
+            exams={part5Exams}
+            onSelectExam={handleSelectPart5Exam}
+            examType="listening"
+            partNumber={5}
+            title={t('practice.listening.part5')}
+          />
+        </>
+      )}
 
     </SafeAreaView>
   );

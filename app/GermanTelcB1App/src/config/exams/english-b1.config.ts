@@ -12,6 +12,7 @@ export const englishB1Config: ExamConfig = {
   id: 'english-b1',
   language: 'english',
   level: 'B1',
+  provider: 'telc',
   
   // App Identity
   appName: 'EnglishTelcB1',

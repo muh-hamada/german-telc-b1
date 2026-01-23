@@ -17,6 +17,15 @@ import {
   SpeakingPart3Content,
   SpeakingImportantPhrasesContent,
   ListeningPracticeInterview,
+  DeleReadingPart1Exam,
+  DeleReadingPart2Exam,
+  DeleReadingPart3Exam,
+  DeleGrammarPart1Exam,
+  DeleGrammarPart2Exam,
+  DeleListeningExam,
+  DeleWritingExam,
+  DeleSpeakingTopic,
+  DeleSpeakingPart,
 } from '../types/exam.types';
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
@@ -416,6 +425,201 @@ class DataService {
     const interviews = await this.getListeningPracticeInterviews();
     return interviews.find(interview => interview.id === id);
   }
+
+  // =====================================================================
+  // DELE Spanish B1 Exam Methods
+  // =====================================================================
+
+  // DELE Reading Part 1
+  async getDeleReadingPart1Exams(): Promise<DeleReadingPart1Exam[]> {
+    const data = await this.fetchFromFirestore('dele-reading-part1', null);
+    return data.exams || [];
+  }
+
+  async getDeleReadingPart1ExamById(id: string): Promise<DeleReadingPart1Exam | undefined> {
+    const exams = await this.getDeleReadingPart1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Reading Part 2
+  async getDeleReadingPart2Exams(): Promise<DeleReadingPart2Exam[]> {
+    const data = await this.fetchFromFirestore('dele-reading-part2', null);
+    return data.exams || [];
+  }
+
+  async getDeleReadingPart2ExamById(id: string): Promise<DeleReadingPart2Exam | undefined> {
+    const exams = await this.getDeleReadingPart2Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Reading Part 3
+  async getDeleReadingPart3Exams(): Promise<DeleReadingPart3Exam[]> {
+    const data = await this.fetchFromFirestore('dele-reading-part3', null);
+    return data.exams || [];
+  }
+
+  async getDeleReadingPart3ExamById(id: string): Promise<DeleReadingPart3Exam | undefined> {
+    const exams = await this.getDeleReadingPart3Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Grammar Part 1
+  async getDeleGrammarPart1Exams(): Promise<DeleGrammarPart1Exam[]> {
+    const data = await this.fetchFromFirestore('dele-grammar-part1', null);
+    return data.exams || [];
+  }
+
+  async getDeleGrammarPart1ExamById(id: string): Promise<DeleGrammarPart1Exam | undefined> {
+    const exams = await this.getDeleGrammarPart1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Grammar Part 2
+  async getDeleGrammarPart2Exams(): Promise<DeleGrammarPart2Exam[]> {
+    const data = await this.fetchFromFirestore('dele-grammar-part2', null);
+    return data.exams || [];
+  }
+
+  async getDeleGrammarPart2ExamById(id: string): Promise<DeleGrammarPart2Exam | undefined> {
+    const exams = await this.getDeleGrammarPart2Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Listening Part 1
+  async getDeleListeningPart1Content(): Promise<any> {
+    return this.fetchFromFirestore('dele-listening-part1', null);
+  }
+
+  async getDeleListeningPart1Exams(): Promise<DeleListeningExam[]> {
+    const data = await this.getDeleListeningPart1Content();
+    return data.exams || [];
+  }
+
+  async getDeleListeningPart1ExamById(id: string): Promise<DeleListeningExam | undefined> {
+    const exams = await this.getDeleListeningPart1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Listening Part 2
+  async getDeleListeningPart2Content(): Promise<any> {
+    return this.fetchFromFirestore('dele-listening-part2', null);
+  }
+
+  async getDeleListeningPart2Exams(): Promise<DeleListeningExam[]> {
+    const data = await this.getDeleListeningPart2Content();
+    return data.exams || [];
+  }
+
+  async getDeleListeningPart2ExamById(id: string): Promise<DeleListeningExam | undefined> {
+    const exams = await this.getDeleListeningPart2Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Listening Part 3
+  async getDeleListeningPart3Content(): Promise<any> {
+    return this.fetchFromFirestore('dele-listening-part3', null);
+  }
+
+  async getDeleListeningPart3Exams(): Promise<DeleListeningExam[]> {
+    const data = await this.getDeleListeningPart3Content();
+    return data.exams || [];
+  }
+
+  async getDeleListeningPart3ExamById(id: string): Promise<DeleListeningExam | undefined> {
+    const exams = await this.getDeleListeningPart3Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Listening Part 4
+  async getDeleListeningPart4Content(): Promise<any> {
+    return this.fetchFromFirestore('dele-listening-part4', null);
+  }
+
+  async getDeleListeningPart4Exams(): Promise<DeleListeningExam[]> {
+    const data = await this.getDeleListeningPart4Content();
+    return data.exams || [];
+  }
+
+  async getDeleListeningPart4ExamById(id: string): Promise<DeleListeningExam | undefined> {
+    const exams = await this.getDeleListeningPart4Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Listening Part 5
+  async getDeleListeningPart5Content(): Promise<any> {
+    return this.fetchFromFirestore('dele-listening-part5', null);
+  }
+
+  async getDeleListeningPart5Exams(): Promise<DeleListeningExam[]> {
+    const data = await this.getDeleListeningPart5Content();
+    return data.exams || [];
+  }
+
+  async getDeleListeningPart5ExamById(id: string): Promise<DeleListeningExam | undefined> {
+    const exams = await this.getDeleListeningPart5Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Writing Part 1
+  async getDeleWritingPart1Exams(): Promise<DeleWritingExam[]> {
+    const data = await this.fetchFromFirestore('dele-writing-part1', null);
+    return data.exams || [];
+  }
+
+  async getDeleWritingPart1ExamById(id: string): Promise<DeleWritingExam | undefined> {
+    const exams = await this.getDeleWritingPart1Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Writing Part 2
+  async getDeleWritingPart2Exams(): Promise<DeleWritingExam[]> {
+    const data = await this.fetchFromFirestore('dele-writing-part2', null);
+    return data.exams || [];
+  }
+
+  async getDeleWritingPart2ExamById(id: string): Promise<DeleWritingExam | undefined> {
+    const exams = await this.getDeleWritingPart2Exams();
+    return exams.find(exam => exam.id === id);
+  }
+
+  // DELE Speaking Topics (Legacy - keeping for backward compatibility)
+  async getDeleSpeakingTopics(): Promise<DeleSpeakingTopic[]> {
+    const data = await this.fetchFromFirestore('dele-speaking', null);
+    return data.topics || [];
+  }
+
+  async getDeleSpeakingTopicById(topicId: number): Promise<DeleSpeakingTopic | undefined> {
+    const topics = await this.getDeleSpeakingTopics();
+    return topics[topicId]; // Topics are accessed by index
+  }
+
+  // DELE Speaking Part 1
+  async getDeleSpeakingPart1Content(): Promise<DeleSpeakingPart> {
+    const data = await this.fetchFromFirestore('dele-speaking-part1', null);
+    return { topics: data.topics || [] };
+  }
+
+  // DELE Speaking Part 2
+  async getDeleSpeakingPart2Content(): Promise<DeleSpeakingPart> {
+    const data = await this.fetchFromFirestore('dele-speaking-part2', null);
+    return { topics: data.topics || [] };
+  }
+
+  // DELE Speaking Part 3
+  async getDeleSpeakingPart3Content(): Promise<DeleSpeakingPart> {
+    const data = await this.fetchFromFirestore('dele-speaking-part3', null);
+    return { topics: data.topics || [] };
+  }
+
+  // DELE Speaking Part 4
+  async getDeleSpeakingPart4Content(): Promise<DeleSpeakingPart> {
+    const data = await this.fetchFromFirestore('dele-speaking-part4', null);
+    return { topics: data.topics || [] };
+  }
+
+  // =====================================================================
+  // End of DELE Methods
+  // =====================================================================
 
   // Utility methods
   async getExamCount(examType: string): Promise<number> {

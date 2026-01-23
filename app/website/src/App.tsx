@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AppSelectorModal from './components/AppSelectorModal';
 import { AppSelectionProvider } from './contexts/AppSelectionContext';
+import { ExamTypeProvider } from './contexts/ExamTypeContext';
 import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -13,24 +14,26 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <AppSelectionProvider>
-      <Router>
-        <div className="App">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/data-deletion" element={<DataDeletion />} />
-              <Route path="/support" element={<Support />} />
-            </Routes>
-          </main>
-          <Footer />
-          <AppSelectorModal />
-        </div>
-      </Router>
-    </AppSelectionProvider>
+    <ExamTypeProvider>
+      <AppSelectionProvider>
+        <Router>
+          <div className="App">
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/data-deletion" element={<DataDeletion />} />
+                <Route path="/support" element={<Support />} />
+              </Routes>
+            </main>
+            <Footer />
+            <AppSelectorModal />
+          </div>
+        </Router>
+      </AppSelectionProvider>
+    </ExamTypeProvider>
   );
 };
 

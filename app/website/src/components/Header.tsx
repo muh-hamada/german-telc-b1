@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelection } from '../contexts/AppSelectionContext';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './Header.css';
 
 const Header: React.FC = () => {
   const { selectedApp, setShowModal } = useAppSelection();
+  const { getExamTypeName } = useExamType();
 
   return (
     <header className="header">
       <div className="container">
         <Link to="/" className="logo">
-          <h1>TELC Exam Preparation</h1>
+          <h1>{getExamTypeName()} Exam Preparation</h1>
         </Link>
         <div className="header-right">
           {selectedApp && (

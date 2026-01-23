@@ -14,11 +14,14 @@ import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
-import { WritingExam } from '../../types/exam.types';
+import { WritingExam, DeleWritingExam } from '../../types/exam.types';
 import WritingUI from '../../components/exam-ui/WritingUI';
+import DeleWritingPart1UI from '../../components/exam-ui/DeleWritingPart1UI';
+import DeleWritingPart2UI from '../../components/exam-ui/DeleWritingPart2UI';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
 import ReportIssueModal from '../../components/ReportIssueModal';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 const WritingScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -29,10 +32,13 @@ const WritingScreen: React.FC = () => {
   const examId = route.params?.examId ?? 0;
   const { updateExamProgress } = useProgress();
   
-  const { isCompleted, toggleCompletion } = useExamCompletion('writing', 1, examId);
+  const isDele = activeExamConfig.provider === 'dele';
+  const part = 1; // WritingScreen always uses part 1, DELE has separate screens for part 2
+  
+  const { isCompleted, toggleCompletion } = useExamCompletion('writing', part, examId);
   
   const [examResult, setExamResult] = useState<{ score: number } | null>(null);
-  const [currentExam, setCurrentExam] = useState<WritingExam | null>(null);
+  const [currentExam, setCurrentExam] = useState<WritingExam | DeleWritingExam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showReportIssueModal, setShowReportIssueModal] = useState(false);
 
@@ -43,7 +49,15 @@ const WritingScreen: React.FC = () => {
   const loadExam = async () => {
     try {
       setIsLoading(true);
-      const exam = await dataService.getWritingExam(examId);
+      let exam;
+      
+      if (isDele) {
+        // For DELE, WritingScreen shows Part 1 only (Part 2 has its own route)
+        exam = await dataService.getDeleWritingPart1ExamById(String(examId));
+      } else {
+        exam = await dataService.getWritingExam(examId);
+      }
+      
       setCurrentExam(exam || null);
     } catch (error) {
       console.error('Error loading exam:', error);
@@ -142,7 +156,17 @@ const WritingScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <WritingUI exam={currentExam} onComplete={handleComplete} />
+      {isDele ? (
+        <DeleWritingPart1UI 
+          exam={currentExam as DeleWritingExam} 
+          onComplete={handleComplete} 
+        />
+      ) : (
+        <WritingUI 
+          exam={currentExam as WritingExam} 
+          onComplete={handleComplete} 
+        />
+      )}
       
       <ReportIssueModal
         visible={showReportIssueModal}

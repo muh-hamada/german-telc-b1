@@ -14,6 +14,7 @@ export interface ExamConfig {
   id: string; // e.g., "german-b1"
   language: ExamLanguage; // e.g., "german"
   level: ExamLevel; // e.g., "B1"
+  provider: string; // e.g., "telc", "dele", "delf", etc.
   
   // App Identity (for build configuration)
   appName: string;           // e.g., "GermanTelcB1"

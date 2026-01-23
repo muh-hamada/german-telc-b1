@@ -10,9 +10,9 @@ import {
 import { spacing, type ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UI from '../../components/exam-ui/ListeningPart1UI';
+import DeleListeningUI from '../../components/exam-ui/DeleListeningUI';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Question, UserAnswer } from '../../types/exam.types';
-import { ExamResult } from '../../types/exam.types';
+import { Question, UserAnswer, ExamResult, DeleListeningExam } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -23,6 +23,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { HomeStackParamList } from '../../types/navigation.types';
+import { activeExamConfig } from '../../config/active-exam.config';
 
 type ListeningPart1RouteProp = RouteProp<HomeStackParamList, 'ListeningPart1'>;
 
@@ -47,6 +48,9 @@ const ListeningPart1Screen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  
+  const isDele = activeExamConfig.provider === 'dele';
+  
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -56,8 +60,10 @@ const ListeningPart1Screen: React.FC = () => {
   const { updateExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
-  const exams = listeningData?.exams as Exam[] || [];
-  const currentExam = exams.find(exam => exam.id === examId) || null;
+  const exams = listeningData?.exams as Exam[] | DeleListeningExam[] || [];
+  const currentExam = isDele 
+    ? (exams as DeleListeningExam[]).find(exam => exam.id === String(examId))
+    : (exams as Exam[]).find(exam => exam.id === examId);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('listening', 1, examId);
 
@@ -112,7 +118,11 @@ const ListeningPart1Screen: React.FC = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const data = await dataService.getListeningPart1Content();
+      
+      const data = isDele 
+        ? await dataService.getDeleListeningPart1Content()
+        : await dataService.getListeningPart1Content();
+      
       console.log('Listening Part 1 data loaded:', data);
       setListeningData(data);
     } catch (err) {
@@ -126,7 +136,9 @@ const ListeningPart1Screen: React.FC = () => {
   const handleComplete = (score: number, answers: UserAnswer[]) => {
     if (!currentExam) return;
 
-    const totalQuestions = currentExam.statements.length;
+    const totalQuestions = isDele
+      ? (currentExam as DeleListeningExam).questions.length
+      : (currentExam as Exam).statements.length;
     const percentage = Math.round((score / totalQuestions) * 100);
 
     const result: ExamResult = {
@@ -170,11 +182,20 @@ const ListeningPart1Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ListeningPart1UI
-        exam={currentExam}
-        sectionDetails={sectionDetails}
-        onComplete={handleComplete}
-      />
+      {isDele ? (
+        <DeleListeningUI
+          exam={currentExam as DeleListeningExam}
+          sectionDetails={sectionDetails}
+          part={1}
+          onComplete={handleComplete}
+        />
+      ) : (
+        <ListeningPart1UI
+          exam={currentExam as Exam}
+          sectionDetails={sectionDetails}
+          onComplete={handleComplete}
+        />
+      )}
       <ResultsModal
         visible={showResults}
         onClose={() => {

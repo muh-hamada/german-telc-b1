@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+  const { getExamTypeName } = useExamType();
+  
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>TELC Exam Preparation</h3>
+            <h3>{getExamTypeName()} Exam Preparation</h3>
             <p>Your complete exam preparation companion for all levels</p>
           </div>
           <div className="footer-section">
@@ -28,7 +31,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} TELC Exam Preparation. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {getExamTypeName()} Exam Preparation. All rights reserved.</p>
         </div>
       </div>
     </footer>

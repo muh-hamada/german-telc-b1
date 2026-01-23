@@ -1,7 +1,10 @@
 import React from 'react';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './LegalPages.css';
 
 const DataDeletion: React.FC = () => {
+  const { getExamTypeName } = useExamType();
+  
   return (
     <div className="legal-page">
       <div className="container">
@@ -11,7 +14,7 @@ const DataDeletion: React.FC = () => {
         <section>
           <h2>1. Your Right to Data Deletion</h2>
           <p>
-            At TELC Exam Preparation, we respect your privacy and your right to control your personal data. 
+            At {getExamTypeName()} Exam Preparation, we respect your privacy and your right to control your personal data. 
             You have the right to request the deletion of your account and all associated personal data 
             from any of our apps (German B1, B2, English B1, B2, etc.) at any time.
           </p>
@@ -42,7 +45,7 @@ const DataDeletion: React.FC = () => {
             </div>
             <p>Please include the following information:</p>
             <ul>
-              <li>Subject line: "Data Deletion Request - TELC Exam Preparation"</li>
+              <li>Subject line: "Data Deletion Request - {getExamTypeName()} Exam Preparation"</li>
               <li>Your registered email address</li>
               <li>Your display name (if applicable)</li>
               <li>Which app(s) you're using (German B1, B2, English B1, B2, etc.)</li>
@@ -51,11 +54,11 @@ const DataDeletion: React.FC = () => {
             <p className="example">
               <strong>Example Email:</strong><br />
               <em>
-                Subject: Data Deletion Request - TELC Exam Preparation<br />
+                Subject: Data Deletion Request - {getExamTypeName()} Exam Preparation<br />
                 <br />
                 Hello,<br />
                 <br />
-                I would like to request the permanent deletion of my TELC Exam Preparation account and all associated data across all apps.<br />
+                I would like to request the permanent deletion of my {getExamTypeName()} Exam Preparation account and all associated data across all apps.<br />
                 <br />
                 Registered Email: [your-email@example.com]<br />
                 Display Name: [Your Name]<br />
@@ -115,14 +118,14 @@ const DataDeletion: React.FC = () => {
           <h3>For Google:</h3>
           <ol>
             <li>Go to your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account Permissions</a></li>
-            <li>Find "TELC Exam Preparation" or the specific app name (e.g., "German TELC B1")</li>
+            <li>Find "{getExamTypeName()} Exam Preparation" or the specific app name (e.g., "German {getExamTypeName()} B1")</li>
             <li>Click "Remove Access"</li>
           </ol>
 
           <h3>For Facebook:</h3>
           <ol>
             <li>Go to Facebook Settings → Apps and Websites</li>
-            <li>Find "TELC Exam Preparation" or the specific app name (e.g., "German TELC B1")</li>
+            <li>Find "{getExamTypeName()} Exam Preparation" or the specific app name (e.g., "German {getExamTypeName()} B1")</li>
             <li>Click "Remove"</li>
           </ol>
         </section>
@@ -169,7 +172,7 @@ const DataDeletion: React.FC = () => {
           <p>Please choose one of the methods above to submit your request.</p>
           <div className="cta-buttons">
             <a 
-              href="mailto:muhammad.aref.ali.hamada@gmail.com?subject=Data%20Deletion%20Request%20-%20TELC%20Exam%20Preparation" 
+              href={`mailto:muhammad.aref.ali.hamada@gmail.com?subject=Data%20Deletion%20Request%20-%20${getExamTypeName()}%20Exam%20Preparation`}
               className="cta-button primary"
             >
               Send Deletion Request Email

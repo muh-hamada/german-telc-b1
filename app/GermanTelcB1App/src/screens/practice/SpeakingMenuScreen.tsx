@@ -33,6 +33,7 @@ const SpeakingMenuScreen: React.FC = () => {
     const loadData = async () => {
       const isB2 = activeExamConfig.level === 'B2';
       const isA1 = activeExamConfig.level === 'A1';
+      const isDele = activeExamConfig.provider === 'dele';
       
       if (isB2) {
         // Load B2 data
@@ -62,8 +63,34 @@ const SpeakingMenuScreen: React.FC = () => {
       } else if (isA1) {
         // A1 level doesn't need to load data since parts don't have multiple exams
         // Data is loaded directly in each screen
+      } else if (isDele) {
+        // Load DELE B1 data
+        const [part1Data, part2Data, part3Data, part4Data] = await Promise.all([
+          dataService.getDeleSpeakingPart1Content(),
+          dataService.getDeleSpeakingPart2Content(),
+          dataService.getDeleSpeakingPart3Content(),
+          dataService.getDeleSpeakingPart4Content()
+        ]);
+        
+        // Map DELE topics to the expected format for the UI
+        setPart2Topics((part1Data.topics || []).map((t: any, index: number) => ({ 
+          id: index, 
+          title: t.title 
+        })));
+        setPart3Scenarios((part2Data.topics || []).map((t: any, index: number) => ({ 
+          id: index, 
+          title: t.title 
+        })));
+        setB2Part1Topics((part3Data.topics || []).map((t: any, index: number) => ({ 
+          id: index, 
+          title: t.title 
+        })));
+        setB2Part2Topics((part4Data.topics || []).map((t: any, index: number) => ({ 
+          id: index, 
+          title: t.title 
+        })));
       } else {
-        // Load B1 data
+        // Load Telc B1 data
         const [part2Data, part3Data, part4Data] = await Promise.all([
           dataService.getSpeakingPart2Content(),
           dataService.getSpeakingPart3Content(),

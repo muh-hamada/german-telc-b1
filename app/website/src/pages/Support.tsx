@@ -1,7 +1,10 @@
 import React from 'react';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './LegalPages.css';
 
 const Support: React.FC = () => {
+  const { getExamTypeName } = useExamType();
+  
   return (
     <div className="legal-page">
       <div className="container">
@@ -11,7 +14,7 @@ const Support: React.FC = () => {
         <section>
           <h2>Contact Us</h2>
           <p>
-            If you have any questions, feedback, or need assistance with our TELC Exam Preparation apps, 
+            If you have any questions, feedback, or need assistance with our {getExamTypeName()} Exam Preparation apps, 
             please don't hesitate to reach out to us. We value your input and are committed to providing 
             the best possible experience.
           </p>
@@ -47,7 +50,7 @@ const Support: React.FC = () => {
           
           <h3>Which exams do you support?</h3>
           <p>
-            Currently, we specialize in TELC B1 German. We are actively working on B2 German and English 
+            Currently, we specialize in {getExamTypeName()} B1 German. We are actively working on B2 German and English 
             versions (B1/B2), which will be released soon.
           </p>
         </section>

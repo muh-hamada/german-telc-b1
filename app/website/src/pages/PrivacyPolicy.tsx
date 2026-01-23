@@ -1,7 +1,10 @@
 import React from 'react';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './LegalPages.css';
 
 const PrivacyPolicy: React.FC = () => {
+  const { getExamTypeName } = useExamType();
+  
   return (
     <div className="legal-page">
       <div className="container">
@@ -11,9 +14,9 @@ const PrivacyPolicy: React.FC = () => {
         <section>
           <h2>1. Introduction</h2>
           <p>
-            Welcome to TELC Exam Preparation ("we," "our," or "us"). We are committed to protecting your privacy 
+            Welcome to {getExamTypeName()} Exam Preparation ("we," "our," or "us"). We are committed to protecting your privacy 
             and ensuring you have a positive experience when using our mobile applications. This Privacy Policy 
-            explains how we collect, use, disclose, and safeguard your information when you use our TELC exam 
+            explains how we collect, use, disclose, and safeguard your information when you use our {getExamTypeName()} exam 
             preparation applications across different levels (B1, B2) and languages (German, English, and others).
           </p>
         </section>

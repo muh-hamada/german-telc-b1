@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useAppSelection } from '../contexts/AppSelectionContext';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './Home.css';
 
 const screenshots = [
@@ -19,6 +20,7 @@ const screenshots = [
 
 const Home: React.FC = () => {
   const { selectedApp, setShowModal } = useAppSelection();
+  const { getExamTypeName } = useExamType();
   
   const settings = {
     dots: false,
@@ -48,7 +50,7 @@ const Home: React.FC = () => {
                 <span className="hero-app-name">
                   {selectedApp.flag} {selectedApp.displayName}
                 </span>
-              ) : 'TELC'} Exam.
+              ) : getExamTypeName()} Exam.
             </h1>
             <p className="hero-subtitle">
               Comprehensive exam preparation for all levels and languages.
@@ -131,7 +133,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🎧</div>
               <h3>Listening Practice</h3>
-              <p>Enhance your listening comprehension with audio exercises covering various scenarios from the TELC exam.</p>
+              <p>Enhance your listening comprehension with audio exercises covering various scenarios from the {getExamTypeName()} exam.</p>
             </div>
             <div className="feature-item">
               <div className="feature-icon">🗣️</div>
@@ -158,7 +160,7 @@ const Home: React.FC = () => {
           <h2 className="section-title">About Our Apps</h2>
           <div className="about-content">
             <p>
-              Our TELC Exam Preparation apps are comprehensive tools designed to help you succeed in your language certification journey.
+              Our {getExamTypeName()} Exam Preparation apps are comprehensive tools designed to help you succeed in your language certification journey.
               We offer specialized apps for different levels and languages, providing structured practice for all exam sections including reading,
               writing, listening, and speaking components.
             </p>
@@ -193,7 +195,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🇩🇪</div>
               <h3>German A1</h3>
-              <p>Beginner level preparation for TELC German A1 exam with comprehensive exercises.</p>
+              <p>Beginner level preparation for {getExamTypeName()} German A1 exam with comprehensive exercises.</p>
               <div style={{ marginTop: '10px' }}>
                 <a href="https://play.google.com/store/apps/details?id=com.mhamada.telca1german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
                 <a href="https://apps.apple.com/app/id6756783649" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
@@ -202,7 +204,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🇩🇪</div>
               <h3>German B1</h3>
-              <p>Complete preparation for TELC German B1 exam with all sections covered.</p>
+              <p>Complete preparation for {getExamTypeName()} German B1 exam with all sections covered.</p>
               <div style={{ marginTop: '10px' }}>
                 <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
                 <a href="https://apps.apple.com/app/id6754566955" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
@@ -211,7 +213,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🇩🇪</div>
               <h3>German B2</h3>
-              <p>Advanced level preparation for TELC German B2 exam.</p>
+              <p>Advanced level preparation for {getExamTypeName()} German B2 exam.</p>
               <div style={{ marginTop: '10px' }}>
                 <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb2german" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
                 <a href="https://apps.apple.com/app/id6755521000" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
@@ -220,7 +222,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🇬🇧</div>
               <h3>English B1</h3>
-              <p>Comprehensive preparation for TELC English B1 exam.</p>
+              <p>Comprehensive preparation for {getExamTypeName()} English B1 exam.</p>
               <div style={{ marginTop: '10px' }}>
                 <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb1english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
                 <a href="https://apps.apple.com/app/id6755912773" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
@@ -229,7 +231,7 @@ const Home: React.FC = () => {
             <div className="feature-item">
               <div className="feature-icon">🇬🇧</div>
               <h3>English B2</h3>
-              <p>Advanced level preparation for TELC English B2 exam.</p>
+              <p>Advanced level preparation for {getExamTypeName()} English B2 exam.</p>
               <div style={{ marginTop: '10px' }}>
                 <a href="https://play.google.com/store/apps/details?id=com.mhamada.telcb2english" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold', marginRight: '10px' }}>Android →</a>
                 <a href="https://apps.apple.com/app/id6756295159" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>iOS →</a>
@@ -243,7 +245,7 @@ const Home: React.FC = () => {
       <section className="cta">
         <div className="container">
           <h2>Start Your Preparation Today</h2>
-          <p>Download our apps and begin your journey to TELC certification</p>
+          <p>Download our apps and begin your journey to {getExamTypeName()} certification</p>
           {selectedApp ? (
             <div className="download-buttons">
               <a 

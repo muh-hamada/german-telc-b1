@@ -1,7 +1,10 @@
 import React from 'react';
+import { useExamType } from '../contexts/ExamTypeContext';
 import './LegalPages.css';
 
 const TermsOfService: React.FC = () => {
+  const { getExamTypeName } = useExamType();
+  
   return (
     <div className="legal-page">
       <div className="container">
@@ -11,11 +14,11 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>1. Acceptance of Terms</h2>
           <p>
-            Welcome to TELC Exam Preparation. By accessing or using our mobile applications, you agree to be bound 
+            Welcome to {getExamTypeName()} Exam Preparation. By accessing or using our mobile applications, you agree to be bound 
             by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our apps.
           </p>
           <p>
-            These Terms constitute a legally binding agreement between you and TELC Exam Preparation ("we," "us," or "our") 
+            These Terms constitute a legally binding agreement between you and {getExamTypeName()} Exam Preparation ("we," "us," or "our") 
             regarding your use of our applications across different levels (B1, B2) and languages (German, English, and others).
           </p>
         </section>
@@ -23,7 +26,7 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>2. Description of Service</h2>
           <p>
-            TELC Exam Preparation offers a suite of mobile applications designed to help users prepare for TELC 
+            {getExamTypeName()} Exam Preparation offers a suite of mobile applications designed to help users prepare for {getExamTypeName()} 
             language examinations across different levels (B1, B2) and languages (German, English, and others). 
             Our apps provide:
           </p>
@@ -107,8 +110,8 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>6. Educational Content Disclaimer</h2>
           <p className="important-note">
-            <strong>Important:</strong> TELC Exam Preparation apps are preparation tools and are not affiliated with, 
-            endorsed by, or officially connected to TELC GmbH or any official TELC examination body.
+            <strong>Important:</strong> {getExamTypeName()} Exam Preparation apps are preparation tools and are not affiliated with, 
+            endorsed by, or officially connected to {getExamTypeName()} GmbH or any official {getExamTypeName()} examination body.
           </p>
           <p>
             While we strive to provide accurate and helpful preparation materials across all levels and languages:
@@ -124,7 +127,7 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>7. Payment and Subscriptions</h2>
           <p>
-            Currently, our TELC Exam Preparation apps are free to use. If we introduce paid features or subscriptions 
+            Currently, our {getExamTypeName()} Exam Preparation apps are free to use. If we introduce paid features or subscriptions 
             in the future:
           </p>
           <ul>
@@ -168,7 +171,7 @@ const TermsOfService: React.FC = () => {
 
           <h3>9.2 Limitation of Liability</h3>
           <p>
-            To the fullest extent permitted by law, TELC Exam Preparation shall not be liable for:
+            To the fullest extent permitted by law, {getExamTypeName()} Exam Preparation shall not be liable for:
           </p>
           <ul>
             <li>Any indirect, incidental, special, consequential, or punitive damages</li>
@@ -181,7 +184,7 @@ const TermsOfService: React.FC = () => {
         <section>
           <h2>10. Indemnification</h2>
           <p>
-            You agree to indemnify, defend, and hold harmless TELC Exam Preparation and its affiliates, officers, 
+            You agree to indemnify, defend, and hold harmless {getExamTypeName()} Exam Preparation and its affiliates, officers, 
             directors, employees, and agents from any claims, liabilities, damages, losses, and expenses 
             arising out of or related to:
           </p>
@@ -270,7 +273,7 @@ const TermsOfService: React.FC = () => {
           <h2>16. Entire Agreement</h2>
           <p>
             These Terms, together with our Privacy Policy, constitute the entire agreement between you and 
-            TELC Exam Preparation regarding the use of our apps, superseding any prior agreements.
+            {getExamTypeName()} Exam Preparation regarding the use of our apps, superseding any prior agreements.
           </p>
         </section>
       </div>
