@@ -1,0 +1,318 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-5-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 20
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Elena. ¿Qué tal? ¿Tienes algún plan para este puente de mayo?",
+      "voiceId": "person3",
+      "id": "turn-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Javier. Pues la verdad es que no. Pensaba quedarme en casa tranquilamente viendo series.",
+      "voiceId": "person1",
+      "id": "turn-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Qué aburrido. Escucha, mis primos han alquilado una casa rural en la sierra para hacer senderismo. Me han dicho que hay sitio de sobra. ¿Te vienes?",
+      "voiceId": "person3",
+      "id": "turn-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Uf, no sé. Nunca he ido a la montaña y no estoy muy en forma. Además, no tengo botas de trekking.",
+      "voiceId": "person1",
+      "id": "turn-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Qué va! No te preocupes por eso. Haremos rutas muy fáciles, casi paseos. Con unas zapatillas de deporte normales te sirve. Y la casa es una pasada, tiene hasta piscina climatizada.",
+      "voiceId": "person3",
+      "id": "turn-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Oye, pues lo de la piscina suena genial para relajarse después de caminar. ¿Y sale muy caro?",
+      "voiceId": "person1",
+      "id": "turn-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Para nada. Son sesenta euros todo el fin de semana, con las comidas y bebidas incluidas. Yo pongo el coche, así que el viaje te sale gratis.",
+      "voiceId": "person3",
+      "id": "turn-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Vaya chollo! Vale, me has convencido. ¿Tengo que llevar algo de comida o bebida?",
+      "voiceId": "person1",
+      "id": "turn-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "No hace falta, mis primos se encargan de hacer la compra mañana. Tú solo prepara tu maleta.",
+      "voiceId": "person3",
+      "id": "turn-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Perfecto. Ah, una cosa... ¿crees que podría llevarme a Toby? Es que no me gusta dejarlo solo tanto tiempo.",
+      "voiceId": "person1",
+      "id": "turn-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Lo siento, Elena, pero en la casa no admiten animales. Es una norma muy estricta del dueño.",
+      "voiceId": "person3",
+      "id": "turn-11"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Vaya, qué pena. Bueno, no pasa nada, le pediré a mi madre que se quede con él. ¡Cuenta conmigo!",
+      "voiceId": "person1",
+      "id": "turn-12"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-5-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Elena. ¿Qué tal? ¿Tienes algún plan para este puente de mayo?",
+      "voiceId": "person3",
+      "id": "turn-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Javier. Pues la verdad es que no. Pensaba quedarme en casa tranquilamente viendo series.",
+      "voiceId": "person1",
+      "id": "turn-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Qué aburrido. Escucha, mis primos han alquilado una casa rural en la sierra para hacer senderismo. Me han dicho que hay sitio de sobra. ¿Te vienes?",
+      "voiceId": "person3",
+      "id": "turn-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Uf, no sé. Nunca he ido a la montaña y no estoy muy en forma. Además, no tengo botas de trekking.",
+      "voiceId": "person1",
+      "id": "turn-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Qué va! No te preocupes por eso. Haremos rutas muy fáciles, casi paseos. Con unas zapatillas de deporte normales te sirve. Y la casa es una pasada, tiene hasta piscina climatizada.",
+      "voiceId": "person3",
+      "id": "turn-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Oye, pues lo de la piscina suena genial para relajarse después de caminar. ¿Y sale muy caro?",
+      "voiceId": "person1",
+      "id": "turn-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Para nada. Son sesenta euros todo el fin de semana, con las comidas y bebidas incluidas. Yo pongo el coche, así que el viaje te sale gratis.",
+      "voiceId": "person3",
+      "id": "turn-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Vaya chollo! Vale, me has convencido. ¿Tengo que llevar algo de comida o bebida?",
+      "voiceId": "person1",
+      "id": "turn-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "No hace falta, mis primos se encargan de hacer la compra mañana. Tú solo prepara tu maleta.",
+      "voiceId": "person3",
+      "id": "turn-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Perfecto. Ah, una cosa... ¿crees que podría llevarme a Toby? Es que no me gusta dejarlo solo tanto tiempo.",
+      "voiceId": "person1",
+      "id": "turn-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Lo siento, Elena, pero en la casa no admiten animales. Es una norma muy estricta del dueño.",
+      "voiceId": "person3",
+      "id": "turn-11"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Vaya, qué pena. Bueno, no pasa nada, le pediré a mi madre que se quede con él. ¡Cuenta conmigo!",
+      "voiceId": "person1",
+      "id": "turn-12"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-5-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]
