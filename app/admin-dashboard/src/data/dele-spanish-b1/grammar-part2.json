@@ -1,5 +1,161 @@
 {
   "exams": [
-    
+    {
+      "id": "4e0973d3-6c8a-4e45-99fc-eafac6059248",
+      "title": "Poniéndose al Día con una Amiga",
+      "text": "Querida Ana:\nDisculpá que no te haya escrito antes, pero tuve problemas con la computadora y estuve dos semanas sin poder conectarme a Internet.\nPor acá todo bien, sin demasiadas novedades. La semana pasada [25] haciendo un curso de formación de dos días en Buenos Aires. Una de las noches arreglé con Celia para ir a cenar. Me dijo que [26] muy bien: consiguió un trabajo nuevo y está saliendo con un chico muy simpático. Me preguntó por vos y me dijo que muere por verte. ¿Por qué no [27] mandás un mail?\nYo también tengo muchas ganas de verte. ¿[28] planes tenés para las vacaciones? Se me ocurre que podríamos ir a la casa que tiene mi hermana en la playa. Cuando [29] los días que vas a venir, escribime, así ya le pido la casa. Espero que esta vez puedas quedarte más [30] dos días porque la última vez no tuvimos tiempo para hacer nada.\nBueno, Anita, te dejo que tengo que hacer un montón de cosas hoy. Seguimos en contacto.\nUn beso enorme,\nMariana",
+      "questions": [
+        {
+          "id": 25,
+          "answers": [
+            {
+              "text": "estuve",
+              "correct": true
+            },
+            {
+              "text": "estaba",
+              "correct": false
+            },
+            {
+              "text": "había estado",
+              "correct": false
+            }
+          ],
+          "explanation": {
+            "en": "The time marker 'La semana pasada' (last week) indicates a completed action within a specific timeframe, requiring the Pretérito Indefinido (estuve). 'Estaba' (Imperfecto) describes background or ongoing past actions without a defined end.",
+            "es": "El marcador temporal 'La semana pasada' indica una acción terminada en un tiempo específico, lo que requiere el Pretérito Indefinido (estuve). 'Estaba' (Imperfecto) describe acciones pasadas en desarrollo sin un final definido.",
+            "de": "Die Zeitangabe 'La semana pasada' (letzte Woche) weist auf eine abgeschlossene Handlung in einem bestimmten Zeitraum hin, was das Pretérito Indefinido (estuve) erfordert. 'Estaba' (Imperfecto) beschreibt andauernde Handlungen ohne definiertes Ende.",
+            "fr": "Le marqueur temporel 'La semana pasada' (la semaine dernière) indique une action achevée dans un laps de temps précis, nécessitant le Pretérito Indefinido (estuve). 'Estaba' (Imperfecto) décrit des actions en cours sans fin définie.",
+            "ru": "Временной маркер 'La semana pasada' (на прошлой неделе) указывает на завершенное действие в определенный период, требующее Pretérito Indefinido (estuve). 'Estaba' (Imperfecto) описывает фоновые или длительные действия без четкого конца.",
+            "ar": "يشير الظرف الزماني 'La semana pasada' (الأسبوع الماضي) إلى حدث مكتمل ضمن إطار زمن محدد، مما يتطلب استخدام الماضي البسيط (estuve). بينما يُستخدم 'Estaba' (الماضي المستمر) لوصف أحداث خلفية أو مستمرة دون نهاية محددة."
+          }
+        },
+        {
+          "id": 26,
+          "answers": [
+            {
+              "text": "era",
+              "correct": false
+            },
+            {
+              "text": "estaba",
+              "correct": true
+            },
+            {
+              "text": "llevaba",
+              "correct": false
+            }
+          ],
+          "explanation": {
+            "en": "We use the verb 'estar' with adverbs like 'bien' or 'mal' to describe a person's state, mood, or condition. 'Ser' is used to define essential characteristics, and 'llevar' usually refers to carrying or duration.",
+            "es": "Usamos el verbo 'estar' con adverbios como 'bien' o 'mal' para describir el estado o condición de una persona. 'Ser' se usa para características esenciales y 'llevar' indica transporte o duración.",
+            "de": "Wir verwenden das Verb 'estar' mit Adverbien wie 'bien' oder 'mal', um den Zustand oder die Stimmung einer Person zu beschreiben. 'Ser' wird für wesentliche Eigenschaften verwendet, 'llevar' meist für Tragen oder Zeitdauer.",
+            "fr": "Nous utilisons le verbe 'estar' avec des adverbes comme 'bien' ou 'mal' pour décrire l'état ou la condition d'une personne. 'Ser' est utilisé pour les caractéristiques essentielles et 'llevar' indique généralement le transport ou la durée.",
+            "ru": "Глагол 'estar' используется с наречиями вроде 'bien' или 'mal' для описания состояния или самочувствия. 'Ser' используется для сущностных характеристик, а 'llevar' обычно означает ношение или длительность.",
+            "ar": "نستخدم الفعل 'estar' مع ظروف مثل 'bien' أو 'mal' لوصف حالة الشخص أو مزاجه. يُستخدم 'Ser' لتحديد الصفات الأساسية، بينما يشير 'llevar' عادةً إلى الحمل أو المدة الزمنية."
+          }
+        },
+        {
+          "id": 27,
+          "answers": [
+            {
+              "text": "la",
+              "correct": false
+            },
+            {
+              "text": "lo",
+              "correct": false
+            },
+            {
+              "text": "le",
+              "correct": true
+            }
+          ],
+          "explanation": {
+            "en": "The context requires an Indirect Object Pronoun referring to the third person (her/Celia). 'Le' is the correct indirect pronoun. 'La' and 'Lo' are Direct Object Pronouns.",
+            "es": "El contexto requiere un Pronombre de Objeto Indirecto para referirse a la tercera persona (ella/Celia). 'Le' es el pronombre indirecto correcto. 'La' y 'Lo' son Pronombres de Objeto Directo.",
+            "de": "Der Kontext erfordert ein indirektes Objektpronomen, das sich auf die dritte Person (sie/Celia) bezieht. 'Le' ist das korrekte indirekte Pronomen. 'La' und 'Lo' sind direkte Objektpronomen.",
+            "fr": "Le contexte exige un pronom d'objet indirect faisant référence à la troisième personne (elle/Celia). 'Le' est le pronom indirect correct. 'La' et 'Lo' sont des pronoms d'objet direct.",
+            "ru": "Контекст требует местоимения косвенного дополнения для третьего лица (ей/Селии). 'Le' — правильное местоимение. 'La' и 'Lo' — местоимения прямого дополнения.",
+            "ar": "يتطلب السياق ضمير مفعول به غير مباشر يشير إلى الشخص الثالث (هي/سيليا). 'Le' هو الضمير غير المباشر الصحيح. أما 'La' و 'Lo' فهي ضمائر مفعول به مباشر."
+          }
+        },
+        {
+          "id": 28,
+          "answers": [
+            {
+              "text": "Cuál",
+              "correct": false
+            },
+            {
+              "text": "Qué",
+              "correct": true
+            },
+            {
+              "text": "Cuáles",
+              "correct": false
+            }
+          ],
+          "explanation": {
+            "en": "In Spanish, we use 'Qué' immediately followed by a noun (like 'planes') to ask for specifics. 'Cuál' is generally used before verbs (usually 'ser') or the preposition 'de'.",
+            "es": "En español, usamos 'Qué' seguido inmediatamente de un sustantivo (como 'planes') para preguntar por especificaciones. 'Cuál' se usa generalmente antes de verbos (como 'ser') o la preposición 'de'.",
+            "de": "Im Spanischen verwenden wir 'Qué' unmittelbar gefolgt von einem Substantiv (wie 'planes'), um nach Spezifischem zu fragen. 'Cuál' wird im Allgemeinen vor Verben (meist 'ser') oder der Präposition 'de' verwendet.",
+            "fr": "En espagnol, on utilise 'Qué' immédiatement suivi d'un nom (comme 'planes') pour demander des précisions. 'Cuál' est généralement utilisé devant des verbes (souvent 'ser') ou la préposition 'de'.",
+            "ru": "В испанском языке мы используем 'Qué' непосредственно перед существительным (например, 'planes'). 'Cuál' обычно используется перед глаголами (чаще всего 'ser') или предлогом 'de'.",
+            "ar": "في الإسبانية، نستخدم 'Qué' متبوعًا مباشرةً باسم (مثل 'planes') للسؤال عن التحديد. يُستخدم 'Cuál' بشكل عام قبل الأفعال (عادةً 'ser') أو حرف الجر 'de'."
+          }
+        },
+        {
+          "id": 29,
+          "answers": [
+            {
+              "text": "sepas",
+              "correct": true
+            },
+            {
+              "text": "sabes",
+              "correct": false
+            },
+            {
+              "text": "sabrías",
+              "correct": false
+            }
+          ],
+          "explanation": {
+            "en": "When the conjunction 'cuando' introduces a clause referring to a future event (something that hasn't happened yet), the Subjunctive mood ('sepas') is required.",
+            "es": "Cuando la conjunción 'cuando' introduce una oración que se refiere a un evento futuro (que aún no ha sucedido), se requiere el modo Subjuntivo ('sepas').",
+            "de": "Wenn die Konjunktion 'cuando' einen Satz einleitet, der sich auf ein zukünftiges Ereignis bezieht (das noch nicht stattgefunden hat), ist der Subjuntivo ('sepas') erforderlich.",
+            "fr": "Lorsque la conjonction 'cuando' introduit une proposition faisant référence à un événement futur (qui ne s'est pas encore produit), le mode Subjonctif ('sepas') est requis.",
+            "ru": "Когда союз 'cuando' вводит придаточное предложение, относящееся к будущему событию (которое еще не произошло), требуется сослагательное наклонение (Subjuntivo — 'sepas').",
+            "ar": "عندما تقدم الرابطة 'cuando' جملة تشير إلى حدث مستقبلي (شيء لم يحدث بعد)، يلزم استخدام صيغة النصب (Subjuntivo) ('sepas')."
+          }
+        },
+        {
+          "id": 30,
+          "answers": [
+            {
+              "text": "que",
+              "correct": false
+            },
+            {
+              "text": "de",
+              "correct": true
+            },
+            {
+              "text": "por",
+              "correct": false
+            }
+          ],
+          "explanation": {
+            "en": "When making comparisons involving numbers or quantities (e.g., 'two days'), we use 'más de' instead of 'más que'. 'Más que' is used for comparing entities or actions.",
+            "es": "Al hacer comparaciones con números o cantidades (ej. 'dos días'), usamos 'más de' en lugar de 'más que'. 'Más que' se usa para comparar entidades o acciones.",
+            "de": "Bei Vergleichen mit Zahlen oder Mengen (z. B. 'zwei Tage') verwenden wir 'más de' anstelle von 'más que'. 'Más que' wird für den Vergleich von Dingen oder Handlungen verwendet.",
+            "fr": "Lorsqu'on fait des comparaisons impliquant des nombres ou des quantités (ex. 'deux jours'), on utilise 'más de' au lieu de 'más que'. 'Más que' est utilisé pour comparer des entités ou des actions.",
+            "ru": "При сравнении чисел или количеств (например, 'два дня') используется 'más de', а не 'más que'. 'Más que' используется для сравнения сущностей или действий.",
+            "ar": "عند إجراء مقارنات تتضمن أرقامًا أو كميات (مثل 'يومين')، نستخدم 'más de' بدلاً من 'más que'. يُستخدم 'Más que' لمقارنة الكيانات أو الأفعال."
+          }
+        }
+      ]
+    }
   ]
 }

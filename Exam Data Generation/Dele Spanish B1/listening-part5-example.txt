@@ -40,6 +40,7 @@ Create the Conversation between two people (one male and one female), then struc
 - id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - Create 6 statements with Ids from 25 to 30
 - Create 6 questions about which person of the two people said that statement. Some statement are distractors (none of them said it)
+- The JSON output must include a "segments" array that strictly follows the provided structure.
 
 {
     "segments": [
@@ -47,22 +48,21 @@ Create the Conversation between two people (one male and one female), then struc
         { type: 'ready', id: 'part-5-intro' },
         { type: 'pause', durationSeconds: 20 },
 
-        {
-            type: 'speech',
-            repeated: true,
-            speed: 0.85,
-            text: 'person speech',
-            voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker,
-            id: "part-{index}"
-        },
+        // CONVERSATION PARTS - FIRST TIME
+        // CREATE "speech" ITEM FOR EACH TURN OF THE CONVERSATION
+        { type: 'speech', repeated: true, speed: 0.85, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "turn-1" },
+        // 1 SECOND PAUSE BETWEEN PARTS
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'speech', repeated: true, speed: 0.85, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "turn-2" },
+        ... REPEAT UNTIL THE END OF THE CONVERSATION
 
-        // Repeat the speech part to cover the entire Conversation
-
+        // SEPARATOR
         { type: 'pause', durationSeconds: 3 },
         { type: 'ready', id: 'part-5-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
 
-        // Copy person all Conversation speech parts here
+        // CONVERSATION PARTS - SECOND TIME
+        // COPY THE ENTIRE CONVERSATION PARTS WITH THE IN-BETWEEN 1 SECOND PAUSE
         
         { type: 'pause', durationSeconds: 3 },
         { type: 'ready', id: 'part-5-outro' },
@@ -70,7 +70,11 @@ Create the Conversation between two people (one male and one female), then struc
     ],
     "title": <title in spanish>, // The title should be 4-6 words and related to the interviews
     "id": "", // Generate UUIDv4 ID,
-    "audio_transcription": [] // Copy all Conversation speech text here
+    "audio_transcription": [  // Copy all Conversation speech text here
+      "¡Vaya, Bea, qué sorpresa...",
+      "Hombre, después de tant...",
+      "..."
+    ],
     "questions": [
         {
           "id": 25,

@@ -1,16 +1,65 @@
 {
-    "section_details": {
-        "title": "Listening Part 5",
-        "instructions_de": "",
-        "instructions_en": "",
-        "instructions_ar": "",
-        "instructions_ru": "",
-        "instructions_fr": "",
-        "instructions_es": "",
-        "duration_minutes": 5,
-        "prep_time_seconds": 30
-      },
-    "exams": [
-        
-    ]
+  "section_details": {
+    "title": "Listening Part 5",
+    "instructions_de": "Sie werden ein Gespräch zwischen zwei Freunden hören. Geben Sie an, ob sich die Aussagen (25-30) auf Álvaro (A), auf Beatriz (B) oder auf keinen der beiden (C) beziehen. Sie hören das Gespräch zweimal. Markieren Sie die gewählten Optionen auf dem Antwortbogen. Sie haben 25 Sekunden Zeit, um die Aussagen zu lesen.",
+    "instructions_en": "You are going to listen to a conversation between two friends. Indicate whether the statements (25-30) refer to Álvaro (A), to Beatriz (B) or to neither of them (C). You will listen to the conversation twice. Mark the chosen options on the Answer Sheet. You have 25 seconds to read the statements.",
+    "instructions_ar": "سوف تستمع إلى محادثة بين صديقين. حدد ما إذا كانت العبارات (25-30) تشير إلى ألفارو (أ)، أو إلى بياتريث (ب) أو إلى أي منهما (ج). ستستمع إلى المحادثة مرتين. ضع علامة على الخيارات المختارة في ورقة الإجابة. لديك 25 ثانية لقراءة العبارات.",
+    "instructions_ru": "Вы услышите разговор между двумя друзьями. Укажите, относятся ли утверждения (25-30) к Альваро (A), к Беатрис (B) или ни к одному из них (C). Вы прослушаете разговор дважды. Отметьте выбранные варианты в Бланке ответов. У вас есть 25 секунд, чтобы прочитать утверждения.",
+    "instructions_fr": "Vous allez écouter une conversation entre deux amis. Indiquez si les énoncés (25-30) se réfèrent à Álvaro (A), à Beatriz (B) ou à aucun des deux (C). Vous écouterez la conversation deux fois. Marquez les options choisies sur la Feuille de réponses. Vous avez 25 secondes pour lire les énoncés.",
+    "instructions_es": "Usted va a escuchar una conversación entre dos amigos. Indique si los enunciados (25-30) se refieren a Álvaro (A), a Beatriz (B) o a ninguno de los dos (C). Escuchará la conversación dos veces. Marque las opciones elegidas en la Hoja de respuestas. Tiene 25 segundos para leer los enunciados.",
+    "duration_minutes": 5,
+    "prep_time_seconds": 25
+  },
+  "exams": [
+    {
+      "title": "Una invitación a la sierra",
+      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+      "audio_transcription": [
+        "Hola, Elena. ¿Qué tal? ¿Tienes algún plan para este puente de mayo?",
+        "Hola, Javier. Pues la verdad es que no. Pensaba quedarme en casa tranquilamente viendo series.",
+        "Qué aburrido. Escucha, mis primos han alquilado una casa rural en la sierra para hacer senderismo. Me han dicho que hay sitio de sobra. ¿Te vienes?",
+        "Uf, no sé. Nunca he ido a la montaña y no estoy muy en forma. Además, no tengo botas de trekking.",
+        "¡Qué va! No te preocupes por eso. Haremos rutas muy fáciles, casi paseos. Con unas zapatillas de deporte normales te sirve. Y la casa es una pasada, tiene hasta piscina climatizada.",
+        "Oye, pues lo de la piscina suena genial para relajarse después de caminar. ¿Y sale muy caro?",
+        "Para nada. Son sesenta euros todo el fin de semana, con las comidas y bebidas incluidas. Yo pongo el coche, así que el viaje te sale gratis.",
+        "¡Vaya chollo! Vale, me has convencido. ¿Tengo que llevar algo de comida o bebida?",
+        "No hace falta, mis primos se encargan de hacer la compra mañana. Tú solo prepara tu maleta.",
+        "Perfecto. Ah, una cosa... ¿crees que podría llevarme a Toby? Es que no me gusta dejarlo solo tanto tiempo.",
+        "Lo siento, Elena, pero en la casa no admiten animales. Es una norma muy estricta del dueño.",
+        "Vaya, qué pena. Bueno, no pasa nada, le pediré a mi madre que se quede con él. ¡Cuenta conmigo!"
+      ],
+      "questions": [
+        {
+          "id": 25,
+          "statement": "Propone un plan para el puente.",
+          "answer": "a"
+        },
+        {
+          "id": 26,
+          "statement": "Tenía pensado descansar en su casa.",
+          "answer": "b"
+        },
+        {
+          "id": 27,
+          "statement": "Le preocupa la dificultad de las rutas.",
+          "answer": "b"
+        },
+        {
+          "id": 28,
+          "statement": "Ha comprado comida para el viaje.",
+          "answer": "c"
+        },
+        {
+          "id": 29,
+          "statement": "Ofrece transporte gratuito para ir.",
+          "answer": "a"
+        },
+        {
+          "id": 30,
+          "statement": "Va a llevar a su mascota a la sierra.",
+          "answer": "c"
+        }
+      ]
+    }
+  ]
 }

@@ -5,6 +5,7 @@ import { StatCard } from '../components/StatCard';
 import { DistributionChart } from '../components/DistributionChart';
 import { toast } from 'react-toastify';
 import './ReportsPage.css';
+import { APP_DISPLAY_NAMES } from '../utils/examDisplayName';
 
 type MetricKey = 'totalUsers' | 'activeStreaks' | 'wordsStudied' | 'examsCompleted' | 'notificationsEnabled' | 'premiumUsers';
 
@@ -12,14 +13,6 @@ interface TrendData {
   date: string;
   value: number;
 }
-
-const APP_DISPLAY_NAMES: { [key: string]: string } = {
-  'german-b1': 'German B1',
-  'german-b2': 'German B2',
-  'english-b1': 'English B1',
-  'english-b2': 'English B2',
-  'german-a1': 'German A1',
-};
 
 export const ReportsPage: React.FC = () => {
   const [allAppsData, setAllAppsData] = useState<AppAnalytics[]>([]);

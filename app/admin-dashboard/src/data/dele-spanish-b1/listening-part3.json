@@ -1,202 +1,183 @@
 {
-    "section_details": {
-        "title": "Listening Part 3",
-        "instructions_de": "",
-        "instructions_en": "",
-        "instructions_ar": "",
-        "instructions_ru": "",
-        "instructions_fr": "",
-        "instructions_es": "",
-        "duration_minutes": 5,
-        "prep_time_seconds": 30
-      },
-    "exams": [
-      {
-        "segments": [
-          { "type": "pause", "durationSeconds": 1 },
-          { "type": "ready", "id": "part-3-intro" },
-          { "type": "pause", "durationSeconds": 30 },
-          
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.", "voiceId": "moderator", "id": "interview-0" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.", "voiceId": "person1", "id": "part-1" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.", "voiceId": "person3", "id": "part-2" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.", "voiceId": "person1", "id": "part-3" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.", "voiceId": "person3", "id": "part-4" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.", "voiceId": "person1", "id": "part-5" },
-          
-          { "type": "pause", "durationSeconds": 3 },
-          { "type": "ready", "id": "part-3-2nd-time" },
-          { "type": "pause", "durationSeconds": 3 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.", "voiceId": "moderator", "id": "interview-0-r" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.", "voiceId": "person1", "id": "part-1-r" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.", "voiceId": "person3", "id": "part-2-r" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.", "voiceId": "person1", "id": "part-3-r" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.", "voiceId": "person3", "id": "part-4-r" },
-          { "type": "pause", "durationSeconds": 2 },
-          { "type": "ready", "id": "part-3-next-item" },
-          { "type": "pause", "durationSeconds": 2 },
-      
-          { "type": "speech", "repeated": true, "speech": 0.85, "text": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.", "voiceId": "person1", "id": "part-5-r" },
-      
-          { "type": "pause", "durationSeconds": 3 },
-          { "type": "ready", "id": "part-3-outro" },
-          { "type": "pause", "durationSeconds": 5 }
-        ],
-        "title": "Noticias culturales y de actualidad",
-        "id": "a4e8d2c9-9b1f-4d3a-8c5e-7f6a0b1d2e3f",
-        "questions": [
-          {
-            "id": 13,
-            "question": "La feria 'EduTech' de este año...",
-            "audio_transcription": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.",
-            "options": [
-              {
-                "is_correct": false,
-                "text": "se celebra por primera vez."
-              },
-              {
-                "is_correct": true,
-                "text": "tratará sobre inteligencia artificial."
-              },
-              {
-                "is_correct": false,
-                "text": "solo admite expertos mexicanos."
-              }
-            ]
-          },
-          {
-            "id": 14,
-            "question": "La nueva biblioteca de Palermo...",
-            "audio_transcription": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.",
-            "options": [
-              {
-                "is_correct": false,
-                "text": "se inauguró el martes."
-              },
-              {
-                "is_correct": true,
-                "text": "tiene una sala infantil."
-              },
-              {
-                "is_correct": false,
-                "text": "cierra los domingos."
-              }
-            ]
-          },
-          {
-            "id": 15,
-            "question": "El chef Virgilio Martínez...",
-            "audio_transcription": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.",
-            "options": [
-              {
-                "is_correct": false,
-                "text": "ha ganado un premio de cine."
-              },
-              {
-                "is_correct": false,
-                "text": "promociona ingredientes europeos."
-              },
-              {
-                "is_correct": true,
-                "text": "quiere dar a conocer productos locales."
-              }
-            ]
-          },
-          {
-            "id": 16,
-            "question": "El tenista Rafael Nadal...",
-            "audio_transcription": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.",
-            "options": [
-              {
-                "is_correct": false,
-                "text": "no participará en el torneo de Madrid."
-              },
-              {
-                "is_correct": true,
-                "text": "vuelve tras una lesión."
-              },
-              {
-                "is_correct": false,
-                "text": "ha jugado mucho estos dos meses."
-              }
-            ]
-          },
-          {
-            "id": 17,
-            "question": "El grupo 'Los Viajeros'...",
-            "audio_transcription": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.",
-            "options": [
-              {
-                "is_correct": false,
-                "text": "tocó anoche en Santiago."
-              },
-              {
-                "is_correct": true,
-                "text": "tuvo problemas de sonido."
-              },
-              {
-                "is_correct": false,
-                "text": "no devolverá el dinero."
-              }
-            ]
-          },
-          {
-            "id": 18,
-            "question": "La Dirección de Tráfico recomienda...",
-            "audio_transcription": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.",
-            "options": [
-              {
-                "is_correct": true,
-                "text": "evitar la autopista norte."
-              },
-              {
-                "is_correct": false,
-                "text": "salir de la ciudad en dos horas."
-              },
-              {
-                "is_correct": false,
-                "text": "conducir por la autopista."
-              }
-            ]
+  "section_details": {
+    "title": "Listening Part 3",
+    "instructions_de": "Sie werden in einem kolumbianischen Radioprogramm sechs Nachrichten hören. Sie werden das Programm zweimal hören. Danach müssen Sie die Fragen (13-18) beantworten. Wählen Sie die richtige Antwort (a / b / c). Markieren Sie die gewählten Optionen auf dem Antwortblatt. Sie haben 30 Sekunden, um die Fragen zu lesen.",
+    "instructions_en": "You are going to listen to six news items on a Colombian radio program. You will hear the program twice. Then you must answer questions (13-18). Select the correct answer (a / b / c). Mark the chosen options on the Answer Sheet. You have 30 seconds to read the questions.",
+    "instructions_ar": "سوف تستمع إلى ستة أخبار في برنامج إذاعي كولومبي. ستسمع البرنامج مرتين. بعد ذلك يجب عليك الإجابة على الأسئلة (13-18). اختر الإجابة الصحيحة (أ / ب / ج). ضع علامة على الخيارات المختارة في ورقة الإجابة. لديك 30 ثانية لقراءة الأسئلة.",
+    "instructions_ru": "Вы собираетесь прослушать шесть новостей в колумбийской радиопрограмме. Вы услышите программу дважды. Затем вы должны ответить на вопросы (13-18). Выберите правильный ответ (a / b / c). Отметьте выбранные варианты в бланке ответов. У вас есть 30 секунд, чтобы прочитать вопросы.",
+    "instructions_fr": "Vous allez écouter six nouvelles dans un programme radiophonique colombien. Vous entendrez le programme deux fois. Ensuite, vous devez répondre aux questions (13-18). Sélectionnez la réponse correcte (a / b / c). Marquez les options choisies sur la feuille de réponses. Vous avez 30 secondes pour lire les questions.",
+    "instructions_es": "Usted va a escuchar en un programa radiofónico colombiano seis noticias. Escuchará el programa dos veces. Después debe contestar a las preguntas (13-18). Seleccione la respuesta correcta (a / b / c). Marque las opciones elegidas en la Hoja de respuestas. Tiene 30 segundos para leer las preguntas.",
+    "duration_minutes": 5,
+    "prep_time_seconds": 30
+  },
+  "exams": [
+    {
+      "title": "Noticias culturales y de actualidad",
+      "id": "a4e8d2c9-9b1f-4d3a-8c5e-7f6a0b1d2e3f",
+      "questions": [
+        {
+          "id": 13,
+          "question": "La feria 'EduTech' de este año...",
+          "audio_transcription": "La feria de tecnología educativa 'EduTech', que se celebra anualmente en la Ciudad de México, anunció ayer que este año se centrará exclusivamente en el uso de la inteligencia artificial en las aulas. Se espera la asistencia de expertos de todo el continente para debatir el futuro de la educación.",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "se celebra por primera vez."
+            },
+            {
+              "is_correct": true,
+              "text": "tratará sobre inteligencia artificial."
+            },
+            {
+              "is_correct": false,
+              "text": "solo admite expertos mexicanos."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la segunda. El audio dice explícitamente que la feria 'se centrará exclusivamente en el uso de la inteligencia artificial'. Las otras opciones son falsas: se celebra 'anualmente' (no es la primera vez) y asisten expertos de 'todo el continente' (no solo mexicanos).",
+            "en": "The correct answer is the second one. The audio explicitly states that the fair 'will focus exclusively on the use of artificial intelligence.' The other options are false: it is held 'annually' (not for the first time), and experts from 'the entire continent' attend (not just Mexicans).",
+            "de": "Die richtige Antwort ist die zweite. Das Audio besagt ausdrücklich, dass sich die Messe 'ausschließlich auf den Einsatz künstlicher Intelligenz' konzentrieren wird. Die anderen Optionen sind falsch: Sie findet 'jährlich' statt (nicht zum ersten Mal) und es nehmen Experten aus dem 'ganzen Kontinent' teil (nicht nur Mexikaner).",
+            "fr": "La bonne réponse est la deuxième. L'audio déclare explicitement que le salon 'se concentrera exclusivement sur l'utilisation de l'intelligence artificielle'. Les autres options sont fausses : il se tient 'annuellement' (ce n'est pas la première fois) et des experts de 'tout le continent' y assistent (pas seulement des Mexicains).",
+            "ru": "Правильный ответ — второй. В аудиозаписи прямо говорится, что выставка 'будет посвящена исключительно использованию искусственного интеллекта'. Остальные варианты неверны: она проводится 'ежегодно' (а не в первый раз), и в ней участвуют эксперты со 'всего континента' (а не только мексиканцы).",
+            "ar": "الإجابة الصحيحة هي الثانية. يذكر المقطع الصوتي صراحة أن المعرض 'سيركز حصرياً على استخدام الذكاء الاصطناعي'. الخيارات الأخرى خاطئة: فهو يقام 'سنوياً' (وليس لأول مرة)، ويحضره خبراء من 'جميع أنحاء القارة' (وليس المكسيكيين فقط)."
           }
-        ]
-      }
-    ]
+        },
+        {
+          "id": 14,
+          "question": "La nueva biblioteca de Palermo...",
+          "audio_transcription": "El alcalde de Buenos Aires inauguró el lunes la nueva biblioteca municipal del barrio de Palermo. El edificio cuenta con más de 20.000 libros y una sala especial para niños, que estará abierta también los domingos por la mañana para fomentar la lectura en familia.",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "se inauguró el martes."
+            },
+            {
+              "is_correct": true,
+              "text": "tiene una sala infantil."
+            },
+            {
+              "is_correct": false,
+              "text": "cierra los domingos."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la segunda. El texto menciona que la biblioteca cuenta con 'una sala especial para niños'. La primera opción es incorrecta porque se inauguró el 'lunes', y la tercera es falsa porque dice que estará 'abierta también los domingos'.",
+            "en": "The correct answer is the second one. The text mentions that the library has 'a special room for children.' The first option is incorrect because it was inaugurated on 'Monday,' and the third is false because it states it will be 'open also on Sundays.'",
+            "de": "Die richtige Antwort ist die zweite. Der Text erwähnt, dass die Bibliothek über 'einen speziellen Raum für Kinder' verfügt. Die erste Option ist falsch, da sie am 'Montag' eröffnet wurde, und die dritte ist falsch, da dort steht, dass sie 'auch sonntags geöffnet' sein wird.",
+            "fr": "La bonne réponse est la deuxième. Le texte mentionne que la bibliothèque dispose d''une salle spéciale pour les enfants'. La première option est incorrecte car elle a été inaugurée 'lundi', et la troisième est fausse car il est dit qu'elle sera 'ouverte aussi le dimanche'.",
+            "ru": "Правильный ответ — второй. В тексте упоминается, что в библиотеке есть 'специальный зал для детей'. Первый вариант неверен, так как открытие состоялось в 'понедельник', а третий ложен, так как сказано, что библиотека будет 'открыта также по воскресеньям'.",
+            "ar": "الإجابة الصحيحة هي الثانية. يذكر النص أن المكتبة تحتوي على 'قاعة خاصة للأطفال'. الخيار الأول غير صحيح لأن الافتتاح كان يوم 'الاثنين'، والخيار الثالث خاطئ لأنه يذكر أنها ستكون 'مفتوحة أيضاً أيام الأحد'."
+          }
+        },
+        {
+          "id": 15,
+          "question": "El chef Virgilio Martínez...",
+          "audio_transcription": "El chef peruano Virgilio Martínez ha recibido el premio 'Gastronomía de Oro' por su labor en la promoción de los ingredientes andinos. Martínez dijo que este reconocimiento ayudará a que los productos locales de los agricultores de la región sean conocidos y valorados en todo el mundo.",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "ha ganado un premio de cine."
+            },
+            {
+              "is_correct": false,
+              "text": "promociona ingredientes europeos."
+            },
+            {
+              "is_correct": true,
+              "text": "quiere dar a conocer productos locales."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la tercera. Martínez declara que el premio ayudará a que los 'productos locales' sean 'conocidos y valorados'. Ganó un premio de 'Gastronomía' (no de cine) y promociona ingredientes 'andinos' (no europeos).",
+            "en": "The correct answer is the third one. Martínez states that the award will help 'local products' become 'known and valued.' He won a 'Gastronomy' award (not film) and promotes 'Andean' ingredients (not European).",
+            "de": "Die richtige Antwort ist die dritte. Martínez erklärt, dass der Preis dazu beitragen wird, dass 'lokale Produkte' 'bekannt und geschätzt' werden. Er gewann einen Preis für 'Gastronomie' (nicht Film) und fördert 'andine' Zutaten (nicht europäische).",
+            "fr": "La bonne réponse est la troisième. Martínez déclare que le prix aidera les 'produits locaux' à être 'connus et valorisés'. Il a gagné un prix de 'Gastronomie' (pas de cinéma) et promeut des ingrédients 'andins' (pas européens).",
+            "ru": "Правильный ответ — третий. Мартинес заявляет, что награда поможет сделать 'местные продукты' 'известными и ценимыми'. Он получил награду в области 'гастрономии' (а не кино) и продвигает 'андские' ингредиенты (а не европейские).",
+            "ar": "الإجابة الصحيحة هي الثالثة. يذكر مارتينيز أن الجائزة ستساعد في جعل 'المنتجات المحلية' 'معروفة ومقدرة'. لقد فاز بجائزة في 'فن الطهي' (وليس السينما) ويروج للمكونات 'الأندية' (من جبال الأنديز، وليس الأوروبية)."
+          }
+        },
+        {
+          "id": 16,
+          "question": "El tenista Rafael Nadal...",
+          "audio_transcription": "El tenista español Rafael Nadal confirmó su participación en el próximo torneo de Madrid, tras recuperarse totalmente de su lesión de rodilla. Aunque no ha jugado partidos oficiales en dos meses, su entrenador asegura que está listo para intentar ganar el campeonato de nuevo.",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "no participará en el torneo de Madrid."
+            },
+            {
+              "is_correct": true,
+              "text": "vuelve tras una lesión."
+            },
+            {
+              "is_correct": false,
+              "text": "ha jugado mucho estos dos meses."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la segunda. El texto dice que participa 'tras recuperarse totalmente de su lesión'. La primera opción es falsa porque 'confirmó su participación', y la tercera es falsa porque 'no ha jugado partidos oficiales en dos meses'.",
+            "en": "The correct answer is the second one. The text says he participates 'after fully recovering from his injury.' The first option is false because he 'confirmed his participation,' and the third is false because he 'has not played official matches in two months.'",
+            "de": "Die richtige Antwort ist die zweite. Der Text besagt, dass er teilnimmt, 'nachdem er sich vollständig von seiner Verletzung erholt hat'. Die erste Option ist falsch, weil er 'seine Teilnahme bestätigt hat', und die dritte ist falsch, weil er 'seit zwei Monaten keine offiziellen Spiele bestritten hat'.",
+            "fr": "La bonne réponse est la deuxième. Le texte dit qu'il participe 'après s'être totalement remis de sa blessure'. La première option est fausse car il a 'confirmé sa participation', et la troisième est fausse car il 'n'a pas joué de matchs officiels depuis deux mois'.",
+            "ru": "Правильный ответ — второй. В тексте сказано, что он участвует 'после полного восстановления от травмы'. Первый вариант ложен, так как он 'подтвердил свое участие', а третий ложен, так как он 'не играл официальных матчей в течение двух месяцев'.",
+            "ar": "الإجابة الصحيحة هي الثانية. يقول النص أنه يشارك 'بعد تعافيه تماماً من إصابته'. الخيار الأول خاطئ لأنه 'أكد مشاركته'، والخيار الثالث خاطئ لأنه 'لم يلعب مباريات رسمية منذ شهرين'."
+          }
+        },
+        {
+          "id": 17,
+          "question": "El grupo 'Los Viajeros'...",
+          "audio_transcription": "La banda de rock 'Los Viajeros' canceló su concierto de anoche en Santiago debido a graves problemas técnicos con el sistema de sonido. El grupo ha comunicado en sus redes sociales que devolverá el dinero de las entradas a partir del próximo viernes en las taquillas del estadio.",
+          "options": [
+            {
+              "is_correct": false,
+              "text": "tocó anoche en Santiago."
+            },
+            {
+              "is_correct": true,
+              "text": "tuvo problemas de sonido."
+            },
+            {
+              "is_correct": false,
+              "text": "no devolverá el dinero."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la segunda. La cancelación se debió a 'graves problemas técnicos con el sistema de sonido'. No tocaron anoche (lo 'canceló') y sí devolverán el dinero ('devolverá el dinero').",
+            "en": "The correct answer is the second one. The cancellation was due to 'serious technical problems with the sound system.' They did not play last night (it was 'cancelled') and they will refund the money ('will return the money').",
+            "de": "Die richtige Antwort ist die zweite. Die Absage erfolgte aufgrund 'schwerwiegender technischer Probleme mit dem Soundsystem'. Sie haben gestern Abend nicht gespielt (es wurde 'abgesagt') und sie werden das Geld zurückerstatten ('wird das Geld zurückgeben').",
+            "fr": "La bonne réponse est la deuxième. L'annulation était due à de 'graves problèmes techniques avec le système de sonorisation'. Ils n'ont pas joué hier soir (cela a été 'annulé') et ils rembourseront l'argent ('rendra l'argent').",
+            "ru": "Правильный ответ — второй. Отмена произошла из-за 'серьезных технических проблем со звуковой системой'. Они не играли вчера вечером (концерт был 'отменен'), и они вернут деньги ('вернет деньги').",
+            "ar": "الإجابة الصحيحة هي الثانية. كان الإلغاء بسبب 'مشاكل فنية خطيرة في نظام الصوت'. لم يعزفوا الليلة الماضية (تم 'إلغاؤه') وسيقومون بإرجاع المال ('سيعيد المال')."
+          }
+        },
+        {
+          "id": 18,
+          "question": "La Dirección de Tráfico recomienda...",
+          "audio_transcription": "Para los conductores que salen de la ciudad, la Dirección de Tráfico informa de que hay un accidente en la autopista norte. Se recomienda usar carreteras secundarias hasta que las autoridades retiren los vehículos afectados, una operación que tardará aproximadamente dos horas.",
+          "options": [
+            {
+              "is_correct": true,
+              "text": "evitar la autopista norte."
+            },
+            {
+              "is_correct": false,
+              "text": "salir de la ciudad en dos horas."
+            },
+            {
+              "is_correct": false,
+              "text": "conducir por la autopista."
+            }
+          ],
+          "explanation": {
+            "es": "La respuesta correcta es la primera. Debido a un accidente, se recomienda 'usar carreteras secundarias', lo que implica evitar la autopista. 'Dos horas' es lo que durará la operación, no cuándo se debe salir.",
+            "en": "The correct answer is the first one. Due to an accident, it is recommended to 'use secondary roads,' which implies avoiding the highway. 'Two hours' is how long the operation will take, not when to leave.",
+            "de": "Die richtige Antwort ist die erste. Aufgrund eines Unfalls wird empfohlen, 'Nebenstraßen zu benutzen', was bedeutet, die Autobahn zu meiden. 'Zwei Stunden' dauert der Einsatz, nicht der Zeitpunkt der Abfahrt.",
+            "fr": "La bonne réponse est la première. En raison d'un accident, il est recommandé d''utiliser les routes secondaires', ce qui implique d'éviter l'autoroute. 'Deux heures', c'est la durée de l'opération, pas le moment de partir.",
+            "ru": "Правильный ответ — первый. Из-за аварии рекомендуется 'использовать второстепенные дороги', что подразумевает избегание шоссе. 'Два часа' — это продолжительность операции, а не время выезда.",
+            "ar": "الإجابة الصحيحة هي الأولى. بسبب حادث، يُنصح 'باستخدام الطرق الثانوية'، مما يعني تجنب الطريق السريع. 'ساعتان' هي المدة التي ستستغرقها العملية، وليست وقت المغادرة."
+          }
+        }
+      ]
+    }
+  ]
 }

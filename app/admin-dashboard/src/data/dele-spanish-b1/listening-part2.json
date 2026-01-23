@@ -1,69 +1,17 @@
 {
   "section_details": {
-    "title": "Listening Part 2: Detail Comprehension",
-    "instructions_de": "",
-    "instructions_en": "",
-    "instructions_ar": "",
-    "instructions_ru": "",
-    "instructions_fr": "",
-    "instructions_es": "",
+    "title": "Listening Part 2",
+    "instructions_de": "Sie werden einen Ausschnitt aus einem Programm hören, in dem eine Person erzählt, wie ihr Leben ist. Sie hören die Aufnahme zweimal. Danach müssen Sie die Fragen (7-12) beantworten. Wählen Sie die richtige Antwort (a / b / c). Markieren Sie die gewählten Optionen auf dem Antwortbogen. Sie haben 30 Sekunden Zeit, um die Fragen zu lesen.",
+    "instructions_en": "You are going to listen to a fragment of a program in which a person tells what their life is like. You will listen to the recording twice. Then you must answer the questions (7-12). Select the correct answer (a / b / c). Mark the chosen options on the Answer Sheet. You have 30 seconds to read the questions.",
+    "instructions_ar": "سوف تستمع إلى مقطع من برنامج يروي فيه شخص ما كيف هي حياته. ستستمع إلى التسجيل مرتين. بعد ذلك يجب عليك الإجابة على الأسئلة (7-12). اختر الإجابة الصحيحة (أ / ب / ج). ضع علامة على الخيارات المختارة في ورقة الإجابة. لديك 30 ثانية لقراءة الأسئلة.",
+    "instructions_ru": "Вы услышите фрагмент программы, в которой человек рассказывает о своей жизни. Вы прослушаете запись дважды. После этого вы должны ответить на вопросы (7-12). Выберите правильный ответ (a / b / c). Отметьте выбранные варианты в Бланке ответов. У вас есть 30 секунд, чтобы прочитать вопросы.",
+    "instructions_fr": "Vous allez écouter un fragment d'émission dans lequel une personne raconte comment est sa vie. Vous écouterez l'enregistrement deux fois. Ensuite, vous devrez répondre aux questions (7-12). Sélectionnez la réponse correcte (a / b / c). Marquez les options choisies sur la Feuille de réponses. Vous avez 30 secondes pour lire les questions.",
+    "instructions_es": "Usted va a escuchar un fragmento del programa en el que una persona cuenta cómo es su vida. Escuchará la audición dos veces. Después debe contestar a las preguntas (7-12). Seleccione la respuesta correcta (a / b / c). Marque las opciones elegidas en la Hoja de respuestas. Tiene 30 segundos para leer las preguntas.",
     "duration_minutes": 5,
     "prep_time_seconds": 30
   },
   "exams": [
     {
-      "segments": [
-        {
-          "type": "pause",
-          "durationSeconds": 1
-        },
-        {
-          "type": "ready",
-          "id": "part-2-intro"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 30
-        },
-        {
-          "type": "speech",
-          "speed": 0.85,
-          "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
-          "voiceId": "person3",
-          "id": "full-interview"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "part-2-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "speed": 0.85,
-          "text": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
-          "voiceId": "person3",
-          "id": "full-interview"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "part-2-outro"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        }
-      ],
       "title": "La vida de Mateo en Barcelona",
       "id": "a4d92e18-3b7f-4c91-9e2a-1b5c8d3e4f6a",
       "audio_transcription": "Me llamo Mateo y soy de México. Vivo en Barcelona desde hace ocho años. Al llegar, compartí un piso muy pequeño con cinco estudiantes en el centro de la ciudad porque no tenía mucho dinero. Fue una época caótica, pero muy divertida. Vine a España inicialmente solo para estudiar un máster en fotografía documental, con la idea de regresar a mi país al terminar el curso. Sin embargo, antes de acabar los estudios, conseguí unas prácticas en una revista de moda y poco a poco me fui quedando. Ahora tengo mi propio estudio de fotografía cerca del mar. Me encanta mi trabajo porque no tengo rutina; viajo por toda Cataluña buscando localizaciones para las sesiones de fotos. Aunque extraño la comida de mi tierra, Barcelona es fantástica. Mi mujer es catalana y tenemos una hija de cuatro años. En casa intentamos hablar los dos idiomas, pero es gracioso porque mi hija ya me corrige el acento cuando intento hablar en catalán. Mi gran afición, cuando no estoy trabajando, es cocinar. Empecé a hacerlo por necesidad, porque extrañaba los sabores de mi casa, pero ahora se ha convertido en mi pasión. Los domingos invito a todos nuestros amigos y preparo grandes banquetes con platos mexicanos; es mi forma de mantener viva mi cultura.",
@@ -84,7 +32,15 @@
               "is_correct": false,
               "text": "cerca de la universidad."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Mateo afirma explícitamente: 'compartí un piso muy pequeño con cinco estudiantes'. Esto descarta vivir solo, y aunque menciona el centro, la compañía es el dato clave.",
+            "en": "Mateo explicitly states: 'I shared a very small apartment with five students.' This rules out living alone, and while he mentions the center, the company is the key detail.",
+            "de": "Mateo sagt ausdrücklich: 'Ich teilte mir eine sehr kleine Wohnung mit fünf Studenten.' Dies schließt aus, dass er allein lebte.",
+            "fr": "Mateo déclare explicitement : 'j'ai partagé un appartement très petit avec cinq étudiants'. Cela exclut le fait de vivre seul.",
+            "ru": "Матео прямо заявляет: «Я делил очень маленькую квартиру с пятью студентами». Это исключает вариант проживания в одиночку.",
+            "ar": "يذكر ماتيو صراحةً: 'شاركت شقة صغيرة جدًا مع خمسة طلاب'. هذا ينفي كونه عاش بمفرده."
+          }
         },
         {
           "id": 8,
@@ -102,7 +58,15 @@
               "is_correct": false,
               "text": "conocer la ciudad."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Mateo dice: 'Vine a España inicialmente solo para estudiar un máster'. 'Cursar estudios' es sinónimo de estudiar un máster.",
+            "en": "Mateo says: 'I initially came to Spain just to study for a master's degree.' 'Cursar estudios' (pursuing studies) is synonymous with studying for a master's.",
+            "de": "Mateo sagt: 'Ich kam ursprünglich nach Spanien, nur um einen Master zu machen.' Das entspricht der Option 'ein Studium absolvieren'.",
+            "fr": "Mateo dit : 'Je suis venu en Espagne initialement juste pour étudier un master'. 'Cursar estudios' est synonyme d'étudier.",
+            "ru": "Матео говорит: «Я приехал в Испанию изначально только, чтобы учиться в магистратуре». Это синоним варианта «получить образование».",
+            "ar": "يقول ماتيو: 'جئت إلى إسبانيا في البداية فقط لدراسة الماجستير'. عبارة 'متابعة الدراسات' مرادفة لذلك."
+          }
         },
         {
           "id": 9,
@@ -120,7 +84,15 @@
               "is_correct": false,
               "text": "enseña fotografía documental."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Aunque hizo prácticas en una revista en el pasado, ahora afirma: 'tengo mi propio estudio de fotografía'.",
+            "en": "Although he interned at a magazine in the past, he now states: 'I have my own photography studio.'",
+            "de": "Obwohl er früher ein Praktikum bei einer Zeitschrift gemacht hat, sagt er jetzt: 'Ich habe mein eigenes Fotostudio.'",
+            "fr": "Bien qu'il ait fait un stage dans un magazine par le passé, il déclare maintenant : 'j'ai mon propre studio de photographie'.",
+            "ru": "Хотя в прошлом он проходил стажировку в журнале, сейчас он утверждает: «У меня есть собственная фотостудия».",
+            "ar": "رغم أنه تدرب في مجلة في الماضي، إلا أنه يصرح الآن: 'لدي استوديو تصوير خاص بي'."
+          }
         },
         {
           "id": 10,
@@ -138,7 +110,15 @@
               "is_correct": false,
               "text": "conocer a mucha gente."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Él dice 'me encanta mi trabajo porque no tengo rutina'. La falta de rutina implica variedad de actividades y movimiento.",
+            "en": "He says 'I love my job because I have no routine.' Lack of routine implies a variety of activities and movement.",
+            "de": "Er sagt: 'Ich liebe meine Arbeit, weil ich keine Routine habe.' Fehlende Routine impliziert Abwechslung bei den Tätigkeiten.",
+            "fr": "Il dit 'j'adore mon travail parce que je n'ai pas de routine'. L'absence de routine implique une variété d'activités.",
+            "ru": "Он говорит: «Мне нравится моя работа, потому что у меня нет рутины». Отсутствие рутины подразумевает разнообразие деятельности.",
+            "ar": "يقول 'أحب عملي لأنه ليس لدي روتين'. عدم وجود روتين يعني تنوع الأنشطة."
+          }
         },
         {
           "id": 11,
@@ -156,7 +136,15 @@
               "is_correct": true,
               "text": "le ayuda con el idioma."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Mateo menciona que su hija 'me corrige el acento'. Al corregirle, le está ayudando a perfeccionar el idioma.",
+            "en": "Mateo mentions that his daughter 'corrects my accent.' By correcting him, she is helping him improve the language.",
+            "de": "Mateo erwähnt, dass seine Tochter 'meinen Akzent korrigiert'. Indem sie ihn korrigiert, hilft sie ihm mit der Sprache.",
+            "fr": "Mateo mentionne que sa fille 'corrige mon accent'. En le corrigeant, elle l'aide à perfectionner la langue.",
+            "ru": "Матео упоминает, что дочь «исправляет мой акцент». Исправляя его, она помогает ему с языком.",
+            "ar": "يذكر ماتيو أن ابنته 'تصحح لهجتي'. بتصحيحها له، فهي تساعده في اللغة."
+          }
         },
         {
           "id": 12,
@@ -174,7 +162,15 @@
               "is_correct": false,
               "text": "a su mujer le encanta."
             }
-          ]
+          ],
+          "explanation": {
+            "es": "Dice explícitamente: 'es mi forma de mantener viva mi cultura'. Esto se traduce en conectar con sus orígenes.",
+            "en": "He explicitly says: 'it is my way of keeping my culture alive.' This translates to connecting with his origins.",
+            "de": "Er sagt ausdrücklich: 'Es ist meine Art, meine Kultur am Leben zu erhalten.' Das bedeutet, sich mit seinen Ursprüngen zu verbinden.",
+            "fr": "Il dit explicitement : 'c'est ma façon de garder ma culture vivante'. Cela revient à se connecter avec ses origines.",
+            "ru": "Он прямо говорит: «это мой способ сохранить мою культуру живой». Это означает связь с его корнями.",
+            "ar": "يقول صراحة: 'إنها طريقتي للحفاظ على ثقافتي حية'. هذا يعني التواصل مع أصوله."
+          }
         }
       ]
     }

@@ -90,6 +90,28 @@ import englishB2SpeakingPart3 from './english-b2/speaking-part3.json';
 import englishB2SpeakingImportantPhrases from './english-b2/speaking-important-phrases.json';
 import englishB2ListeningPractice from './english-b2/listening-practice.json';
 
+// Spanish Dele B1
+import spanishDeleB1ExamInfo from './dele-spanish-b1/exam-info.json';
+import spanishDeleB1GrammarPart1 from './dele-spanish-b1/grammar-part1.json';
+import spanishDeleB1GrammarPart2 from './dele-spanish-b1/grammar-part2.json';
+import spanishDeleB1ListeningPart1 from './dele-spanish-b1/listening-part1.json';
+import spanishDeleB1ListeningPart2 from './dele-spanish-b1/listening-part2.json';
+import spanishDeleB1ListeningPart3 from './dele-spanish-b1/listening-part3.json';
+import spanishDeleB1ListeningPart4 from './dele-spanish-b1/listening-part4.json';
+import spanishDeleB1ListeningPart5 from './dele-spanish-b1/listening-part5.json';
+import spanishDeleB1ReadingPart1 from './dele-spanish-b1/reading-part1.json';
+import spanishDeleB1ReadingPart2 from './dele-spanish-b1/reading-part2.json';
+import spanishDeleB1ReadingPart3 from './dele-spanish-b1/reading-part3.json';
+import spanishDeleB1SpeakingPart1 from './dele-spanish-b1/speaking-part1.json';
+import spanishDeleB1SpeakingPart2 from './dele-spanish-b1/speaking-part2.json';
+import spanishDeleB1SpeakingPart3 from './dele-spanish-b1/speaking-part3.json';
+import spanishDeleB1SpeakingPart4 from './dele-spanish-b1/speaking-part4.json';
+import spanishDeleB1WritingPart1 from './dele-spanish-b1/writing-part1.json';
+import spanishDeleB1WritingPart2 from './dele-spanish-b1/writing-part2.json';
+import spanishDeleB1SpeakingImportantPhrases from './dele-spanish-b1/speaking-important-phrases.json';
+import spanishDeleB1GrammarStudyQuestions from './dele-spanish-b1/grammer-study-questions.json';
+import spanishDeleB1ListeningPractice from './dele-spanish-b1/listening-practice.json';
+
 interface AppData {
     'exam-info'?: any;
     'grammar-part1'?: any;
@@ -110,6 +132,10 @@ interface AppData {
     'listening-practice'?: any;
     'writing-part1'?: any;
     'writing-part2'?: any;
+    'listening-part4'?: any;
+    'listening-part5'?: any;
+    'speaking-part4'?: any;
+    'speaking-part5'?: any;
 }
 
 interface AppDataMap {
@@ -205,5 +231,27 @@ export const appDataMap: AppDataMap = {
         'speaking-part3': englishB2SpeakingPart3,
         'speaking-important-phrases': englishB2SpeakingImportantPhrases,
         'listening-practice': englishB2ListeningPractice,
+    },
+    [APP_CONFIGS['dele-spanish-b1'].id]: {
+        'exam-info': spanishDeleB1ExamInfo,
+        'grammar-part1': spanishDeleB1GrammarPart1,
+        'grammar-part2': spanishDeleB1GrammarPart2,
+        'listening-part1': spanishDeleB1ListeningPart1,
+        'listening-part2': spanishDeleB1ListeningPart2,
+        'listening-part3': spanishDeleB1ListeningPart3,
+        'listening-part4': spanishDeleB1ListeningPart4,
+        'listening-part5': spanishDeleB1ListeningPart5,
+        'reading-part1': spanishDeleB1ReadingPart1,
+        'reading-part2': spanishDeleB1ReadingPart2,
+        'reading-part3': spanishDeleB1ReadingPart3,
+        'speaking-part1': spanishDeleB1SpeakingPart1,
+        'speaking-part2': spanishDeleB1SpeakingPart2,
+        'speaking-part3': spanishDeleB1SpeakingPart3,
+        'speaking-part4': spanishDeleB1SpeakingPart4,
+        'writing-part1': spanishDeleB1WritingPart1,
+        'writing-part2': spanishDeleB1WritingPart2,
+        'speaking-important-phrases': spanishDeleB1SpeakingImportantPhrases,
+        'grammar-study-questions': spanishDeleB1GrammarStudyQuestions,
+        'listening-practice': spanishDeleB1ListeningPractice,
     },
 }

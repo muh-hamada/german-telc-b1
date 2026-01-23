@@ -3,14 +3,7 @@ import { Link } from 'react-router-dom';
 import { issueReportsService, IssueReport, IssueReportFilters } from '../services/issue-reports.service';
 import { toast } from 'react-toastify';
 import './IssueReportsPage.css';
-
-const APP_DISPLAY_NAMES: { [key: string]: string } = {
-  'german-b1': 'German B1',
-  'german-b2': 'German B2',
-  'english-b1': 'English B1',
-  'english-b2': 'English B2',
-  'german-a1': 'German A1',
-};
+import { APP_DISPLAY_NAMES } from '../utils/examDisplayName';
 
 const STATUS_LABELS: { [key: string]: string } = {
   'pending': 'Pending',

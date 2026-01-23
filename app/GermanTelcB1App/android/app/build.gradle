@@ -24,7 +24,7 @@ react {
     //   The list of variants to that are debuggable. For those we're going to
     //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.
     //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
-    debuggableVariants = ["germanA1Debug", "germanB1Debug", "germanB2Debug", "englishB1Debug", "englishB2Debug"]
+    debuggableVariants = ["germanA1Debug", "germanB1Debug", "germanB2Debug", "englishB1Debug", "englishB2Debug", "deleSpanishB1Debug"]
 
     /* Bundling */
     //   A list containing the node command and its flags. Default is just 'node'.
@@ -162,6 +162,11 @@ android {
             dimension "exam"
             applicationId "com.mhamada.telcb2english"
             resValue "string", "app_name", "English TELC B2"
+        }
+        deleSpanishB1 {
+            dimension "exam"
+            applicationId "com.mhamada.deleb1spanish"
+            resValue "string", "app_name", "Spanish DELE B1"
         }
     }
     

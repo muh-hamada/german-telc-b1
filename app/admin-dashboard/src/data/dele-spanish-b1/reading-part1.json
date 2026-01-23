@@ -1,3 +1,104 @@
 [
-  
+    {
+        "id": "915325ec-bc00-4e45-a867-6025a5c869af",
+        "title": "Guía variada de programación televisiva",
+        "programs": {
+            "a": "¡Artzooka!\nEste programa desarrolla habilidades manuales de manera lúdica y sencilla. El presentador, Bruno, explica a los niños cómo pueden hacer obras de arte con material de desecho que hay en cualquier lugar de su casa. En el próximo capítulo aprenderemos a hacer unas simpáticas marionetas.",
+            "b": "El escarabajo rojo\nEsta semana el programa estará dedicado al agua, el elemento considerado por muchos expertos como el petróleo del tercer milenio. Un reportaje que analiza en profundidad los pros y los contras de la privatización del agua con expertos en la materia.",
+            "c": "Redes\nEn el próximo capítulo Vlatko Vedral, físico de la Universidad de Oxford, explicará a Eduard Punset cómo los objetos subatómicos pueden estar en más de un sitio a la vez y cómo dos partículas situadas en extremos opuestos de una galaxia pueden compartir información instantáneamente.",
+            "d": "La fuerza del destino\nAdolfo logra hablar a escondidas con Matilde y aclarar los malentendidos. Ella le confiesa que está esperando un hijo. Para salvar la hacienda de la ruina, Humberto obliga a su hija, Matilde, a casarse con el adinerado Mendoza. Cuando Matilde le cuenta a Adolfo los planes de su padre, estos deciden huir juntos",
+            "e": "59 segundos\nCinco expertos en diversos ámbitos disponen de 59 segundos para exponer sus puntos de vista y responder a las cuestiones planteadas en la mesa del plató. Destaca la labor de Mario Casado, que actúa como moderador del programa. El programa se puede seguir en directo por la web, donde los internautas pueden participar a través de las redes sociales.",
+            "f": "La sirena Rita\nRita, la sirena, se da cuenta de que algunos animales del mar están enfermando. La culpa la tiene una bacteria maligna. Veremos cómo, en su lucha por salvar el océano, Rita y el cangrejo Sebastián enseñan a los más pequeños de la casa a respetar el medio ambiente.",
+            "g": "El buscador de historias\nEste programa describe la realidad de manera cercana con un lenguaje coloquial y próximo que crea empatía con el espectador. El hilo conductor es un reportero, y cada programa recoge un solo tema que se expone desde varios puntos de vista.",
+            "h": "Que pase el siguiente\nEl reconocido presentador Carlos Soriano es el encargado de conducir el programa y formular las preguntas a los jugadores. Soriano estará acompañado de actores, cantantes, magos y gente del espectáculo, que a través de distintos números sorprenderán al público y a los espectadores.",
+            "i": "Origen\nHace cinco años una agencia espacial descubrió la posibilidad de vida extraterrestre en nuestro Sistema Solar. Para recolectar muestras, puso en órbita una nave tripulada que alcanzó el objetivo, pero, al regresar a la Tierra, la nave se perdió en la selva de América Central. Así arranca este largometraje, que recibió numerosos premios por sus efectos especiales.",
+            "j": "La inteligencia del pulpo\nEl pulpo es una de las especies más complejas de los océanos. Y también estamos ante la inteligencia más avanzada de todo lo que no respira aire en este planeta. Una clase de inteligencia distinta, extraña, que a veces es capaz de poner los pelos de punta e invitarnos a soñar. O a tener pesadillas."
+        },
+        "questions": [
+            {
+                "id": 1,
+                "persona": "ISABEL",
+                "statement": "Soy una gran aficionada a los programas de divulgación científica. Me interesan sobre todo los programas que hablan del universo.",
+                "answer": "c",
+                "explanation": {
+                    "es": "La respuesta correcta es la C. Isabel busca 'divulgación científica' y temas sobre el 'universo'. El texto C menciona a un físico que explica fenómenos sobre 'objetos subatómicos', 'partículas' y la 'galaxia', lo que encaja perfectamente con el interés científico y astronómico de Isabel.",
+                    "en": "The correct answer is C. Isabel is looking for 'scientific dissemination' and topics regarding the 'universe'. Text C mentions a physicist explaining phenomena about 'subatomic objects', 'particles', and the 'galaxy', which fits perfectly with Isabel's scientific and astronomical interests.",
+                    "de": "Die richtige Antwort ist C. Isabel sucht nach 'wissenschaftlicher Verbreitung' und Themen über das 'Universum'. Text C erwähnt einen Physiker, der Phänomene über 'subatomare Objekte', 'Teilchen' und die 'Galaxie' erklärt, was perfekt zu Isabels wissenschaftlichen und astronomischen Interessen passt.",
+                    "fr": "La bonne réponse est la C. Isabel recherche de la 'vulgarisation scientifique' et des sujets sur l''univers'. Le texte C mentionne un physicien expliquant des phénomènes sur les 'objets subatomiques', les 'particules' et la 'galaxie', ce qui correspond parfaitement aux intérêts scientifiques et astronomiques d'Isabel.",
+                    "ar": "الإجابة الصحيحة هي C. تبحث إيزابيل عن 'نشر المعرفة العلمية' وموضوعات تتعلق بـ 'الكون'. يذكر النص C فيزيائياً يشرح ظواهر حول 'الأجسام دون الذرية' و'الجسيمات' و'المجرة'، وهو ما يتناسب تماماً مع اهتمامات إيزابيل العلمية والفلكية.",
+                    "ru": "Правильный ответ - С. Изабель ищет программы о 'популяризации науки' и темы о 'вселенной'. В тексте С упоминается физик, объясняющий явления о 'субатомных объектах', 'частицах' и 'галактике', что идеально соответствует научным и астрономическим интересам Изабель."
+                }
+            },
+            {
+                "id": 2,
+                "persona": "ÓSCAR",
+                "statement": "Me gusta mantenerme informado de lo que está ocurriendo en cada momento, pero no me conformo solo con una opinión. Por eso los debates son mis programas favoritos. ",
+                "answer": "e",
+                "explanation": {
+                    "es": "La respuesta correcta es la E. Óscar prefiere los 'debates' y escuchar más de una opinión. El texto E describe un programa donde 'expertos... exponen sus puntos de vista' y responden cuestiones en una mesa, formato característico de un debate.",
+                    "en": "The correct answer is E. Óscar prefers 'debates' and listening to more than one opinion. Text E describes a program where 'experts... present their points of view' and answer questions at a table, a format characteristic of a debate.",
+                    "de": "Die richtige Antwort ist E. Óscar bevorzugt 'Debatten' und hört gerne mehr als eine Meinung. Text E beschreibt ein Programm, in dem 'Experten... ihre Standpunkte darlegen' und Fragen an einem Tisch beantworten, ein für eine Debatte charakteristisches Format.",
+                    "fr": "La bonne réponse est la E. Óscar préfère les 'débats' et écouter plus d'une opinion. Le texte E décrit un programme où 'des experts... exposent leurs points de vue' et répondent à des questions autour d'une table, un format caractéristique d'un débat.",
+                    "ar": "الإجابة الصحيحة هي E. يفضل أوسكار 'المناظرات' والاستماع إلى أكثر من رأي. يصف النص E برنامجاً حيث 'يعرض الخبراء... وجهات نظرهم' ويجيبون على الأسئلة على الطاولة، وهو تنسيق مميز للمناظرات.",
+                    "ru": "Правильный ответ - E. Оскар предпочитает 'дебаты' и хочет слышать более одного мнения. Текст E описывает программу, где 'эксперты... излагают свои точки зрения' и отвечают на вопросы за столом, что характерно для формата дебатов."
+                }
+            },
+            {
+                "id": 3,
+                "persona": "TINA",
+                "statement": "Soy muy competitiva y por eso me apasionan los concursos. Los sigo incluso por Internet, porque en muchos de ellos puedes participar a través de las redes sociales. ",
+                "answer": "h",
+                "explanation": {
+                    "es": "La respuesta correcta es la H. La palabra clave es 'concursos'. El texto H describe un programa donde un presentador 'formula las preguntas a los jugadores', lo cual define un concurso. Aunque el texto E menciona redes sociales, es un debate, no un concurso.",
+                    "en": "The correct answer is H. The keyword is 'contests' (concursos). Text H describes a program where a host 'asks questions to the players', which defines a game show/contest. Although Text E mentions social media, it is a debate, not a contest.",
+                    "de": "Die richtige Antwort ist H. Das Schlüsselwort ist 'Wettbewerbe' (concursos). Text H beschreibt ein Programm, in dem ein Moderator 'den Spielern Fragen stellt', was eine Spielshow definiert. Obwohl Text E soziale Medien erwähnt, handelt es sich um eine Debatte, nicht um einen Wettbewerb.",
+                    "fr": "La bonne réponse est la H. Le mot-clé est 'concours'. Le texte H décrit un programme où un présentateur 'pose des questions aux joueurs', ce qui définit un jeu télévisé. Bien que le texte E mentionne les réseaux sociaux, c'est un débat, pas un concours.",
+                    "ar": "الإجابة الصحيحة هي H. الكلمة المفتاحية هي 'مسابقات'. يصف النص H برنامجاً حيث يقوم مقدم البرنامج بـ 'طرح الأسئلة على اللاعبين'، وهو ما يعرف المسابقات. على الرغم من أن النص E يذكر وسائل التواصل الاجتماعي، إلا أنه مناظرة وليس مسابقة.",
+                    "ru": "Правильный ответ - H. Ключевое слово - 'конкурсы'. Текст H описывает программу, где ведущий 'задает вопросы игрокам', что определяет игровое шоу. Хотя текст E упоминает социальные сети, это дебаты, а не конкурс."
+                }
+            },
+            {
+                "id": 4,
+                "persona": "ADRIÁN",
+                "statement": "Soy aficionado al buceo y me encantan los animales, así que no me pierdo los documentales que te ayudan a descubrir la espectacular fauna marina.",
+                "answer": "j",
+                "explanation": {
+                    "es": "La respuesta correcta es la J. Adrián está interesado en la 'fauna marina' y el 'buceo'. El texto J es un documental dedicado específicamente al 'pulpo' y a las especies de los 'océanos', coincidiendo con sus intereses.",
+                    "en": "The correct answer is J. Adrián is interested in 'marine fauna' and 'diving'. Text J is a documentary specifically dedicated to the 'octopus' and 'ocean' species, matching his interests.",
+                    "de": "Die richtige Antwort ist J. Adrián interessiert sich für 'Meeresfauna' und 'Tauchen'. Text J ist ein Dokumentarfilm, der sich speziell dem 'Oktopus' und den Arten der 'Ozeane' widmet und seinen Interessen entspricht.",
+                    "fr": "La bonne réponse est la J. Adrián s'intéresse à la 'faune marine' et à la 'plongée'. Le texte J est un documentaire spécifiquement consacré à la 'pieuvre' et aux espèces des 'océans', correspondant à ses intérêts.",
+                    "ar": "الإجابة الصحيحة هي J. أدريان مهتم بـ 'الكائنات البحرية' و'الغوص'. النص J هو فيلم وثائقي مخصص تحديداً لـ 'الأخطبوط' وأنواع 'المحيطات'، مما يتطابق مع اهتماماته.",
+                    "ru": "Правильный ответ - J. Адриан интересуется 'морской фауной' и 'дайвингом'. Текст J — это документальный фильм, посвященный конкретно 'осьминогу' и видам 'океанов', что соответствует его интересам."
+                }
+            },
+            {
+                "id": 5,
+                "persona": "EVA MARÍA",
+                "statement": "Desde que tuve a Carla, apenas tengo tiempo para ver la televisión. Lo único que puedo ver son los dibujos que echan mientras le doy la merienda.",
+                "answer": "f",
+                "explanation": {
+                    "es": "La respuesta correcta es la F. Eva María ve 'dibujos' (animación) con su hija. El texto F describe una historia con personajes fantásticos como 'La sirena Rita' y animales que hablan, dirigida a 'los más pequeños', lo cual es típico de los dibujos animados.",
+                    "en": "The correct answer is F. Eva María watches 'cartoons' (dibujos) with her daughter. Text F describes a story with fantasy characters like 'Rita the mermaid' and talking animals, aimed at 'the little ones', which is typical of cartoons.",
+                    "de": "Die richtige Antwort ist F. Eva María schaut 'Zeichentrickfilme' mit ihrer Tochter. Text F beschreibt eine Geschichte mit Fantasiefiguren wie 'Rita, die Meerjungfrau' und sprechenden Tieren, die sich an 'die Kleinen' richtet, was typisch für Zeichentrickfilme ist.",
+                    "fr": "La bonne réponse est la F. Eva María regarde des 'dessins animés' avec sa fille. Le texte F décrit une histoire avec des personnages fantastiques comme 'Rita la sirène' et des animaux qui parlent, destinée aux 'tous petits', ce qui est typique des dessins animés.",
+                    "ar": "الإجابة الصحيحة هي F. تشاهد إيفا ماريا 'الرسوم المتحركة' مع ابنتها. يصف النص F قصة بشخصيات خيالية مثل 'الحورية ريتا' وحيوانات تتكلم، موجهة لـ 'الصغار'، وهو أمر معتاد في الرسوم المتحركة.",
+                    "ru": "Правильный ответ - F. Ева Мария смотрит 'мультфильмы' со своей дочерью. Текст F описывает историю с фантастическими персонажами, такими как 'русалка Рита' и говорящие животные, предназначенную для 'самых маленьких', что типично для мультфильмов."
+                }
+            },
+            {
+                "id": 6,
+                "persona": "DAVID",
+                "statement": "Quiero transmitir a mis alumnos de secundaria la importancia de estar concienciado con los problemas medioambientales. Y una manera de hacerlo es viendo programas que traten de estos temas.",
+                "answer": "b",
+                "explanation": {
+                    "es": "La respuesta correcta es la B. David quiere material sobre 'problemas medioambientales' para alumnos de 'secundaria' (adolescentes). El texto B analiza un tema serio como la privatización del agua ('petróleo del tercer milenio'), adecuado para un nivel educativo superior, a diferencia del texto F que es infantil.",
+                    "en": "The correct answer is B. David wants material on 'environmental problems' for 'secondary school' students (teenagers). Text B analyzes a serious issue like water privatization ('oil of the third millennium'), suitable for a higher educational level, unlike Text F which is for children.",
+                    "de": "Die richtige Antwort ist B. David möchte Material über 'Umweltprobleme' für 'Sekundarschüler' (Teenager). Text B analysiert ein ernstes Thema wie die Wasserprivatisierung ('Öl des dritten Jahrtausends'), das für ein höheres Bildungsniveau geeignet ist, im Gegensatz zu Text F, der für Kinder ist.",
+                    "fr": "La bonne réponse est la B. David veut du matériel sur les 'problèmes environnementaux' pour des élèves du 'secondaire' (adolescents). Le texte B analyse un sujet sérieux comme la privatisation de l'eau ('pétrole du troisième millénaire'), adapté à un niveau éducatif supérieur, contrairement au texte F qui est pour les enfants.",
+                    "ar": "الإجابة الصحيحة هي B. يريد ديفيد مواد حول 'المشاكل البيئية' لطلاب 'المدرسة الثانوية' (المراهقين). يحلل النص B قضية جادة مثل خصخصة المياه ('نفط الألفية الثالثة')، وهي مناسبة لمستوى تعليمي أعلى، على عكس النص F المخصص للأطفال.",
+                    "ru": "Правильный ответ - B. Дэвид ищет материал об 'экологических проблемах' для учеников 'средней школы' (подростков). Текст B анализирует серьезную проблему, такую как приватизация воды ('нефть третьего тысячелетия'), что подходит для более высокого образовательного уровня, в отличие от текста F, который предназначен для детей."
+                }
+            }
+        ]
+    }
 ]

@@ -58,6 +58,12 @@
 				<string>com.googleusercontent.apps.494473710301-63ilcobt6cbntob4p2g4u69v0klad0fo</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.494473710301-oe06tov68dvtedpiubfv5cm09qlmr3ds</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>

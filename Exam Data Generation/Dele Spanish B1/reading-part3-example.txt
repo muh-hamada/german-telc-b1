@@ -22,7 +22,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
       "person": "Nicolás",
       "text": "Mi hijo tiene seis años. A esa edad los niños tienen una energía agotadora y, cuantos más niños hay, más energía parecen tener. Por eso hice caso a mis padres, que viven en una urbanización, y celebré el cumpleaños en su casa. Para evitar las quejas, pedí permiso a todos los vecinos.\nCelebramos el cumpleaños en la zona comunitaria ajardinada de la urbanización, lo que me permitió organizar actividades que en el salón de casa hubiera sido complicado llevar a cabo. Por ejemplo, contraté a unos payasos que lograron entretener un buen rato a los niños.\nTambién organizamos una fiesta de disfraces, y al final los críos votaron el disfraz más original, el más divertido..., y entregamos un obsequio a cada uno de los niños."
     }
-  }
+  },
   "questions": [
     {
       "id": 13,

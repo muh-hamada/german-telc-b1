@@ -1,5 +1,102 @@
 {
   "exams": [
-    
+    {
+      "id": "ab066599-c197-44b7-9f1d-4198d3780fdd",
+      "title": "Tres Formas de Organizar Fiestas Infantiles",
+      "texts": {
+        "a": {
+          "person": "Pablo",
+          "text": "Debía decorar el salón para el cumpleaños de mi hijo pequeño, pero mi presupuesto era bajo y no resultaba fácil. De repente se me ocurrió: ¡cubrir las paredes con carteles! Todo lo que les guste a los niños está bien: sus actores y cantantes favoritos de TV, los personajes de los dibujos animados, etc.\nEn una de las paredes del salón puse un gran papel blanco que la cubría entera para que los niños hicieran sus propias creaciones con pinturas al agua, ya que estas se lavan fácilmente. Fue un éxito rotundo. Los niños disfrutaron mucho dejando volar su imaginación y manchándose las manos y la pared sin que ningún adulto les riñera. Al final, cada pequeño recibió un premio como recompensa a su esfuerzo creativo."
+        },
+        "b": {
+          "person": "Ana",
+          "text": "Creo firmemente que hay que ser respetuoso con el medio ambiente. Por eso decidí organizar un cumpleaños un poco diferente a lo que estaba acostumbrada, aunque eso representara un mayor esfuerzo y gasto.\nEmpecé con el tema de las invitaciones. Usé Internet en lugar de invitaciones de papel, así ahorré papel y dinero. Luego también compré vasos y platos reutilizables en vez de comprarlos de papel.\nPara la decoración, rechacé la idea de usar globos, que a menudo explotan antes de que finalice la fiesta. En su lugar, utilicé papel reciclado para hacer flores y carteles e hice sombreros de fiesta que los niños colorearon con pinturas y les sirvieron de disfraz"
+        },
+        "c": {
+          "person": "Nicolás",
+          "text": "Mi hijo tiene seis años. A esa edad los niños tienen una energía agotadora y, cuantos más niños hay, más energía parecen tener. Por eso hice caso a mis padres, que viven en una urbanización, y celebré el cumpleaños en su casa. Para evitar las quejas, pedí permiso a todos los vecinos.\nCelebramos el cumpleaños en la zona comunitaria ajardinada de la urbanización, lo que me permitió organizar actividades que en el salón de casa hubiera sido complicado llevar a cabo. Por ejemplo, contraté a unos payasos que lograron entretener un buen rato a los niños.\nTambién organizamos una fiesta de disfraces, y al final los críos votaron el disfraz más original, el más divertido..., y entregamos un obsequio a cada uno de los niños."
+        }
+      },
+      "questions": [
+        {
+          "id": 13,
+          "question": "¿Qué persona dice que celebraron la fiesta al aire libre?",
+          "answer": "c",
+          "explanation": {
+            "ar": "تذكر القصة (ج) أن الحفل أقيم في 'المنطقة المشتركة ذات الحدائق'، مما يشير إلى مكان خارجي.",
+            "de": "Text C erwähnt, dass die Feier in der 'zona comunitaria ajardinada' (gemeinschaftlicher Gartenbereich) stattfand, was auf einen Ort im Freien hinweist.",
+            "en": "Text C mentions that the party was held in the 'zona comunitaria ajardinada' (communal garden area), indicating an outdoor location.",
+            "fr": "Le texte C mentionne que la fête a eu lieu dans la 'zona comunitaria ajardinada' (jardin commun), ce qui indique un lieu en plein air.",
+            "ru": "В тексте С упоминается, что вечеринка проходила в 'zona comunitaria ajardinada' (общей садовой зоне), что указывает на место на открытом воздухе.",
+            "es": "El texto C menciona que la fiesta se celebró en la 'zona comunitaria ajardinada', lo que indica que fue al aire libre."
+          }
+        },
+        {
+          "id": 14,
+          "question": "¿Qué persona dice que en la fiesta hubo un espectáculo?",
+          "answer": "c",
+          "explanation": {
+            "ar": "يذكر نيكولاس في النص (ج) أنه استأجر مهرجين ('contraté a unos payasos') للترفيه عن الأطفال، وهو ما يعد عرضاً.",
+            "de": "Nicolás erwähnt in Text C, dass er Clowns engagiert hat ('contraté a unos payasos'), um die Kinder zu unterhalten, was als Show gilt.",
+            "en": "Nicolás mentions in Text C that he hired clowns ('contraté a unos payasos') to entertain the children, which counts as a show or spectacle.",
+            "fr": "Nicolás mentionne dans le texte C qu'il a engagé des clowns ('contraté a unos payasos') pour divertir les enfants, ce qui constitue un spectacle.",
+            "ru": "Николас упоминает в тексте С, что нанял клоунов ('contraté a unos payasos') для развлечения детей, что считается представлением.",
+            "es": "Nicolás menciona en el texto C que contrató a unos payasos ('contraté a unos payasos') para entretener a los niños, lo cual constituye un espectáculo."
+          }
+        },
+        {
+          "id": 15,
+          "question": "¿Qué persona dice que organizar el cumpleaños le supuso más trabajo del habitual?",
+          "answer": "b",
+          "explanation": {
+            "ar": "تقول آنا في النص (ب) أن تنظيم حفل صديق للبيئة تطلب 'جهداً ونفقات أكبر' ('mayor esfuerzo y gasto') مما اعتادت عليه.",
+            "de": "Ana gibt in Text B an, dass die Organisation einer umweltfreundlichen Party 'mayor esfuerzo y gasto' (größeren Aufwand und Kosten) bedeutete, als sie es gewohnt war.",
+            "en": "Ana states in Text B that organizing an eco-friendly party represented 'mayor esfuerzo y gasto' (greater effort and expense) than what she was used to.",
+            "fr": "Ana déclare dans le texte B qu'organiser une fête écologique a représenté 'mayor esfuerzo y gasto' (un plus grand effort et une plus grande dépense) par rapport à ce dont elle avait l'habitude.",
+            "ru": "Ана утверждает в тексте B, что организация экологически чистой вечеринки потребовала 'mayor esfuerzo y gasto' (больших усилий и расходов), чем обычно.",
+            "es": "Ana afirma en el texto B que organizar una fiesta respetuosa con el medio ambiente representó 'mayor esfuerzo y gasto' de lo que estaba acostumbrada."
+          }
+        },
+        {
+          "id": 16,
+          "question": "¿Qué persona dice que disponía de poco dinero para los adornos?",
+          "answer": "a",
+          "explanation": {
+            "ar": "يذكر بابلو في النص (أ) صراحة أن ميزانيته كانت منخفضة ('mi presupuesto era bajo') لتزيين غرفة المعيشة.",
+            "de": "Pablo erwähnt in Text A ausdrücklich, dass sein Budget niedrig war ('mi presupuesto era bajo'), um das Wohnzimmer zu dekorieren.",
+            "en": "Pablo explicitly mentions in Text A that his budget was low ('mi presupuesto era bajo') for decorating the living room.",
+            "fr": "Pablo mentionne explicitement dans le texte A que son budget était bas ('mi presupuesto era bajo') pour décorer le salon.",
+            "ru": "Пабло прямо упоминает в тексте А, что его бюджет был низким ('mi presupuesto era bajo') для украшения гостиной.",
+            "es": "Pablo menciona explícitamente en el texto A que su presupuesto era bajo ('mi presupuesto era bajo') para decorar el salón."
+          }
+        },
+        {
+          "id": 17,
+          "question": "¿Qué persona dice que su idea triunfó entre los niños?",
+          "answer": "a",
+          "explanation": {
+            "ar": "يصف بابلو نشاط الرسم بأنه 'نجاح باهر' ('éxito rotundo') ويذكر كم استمتع الأطفال به.",
+            "de": "Pablo beschreibt die Malaktion als 'éxito rotundo' (durchschlagenden Erfolg) und erwähnt, wie sehr die Kinder es genossen haben.",
+            "en": "Pablo describes the painting activity as an 'éxito rotundo' (resounding success) and notes how much the children enjoyed it.",
+            "fr": "Pablo décrit l'activité de peinture comme un 'éxito rotundo' (succès retentissant) et note à quel point les enfants l'ont appréciée.",
+            "ru": "Пабло описывает рисование как 'éxito rotundo' (огромный успех) и отмечает, как сильно детям это понравилось.",
+            "es": "Pablo describe la actividad de pintura como un 'éxito rotundo' y señala cuánto disfrutaron los niños."
+          }
+        },
+        {
+          "id": 18,
+          "question": "¿Qué persona dice que hubo un concurso en la celebración?",
+          "answer": "c",
+          "explanation": {
+            "ar": "يشير النص (ج) إلى مسابقة حيث قام الأطفال بالتصويت لأكثر زي أصالة ('votaron el disfraz más original').",
+            "de": "Text C weist auf einen Wettbewerb hin, bei dem die Kinder über das originellste Kostüm abstimmten ('votaron el disfraz más original').",
+            "en": "Text C indicates a competition where the children voted for the most original costume ('votaron el disfraz más original').",
+            "fr": "Le texte C indique une compétition où les enfants ont voté pour le costume le plus original ('votaron el disfraz más original').",
+            "ru": "В тексте C говорится о конкурсе, где дети голосовали за самый оригинальный костюм ('votaron el disfraz más original').",
+            "es": "El texto C indica que hubo una competición donde los niños votaron el disfraz más original ('votaron el disfraz más original')."
+          }
+        }
+      ]
+    }
   ]
 }

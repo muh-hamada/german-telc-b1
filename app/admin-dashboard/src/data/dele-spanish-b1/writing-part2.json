@@ -1,5 +1,17 @@
 {
   "exams": [
-    
+    {
+      "title": "Historias de Comida y Momentos Únicos",
+      "id": "6db73e0f-bb1d-4b4d-b872-d6e3c2407d20",
+      "modalAnswer": "¡Hola a todos los lectores del blog!\n\nMe encanta vuestra iniciativa, así que me gustaría compartir con vosotros un recuerdo muy bonito.\n\nEl momento que he elegido es el día de mi graduación universitaria, hace tres años. Estaba reunido con toda mi familia (mis padres, tíos y primos) y algunos amigos para celebrar que por fin había terminado mis estudios.\n\nPara la ocasión, comimos una paella de marisco gigantesca y deliciosa. La comida fue preparada por mi abuelo, que tiene una receta secreta, con la ayuda de mi madre.\n\nRecuerdo este día como algo especial porque fue la primera vez en mucho tiempo que logramos reunirnos todos en la misma mesa sin prisas. Además, el sabor de esa paella siempre me recordará a la alegría de aquel logro compartido.\n\n¡Un saludo!",
+      "writingPoints": [
+        "de qué momento se trataba;",
+        "con quién estaba usted y por qué;",
+        "qué comió;",
+        "quién preparó la comida;",
+        "por qué lo recuerda como un momento especial."
+      ],
+      "publishedMessage": "En nuestro blog de gastronomía estamos recopilando colaboraciones de nuestros seguidores sobre la importancia de la comida en los momentos especiales de la vida. Nos gustaría que nos contarais vuestra experiencia de uno de esos momentos de vuestra vida personal, profesional o familiar."
+    }
   ]
 }

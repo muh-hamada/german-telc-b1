@@ -1,5 +1,77 @@
 {
   "exams": [
-    
+    {
+      "id": "92403902-9838-46b1-a0ec-5cc3fd775965",
+      "title": "La Historia de La @ (ARROBA)",
+      "text": "Es posible que usted crea que la arroba es un invento propio de la «era Internet», un símbolo creado para dar forma a las direcciones de correo electrónico. Sin embargo, su origen es mucho más antiguo.\n[19]. En cuanto al símbolo @, esa especie de «a» encerrada en un círculo, se sabe que tiene sus orígenes en la Edad Media, y que era utilizado por los encargados de copiar libros en latín, por supuesto a mano. [20]. Parece lógico que fuera una forma de ahorrar trabajo cuando se tenían que escribir decenas de veces cientos de páginas.\nUno de los documentos más antiguos en el que aparece el símbolo @ es una carta enviada desde Sevilla a Roma por un mercader italiano en 1536. [21]. En la carta puede leerse lo siguiente: «Así, una @ de vino, que es 1/13 de un barril, vale 70 ducados». En ese contexto, representaba sin duda una unidad de medida.\nCon el paso del tiempo, la arroba dejó de utilizarse de forma generalizada, aunque se siguió usando en algunos lugares. [22]. Solía aparecer en medio de la descripción de una operación: «15 cajas @ 5 dólares», que venía a significar ’15 cajas a 5 dólares cada caja’. Tiene sentido, ya que en inglés «@» se dice «at», que significa ‘a’ (y también ‘en’, ‘de’ y ‘hacia’). [23].\nLa relación de la «@» con el correo electrónico es muy posterior. Data de 1971, cuando el ingeniero Ray Tomlinson, creador del correo electrónico, buscaba un signo que sirviese para separar el nombre de la persona de la dirección de destino. [24].\nEn los últimos años, para evitar la discriminación por género, se está extendiendo la costumbre de utilizar la «@» como recurso gráfico para integrar en una sola palabra las formas masculina y femenina de los sustantivos y adjetivos. Con este signo, que incluye en su trazo las vocales «a» y «o», se consigue economizar y evitar el repetitivo «–o/-a»",
+      "fragments": {
+        "a": "Ellos escribían «@» uniendo las letras «a » y «d » para formar la preposición «ad», que en castellano significa ‘hasta’.",
+        "b": "En aquel momento uno de los pocos signos disponibles en los teclados era el de la «@»; por eso lo eligió.",
+        "c": "Por ejemplo, el símbolo se mantuvo en Estados Unidos, donde se empleaba en las facturas para referirse al precio de un producto.",
+        "d": "Esto hizo que cuando se inventó la máquina de escribir el símbolo de la arroba se incluyera en su teclado.",
+        "e": "Entonces la «@» empezó a aparecer en las cartas oficiales redactadas en latín antes del nombre de su destinatario.",
+        "f": "La mayoría de los historiadores aceptan que la palabra arroba proviene del árabe roub, que significa ‘cuarta parte’.",
+        "g": "Y, como el teclado de los ordenadores es una evolución de los de aquellas máquinas, la arroba también se encuentra en ellos.",
+        "h": "En dicho escrito se detalla la llegada de tres barcos provenientes de América cargados de tesoros."
+      },
+      "answers": {
+        "19": "f",
+        "20": "a",
+        "21": "h",
+        "22": "c",
+        "23": "d",
+        "24": "b"
+      },
+      "explanation": {
+        "19": {
+          "ar": "يربط النص بين أصل الرمز والأصل اللغوي للكلمة. الفقرة تشرح الأصل التاريخي، والقطعة (f) توضح أن كلمة 'arroba' مشتقة من العربية 'الربع'.",
+          "de": "Der Text verbindet den Ursprung des Symbols mit der Etymologie des Wortes. Fragment (f) erklärt, dass 'arroba' vom arabischen 'roub' abstammt, was in den Kontext der historischen Herkunft passt.",
+          "en": "The text discusses the ancient origin of the symbol. Fragment (f) fits here as it provides the etymological origin of the word 'arroba' (from Arabic), serving as an introduction to the history.",
+          "fr": "Le texte évoque l'origine ancienne du symbole. Le fragment (f) s'insère ici car il fournit l'origine étymologique du mot 'arroba' (de l'arabe), servant d'introduction à son histoire.",
+          "ru": "Текст обсуждает древнее происхождение символа. Фрагмент (f) подходит сюда, так как объясняет этимологию слова 'arroba' (из арабского языка), что служит введением в историю.",
+          "es": "El texto discute el origen antiguo del símbolo. El fragmento (f) encaja aquí ya que proporciona el origen etimológico de la palabra 'arroba' (del árabe), sirviendo de introducción a la historia."
+        },
+        "20": {
+          "ar": "يتحدث النص عن نسخ الكتب باللاتينية يدويًا. تشرح القطعة (a) كيف قام النساخ بدمج الحرفين 'a' و 'd' لتوفير الجهد، وهو ما يتماشى مع السياق.",
+          "de": "Der Text erwähnt das manuelle Kopieren lateinischer Bücher. Fragment (a) erklärt die Methode der Schreiber, 'a' und 'd' zu verbinden, um Arbeit zu sparen, was logisch zum Kontext passt.",
+          "en": "The text mentions copying Latin books by hand. Fragment (a) explains the specific technique used by scribes (combining 'a' and 'd') to save effort, linking directly to the 'saving work' mentioned next.",
+          "fr": "Le texte mentionne la copie manuelle de livres en latin. Le fragment (a) explique la technique spécifique des scribes (combinant 'a' et 'd') pour économiser de l'effort, ce qui est logique dans ce contexte.",
+          "ru": "В тексте упоминается переписывание латинских книг вручную. Фрагмент (a) объясняет технику писцов (соединение 'a' и 'd') для экономии усилий, что логично вписывается в контекст.",
+          "es": "El texto menciona la copia manual de libros en latín. El fragmento (a) explica la técnica específica de los escribas (combinar 'a' y 'd') para ahorrar esfuerzo, lo cual enlaza con la idea de 'ahorrar trabajo'."
+        },
+        "21": {
+          "ar": "يشير النص إلى 'رسالة' (una carta). تستخدم القطعة (h) عبارة 'dicho escrito' (المكتوب المذكور) للإشارة إلى تلك الرسالة، مما يخلق رابطًا نصيًا قويًا.",
+          "de": "Der Text erwähnt 'una carta' (einen Brief). Fragment (h) bezieht sich darauf mit 'dicho escrito' (besagtes Schreiben), was eine klare textliche Verbindung herstellt.",
+          "en": "The text mentions 'una carta' (a letter). Fragment (h) refers back to it as 'dicho escrito' (said writing), creating a cohesive link between the merchant's letter and its content.",
+          "fr": "Le texte mentionne 'una carta' (une lettre). Le fragment (h) y fait référence par 'dicho escrito' (ledit écrit), créant un lien cohésif entre la lettre du marchand et son contenu.",
+          "ru": "В тексте упоминается 'una carta' (письмо). Фрагмент (h) ссылается на него как 'dicho escrito' (упомянутое писание), создавая логическую связь.",
+          "es": "El texto menciona 'una carta'. El fragmento (h) hace referencia a ella como 'dicho escrito', creando un vínculo cohesivo entre la carta del mercader y su contenido general."
+        },
+        "22": {
+          "ar": "يشير النص إلى أن الرمز استمر استخدامه في 'بعض الأماكن'. تعطي القطعة (c) مثالًا محددًا على ذلك (الولايات المتحدة) واستخدامه في الفواتير.",
+          "de": "Der Text sagt, das Symbol wurde an 'einigen Orten' weiter verwendet. Fragment (c) konkretisiert dies mit dem Beispiel der USA und der Nutzung auf Rechnungen.",
+          "en": "The text states the symbol continued to be used in 'some places'. Fragment (c) provides the specific example (United States) and its commercial context, which explains the following example regarding dollars.",
+          "fr": "Le texte indique que le symbole a continué d'être utilisé dans 'certains endroits'. Le fragment (c) donne l'exemple précis (États-Unis) et son contexte commercial, introduisant l'exemple suivant sur les dollars.",
+          "ru": "Текст гласит, что символ продолжал использоваться в 'некоторых местах'. Фрагмент (c) приводит конкретный пример (США) и коммерческий контекст, объясняя следующий пример с долларами.",
+          "es": "El texto indica que el símbolo se siguió usando en 'algunos lugares'. El fragmento (c) proporciona el ejemplo específico (Estados Unidos) y su contexto comercial, lo que da paso al ejemplo de los dólares."
+        },
+        "23": {
+          "ar": "يشرح النص الاستخدام التجاري للرمز. توضح القطعة (d) النتيجة: بسبب أهميته التجارية، تمت إضافته إلى لوحة مفاتيح الآلة الكاتبة.",
+          "de": "Der Text erklärt die kommerzielle Nutzung. Fragment (d) nennt die Folge: Wegen dieser Bedeutung wurde das Symbol in die Schreibmaschinentastatur aufgenommen.",
+          "en": "The previous text explains the commercial utility of the symbol. Fragment (d) acts as a consequence ('Esto hizo que...'), explaining that its commercial value led to its inclusion on typewriter keyboards.",
+          "fr": "Le texte précédent explique l'utilité commerciale du symbole. Le fragment (d) agit comme une conséquence ('Esto hizo que...'), expliquant que sa valeur a conduit à son inclusion sur les claviers de machines à écrire.",
+          "ru": "Предыдущий текст объясняет коммерческую пользу символа. Фрагмент (d) выступает как следствие, объясняя, что его ценность привела к включению в клавиатуры печатных машинок.",
+          "es": "El texto anterior explica la utilidad comercial. El fragmento (d) actúa como una consecuencia ('Esto hizo que...'), explicando que su valor comercial llevó a su inclusión en los teclados de las máquinas de escribir."
+        },
+        "24": {
+          "ar": "كان راي توملينسون يبحث عن رمز فاصل. تشرح القطعة (b) سبب اختياره للرمز @: لأنه كان متاحًا بالفعل على لوحة المفاتيح.",
+          "de": "Ray Tomlinson suchte ein Trennzeichen. Fragment (b) liefert die Lösung: Er wählte das @-Zeichen, weil es bereits auf der Tastatur verfügbar war.",
+          "en": "Ray Tomlinson was looking for a separator sign. Fragment (b) provides the solution and reason: he chose '@' simply because it was already available on standard keyboards.",
+          "fr": "Ray Tomlinson cherchait un signe séparateur. Le fragment (b) donne la solution et la raison : il a choisi '@' simplement parce qu'il était déjà disponible sur les claviers.",
+          "ru": "Рэй Томлинсон искал знак-разделитель. Фрагмент (b) дает решение и причину: он выбрал '@' просто потому, что тот уже был доступен на клавиатуре.",
+          "es": "Ray Tomlinson buscaba un signo separador. El fragmento (b) ofrece la solución y la razón: eligió la '@' simplemente porque ya estaba disponible en los teclados de la época."
+        }
+      }
+    }
   ]
 }

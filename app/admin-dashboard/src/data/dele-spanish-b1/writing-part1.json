@@ -1,5 +1,17 @@
 {
   "exams": [
-    
+    {
+      "title": "Reencuentro y Planes entre Amigos",
+      "id": "658047de-24d5-46e6-8a12-ef04d9febffd",
+      "modalAnswer": "¡Hola, Diego!\n\n¡Qué alegría recibir noticias tuyas! Perdona que no te haya escrito antes, pero he estado muy ocupado estas últimas semanas.\n\nEs verdad, ¡lo de Miguel fue una casualidad increíble! Te cuento: fui a Madrid el fin de semana pasado porque tenía que asistir a un curso de formación para mi trabajo. Justo cuando estaba paseando por la Gran Vía, me encontré con él.\n\nComo los dos teníamos la tarde libre, decidimos ir a comer unas tapas al Mercado de San Miguel y después estuvimos caminando por el Parque del Retiro hasta que anocheció. Nos reímos mucho recordando viejos tiempos.\n\nSobre mi viaje a Barcelona, ¡no se me ha olvidado! Tengo pensado ir a visitarte el próximo mes, durante el puente de mayo. Ya he mirado los billetes de tren. ¿Te viene bien esa fecha? Escríbeme pronto y confirmamos los planes.\n\nUn fuerte abrazo,\nAlex",
+      "writingPoints": [
+        "saludar;",
+        "contar los motivos del viaje a Madrid;",
+        "decir dónde y cómo fue el encuentro con Miguel y qué hicieron juntos;",
+        "explicar cuándo tiene pensado ir a Barcelona;",
+        "despedirse."
+      ],
+      "incomingEmail": "¡Cuánto tiempo sin saber de ti! Hace semanas que quería escribirte pero no he podido hasta ahora. Estuve con Miguel y me dijo que os habíais encontrado por casualidad en Madrid y que pasasteis el día juntos, pero no me contó más. ¿Qué hacías tú en Madrid? Escríbeme y cuéntame lo que hicisteis.\n\nA ver si nos vemos pronto. ¿Cuándo vas a venir a verme a Barcelona? Llevo meses esperando tu visita.\n\nUn abrazo,\nDiego"
+    }
   ]
 }

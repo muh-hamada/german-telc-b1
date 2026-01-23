@@ -1,5 +1,3 @@
-Batch 1 – DELE Spanish B1 Grammar Sentences
-
 Mañana **voy** a empezar un nuevo trabajo. (iré, iba)
 
 Cuando era niño, **vivía** en un pueblo pequeño. (viví, vivo)
@@ -79,23 +77,6 @@ Llegamos **tarde** al concierto. (tardes, tardar)
 Me dijo que **estaría** de vuelta a las ocho. (está, estuvo)
 
 Antes de salir, **apaga** las luces. (apagó, apagar)
-
-If you like this structure, I’ll continue with Batch 2 (next 40) and make sure:
-
-Grammar coverage stays balanced
-
-Difficulty stays strictly B1
-
-Sentences are reusable directly in your JSON pipeline
-
-Just say “send batch 2” or tell me if you want adjustments (more subjunctive, more pronouns, exam-style wording, etc.).
-
-batch 2
-
-Nice 😄
-Here’s Batch 2 (40 more sentences) — same rules: DELE B1 level, mixed grammar, one gap, and two distractors each.
-
-Batch 2 – DELE Spanish B1 Grammar Sentences
 
 No creo que **sea** una buena idea salir tan tarde. (es, será)
 
@@ -177,23 +158,6 @@ Busco un trabajo **donde** pueda crecer profesionalmente. (que, quien)
 
 **Antes** de acostarte, apaga el móvil. (Después, Durante)
 
-Next up I can:
-
-▶️ Continue with Batch 3 (81–120)
-
-🎯 Focus more on subjuntivo / por vs para / ser vs estar
-
-🧩 Slightly increase difficulty (upper B1)
-
-Just tell me how you want to proceed.
-
-batch 3
-
-You got it 👍
-Here’s Batch 3 (40 more sentences) — numbers 81–120, still clean B1, varied grammar, one gap per sentence, two distractors each.
-
-Batch 3 – DELE Spanish B1 Grammar Sentences
-
 Espero que **tengas** un buen viaje. (tienes, tendrás)
 
 No **me** gusta nada el café. (te, se)
@@ -273,24 +237,6 @@ No conozco **a** nadie aquí. (de, con)
 Me fui **sin** decir nada. (no, para)
 
 Siempre **intento** hacerlo mejor. (intenté, intentar)
-
-You’re now at 120 / 150–200 🎯
-Next steps:
-
-▶️ Batch 4 (121–160) to reach 160
-
-➕ Batch 5 (161–200) if you want the full set
-
-🧠 Or I can start mapping these to JSON structure once the text list is done
-
-Just say the word.
-
-next
-
-Awesome — let’s finish strong 💪
-Here’s Batch 4 (40 sentences), 121–160. Still clean DELE B1, exam-style, one gap, two distractors.
-
-Batch 4 – DELE Spanish B1 Grammar Sentences
 
 No creo que **tenga** tiempo hoy. (tiene, tendrá)
 

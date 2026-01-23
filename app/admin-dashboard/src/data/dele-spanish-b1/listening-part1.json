@@ -1,423 +1,17 @@
 {
   "section_details": {
     "title": "Listening Part 1",
-    "instructions_de": "",
-    "instructions_en": "",
-    "instructions_ar": "",
-    "instructions_ru": "",
-    "instructions_fr": "",
-    "instructions_es": "",
-    "duration_minutes": 5,
+    "instructions_de": "Sie werden sechs Voicemail-Nachrichten eines Telefons hören. Sie werden jede Nachricht zweimal hören. Danach müssen Sie die Fragen (1-6) beantworten. Wählen Sie die richtige Option (a / b / c). Markieren Sie die gewählten Optionen auf dem Antwortblatt. Sie haben 30 Sekunden, um die Fragen zu lesen.",
+    "instructions_en": "You are going to listen to six voicemail messages from a phone. You will hear each message twice. Then you must answer questions (1-6). Select the correct option (a / b / c). Mark the chosen options on the Answer Sheet. You have 30 seconds to read the questions.",
+    "instructions_ar": "سوف تستمع إلى ستة رسائل صوتية من هاتف. ستسمع كل رسالة مرتين. بعد ذلك يجب عليك الإجابة على الأسئلة (1-6). اختر الخيار الصحيح (أ / ب / ج). ضع علامة على الخيارات المختارة في ورقة الإجابة. لديك 30 ثانية لقراءة الأسئلة.",
+    "instructions_ru": "Вы собираетесь прослушать шесть голосовых сообщений с телефона. Вы услышите каждое сообщение дважды. Затем вы должны ответить на вопросы (1-6). Выберите правильный вариант (a / b / c). Отметьте выбранные варианты в бланке ответов. У вас есть 30 секунд, чтобы прочитать вопросы.",
+    "instructions_fr": "Vous allez écouter six messages vocaux d'un téléphone. Vous entendrez chaque message deux fois. Ensuite, vous devez répondre aux questions (1-6). Sélectionnez l'option correcte (a / b / c). Marquez les options choisies sur la feuille de réponses. Vous avez 30 secondes pour lire les questions.",
+    "instructions_es": "Usted va a escuchar seis mensajes del buzón de voz de un teléfono. Escuchará cada mensaje dos veces. Después debe contestar a las preguntas (1-6). Seleccione la opción correcta (a / b / c). Marque las opciones elegidas en la Hoja de respuestas. Tiene 30 segundos para leer las preguntas.",
+    "duration_minutes": 10,
     "prep_time_seconds": 30
   },
   "exams": [
     {
-      "segments": [
-        {
-          "type": "pause",
-          "durationSeconds": 1
-        },
-        {
-          "type": "ready",
-          "id": "part-1-intro"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 30
-        },
-        {
-          "type": "ready",
-          "id": "message-1"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-1",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, Laura, soy Javi. Oye, que te dejaste las gafas de sol en mi coche ayer cuando fuimos a la playa. Si vas a estar en casa luego, me paso y te las dejo, que me pilla de camino al gimnasio. Avísame."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-1",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Para qué llama Javi?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-1",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, Laura, soy Javi. Oye, que te dejaste las gafas de sol en mi coche ayer cuando fuimos a la playa. Si vas a estar en casa luego, me paso y te las dejo, que me pilla de camino al gimnasio. Avísame."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-1",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Para qué llama Javi?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "message-2"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-2",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Buenos días, Sr. Gómez, soy Luisa. Le llamo porque no podré asistir a la reunión de las cuatro. Me acaban de llamar del colegio de mi hijo porque se encuentra mal y tengo que ir a recogerlo. Mañana le cuento los detalles."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-2",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Por qué no puede ir Luisa a la reunión?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-2",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Buenos días, Sr. Gómez, soy Luisa. Le llamo porque no podré asistir a la reunión de las cuatro. Me acaban de llamar del colegio de mi hijo porque se encuentra mal y tengo que ir a recogerlo. Mañana le cuento los detalles."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-2",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Por qué no puede ir Luisa a la reunión?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "message-3"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-3",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, buenas tardes. Llamo del taller mecánico 'Motores'. Solo quería informarle de que ya hemos reparado su vehículo. Le hemos cambiado los frenos y revisado el aceite. Puede pasar a recogerlo hoy mismo antes de las ocho."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-3",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué informa el mecánico?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-3",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, buenas tardes. Llamo del taller mecánico 'Motores'. Solo quería informarle de que ya hemos reparado su vehículo. Le hemos cambiado los frenos y revisado el aceite. Puede pasar a recogerlo hoy mismo antes de las ocho."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-3",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué informa el mecánico?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "message-4"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-4",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Hola, Ana, soy Carmen. ¿Te acuerdas del libro que me prestaste el mes pasado? Me ha encantado, pero ya lo he terminado. ¿Te viene bien si quedamos mañana para tomar un café y te lo devuelvo?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-4",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué quiere hacer Carmen?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-4",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Hola, Ana, soy Carmen. ¿Te acuerdas del libro que me prestaste el mes pasado? Me ha encantado, pero ya lo he terminado. ¿Te viene bien si quedamos mañana para tomar un café y te lo devuelvo?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-4",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué quiere hacer Carmen?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "message-5"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-5",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, buenos días. Soy Pedro Martínez. Llamo por el anuncio de alquiler de su piso en la calle Mayor. Me interesa mucho y me gustaría saber si todavía está libre para concertar una visita este fin de semana. Gracias."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-5",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Para qué llama Pedro?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-5",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person3",
-          "text": "Hola, buenos días. Soy Pedro Martínez. Llamo por el anuncio de alquiler de su piso en la calle Mayor. Me interesa mucho y me gustaría saber si todavía está libre para concertar una visita este fin de semana. Gracias."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-5",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Para qué llama Pedro?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        },
-        {
-          "type": "ready",
-          "id": "message-6"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-6",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Hola, cariño. Estoy en el supermercado haciendo la compra de la semana. ¿Me puedes mirar en la despensa si nos queda arroz? Es que quiero hacer paella el domingo y no estoy segura de si tenemos. Mándame un mensaje, porfa."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-6",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué le pide la mujer a su marido?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "ready",
-          "id": "part-1-2nd-time"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "speech",
-          "id": "message-speaker-6",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "person1",
-          "text": "Hola, cariño. Estoy en el supermercado haciendo la compra de la semana. ¿Me puedes mirar en la despensa si nos queda arroz? Es que quiero hacer paella el domingo y no estoy segura de si tenemos. Mándame un mensaje, porfa."
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 2
-        },
-        {
-          "type": "speech",
-          "id": "message-narrator-6",
-          "repeated": true,
-          "speed": 0.8,
-          "voiceId": "moderator",
-          "text": "¿Qué le pide la mujer a su marido?"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 3
-        },
-        {
-          "type": "ready",
-          "id": "part-1-outro"
-        },
-        {
-          "type": "pause",
-          "durationSeconds": 5
-        }
-      ],
       "title": "Mensajes del buzón de voz",
       "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
       "questions": [
@@ -438,7 +32,15 @@
               "is_correct": false,
               "text": "Para pedirle el coche."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "Javi says he will drop by to leave the sunglasses ('te las dejo') that she forgot. This matches the action of returning an object.",
+            "es": "Javi dice que pasará a dejarle las gafas ('te las dejo') que ella olvidó. Esto coincide con la acción de 'devolver un objeto'.",
+            "de": "Javi sagt, er kommt vorbei, um die Sonnenbrille abzugeben ('te las dejo'), die sie vergessen hat. Das entspricht dem Zurückgeben eines Gegenstands.",
+            "fr": "Javi dit qu'il passera pour lui laisser les lunettes ('te las dejo') qu'elle a oubliées. Cela correspond à l'action de rendre un objet.",
+            "ru": "Хави говорит, что заскочит, чтобы оставить очки ('te las dejo'), которые она забыла. Это соответствует действию 'вернуть предмет'.",
+            "ar": "يقول خافي إنه سيمر لترك النظارات الشمسية ('te las dejo') التي نسيتها. هذا يتطابق مع 'إعادة شيء ما'."
+          }
         },
         {
           "id": 2,
@@ -457,7 +59,15 @@
               "is_correct": false,
               "text": "Porque tiene mucho trabajo."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "Luisa mentions her son is feeling unwell ('se encuentra mal') and she must pick him up. This classifies as a family problem.",
+            "es": "Luisa menciona que su hijo se encuentra mal y debe ir a recogerlo. Esto se clasifica como un 'problema familiar'.",
+            "de": "Luisa erwähnt, dass sich ihr Sohn unwohl fühlt ('se encuentra mal') und sie ihn abholen muss. Das zählt als familiäres Problem.",
+            "fr": "Luisa mentionne que son fils se sent mal ('se encuentra mal') et qu'elle doit aller le chercher. Cela est classé comme un problème familial.",
+            "ru": "Луиза упоминает, что её сын плохо себя чувствует ('se encuentra mal'), и она должна его забрать. Это классифицируется как семейная проблема.",
+            "ar": "تذكر لويزا أن ابنها يشعر بتوعك ('se encuentra mal') وعليها أن تذهب لتقلّه. هذا يُصنف على أنه مشكلة عائلية."
+          }
         },
         {
           "id": 3,
@@ -476,7 +86,15 @@
               "is_correct": true,
               "text": "Que el coche está arreglado."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "The mechanic states they have 'repaired your vehicle' ('reparado su vehículo'), which is synonymous with the car being fixed ('arreglado').",
+            "es": "El mecánico afirma que han 'reparado su vehículo', lo cual es sinónimo de que el coche está 'arreglado'.",
+            "de": "Der Mechaniker gibt an, dass sie das 'Fahrzeug repariert' haben ('reparado su vehículo'), was bedeutet, dass das Auto fertig ist ('arreglado').",
+            "fr": "Le mécanicien déclare qu'ils ont 'réparé votre véhicule' ('reparado su vehículo'), ce qui est synonyme de la voiture étant 'arreglado'.",
+            "ru": "Механик заявляет, что они 'починили ваш автомобиль' ('reparado su vehículo'), что синонимично тому, что машина исправна ('arreglado').",
+            "ar": "يذكر الميكانيكي أنهم 'أصلحوا مركبتك' ('reparado su vehículo')، وهو مرادف لكون السيارة قد تم إصلاحها ('arreglado')."
+          }
         },
         {
           "id": 4,
@@ -495,7 +113,15 @@
               "is_correct": false,
               "text": "Invitar a Ana a cenar."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "Carmen asks to meet to give back the book ('te lo devuelvo'). This is explicitly the action of 'returning a book'.",
+            "es": "Carmen pide quedar para entregarle el libro ('te lo devuelvo'). Esto es explícitamente la acción de 'devolver un libro'.",
+            "de": "Carmen bittet um ein Treffen, um das Buch zurückzugeben ('te lo devuelvo'). Das ist ausdrücklich die Handlung 'ein Buch zurückgeben'.",
+            "fr": "Carmen demande à se voir pour rendre le livre ('te lo devuelvo'). C'est explicitement l'action de 'rendre un livre'.",
+            "ru": "Кармен просит встретиться, чтобы отдать книгу ('te lo devuelvo'). Это прямо означает действие 'вернуть книгу'.",
+            "ar": "تطلب كارمن اللقاء لإعادة الكتاب ('te lo devuelvo'). هذا هو صراحة إجراء 'إعادة كتاب'."
+          }
         },
         {
           "id": 5,
@@ -514,7 +140,15 @@
               "is_correct": false,
               "text": "Para vender su casa."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "Pedro wants to 'arrange a visit' ('concertar una visita') regarding the rental ad. This means his goal is to see the flat.",
+            "es": "Pedro quiere 'concertar una visita' por el anuncio de alquiler. Esto significa que su objetivo es 'ver un piso'.",
+            "de": "Pedro möchte einen 'Besichtigungstermin vereinbaren' ('concertar una visita') wegen der Mietanzeige. Das bedeutet, er möchte die Wohnung sehen.",
+            "fr": "Pedro veut 'organiser une visite' ('concertar una visita') concernant l'annonce de location. Cela signifie qu'il veut voir l'appartement.",
+            "ru": "Педро хочет 'договориться о визите' ('concertar una visita') по объявлению об аренде. Это значит, что его цель — посмотреть квартиру.",
+            "ar": "يريد بيدرو 'ترتيب زيارة' ('concertar una visita') بخصوص إعلان الإيجار. هذا يعني أن هدفه هو رؤية الشقة."
+          }
         },
         {
           "id": 6,
@@ -533,7 +167,15 @@
               "is_correct": false,
               "text": "Que cocine una paella."
             }
-          ]
+          ],
+          "explanation": {
+            "en": "She asks him to 'look... if we have rice left' ('mirar... si nos queda'). This is a request to check or verify ('comprobar').",
+            "es": "Ella le pide que 'mire... si nos queda arroz'. Esta es una petición para verificar o 'comprobar'.",
+            "de": "Sie bittet ihn, 'nachzusehen... ob noch Reis da ist' ('mirar... si nos queda'). Das ist eine Aufforderung zum Überprüfen ('comprobar').",
+            "fr": "Elle lui demande de 'regarder... s'il reste du riz' ('mirar... si nos queda'). C'est une demande de vérifier ('comprobar').",
+            "ru": "Она просит его 'посмотреть... остался ли рис' ('mirar... si nos queda'). Это просьба проверить ('comprobar').",
+            "ar": "تطلب منه أن 'ينظر... إذا كان لدينا أرز' ('mirar... si nos queda'). هذا طلب للتحقق ('comprobar')."
+          }
         }
       ]
     }

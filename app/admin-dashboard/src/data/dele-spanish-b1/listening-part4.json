@@ -1,16 +1,117 @@
 {
-    "section_details": {
-        "title": "Listening Part 4",
-        "instructions_de": "",
-        "instructions_en": "",
-        "instructions_ar": "",
-        "instructions_ru": "",
-        "instructions_fr": "",
-        "instructions_es": "",
-        "duration_minutes": 5,
-        "prep_time_seconds": 30
+  "section_details": {
+    "title": "Listening Part 4",
+    "instructions_de": "Sie werden sechs Personen hören, die sich an ihre Zeit an einem bestimmten Ort erinnern. Sie hören jede Person zweimal. Wählen Sie die Aussage (A-J), die dem Thema entspricht, über das jede Person spricht (19-24). Es gibt zehn Aussagen einschließlich des Beispiels. Wählen Sie nur sechs aus. Markieren Sie die gewählten Optionen auf dem Antwortbogen.",
+    "instructions_en": "You are going to listen to six people who remember their time in a specific place. You will listen to each person twice. Select the statement (A-J) that corresponds to the topic each person is talking about (19-24). There are ten statements including the example. Select only six. Mark the chosen options on the Answer Sheet.",
+    "instructions_ar": "سوف تستمع إلى ستة أشخاص يتذكرون فترتهم في مكان معين. ستستمع إلى كل شخص مرتين. اختر العبارة (أ-ي) التي تتوافق مع الموضوع الذي يتحدث عنه كل شخص (19-24). هناك عشر عبارات بما في ذلك المثال. اختر ستة فقط. ضع علامة على الخيارات المختارة في ورقة الإجابة.",
+    "instructions_ru": "Вы услышите шесть человек, которые вспоминают свое время в определенном месте. Вы прослушаете каждого человека дважды. Выберите утверждение (A-J), которое соответствует теме, о которой говорит каждый человек (19-24). Есть десять утверждений, включая пример. Выберите только шесть. Отметьте выбранные варианты в Бланке ответов.",
+    "instructions_fr": "Vous allez écouter six personnes qui se souviennent de leur temps dans un lieu spécifique. Vous écouterez chaque personne deux fois. Sélectionnez l'énoncé (A-J) qui correspond au thème dont parle chaque personne (19-24). Il y a dix énoncés incluant l'exemple. Sélectionnez seulement six. Marquez les options choisies sur la Feuille de réponses.",
+    "instructions_es": "Usted va a escuchar a seis personas que recuerdan su etapa en un lugar específico. Escuchará a cada persona dos veces. Seleccione el enunciado (A-J) que corresponde al tema del que habla cada persona (19-24). Hay diez enunciados incluido el ejemplo. Seleccione solamente seis. Marque las opciones elegidas en la Hoja de respuestas. ",
+    "duration_minutes": 10,
+    "prep_time_seconds": 0
+  },
+  "exams": [
+    {
+      "title": "Recuerdos sobre el primer empleo",
+      "id": "a1b2c3d4-e5f6-4789-a012-34567890abcd",
+      "statements": {
+        "a": "Valoró positivamente el ambiente laboral.",
+        "b": "Descubrió su vocación profesional.",
+        "c": "Encontró el amor en el trabajo.",
+        "d": "Tuvo problemas con el horario nocturno.",
+        "e": "El trabajo le ayudó a madurar.",
+        "f": "Disfrutaba explorando la ciudad.",
+        "g": "Sufrió un accidente laboral leve.",
+        "h": "Le despidieron por llegar tarde.",
+        "i": "Ahorró dinero para comprar un coche.",
+        "j": "Trabajó en el negocio familiar."
       },
-    "exams": [
-        
-    ]
+      "questions": [
+        {
+          "id": 19,
+          "person": 1,
+          "audio_transcription": "Mi primer trabajo fue en un restaurante de playa muy concurrido. La verdad es que era agotador porque pasaba muchas horas de pie y cargando bandejas pesadas bajo el sol. Sin embargo, lo mejor de todo fue el compañerismo; nos llevábamos muy bien y nos ayudábamos siempre. Aprendí mucho sobre el trabajo en equipo, aunque el sueldo era bastante bajo para todo lo que hacíamos.",
+          "answer": "a",
+          "explanation": {
+            "en": "The speaker explicitly mentions that 'the best thing of all was the camaraderie' and that they 'got along very well.' This corresponds directly to valuing the work environment positively.",
+            "es": "El hablante menciona explícitamente que 'lo mejor de todo fue el compañerismo' y que se llevaban 'muy bien'. Esto corresponde directamente con valorar positivamente el ambiente laboral.",
+            "ar": "يذكر المتحدث صراحة أن 'أفضل شيء كان الزمالة' وأنهم كانوا 'على وفاق جيد جداً'. وهذا يتوافق مباشرة مع التقييم الإيجابي لبيئة العمل.",
+            "de": "Der Sprecher erwähnt ausdrücklich, dass 'das Beste von allem die Kameradschaft war' und sie sich 'sehr gut verstanden'. Dies entspricht direkt einer positiven Bewertung des Arbeitsumfelds.",
+            "fr": "Le locuteur mentionne explicitement que 'le meilleur de tout était la camaraderie' et qu'ils s'entendaient 'très bien'. Cela correspond directement à une évaluation positive de l'environnement de travail.",
+            "ru": "Говорящий прямо упоминает, что 'лучшим из всего было товарищество' и что они 'очень хорошо ладили'. Это напрямую соответствует положительной оценке рабочей атмосферы."
+          }
+        },
+        {
+          "id": 20,
+          "person": 2,
+          "audio_transcription": "Yo empecé trabajando en una oficina pequeña de seguros. Al principio me aburría muchísimo porque tenía que organizar archivos polvorientos todo el día en un sótano sin ventanas. Pero, curiosamente, fue allí donde descubrí mi pasión por el orden y la administración. Gracias a esa experiencia decidí estudiar Gestión de Empresas, algo que nunca había considerado antes.",
+          "answer": "b",
+          "explanation": {
+            "en": "The key phrase is 'discovered my passion for order... decided to study Business Management.' This indicates finding a professional vocation or calling through the job experience.",
+            "es": "La frase clave es 'descubrí mi pasión por el orden... decidí estudiar Gestión de Empresas'. Esto indica el hallazgo de una vocación profesional a través de la experiencia laboral.",
+            "ar": "العبارة الرئيسية هي 'اكتشفت شغفي بالنظام... وقررت دراسة إدارة الأعمال'. وهذا يشير إلى العثور على وظيفة مهنية أو دعوة من خلال تجربة العمل.",
+            "de": "Der Schlüsselsatz lautet 'entdeckte meine Leidenschaft für Ordnung... entschied mich, Unternehmensführung zu studieren'. Dies deutet darauf hin, durch die Arbeitserfahrung eine berufliche Berufung gefunden zu haben.",
+            "fr": "La phrase clé est 'j'ai découvert ma passion pour l'ordre... j'ai décidé d'étudier la gestion d'entreprise'. Cela indique la découverte d'une vocation professionnelle grâce à l'expérience professionnelle.",
+            "ru": "Ключевая фраза: 'открыл свою страсть к порядку... решил изучать управление бизнесом'. Это указывает на обретение профессионального призвания благодаря опыту работы."
+          }
+        },
+        {
+          "id": 21,
+          "person": 3,
+          "audio_transcription": "Recuerdo mi primer empleo en una tienda de ropa joven. Me encantaba la moda, así que disfrutaba aconsejando a los clientes. Lo malo es que mi jefa era muy estricta y siempre nos regañaba si llegábamos un minuto tarde. Aun así, hice grandes amigos allí e incluso conocí a mi marido, que trabajaba en la sección de caballeros.",
+          "answer": "c",
+          "explanation": {
+            "en": "The speaker states, 'I even met my husband, who worked in the men's section.' Meeting a spouse is the definition of finding love at work.",
+            "es": "La hablante afirma: 'incluso conocí a mi marido, que trabajaba en la sección de caballeros'. Conocer a un cónyuge es la definición de encontrar el amor en el trabajo.",
+            "ar": "تذكر المتحدثة: 'حتى أنني التقيت بزوجي الذي كان يعمل في قسم الرجال'. لقاء الزوج هو تعريف العثور على الحب في العمل.",
+            "de": "Die Sprecherin sagt: 'Ich habe sogar meinen Mann kennengelernt, der in der Herrenabteilung arbeitete.' Einen Ehepartner kennenzulernen ist die Definition davon, die Liebe bei der Arbeit zu finden.",
+            "fr": "La locutrice déclare : 'j'ai même rencontré mon mari, qui travaillait au rayon hommes'. Rencontrer un conjoint est la définition de trouver l'amour au travail.",
+            "ru": "Говорящая утверждает: 'я даже встретила своего мужа, который работал в мужском отделе'. Встреча с супругом — это определение того, как найти любовь на работе."
+          }
+        },
+        {
+          "id": 22,
+          "person": 4,
+          "audio_transcription": "Pues mi experiencia fue un poco diferente. Trabajé como monitor en un campamento de verano para niños. Era divertidísimo preparar juegos y excursiones al aire libre, aunque acababa agotado. Lo más difícil fue lidiar con la responsabilidad de cuidar a tantos pequeños, pero me sirvió para madurar mucho en muy poco tiempo.",
+          "answer": "e",
+          "explanation": {
+            "en": "The audio concludes with 'it served to mature me a lot.' This matches almost word-for-word with the statement 'The job helped him/her to mature.'",
+            "es": "El audio concluye con 'me sirvió para madurar mucho'. Esto coincide casi palabra por palabra con la afirmación 'El trabajo le ayudó a madurar'.",
+            "ar": "يختتم التسجيل الصوتي بعبارة 'لقد ساعدني ذلك على النضج كثيراً'. وهذا يتطابق تقريباً كلمة بكلمة مع العبارة 'العمل ساعده/ساعدها على النضج'.",
+            "de": "Das Audio endet mit 'es hat mir sehr geholfen, reifer zu werden'. Dies stimmt fast wörtlich mit der Aussage überein: 'Die Arbeit hat ihm/ihr geholfen, reifer zu werden.'",
+            "fr": "L'audio se termine par 'cela m'a servi à mûrir beaucoup'. Cela correspond presque mot pour mot à l'affirmation 'Le travail l'a aidé à mûrir'.",
+            "ru": "Аудиозапись заканчивается словами 'это помогло мне сильно повзрослеть'. Это почти дословно совпадает с утверждением 'Работа помогла ему/ей повзрослеть'."
+          }
+        },
+        {
+          "id": 23,
+          "person": 5,
+          "audio_transcription": "Yo conseguí un puesto de recepcionista en un hotel gracias a mi nivel de inglés. Me gustaba mucho practicar idiomas con los turistas que llegaban. Sin embargo, los turnos de noche se me hacían eternos y me costaba mucho dormir durante el día. Al final tuve que dejarlo porque estaba afectando mi salud.",
+          "answer": "d",
+          "explanation": {
+            "en": "The speaker complains that 'night shifts felt eternal' and affected their health. This clearly aligns with having problems with the night schedule.",
+            "es": "El hablante se queja de que 'los turnos de noche se me hacían eternos' y afectaban su salud. Esto se alinea claramente con tener problemas con el horario nocturno.",
+            "ar": "يشتكي المتحدث من أن 'نوبات العمل الليلية كانت تبدو أبدية' وأثرت على صحته. هذا يتماشى بوضوح مع وجود مشاكل في الجدول الليلي.",
+            "de": "Der Sprecher beklagt, dass 'die Nachtschichten ewig dauerten' und seine Gesundheit beeinträchtigten. Dies stimmt eindeutig mit Problemen beim Nachtdienstplan überein.",
+            "fr": "Le locuteur se plaint que 'les gardes de nuit me semblaient éternelles' et affectaient sa santé. Cela correspond clairement à des problèmes avec l'horaire de nuit.",
+            "ru": "Говорящий жалуется, что 'ночные смены казались вечными' и влияли на здоровье. Это четко соотносится с проблемами с ночным графиком."
+          }
+        },
+        {
+          "id": 24,
+          "person": 6,
+          "audio_transcription": "Para pagarme los estudios, trabajé repartiendo publicidad por los buzones de la ciudad. Era un trabajo solitario y caminaba kilómetros cada día. No ganaba mucho dinero, pero me permitía escuchar música y podcasts mientras trabajaba. Además, conocí la ciudad como la palma de mi mano, descubriendo rincones que no sabía que existían.",
+          "answer": "f",
+          "explanation": {
+            "en": "The phrases 'discovering corners' and knowing the city 'like the back of my hand' indicate an enjoyment of exploring the city while working.",
+            "es": "Las frases 'descubriendo rincones' y conocer la ciudad 'como la palma de mi mano' indican que disfrutaba explorando la ciudad mientras trabajaba.",
+            "ar": "العبارات 'اكتشاف زوايا' ومعرفة المدينة 'مثل ظهر يدي' تشير إلى التمتع باستكشاف المدينة أثناء العمل.",
+            "de": "Die Phrasen 'Ecken entdecken' und die Stadt 'wie meine Westentasche' kennen, deuten darauf hin, dass er es genossen hat, die Stadt während der Arbeit zu erkunden.",
+            "fr": "Les phrases 'découvrir des recoins' et connaître la ville 'comme sa poche' indiquent qu'il aimait explorer la ville en travaillant.",
+            "ru": "Фразы 'открывая уголки' и знать город 'как свои пять пальцев' указывают на удовольствие от исследования города во время работы."
+          }
+        }
+      ]
+    }
+  ]
 }
