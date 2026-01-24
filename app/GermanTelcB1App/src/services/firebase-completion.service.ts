@@ -3,7 +3,7 @@ import { dataService } from './data.service';
 import { activeExamConfig } from '../config/active-exam.config';
 
 export interface CompletionData {
-  examId: number;
+  examId: string;
   examType: string;
   partNumber: number;
   score: number;
@@ -45,7 +45,7 @@ class FirebaseCompletionService {
     userId: string,
     examType: string,
     partNumber: number,
-    examId: number,
+    examId: string,
     score: number
   ): Promise<void> {
     try {
@@ -75,7 +75,7 @@ class FirebaseCompletionService {
     userId: string,
     examType: string,
     partNumber: number,
-    examId: number
+    examId: string
   ): Promise<void> {
     try {
       const completionsBasePath = this.getCompletionsPath(userId);
@@ -94,7 +94,7 @@ class FirebaseCompletionService {
     userId: string,
     examType: string,
     partNumber: number,
-    examId: number
+    examId: string
   ): Promise<CompletionData | null> {
     try {
       const completionsBasePath = this.getCompletionsPath(userId);
@@ -222,7 +222,7 @@ class FirebaseCompletionService {
     userId: string,
     examType: string,
     partNumber: number,
-    examId: number,
+    examId: string,
     score: number
   ): Promise<boolean> {
     try {

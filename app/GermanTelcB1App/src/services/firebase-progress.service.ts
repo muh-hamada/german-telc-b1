@@ -164,7 +164,7 @@ class FirebaseProgressService {
   // Save exam result to Firebase only
   async saveExamResult(
     examType: ExamType,
-    examId: number,
+    examId: string,
     result: ExamResult,
     userId?: string
   ): Promise<boolean> {
@@ -177,7 +177,7 @@ class FirebaseProgressService {
       // Convert ExamResult answers to UserAnswer format
       const userAnswers = result.answers.map(ans => ({
         questionId: ans.questionId,
-        answer: ans.userAnswer,
+        answer: ans.answer,
         isCorrect: ans.isCorrect,
         timestamp: result.timestamp,
       }));
@@ -201,7 +201,7 @@ class FirebaseProgressService {
   async updateExamProgress(
     userId: string,
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,

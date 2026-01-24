@@ -272,7 +272,7 @@ class ProgressService {
   }
 
   // Check if exam is completed
-  async isExamCompleted(examType: string, examId: number): Promise<boolean> {
+  async isExamCompleted(examType: string, examId: string): Promise<boolean> {
     const examProgress = await StorageService.getExamProgress(examType, examId);
     return examProgress?.completed || false;
   }

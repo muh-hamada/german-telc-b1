@@ -34,8 +34,6 @@ const AnimatedGradientBorder: React.FC<AnimatedGradientBorderProps> = ({
     
     animationRef.current.start();
 
-    console.log(Dimensions.get('window').width);
-
     // Cleanup: stop animation and reset to prevent orphaned nodes
     return () => {
       if (animationRef.current) {

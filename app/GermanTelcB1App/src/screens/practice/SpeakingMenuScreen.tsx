@@ -65,27 +65,27 @@ const SpeakingMenuScreen: React.FC = () => {
         // Data is loaded directly in each screen
       } else if (isDele) {
         // Load DELE B1 data
-        const [part1Data, part2Data, part3Data, part4Data] = await Promise.all([
-          dataService.getDeleSpeakingPart1Content(),
+        // Note: Part 1 is not loaded here as it uses direct navigation without exam selection
+        const [part2Data, part3Data, part4Data] = await Promise.all([
           dataService.getDeleSpeakingPart2Content(),
           dataService.getDeleSpeakingPart3Content(),
           dataService.getDeleSpeakingPart4Content()
         ]);
         
         // Map DELE topics to the expected format for the UI
-        setPart2Topics((part1Data.topics || []).map((t: any, index: number) => ({ 
+        // DELE Part 2 -> shown in part2Topics modal
+        // DELE Part 3 -> shown in part3Scenarios modal
+        // DELE Part 4 -> shown in part4Groups modal
+        
+        setPart2Topics((part2Data.topics || []).map((t: any, index: number) => ({ 
           id: index, 
           title: t.title 
         })));
-        setPart3Scenarios((part2Data.topics || []).map((t: any, index: number) => ({ 
+        setPart3Scenarios((part3Data.topics || []).map((t: any, index: number) => ({ 
           id: index, 
           title: t.title 
         })));
-        setB2Part1Topics((part3Data.topics || []).map((t: any, index: number) => ({ 
-          id: index, 
-          title: t.title 
-        })));
-        setB2Part2Topics((part4Data.topics || []).map((t: any, index: number) => ({ 
+        setPart4Groups((part4Data.topics || []).map((t: any, index: number) => ({ 
           id: index, 
           title: t.title 
         })));

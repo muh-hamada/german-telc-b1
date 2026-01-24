@@ -54,6 +54,7 @@ import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen'
 // Prep Plan Screens
 import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
 import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
+import DeleReadingPart1Screen from '../screens/dele/DeleReadingPart1Screen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -136,6 +137,13 @@ const HomeStackNavigator: React.FC = () => {
         component={ReadingPart1A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part1" />,
+        }}
+      />
+      <Stack.Screen
+        name="DeleReadingPart1"
+        component={DeleReadingPart1Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.dele.part1" />,
         }}
       />
       <Stack.Screen

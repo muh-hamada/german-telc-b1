@@ -11,7 +11,7 @@ const TRACKING_COLLECTION = process.env.TRACKING_COLLECTION || 'video_generation
  */
 export async function markQuestionProcessed(
   appId: string,
-  examId: number,
+  examId: string,
   questionIndex: number,
   metadata: Partial<ProcessedQuestion>
 ): Promise<void> {
@@ -44,7 +44,7 @@ export async function markQuestionProcessed(
  */
 export async function markQuestionFailed(
   appId: string,
-  examId: number,
+  examId: string,
   questionIndex: number,
   error: string,
   processingTimeMs: number

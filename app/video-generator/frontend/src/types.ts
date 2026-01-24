@@ -43,7 +43,7 @@ export interface AppConfig {
 
 export interface QuestionData {
   appId: string;
-  examId: number;
+  examId: string;
   questionId: number;
   question: ReadingPart2A1Question | ReadingPart3A1Question;
   appConfig: AppConfig;

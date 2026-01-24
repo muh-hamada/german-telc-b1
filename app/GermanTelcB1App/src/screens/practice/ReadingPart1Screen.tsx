@@ -32,7 +32,7 @@ const ReadingPart1Screen: React.FC = () => {
   const { setContextualModalActive } = useModalQueue();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
-  const examId = route.params?.examId ?? 0;
+  const examId = route.params?.examId ?? '';
   const isDele = activeExamConfig.provider === 'dele';
   
   const { isCompleted, toggleCompletion } = useExamCompletion('reading', 1, examId);
@@ -90,14 +90,14 @@ const ReadingPart1Screen: React.FC = () => {
     }
   };
 
-  const loadExam = async (id: number) => {
+  const loadExam = async (id: string) => {
     try {
       setIsLoading(true);
       let exam;
       
       if (isDele) {
         // DELE uses string IDs
-        exam = await dataService.getDeleReadingPart1ExamById(String(id));
+        exam = await dataService.getDeleReadingPart1ExamById(id);
       } else {
         // Telc uses number IDs
         exam = await dataService.getReadingPart1ExamById(id);
@@ -180,7 +180,6 @@ const ReadingPart1Screen: React.FC = () => {
           // Resume global modal queue
           setContextualModalActive(false);
         }}
-        examTitle={`Reading Part 1 - Test ${examId + 1}`}
         result={examResult}
       />
 

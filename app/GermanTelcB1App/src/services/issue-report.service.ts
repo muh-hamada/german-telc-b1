@@ -10,7 +10,7 @@ interface SubmitIssueReportParams {
   examData: any;
   section: string;
   part: number;
-  examId: number;
+  examId: string;
   userFeedback: string;
 }
 
@@ -23,7 +23,7 @@ interface IssueReport {
   deviceUUID: string;
   section: string;
   part: number;
-  examId: number;
+  examId: string;
   questionSnapshot: any;
   userFeedback: string;
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
@@ -39,7 +39,7 @@ export interface ReportedIssueDetails {
   timestamp: number;
   section: string;
   part: number;
-  examId: number;
+  examId: string;
   userFeedback: string;
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
   displayStatus: 'pending' | 'in_progress' | 'resolved'; // Mapped status for display

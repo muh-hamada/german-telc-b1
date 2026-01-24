@@ -61,12 +61,12 @@ const GrammarMenuScreen: React.FC = () => {
     setShowPart2Modal(true);
   };
 
-  const handleSelectPart1Exam = (examId: number) => {
+  const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 1, exam_id: examId });
     navigation.navigate('GrammarPart1', { examId });
   };
 
-  const handleSelectPart2Exam = (examId: number) => {
+  const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'grammar', part: 2, exam_id: examId });
     navigation.navigate('GrammarPart2', { examId });
   };
@@ -76,21 +76,29 @@ const GrammarMenuScreen: React.FC = () => {
     navigation.navigate('GrammarStudy');
   };
 
+  const getCardTitle = (partNumber: number) => {
+    if(isDele) {
+      return partNumber === 1
+        ? t('practice.grammar.dele.part1')
+        : t('practice.grammar.dele.part2');
+    }
+
+    return partNumber === 1
+      ? t('practice.grammar.part1')
+      : t('practice.grammar.part2');
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.part1')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.grammar.descriptions.main')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
+          <Text style={styles.cardDescription}>{t('practice.grammar.descriptions.main')}</Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.part2')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.grammar.descriptions.main')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(2)}</Text>
+          <Text style={styles.cardDescription}>{t('practice.grammar.descriptions.main')}</Text>
         </Card>
 
         <View style={styles.separatorContainer}>

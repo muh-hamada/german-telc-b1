@@ -13,8 +13,8 @@ interface CompletionContextType {
   isLoading: boolean;
   
   // Actions
-  getCompletionStatus: (examType: string, partNumber: number, examId: number) => CompletionData | null;
-  toggleCompletion: (examType: string, partNumber: number, examId: number, score: number) => Promise<boolean>;
+  getCompletionStatus: (examType: string, partNumber: number, examId: string) => CompletionData | null;
+  toggleCompletion: (examType: string, partNumber: number, examId: string, score: number) => Promise<boolean>;
   refreshCompletions: () => Promise<void>;
   getStatsForPart: (examType: string, partNumber: number) => CompletionStats | null;
 }
@@ -34,7 +34,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   const [isLoading, setIsLoading] = useState(false);
 
   // Create a key for the completion data map
-  const createKey = (examType: string, partNumber: number, examId: number): string => {
+  const createKey = (examType: string, partNumber: number, examId: string): string => {
     return `${examType}-${partNumber}-${examId}`;
   };
 
@@ -94,7 +94,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   }, [loadCompletionData]);
 
   // Get completion status for a specific exam
-  const getCompletionStatus = (examType: string, partNumber: number, examId: number): CompletionData | null => {
+  const getCompletionStatus = (examType: string, partNumber: number, examId: string): CompletionData | null => {
     const key = createKey(examType, partNumber, examId);
     return completionData.get(key) || null;
   };
@@ -103,7 +103,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
   const toggleCompletion = async (
     examType: string,
     partNumber: number,
-    examId: number,
+    examId: string,
     score: number
   ): Promise<boolean> => {
     if (!user?.uid) {
@@ -225,7 +225,7 @@ export const useCompletion = (): CompletionContextType => {
 };
 
 // Hook for specific exam completion status
-export const useExamCompletion = (examType: string, partNumber: number, examId: number) => {
+export const useExamCompletion = (examType: string, partNumber: number, examId: string) => {
   const { getCompletionStatus, toggleCompletion } = useCompletion();
   const completionData = getCompletionStatus(examType, partNumber, examId);
   

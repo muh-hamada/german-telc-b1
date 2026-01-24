@@ -60,12 +60,12 @@ const WritingMenuScreen: React.FC = () => {
     setShowPart2Modal(true);
   };
 
-  const handleSelectPart1Exam = (examId: number) => {
+  const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
     navigation.navigate('WritingPart1', { examId });
   };
 
-  const handleSelectPart2Exam = (examId: number) => {
+  const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 2, exam_id: examId });
     navigation.navigate('WritingPart2', { examId });
   };

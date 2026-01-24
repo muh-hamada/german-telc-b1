@@ -5,7 +5,6 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../../theme';
@@ -13,7 +12,6 @@ import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
 import { dataService } from '../../services/data.service';
-import { HIDE_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
@@ -64,7 +62,7 @@ const PracticeMenuScreen: React.FC = () => {
     }
   };
 
-  const handleSelectWritingExam = (examId: number) => {
+  const handleSelectWritingExam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
     navigation.navigate('Writing', { examId });
   };

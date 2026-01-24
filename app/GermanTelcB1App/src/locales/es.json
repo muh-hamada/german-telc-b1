@@ -545,9 +545,15 @@
           "part1": "Lea cartas y mensajes, luego decida si las afirmaciones son verdaderas o falsas",
           "part2": "Lea situaciones y elija el sitio web o anuncio correcto",
           "part3": "Lea carteles y avisos, luego juzgue si las afirmaciones son correctas"
+        },
+        "dele": {
+          "part3": "Relacionar declaraciones con situaciones"
         }
       },
-      "part1": "Parte 1: Encabezados coincidentes"
+      "part1": "Parte 1: Encabezados coincidentes",
+      "dele": {
+        "part3": "Parte 3: Coincidencia de situaciones"
+      }
     },
     "listening": {
       "title": "Comprensión Auditiva",
@@ -567,6 +573,13 @@
           "part1": "Escuche conversaciones y anuncios cortos, luego responda preguntas de opción múltiple",
           "part2": "Escuche un anuncio de radio y responda preguntas sobre detalles",
           "part3": "Escuche conversaciones telefónicas e identifique información clave"
+        },
+        "dele": {
+          "part1": "Escuche seis mensajes de correo de voz desde un teléfono",
+          "part2": "Escuche un segmento del programa.",
+          "part3": "Escuchar seis noticias en un programa de radio",
+          "part4": "Escuche a seis personas compartiendo recuerdos",
+          "part5": "Escuchar una conversación entre dos amigos"
         }
       },
       "comingSoon": "Ejercicios de audición próximamente",
@@ -581,6 +594,13 @@
         "explanation": "Explicación",
         "start": "Comenzar",
         "finish": "Finalizar"
+      },
+      "dele": {
+        "part1": "Parte 1: mensajes de correo de voz",
+        "part2": "Parte 2: Segmento de radio",
+        "part3": "Parte 3: Noticias",
+        "part4": "Parte 4: Compartir recuerdos",
+        "part5": "Parte 5: Conversaciones"
       }
     },
     "writing": {
@@ -651,7 +671,11 @@
         "close": "Cerrar",
         "next": "Próximo"
       },
-      "separator": "Estudiar"
+      "separator": "Estudiar",
+      "dele": {
+        "part1": "Parte 1: Relleno de espacios (fragmentos)",
+        "part2": "Parte 2: Llenar espacios (opción múltiple)"
+      }
     }
   },
   "profile": {
@@ -1322,7 +1346,10 @@
       "selectAnswer": "Elija la respuesta para el espacio [{{gap}}]:",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s).",
+      "deleTaskDescription": "Lea el siguiente texto, del que se han extraído seis fragmentos. A continuación lea los ocho fragmentos propuestos (A-H) y decida en qué lugar del texto (19-24) hay que colocar cada uno de ellos. HAY DOS FRAGMENTOS QUE NO TIENE QUE ELEGIR. Marque las opciones elegidas en la Hoja de respuestas.",
+      "fragments": "Fragmentos",
+      "selectFragment": "Seleccionar fragmento"
     },
     "part2": {
       "title": "Gramática Parte 2",
@@ -1334,7 +1361,9 @@
       "selectWord": "Elegir palabra para espacio [{{gap}}]:",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} espacio(s) restante(s)."
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} espacio(s) restante(s).",
+      "deleTaskDescription": "Lea el texto y rellene los huecos (25-30) con la opción correcta (a / b / c). Marque las opciones elegidas en la Hoja de respuestas",
+      "selectAnswer": "Seleccionar respuesta"
     }
   },
   "reading": {
@@ -1355,7 +1384,11 @@
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor asigne un título a todos los textos antes de continuar.",
       "duplicateAnswers": "Respuestas Duplicadas",
-      "duplicateAnswersMessage": "Ha usado el mismo título para múltiples textos. Por favor verifique sus respuestas."
+      "duplicateAnswersMessage": "Ha usado el mismo título para múltiples textos. Por favor verifique sus respuestas.",
+      "deleTaskDescription": "Usted va a leer seis textos en los que unas personas hablan de los programas de televisión que suelen ver y diez textos que informan sobre programas de televisión. Relacione a las personas (1-6) con los textos que informan sobre los programas (A-J). HAY TRES TEXTOS QUE NO DEBE RELACIONAR. Marque las opciones elegidas en la Hoja de respuestas.",
+      "programs": "Programas",
+      "question": "Pregunta",
+      "selectProgram": "Seleccionar programa"
     },
     "part2": {
       "title": "Comprensión lectora Parte 2",
@@ -1367,7 +1400,8 @@
       "questions": "Preguntas ({{first}}-{{last}}):",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s).",
+      "deleTaskDescription": "Vas a leer un texto sobre un tema específico. \nLuego, debes responder las preguntas 7 a 12. \nSeleccione la respuesta correcta (a/b/c). \nMarque sus opciones en la hoja de respuestas."
     },
     "part3": {
       "title": "Comprensión lectora Parte 3",
@@ -1382,7 +1416,12 @@
       "falsch": "Falsch",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las situaciones antes de enviar. {{count}} situación(es) restante(s)."
+      "incompleteMessage": "Por favor responda todas las situaciones antes de enviar. {{count}} situación(es) restante(s).",
+      "deleTaskDescription": "Vas a leer tres textos en los que se habla de situaciones concretas. \nRelacione las preguntas 13-18 con los textos (A, B o C). \nMarque sus opciones en la hoja de respuestas.",
+      "texts": "Textos",
+      "questions": "Preguntas",
+      "question": "Pregunta",
+      "selectText": "Seleccionar texto"
     }
   },
   "writing": {

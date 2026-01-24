@@ -7,7 +7,7 @@
       "questions": [
         {
           "id": 25,
-          "answers": [
+          "options": [
             {
               "text": "estuve",
               "correct": true
@@ -32,7 +32,7 @@
         },
         {
           "id": 26,
-          "answers": [
+          "options": [
             {
               "text": "era",
               "correct": false
@@ -57,7 +57,7 @@
         },
         {
           "id": 27,
-          "answers": [
+          "options": [
             {
               "text": "la",
               "correct": false
@@ -82,7 +82,7 @@
         },
         {
           "id": 28,
-          "answers": [
+          "options": [
             {
               "text": "Cuál",
               "correct": false
@@ -107,7 +107,7 @@
         },
         {
           "id": 29,
-          "answers": [
+          "options": [
             {
               "text": "sepas",
               "correct": true
@@ -132,7 +132,7 @@
         },
         {
           "id": 30,
-          "answers": [
+          "options": [
             {
               "text": "que",
               "correct": false

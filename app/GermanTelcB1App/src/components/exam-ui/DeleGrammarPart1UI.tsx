@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  Modal,
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -14,6 +13,7 @@ import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { DeleGrammarPart1Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import AnswerListSelectionModal from './AnswerListSelectionModal';
 
 interface DeleGrammarPart1UIProps {
   exam: DeleGrammarPart1Exam;
@@ -49,7 +49,7 @@ const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplet
   const getSelectedFragmentText = (gapId: string): string => {
     const fragmentKey = userAnswers[gapId];
     if (!fragmentKey) return t('grammar.part1.select');
-    return fragmentKey.toUpperCase();
+    return exam.fragments[fragmentKey] || fragmentKey.toUpperCase();
   };
 
   const renderTextWithGaps = () => {
@@ -155,63 +155,25 @@ const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplet
       </View>
 
       {/* Answer Selection Modal */}
-      <Modal
-        visible={showModal && selectedGap !== null}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => {
+      <AnswerListSelectionModal
+        visible={showModal}
+        selectedGap={selectedGap}
+        options={fragmentKeys.map((key) => ({
+          key: key,
+          text: exam.fragments[key],
+          isSelected: selectedGap ? userAnswers[selectedGap] === key : false,
+        }))}
+        onSelect={(key) => selectedGap && handleAnswerSelect(selectedGap, key as string)}
+        onClose={() => {
           setShowModal(false);
           setSelectedGap(null);
         }}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>
-              {t('grammar.part1.selectFragment')} [{selectedGap}]
-            </Text>
-            <ScrollView style={styles.modalScrollView}>
-              {fragmentKeys.map((key) => {
-                const isSelected = selectedGap && userAnswers[selectedGap] === key;
-                return (
-                  <TouchableOpacity
-                    key={key}
-                    style={[
-                      styles.modalOption,
-                      isSelected && styles.modalOptionSelected
-                    ]}
-                    onPress={() => selectedGap && handleAnswerSelect(selectedGap, key)}
-                  >
-                    <Text style={styles.modalOptionLetter}>{key.toUpperCase()}</Text>
-                    <Text style={[
-                      styles.modalOptionText,
-                      isSelected && styles.modalOptionTextSelected
-                    ]}>
-                      {exam.fragments[key]}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
-            <TouchableOpacity
-              style={styles.modalCloseButton}
-              onPress={() => {
-                setShowModal(false);
-                setSelectedGap(null);
-              }}
-            >
-              <Text style={styles.modalCloseButtonText}>{t('common.close')}</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+        modalTitle={selectedGap ? `${t('grammar.part1.selectFragment')} [${selectedGap}]` : ''}
+      />
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < gapIds.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < gapIds.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
@@ -312,71 +274,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     borderRadius: spacing.borderRadius.sm,
     textDecorationLine: 'underline',
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContent: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    maxHeight: '80%',
-    padding: spacing.padding.lg,
-  },
-  modalTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.md,
-    textAlign: 'center',
-  },
-  modalScrollView: {
-    maxHeight: 400,
-  },
-  modalOption: {
-    flexDirection: 'row',
-    padding: spacing.padding.md,
-    backgroundColor: colors.secondary[50],
-    marginBottom: spacing.margin.xs,
-    borderRadius: spacing.borderRadius.sm,
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  modalOptionSelected: {
-    backgroundColor: colors.primary[100],
-    borderColor: colors.primary[500],
-  },
-  modalOptionLetter: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[600],
-    width: 30,
-  },
-  modalOptionText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  modalOptionTextSelected: {
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  modalCloseButton: {
-    backgroundColor: colors.secondary[400],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    marginTop: spacing.margin.md,
-  },
-  modalCloseButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-  },
   submitButton: {
     backgroundColor: colors.primary[500],
     paddingVertical: spacing.padding.md,
@@ -388,10 +285,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-  },
-  submitButtonDisabled: {
-    backgroundColor: colors.secondary[400],
-    opacity: 0.6,
   },
   submitButtonText: {
     ...typography.textStyles.body,

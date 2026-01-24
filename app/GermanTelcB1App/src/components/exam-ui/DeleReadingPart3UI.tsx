@@ -126,14 +126,14 @@ const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplet
               {t('reading.part3.question')} {question.id}
             </Text>
             <Text style={styles.questionText}>{question.question}</Text>
-            
+
             {/* Answer Selection */}
             <View style={styles.answerSection}>
               <Text style={styles.answerLabel}>{t('reading.part3.selectText')}</Text>
               <View style={styles.answerButtons}>
                 {textKeys.map((key) => {
                   const isSelected = userAnswers[question.id] === key;
-                  
+
                   return (
                     <TouchableOpacity
                       key={key}
@@ -160,17 +160,13 @@ const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplet
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < exam.questions.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < exam.questions.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
-          {t('reading.part3.submitAnswers', { 
-            answered: Object.keys(userAnswers).length, 
-            total: exam.questions.length 
+          {t('reading.part3.submitAnswers', {
+            answered: Object.keys(userAnswers).length,
+            total: exam.questions.length
           })}
         </Text>
       </TouchableOpacity>
@@ -328,10 +324,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-  },
-  submitButtonDisabled: {
-    backgroundColor: colors.secondary[400],
-    opacity: 0.6,
   },
   submitButtonText: {
     ...typography.textStyles.body,

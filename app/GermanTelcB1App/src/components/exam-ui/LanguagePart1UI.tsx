@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  Modal,
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -14,6 +13,7 @@ import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { GrammarPart1Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import MultiChoiceSelectionModal from './MultiChoiceSelectionModal';
 
 interface LanguagePart1UIProps {
   exam: GrammarPart1Exam;
@@ -141,71 +141,26 @@ const LanguagePart1UI: React.FC<LanguagePart1UIProps> = ({ exam, onComplete }) =
       </View>
 
       {/* Answer Selection Modal */}
-      <Modal
-        visible={showModal && selectedGap !== null}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => {
+      <MultiChoiceSelectionModal
+        visible={showModal}
+        selectedGap={selectedGap}
+        options={
+          selectedGap !== null && exam.questions.find(q => q.id === selectedGap)?.answers.map((answer, index) => ({
+            key: index,
+            text: answer.text,
+            isSelected: userAnswers[selectedGap] === index,
+          })) || []
+        }
+        onSelect={(key) => selectedGap !== null && handleAnswerSelect(selectedGap, key as number)}
+        onClose={() => {
           setShowModal(false);
           setSelectedGap(null);
         }}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>
-                {selectedGap !== null && t('grammar.part1.selectAnswer', { gap: selectedGap })}
-              </Text>
-              <TouchableOpacity
-                style={styles.closeButton}
-                onPress={() => {
-                  setShowModal(false);
-                  setSelectedGap(null);
-                }}
-              >
-                <Text style={styles.closeButtonText}>✕</Text>
-              </TouchableOpacity>
-            </View>
-            <ScrollView style={styles.modalContent}>
-              {selectedGap !== null && exam.questions.find(q => q.id === selectedGap)?.answers.map((answer, index) => {
-                const isSelected = userAnswers[selectedGap] === index;
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    style={[
-                      styles.answerOption,
-                      isSelected && styles.answerOptionSelected
-                    ]}
-                    onPress={() => handleAnswerSelect(selectedGap, index)}
-                  >
-                    <View style={[
-                      styles.radioButton,
-                      isSelected && styles.radioButtonSelected
-                    ]}>
-                      {isSelected && <View style={styles.radioButtonInner} />}
-                    </View>
-                    <Text style={[
-                      styles.answerText,
-                      isSelected && styles.answerTextSelected
-                    ]}>
-                      {answer.text}
-                    </Text>
-                    {isSelected && <Text style={styles.checkmark}>✓</Text>}
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
+      />
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < exam.questions.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < exam.questions.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
@@ -280,96 +235,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.primary[300],
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContainer: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.lg,
-    maxHeight: '80%',
-    width: '90%',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.padding.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  modalTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.background.secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    fontSize: 18,
-    color: colors.text.secondary,
-  },
-  modalContent: {
-    maxHeight: 400,
-    padding: spacing.padding.md,
-  },
-  answerOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.md,
-    marginBottom: spacing.margin.xs,
-    borderRadius: spacing.borderRadius.sm,
-    backgroundColor: colors.background.secondary,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  answerOptionSelected: {
-    backgroundColor: colors.primary[50],
-    borderColor: colors.primary[500],
-  },
-  radioButton: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: colors.secondary[400],
-    marginRight: spacing.margin.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  radioButtonSelected: {
-    borderColor: colors.primary[500],
-  },
-  radioButtonInner: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: colors.primary[500],
-  },
-  answerText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  answerTextSelected: {
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.medium,
-  },
-  checkmark: {
-    ...typography.textStyles.body,
-    color: colors.success[500],
-    fontWeight: typography.fontWeight.bold,
-  },
   submitButton: {
     backgroundColor: colors.primary[500],
     paddingVertical: spacing.padding.md,
@@ -381,10 +246,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-  },
-  submitButtonDisabled: {
-    backgroundColor: colors.secondary[400],
-    opacity: 0.6,
   },
   submitButtonText: {
     ...typography.textStyles.body,

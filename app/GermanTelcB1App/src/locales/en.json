@@ -653,7 +653,13 @@
           "part1": "Read letters and messages, then decide if statements are true or false",
           "part2": "Read situations and choose the correct website or advertisement",
           "part3": "Read signs and notices, then judge if statements are correct"
+        },
+        "dele": {
+          "part3": "Match statments to situations"
         }
+      },
+      "dele": {
+        "part3": "Part 3: Situation Matching"
       }
     },
     "listening": {
@@ -674,6 +680,13 @@
           "part1": "Listen to short conversations and announcements, then answer multiple choice questions",
           "part2": "Listen to a radio announcement and answer questions about details",
           "part3": "Listen to telephone conversations and identify key information"
+        },
+        "dele": {
+          "part1": "Listen to six voicemail messages from a telephone",
+          "part2": "Listen to a segment of the program",
+          "part3": "Listen to six news items on a radio program",
+          "part4": "Listen to six people sharing memories",
+          "part5": "Listen to a conversation between two friends"
         }
       },
       "comingSoon": "Listening exercises coming soon",
@@ -688,6 +701,13 @@
         "score": "You scored {{score}} out of {{total}}",
         "listenAgain": "Again",
         "backToHome": "Back"
+      },
+      "dele": {
+        "part1": "Part 1: Voicemail Messages",
+        "part2": "Part 2: Radio Segment",
+        "part3": "Part 3: News Items",
+        "part4": "Part 4: Memories Sharing",
+        "part5": "Part 5: Conversations"
       }
     },
     "writing": {
@@ -756,7 +776,11 @@
         "allCompleted": "You have completed all 150 grammar questions! Would you like to restart or go back?",
         "close": "Close"
       },
-      "separator": "Study"
+      "separator": "Study",
+      "dele": {
+        "part1": "Part 1: Gap Fill (Fragments)",
+        "part2": "Part 2: Gap Fill (Multiple Choice)"
+      }
     }
   },
   "profile": {
@@ -1104,7 +1128,10 @@
       "selectAnswer": "Choose answer for gap [{{gap}}]:",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining.",
+      "deleTaskDescription": "Read the following text, from which six fragments have been extracted. Then read the eight proposed fragments (A-H) and decide where in the text (19-24) each one should be placed. THERE ARE TWO FRAGMENTS YOU DO NOT HAVE TO CHOOSE. Mark your chosen options on the Answer Sheet.",
+      "fragments": "Fragments",
+      "selectFragment": "Select Fragment"
     },
     "part2": {
       "title": "Grammar Part 2",
@@ -1116,7 +1143,9 @@
       "selectWord": "Choose word for gap [{{gap}}]:",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all questions before submitting. {{count}} gap(s) remaining."
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} gap(s) remaining.",
+      "deleTaskDescription": "Read the text and fill in the gaps (25-30) with the correct option (a / b / c). Mark the chosen options on the Answer Sheet",
+      "selectAnswer": "Select Answer"
     }
   },
   "reading": {
@@ -1137,7 +1166,11 @@
       "incomplete": "Incomplete",
       "incompleteMessage": "Please assign a heading to all texts before continuing.",
       "duplicateAnswers": "Duplicate Answers",
-      "duplicateAnswersMessage": "You have used the same heading for multiple texts. Please check your answers."
+      "duplicateAnswersMessage": "You have used the same heading for multiple texts. Please check your answers.",
+      "deleTaskDescription": "You are going to read six texts in which people talk about the television programs they usually watch and ten texts that provide information about television programs. Match the people (1-6) with the texts that provide information about the programs (A-J). THERE ARE THREE TEXTS THAT YOU SHOULD NOT MATCH. Mark your choices on the Answer Sheet.",
+      "programs": "Programs",
+      "question": "Question",
+      "selectProgram": "Select Program"
     },
     "part2": {
       "title": "Reading Part 2",
@@ -1149,7 +1182,8 @@
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining.",
+      "deleTaskDescription": "You are going to read a text about a specific topic. Afterward, you must answer questions 7-12. Select the correct answer (a / b / c). Mark your choices on the answer sheet."
     },
     "part3": {
       "title": "Reading Part 3",
@@ -1164,7 +1198,12 @@
       "falsch": "Falsch",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all situations before submitting. {{count}} situation(s) remaining."
+      "incompleteMessage": "Please answer all situations before submitting. {{count}} situation(s) remaining.",
+      "deleTaskDescription": "You are going to read three texts in which people talk about specific situations. Match questions 13-18 with the texts (A, B, or C). Mark your choices on the answer sheet.",
+      "texts": "Texts",
+      "questions": "Questions",
+      "question": "Question",
+      "selectText": "Select Text"
     }
   },
   "writing": {

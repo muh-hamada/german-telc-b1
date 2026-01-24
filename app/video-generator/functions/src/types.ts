@@ -1,7 +1,7 @@
 // Type definitions for video generator functions
 
 export interface ReadingPart2A1Option {
-  id: number;
+  id: string;
   text?: string;
   option?: string;
   is_correct: boolean;
@@ -14,20 +14,20 @@ export interface ReadingPart2A1Question {
 }
 
 export interface ReadingPart2A1Exam {
-  id: number;
+  id: string;
   title: string;
   questions: ReadingPart2A1Question[];
 }
 
 export interface ReadingPart3A1Question {
-  id: number;
+  id: string;
   text: string;
   question: string;
   is_correct: boolean;
 }
 
 export interface ReadingPart3A1Exam {
-  id: number;
+  id: string;
   title: string;
   questions: ReadingPart3A1Question[];
 }
@@ -44,7 +44,7 @@ export interface AppConfig {
 
 export interface QuestionData {
   appId: string;
-  examId: number;
+  examId: string;
   questionIndex: number; // Changed from questionId to questionIndex
   question: ReadingPart2A1Question | ReadingPart3A1Question;
   exam: ReadingPart2A1Exam | ReadingPart3A1Exam;

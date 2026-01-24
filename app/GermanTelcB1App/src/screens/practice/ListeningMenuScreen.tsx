@@ -44,27 +44,27 @@ const ListeningMenuScreen: React.FC = () => {
 
         setPart1Exams((part1Data.exams || []).map((exam: any) => ({
           id: exam.id,
-          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+          title: exam.title
         })));
 
         setPart2Exams((part2Data.exams || []).map((exam: any) => ({
           id: exam.id,
-          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+          title: exam.title
         })));
 
         setPart3Exams((part3Data.exams || []).map((exam: any) => ({
           id: exam.id,
-          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+          title: exam.title
         })));
 
         setPart4Exams((part4Data.exams || []).map((exam: any) => ({
           id: exam.id,
-          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+          title: exam.title
         })));
 
         setPart5Exams((part5Data.exams || []).map((exam: any) => ({
           id: exam.id,
-          title: exam.title || `Test ${parseInt(exam.id) + 1}`
+          title: exam.title
         })));
       } else {
         const [part1Data, part2Data, part3Data] = await Promise.all([
@@ -113,7 +113,7 @@ const ListeningMenuScreen: React.FC = () => {
     setShowPart3Modal(true);
   };
 
-  const handleSelectPart1Exam = (examId: number) => {
+  const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 1, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -123,7 +123,7 @@ const ListeningMenuScreen: React.FC = () => {
     }
   };
 
-  const handleSelectPart2Exam = (examId: number) => {
+  const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 2, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -133,7 +133,7 @@ const ListeningMenuScreen: React.FC = () => {
     }
   };
 
-  const handleSelectPart3Exam = (examId: number) => {
+  const handleSelectPart3Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 3, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -147,7 +147,7 @@ const ListeningMenuScreen: React.FC = () => {
     setShowPart4Modal(true);
   };
 
-  const handleSelectPart4Exam = (examId: number) => {
+  const handleSelectPart4Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 4, exam_id: examId });
     navigation.navigate('ListeningPart4', { examId });
   };
@@ -156,68 +156,60 @@ const ListeningMenuScreen: React.FC = () => {
     setShowPart5Modal(true);
   };
 
-  const handleSelectPart5Exam = (examId: number) => {
+  const handleSelectPart5Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 5, exam_id: examId });
     navigation.navigate('ListeningPart5', { examId });
   };
+
+  const getCardTitle = (partNumber: number) => {
+    if (isA1) {
+      return t(`practice.listening.a1.part${partNumber}`);
+    }
+
+    if (isDele) {
+      return t(`practice.listening.dele.part${partNumber}`);
+    }
+
+    return t(`practice.listening.part${partNumber}`);
+  }
+
+  const getCardDescription = (partNumber: number) => {
+    if (isA1) {
+      return t(`practice.listening.descriptions.a1.part${partNumber}`);
+    }
+
+    if (isDele) {
+      return t(`practice.listening.descriptions.dele.part${partNumber}`);
+    }
+
+    return t(`practice.listening.part${partNumber}Description`);
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.listening.a1.part1')
-              : t('practice.listening.part1')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.listening.descriptions.a1.part1')
-              : t('practice.listening.part1Description')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(1)}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.listening.a1.part2')
-              : t('practice.listening.part2')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.listening.descriptions.a1.part2')
-              : t('practice.listening.part2Description')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(2)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(2)}</Text>
         </Card>
         <Card style={styles.card} onPress={handlePart3Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.listening.a1.part3')
-              : t('practice.listening.part3')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.listening.descriptions.a1.part3')
-              : t('practice.listening.part3Description')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(3)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(3)}</Text>
         </Card>
         
         {isDele && (
           <>
             <Card style={styles.card} onPress={handlePart4Press}>
-              <Text style={styles.cardTitle}>
-                {t('practice.listening.part4')}
-              </Text>
-              <Text style={styles.cardDescription}>
-                {t('practice.listening.part4Description')}
-              </Text>
+              <Text style={styles.cardTitle}>{getCardTitle(4)}</Text>
+              <Text style={styles.cardDescription}>{getCardDescription(4)}</Text>
             </Card>
             <Card style={styles.card} onPress={handlePart5Press}>
-              <Text style={styles.cardTitle}>
-                {t('practice.listening.part5')}
-              </Text>
-              <Text style={styles.cardDescription}>
-                {t('practice.listening.part5Description')}
-              </Text>
+              <Text style={styles.cardTitle}>{getCardTitle(5)}</Text>
+              <Text style={styles.cardDescription}>{getCardDescription(5)}</Text>
             </Card>
           </>
         )}

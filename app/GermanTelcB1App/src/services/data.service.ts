@@ -96,6 +96,7 @@ class DataService {
         // Cache the data
         await this.cacheData(docId, data);
         
+        console.log(`[CACHE_DEBUG] Data Snapshot: `, data);
         console.log(`[CACHE_DEBUG] ========================================`);
         return data;
       } else {
@@ -216,9 +217,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getGrammarPart1Exam(id: number): Promise<GrammarPart1Exam | undefined> {
+  async getGrammarPart1Exam(id: string): Promise<GrammarPart1Exam | undefined> {
     const exams = await this.getGrammarPart1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Grammar Part 2
@@ -227,9 +228,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getGrammarPart2Exam(id: number): Promise<GrammarPart2Exam | undefined> {
+  async getGrammarPart2Exam(id: string): Promise<GrammarPart2Exam | undefined> {
     const exams = await this.getGrammarPart2Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 1 (B1/B2)
@@ -237,9 +238,9 @@ class DataService {
     return await this.fetchFromFirestore('reading-part1', null);
   }
 
-  async getReadingPart1ExamById(id: number): Promise<ReadingPart1Exam | undefined> {
+  async getReadingPart1ExamById(id: string): Promise<ReadingPart1Exam | undefined> {
     const exams = await this.getReadingPart1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 1 A1 (True/False Questions)
@@ -247,9 +248,9 @@ class DataService {
     return await this.fetchFromFirestore('reading-part1', null);
   }
 
-  async getReadingPart1A1ExamById(id: number): Promise<ReadingPart1A1Exam | undefined> {
+  async getReadingPart1A1ExamById(id: string): Promise<ReadingPart1A1Exam | undefined> {
     const exams = await this.getReadingPart1A1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 2 (B1/B2)
@@ -258,9 +259,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getReadingPart2Exam(id: number): Promise<ReadingPart2Exam | undefined> {
+  async getReadingPart2Exam(id: string): Promise<ReadingPart2Exam | undefined> {
     const exams = await this.getReadingPart2Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 2 A1 (Matching Situations to Options)
@@ -269,9 +270,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getReadingPart2A1ExamById(id: number): Promise<ReadingPart2A1Exam | undefined> {
+  async getReadingPart2A1ExamById(id: string): Promise<ReadingPart2A1Exam | undefined> {
     const exams = await this.getReadingPart2A1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 3 (B1/B2)
@@ -280,9 +281,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getReadingPart3Exam(id: number): Promise<ReadingPart3Exam | undefined> {
+  async getReadingPart3Exam(id: string): Promise<ReadingPart3Exam | undefined> {
     const exams = await this.getReadingPart3Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Reading Part 3 A1 (True/False Questions with Context)
@@ -291,31 +292,31 @@ class DataService {
     return data.exams || [];
   }
 
-  async getReadingPart3A1ExamById(id: number): Promise<ReadingPart3A1Exam | undefined> {
+  async getReadingPart3A1ExamById(id: string): Promise<ReadingPart3A1Exam | undefined> {
     const exams = await this.getReadingPart3A1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Writing
   async getWritingExams(): Promise<WritingExam[]> {
     const data = await this.fetchFromFirestore('writing', null);
-    return data.exams || [];
+    return data?.exams || [];
   }
 
-  async getWritingExam(id: number): Promise<WritingExam | undefined> {
+  async getWritingExam(id: string): Promise<WritingExam | undefined> {
     const exams = await this.getWritingExams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Writing Part 1 (A1)
   async getWritingPart1Exams(): Promise<any[]> {
     const data = await this.fetchFromFirestore('writing-part1', null);
-    return data.exams || [];
+    return data?.exams || [];
   }
 
-  async getWritingPart1Exam(id: number): Promise<any | undefined> {
+  async getWritingPart1Exam(id: string): Promise<any | undefined> {
     const exams = await this.getWritingPart1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Writing Part 2 (A1)
@@ -324,9 +325,9 @@ class DataService {
     return data.exams || [];
   }
 
-  async getWritingPart2Exam(id: number): Promise<any | undefined> {
+  async getWritingPart2Exam(id: string): Promise<any | undefined> {
     const exams = await this.getWritingPart2Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // Speaking Part 1
@@ -411,7 +412,7 @@ class DataService {
     const data = await this.fetchFromFirestore('grammar-study-questions', null);
     // The Firebase document has structure { data: [...], metadata: {...} }
     // Extract just the data array
-    return data?.data || [];
+    return data?.data || data || [];
   }
 
   // Listening Practice
@@ -432,8 +433,8 @@ class DataService {
 
   // DELE Reading Part 1
   async getDeleReadingPart1Exams(): Promise<DeleReadingPart1Exam[]> {
-    const data = await this.fetchFromFirestore('dele-reading-part1', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('reading-part1', null);
+    return data || [];
   }
 
   async getDeleReadingPart1ExamById(id: string): Promise<DeleReadingPart1Exam | undefined> {
@@ -443,8 +444,8 @@ class DataService {
 
   // DELE Reading Part 2
   async getDeleReadingPart2Exams(): Promise<DeleReadingPart2Exam[]> {
-    const data = await this.fetchFromFirestore('dele-reading-part2', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('reading-part2', null);
+    return data?.exams || [];
   }
 
   async getDeleReadingPart2ExamById(id: string): Promise<DeleReadingPart2Exam | undefined> {
@@ -454,8 +455,8 @@ class DataService {
 
   // DELE Reading Part 3
   async getDeleReadingPart3Exams(): Promise<DeleReadingPart3Exam[]> {
-    const data = await this.fetchFromFirestore('dele-reading-part3', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('reading-part3', null);
+    return data?.exams || [];
   }
 
   async getDeleReadingPart3ExamById(id: string): Promise<DeleReadingPart3Exam | undefined> {
@@ -465,8 +466,8 @@ class DataService {
 
   // DELE Grammar Part 1
   async getDeleGrammarPart1Exams(): Promise<DeleGrammarPart1Exam[]> {
-    const data = await this.fetchFromFirestore('dele-grammar-part1', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('grammar-part1', null);
+    return data?.exams || [];
   }
 
   async getDeleGrammarPart1ExamById(id: string): Promise<DeleGrammarPart1Exam | undefined> {
@@ -476,8 +477,8 @@ class DataService {
 
   // DELE Grammar Part 2
   async getDeleGrammarPart2Exams(): Promise<DeleGrammarPart2Exam[]> {
-    const data = await this.fetchFromFirestore('dele-grammar-part2', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('grammar-part2', null);
+    return data?.exams || [];
   }
 
   async getDeleGrammarPart2ExamById(id: string): Promise<DeleGrammarPart2Exam | undefined> {
@@ -487,12 +488,12 @@ class DataService {
 
   // DELE Listening Part 1
   async getDeleListeningPart1Content(): Promise<any> {
-    return this.fetchFromFirestore('dele-listening-part1', null);
+    return this.fetchFromFirestore('listening-part1', null);
   }
 
   async getDeleListeningPart1Exams(): Promise<DeleListeningExam[]> {
     const data = await this.getDeleListeningPart1Content();
-    return data.exams || [];
+    return data?.exams || [];
   }
 
   async getDeleListeningPart1ExamById(id: string): Promise<DeleListeningExam | undefined> {
@@ -502,12 +503,12 @@ class DataService {
 
   // DELE Listening Part 2
   async getDeleListeningPart2Content(): Promise<any> {
-    return this.fetchFromFirestore('dele-listening-part2', null);
+    return this.fetchFromFirestore('listening-part2', null);
   }
 
   async getDeleListeningPart2Exams(): Promise<DeleListeningExam[]> {
     const data = await this.getDeleListeningPart2Content();
-    return data.exams || [];
+    return data?.exams || [];
   }
 
   async getDeleListeningPart2ExamById(id: string): Promise<DeleListeningExam | undefined> {
@@ -517,12 +518,12 @@ class DataService {
 
   // DELE Listening Part 3
   async getDeleListeningPart3Content(): Promise<any> {
-    return this.fetchFromFirestore('dele-listening-part3', null);
+    return this.fetchFromFirestore('listening-part3', null);
   }
 
   async getDeleListeningPart3Exams(): Promise<DeleListeningExam[]> {
     const data = await this.getDeleListeningPart3Content();
-    return data.exams || [];
+    return data?.exams || [];
   }
 
   async getDeleListeningPart3ExamById(id: string): Promise<DeleListeningExam | undefined> {
@@ -532,12 +533,12 @@ class DataService {
 
   // DELE Listening Part 4
   async getDeleListeningPart4Content(): Promise<any> {
-    return this.fetchFromFirestore('dele-listening-part4', null);
+    return this.fetchFromFirestore('listening-part4', null);
   }
 
   async getDeleListeningPart4Exams(): Promise<DeleListeningExam[]> {
     const data = await this.getDeleListeningPart4Content();
-    return data.exams || [];
+    return data?.exams || [];
   }
 
   async getDeleListeningPart4ExamById(id: string): Promise<DeleListeningExam | undefined> {
@@ -547,12 +548,12 @@ class DataService {
 
   // DELE Listening Part 5
   async getDeleListeningPart5Content(): Promise<any> {
-    return this.fetchFromFirestore('dele-listening-part5', null);
+    return this.fetchFromFirestore('listening-part5', null);
   }
 
   async getDeleListeningPart5Exams(): Promise<DeleListeningExam[]> {
     const data = await this.getDeleListeningPart5Content();
-    return data.exams || [];
+    return data?.exams || [];
   }
 
   async getDeleListeningPart5ExamById(id: string): Promise<DeleListeningExam | undefined> {
@@ -562,8 +563,8 @@ class DataService {
 
   // DELE Writing Part 1
   async getDeleWritingPart1Exams(): Promise<DeleWritingExam[]> {
-    const data = await this.fetchFromFirestore('dele-writing-part1', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('writing-part1', null);
+    return data?.exams || [];
   }
 
   async getDeleWritingPart1ExamById(id: string): Promise<DeleWritingExam | undefined> {
@@ -573,8 +574,8 @@ class DataService {
 
   // DELE Writing Part 2
   async getDeleWritingPart2Exams(): Promise<DeleWritingExam[]> {
-    const data = await this.fetchFromFirestore('dele-writing-part2', null);
-    return data.exams || [];
+    const data = await this.fetchFromFirestore('writing-part2', null);
+    return data?.exams || [];
   }
 
   async getDeleWritingPart2ExamById(id: string): Promise<DeleWritingExam | undefined> {
@@ -584,8 +585,8 @@ class DataService {
 
   // DELE Speaking Topics (Legacy - keeping for backward compatibility)
   async getDeleSpeakingTopics(): Promise<DeleSpeakingTopic[]> {
-    const data = await this.fetchFromFirestore('dele-speaking', null);
-    return data.topics || [];
+    const data = await this.fetchFromFirestore('speaking', null);
+    return data?.topics || [];
   }
 
   async getDeleSpeakingTopicById(topicId: number): Promise<DeleSpeakingTopic | undefined> {
@@ -595,26 +596,62 @@ class DataService {
 
   // DELE Speaking Part 1
   async getDeleSpeakingPart1Content(): Promise<DeleSpeakingPart> {
-    const data = await this.fetchFromFirestore('dele-speaking-part1', null);
-    return { topics: data.topics || [] };
+    try {
+      const data = await this.fetchFromFirestore('speaking-part1', null);
+      if (!data) {
+        console.warn('No data found for dele-speaking-part1');
+        return { topics: [] };
+      }
+      return { topics: data.topics || [] };
+    } catch (error) {
+      console.error('Error fetching DELE Speaking Part 1:', error);
+      return { topics: [] };
+    }
   }
 
   // DELE Speaking Part 2
   async getDeleSpeakingPart2Content(): Promise<DeleSpeakingPart> {
-    const data = await this.fetchFromFirestore('dele-speaking-part2', null);
-    return { topics: data.topics || [] };
+    try {
+      const data = await this.fetchFromFirestore('speaking-part2', null);
+      if (!data) {
+        console.warn('No data found for dele-speaking-part2');
+        return { topics: [] };
+      }
+      return { topics: data.topics || [] };
+    } catch (error) {
+      console.error('Error fetching DELE Speaking Part 2:', error);
+      return { topics: [] };
+    }
   }
 
   // DELE Speaking Part 3
   async getDeleSpeakingPart3Content(): Promise<DeleSpeakingPart> {
-    const data = await this.fetchFromFirestore('dele-speaking-part3', null);
-    return { topics: data.topics || [] };
+    try {
+      const data = await this.fetchFromFirestore('speaking-part3', null);
+      if (!data) {
+        console.warn('No data found for dele-speaking-part3');
+        return { topics: [] };
+      }
+      return { topics: data.topics || [] };
+    } catch (error) {
+      console.error('Error fetching DELE Speaking Part 3:', error);
+      return { topics: [] };
+    }
   }
 
   // DELE Speaking Part 4
   async getDeleSpeakingPart4Content(): Promise<DeleSpeakingPart> {
-    const data = await this.fetchFromFirestore('dele-speaking-part4', null);
-    return { topics: data.topics || [] };
+    try {
+      const data = await this.fetchFromFirestore('speaking-part4', null);
+      if (!data) {
+        console.warn('No data found for dele-speaking-part4');
+        return { topics: [] };
+      }
+      return { topics: data.topics || [] };
+    } catch (error) {
+      console.error('Error fetching DELE Speaking Part 4:', error);
+      return { topics: [] };
+    }
   }
 
   // =====================================================================
@@ -715,9 +752,9 @@ class DataService {
   }
 
   // Get a specific exam by type and ID
-  async getExamByTypeAndId(type: string, id: number): Promise<any | undefined> {
+  async getExamByTypeAndId(type: string, id: string): Promise<any | undefined> {
     const exams = await this.getAllExamsByType(type);
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 }
 

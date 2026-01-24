@@ -237,7 +237,7 @@ class FirestoreService {
   async updateExamProgress(
     uid: string,
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
@@ -340,7 +340,7 @@ class FirestoreService {
   async saveExamResult(
     uid: string,
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number

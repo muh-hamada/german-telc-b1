@@ -35,7 +35,7 @@ export interface DeletionRequest {
 }
 
 export interface CompletionData {
-  examId: number;
+  examId: string;
   examType: string;
   partNumber: number;
   score: number;

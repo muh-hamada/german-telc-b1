@@ -33,25 +33,15 @@ const ReadingMenuScreen: React.FC = () => {
 
   React.useEffect(() => {
     const loadExams = async () => {
-      if (isDele) {
-        const [p1, p2, p3] = await Promise.all([
-          dataService.getDeleReadingPart1Exams(),
-          dataService.getDeleReadingPart2Exams(),
-          dataService.getDeleReadingPart3Exams()
-        ]);
-        setPart1Exams(p1);
-        setPart2Exams(p2);
-        setPart3Exams(p3);
-      } else {
-        const [p1, p2, p3] = await Promise.all([
-          dataService.getReadingPart1Exams(),
-          dataService.getReadingPart2Exams(),
-          dataService.getReadingPart3Exams()
-        ]);
-        setPart1Exams(p1);
-        setPart2Exams(p2);
-        setPart3Exams(p3);
-      }
+      const [p1, p2, p3] = await Promise.all([
+        dataService.getReadingPart1Exams(),
+        dataService.getReadingPart2Exams(),
+        dataService.getReadingPart3Exams()
+      ]);
+      setPart1Exams(p1);
+      setPart2Exams(p2);
+      setPart3Exams(p3);
+
     };
     loadExams();
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
@@ -72,7 +62,7 @@ const ReadingMenuScreen: React.FC = () => {
     setShowPart3Modal(true);
   };
 
-  const handleSelectPart1Exam = (examId: number) => {
+  const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -82,7 +72,7 @@ const ReadingMenuScreen: React.FC = () => {
     }
   };
 
-  const handleSelectPart2Exam = (examId: number) => {
+  const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -92,7 +82,7 @@ const ReadingMenuScreen: React.FC = () => {
     }
   };
 
-  const handleSelectPart3Exam = (examId: number) => {
+  const handleSelectPart3Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
     // Check app level and navigate to appropriate screen
     if (isA1) {
@@ -102,49 +92,59 @@ const ReadingMenuScreen: React.FC = () => {
     }
   };
 
+  const getCardTitle = (partNumber: number) => {
+    switch (partNumber) {
+      case 1:
+        return isA1 ? t('practice.reading.a1.part1') : t('practice.reading.part1');
+      case 2:
+        return isA1 ? t('practice.reading.a1.part2') : t('practice.reading.part2');
+      case 3:
+        return isA1
+          ? t('practice.reading.a1.part3')
+          : (isDele ? t('practice.reading.dele.part3') : t('practice.reading.part3'));
+      default:
+        return '';
+    }
+  }
+
+  const getCardDescription = (partNumber: number) => {
+    switch (partNumber) {
+      case 1:
+        return isA1
+          ? t('practice.reading.descriptions.a1.part1')
+          : t('practice.reading.descriptions.part1');
+      case 2:
+        return isA1
+          ? t('practice.reading.descriptions.a1.part2')
+          : t('practice.reading.descriptions.part2');
+      case 3:
+        return isA1
+          ? t('practice.reading.descriptions.a1.part3')
+          : (isDele ? t('practice.reading.descriptions.dele.part3') : t('practice.reading.descriptions.part3'));
+      default:
+        return '';
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.reading.a1.part1')
-              : t('practice.reading.part1')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.reading.descriptions.a1.part1')
-              : t('practice.reading.descriptions.part1')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(1)}</Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart2Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.reading.a1.part2')
-              : t('practice.reading.part2')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.reading.descriptions.a1.part2')
-              : t('practice.reading.descriptions.part2')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(2)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(2)}</Text>
         </Card>
 
         <Card style={styles.card} onPress={handlePart3Press}>
-          <Text style={styles.cardTitle}>
-            {isA1 
-              ? t('practice.reading.a1.part3')
-              : t('practice.reading.part3')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {isA1 
-              ? t('practice.reading.descriptions.a1.part3')
-              : t('practice.reading.descriptions.part3')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(3)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(3)}</Text>
         </Card>
       </ScrollView>
-      
+
       <ExamSelectionModal
         visible={showPart1Modal}
         onClose={() => setShowPart1Modal(false)}
@@ -152,7 +152,7 @@ const ReadingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart1Exam}
         examType="reading"
         partNumber={1}
-        title={t('practice.reading.part1')}
+        title={getCardTitle(1)}
       />
 
       <ExamSelectionModal
@@ -162,7 +162,7 @@ const ReadingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart2Exam}
         examType="reading"
         partNumber={2}
-        title={t('practice.reading.part2')}
+        title={getCardTitle(2)}
       />
 
       <ExamSelectionModal
@@ -172,7 +172,7 @@ const ReadingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart3Exam}
         examType="reading"
         partNumber={3}
-        title={t('practice.reading.part3')}
+        title={getCardTitle(3)}
       />
 
     </View>

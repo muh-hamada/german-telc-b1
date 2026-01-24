@@ -29,14 +29,14 @@ interface ProgressContextType extends ProgressState {
   loadUserProgress: () => Promise<void>;
   updateExamProgress: (
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
     completed?: boolean,
     options?: UpdateExamProgressOptions
   ) => Promise<UpdateExamProgressResult>;
-  getExamProgress: (examType: string, examId: number) => ExamProgress | null;
+  getExamProgress: (examType: string, examId: string) => ExamProgress | null;
   clearUserProgress: () => Promise<boolean>;
   refreshProgress: () => Promise<void>;
   syncProgressToFirebase: () => Promise<boolean>;
@@ -47,7 +47,7 @@ type ProgressAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'SET_USER_PROGRESS'; payload: UserProgress | null }
-  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: number; answers: UserAnswer[]; score?: number; maxScore?: number; completed?: boolean } }
+  | { type: 'UPDATE_EXAM_PROGRESS'; payload: { examType: string; examId: string; answers: UserAnswer[]; score?: number; maxScore?: number; completed?: boolean } }
   | { type: 'CLEAR_PROGRESS' };
 
 // Initial State
@@ -265,7 +265,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   const updateExamProgress = async (
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
@@ -392,7 +392,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     }
   };
 
-  const getExamProgress = (examType: string, examId: number): ExamProgress | null => {
+  const getExamProgress = (examType: string, examId: string): ExamProgress | null => {
     if (!state.userProgress) return null;
     
     return (
@@ -470,7 +470,7 @@ export const useProgress = (): ProgressContextType => {
 };
 
 // Utility hooks for specific progress data
-export const useExamProgress = (examType: string, examId: number) => {
+export const useExamProgress = (examType: string, examId: string) => {
   // Use useContext directly to handle cases where provider might not be ready during hot reload
   const context = useContext(ProgressContext);
   

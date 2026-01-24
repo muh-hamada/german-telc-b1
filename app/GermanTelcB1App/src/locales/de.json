@@ -545,9 +545,15 @@
           "part1": "Lesen Sie Briefe und Nachrichten und entscheiden Sie, ob Aussagen richtig oder falsch sind",
           "part2": "Lesen Sie Situationen und wählen Sie die richtige Website oder Anzeige",
           "part3": "Lesen Sie Schilder und Hinweise und beurteilen Sie, ob Aussagen richtig sind"
+        },
+        "dele": {
+          "part3": "Ordnen Sie Aussagen Situationen zu"
         }
       },
-      "part1": "Teil 1: Passende Überschriften"
+      "part1": "Teil 1: Passende Überschriften",
+      "dele": {
+        "part3": "Teil 3: Situationsanpassung"
+      }
     },
     "listening": {
       "title": "Hörverstehen",
@@ -567,6 +573,13 @@
           "part1": "Hören Sie kurze Gespräche und Ansagen, dann beantworten Sie Multiple-Choice-Fragen",
           "part2": "Hören Sie eine Radiodurchsage und beantworten Sie Fragen zu Details",
           "part3": "Hören Sie Telefongespräche und identifizieren Sie wichtige Informationen"
+        },
+        "dele": {
+          "part1": "Hören Sie sich sechs Voicemail-Nachrichten von einem Telefon an",
+          "part2": "Hören Sie sich einen Abschnitt des Programms an",
+          "part3": "Hören Sie sich sechs Nachrichten in einer Radiosendung an",
+          "part4": "Hören Sie zu, wie sechs Menschen ihre Erinnerungen teilen",
+          "part5": "Hören Sie sich ein Gespräch zwischen zwei Freunden an"
         }
       },
       "comingSoon": "Hörübungen kommen bald",
@@ -581,6 +594,13 @@
         "explanation": "Erläuterung",
         "start": "Starten",
         "finish": "Beenden"
+      },
+      "dele": {
+        "part1": "Teil 1: Voicemail-Nachrichten",
+        "part2": "Teil 2: Radiosegment",
+        "part3": "Teil 3: Nachrichten",
+        "part4": "Teil 4: Erinnerungen teilen",
+        "part5": "Teil 5: Gespräche"
       }
     },
     "writing": {
@@ -651,7 +671,11 @@
         "allCompleted": "Sie haben alle 150 Grammatikfragen beantwortet! Möchten Sie neu starten oder zurückgehen?",
         "close": "Schließen"
       },
-      "separator": "Lernen"
+      "separator": "Lernen",
+      "dele": {
+        "part1": "Teil 1: Lückenfüllung (Fragmente)",
+        "part2": "Teil 2: Lücken füllen (Multiple Choice)"
+      }
     }
   },
   "profile": {
@@ -1323,7 +1347,10 @@
       "selectAnswer": "Antwort für Lücke [{{gap}}] wählen:",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben.",
+      "deleTaskDescription": "Lesen Sie den folgenden Text, aus dem sechs Fragmente extrahiert wurden. \nLesen Sie dann die acht vorgeschlagenen Fragmente (A-H) und entscheiden Sie, wo im Text (19-24) jedes einzelne platziert werden soll. \nES GIBT ZWEI FRAGMENTE, DIE SIE NICHT AUSWÄHLEN MÜSSEN. \nMarkieren Sie die von Ihnen gewählten Optionen auf dem Antwortbogen.",
+      "fragments": "Fragmente",
+      "selectFragment": "Wählen Sie Fragment aus"
     },
     "part2": {
       "title": "Grammatik Teil 2",
@@ -1335,7 +1362,9 @@
       "selectWord": "Wort für Lücke [{{gap}}] wählen:",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Lücke(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Lücke(n) verbleiben.",
+      "deleTaskDescription": "Lesen Sie den Text und füllen Sie die Lücken (25-30) mit der richtigen Option (a / b / c) aus. \nMarkieren Sie die gewählten Optionen auf dem Antwortbogen",
+      "selectAnswer": "Wählen Sie „Antworten“."
     }
   },
   "reading": {
@@ -1356,7 +1385,11 @@
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte ordnen Sie allen Texten eine Überschrift zu, bevor Sie fortfahren.",
       "duplicateAnswers": "Doppelte Antworten",
-      "duplicateAnswersMessage": "Sie haben dieselbe Überschrift für mehrere Texte verwendet. Bitte überprüfen Sie Ihre Antworten."
+      "duplicateAnswersMessage": "Sie haben dieselbe Überschrift für mehrere Texte verwendet. Bitte überprüfen Sie Ihre Antworten.",
+      "deleTaskDescription": "Sie lesen sechs Texte, in denen Menschen über die Fernsehsendungen sprechen, die sie normalerweise sehen, und zehn Texte, die Informationen über Fernsehsendungen geben. \nOrdnen Sie den Personen (1-6) die Texte zu, die Informationen zu den Programmen geben (A-J). \nES GIBT DREI TEXTE, DIE SIE NICHT PASSEN SOLLTEN. \nMarkieren Sie Ihre Auswahl auf dem Antwortbogen.",
+      "programs": "Programme",
+      "question": "Frage",
+      "selectProgram": "Wählen Sie Programm"
     },
     "part2": {
       "title": "Lesen Teil 2",
@@ -1368,7 +1401,8 @@
       "questions": "Fragen ({{first}}-{{last}}):",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben.",
+      "deleTaskDescription": "Sie werden einen Text zu einem bestimmten Thema lesen. \nAnschließend müssen Sie die Fragen 7-12 beantworten. \nWählen Sie die richtige Antwort (a / b / c). \nMarkieren Sie Ihre Auswahl auf dem Antwortbogen."
     },
     "part3": {
       "title": "Lesen Teil 3",
@@ -1383,7 +1417,12 @@
       "falsch": "Falsch",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Situationen, bevor Sie absenden. {{count}} Situation(en) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Situationen, bevor Sie absenden. {{count}} Situation(en) verbleiben.",
+      "deleTaskDescription": "Sie werden drei Texte lesen, in denen Menschen über bestimmte Situationen sprechen. \nOrdnen Sie die Fragen 13–18 den Texten zu (A, B oder C). \nMarkieren Sie Ihre Auswahl auf dem Antwortbogen.",
+      "texts": "Texte",
+      "questions": "Fragen",
+      "question": "Frage",
+      "selectText": "Wählen Sie Text aus"
     }
   },
   "writing": {

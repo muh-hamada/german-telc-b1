@@ -87,7 +87,7 @@ class StorageService {
 
   async updateExamProgress(
     examType: string,
-    examId: number,
+    examId: string,
     answers: UserAnswer[],
     score?: number,
     maxScore?: number,
@@ -174,7 +174,7 @@ class StorageService {
     }
   }
 
-  async getExamProgress(examType: string, examId: number): Promise<ExamProgress | null> {
+  async getExamProgress(examType: string, examId: string): Promise<ExamProgress | null> {
     try {
       const progress = await this.getUserProgress();
       if (!progress) return null;

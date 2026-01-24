@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  Modal,
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -14,6 +13,7 @@ import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { DeleGrammarPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import MultiChoiceSelectionModal from './MultiChoiceSelectionModal';
 
 interface DeleGrammarPart2UIProps {
   exam: DeleGrammarPart2Exam;
@@ -102,7 +102,7 @@ const DeleGrammarPart2UI: React.FC<DeleGrammarPart2UIProps> = ({ exam, onComplet
     const answers: UserAnswer[] = [];
     exam.questions.forEach(question => {
       const userAnswerIndex = userAnswers[question.id];
-      const correctAnswerIndex = question.options.findIndex(a => a.is_correct === true);
+      const correctAnswerIndex = question.options.findIndex(a => a.correct === true);
       const isCorrect = userAnswerIndex === correctAnswerIndex;
       if (isCorrect) {
         correctCount++;
@@ -145,66 +145,27 @@ const DeleGrammarPart2UI: React.FC<DeleGrammarPart2UIProps> = ({ exam, onComplet
       </View>
 
       {/* Answer Selection Modal */}
-      <Modal
-        visible={showModal && selectedQuestion !== null}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => {
+      <MultiChoiceSelectionModal
+        visible={showModal}
+        selectedGap={selectedQuestion}
+        options={
+          selectedQuestion !== null && exam.questions.find(q => q.id === selectedQuestion)?.options.map((option, index) => ({
+            key: index,
+            text: option.text,
+            isSelected: userAnswers[selectedQuestion] === index,
+          })) || []
+        }
+        onSelect={(key) => selectedQuestion !== null && handleAnswerSelect(selectedQuestion, key as number)}
+        onClose={() => {
           setShowModal(false);
           setSelectedQuestion(null);
         }}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            {selectedQuestion !== null && (
-              <>
-                <Text style={styles.modalTitle}>
-                  {t('grammar.part2.selectAnswer')} [{selectedQuestion}]
-                </Text>
-                <ScrollView style={styles.modalScrollView}>
-                  {exam.questions.find(q => q.id === selectedQuestion)?.options.map((option, index) => {
-                    const isSelected = userAnswers[selectedQuestion] === index;
-                    return (
-                      <TouchableOpacity
-                        key={`${selectedQuestion}-${option.id || index}`}
-                        style={[
-                          styles.modalOption,
-                          isSelected && styles.modalOptionSelected
-                        ]}
-                        onPress={() => handleAnswerSelect(selectedQuestion, index)}
-                      >
-                        <Text style={[
-                          styles.modalOptionText,
-                          isSelected && styles.modalOptionTextSelected
-                        ]}>
-                          {option.text}
-                        </Text>
-                      </TouchableOpacity>
-                    );
-                  })}
-                </ScrollView>
-              </>
-            )}
-            <TouchableOpacity
-              style={styles.modalCloseButton}
-              onPress={() => {
-                setShowModal(false);
-                setSelectedQuestion(null);
-              }}
-            >
-              <Text style={styles.modalCloseButtonText}>{t('common.close')}</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+        modalTitle={selectedQuestion !== null ? `${t('grammar.part2.selectAnswer')} [${selectedQuestion}]` : ''}
+      />
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < exam.questions.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < exam.questions.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
@@ -283,63 +244,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     borderRadius: spacing.borderRadius.sm,
     textDecorationLine: 'underline',
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalContent: {
-    backgroundColor: colors.background.primary,
-    borderRadius: spacing.borderRadius.lg,
-    width: '100%',
-    maxHeight: '80%',
-    padding: spacing.padding.lg,
-  },
-  modalTitle: {
-    ...typography.textStyles.h3,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.md,
-    textAlign: 'center',
-  },
-  modalScrollView: {
-    maxHeight: 400,
-  },
-  modalOption: {
-    padding: spacing.padding.md,
-    backgroundColor: colors.secondary[50],
-    marginBottom: spacing.margin.xs,
-    borderRadius: spacing.borderRadius.sm,
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  modalOptionSelected: {
-    backgroundColor: colors.primary[100],
-    borderColor: colors.primary[500],
-  },
-  modalOptionText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-  },
-  modalOptionTextSelected: {
-    color: colors.primary[700],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  modalCloseButton: {
-    backgroundColor: colors.secondary[400],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    marginTop: spacing.margin.md,
-  },
-  modalCloseButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-  },
   submitButton: {
     backgroundColor: colors.primary[500],
     paddingVertical: spacing.padding.md,
@@ -351,10 +255,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-  },
-  submitButtonDisabled: {
-    backgroundColor: colors.secondary[400],
-    opacity: 0.6,
   },
   submitButtonText: {
     ...typography.textStyles.body,

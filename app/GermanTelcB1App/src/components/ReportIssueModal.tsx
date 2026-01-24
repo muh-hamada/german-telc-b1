@@ -23,7 +23,7 @@ interface ReportIssueModalProps {
   examData: any;
   section: string;
   part: number;
-  examId: number;
+  examId: string;
 }
 
 const MAX_CHARACTERS = 1000;

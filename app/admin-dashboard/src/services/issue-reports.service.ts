@@ -20,7 +20,7 @@ export interface IssueReport {
   deviceUUID?: string;
   section: string;
   part: number;
-  examId: number;
+  examId: string;
   questionSnapshot: any;
   userFeedback: string;
   status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';

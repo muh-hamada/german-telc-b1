@@ -146,11 +146,7 @@ const ReadingPart3A1UI: React.FC<ReadingPart3A1UIProps> = ({ exam, onComplete })
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < exam.questions.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < exam.questions.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>
@@ -286,10 +282,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-  },
-  submitButtonDisabled: {
-    backgroundColor: colors.secondary[400],
-    opacity: 0.6,
   },
   submitButtonText: {
     ...typography.textStyles.body,

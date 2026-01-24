@@ -72,7 +72,7 @@ export async function selectNextQuestion(appId: string): Promise<QuestionData | 
  */
 export async function getQuestion(
   appId: string,
-  examId: number,
+  examId: string,
   questionIndex: number
 ): Promise<QuestionData | null> {
   const db = admin.firestore();

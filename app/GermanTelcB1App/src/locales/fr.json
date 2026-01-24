@@ -533,9 +533,15 @@
           "part1": "Lisez des lettres et des messages, puis décidez si les affirmations sont vraies ou fausses",
           "part2": "Lisez des situations et choisissez le bon site web ou la bonne annonce",
           "part3": "Lisez des panneaux et des avis, puis jugez si les affirmations sont correctes"
+        },
+        "dele": {
+          "part3": "Faire correspondre les déclarations aux situations"
         }
       },
-      "part1": "Partie 1 : Correspondance des titres"
+      "part1": "Partie 1 : Correspondance des titres",
+      "dele": {
+        "part3": "Partie 3 : Adaptation des situations"
+      }
     },
     "listening": {
       "title": "Compréhension orale",
@@ -555,6 +561,13 @@
           "part1": "Écoutez de courtes conversations et annonces, puis répondez aux questions à choix multiples",
           "part2": "Écoutez une annonce radio et répondez aux questions sur les détails",
           "part3": "Écoutez des conversations téléphoniques et identifiez les informations clés"
+        },
+        "dele": {
+          "part1": "Écouter six messages vocaux depuis un téléphone",
+          "part2": "Écoutez un extrait du programme",
+          "part3": "Écoutez six nouvelles dans une émission de radio",
+          "part4": "Écoutez six personnes partager des souvenirs",
+          "part5": "Écouter une conversation entre deux amis"
         }
       },
       "comingSoon": "Exercices d'écoute à venir",
@@ -569,6 +582,13 @@
         "explanation": "Explication",
         "start": "Commencer",
         "finish": "Finition"
+      },
+      "dele": {
+        "part1": "Partie 1 : Messages vocaux",
+        "part2": "Partie 2 : Segment radio",
+        "part3": "Partie 3 : Actualités",
+        "part4": "Partie 4 : Partage de souvenirs",
+        "part5": "Partie 5 : Conversations"
       }
     },
     "writing": {
@@ -639,7 +659,11 @@
         "close": "Fermer",
         "next": "Suivant"
       },
-      "separator": "Étude"
+      "separator": "Étude",
+      "dele": {
+        "part1": "Partie 1 : Remplissage des espaces (Fragments)",
+        "part2": "Partie 2 : Remplir les lacunes (choix multiple)"
+      }
     }
   },
   "profile": {
@@ -1310,7 +1334,10 @@
       "selectAnswer": "Choisissez la réponse pour l'espace [{{gap}}]:",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s).",
+      "deleTaskDescription": "Lisez le texte suivant, dont six fragments ont été extraits. \nLisez ensuite les huit fragments proposés (A-H) et décidez où dans le texte (19-24) chacun doit être placé. \nIL Y A DEUX FRAGMENTS QUE VOUS N'AVEZ PAS À CHOISIR. \nMarquez les options choisies sur la feuille de réponses.",
+      "fragments": "Fragments",
+      "selectFragment": "Sélectionner un fragment"
     },
     "part2": {
       "title": "Grammaire Partie 2",
@@ -1322,7 +1349,9 @@
       "selectWord": "Choisir le mot pour l'espace [{{gap}}]:",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} espace(s) restant(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} espace(s) restant(s).",
+      "deleTaskDescription": "Lisez le texte et remplissez les lacunes (25-30) avec la bonne option (a/b/c). \nMarquez les options choisies sur la feuille de réponses",
+      "selectAnswer": "Sélectionnez la réponse"
     }
   },
   "reading": {
@@ -1343,7 +1372,11 @@
       "incomplete": "Incomplet",
       "incompleteMessage": "Veuillez attribuer un titre à tous les textes avant de continuer.",
       "duplicateAnswers": "Réponses en Double",
-      "duplicateAnswersMessage": "Vous avez utilisé le même titre pour plusieurs textes. Veuillez vérifier vos réponses."
+      "duplicateAnswersMessage": "Vous avez utilisé le même titre pour plusieurs textes. Veuillez vérifier vos réponses.",
+      "deleTaskDescription": "Vous allez lire six textes dans lesquels des gens parlent des programmes télévisés qu'ils regardent habituellement et dix textes qui fournissent des informations sur les programmes télévisés. \nAssociez les personnes (1 à 6) aux textes qui fournissent des informations sur les programmes (A à J). \nIL Y A TROIS TEXTES QUE VOUS NE DEVEZ PAS CORRESPONDRE. \nMarquez vos choix sur la feuille de réponses.",
+      "programs": "Programmes",
+      "question": "Question",
+      "selectProgram": "Sélectionnez le programme"
     },
     "part2": {
       "title": "Compréhension écrite Partie 2",
@@ -1355,7 +1388,8 @@
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s).",
+      "deleTaskDescription": "Vous allez lire un texte sur un sujet précis. \nEnsuite, vous devez répondre aux questions 7 à 12. \nSélectionnez la bonne réponse (a / b / c). \nMarquez vos choix sur la feuille de réponses."
     },
     "part3": {
       "title": "Compréhension écrite Partie 3",
@@ -1370,7 +1404,12 @@
       "falsch": "Falsch",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les situations avant de soumettre. {{count}} situation(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les situations avant de soumettre. {{count}} situation(s) restante(s).",
+      "deleTaskDescription": "Vous allez lire trois textes dans lesquels des personnes parlent de situations précises. \nAssociez les questions 13 à 18 aux textes (A, B ou C). \nMarquez vos choix sur la feuille de réponses.",
+      "texts": "Textes",
+      "questions": "Questions",
+      "question": "Question",
+      "selectText": "Sélectionnez le texte"
     }
   },
   "writing": {

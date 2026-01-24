@@ -257,11 +257,7 @@ const DeleListeningPart1UI: React.FC<DeleListeningPart1UIProps> = ({ exam, secti
 
       {/* Submit Button */}
       <TouchableOpacity
-        style={[
-          styles.submitButton,
-          Object.keys(userAnswers).length < exam.questions.length && styles.submitButtonDisabled
-        ]}
-        disabled={Object.keys(userAnswers).length < exam.questions.length}
+        style={styles.submitButton}
         onPress={handleSubmit}
       >
         <Text style={styles.submitButtonText}>

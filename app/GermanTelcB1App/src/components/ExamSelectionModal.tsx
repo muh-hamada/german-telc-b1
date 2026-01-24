@@ -15,7 +15,7 @@ import { useCompletion } from '../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface Exam {
-  id: number;
+  id: string;
   title?: string;
 }
 
@@ -23,7 +23,7 @@ interface ExamSelectionModalProps {
   visible: boolean;
   onClose: () => void;
   exams: Exam[];
-  onSelectExam: (examId: number) => void;
+  onSelectExam: (examId: string) => void;
   examType: string;
   partNumber: number;
   title?: string;
@@ -58,7 +58,7 @@ const ExamSelectionModal: React.FC<ExamSelectionModalProps> = ({
     percentage: 0,
   };
 
-  const handleSelectExam = (examId: number) => {
+  const handleSelectExam = (examId: string) => {
     onSelectExam(examId);
     onClose();
   };
