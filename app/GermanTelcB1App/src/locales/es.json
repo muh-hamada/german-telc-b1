@@ -123,7 +123,7 @@
   },
   "onboarding": {
     "welcome": {
-      "title": "Prepárate para tu examen Telc con confianza",
+      "title": "Prepárate para tu examen {{provider}} con confianza",
       "text": "Practica con exámenes de práctica realistas diseñados para coincidir con el formato, dificultad y estructura del examen real."
     },
     "selectLanguage": "Selecciona tu idioma de interfaz",
@@ -137,10 +137,10 @@
     },
     "disclaimer": {
       "title": "Aviso Importante",
-      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con TELC GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de {{language}} TELC {{level}}.",
-      "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen TELC real.",
-      "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen TELC real. Esta es sólo una herramienta de práctica y preparación.",
-      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de TELC. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen TELC {{level}} real."
+      "text1": "Esta aplicación NO está afiliada, respaldada ni conectada con {{provider}} GmbH. Somos una herramienta educativa independiente creada para ayudar a los estudiantes a prepararse para el examen de {{language}} {{provider}} {{level}}.",
+      "text2": "Todos los materiales de práctica, preguntas y ejercicios de esta aplicación se crean de forma independiente utilizando tecnología de IA y recursos gratuitos disponibles en línea. Utilizamos estos recursos para generar preguntas que simulan la complejidad y el formato del examen {{provider}} real.",
+      "text3": "Completar ejercicios en esta aplicación no garantiza el éxito o el fracaso en el examen {{provider}} real. Esta es sólo una herramienta de práctica y preparación.",
+      "checkboxLabel": "Entiendo que esta aplicación es solo una herramienta de simulación para la preparación del examen y no es una aplicación oficial de {{provider}}. Reconozco que usar esta aplicación no garantiza ningún resultado específico en el examen {{provider}} {{level}} real."
     },
     "buttons": {
       "next": "Siguiente",
@@ -149,12 +149,12 @@
       "later": "Más tarde"
     },
     "coverage": {
-      "title": "Todo lo que necesitas para el examen Telc",
+      "title": "Todo lo que necesitas para el examen {{provider}}",
       "text": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla."
     },
     "writing": {
       "title": "Obtén comentarios reales sobre tu escritura",
-      "text": "Evaluación con IA entrenada con criterios oficiales de Telc te da puntuaciones claras, comentarios detallados, fortalezas y áreas a mejorar, y respuestas modelo."
+      "text": "Evaluación con IA entrenada con criterios oficiales de {{provider}} te da puntuaciones claras, comentarios detallados, fortalezas y áreas a mejorar, y respuestas modelo."
     },
     "speaking": {
       "title": "Prepárate para el examen oral",
@@ -162,7 +162,7 @@
     },
     "ready": {
       "title": "¿Listo para probar tu primer examen de práctica?",
-      "text": "Experimenta el examen Telc exactamente como será el día del examen."
+      "text": "Experimenta el examen {{provider}} exactamente como será el día del examen."
     }
   },
   "navigation": {
@@ -171,7 +171,7 @@
     "profile": "Perfil"
   },
   "home": {
-    "title": "Preparémonos juntos para el examen telc",
+    "title": "Preparémonos juntos para el examen {{provider}}",
     "welcomeUser": "¡Bienvenido, {{name}}!",
     "welcomeGuest": "¡Bienvenido!",
     "examStructure": "Estructura del Examen",
@@ -184,7 +184,7 @@
       "speaking": "Expresión Oral"
     },
     "descriptions": {
-      "examStructure": "Conozca el formato del examen TELC {{level}} y el sistema de puntuación",
+      "examStructure": "Conozca el formato del examen {{provider}} {{level}} y el sistema de puntuación",
       "vocabulary": "Aprende vocabulario con repetición espaciada",
       "solve": "Practica todas las secciones del examen: Lectura, Escucha, Escritura y Habla",
       "listeningPractice": "Escuche entrevistas y responda preguntas para practicar sus habilidades de escucha."
@@ -515,7 +515,7 @@
     }
   },
   "examStructure": {
-    "description": "Aprende sobre el formato y puntuación del examen TELC {{level}}",
+    "description": "Aprende sobre el formato y puntuación del examen {{provider}} {{level}}",
     "comingSoon": "Contenido próximamente...",
     "cefrLevel": "Nivel MCER",
     "totalDuration": "Duración total",
@@ -711,7 +711,7 @@
     "signOut": "Cerrar sesión",
     "changeLanguage": "Cambiar idioma",
     "signedInWith": "Sesión iniciada con",
-    "appName": "Aplicación de preparación para el examen de {{language}} TELC {{level}}",
+    "appName": "Aplicación de preparación para el examen de {{language}} {{provider}} {{level}}",
     "version": "Versión",
     "completionStats": "Estadísticas de finalización",
     "totalProgress": "Progreso total",
@@ -724,7 +724,7 @@
     "rateApp": "Valorar la app",
     "shareApp": "Compartir con amigos",
     "reportedIssues": "Problemas Reportados",
-    "shareMessage": "¡Mira esta increíble aplicación de preparación para el examen {{language}} TELC {{level}}! Descárgala ahora:",
+    "shareMessage": "¡Mira esta increíble aplicación de preparación para el examen {{language}} {{provider}} {{level}}! Descárgala ahora:",
     "weeklyActivity": "Actividad semanal",
     "totalXP": "XP",
     "deleteAccount": "Eliminar cuenta",
@@ -880,7 +880,7 @@
   },
   "mockExam": {
     "title": "Examen de prueba",
-    "subtitle": "Examen completo Telc {{language}} {{level}}",
+    "subtitle": "Examen completo {{provider}} {{language}} {{level}}",
     "overview": "Resumen del examen",
     "totalDuration": "Duración total",
     "totalPoints": "Puntos totales",
@@ -893,7 +893,7 @@
     "aboutMockExam": "Acerca de este examen de prueba",
     "disclaimerText1": "Este examen de prueba le da una evaluación aproximada de su conocimiento actual y preparación. Sin embargo, es",
     "disclaimerText2": "no es garantía",
-    "disclaimerText3": "de que aprobará el examen real Telc {{level}}.",
+    "disclaimerText3": "de que aprobará el examen real {{provider}} {{level}}.",
     "disclaimerText4": "El examen real se realiza bajo condiciones controladas y es evaluado por examinadores certificados. Use este examen de prueba como herramienta de práctica para identificar sus debilidades y mejorarlas específicamente.",
     "examSections": "Partes del examen:",
     "readingComprehension": "Comprensión lectora (3 partes)",
@@ -1204,7 +1204,7 @@
       "subtitle": "presentación personal",
       "help": {
         "enterInfoPrompt": "Por favor ingrese su información personal para generar su texto de presentación.",
-        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral TELC {{level}}. \nPuedes usarlo como referencia para crear el tuyo propio.",
+        "exampleNote": "Este es un ejemplo completo de una presentación personal para el examen oral {{provider}} {{level}}. \nPuedes usarlo como referencia para crear el tuyo propio.",
         "questionsNote": "Importante: esta parte del examen probablemente se realizará en forma de conversación. \n\nUsted y su pareja se turnarán para hacer preguntas para conocerse. \n\nEs importante practicar tanto haciendo preguntas como respondiéndolas."
       },
       "buttons": {
@@ -1554,7 +1554,7 @@
     },
     "rewardedAdModal": {
       "title": "Soporte de Evaluación por IA",
-      "message": "Utilizamos IA avanzada para evaluar tu escritura, proporcionando comentarios integrales similares al examen real de Telc. Este proceso genera costos. Ver este breve anuncio ayuda a mantener nuestro servicio gratuito para todos.",
+      "message": "Utilizamos IA avanzada para evaluar tu escritura, proporcionando comentarios integrales similares al examen real de {{provider}}. Este proceso genera costos. Ver este breve anuncio ayuda a mantener nuestro servicio gratuito para todos.",
       "watchAdButton": "Ver Anuncio y Evaluar",
       "maybeLaterButton": "Tal vez más tarde",
       "adLoadingError": "Error al cargar el anuncio. Por favor, inténtelo de nuevo.",

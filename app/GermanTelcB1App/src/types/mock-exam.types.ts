@@ -67,6 +67,28 @@ export const MOCK_EXAM_STEPS_A1: Omit<MockExamStep, 'isCompleted' | 'score' | 's
   { id: 'speaking-3', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 3, partName: 'Teil 3: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
 ];
 
+export const MOCK_EXAM_STEPS_DELE_B1: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
+  
+  { id: 'listening-1', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 6, timeMinutes: 7 },
+  { id: 'listening-2', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 4, timeMinutes: 6 },
+  { id: 'listening-3', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
+  { id: 'listening-4', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 4, partName: 'Teil 4: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
+  { id: 'listening-5', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 5, partName: 'Teil 5: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
+
+  { id: 'reading-1', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 5, timeMinutes: 9 },
+  { id: 'reading-2', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 5, timeMinutes: 8 },
+  { id: 'reading-3', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 8 },
+  
+  { id: 'writing-part1', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Formular ausfüllen', maxPoints: 5, timeMinutes: 10 },
+  { id: 'writing-part2', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Eine kurze Mitteilung', maxPoints: 10, timeMinutes: 10 },
+  
+  { id: 'speaking-1', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Sich vorstellen', maxPoints: 5, timeMinutes: 3 },
+  { id: 'speaking-2', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Um Informationen bitten und Informationen geben', maxPoints: 5, timeMinutes: 4 },
+  { id: 'speaking-3', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 3, partName: 'Teil 3: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
+  { id: 'speaking-4', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 4, partName: 'Teil 4: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
+  { id: 'speaking-5', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 5, partName: 'Teil 5: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
+];
+
 // B1/B2 Constants
 export const TOTAL_WRITTEN_MAX_POINTS = 225; // Reading + Language + Listening + Writing
 export const TOTAL_ORAL_MAX_POINTS = 75; // Speaking

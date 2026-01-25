@@ -29,7 +29,7 @@ This directory contains automation scripts for managing multi-app configurations
   - 120x120px (40@3x and 60@2x)
   - 180x180px (60@3x)
   - 1024x1024px (App Store)
-- Copies them to `ios/TelcExamApp/Images.xcassets/AppIcon.appiconset/`
+- Copies them to `ios/ExamPreparationApp/Images.xcassets/AppIcon.appiconset/`
 - Verifies all icons were generated successfully
 
 **Requirements**:
@@ -95,7 +95,7 @@ node scripts/apply-exam-config.js <exam-id> <platform>
 
 #### For iOS:
 - Updates `app.json` with exam-specific Bundle ID, Display Name
-- **Updates `ios/TelcExamApp/Info.plist` with `CFBundleDisplayName` and `CFBundleIdentifier`**
+- **Updates `ios/ExamPreparationApp/Info.plist` with `CFBundleDisplayName` and `CFBundleIdentifier`**
 - Updates AdMob App IDs for iOS
 - Generates `src/config/active-exam.config.ts` with active exam configuration
 - Firebase config is handled separately via `build-config.sh`
@@ -279,13 +279,13 @@ Examples:
 ### Icon Backups
 When `generate-ios-icons.sh` runs, it automatically creates a backup of existing icons in:
 ```
-ios/TelcExamApp/Images.xcassets/AppIcon.appiconset/backup_YYYYMMDD_HHMMSS/
+ios/ExamPreparationApp/Images.xcassets/AppIcon.appiconset/backup_YYYYMMDD_HHMMSS/
 ```
 
 To restore from backup:
 ```bash
-cp ios/TelcExamApp/Images.xcassets/AppIcon.appiconset/backup_20251115_065633/*.png \
-   ios/TelcExamApp/Images.xcassets/AppIcon.appiconset/
+cp ios/ExamPreparationApp/Images.xcassets/AppIcon.appiconset/backup_20251115_065633/*.png \
+   ios/ExamPreparationApp/Images.xcassets/AppIcon.appiconset/
 ```
 
 ---

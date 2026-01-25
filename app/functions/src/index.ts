@@ -3,6 +3,7 @@ import { evaluateWritingEnglishB1 } from './evaluate-english-b1';
 import { evaluateWritingB2 } from './evaluate-german-b2';
 import { evaluateWritingEnglishB2 } from './evaluate-english-b2';
 import { evaluateWritingGermanA1 } from './evaluate-german-a1';
+import { evaluateWritingDeleSpanishB1 } from './evaluate-dele-spanish-b1';
 import { deleteUserAccount } from './delete-user-account';
 import { syncNotificationIndex } from './sync-notification-index';
 import { sendScheduledNotifications } from './send-scheduled-notifications';
@@ -23,6 +24,7 @@ export {
   evaluateWritingB2,
   evaluateWritingEnglishB2,
   evaluateWritingGermanA1,
+  evaluateWritingDeleSpanishB1,
   deleteUserAccount,
   syncNotificationIndex,
   sendScheduledNotifications,

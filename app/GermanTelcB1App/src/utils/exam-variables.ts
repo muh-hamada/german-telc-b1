@@ -47,19 +47,22 @@ export const LANGUAGE_SHORT_CODES: Record<string, string> = {
  * 
  * @example
  * // When exam is German B1 and UI language is Arabic
- * getExamVariables('ar') // returns { language: 'الألمانية', level: 'B1' }
+ * getExamVariables('ar') // returns { language: 'الألمانية', level: 'B1', provider: 'Telc' }
  */
-export const getExamVariables = (uiLanguage: string = 'en'): { language: string; level: string } => {
+export const getExamVariables = (uiLanguage: string = 'en'): { language: string; level: string; provider: string } => {
   const examLanguage = activeExamConfig.language;
   const examLevel = activeExamConfig.level;
+  const examProvider = activeExamConfig.provider;
   
   // Get the translated language name, fallback to English if not found
   const languageTranslations = LANGUAGE_TRANSLATIONS[examLanguage];
   const translatedLanguage = languageTranslations?.[uiLanguage] || languageTranslations?.en || examLanguage;
+  const providerCapitalized = examProvider.charAt(0).toUpperCase() + examProvider.slice(1);
   
   return {
     language: translatedLanguage,
     level: examLevel,
+    provider: providerCapitalized,
   };
 };
 

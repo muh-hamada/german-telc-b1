@@ -9,7 +9,7 @@
       "ru": "предложил",
       "ar": "عرض"
     },
-    "type": "verb form",
+    "type": "verb",
     "exampleSentences": [
       {
         "text": "Er hat mir eine Stelle als Verkäuferin angeboten.",
@@ -20712,7 +20712,7 @@
   {
     "word": "hat genommen",
     "article": "",
-    "type": "verb form",
+    "type": "verb",
     "exampleSentences": [
       {
         "text": "Was möchten Sie? – Ich nehme einen Salat.",
@@ -27450,7 +27450,7 @@
   {
     "word": "hat geteilt",
     "article": "",
-    "type": "verb form",
+    "type": "verb",
     "exampleSentences": [
       {
         "text": "Mein Mann und ich teilen uns die Arbeit.",
@@ -29726,7 +29726,7 @@
   {
     "word": "trifft",
     "article": "",
-    "type": "verb form",
+    "type": "verb",
     "exampleSentences": [
       {
         "text": "Wir treffen uns immer freitags.",

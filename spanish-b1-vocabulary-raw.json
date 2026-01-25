@@ -1,0 +1,4002 @@
+[
+    {
+        "word": "se",
+        "translation": "to him, to her | learn more"
+    },
+    {
+        "word": "lo",
+        "translation": "him | learn more"
+    },
+    {
+        "word": "le",
+        "translation": "to him, her | learn more"
+    },
+    {
+        "word": "me",
+        "translation": "me | learn more"
+    },
+    {
+        "word": "él",
+        "translation": "he | learn more"
+    },
+    {
+        "word": "ella",
+        "translation": "she | learn more"
+    },
+    {
+        "word": "te",
+        "translation": "you | learn more"
+    },
+    {
+        "word": "nos",
+        "translation": "us | learn more"
+    },
+    {
+        "word": "yo",
+        "translation": "I | learn more"
+    },
+    {
+        "word": "usted",
+        "translation": "you | learn more"
+    },
+    {
+        "word": "mí",
+        "translation": "me (after “para”)"
+    },
+    {
+        "word": "nosotros",
+        "translation": "we"
+    },
+    {
+        "word": "tú",
+        "translation": "you&nbsp;| learn more"
+    },
+    {
+        "word": "sí",
+        "translation": "oneself"
+    },
+    {
+        "word": "ti",
+        "translation": "you (after “para”)"
+    },
+    {
+        "word": "os",
+        "translation": "you (plural, used in Spain)"
+    },
+    {
+        "word": "conmigo",
+        "translation": "with me"
+    },
+    {
+        "word": "vos",
+        "translation": "you | learn more"
+    },
+    {
+        "word": "el año",
+        "translation": "year"
+    },
+    {
+        "word": "el país",
+        "translation": "country"
+    },
+    {
+        "word": "el tiempo",
+        "translation": "time"
+    },
+    {
+        "word": "la parte",
+        "translation": "part"
+    },
+    {
+        "word": "la vida",
+        "translation": "life"
+    },
+    {
+        "word": "los años",
+        "translation": "years"
+    },
+    {
+        "word": "el día",
+        "translation": "day"
+    },
+    {
+        "word": "la vez",
+        "translation": "time"
+    },
+    {
+        "word": "la persona",
+        "translation": "person"
+    },
+    {
+        "word": "la mujer",
+        "translation": "woman"
+    },
+    {
+        "word": "el caso",
+        "translation": "case"
+    },
+    {
+        "word": "el hombre",
+        "translation": "man"
+    },
+    {
+        "word": "el momento",
+        "translation": "moment"
+    },
+    {
+        "word": "el mundo",
+        "translation": "world"
+    },
+    {
+        "word": "la casa",
+        "translation": "house"
+    },
+    {
+        "word": "la cosa",
+        "translation": "thing"
+    },
+    {
+        "word": "el gobierno",
+        "translation": "government"
+    },
+    {
+        "word": "el lugar",
+        "translation": "place"
+    },
+    {
+        "word": "el trabajo",
+        "translation": "work"
+    },
+    {
+        "word": "la forma",
+        "translation": "form"
+    },
+    {
+        "word": "el estado",
+        "translation": "state"
+    },
+    {
+        "word": "el grupo",
+        "translation": "group"
+    },
+    {
+        "word": "el punto",
+        "translation": "point"
+    },
+    {
+        "word": "el niño",
+        "translation": "child"
+    },
+    {
+        "word": "la ciudad",
+        "translation": "city"
+    },
+    {
+        "word": "el problema",
+        "translation": "problem"
+    },
+    {
+        "word": "el sistema",
+        "translation": "system"
+    },
+    {
+        "word": "el presidente",
+        "translation": "president"
+    },
+    {
+        "word": "la manera",
+        "translation": "way"
+    },
+    {
+        "word": "la historia",
+        "translation": "history"
+    },
+    {
+        "word": "el tipo",
+        "translation": "type"
+    },
+    {
+        "word": "los millones",
+        "translation": "millions"
+    },
+    {
+        "word": "el partido",
+        "translation": "party"
+    },
+    {
+        "word": "el mes",
+        "translation": "month"
+    },
+    {
+        "word": "la noche",
+        "translation": "night"
+    },
+    {
+        "word": "la obra",
+        "translation": "work"
+    },
+    {
+        "word": "el equipo",
+        "translation": "team"
+    },
+    {
+        "word": "el proceso",
+        "translation": "process"
+    },
+    {
+        "word": "las veces",
+        "translation": "times"
+    },
+    {
+        "word": "el cambio",
+        "translation": "change"
+    },
+    {
+        "word": "el hijo",
+        "translation": "son"
+    },
+    {
+        "word": "el centro",
+        "translation": "center"
+    },
+    {
+        "word": "el servicio",
+        "translation": "service"
+    },
+    {
+        "word": "la empresa",
+        "translation": "company"
+    },
+    {
+        "word": "la cuenta",
+        "translation": "account"
+    },
+    {
+        "word": "la mano",
+        "translation": "hand"
+    },
+    {
+        "word": "el nivel",
+        "translation": "level"
+    },
+    {
+        "word": "el proyecto",
+        "translation": "project"
+    },
+    {
+        "word": "la gente",
+        "translation": "people"
+    },
+    {
+        "word": "el agua",
+        "translation": "water"
+    },
+    {
+        "word": "la hora",
+        "translation": "time"
+    },
+    {
+        "word": "el padre",
+        "translation": "parent"
+    },
+    {
+        "word": "el desarrollo",
+        "translation": "development"
+    },
+    {
+        "word": "la semana",
+        "translation": "week"
+    },
+    {
+        "word": "el lado",
+        "translation": "side"
+    },
+    {
+        "word": "la familia",
+        "translation": "family"
+    },
+    {
+        "word": "la situación",
+        "translation": "situation"
+    },
+    {
+        "word": "la madre",
+        "translation": "mother"
+    },
+    {
+        "word": "la información",
+        "translation": "information"
+    },
+    {
+        "word": "el fin",
+        "translation": "end"
+    },
+    {
+        "word": "el programa",
+        "translation": "program"
+    },
+    {
+        "word": "la salud",
+        "translation": "health"
+    },
+    {
+        "word": "el cuerpo",
+        "translation": "body"
+    },
+    {
+        "word": "la actividad",
+        "translation": "activity"
+    },
+    {
+        "word": "el derecho",
+        "translation": "right"
+    },
+    {
+        "word": "el ejemplo",
+        "translation": "example"
+    },
+    {
+        "word": "el libro",
+        "translation": "book"
+    },
+    {
+        "word": "el medio",
+        "translation": "middle"
+    },
+    {
+        "word": "el tema",
+        "translation": "topic"
+    },
+    {
+        "word": "los días",
+        "translation": "days"
+    },
+    {
+        "word": "la ley",
+        "translation": "law"
+    },
+    {
+        "word": "el hecho",
+        "translation": "fact"
+    },
+    {
+        "word": "la zona",
+        "translation": "zone"
+    },
+    {
+        "word": "el nombre",
+        "translation": "name"
+    },
+    {
+        "word": "el resultado",
+        "translation": "result"
+    },
+    {
+        "word": "el número",
+        "translation": "number"
+    },
+    {
+        "word": "el final",
+        "translation": "end"
+    },
+    {
+        "word": "el sector",
+        "translation": "sector"
+    },
+    {
+        "word": "la calle",
+        "translation": "street"
+    },
+    {
+        "word": "el estudio",
+        "translation": "study"
+    },
+    {
+        "word": "la puerta",
+        "translation": "door"
+    },
+    {
+        "word": "la investigación",
+        "translation": "research"
+    },
+    {
+        "word": "el espacio",
+        "translation": "space"
+    },
+    {
+        "word": "la sociedad",
+        "translation": "society"
+    },
+    {
+        "word": "la acción",
+        "translation": "action"
+    },
+    {
+        "word": "el pueblo",
+        "translation": "town"
+    },
+    {
+        "word": "el director",
+        "translation": "director"
+    },
+    {
+        "word": "la realidad",
+        "translation": "reality"
+    },
+    {
+        "word": "la voz",
+        "translation": "voice"
+    },
+    {
+        "word": "el producto",
+        "translation": "product"
+    },
+    {
+        "word": "el amigo",
+        "translation": "friend"
+    },
+    {
+        "word": "el mercado",
+        "translation": "market"
+    },
+    {
+        "word": "la cabeza",
+        "translation": "head"
+    },
+    {
+        "word": "la población",
+        "translation": "population"
+    },
+    {
+        "word": "la muerte",
+        "translation": "death"
+    },
+    {
+        "word": "el minuto",
+        "translation": "minute"
+    },
+    {
+        "word": "la tierra",
+        "translation": "land"
+    },
+    {
+        "word": "la verdad",
+        "translation": "truth"
+    },
+    {
+        "word": "el sentido",
+        "translation": "sense"
+    },
+    {
+        "word": "el hermano",
+        "translation": "brother"
+    },
+    {
+        "word": "la medida",
+        "translation": "measure"
+    },
+    {
+        "word": "la seguridad",
+        "translation": "security"
+    },
+    {
+        "word": "la imagen",
+        "translation": "image"
+    },
+    {
+        "word": "la comunidad",
+        "translation": "community"
+    },
+    {
+        "word": "el poder",
+        "translation": "power"
+    },
+    {
+        "word": "la universidad",
+        "translation": "university"
+    },
+    {
+        "word": "el uso",
+        "translation": "use"
+    },
+    {
+        "word": "la razón",
+        "translation": "reason"
+    },
+    {
+        "word": "la organización",
+        "translation": "organization"
+    },
+    {
+        "word": "la idea",
+        "translation": "idea"
+    },
+    {
+        "word": "la educación",
+        "translation": "education"
+    },
+    {
+        "word": "el paso",
+        "translation": "step"
+    },
+    {
+        "word": "el área",
+        "translation": "area"
+    },
+    {
+        "word": "el siglo",
+        "translation": "century"
+    },
+    {
+        "word": "el objetivo",
+        "translation": "target"
+    },
+    {
+        "word": "el dato",
+        "translation": "data"
+    },
+    {
+        "word": "la posibilidad",
+        "translation": "possibility"
+    },
+    {
+        "word": "la producción",
+        "translation": "production"
+    },
+    {
+        "word": "el joven",
+        "translation": "youth"
+    },
+    {
+        "word": "la necesidad",
+        "translation": "need"
+    },
+    {
+        "word": "el policía",
+        "translation": "police"
+    },
+    {
+        "word": "la especie",
+        "translation": "species"
+    },
+    {
+        "word": "el camino",
+        "translation": "path"
+    },
+    {
+        "word": "el plan",
+        "translation": "plan"
+    },
+    {
+        "word": "el arte",
+        "translation": "art"
+    },
+    {
+        "word": "la atención",
+        "translation": "attention"
+    },
+    {
+        "word": "el ciento",
+        "translation": "hundred"
+    },
+    {
+        "word": "la política",
+        "translation": "policy"
+    },
+    {
+        "word": "la decisión",
+        "translation": "decision"
+    },
+    {
+        "word": "la cultura",
+        "translation": "culture"
+    },
+    {
+        "word": "la luz",
+        "translation": "light"
+    },
+    {
+        "word": "la mayoría",
+        "translation": "majority"
+    },
+    {
+        "word": "la mañana",
+        "translation": "morning"
+    },
+    {
+        "word": "la enfermedad",
+        "translation": "disease"
+    },
+    {
+        "word": "la relación",
+        "translation": "relationship"
+    },
+    {
+        "word": "el juego",
+        "translation": "game"
+    },
+    {
+        "word": "el campo",
+        "translation": "field"
+    },
+    {
+        "word": "la edad",
+        "translation": "age"
+    },
+    {
+        "word": "la experiencia",
+        "translation": "experience"
+    },
+    {
+        "word": "el riesgo",
+        "translation": "risk"
+    },
+    {
+        "word": "la fuerza",
+        "translation": "force"
+    },
+    {
+        "word": "la calidad",
+        "translation": "quality"
+    },
+    {
+        "word": "los ojos",
+        "translation": "eyes"
+    },
+    {
+        "word": "la región",
+        "translation": "region"
+    },
+    {
+        "word": "el amor",
+        "translation": "love"
+    },
+    {
+        "word": "las horas",
+        "translation": "hours"
+    },
+    {
+        "word": "el movimiento",
+        "translation": "movement"
+    },
+    {
+        "word": "la palabra",
+        "translation": "word"
+    },
+    {
+        "word": "la guerra",
+        "translation": "war"
+    },
+    {
+        "word": "el dinero",
+        "translation": "money"
+    },
+    {
+        "word": "la capacidad",
+        "translation": "capacity"
+    },
+    {
+        "word": "el autor",
+        "translation": "author"
+    },
+    {
+        "word": "el dólar",
+        "translation": "dollar"
+    },
+    {
+        "word": "el precio",
+        "translation": "price"
+    },
+    {
+        "word": "el acuerdo",
+        "translation": "agreement"
+    },
+    {
+        "word": "la cara",
+        "translation": "face"
+    },
+    {
+        "word": "el control",
+        "translation": "control"
+    },
+    {
+        "word": "el modelo",
+        "translation": "model"
+    },
+    {
+        "word": "el frente",
+        "translation": "front"
+    },
+    {
+        "word": "la tarde",
+        "translation": "afternoon"
+    },
+    {
+        "word": "la autoridad",
+        "translation": "authority"
+    },
+    {
+        "word": "la película",
+        "translation": "film"
+    },
+    {
+        "word": "la línea",
+        "translation": "line"
+    },
+    {
+        "word": "la red",
+        "translation": "network"
+    },
+    {
+        "word": "las condiciones",
+        "translation": "conditions"
+    },
+    {
+        "word": "la falta",
+        "translation": "fault"
+    },
+    {
+        "word": "el peso",
+        "translation": "weight"
+    },
+    {
+        "word": "el modo",
+        "translation": "mode"
+    },
+    {
+        "word": "la música",
+        "translation": "music"
+    },
+    {
+        "word": "el ministro",
+        "translation": "minister"
+    },
+    {
+        "word": "el fondo",
+        "translation": "background"
+    },
+    {
+        "word": "la base",
+        "translation": "base"
+    },
+    {
+        "word": "la orden",
+        "translation": "order"
+    },
+    {
+        "word": "la clase",
+        "translation": "class"
+    },
+    {
+        "word": "la presencia",
+        "translation": "presence"
+    },
+    {
+        "word": "la función",
+        "translation": "function"
+    },
+    {
+        "word": "la mesa",
+        "translation": "table"
+    },
+    {
+        "word": "el actor",
+        "translation": "actor"
+    },
+    {
+        "word": "la respuesta",
+        "translation": "answer"
+    },
+    {
+        "word": "la ocasión",
+        "translation": "occasion"
+    },
+    {
+        "word": "el principio",
+        "translation": "principle"
+    },
+    {
+        "word": "el paciente",
+        "translation": "patient"
+    },
+    {
+        "word": "el efecto",
+        "translation": "effect"
+    },
+    {
+        "word": "la diferencia",
+        "translation": "difference"
+    },
+    {
+        "word": "el señor",
+        "translation": "mister"
+    },
+    {
+        "word": "el papel",
+        "translation": "paper"
+    },
+    {
+        "word": "la serie",
+        "translation": "series"
+    },
+    {
+        "word": "las manos",
+        "translation": "hands"
+    },
+    {
+        "word": "la capital",
+        "translation": "capital"
+    },
+    {
+        "word": "la fuente",
+        "translation": "source"
+    },
+    {
+        "word": "la duda",
+        "translation": "doubt"
+    },
+    {
+        "word": "el aspecto",
+        "translation": "aspect"
+    },
+    {
+        "word": "el miembro",
+        "translation": "member"
+    },
+    {
+        "word": "la compañía",
+        "translation": "company"
+    },
+    {
+        "word": "el jefe",
+        "translation": "boss"
+    },
+    {
+        "word": "el jugador",
+        "translation": "player"
+    },
+    {
+        "word": "la vista",
+        "translation": "view"
+    },
+    {
+        "word": "la cantidad",
+        "translation": "quantity"
+    },
+    {
+        "word": "la dirección",
+        "translation": "address"
+    },
+    {
+        "word": "el valor",
+        "translation": "value"
+    },
+    {
+        "word": "el resto",
+        "translation": "rest"
+    },
+    {
+        "word": "el silencio",
+        "translation": "silence"
+    },
+    {
+        "word": "el / la ex",
+        "translation": "ex"
+    },
+    {
+        "word": "el aire",
+        "translation": "air"
+    },
+    {
+        "word": "el metro",
+        "translation": "metro"
+    },
+    {
+        "word": "el teatro",
+        "translation": "theater"
+    },
+    {
+        "word": "el apoyo",
+        "translation": "support"
+    },
+    {
+        "word": "la mirada",
+        "translation": "look"
+    },
+    {
+        "word": "la tecnología",
+        "translation": "technology"
+    },
+    {
+        "word": "el personaje",
+        "translation": "character"
+    },
+    {
+        "word": "la energía",
+        "translation": "energy"
+    },
+    {
+        "word": "el viaje",
+        "translation": "trip"
+    },
+    {
+        "word": "el futuro",
+        "translation": "future"
+    },
+    {
+        "word": "el acto",
+        "translation": "event"
+    },
+    {
+        "word": "el / la artista",
+        "translation": "artist"
+    },
+    {
+        "word": "la época",
+        "translation": "period"
+    },
+    {
+        "word": "el ministerio",
+        "translation": "ministry"
+    },
+    {
+        "word": "el sueño",
+        "translation": "dream"
+    },
+    {
+        "word": "el euro",
+        "translation": "euro"
+    },
+    {
+        "word": "la causa",
+        "translation": "cause"
+    },
+    {
+        "word": "el sitio",
+        "translation": "site"
+    },
+    {
+        "word": "la figura",
+        "translation": "figure"
+    },
+    {
+        "word": "el consejo",
+        "translation": "advice"
+    },
+    {
+        "word": "el cargo",
+        "translation": "position"
+    },
+    {
+        "word": "el profesor",
+        "translation": "professor"
+    },
+    {
+        "word": "la propuesta",
+        "translation": "proposal"
+    },
+    {
+        "word": "el cine",
+        "translation": "cinema"
+    },
+    {
+        "word": "la escuela",
+        "translation": "school"
+    },
+    {
+        "word": "el ojo",
+        "translation": "eye"
+    },
+    {
+        "word": "el público",
+        "translation": "public"
+    },
+    {
+        "word": "el objeto",
+        "translation": "object"
+    },
+    {
+        "word": "los recursos",
+        "translation": "resources"
+    },
+    {
+        "word": "el tratamiento",
+        "translation": "treatment"
+    },
+    {
+        "word": "el compañero",
+        "translation": "colleague"
+    },
+    {
+        "word": "la libertad",
+        "translation": "freedom"
+    },
+    {
+        "word": "la participación",
+        "translation": "participation"
+    },
+    {
+        "word": "el asunto",
+        "translation": "subject"
+    },
+    {
+        "word": "el interés",
+        "translation": "interest"
+    },
+    {
+        "word": "la unidad",
+        "translation": "unit"
+    },
+    {
+        "word": "el banco",
+        "translation": "bank"
+    },
+    {
+        "word": "la vuelta",
+        "translation": "turn"
+    },
+    {
+        "word": "la posición",
+        "translation": "position"
+    },
+    {
+        "word": "la carrera",
+        "translation": "career"
+    },
+    {
+        "word": "las palabras",
+        "translation": "words"
+    },
+    {
+        "word": "la planta",
+        "translation": "plant"
+    },
+    {
+        "word": "la práctica",
+        "translation": "practice"
+    },
+    {
+        "word": "el esfuerzo",
+        "translation": "effort"
+    },
+    {
+        "word": "la comunicación",
+        "translation": "communication"
+    },
+    {
+        "word": "la comisión",
+        "translation": "commission"
+    },
+    {
+        "word": "la economía",
+        "translation": "economy"
+    },
+    {
+        "word": "el ser",
+        "translation": "being"
+    },
+    {
+        "word": "el análisis",
+        "translation": "analysis"
+    },
+    {
+        "word": "el pie",
+        "translation": "footer"
+    },
+    {
+        "word": "las relaciones",
+        "translation": "relations"
+    },
+    {
+        "word": "el conocimiento",
+        "translation": "knowledge"
+    },
+    {
+        "word": "la crisis",
+        "translation": "crisis"
+    },
+    {
+        "word": "el premio",
+        "translation": "award"
+    },
+    {
+        "word": "el encuentro",
+        "translation": "meeting"
+    },
+    {
+        "word": "el conjunto",
+        "translation": "set"
+    },
+    {
+        "word": "la consecuencia",
+        "translation": "consequence"
+    },
+    {
+        "word": "el suelo",
+        "translation": "soil"
+    },
+    {
+        "word": "la década",
+        "translation": "decade"
+    },
+    {
+        "word": "el texto",
+        "translation": "text"
+    },
+    {
+        "word": "el miedo",
+        "translation": "fear"
+    },
+    {
+        "word": "el / la estudiante",
+        "translation": "student"
+    },
+    {
+        "word": "el título",
+        "translation": "title"
+    },
+    {
+        "word": "el origen",
+        "translation": "source"
+    },
+    {
+        "word": "el médico",
+        "translation": "doctor"
+    },
+    {
+        "word": "la formación",
+        "translation": "training"
+    },
+    {
+        "word": "la fecha",
+        "translation": "date"
+    },
+    {
+        "word": "la boca",
+        "translation": "mouth"
+    },
+    {
+        "word": "el sol",
+        "translation": "sun"
+    },
+    {
+        "word": "el éxito",
+        "translation": "success"
+    },
+    {
+        "word": "la entrada",
+        "translation": "entry"
+    },
+    {
+        "word": "la sala",
+        "translation": "room"
+    },
+    {
+        "word": "el crecimiento",
+        "translation": "growth"
+    },
+    {
+        "word": "la reunión",
+        "translation": "meeting"
+    },
+    {
+        "word": "el animal",
+        "translation": "animal"
+    },
+    {
+        "word": "el informe",
+        "translation": "report"
+    },
+    {
+        "word": "el hospital",
+        "translation": "hospital"
+    },
+    {
+        "word": "la importancia",
+        "translation": "importance"
+    },
+    {
+        "word": "el negocio",
+        "translation": "business"
+    },
+    {
+        "word": "el mar",
+        "translation": "sea"
+    },
+    {
+        "word": "el consumo",
+        "translation": "consumption"
+    },
+    {
+        "word": "el artículo",
+        "translation": "article"
+    },
+    {
+        "word": "la prensa",
+        "translation": "press"
+    },
+    {
+        "word": "la carta",
+        "translation": "letter"
+    },
+    {
+        "word": "el departamento",
+        "translation": "department"
+    },
+    {
+        "word": "el material",
+        "translation": "material"
+    },
+    {
+        "word": "la estrategia",
+        "translation": "strategy"
+    },
+    {
+        "word": "la construcción",
+        "translation": "construction"
+    },
+    {
+        "word": "la televisión",
+        "translation": "television"
+    },
+    {
+        "word": "el color",
+        "translation": "color"
+    },
+    {
+        "word": "la estructura",
+        "translation": "structure"
+    },
+    {
+        "word": "el general",
+        "translation": "general"
+    },
+    {
+        "word": "el cabo",
+        "translation": "cape"
+    },
+    {
+        "word": "nuevo",
+        "translation": "new"
+    },
+    {
+        "word": "grande",
+        "translation": "big"
+    },
+    {
+        "word": "bueno",
+        "translation": "good"
+    },
+    {
+        "word": "último",
+        "translation": "last"
+    },
+    {
+        "word": "mayor",
+        "translation": "greater"
+    },
+    {
+        "word": "nacional",
+        "translation": "national"
+    },
+    {
+        "word": "social",
+        "translation": "social"
+    },
+    {
+        "word": "mejor",
+        "translation": "better"
+    },
+    {
+        "word": "propio",
+        "translation": "own"
+    },
+    {
+        "word": "importante",
+        "translation": "important"
+    },
+    {
+        "word": "público",
+        "translation": "public"
+    },
+    {
+        "word": "alto",
+        "translation": "high"
+    },
+    {
+        "word": "político",
+        "translation": "political"
+    },
+    {
+        "word": "pequeño",
+        "translation": "small"
+    },
+    {
+        "word": "único",
+        "translation": "unique"
+    },
+    {
+        "word": "largo",
+        "translation": "long"
+    },
+    {
+        "word": "humano",
+        "translation": "human"
+    },
+    {
+        "word": "económico",
+        "translation": "economic"
+    },
+    {
+        "word": "posible",
+        "translation": "possible"
+    },
+    {
+        "word": "general",
+        "translation": "general"
+    },
+    {
+        "word": "internacional",
+        "translation": "international"
+    },
+    {
+        "word": "diferente",
+        "translation": "different"
+    },
+    {
+        "word": "solo",
+        "translation": "only"
+    },
+    {
+        "word": "español",
+        "translation": "Spanish"
+    },
+    {
+        "word": "principal",
+        "translation": "main"
+    },
+    {
+        "word": "necesario",
+        "translation": "required"
+    },
+    {
+        "word": "próximo",
+        "translation": "next"
+    },
+    {
+        "word": "distinto",
+        "translation": "different"
+    },
+    {
+        "word": "claro",
+        "translation": "light"
+    },
+    {
+        "word": "siguiente",
+        "translation": "following"
+    },
+    {
+        "word": "malo",
+        "translation": "bad"
+    },
+    {
+        "word": "anterior",
+        "translation": "previous"
+    },
+    {
+        "word": "especial",
+        "translation": "special"
+    },
+    {
+        "word": "natural",
+        "translation": "natural"
+    },
+    {
+        "word": "cultural",
+        "translation": "cultural"
+    },
+    {
+        "word": "bajo",
+        "translation": "low"
+    },
+    {
+        "word": "actual",
+        "translation": "current"
+    },
+    {
+        "word": "blanco",
+        "translation": "white"
+    },
+    {
+        "word": "fuerte",
+        "translation": "strong"
+    },
+    {
+        "word": "difícil",
+        "translation": "difficult"
+    },
+    {
+        "word": "mundial",
+        "translation": "world-wide"
+    },
+    {
+        "word": "menor",
+        "translation": "lesser"
+    },
+    {
+        "word": "viejo",
+        "translation": "old"
+    },
+    {
+        "word": "real",
+        "translation": "real"
+    },
+    {
+        "word": "local",
+        "translation": "local"
+    },
+    {
+        "word": "negro",
+        "translation": "black"
+    },
+    {
+        "word": "europeo",
+        "translation": "European"
+    },
+    {
+        "word": "diverso",
+        "translation": "various"
+    },
+    {
+        "word": "libre",
+        "translation": "free"
+    },
+    {
+        "word": "seguro",
+        "translation": "safe"
+    },
+    {
+        "word": "común",
+        "translation": "common"
+    },
+    {
+        "word": "privado",
+        "translation": "private"
+    },
+    {
+        "word": "central",
+        "translation": "central"
+    },
+    {
+        "word": "popular",
+        "translation": "popular"
+    },
+    {
+        "word": "dicho",
+        "translation": "such"
+    },
+    {
+        "word": "físico",
+        "translation": "physical"
+    },
+    {
+        "word": "superior",
+        "translation": "top"
+    },
+    {
+        "word": "joven",
+        "translation": "young"
+    },
+    {
+        "word": "personal",
+        "translation": "personal"
+    },
+    {
+        "word": "capaz",
+        "translation": "capable"
+    },
+    {
+        "word": "antiguo",
+        "translation": "old"
+    },
+    {
+        "word": "histórico",
+        "translation": "historical"
+    },
+    {
+        "word": "cierto",
+        "translation": "certain"
+    },
+    {
+        "word": "técnico",
+        "translation": "technical"
+    },
+    {
+        "word": "presente",
+        "translation": "present"
+    },
+    {
+        "word": "oficial",
+        "translation": "official"
+    },
+    {
+        "word": "mexicano",
+        "translation": "Mexican"
+    },
+    {
+        "word": "fácil",
+        "translation": "easy"
+    },
+    {
+        "word": "militar",
+        "translation": "military"
+    },
+    {
+        "word": "contrario",
+        "translation": "contrary"
+    },
+    {
+        "word": "civil",
+        "translation": "civil"
+    },
+    {
+        "word": "verdadero",
+        "translation": "true"
+    },
+    {
+        "word": "lleno",
+        "translation": "full"
+    },
+    {
+        "word": "suficiente",
+        "translation": "enough"
+    },
+    {
+        "word": "rápido",
+        "translation": "fast"
+    },
+    {
+        "word": "científico",
+        "translation": "scientific"
+    },
+    {
+        "word": "directo",
+        "translation": "direct"
+    },
+    {
+        "word": "completo",
+        "translation": "complete"
+    },
+    {
+        "word": "interno",
+        "translation": "internal"
+    },
+    {
+        "word": "fundamental",
+        "translation": "fundamental"
+    },
+    {
+        "word": "comercial",
+        "translation": "commercial"
+    },
+    {
+        "word": "familiar",
+        "translation": "familiar"
+    },
+    {
+        "word": "amplio",
+        "translation": "extensive"
+    },
+    {
+        "word": "educativo",
+        "translation": "educational"
+    },
+    {
+        "word": "vivo",
+        "translation": "live, alive"
+    },
+    {
+        "word": "similar",
+        "translation": "similar"
+    },
+    {
+        "word": "rojo",
+        "translation": "red"
+    },
+    {
+        "word": "financiero",
+        "translation": "financial"
+    },
+    {
+        "word": "medio",
+        "translation": "medium"
+    },
+    {
+        "word": "enorme",
+        "translation": "huge"
+    },
+    {
+        "word": "total",
+        "translation": "total"
+    },
+    {
+        "word": "profesional",
+        "translation": "professional"
+    },
+    {
+        "word": "adecuado",
+        "translation": "suitable"
+    },
+    {
+        "word": "médico",
+        "translation": "doctor"
+    },
+    {
+        "word": "grave",
+        "translation": "serious"
+    },
+    {
+        "word": "tradicional",
+        "translation": "traditional"
+    },
+    {
+        "word": "electoral",
+        "translation": "electoral"
+    },
+    {
+        "word": "básico",
+        "translation": "basic"
+    },
+    {
+        "word": "igual",
+        "translation": "same"
+    },
+    {
+        "word": "duro",
+        "translation": "hard"
+    },
+    {
+        "word": "profundo",
+        "translation": "deep"
+    },
+    {
+        "word": "final",
+        "translation": "last"
+    },
+    {
+        "word": "municipal",
+        "translation": "municipal"
+    },
+    {
+        "word": "inmediato",
+        "translation": "immediate"
+    },
+    {
+        "word": "junto",
+        "translation": "together"
+    },
+    {
+        "word": "argentino",
+        "translation": "Argentinean"
+    },
+    {
+        "word": "peor",
+        "translation": "worse"
+    },
+    {
+        "word": "francés",
+        "translation": "French"
+    },
+    {
+        "word": "corto",
+        "translation": "short"
+    },
+    {
+        "word": "oscuro",
+        "translation": "dark"
+    },
+    {
+        "word": "estadounidense",
+        "translation": "American"
+    },
+    {
+        "word": "cercano",
+        "translation": "near"
+    },
+    {
+        "word": "regional",
+        "translation": "regional"
+    },
+    {
+        "word": "feliz",
+        "translation": "happy"
+    },
+    {
+        "word": "positivo",
+        "translation": "positive"
+    },
+    {
+        "word": "máximo",
+        "translation": "maximum"
+    },
+    {
+        "word": "serio",
+        "translation": "serious"
+    },
+    {
+        "word": "laboral",
+        "translation": "labor"
+    },
+    {
+        "word": "imposible",
+        "translation": "impossible"
+    },
+    {
+        "word": "simple",
+        "translation": "simple"
+    },
+    {
+        "word": "pobre",
+        "translation": "poor"
+    },
+    {
+        "word": "reciente",
+        "translation": "recent"
+    },
+    {
+        "word": "extraño",
+        "translation": "strange"
+    },
+    {
+        "word": "ambiental",
+        "translation": "environmental"
+    },
+    {
+        "word": "específico",
+        "translation": "specific"
+    },
+    {
+        "word": "normal",
+        "translation": "normal"
+    },
+    {
+        "word": "determinado",
+        "translation": "determined"
+    },
+    {
+        "word": "moderno",
+        "translation": "modern"
+    },
+    {
+        "word": "urbano",
+        "translation": "urban"
+    },
+    {
+        "word": "mínimo",
+        "translation": "minimum"
+    },
+    {
+        "word": "musical",
+        "translation": "musical"
+    },
+    {
+        "word": "deportivo",
+        "translation": "sporty"
+    },
+    {
+        "word": "federal",
+        "translation": "federal"
+    },
+    {
+        "word": "frío",
+        "translation": "cold"
+    },
+    {
+        "word": "legal",
+        "translation": "legal"
+    },
+    {
+        "word": "verde",
+        "translation": "green"
+    },
+    {
+        "word": "interesante",
+        "translation": "interesting"
+    },
+    {
+        "word": "artístico",
+        "translation": "artistic"
+    },
+    {
+        "word": "judicial",
+        "translation": "judicial"
+    },
+    {
+        "word": "particular",
+        "translation": "particular"
+    },
+    {
+        "word": "colombiano",
+        "translation": "Colombian"
+    },
+    {
+        "word": "previo",
+        "translation": "previous"
+    },
+    {
+        "word": "cubano",
+        "translation": "Cuban"
+    },
+    {
+        "word": "pleno",
+        "translation": "full"
+    },
+    {
+        "word": "eléctrico",
+        "translation": "electric"
+    },
+    {
+        "word": "tecnológico",
+        "translation": "technology"
+    },
+    {
+        "word": "abierto",
+        "translation": "open"
+    },
+    {
+        "word": "global",
+        "translation": "global"
+    },
+    {
+        "word": "infantil",
+        "translation": "childish"
+    },
+    {
+        "word": "absoluto",
+        "translation": "absolute"
+    },
+    {
+        "word": "definitivo",
+        "translation": "definitive"
+    },
+    {
+        "word": "complejo",
+        "translation": "complex"
+    },
+    {
+        "word": "estatal",
+        "translation": "statewide"
+    },
+    {
+        "word": "rico",
+        "translation": "rich"
+    },
+    {
+        "word": "raro",
+        "translation": "rare"
+    },
+    {
+        "word": "significativo",
+        "translation": "significant"
+    },
+    {
+        "word": "sencillo",
+        "translation": "simple"
+    },
+    {
+        "word": "perfecto",
+        "translation": "perfect"
+    },
+    {
+        "word": "permanente",
+        "translation": "permanent"
+    },
+    {
+        "word": "religioso",
+        "translation": "religious"
+    },
+    {
+        "word": "activo",
+        "translation": "active"
+    },
+    {
+        "word": "famoso",
+        "translation": "famous"
+    },
+    {
+        "word": "numeroso",
+        "translation": "numerous"
+    },
+    {
+        "word": "rural",
+        "translation": "rural"
+    },
+    {
+        "word": "tranquilo",
+        "translation": "quiet"
+    },
+    {
+        "word": "extranjero",
+        "translation": "foreign"
+    },
+    {
+        "word": "democrático",
+        "translation": "democratic"
+    },
+    {
+        "word": "azul",
+        "translation": "blue"
+    },
+    {
+        "word": "femenino",
+        "translation": "female"
+    },
+    {
+        "word": "escaso",
+        "translation": "scarce"
+    },
+    {
+        "word": "intenso",
+        "translation": "intense"
+    },
+    {
+        "word": "puro",
+        "translation": "pure"
+    },
+    {
+        "word": "unido",
+        "translation": "joined"
+    },
+    {
+        "word": "universitario",
+        "translation": "academic"
+    },
+    {
+        "word": "original",
+        "translation": "original"
+    },
+    {
+        "word": "exterior",
+        "translation": "outside"
+    },
+    {
+        "word": "seco",
+        "translation": "dry"
+    },
+    {
+        "word": "digital",
+        "translation": "digital"
+    },
+    {
+        "word": "alemán",
+        "translation": "German"
+    },
+    {
+        "word": "literario",
+        "translation": "literary"
+    },
+    {
+        "word": "independiente",
+        "translation": "independent"
+    },
+    {
+        "word": "armado",
+        "translation": "armed"
+    },
+    {
+        "word": "sanitario",
+        "translation": "sanitary"
+    },
+    {
+        "word": "electrónico",
+        "translation": "electronic"
+    },
+    {
+        "word": "indígena",
+        "translation": "indigenous"
+    },
+    {
+        "word": "concreto",
+        "translation": "concrete"
+    },
+    {
+        "word": "fiscal",
+        "translation": "fiscal"
+    },
+    {
+        "word": "clásico",
+        "translation": "classic"
+    },
+    {
+        "word": "evidente",
+        "translation": "clear"
+    },
+    {
+        "word": "individual",
+        "translation": "individual"
+    },
+    {
+        "word": "colectivo",
+        "translation": "collective"
+    },
+    {
+        "word": "negativo",
+        "translation": "negative"
+    },
+    {
+        "word": "productivo",
+        "translation": "productive"
+    },
+    {
+        "word": "doble",
+        "translation": "double"
+    },
+    {
+        "word": "anual",
+        "translation": "annual"
+    },
+    {
+        "word": "efectivo",
+        "translation": "effective"
+    },
+    {
+        "word": "habitual",
+        "translation": "usual"
+    },
+    {
+        "word": "inicial",
+        "translation": "initial"
+    },
+    {
+        "word": "débil",
+        "translation": "weak"
+    },
+    {
+        "word": "ser",
+        "translation": "be"
+    },
+    {
+        "word": "estar",
+        "translation": "be"
+    },
+    {
+        "word": "tener",
+        "translation": "have"
+    },
+    {
+        "word": "hacer",
+        "translation": "make"
+    },
+    {
+        "word": "poder",
+        "translation": "be able to, can"
+    },
+    {
+        "word": "decir",
+        "translation": "say"
+    },
+    {
+        "word": "haber",
+        "translation": "have"
+    },
+    {
+        "word": "ir",
+        "translation": "go"
+    },
+    {
+        "word": "dar",
+        "translation": "give"
+    },
+    {
+        "word": "ver",
+        "translation": "see"
+    },
+    {
+        "word": "saber",
+        "translation": "know"
+    },
+    {
+        "word": "pasar",
+        "translation": "pass by"
+    },
+    {
+        "word": "deber",
+        "translation": "must"
+    },
+    {
+        "word": "querer",
+        "translation": "want"
+    },
+    {
+        "word": "llegar",
+        "translation": "arrive"
+    },
+    {
+        "word": "dejar",
+        "translation": "leave"
+    },
+    {
+        "word": "llevar",
+        "translation": "take"
+    },
+    {
+        "word": "encontrar",
+        "translation": "find"
+    },
+    {
+        "word": "seguir",
+        "translation": "follow"
+    },
+    {
+        "word": "poner",
+        "translation": "put"
+    },
+    {
+        "word": "quedar",
+        "translation": "stay"
+    },
+    {
+        "word": "parecer",
+        "translation": "seem"
+    },
+    {
+        "word": "hablar",
+        "translation": "speak"
+    },
+    {
+        "word": "pensar",
+        "translation": "think"
+    },
+    {
+        "word": "volver",
+        "translation": "back to"
+    },
+    {
+        "word": "conocer",
+        "translation": "know"
+    },
+    {
+        "word": "salir",
+        "translation": "exit"
+    },
+    {
+        "word": "realizar",
+        "translation": "make"
+    },
+    {
+        "word": "tomar",
+        "translation": "take"
+    },
+    {
+        "word": "tratar",
+        "translation": "try"
+    },
+    {
+        "word": "contar",
+        "translation": "count"
+    },
+    {
+        "word": "llamar",
+        "translation": "call"
+    },
+    {
+        "word": "venir",
+        "translation": "come"
+    },
+    {
+        "word": "mirar",
+        "translation": "see"
+    },
+    {
+        "word": "presentar",
+        "translation": "present"
+    },
+    {
+        "word": "permitir",
+        "translation": "allow"
+    },
+    {
+        "word": "esperar",
+        "translation": "wait"
+    },
+    {
+        "word": "sentir",
+        "translation": "feel"
+    },
+    {
+        "word": "vivir",
+        "translation": "live"
+    },
+    {
+        "word": "buscar",
+        "translation": "search"
+    },
+    {
+        "word": "creer",
+        "translation": "believe"
+    },
+    {
+        "word": "crear",
+        "translation": "create"
+    },
+    {
+        "word": "perder",
+        "translation": "lose"
+    },
+    {
+        "word": "existir",
+        "translation": "exist"
+    },
+    {
+        "word": "considerar",
+        "translation": "consider"
+    },
+    {
+        "word": "abrir",
+        "translation": "open"
+    },
+    {
+        "word": "trabajar",
+        "translation": "work"
+    },
+    {
+        "word": "recibir",
+        "translation": "receive"
+    },
+    {
+        "word": "mantener",
+        "translation": "maintain"
+    },
+    {
+        "word": "explicar",
+        "translation": "explain"
+    },
+    {
+        "word": "lograr",
+        "translation": "achieve"
+    },
+    {
+        "word": "empezar",
+        "translation": "start"
+    },
+    {
+        "word": "recordar",
+        "translation": "remember"
+    },
+    {
+        "word": "comenzar",
+        "translation": "start"
+    },
+    {
+        "word": "pedir",
+        "translation": "ask for"
+    },
+    {
+        "word": "preguntar",
+        "translation": "ask"
+    },
+    {
+        "word": "producir",
+        "translation": "produce"
+    },
+    {
+        "word": "convertir",
+        "translation": "convert"
+    },
+    {
+        "word": "entrar",
+        "translation": "enter"
+    },
+    {
+        "word": "mostrar",
+        "translation": "show"
+    },
+    {
+        "word": "señalar",
+        "translation": "point out"
+    },
+    {
+        "word": "escribir",
+        "translation": "write"
+    },
+    {
+        "word": "utilizar",
+        "translation": "use"
+    },
+    {
+        "word": "entender",
+        "translation": "understand"
+    },
+    {
+        "word": "terminar",
+        "translation": "finish"
+    },
+    {
+        "word": "ganar",
+        "translation": "win"
+    },
+    {
+        "word": "incluir",
+        "translation": "include"
+    },
+    {
+        "word": "morir",
+        "translation": "die"
+    },
+    {
+        "word": "asegurar",
+        "translation": "secure"
+    },
+    {
+        "word": "ocurrir",
+        "translation": "occur"
+    },
+    {
+        "word": "ofrecer",
+        "translation": "offer"
+    },
+    {
+        "word": "jugar",
+        "translation": "play"
+    },
+    {
+        "word": "gustar",
+        "translation": "like"
+    },
+    {
+        "word": "escuchar",
+        "translation": "listen to"
+    },
+    {
+        "word": "sentar",
+        "translation": "sit"
+    },
+    {
+        "word": "cambiar",
+        "translation": "change"
+    },
+    {
+        "word": "aparecer",
+        "translation": "appear"
+    },
+    {
+        "word": "acabar",
+        "translation": "end"
+    },
+    {
+        "word": "decidir",
+        "translation": "decide"
+    },
+    {
+        "word": "resultar",
+        "translation": "result"
+    },
+    {
+        "word": "caer",
+        "translation": "fall"
+    },
+    {
+        "word": "desarrollar",
+        "translation": "develop"
+    },
+    {
+        "word": "necesitar",
+        "translation": "need"
+    },
+    {
+        "word": "sacar",
+        "translation": "take out"
+    },
+    {
+        "word": "establecer",
+        "translation": "establish"
+    },
+    {
+        "word": "conseguir",
+        "translation": "get"
+    },
+    {
+        "word": "indicar",
+        "translation": "indicate"
+    },
+    {
+        "word": "formar",
+        "translation": "form"
+    },
+    {
+        "word": "reconocer",
+        "translation": "recognize"
+    },
+    {
+        "word": "dirigir",
+        "translation": "address"
+    },
+    {
+        "word": "servir",
+        "translation": "serve"
+    },
+    {
+        "word": "alcanzar",
+        "translation": "reach"
+    },
+    {
+        "word": "intentar",
+        "translation": "try"
+    },
+    {
+        "word": "cumplir",
+        "translation": "meet"
+    },
+    {
+        "word": "leer",
+        "translation": "read"
+    },
+    {
+        "word": "obtener",
+        "translation": "get"
+    },
+    {
+        "word": "ayudar",
+        "translation": "help"
+    },
+    {
+        "word": "usar",
+        "translation": "use"
+    },
+    {
+        "word": "observar",
+        "translation": "see"
+    },
+    {
+        "word": "responder",
+        "translation": "answer"
+    },
+    {
+        "word": "afirmar",
+        "translation": "claim"
+    },
+    {
+        "word": "evitar",
+        "translation": "avoid"
+    },
+    {
+        "word": "suponer",
+        "translation": "assume"
+    },
+    {
+        "word": "afectar",
+        "translation": "affect"
+    },
+    {
+        "word": "generar",
+        "translation": "generate"
+    },
+    {
+        "word": "continuar",
+        "translation": "continue"
+    },
+    {
+        "word": "cerrar",
+        "translation": "close"
+    },
+    {
+        "word": "pagar",
+        "translation": "pay"
+    },
+    {
+        "word": "acercar",
+        "translation": "bring over"
+    },
+    {
+        "word": "levantar",
+        "translation": "raise"
+    },
+    {
+        "word": "participar",
+        "translation": "participate"
+    },
+    {
+        "word": "representar",
+        "translation": "represent"
+    },
+    {
+        "word": "tocar",
+        "translation": "touch"
+    },
+    {
+        "word": "informar",
+        "translation": "inform"
+    },
+    {
+        "word": "destacar",
+        "translation": "highlight"
+    },
+    {
+        "word": "iniciar",
+        "translation": "start"
+    },
+    {
+        "word": "dedicar",
+        "translation": "dedicate"
+    },
+    {
+        "word": "oír",
+        "translation": "hear"
+    },
+    {
+        "word": "acompañar",
+        "translation": "accompany"
+    },
+    {
+        "word": "referir",
+        "translation": "refer to"
+    },
+    {
+        "word": "sufrir",
+        "translation": "suffer"
+    },
+    {
+        "word": "nacer",
+        "translation": "birth"
+    },
+    {
+        "word": "comer",
+        "translation": "eat"
+    },
+    {
+        "word": "bajar",
+        "translation": "download"
+    },
+    {
+        "word": "suceder",
+        "translation": "succeed"
+    },
+    {
+        "word": "dormir",
+        "translation": "sleep"
+    },
+    {
+        "word": "preparar",
+        "translation": "prepare"
+    },
+    {
+        "word": "agregar",
+        "translation": "add"
+    },
+    {
+        "word": "correr",
+        "translation": "run"
+    },
+    {
+        "word": "subir",
+        "translation": "go up"
+    },
+    {
+        "word": "publicar",
+        "translation": "publish"
+    },
+    {
+        "word": "traer",
+        "translation": "bring"
+    },
+    {
+        "word": "anunciar",
+        "translation": "announce"
+    },
+    {
+        "word": "descubrir",
+        "translation": "discover"
+    },
+    {
+        "word": "construir",
+        "translation": "build"
+    },
+    {
+        "word": "detener",
+        "translation": "stop"
+    },
+    {
+        "word": "aceptar",
+        "translation": "accept"
+    },
+    {
+        "word": "meter",
+        "translation": "tuck in"
+    },
+    {
+        "word": "ocupar",
+        "translation": "occupy"
+    },
+    {
+        "word": "demostrar",
+        "translation": "show"
+    },
+    {
+        "word": "proponer",
+        "translation": "propose"
+    },
+    {
+        "word": "estudiar",
+        "translation": "study"
+    },
+    {
+        "word": "comprar",
+        "translation": "buy"
+    },
+    {
+        "word": "expresar",
+        "translation": "express"
+    },
+    {
+        "word": "olvidar",
+        "translation": "forget"
+    },
+    {
+        "word": "aumentar",
+        "translation": "increase"
+    },
+    {
+        "word": "definir",
+        "translation": "define"
+    },
+    {
+        "word": "regresar",
+        "translation": "return"
+    },
+    {
+        "word": "añadir",
+        "translation": "add"
+    },
+    {
+        "word": "mover",
+        "translation": "move"
+    },
+    {
+        "word": "entregar",
+        "translation": "deliver"
+    },
+    {
+        "word": "sostener",
+        "translation": "hold"
+    },
+    {
+        "word": "reducir",
+        "translation": "reduce"
+    },
+    {
+        "word": "aprender",
+        "translation": "learn"
+    },
+    {
+        "word": "provocar",
+        "translation": "provoke"
+    },
+    {
+        "word": "mejorar",
+        "translation": "improve"
+    },
+    {
+        "word": "unir",
+        "translation": "join"
+    },
+    {
+        "word": "constituir",
+        "translation": "constitute"
+    },
+    {
+        "word": "compartir",
+        "translation": "share"
+    },
+    {
+        "word": "enfrentar",
+        "translation": "confront"
+    },
+    {
+        "word": "imaginar",
+        "translation": "imagine"
+    },
+    {
+        "word": "crecer",
+        "translation": "grow"
+    },
+    {
+        "word": "comprender",
+        "translation": "understand"
+    },
+    {
+        "word": "apoyar",
+        "translation": "support"
+    },
+    {
+        "word": "comentar",
+        "translation": "comment"
+    },
+    {
+        "word": "vender",
+        "translation": "sell"
+    },
+    {
+        "word": "faltar",
+        "translation": "skip"
+    },
+    {
+        "word": "aplicar",
+        "translation": "apply"
+    },
+    {
+        "word": "colocar",
+        "translation": "place"
+    },
+    {
+        "word": "cubrir",
+        "translation": "cover"
+    },
+    {
+        "word": "repetir",
+        "translation": "repeat"
+    },
+    {
+        "word": "disponer",
+        "translation": "arrange"
+    },
+    {
+        "word": "obligar",
+        "translation": "force"
+    },
+    {
+        "word": "celebrar",
+        "translation": "celebrate"
+    },
+    {
+        "word": "echar",
+        "translation": "cast out of"
+    },
+    {
+        "word": "relacionar",
+        "translation": "link"
+    },
+    {
+        "word": "marcar",
+        "translation": "mark"
+    },
+    {
+        "word": "desear",
+        "translation": "wish"
+    },
+    {
+        "word": "significar",
+        "translation": "mean"
+    },
+    {
+        "word": "caminar",
+        "translation": "walk"
+    },
+    {
+        "word": "superar",
+        "translation": "go beyond"
+    },
+    {
+        "word": "organizar",
+        "translation": "organize"
+    },
+    {
+        "word": "registrar",
+        "translation": "register"
+    },
+    {
+        "word": "andar",
+        "translation": "walk"
+    },
+    {
+        "word": "identificar",
+        "translation": "identify"
+    },
+    {
+        "word": "elegir",
+        "translation": "choose"
+    },
+    {
+        "word": "abandonar",
+        "translation": "leave"
+    },
+    {
+        "word": "soler",
+        "translation": "be used to"
+    },
+    {
+        "word": "plantear",
+        "translation": "raise"
+    },
+    {
+        "word": "ubicar",
+        "translation": "locate"
+    },
+    {
+        "word": "requerir",
+        "translation": "request"
+    },
+    {
+        "word": "partir",
+        "translation": "start"
+    },
+    {
+        "word": "reunir",
+        "translation": "gather"
+    },
+    {
+        "word": "actuar",
+        "translation": "act"
+    },
+    {
+        "word": "lanzar",
+        "translation": "launch"
+    },
+    {
+        "word": "importar",
+        "translation": "import"
+    },
+    {
+        "word": "analizar",
+        "translation": "analyze"
+    },
+    {
+        "word": "mencionar",
+        "translation": "mention"
+    },
+    {
+        "word": "sumar",
+        "translation": "add"
+    },
+    {
+        "word": "pretender",
+        "translation": "pretend"
+    },
+    {
+        "word": "enviar",
+        "translation": "send"
+    },
+    {
+        "word": "declarar",
+        "translation": "declare"
+    },
+    {
+        "word": "manifestar",
+        "translation": "manifest"
+    },
+    {
+        "word": "atender",
+        "translation": "attend"
+    },
+    {
+        "word": "basar",
+        "translation": "base"
+    },
+    {
+        "word": "recuperar",
+        "translation": "retrieve"
+    },
+    {
+        "word": "aprovechar",
+        "translation": "take advantage of"
+    },
+    {
+        "word": "asumir",
+        "translation": "assume"
+    },
+    {
+        "word": "desaparecer",
+        "translation": "disappear"
+    },
+    {
+        "word": "funcionar",
+        "translation": "work"
+    },
+    {
+        "word": "permanecer",
+        "translation": "stay"
+    },
+    {
+        "word": "preocupar",
+        "translation": "concern"
+    },
+    {
+        "word": "preferir",
+        "translation": "prefer"
+    },
+    {
+        "word": "confirmar",
+        "translation": "confirm"
+    },
+    {
+        "word": "advertir",
+        "translation": "warn"
+    },
+    {
+        "word": "imponer",
+        "translation": "impose"
+    },
+    {
+        "word": "integrar",
+        "translation": "integrate"
+    },
+    {
+        "word": "recoger",
+        "translation": "pick up"
+    },
+    {
+        "word": "parar",
+        "translation": "stop"
+    },
+    {
+        "word": "proteger",
+        "translation": "protect"
+    },
+    {
+        "word": "depender",
+        "translation": "depend"
+    },
+    {
+        "word": "negar",
+        "translation": "deny"
+    },
+    {
+        "word": "resolver",
+        "translation": "solve"
+    },
+    {
+        "word": "surgir",
+        "translation": "arise"
+    },
+    {
+        "word": "corresponder",
+        "translation": "correspond"
+    },
+    {
+        "word": "determinar",
+        "translation": "determine"
+    },
+    {
+        "word": "concluir",
+        "translation": "conclude"
+    },
+    {
+        "word": "visitar",
+        "translation": "visit"
+    },
+    {
+        "word": "exigir",
+        "translation": "demand"
+    },
+    {
+        "word": "contener",
+        "translation": "contain"
+    },
+    {
+        "word": "aprobar",
+        "translation": "approve"
+    },
+    {
+        "word": "romper",
+        "translation": "break"
+    },
+    {
+        "word": "viajar",
+        "translation": "travel"
+    },
+    {
+        "word": "quitar",
+        "translation": "remove"
+    },
+    {
+        "word": "interesar",
+        "translation": "interest"
+    },
+    {
+        "word": "defender",
+        "translation": "defend"
+    },
+    {
+        "word": "avanzar",
+        "translation": "advance"
+    },
+    {
+        "word": "prever",
+        "translation": "foresee"
+    },
+    {
+        "word": "implicar",
+        "translation": "involve"
+    },
+    {
+        "word": "apuntar",
+        "translation": "point out"
+    },
+    {
+        "word": "invitar",
+        "translation": "invite"
+    },
+    {
+        "word": "causar",
+        "translation": "cause"
+    },
+    {
+        "word": "vestir",
+        "translation": "dress"
+    },
+    {
+        "word": "controlar",
+        "translation": "check"
+    },
+    {
+        "word": "adquirir",
+        "translation": "purchase"
+    },
+    {
+        "word": "incorporar",
+        "translation": "incorporate"
+    },
+    {
+        "word": "guardar",
+        "translation": "save"
+    },
+    {
+        "word": "insistir",
+        "translation": "insist"
+    },
+    {
+        "word": "conducir",
+        "translation": "drive"
+    },
+    {
+        "word": "acordar",
+        "translation": "agree"
+    },
+    {
+        "word": "contestar",
+        "translation": "answer"
+    },
+    {
+        "word": "tirar",
+        "translation": "throw away"
+    },
+    {
+        "word": "despertar",
+        "translation": "wake up"
+    },
+    {
+        "word": "reír",
+        "translation": "laugh"
+    },
+    {
+        "word": "sorprender",
+        "translation": "surprise"
+    },
+    {
+        "word": "llorar",
+        "translation": "cry"
+    },
+    {
+        "word": "situar",
+        "translation": "locate"
+    },
+    {
+        "word": "garantizar",
+        "translation": "guarantee"
+    },
+    {
+        "word": "separar",
+        "translation": "separate"
+    },
+    {
+        "word": "impedir",
+        "translation": "prevent"
+    },
+    {
+        "word": "gritar",
+        "translation": "shout"
+    },
+    {
+        "word": "costar",
+        "translation": "cost"
+    },
+    {
+        "word": "cruzar",
+        "translation": "cross"
+    },
+    {
+        "word": "disfrutar",
+        "translation": "enjoy"
+    },
+    {
+        "word": "cantar",
+        "translation": "sing"
+    },
+    {
+        "word": "citar",
+        "translation": "quote"
+    },
+    {
+        "word": "sonreír",
+        "translation": "smile"
+    },
+    {
+        "word": "extender",
+        "translation": "extend"
+    },
+    {
+        "word": "poseer",
+        "translation": "own"
+    },
+    {
+        "word": "contribuir",
+        "translation": "contribute"
+    },
+    {
+        "word": "exponer",
+        "translation": "exhibit"
+    },
+    {
+        "word": "instalar",
+        "translation": "install"
+    },
+    {
+        "word": "notar",
+        "translation": "note"
+    },
+    {
+        "word": "sonar",
+        "translation": "sound"
+    },
+    {
+        "word": "convencer",
+        "translation": "convince"
+    },
+    {
+        "word": "mandar",
+        "translation": "send"
+    },
+    {
+        "word": "asociar",
+        "translation": "link"
+    },
+    {
+        "word": "aportar",
+        "translation": "provide"
+    },
+    {
+        "word": "acudir",
+        "translation": "go to"
+    },
+    {
+        "word": "asistir",
+        "translation": "attend"
+    },
+    {
+        "word": "firmar",
+        "translation": "sign"
+    },
+    {
+        "word": "pertenecer",
+        "translation": "belong to"
+    },
+    {
+        "word": "solicitar",
+        "translation": "request"
+    },
+    {
+        "word": "enseñar",
+        "translation": "show"
+    },
+    {
+        "word": "cortar",
+        "translation": "cut"
+    },
+    {
+        "word": "recorrer",
+        "translation": "tour"
+    },
+    {
+        "word": "fijar",
+        "translation": "post"
+    },
+    {
+        "word": "promover",
+        "translation": "promote"
+    },
+    {
+        "word": "describir",
+        "translation": "describe"
+    },
+    {
+        "word": "revelar",
+        "translation": "reveal"
+    },
+    {
+        "word": "retirar",
+        "translation": "withdraw"
+    },
+    {
+        "word": "contemplar",
+        "translation": "see"
+    },
+    {
+        "word": "elaborar",
+        "translation": "elaborate"
+    },
+    {
+        "word": "ordenar",
+        "translation": "order"
+    },
+    {
+        "word": "hallar",
+        "translation": "find"
+    },
+    {
+        "word": "reflejar",
+        "translation": "reflect"
+    },
+    {
+        "word": "limitar",
+        "translation": "limit"
+    },
+    {
+        "word": "rodear",
+        "translation": "go around"
+    },
+    {
+        "word": "transformar",
+        "translation": "transform"
+    },
+    {
+        "word": "interpretar",
+        "translation": "interpret"
+    },
+    {
+        "word": "llenar",
+        "translation": "fill out"
+    },
+    {
+        "word": "consistir",
+        "translation": "consist of"
+    },
+    {
+        "word": "cuidar",
+        "translation": "care"
+    },
+    {
+        "word": "someter",
+        "translation": "submit"
+    },
+    {
+        "word": "avisar",
+        "translation": "warn"
+    },
+    {
+        "word": "emplear",
+        "translation": "use"
+    },
+    {
+        "word": "no",
+        "translation": "not"
+    },
+    {
+        "word": "&nbsp;más",
+        "translation": "more"
+    },
+    {
+        "word": "apenas",
+        "translation": "hardly"
+    },
+    {
+        "word": "también",
+        "translation": "also"
+    },
+    {
+        "word": "ya",
+        "translation": "already"
+    },
+    {
+        "word": "muy",
+        "translation": "very"
+    },
+    {
+        "word": "básicamente",
+        "translation": "basically"
+    },
+    {
+        "word": "solo",
+        "translation": "only"
+    },
+    {
+        "word": "después",
+        "translation": "later"
+    },
+    {
+        "word": "ahora",
+        "translation": "now"
+    },
+    {
+        "word": "así",
+        "translation": "thus"
+    },
+    {
+        "word": "bien",
+        "translation": "well"
+    },
+    {
+        "word": "siempre",
+        "translation": "always"
+    },
+    {
+        "word": "antes",
+        "translation": "before"
+    },
+    {
+        "word": "tan",
+        "translation": "so"
+    },
+    {
+        "word": "cómo",
+        "translation": "how"
+    },
+    {
+        "word": "sí",
+        "translation": "yes"
+    },
+    {
+        "word": "hoy",
+        "translation": "today"
+    },
+    {
+        "word": "entonces",
+        "translation": "then"
+    },
+    {
+        "word": "luego",
+        "translation": "then"
+    },
+    {
+        "word": "además",
+        "translation": "in addition"
+    },
+    {
+        "word": "nunca",
+        "translation": "never"
+    },
+    {
+        "word": "casi",
+        "translation": "almost"
+    },
+    {
+        "word": "poco",
+        "translation": "sparsely"
+    },
+    {
+        "word": "aquí",
+        "translation": "here"
+    },
+    {
+        "word": "menos",
+        "translation": "least"
+    },
+    {
+        "word": "tanto",
+        "translation": "such"
+    },
+    {
+        "word": "sin embargo",
+        "translation": "however"
+    },
+    {
+        "word": "mucho",
+        "translation": "a lot"
+    },
+    {
+        "word": "aún",
+        "translation": "still"
+    },
+    {
+        "word": "dentro",
+        "translation": "within"
+    },
+    {
+        "word": "ayer",
+        "translation": "yesterday"
+    },
+    {
+        "word": "allí",
+        "translation": "there"
+    },
+    {
+        "word": "incluso",
+        "translation": "inclusive"
+    },
+    {
+        "word": "ahí",
+        "translation": "there"
+    },
+    {
+        "word": "ruidosamente",
+        "translation": "loudly"
+    },
+    {
+        "word": "todavía",
+        "translation": "still"
+    },
+    {
+        "word": "hasta",
+        "translation": "even"
+    },
+    {
+        "word": "tampoco",
+        "translation": "nor"
+    },
+    {
+        "word": "cerca",
+        "translation": "near"
+    },
+    {
+        "word": "allá",
+        "translation": "there"
+    },
+    {
+        "word": "apenas",
+        "translation": "barely"
+    },
+    {
+        "word": "a lo mejor",
+        "translation": "perhaps"
+    },
+    {
+        "word": "cuidadosamente",
+        "translation": "carefully"
+    },
+    {
+        "word": "pronto",
+        "translation": "soon"
+    },
+    {
+        "word": "normalmente",
+        "translation": "normally"
+    },
+    {
+        "word": "fuera",
+        "translation": "out"
+    },
+    {
+        "word": "atrás",
+        "translation": "behind"
+    },
+    {
+        "word": "encima",
+        "translation": "above"
+    },
+    {
+        "word": "tarde",
+        "translation": "afternoon"
+    },
+    {
+        "word": "finalmente",
+        "translation": "finally"
+    },
+    {
+        "word": "especialmente",
+        "translation": "especially"
+    },
+    {
+        "word": "tal vez",
+        "translation": "maybe"
+    },
+    {
+        "word": "lejos",
+        "translation": "far"
+    },
+    {
+        "word": "demasiado",
+        "translation": "too"
+    },
+    {
+        "word": "quizá",
+        "translation": "maybe"
+    },
+    {
+        "word": "mal",
+        "translation": "badly"
+    },
+    {
+        "word": "perfectamente",
+        "translation": "perfectly"
+    },
+    {
+        "word": "bastante",
+        "translation": "quite a lot"
+    },
+    {
+        "word": "diariamente",
+        "translation": "daily"
+    },
+    {
+        "word": "adelante",
+        "translation": "forward"
+    },
+    {
+        "word": "detrás",
+        "translation": "back"
+    },
+    {
+        "word": "igual",
+        "translation": "likewise"
+    },
+    {
+        "word": "ni siquiera",
+        "translation": "not even"
+    },
+    {
+        "word": "primero",
+        "translation": "first"
+    },
+    {
+        "word": "actualmente",
+        "translation": "currently"
+    },
+    {
+        "word": "así como",
+        "translation": "as well as"
+    },
+    {
+        "word": "precisamente",
+        "translation": "precisely"
+    },
+    {
+        "word": "arriba",
+        "translation": "up"
+    },
+    {
+        "word": "realmente",
+        "translation": "actually"
+    },
+    {
+        "word": "jamás",
+        "translation": "never"
+    },
+    {
+        "word": "quizás",
+        "translation": "maybe"
+    },
+    {
+        "word": "recién",
+        "translation": "just"
+    },
+    {
+        "word": "asimismo",
+        "translation": "also"
+    },
+    {
+        "word": "no obstante",
+        "translation": "however"
+    },
+    {
+        "word": "difícilmente",
+        "translation": "with difficulty"
+    },
+    {
+        "word": "alrededor",
+        "translation": "around"
+    },
+    {
+        "word": "solamente",
+        "translation": "only"
+    },
+    {
+        "word": "aun",
+        "translation": "even"
+    },
+    {
+        "word": "por supuesto",
+        "translation": "of course"
+    },
+    {
+        "word": "delante",
+        "translation": "in front"
+    },
+    {
+        "word": "abajo",
+        "translation": "below"
+    },
+    {
+        "word": "para nada",
+        "translation": "not at all"
+    },
+    {
+        "word": "fácilmente",
+        "translation": "easily"
+    },
+    {
+        "word": "simplemente",
+        "translation": "simply"
+    },
+    {
+        "word": "directamente",
+        "translation": "directly"
+    },
+    {
+        "word": "lentamente",
+        "translation": "slowly"
+    },
+    {
+        "word": "debajo",
+        "translation": "under"
+    },
+    {
+        "word": "por tanto",
+        "translation": "therefore"
+    },
+    {
+        "word": "principalmente",
+        "translation": "mainly"
+    },
+    {
+        "word": "por lo tanto",
+        "translation": "therefore"
+    },
+    {
+        "word": "totalmente",
+        "translation": "totally"
+    },
+    {
+        "word": "a menudo",
+        "translation": "often"
+    },
+    {
+        "word": "por lo menos",
+        "translation": "at least"
+    },
+    {
+        "word": "acá",
+        "translation": "here"
+    },
+    {
+        "word": "probablemente",
+        "translation": "probably"
+    },
+    {
+        "word": "prácticamente",
+        "translation": "practically"
+    },
+    {
+        "word": "seguramente",
+        "translation": "surely"
+    },
+    {
+        "word": "frecuentemente",
+        "translation": "frequently"
+    },
+    {
+        "word": "aproximadamente",
+        "translation": "approximately"
+    },
+    {
+        "word": "completamente",
+        "translation": "completely"
+    },
+    {
+        "word": "posteriormente",
+        "translation": "later"
+    },
+    {
+        "word": "nuevamente",
+        "translation": "again"
+    },
+    {
+        "word": "por fin",
+        "translation": "finally"
+    },
+    {
+        "word": "igualmente",
+        "translation": "equally"
+    },
+    {
+        "word": "jamás",
+        "translation": "never"
+    },
+    {
+        "word": "acaso",
+        "translation": "perhaps"
+    },
+    {
+        "word": "justo",
+        "translation": "just"
+    },
+    {
+        "word": "recientemente",
+        "translation": "recently"
+    },
+    {
+        "word": "por favor",
+        "translation": "kindly"
+    },
+    {
+        "word": "rápidamente",
+        "translation": "quickly"
+    },
+    {
+        "word": "únicamente",
+        "translation": "only"
+    },
+    {
+        "word": "afuera",
+        "translation": "outside"
+    },
+    {
+        "word": "respectivamente",
+        "translation": "respectively"
+    },
+    {
+        "word": "inmediatamente",
+        "translation": "immediately"
+    },
+    {
+        "word": "exactamente",
+        "translation": "exactly"
+    },
+    {
+        "word": "claramente",
+        "translation": "clearly"
+    },
+    {
+        "word": "generalmente",
+        "translation": "generally"
+    },
+    {
+        "word": "perfectamente",
+        "translation": "perfectly"
+    },
+    {
+        "word": "enseguida",
+        "translation": "right away"
+    },
+    {
+        "word": "temprano",
+        "translation": "early"
+    },
+    {
+        "word": "adentro",
+        "translation": "inside"
+    },
+    {
+        "word": "de",
+        "translation": "from"
+    },
+    {
+        "word": "en",
+        "translation": "at, in, on"
+    },
+    {
+        "word": "a",
+        "translation": "to"
+    },
+    {
+        "word": "con",
+        "translation": "with"
+    },
+    {
+        "word": "por",
+        "translation": "by"
+    },
+    {
+        "word": "para",
+        "translation": "for"
+    },
+    {
+        "word": "sobre",
+        "translation": "about"
+    },
+    {
+        "word": "entre",
+        "translation": "between"
+    },
+    {
+        "word": "sin",
+        "translation": "without"
+    },
+    {
+        "word": "desde",
+        "translation": "from"
+    },
+    {
+        "word": "hasta",
+        "translation": "to, until"
+    },
+    {
+        "word": "durante",
+        "translation": "during"
+    },
+    {
+        "word": "hacia",
+        "translation": "to"
+    },
+    {
+        "word": "ante",
+        "translation": "before"
+    },
+    {
+        "word": "contra",
+        "translation": "against"
+    },
+    {
+        "word": "según",
+        "translation": "according to"
+    },
+    {
+        "word": "tras",
+        "translation": "after"
+    },
+    {
+        "word": "bajo",
+        "translation": "under"
+    },
+    {
+        "word": "a través de",
+        "translation": "through"
+    },
+    {
+        "word": "a partir de",
+        "translation": "as of"
+    },
+    {
+        "word": "frente a",
+        "translation": "in front of"
+    },
+    {
+        "word": "además de",
+        "translation": "in addition to"
+    },
+    {
+        "word": "a pesar de",
+        "translation": "in spite of"
+    },
+    {
+        "word": "mediante",
+        "translation": "through"
+    },
+    {
+        "word": "junto a",
+        "translation": "together with"
+    },
+    {
+        "word": "debido a",
+        "translation": "due to"
+    },
+    {
+        "word": "gracias a",
+        "translation": "thanks to"
+    },
+    {
+        "word": "pese a",
+        "translation": "despite"
+    },
+    {
+        "word": "de acuerdo con",
+        "translation": "in accordance with"
+    },
+    {
+        "word": "en cuanto a",
+        "translation": "in regard to"
+    },
+    {
+        "word": "junto con",
+        "translation": "together with"
+    },
+    {
+        "word": "acerca de",
+        "translation": "about"
+    },
+    {
+        "word": "respecto a",
+        "translation": "with respect to"
+    },
+    {
+        "word": "en torno a",
+        "translation": "around"
+    },
+    {
+        "word": "en lugar de",
+        "translation": "instead of"
+    },
+    {
+        "word": "de acuerdo a",
+        "translation": "according to"
+    },
+    {
+        "word": "y",
+        "translation": "and"
+    },
+    {
+        "word": "e",
+        "translation": "and"
+    },
+    {
+        "word": "ni…ni",
+        "translation": "neither…nor"
+    },
+    {
+        "word": "o",
+        "translation": "or"
+    },
+    {
+        "word": "u",
+        "translation": "or"
+    },
+    {
+        "word": "o bien…o bien",
+        "translation": "either…or"
+    },
+    {
+        "word": "pero",
+        "translation": "but"
+    },
+    {
+        "word": "mas",
+        "translation": "but"
+    },
+    {
+        "word": "aunque",
+        "translation": "although"
+    },
+    {
+        "word": "es decir",
+        "translation": "that is"
+    },
+    {
+        "word": "porque",
+        "translation": "because"
+    },
+    {
+        "word": "pues",
+        "translation": "since"
+    },
+    {
+        "word": "si",
+        "translation": "if"
+    },
+    {
+        "word": "como",
+        "translation": "as"
+    },
+    {
+        "word": "guay",
+        "translation": "cool (used in Spain)"
+    },
+    {
+        "word": "vale",
+        "translation": "okey (used in Spain)"
+    },
+    {
+        "word": "órale",
+        "translation": "sure (used in Mexico)"
+    },
+    {
+        "word": "guau",
+        "translation": "wow"
+    },
+    {
+        "word": "bravo",
+        "translation": "good job"
+    },
+    {
+        "word": "claro",
+        "translation": "of course"
+    },
+    {
+        "word": "che",
+        "translation": "dude (used in Argentina and Uruguay)"
+    },
+    {
+        "word": "huy",
+        "translation": "oops"
+    },
+    {
+        "word": "ojalá",
+        "translation": "I hope so"
+    }
+]

@@ -33,7 +33,8 @@ import { activeExamConfig } from '../../config/active-exam.config';
 
 // In the Telc exam, the initiatial evaluation if from 15
 // Then we multiply by 3 to reach a max score of 45
-const SCORE_MULTIPLIER = 3;
+// For the Dele exams, we do not multiply at all, so the max score is 25
+const SCORE_MULTIPLIER = activeExamConfig.provider === 'dele' ? 1 : 3;
 
 const MIN_ANSWER_LENGTH = 50;
 

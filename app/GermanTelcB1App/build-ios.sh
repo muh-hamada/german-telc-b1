@@ -17,7 +17,7 @@ if [ -z "$EXAM_ID" ]; then
   exit 1
 fi
 
-SCHEME_NAME="TelcExamApp"
+SCHEME_NAME="ExamPreparationApp"
 
 echo "================================================"
 echo "Building iOS App: $EXAM_ID"
@@ -37,27 +37,27 @@ fi
 # Set environment variable
 export EXAM_ID="$EXAM_ID"
 
-APP_NAME="TelcExamApp"
+APP_NAME="ExamPreparationApp"
 
 # Set bundle identifier and provisioning profile based on exam
 if [[ "$EXAM_ID" == "german-b2" ]]; then
     BUNDLE_ID="com.mhamada.telcb2german"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B2"
 elif [[ "$EXAM_ID" == "english-b1" ]]; then
     BUNDLE_ID="com.mhamada.telcb1english"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B1 English"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B1 English"
 elif [[ "$EXAM_ID" == "english-b2" ]]; then
     BUNDLE_ID="com.mhamada.telcb2english"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2 English"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B2 English"
 elif [[ "$EXAM_ID" == "german-b1" ]]; then
     BUNDLE_ID="com.mhamada.telcb1german"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution"
 elif [[ "$EXAM_ID" == "german-a1" ]]; then
     BUNDLE_ID="com.mhamada.telca1german"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution A1 German"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution A1 German"
 else
     BUNDLE_ID="com.mhamada.telcb1english"
-    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution English"
+    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution English"
 fi
 
 echo "Bundle ID: $BUNDLE_ID"

@@ -78,11 +78,11 @@ check_file "$SCRIPT_DIR/../update-messages.json" "Update messages"
 echo ""
 echo -e "${BLUE}Checking Build Configuration...${NC}"
 check_file "$SCRIPT_DIR/android/app/build.gradle" "Android build.gradle"
-if [ -d "$SCRIPT_DIR/ios/TelcExamApp.xcworkspace" ]; then
+if [ -d "$SCRIPT_DIR/ios/ExamPreparationApp.xcworkspace" ]; then
   echo -e "${GREEN}✓${NC} iOS workspace exists"
   ((SUCCESS_COUNT++))
 else
-  echo -e "${RED}✗${NC} iOS workspace not found at: $SCRIPT_DIR/ios/TelcExamApp.xcworkspace"
+  echo -e "${RED}✗${NC} iOS workspace not found at: $SCRIPT_DIR/ios/ExamPreparationApp.xcworkspace"
   ((ERROR_COUNT++))
 fi
 check_file "$SCRIPT_DIR/Gemfile" "Ruby Gemfile"

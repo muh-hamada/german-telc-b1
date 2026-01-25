@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import { spacing, typography, type ThemeColors } from '../theme';
-import { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1 } from '../types/mock-exam.types';
+import { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, MOCK_EXAM_STEPS_DELE_B1 } from '../types/mock-exam.types';
 import {
   loadMockExamProgress,
   clearMockExamProgress,
@@ -110,90 +110,30 @@ const MockExamScreen: React.FC = () => {
     navigation.navigate('HomeStack', { screen: 'ExamStructure' });
   };
 
-  const getExamSections = () => {
-    if (isA1) {
-      return <>
+  const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.provider === 'dele';
+  const mockExamSteps = isDele ? MOCK_EXAM_STEPS_DELE_B1 : (isA1 ? MOCK_EXAM_STEPS_A1 : MOCK_EXAM_STEPS);
+  const totalTime = mockExamSteps.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
 
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>1</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.listeningComprehension')}</Text>
-          <Text style={styles.sectionDetail}>20 {t('mockExam.minutes')} • 15 {t('mockExam.points')}</Text>
-        </View>
-      </View>
+  const getExamDuration = () => {
+    return totalTime;
+  }
 
-        <View style={styles.sectionItem}>
-          <Text style={styles.sectionNumber}>1</Text>
-          <View style={styles.sectionContent}>
-            <Text style={styles.sectionTitle}>{t('mockExam.readingComprehension')}</Text>
-            <Text style={styles.sectionDetail}>25 {t('mockExam.minutes')} • 15 {t('mockExam.points')}</Text>
-          </View>
-        </View>
-
-        <View style={styles.sectionItem}>
-          <Text style={styles.sectionNumber}>4</Text>
-          <View style={styles.sectionContent}>
-            <Text style={styles.sectionTitle}>{t('mockExam.writtenExpression')}</Text>
-            <Text style={styles.sectionDetail}>20 {t('mockExam.minutes')} • 15 {t('mockExam.points')}</Text>
-          </View>
-        </View>
-
-        <View style={styles.sectionItem}>
-          <Text style={styles.sectionNumber}>5</Text>
-          <View style={styles.sectionContent}>
-            <Text style={styles.sectionTitle}>{t('mockExam.oralExpression')}</Text>
-            <Text style={styles.sectionDetail}>15 {t('mockExam.minutes')} • 15 {t('mockExam.points')} ({t('mockExam.practiceRecommended')})</Text>
-          </View>
-        </View>
-      </>
+  const getTotalPoints = () => {
+    if (isDele) {
+      return 100;
     }
 
-    return <>
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>1</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.readingComprehension')}</Text>
-          <Text style={styles.sectionDetail}>90 {t('mockExam.minutes')} • 75 {t('mockExam.points')}</Text>
-        </View>
-      </View>
+    return isA1 ? 60 : 300;
+  }
 
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>2</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.languageElements')}</Text>
-          <Text style={styles.sectionDetail}>90 {t('mockExam.minutes')} • 30 {t('mockExam.points')}</Text>
-        </View>
-      </View>
+  const getPassingScore = () => {
+    if (isDele) {
+      return 60;
+    }
 
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>3</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.listeningComprehension')}</Text>
-          <Text style={styles.sectionDetail}>30 {t('mockExam.minutes')} • 75 {t('mockExam.points')}</Text>
-        </View>
-      </View>
-
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>4</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.writtenExpression')}</Text>
-          <Text style={styles.sectionDetail}>30 {t('mockExam.minutes')} • 45 {t('mockExam.points')}</Text>
-        </View>
-      </View>
-
-      <View style={styles.sectionItem}>
-        <Text style={styles.sectionNumber}>5</Text>
-        <View style={styles.sectionContent}>
-          <Text style={styles.sectionTitle}>{t('mockExam.oralExpression')}</Text>
-          <Text style={styles.sectionDetail}>15 {t('mockExam.minutes')} • 75 {t('mockExam.points')} ({t('mockExam.practiceRecommended')})</Text>
-        </View>
-      </View>
-    </>
-  };
-
-  const isA1 = activeExamConfig.level === 'A1';
-  const mockExamSteps = isA1 ? MOCK_EXAM_STEPS_A1 : MOCK_EXAM_STEPS;
-  const totalTime = mockExamSteps.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
+    return isA1 ? 36 : 180;
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -213,11 +153,11 @@ const MockExamScreen: React.FC = () => {
           </View>
           <View style={styles.overviewRow}>
             <Text style={styles.overviewLabel}>📊 {t('mockExam.totalPoints')}:</Text>
-            <Text style={styles.overviewValue}>{isA1 ? 60 : 300} {t('mockExam.points')}</Text>
+            <Text style={styles.overviewValue}>{getTotalPoints()} {t('mockExam.points')}</Text>
           </View>
           <View style={styles.overviewRow}>
             <Text style={styles.overviewLabel}>✅ {t('mockExam.passingScore')}:</Text>
-            <Text style={styles.overviewValue}>{isA1 ? 36 : 180} {t('mockExam.points')} (60%)</Text>
+            <Text style={styles.overviewValue}>{getPassingScore()} {t('mockExam.points')} (60%)</Text>
           </View>
         </View>
 
@@ -243,14 +183,6 @@ const MockExamScreen: React.FC = () => {
           <Text style={styles.disclaimerText}>
             {'\n'}{t('mockExam.disclaimerText4')}
           </Text>
-        </View>
-
-        {/* Exam Sections */}
-        <View style={styles.sectionsCard}>
-          <Text style={styles.cardTitle}>{t('mockExam.examSections')}</Text>
-
-          {getExamSections()}
-
         </View>
 
         {/* Speaking Note */}

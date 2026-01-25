@@ -9,7 +9,7 @@ set -o pipefail  # Exit on pipe failure
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ANDROID_BUILD_GRADLE="$SCRIPT_DIR/android/app/build.gradle"
-IOS_PROJECT_FILE="$SCRIPT_DIR/ios/TelcExamApp.xcodeproj/project.pbxproj"
+IOS_PROJECT_FILE="$SCRIPT_DIR/ios/ExamPreparationApp.xcodeproj/project.pbxproj"
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -129,6 +129,6 @@ echo "  MARKETING_VERSION: $CURRENT_IOS_MARKETING → $NEW_IOS_MARKETING"
 echo ""
 echo -e "${BLUE}Updated files:${NC}"
 echo "  • android/app/build.gradle"
-echo "  • ios/TelcExamApp.xcodeproj/project.pbxproj"
+echo "  • ios/ExamPreparationApp.xcodeproj/project.pbxproj"
 echo ""
 

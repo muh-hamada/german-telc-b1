@@ -60,8 +60,8 @@ fi
 echo -e "${GREEN}✓ Found source image: ${SOURCE_IMAGE}${NC}"
 
 # Target directory
-ASSETS_DIR="ios/TelcExamApp/Images.xcassets/AppIcon.appiconset"
-LAUNCH_LOGO_DIR="ios/TelcExamApp/Images.xcassets/launch_logo.imageset"
+ASSETS_DIR="ios/ExamPreparationApp/Images.xcassets/AppIcon.appiconset"
+LAUNCH_LOGO_DIR="ios/ExamPreparationApp/Images.xcassets/launch_logo.imageset"
 
 # Check if sips command exists (macOS built-in image tool)
 if ! command -v sips &> /dev/null; then

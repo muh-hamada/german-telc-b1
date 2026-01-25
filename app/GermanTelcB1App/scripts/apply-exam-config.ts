@@ -52,7 +52,7 @@ if (!examConfig) {
 interface BuildConfig {
   examConfig: ExamConfig;
   appName: string;        // Android app name with 'App' suffix
-  iosAppName: string;     // iOS always uses 'TelcExamApp'
+  iosAppName: string;     // iOS always uses 'ExamPreparationApp'
   iosDisplayName: string; // e.g., "German B1 Exam"
 }
 
@@ -61,7 +61,7 @@ const capitalizedLanguage = examConfig.language.charAt(0).toUpperCase() + examCo
 const config: BuildConfig = {
   examConfig,
   appName: `${examConfig.appName}App`,
-  iosAppName: 'TelcExamApp',
+  iosAppName: 'ExamPreparationApp',
   iosDisplayName: `${capitalizedLanguage} ${examConfig.level} Exam`,
 };
 
@@ -138,7 +138,7 @@ function updateAndroidStrings() {
 }
 
 function updateiOSConfig() {
-  const infoPlistPath = path.join(projectRoot, 'ios/TelcExamApp/Info.plist');
+  const infoPlistPath = path.join(projectRoot, 'ios/ExamPreparationApp/Info.plist');
   
   if (fs.existsSync(infoPlistPath)) {
     try {
@@ -157,7 +157,7 @@ function updateiOSConfig() {
       );
       
       fs.writeFileSync(infoPlistPath, infoPlist);
-      console.log('✅ Updated ios/TelcExamApp/Info.plist');
+      console.log('✅ Updated ios/ExamPreparationApp/Info.plist');
       console.log(`   Display Name: ${config.iosDisplayName}`);
       console.log(`   Bundle ID: ${examConfig.bundleId.ios}`);
     } catch (error: any) {

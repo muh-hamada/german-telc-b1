@@ -123,7 +123,7 @@
   },
   "onboarding": {
     "welcome": {
-      "title": "Prepare for your Telc exam with confidence",
+      "title": "Prepare for your {{provider}} exam with confidence",
       "text": "Practice with realistic mock exams designed to match the real exam format, difficulty, and structure."
     },
     "selectLanguage": "Select your interface language",
@@ -137,10 +137,10 @@
     },
     "disclaimer": {
       "title": "Important Notice",
-      "text1": "This app is NOT affiliated with, endorsed by, or connected to TELC GmbH. We are an independent educational tool created to help students prepare for the TELC {{level}} {{language}} language examination.",
-      "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real TELC exam.",
-      "text3": "Completing exercises in this app does not guarantee success or failure in the actual TELC examination. This is a practice and preparation tool only.",
-      "checkboxLabel": "I understand that this app is only a simulation tool for exam preparation and is not an official TELC application. I acknowledge that using this app does not guarantee any specific results in the actual TELC {{level}} exam."
+      "text1": "This app is NOT affiliated with, endorsed by, or connected to {{provider}} GmbH. We are an independent educational tool created to help students prepare for the {{provider}} {{level}} {{language}} language examination.",
+      "text2": "All practice materials, questions, and exercises in this app are independently created using AI technology and publicly available free online resources. We use these resources to generate questions that simulate the complexity and format of the real {{provider}} exam.",
+      "text3": "Completing exercises in this app does not guarantee success or failure in the actual {{provider}} examination. This is a practice and preparation tool only.",
+      "checkboxLabel": "I understand that this app is only a simulation tool for exam preparation and is not an official {{provider}} application. I acknowledge that using this app does not guarantee any specific results in the actual {{provider}} {{level}} exam."
     },
     "buttons": {
       "next": "Next",
@@ -149,12 +149,12 @@
       "later": "Later"
     },
     "coverage": {
-      "title": "Everything you need for the Telc exam",
+      "title": "Everything you need for the {{provider}} exam",
       "text": "Practice all exam sections: Reading, Listening, Writing, and Speaking."
     },
     "writing": {
       "title": "Get real feedback on your writing",
-      "text": "AI-powered evaluation trained on official Telc criteria gives you clear scores, detailed feedback, strengths and areas to improve, and model answers."
+      "text": "AI-powered evaluation trained on official {{provider}} criteria gives you clear scores, detailed feedback, strengths and areas to improve, and model answers."
     },
     "speaking": {
       "title": "Prepare for the speaking exam",
@@ -162,7 +162,7 @@
     },
     "ready": {
       "title": "Ready to try your first mock exam?",
-      "text": "Experience the Telc exam exactly as it will be on test day."
+      "text": "Experience the {{provider}} exam exactly as it will be on test day."
     }
   },
   "navigation": {
@@ -171,7 +171,7 @@
     "profile": "Profile"
   },
   "home": {
-    "title": "Let's Prepare for the telc Exam Together",
+    "title": "Let's Prepare for the {{provider}} Exam Together",
     "welcomeUser": "Welcome, {{name}}!",
     "welcomeGuest": "Welcome!",
     "examStructure": "Exam Structure",
@@ -185,7 +185,7 @@
       "speaking": "Speaking"
     },
     "descriptions": {
-      "examStructure": "Learn about the TELC {{level}} exam format and scoring",
+      "examStructure": "Learn about the {{provider}} {{level}} exam format and scoring",
       "listeningPractice": "Listen to interviews and answer questions to practice listening skills",
       "vocabulary": "Learn vocabulary with spaced repetition",
       "solve": "Practice all exam sections: Reading, Listening, Writing, and Speaking"
@@ -233,7 +233,7 @@
         "yourPersonalInfo": "Your Personal Information"
       },
       "help": {
-        "exampleNote": "This is a complete example of a personal presentation for the TELC {{level}} oral exam. You can use it as a reference to create your own.",
+        "exampleNote": "This is a complete example of a personal presentation for the {{provider}} {{level}} oral exam. You can use it as a reference to create your own.",
         "enterInfoPrompt": "Please enter your personal information to generate your presentation text.",
         "questionsNote": "Important: This part of the exam will likely be in conversation form. \nYou and your partner will take turns asking questions to get to know each other. \nIt's important to practice both asking questions and answering them."
       },
@@ -654,7 +654,7 @@
     "example": "Example"
   },
   "examStructure": {
-    "description": "Learn about the TELC {{level}} exam format and scoring",
+    "description": "Learn about the {{provider}} {{level}} exam format and scoring",
     "comingSoon": "Content coming soon...",
     "cefrLevel": "CEFR Level",
     "totalDuration": "Total Duration",
@@ -889,12 +889,12 @@
       "iosRatingComingSoon": "The iOS app is coming soon",
       "shareFailed": "Failed to share. Please try again."
     },
-    "shareMessage": "Check out this amazing {{language}} TELC {{level}} exam preparation app! Download it now:",
+    "shareMessage": "Check out this amazing {{language}} {{provider}} {{level}} exam preparation app! Download it now:",
     "rateApp": "Rate our App",
     "shareApp": "Share with friends",
     "reportedIssues": "Reported Issues",
     "deleteAccount": "Delete Account",
-    "appName": "{{language}} TELC {{level}} Exam Preparation App",
+    "appName": "{{language}} {{provider}} {{level}} Exam Preparation App",
     "weeklyActivity": "Weekly Activity",
     "totalXP": "XP",
     "stats": {
@@ -1018,7 +1018,7 @@
   },
   "mockExam": {
     "title": "Mock Exam",
-    "subtitle": "Telc {{language}} {{level}} Complete Exam",
+    "subtitle": "{{provider}} {{language}} {{level}} Complete Exam",
     "overview": "Exam Overview",
     "totalDuration": "Total Duration",
     "totalPoints": "Total Points",
@@ -1031,7 +1031,7 @@
     "aboutMockExam": "About this Mock Exam",
     "disclaimerText1": "This mock exam gives you a rough assessment of your current knowledge and preparation. However, it is",
     "disclaimerText2": "no guarantee",
-    "disclaimerText3": "that you will pass the real Telc {{level}} exam.",
+    "disclaimerText3": "that you will pass the real {{provider}} {{level}} exam.",
     "disclaimerText4": "The real exam is conducted under controlled conditions and evaluated by certified examiners. Use this mock exam as a practice tool to identify your weaknesses and improve them specifically.",
     "examSections": "Exam Sections:",
     "readingComprehension": "Reading Comprehension (3 Parts)",
@@ -1336,7 +1336,7 @@
     },
     "rewardedAdModal": {
       "title": "AI Evaluation Support",
-      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real Telc exam. This process incurs costs. Watching this short ad helps keep our service free for everyone.",
+      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real {{provider}} exam. This process incurs costs. Watching this short ad helps keep our service free for everyone.",
       "watchAdButton": "Watch Ad and Evaluate",
       "maybeLaterButton": "Maybe Later",
       "adLoadingError": "Failed to load ad. Please try again.",

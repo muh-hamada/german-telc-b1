@@ -31,9 +31,9 @@ echo -e "${GREEN}✓ Node modules cache cleared${NC}"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo -e "\n${YELLOW}4. Cleaning iOS build folder...${NC}"
     cd ios
-    xcodebuild clean -workspace TelcExamApp.xcworkspace -scheme TelcExamApp -quiet 2>/dev/null || true
+    xcodebuild clean -workspace ExamPreparationApp.xcworkspace -scheme ExamPreparationApp -quiet 2>/dev/null || true
     rm -rf build 2>/dev/null
-    rm -rf ~/Library/Developer/Xcode/DerivedData/TelcExamApp-* 2>/dev/null
+    rm -rf ~/Library/Developer/Xcode/DerivedData/ExamPreparationApp-* 2>/dev/null
     cd ..
     echo -e "${GREEN}✓ iOS build cleaned${NC}"
 fi

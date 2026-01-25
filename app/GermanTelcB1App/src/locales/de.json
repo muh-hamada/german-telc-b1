@@ -123,7 +123,7 @@
   },
   "onboarding": {
     "welcome": {
-      "title": "Bereiten Sie sich mit Zuversicht auf Ihre Telc-Prüfung vor",
+      "title": "Bereiten Sie sich mit Zuversicht auf Ihre {{provider}}-Prüfung vor",
       "text": "Üben Sie mit realistischen Probeprüfungen, die dem echten Prüfungsformat, Schwierigkeitsgrad und der Struktur entsprechen."
     },
     "selectLanguage": "Wählen Sie Ihre Sprache",
@@ -137,10 +137,10 @@
     },
     "disclaimer": {
       "title": "Wichtiger Hinweis",
-      "text1": "Diese App ist NICHT mit der TELC GmbH verbunden, wird nicht von ihr unterstützt oder steht in Verbindung mit ihr. Wir sind ein unabhängiges Bildungstool, das erstellt wurde, um Schülern bei der Vorbereitung auf die TELC {{level}} {{language}} Sprachprüfung zu helfen.",
-      "text2": "Alle Übungsmaterialien, Fragen und Übungen in dieser App werden unabhängig mithilfe von KI-Technologie und öffentlich verfügbaren kostenlosen Online-Ressourcen erstellt. Wir verwenden diese Ressourcen, um Fragen zu generieren, die die Komplexität und das Format der echten TELC-Prüfung simulieren.",
-      "text3": "Das Abschließen von Übungen in dieser App garantiert weder Erfolg noch Misserfolg in der tatsächlichen TELC-Prüfung. Dies ist nur ein Übungs- und Vorbereitungstool.",
-      "checkboxLabel": "Ich verstehe, dass diese App nur ein Simulationstool zur Prüfungsvorbereitung ist und keine offizielle TELC-Anwendung. Ich bestätige, dass die Nutzung dieser App keine bestimmten Ergebnisse in der tatsächlichen TELC {{level}} Prüfung garantiert."
+      "text1": "Diese App ist NICHT mit der {{provider}} GmbH verbunden, wird nicht von ihr unterstützt oder steht in Verbindung mit ihr. Wir sind ein unabhängiges Bildungstool, das erstellt wurde, um Schülern bei der Vorbereitung auf die {{provider}} {{level}} {{language}} Sprachprüfung zu helfen.",
+      "text2": "Alle Übungsmaterialien, Fragen und Übungen in dieser App werden unabhängig mithilfe von KI-Technologie und öffentlich verfügbaren kostenlosen Online-Ressourcen erstellt. Wir verwenden diese Ressourcen, um Fragen zu generieren, die die Komplexität und das Format der echten {{provider}}-Prüfung simulieren.",
+      "text3": "Das Abschließen von Übungen in dieser App garantiert weder Erfolg noch Misserfolg in der tatsächlichen {{provider}}-Prüfung. Dies ist nur ein Übungs- und Vorbereitungstool.",
+      "checkboxLabel": "Ich verstehe, dass diese App nur ein Simulationstool zur Prüfungsvorbereitung ist und keine offizielle {{provider}}-Anwendung. Ich bestätige, dass die Nutzung dieser App keine bestimmten Ergebnisse in der tatsächlichen {{provider}} {{level}} Prüfung garantiert."
     },
     "buttons": {
       "next": "Weiter",
@@ -149,12 +149,12 @@
       "later": "Später"
     },
     "coverage": {
-      "title": "Alles, was Sie für die Telc-Prüfung brauchen",
+      "title": "Alles, was Sie für die {{provider}}-Prüfung brauchen",
       "text": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen."
     },
     "writing": {
       "title": "Erhalten Sie echtes Feedback zu Ihrem Schreiben",
-      "text": "KI-gestützte Bewertung nach offiziellen Telc-Kriterien gibt Ihnen klare Bewertungen, detailliertes Feedback, Stärken und Verbesserungsbereiche sowie Musterantworten."
+      "text": "KI-gestützte Bewertung nach offiziellen {{provider}}-Kriterien gibt Ihnen klare Bewertungen, detailliertes Feedback, Stärken und Verbesserungsbereiche sowie Musterantworten."
     },
     "speaking": {
       "title": "Bereiten Sie sich auf die mündliche Prüfung vor",
@@ -162,7 +162,7 @@
     },
     "ready": {
       "title": "Bereit für Ihre erste Probeklausur?",
-      "text": "Erleben Sie die Telc-Prüfung genau so, wie sie am Prüfungstag sein wird."
+      "text": "Erleben Sie die {{provider}}-Prüfung genau so, wie sie am Prüfungstag sein wird."
     }
   },
   "navigation": {
@@ -171,7 +171,7 @@
     "profile": "Profil"
   },
   "home": {
-    "title": "Lass uns gemeinsam für die telc Prüfung lernen",
+    "title": "Lass uns gemeinsam für die {{provider}} Prüfung lernen",
     "welcomeUser": "Willkommen, {{name}}!",
     "welcomeGuest": "Willkommen!",
     "examStructure": "Prüfungsstruktur",
@@ -184,7 +184,7 @@
       "speaking": "Sprechen"
     },
     "descriptions": {
-      "examStructure": "Erfahren Sie mehr über das Format und die Bewertung der TELC {{level}} Prüfung",
+      "examStructure": "Erfahren Sie mehr über das Format und die Bewertung der {{provider}} {{level}} Prüfung",
       "vocabulary": "Lernen Sie Vokabeln mit verteilter Wiederholung",
       "solve": "Üben Sie alle Prüfungsteile: Lesen, Hören, Schreiben und Sprechen",
       "listeningPractice": "Hören Sie sich Interviews an und beantworten Sie Fragen, um das Zuhören zu üben"
@@ -515,7 +515,7 @@
     "example": "Beispiel"
   },
   "examStructure": {
-    "description": "Erfahren Sie mehr über das Format und die Bewertung der TELC {{level}} Prüfung",
+    "description": "Erfahren Sie mehr über das Format und die Bewertung der {{provider}} {{level}} Prüfung",
     "comingSoon": "Inhalt folgt bald...",
     "cefrLevel": "GER-Niveau",
     "totalDuration": "Gesamtdauer",
@@ -752,12 +752,12 @@
       "iosRatingComingSoon": "Die iOS-App kommt bald",
       "shareFailed": "Teilen fehlgeschlagen. Bitte versuchen Sie es erneut."
     },
-    "shareMessage": "Schauen Sie sich diese großartige {{language}} TELC {{level}} Prüfungsvorbereitungs-App an! Laden Sie sie jetzt herunter:",
+    "shareMessage": "Schauen Sie sich diese großartige {{language}} {{provider}} {{level}} Prüfungsvorbereitungs-App an! Laden Sie sie jetzt herunter:",
     "rateApp": "Bewerten Sie unsere App",
     "shareApp": "Mit Freunden teilen",
     "reportedIssues": "Gemeldete Probleme",
     "deleteAccount": "Konto löschen",
-    "appName": "{{language}} TELC {{level}} Prüfungsvorbereitungs-App",
+    "appName": "{{language}} {{provider}} {{level}} Prüfungsvorbereitungs-App",
     "weeklyActivity": "Wöchentliche Aktivität",
     "totalXP": "EP",
     "stats": {
@@ -881,7 +881,7 @@
   },
   "mockExam": {
     "title": "Testprüfung",
-    "subtitle": "Telc {{language}} {{level}} Vollständige Prüfung",
+    "subtitle": "{{provider}} {{language}} {{level}} Vollständige Prüfung",
     "overview": "Prüfungsübersicht",
     "totalDuration": "Gesamtdauer",
     "totalPoints": "Gesamtpunkte",
@@ -894,7 +894,7 @@
     "aboutMockExam": "Über diese Testprüfung",
     "disclaimerText1": "Diese Testprüfung gibt Ihnen eine grobe Einschätzung Ihres aktuellen Wissens und Ihrer Vorbereitung. Sie ist jedoch",
     "disclaimerText2": "keine Garantie",
-    "disclaimerText3": "dafür, dass Sie die echte Telc {{level}} Prüfung bestehen werden.",
+    "disclaimerText3": "dafür, dass Sie die echte {{provider}} {{level}} Prüfung bestehen werden.",
     "disclaimerText4": "Die echte Prüfung wird unter kontrollierten Bedingungen durchgeführt und von zertifizierten Prüfern bewertet. Nutzen Sie diese Testprüfung als Übungstool, um Ihre Schwächen zu identifizieren und gezielt zu verbessern.",
     "examSections": "Prüfungsteile:",
     "readingComprehension": "Leseverstehen (3 Teile)",
@@ -1205,7 +1205,7 @@
       "subtitle": "Persönliche Präsentation",
       "help": {
         "enterInfoPrompt": "Bitte geben Sie Ihre persönlichen Daten ein, um Ihren Präsentationstext zu erstellen.",
-        "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Präsentation für die mündliche TELC {{level}}-Prüfung. \nSie können es als Referenz verwenden, um Ihr eigenes zu erstellen.",
+        "exampleNote": "Dies ist ein vollständiges Beispiel einer persönlichen Präsentation für die mündliche {{provider}} {{level}}-Prüfung. \nSie können es als Referenz verwenden, um Ihr eigenes zu erstellen.",
         "questionsNote": "Wichtig: Dieser Teil der Prüfung wird wahrscheinlich in Konversationsform stattfinden. \n\nSie und Ihr Partner werden abwechselnd Fragen stellen, um sich kennenzulernen. \n\nEs ist wichtig, sowohl das Stellen von Fragen als auch das Beantworten dieser Fragen zu üben."
       },
       "buttons": {
@@ -1555,7 +1555,7 @@
     },
     "rewardedAdModal": {
       "title": "KI-Bewertungsunterstützung",
-      "message": "Wir verwenden fortschrittliche KI, um Ihr Schreiben zu bewerten und umfassendes Feedback zu geben, ähnlich wie bei der echten Telc-Prüfung. Dieser Prozess verursacht Kosten. Das Ansehen dieser kurzen Anzeige hilft, unseren Service für alle kostenlos zu halten.",
+      "message": "Wir verwenden fortschrittliche KI, um Ihr Schreiben zu bewerten und umfassendes Feedback zu geben, ähnlich wie bei der echten {{provider}}-Prüfung. Dieser Prozess verursacht Kosten. Das Ansehen dieser kurzen Anzeige hilft, unseren Service für alle kostenlos zu halten.",
       "watchAdButton": "Anzeige ansehen und bewerten",
       "maybeLaterButton": "Vielleicht später",
       "adLoadingError": "Fehler beim Laden der Anzeige. Bitte versuchen Sie es erneut.",

@@ -20,6 +20,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "  - german-b2"
   echo "  - english-b1"
   echo "  - english-b2"
+  echo "  - dele-spanish-b1"
   echo ""
   echo "Available platforms:"
   echo "  - android"
