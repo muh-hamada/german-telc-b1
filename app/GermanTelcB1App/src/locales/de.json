@@ -646,9 +646,17 @@
       "descriptions": {
         "main": "Üben Sie mündlichen Ausdruck und Konversationsfähigkeiten"
       },
-      "part4": "Lernen: Wichtige Redewendungen",
+      "part4": "Wichtige Redewendungen",
       "a1Part2": "Teil 2: Informationen anfordern und bereitstellen",
-      "a1Part3": "Teil 3: Bitte formulieren und darauf reagieren"
+      "a1Part3": "Teil 3: Bitte formulieren und darauf reagieren",
+      "separator": "Studie",
+      "dele": {
+        "part1": "Teil 1: Bereiten Sie eine kurze Präsentation vor",
+        "part2": "Teil 2: An einem Gespräch teilnehmen",
+        "part3": "Teil 3: Beschreiben Sie ein Foto",
+        "part4": "Teil 4: Dialog in einer simulierten Situation",
+        "importantPhrases": "Wichtige Sätze"
+      }
     },
     "grammar": {
       "title": "Sprachbausteine",
@@ -1238,7 +1246,10 @@
         "company": "Unternehmen:",
         "hobbies": "Hobbys:"
       },
-      "title": "Sprechen Teil 1"
+      "title": "Sprechen Teil 1",
+      "dele": {
+        "subtitle": "Sie müssen zwei bis drei Minuten lang zu einem Thema sprechen."
+      }
     },
     "part2": {
       "subtitle": "Themenpräsentation",
@@ -1262,11 +1273,17 @@
       },
       "topicSelection": "Themenauswahl",
       "title": "Sprechen Teil 2",
-      "selectTopic": "Wählen Sie ein Thema aus"
+      "selectTopic": "Wählen Sie ein Thema aus",
+      "dele": {
+        "subtitle": "Sie sollten mit dem Interviewer drei bis vier Minuten lang über das Thema der Aufgabe 1 sprechen."
+      }
     },
     "part4": {
       "itemType": "Teil",
-      "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können"
+      "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können",
+      "dele": {
+        "subtitle": "Sie müssen zwei bis drei Minuten lang in einer simulierten Situation einen Dialog mit dem Interviewer führen."
+      }
     },
     "part3": {
       "subtitle": "Gemeinsam planen",
@@ -1286,7 +1303,10 @@
         "scenarioSelectionLabel": "Szenarioauswahl:"
       },
       "selectScenario": "Wählen Sie ein Szenario aus",
-      "title": "Sprechen Teil 3"
+      "title": "Sprechen Teil 3",
+      "dele": {
+        "subtitle": "Sie müssen ein oder zwei Minuten lang ein Foto beschreiben und einige Fragen beantworten."
+      }
     },
     "contactSupport": "Kontaktieren Sie den Support",
     "done": "Erledigt",
@@ -1301,7 +1321,12 @@
       "Grammar Accuracy": "{{score}} / {{max}}"
     },
     "scoreOutOf100": "Punktzahl: {{score}} / 100",
-    "planningTask": "Gemeinsam planen"
+    "planningTask": "Gemeinsam planen",
+    "importantPhrases": {
+      "dele": {
+        "subtitle": "Lernen Sie gebräuchliche Ausdrücke, die Sie in vielen Situationen und Fragen verwenden können"
+      }
+    }
   },
   "results": {
     "title": "Prüfungsergebnisse",

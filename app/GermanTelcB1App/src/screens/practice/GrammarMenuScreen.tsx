@@ -16,6 +16,7 @@ import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
+import CardsListSeperator from '../../components/CardsListSeperator';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -101,13 +102,7 @@ const GrammarMenuScreen: React.FC = () => {
           <Text style={styles.cardDescription}>{t('practice.grammar.descriptions.main')}</Text>
         </Card>
 
-        <View style={styles.separatorContainer}>
-          <View style={styles.separator}>
-            <View style={styles.separatorTextContainer}>
-              <Text style={styles.separatorText}>{t('practice.grammar.separator')}</Text>
-            </View>
-          </View>
-        </View>
+        <CardsListSeperator title={t('practice.grammar.separator')} />
 
         <Card style={styles.card} onPress={handleGrammarStudyPress}>
           <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
@@ -170,32 +165,6 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.text.secondary,
       lineHeight: 24,
       textAlign: 'left',
-    },
-    separatorContainer: {
-      marginBottom: spacing.margin.lg,
-      position: 'relative',
-    },
-    separator: {
-      height: 1,
-      width: '100%',
-      backgroundColor: colors.border.light,
-    },
-    separatorTextContainer: {
-      position: 'absolute',
-      width: '100%',
-      left: 0,
-      zIndex: 1000,
-      top: -10,
-      height: 24,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    separatorText: {
-      ...typography.textStyles.h6,
-      color: colors.text.secondary,
-      textTransform: 'uppercase',
-      backgroundColor: colors.background.primary,
-      paddingHorizontal: spacing.padding.md,
     },
   });
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { Text} from 'react-native';
 import { HomeStackParamList } from '../types/navigation.types';
-import { colors, spacing } from '../theme';
+import { colors } from '../theme';
 import ErrorBoundary from '../components/ErrorBoundary';
 import HomeScreen from '../screens/HomeScreen';
 import ExamStructureScreen from '../screens/ExamStructureScreen';
@@ -27,7 +27,7 @@ import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
-import SpeakingPart4Screen from '../screens/practice/SpeakingPart4Screen';
+import SpeakingImportantPhrasesScreen from '../screens/practice/SpeakingImportantPhrasesScreen';
 import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
 import A1SpeakingPart2Screen from '../screens/practice/A1SpeakingPart2Screen';
 import A1SpeakingPart3Screen from '../screens/practice/A1SpeakingPart3Screen';
@@ -58,6 +58,10 @@ import DeleReadingPart1Screen from '../screens/dele/DeleReadingPart1Screen';
 import ListeningPart4Screen from '../screens/practice/ListeningPart4Screen';
 import ListeningPart5Screen from '../screens/practice/ListeningPart5Screen';
 import { activeExamConfig } from '../config/active-exam.config';
+import DeleSpeakingPart1Screen from '../screens/dele/DeleSpeakingPart1Screen';
+import DeleSpeakingPart2Screen from '../screens/dele/DeleSpeakingPart2Screen';
+import DeleSpeakingPart3Screen from '../screens/dele/DeleSpeakingPart3Screen';
+import DeleSpeakingPart4Screen from '../screens/dele/DeleSpeakingPart4Screen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -264,7 +268,7 @@ const HomeStackNavigator: React.FC = () => {
       />
       <Stack.Screen
         name="SpeakingPart4"
-        component={SpeakingPart4Screen}
+        component={SpeakingImportantPhrasesScreen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.part4" />,
         }}
@@ -316,6 +320,41 @@ const HomeStackNavigator: React.FC = () => {
         component={SpeakingB2Part3Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="speaking.b2Part3.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="DeleSpeakingAllParts"
+        component={DeleSpeakingAllPartsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.deleAllParts.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="DeleSpeakingAllParts"
+        component={DeleSpeakingAllPartsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.delePart2.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="DeleSpeakingAllParts"
+        component={DeleSpeakingAllPartsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.delePart3.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="DeleSpeakingAllParts"
+        component={DeleSpeakingAllPartsScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.delePart4.title" />,
+        }}
+      />
+      <Stack.Screen
+        name="SpeakingImportantPhrases"
+        component={SpeakingImportantPhrasesScreen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="speaking.deleImportantPhrases.title" />,
         }}
       />
       <Stack.Screen

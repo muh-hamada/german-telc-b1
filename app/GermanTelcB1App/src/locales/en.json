@@ -252,6 +252,9 @@
         "formal": "Formal",
         "informal": "Informal",
         "answer": "Answer"
+      },
+      "dele": {
+        "subtitle": "You will need to speak on one topic for two or three minutes."
       }
     },
     "part2": {
@@ -276,6 +279,9 @@
       "instructions": {
         "taskDescription": "Your task: Inform your conversation partner about the following text, then discuss the topic.",
         "startingText": "Your starting text for the presentation:"
+      },
+      "dele": {
+        "subtitle": "You should talk to the interviewer about the topic of Task 1 for three or four minutes."
       }
     },
     "part3": {
@@ -296,11 +302,17 @@
         "english": "English",
         "suggestion": "Suggestion / Task",
         "response": "Sample Response"
+      },
+      "dele": {
+        "subtitle": "You will need to describe a photograph for one or two minutes and answer some questions"
       }
     },
     "part4": {
       "subtitle": "Common phrases you can use in many situations",
-      "itemType": "Part"
+      "itemType": "Part",
+      "dele": {
+        "subtitle": "You must have a dialogue with the interviewer in a simulated situation for two or three minutes."
+      }
     },
     "b2Structure": {
       "title": "Oral Exam Structure",
@@ -517,7 +529,12 @@
     "delete": {
       "button": "Delete"
     },
-    "scoresBreakdown": "Assessment Details"
+    "scoresBreakdown": "Assessment Details",
+    "importantPhrases": {
+      "dele": {
+        "subtitle": "Study common phrases you can use in many situations and questions"
+      }
+    }
   },
   "vocabulary": {
     "title": "Vocabulary Builder",
@@ -748,12 +765,20 @@
       "part1": "Part 1: Personal Introduction",
       "part2": "Part 2: Topic Presentation",
       "part3": "Part 3: Planning Together",
-      "part4": "Study: Important Phrases",
+      "part4": "Important Phrases",
       "descriptions": {
         "main": "Practice oral expression and conversation skills"
       },
       "a1Part2": "Part 2: To request and provide information",
-      "a1Part3": "Part 3: Request and response formation"
+      "a1Part3": "Part 3: Request and response formation",
+      "separator": "study",
+      "dele": {
+        "part1": "Part1: Prepare a short presentation",
+        "part2": "Part 2: Participate in a conversation",
+        "part3": "Part 3: Describe a photograph",
+        "part4": "Part 4: Dialogue in a simulated situation",
+        "importantPhrases": "Important Phrases"
+      }
     },
     "grammar": {
       "title": "Language Building Blocks",

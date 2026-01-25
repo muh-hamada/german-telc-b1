@@ -13,7 +13,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 type SpeakingPart4RouteProp = RouteProp<HomeStackParamList, 'SpeakingPart4'>;
 
-const SpeakingPart4Screen: React.FC = () => {
+const SpeakingImportantPhrasesScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<SpeakingPart4RouteProp>();
   const navigation = useNavigation();
@@ -164,6 +164,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   },
 });
 
-export default SpeakingPart4Screen;
+export default SpeakingImportantPhrasesScreen;
 
 

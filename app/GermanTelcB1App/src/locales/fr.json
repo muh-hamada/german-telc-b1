@@ -634,9 +634,17 @@
       "descriptions": {
         "main": "Pratiquez l'expression orale et les compétences de conversation"
       },
-      "part4": "Étude : Phrases importantes",
+      "part4": "Phrases importantes",
       "a1Part2": "Partie 2: Demander et fournir des informations",
-      "a1Part3": "Partie 3 : Formation des demandes et des réponses"
+      "a1Part3": "Partie 3 : Formation des demandes et des réponses",
+      "separator": "étude",
+      "dele": {
+        "part1": "Partie 1 : Préparer une courte présentation",
+        "part2": "Partie 2 : Participer à une conversation",
+        "part3": "Partie 3 : Décrire une photographie",
+        "part4": "Partie 4 : Dialogue dans une situation simulée",
+        "importantPhrases": "Phrases importantes"
+      }
     },
     "grammar": {
       "title": "Éléments de langage",
@@ -849,6 +857,9 @@
         "formal": "Officiel",
         "informal": "Informel",
         "answer": "Répondre"
+      },
+      "dele": {
+        "subtitle": "Vous devrez parler d’un sujet pendant deux ou trois minutes."
       }
     },
     "part2": {
@@ -873,6 +884,9 @@
       "instructions": {
         "taskDescription": "Votre tâche : Informez votre partenaire de conversation du texte suivant, puis discutez du sujet.",
         "startingText": "Votre texte de départ pour la présentation :"
+      },
+      "dele": {
+        "subtitle": "Vous devriez parler à l'intervieweur du sujet de la tâche 1 pendant trois ou quatre minutes."
       }
     },
     "part3": {
@@ -893,11 +907,17 @@
         "english": "Anglais",
         "suggestion": "Suggestion / Tâche",
         "response": "Exemple de réponse"
+      },
+      "dele": {
+        "subtitle": "Vous devrez décrire une photographie pendant une ou deux minutes et répondre à quelques questions."
       }
     },
     "part4": {
       "subtitle": "Phrases courantes que vous pouvez utiliser dans de nombreuses situations",
-      "itemType": "Partie"
+      "itemType": "Partie",
+      "dele": {
+        "subtitle": "Vous devez dialoguer avec l'intervieweur dans une situation simulée pendant deux ou trois minutes."
+      }
     },
     "b2Structure": {
       "title": "Structure de l'examen oral",
@@ -1123,7 +1143,12 @@
     "part": "Partie",
     "personalIntroduction": "Présentation personnelle",
     "playing": "Jouant...",
-    "title": "Pratique orale"
+    "title": "Pratique orale",
+    "importantPhrases": {
+      "dele": {
+        "subtitle": "Étudiez des expressions courantes que vous pouvez utiliser dans de nombreuses situations et questions"
+      }
+    }
   },
   "results": {
     "title": "Résultats de l'examen",

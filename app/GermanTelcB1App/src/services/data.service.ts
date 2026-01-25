@@ -58,7 +58,7 @@ class DataService {
       console.log(`[CACHE_DEBUG] Step 1: Checking cache...`);
       crashlytics().log(`DataService: Fetching doc "${docId}"`);
       const cachedData = await this.getCachedData(docId);
-      
+
       if (cachedData) {
         crashlytics().log(`DataService: Cache HIT for "${docId}"`);
         console.log(`[CACHE_DEBUG] ✅✅✅ USING CACHED DATA for "${docId}" - NO Firebase fetch needed`);
@@ -70,7 +70,7 @@ class DataService {
       console.log(`[CACHE_DEBUG] Step 2: Cache miss - Fetching from Firebase...`);
       crashlytics().log(`DataService: Cache MISS for "${docId}", fetching from Firebase`);
       console.log(`[CACHE_DEBUG] Collection: "${this.collectionName}", Doc: "${docId}"`);
-      
+
       const docSnapshot = await firestore()
         .collection(this.collectionName)
         .doc(docId)
@@ -82,20 +82,20 @@ class DataService {
       const exists = typeof (docSnapshot as any).exists === 'function'
         ? (docSnapshot as any).exists()
         : (docSnapshot as any).exists;
-      
+
       console.log(`[CACHE_DEBUG] Firebase document exists: ${exists}`);
-      
+
       if (exists) {
         const firestoreData = docSnapshot.data();
         const data = firestoreData?.data || firestoreData || defaultValue;
-        
+
         crashlytics().log(`DataService: Successfully fetched "${docId}" from Firebase`);
         console.log(`[CACHE_DEBUG] ✅ Successfully fetched "${docId}" from Firebase`);
         console.log(`[CACHE_DEBUG] Step 3: Caching the fetched data...`);
-        
+
         // Cache the data
         await this.cacheData(docId, data);
-        
+
         console.log(`[CACHE_DEBUG] Data Snapshot: `, data);
         console.log(`[CACHE_DEBUG] ========================================`);
         return data;
@@ -119,7 +119,7 @@ class DataService {
   private async getCachedData(docId: string): Promise<any | null> {
     console.log(`[CACHE_DEBUG] getCachedData called for docId: "${docId}"`);
     console.log(`[CACHE_DEBUG] DISABLE_DATA_CACHE value: ${DISABLE_DATA_CACHE}`);
-    
+
     if (DISABLE_DATA_CACHE) {
       console.log(`[CACHE_DEBUG] Cache is DISABLED by config, returning null for ${docId}`);
       return null;
@@ -128,10 +128,10 @@ class DataService {
     try {
       const cacheKey = CACHE_KEY_PREFIX + docId;
       console.log(`[CACHE_DEBUG] Looking up cache with key: "${cacheKey}"`);
-      
+
       const cachedStr = await AsyncStorage.getItem(cacheKey);
       console.log(`[CACHE_DEBUG] AsyncStorage returned: ${cachedStr ? `string of length ${cachedStr.length}` : 'null'}`);
-      
+
       if (!cachedStr) {
         console.log(`[CACHE_DEBUG] No cached data found for key: "${cacheKey}"`);
         return null;
@@ -142,13 +142,13 @@ class DataService {
       const cacheAge = now - cached.timestamp;
       const cacheAgeHours = (cacheAge / (1000 * 60 * 60)).toFixed(2);
       const expirationHours = (CACHE_EXPIRATION / (1000 * 60 * 60)).toFixed(2);
-      
+
       console.log(`[CACHE_DEBUG] Cache found for "${docId}":`);
       console.log(`[CACHE_DEBUG]   - Timestamp: ${new Date(cached.timestamp).toISOString()}`);
       console.log(`[CACHE_DEBUG]   - Age: ${cacheAgeHours} hours`);
       console.log(`[CACHE_DEBUG]   - Expiration threshold: ${expirationHours} hours`);
       console.log(`[CACHE_DEBUG]   - Is valid: ${cacheAge < CACHE_EXPIRATION}`);
-      
+
       // Check if cache is still valid
       if (now - cached.timestamp < CACHE_EXPIRATION) {
         console.log(`[CACHE_DEBUG] ✅ CACHE HIT - Returning cached data for "${docId}"`);
@@ -349,7 +349,7 @@ class DataService {
   // Speaking Important Phrases (Part 4)
   async getSpeakingImportantPhrases(): Promise<SpeakingImportantPhrasesContent> {
     const data = await this.fetchFromFirestore('speaking-important-phrases', null);
-    return data;
+    return data || { groups: [] };
   }
 
   // Oral Exam Structure (B2)
@@ -617,7 +617,7 @@ class DataService {
         console.warn('No data found for dele-speaking-part2');
         return { topics: [] };
       }
-      return { topics: data.topics || [] };
+      return { topics: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 2:', error);
       return { topics: [] };
@@ -632,7 +632,7 @@ class DataService {
         console.warn('No data found for dele-speaking-part3');
         return { topics: [] };
       }
-      return { topics: data.topics || [] };
+      return { topics: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 3:', error);
       return { topics: [] };
@@ -647,7 +647,7 @@ class DataService {
         console.warn('No data found for dele-speaking-part4');
         return { topics: [] };
       }
-      return { topics: data.topics || [] };
+      return { topics: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 4:', error);
       return { topics: [] };
@@ -696,7 +696,7 @@ class DataService {
           // A1 has simulation_data with cards_deck
           return 1; // We have one content 
         }
-        return  (activeExamConfig.level === 'B2' ? part3Data.questions?.length : part3Data.scenarios?.length) || 0;
+        return (activeExamConfig.level === 'B2' ? part3Data.questions?.length : part3Data.scenarios?.length) || 0;
       case 'speaking-important-phrases':
         // Not a count-based exam; treat as available if document exists
         return (await this.getSpeakingImportantPhrases())?.groups?.length ? 1 : 0;
@@ -709,7 +709,7 @@ class DataService {
       case 'listening-part3':
         const listeningPart3Data = await this.getListeningPart3Content();
         return listeningPart3Data.exams?.length || 0;
-        default:
+      default:
         return 0;
     }
   }

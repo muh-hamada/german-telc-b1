@@ -646,9 +646,17 @@
       "descriptions": {
         "main": "Practica expresión oral y habilidades de conversación"
       },
-      "part4": "Estudio: frases importantes",
+      "part4": "Frases importantes",
       "a1Part2": "Parte 2: Solicitar y proporcionar información",
-      "a1Part3": "Parte 3: Formación de solicitudes y respuestas"
+      "a1Part3": "Parte 3: Formación de solicitudes y respuestas",
+      "separator": "estudiar",
+      "dele": {
+        "part1": "Parte 1: preparar una breve presentación",
+        "part2": "Parte 2: Participa en una conversación",
+        "part3": "Parte 3: Describe una fotografía",
+        "part4": "Parte 4: Diálogo en una situación simulada",
+        "importantPhrases": "Frases importantes"
+      }
     },
     "grammar": {
       "title": "Bloques de construcción del idioma",
@@ -1237,7 +1245,10 @@
         "company": "Compañía:",
         "hobbies": "Pasatiempos:"
       },
-      "title": "Hablando Parte 1"
+      "title": "Hablando Parte 1",
+      "dele": {
+        "subtitle": "Necesitará hablar sobre un tema durante dos o tres minutos."
+      }
     },
     "part2": {
       "subtitle": "Presentación del tema",
@@ -1261,11 +1272,17 @@
       },
       "topicSelection": "Selección de tema",
       "title": "Hablando Parte 2",
-      "selectTopic": "Seleccione un tema"
+      "selectTopic": "Seleccione un tema",
+      "dele": {
+        "subtitle": "Debes hablar con el entrevistador sobre el tema de la Tarea 1 durante tres o cuatro minutos."
+      }
     },
     "part4": {
       "itemType": "Parte",
-      "subtitle": "Frases comunes que puedes usar en muchas situaciones."
+      "subtitle": "Frases comunes que puedes usar en muchas situaciones.",
+      "dele": {
+        "subtitle": "Debes mantener un diálogo con el entrevistador en una situación simulada durante dos o tres minutos."
+      }
     },
     "part3": {
       "subtitle": "Planificando juntos",
@@ -1285,7 +1302,10 @@
         "scenarioSelectionLabel": "Selección de escenario:"
       },
       "selectScenario": "Seleccione un escenario",
-      "title": "Hablando Parte 3"
+      "title": "Hablando Parte 3",
+      "dele": {
+        "subtitle": "Necesitarás describir una fotografía durante uno o dos minutos y responder algunas preguntas."
+      }
     },
     "contactSupport": "Contactar con soporte",
     "done": "Hecho",
@@ -1300,7 +1320,12 @@
       "Grammar Accuracy": "{{score}} / {{max}}"
     },
     "scoreOutOf100": "Puntuación: {{score}} / 100",
-    "planningTask": "Planificar juntos"
+    "planningTask": "Planificar juntos",
+    "importantPhrases": {
+      "dele": {
+        "subtitle": "Estudia frases comunes que puedes usar en muchas situaciones y preguntas."
+      }
+    }
   },
   "results": {
     "title": "Resultados del examen",

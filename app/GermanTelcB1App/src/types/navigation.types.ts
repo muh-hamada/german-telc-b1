@@ -39,16 +39,16 @@ export type HomeStackParamList = {
   WritingPart2: { examId: string };
   SpeakingMenu: undefined;
   SpeakingPart1: undefined;
-  SpeakingPart2: { topicId: number };
-  SpeakingPart3: { scenarioId: number };
-  SpeakingPart4: { groupIndex: number };
+  SpeakingPart2: { topicId: string };
+  SpeakingPart3: { scenarioId: string };
+  SpeakingPart4: { groupIndex: string };
   A1SpeakingPart1: undefined;
   A1SpeakingPart2: undefined;
   A1SpeakingPart3: undefined;
   B2SpeakingStructure: undefined;
-  B2SpeakingPart1: { topicId: number };
-  B2SpeakingPart2: { topicId: number };
-  B2SpeakingPart3: { questionId: number };
+  B2SpeakingPart1: { topicId: string };
+  B2SpeakingPart2: { topicId: string };
+  B2SpeakingPart3: { questionId: string };
   ListeningMenu: undefined;
   ListeningPart1: { examId: string };
   ListeningPart1A1: { examId: string };
@@ -67,6 +67,9 @@ export type HomeStackParamList = {
   VocabularyReview: undefined;
   VocabularyProgress: undefined;
   VocabularyStudiedList: undefined;
+
+  SpeakingImportantPhrases: { groupIndex: number };
+
   // Speaking Assessment Routes
   SpeakingAssessment: { dialogueId?: string };
   AssessmentResults: { assessmentId?: string; dialogueId?: string };
@@ -83,10 +86,7 @@ export type HomeStackParamList = {
   DeleListeningPart5: { examId: string };
   DeleWritingPart1: { examId: string };
   DeleWritingPart2: { examId: string };
-  DeleSpeakingPart1: { topicId: number };
-  DeleSpeakingPart2: { topicId: number };
-  DeleSpeakingPart3: { topicId: number };
-  DeleSpeakingPart4: { topicId: number };
+  DeleSpeakingAllParts: { part: number; topicId: string };
 };
 
 // Profile Stack Navigator
