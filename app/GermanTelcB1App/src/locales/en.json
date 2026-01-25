@@ -723,6 +723,10 @@
         "a1": {
           "part1": "Read a scenario and fill in the missing information in a form",
           "part2": "Write a short email or letter addressing the given points (circa 30 words per point)"
+        },
+        "dele": {
+          "part1": "Write a formal or semi-formal email",
+          "part2": "Comment on a message published in a blog"
         }
       },
       "taskPoints": "Task Points",
@@ -733,7 +737,11 @@
       "pointsAddressed": "points addressed",
       "suggestedKeywords": "Suggested keywords",
       "minCharactersRequired": "Please write at least {{count}} characters.",
-      "communicativeDesign": "Communicative Design"
+      "communicativeDesign": "Communicative Design",
+      "dele": {
+        "part1": "Part 1: Write an Email",
+        "part2": "Part 2: Comment on a Message"
+      }
     },
     "speaking": {
       "title": "Oral Expression",
@@ -1211,7 +1219,12 @@
     "subtitle": "Write a personal email",
     "instructions": {
       "title": "Task:",
-      "description": "Read the incoming email and respond to it. Consider the writing points provided."
+      "description": "Read the incoming email and respond to it. Consider the writing points provided.",
+      "dele": {
+        "part2": {
+          "description": "Read the following message and respond to it. Consider the writing points provided."
+        }
+      }
     },
     "sections": {
       "incomingEmail": "Incoming Email:",
@@ -1316,7 +1329,8 @@
         "questionNumber": "Question {{number}}",
         "incomplete": "Incomplete",
         "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
-      }
+      },
+      "questions": "Questions {{count}}"
     },
     "part2": {
       "title": "Listening Part 2",
@@ -1363,7 +1377,10 @@
       "audioErrorMessage": "The audio file could not be loaded.",
       "incomplete": "Incomplete",
       "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
-    }
+    },
+    "statements": "Statements",
+    "person": "Person",
+    "prepTime": "Prep Time"
   },
   "streaks": {
     "title": "Daily Streaks",
@@ -1548,11 +1565,20 @@
           "part1": "Letters and Messages",
           "part2": "Websites and Ads",
           "part3": "Signs and Notices"
+        },
+        "dele": {
+          "part1": "TV Program Matching",
+          "part2": "Multiple Choice",
+          "part3": "Situation Matching"
         }
       },
       "grammar": {
         "part1": "Multiple Choice",
-        "part2": "Word List"
+        "part2": "Word List",
+        "dele": {
+          "part1": "Fragments",
+          "part2": "Multiple Choice"
+        }
       },
       "listening": {
         "part1": "Short Dialogues",
@@ -1562,6 +1588,13 @@
           "part1": "Conversations and Announcements",
           "part2": "Radio Announcement",
           "part3": "Telephone Conversations"
+        },
+        "dele": {
+          "part1": "Voicemail Messages",
+          "part2": "Radio Segment",
+          "part3": "News Items",
+          "part4": "Memories Sharing",
+          "part5": "Conversations"
         }
       },
       "writing": {

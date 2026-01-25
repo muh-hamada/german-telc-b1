@@ -618,6 +618,10 @@
         "a1": {
           "part1": "Lesen Sie ein Szenario und tragen Sie die fehlenden Informationen in ein Formular ein",
           "part2": "Schreiben Sie eine kurze E-Mail oder einen Brief zu den angegebenen Punkten (circa 30 Wörter pro Punkt)"
+        },
+        "dele": {
+          "part1": "Schreiben Sie eine formelle oder halbformelle E-Mail",
+          "part2": "Kommentieren Sie eine in einem Blog veröffentlichte Nachricht"
         }
       },
       "taskPoints": "Aufgabenpunkte",
@@ -628,7 +632,11 @@
       "pointsAddressed": "Punkte angesprochen",
       "suggestedKeywords": "Vorgeschlagene Schlüsselwörter",
       "minCharactersRequired": "Bitte schreiben Sie mindestens {{count}} Zeichen.",
-      "communicativeDesign": "Kommunikatives Design"
+      "communicativeDesign": "Kommunikatives Design",
+      "dele": {
+        "part1": "Teil 1: Eine E-Mail schreiben",
+        "part2": "Teil 2: Kommentieren Sie eine Nachricht"
+      }
     },
     "speaking": {
       "title": "Mündlicher Ausdruck",
@@ -1430,7 +1438,12 @@
     "subtitle": "Eine persönliche E-Mail schreiben",
     "instructions": {
       "title": "Aufgabe:",
-      "description": "Lesen Sie die eingehende E-Mail und antworten Sie darauf. Beachten Sie die angegebenen Schreibpunkte."
+      "description": "Lesen Sie die eingehende E-Mail und antworten Sie darauf. Beachten Sie die angegebenen Schreibpunkte.",
+      "dele": {
+        "part2": {
+          "description": "Lesen Sie die folgende Nachricht und antworten Sie darauf. \nBerücksichtigen Sie die bereitgestellten Schreibpunkte."
+        }
+      }
     },
     "sections": {
       "incomingEmail": "Eingehende E-Mail:",
@@ -1535,7 +1548,8 @@
         "questionNumber": "Frage {{number}}",
         "incomplete": "Unvollständig",
         "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
-      }
+      },
+      "questions": "Fragen {{count}}"
     },
     "part2": {
       "title": "Hören Teil 2",
@@ -1582,7 +1596,10 @@
       "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
       "incomplete": "Unvollständig",
       "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben."
-    }
+    },
+    "statements": "Aussagen",
+    "person": "Person",
+    "prepTime": "Vorbereitungszeit"
   },
   "streaks": {
     "title": "Tägliche Serien",
@@ -1830,11 +1847,20 @@
           "part1": "Briefe und Nachrichten",
           "part2": "Websites und Anzeigen",
           "part3": "Schilder und Hinweise"
+        },
+        "dele": {
+          "part1": "Passende TV-Programme",
+          "part2": "Multiple Choice",
+          "part3": "Situationsanpassung"
         }
       },
       "grammar": {
         "part1": "Multiple Choice",
-        "part2": "Wortliste"
+        "part2": "Wortliste",
+        "dele": {
+          "part1": "Fragmente",
+          "part2": "Multiple Choice"
+        }
       },
       "listening": {
         "part1": "Kurze Dialoge",
@@ -1844,6 +1870,13 @@
           "part1": "Gespräche und Ankündigungen",
           "part2": "Radioankündigung",
           "part3": "Telefongespräche"
+        },
+        "dele": {
+          "part1": "Voicemail-Nachrichten",
+          "part2": "Radiosegment",
+          "part3": "Nachrichten",
+          "part4": "Erinnerungen teilen",
+          "part5": "Gespräche"
         }
       },
       "writing": {

@@ -33,7 +33,7 @@ export type HomeStackParamList = {
   GrammarPart1: { examId: string };
   GrammarPart2: { examId: string };
   GrammarStudy: undefined;
-  Writing: { examId: string };
+  Writing: { examId: string , part: number}; // For DELE combined Writing screen
   WritingMenu: undefined;
   WritingPart1: { examId: string };
   WritingPart2: { examId: string };

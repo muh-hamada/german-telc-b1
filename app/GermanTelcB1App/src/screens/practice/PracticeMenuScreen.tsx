@@ -25,6 +25,7 @@ const PracticeMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
     const loadWritingExams = async () => {
@@ -32,8 +33,8 @@ const PracticeMenuScreen: React.FC = () => {
       setWritingExams(exams);
     };
 
-    // Skip loading writing exams for A1 as it will be loaded from the WritingMenuScreen
-    if (!isA1) {
+    // Skip loading writing exams for A1 and DELE as it will be loaded from the WritingMenuScreen
+    if (!isA1 && !isDele) {
       loadWritingExams();
     }
     // Section opened
@@ -51,7 +52,7 @@ const PracticeMenuScreen: React.FC = () => {
   };
 
   const handleWritingPress = () => {
-    if (isA1) {
+    if (isA1 || isDele) {
       // For A1, navigate to WritingMenu screen
       logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'writing' });
       navigation.navigate('WritingMenu');
@@ -64,7 +65,7 @@ const PracticeMenuScreen: React.FC = () => {
 
   const handleSelectWritingExam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
-    navigation.navigate('Writing', { examId });
+    navigation.navigate('Writing', { examId, part: 1 });
   };
 
   const handleSpeakingPress = () => {

@@ -55,6 +55,9 @@ import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen'
 import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
 import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
 import DeleReadingPart1Screen from '../screens/dele/DeleReadingPart1Screen';
+import ListeningPart4Screen from '../screens/practice/ListeningPart4Screen';
+import ListeningPart5Screen from '../screens/practice/ListeningPart5Screen';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -79,6 +82,7 @@ const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
 
 const HomeStackNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
+  const isDele = activeExamConfig.provider === 'dele';
   
   // Common screen options for RTL support
   const screenOptions = {
@@ -164,7 +168,7 @@ const HomeStackNavigator: React.FC = () => {
         name="ReadingPart3"
         component={ReadingPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.part3" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.reading.dele.part3" : "nav.practice.reading.part3"} />,
         }}
       />
       <Stack.Screen
@@ -185,14 +189,14 @@ const HomeStackNavigator: React.FC = () => {
         name="GrammarPart1"
         component={GrammarPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.grammar.part1" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.grammar.dele.part1" : "nav.practice.grammar.part1"} />,
         }}
       />
       <Stack.Screen
         name="GrammarPart2"
         component={GrammarPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.grammar.part2" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.grammar.dele.part2" : "nav.practice.grammar.part2"} />,
         }}
       />
       <Stack.Screen
@@ -325,7 +329,7 @@ const HomeStackNavigator: React.FC = () => {
         name="ListeningPart1"
         component={ListeningPart1Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part1" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.listening.dele.part1" : "nav.practice.listening.part1"} />,
         }}
       />
       <Stack.Screen
@@ -339,7 +343,7 @@ const HomeStackNavigator: React.FC = () => {
         name="ListeningPart2"
         component={ListeningPart2Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part2" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.listening.dele.part2" : "nav.practice.listening.part2"} />,
         }}
       />
       <Stack.Screen
@@ -353,7 +357,7 @@ const HomeStackNavigator: React.FC = () => {
         name="ListeningPart3"
         component={ListeningPart3Screen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.part3" />,
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.listening.dele.part3" : "nav.practice.listening.part3"} />,
         }}
       />
       <Stack.Screen
@@ -361,6 +365,20 @@ const HomeStackNavigator: React.FC = () => {
         component={ListeningPart3A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a1.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart4"
+        component={ListeningPart4Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.listening.dele.part4" : "nav.practice.listening.part4"} />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart5"
+        component={ListeningPart5Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey={isDele ? "nav.practice.listening.dele.part5" : "nav.practice.listening.part5"} />,
         }}
       />
       <Stack.Screen

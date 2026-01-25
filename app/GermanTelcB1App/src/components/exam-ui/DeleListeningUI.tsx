@@ -28,7 +28,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
   const { i18n, t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
-  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number | string }>({});
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -59,7 +59,14 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
     }
   };
 
-  const handleAnswerSelect = (questionId: number, optionIndex: number) => {
+  const getAudioStatus = () => {
+    if (hasStarted) {
+      return isPlaying ? t('listening.part1.playing') : t('listening.part1.completed');
+    }
+    return t('listening.part1.readyToPlay');
+  };
+
+  const handleAnswerSelect = (questionId: number, optionIndex: number | string) => {
     setUserAnswers(prev => ({
       ...prev,
       [questionId]: optionIndex,
@@ -79,10 +86,13 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
     logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id, part });
 
     try {
-      const audioUrl = `listening-part${part}/${exam.id}.mp3`;
+      // Use offline file if available
+      // If exam has audio_url, use it; otherwise construct it from part and exam.id
+      const audioUrl = exam.audio_url || `listening-part${part}/${exam.id}.mp3`;
       const audioPath = await offlineService.getLocalAudioPath(audioUrl);
       console.log(`[DeleListeningPart${part}] Playing audio from:`, audioPath);
 
+      // Add playback listener for progress tracking
       Sound.addPlayBackListener((e: any) => {
         if (e.currentPosition !== undefined && e.duration !== undefined) {
           setCurrentTime(e.currentPosition / 1000);
@@ -90,12 +100,14 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
         }
       });
 
+      // Add listener for playback completion
       Sound.addPlaybackEndListener(() => {
         console.log('Audio playback completed');
         setIsPlaying(false);
         logEvent(AnalyticsEvents.AUDIO_COMPLETED, { exam_id: exam.id, part, duration_ms: Date.now() - startTs });
       });
 
+      // Start playback
       await Sound.startPlayer(audioPath);
 
     } catch (error) {
@@ -107,12 +119,6 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
       );
       setIsPlaying(false);
     }
-  };
-
-  const handlePauseAudio = () => {
-    Sound.pausePlayer();
-    setIsPlaying(false);
-    logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id, part, action: 'pause' });
   };
 
   const handleSubmit = () => {
@@ -133,23 +139,45 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
     const answers: UserAnswer[] = [];
     
     exam.questions.forEach(question => {
-      const userAnswerIndex = userAnswers[question.id];
-      const correctAnswerIndex = question.options.findIndex(opt => opt.is_correct === true);
-      const isCorrect = userAnswerIndex === correctAnswerIndex;
+      const userAnswerValue = userAnswers[question.id];
+      let isCorrect = false;
+      let selectedOptionText = '';
+      let correctAnswerText = '';
+
+      if (part === 4) {
+        // Part 4: answer is a letter key (a-j) from statements
+        const correctAnswer = (question as any).answer;
+        isCorrect = userAnswerValue === correctAnswer;
+        selectedOptionText = userAnswerValue ? String(userAnswerValue).toUpperCase() : '';
+        correctAnswerText = correctAnswer ? String(correctAnswer).toUpperCase() : '';
+      } else if (part === 5) {
+        // Part 5: answer is 'a', 'b', or 'c'
+        const correctAnswer = (question as any).answer;
+        isCorrect = userAnswerValue === correctAnswer;
+        selectedOptionText = userAnswerValue ? String(userAnswerValue).toUpperCase() : '';
+        correctAnswerText = correctAnswer ? String(correctAnswer).toUpperCase() : '';
+      } else {
+        // Parts 1, 2, 3: options array with is_correct
+        const userAnswerIndex = userAnswerValue as number;
+        const correctAnswerIndex = question.options.findIndex(opt => opt.is_correct === true);
+        isCorrect = userAnswerIndex === correctAnswerIndex;
+        
+        const selectedOption = question.options[userAnswerIndex];
+        const correctOption = question.options[correctAnswerIndex];
+        selectedOptionText = selectedOption?.text || selectedOption?.option || '';
+        correctAnswerText = correctOption?.text || correctOption?.option || '';
+      }
       
       if (isCorrect) {
         correctCount++;
       }
-
-      const selectedOption = question.options[userAnswerIndex];
-      const correctOption = question.options[correctAnswerIndex];
       
       answers.push({
         questionId: question.id,
-        answer: selectedOption?.text || selectedOption?.option || '',
+        answer: selectedOptionText,
         isCorrect,
         timestamp: Date.now(),
-        correctAnswer: correctOption?.text || correctOption?.option || '',
+        correctAnswer: correctAnswerText,
         explanation: question.explanation,
         transcript: question.audio_transcription,
       });
@@ -167,11 +195,150 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
     onComplete(score, answers);
   };
 
+  const renderQuestions = () => {
+    if (part === 4) {
+      // Part 4: Statements matching
+      return (
+        <>
+          {/* Display statements A-J */}
+          <View style={styles.statementsCard}>
+            <Text style={styles.statementsTitle}>{t('listening.statements')}</Text>
+            {Object.entries((exam as any).statements || {}).sort((a, b) => a[0].localeCompare(b[0])).map(([key, value]) => (
+              <View key={key} style={styles.statementItem}>
+                <Text style={styles.statementLetter}>{key.toUpperCase()}.</Text>
+                <Text style={styles.statementText}>{value as string}</Text>
+              </View>
+            ))}
+          </View>
+          
+          {/* Questions for matching */}
+          {exam.questions.map((question) => (
+            <View key={question.id} style={styles.questionCard}>
+              <Text style={styles.questionNumber}>{question.id}. {t('listening.person')} {(question as any).person}</Text>
+              
+              <View style={styles.optionsContainer}>
+                {Object.keys((exam as any).statements || {}).sort((a, b) => a.localeCompare(b)).map((key) => {
+                  const isOptionSelected = userAnswers[question.id] === key;
+                  return (
+                    <TouchableOpacity
+                      key={`${question.id}-${key}`}
+                      style={[
+                        styles.answerOption,
+                        isOptionSelected && styles.answerOptionSelected
+                      ]}
+                      onPress={() => handleAnswerSelect(question.id, key)}
+                    >
+                      <Text style={[
+                        styles.answerText,
+                        isOptionSelected && styles.answerTextSelected
+                      ]}>
+                        {key.toUpperCase()}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            </View>
+          ))}
+        </>
+      );
+    }
+    
+    if (part === 5) {
+      // Part 5: A/B/C selection (who said what)
+      return (
+        <>
+          {exam.questions.map((question) => {
+            const statement = (question as any).statement;
+            return (
+              <View key={question.id} style={styles.questionCard}>
+                <Text style={styles.questionNumber}>{question.id}.</Text>
+                <Text style={styles.questionText}>{statement}</Text>
+                
+                <View style={styles.optionsContainer}>
+                  {['a', 'b', 'c'].map((option) => {
+                    const isSelected = userAnswers[question.id] === option;
+                    return (
+                      <TouchableOpacity
+                        key={`${question.id}-${option}`}
+                        style={[
+                          styles.answerOption,
+                          isSelected && styles.answerOptionSelected
+                        ]}
+                        onPress={() => handleAnswerSelect(question.id, option)}
+                      >
+                        <Text style={[
+                          styles.answerText,
+                          isSelected && styles.answerTextSelected
+                        ]}>
+                          {option.toUpperCase()}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
+              </View>
+            );
+          })}
+        </>
+      );
+    }
+    
+    // Parts 1, 2, 3: Regular options
+    return exam.questions.map((question) => (
+      <View key={question.id} style={styles.questionCard}>
+        <Text style={styles.questionNumber}>{question.id}.</Text>
+        <Text style={styles.questionText}>{question.question}</Text>
+        
+        {question.options.map((option, index) => {
+          const isSelected = userAnswers[question.id] === index;
+          const displayText = option.text || option.option || '';
+          return (
+            <TouchableOpacity
+              key={`${question.id}-opt-${index}`}
+              style={[
+                styles.radioAnswerOption,
+                isSelected && styles.radioAnswerOptionSelected
+              ]}
+              onPress={() => handleAnswerSelect(question.id, index)}
+            >
+              <View style={[
+                styles.radioButton,
+                isSelected && styles.radioButtonSelected
+              ]}>
+                {isSelected && <View style={styles.radioButtonInner} />}
+              </View>
+              <Text style={[
+                styles.radioAnswerText,
+                isSelected && styles.radioAnswerTextSelected
+              ]}>
+                {displayText}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    ));
+  };
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>{sectionDetails.title}</Text>
+        <View style={styles.metaInfo}>
+          <Text style={styles.metaText}>
+            ⏱️ {sectionDetails.duration_minutes} {t('listening.part1.minutes')}
+          </Text>
+          <Text style={styles.metaText}>
+            📝 {exam.questions.length} {t('listening.part1.tasks')}
+          </Text>
+        </View>
+      </View>
+
       {/* Instructions */}
       <View style={styles.instructionsCard}>
-        <Text style={styles.instructionsTitle}>{sectionDetails.title}</Text>
+        <Text style={styles.instructionsTitle}>{t('listening.part1.instructions')}</Text>
         <Text style={styles.instructionsText}>
           {getInstructions()}
         </Text>
@@ -184,30 +351,38 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
 
       {/* Audio Player */}
       <View style={styles.audioSection}>
-        <Text style={styles.sectionTitle}>{exam.title}</Text>
+        <View style={styles.examWarning}>
+          <Text style={styles.examWarningText}>
+            {t('listening.part1.examWarning')}
+          </Text>
+        </View>
+
         <View style={styles.audioPlayer}>
-          <AudioDuration currentTime={currentTime} duration={duration} />
-          <View style={styles.audioControls}>
-            {isPlaying ? (
-              <TouchableOpacity
-                style={styles.pauseButton}
-                onPress={handlePauseAudio}
-              >
-                <Text style={styles.pauseButtonText}>
-                  {t('listening.part1.pause')}
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                style={styles.playButton}
-                onPress={handlePlayAudio}
-              >
-                <Text style={styles.playButtonText}>
-                  {hasStarted ? t('listening.part1.resume') : t('listening.part1.play')}
-                </Text>
-              </TouchableOpacity>
-            )}
+          <View style={styles.audioInfo}>
+            <View>
+              <Text style={styles.audioTitle}>{t('listening.part1.audioFile')}</Text>
+              <Text style={styles.audioStatus}>
+                {getAudioStatus()}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.audioTime}>
+                {hasStarted && <AudioDuration currentTime={currentTime} duration={duration} />}
+              </Text>
+            </View>
           </View>
+
+          {!hasStarted && (
+            <TouchableOpacity style={styles.playButton} onPress={handlePlayAudio}>
+              <Text style={styles.playButtonText}>{t('listening.part1.playAudio')}</Text>
+            </TouchableOpacity>
+          )}
+
+          {isPlaying && (
+            <View style={styles.playingIndicator}>
+              <Text style={styles.playingText}>{t('listening.part1.audioPlaying')}</Text>
+            </View>
+          )}
         </View>
       </View>
 
@@ -216,40 +391,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
         <Text style={styles.sectionTitle}>
           {t('listening.part1.questions', { count: exam.questions.length })}
         </Text>
-        {exam.questions.map((question) => (
-          <View key={question.id} style={styles.questionCard}>
-            <Text style={styles.questionNumber}>{question.id}.</Text>
-            <Text style={styles.questionText}>{question.question}</Text>
-            
-            {question.options.map((option, index) => {
-              const isSelected = userAnswers[question.id] === index;
-              const displayText = option.text || option.option || '';
-              return (
-                <TouchableOpacity
-                  key={`${question.id}-opt-${index}`}
-                  style={[
-                    styles.answerOption,
-                    isSelected && styles.answerOptionSelected
-                  ]}
-                  onPress={() => handleAnswerSelect(question.id, index)}
-                >
-                  <View style={[
-                    styles.radioButton,
-                    isSelected && styles.radioButtonSelected
-                  ]}>
-                    {isSelected && <View style={styles.radioButtonInner} />}
-                  </View>
-                  <Text style={[
-                    styles.answerText,
-                    isSelected && styles.answerTextSelected
-                  ]}>
-                    {displayText}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        ))}
+        {renderQuestions()}
       </View>
 
       {/* Submit Button */}
@@ -280,6 +422,25 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   scrollContent: {
     padding: spacing.padding.lg,
   },
+  header: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.lg,
+    borderRadius: spacing.borderRadius.lg,
+    marginBottom: spacing.margin.lg,
+  },
+  headerTitle: {
+    ...typography.textStyles.h3,
+    color: colors.primary[600],
+    marginBottom: spacing.margin.sm,
+  },
+  metaInfo: {
+    flexDirection: 'row',
+  },
+  metaText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginRight: spacing.margin.md,
+  },
   instructionsCard: {
     backgroundColor: colors.secondary[50],
     padding: spacing.padding.md,
@@ -293,13 +454,11 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.primary[700],
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.sm,
-    textAlign: 'left',
   },
   instructionsText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
-    textAlign: 'left',
   },
   prepTime: {
     ...typography.textStyles.bodySmall,
@@ -310,25 +469,44 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   audioSection: {
     marginBottom: spacing.margin.xl,
   },
-  sectionTitle: {
-    ...typography.textStyles.h4,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
+  examWarning: {
+    backgroundColor: colors.error[50],
+    borderColor: colors.error[500],
+    borderWidth: 1,
+    borderRadius: spacing.borderRadius.md,
+    padding: spacing.padding.md,
     marginBottom: spacing.margin.md,
-    textAlign: 'left',
+  },
+  examWarningText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.error[700],
+    lineHeight: 20,
   },
   audioPlayer: {
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: colors.border.light,
   },
-  audioControls: {
-    marginTop: spacing.margin.md,
+  audioInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.margin.md,
+  },
+  audioTitle: {
+    ...typography.textStyles.h4,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.xs,
+  },
+  audioStatus: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+  },
+  audioTime: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
   },
   playButton: {
     backgroundColor: colors.primary[500],
@@ -342,17 +520,21 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
   },
-  pauseButton: {
-    backgroundColor: colors.secondary[500],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
+  playingIndicator: {
+    padding: spacing.padding.md,
+    backgroundColor: colors.primary[50],
+    borderRadius: spacing.borderRadius.sm,
     alignItems: 'center',
   },
-  pauseButtonText: {
+  playingText: {
     ...typography.textStyles.body,
+    color: colors.primary[700],
+  },
+  sectionTitle: {
+    ...typography.textStyles.h4,
+    color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
+    marginBottom: spacing.margin.md,
   },
   questionsSection: {
     marginBottom: spacing.margin.lg,
@@ -381,6 +563,21 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     lineHeight: 22,
   },
   answerOption: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.secondary[100],
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: spacing.margin.xs,
+    borderWidth: 2,
+    borderColor: colors.secondary[300],
+  },
+  answerOptionSelected: {
+    backgroundColor: colors.primary[500],
+    borderColor: colors.primary[600],
+  },
+  radioAnswerOption: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.padding.sm,
@@ -388,7 +585,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.xs,
     backgroundColor: colors.secondary[50],
   },
-  answerOptionSelected: {
+  radioAnswerOptionSelected: {
     backgroundColor: colors.primary[100],
   },
   radioButton: {
@@ -411,11 +608,18 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     backgroundColor: colors.primary[500],
   },
   answerText: {
-    ...typography.textStyles.body,
+     ...typography.textStyles.body,
+    fontWeight: typography.fontWeight.bold,
     color: colors.text.primary,
-    flex: 1,
+  },
+  radioAnswerText: {
+     ...typography.textStyles.body,
+    color: colors.text.primary,
   },
   answerTextSelected: {
+     color: colors.background.secondary,
+  },
+  radioAnswerTextSelected: {
     color: colors.primary[700],
     fontWeight: typography.fontWeight.semibold,
   },
@@ -439,6 +643,42 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
     color: colors.background.secondary,
+  },
+  statementsCard: {
+    backgroundColor: colors.secondary[100],
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    marginBottom: spacing.margin.lg,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  statementsTitle: {
+    ...typography.textStyles.h4,
+    color: colors.primary[700],
+    fontWeight: typography.fontWeight.bold,
+    marginBottom: spacing.margin.md,
+  },
+  statementItem: {
+    flexDirection: 'row',
+    marginBottom: spacing.margin.sm,
+  },
+  statementLetter: {
+    ...typography.textStyles.body,
+    color: colors.primary[600],
+    fontWeight: typography.fontWeight.bold,
+    marginRight: spacing.margin.sm,
+    minWidth: 24,
+  },
+  statementText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    flex: 1,
+    lineHeight: 22,
+  },
+  optionsContainer: {
+    marginTop: spacing.margin.sm,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
 

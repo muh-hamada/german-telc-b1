@@ -25,7 +25,7 @@ interface Statement {
 }
 
 interface Exam {
-  id: number;
+  id: string;
   audio_url: string;
   statements: Statement[];
 }

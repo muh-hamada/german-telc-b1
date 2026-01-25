@@ -43,9 +43,8 @@ const ListeningPart4Screen: React.FC = () => {
   const sectionDetails = listeningData?.section_details || {};
   const exams = listeningData?.exams as DeleListeningExam[] || [];
   const currentExam = exams.find(exam => exam.id === String(examId));
-  const examIdNumber = typeof examId === 'string' ? Number.parseInt(examId, 10) : examId;
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 4, examIdNumber);
+  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 4, examId);
 
   useEffect(() => {
     loadData();
@@ -115,7 +114,7 @@ const ListeningPart4Screen: React.FC = () => {
     const percentage = Math.round((score / totalQuestions) * 100);
 
     const result: ExamResult = {
-      examId: examIdNumber,
+      examId: examId,
       score,
       maxScore: totalQuestions,
       percentage,
@@ -133,13 +132,13 @@ const ListeningPart4Screen: React.FC = () => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
       section: 'listening',
       part: 4,
-      exam_id: examIdNumber,
+      exam_id: examId,
       score,
       max_score: totalQuestions,
       percentage: percentage,
     });
 
-    updateExamProgress('listening', examIdNumber, answers, score, totalQuestions);
+    updateExamProgress('listening', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {
@@ -187,7 +186,7 @@ const ListeningPart4Screen: React.FC = () => {
           // Resume global modal queue
           setContextualModalActive(false);
         }}
-        examTitle={`Listening Part 4 - Test ${examIdNumber + 1}`}
+        examTitle={`Listening Part 4 - Test ${examId}`}
         result={examResult}
       />
 
@@ -197,7 +196,7 @@ const ListeningPart4Screen: React.FC = () => {
         examData={currentExam}
         section="listening"
         part={4}
-        examId={examIdNumber}
+        examId={examId}
       />
     </View>
   );

@@ -73,8 +73,6 @@ const ListeningMenuScreen: React.FC = () => {
           dataService.getListeningPart3Content(),
         ]);
 
-        console.log('part1Data', part1Data);
-
         const part1ExamsList = (part1Data.exams || []).map((exam: any) => ({
           id: exam.id,
           title: exam.title || `Test ${exam.id + 1}`
@@ -144,6 +142,7 @@ const ListeningMenuScreen: React.FC = () => {
   };
 
   const handlePart4Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'listening', part: 4 });
     setShowPart4Modal(true);
   };
 
@@ -153,6 +152,7 @@ const ListeningMenuScreen: React.FC = () => {
   };
 
   const handlePart5Press = () => {
+    logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'listening', part: 5 });
     setShowPart5Modal(true);
   };
 

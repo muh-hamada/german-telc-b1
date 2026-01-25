@@ -62,12 +62,20 @@ const WritingMenuScreen: React.FC = () => {
 
   const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
-    navigation.navigate('WritingPart1', { examId });
+    if(isDele) {
+      navigation.navigate('Writing', { examId, part: 1 });
+    } else {
+      navigation.navigate('WritingPart1', { examId});
+    }
   };
 
   const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 2, exam_id: examId });
-    navigation.navigate('WritingPart2', { examId });
+    if(isDele) {
+      navigation.navigate('Writing', { examId, part: 2 });
+    } else {
+      navigation.navigate('WritingPart2', { examId});
+    }
   };
 
   // Check if writing has multiple parts based on exam structure
@@ -75,26 +83,42 @@ const WritingMenuScreen: React.FC = () => {
   const hasPart2 = writingParts.includes(2);
   const isA1 = activeExamConfig.level === 'A1';
 
+  const getCardTitle = (partNumber: number) => {
+    if (isA1) {
+      return t(`practice.writing.a1.part${partNumber}`);
+    }
+
+    if(isDele) {
+      return t(`practice.writing.dele.part${partNumber}`);
+    }
+
+    return t(`practice.writing.part${partNumber}`);
+  }
+
+  const getCardDescription = (partNumber: number) => {
+    if (isA1) {
+      return t(`practice.writing.descriptions.a1.part${partNumber}`);
+    }
+
+    if(isDele) {
+      return t(`practice.writing.descriptions.dele.part${partNumber}`);
+    }
+
+    return t(`practice.writing.descriptions.part${partNumber}`);
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
         <Card style={styles.card} onPress={handlePart1Press}>
-          <Text style={styles.cardTitle}>
-            {t('practice.writing.a1.part1')}
-          </Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.writing.descriptions.a1.part1')}
-          </Text>
+          <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
+          <Text style={styles.cardDescription}>{getCardDescription(1)}</Text>
         </Card>
 
         {hasPart2 && (
           <Card style={styles.card} onPress={handlePart2Press}>
-            <Text style={styles.cardTitle}>
-              {t('practice.writing.a1.part2')}
-            </Text>
-            <Text style={styles.cardDescription}>
-              {t('practice.writing.descriptions.a1.part2')}
-            </Text>
+            <Text style={styles.cardTitle}>{getCardTitle(2)}</Text>
+            <Text style={styles.cardDescription}>{getCardDescription(2)}</Text>
           </Card>
         )}
       </ScrollView>
@@ -106,7 +130,7 @@ const WritingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart1Exam}
         examType="writing"
         partNumber={1}
-        title={t('practice.writing.a1.part1')}
+        title={getCardTitle(1)}
       />
 
       <ExamSelectionModal
@@ -116,7 +140,7 @@ const WritingMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart2Exam}
         examType="writing"
         partNumber={2}
-        title={t('practice.writing.a1.part2')}
+        title={getCardTitle(2)}
       />
 
     </View>

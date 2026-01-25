@@ -8,13 +8,14 @@
 export type ExamLanguage = 'german' | 'english' | 'french' | 'spanish' | 'russian' | 'arabic';
 export type ExamLevel = 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'A1';
 export type LanguageCode = 'en' | 'de' | 'fr' | 'es' | 'ru' | 'ar';
+export type ExamProvider = 'telc' | 'dele';
 
 export interface ExamConfig {
   // Basic Identity
   id: string; // e.g., "german-b1"
   language: ExamLanguage; // e.g., "german"
   level: ExamLevel; // e.g., "B1"
-  provider: string; // e.g., "telc", "dele", "delf", etc.
+  provider: ExamProvider; // e.g., "telc", "dele", "delf", etc.
   
   // App Identity (for build configuration)
   appName: string;           // e.g., "GermanTelcB1"

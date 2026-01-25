@@ -618,6 +618,10 @@
         "a1": {
           "part1": "Lea un escenario y complete la información faltante en un formulario",
           "part2": "Escriba un correo electrónico o carta corta abordando los puntos dados (aproximadamente 30 palabras por punto)"
+        },
+        "dele": {
+          "part1": "Escribe un correo electrónico formal o semiformal.",
+          "part2": "Comentar un mensaje publicado en un blog."
         }
       },
       "taskPoints": "Puntos de tarea",
@@ -628,7 +632,11 @@
       "pointsAddressed": "puntos abordados",
       "suggestedKeywords": "Palabras clave sugeridas",
       "minCharactersRequired": "Por favor escribe al menos {{count}} caracteres.",
-      "communicativeDesign": "Diseño Comunicativo"
+      "communicativeDesign": "Diseño Comunicativo",
+      "dele": {
+        "part1": "Parte 1: escribir un correo electrónico",
+        "part2": "Parte 2: comentar un mensaje"
+      }
     },
     "speaking": {
       "title": "Expresión Oral",
@@ -1429,7 +1437,12 @@
     "subtitle": "Escribir un correo personal",
     "instructions": {
       "title": "Tarea:",
-      "description": "Lea el correo electrónico entrante y respóndalo. Tenga en cuenta los puntos de escritura proporcionados."
+      "description": "Lea el correo electrónico entrante y respóndalo. Tenga en cuenta los puntos de escritura proporcionados.",
+      "dele": {
+        "part2": {
+          "description": "Lee el siguiente mensaje y respóndelo. \nConsidere los puntos de escritura proporcionados."
+        }
+      }
     },
     "sections": {
       "incomingEmail": "Correo electrónico entrante:",
@@ -1534,7 +1547,8 @@
         "questionNumber": "Pregunta {{number}}",
         "incomplete": "Incompleto",
         "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
-      }
+      },
+      "questions": "Preguntas {{count}}"
     },
     "part2": {
       "title": "Comprensión auditiva Parte 2",
@@ -1581,7 +1595,10 @@
       "audioErrorMessage": "No se pudo cargar el archivo de audio.",
       "incomplete": "Incompleto",
       "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
-    }
+    },
+    "statements": "Declaraciones",
+    "person": "Persona",
+    "prepTime": "Tiempo de preparación"
   },
   "streaks": {
     "title": "Rachas Diarias",
@@ -1833,11 +1850,20 @@
           "part1": "Cartas y mensajes",
           "part2": "Sitios web y anuncios",
           "part3": "Señales y avisos"
+        },
+        "dele": {
+          "part1": "Coincidencia de programas de televisión",
+          "part2": "Opción múltiple",
+          "part3": "Coincidencia de situaciones"
         }
       },
       "grammar": {
         "part1": "Opción múltiple",
-        "part2": "Lista de palabras"
+        "part2": "Lista de palabras",
+        "dele": {
+          "part1": "Fragmentos",
+          "part2": "Opción múltiple"
+        }
       },
       "listening": {
         "part1": "Diálogos cortos",
@@ -1847,6 +1873,13 @@
           "part1": "Conversaciones y anuncios",
           "part2": "Anuncio de radio",
           "part3": "Conversaciones telefónicas"
+        },
+        "dele": {
+          "part1": "Mensajes de correo de voz",
+          "part2": "Segmento de radio",
+          "part3": "Artículos de noticias",
+          "part4": "Compartir recuerdos",
+          "part5": "Conversaciones"
         }
       },
       "writing": {

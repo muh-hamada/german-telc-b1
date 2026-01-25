@@ -606,6 +606,10 @@
         "a1": {
           "part1": "Lisez un scénario et remplissez les informations manquantes dans un formulaire",
           "part2": "Rédigez un court courriel ou une courte lettre en abordant les points donnés (environ 30 mots par point)"
+        },
+        "dele": {
+          "part1": "Écrivez un e-mail formel ou semi-formel",
+          "part2": "Commenter un message publié dans un blog"
         }
       },
       "taskPoints": "Points de tâche",
@@ -616,7 +620,11 @@
       "pointsAddressed": "points abordés",
       "suggestedKeywords": "Mots-clés suggérés",
       "minCharactersRequired": "Veuillez écrire au moins {{count}} caractères.",
-      "communicativeDesign": "Conception communicative"
+      "communicativeDesign": "Conception communicative",
+      "dele": {
+        "part1": "Partie 1 : Écrire un e-mail",
+        "part2": "Partie 2 : Commenter un message"
+      }
     },
     "speaking": {
       "title": "Expression orale",
@@ -1417,7 +1425,12 @@
     "subtitle": "Écrire un courriel personnel",
     "instructions": {
       "title": "Tâche:",
-      "description": "Lisez le courriel entrant et répondez-y. Tenez compte des points d'écriture fournis."
+      "description": "Lisez le courriel entrant et répondez-y. Tenez compte des points d'écriture fournis.",
+      "dele": {
+        "part2": {
+          "description": "Lisez le message suivant et répondez-y. \nConsidérez les points d’écriture fournis."
+        }
+      }
     },
     "sections": {
       "incomingEmail": "Courriel entrant:",
@@ -1522,7 +1535,8 @@
         "questionNumber": "Question {{number}}",
         "incomplete": "Incomplet",
         "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
-      }
+      },
+      "questions": "Questions {{count}}"
     },
     "part2": {
       "title": "Compréhension orale Partie 2",
@@ -1569,7 +1583,10 @@
       "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
       "incomplete": "Incomplet",
       "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
-    }
+    },
+    "statements": "Déclarations",
+    "person": "Personne",
+    "prepTime": "Temps de préparation"
   },
   "streaks": {
     "title": "Séries Quotidiennes",
@@ -1821,11 +1838,20 @@
           "part1": "Lettres et messages",
           "part2": "Sites Web et publicités",
           "part3": "Panneaux et avis"
+        },
+        "dele": {
+          "part1": "Correspondance des programmes TV",
+          "part2": "Choix multiples",
+          "part3": "Correspondance des situations"
         }
       },
       "grammar": {
         "part1": "Choix multiples",
-        "part2": "Liste de mots"
+        "part2": "Liste de mots",
+        "dele": {
+          "part1": "Fragments",
+          "part2": "Choix multiples"
+        }
       },
       "listening": {
         "part1": "Courts dialogues",
@@ -1835,6 +1861,13 @@
           "part1": "Conversations et annonces",
           "part2": "Annonce radio",
           "part3": "Conversations téléphoniques"
+        },
+        "dele": {
+          "part1": "Messages vocaux",
+          "part2": "Segment radio",
+          "part3": "Actualités",
+          "part4": "Partage de souvenirs",
+          "part5": "Conversations"
         }
       },
       "writing": {

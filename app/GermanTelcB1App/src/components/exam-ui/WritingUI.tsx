@@ -41,6 +41,7 @@ interface WritingUIProps {
   exam: WritingExam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
   isMockExam?: boolean; // Optional flag to indicate if this is part of a mock exam
+  part?: number; // Optional part number (1 or 2) - this is used for the Dele exams
 }
 
 // Ad Unit ID for rewarded ad
@@ -51,7 +52,7 @@ const REWARDED_AD_UNIT_ID = __DEV__
     android: activeExamConfig.ads.rewarded.android,
   }) || TestIds.REWARDED;
 
-const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false }) => {
+const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false, part = 1 }) => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -78,7 +79,9 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const capturedImageBase64Ref = useRef<string | null>(null);
   const adEarnedRewardRef = useRef<boolean>(false);
   const userAnswerRef = useRef<string>('');
+
   const isB2Exam = activeExamConfig.level === 'B2';
+  const isDele = activeExamConfig.provider === 'dele';
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -845,15 +848,18 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   }
 
   const renderB1Question = () => {
+    const isMessageQuestion = isDele && part === 2;
+    const instructionsText =  isMessageQuestion ? t('writing.instructions.dele.part2.description') :  t('writing.instructions.description');
+
     return (
       <>
         <View style={styles.instructionsCard}>
           <Text style={styles.instructionsTitle}>{t('writing.instructions.title')}</Text>
-          <Text style={styles.instructionsText}>{t('writing.instructions.description')}</Text>
+          <Text style={styles.instructionsText}>{instructionsText}</Text>
         </View>
 
         {/* Incoming Email */}
-        {exam.incomingEmail && (
+        {!!exam.incomingEmail && (
           <View style={styles.emailSection}>
             <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
             <View style={styles.emailCard}>

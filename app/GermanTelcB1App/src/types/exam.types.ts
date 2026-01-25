@@ -481,6 +481,7 @@ export interface DeleListeningSectionDetails {
 export interface DeleListeningExam {
   title: string;
   id: string;
+  audio_url?: string; // Optional: if provided, use this; otherwise construct from part and id
   questions: DeleListeningQuestion[];
 }
 
