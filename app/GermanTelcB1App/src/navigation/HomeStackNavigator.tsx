@@ -1,67 +1,64 @@
-import React from 'react';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
-import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { Text} from 'react-native';
-import { HomeStackParamList } from '../types/navigation.types';
-import { colors } from '../theme';
+import React from 'react';
+import { Text } from 'react-native';
 import ErrorBoundary from '../components/ErrorBoundary';
-import HomeScreen from '../screens/HomeScreen';
+import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import ExamStructureScreen from '../screens/ExamStructureScreen';
-import PracticeMenuScreen from '../screens/practice/PracticeMenuScreen';
-import ReadingMenuScreen from '../screens/practice/ReadingMenuScreen';
-import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
-import ReadingPart1A1Screen from '../screens/practice/ReadingPart1A1Screen';
-import ReadingPart2Screen from '../screens/practice/ReadingPart2Screen';
-import ReadingPart2A1Screen from '../screens/practice/ReadingPart2A1Screen';
-import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
-import ReadingPart3A1Screen from '../screens/practice/ReadingPart3A1Screen';
+import HomeScreen from '../screens/HomeScreen';
+import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
+import A1SpeakingPart2Screen from '../screens/practice/A1SpeakingPart2Screen';
+import A1SpeakingPart3Screen from '../screens/practice/A1SpeakingPart3Screen';
 import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
 import GrammarStudyScreen from '../screens/practice/GrammarStudyScreen';
-import WritingScreen from '../screens/practice/WritingScreen';
-import WritingMenuScreen from '../screens/practice/WritingMenuScreen';
-import WritingPart1Screen from '../screens/practice/WritingPart1Screen';
-import WritingPart2Screen from '../screens/practice/WritingPart2Screen';
+import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
+import ListeningPart1A1Screen from '../screens/practice/ListeningPart1A1Screen';
+import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
+import ListeningPart2A1Screen from '../screens/practice/ListeningPart2A1Screen';
+import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
+import ListeningPart3A1Screen from '../screens/practice/ListeningPart3A1Screen';
+import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
+import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
+import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
+import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
+import PracticeMenuScreen from '../screens/practice/PracticeMenuScreen';
+import ReadingMenuScreen from '../screens/practice/ReadingMenuScreen';
+import ReadingPart1A1Screen from '../screens/practice/ReadingPart1A1Screen';
+import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
+import ReadingPart2A1Screen from '../screens/practice/ReadingPart2A1Screen';
+import ReadingPart2Screen from '../screens/practice/ReadingPart2Screen';
+import ReadingPart3A1Screen from '../screens/practice/ReadingPart3A1Screen';
+import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
+import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
+import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
+import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
+import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
+import SpeakingImportantPhrasesScreen from '../screens/practice/SpeakingImportantPhrasesScreen';
 import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
-import SpeakingImportantPhrasesScreen from '../screens/practice/SpeakingImportantPhrasesScreen';
-import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
-import A1SpeakingPart2Screen from '../screens/practice/A1SpeakingPart2Screen';
-import A1SpeakingPart3Screen from '../screens/practice/A1SpeakingPart3Screen';
-import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
-import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
-import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
-import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
-import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
-import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
-import ListeningPart1A1Screen from '../screens/practice/ListeningPart1A1Screen';
-import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
-import ListeningPart2A1Screen from '../screens/practice/ListeningPart2A1Screen';
-import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
-import ListeningPart3A1Screen from '../screens/practice/ListeningPart3A1Screen';
-import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
-import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
-import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
+import WritingMenuScreen from '../screens/practice/WritingMenuScreen';
+import WritingPart1Screen from '../screens/practice/WritingPart1Screen';
+import WritingPart2Screen from '../screens/practice/WritingPart2Screen';
+import WritingScreen from '../screens/practice/WritingScreen';
 import VocabularyHomeScreen from '../screens/VocabularyHomeScreen';
 import VocabularyOnboardingScreen from '../screens/VocabularyOnboardingScreen';
-import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
-import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
+import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
+import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
+import { colors } from '../theme';
+import { HomeStackParamList } from '../types/navigation.types';
 // Prep Plan Screens
-import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
-import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
+import { activeExamConfig } from '../config/active-exam.config';
 import DeleReadingPart1Screen from '../screens/dele/DeleReadingPart1Screen';
+import DeleSpeakingAllPartsScreen from '../screens/dele/DeleSpeakingAllPartsScreen';
 import ListeningPart4Screen from '../screens/practice/ListeningPart4Screen';
 import ListeningPart5Screen from '../screens/practice/ListeningPart5Screen';
-import { activeExamConfig } from '../config/active-exam.config';
-import DeleSpeakingPart1Screen from '../screens/dele/DeleSpeakingPart1Screen';
-import DeleSpeakingPart2Screen from '../screens/dele/DeleSpeakingPart2Screen';
-import DeleSpeakingPart3Screen from '../screens/dele/DeleSpeakingPart3Screen';
-import DeleSpeakingPart4Screen from '../screens/dele/DeleSpeakingPart4Screen';
+import AssessmentResultsScreen from '../screens/prep-plan/AssessmentResultsScreen';
+import SpeakingAssessmentScreen from '../screens/prep-plan/SpeakingAssessmentScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -87,6 +84,22 @@ const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
 const HomeStackNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
   const isDele = activeExamConfig.provider === 'dele';
+  
+  // Helper function to get title key based on part number
+  const getDeleSpeakingPartTitleKey = (part: number): string => {
+    switch (part) {
+      case 1:
+        return 'nav.practice.speaking.dele.part1';
+      case 2:
+        return 'nav.practice.speaking.dele.part2';
+      case 3:
+        return 'nav.practice.speaking.dele.part3';
+      case 4:
+        return 'nav.practice.speaking.dele.part4';
+      default:
+        return 'Speaking Practice'; // Should not happen
+    }
+  };
   
   // Common screen options for RTL support
   const screenOptions = {
@@ -325,36 +338,17 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="DeleSpeakingAllParts"
         component={DeleSpeakingAllPartsScreen}
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="speaking.deleAllParts.title" />,
-        }}
-      />
-      <Stack.Screen
-        name="DeleSpeakingAllParts"
-        component={DeleSpeakingAllPartsScreen}
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="speaking.delePart2.title" />,
-        }}
-      />
-      <Stack.Screen
-        name="DeleSpeakingAllParts"
-        component={DeleSpeakingAllPartsScreen}
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="speaking.delePart3.title" />,
-        }}
-      />
-      <Stack.Screen
-        name="DeleSpeakingAllParts"
-        component={DeleSpeakingAllPartsScreen}
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="speaking.delePart4.title" />,
-        }}
+        options={({ route }) => ({
+          headerTitle: () => (
+            <HeaderTitle titleKey={getDeleSpeakingPartTitleKey(route.params?.part || 1)} />
+          ),
+        })}
       />
       <Stack.Screen
         name="SpeakingImportantPhrases"
         component={SpeakingImportantPhrasesScreen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="speaking.deleImportantPhrases.title" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.speaking.dele.importantPhrases" />,
         }}
       />
       <Stack.Screen

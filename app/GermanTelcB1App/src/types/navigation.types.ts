@@ -86,7 +86,7 @@ export type HomeStackParamList = {
   DeleListeningPart5: { examId: string };
   DeleWritingPart1: { examId: string };
   DeleWritingPart2: { examId: string };
-  DeleSpeakingAllParts: { part: number; topicId: string };
+  DeleSpeakingAllParts: { part: number; topicIndex: number };
 };
 
 // Profile Stack Navigator

@@ -503,7 +503,69 @@ export interface DeleWritingPart {
   exams: DeleWritingExam[];
 }
 
-// DELE Speaking Parts
+// DELE Speaking Parts - Each part has different schema
+
+// Part 1: Monólogo (2-3 min presentation + discussion)
+export interface DeleSpeakingPart1Topic {
+  title: string;
+  examplePresentation: string;
+  exampleDiscussion: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+export interface DeleSpeakingPart1Content {
+  topics: DeleSpeakingPart1Topic[];
+}
+
+// Part 2: Conversación (Follow-up conversation)
+export interface DeleSpeakingPart2Question {
+  title: string;
+  content: string;
+  exampleQuestions: string[];
+  exampleDialogue: Array<{
+    speaker: string;
+    text: string;
+  }>;
+}
+
+export interface DeleSpeakingPart2Content {
+  questions: DeleSpeakingPart2Question[];
+}
+
+// Part 3: Descripción de fotografía (Photo description)
+export interface DeleSpeakingPart3Question {
+  title: string;
+  question: string;
+  image_url: string;
+  exampleDescription: string;
+  exampleDiscussion: Array<{
+    speaker: string;
+    text: string;
+  }>;
+}
+
+export interface DeleSpeakingPart3Content {
+  questions: DeleSpeakingPart3Question[];
+}
+
+// Part 4: Diálogo en situación simulada (Role-play)
+export interface DeleSpeakingPart4Question {
+  title: string;
+  situation: string;
+  roleInstructions: string;
+  exampleDialogue: Array<{
+    speaker: string;
+    text: string;
+  }>;
+}
+
+export interface DeleSpeakingPart4Content {
+  questions: DeleSpeakingPart4Question[];
+}
+
+// Legacy type - kept for backwards compatibility
 export interface DeleSpeakingTopic {
   title: string;
   examplePresentation: string;

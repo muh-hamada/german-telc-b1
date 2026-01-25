@@ -92,7 +92,9 @@
     },
     "skip": "Sauter",
     "loginRequired": "Connexion requise",
-    "failedToLoad": "Échec du chargement"
+    "failedToLoad": "Échec du chargement",
+    "show": "Afficher",
+    "hide": "Cacher"
   },
   "exam": {
     "selectExam": "Sélectionner l'examen :",
@@ -859,7 +861,11 @@
         "answer": "Répondre"
       },
       "dele": {
-        "subtitle": "Vous devrez parler d’un sujet pendant deux ou trois minutes."
+        "subtitle": "Vous devrez parler d’un sujet pendant deux ou trois minutes.",
+        "instructions": "Vous devrez préparer une courte présentation sur l'un des sujets proposés (2-3 minutes).",
+        "examplePresentation": "Exemple de Présentation",
+        "discussionQuestions": "Questions de Discussion",
+        "exampleAnswer": "Réponse Exemple"
       }
     },
     "part2": {
@@ -886,7 +892,10 @@
         "startingText": "Votre texte de départ pour la présentation :"
       },
       "dele": {
-        "subtitle": "Vous devriez parler à l'intervieweur du sujet de la tâche 1 pendant trois ou quatre minutes."
+        "subtitle": "Vous devriez parler à l'intervieweur du sujet de la tâche 1 pendant trois ou quatre minutes.",
+        "exampleQuestions": "Questions Exemples",
+        "exampleDialogue": "Dialogue Exemple",
+        "instructionText": "Après avoir terminé votre présentation (Tâche 1), vous devez avoir une conversation avec l'intervieweur sur le même sujet pendant 3 ou 4 minutes. L'intervieweur vous posera des questions liées à votre présentation pour approfondir le sujet et mieux comprendre vos opinions et expériences."
       }
     },
     "part3": {
@@ -909,14 +918,22 @@
         "response": "Exemple de réponse"
       },
       "dele": {
-        "subtitle": "Vous devrez décrire une photographie pendant une ou deux minutes et répondre à quelques questions."
+        "subtitle": "Vous devrez décrire une photographie pendant une ou deux minutes et répondre à quelques questions.",
+        "exampleDescription": "Exemple de Description",
+        "followUpQuestions": "Discussion de Suivi",
+        "instructionText": "Décrivez en détail, pendant 1 ou 2 minutes, ce que vous voyez sur la photo et ce que vous imaginez se passer. Voici quelques aspects que vous pouvez commenter : Les personnes (où elles sont, à quoi elles ressemblent, ce qu'elles font), le lieu où elles se trouvent (à quoi il ressemble), les objets (quels objets il y a, où ils sont, à quoi ils ressemblent), quelle relation vous pensez qu'il existe entre ces personnes, de quoi vous pensez qu'elles parlent. Par la suite, l'intervieweur vous posera quelques questions. La durée totale de cette tâche est de 2 à 3 minutes."
       }
     },
     "part4": {
       "subtitle": "Phrases courantes que vous pouvez utiliser dans de nombreuses situations",
       "itemType": "Partie",
       "dele": {
-        "subtitle": "Vous devez dialoguer avec l'intervieweur dans une situation simulée pendant deux ou trois minutes."
+        "subtitle": "Vous devez dialoguer avec l'intervieweur dans une situation simulée pendant deux ou trois minutes.",
+        "taskDescription": "Vous devez dialoguer avec l'intervieweur dans une situation simulée (2-3 minutes).",
+        "situation": "Situation",
+        "instructions": "Votre Rôle et Instructions",
+        "exampleDialogue": "Dialogue Exemple",
+        "instructionText": "Vous devez dialoguer avec l'intervieweur dans une situation simulée pendant deux ou trois minutes. L'intervieweur jouera le rôle d'une autre personne (employé de magasin, réceptionniste, ami, etc.) et vous devez accomplir la tâche indiquée, en suivant les instructions fournies."
       }
     },
     "b2Structure": {
@@ -1911,6 +1928,13 @@
         "a1": {
           "part2": "Pour demander et fournir des informations",
           "part3": "Formation de demandes et de réponses"
+        },
+        "dele": {
+          "importantPhrases": "Phrases importantes",
+          "part1": "Brève présentation",
+          "part2": "Participation aux conversations",
+          "part3": "Description des photos",
+          "part4": "Dialogues simulés"
         }
       }
     }

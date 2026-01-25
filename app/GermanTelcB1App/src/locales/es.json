@@ -92,7 +92,9 @@
     },
     "skip": "Saltar",
     "loginRequired": "Iniciar sesión requerido",
-    "failedToLoad": "No se pudo cargar"
+    "failedToLoad": "No se pudo cargar",
+    "show": "Mostrar",
+    "hide": "Ocultar"
   },
   "exam": {
     "selectExam": "Seleccionar examen:",
@@ -1247,7 +1249,11 @@
       },
       "title": "Hablando Parte 1",
       "dele": {
-        "subtitle": "Necesitará hablar sobre un tema durante dos o tres minutos."
+        "subtitle": "Necesitará hablar sobre un tema durante dos o tres minutos.",
+        "instructions": "Deberá preparar una breve presentación sobre uno de los temas propuestos (2-3 minutos).",
+        "examplePresentation": "Ejemplo de Presentación",
+        "discussionQuestions": "Preguntas de Discusión",
+        "exampleAnswer": "Respuesta de Ejemplo"
       }
     },
     "part2": {
@@ -1274,14 +1280,22 @@
       "title": "Hablando Parte 2",
       "selectTopic": "Seleccione un tema",
       "dele": {
-        "subtitle": "Debes hablar con el entrevistador sobre el tema de la Tarea 1 durante tres o cuatro minutos."
+        "subtitle": "Debes hablar con el entrevistador sobre el tema de la Tarea 1 durante tres o cuatro minutos.",
+        "exampleQuestions": "Preguntas de Ejemplo",
+        "exampleDialogue": "Diálogo de Ejemplo",
+        "instructionText": "Cuando haya terminado su exposición (Tarea 1), usted deberá mantener una conversación con el entrevistador sobre el mismo tema durante 3 o 4 minutos. El entrevistador le hará preguntas relacionadas con su presentación para profundizar en el tema y conocer mejor sus opiniones y experiencias."
       }
     },
     "part4": {
       "itemType": "Parte",
       "subtitle": "Frases comunes que puedes usar en muchas situaciones.",
       "dele": {
-        "subtitle": "Debes mantener un diálogo con el entrevistador en una situación simulada durante dos o tres minutos."
+        "subtitle": "Debes mantener un diálogo con el entrevistador en una situación simulada durante dos o tres minutos.",
+        "taskDescription": "Debes mantener un diálogo con el entrevistador en una situación simulada (2-3 minutos).",
+        "situation": "Situación",
+        "instructions": "Su Rol e Instrucciones",
+        "exampleDialogue": "Diálogo de Ejemplo",
+        "instructionText": "Usted debe dialogar con el entrevistador en una situación simulada durante dos o tres minutos. El entrevistador hará el papel de otra persona (empleado de tienda, recepcionista, amigo, etc.) y usted debe completar la tarea que se le indica, siguiendo las instrucciones proporcionadas."
       }
     },
     "part3": {
@@ -1304,7 +1318,10 @@
       "selectScenario": "Seleccione un escenario",
       "title": "Hablando Parte 3",
       "dele": {
-        "subtitle": "Necesitarás describir una fotografía durante uno o dos minutos y responder algunas preguntas."
+        "subtitle": "Necesitarás describir una fotografía durante uno o dos minutos y responder algunas preguntas.",
+        "exampleDescription": "Ejemplo de Descripción",
+        "followUpQuestions": "Discusión Posterior",
+        "instructionText": "Describa con detalle, durante 1 o 2 minutos, lo que ve en la foto y lo que imagina que está ocurriendo. Estos son algunos aspectos que puede comentar: Las personas (dónde están, cómo son, qué hacen), el lugar en el que se encuentran (cómo es), los objetos (qué objetos hay, dónde están, cómo son), qué relación cree que existe entre estas personas, de qué cree que están hablando. Posteriormente, el entrevistador le hará algunas preguntas. La duración total de esta tarea es de 2 a 3 minutos."
       }
     },
     "contactSupport": "Contactar con soporte",
@@ -1923,6 +1940,13 @@
         "a1": {
           "part2": "Para solicitar y proporcionar información",
           "part3": "Formación de solicitudes y respuestas."
+        },
+        "dele": {
+          "importantPhrases": "Frases importantes",
+          "part1": "Presentación corta",
+          "part2": "Participación en la conversación",
+          "part3": "Descripción de la foto",
+          "part4": "Diálogo simulado"
         }
       }
     }

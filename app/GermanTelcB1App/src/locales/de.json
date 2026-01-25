@@ -92,7 +92,9 @@
     },
     "skip": "Überspringen",
     "loginRequired": "Anmeldung erforderlich",
-    "failedToLoad": "Laden fehlgeschlagen"
+    "failedToLoad": "Laden fehlgeschlagen",
+    "show": "Anzeigen",
+    "hide": "Verbergen"
   },
   "exam": {
     "selectExam": "Prüfung auswählen:",
@@ -1248,7 +1250,11 @@
       },
       "title": "Sprechen Teil 1",
       "dele": {
-        "subtitle": "Sie müssen zwei bis drei Minuten lang zu einem Thema sprechen."
+        "subtitle": "Sie müssen zwei bis drei Minuten lang zu einem Thema sprechen.",
+        "instructions": "Sie müssen eine kurze Präsentation zu einem der vorgeschlagenen Themen vorbereiten (2-3 Minuten).",
+        "examplePresentation": "Beispielpräsentation",
+        "discussionQuestions": "Diskussionsfragen",
+        "exampleAnswer": "Beispielantwort"
       }
     },
     "part2": {
@@ -1275,14 +1281,22 @@
       "title": "Sprechen Teil 2",
       "selectTopic": "Wählen Sie ein Thema aus",
       "dele": {
-        "subtitle": "Sie sollten mit dem Interviewer drei bis vier Minuten lang über das Thema der Aufgabe 1 sprechen."
+        "subtitle": "Sie sollten mit dem Interviewer drei bis vier Minuten lang über das Thema der Aufgabe 1 sprechen.",
+        "exampleQuestions": "Beispielfragen",
+        "exampleDialogue": "Beispieldialog",
+        "instructionText": "Nachdem Sie Ihre Präsentation (Aufgabe 1) beendet haben, müssen Sie ein Gespräch mit dem Interviewer über dasselbe Thema für 3 bis 4 Minuten führen. Der Interviewer wird Ihnen Fragen zu Ihrer Präsentation stellen, um das Thema zu vertiefen und Ihre Meinungen und Erfahrungen besser kennenzulernen."
       }
     },
     "part4": {
       "itemType": "Teil",
       "subtitle": "Gängige Ausdrücke, die Sie in vielen Situationen verwenden können",
       "dele": {
-        "subtitle": "Sie müssen zwei bis drei Minuten lang in einer simulierten Situation einen Dialog mit dem Interviewer führen."
+        "subtitle": "Sie müssen zwei bis drei Minuten lang in einer simulierten Situation einen Dialog mit dem Interviewer führen.",
+        "taskDescription": "Sie müssen in einer simulierten Situation einen Dialog mit dem Interviewer führen (2-3 Minuten).",
+        "situation": "Situation",
+        "instructions": "Ihre Rolle und Anweisungen",
+        "exampleDialogue": "Beispieldialog",
+        "instructionText": "Sie müssen zwei bis drei Minuten lang in einer simulierten Situation einen Dialog mit dem Interviewer führen. Der Interviewer übernimmt die Rolle einer anderen Person (Angestellter, Rezeptionist, Freund usw.) und Sie müssen die angegebene Aufgabe erledigen, indem Sie den bereitgestellten Anweisungen folgen."
       }
     },
     "part3": {
@@ -1305,7 +1319,10 @@
       "selectScenario": "Wählen Sie ein Szenario aus",
       "title": "Sprechen Teil 3",
       "dele": {
-        "subtitle": "Sie müssen ein oder zwei Minuten lang ein Foto beschreiben und einige Fragen beantworten."
+        "subtitle": "Sie müssen ein oder zwei Minuten lang ein Foto beschreiben und einige Fragen beantworten.",
+        "exampleDescription": "Beispielbeschreibung",
+        "followUpQuestions": "Anschlussdiskussion",
+        "instructionText": "Beschreiben Sie 1 bis 2 Minuten lang detailliert, was Sie auf dem Foto sehen und was Ihrer Meinung nach geschieht. Hier sind einige Aspekte, die Sie kommentieren können: Die Personen (wo sie sind, wie sie aussehen, was sie tun), der Ort, an dem sie sich befinden (wie er aussieht), die Objekte (welche Objekte es gibt, wo sie sind, wie sie aussehen), welche Beziehung Ihrer Meinung nach zwischen diesen Personen besteht, worüber sie Ihrer Meinung nach sprechen. Anschließend wird Ihnen der Interviewer einige Fragen stellen. Die Gesamtdauer dieser Aufgabe beträgt 2 bis 3 Minuten."
       }
     },
     "contactSupport": "Kontaktieren Sie den Support",
@@ -1920,6 +1937,13 @@
         "a1": {
           "part2": "Zur Anforderung und Bereitstellung von Informationen",
           "part3": "Anfrage- und Antwortbildung"
+        },
+        "dele": {
+          "importantPhrases": "Wichtige Sätze",
+          "part1": "Kurze Präsentation",
+          "part2": "Gesprächsbeteiligung",
+          "part3": "Fotobeschreibung",
+          "part4": "Simulierter Dialog"
         }
       }
     }

@@ -92,7 +92,9 @@
     },
     "skip": "Skip",
     "loginRequired": "Login Required",
-    "failedToLoad": "Failed to load"
+    "failedToLoad": "Failed to load",
+    "show": "Show",
+    "hide": "Hide"
   },
   "exam": {
     "selectExam": "Select Exam:",
@@ -254,7 +256,11 @@
         "answer": "Answer"
       },
       "dele": {
-        "subtitle": "You will need to speak on one topic for two or three minutes."
+        "subtitle": "You will need to speak on one topic for two or three minutes.",
+        "instructions": "You will need to prepare a short presentation on one of the proposed topics (2-3 minutes).",
+        "examplePresentation": "Example Presentation",
+        "discussionQuestions": "Discussion Questions",
+        "exampleAnswer": "Example Answer"
       }
     },
     "part2": {
@@ -281,7 +287,10 @@
         "startingText": "Your starting text for the presentation:"
       },
       "dele": {
-        "subtitle": "You should talk to the interviewer about the topic of Task 1 for three or four minutes."
+        "subtitle": "You should talk to the interviewer about the topic of Task 1 for three or four minutes.",
+        "exampleQuestions": "Example Questions",
+        "exampleDialogue": "Example Dialogue",
+        "instructionText": "After completing your presentation (Task 1), you must have a conversation with the interviewer about the same topic for 3 or 4 minutes. The interviewer will ask you related questions to delve deeper into the topic and better understand your opinions and experiences."
       }
     },
     "part3": {
@@ -304,14 +313,22 @@
         "response": "Sample Response"
       },
       "dele": {
-        "subtitle": "You will need to describe a photograph for one or two minutes and answer some questions"
+        "subtitle": "You will need to describe a photograph for one or two minutes and answer some questions",
+        "exampleDescription": "Example Description",
+        "followUpQuestions": "Follow-up Discussion",
+        "instructionText": "Describe in detail, for 1 or 2 minutes, what you see in the photo and what you imagine is happening. Here are some aspects you can comment on: The people (where they are, what they look like, what they are doing), the place where they are (what it looks like), the objects (what objects there are, where they are, what they look like), what relationship you think exists between these people, what you think they are talking about. Afterwards, the interviewer will ask you some questions. The total duration of this task is 2 to 3 minutes."
       }
     },
     "part4": {
       "subtitle": "Common phrases you can use in many situations",
       "itemType": "Part",
       "dele": {
-        "subtitle": "You must have a dialogue with the interviewer in a simulated situation for two or three minutes."
+        "subtitle": "You must have a dialogue with the interviewer in a simulated situation for two or three minutes.",
+        "taskDescription": "You must have a dialogue with the interviewer in a simulated situation (2-3 minutes).",
+        "situation": "Situation",
+        "instructions": "Your Role and Instructions",
+        "exampleDialogue": "Example Dialogue",
+        "instructionText": "You must have a dialogue with the interviewer in a simulated situation for two or three minutes. The interviewer will play the role of another person (store employee, receptionist, friend, etc.) and you must complete the task indicated, following the instructions provided."
       }
     },
     "b2Structure": {
@@ -1638,6 +1655,13 @@
         "a1": {
           "part2": "To request and provide information",
           "part3": "Request and response formation"
+        },
+        "dele": {
+          "importantPhrases": "Important Phrases",
+          "part1": "Short Presentation",
+          "part2": "Conversation Participation",
+          "part3": "Photo Description",
+          "part4": "Simulated Dialogue"
         }
       }
     }

@@ -26,6 +26,10 @@ import {
   DeleWritingExam,
   DeleSpeakingTopic,
   DeleSpeakingPart,
+  DeleSpeakingPart1Content,
+  DeleSpeakingPart2Content,
+  DeleSpeakingPart3Content,
+  DeleSpeakingPart4Content,
 } from '../types/exam.types';
 import { DISABLE_DATA_CACHE } from '../config/development.config';
 
@@ -595,7 +599,7 @@ class DataService {
   }
 
   // DELE Speaking Part 1
-  async getDeleSpeakingPart1Content(): Promise<DeleSpeakingPart> {
+  async getDeleSpeakingPart1Content(): Promise<DeleSpeakingPart1Content> {
     try {
       const data = await this.fetchFromFirestore('speaking-part1', null);
       if (!data) {
@@ -610,47 +614,47 @@ class DataService {
   }
 
   // DELE Speaking Part 2
-  async getDeleSpeakingPart2Content(): Promise<DeleSpeakingPart> {
+  async getDeleSpeakingPart2Content(): Promise<DeleSpeakingPart2Content> {
     try {
       const data = await this.fetchFromFirestore('speaking-part2', null);
       if (!data) {
         console.warn('No data found for dele-speaking-part2');
-        return { topics: [] };
+        return { questions: [] };
       }
-      return { topics: data.questions || [] };
+      return { questions: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 2:', error);
-      return { topics: [] };
+      return { questions: [] };
     }
   }
 
   // DELE Speaking Part 3
-  async getDeleSpeakingPart3Content(): Promise<DeleSpeakingPart> {
+  async getDeleSpeakingPart3Content(): Promise<DeleSpeakingPart3Content> {
     try {
       const data = await this.fetchFromFirestore('speaking-part3', null);
       if (!data) {
         console.warn('No data found for dele-speaking-part3');
-        return { topics: [] };
+        return { questions: [] };
       }
-      return { topics: data.questions || [] };
+      return { questions: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 3:', error);
-      return { topics: [] };
+      return { questions: [] };
     }
   }
 
   // DELE Speaking Part 4
-  async getDeleSpeakingPart4Content(): Promise<DeleSpeakingPart> {
+  async getDeleSpeakingPart4Content(): Promise<DeleSpeakingPart4Content> {
     try {
       const data = await this.fetchFromFirestore('speaking-part4', null);
       if (!data) {
         console.warn('No data found for dele-speaking-part4');
-        return { topics: [] };
+        return { questions: [] };
       }
-      return { topics: data.questions || [] };
+      return { questions: data.questions || [] };
     } catch (error) {
       console.error('Error fetching DELE Speaking Part 4:', error);
-      return { topics: [] };
+      return { questions: [] };
     }
   }
 

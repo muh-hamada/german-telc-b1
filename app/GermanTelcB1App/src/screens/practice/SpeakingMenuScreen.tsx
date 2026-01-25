@@ -82,25 +82,26 @@ const SpeakingMenuScreen: React.FC = () => {
           dataService.getSpeakingImportantPhrases()
         ]);
 
+        // Don't change the "id-" + index format as we use this format to get the index later
         setPart1Data((part1Data.topics || []).map((t: any, index: number) => ({
           id: "id-" + index,
           title: t.title
         })));
 
-        setPart2Data((part2Data.topics || []).map((t: any, index: number) => ({
+        setPart2Data((part2Data.questions || []).map((t: any, index: number) => ({
           id: "id-" + index,
           title: t.title
         })));
-        setPart3Data((part3Data.topics || []).map((t: any, index: number) => ({
+        setPart3Data((part3Data.questions || []).map((t: any, index: number) => ({
           id: "id-" + index,
           title: t.title
         })));
-        setPart4Data((part4Data.topics || []).map((t: any, index: number) => ({
+        setPart4Data((part4Data.questions || []).map((t: any, index: number) => ({
           id: "id-" + index,
           title: t.title
         })));
         setImportantPhrasesData((importantPhrasesData.groups || []).map((g: any, index: number) => ({
-          id: "id-" + index, // Don't change as we use this format to get the index later
+          id: "id-" + index, 
           title: g.name
         })));
       } else {
@@ -151,7 +152,8 @@ const SpeakingMenuScreen: React.FC = () => {
 
   const handleSelectDeleTopic = (part: number, topicId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'speaking', part, exam_id: topicId });
-    navigation.navigate('DeleSpeakingAllParts', { part, topicId });
+    const index = Number.parseInt(topicId.replace('id-', ''), 10);
+    navigation.navigate('DeleSpeakingAllParts', { part, topicIndex: index });
   };
 
   const handleSelectPart2Topic = (topicId: string) => {
