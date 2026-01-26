@@ -10,13 +10,14 @@ import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
 
 interface WritingWrapperProps {
-  testId: number;
-  stepId?: string; // To determine which A1 writing part (writing-part1 or writing-part2)
+  testId: number | string;
+  stepId?: string; // To determine which part (writing-part1, writing-part2 for A1; writing-1, writing-2 for DELE)
   onComplete: (score: number, answers: UserAnswer[]) => void;
 }
 
 const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onComplete }) => {
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.id === 'dele-spanish-b1';
   const [exam, setExam] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { colors } = useAppTheme();
@@ -30,7 +31,14 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
     const loadExam = async () => {
       try {
         let loadedExam;
-        if (isA1) {
+        if (isDele) {
+          // For DELE, determine which part based on stepId
+          if (stepId === 'writing-1') {
+            loadedExam = await dataService.getDeleWritingPart1ExamById(testId);
+          } else if (stepId === 'writing-2') {
+            loadedExam = await dataService.getDeleWritingPart2ExamById(testId);
+          }
+        } else if (isA1) {
           // For A1, determine which part based on stepId
           if (stepId === 'writing-part1') {
             loadedExam = await dataService.getWritingPart1Exam(testId);
@@ -48,7 +56,7 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
       }
     };
     loadExam();
-  }, [testId, stepId, isA1]);
+  }, [testId, stepId, isA1, isDele]);
 
   if (isLoading) {
     return (
@@ -79,6 +87,16 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
     }
     // Fallback if stepId doesn't match
     return <View style={styles.container} />;
+  }
+
+  // For DELE, render with part number
+  if (isDele && exam) {
+    const partNumber = stepId === 'writing-1' ? 1 : stepId === 'writing-2' ? 2 : 1;
+    return (
+      <View style={styles.container}>
+        <WritingUI exam={exam} onComplete={onComplete} isMockExam={true} part={partNumber} />
+      </View>
+    );
   }
 
   return (

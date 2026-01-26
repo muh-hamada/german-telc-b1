@@ -96,12 +96,14 @@ export const evaluateSpeaking = functions
       
       // Step 2.5: Filter out known Whisper hallucinations for empty/noisy audio
       const hallucinations = [
+        // English hallucinations
         'thank you for watching',
         'please subscribe',
         'subtitles by',
         'thanks for watching',
         'be sure to subscribe',
         'subscribe to my channel',
+        // German hallucinations
         'untertitel der amara.org',
         'untertitelung der amara.org',
         'amara.org-community',
@@ -112,6 +114,17 @@ export const evaluateSpeaking = functions
         'untertitel im auftrag des zdf',
         'mooji.org',
         'amara.org community',
+        // Spanish hallucinations
+        'gracias por ver',
+        'gracias por vernos',
+        'suscríbete',
+        'suscríbete al canal',
+        'subtítulos por',
+        'subtítulos de amara.org',
+        'subtitulado por',
+        'comunidad de amara.org',
+        'gracias por su atención',
+        'muchas gracias por ver',
       ];
       
       const cleanTranscription = transcription.toLowerCase().trim();
@@ -355,8 +368,15 @@ async function generateOverallSummary(
   language: ExamLanguage,
   feedbackLanguage: string
 ): Promise<string> {
-  const lang = language === 'german' ? 'German' : 'English';
-  const examName = `TELC ${lang}`;
+  const languageMap: Record<string, string> = {
+    'german': 'German',
+    'english': 'English',
+    'spanish': 'Spanish'
+  };
+  const lang = languageMap[language] || 'English';
+  
+  // Determine exam name based on language
+  const examName = language === 'spanish' ? `DELE ${lang}` : `TELC ${lang}`;
 
   // Map feedback language codes to full language names
   const feedbackLanguageMap: Record<string, string> = {
@@ -423,8 +443,15 @@ async function evaluateResponse(
   language: ExamLanguage,
   feedbackLanguage: string
 ): Promise<SpeakingEvaluation> {
-  const lang = language === 'german' ? 'German' : 'English';
-  const examName = `TELC ${lang}`;
+  const languageMap: Record<string, string> = {
+    'german': 'German',
+    'english': 'English',
+    'spanish': 'Spanish'
+  };
+  const lang = languageMap[language] || 'English';
+  
+  // Determine exam name based on language
+  const examName = language === 'spanish' ? `DELE ${lang}` : `TELC ${lang}`;
 
   // Map feedback language codes to full language names
   const feedbackLanguageMap: Record<string, string> = {

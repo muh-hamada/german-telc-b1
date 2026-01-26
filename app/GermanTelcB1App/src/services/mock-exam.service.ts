@@ -13,8 +13,60 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
  */
 export const generateRandomExamSelection = async () => {
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.id === 'dele-spanish-b1';
   
-  // Fetch all available exams for each section
+  if (isDele) {
+    // DELE Spanish B1 has different structure
+    const promises = [
+      dataService.getDeleReadingPart1Exams(),
+      dataService.getDeleReadingPart2Exams(),
+      dataService.getDeleReadingPart3Exams(),
+      dataService.getDeleWritingPart1Exams(),
+      dataService.getDeleWritingPart2Exams(),
+      dataService.getDeleListeningPart1Exams(),
+      dataService.getDeleListeningPart2Exams(),
+      dataService.getDeleListeningPart3Exams(),
+      dataService.getDeleListeningPart4Exams(),
+      dataService.getDeleListeningPart5Exams(),
+    ];
+
+    const [
+      readingPart1Exams,
+      readingPart2Exams,
+      readingPart3Exams,
+      writingPart1Exams,
+      writingPart2Exams,
+      listeningPart1Exams,
+      listeningPart2Exams,
+      listeningPart3Exams,
+      listeningPart4Exams,
+      listeningPart5Exams,
+    ] = await Promise.all(promises);
+
+    const getRandomId = (exams: any[]) => {
+      if (!exams || exams.length === 0) return 0;
+      const randomIndex = Math.floor(Math.random() * exams.length);
+      return exams[randomIndex].id;
+    };
+
+    const selectedTests: any = {
+      'reading-1': getRandomId(readingPart1Exams),
+      'reading-2': getRandomId(readingPart2Exams),
+      'reading-3': getRandomId(readingPart3Exams),
+      'writing-1': getRandomId(writingPart1Exams),
+      'writing-2': getRandomId(writingPart2Exams),
+      'listening-1': getRandomId(listeningPart1Exams),
+      'listening-2': getRandomId(listeningPart2Exams),
+      'listening-3': getRandomId(listeningPart3Exams),
+      'listening-4': getRandomId(listeningPart4Exams),
+      'listening-5': getRandomId(listeningPart5Exams),
+    };
+
+    console.log('[generateRandomExamSelection] DELE selectedTests', selectedTests);
+    return selectedTests;
+  }
+  
+  // Fetch all available exams for each section (German/English Telc/Goethe)
   const promises: Promise<any>[] = [
     dataService.getReadingPart1Exams(),
     dataService.getReadingPart2Exams(),
@@ -169,14 +221,37 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
 
   // Import appropriate MOCK_EXAM_STEPS based on exam level
   const isA1 = activeExamConfig.level === 'A1';
-  const { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, TOTAL_WRITTEN_MAX_POINTS, TOTAL_WRITTEN_MAX_POINTS_A1 } = require('../types/mock-exam.types');
+  const isDele = activeExamConfig.id === 'dele-spanish-b1';
+  const { 
+    MOCK_EXAM_STEPS, 
+    MOCK_EXAM_STEPS_A1, 
+    MOCK_EXAM_STEPS_DELE_B1,
+    TOTAL_WRITTEN_MAX_POINTS, 
+    TOTAL_WRITTEN_MAX_POINTS_A1,
+    TOTAL_WRITTEN_MAX_POINTS_DELE_B1,
+    TOTAL_ORAL_MAX_POINTS_DELE_B1,
+  } = require('../types/mock-exam.types');
   
-  const examSteps = isA1 ? MOCK_EXAM_STEPS_A1 : MOCK_EXAM_STEPS;
-  const writtenMaxPoints = isA1 ? TOTAL_WRITTEN_MAX_POINTS_A1 : TOTAL_WRITTEN_MAX_POINTS;
+  let examSteps, writtenMaxPoints;
+  
+  if (isDele) {
+    examSteps = MOCK_EXAM_STEPS_DELE_B1;
+    // DELE: Group 1 (Reading + Writing) + Group 2 (Listening only, no speaking in mock)
+    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS_DELE_B1 + (TOTAL_ORAL_MAX_POINTS_DELE_B1 / 2); // 50 + 25 = 75
+  } else if (isA1) {
+    examSteps = MOCK_EXAM_STEPS_A1;
+    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS_A1;
+  } else {
+    examSteps = MOCK_EXAM_STEPS;
+    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS;
+  }
   
   // Filter out speaking sections as they're not included in mock exam
+  // For German/English: section 5 is speaking
+  // For DELE: section 4 is speaking
+  const speakingSectionNumber = isDele ? 4 : 5;
   const steps = examSteps
-    .filter((step: any) => step.sectionNumber !== 5) // Exclude speaking
+    .filter((step: any) => step.sectionNumber !== speakingSectionNumber) // Exclude speaking
     .map((step: any) => ({
       ...step,
       isCompleted: false,
@@ -257,12 +332,28 @@ export const updateStepProgress = async (
 
       // Track exam completed
       const isA1 = activeExamConfig.level === 'A1';
-      const writtenScore = progress.steps
-        .filter(s => s.sectionNumber <= 4)
-        .reduce((acc, s) => acc + (s.score || 0), 0);
-      const writtenMaxPoints = progress.totalMaxPoints;
-      const passingWrittenPoints = isA1 ? 27 : 135; // 60% of max points
-      const passingTotalPoints = isA1 ? 36 : 180; // 60% of total points
+      const isDele = activeExamConfig.id === 'dele-spanish-b1';
+      
+      let writtenScore, writtenMaxPoints, passingWrittenPoints, passingTotalPoints;
+      
+      if (isDele) {
+        // DELE: Group 1 (Reading + Writing) is sections 1-2
+        writtenScore = progress.steps
+          .filter(s => s.sectionNumber <= 2)
+          .reduce((acc, s) => acc + (s.score || 0), 0);
+        writtenMaxPoints = 50; // Reading (25) + Writing (25)
+        passingWrittenPoints = 30; // 60% of 50
+        passingTotalPoints = 60; // 60% of 100
+      } else {
+        // German/English: Sections 1-4 are written
+        writtenScore = progress.steps
+          .filter(s => s.sectionNumber <= 4)
+          .reduce((acc, s) => acc + (s.score || 0), 0);
+        writtenMaxPoints = progress.totalMaxPoints;
+        passingWrittenPoints = isA1 ? 27 : 135; // 60% of max points
+        passingTotalPoints = isA1 ? 36 : 180; // 60% of total points
+      }
+      
       const passedWritten = writtenScore >= passingWrittenPoints;
       const passedOverall = progress.totalScore >= passingTotalPoints && passedWritten;
 
@@ -316,7 +407,7 @@ export const getCurrentStep = (progress: MockExamProgress) => {
 export const getTestIdForStep = (
   stepId: string,
   selectedTests: MockExamProgress['selectedTests']
-): number => {
+): number | string => {
   return selectedTests[stepId] || 0;
 };
 

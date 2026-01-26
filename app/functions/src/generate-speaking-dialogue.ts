@@ -65,7 +65,7 @@ export const generateSpeakingDialogue = functions.https.onRequest(
       return;
     }
 
-    if (!['german', 'english'].includes(language)) {
+    if (!['german', 'english', 'spanish'].includes(language)) {
       console.error('[generateSpeakingDialogue] Invalid language:', language);
       res.status(400).json({ error: 'Invalid language: ' + language });
       return;
@@ -193,9 +193,13 @@ async function generateUnifiedDialogue(
   level: ExamLevel,
   language: ExamLanguage
 ): Promise<SpeakingDialogueTurn[]> {
-  const isGerman = language === 'german';
-  const examName = isGerman ? 'TELC German' : 'TELC English';
-  const lang = isGerman ? 'German' : 'English';
+  const languageMap: Record<string, string> = {
+    'german': 'German',
+    'english': 'English',
+    'spanish': 'Spanish'
+  };
+  const lang = languageMap[language] || 'English';
+  const examName = language === 'spanish' ? `DELE ${lang}` : `TELC ${lang}`;
 
   const prompt = `Generate a realistic ${examName} ${level} speaking assessment dialogue.
 The dialogue MUST cover all three parts of the exam in a single flow:

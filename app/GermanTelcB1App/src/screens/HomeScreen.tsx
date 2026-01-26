@@ -49,6 +49,7 @@ const HomeScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
     // Initialize ads with consent flow when user lands on home screen
@@ -301,9 +302,9 @@ const HomeScreen: React.FC = () => {
         {/* Grammar Study Card */}
         {!isA1 && (
           <Card style={styles.card} onPress={handleGrammarStudyPress}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
+          <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
           <Text style={styles.cardDescription}>
-              {t('practice.grammar.study.description')}
+              {t('practice.grammar.study.description', { count: isDele ? 160 : 150 })}
             </Text>
           </Card>
         )}

@@ -105,9 +105,9 @@ const GrammarMenuScreen: React.FC = () => {
         <CardsListSeperator title={t('practice.grammar.separator')} />
 
         <Card style={styles.card} onPress={handleGrammarStudyPress}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.study.title')}</Text>
+          <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
           <Text style={styles.cardDescription}>
-            {t('practice.grammar.study.description')}
+            {t('practice.grammar.study.description', { count: isDele ? 160 : 150 })}
           </Text>
         </Card>
       </ScrollView>

@@ -437,8 +437,9 @@ class DataService {
 
   // DELE Reading Part 1
   async getDeleReadingPart1Exams(): Promise<DeleReadingPart1Exam[]> {
-    const data = await this.fetchFromFirestore('reading-part1', null);
-    return data || [];
+    const data = await this.fetchFromFirestore('reading-part1', []);
+    // DELE Reading Part 1 returns an array directly, not wrapped in {exams: []}
+    return Array.isArray(data) ? data : [];
   }
 
   async getDeleReadingPart1ExamById(id: string): Promise<DeleReadingPart1Exam | undefined> {
@@ -571,9 +572,9 @@ class DataService {
     return data?.exams || [];
   }
 
-  async getDeleWritingPart1ExamById(id: string): Promise<DeleWritingExam | undefined> {
+  async getDeleWritingPart1ExamById(id: string | number): Promise<DeleWritingExam | undefined> {
     const exams = await this.getDeleWritingPart1Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // DELE Writing Part 2
@@ -582,9 +583,9 @@ class DataService {
     return data?.exams || [];
   }
 
-  async getDeleWritingPart2ExamById(id: string): Promise<DeleWritingExam | undefined> {
+  async getDeleWritingPart2ExamById(id: string | number): Promise<DeleWritingExam | undefined> {
     const exams = await this.getDeleWritingPart2Exams();
-    return exams.find(exam => exam.id === id);
+    return exams.find(exam => exam.id.toString() === id.toString());
   }
 
   // DELE Speaking Topics (Legacy - keeping for backward compatibility)
@@ -664,6 +665,12 @@ class DataService {
 
   // Utility methods
   async getExamCount(examType: string): Promise<number> {
+    // Check if this is a DELE exam - use dedicated methods that handle the different data structure
+    if (activeExamConfig.id === 'dele-spanish-b1') {
+      return this.getDeleExamCount(examType);
+    }
+
+    // Original logic for German/English Telc/Goethe exams
     switch (examType) {
       case 'grammar-part1':
         return (await this.getGrammarPart1Exams()).length;
@@ -713,6 +720,58 @@ class DataService {
       case 'listening-part3':
         const listeningPart3Data = await this.getListeningPart3Content();
         return listeningPart3Data.exams?.length || 0;
+      default:
+        return 0;
+    }
+  }
+
+  /**
+   * Get exam count specifically for DELE Spanish B1 exam
+   * 
+   * DELE has a different JSON data structure than German/English Telc/Goethe exams:
+   * - German/English: Returns arrays directly or in {exams: []} wrapper
+   * - DELE: Consistently uses getDele*Exams() methods that normalize the structure
+   * 
+   * This separation ensures completion stats calculate correctly for DELE exams.
+   */
+  private async getDeleExamCount(examType: string): Promise<number> {
+    switch (examType) {
+      case 'grammar-part1':
+        return (await this.getDeleGrammarPart1Exams()).length;
+      case 'grammar-part2':
+        return (await this.getDeleGrammarPart2Exams()).length;
+      case 'reading-part1':
+        return (await this.getDeleReadingPart1Exams()).length;
+      case 'reading-part2':
+        return (await this.getDeleReadingPart2Exams()).length;
+      case 'reading-part3':
+        return (await this.getDeleReadingPart3Exams()).length;
+      case 'writing-part1':
+        return (await this.getDeleWritingPart1Exams()).length;
+      case 'writing-part2':
+        return (await this.getDeleWritingPart2Exams()).length;
+      case 'listening-part1':
+        return (await this.getDeleListeningPart1Exams()).length;
+      case 'listening-part2':
+        return (await this.getDeleListeningPart2Exams()).length;
+      case 'listening-part3':
+        return (await this.getDeleListeningPart3Exams()).length;
+      case 'listening-part4':
+        return (await this.getDeleListeningPart4Exams()).length;
+      case 'listening-part5':
+        return (await this.getDeleListeningPart5Exams()).length;
+      case 'speaking-part1':
+        const part1Content = await this.getDeleSpeakingPart1Content();
+        return part1Content.topics?.length || 0;
+      case 'speaking-part2':
+        const part2Content = await this.getDeleSpeakingPart2Content();
+        return part2Content.questions?.length || 0;
+      case 'speaking-part3':
+        const part3Content = await this.getDeleSpeakingPart3Content();
+        return part3Content.questions?.length || 0;
+      case 'speaking-part4':
+        const part4Content = await this.getDeleSpeakingPart4Content();
+        return part4Content.questions?.length || 0;
       default:
         return 0;
     }

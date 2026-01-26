@@ -18,7 +18,7 @@ export interface MockExamProgress {
   endDate?: number;
   currentStepId: string;
   steps: MockExamStep[];
-  selectedTests: Record<string, number>; // Flexible to support different exam structures (A1, B1, B2)
+  selectedTests: Record<string, number | string>; // Support numeric IDs (German/English) and UUID strings (DELE)
   totalScore: number;
   totalMaxPoints: number;
   isCompleted: boolean;
@@ -50,7 +50,6 @@ export const MOCK_EXAM_STEPS: Omit<MockExamStep, 'isCompleted' | 'score' | 'star
 ];
 
 export const MOCK_EXAM_STEPS_A1: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
-  
   { id: 'listening-1', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 6, timeMinutes: 7 },
   { id: 'listening-2', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 4, timeMinutes: 6 },
   { id: 'listening-3', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
@@ -68,25 +67,26 @@ export const MOCK_EXAM_STEPS_A1: Omit<MockExamStep, 'isCompleted' | 'score' | 's
 ];
 
 export const MOCK_EXAM_STEPS_DELE_B1: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
+  // 1. Reading Comprehension - 25 points total
+  { id: 'reading-1', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 1, partName: 'Tarea 1', maxPoints: 9, timeMinutes: 23 },
+  { id: 'reading-2', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 2, partName: 'Tarea 2', maxPoints: 8, timeMinutes: 23 },
+  { id: 'reading-3', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 3, partName: 'Tarea 3', maxPoints: 8, timeMinutes: 24 },
   
-  { id: 'listening-1', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 6, timeMinutes: 7 },
-  { id: 'listening-2', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 4, timeMinutes: 6 },
-  { id: 'listening-3', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
-  { id: 'listening-4', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 4, partName: 'Teil 4: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
-  { id: 'listening-5', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 5, partName: 'Teil 5: Selektives Verstehen', maxPoints: 5, timeMinutes: 7 },
-
-  { id: 'reading-1', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 5, timeMinutes: 9 },
-  { id: 'reading-2', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 5, timeMinutes: 8 },
-  { id: 'reading-3', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 8 },
+  // 2. Written Expression - 25 points total
+  { id: 'writing-1', sectionNumber: 2, sectionName: 'Expresión e Interacción Escritas', partNumber: 1, partName: 'Tarea 1', maxPoints: 12, timeMinutes: 30 },
+  { id: 'writing-2', sectionNumber: 2, sectionName: 'Expresión e Interacción Escritas', partNumber: 2, partName: 'Tarea 2', maxPoints: 13, timeMinutes: 30 },
   
-  { id: 'writing-part1', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Formular ausfüllen', maxPoints: 5, timeMinutes: 10 },
-  { id: 'writing-part2', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Eine kurze Mitteilung', maxPoints: 10, timeMinutes: 10 },
+  // 3. Listening Comprehension - 25 points total
+  { id: 'listening-1', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 1, partName: 'Tarea 1', maxPoints: 6, timeMinutes: 8 },
+  { id: 'listening-2', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 2, partName: 'Tarea 2', maxPoints: 6, timeMinutes: 8 },
+  { id: 'listening-3', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 3, partName: 'Tarea 3', maxPoints: 6, timeMinutes: 8 },
+  { id: 'listening-4', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 4, partName: 'Tarea 4', maxPoints: 4, timeMinutes: 8 },
+  { id: 'listening-5', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 5, partName: 'Tarea 5', maxPoints: 3, timeMinutes: 8 },
   
-  { id: 'speaking-1', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Sich vorstellen', maxPoints: 5, timeMinutes: 3 },
-  { id: 'speaking-2', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Um Informationen bitten und Informationen geben', maxPoints: 5, timeMinutes: 4 },
-  { id: 'speaking-3', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 3, partName: 'Teil 3: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
-  { id: 'speaking-4', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 4, partName: 'Teil 4: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
-  { id: 'speaking-5', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 5, partName: 'Teil 5: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
+  // 4. Oral Expression - 25 points total (skipped in mock exam)
+  { id: 'speaking-1', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 1, partName: 'Tarea 1: Monólogo', maxPoints: 8, timeMinutes: 15 },
+  { id: 'speaking-2', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 2, partName: 'Tarea 2: Diálogo', maxPoints: 8, timeMinutes: 15 },
+  { id: 'speaking-3', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 3, partName: 'Tarea 3: Conversación', maxPoints: 9, timeMinutes: 15 },
 ];
 
 // B1/B2 Constants
@@ -105,3 +105,10 @@ export const PASSING_WRITTEN_POINTS_A1 = 27; // 60% of 45
 export const PASSING_ORAL_POINTS_A1 = 9; // 60% of 15
 export const PASSING_TOTAL_POINTS_A1 = 36; // 60% of 60
 
+// Dele Constants
+export const TOTAL_WRITTEN_MAX_POINTS_DELE_B1 = 50; // Reading (25) + Writing (25)
+export const TOTAL_ORAL_MAX_POINTS_DELE_B1 = 50; // Listening (25) + Speaking (25)
+export const TOTAL_MAX_POINTS_DELE_B1 = 100;
+export const PASSING_WRITTEN_POINTS_DELE_B1 = 30; // 60% of 50 (Reading + Writing)
+export const PASSING_ORAL_POINTS_DELE_B1 = 30; // 60% of 50 (Listening + Speaking)
+export const PASSING_TOTAL_POINTS_DELE_B1 = 60; // 60% of 100

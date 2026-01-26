@@ -220,7 +220,7 @@ const HomeStackNavigator: React.FC = () => {
         name="GrammarStudy"
         component={GrammarStudyScreen}
         options={{
-          headerTitle: () => <HeaderTitle titleKey="practice.grammar.study.title" />,
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.grammar.study.title" />,
         }}
       />
       <Stack.Screen

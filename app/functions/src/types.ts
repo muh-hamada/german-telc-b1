@@ -13,7 +13,7 @@ export type ExamLevel = 'A1' | 'B1' | 'B2';
 /**
  * Languages supported by exams
  */
-export type ExamLanguage = 'german' | 'english';
+export type ExamLanguage = 'german' | 'english' | 'spanish';
 
 /**
  * Short language codes for APIs (e.g., Whisper)
@@ -21,6 +21,7 @@ export type ExamLanguage = 'german' | 'english';
 export const LANGUAGE_SHORT_CODES: Record<ExamLanguage, string> = {
   german: 'de',
   english: 'en',
+  spanish: 'es',
 };
 
 /**

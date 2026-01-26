@@ -730,6 +730,428 @@
                     }
                 ]
             }
+        ],
+        "spanish": [
+            {
+                "id": "dialogue-b1-spanish-1",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Hola. Bienvenido a la prueba de expresión oral del DELE B1. Para empezar, ¿podría presentarse brevemente y decirme de dónde es y a qué se dedica?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Stellen Sie sich kurz vor (Name, Herkunft, Beruf oder Studium).",
+                            "ar": "قدم نفسك بإيجاز (الاسم، الأصل، المهنة أو الدراسة).",
+                            "en": "Introduce yourself briefly (name, origin, profession or studies).",
+                            "ru": "Кратко представьтесь (имя, откуда вы, профессия или учеба).",
+                            "es": "Preséntate brevemente (nombre, origen, profesión o estudios).",
+                            "fr": "Présentez-vous brièvement (nom, origine, profession ou études)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Encantado. Pasamos a la Tarea 1. Hábleme un poco sobre sus últimas vacaciones. ¿A dónde fue y qué actividades hizo allí?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Beschreiben Sie Ihren letzten Urlaub (Ort, Aktivitäten, Wetter). Verwenden Sie die Vergangenheitsform.",
+                            "ar": "صف إجازتك الأخيرة (المكان، الأنشطة، الطقس). استخدم الزمن الماضي.",
+                            "en": "Describe your last vacation (place, activities, weather). Use the past tense.",
+                            "ru": "Опишите свой последний отпуск (место, занятия, погода). Используйте прошедшее время.",
+                            "es": "Describe tus últimas vacaciones (lugar, actividades, tiempo). Usa el tiempo pasado.",
+                            "fr": "Décrivez vos dernières vacances (lieu, activités, météo). Utilisez le passé."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Suena como una experiencia interesante. Ahora vamos a la Tarea 2: una situación simulada. Imagine que está en una estación de tren y quiere comprar un billete para ir a Madrid mañana por la mañana, pero no quiere gastar mucho dinero. Yo soy el empleado. Dígame, ¿en qué puedo ayudarle?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass Sie ein Ticket nach Madrid für morgen früh kaufen möchten. Fragen Sie nach der günstigsten Option.",
+                            "ar": "قل أنك تريد شراء تذكرة إلى مدريد لصباح الغد. اسأل عن أرخص خيار.",
+                            "en": "Say that you want to buy a ticket to Madrid for tomorrow morning. Ask for the cheapest option.",
+                            "ru": "Скажите, что хотите купить билет в Мадрид на завтрашнее утро. Попросите самый дешевый вариант.",
+                            "es": "Di que quieres comprar un billete a Madrid para mañana por la mañana. Pregunta por la opción más barata.",
+                            "fr": "Dites que vous voulez acheter un billet pour Madrid pour demain matin. Demandez l'option la moins chère."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Para mañana por la mañana tengo un tren rápido a las 8:00 que cuesta 60 euros, y uno regional a las 9:30 que cuesta 30 euros, pero tarda más tiempo. ¿Cuál prefiere?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Wählen Sie den Regionalzug, weil er billiger ist. Fragen Sie, wie lange die Fahrt dauert.",
+                            "ar": "اختر القطار الإقليمي لأنه أرخص. اسأل كم تستغرق الرحلة.",
+                            "en": "Choose the regional train because it is cheaper. Ask how long the trip takes.",
+                            "ru": "Выберите региональный поезд, так как он дешевле. Спросите, сколько времени займет поездка.",
+                            "es": "Elige el tren regional porque es más barato. Pregunta cuánto tarda el viaje.",
+                            "fr": "Choisissez le train régional car il est moins cher. Demandez combien de temps dure le trajet."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "El tren regional tarda unas cuatro horas. Aquí tiene su billete. Finalmente, para la Tarea 3, vamos a conversar un poco sobre la vida sana. ¿Cree que la gente hoy en día se preocupa más por su salud que antes?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Äußern Sie Ihre Meinung. Sagen Sie, dass die Menschen jetzt mehr Sport treiben und besser essen als früher.",
+                            "ar": "عبر عن رأيك. قل أن الناس يمارسون الرياضة الآن أكثر ويأكلون بشكل أفضل من ذي قبل.",
+                            "en": "Express your opinion. Say that people now exercise more and eat better than before.",
+                            "ru": "Выразите свое мнение. Скажите, что люди сейчас больше занимаются спортом и питаются лучше, чем раньше.",
+                            "es": "Expresa tu opinión. Di que la gente ahora hace más deporte y come mejor que antes.",
+                            "fr": "Exprimez votre opinion. Dites que les gens font maintenant plus de sport et mangent mieux qu'avant."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Es verdad, hay más información sobre nutrición. Pero, ¿no cree que también tenemos más estrés y eso es malo para la salud?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Stimmen Sie zu. Erwähnen Sie, dass Arbeit und Technologie viel Stress verursachen und es wichtig ist, sich auszuruhen.",
+                            "ar": "وافق على الرأي. اذكر أن العمل والتكنولوجيا يسببان الكثير من التوتر وأنه من المهم الحصول على قسط من الراحة.",
+                            "en": "Agree. Mention that work and technology cause a lot of stress and it is important to rest.",
+                            "ru": "Согласитесь. Упомяните, что работа и технологии вызывают много стресса, и важно отдыхать.",
+                            "es": "Muestra acuerdo. Menciona que el trabajo y la tecnología causan mucho estrés y es importante descansar.",
+                            "fr": "Soyez d'accord. Mentionnez que le travail et la technologie causent beaucoup de stress et qu'il est important de se reposer."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Tiene toda la razón. Bueno, hemos terminado la prueba. ¡Muchas gracias por su participación y buena suerte!",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschieden Sie sich und danken Sie dem Prüfer.",
+                            "ar": "ودع الممتحن واشكره.",
+                            "en": "Say goodbye and thank the examiner.",
+                            "ru": "Попрощайтесь и поблагодарите экзаменатора.",
+                            "es": "Despídete y da las gracias al examinador.",
+                            "fr": "Dites au revoir et remerciez l'examinateur."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "dialogue-b1-spanish-2",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Hola. Bienvenido de nuevo. Vamos a comenzar con la Tarea 1. Por favor, hábleme de una persona importante en su vida, por ejemplo, su mejor amigo. ¿Cómo es físicamente y qué carácter tiene?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Beschreiben Sie Ihren besten Freund (Aussehen, Persönlichkeit, Hobbys).",
+                            "ar": "صف أفضل صديق لك (المظهر، الشخصية، الهوايات).",
+                            "en": "Describe your best friend (appearance, personality, hobbies).",
+                            "ru": "Опишите своего лучшего друга (внешность, характер, хобби).",
+                            "es": "Describe a tu mejor amigo (apariencia, personalidad, aficiones).",
+                            "fr": "Décrivez votre meilleur ami (apparence, personnalité, loisirs)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Qué bien. Pasamos ahora a la Tarea 2. Vamos a hacer una simulación. Usted compró una camiseta en mi tienda ayer, pero cuando llegó a casa vio que tiene un problema. Yo soy el dependiente. Dígame, ¿qué desea?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Erklären Sie, dass Sie die T-Shirt gestern gekauft haben, aber sie ein Loch hat. Sie möchten sie umtauschen.",
+                            "ar": "اشرح أنك اشتريت القميص أمس، لكن به ثقب. تريد استبداله.",
+                            "en": "Explain that you bought the t-shirt yesterday, but it has a hole. You want to exchange it.",
+                            "ru": "Объясните, что купили футболку вчера, но на ней дырка. Вы хотите ее обменять.",
+                            "es": "Explica que compraste la camiseta ayer, pero tiene un agujero. Quieres cambiarla.",
+                            "fr": "Expliquez que vous avez acheté le t-shirt hier, mais qu'il a un trou. Vous voulez l'échanger."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Vaya, lo siento mucho. ¿Trae el tique de compra? Podemos cambiarla por otra igual o devolverle el dinero.",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Geben Sie den Kassenbon. Sagen Sie, dass Sie lieber eine andere Farbe, zum Beispiel Blau, möchten.",
+                            "ar": "قدم إيصال الشراء. قل أنك تفضل لونًا آخر، الأزرق مثلًا.",
+                            "en": "Give the receipt. Say that you prefer another color, for example blue.",
+                            "ru": "Дайте чек. Скажите, что предпочитаете другой цвет, например, синий.",
+                            "es": "Da el tique. Di que prefieres otro color, por ejemplo azul.",
+                            "fr": "Donnez le ticket. Dites que vous préférez une autre couleur, par exemple bleu."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Perfecto, aquí tiene la azul. Para terminar, vamos a la Tarea 3. Hablemos de dónde vivir. ¿Usted prefiere vivir en una ciudad grande o en un pueblo pequeño?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass Sie die Stadt bevorzugen, weil es mehr Arbeit und Aktivitäten gibt.",
+                            "ar": "قل أنك تفضل المدينة لأن هناك المزيد من فرص العمل والأنشطة.",
+                            "en": "Say that you prefer the city because there is more work and activities.",
+                            "ru": "Скажите, что предпочитаете город, потому что там больше работы и развлечений.",
+                            "es": "Di que prefieres la ciudad porque hay más trabajo y actividades.",
+                            "fr": "Dites que vous préférez la ville car il y a plus de travail et d'activités."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Entiendo, pero en la ciudad hay mucho tráfico y ruido. ¿No le molesta la contaminación?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Geben Sie zu, dass es ein Problem ist, aber Sie denken, dass die Vorteile wichtiger sind.",
+                            "ar": "اعترف بأنها مشكلة، لكنك تعتقد أن المزايا أهم.",
+                            "en": "Admit that it is a problem, but you think the advantages are more important.",
+                            "ru": "Признайте, что это проблема, но вы думаете, что преимущества важнее.",
+                            "es": "Admite que es un problema, pero crees que las ventajas son más importantes.",
+                            "fr": "Admettez que c'est un problème, mais vous pensez que les avantages sont plus importants."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Muy bien. Pues eso es todo. Ha completado todas las tareas del examen. ¡Gracias y hasta la próxima!",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschieden Sie sich höflich.",
+                            "ar": "ودع بأدب.",
+                            "en": "Say goodbye politely.",
+                            "ru": "Вежливо попрощайтесь.",
+                            "es": "Despídete educadamente.",
+                            "fr": "Dites au revoir poliment."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "dialogue-b1-spanish-3",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Hola. Empezamos con la Tarea 1. Hábleme sobre sus planes para el futuro. ¿Qué le gustaría hacer el próximo año? ¿Quiere seguir estudiando o prefiere trabajar en algo diferente?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sprechen Sie über Ihre Zukunftspläne (eine Sprache lernen, reisen oder den Job wechseln).",
+                            "ar": "تحدث عن خططك المستقبلية (تعلم لغة، السفر، أو تغيير الوظيفة).",
+                            "en": "Talk about your future plans (learning a language, traveling, or changing jobs).",
+                            "ru": "Расскажите о своих планах на будущее (выучить язык, путешествовать или сменить работу).",
+                            "es": "Habla de tus planes de futuro (aprender un idioma, viajar o cambiar de trabajo).",
+                            "fr": "Parlez de vos projets d'avenir (apprendre une langue, voyager ou changer de travail)."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Son unos planes muy interesantes. Ahora pasamos a la Tarea 2, la situación simulada. Imagine que entra en un restaurante a la hora de comer. Yo soy el camarero y me acerco a su mesa. Dígame, ¿qué desea tomar?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Fragen Sie nach dem Tagesmenü. Fragen Sie, welche Gerichte es heute gibt.",
+                            "ar": "اطلب قائمة طعام اليوم. اسأل عن الأطباق المتوفرة اليوم.",
+                            "en": "Ask for the daily menu. Ask what dishes are available today.",
+                            "ru": "Попросите дневное меню. Спросите, какие блюда есть сегодня.",
+                            "es": "Pide el menú del día. Pregunta qué platos hay hoy.",
+                            "fr": "Demandez le menu du jour. Demandez quels plats il y a aujourd'hui."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Hoy de primero tenemos ensalada mixta o sopa de verduras, y de segundo pescado frito o filete de ternera. Incluye pan y bebida.",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Bestellen Sie die Salat und das Fleisch. Bestellen Sie auch eine Flasche Wasser.",
+                            "ar": "اطلب السلطة واللحم. اطلب زجاجة ماء أيضًا.",
+                            "en": "Order the salad and the meat. Order a bottle of water as well.",
+                            "ru": "Закажите салат и мясо. Также закажите бутылку воды.",
+                            "es": "Pide la ensalada y la carne. Pide también una botella de agua.",
+                            "fr": "Commandez la salade et la viande. Commandez aussi une bouteille d'eau."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Muy bien, enseguida se lo traigo. Finalmente, la Tarea 3. Vamos a hablar sobre el uso de la tecnología. ¿Cree que los niños pasan demasiado tiempo con el teléfono móvil hoy en día?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie Ihre Meinung. Sie glauben, dass es ein Problem ist, weil sie nicht mehr draußen spielen.",
+                            "ar": "قل رأيك. تعتقد أنها مشكلة لأنهم لم يعودوا يلعبون في الخارج.",
+                            "en": "Give your opinion. You think it is a problem because they don't play outside anymore.",
+                            "ru": "Выскажите свое мнение. Вы считаете, что это проблема, потому что они больше не играют на улице.",
+                            "es": "Da tu opinión. Crees que es un problema porque ya no juegan fuera.",
+                            "fr": "Donnez votre opinion. Vous pensez que c'est un problème car ils ne jouent plus dehors."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Es cierto, pero los móviles también son útiles para aprender cosas nuevas y estar en contacto con los padres, ¿verdad?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Stimmen Sie teilweise zu, aber sagen Sie, dass Eltern die Zeit kontrollieren müssen.",
+                            "ar": "وافق جزئيًا، لكن قل أنه يجب على الآباء التحكم في الوقت.",
+                            "en": "Agree partially, but say that parents need to control the time.",
+                            "ru": "Согласитесь частично, но скажите, что родители должны контролировать время.",
+                            "es": "Muestra acuerdo parcial, pero di que los padres deben controlar el tiempo.",
+                            "fr": "Soyez partiellement d'accord, mais dites que les parents doivent contrôler le temps."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Estoy de acuerdo con usted. Hemos terminado la prueba oral. ¡Muchas gracias y que tenga un buen día!",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Bedanken Sie sich und verabschieden Sie sich.",
+                            "ar": "اشكر وودع.",
+                            "en": "Say thank you and goodbye.",
+                            "ru": "Поблагодарите и попрощайтесь.",
+                            "es": "Da las gracias y despídete.",
+                            "fr": "Remerciez et dites au revoir."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "dialogue-b1-spanish-4",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Hola. Bienvenido. Para comenzar con la Tarea 1, me gustaría que me hable de una fiesta o celebración especial que recuerde. ¿Qué celebraron y qué hicieron ese día?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Beschreiben Sie eine Feier (z. B. einen Geburtstag oder eine Hochzeit). Erzählen Sie, was Sie gegessen haben und wer dort war.",
+                            "ar": "صف احتفالاً (مثل عيد ميلاد أو حفل زفاف). تحدث عما أكلته ومن كان هناك.",
+                            "en": "Describe a celebration (e.g. a birthday or wedding). Talk about what you ate and who was there.",
+                            "ru": "Опишите праздник (например, день рождения или свадьбу). Расскажите, что вы ели и кто там был.",
+                            "es": "Describe una celebración (ej. un cumpleaños o una boda). Cuenta qué comiste y quién estaba allí.",
+                            "fr": "Décrivez une fête (par ex. un anniversaire ou un mariage). Racontez ce que vous avez mangé et qui était là."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Qué divertido. Ahora pasamos a la Tarea 2. Imagine que quiere reservar una habitación de hotel para el próximo fin de semana. Llame por teléfono al hotel. Yo soy el recepcionista. Dígame.",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass Sie ein Doppelzimmer für zwei Nächte reservieren möchten. Fragen Sie, ob das Frühstück inbegriffen ist.",
+                            "ar": "قل أنك تريد حجز غرفة مزدوجة لليلتين. اسأل عما إذا كان الإفطار مشمولاً.",
+                            "en": "Say that you want to reserve a double room for two nights. Ask if breakfast is included.",
+                            "ru": "Скажите, что хотите забронировать двухместный номер на две ночи. Спросите, включен ли завтрак.",
+                            "es": "Di que quieres reservar una habitación doble para dos noches. Pregunta si el desayuno está incluido.",
+                            "fr": "Dites que vous voulez réserver une chambre double pour deux nuits. Demandez si le petit-déjeuner est inclus."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Sí, tenemos habitaciones libres. El precio es de 80 euros por noche con desayuno incluido. ¿Le parece bien?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass der Preis gut ist. Fragen Sie, ob das Hotel Parkplätze hat.",
+                            "ar": "قل أن السعر جيد. اسأل عما إذا كان الفندق يحتوي على موقف سيارات.",
+                            "en": "Say the price is good. Ask if the hotel has parking.",
+                            "ru": "Скажите, что цена хорошая. Спросите, есть ли у отеля парковка.",
+                            "es": "Di que el precio está bien. Pregunta si el hotel tiene aparcamiento.",
+                            "fr": "Dites que le prix est bon. Demandez si l'hôtel a un parking."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Sí, tenemos un garaje privado para clientes. Ahora, para la Tarea 3, vamos a hablar de los idiomas. ¿Cree que es necesario aprender otros idiomas hoy en día para tener éxito?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Äußern Sie Ihre Meinung. Sagen Sie, dass es sehr wichtig ist, um zu reisen und eine gute Arbeit zu finden.",
+                            "ar": "عبر عن رأيك. قل أنه من المهم جداً للسفر والعثور على عمل جيد.",
+                            "en": "Express your opinion. Say that it is very important for traveling and finding a good job.",
+                            "ru": "Выразите свое мнение. Скажите, что это очень важно для путешествий и поиска хорошей работы.",
+                            "es": "Expresa tu opinión. Di que es muy importante para viajar y encontrar un buen trabajo.",
+                            "fr": "Exprimez votre opinion. Dites que c'est très important pour voyager et trouver un bon travail."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Pero ahora existen muchas aplicaciones en el móvil que traducen automáticamente. ¿No cree que estudiar gramática es una pérdida de tiempo?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Widersprechen Sie höflich. Sagen Sie, dass Apps Fehler machen und man die Kultur besser versteht, wenn man die Sprache spricht.",
+                            "ar": "اعترض بأدب. قل أن التطبيقات ترتكب أخطاء وأن المرء يفهم الثقافة بشكل أفضل عندما يتحدث اللغة.",
+                            "en": "Disagree politely. Say that apps make mistakes and you understand the culture better if you speak the language.",
+                            "ru": "Вежливо возразите. Скажите, что приложения делают ошибки, и культуру понимаешь лучше, если говоришь на языке.",
+                            "es": "Muestra desacuerdo educadamente. Di que las aplicaciones cometen errores y se entiende mejor la cultura si hablas el idioma.",
+                            "fr": "Soyez poliment en désaccord. Dites que les applications font des erreurs et qu'on comprend mieux la culture si on parle la langue."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Es un buen punto de vista. Hemos terminado la prueba. ¡Muchas gracias por venir!",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Bedanken Sie sich und sagen Sie Auf Wiedersehen.",
+                            "ar": "اشكر وقل وداعاً.",
+                            "en": "Say thank you and goodbye.",
+                            "ru": "Поблагодарите и попрощайтесь.",
+                            "es": "Da las gracias y di adiós.",
+                            "fr": "Remerciez et dites au revoir."
+                        }
+                    }
+                ]
+            }
         ]
     },
     "b2": {

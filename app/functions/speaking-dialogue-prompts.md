@@ -108,3 +108,22 @@ Requirements:
   - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
   - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
 - Length: 10-12 exchanges.
+
+---
+
+## 7. Spanish B1 (DELE)
+Generate a realistic DELE Spanish B1 speaking assessment dialogue in JSON format.
+The dialogue must cover:
+1. **Task 1: Monologue** (AI asks the user to talk about themselves, their daily routine, interests, or past experiences)
+2. **Task 2: Dialogue** (AI and user have a conversation about everyday situations like shopping, travel, or making plans)
+3. **Task 3: Conversation** (AI and user discuss a specific topic, expressing opinions and describing events)
+
+Requirements:
+- Difficulty: Strictly B1 level (DELE Spanish B1 standard).
+- Language: Entirely in Spanish.
+- Format: Return ONLY a JSON array.
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
+  - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
+- Length: 8-10 exchanges.
+- Context: Use neutral greetings that work for any time of day (e.g., "Hola" instead of "Buenos días").
+- Topics: Focus on familiar topics such as work, studies, leisure, travel, personal experiences, and everyday situations.

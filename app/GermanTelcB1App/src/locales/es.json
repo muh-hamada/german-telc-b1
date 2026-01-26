@@ -1905,6 +1905,9 @@
         "dele": {
           "part1": "Fragmentos",
           "part2": "Opción múltiple"
+        },
+        "study": {
+          "title": "Preguntas de gramática"
         }
       },
       "listening": {

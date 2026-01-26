@@ -668,8 +668,8 @@
         "main": "Üben Sie {{language}} Grammatik mit Lückentext-Übungen"
       },
       "study": {
-        "title": "150 Grammatikfragen",
-        "description": "Meistern Sie die {{language}} Grammatik mit 150 Übungsfragen aus verschiedenen Themenbereichen",
+        "title": "{{count}} Grammatikfragen",
+        "description": "Meistern Sie die {{language}} Grammatik mit {{count}} Übungsfragen aus verschiedenen Themenbereichen",
         "progress": "Frage {{current}} von {{total}}",
         "currentProgress": "Aktueller Fortschritt",
         "progressFound": "Vorheriger Fortschritt gefunden",
@@ -1902,6 +1902,9 @@
         "dele": {
           "part1": "Fragmente",
           "part2": "Multiple Choice"
+        },
+        "study": {
+          "title": "Grammatikfragen"
         }
       },
       "listening": {

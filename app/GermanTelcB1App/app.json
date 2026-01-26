@@ -1,8 +1,8 @@
 {
-  "name": "ExamPreparationApp",
+  "name": "DeleSpanishB1App",
   "displayName": "Spanish DELE B1",
   "react-native-google-mobile-ads": {
-    "android_app_id": "",
-    "ios_app_id": ""
+    "android_app_id": "ca-app-pub-5101905792101482~3723260491",
+    "ios_app_id": "ca-app-pub-5101905792101482~5306475915"
   }
 }

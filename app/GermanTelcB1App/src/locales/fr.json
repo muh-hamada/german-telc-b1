@@ -656,8 +656,8 @@
         "main": "Pratiquez la grammaire {{language}} avec des exercices à trous"
       },
       "study": {
-        "title": "150 Questions de Grammaire",
-        "description": "Maîtrisez la grammaire {{language}} avec 150 questions d'entraînement sur divers sujets",
+        "title": "{{count}} Questions de Grammaire",
+        "description": "Maîtrisez la grammaire {{language}} avec {{count}} questions d'entraînement sur divers sujets",
         "progress": "Question {{current}} sur {{total}}",
         "currentProgress": "Progrès actuel",
         "progressFound": "Progrès précédent trouvé",
@@ -1893,6 +1893,9 @@
         "dele": {
           "part1": "Fragments",
           "part2": "Choix multiples"
+        },
+        "study": {
+          "title": "Questions de grammaire"
         }
       },
       "listening": {

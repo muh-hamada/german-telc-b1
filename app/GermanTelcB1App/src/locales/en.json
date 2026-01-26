@@ -805,8 +805,8 @@
         "main": "Practice {{language}} grammar with gap-fill exercises"
       },
       "study": {
-        "title": "150 Grammar Questions",
-        "description": "Master {{language}} grammar with 150 practice questions from various topics",
+        "title": "{{count}} Grammar Questions",
+        "description": "Master {{language}} grammar with {{count}} practice questions from various topics",
         "progress": "Question {{current}} of {{total}}",
         "currentProgress": "Current Progress",
         "progressFound": "Previous Progress Found",
@@ -1620,6 +1620,9 @@
         "dele": {
           "part1": "Fragments",
           "part2": "Multiple Choice"
+        },
+        "study": {
+          "title": "Grammar Questions"
         }
       },
       "listening": {

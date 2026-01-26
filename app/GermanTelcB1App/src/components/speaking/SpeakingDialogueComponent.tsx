@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  View,
+  ActivityIndicator,
+  Alert,
+  I18nManager,
+  Linking,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  ActivityIndicator,
-  StyleSheet,
-  Platform,
-  Alert,
-  ScrollView,
-  Linking,
+  View,
 } from 'react-native';
 import Sound from 'react-native-nitro-sound';
-import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
-import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { SpeakingDialogueTurn } from '../../types/prep-plan.types';
+import { check, PERMISSIONS, request, RESULTS } from 'react-native-permissions';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { LanguageCode } from '../../config/exam-config.types';
 import { getActiveExamConfig } from '../../config/active-exam.config';
-import { LanguageNameToLanguageCodes } from '../../utils/i18n';
+import { LanguageCode } from '../../config/exam-config.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { type ThemeColors } from '../../theme';
-import { I18nManager } from 'react-native';
+import { SpeakingDialogueTurn } from '../../types/prep-plan.types';
+import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 interface SpeakingDialogueComponentProps {
   dialogue: SpeakingDialogueTurn[];

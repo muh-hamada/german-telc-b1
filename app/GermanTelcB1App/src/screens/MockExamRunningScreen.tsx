@@ -23,6 +23,15 @@ import ListeningPart1Wrapper from '../components/exam-wrappers/ListeningPart1Wra
 import ListeningPart2Wrapper from '../components/exam-wrappers/ListeningPart2Wrapper';
 import ListeningPart3Wrapper from '../components/exam-wrappers/ListeningPart3Wrapper';
 import WritingWrapper from '../components/exam-wrappers/WritingWrapper';
+// DELE Spanish B1 Wrappers
+import DeleReadingPart1Wrapper from '../components/exam-wrappers/DeleReadingPart1Wrapper';
+import DeleReadingPart2Wrapper from '../components/exam-wrappers/DeleReadingPart2Wrapper';
+import DeleReadingPart3Wrapper from '../components/exam-wrappers/DeleReadingPart3Wrapper';
+import DeleListeningPart1Wrapper from '../components/exam-wrappers/DeleListeningPart1Wrapper';
+import DeleListeningPart2Wrapper from '../components/exam-wrappers/DeleListeningPart2Wrapper';
+import DeleListeningPart3Wrapper from '../components/exam-wrappers/DeleListeningPart3Wrapper';
+import DeleListeningPart4Wrapper from '../components/exam-wrappers/DeleListeningPart4Wrapper';
+import DeleListeningPart5Wrapper from '../components/exam-wrappers/DeleListeningPart5Wrapper';
 import {
   type MockExamProgress,
 } from '../types/mock-exam.types';
@@ -138,9 +147,11 @@ const MockExamRunningScreen: React.FC = () => {
     // Get testId for current step
     const testId = getTestIdForStep(currentStep.id, examProgress.selectedTests);
     const isA1 = activeExamConfig.level === 'A1';
+    const isDele = activeExamConfig.id === 'dele-spanish-b1';
 
-    // Check if it's a speaking section
-    if (currentStep.sectionNumber === 5) {
+    // Check if it's a speaking section (German: section 5, DELE: section 4)
+    const speakingSectionNumber = isDele ? 4 : 5;
+    if (currentStep.sectionNumber === speakingSectionNumber) {
       return (
         <View style={styles.speakingMessageContainer}>
           <Text style={styles.speakingTitle}>🗣️ {t('mockExam.speakingTitle')}</Text>
@@ -176,6 +187,45 @@ const MockExamRunningScreen: React.FC = () => {
       );
     }
 
+    // DELE Spanish B1 Exam Structure
+    if (isDele) {
+      // Section 1: Reading (Comprensión de Lectura)
+      if (currentStep.id === 'reading-1') {
+        return <DeleReadingPart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'reading-2') {
+        return <DeleReadingPart2Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'reading-3') {
+        return <DeleReadingPart3Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+
+      // Section 2: Writing (Expresión e Interacción Escritas)
+      if (currentStep.id === 'writing-1' || currentStep.id === 'writing-2') {
+        return <WritingWrapper testId={testId} stepId={currentStep.id} onComplete={handleCompleteStep} />;
+      }
+
+      // Section 3: Listening (Comprensión Auditiva)
+      if (currentStep.id === 'listening-1') {
+        return <DeleListeningPart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'listening-2') {
+        return <DeleListeningPart2Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'listening-3') {
+        return <DeleListeningPart3Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'listening-4') {
+        return <DeleListeningPart4Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'listening-5') {
+        return <DeleListeningPart5Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+
+      return null;
+    }
+
+    // German/English Telc/Goethe Exam Structure
     // Section 1: Reading (Leseverstehen)
     if (currentStep.id === 'reading-1') {
       return <ReadingPart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
@@ -218,17 +268,46 @@ const MockExamRunningScreen: React.FC = () => {
 
   const renderResults = () => {
     const isA1 = activeExamConfig.level === 'A1';
+    const isDele = activeExamConfig.id === 'dele-spanish-b1';
     
-    const writtenScore = examProgress.steps
-      .filter(step => step.sectionNumber <= 4)
-      .reduce((acc, step) => acc + (step.score || 0), 0);
+    let writtenScore, oralScore, writtenMaxPoints, oralMaxPoints;
+    let passingWrittenPoints, passingOralPoints, passingTotalPoints;
 
-    const oralScore = examProgress.steps
-      .filter(step => step.sectionNumber === 5)
-      .reduce((acc, step) => acc + (step.score || 0), 0);
+    if (isDele) {
+      // DELE B1: Group 1 (Reading + Writing) and Group 2 (Listening + Speaking)
+      // Group 1: Reading (section 1) + Writing (section 2) = 50 points
+      writtenScore = examProgress.steps
+        .filter(step => step.sectionNumber <= 2)
+        .reduce((acc, step) => acc + (step.score || 0), 0);
 
-    const writtenMaxPoints = examProgress.totalMaxPoints;
-    const oralMaxPoints = isA1 ? 15 : 75;
+      // Group 2: Listening (section 3) + Speaking (section 4) = 50 points
+      oralScore = examProgress.steps
+        .filter(step => step.sectionNumber >= 3)
+        .reduce((acc, step) => acc + (step.score || 0), 0);
+
+      writtenMaxPoints = 50; // Reading (25) + Writing (25)
+      oralMaxPoints = 50; // Listening (25) + Speaking (25)
+      
+      passingWrittenPoints = 30; // 60% of 50
+      passingOralPoints = 30; // 60% of 50
+      passingTotalPoints = 60; // 60% of 100
+    } else {
+      // German/English Telc/Goethe: Sections 1-4 are written, section 5 is oral
+      writtenScore = examProgress.steps
+        .filter(step => step.sectionNumber <= 4)
+        .reduce((acc, step) => acc + (step.score || 0), 0);
+
+      oralScore = examProgress.steps
+        .filter(step => step.sectionNumber === 5)
+        .reduce((acc, step) => acc + (step.score || 0), 0);
+
+      writtenMaxPoints = examProgress.totalMaxPoints - (isA1 ? 15 : 75);
+      oralMaxPoints = isA1 ? 15 : 75;
+
+      passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
+      passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
+      passingTotalPoints = isA1 ? 36 : 180; // 60% of total
+    }
 
     const writtenPercentage = (writtenScore / writtenMaxPoints) * 100;
     const oralPercentage = oralScore > 0 ? (oralScore / oralMaxPoints) * 100 : 0;
@@ -237,10 +316,6 @@ const MockExamRunningScreen: React.FC = () => {
     const totalPercentage = oralScore > 0 
       ? (examProgress.totalScore / examProgress.totalMaxPoints) * 100
       : writtenPercentage;
-
-    const passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
-    const passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
-    const passingTotalPoints = isA1 ? 36 : 180; // 60% of total
     
     const passedWritten = writtenScore >= passingWrittenPoints;
     const passedOral = oralScore >= passingOralPoints || oralScore === 0; // Skip oral if not taken
@@ -283,7 +358,9 @@ const MockExamRunningScreen: React.FC = () => {
 
         {/* Written Component */}
         <View style={styles.componentCard}>
-          <Text style={styles.componentTitle}>{t('mockExam.writtenExam')}</Text>
+          <Text style={styles.componentTitle}>
+            {isDele ? 'Grupo 1: Lectura y Escritura' : t('mockExam.writtenExam')}
+          </Text>
           <Text style={styles.componentScore}>
             {writtenScore} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
           </Text>
@@ -298,7 +375,9 @@ const MockExamRunningScreen: React.FC = () => {
         {/* Oral Component (if taken) */}
         {oralScore > 0 && (
           <View style={styles.componentCard}>
-            <Text style={styles.componentTitle}>{t('mockExam.oralExam')}</Text>
+            <Text style={styles.componentTitle}>
+              {isDele ? 'Grupo 2: Audición y Expresión oral' : t('mockExam.oralExam')}
+            </Text>
             <Text style={styles.componentScore}>
               {oralScore} / {oralMaxPoints} ({oralPercentage.toFixed(1)}%)
             </Text>
@@ -319,7 +398,8 @@ const MockExamRunningScreen: React.FC = () => {
             const stepPercentage = step.maxPoints > 0 
               ? ((step.score || 0) / step.maxPoints) * 100 
               : 0;
-            const isSkipped = step.sectionNumber === 5 && (step.score || 0) === 0;
+            const speakingSectionNumber = isDele ? 4 : 5;
+            const isSkipped = step.sectionNumber === speakingSectionNumber && (step.score || 0) === 0;
             
             return (
               <View key={step.id} style={styles.stepBreakdownCard}>
