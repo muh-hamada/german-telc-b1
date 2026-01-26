@@ -738,7 +738,7 @@
                     {
                         "speaker": "ai",
                         "text": "Hola. Bienvenido a la prueba de expresión oral del DELE B1. Para empezar, ¿podría presentarse brevemente y decirme de dónde es y a qué se dedica?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F1.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -754,7 +754,7 @@
                     {
                         "speaker": "ai",
                         "text": "Encantado. Pasamos a la Tarea 1. Hábleme un poco sobre sus últimas vacaciones. ¿A dónde fue y qué actividades hizo allí?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F2.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -770,7 +770,7 @@
                     {
                         "speaker": "ai",
                         "text": "Suena como una experiencia interesante. Ahora vamos a la Tarea 2: una situación simulada. Imagine que está en una estación de tren y quiere comprar un billete para ir a Madrid mañana por la mañana, pero no quiere gastar mucho dinero. Yo soy el empleado. Dígame, ¿en qué puedo ayudarle?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F3.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -786,7 +786,7 @@
                     {
                         "speaker": "ai",
                         "text": "Para mañana por la mañana tengo un tren rápido a las 8:00 que cuesta 60 euros, y uno regional a las 9:30 que cuesta 30 euros, pero tarda más tiempo. ¿Cuál prefiere?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F4.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -802,7 +802,7 @@
                     {
                         "speaker": "ai",
                         "text": "El tren regional tarda unas cuatro horas. Aquí tiene su billete. Finalmente, para la Tarea 3, vamos a conversar un poco sobre la vida sana. ¿Cree que la gente hoy en día se preocupa más por su salud que antes?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F5.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -818,7 +818,7 @@
                     {
                         "speaker": "ai",
                         "text": "Es verdad, hay más información sobre nutrición. Pero, ¿no cree que también tenemos más estrés y eso es malo para la salud?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F6.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -834,7 +834,7 @@
                     {
                         "speaker": "ai",
                         "text": "Tiene toda la razón. Bueno, hemos terminado la prueba. ¡Muchas gracias por su participación y buena suerte!",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-1%2F7.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -855,7 +855,7 @@
                     {
                         "speaker": "ai",
                         "text": "Hola. Bienvenido de nuevo. Vamos a comenzar con la Tarea 1. Por favor, hábleme de una persona importante en su vida, por ejemplo, su mejor amigo. ¿Cómo es físicamente y qué carácter tiene?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F1.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -871,7 +871,7 @@
                     {
                         "speaker": "ai",
                         "text": "Qué bien. Pasamos ahora a la Tarea 2. Vamos a hacer una simulación. Usted compró una camiseta en mi tienda ayer, pero cuando llegó a casa vio que tiene un problema. Yo soy el dependiente. Dígame, ¿qué desea?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F2.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -887,7 +887,7 @@
                     {
                         "speaker": "ai",
                         "text": "Vaya, lo siento mucho. ¿Trae el tique de compra? Podemos cambiarla por otra igual o devolverle el dinero.",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F3.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -903,7 +903,7 @@
                     {
                         "speaker": "ai",
                         "text": "Perfecto, aquí tiene la azul. Para terminar, vamos a la Tarea 3. Hablemos de dónde vivir. ¿Usted prefiere vivir en una ciudad grande o en un pueblo pequeño?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F4.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -919,7 +919,7 @@
                     {
                         "speaker": "ai",
                         "text": "Entiendo, pero en la ciudad hay mucho tráfico y ruido. ¿No le molesta la contaminación?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F5.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -935,7 +935,7 @@
                     {
                         "speaker": "ai",
                         "text": "Muy bien. Pues eso es todo. Ha completado todas las tareas del examen. ¡Gracias y hasta la próxima!",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-2%2F6.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -956,7 +956,7 @@
                     {
                         "speaker": "ai",
                         "text": "Hola. Empezamos con la Tarea 1. Hábleme sobre sus planes para el futuro. ¿Qué le gustaría hacer el próximo año? ¿Quiere seguir estudiando o prefiere trabajar en algo diferente?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F1.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -972,7 +972,7 @@
                     {
                         "speaker": "ai",
                         "text": "Son unos planes muy interesantes. Ahora pasamos a la Tarea 2, la situación simulada. Imagine que entra en un restaurante a la hora de comer. Yo soy el camarero y me acerco a su mesa. Dígame, ¿qué desea tomar?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F2.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -988,7 +988,7 @@
                     {
                         "speaker": "ai",
                         "text": "Hoy de primero tenemos ensalada mixta o sopa de verduras, y de segundo pescado frito o filete de ternera. Incluye pan y bebida.",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F3.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1004,7 +1004,7 @@
                     {
                         "speaker": "ai",
                         "text": "Muy bien, enseguida se lo traigo. Finalmente, la Tarea 3. Vamos a hablar sobre el uso de la tecnología. ¿Cree que los niños pasan demasiado tiempo con el teléfono móvil hoy en día?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F4.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1020,7 +1020,7 @@
                     {
                         "speaker": "ai",
                         "text": "Es cierto, pero los móviles también son útiles para aprender cosas nuevas y estar en contacto con los padres, ¿verdad?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F5.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1036,7 +1036,7 @@
                     {
                         "speaker": "ai",
                         "text": "Estoy de acuerdo con usted. Hemos terminado la prueba oral. ¡Muchas gracias y que tenga un buen día!",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-3%2F6.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1057,7 +1057,7 @@
                     {
                         "speaker": "ai",
                         "text": "Hola. Bienvenido. Para comenzar con la Tarea 1, me gustaría que me hable de una fiesta o celebración especial que recuerde. ¿Qué celebraron y qué hicieron ese día?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F1.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1073,7 +1073,7 @@
                     {
                         "speaker": "ai",
                         "text": "Qué divertido. Ahora pasamos a la Tarea 2. Imagine que quiere reservar una habitación de hotel para el próximo fin de semana. Llame por teléfono al hotel. Yo soy el recepcionista. Dígame.",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F2.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1089,7 +1089,7 @@
                     {
                         "speaker": "ai",
                         "text": "Sí, tenemos habitaciones libres. El precio es de 80 euros por noche con desayuno incluido. ¿Le parece bien?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F3.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1105,7 +1105,7 @@
                     {
                         "speaker": "ai",
                         "text": "Sí, tenemos un garaje privado para clientes. Ahora, para la Tarea 3, vamos a hablar de los idiomas. ¿Cree que es necesario aprender otros idiomas hoy en día para tener éxito?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F4.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1121,7 +1121,7 @@
                     {
                         "speaker": "ai",
                         "text": "Pero ahora existen muchas aplicaciones en el móvil que traducen automáticamente. ¿No cree que estudiar gramática es una pérdida de tiempo?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F5.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
@@ -1137,7 +1137,7 @@
                     {
                         "speaker": "ai",
                         "text": "Es un buen punto de vista. Hemos terminado la prueba. ¡Muchas gracias por venir!",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_speaking_practice%2Fdialogue-4%2F6.mp3?alt=media"
                     },
                     {
                         "speaker": "user",
