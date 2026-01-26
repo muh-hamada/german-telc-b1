@@ -1590,7 +1590,7 @@
         "incomplete": "Incompleto",
         "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
       },
-      "questions": "Preguntas {{count}}"
+      "questions": "Preguntas"
     },
     "part2": {
       "title": "Comprensión auditiva Parte 2",

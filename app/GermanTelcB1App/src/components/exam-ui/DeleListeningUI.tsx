@@ -389,7 +389,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
       {/* Questions */}
       <View style={styles.questionsSection}>
         <Text style={styles.sectionTitle}>
-          {t('listening.part1.questions', { count: exam.questions.length })}
+          {t('listening.part1.questions')}
         </Text>
         {renderQuestions()}
       </View>

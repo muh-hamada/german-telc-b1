@@ -357,8 +357,9 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     elevation: 3,
   },
   topicTitle: {
-    ...typography.textStyles.h2,
+    ...typography.textStyles.h3,
     color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.md,
   },
   instructionText: {

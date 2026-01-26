@@ -1591,7 +1591,7 @@
         "incomplete": "Unvollständig",
         "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
       },
-      "questions": "Fragen {{count}}"
+      "questions": "Fragen"
     },
     "part2": {
       "title": "Hören Teil 2",

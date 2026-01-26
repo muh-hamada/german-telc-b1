@@ -1372,7 +1372,7 @@
         "incomplete": "Incomplete",
         "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
       },
-      "questions": "Questions {{count}}"
+      "questions": "Questions"
     },
     "part2": {
       "title": "Listening Part 2",

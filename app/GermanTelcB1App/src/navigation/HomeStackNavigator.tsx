@@ -53,7 +53,6 @@ import { colors } from '../theme';
 import { HomeStackParamList } from '../types/navigation.types';
 // Prep Plan Screens
 import { activeExamConfig } from '../config/active-exam.config';
-import DeleReadingPart1Screen from '../screens/dele/DeleReadingPart1Screen';
 import DeleSpeakingAllPartsScreen from '../screens/dele/DeleSpeakingAllPartsScreen';
 import ListeningPart4Screen from '../screens/practice/ListeningPart4Screen';
 import ListeningPart5Screen from '../screens/practice/ListeningPart5Screen';
@@ -158,13 +157,6 @@ const HomeStackNavigator: React.FC = () => {
         component={ReadingPart1A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part1" />,
-        }}
-      />
-      <Stack.Screen
-        name="DeleReadingPart1"
-        component={DeleReadingPart1Screen}
-        options={{
-          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.dele.part1" />,
         }}
       />
       <Stack.Screen

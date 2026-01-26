@@ -9,11 +9,11 @@
  * ⚠️ CRITICAL: Set to FALSE before production release!
  */
 
-export const DEMO_MODE = false; // Set to false for production
+export const DEMO_MODE = true; // Set to false for production
 
 export const ALWAYS_SHOW_PREMIUM_MODAL = false; // Set to false for production
 
-export const HIDE_ADS = false; // Set to false for production
+export const HIDE_ADS = true; // Set to false for production
 
 export const SKIP_REWARDED_ADS = false; // Set to false for production
 

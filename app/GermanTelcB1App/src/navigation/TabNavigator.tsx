@@ -64,6 +64,7 @@ const HIDE_TAB_SCREENS = [
   'AssessmentResults',
   'SpeakingAssessment',
   'ReportedIssues',
+  'DeleSpeakingAllParts',
 ];
 
 const HIDE_BANNER_SCREENS = [

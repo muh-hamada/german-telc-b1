@@ -1578,7 +1578,7 @@
         "incomplete": "Incomplet",
         "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
       },
-      "questions": "Questions {{count}}"
+      "questions": "Questions"
     },
     "part2": {
       "title": "Compréhension orale Partie 2",
