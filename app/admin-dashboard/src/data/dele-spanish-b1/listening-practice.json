@@ -1,5 +1,63 @@
 {
     "interviews": [
-       
+        {
+            "id": 1,
+            "title": "Una escapada de verano en Barcelona",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_listening_practice%2Fspanish-b1-audio-1.m4a?alt=media",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/spanish_b1_listening_practice%2Fspanish-b1-audio-1.png?alt=media",
+            "duration": "09:13",
+            "questions": [
+                {
+                    "question": "Según la conversación, la protagonista ha elegido Madrid como destino para sus vacaciones.",
+                    "correct": false,
+                    "explanation": "Es falso. Los hablantes mencionan claramente que el destino elegido es Barcelona, no Madrid."
+                },
+                {
+                    "question": "En la conversación se menciona que encontrar alojamiento fue una tarea muy fácil.",
+                    "correct": false,
+                    "explanation": "Es falso. Se comenta que encontrar el hotel perfecto no ha sido fácil debido a la temporada alta."
+                },
+                {
+                    "question": "Los hablantes indican que el hotel elegido se llama 'Hotel Vista Mar'.",
+                    "correct": true,
+                    "explanation": "Es verdadero. Mateo menciona específicamente que el hotel que encontró se llama 'Hotel Vista Mar'."
+                },
+                {
+                    "question": "Según lo que discuten los hablantes, el aire acondicionado era un requisito fundamental para la reserva.",
+                    "correct": true,
+                    "explanation": "Es verdadero. Se menciona que el aire acondicionado era esencial porque en julio hace mucho calor."
+                },
+                {
+                    "question": "En la conversación, se dice que la estancia durará dos semanas completas.",
+                    "correct": false,
+                    "explanation": "Es falso. La reserva es para cinco noches, del 15 al 20 de julio, no para dos semanas."
+                },
+                {
+                    "question": "Los hablantes confirman que el desayuno está incluido en el precio de la habitación.",
+                    "correct": true,
+                    "explanation": "Es verdadero. Sofia o Mateo comentan que el desayuno está incluido, lo cual es visto como algo positivo."
+                },
+                {
+                    "question": "La protagonista ha garantizado al 100% que tendrá una habitación en un piso alto.",
+                    "correct": false,
+                    "explanation": "Es falso. El recepcionista dijo que harían todo lo posible, pero no podían garantizarlo."
+                },
+                {
+                    "question": "Según la conversación, la protagonista planea visitar la Sagrada Familia.",
+                    "correct": true,
+                    "explanation": "Es verdadero. Entre los planes mencionados está visitar la Sagrada Familia y el Parque Güell."
+                },
+                {
+                    "question": "Los hablantes explican que 'temporada alta' se refiere a los meses de invierno cuando hay menos turistas.",
+                    "correct": false,
+                    "explanation": "Es falso. Explican que la temporada alta es cuando viaja mucha gente y es más difícil encontrar sitio (verano)."
+                },
+                {
+                    "question": "Al final de la conversación, queda claro que la protagonista está preocupada y estresada por el viaje.",
+                    "correct": false,
+                    "explanation": "Es falso. La conclusión es que ella está muy emocionada y con ganas de que llegue el viaje."
+                }
+            ]
+        }
     ]
 }

@@ -42,22 +42,25 @@ APP_NAME="ExamPreparationApp"
 # Set bundle identifier and provisioning profile based on exam
 if [[ "$EXAM_ID" == "german-b2" ]]; then
     BUNDLE_ID="com.mhamada.telcb2german"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B2"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2"
 elif [[ "$EXAM_ID" == "english-b1" ]]; then
     BUNDLE_ID="com.mhamada.telcb1english"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B1 English"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B1 English"
 elif [[ "$EXAM_ID" == "english-b2" ]]; then
     BUNDLE_ID="com.mhamada.telcb2english"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution B2 English"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution B2 English"
 elif [[ "$EXAM_ID" == "german-b1" ]]; then
     BUNDLE_ID="com.mhamada.telcb1german"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution"
 elif [[ "$EXAM_ID" == "german-a1" ]]; then
     BUNDLE_ID="com.mhamada.telca1german"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution A1 German"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution A1 German"
+elif [[ "$EXAM_ID" == "dele-spanish-b1" ]]; then
+    BUNDLE_ID="com.mhamada.deleb1spanish"
+    PROVISIONING_PROFILE="DeleExamApp AppStore Distribution B1 Spanish"
 else
     BUNDLE_ID="com.mhamada.telcb1english"
-    PROVISIONING_PROFILE="ExamPreparationApp AppStore Distribution English"
+    PROVISIONING_PROFILE="TelcExamApp AppStore Distribution English"
 fi
 
 echo "Bundle ID: $BUNDLE_ID"
