@@ -199,6 +199,7 @@ const VOCAB_COLLECTIONS = {
   'vocabulary_progress_german_b2': 'german-b2',
   'vocabulary_progress_english_b1': 'english-b1',
   'vocabulary_progress_english_b2': 'english-b2',
+  'dele_vocabulary_progress_spanish_b1': 'dele-spanish-b1',
 };
 
 export const onVocabularyUpdate = functions.firestore
@@ -368,6 +369,7 @@ const PROGRESS_COLLECTIONS = {
   'german_b2_progress': 'german-b2',
   'english_b1_progress': 'english-b1',
   'english_b2_progress': 'english-b2',
+  'dele_spanish_b1_progress': 'dele-spanish-b1',
 };
 
 export const onProgressUpdate = functions.firestore

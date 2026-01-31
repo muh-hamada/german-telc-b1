@@ -153,7 +153,7 @@ export const DashboardPage: React.FC = () => {
             ) : (
               <div className="documents-grid">
                 {documents.map((doc) => {
-                  const stats = getExplanationStats(doc.id, doc.data);
+                  const stats = getExplanationStats(doc.id, doc.data, appConfig.id);
                   return (
                     <div key={doc.id} className="document-card">
                       <div className="document-header">
