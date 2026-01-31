@@ -147,7 +147,8 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
       if (part === 4) {
         // Part 4: answer is a letter key (a-j) from statements
         const correctAnswer = (question as any).answer;
-        isCorrect = userAnswerValue === correctAnswer;
+        isCorrect = userAnswerValue?.toString().toUpperCase() === correctAnswer?.toUpperCase();
+        console.log('Evaluating Part 4 question:', 'User answer:', userAnswerValue, 'Correct answer:', correctAnswer, 'Is correct:', isCorrect);
         selectedOptionText = userAnswerValue ? String(userAnswerValue).toUpperCase() : '';
         correctAnswerText = correctAnswer ? String(correctAnswer).toUpperCase() : '';
       } else if (part === 5) {
@@ -339,14 +340,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
       {/* Instructions */}
       <View style={styles.instructionsCard}>
         <Text style={styles.instructionsTitle}>{t('listening.part1.instructions')}</Text>
-        <Text style={styles.instructionsText}>
-          {getInstructions()}
-        </Text>
-        {sectionDetails.prep_time_seconds && (
-          <Text style={styles.prepTime}>
-            {t('listening.prepTime', { seconds: sectionDetails.prep_time_seconds })}
-          </Text>
-        )}
+        <Text style={styles.instructionsText}>{getInstructions()}</Text>
       </View>
 
       {/* Audio Player */}
@@ -459,12 +453,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
-  },
-  prepTime: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.semibold,
-    marginTop: spacing.margin.sm,
   },
   audioSection: {
     marginBottom: spacing.margin.xl,

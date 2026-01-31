@@ -10,6 +10,7 @@ export interface MockExamStep {
   score?: number;
   startTime?: number;
   endTime?: number;
+  answers?: import('../types/exam.types').UserAnswer[];
 }
 
 export interface MockExamProgress {
@@ -68,26 +69,27 @@ export const MOCK_EXAM_STEPS_A1: Omit<MockExamStep, 'isCompleted' | 'score' | 's
 
 export const MOCK_EXAM_STEPS_DELE_B1: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
   // 1. Reading Comprehension - 25 points total
-  { id: 'reading-1', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 1, partName: 'Tarea 1', maxPoints: 9, timeMinutes: 23 },
-  { id: 'reading-2', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 2, partName: 'Tarea 2', maxPoints: 8, timeMinutes: 23 },
-  { id: 'reading-3', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 3, partName: 'Tarea 3', maxPoints: 8, timeMinutes: 24 },
+  { id: 'reading-1', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 1, partName: 'Tarea 1', maxPoints: 5, timeMinutes: 14 },
+  { id: 'reading-2', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 2, partName: 'Tarea 2', maxPoints: 5, timeMinutes: 14 },
+  { id: 'reading-3', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 3, partName: 'Tarea 3', maxPoints: 5, timeMinutes: 14 },
   
-  // 2. Written Expression - 25 points total
-  { id: 'writing-1', sectionNumber: 2, sectionName: 'Expresión e Interacción Escritas', partNumber: 1, partName: 'Tarea 1', maxPoints: 12, timeMinutes: 30 },
-  { id: 'writing-2', sectionNumber: 2, sectionName: 'Expresión e Interacción Escritas', partNumber: 2, partName: 'Tarea 2', maxPoints: 13, timeMinutes: 30 },
+  { id: 'grammar-1', sectionNumber: 2, sectionName: 'Bloques de construcción del idioma', partNumber: 2, partName: 'Tarea 2', maxPoints: 5, timeMinutes: 14 },
+  { id: 'grammar-2', sectionNumber: 2, sectionName: 'Bloques de construcción del idioma', partNumber: 3, partName: 'Tarea 3', maxPoints: 5, timeMinutes: 14 },
+ 
+  { id: 'listening-1', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 1, partName: 'Tarea 1', maxPoints: 5, timeMinutes: 8 },
+  { id: 'listening-2', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 2, partName: 'Tarea 2', maxPoints: 5, timeMinutes: 8 },
+  { id: 'listening-3', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 3, partName: 'Tarea 3', maxPoints: 5, timeMinutes: 8 },
+  { id: 'listening-4', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 4, partName: 'Tarea 4', maxPoints: 5, timeMinutes: 8 },
+  { id: 'listening-5', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 5, partName: 'Tarea 5', maxPoints: 5, timeMinutes: 8 },
   
-  // 3. Listening Comprehension - 25 points total
-  { id: 'listening-1', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 1, partName: 'Tarea 1', maxPoints: 6, timeMinutes: 8 },
-  { id: 'listening-2', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 2, partName: 'Tarea 2', maxPoints: 6, timeMinutes: 8 },
-  { id: 'listening-3', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 3, partName: 'Tarea 3', maxPoints: 6, timeMinutes: 8 },
-  { id: 'listening-4', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 4, partName: 'Tarea 4', maxPoints: 4, timeMinutes: 8 },
-  { id: 'listening-5', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 5, partName: 'Tarea 5', maxPoints: 3, timeMinutes: 8 },
+  { id: 'writing-1', sectionNumber: 4, sectionName: 'Expresión e Interacción Escritas', partNumber: 1, partName: 'Tarea 1', maxPoints: 12.5, timeMinutes: 30 },
+  { id: 'writing-2', sectionNumber: 4, sectionName: 'Expresión e Interacción Escritas', partNumber: 2, partName: 'Tarea 2', maxPoints: 12.5, timeMinutes: 30 },
   
   // 4. Oral Expression - 25 points total (skipped in mock exam)
-  { id: 'speaking-1', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 1, partName: 'Tarea 1: Monólogo', maxPoints: 6.25, timeMinutes: 3 },
-  { id: 'speaking-2', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 2, partName: 'Tarea 2: Diálogo', maxPoints: 6.25, timeMinutes: 4 },
-  { id: 'speaking-3', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 3, partName: 'Tarea 3: Conversación', maxPoints: 6.25, timeMinutes: 3 },
-  { id: 'speaking-4', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 4, partName: 'Tarea 4: Conversación', maxPoints: 6.25, timeMinutes: 4 },
+  { id: 'speaking-1', sectionNumber: 5, sectionName: 'Expresión e Interacción Orales', partNumber: 1, partName: 'Tarea 1: Monólogo', maxPoints: 6.25, timeMinutes: 3 },
+  { id: 'speaking-2', sectionNumber: 5, sectionName: 'Expresión e Interacción Orales', partNumber: 2, partName: 'Tarea 2: Diálogo', maxPoints: 6.25, timeMinutes: 4 },
+  { id: 'speaking-3', sectionNumber: 5, sectionName: 'Expresión e Interacción Orales', partNumber: 3, partName: 'Tarea 3: Conversación', maxPoints: 6.25, timeMinutes: 3 },
+  { id: 'speaking-4', sectionNumber: 5, sectionName: 'Expresión e Interacción Orales', partNumber: 4, partName: 'Tarea 4: Conversación', maxPoints: 6.25, timeMinutes: 4 },
 ];
 
 // B1/B2 Constants

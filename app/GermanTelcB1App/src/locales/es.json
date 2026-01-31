@@ -946,7 +946,9 @@
     "requirementText": "Mínimo {{percentage}}% requerido para aprobar",
     "examResultsTitle": "¡Examen completado!",
     "deleReadingWriting": "Grupo 1: Lectura y Escritura",
-    "deleListeningSpeaking": "Grupo 2: Escucha y Expresión Oral"
+    "deleListeningSpeaking": "Grupo 2: Escuchar (se omite hablar)",
+    "viewAnswers": "Ver respuestas",
+    "noResultsAvailable": "No hay resultados disponibles para este paso."
   },
   "questions": {
     "checkAnswers": "Verificar respuestas",

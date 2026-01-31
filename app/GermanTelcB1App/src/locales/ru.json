@@ -934,7 +934,9 @@
     "requirementText": "Минимум {{percentage}}% требуется для прохождения",
     "examResultsTitle": "Экзамен завершен!",
     "deleReadingWriting": "Группа 1: Чтение и письмо",
-    "deleListeningSpeaking": "Группа 2: Аудирование и устное выражение"
+    "deleListeningSpeaking": "Группа 2: Аудирование (говорение пропускается)",
+    "viewAnswers": "Посмотреть ответы",
+    "noResultsAvailable": "Для этого шага нет результатов."
   },
   "questions": {
     "checkAnswers": "Проверить ответы",

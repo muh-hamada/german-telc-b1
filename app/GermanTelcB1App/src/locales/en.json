@@ -1084,7 +1084,9 @@
     "requirementText": "Minimum {{percentage}}% required to pass",
     "examResultsTitle": "Exam Completed!",
     "deleReadingWriting": "Group 1: Reading and Writing",
-    "deleListeningSpeaking": "Group 2: Listening and Oral Expression"
+    "deleListeningSpeaking": "Group 2: Listening (speaking skipped)",
+    "viewAnswers": "View Answers",
+    "noResultsAvailable": "No results available for this step."
   },
   "questions": {
     "checkAnswers": "Check Answers",

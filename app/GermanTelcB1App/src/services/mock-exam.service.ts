@@ -21,26 +21,30 @@ export const generateRandomExamSelection = async () => {
       dataService.getDeleReadingPart1Exams(),
       dataService.getDeleReadingPart2Exams(),
       dataService.getDeleReadingPart3Exams(),
-      dataService.getDeleWritingPart1Exams(),
-      dataService.getDeleWritingPart2Exams(),
+      dataService.getDeleGrammarPart1Exams(),
+      dataService.getDeleGrammarPart2Exams(),
       dataService.getDeleListeningPart1Exams(),
       dataService.getDeleListeningPart2Exams(),
       dataService.getDeleListeningPart3Exams(),
       dataService.getDeleListeningPart4Exams(),
       dataService.getDeleListeningPart5Exams(),
+      dataService.getDeleWritingPart1Exams(),
+      dataService.getDeleWritingPart2Exams(),
     ];
 
     const [
       readingPart1Exams,
       readingPart2Exams,
       readingPart3Exams,
-      writingPart1Exams,
-      writingPart2Exams,
+      grammarPart1Exams,
+      grammarPart2Exams,
       listeningPart1Exams,
       listeningPart2Exams,
       listeningPart3Exams,
       listeningPart4Exams,
       listeningPart5Exams,
+      writingPart1Exams,
+      writingPart2Exams,
     ] = await Promise.all(promises);
 
     const getRandomId = (exams: any[]) => {
@@ -53,20 +57,22 @@ export const generateRandomExamSelection = async () => {
       'reading-1': getRandomId(readingPart1Exams),
       'reading-2': getRandomId(readingPart2Exams),
       'reading-3': getRandomId(readingPart3Exams),
-      'writing-1': getRandomId(writingPart1Exams),
-      'writing-2': getRandomId(writingPart2Exams),
+      'grammar-1': getRandomId(grammarPart1Exams),
+      'grammar-2': getRandomId(grammarPart2Exams),
       'listening-1': getRandomId(listeningPart1Exams),
       'listening-2': getRandomId(listeningPart2Exams),
       'listening-3': getRandomId(listeningPart3Exams),
       'listening-4': getRandomId(listeningPart4Exams),
       'listening-5': getRandomId(listeningPart5Exams),
+      'writing-1': getRandomId(writingPart1Exams),
+      'writing-2': getRandomId(writingPart2Exams),
     };
 
     console.log('[generateRandomExamSelection] DELE selectedTests', selectedTests);
     return selectedTests;
   }
   
-  // Fetch all available exams for each section (German/English Telc/Goethe)
+  // Fetch all available exams for each section (German/English Telc)
   const promises: Promise<any>[] = [
     dataService.getReadingPart1Exams(),
     dataService.getReadingPart2Exams(),
@@ -99,7 +105,7 @@ export const generateRandomExamSelection = async () => {
       readingPart1Exams,
       readingPart2Exams,
       readingPart3Exams,
-      writingExams,
+      writingExams, // BUG: AI has writing part 1 and 2
       listeningPart1Data,
       listeningPart2Data,
       listeningPart3Data
@@ -248,8 +254,8 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
   
   // Filter out speaking sections as they're not included in mock exam
   // For German/English: section 5 is speaking
-  // For DELE: section 4 is speaking
-  const speakingSectionNumber = isDele ? 4 : 5;
+  // For DELE: section 5 is speaking
+  const speakingSectionNumber = 5; // BUG: check this for Telc exams, I only checked DELE
   const steps = examSteps
     .filter((step: any) => step.sectionNumber !== speakingSectionNumber) // Exclude speaking
     .map((step: any) => ({
@@ -259,6 +265,8 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
       startTime: undefined,
       endTime: undefined,
     }));
+
+    console.log('[createInitialMockExamProgress] examSteps', steps);
 
   return {
     examId,
@@ -297,6 +305,7 @@ export const updateStepProgress = async (
     progress.steps[stepIndex].score = score;
     progress.steps[stepIndex].isCompleted = isCompleted;
     progress.steps[stepIndex].endTime = Date.now();
+    progress.steps[stepIndex].answers = answers;
 
     // Track step completed
     const completedDurationMs = (progress.steps[stepIndex].endTime || 0) - (progress.steps[stepIndex].startTime || progress.startDate);

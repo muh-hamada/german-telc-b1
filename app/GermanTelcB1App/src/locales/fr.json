@@ -1374,7 +1374,9 @@
     "requirementText": "Minimum {{percentage}}% requis pour réussir",
     "examResultsTitle": "Examen terminé !",
     "deleReadingWriting": "Groupe 1 : Lecture et écriture",
-    "deleListeningSpeaking": "Groupe 2 : Écoute et expression orale"
+    "deleListeningSpeaking": "Groupe 2 : Écoute (parler sauté)",
+    "viewAnswers": "Afficher les réponses",
+    "noResultsAvailable": "Aucun résultat disponible pour cette étape."
   },
   "grammar": {
     "part1": {

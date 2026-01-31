@@ -44,17 +44,25 @@ import {
 } from '../services/mock-exam.service';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import { UserAnswer } from '../types/exam.types';
+import { UserAnswer, ExamResult } from '../types/exam.types';
 import AdBanner from '../components/AdBanner';
+import ResultsModal from '../components/ResultsModal';
+import DeleGrammarPart1Wrapper from '../components/exam-wrappers/DeleGrammarPart1Wrapper';
+import DeleGrammarPart2Wrapper from '../components/exam-wrappers/DeleGrammarPart2Wrapper';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
   const [examProgress, setExamProgress] = useState<MockExamProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedStepResult, setSelectedStepResult] = useState<ExamResult | null>(null);
+  const [isResultsModalVisible, setIsResultsModalVisible] = useState(false);
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
-  
+
+  const isA1 = activeExamConfig.level === 'A1';
+  const isDele = activeExamConfig.id === 'dele-spanish-b1';
+
   useEffect(() => {
     loadProgress();
   }, []);
@@ -92,11 +100,27 @@ const MockExamRunningScreen: React.FC = () => {
     step => step.id === examProgress.currentStepId
   );
 
-  const handleCompleteStep = async (score: number, answers: UserAnswer[]) => {
+  const handleCompleteStep = async (correctCount: number, answers: UserAnswer[]) => {
     try {
+      let score = correctCount;
+      const currentStep = examProgress.steps.find(step => step.id === examProgress.currentStepId);
+      if (currentStep) {
+        if (isDele && currentStep.sectionNumber === 4) { // Writing Section for DELE
+          score = correctCount / 2; // The max points is 12.5 and the evaluation is out of 25
+        } else {
+          // If the step has maxPoints defined, scale the score accordingly
+          if (currentStep.maxPoints) {
+            const pointsPerQuestion = currentStep.maxPoints / answers.length;
+            // Calculate scaled score to the first decimal place
+            score = Math.round(correctCount * pointsPerQuestion * 10) / 10;
+          }
+        }
+      }
+
+      console.log('[MockExamRunningScreen] User completed step:', examProgress.currentStepId, 'Score:', score, answers);
       // Update progress in storage
       await updateStepProgress(examProgress.currentStepId, score, true, answers);
-      
+
       // Reload progress from storage to get updated state
       const updatedProgress = await loadMockExamProgress();
       if (updatedProgress) {
@@ -143,11 +167,11 @@ const MockExamRunningScreen: React.FC = () => {
 
   const handleStepPress = async (stepId: string) => {
     if (!__DEV__) return; // Only allow in development mode
-    
+
     try {
       console.log('[DEV] Navigating to step:', stepId);
       await navigateToStep(stepId);
-      
+
       // Reload progress from storage to get updated state
       const updatedProgress = await loadMockExamProgress();
       if (updatedProgress) {
@@ -159,17 +183,43 @@ const MockExamRunningScreen: React.FC = () => {
     }
   };
 
+  const handleViewStepResults = (stepId: string) => {
+    if (!examProgress) return;
+
+    const step = examProgress.steps.find(s => s.id === stepId);
+    if (!step?.answers || step.answers.length === 0) {
+      Alert.alert(t('common.error'), t('mockExam.noResultsAvailable'));
+      return;
+    }
+
+    // Calculate correct answers count
+    const correctAnswers = step.answers.filter(a => a.isCorrect).length;
+
+    // Create an ExamResult object from the step data
+    const examResult: ExamResult = {
+      examId: `${examProgress.examId}-${stepId}`,
+      score: step.score || 0,
+      maxScore: step.maxPoints,
+      percentage: step.maxPoints > 0 ? Math.round(((step.score || 0) / step.maxPoints) * 100) : 0,
+      correctAnswers,
+      totalQuestions: step.answers.length,
+      answers: step.answers,
+      timestamp: step.endTime || Date.now(),
+    };
+
+    setSelectedStepResult(examResult);
+    setIsResultsModalVisible(true);
+  };
+
   const renderStepContent = () => {
     console.log('[MockExamRunningScreen] renderStepContent: currentStep', currentStep);
     if (!currentStep) return null;
 
     // Get testId for current step
     const testId = getTestIdForStep(currentStep.id, examProgress.selectedTests);
-    const isA1 = activeExamConfig.level === 'A1';
-    const isDele = activeExamConfig.id === 'dele-spanish-b1';
 
-    // Check if it's a speaking section (German: section 5, DELE: section 4)
-    const speakingSectionNumber = isDele ? 4 : 5;
+    // Check if it's a speaking section (German: section 5, DELE: section 5)
+    const speakingSectionNumber = 5; // BUG: check this for Telc exams, I only checked DELE
     if (currentStep.sectionNumber === speakingSectionNumber) {
       return (
         <View style={styles.speakingMessageContainer}>
@@ -181,17 +231,17 @@ const MockExamRunningScreen: React.FC = () => {
               ℹ️ {t('mockExam.speakingCardTitle')}
             </Text>
             <Text style={styles.speakingCardText}>
-              Die mündliche Prüfung kann nicht automatisch bewertet werden, da sie eine 
+              Die mündliche Prüfung kann nicht automatisch bewertet werden, da sie eine
               Interaktion zwischen zwei Kandidaten oder mit einem Prüfer erfordert.
             </Text>
             <Text style={styles.speakingCardText}>
               {'\n'}Wir empfehlen Ihnen dringend, den{' '}
-              <Text style={styles.speakingCardBold}>Übungsbereich</Text> zu nutzen, um 
-              die mündliche Prüfung zu üben. Dort finden Sie alle drei Teile mit detaillierten 
+              <Text style={styles.speakingCardBold}>Übungsbereich</Text> zu nutzen, um
+              die mündliche Prüfung zu üben. Dort finden Sie alle drei Teile mit detaillierten
               Anweisungen.
             </Text>
             <Text style={styles.speakingCardText}>
-              {'\n'}Üben Sie mit einem Freund, Sprachpartner oder Tutor, um sich optimal 
+              {'\n'}Üben Sie mit einem Freund, Sprachpartner oder Tutor, um sich optimal
               vorzubereiten!
             </Text>
           </View>
@@ -217,6 +267,13 @@ const MockExamRunningScreen: React.FC = () => {
       }
       if (currentStep.id === 'reading-3') {
         return <DeleReadingPart3Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+
+      if (currentStep.id === 'grammar-1') {
+        return <DeleGrammarPart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
+      }
+      if (currentStep.id === 'grammar-2') {
+        return <DeleGrammarPart2Wrapper testId={testId} onComplete={handleCompleteStep} />;
       }
 
       // Section 2: Writing (Expresión e Interacción Escritas)
@@ -288,7 +345,7 @@ const MockExamRunningScreen: React.FC = () => {
   const renderResults = () => {
     const isA1 = activeExamConfig.level === 'A1';
     const isDele = activeExamConfig.id === 'dele-spanish-b1';
-    
+
     let writtenScore, oralScore, writtenMaxPoints, oralMaxPoints;
     let passingWrittenPoints, passingOralPoints, passingTotalPoints;
 
@@ -296,7 +353,7 @@ const MockExamRunningScreen: React.FC = () => {
       // DELE B1: Group 1 (Reading + Writing) and Group 2 (Listening + Speaking)
       // Group 1: Reading (section 1) + Writing (section 2) = 50 points
       writtenScore = examProgress.steps
-        .filter(step => step.sectionNumber <= 2)
+        .filter(step => [1, 2, 4].includes(step.sectionNumber))
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
       // Group 2: Listening (section 3) = 25 points
@@ -307,7 +364,7 @@ const MockExamRunningScreen: React.FC = () => {
 
       writtenMaxPoints = 50; // Reading (25) + Writing (25)
       oralMaxPoints = 25; // Listening (25) + Speaking (0, skipped in mock exam)
-      
+
       passingWrittenPoints = 30; // 60% of 50
       passingOralPoints = 15; // 60% of 25
       passingTotalPoints = 45; // 60% of 75
@@ -321,30 +378,25 @@ const MockExamRunningScreen: React.FC = () => {
         .filter(step => step.sectionNumber === 5)
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
-      writtenMaxPoints = examProgress.totalMaxPoints - (isA1 ? 15 : 75);
       oralMaxPoints = isA1 ? 15 : 75;
+      writtenMaxPoints = examProgress.totalMaxPoints - oralMaxPoints;
 
       passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
       passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
-      passingTotalPoints = isA1 ? 36 : 180; // 60% of total
+      passingTotalPoints = passingWrittenPoints // Exclude oral passing points for total
     }
 
     const writtenPercentage = (writtenScore / writtenMaxPoints) * 100;
-    const oralPercentage = oralScore > 0 ? (oralScore / oralMaxPoints) * 100 : 0;
-    
-    // When oral exam is skipped, only consider written portion for total
-    const totalPercentage = oralScore > 0 
-      ? (examProgress.totalScore / examProgress.totalMaxPoints) * 100
-      : writtenPercentage;
-    
+    const oralPercentage = (oralScore / oralMaxPoints) * 100;
+
+    const totalPercentage = (examProgress.totalScore / examProgress.totalMaxPoints) * 100;
+
     const passedWritten = writtenScore >= passingWrittenPoints;
-    const passedOral = oralScore >= passingOralPoints || oralScore === 0; // Skip oral if not taken
-    
+    const passedOral = isDele ? oralScore >= passingOralPoints : true; // Telc oral is skipped
+
     // When oral exam is skipped, only need to pass written portion
     // When oral exam is taken, need to pass total (which includes both written and oral)
-    const passedOverall = oralScore > 0 
-      ? (examProgress.totalScore >= passingTotalPoints && passedWritten && passedOral)
-      : passedWritten;
+    const passedOverall = (examProgress.totalScore >= passingTotalPoints && passedWritten && passedOral);
 
     return (
       <ScrollView style={styles.resultsContainer} contentContainerStyle={styles.resultsContent}>
@@ -363,7 +415,7 @@ const MockExamRunningScreen: React.FC = () => {
             styles.resultScore,
             passedOverall ? styles.resultScorePass : styles.resultScoreFail
           ]}>
-            {examProgress.totalScore} / {examProgress.totalMaxPoints} ({totalPercentage.toFixed(1)}%)
+            {examProgress.totalScore.toFixed(1)} / {examProgress.totalMaxPoints} ({totalPercentage.toFixed(1)}%)
           </Text>
           <Text style={styles.resultRequirement}>
             {t('mockExam.requirementText', { percentage: '60' })}
@@ -376,7 +428,7 @@ const MockExamRunningScreen: React.FC = () => {
             {isDele ? t('mockExam.deleReadingWriting') : t('mockExam.writtenExam')}
           </Text>
           <Text style={styles.componentScore}>
-            {writtenScore} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
+            {writtenScore.toFixed(1)} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
           </Text>
           <Text style={[
             styles.componentStatus,
@@ -386,14 +438,14 @@ const MockExamRunningScreen: React.FC = () => {
           </Text>
         </View>
 
-        {/* Oral Component (if taken) */}
-        {oralScore > 0 && (
+        {/* Show Oral Component Only for DELE */}
+        {isDele && (
           <View style={styles.componentCard}>
             <Text style={styles.componentTitle}>
               {isDele ? t('mockExam.deleListeningSpeaking') : t('mockExam.oralExam')}
             </Text>
             <Text style={styles.componentScore}>
-              {oralScore} / {oralMaxPoints} ({oralPercentage.toFixed(1)}%)
+              {oralScore.toFixed(1)} / {oralMaxPoints} ({oralPercentage.toFixed(1)}%)
             </Text>
             <Text style={[
               styles.componentStatus,
@@ -407,40 +459,51 @@ const MockExamRunningScreen: React.FC = () => {
         {/* Detailed Step Breakdown */}
         <View style={styles.stepBreakdownSection}>
           <Text style={styles.stepBreakdownTitle}>{t('mockExam.detailedBreakdown')}</Text>
-          
+
           {examProgress.steps.map((step, index) => {
-            const stepPercentage = step.maxPoints > 0 
-              ? ((step.score || 0) / step.maxPoints) * 100 
+            const stepPercentage = step.maxPoints > 0
+              ? ((step.score || 0) / step.maxPoints) * 100
               : 0;
-            const speakingSectionNumber = isDele ? 4 : 5;
+            const speakingSectionNumber = isDele ? 5 : 5; // BUG: Telc has different levels, check needed
             const isSkipped = step.sectionNumber === speakingSectionNumber && (step.score || 0) === 0;
-            
+
             return (
               <View key={step.id} style={styles.stepBreakdownCard}>
-                <View style={styles.stepBreakdownHeader}>
-                  <Text style={styles.stepBreakdownNumber}>{index + 1}</Text>
-                  <View style={styles.stepBreakdownInfo}>
-                    <Text style={styles.stepBreakdownPartName}>{step.partName}</Text>
-                    <Text style={styles.stepBreakdownSectionName}>{step.sectionName}</Text>
+                <View style={styles.stepBreakdownContent}>
+                  <View style={styles.stepBreakdownHeader}>
+                    <Text style={styles.stepBreakdownNumber}>{index + 1}</Text>
+                    <View style={styles.stepBreakdownInfo}>
+                      <Text style={styles.stepBreakdownPartName}>{step.partName}</Text>
+                      <Text style={styles.stepBreakdownSectionName}>{step.sectionName}</Text>
+                    </View>
+                  </View>
+                  <View style={styles.stepBreakdownScores}>
+                    {isSkipped ? (
+                      <Text style={styles.stepBreakdownSkipped}>{t('mockExam.skipped')}</Text>
+                    ) : (
+                      <>
+                        <Text style={styles.stepBreakdownScore}>
+                          {step.score || 0} / {step.maxPoints}
+                        </Text>
+                        <Text style={[
+                          styles.stepBreakdownPercentage,
+                          stepPercentage >= 60 ? styles.stepBreakdownPercentagePass : styles.stepBreakdownPercentageFail
+                        ]}>
+                          {stepPercentage.toFixed(1)}%
+                        </Text>
+                      </>
+                    )}
                   </View>
                 </View>
-                <View style={styles.stepBreakdownScores}>
-                  {isSkipped ? (
-                    <Text style={styles.stepBreakdownSkipped}>{t('mockExam.skipped')}</Text>
-                  ) : (
-                    <>
-                      <Text style={styles.stepBreakdownScore}>
-                        {step.score || 0} / {step.maxPoints}
-                      </Text>
-                      <Text style={[
-                        styles.stepBreakdownPercentage,
-                        stepPercentage >= 60 ? styles.stepBreakdownPercentagePass : styles.stepBreakdownPercentageFail
-                      ]}>
-                        {stepPercentage.toFixed(1)}%
-                      </Text>
-                    </>
-                  )}
-                </View>
+                {/* View Results Button - Only show if step has answers and is not skipped */}
+                {!isSkipped && step.answers && step.answers.length > 0 && (
+                  <TouchableOpacity
+                    style={styles.viewResultsButton}
+                    onPress={() => handleViewStepResults(step.id)}
+                  >
+                    <Text style={styles.viewResultsButtonText}>{t('mockExam.viewAnswers')}</Text>
+                  </TouchableOpacity>
+                )}
               </View>
             );
           })}
@@ -468,23 +531,31 @@ const MockExamRunningScreen: React.FC = () => {
   };
 
   if (examProgress.isCompleted) {
-  return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      {renderResults()}
-      
-      {/* Persistent Banner at Bottom */}
-      <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
-        <AdBanner screen="mock-exam-results" />
+    return (
+      <SafeAreaView style={styles.container} edges={['top']}>
+        {renderResults()}
+
+        {/* Persistent Banner at Bottom */}
+        <SafeAreaView edges={['bottom']} style={styles.bannerContainer}>
+          <AdBanner screen="mock-exam-results" />
+        </SafeAreaView>
+
+        {/* Results Modal */}
+        <ResultsModal
+          visible={isResultsModalVisible}
+          result={selectedStepResult}
+          onClose={() => setIsResultsModalVisible(false)}
+          examTitle={examProgress.examId}
+        />
       </SafeAreaView>
-    </SafeAreaView>
-  );
-}
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Fixed Stepper at Top */}
-      <ExamStepper 
-        steps={examProgress.steps} 
+      <ExamStepper
+        steps={examProgress.steps}
         currentStepId={examProgress.currentStepId}
         onStepPress={__DEV__ ? handleStepPress : undefined}
       />
@@ -803,9 +874,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     padding: spacing.padding.md,
     borderRadius: spacing.borderRadius.md,
     marginBottom: spacing.margin.sm,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
@@ -813,6 +881,12 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     elevation: 1,
     borderLeftWidth: 3,
     borderLeftColor: colors.primary[400],
+  },
+  stepBreakdownContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: spacing.margin.xs,
   },
   stepBreakdownHeader: {
     flexDirection: 'row',
@@ -867,6 +941,18 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.text.secondary,
     fontStyle: 'italic',
+  },
+  viewResultsButton: {
+    backgroundColor: colors.primary[500],
+    paddingVertical: spacing.padding.xs,
+    paddingHorizontal: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    marginTop: spacing.margin.xs,
+  },
+  viewResultsButtonText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.background.secondary,
+    fontWeight: typography.fontWeight.semibold,
   },
   primaryButton: {
     backgroundColor: colors.primary[500],

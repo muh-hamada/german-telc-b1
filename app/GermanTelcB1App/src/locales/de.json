@@ -947,7 +947,9 @@
     "requirementText": "Mindestens {{percentage}}% erforderlich zum Bestehen",
     "examResultsTitle": "Prüfung abgeschlossen!",
     "deleReadingWriting": "Gruppe 1: Lesen und Schreiben",
-    "deleListeningSpeaking": "Gruppe 2: Zuhören und mündlicher Ausdruck"
+    "deleListeningSpeaking": "Gruppe 2: Zuhören (Sprechen übersprungen)",
+    "viewAnswers": "Antworten ansehen",
+    "noResultsAvailable": "Keine Ergebnisse für diesen Schritt verfügbar."
   },
   "questions": {
     "checkAnswers": "Antworten prüfen",

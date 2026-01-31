@@ -934,7 +934,9 @@
     "requirementText": "الحد الأدنى {{percentage}}٪ مطلوب للنجاح",
     "examResultsTitle": "اكتمل الامتحان!",
     "deleReadingWriting": "المجموعة الأولى: القراءة والكتابة",
-    "deleListeningSpeaking": "المجموعة الثانية: الاستماع والتعبير الشفهي"
+    "deleListeningSpeaking": "المجموعة 2: الاستماع (تخطي التحدث)",
+    "viewAnswers": "عرض الإجابات",
+    "noResultsAvailable": "لا توجد نتائج متاحة لهذه الخطوة."
   },
   "questions": {
     "checkAnswers": "التحقق من الإجابات",

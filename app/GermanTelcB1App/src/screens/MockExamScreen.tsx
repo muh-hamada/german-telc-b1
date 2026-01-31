@@ -1,32 +1,31 @@
-import React, { useMemo, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useMemo } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
   Alert,
   I18nManager,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { activeExamConfig } from '../config/active-exam.config';
+import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { useNavigation } from '@react-navigation/native';
-import { spacing, typography, type ThemeColors } from '../theme';
-import { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, MOCK_EXAM_STEPS_DELE_B1 } from '../types/mock-exam.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import {
-  loadMockExamProgress,
   clearMockExamProgress,
   createInitialMockExamProgress,
+  loadMockExamProgress,
   saveMockExamProgress,
 } from '../services/mock-exam.service';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import { useAppTheme } from '../contexts/ThemeContext';
-import { activeExamConfig } from '../config/active-exam.config';
+import { spacing, typography, type ThemeColors } from '../theme';
+import { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, MOCK_EXAM_STEPS_DELE_B1 } from '../types/mock-exam.types';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation<any>();
-  const [isLoading, setIsLoading] = useState(true);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
@@ -66,8 +65,6 @@ const MockExamScreen: React.FC = () => {
       }
     } catch (error) {
       console.error('Error checking for active exam:', error);
-    } finally {
-      setIsLoading(false);
     }
   };
 

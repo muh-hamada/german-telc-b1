@@ -23,11 +23,7 @@ const DeleListeningPart5Wrapper: React.FC<DeleListeningPart5WrapperProps> = ({ t
       try {
         setIsLoading(true);
         const data = await dataService.getDeleListeningPart5Content();
-        setSectionDetails(data.section_details || {
-          title: 'DELE Listening Part 5',
-          instructions_en: 'Listen to the audio and answer the questions.',
-          duration_minutes: 30,
-        });
+        setSectionDetails(data.section_details);
         const exams = data.exams || [];
         const loadedExam = exams.find((e: DeleListeningExam) => e.id === testId) || exams[0];
         setExam(loadedExam || null);
