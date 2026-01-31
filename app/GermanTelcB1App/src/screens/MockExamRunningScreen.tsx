@@ -373,7 +373,7 @@ const MockExamRunningScreen: React.FC = () => {
         {/* Written Component */}
         <View style={styles.componentCard}>
           <Text style={styles.componentTitle}>
-            {isDele ? {t('mockExam.deleReadingWriting')} : t('mockExam.writtenExam')}
+            {isDele ? t('mockExam.deleReadingWriting') : t('mockExam.writtenExam')}
           </Text>
           <Text style={styles.componentScore}>
             {writtenScore} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
@@ -796,7 +796,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h3,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.md,
+    marginBottom: spacing.margin.sm,
   },
   stepBreakdownCard: {
     backgroundColor: colors.background.secondary,
