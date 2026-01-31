@@ -1,0 +1,242 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-3-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 30
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "El Ministerio de Educación anunció ayer un nuevo plan para llevar internet a todas las escuelas rurales del país antes del año 2025. El ministro explicó que el objetivo principal es garantizar que ningún estudiante se quede sin acceso a la información digital.",
+      "voiceId": "moderator"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "Este fin de semana comienza la Feria Gastronómica de Lima. Este año, el evento es especial porque contará con la participación de chefs famosos de Italia y Japón. Se espera la asistencia de más de diez mil personas para probar los platos internacionales.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "La banda de rock Los Viajeros ha cancelado su concierto en Santiago, previsto para el sábado, por problemas de salud del cantante. La organización ha dicho que devolverán el dinero de las entradas a todos los compradores a partir del próximo lunes.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "La escritora argentina Sofía Méndez recibió anoche el Premio Nacional de Literatura por su última novela, El Viento del Sur. Méndez dijo estar muy emocionada y dedicó el premio a su abuela, quien le enseñó a leer cuando era pequeña.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "A partir de mañana, la línea 3 del metro cerrará por obras de mantenimiento urgente. El ayuntamiento ha puesto autobuses gratuitos para cubrir la ruta afectada. Las obras durarán aproximadamente dos semanas, según informaron las autoridades de transporte.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "El Parque Nacional de las Iguanas ha reabierto sus puertas tras el incendio del mes pasado. Aunque algunas zonas siguen cerradas por seguridad, los turistas ya pueden visitar las cascadas principales y caminar por los senderos del bosque.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-3-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "El Ministerio de Educación anunció ayer un nuevo plan para llevar internet a todas las escuelas rurales del país antes del año 2025. El ministro explicó que el objetivo principal es garantizar que ningún estudiante se quede sin acceso a la información digital.",
+      "voiceId": "moderator"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "Este fin de semana comienza la Feria Gastronómica de Lima. Este año, el evento es especial porque contará con la participación de chefs famosos de Italia y Japón. Se espera la asistencia de más de diez mil personas para probar los platos internacionales.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "La banda de rock Los Viajeros ha cancelado su concierto en Santiago, previsto para el sábado, por problemas de salud del cantante. La organización ha dicho que devolverán el dinero de las entradas a todos los compradores a partir del próximo lunes.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "La escritora argentina Sofía Méndez recibió anoche el Premio Nacional de Literatura por su última novela, El Viento del Sur. Méndez dijo estar muy emocionada y dedicó el premio a su abuela, quien le enseñó a leer cuando era pequeña.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "A partir de mañana, la línea 3 del metro cerrará por obras de mantenimiento urgente. El ayuntamiento ha puesto autobuses gratuitos para cubrir la ruta afectada. Las obras durarán aproximadamente dos semanas, según informaron las autoridades de transporte.",
+      "voiceId": "person3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "part-3-next-item"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speech": 0.85,
+      "text": "El Parque Nacional de las Iguanas ha reabierto sus puertas tras el incendio del mes pasado. Aunque algunas zonas siguen cerradas por seguridad, los turistas ya pueden visitar las cascadas principales y caminar por los senderos del bosque.",
+      "voiceId": "person1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-3-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

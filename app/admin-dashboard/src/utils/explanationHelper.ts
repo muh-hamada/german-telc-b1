@@ -100,7 +100,6 @@ export const getExplanationStats = (docId: string, data: any, appId?: string): E
 
         if (docId === 'writing-part1' || docId === 'writing-part2') {
           stats = handleWritingExplanations(exam);
-          
         }
 
         total += stats.total;
@@ -185,6 +184,13 @@ export const getExplanationStats = (docId: string, data: any, appId?: string): E
           total++;
           if (hasExplanation(q.explanation)) count++;
         });
+      });
+    } else if (docId === 'writing') {
+      const exams = data.exams || [];
+      exams.forEach((exam: any) => {
+        const stats = handleWritingExplanations(exam);
+        total += stats.total;
+        count += stats.count;
       });
     } else if (docId === 'grammar-study-questions') {
       const stats = handleGrammarStudyExplanations(data);

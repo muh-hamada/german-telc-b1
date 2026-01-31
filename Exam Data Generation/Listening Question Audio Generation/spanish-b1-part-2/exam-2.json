@@ -1,0 +1,54 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-2-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 30
+    },
+    {
+      "type": "speech",
+      "speed": 0.85,
+      "repeated": true,
+      "text": "Me llamo Mateo y soy de México. Vivo en Alemania, concretamente en Berlín, desde hace ocho años. Al principio, fue una experiencia muy intensa porque compartía un apartamento pequeño con cinco estudiantes de diferentes países. Era un caos absoluto, siempre había gente en la cocina, pero aprendí mucho sobre otras culturas. Vine a Europa porque quería estudiar piano en un conservatorio muy famoso de aquí. La música clásica siempre ha sido mi gran pasión desde niño. Sin embargo, la vida da muchas vueltas y ahora no toco en grandes orquestas. Actualmente, trabajo como profesor de música en una escuela primaria. Es un trabajo bastante cansado porque los niños tienen mucha energía, pero me encanta ver cómo disfrutan cantando y aprendiendo las notas. Lo que más extraño de mi país es el sol y, por supuesto, la comida picante, aunque debo admitir que aquí el pan es delicioso. Vivo con mi novia, que es alemana. Nos conocimos en un concierto hace tres años y, aunque ella habla español muy bien, en casa solemos hablar en alemán para que yo pueda practicar y mejorar mi vocabulario. En mi tiempo libre, tengo una afición un poco solitaria: me dedico a la fotografía urbana. Me gusta salir los domingos por la mañana a tomar fotos de edificios antiguos y estaciones de tren vacías. Tengo una pequeña colección de imágenes en blanco y negro que quiero exponer pronto en una galería local.",
+      "voiceId": "person3",
+      "id": "full-interview"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "part-2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "speed": 0.85,
+      "repeated": true,
+      "text": "Me llamo Mateo y soy de México. Vivo en Alemania, concretamente en Berlín, desde hace ocho años. Al principio, fue una experiencia muy intensa porque compartía un apartamento pequeño con cinco estudiantes de diferentes países. Era un caos absoluto, siempre había gente en la cocina, pero aprendí mucho sobre otras culturas. Vine a Europa porque quería estudiar piano en un conservatorio muy famoso de aquí. La música clásica siempre ha sido mi gran pasión desde niño. Sin embargo, la vida da muchas vueltas y ahora no toco en grandes orquestas. Actualmente, trabajo como profesor de música en una escuela primaria. Es un trabajo bastante cansado porque los niños tienen mucha energía, pero me encanta ver cómo disfrutan cantando y aprendiendo las notas. Lo que más extraño de mi país es el sol y, por supuesto, la comida picante, aunque debo admitir que aquí el pan es delicioso. Vivo con mi novia, que es alemana. Nos conocimos en un concierto hace tres años y, aunque ella habla español muy bien, en casa solemos hablar en alemán para que yo pueda practicar y mejorar mi vocabulario. En mi tiempo libre, tengo una afición un poco solitaria: me dedico a la fotografía urbana. Me gusta salir los domingos por la mañana a tomar fotos de edificios antiguos y estaciones de tren vacías. Tengo una pequeña colección de imágenes en blanco y negro que quiero exponer pronto en una galería local.",
+      "voiceId": "person3",
+      "id": "full-interview"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "part-2-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

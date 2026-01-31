@@ -1,0 +1,270 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "part-5-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 20
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Hola, Elena! Te veo muy concentrada con el móvil. ¿Qué estás mirando?",
+      "voiceId": "person3",
+      "id": "turn-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Javier. Pues mira, estaba viendo fotos de perros en Internet. Llevo tiempo pensándolo y he decidido adoptar uno.",
+      "voiceId": "person1",
+      "id": "turn-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Qué buena idea! A mí me encantan los animales, pero ahora mismo vivo en un piso muy pequeño y trabajo muchas horas.",
+      "voiceId": "person3",
+      "id": "turn-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Ya, es una gran responsabilidad. Pero yo ahora tengo más tiempo libre por las tardes y me apetece tener compañía en casa.",
+      "voiceId": "person1",
+      "id": "turn-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¿Y sabes ya dónde vas a buscarlo? Mi prima es voluntaria en un refugio que hay a las afueras de la ciudad.",
+      "voiceId": "person3",
+      "id": "turn-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "No tenía ni idea. ¿Crees que podríamos ir a visitarlo este fin de semana? Me gustaría ver a los perros antes de decidirme.",
+      "voiceId": "person1",
+      "id": "turn-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Claro. El sábado por la mañana tengo dentista, pero el domingo estoy totalmente libre. Podemos ir en mi coche.",
+      "voiceId": "person3",
+      "id": "turn-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Perfecto, el domingo entonces. Así el sábado aprovecho para comprar una cama y algo de comida para tenerlo todo listo.",
+      "voiceId": "person1",
+      "id": "turn-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Me parece un plan estupendo. Luego te paso la dirección exacta del sitio por mensaje.",
+      "voiceId": "person3",
+      "id": "turn-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Genial! Muchas gracias, Javier. Me hace mucha ilusión.",
+      "voiceId": "person1",
+      "id": "turn-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-5-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Hola, Elena! Te veo muy concentrada con el móvil. ¿Qué estás mirando?",
+      "voiceId": "person3",
+      "id": "turn-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Hola, Javier. Pues mira, estaba viendo fotos de perros en Internet. Llevo tiempo pensándolo y he decidido adoptar uno.",
+      "voiceId": "person1",
+      "id": "turn-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Qué buena idea! A mí me encantan los animales, pero ahora mismo vivo en un piso muy pequeño y trabajo muchas horas.",
+      "voiceId": "person3",
+      "id": "turn-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Ya, es una gran responsabilidad. Pero yo ahora tengo más tiempo libre por las tardes y me apetece tener compañía en casa.",
+      "voiceId": "person1",
+      "id": "turn-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¿Y sabes ya dónde vas a buscarlo? Mi prima es voluntaria en un refugio que hay a las afueras de la ciudad.",
+      "voiceId": "person3",
+      "id": "turn-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "No tenía ni idea. ¿Crees que podríamos ir a visitarlo este fin de semana? Me gustaría ver a los perros antes de decidirme.",
+      "voiceId": "person1",
+      "id": "turn-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Claro. El sábado por la mañana tengo dentista, pero el domingo estoy totalmente libre. Podemos ir en mi coche.",
+      "voiceId": "person3",
+      "id": "turn-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Perfecto, el domingo entonces. Así el sábado aprovecho para comprar una cama y algo de comida para tenerlo todo listo.",
+      "voiceId": "person1",
+      "id": "turn-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "Me parece un plan estupendo. Luego te paso la dirección exacta del sitio por mensaje.",
+      "voiceId": "person3",
+      "id": "turn-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.85,
+      "text": "¡Genial! Muchas gracias, Javier. Me hace mucha ilusión.",
+      "voiceId": "person1",
+      "id": "turn-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-5-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]
