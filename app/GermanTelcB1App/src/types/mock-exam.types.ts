@@ -84,9 +84,10 @@ export const MOCK_EXAM_STEPS_DELE_B1: Omit<MockExamStep, 'isCompleted' | 'score'
   { id: 'listening-5', sectionNumber: 3, sectionName: 'Comprensión Auditiva', partNumber: 5, partName: 'Tarea 5', maxPoints: 3, timeMinutes: 8 },
   
   // 4. Oral Expression - 25 points total (skipped in mock exam)
-  { id: 'speaking-1', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 1, partName: 'Tarea 1: Monólogo', maxPoints: 8, timeMinutes: 15 },
-  { id: 'speaking-2', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 2, partName: 'Tarea 2: Diálogo', maxPoints: 8, timeMinutes: 15 },
-  { id: 'speaking-3', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 3, partName: 'Tarea 3: Conversación', maxPoints: 9, timeMinutes: 15 },
+  { id: 'speaking-1', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 1, partName: 'Tarea 1: Monólogo', maxPoints: 6.25, timeMinutes: 3 },
+  { id: 'speaking-2', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 2, partName: 'Tarea 2: Diálogo', maxPoints: 6.25, timeMinutes: 4 },
+  { id: 'speaking-3', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 3, partName: 'Tarea 3: Conversación', maxPoints: 6.25, timeMinutes: 3 },
+  { id: 'speaking-4', sectionNumber: 4, sectionName: 'Expresión e Interacción Orales', partNumber: 4, partName: 'Tarea 4: Conversación', maxPoints: 6.25, timeMinutes: 4 },
 ];
 
 // B1/B2 Constants

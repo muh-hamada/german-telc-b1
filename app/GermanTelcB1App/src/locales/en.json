@@ -1081,7 +1081,10 @@
     "examResultsNote": "ℹ️ This is a mock exam for practice. Actual exam results may vary. Use these results to identify your strengths and weaknesses.",
     "detailedBreakdown": "Detailed Step Breakdown",
     "skipped": "Skipped",
-    "requirementText": "Minimum {{percentage}}% required to pass"
+    "requirementText": "Minimum {{percentage}}% required to pass",
+    "examResultsTitle": "Exam Completed!",
+    "deleReadingWriting": "Group 1: Reading and Writing",
+    "deleListeningSpeaking": "Group 2: Listening and Oral Expression"
   },
   "questions": {
     "checkAnswers": "Check Answers",

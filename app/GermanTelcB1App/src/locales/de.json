@@ -944,7 +944,10 @@
     "examResultsNote": "ℹ️ Dies ist eine Testprüfung zur Übung. Die tatsächlichen Prüfungsergebnisse können variieren. Nutzen Sie diese Ergebnisse, um Ihre Stärken und Schwächen zu identifizieren.",
     "detailedBreakdown": "Detaillierte Aufschlüsselung",
     "skipped": "Übersprungen",
-    "requirementText": "Mindestens {{percentage}}% erforderlich zum Bestehen"
+    "requirementText": "Mindestens {{percentage}}% erforderlich zum Bestehen",
+    "examResultsTitle": "Prüfung abgeschlossen!",
+    "deleReadingWriting": "Gruppe 1: Lesen und Schreiben",
+    "deleListeningSpeaking": "Gruppe 2: Zuhören und mündlicher Ausdruck"
   },
   "questions": {
     "checkAnswers": "Antworten prüfen",

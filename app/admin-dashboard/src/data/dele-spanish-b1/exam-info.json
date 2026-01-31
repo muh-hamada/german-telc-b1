@@ -93,12 +93,12 @@
                             "preparation_time_minutes": 15,
                             "max_points": 25,
                             "question_type_detail": {
-                                "en": "Three speaking tasks: 1) Short monologue describing experiences or personal topics, 2) Dialogue based on a given situation, 3) Role-play or conversation expressing opinions and describing events. Candidates receive 15 minutes preparation time before the 15-minute speaking test.",
-                                "ar": "ثلاث مهام تحدث: 1) مونولوج قصير يصف التجارب أو المواضيع الشخصية، 2) حوار بناءً على موقف معين، 3) لعب دور أو محادثة للتعبير عن الآراء ووصف الأحداث. يحصل المرشحون على 15 دقيقة وقت تحضير قبل اختبار التحدث الذي يستغرق 15 دقيقة.",
-                                "ru": "Три устных задания: 1) Короткий монолог, описывающий опыт или личные темы, 2) Диалог на основе заданной ситуации, 3) Ролевая игра или разговор с выражением мнений и описанием событий. Кандидаты получают 15 минут на подготовку перед 15-минутным устным тестом.",
-                                "fr": "Trois tâches orales : 1) Bref monologue décrivant des expériences ou des sujets personnels, 2) Dialogue basé sur une situation donnée, 3) Jeu de rôle ou conversation exprimant des opinions et décrivant des événements. Les candidats disposent de 15 minutes de préparation avant le test oral de 15 minutes.",
-                                "es": "Tres tareas orales: 1) Monólogo breve describiendo experiencias o temas personales, 2) Diálogo basado en una situación dada, 3) Juego de roles o conversación expresando opiniones y describiendo eventos. Los candidatos reciben 15 minutos de preparación antes de la prueba oral de 15 minutos.",
-                                "de": "Drei mündliche Aufgaben: 1) Kurzer Monolog zur Beschreibung von Erfahrungen oder persönlichen Themen, 2) Dialog basierend auf einer gegebenen Situation, 3) Rollenspiel oder Gespräch mit Meinungsäußerung und Ereignisbeschreibung. Die Kandidaten erhalten 15 Minuten Vorbereitungszeit vor der 15-minütigen mündlichen Prüfung."
+                                "en": "Four speaking tasks: 1) Short monologue describing experiences or personal topics, 2) Dialogue based on a given situation, 3) Describe a photograph, 4) Role-play or conversation expressing opinions and describing events. Candidates receive 15 minutes preparation time before the 15-minute speaking test.",
+                                "ar": "أربع مهام تحدث: 1) مونولوج قصير يصف التجارب أو المواضيع الشخصية، 2) حوار بناءً على موقف معين، 3) وصف صورة فوتوغرافية، 4) لعب دور أو محادثة للتعبير عن الآراء ووصف الأحداث. يحصل المرشحون على 15 دقيقة وقت تحضير قبل اختبار التحدث الذي يستغرق 15 دقيقة.",
+                                "ru": "Четыре устных задания: 1) Короткий монолог, описывающий опыт или личные темы, 2) Диалог на основе заданной ситуации, 3) Описание фотографии, 4) Ролевая игра или разговор с выражением мнений и описанием событий. Кандидаты получают 15 минут на подготовку перед 15-минутным устным тестом.",
+                                "fr": "Quatre tâches orales : 1) Bref monologue décrivant des expériences ou des sujets personnels, 2) Dialogue basé sur une situation donnée, 3) Décrire une photographie, 4) Jeu de rôle ou conversation exprimant des opinions et décrivant des événements. Les candidats disposent de 15 minutes de préparation avant le test oral de 15 minutes.",
+                                "es": "Cuatro tareas orales: 1) Monólogo breve describiendo experiencias o temas personales, 2) Diálogo basado en una situación dada, 3) Describir una fotografía, 4) Juego de roles o conversación expresando opiniones y describiendo eventos. Los candidatos reciben 15 minutos de preparación antes de la prueba oral de 15 minutos.",
+                                "de": "Vier mündliche Aufgaben: 1) Kurzer Monolog zur Beschreibung von Erfahrungen oder persönlichen Themen, 2) Dialog basierend auf einer gegebenen Situation, 3) Beschreibung eines Fotos, 4) Rollenspiel oder Gespräch mit Meinungsäußerung und Ereignisbeschreibung. Die Kandidaten erhalten 15 Minuten Vorbereitungszeit vor der 15-minütigen mündlichen Prüfung."
                             }
                         }
                     ]
@@ -226,12 +226,12 @@
                         }
                     ],
                     "points_distribution": {
-                        "en": "Points are distributed across the three speaking tasks: monologue, dialogue, and role-play/conversation, evaluating both content and communication skills.",
-                        "ar": "يتم توزيع النقاط على مهام التحدث الثلاث: المونولوج، والحوار، ولعب الأدوار/المحادثة، وتقييم كل من المحتوى ومهارات الاتصال.",
-                        "ru": "Баллы распределяются по трем устным заданиям: монолог, диалог и ролевая игра/разговор, оценивая как содержание, так и коммуникативные навыки.",
-                        "fr": "Les points sont répartis sur les trois tâches orales : monologue, dialogue et jeu de rôle/conversation, en évaluant à la fois le contenu et les compétences de communication.",
-                        "es": "Los puntos se distribuyen en las tres tareas orales: monólogo, diálogo y juego de roles/conversación, evaluando tanto el contenido como las habilidades de comunicación.",
-                        "de": "Die Punkte werden auf die drei mündlichen Aufgaben verteilt: Monolog, Dialog und Rollenspiel/Gespräch, wobei sowohl Inhalt als auch Kommunikationsfähigkeiten bewertet werden."
+                        "en": "Points are distributed across the four speaking tasks: monologue, dialogue, describing a photograph, and role-play/conversation, evaluating both content and communication skills.",
+                        "ar": "يتم توزيع النقاط على مهام التحدث الأربع: المونولوج، والحوار، ووصف صورة فوتوغرافية، ولعب الأدوار/المحادثة، مع تقييم كل من المحتوى ومهارات الاتصال.",
+                        "ru": "Баллы распределяются по четырём устным заданиям: монолог, диалог, описание фотографии и ролевая игра/разговор, оценивая как содержание, так и коммуникативные навыки.",
+                        "fr": "Les points sont répartis sur les quatre tâches orales : monologue, dialogue, description d'une photographie et jeu de rôle/conversation, en évaluant à la fois le contenu et les compétences de communication.",
+                        "es": "Los puntos se distribuyen en las cuatro tareas orales: monólogo, diálogo, descripción de una fotografía y juego de roles/conversación, evaluando tanto el contenido como las habilidades de comunicación.",
+                        "de": "Die Punkte werden auf die vier mündlichen Aufgaben verteilt: Monolog, Dialog, Beschreibung eines Fotos und Rollenspiel/Gespräch, wobei sowohl Inhalt als auch Kommunikationsfähigkeiten bewertet werden."
                     }
                 }
             ]

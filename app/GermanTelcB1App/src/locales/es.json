@@ -943,7 +943,10 @@
     "examResultsNote": "ℹ️ Este es un examen simulado para practicar. \nLos resultados reales del examen pueden variar. \nUtilice estos resultados para identificar sus fortalezas y debilidades.",
     "detailedBreakdown": "Desglose detallado",
     "skipped": "Omitido",
-    "requirementText": "Mínimo {{percentage}}% requerido para aprobar"
+    "requirementText": "Mínimo {{percentage}}% requerido para aprobar",
+    "examResultsTitle": "¡Examen completado!",
+    "deleReadingWriting": "Grupo 1: Lectura y Escritura",
+    "deleListeningSpeaking": "Grupo 2: Escucha y Expresión Oral"
   },
   "questions": {
     "checkAnswers": "Verificar respuestas",

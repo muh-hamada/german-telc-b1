@@ -411,6 +411,38 @@ export const getTestIdForStep = (
   return selectedTests[stepId] || 0;
 };
 
+/**
+ * Navigates to a specific step (for development mode only)
+ */
+export const navigateToStep = async (stepId: string): Promise<void> => {
+  try {
+    const progress = await loadMockExamProgress();
+    if (!progress) {
+      throw new Error('No mock exam progress found');
+    }
+
+    // Find the step
+    const stepIndex = progress.steps.findIndex(s => s.id === stepId);
+    if (stepIndex === -1) {
+      throw new Error(`Step ${stepId} not found`);
+    }
+
+    // Update current step
+    progress.currentStepId = stepId;
+    
+    // Set start time if not already set
+    if (!progress.steps[stepIndex].startTime) {
+      progress.steps[stepIndex].startTime = Date.now();
+    }
+
+    await saveMockExamProgress(progress);
+    console.log(`[DEV] Navigated to step: ${stepId}`);
+  } catch (error) {
+    console.error('Error navigating to step:', error);
+    throw error;
+  }
+};
+
 export const mockExamService = {
   generateRandomExamSelection,
   saveMockExamProgress,
@@ -421,5 +453,6 @@ export const mockExamService = {
   updateStepProgress,
   getCurrentStep,
   getTestIdForStep,
+  navigateToStep,
 };
 

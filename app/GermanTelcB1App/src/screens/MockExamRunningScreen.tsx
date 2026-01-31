@@ -40,6 +40,7 @@ import {
   updateStepProgress,
   clearMockExamProgress,
   getTestIdForStep,
+  navigateToStep,
 } from '../services/mock-exam.service';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
@@ -138,6 +139,24 @@ const MockExamRunningScreen: React.FC = () => {
         },
       ]
     );
+  };
+
+  const handleStepPress = async (stepId: string) => {
+    if (!__DEV__) return; // Only allow in development mode
+    
+    try {
+      console.log('[DEV] Navigating to step:', stepId);
+      await navigateToStep(stepId);
+      
+      // Reload progress from storage to get updated state
+      const updatedProgress = await loadMockExamProgress();
+      if (updatedProgress) {
+        setExamProgress(updatedProgress);
+      }
+    } catch (error) {
+      console.error('[DEV] Error navigating to step:', error);
+      Alert.alert('Dev Mode', `Failed to navigate to step: ${error}`);
+    }
   };
 
   const renderStepContent = () => {
@@ -280,19 +299,20 @@ const MockExamRunningScreen: React.FC = () => {
         .filter(step => step.sectionNumber <= 2)
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
-      // Group 2: Listening (section 3) + Speaking (section 4) = 50 points
+      // Group 2: Listening (section 3) = 25 points
+      // We skip speaking section (section 4) in mock exam
       oralScore = examProgress.steps
-        .filter(step => step.sectionNumber >= 3)
+        .filter(step => step.sectionNumber === 3)
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
       writtenMaxPoints = 50; // Reading (25) + Writing (25)
-      oralMaxPoints = 50; // Listening (25) + Speaking (25)
+      oralMaxPoints = 25; // Listening (25) + Speaking (0, skipped in mock exam)
       
       passingWrittenPoints = 30; // 60% of 50
-      passingOralPoints = 30; // 60% of 50
-      passingTotalPoints = 60; // 60% of 100
+      passingOralPoints = 15; // 60% of 25
+      passingTotalPoints = 45; // 60% of 75
     } else {
-      // German/English Telc/Goethe: Sections 1-4 are written, section 5 is oral
+      // German/English Telc: Sections 1-4 are written, section 5 is oral
       writtenScore = examProgress.steps
         .filter(step => step.sectionNumber <= 4)
         .reduce((acc, step) => acc + (step.score || 0), 0);
@@ -328,7 +348,7 @@ const MockExamRunningScreen: React.FC = () => {
 
     return (
       <ScrollView style={styles.resultsContainer} contentContainerStyle={styles.resultsContent}>
-        <Text style={styles.resultsTitle}>🎉 Prüfung abgeschlossen!</Text>
+        <Text style={styles.resultsTitle}>{t('mockExam.examResultsTitle')}</Text>
 
         {/* Overall Result */}
         <View style={styles.resultCard}>
@@ -343,13 +363,7 @@ const MockExamRunningScreen: React.FC = () => {
             styles.resultScore,
             passedOverall ? styles.resultScorePass : styles.resultScoreFail
           ]}>
-            {examProgress.totalScore} / {examProgress.totalMaxPoints}
-          </Text>
-          <Text style={[
-            styles.resultPercentage,
-            passedOverall ? styles.resultPercentagePass : styles.resultPercentageFail
-          ]}>
-            {totalPercentage.toFixed(1)}%
+            {examProgress.totalScore} / {examProgress.totalMaxPoints} ({totalPercentage.toFixed(1)}%)
           </Text>
           <Text style={styles.resultRequirement}>
             {t('mockExam.requirementText', { percentage: '60' })}
@@ -359,7 +373,7 @@ const MockExamRunningScreen: React.FC = () => {
         {/* Written Component */}
         <View style={styles.componentCard}>
           <Text style={styles.componentTitle}>
-            {isDele ? 'Grupo 1: Lectura y Escritura' : t('mockExam.writtenExam')}
+            {isDele ? {t('mockExam.deleReadingWriting')} : t('mockExam.writtenExam')}
           </Text>
           <Text style={styles.componentScore}>
             {writtenScore} / {writtenMaxPoints} ({writtenPercentage.toFixed(1)}%)
@@ -376,7 +390,7 @@ const MockExamRunningScreen: React.FC = () => {
         {oralScore > 0 && (
           <View style={styles.componentCard}>
             <Text style={styles.componentTitle}>
-              {isDele ? 'Grupo 2: Audición y Expresión oral' : t('mockExam.oralExam')}
+              {isDele ? t('mockExam.deleListeningSpeaking') : t('mockExam.oralExam')}
             </Text>
             <Text style={styles.componentScore}>
               {oralScore} / {oralMaxPoints} ({oralPercentage.toFixed(1)}%)
@@ -469,7 +483,11 @@ const MockExamRunningScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Fixed Stepper at Top */}
-      <ExamStepper steps={examProgress.steps} currentStepId={examProgress.currentStepId} />
+      <ExamStepper 
+        steps={examProgress.steps} 
+        currentStepId={examProgress.currentStepId}
+        onStepPress={__DEV__ ? handleStepPress : undefined}
+      />
 
       {/* Current Step Header */}
       <View style={styles.stepHeader}>
@@ -672,19 +690,19 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h1,
     color: colors.primary[600],
     textAlign: 'center',
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.lg,
   },
   resultCard: {
     backgroundColor: colors.background.secondary,
     padding: spacing.padding.xl,
     borderRadius: spacing.borderRadius.lg,
-    marginBottom: spacing.margin.xl,
+    marginBottom: spacing.margin.md,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 8,
-    elevation: 5,
+    elevation: 3,
     borderWidth: 2,
     borderColor: colors.secondary[200],
   },

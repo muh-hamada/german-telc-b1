@@ -1371,7 +1371,10 @@
     "examResultsNote": "ℹ️ Il s'agit d'un examen blanc pour la pratique. \nLes résultats réels de l'examen peuvent varier. \nUtilisez ces résultats pour identifier vos forces et vos faiblesses.",
     "detailedBreakdown": "Répartition détaillée",
     "skipped": "Ignoré",
-    "requirementText": "Minimum {{percentage}}% requis pour réussir"
+    "requirementText": "Minimum {{percentage}}% requis pour réussir",
+    "examResultsTitle": "Examen terminé !",
+    "deleReadingWriting": "Groupe 1 : Lecture et écriture",
+    "deleListeningSpeaking": "Groupe 2 : Écoute et expression orale"
   },
   "grammar": {
     "part1": {

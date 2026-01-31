@@ -931,7 +931,10 @@
     "examResultsNote": "ℹ️ هذا اختبار تجريبي للتدريب. \nقد تختلف نتائج الامتحانات الفعلية. \nاستخدم هذه النتائج لتحديد نقاط القوة والضعف لديك.",
     "detailedBreakdown": "تفصيل تفصيلي",
     "skipped": "تم التخطي",
-    "requirementText": "الحد الأدنى {{percentage}}٪ مطلوب للنجاح"
+    "requirementText": "الحد الأدنى {{percentage}}٪ مطلوب للنجاح",
+    "examResultsTitle": "اكتمل الامتحان!",
+    "deleReadingWriting": "المجموعة الأولى: القراءة والكتابة",
+    "deleListeningSpeaking": "المجموعة الثانية: الاستماع والتعبير الشفهي"
   },
   "questions": {
     "checkAnswers": "التحقق من الإجابات",

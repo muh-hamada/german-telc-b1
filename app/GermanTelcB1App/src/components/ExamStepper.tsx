@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { spacing, ThemeColors, typography } from '../theme';
 import type { MockExamStep } from '../types/mock-exam.types';
 import { useAppTheme } from '../contexts/ThemeContext';
@@ -7,12 +7,14 @@ import { useAppTheme } from '../contexts/ThemeContext';
 interface ExamStepperProps {
   steps: MockExamStep[];
   currentStepId: string;
+  onStepPress?: (stepId: string) => void; // Optional callback for dev mode
 }
 
-const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
+const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId, onStepPress }) => {
   const currentStepIndex = steps.findIndex(step => step.id === currentStepId);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
+  const isDev = __DEV__; // React Native development mode flag
   
   return (
     <View style={styles.container}>
@@ -22,21 +24,34 @@ const ExamStepper: React.FC<ExamStepperProps> = ({ steps, currentStepId }) => {
           const isCompleted = step.isCompleted;
           const isPast = index < currentStepIndex;
 
+          const stepDot = (
+            <View
+              style={[
+                styles.stepDot,
+                isCurrent && styles.stepDotCurrent,
+                isCompleted && styles.stepDotCompleted,
+                !isCurrent && !isCompleted && !isPast && styles.stepDotUpcoming,
+              ]}
+            >
+              {isCompleted && (
+                <Text style={styles.stepCheckmark}>✓</Text>
+              )}
+            </View>
+          );
+
           return (
             <React.Fragment key={step.id}>
-              {/* Step Dot */}
-              <View
-                style={[
-                  styles.stepDot,
-                  isCurrent && styles.stepDotCurrent,
-                  isCompleted && styles.stepDotCompleted,
-                  !isCurrent && !isCompleted && !isPast && styles.stepDotUpcoming,
-                ]}
-              >
-                {isCompleted && (
-                  <Text style={styles.stepCheckmark}>✓</Text>
-                )}
-              </View>
+              {/* Step Dot - Touchable in dev mode */}
+              {isDev && onStepPress ? (
+                <TouchableOpacity
+                  onPress={() => onStepPress(step.id)}
+                  activeOpacity={0.7}
+                >
+                  {stepDot}
+                </TouchableOpacity>
+              ) : (
+                stepDot
+              )}
 
               {/* Connector Line */}
               {index < steps.length - 1 && (
