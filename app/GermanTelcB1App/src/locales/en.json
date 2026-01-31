@@ -1279,7 +1279,7 @@
       "yourAnswer": "Your Answer:"
     },
     "input": {
-      "placeholder": "Write your email here...",
+      "placeholder": "Write your answer here...",
       "characterCount": "characters",
       "minCharactersWarning": "⚠️ Please write at least 50 characters."
     },

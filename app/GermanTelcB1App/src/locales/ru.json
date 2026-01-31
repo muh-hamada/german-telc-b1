@@ -1485,7 +1485,7 @@
       "yourAnswer": "Ваш ответ:"
     },
     "input": {
-      "placeholder": "Напишите здесь свое письмо...",
+      "placeholder": "Напишите свой ответ здесь...",
       "characterCount": "символов",
       "minCharactersWarning": "⚠️ Пожалуйста, напишите не менее 50 символов."
     },

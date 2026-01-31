@@ -1497,7 +1497,7 @@
       "yourAnswer": "Tu respuesta:"
     },
     "input": {
-      "placeholder": "Escribe tu correo aquí...",
+      "placeholder": "Escribe tu respuesta aquí...",
       "characterCount": "caracteres",
       "minCharactersWarning": "⚠️ Por favor, escribe al menos 50 caracteres."
     },

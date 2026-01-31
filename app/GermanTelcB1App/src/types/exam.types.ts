@@ -300,6 +300,7 @@ export interface UserAnswer {
   correctAnswer?: string;
   explanation?: Record<string, string>;
   transcript?: string;
+  assessment?: any; // For storing WritingAssessment data
 }
 
 export type ExamType = 'grammar-part1' | 'grammar-part2' | 'reading-part1' | 'reading-part2' | 'reading-part3' | 'writing' | 'writing-part1' | 'writing-part2' | 'speaking-part1' | 'speaking-part2' | 'speaking-part3' | 'listening-practice' | 'listening-part1' | 'listening-part2' | 'listening-part3';

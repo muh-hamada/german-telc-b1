@@ -49,6 +49,9 @@ import AdBanner from '../components/AdBanner';
 import ResultsModal from '../components/ResultsModal';
 import DeleGrammarPart1Wrapper from '../components/exam-wrappers/DeleGrammarPart1Wrapper';
 import DeleGrammarPart2Wrapper from '../components/exam-wrappers/DeleGrammarPart2Wrapper';
+import WritingResultsModal from '../components/exam-ui/WritingResultsModal';
+import { WritingAssessment } from '../services/http.openai.service';
+import { dataService } from '../services/data.service';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -56,6 +59,9 @@ const MockExamRunningScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedStepResult, setSelectedStepResult] = useState<ExamResult | null>(null);
   const [isResultsModalVisible, setIsResultsModalVisible] = useState(false);
+  const [selectedWritingAssessment, setSelectedWritingAssessment] = useState<WritingAssessment | null>(null);
+  const [selectedWritingExam, setSelectedWritingExam] = useState<any>(null);
+  const [isWritingResultsModalVisible, setIsWritingResultsModalVisible] = useState(false);
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -183,13 +189,51 @@ const MockExamRunningScreen: React.FC = () => {
     }
   };
 
-  const handleViewStepResults = (stepId: string) => {
+  const handleViewStepResults = async (stepId: string) => {
     if (!examProgress) return;
 
     const step = examProgress.steps.find(s => s.id === stepId);
     if (!step?.answers || step.answers.length === 0) {
       Alert.alert(t('common.error'), t('mockExam.noResultsAvailable'));
       return;
+    }
+
+    // Check if this is a writing step for B1/B2 levels
+    const isWritingStep = stepId.includes('writing');
+    const isB1OrB2Level = activeExamConfig.level === 'B1' || activeExamConfig.level === 'B2';
+    
+    if (isWritingStep && isB1OrB2Level && step.answers.length > 0) {
+      // For writing steps, try to extract the WritingAssessment from answers
+      const firstAnswer = step.answers[0];
+      
+      // Check if we have assessment data stored
+      if (firstAnswer.assessment) {
+        setSelectedWritingAssessment(firstAnswer.assessment as WritingAssessment);
+        
+        // Load the exam data for this writing step
+        try {
+          const testId = getTestIdForStep(stepId, examProgress.selectedTests);
+          let loadedExam;
+          
+          if (isDele) {
+            if (stepId === 'writing-1') {
+              loadedExam = await dataService.getDeleWritingPart1ExamById(testId);
+            } else if (stepId === 'writing-2') {
+              loadedExam = await dataService.getDeleWritingPart2ExamById(testId);
+            }
+          } else {
+            loadedExam = await dataService.getWritingExam(testId);
+          }
+          
+          if (loadedExam) {
+            setSelectedWritingExam(loadedExam);
+            setIsWritingResultsModalVisible(true);
+            return;
+          }
+        } catch (error) {
+          console.error('Error loading writing exam data:', error);
+        }
+      }
     }
 
     // Calculate correct answers count
@@ -547,6 +591,23 @@ const MockExamRunningScreen: React.FC = () => {
           onClose={() => setIsResultsModalVisible(false)}
           examTitle={examProgress.examId}
         />
+
+        {/* Writing Results Modal */}
+        {selectedWritingAssessment && selectedWritingExam && (
+          <WritingResultsModal
+            isOpen={isWritingResultsModalVisible}
+            onClose={() => {
+              setIsWritingResultsModalVisible(false);
+              setSelectedWritingAssessment(null);
+              setSelectedWritingExam(null);
+            }}
+            assessment={selectedWritingAssessment}
+            isUsingCachedResult={false}
+            exam={selectedWritingExam}
+          />
+        )}
+
+        
       </SafeAreaView>
     );
   }

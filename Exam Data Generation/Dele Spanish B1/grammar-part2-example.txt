@@ -3,7 +3,7 @@ Grammar Part 2
 You must follow the same exam JSON schema. The JSON must be complete.
 - id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
 - text: the text will fragment gaps with Id from 19 to 24. The removed fragments are placed with this format "[{fragment_nr}]". Use \n to create new lines.
-- answers: the correct answer of each fragment gap in the text.
+- options: the correct answer of each fragment gap in the text.
 - fragments: 8 fragments with keys from a to h. Two fragments are used as distractors.
 - title: general title for the question. 4-6 words long
 
@@ -14,7 +14,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
   "questions": [
     {
       "id": 25,
-      "answers": [
+      "options": [
         {
           "text": "estuve",
           "correct": true
@@ -31,7 +31,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
     },
     {
       "id": 26,
-      "answers": [
+      "options": [
         {
           "text": "era",
           "correct": false
@@ -48,7 +48,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
     },
     {
       "id": 27,
-      "answers": [
+      "options": [
         {
           "text": "la",
           "correct": false
@@ -65,7 +65,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
     },
     {
       "id": 28,
-      "answers": [
+      "options": [
         {
           "text": "Cuál",
           "correct": false
@@ -82,7 +82,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
     },
     {
       "id": 29,
-      "answers": [
+      "options": [
         {
           "text": "sepas",
           "correct": true
@@ -99,7 +99,7 @@ You must follow the same exam JSON schema. The JSON must be complete.
     },
     {
       "id": 30,
-      "answers": [
+      "options": [
         {
           "text": "que",
           "correct": false

@@ -1485,7 +1485,7 @@
       "yourAnswer": "Votre réponse:"
     },
     "input": {
-      "placeholder": "Écrivez votre courriel ici...",
+      "placeholder": "Écrivez votre réponse ici...",
       "characterCount": "caractères",
       "minCharactersWarning": "⚠️ Veuillez écrire au moins 50 caractères."
     },

@@ -1485,7 +1485,7 @@
       "yourAnswer": "إجابتك:"
     },
     "input": {
-      "placeholder": "اكتب بريدك الإلكتروني هنا...",
+      "placeholder": "أكتب إجابتك هنا...",
       "characterCount": "حرف",
       "minCharactersWarning": "⚠️ يرجى كتابة 50 حرفًا على الأقل."
     },

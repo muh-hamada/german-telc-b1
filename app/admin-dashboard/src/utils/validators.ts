@@ -1787,8 +1787,8 @@ export const validateDeleB1WritingPart2 = (data: any): ValidationResult => {
     if (typeof exam.title !== 'string') {
       errors.push(`Exam ${index}: Missing or invalid "title"`);
     }
-    if (typeof exam.publishedMessage !== 'string') {
-      errors.push(`Exam ${index}: Missing or invalid "publishedMessage"`);
+    if (typeof exam.incomingEmail !== 'string') {
+      errors.push(`Exam ${index}: Missing or invalid "incomingEmail"`);
     }
     if (typeof exam.modalAnswer !== 'string') {
       errors.push(`Exam ${index}: Missing or invalid "modalAnswer"`);

@@ -30,6 +30,7 @@ import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-nat
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
+import WritingResultsModal from './WritingResultsModal';
 
 // In the Telc exam, the initiatial evaluation if from 15
 // Then we multiply by 3 to reach a max score of 45
@@ -73,8 +74,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [adLoadFailed, setAdLoadFailed] = useState(false);
   const [pendingEvaluationType, setPendingEvaluationType] = useState<'text' | 'image' | null>(null);
-  const [isUserInputExpanded, setIsUserInputExpanded] = useState(false);
-  const [isModalAnswerExpanded, setIsModalAnswerExpanded] = useState(false);
   const pendingEvaluationTypeRef = useRef<'text' | 'image' | null>(null);
   const capturedImageUriRef = useRef<string | null>(null);
   const capturedImageBase64Ref = useRef<string | null>(null);
@@ -83,6 +82,21 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
 
   const isB2Exam = activeExamConfig.level === 'B2';
   const isDele = activeExamConfig.provider === 'dele';
+
+  // Reset state when exam changes (e.g., moving from writing-1 to writing-2)
+  useEffect(() => {
+    setUserAnswer('');
+    setShowWarning(false);
+    setAssessment(null);
+    setLastEvaluatedAnswer('');
+    setCapturedImageUri(null);
+    capturedImageUriRef.current = null;
+    capturedImageBase64Ref.current = null;
+    userAnswerRef.current = '';
+    setIsResultsModalOpen(false);
+    setIsImagePreviewModalOpen(false);
+    setIsUsingCachedResult(false);
+  }, [exam]);
 
   // Initialize and load rewarded ad
   useEffect(() => {
@@ -373,18 +387,17 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setIsResultsModalOpen(true);
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
 
-      // Call onComplete to save progress (for non-mock exam mode)
-      if (!isMockExam) {
-        const answers: UserAnswer[] = [];
-        answers.push({
-          questionId: 0,
-          answer: '[IMAGE]',
-          isCorrect: true,
-          timestamp: Date.now(),
-          correctAnswer: undefined,
-        });
-        onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
-      }
+      // Call onComplete to save progress and move to next step
+      const answers: UserAnswer[] = [];
+      answers.push({
+        questionId: 0,
+        answer: '[IMAGE]',
+        isCorrect: true,
+        timestamp: Date.now(),
+        correctAnswer: undefined,
+        assessment: result, // Store the assessment for later viewing
+      });
+      onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -467,18 +480,17 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
       setIsResultsModalOpen(true);
       logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
 
-      // Call onComplete to save progress (for non-mock exam mode)
-      if (!isMockExam) {
-        const answers: UserAnswer[] = [];
-        answers.push({
-          questionId: 0,
-          answer: result.userInput,
-          isCorrect: true,
-          timestamp: Date.now(),
-          correctAnswer: undefined,
-        });
-        onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
-      }
+      // Call onComplete to save progress and move to next step
+      const answers: UserAnswer[] = [];
+      answers.push({
+        questionId: 0,
+        answer: result.userInput,
+        isCorrect: true,
+        timestamp: Date.now(),
+        correctAnswer: undefined,
+        assessment: result, // Store the assessment for later viewing
+      });
+      onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -561,42 +573,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     logEvent(AnalyticsEvents.REWARDED_AD_SKIPPED, { reason: 'user_cancelled' });
   };
 
-  const handleSubmit = () => {
-    if (!assessment) {
-      Alert.alert(
-        t('writing.alerts.noEvaluation'),
-        t('writing.alerts.noEvaluationMessage'),
-        [{ text: t('writing.alerts.ok') }]
-      );
-      return;
-    }
-
-    const answers: UserAnswer[] = [];
-    answers.push({
-      questionId: 0,
-      answer: assessment.userInput,
-      isCorrect: true, // Writing is always correct
-      timestamp: Date.now(),
-      correctAnswer: undefined, // No correct answer for writing
-    });
-
-    onComplete(assessment.overallScore * SCORE_MULTIPLIER, answers);
-  };
-
-  const getGradeStyle = (grade: 'A' | 'B' | 'C' | 'D') => {
-    switch (grade) {
-      case 'A':
-        return styles.criterionGreen;
-      case 'B':
-        return styles.criterionYellow;
-      case 'C':
-      case 'D':
-        return styles.criterionRed;
-      default:
-        return styles.criterionYellow;
-    }
-  };
-
   const renderRewardedAdModal = () => {
     return (
       <Modal
@@ -644,115 +620,6 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
                 </Text>
               </View>
             )}
-          </View>
-        </View>
-      </Modal>
-    );
-  };
-
-  const renderResultsModal = () => {
-    if (!assessment) return null;
-
-    return (
-      <Modal
-        visible={isResultsModalOpen}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setIsResultsModalOpen(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={[styles.modalContent, styles.resultsModalContent]}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <Text style={styles.resultsTitle}>
-                {t('writing.evaluation.title')}
-              </Text>
-
-              {isUsingCachedResult && (
-                <View style={styles.cacheInfo}>
-                  <Text style={styles.cacheInfoText}>
-                    {t('writing.mock.cacheInfo')}
-                  </Text>
-                </View>
-              )}
-
-              <View style={styles.scoreSection}>
-                <Text style={styles.scoreLabel}>{t('writing.evaluation.totalScore')}</Text>
-                <Text style={styles.scoreValue}>
-                  {assessment.overallScore * SCORE_MULTIPLIER} / {assessment.maxScore * SCORE_MULTIPLIER}
-                </Text>
-              </View>
-
-              <View style={styles.criteriaSection}>
-                <Text style={styles.criteriaTitle}>{t('writing.evaluation.criteriaTitle')}</Text>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.taskCompletion.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.taskCompletion')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.taskCompletion.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.taskCompletion.feedback}</Text>
-                </View>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.communicativeDesign.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.communicativeDesign')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.communicativeDesign.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.communicativeDesign.feedback}</Text>
-                </View>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.formalCorrectness.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.formalCorrectness')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.formalCorrectness.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.formalCorrectness.feedback}</Text>
-                </View>
-              </View>
-
-              <View style={styles.userInputSection}>
-                <TouchableOpacity 
-                  style={styles.userInputHeader}
-                  onPress={() => setIsUserInputExpanded(!isUserInputExpanded)}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
-                  <Text style={styles.expandIcon}>{isUserInputExpanded ? '▼' : '▶'}</Text>
-                </TouchableOpacity>
-                {isUserInputExpanded && (
-                  assessment.userInput ?
-                    <Text style={styles.userInputText}>{assessment.userInput}</Text> :
-                    <Text style={styles.userInputText}>{t('writing.evaluation.noUserInput')}</Text>
-                )}
-              </View>
-
-              {/* Modal Answer Section - Only show if modalAnswer exists in exam data */}
-              {exam.modalAnswer && (
-                <View style={styles.modalAnswerSection}>
-                  <TouchableOpacity 
-                    style={styles.modalAnswerHeader}
-                    onPress={() => setIsModalAnswerExpanded(!isModalAnswerExpanded)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.modalAnswerTitleContainer}>
-                      <Text style={styles.modalAnswerIcon}>⭐</Text>
-                      <Text style={styles.modalAnswerTitle}>{t('writing.evaluation.modalAnswer')}</Text>
-                    </View>
-                    <Text style={styles.expandIcon}>{isModalAnswerExpanded ? '▼' : '▶'}</Text>
-                  </TouchableOpacity>
-                  {isModalAnswerExpanded && (
-                    <Text style={styles.modalAnswerText}>{exam.modalAnswer}</Text>
-                  )}
-                </View>
-              )}
-            </ScrollView>
-
-            <TouchableOpacity
-              style={styles.closeModalButton}
-              onPress={() => setIsResultsModalOpen(false)}
-            >
-              <Text style={styles.closeModalButtonText}>{t('writing.evaluation.closeButton')}</Text>
-            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -972,14 +839,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         )}
       </TouchableOpacity>
 
-      {/* Submit Button (only visible after evaluation and in mock exam mode) */}
-      {assessment && isMockExam && (
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitButtonText}>{t('writing.buttons.nextSection')}</Text>
-        </TouchableOpacity>
-      )}
-
-      {renderResultsModal()}
+      <WritingResultsModal
+        isOpen={isResultsModalOpen && !isMockExam} // Do not show the results modal in mock exam mode
+        onClose={() => setIsResultsModalOpen(false)}
+        assessment={assessment}
+        isUsingCachedResult={isUsingCachedResult}
+        exam={exam}
+      />
       {renderImagePreviewModal()}
     </ScrollView>
   );
@@ -1137,18 +1003,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     fontWeight: typography.fontWeight.bold,
     color: colors.white,
   },
-  submitButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: spacing.padding.md,
-    paddingHorizontal: spacing.padding.lg,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-  },
-  submitButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
-  },
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -1162,202 +1016,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     padding: spacing.padding.lg,
     maxHeight: '80%',
     width: '92%',
-  },
-  resultsModalContent: {
-    maxHeight: '90%',
-  },
-  resultsTitle: {
-    ...typography.textStyles.h3,
-    color: colors.primary[600],
-    textAlign: 'center',
-    marginBottom: spacing.margin.md,
-  },
-  mockWarning: {
-    backgroundColor: colors.warning[50],
-    padding: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.warning[500],
-  },
-  mockWarningText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.warning[700],
-    textAlign: 'center',
-  },
-  cacheInfo: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.primary[300],
-  },
-  cacheInfoText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[700],
-    textAlign: 'center',
-  },
-  scoreSection: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.lg,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  scoreLabel: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-  },
-  scoreValue: {
-    ...typography.textStyles.h5,
-    color: colors.primary[600],
-    fontWeight: typography.fontWeight.bold,
-  },
-  criteriaSection: {
-  },
-  criteriaTitle: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-  },
-  criterionCard: {
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    borderLeftWidth: 4,
-  },
-  criterionGreen: {
-    backgroundColor: colors.success[50],
-    borderLeftColor: colors.success[500],
-  },
-  criterionYellow: {
-    backgroundColor: colors.warning[50],
-    borderLeftColor: colors.warning[500],
-  },
-  criterionRed: {
-    backgroundColor: colors.error[50],
-    borderLeftColor: colors.error[500],
-  },
-  criterionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.margin.sm,
-  },
-  criterionName: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  criterionGrade: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-  },
-  criterionFeedback: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-  },
-  userInputSection: {
-    backgroundColor: colors.background.tertiary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-  },
-  userInputHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  userInputTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    flex: 1,
-  },
-  expandIcon: {
-    fontSize: 16,
-    color: colors.text.secondary,
-    marginLeft: spacing.margin.sm,
-  },
-  userInputText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-    marginTop: spacing.margin.sm,
-  },
-  modalAnswerSection: {
-    backgroundColor: colors.success[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.success[200],
-  },
-  modalAnswerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  modalAnswerTitleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  modalAnswerIcon: {
-    fontSize: 18,
-    marginRight: spacing.margin.xs,
-  },
-  modalAnswerTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.success[700],
-    flex: 1,
-  },
-  modalAnswerText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-    marginTop: spacing.margin.sm,
-  },
-  correctedAnswerSection: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    borderWidth: 2,
-    borderColor: colors.primary[300],
-  },
-  correctedAnswerTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[700],
-    marginBottom: spacing.margin.sm,
-  },
-  correctedAnswerContainer: {
-    flexDirection: 'column',
-  },
-  correctedAnswerText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-  },
-  closeModalButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    marginTop: spacing.margin.md,
-  },
-  closeModalButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
   },
   cameraSection: {
     marginBottom: spacing.margin.sm,
