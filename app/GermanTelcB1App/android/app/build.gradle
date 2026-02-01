@@ -90,8 +90,8 @@ android {
         applicationId "com.mhamada.telca1german"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 77
-        versionName "1.0.77"
+        versionCode 79
+        versionName "1.0.79"
         missingDimensionStrategy "store", "play"
         
         // Explicitly specify ABI filters to ensure all architectures are included
