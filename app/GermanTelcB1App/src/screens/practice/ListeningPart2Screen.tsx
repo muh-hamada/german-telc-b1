@@ -14,10 +14,11 @@ import DeleListeningUI from '../../components/exam-ui/DeleListeningUI';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { useToast } from '../../contexts/ToastContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { ExamResult, UserAnswer, DeleListeningExam } from '../../types/exam.types';
-import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -63,7 +64,9 @@ const ListeningPart2Screen: React.FC = () => {
     ? (exams as DeleListeningExam[]).find(exam => exam.id === String(examId))
     : (exams as Exam[]).find(exam => exam.id === examId);
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 2, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('listening-part2', examId);
+  const { autoMarkCompletedIfEligible } = useCompletion();
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadData();
@@ -193,10 +196,23 @@ const ListeningPart2Screen: React.FC = () => {
       )}
       <ResultsModal
         visible={showResults}
-        onClose={() => {
+        onClose={async () => {
           setShowResults(false);
-          // Resume global modal queue
           setContextualModalActive(false);
+          
+          // Try auto-completion
+          if (examResult?.score !== undefined && examResult?.maxScore !== undefined) {
+            const wasAutoCompleted = await autoMarkCompletedIfEligible(
+              'listening-part2',
+              examId,
+              examResult.score,
+              examResult.maxScore
+            );
+            
+            if (wasAutoCompleted) {
+              showToast(t('exam.autoCompleted'), 4000);
+            }
+          }
         }}
         examTitle={`Test ${examId + 1}`}
         result={examResult}

@@ -12,9 +12,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
-import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { useToast } from '../../contexts/ToastContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { GrammarPart2Exam, DeleGrammarPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
@@ -35,7 +36,9 @@ const GrammarPart2Screen: React.FC = () => {
   const examId = route.params?.examId ?? 0;
   const isDele = activeExamConfig.provider === 'dele';
   
-  const { isCompleted, toggleCompletion } = useExamCompletion('grammar', 2, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('grammar-part2', examId);
+  const { autoMarkCompletedIfEligible } = useCompletion();
+  const { showToast } = useToast();
   
   const [currentExam, setCurrentExam] = useState<GrammarPart2Exam | DeleGrammarPart2Exam | null>(null);
   const [showResults, setShowResults] = useState(false);
@@ -175,10 +178,23 @@ const GrammarPart2Screen: React.FC = () => {
 
       <ResultsModal
         visible={showResults}
-        onClose={() => {
+        onClose={async () => {
           setShowResults(false);
-          // Resume global modal queue
           setContextualModalActive(false);
+          
+          // Try auto-completion
+          if (examResult?.score !== undefined && examResult?.maxScore !== undefined) {
+            const wasAutoCompleted = await autoMarkCompletedIfEligible(
+              'grammar-part2',
+              examId,
+              examResult.score,
+              examResult.maxScore
+            );
+            
+            if (wasAutoCompleted) {
+              showToast(t('exam.autoCompleted'), 4000);
+            }
+          }
         }}
         result={examResult}
       />

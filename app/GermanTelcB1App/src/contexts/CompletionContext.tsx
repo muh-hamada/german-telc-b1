@@ -5,6 +5,7 @@ import { reviewTrigger } from '../utils/reviewTrigger';
 import { useStreak } from './StreakContext';
 import { useRemoteConfig } from './RemoteConfigContext';
 import { activeExamConfig } from '../config/active-exam.config';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface CompletionContextType {
   // State
@@ -17,6 +18,7 @@ interface CompletionContextType {
   toggleCompletion: (examType: string, partNumber: number, examId: string, score: number) => Promise<boolean>;
   refreshCompletions: () => Promise<void>;
   getStatsForPart: (examType: string, partNumber: number) => CompletionStats | null;
+  autoMarkCompletedIfEligible: (examTypeWithPart: string, examId: string | number, score: number, maxScore: number) => Promise<boolean>;
 }
 
 const CompletionContext = createContext<CompletionContextType | undefined>(undefined);
@@ -198,6 +200,98 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
     return allStats[examType][partNumber];
   };
 
+  // Auto-mark as completed if score >= 80%
+  const autoMarkCompletedIfEligible = async (
+    examTypeWithPart: string,
+    examId: string | number,
+    score: number,
+    maxScore: number
+  ): Promise<boolean> => {
+    if (!user?.uid) {
+      console.log('[CompletionContext] Not logged in, skipping auto-completion');
+      return false;
+    }
+
+    if (maxScore === 0) {
+      console.log('[CompletionContext] maxScore is 0, skipping auto-completion');
+      return false;
+    }
+
+    const percentage = (score / maxScore) * 100;
+    
+    if (percentage < 80) {
+      console.log('[CompletionContext] Score below 80%, skipping auto-completion');
+      return false;
+    }
+
+    try {
+      console.log('[CompletionContext] Score above 80%, marking as completed');
+
+      // Parse examType to get base type and part number
+      const partMatch = examTypeWithPart.match(/part(\d+)/);
+      const partNumber = partMatch ? parseInt(partMatch[1]) : 1;
+      const baseExamType = examTypeWithPart.split('-')[0];
+      const examIdString = String(examId);
+
+      // Check if already completed
+      const completionStatus = await firebaseCompletionService.getCompletionStatus(
+        user.uid,
+        baseExamType,
+        partNumber,
+        examIdString
+      );
+
+      if (completionStatus?.completed) {
+        console.log('[CompletionContext] Already completed, skipping auto-completion');
+        return false;
+      }
+
+      // Mark as completed
+      await firebaseCompletionService.markExamCompleted(
+        user.uid,
+        baseExamType,
+        partNumber,
+        examIdString,
+        score
+      );
+
+      console.log('[CompletionContext] Auto-marked as completed (score >= 80%)');
+
+      // Update local state
+      const key = createKey(baseExamType, partNumber, examIdString);
+      const newData = new Map(completionData);
+      newData.set(key, {
+        examId: examIdString,
+        examType: baseExamType,
+        partNumber,
+        score,
+        date: Date.now(),
+        completed: true,
+      });
+      setCompletionData(newData);
+
+      // Refresh stats
+      const stats = await firebaseCompletionService.getAllCompletionStats(user.uid);
+      setAllStats(stats);
+
+      // Log analytics
+      logEvent(AnalyticsEvents.PRACTICE_MARK_COMPLETED_TOGGLED, {
+        section: baseExamType,
+        part: partNumber,
+        exam_id: examIdString,
+        completed: true,
+        auto_marked: true,
+        score: score,
+        percentage: Math.round(percentage),
+      });
+
+      return true;
+    } catch (error) {
+      console.error('[CompletionContext] Failed to auto-mark completion:', error);
+      return false;
+    }
+  };
+
   const value: CompletionContextType = {
     completionData,
     allStats,
@@ -206,6 +300,7 @@ export const CompletionProvider: React.FC<CompletionProviderProps> = ({ children
     toggleCompletion,
     refreshCompletions,
     getStatsForPart,
+    autoMarkCompletedIfEligible,
   };
 
   return (
@@ -225,14 +320,24 @@ export const useCompletion = (): CompletionContextType => {
 };
 
 // Hook for specific exam completion status
-export const useExamCompletion = (examType: string, partNumber: number, examId: string) => {
+export const useExamCompletion = (examTypeWithPart: string, examId: string | number) => {
   const { getCompletionStatus, toggleCompletion } = useCompletion();
-  const completionData = getCompletionStatus(examType, partNumber, examId);
+  
+  // Parse examType to extract base type and part number for internal Firebase calls
+  // Format: 'reading-part1' -> base: 'reading', part: 1
+  const partMatch = examTypeWithPart.match(/part(\d+)/);
+  const partNumber = partMatch ? parseInt(partMatch[1]) : 1;
+  const baseExamType = examTypeWithPart.split('-')[0];
+  
+  // Convert examId to string for consistency
+  const examIdString = String(examId);
+  
+  const completionData = getCompletionStatus(baseExamType, partNumber, examIdString);
   
   return {
     isCompleted: completionData?.completed || false,
     completionData,
-    toggleCompletion: (score: number) => toggleCompletion(examType, partNumber, examId, score),
+    toggleCompletion: (score: number) => toggleCompletion(baseExamType, partNumber, examIdString, score),
   };
 };
 

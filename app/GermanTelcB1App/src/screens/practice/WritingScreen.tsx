@@ -33,7 +33,7 @@ const WritingScreen: React.FC = () => {
 
   const isDele = activeExamConfig.provider === 'dele';
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('writing', part, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion(`writing-part${part}`, examId);
 
   const [examResult, setExamResult] = useState<{ score: number } | null>(null);
   const [currentExam, setCurrentExam] = useState<WritingExam | DeleWritingExam | null>(null);
@@ -135,7 +135,7 @@ const WritingScreen: React.FC = () => {
       percentage: percentage,
     });
 
-    updateExamProgress('writing', examId, [], score, maxScore);
+    updateExamProgress(`writing-part${part}`, examId, [], score, maxScore);
   };
 
   if (isLoading) {

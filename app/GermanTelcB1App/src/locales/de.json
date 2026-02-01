@@ -109,6 +109,7 @@
     "markedIncomplete": "Prüfung als unvollständig markiert!",
     "completionFailed": "Fehler beim Aktualisieren des Status",
     "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern",
+    "autoCompleted": "Gut gemacht! Wir haben dies als abgeschlossen markiert. Sie können es jederzeit wieder entfernen.",
     "incomplete": "Unvollständige Antworten",
     "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden.",
     "congratulations": "Herzlichen Glückwunsch!",

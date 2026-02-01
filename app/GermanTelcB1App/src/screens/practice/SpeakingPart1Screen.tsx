@@ -45,7 +45,7 @@ const mandatoryFields = ['name', 'origin', 'livingSince'] as const;
 const SpeakingPart1Screen: React.FC = () => {
   const { t } = useCustomTranslation();
   const navigation = useNavigation();
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, 0);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part1', 0);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   

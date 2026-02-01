@@ -109,6 +109,7 @@
     "markedIncomplete": "Examen marqué comme incomplet !",
     "completionFailed": "Échec de la mise à jour de l'état d'achèvement",
     "loginToSaveProgress": "Vous devez vous connecter pour sauvegarder votre progression",
+    "autoCompleted": "Bon travail ! Nous l'avons marqué comme terminé. Vous pouvez toujours le démarquer à nouveau.",
     "incomplete": "Réponses incomplètes",
     "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre.",
     "congratulations": "Félicitations !",

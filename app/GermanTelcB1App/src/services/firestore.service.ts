@@ -8,13 +8,25 @@ import { User } from './auth.service';
 
 export const DEFAULT_NOTIFICATION_HOUR = 16; // 4 PM
 
+const sanitizeUserAnswer = (answer: UserAnswer): UserAnswer => {
+  const sanitized: any = {
+    questionId: answer.questionId,
+    answer: answer.answer || '',
+    isCorrect: answer.isCorrect || false,
+    timestamp: answer.timestamp || Date.now(),
+    correctAnswer: answer.correctAnswer || '',
+  };
+
+  return sanitized;
+};
+
 class FirestoreService {
   private readonly COLLECTIONS = {
     USERS: 'users',
     EXAM_RESULTS: 'examResults',
     ACCOUNT_DELETION_REQUESTS: 'account_deletion_requests',
   };
-  
+
   // Exam-specific collection prefix for future multi-app support
   // Lazy-loaded to avoid initialization order issues
   private get examId(): string {
@@ -34,61 +46,61 @@ class FirestoreService {
   // User Management
   async createUserProfile(user: User): Promise<void> {
     try {
-    const userRef = firestore()
-      .collection(this.COLLECTIONS.USERS)
-      .doc(user.uid);
-    
-    const userDoc = await userRef.get();
-    
-    if (!userDoc.exists()) {
+      const userRef = firestore()
+        .collection(this.COLLECTIONS.USERS)
+        .doc(user.uid);
+
+      const userDoc = await userRef.get();
+
+      if (!userDoc.exists()) {
         // New user - create full profile
         // Auto-detect timezone from device
         // Example: "Europe/Berlin" or "America/New_York"
         const deviceTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        
-      const userData = {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        provider: user.provider,
-        appId: activeExamConfig.id,
-        createdAt: Timestamp.fromDate(user.createdAt),
-        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
-        lastActiveAt: Timestamp.fromDate(new Date()),
-        timezone: deviceTimezone,
-        platform: Platform.OS,
-        preferences: {
-          interfaceLanguage: i18n.language || 'en',
-        },
-        notificationSettings: {
-          enabled: false,
-          hour: DEFAULT_NOTIFICATION_HOUR,
-        },
-        stats: {
-          totalExams: 0,
-          completedExams: 0,
-          totalScore: 0,
-          totalMaxScore: 0,
-          averageScore: 0,
-          streak: 0,
-          lastActivity: Timestamp.fromDate(new Date()),
-        },
-      };
+
+        const userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          provider: user.provider,
+          appId: activeExamConfig.id,
+          createdAt: Timestamp.fromDate(user.createdAt),
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+          lastActiveAt: Timestamp.fromDate(new Date()),
+          timezone: deviceTimezone,
+          platform: Platform.OS,
+          preferences: {
+            interfaceLanguage: i18n.language || 'en',
+          },
+          notificationSettings: {
+            enabled: false,
+            hour: DEFAULT_NOTIFICATION_HOUR,
+          },
+          stats: {
+            totalExams: 0,
+            completedExams: 0,
+            totalScore: 0,
+            totalMaxScore: 0,
+            averageScore: 0,
+            streak: 0,
+            lastActivity: Timestamp.fromDate(new Date()),
+          },
+        };
         await userRef.set(userData);
         console.log('[FirestoreService] Created new user profile for:', user.uid);
-    } else {
-      // Existing user - only update basic auth fields that can change
-      await userRef.update({
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
-        lastActiveAt: Timestamp.fromDate(new Date()),
-        appId: activeExamConfig.id,
-      });
-      console.log('[FirestoreService] Updated existing user profile for:', user.uid);
-    }
+      } else {
+        // Existing user - only update basic auth fields that can change
+        await userRef.update({
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          lastLoginAt: Timestamp.fromDate(user.lastLoginAt),
+          lastActiveAt: Timestamp.fromDate(new Date()),
+          appId: activeExamConfig.id,
+        });
+        console.log('[FirestoreService] Updated existing user profile for:', user.uid);
+      }
     } catch (error) {
       console.error('Error creating/updating user profile:', error);
       throw error;
@@ -202,7 +214,7 @@ class FirestoreService {
       if (!data) {
         return null;
       }
-      
+
       // Helper function to safely convert timestamps
       const convertTimestamp = (value: any): number => {
         if (!value) return Date.now();
@@ -216,7 +228,7 @@ class FirestoreService {
         }
         return Date.now();
       };
-      
+
       return {
         exams: Array.isArray(data.exams) ? data.exams.map((exam: any) => ({
           ...exam,
@@ -245,14 +257,14 @@ class FirestoreService {
   ): Promise<void> {
     try {
       const now = Timestamp.fromDate(new Date());
-      
+
       // Update progress document
       const progressPath = this.getUserProgressPath(uid);
       const progressRef = firestore().doc(progressPath);
 
       const progressDoc = await progressRef.get();
       const rawData = progressDoc.data();
-      
+
       // Ensure progressData has a valid structure
       let progressData: any = {
         exams: [],
@@ -261,7 +273,7 @@ class FirestoreService {
         lastUpdated: now,
         ...(rawData || {}),
       };
-      
+
       // Ensure exams array exists
       if (!Array.isArray(progressData.exams)) {
         progressData.exams = [];
@@ -297,7 +309,8 @@ class FirestoreService {
       });
 
       // Update exam progress (current values for quick access)
-      examProgress.answers = answers;
+      // Sanitize answers to remove undefined values
+      examProgress.answers = answers.map(sanitizeUserAnswer);
       examProgress.completed = completed;
       examProgress.score = score;
       examProgress.maxScore = maxScore;
@@ -329,7 +342,7 @@ class FirestoreService {
       await progressRef.set(progressData, { merge: true });
 
       // Save exam result
-      await this.saveExamResult(uid, examType, examId, answers, score, maxScore);
+      await this.saveExamResult(uid, examType, examId, answers.map(sanitizeUserAnswer), score, maxScore);
     } catch (error) {
       console.error('Error updating exam progress:', error);
       throw error;
@@ -432,7 +445,7 @@ class FirestoreService {
     try {
       // Get cloud progress
       const cloudProgress = await this.getUserProgress(uid);
-      
+
       if (!cloudProgress) {
         // No cloud progress, save local progress
         await this.saveUserProgress(uid, localProgress);

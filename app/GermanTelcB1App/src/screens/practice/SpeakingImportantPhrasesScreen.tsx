@@ -24,7 +24,7 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 4, groupIndex);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part4', groupIndex);
 
   useEffect(() => {
     loadData();

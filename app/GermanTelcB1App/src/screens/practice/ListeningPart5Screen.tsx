@@ -13,10 +13,11 @@ import DeleListeningUI from '../../components/exam-ui/DeleListeningUI';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { useToast } from '../../contexts/ToastContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { ExamResult, UserAnswer, DeleListeningExam } from '../../types/exam.types';
-import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -44,7 +45,9 @@ const ListeningPart5Screen: React.FC = () => {
   const exams = listeningData?.exams as DeleListeningExam[] || [];
   const currentExam = exams.find(exam => exam.id === String(examId));
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 5, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('listening-part5', examId);
+  const { autoMarkCompletedIfEligible } = useCompletion();
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadData();
@@ -138,7 +141,7 @@ const ListeningPart5Screen: React.FC = () => {
       percentage: percentage,
     });
 
-    updateExamProgress('listening', examId, answers, score, totalQuestions);
+    updateExamProgress('listening-part5', examId, answers, score, totalQuestions);
   };
 
   if (isLoading) {
@@ -181,10 +184,23 @@ const ListeningPart5Screen: React.FC = () => {
       />
       <ResultsModal
         visible={showResults}
-        onClose={() => {
+        onClose={async () => {
           setShowResults(false);
-          // Resume global modal queue
           setContextualModalActive(false);
+          
+          // Try auto-completion
+          if (examResult?.score !== undefined && examResult?.maxScore !== undefined) {
+            const wasAutoCompleted = await autoMarkCompletedIfEligible(
+              'listening-part5',
+              examId,
+              examResult.score,
+              examResult.maxScore
+            );
+            
+            if (wasAutoCompleted) {
+              showToast(t('exam.autoCompleted'), 4000);
+            }
+          }
         }}
         examTitle={`Listening Part 5 - Test ${examId}`}
         result={examResult}

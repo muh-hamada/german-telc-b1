@@ -54,7 +54,7 @@ type TabType = 'instructions' | 'cards' | 'example';
 const A1SpeakingPart2Screen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   const navigation = useNavigation();
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, 0);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part2', 0);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 

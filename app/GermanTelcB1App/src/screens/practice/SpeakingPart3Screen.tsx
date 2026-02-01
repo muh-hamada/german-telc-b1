@@ -54,7 +54,7 @@ const SpeakingPart3Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 3, scenarioId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part3', scenarioId);
   
   const [activeView, setActiveView] = useState<ViewType>('dialog');
   const [isLoading, setIsLoading] = useState(true);

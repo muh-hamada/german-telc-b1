@@ -35,7 +35,7 @@ const SpeakingB2Part1Screen: React.FC = () => {
   const navigation = useNavigation();
   const route = useRoute<B2SpeakingPart1RouteProp>();
   const { topicId } = route.params;
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 1, topicId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part1', topicId);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   

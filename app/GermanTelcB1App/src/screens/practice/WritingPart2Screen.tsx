@@ -29,7 +29,7 @@ const WritingPart2Screen: React.FC = () => {
   const examId = route.params?.examId ?? 0;
   const { updateExamProgress } = useProgress();
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('writing', 2, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('writing-part2', examId);
 
   const [currentExam, setCurrentExam] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);

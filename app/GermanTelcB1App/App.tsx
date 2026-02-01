@@ -14,6 +14,7 @@ import { ProgressProvider } from './src/contexts/ProgressContext';
 import { RemoteConfigProvider } from './src/contexts/RemoteConfigContext';
 import { ReviewProvider } from './src/contexts/ReviewContext';
 import { StreakProvider } from './src/contexts/StreakContext';
+import { ToastProvider } from './src/contexts/ToastContext';
 import { VocabularyProvider } from './src/contexts/VocabularyContext';
 import { ThemeProvider, useAppTheme } from './src/contexts/ThemeContext';
 import RootNavigator from './src/navigation/RootNavigator';
@@ -64,11 +65,13 @@ const App: React.FC = () => {
                     <VocabularyProvider>
                       <StreakProvider>
                         <NotificationReminderProvider>
-                          <ProgressProvider>
-                            <CompletionProvider>
-                              <AppContent />
-                            </CompletionProvider>
-                          </ProgressProvider>
+                          <ToastProvider>
+                            <ProgressProvider>
+                              <CompletionProvider>
+                                <AppContent />
+                              </CompletionProvider>
+                            </ProgressProvider>
+                          </ToastProvider>
                         </NotificationReminderProvider>
                       </StreakProvider>
                     </VocabularyProvider>

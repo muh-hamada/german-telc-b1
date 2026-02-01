@@ -14,12 +14,13 @@ import DeleListeningUI from '../../components/exam-ui/DeleListeningUI';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import { useToast } from '../../contexts/ToastContext';
 import { ExamResult, UserAnswer, DeleListeningExam } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { HomeStackParamList } from '../../types/navigation.types';
@@ -63,7 +64,9 @@ const ListeningPart3Screen: React.FC = () => {
     ? (exams as DeleListeningExam[]).find(exam => exam.id === String(examId))
     : (exams as Exam[]).find(exam => exam.id === examId);
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('listening', 3, examId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('listening-part3', examId);
+  const { autoMarkCompletedIfEligible } = useCompletion();
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadData();
@@ -193,10 +196,23 @@ const ListeningPart3Screen: React.FC = () => {
       )}
       <ResultsModal
         visible={showResults}
-        onClose={() => {
+        onClose={async () => {
           setShowResults(false);
-          // Resume global modal queue
           setContextualModalActive(false);
+          
+          // Try auto-completion
+          if (examResult?.score !== undefined && examResult?.maxScore !== undefined) {
+            const wasAutoCompleted = await autoMarkCompletedIfEligible(
+              'listening-part3',
+              examId,
+              examResult.score,
+              examResult.maxScore
+            );
+            
+            if (wasAutoCompleted) {
+              showToast(t('exam.autoCompleted'), 4000);
+            }
+          }
         }}
         examTitle={`Listening Part 3 - Test ${examId + 1}`}
         result={examResult}

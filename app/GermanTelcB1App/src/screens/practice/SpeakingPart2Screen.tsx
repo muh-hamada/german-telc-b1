@@ -48,7 +48,7 @@ const SpeakingPart2Screen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
   const markdownStyles = useMemo(() => createMarkdownStyles(colors), [colors]);
 
-  const { isCompleted, toggleCompletion } = useExamCompletion('speaking', 2, topicId);
+  const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part2', topicId);
 
   const [activeView, setActiveView] = useState<'A' | 'B'>('A');
   const [showPresentationExample, setShowPresentationExample] = useState(false);
