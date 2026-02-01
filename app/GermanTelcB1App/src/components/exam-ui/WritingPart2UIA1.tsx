@@ -30,7 +30,7 @@ import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-nat
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
 import { activeExamConfig } from '../../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import MarkdownText from '../MarkdownText';
+import WritingResultsModalA1 from './WritingResultsModalA1';
 
 // Ad Unit ID for rewarded ad
 const REWARDED_AD_UNIT_ID = __DEV__
@@ -357,6 +357,7 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
         isCorrect: result.overallScore >= 6,
         timestamp: Date.now(),
         correctAnswer: '',
+        assessment: result, // Store the assessment for viewing later in mock exam results
       }];
 
       onComplete(result.overallScore, answers);
@@ -454,6 +455,7 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
         isCorrect: result.overallScore >= 6,
         timestamp: Date.now(),
         correctAnswer: '',
+        assessment: result, // Store the assessment for viewing later in mock exam results
       }];
 
       onComplete(result.overallScore, answers);
@@ -537,10 +539,6 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
     return colors.error[500];
   };
 
-  const handleEvaluateText = async () => {
-    await handleEvaluate();
-  };
-
   const renderRewardedAdModal = () => {
     return (
       <Modal
@@ -594,123 +592,8 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
     );
   };
 
-  const renderResultsModal = () => {
-    if (!assessment) return null;
-
-    return (
-      <Modal
-        visible={showResultsModal}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setShowResultsModal(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <ScrollView
-            style={styles.modalScrollView}
-            contentContainerStyle={styles.modalScrollContent}
-            showsVerticalScrollIndicator={true}
-          >
-            <View style={styles.modalContent}>
-              {/* Header with Score */}
-              <View style={styles.modalHeader}>
-                <Text style={styles.modalTitle}>
-                  {t('writing.evaluation.title')}
-                </Text>
-
-                {isUsingCachedResult && (
-                  <View style={styles.cacheInfo}>
-                    <Text style={styles.cacheInfoText}>
-                      {t('writing.mock.cacheInfo')}
-                    </Text>
-                  </View>
-                )}
-
-                <View style={styles.scoreSection}>
-                  <Text style={styles.scoreLabel}>{t('writing.evaluation.totalScore')}</Text>
-                  <Text style={[styles.scoreValue, { color: getScoreColor(assessment.overallScore, assessment.maxScore) }]}>
-                    {assessment.overallScore} / {assessment.maxScore}
-                  </Text>
-                </View>
-              </View>
-
-              {/* Content Points Results */}
-              {assessment.contentPoints && assessment.contentPoints.length > 0 && (
-                <View style={styles.detailedResultsContainer}>
-                  <Text style={styles.detailedResultsTitle}>
-                    {t('practice.writing.taskPoints')}
-                  </Text>
-                  {assessment.contentPoints.map((point, index) => (
-                    <View key={index} style={styles.resultItem}>
-                      <View style={styles.resultItemHeader}>
-                        <View style={[
-                          styles.resultQuestionNumber,
-                          point.score === 3 ? styles.resultQuestionNumberCorrect :
-                            point.score >= 1.5 ? styles.resultQuestionNumberPartial :
-                              styles.resultQuestionNumberIncorrect
-                        ]}>
-                          <Text style={styles.resultQuestionNumberText}>{point.pointNumber}</Text>
-                        </View>
-                        <Text style={styles.resultTaskText}>
-                          {point.pointText}
-                        </Text>
-                        <Text style={styles.pointScore}>
-                          {point.score}/3
-                        </Text>
-                      </View>
-                      <Text style={styles.pointFeedback}>
-                        {point.feedback}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
-              )}
-
-              {/* Communicative Design */}
-              {assessment.communicativeDesign && (
-                <View style={styles.communicativeDesignSection}>
-                  <Text style={styles.sectionTitle}>
-                    {t('practice.writing.communicativeDesign')}
-                  </Text>
-                  <View style={styles.communicativeDesignCard}>
-                    <View style={styles.communicativeDesignHeader}>
-                      <Text style={styles.communicativeDesignScore}>
-                        {assessment.communicativeDesign.score}/1
-                      </Text>
-                    </View>
-                    <Text style={styles.communicativeDesignFeedback}>
-                      {assessment.communicativeDesign.feedback}
-                    </Text>
-                  </View>
-                </View>
-              )}
-
-              {/* User Input */}
-              <View style={styles.userInputSection}>
-                <Text style={styles.userInputTitle}>{t('writing.evaluation.userInput')}</Text>
-                <Text style={styles.userInputText}>{assessment.userInput || lastEvaluatedAnswer || t('writing.evaluation.noUserInput')}</Text>
-              </View>
-
-              {/* Corrected Answer */}
-              {assessment.correctedAnswer && (
-                <View style={styles.correctedAnswerSection}>
-                  <Text style={styles.correctedAnswerTitle}>{t('writing.evaluation.correctedAnswer')}</Text>
-                  <View style={styles.correctedAnswerContainer}>
-                    <MarkdownText text={assessment.correctedAnswer} />
-                  </View>
-                </View>
-              )}
-
-              <TouchableOpacity
-                style={styles.closeModalButton}
-                onPress={() => setShowResultsModal(false)}
-              >
-                <Text style={styles.closeModalButtonText}>{t('common.close')}</Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-        </View>
-      </Modal>
-    );
+  const handleEvaluateText = async () => {
+    await handleEvaluate();
   };
 
   const renderImagePreviewModal = () => {
@@ -895,7 +778,14 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
 
       </ScrollView>
 
-      {renderResultsModal()}
+      <WritingResultsModalA1
+        isOpen={showResultsModal}
+        onClose={() => setShowResultsModal(false)}
+        assessment={assessment}
+        isUsingCachedResult={isUsingCachedResult}
+        lastEvaluatedAnswer={lastEvaluatedAnswer}
+        modalAnswer={exam?.modalAnswer}
+      />
       {renderImagePreviewModal()}
     </View>
   );
@@ -1020,7 +910,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.body,
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.sm,
+    marginBottom: spacing.margin.xs,
     textAlign: 'left',
   },
   textInput: {
@@ -1120,15 +1010,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     alignItems: 'center',
     padding: spacing.padding.lg,
   },
-  modalScrollView: {
-    width: '100%',
-    maxHeight: '90%',
-  },
-  modalScrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   modalContent: {
     backgroundColor: colors.background.secondary,
     borderRadius: spacing.borderRadius.lg,
@@ -1141,196 +1022,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     shadowRadius: 12,
     elevation: 8,
     marginVertical: spacing.margin.lg,
-  },
-  modalHeader: {
-    marginBottom: spacing.margin.md,
-    paddingBottom: spacing.padding.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  modalTitle: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.md,
-    textAlign: 'center',
-    fontWeight: typography.fontWeight.bold,
-  },
-  cacheInfo: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.primary[300],
-  },
-  cacheInfoText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.primary[700],
-    textAlign: 'center',
-  },
-  scoreSection: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  scoreLabel: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-  },
-  scoreValue: {
-    ...typography.textStyles.h3,
-    fontWeight: typography.fontWeight.bold,
-  },
-  detailedResultsContainer: {
-    marginBottom: spacing.margin.md,
-    width: '100%',
-  },
-  detailedResultsTitle: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  resultItem: {
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.sm,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  resultItemHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.margin.xs,
-    marginBottom: spacing.margin.xs,
-  },
-  resultQuestionNumber: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  resultQuestionNumberCorrect: {
-    backgroundColor: colors.success[500],
-  },
-  resultQuestionNumberPartial: {
-    backgroundColor: colors.warning[500],
-  },
-  resultQuestionNumberIncorrect: {
-    backgroundColor: colors.error[500],
-  },
-  resultQuestionNumberText: {
-    ...typography.textStyles.bodySmall,
-    fontSize: 11,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-  },
-  resultTaskText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.primary,
-    flex: 1,
-    textAlign: 'left',
-  },
-  pointScore: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-  },
-  pointFeedback: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.secondary,
-    marginLeft: 30,
-    textAlign: 'left',
-    fontStyle: 'italic',
-  },
-  communicativeDesignSection: {
-    marginBottom: spacing.margin.md,
-  },
-  communicativeDesignCard: {
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.sm,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  communicativeDesignHeader: {
-    marginBottom: spacing.margin.xs,
-  },
-  communicativeDesignScore: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-  },
-  communicativeDesignFeedback: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    textAlign: 'left',
-    fontStyle: 'italic',
-  },
-  userInputSection: {
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  userInputTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  userInputText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-    textAlign: 'left',
-  },
-  correctedAnswerSection: {
-    backgroundColor: colors.primary[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginBottom: spacing.margin.md,
-    borderWidth: 2,
-    borderColor: colors.primary[300],
-  },
-  correctedAnswerTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.primary[700],
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  correctedAnswerContainer: {
-    flexDirection: 'column',
-  },
-  feedbackSection: {
-    marginBottom: spacing.margin.xl,
-  },
-  feedbackText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 24,
-  },
-  closeModalButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    alignItems: 'center',
-    marginTop: spacing.margin.md,
-  },
-  closeModalButtonText: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
   },
   imagePreviewModalContent: {
     maxHeight: '90%',

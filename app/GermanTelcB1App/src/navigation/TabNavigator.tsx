@@ -20,6 +20,7 @@ import appOpenAdService from '../services/app-open-ad.service';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { type ThemeColors } from '../theme';
+import { HIDE_ADS } from '../config/development.config';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -27,6 +28,9 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
 const HIDE_TAB_SCREENS = [
   'PracticeMenu',
   'ReadingMenu',
+  'WritingMenu',
+  'WritingPart1',
+  'WritingPart2',
   'ReadingPart1',
   'ReadingPart2',
   'ReadingPart3',
@@ -65,6 +69,15 @@ const HIDE_TAB_SCREENS = [
   'SpeakingAssessment',
   'ReportedIssues',
   'DeleSpeakingAllParts',
+  'ReadingPart1A1',
+  'ReadingPart2A1',
+  'ReadingPart3A1',
+  'ListeningPart1A1',
+  'ListeningPart2A1',
+  'ListeningPart3A1',
+  'A1SpeakingPart1',
+  'A1SpeakingPart2',
+  'A1SpeakingPart3',
 ];
 
 const HIDE_BANNER_SCREENS = [
@@ -139,6 +152,10 @@ const TabNavigator: React.FC = () => {
 
   // Load and show app open ad (defined as callback to maintain hook order)
   const loadAndShowAppOpenAd = useCallback(async () => {
+    if (HIDE_ADS) {
+      return;
+    }
+
     // Only show once per session
     if (hasShownAppOpenAdRef.current) {
       console.log('[TabNavigator] App open ad already shown this session');

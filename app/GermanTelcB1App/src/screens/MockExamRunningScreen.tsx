@@ -52,6 +52,9 @@ import DeleGrammarPart2Wrapper from '../components/exam-wrappers/DeleGrammarPart
 import WritingResultsModal from '../components/exam-ui/WritingResultsModal';
 import { WritingAssessment } from '../services/http.openai.service';
 import { dataService } from '../services/data.service';
+import WritingResultsModalA1 from '../components/exam-ui/WritingResultsModalA1';
+import WritingPart1ResultsModalA1 from '../components/exam-ui/WritingPart1ResultsModalA1';
+import { WritingAssessmentA1 } from '../services/http.openai.service';
 
 const MockExamRunningScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -62,6 +65,22 @@ const MockExamRunningScreen: React.FC = () => {
   const [selectedWritingAssessment, setSelectedWritingAssessment] = useState<WritingAssessment | null>(null);
   const [selectedWritingExam, setSelectedWritingExam] = useState<any>(null);
   const [isWritingResultsModalVisible, setIsWritingResultsModalVisible] = useState(false);
+  // A1 Writing modals
+  const [selectedWritingAssessmentA1, setSelectedWritingAssessmentA1] = useState<any>(null);
+  const [selectedWritingExamA1, setSelectedWritingExamA1] = useState<any>(null);
+  const [isWritingPart1ResultsModalA1Visible, setIsWritingPart1ResultsModalA1Visible] = useState(false);
+  const [isWritingPart2ResultsModalA1Visible, setIsWritingPart2ResultsModalA1Visible] = useState(false);
+  const [writingPart1ResultsA1, setWritingPart1ResultsA1] = useState<{
+    score: number;
+    totalQuestions: number;
+    results: Array<{
+      questionNumber: number;
+      fieldLabel: string;
+      userAnswer: string;
+      correctAnswer: string;
+      isCorrect: boolean;
+    }>;
+  } | null>(null);
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -113,6 +132,10 @@ const MockExamRunningScreen: React.FC = () => {
       if (currentStep) {
         if (isDele && currentStep.sectionNumber === 4) { // Writing Section for DELE
           score = correctCount / 2; // The max points is 12.5 and the evaluation is out of 25
+        } else if (isA1 && currentStep.sectionNumber === 4) { // Writing Section for A1
+          score = correctCount; // Writing Part 1 and Part 2 are evaluated with the same score
+        } else if (currentStep.sectionNumber === 4) { // Writing Section for B1/B2
+          score = correctCount; // The max points is 12.5 and the evaluation is out of 25
         } else {
           // If the step has maxPoints defined, scale the score accordingly
           if (currentStep.maxPoints) {
@@ -198,23 +221,24 @@ const MockExamRunningScreen: React.FC = () => {
       return;
     }
 
-    // Check if this is a writing step for B1/B2 levels
+    // Check if this is a writing step
     const isWritingStep = stepId.includes('writing');
     const isB1OrB2Level = activeExamConfig.level === 'B1' || activeExamConfig.level === 'B2';
-    
+
+    // Handle B1/B2 writing results
     if (isWritingStep && isB1OrB2Level && step.answers.length > 0) {
       // For writing steps, try to extract the WritingAssessment from answers
       const firstAnswer = step.answers[0];
-      
+
       // Check if we have assessment data stored
       if (firstAnswer.assessment) {
         setSelectedWritingAssessment(firstAnswer.assessment as WritingAssessment);
-        
+
         // Load the exam data for this writing step
         try {
           const testId = getTestIdForStep(stepId, examProgress.selectedTests);
           let loadedExam;
-          
+
           if (isDele) {
             if (stepId === 'writing-1') {
               loadedExam = await dataService.getDeleWritingPart1ExamById(testId);
@@ -224,7 +248,7 @@ const MockExamRunningScreen: React.FC = () => {
           } else {
             loadedExam = await dataService.getWritingExam(testId);
           }
-          
+
           if (loadedExam) {
             setSelectedWritingExam(loadedExam);
             setIsWritingResultsModalVisible(true);
@@ -232,6 +256,46 @@ const MockExamRunningScreen: React.FC = () => {
           }
         } catch (error) {
           console.error('Error loading writing exam data:', error);
+        }
+      }
+    }
+
+    // Handle A1 writing results
+    if (isWritingStep && isA1 && step.answers.length > 0) {
+      const firstAnswer = step.answers[0];
+
+      // Check if we have assessment data stored (Part 2 - WritingPart2UIA1)
+      if (firstAnswer.assessment) {
+
+        // Load the exam data for this writing step
+        try {
+          const testId = getTestIdForStep(stepId, examProgress.selectedTests);
+          let loadedExam;
+
+          if (stepId === 'writing-part1') {
+            loadedExam = await dataService.getWritingPart1Exam(String(testId));
+
+            if (loadedExam) {
+              setSelectedWritingExamA1(loadedExam);
+              setIsWritingPart1ResultsModalA1Visible(true);
+              setWritingPart1ResultsA1(firstAnswer.assessment);
+
+              return
+            }
+          }
+
+          if (stepId === 'writing-part2') {
+            loadedExam = await dataService.getWritingPart2Exam(String(testId));
+
+            if (loadedExam) {
+              setSelectedWritingExamA1(loadedExam);
+              setIsWritingPart2ResultsModalA1Visible(true);
+              setSelectedWritingAssessmentA1(firstAnswer.assessment);
+              return
+            }
+          }
+        } catch (error) {
+          console.error('Error loading A1 writing exam data:', error);
         }
       }
     }
@@ -423,7 +487,7 @@ const MockExamRunningScreen: React.FC = () => {
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
       oralMaxPoints = isA1 ? 15 : 75;
-      writtenMaxPoints = examProgress.totalMaxPoints - oralMaxPoints;
+      writtenMaxPoints = examProgress.totalMaxPoints; // For Telc, we calculate total max points = the written max points
 
       passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
       passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
@@ -607,7 +671,40 @@ const MockExamRunningScreen: React.FC = () => {
           />
         )}
 
-        
+        {/* A1 Writing Part 2 Results Modal */}
+        {selectedWritingAssessmentA1 && selectedWritingExamA1 && (
+          <WritingResultsModalA1
+            isOpen={isWritingPart2ResultsModalA1Visible}
+            onClose={() => {
+              setIsWritingPart2ResultsModalA1Visible(false);
+              setSelectedWritingAssessmentA1(null);
+              setSelectedWritingExamA1(null);
+            }}
+            assessment={selectedWritingAssessmentA1}
+            isUsingCachedResult={false}
+            lastEvaluatedAnswer=""
+          />
+        )}
+
+        {/* A1 Writing Part 1 Results Modal */}
+        {writingPart1ResultsA1 && (
+          <WritingPart1ResultsModalA1
+            isOpen={isWritingPart1ResultsModalA1Visible}
+            onClose={() => {
+              setIsWritingPart1ResultsModalA1Visible(false);
+              setWritingPart1ResultsA1(null);
+            }}
+            onRetry={() => {
+              setIsWritingPart1ResultsModalA1Visible(false);
+              setWritingPart1ResultsA1(null);
+            }}
+            score={writingPart1ResultsA1.score}
+            totalQuestions={writingPart1ResultsA1.totalQuestions}
+            results={writingPart1ResultsA1.results}
+          />
+        )}
+
+
       </SafeAreaView>
     );
   }
@@ -850,7 +947,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.error[600],
   },
   resultScore: {
-    ...typography.textStyles.h1,
+    ...typography.textStyles.h2,
     fontWeight: typography.fontWeight.bold,
     marginBottom: spacing.margin.xs,
   },
@@ -1014,6 +1111,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.bodySmall,
     color: colors.background.secondary,
     fontWeight: typography.fontWeight.semibold,
+    textAlign: 'center',
   },
   primaryButton: {
     backgroundColor: colors.primary[500],

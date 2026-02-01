@@ -119,7 +119,8 @@
     "detailedResults": "Detaillierte Ergebnisse",
     "yourAnswer": "Ihre Antwort",
     "correctAnswer": "Richtige Antwort",
-    "noAnswer": "(Keine Antwort)"
+    "noAnswer": "(Keine Antwort)",
+    "modalAnswer": "Modale Antwort"
   },
   "onboarding": {
     "welcome": {
@@ -1526,7 +1527,7 @@
       "loading": "Bewertung läuft, dies dauert einige Sekunden",
       "userInput": "Ihre Antwort",
       "noUserInput": "Keine Antwort erkannt. Versuchen Sie, Ihre Handschrift zu verbessern.",
-      "modalAnswer": "Musterantwort"
+      "modelAnswer": "Musterantwort"
     },
     "imagePreview": {
       "title": "Aufgenommenes Bild überprüfen",
@@ -1879,7 +1880,8 @@
     }
   },
   "general": {
-    "loadingDataError": "Die Daten konnten nicht geladen werden. \nUnser Team arbeitet an der Lösung."
+    "loadingDataError": "Die Daten konnten nicht geladen werden. \nUnser Team arbeitet an der Lösung.",
+    "loading": "Laden ...."
   },
   "nav": {
     "examStructure": {

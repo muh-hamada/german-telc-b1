@@ -7,6 +7,13 @@ import { activeExamConfig } from '../config/active-exam.config';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
+const getRandomId = (exams: any[], section?: string) => {
+  console.log('[generateRandomExamSelection] exams', exams, section);
+  if (!exams || exams.length === 0) return 0;
+  const randomIndex = Math.floor(Math.random() * exams.length);
+  return exams[randomIndex].id;
+};
+
 /**
  * Generates random test selection for mock exam
  * Picks one random test from each section's available exams
@@ -14,7 +21,7 @@ const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 export const generateRandomExamSelection = async () => {
   const isA1 = activeExamConfig.level === 'A1';
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
-  
+
   if (isDele) {
     // DELE Spanish B1 has different structure
     const promises = [
@@ -71,46 +78,66 @@ export const generateRandomExamSelection = async () => {
     console.log('[generateRandomExamSelection] DELE selectedTests', selectedTests);
     return selectedTests;
   }
-  
-  // Fetch all available exams for each section (German/English Telc)
-  const promises: Promise<any>[] = [
-    dataService.getReadingPart1Exams(),
-    dataService.getReadingPart2Exams(),
-    dataService.getReadingPart3Exams(),
-  ];
 
-  // Only fetch grammar for B1/B2
-  if (!isA1) {
-    promises.push(
-      dataService.getGrammarPart1Exams(),
-      dataService.getGrammarPart2Exams()
-    );
-  }
-
-  promises.push(
-    dataService.getWritingExams(),
-    dataService.getListeningPart1Content(),
-    dataService.getListeningPart2Content(),
-    dataService.getListeningPart3Content()
-  );
-
-  const results = await Promise.all(promises);
-  
+  // Telc Exams for A1 and B1/B2
   let readingPart1Exams, readingPart2Exams, readingPart3Exams;
   let grammarPart1Exams, grammarPart2Exams;
-  let writingExams, listeningPart1Data, listeningPart2Data, listeningPart3Data;
+  let writingExams, writingPart1Exams, writingPart2Exams;
+  let listeningPart1Data, listeningPart2Data, listeningPart3Data;
 
   if (isA1) {
+    const promises: Promise<any>[] = [
+      dataService.getReadingPart1A1Exams(),
+      dataService.getReadingPart2A1Exams(),
+      dataService.getReadingPart3A1Exams(),
+    ];
+
+    // Fetch writing part 1 and part 2 for A1
+    promises.push(
+      dataService.getWritingPart1Exams(),
+      dataService.getWritingPart2Exams()
+    );
+
+    promises.push(
+      dataService.getListeningPart1Content(),
+      dataService.getListeningPart2Content(),
+      dataService.getListeningPart3Content()
+    );
+
+    const results = await Promise.all(promises);
+
     [
       readingPart1Exams,
       readingPart2Exams,
       readingPart3Exams,
-      writingExams, // BUG: AI has writing part 1 and 2
+      writingPart1Exams,
+      writingPart2Exams,
       listeningPart1Data,
       listeningPart2Data,
       listeningPart3Data
     ] = results;
   } else {
+    const promises: Promise<any>[] = [
+      dataService.getReadingPart1Exams(),
+      dataService.getReadingPart2Exams(),
+      dataService.getReadingPart3Exams(),
+    ];
+
+    // Fetch grammar for B1/B2
+    promises.push(
+      dataService.getGrammarPart1Exams(),
+      dataService.getGrammarPart2Exams()
+    );
+
+    promises.push(
+      dataService.getWritingExams(),
+      dataService.getListeningPart1Content(),
+      dataService.getListeningPart2Content(),
+      dataService.getListeningPart3Content()
+    );
+
+    const results = await Promise.all(promises);
+
     [
       readingPart1Exams,
       readingPart2Exams,
@@ -128,12 +155,6 @@ export const generateRandomExamSelection = async () => {
   const listeningPart2Exams = listeningPart2Data?.exams || [];
   const listeningPart3Exams = listeningPart3Data?.exams || [];
 
-  const getRandomId = (exams: any[]) => {
-    if (!exams || exams.length === 0) return 0;
-    const randomIndex = Math.floor(Math.random() * exams.length);
-    return exams[randomIndex].id;
-  };
-
   const selectedTests: any = {
     'reading-1': getRandomId(readingPart1Exams),
     'reading-2': getRandomId(readingPart2Exams),
@@ -145,16 +166,14 @@ export const generateRandomExamSelection = async () => {
 
   if (isA1) {
     // A1 has writing-part1 and writing-part2, use same writing exam for both
-    selectedTests['writing-part1'] = getRandomId(writingExams);
-    selectedTests['writing-part2'] = selectedTests['writing-part1'];
+    selectedTests['writing-part1'] = getRandomId(writingPart1Exams, 'writing-part1');
+    selectedTests['writing-part2'] = getRandomId(writingPart2Exams, 'writing-part2');
   } else {
     // B1/B2 have language sections and single writing
     selectedTests['language-1'] = getRandomId(grammarPart1Exams);
     selectedTests['language-2'] = getRandomId(grammarPart2Exams);
     selectedTests['writing'] = getRandomId(writingExams);
   }
-
-  console.log('[generateRandomExamSelection] selectedTests', selectedTests);
 
   return selectedTests;
 };
@@ -228,18 +247,18 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
   // Import appropriate MOCK_EXAM_STEPS based on exam level
   const isA1 = activeExamConfig.level === 'A1';
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
-  const { 
-    MOCK_EXAM_STEPS, 
-    MOCK_EXAM_STEPS_A1, 
+  const {
+    MOCK_EXAM_STEPS,
+    MOCK_EXAM_STEPS_A1,
     MOCK_EXAM_STEPS_DELE_B1,
-    TOTAL_WRITTEN_MAX_POINTS, 
+    TOTAL_WRITTEN_MAX_POINTS,
     TOTAL_WRITTEN_MAX_POINTS_A1,
     TOTAL_WRITTEN_MAX_POINTS_DELE_B1,
     TOTAL_ORAL_MAX_POINTS_DELE_B1,
   } = require('../types/mock-exam.types');
-  
+
   let examSteps, writtenMaxPoints;
-  
+
   if (isDele) {
     examSteps = MOCK_EXAM_STEPS_DELE_B1;
     // DELE: Group 1 (Reading + Writing) + Group 2 (Listening only, no speaking in mock)
@@ -251,11 +270,11 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
     examSteps = MOCK_EXAM_STEPS;
     writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS;
   }
-  
+
   // Filter out speaking sections as they're not included in mock exam
   // For German/English: section 5 is speaking
   // For DELE: section 5 is speaking
-  const speakingSectionNumber = 5; // BUG: check this for Telc exams, I only checked DELE
+  const speakingSectionNumber = 5;
   const steps = examSteps
     .filter((step: any) => step.sectionNumber !== speakingSectionNumber) // Exclude speaking
     .map((step: any) => ({
@@ -266,7 +285,7 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
       endTime: undefined,
     }));
 
-    console.log('[createInitialMockExamProgress] examSteps', steps);
+  console.log('[createInitialMockExamProgress] examSteps', steps);
 
   return {
     examId,
@@ -342,9 +361,9 @@ export const updateStepProgress = async (
       // Track exam completed
       const isA1 = activeExamConfig.level === 'A1';
       const isDele = activeExamConfig.id === 'dele-spanish-b1';
-      
+
       let writtenScore, writtenMaxPoints, passingWrittenPoints, passingTotalPoints;
-      
+
       if (isDele) {
         // DELE: Group 1 (Reading + Writing) is sections 1-2
         writtenScore = progress.steps
@@ -362,7 +381,7 @@ export const updateStepProgress = async (
         passingWrittenPoints = isA1 ? 27 : 135; // 60% of max points
         passingTotalPoints = isA1 ? 36 : 180; // 60% of total points
       }
-      
+
       const passedWritten = writtenScore >= passingWrittenPoints;
       const passedOverall = progress.totalScore >= passingTotalPoints && passedWritten;
 
@@ -381,7 +400,7 @@ export const updateStepProgress = async (
     progress.hasStarted = true;
 
     await saveMockExamProgress(progress);
-    
+
     // If this is the first time starting, log started and first step started
     if (stepIndex === 0 && progress.steps[0].startTime === undefined) {
       logEvent(AnalyticsEvents.MOCK_EXAM_STARTED, {
@@ -438,7 +457,7 @@ export const navigateToStep = async (stepId: string): Promise<void> => {
 
     // Update current step
     progress.currentStepId = stepId;
-    
+
     // Set start time if not already set
     if (!progress.steps[stepIndex].startTime) {
       progress.steps[stepIndex].startTime = Date.now();

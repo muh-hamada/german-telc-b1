@@ -119,7 +119,8 @@
     "detailedResults": "Résultats détaillés",
     "yourAnswer": "Votre réponse",
     "correctAnswer": "Bonne réponse",
-    "noAnswer": "(Pas de réponse)"
+    "noAnswer": "(Pas de réponse)",
+    "modalAnswer": "Réponse modale"
   },
   "onboarding": {
     "welcome": {
@@ -1513,7 +1514,7 @@
       "loading": "L'évaluation est en cours, cela prendra quelques secondes",
       "userInput": "Votre Réponse",
       "noUserInput": "Aucune réponse n'a été reconnue. \nEssayez d'améliorer votre écriture.",
-      "modalAnswer": "Réponse Modèle"
+      "modelAnswer": "Réponse Modèle"
     },
     "imagePreview": {
       "title": "Vérifier l'image capturée",
@@ -1870,7 +1871,8 @@
     }
   },
   "general": {
-    "loadingDataError": "Échec du chargement des données. \nNotre équipe travaille sur le correctif."
+    "loadingDataError": "Échec du chargement des données. \nNotre équipe travaille sur le correctif.",
+    "loading": "Chargement ...."
   },
   "nav": {
     "examStructure": {

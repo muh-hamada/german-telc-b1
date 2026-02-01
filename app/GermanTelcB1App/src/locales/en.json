@@ -119,7 +119,8 @@
     "detailedResults": "Detailed Results",
     "yourAnswer": "Your Answer",
     "correctAnswer": "Correct Answer",
-    "noAnswer": "(No answer)"
+    "noAnswer": "(No answer)",
+    "modalAnswer": "Modal Answer"
   },
   "onboarding": {
     "welcome": {
@@ -1307,7 +1308,7 @@
       "loading": "Evaluation is in progress, this will take a few seconds",
       "userInput": "Your Answer",
       "noUserInput": "No answer has been recognized. Try improving your handwriting.",
-      "modalAnswer": "Model Answer"
+      "modelAnswer": "Model Answer"
     },
     "imagePreview": {
       "title": "Review Captured Image",
@@ -1597,7 +1598,8 @@
     "characterCount": "{{current}}/{{max}} characters"
   },
   "general": {
-    "loadingDataError": "Failed to load the data. Our team is working on the fix."
+    "loadingDataError": "Failed to load the data. Our team is working on the fix.",
+    "loading": "Loading ...."
   },
   "nav": {
     "examStructure": {

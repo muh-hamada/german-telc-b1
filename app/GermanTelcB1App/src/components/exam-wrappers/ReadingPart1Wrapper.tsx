@@ -7,6 +7,7 @@ import ReadingPart1A1UI from '../exam-ui/ReadingPart1A1UI';
 import { ReadingPart1Exam, ReadingPart1A1Exam, UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 
 interface ReadingPart1WrapperProps {
   testId: number;
@@ -15,6 +16,7 @@ interface ReadingPart1WrapperProps {
 
 const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onComplete }) => {
   const isA1 = activeExamConfig.level === 'A1';
+  const { t } = useCustomTranslation();
   const [exam, setExam] = useState<ReadingPart1Exam | ReadingPart1A1Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { colors } = useAppTheme();
@@ -43,7 +45,7 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
   if (isLoading) {
     return (
       <View style={styles.container}>
-        <Text style={styles.loadingText}>Loading...</Text>
+        <Text style={styles.loadingText}>{t('general.loading')}</Text>
       </View>
     );
   }

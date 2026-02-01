@@ -7,21 +7,21 @@ import {
   Alert,
   ScrollView,
   TextInput,
-  Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { UserAnswer } from '../../types/exam.types';
-import SupportAdButton from '../SupportAdButton';
+import WritingPart1ResultsModalA1 from './WritingPart1ResultsModalA1';
 
 interface WritingPart1UIA1Props {
   exam: any;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  isMockExam?: boolean;
 }
 
-const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete }) => {
+const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -106,15 +106,24 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete })
     const calculatedScore = correctCount;
 
     setScore(calculatedScore);
-    setIsSubmitted(true);
-    setShowResultsModal(true);
+    if (!isMockExam) {
+      // If not a mock exam, show the results modal
+      // In the mock exam, the results is shown at the end of the exam
+      setShowResultsModal(true);
+
+      // Don't set isSubmitted to true in mock exam to avoid highlighting the fields
+      setIsSubmitted(true);
+    }
 
     // Update progress
     const answers: UserAnswer[] = editableFields.map((field: any) => ({
       questionId: field.question_number || 0,
-      userAnswer: userAnswers[field.id] || '',
+      answer: userAnswers[field.id] || '',
       correctAnswer: getCorrectAnswer(field),
       isCorrect: checkAnswer(field),
+      timestamp: Date.now(),
+      explanation: field.explanation || '',
+      assessment: buildResults()
     }));
 
     onComplete(calculatedScore, answers);
@@ -305,7 +314,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete })
     );
   };
 
-  const renderResultsModal = () => {
+  const buildResults: () => { results: any; score: number; totalQuestions: number } | null = () => {
     if (!exam) return null;
     if (!exam.form_fields) return null;
 
@@ -315,125 +324,41 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete })
       field.type === 'single_choice'
     );
     const totalQuestions = editableFields.length;
-    const percentage = Math.round((score / totalQuestions) * 100);
+
+    const results = editableFields.map((field: any, index: number) => {
+      const isCorrect = checkAnswer(field);
+      const userAnswer = userAnswers[field.id] || '';
+      const correctAnswer = getCorrectAnswer(field);
+      const questionNum = field.question_number !== undefined ? field.question_number : index + 1;
+
+      return {
+        questionNumber: questionNum,
+        fieldLabel: field.label,
+        userAnswer,
+        correctAnswer,
+        isCorrect,
+      };
+    });
+
+    return {results, score, totalQuestions}; 
+  }
+
+  const renderResultsModal = () => {
+    const resultData = buildResults();
+    if(!resultData) return null;
+
+    console.log('resultData', resultData);
+    const { results, score, totalQuestions } = resultData;
 
     return (
-      <Modal
-        visible={showResultsModal}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setShowResultsModal(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <ScrollView
-            style={styles.modalScrollView}
-            contentContainerStyle={styles.modalScrollContent}
-            showsVerticalScrollIndicator={true}
-          >
-            <View style={styles.modalContent}>
-              {/* Header with Score */}
-              <View style={styles.modalHeader}>
-                <View style={styles.modalHeaderTop}>
-                  <Icon
-                    name={percentage >= 60 ? 'check-circle' : 'times-circle'}
-                    size={36}
-                    color={percentage >= 60 ? colors.success[500] : colors.error[500]}
-                  />
-                  <View style={styles.modalHeaderTextContainer}>
-                    <Text style={styles.modalTitle}>
-                      {percentage >= 60 ? t('exam.congratulations') : t('exam.keepPracticing')}
-                    </Text>
-                    <View style={styles.scoreRow}>
-                      <Text style={styles.scoreText}>
-                        {score}/{totalQuestions}
-                      </Text>
-                      <Text style={styles.percentageText}>{percentage}%</Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-
-              {/* Detailed Results */}
-              <View style={styles.detailedResultsContainer}>
-                <Text style={styles.detailedResultsTitle}>
-                  {t('exam.detailedResults')}
-                </Text>
-                {editableFields.map((field: any, index: number) => {
-                  const isCorrect = checkAnswer(field);
-                  const userAnswer = userAnswers[field.id] || '';
-                  const correctAnswer = getCorrectAnswer(field);
-                  const questionNum = field.question_number !== undefined ? field.question_number : index + 1;
-
-                  return (
-                    <View key={field.id} style={styles.resultItem}>
-                      <View style={styles.resultItemHeader}>
-                        <View style={[
-                          styles.resultQuestionNumber,
-                          isCorrect ? styles.resultQuestionNumberCorrect : styles.resultQuestionNumberIncorrect
-                        ]}>
-                          <Text style={styles.resultQuestionNumberText}>{questionNum}</Text>
-                        </View>
-                        <Text style={styles.resultFieldLabel} numberOfLines={1}>
-                          {field.label}
-                        </Text>
-                        <Icon
-                          name={isCorrect ? 'check-circle' : 'times-circle'}
-                          size={18}
-                          color={isCorrect ? colors.success[500] : colors.error[500]}
-                        />
-                      </View>
-
-                      <View style={styles.resultAnswersContainer}>
-                        <Text style={styles.resultAnswerInline}>
-                          <Text style={styles.resultAnswerLabel}>{t('exam.yourAnswer')}: </Text>
-                          <Text style={[
-                            styles.resultAnswerValue,
-                            !isCorrect && styles.resultAnswerTextIncorrect
-                          ]}>
-                            {userAnswer || t('exam.noAnswer')}
-                          </Text>
-                        </Text>
-
-                        {!isCorrect && (
-                          <Text style={styles.resultAnswerInline}>
-                            <Text style={styles.resultAnswerLabel}>{t('exam.correctAnswer')}: </Text>
-                            <Text style={[styles.resultAnswerValue, styles.resultAnswerTextCorrect]}>
-                              {correctAnswer}
-                            </Text>
-                          </Text>
-                        )}
-                      </View>
-                    </View>
-                  );
-                })}
-              </View>
-
-              {/* Support Ad Button */}
-              <SupportAdButton
-                screen="WritingPart1Results"
-                style={styles.supportAdButton}
-              />
-
-              <View style={styles.modalButtons}>
-                <TouchableOpacity
-                  style={[styles.modalButton, styles.retryButton]}
-                  onPress={handleRetry}
-                >
-                  <Icon name="refresh" size={16} color={colors.white} />
-                  <Text style={styles.modalButtonText}>{t('exam.retry')}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={[styles.modalButton, styles.closeButton]}
-                  onPress={() => setShowResultsModal(false)}
-                >
-                  <Text style={styles.modalButtonText}>{t('common.close')}</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ScrollView>
-        </View>
-      </Modal>
+      <WritingPart1ResultsModalA1
+        isOpen={showResultsModal}
+        onClose={() => setShowResultsModal(false)}
+        onRetry={handleRetry}
+        score={score}
+        totalQuestions={totalQuestions}
+        results={results}
+      />
     );
   };
 
@@ -686,171 +611,6 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h5,
     color: colors.white,
     fontWeight: typography.fontWeight.bold,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.padding.lg,
-  },
-  modalScrollView: {
-    width: '100%',
-    maxHeight: '90%',
-  },
-  modalScrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: spacing.borderRadius.lg,
-    padding: spacing.padding.md,
-    width: '100%',
-    maxWidth: 500,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 8,
-    marginVertical: spacing.margin.lg,
-  },
-  modalHeader: {
-    marginBottom: spacing.margin.md,
-    paddingBottom: spacing.padding.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  modalHeaderTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  modalHeaderTextContainer: {
-    flex: 1,
-    marginLeft: spacing.margin.md,
-  },
-  modalTitle: {
-    ...typography.textStyles.h5,
-    color: colors.text.primary,
-    marginBottom: spacing.margin.xs,
-    textAlign: 'left',
-  },
-  scoreRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.margin.sm,
-  },
-  scoreText: {
-    ...typography.textStyles.body,
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  percentageText: {
-    ...typography.textStyles.h5,
-    color: colors.primary[500],
-    fontWeight: typography.fontWeight.bold,
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    gap: spacing.margin.sm,
-  },
-  modalButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: spacing.padding.sm,
-    paddingHorizontal: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    gap: spacing.margin.xs,
-  },
-  retryButton: {
-    backgroundColor: colors.primary[500],
-  },
-  closeButton: {
-    backgroundColor: colors.text.secondary,
-  },
-  modalButtonText: {
-    ...typography.textStyles.bodySmall,
-    color: colors.white,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  detailedResultsContainer: {
-    marginBottom: spacing.margin.sm,
-    width: '100%',
-  },
-  detailedResultsTitle: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    marginBottom: spacing.margin.sm,
-    textAlign: 'left',
-  },
-  resultItem: {
-    backgroundColor: colors.background.primary,
-    padding: spacing.padding.sm,
-    borderRadius: spacing.borderRadius.sm,
-    marginBottom: spacing.margin.sm,
-    borderWidth: 1,
-    borderColor: colors.border.light,
-  },
-  resultItemHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.margin.xs,
-    gap: spacing.margin.xs,
-  },
-  resultQuestionNumber: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  resultQuestionNumberCorrect: {
-    backgroundColor: colors.success[500],
-  },
-  resultQuestionNumberIncorrect: {
-    backgroundColor: colors.error[500],
-  },
-  resultQuestionNumberText: {
-    ...typography.textStyles.bodySmall,
-    fontSize: 11,
-    color: colors.white,
-    fontWeight: typography.fontWeight.bold,
-  },
-  resultFieldLabel: {
-    ...typography.textStyles.bodySmall,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.semibold,
-    flex: 1,
-    textAlign: 'left',
-  },
-  resultAnswersContainer: {
-    gap: spacing.margin.xs,
-  },
-  resultAnswerInline: {
-    ...typography.textStyles.bodySmall,
-    textAlign: 'left',
-  },
-  resultAnswerLabel: {
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  resultAnswerValue: {
-    color: colors.text.primary,
-  },
-  resultAnswerTextCorrect: {
-    color: colors.success[600],
-    fontWeight: typography.fontWeight.semibold,
-  },
-  resultAnswerTextIncorrect: {
-    color: colors.error[600],
-    textDecorationLine: 'line-through',
-  },
-  supportAdButton: {
-    marginBottom: spacing.margin.md,
   },
 });
 

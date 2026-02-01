@@ -75,7 +75,7 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
     if (stepId === 'writing-part1' && exam) {
       return (
         <View style={styles.container}>
-          <WritingPart1UIA1 exam={exam} onComplete={onComplete} />
+          <WritingPart1UIA1 exam={exam} onComplete={onComplete} isMockExam={true} />
         </View>
       );
     } else if (stepId === 'writing-part2' && exam) {

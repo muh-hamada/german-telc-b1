@@ -119,7 +119,8 @@
     "detailedResults": "نتائج تفصيلية",
     "yourAnswer": "إجابتك",
     "correctAnswer": "الإجابة الصحيحة",
-    "noAnswer": "(لا توجد إجابة)"
+    "noAnswer": "(لا توجد إجابة)",
+    "modalAnswer": "الإجابة النموزجية"
   },
   "onboarding": {
     "welcome": {
@@ -1513,7 +1514,7 @@
       "loading": "التقييم قيد التقدم، وسيستغرق ذلك بضع ثوانٍ",
       "userInput": "إجابتك",
       "noUserInput": "لم يتم التعرف على أي إجابة. \nحاول تحسين خط يدك.",
-      "modalAnswer": "نموذج الإجابة"
+      "modelAnswer": "نموذج الإجابة"
     },
     "imagePreview": {
       "title": "مراجعة الصورة الملتقطة",
@@ -1870,7 +1871,8 @@
     }
   },
   "general": {
-    "loadingDataError": "فشل تحميل البيانات. \nيعمل فريقنا على الإصلاح."
+    "loadingDataError": "فشل تحميل البيانات. \nيعمل فريقنا على الإصلاح.",
+    "loading": "تحميل ...."
   },
   "nav": {
     "examStructure": {
