@@ -33,10 +33,17 @@ def load_app_store_metadata(app_id)
   metadata = JSON.parse(File.read(APP_STORE_METADATA_PATH))
   
   # Parse app_id to extract language and level
-  # Format: "german-a1", "german-b1", "german-b2", "english-b1", "english-b2"
+  # Format: "german-a1", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1"
   parts = app_id.split('-')
-  language = parts[0]  # "german" or "english"
-  level = parts[1].upcase  # "A1", "B1", "B2"
+  
+  # Handle special case for "dele-spanish-b1"
+  if parts.length == 3 && parts[0] == "dele"
+    language = parts[1]  # "spanish"
+    level = parts[2].upcase  # "B1"
+  else
+    language = parts[0]  # "german" or "english"
+    level = parts[1].upcase  # "A1", "B1", "B2"
+  end
   
   # Create a processed metadata hash with placeholders replaced
   processed = {}
@@ -190,6 +197,11 @@ def get_app_config(app_id)
     {
       android_package: "com.mhamada.telcb2english",
       ios_bundle_id: "com.mhamada.telcb2english"
+    }
+  when "dele-spanish-b1"
+    {
+      android_package: "com.mhamada.deleb1spanish",
+      ios_bundle_id: "com.mhamada.deleb1spanish"
     }
   else
     UI.user_error!("Unknown app ID: #{app_id}")

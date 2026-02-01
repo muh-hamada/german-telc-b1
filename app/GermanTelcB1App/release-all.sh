@@ -17,7 +17,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Apps to build (can be configured)
-DEFAULT_APPS=("german-a1" "german-b1" "german-b2" "english-b1" "english-b2")
+DEFAULT_APPS=("german-a1" "german-b1" "german-b2" "english-b1" "english-b2", "dele-spanish-b1")
 
 # Usage message
 usage() {
@@ -274,6 +274,7 @@ if [ "$BUILD_ANDROID" = true ]; then
         "german-b2") FLAVOR="germanB2" ;;
         "english-b1") FLAVOR="englishB1" ;;
         "english-b2") FLAVOR="englishB2" ;;
+        "dele-spanish-b1") FLAVOR="deleSpanishB1" ;;
         *) error_exit "Unknown app ID: $APP_ID" ;;
       esac
       
