@@ -34,6 +34,7 @@ export const syncNotificationIndex = functions.firestore
       const fcmToken = after.fcmToken?.token;
       const displayName = after.displayName || '';
       const language = after.preferences?.interfaceLanguage || after.preferences?.language || DEFAULT_NOTIFICATION_LANGUAGE;
+      const appId = after.appId || '';
 
       // Case 2: Notifications disabled or missing required fields
       if (!notificationsEnabled || !notificationHour || !fcmToken) {
@@ -85,11 +86,13 @@ export const syncNotificationIndex = functions.firestore
         // Check if other fields changed
         const beforeDisplayName = before?.displayName || '';
         const beforeLanguage = before?.preferences?.interfaceLanguage || DEFAULT_NOTIFICATION_LANGUAGE;
+        const beforeAppId = before?.appId || '';
         
         if (displayName !== beforeDisplayName || 
             language !== beforeLanguage || 
             timezone !== beforeTimezone ||
-            fcmToken !== beforeToken) {
+            fcmToken !== beforeToken ||
+            appId !== beforeAppId) {
           needsUpdate = true;
         }
       }
@@ -121,7 +124,8 @@ export const syncNotificationIndex = functions.firestore
             timezone,
             language,
             deviceId: fcmToken,
-            displayName
+            displayName,
+            appId
           }
         }
       }, { merge: true });

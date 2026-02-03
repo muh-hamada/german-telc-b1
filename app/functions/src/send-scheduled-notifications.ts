@@ -3,12 +3,12 @@ import * as admin from 'firebase-admin';
 
 // Notification titles in different languages (personalized with name)
 const NOTIFICATION_TITLES: { [key: string]: string } = {
-  en: 'Telc Exam Preparation',
-  de: 'Telc-Prüfungsvorbereitung',
-  ar: 'التحضير لامتحان Telc',
-  es: 'Preparación del Examen Telc',
-  ru: 'Подготовка к экзамену Telc',
-  fr: 'Préparation à l\'examen Telc'
+  en: 'Exam Preparation',
+  de: 'Prüfungsvorbereitung',
+  ar: 'التحضير لامتحان',
+  es: 'Preparación del Examen',
+  ru: 'Подготовка к экзамену',
+  fr: 'Préparation à l\'examen'
 };
 
 // Fallback motivational messages based on day of week (0=Sunday to 6=Saturday)
@@ -148,10 +148,19 @@ const STREAK_MESSAGES_WITH_NAME: { [key: string]: string } = {
 };
 
 // App IDs to check for streaks (in priority order)
-const STREAK_APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2'];
+const STREAK_APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2', 'dele-spanish-b1'];
 
 // Placeholder image URL
-const NOTIFICATION_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification-logo.jpg?alt=media&token=9cb214fc-72c2-4d58-8d60-1e9fbc90558a';
+const NOTIFICATION_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification-logo.jpg?alt=media';
+
+const NOTIFICATION_IMAGE_URLS = {
+  'german-a1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-a1.png?alt=media',
+  'german-b1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-b1.png?alt=media',
+  'german-b2': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-b2.png?alt=media',
+  'english-b1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-english-b1.png?alt=media',
+  'english-b2': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-english-b2.png?alt=media',
+  'dele-spanish-b1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-dele-spanish-b1.png?alt=media',
+}
 
 // Default language if user's language is not supported
 const DEFAULT_LANGUAGE = 'en';
@@ -253,16 +262,16 @@ function buildNotificationBody(
 /**
  * Core function to send notification to a single user
  * @param uid User ID
- * @param userData User data containing language, deviceId, and displayName
+ * @param userData User data containing language, deviceId, displayName, and appId
  * @param dayOfWeek Current day of week (0=Sunday, 6=Saturday)
  * @returns Promise<void>
  */
 async function sendNotificationToUser(
   uid: string,
-  userData: { language?: string; deviceId: string; displayName?: string },
+  userData: { language?: string; deviceId: string; displayName?: string; appId?: string },
   dayOfWeek: number
 ): Promise<void> {
-  const { language, deviceId, displayName } = userData;
+  const { language, deviceId, displayName, appId } = userData;
 
   // Validate required fields
   if (!deviceId) {
@@ -280,13 +289,17 @@ async function sendNotificationToUser(
   // Build personalized body
   const body = buildNotificationBody(userLanguage, dayOfWeek, firstName, streakDays);
 
+  // Select notification image based on appId, fallback to default if not found
+  const imageUrl = (appId && NOTIFICATION_IMAGE_URLS[appId as keyof typeof NOTIFICATION_IMAGE_URLS]) 
+    || NOTIFICATION_IMAGE_URL;
+
   // Send notification
   await admin.messaging().send({
     token: deviceId,
     notification: {
       title,
       body,
-      imageUrl: NOTIFICATION_IMAGE_URL
+      imageUrl
     },
     data: {
       type: 'daily_reminder',
@@ -309,7 +322,7 @@ async function sendNotificationToUser(
     }
   });
 
-  console.log(`[sendNotification] Sent notification to user ${uid} (${firstName || displayName || 'unknown'}) in ${userLanguage}, streak: ${streakDays}, message: "${body}"`);
+  console.log(`[sendNotification] Sent notification to user ${uid} (${firstName || displayName || 'unknown'}) in ${userLanguage}, appId: ${appId || 'unknown'}, streak: ${streakDays}, message: "${body}"`);
 }
 
 /**
@@ -487,6 +500,7 @@ export const sendTestNotification = functions
         details: {
           displayName: userData.displayName || 'unknown',
           language: userData.language || DEFAULT_LANGUAGE,
+          appId: userData.appId || 'unknown',
           foundInHour: foundInHour
         }
       });
