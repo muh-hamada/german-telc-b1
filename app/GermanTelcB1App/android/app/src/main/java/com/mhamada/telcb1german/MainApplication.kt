@@ -7,6 +7,8 @@ import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.soloader.SoLoader
+import com.facebook.react.soloader.OpenSourceMergedSoMapping
+import android.util.Log
 
 class MainApplication : Application(), ReactApplication {
 
@@ -23,6 +25,18 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
+    
+    // Explicitly initialize SoLoader with merged SO mapping for New Architecture
+    // This ensures native libraries are properly loaded on all devices
+    try {
+      Log.d("MainApplication", "Initializing SoLoader with merged SO mapping...")
+      SoLoader.init(this, OpenSourceMergedSoMapping)
+      Log.d("MainApplication", "SoLoader initialized successfully with merged SO mapping")
+    } catch (e: Exception) {
+      Log.e("MainApplication", "Failed to initialize SoLoader", e)
+      throw e
+    }
+    
     loadReactNative(this)
   }
 }
