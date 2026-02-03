@@ -17,7 +17,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Apps to build (can be configured)
-DEFAULT_APPS=("german-a1" "german-b1" "german-b2" "english-b1" "english-b2", "dele-spanish-b1")
+DEFAULT_APPS=("german-a1" "german-b1" "german-b2" "english-b1" "english-b2" "dele-spanish-b1")
 
 # Usage message
 usage() {
