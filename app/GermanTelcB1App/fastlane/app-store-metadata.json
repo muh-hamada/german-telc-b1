@@ -80,6 +80,17 @@
       "ru": "Английский",
       "ar": "الإنجليزية",
       "tr": "İngilizce"
+    },
+    "spanish": {
+      "en": "Spanish",
+      "de": "Spanisch",
+      "es": "Español",
+      "fr": "Espagnol",
+      "it": "Spagnolo",
+      "pt": "Espanhol",
+      "ru": "Испанский",
+      "ar": "الإسبانية",
+      "tr": "İspanyolca"
     }
   },
   "countries": {
@@ -104,6 +115,17 @@
       "ru": "Великобритания/США",
       "ar": "المملكة المتحدة/الولايات المتحدة",
       "tr": "İngiltere/ABD"
+    },
+    "spanish": {
+      "en": "Spain",
+      "de": "Spanien",
+      "es": "España",
+      "fr": "Espagne",
+      "it": "Spagna",
+      "pt": "Espanha",
+      "ru": "Испания",
+      "ar": "إسبانيا",
+      "tr": "İspanya"
     }
   }
 }

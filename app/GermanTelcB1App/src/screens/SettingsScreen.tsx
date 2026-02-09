@@ -1,40 +1,39 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
   Alert,
-  Switch,
-  Platform,
   Linking,
   PermissionsAndroid,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Switch,
+  Text,
+  View,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { useLanguageChange } from '../hooks/useLanguageChange';
 // import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import { spacing, typography, type ThemeColors } from '../theme';
-import Button from '../components/Button';
-import LanguageSelectorModal from '../components/LanguageSelectorModal';
-import RestartAppModal from '../components/RestartAppModal';
-import HourPickerModal from '../components/HourPickerModal';
-import DeleteAccountModal from '../components/DeleteAccountModal';
 import AccountDeletionInProgressModal from '../components/AccountDeletionInProgressModal';
-import PremiumDarkModeModal from '../components/PremiumDarkModeModal';
-import { useProgress } from '../contexts/ProgressContext';
-import { useAuth } from '../contexts/AuthContext';
-import { checkRTLChange } from '../utils/i18n';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import FirestoreService, { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
-import FCMService from '../services/fcm.service';
-import consentService, { AdsConsentStatus } from '../services/consent.service';
-import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
-import { activeExamConfig } from '../config/active-exam.config';
-import { usePremium } from '../contexts/PremiumContext';
-import { useRemoteConfig } from '../contexts/RemoteConfigContext';
+import Button from '../components/Button';
+import DeleteAccountModal from '../components/DeleteAccountModal';
+import HourPickerModal from '../components/HourPickerModal';
+import LanguageSelectorModal from '../components/LanguageSelectorModal';
 import OfflineDownloadSection from '../components/OfflineDownloadSection';
+import PremiumDarkModeModal from '../components/PremiumDarkModeModal';
+import RestartAppModal from '../components/RestartAppModal';
+import { activeExamConfig } from '../config/active-exam.config';
+import { useAuth } from '../contexts/AuthContext';
+import { usePremium } from '../contexts/PremiumContext';
+import { useProgress } from '../contexts/ProgressContext';
+import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
+import consentService, { AdsConsentStatus } from '../services/consent.service';
+import FCMService from '../services/fcm.service';
+import FirestoreService, { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
+import { spacing, typography, type ThemeColors } from '../theme';
 
 const SettingsScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
@@ -729,7 +728,7 @@ const SettingsScreen: React.FC = () => {
         </View>
 
         {/* Data Section */}
-        <View style={styles.section}>
+        {user && <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('settings.data')}</Text>
           <Button
             title={t('profile.clearProgress')}
@@ -738,7 +737,7 @@ const SettingsScreen: React.FC = () => {
             style={{ ...styles.settingButton, ...styles.dangerButton }}
             disabled={isClearing || isLoading}
           />
-        </View>
+        </View>}
 
         {/* Offline Mode Section (Premium Only) */}
         {isPremiumFeaturesEnabled() && isPremium && (
