@@ -133,6 +133,15 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
     });
   }, []);
 
+  // Keep refs for values needed inside the timer callback so we don't
+  // need them as effect dependencies (which would cancel the timer on re-render)
+  const heroAppRef = useRef(heroApp);
+  const additionalAppsRef = useRef(additionalApps);
+  const enqueueRef = useRef(enqueue);
+  useEffect(() => { heroAppRef.current = heroApp; }, [heroApp]);
+  useEffect(() => { additionalAppsRef.current = additionalApps; }, [additionalApps]);
+  useEffect(() => { enqueueRef.current = enqueue; }, [enqueue]);
+
   // Schedule the modal when config is available and session is eligible
   useEffect(() => {
     if (scheduledRef.current) return;
@@ -157,10 +166,6 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
       console.log(`[CrossAppPromo] Scheduling modal in ${SHOW_DELAY_MS}ms`);
       scheduledRef.current = true;
 
-      // Capture current values for the timeout closure
-      const capturedHero = heroApp;
-      const capturedAdditional = additionalApps;
-
       timerRef.current = setTimeout(() => {
         // Skip if user already saw the modal this session (e.g. opened manually from profile)
         if (hasBeenShownRef.current) {
@@ -168,14 +173,22 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
           return;
         }
 
+        const currentHero = heroAppRef.current;
+        const currentAdditional = additionalAppsRef.current;
+
+        if (!currentHero) {
+          console.log('[CrossAppPromo] No hero app available when timer fired');
+          return;
+        }
+
         setIsManualTrigger(false);
         hasBeenShownRef.current = true;
-        enqueue('cross-app-promotion');
+        enqueueRef.current('cross-app-promotion');
 
         // Log analytics
         logEvent(AnalyticsEvents.CROSS_APP_PROMO_MODAL_SHOWN, {
-          app_ids: [capturedHero.appId, ...capturedAdditional.map(a => a.appId)],
-          hero_app_id: capturedHero.appId,
+          app_ids: [currentHero.appId, ...currentAdditional.map(a => a.appId)],
+          hero_app_id: currentHero.appId,
           trigger: 'automatic',
         });
 
@@ -185,13 +198,19 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
     };
 
     trySchedule();
+    // Note: we intentionally do NOT cancel the timer on re-render.
+    // The timer is only cleaned up on unmount (see separate effect below).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [heroApp, additionalApps, checkEligibility]);
 
+  // Clean up the timer only on unmount
+  useEffect(() => {
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
     };
-  }, [heroApp, additionalApps, checkEligibility, enqueue]);
+  }, []);
 
   // Manual trigger from profile screen
   const showPromoModal = useCallback(() => {

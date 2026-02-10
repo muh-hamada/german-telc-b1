@@ -158,7 +158,7 @@ const createStyles = (colors: ThemeColors) =>
       borderTopRightRadius: 28,
       paddingHorizontal: spacing.padding.lg,
       paddingTop: spacing.padding.lg,
-      paddingBottom: spacing.padding.xl + 16,
+      paddingBottom: spacing.padding.xl,
       maxHeight: SCREEN_HEIGHT * 0.75,
       shadowColor: '#000',
       shadowOffset: { width: 0, height: -4 },

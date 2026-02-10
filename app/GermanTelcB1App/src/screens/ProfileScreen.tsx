@@ -324,9 +324,6 @@ const ProfileScreen: React.FC = () => {
           </View>
         )}
 
-        {/* Stats Grid */}
-        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.md} backgroundColor={colors.background.secondary} />
-
         {/* Check Out Our Other Apps */}
         {heroApp && (
           <TouchableOpacity
@@ -335,12 +332,15 @@ const ProfileScreen: React.FC = () => {
             activeOpacity={0.7}
           >
             <View style={styles.actionIconContainer}>
-              <MaterialIcons name="apps" size={20} color={colors.primary[500]} />
+              <MaterialIcons name="grain" size={25} color={"orange"} />
             </View>
             <Text style={styles.actionItemText}>{t('profile.checkOutOtherApps')}</Text>
             <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
           </TouchableOpacity>
         )}
+
+        {/* Stats Grid */}
+        <ProfileStatsGrid variant="card" marginBottom={spacing.margin.md} backgroundColor={colors.background.secondary} />
 
         {/* Ad-Free Badge - ABOVE Streaks Card */}
         {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
@@ -585,9 +585,9 @@ const createStyles = (colors: ThemeColors) =>
       borderBottomWidth: 0,
     },
     actionIconContainer: {
-      width: 36,
-      height: 36,
-      borderRadius: 18,
+      width: 40,
+      height: 40,
+      borderRadius: 20,
       backgroundColor: colors.background.tertiary,
       justifyContent: 'center',
       alignItems: 'center',
