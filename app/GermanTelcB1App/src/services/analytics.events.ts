@@ -287,6 +287,12 @@ export const AnalyticsEvents = {
   PREP_PLAN_SPEAKING_TURN_COMPLETED: 'prep_plan_speaking_turn_completed',
   PREP_PLAN_SPEAKING_COMPLETED: 'prep_plan_speaking_completed',
 
+  // Cross-App Promotion
+  CROSS_APP_PROMO_MODAL_SHOWN: 'cross_app_promo_modal_shown',
+  CROSS_APP_PROMO_MAYBE_LATER: 'cross_app_promo_maybe_later',
+  CROSS_APP_PROMO_APP_CLICKED: 'cross_app_promo_app_clicked',
+  CROSS_APP_PROMO_OPENED_FROM_PROFILE: 'cross_app_promo_opened_from_profile',
+
   // Speaking Assessment Events
   SPEAKING_ASSESSMENT_STARTED: 'speaking_assessment_started',
   SPEAKING_DIALOGUE_TURN_COMPLETED: 'speaking_dialogue_turn_completed',

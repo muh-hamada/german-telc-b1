@@ -768,7 +768,8 @@
       "averageScore": "Note moyenne",
       "totalScore": "Note totale",
       "completionRate": "Taux d'achèvement"
-    }
+    },
+    "checkOutOtherApps": "Découvrez nos autres applications"
   },
   "questions": {
     "checkAnswers": "Vérifier les réponses",
@@ -1949,5 +1950,11 @@
         }
       }
     }
+  },
+  "crossAppPromotion": {
+    "title": "Découvrez nos applications",
+    "subtitle": "Plus d'applications de notre équipe",
+    "get": "OBTENIR",
+    "maybeLater": "Peut-être plus tard"
   }
 }

@@ -768,7 +768,8 @@
       "averageScore": "متوسط ​​النتيجة",
       "totalScore": "مجموع النقاط",
       "completionRate": "معدل الإنجاز"
-    }
+    },
+    "checkOutOtherApps": "تحقق من تطبيقاتنا الأخرى"
   },
   "reportedIssues": {
     "title": "المشاكل المبلغ عنها",
@@ -1949,5 +1950,11 @@
         }
       }
     }
+  },
+  "crossAppPromotion": {
+    "title": "اكتشف تطبيقاتنا",
+    "subtitle": "المزيد من التطبيقات من فريقنا",
+    "get": "تحميل",
+    "maybeLater": "ربما في وقت لاحق"
   }
 }

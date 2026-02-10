@@ -1,0 +1,28 @@
+This feature introduces a promotional modal that shows a curated list of other apps developed by us. The modal is displayed inside the app and promotes cross-discovery of our products without interrupting the user’s first-time experience. The modal slides up from the bottom, similar to an upsell style modal, and can also be opened explicitly by the user from the profile screen.
+
+The data for this feature is driven by remote configuration. There is a global configuration that contains the full list of published apps, split by platform (iOS and Android). Each platform list can contain up to around ten apps. Every app entry includes an app ID, store URL (App Store or Google Play), icon, title, and subtitle. The app-level remote configuration contains only references: one hero app ID and four additional app IDs. These IDs must exist in the global configuration.
+
+When the app fetches configuration, it determines the current platform. If the app is running on Android, it reads from the Android app list in the global config; if it is running on iOS, it reads from the iOS list. Using the hero app ID and the four additional app IDs from the app-level config, the model resolves the full app data from the global config and builds the UI.
+
+The modal layout consists of three rows. The first row contains a single hero app that takes the full width and shows icon, title, and description. The second and third rows each contain two apps, displayed side by side. Each app card has a title and icon and is clickable and navigates the user to the corresponding app store page using the configured URL.
+
+The modal is not shown on the first app open to avoid disrupting onboarding or the first impression. It is eligible to be shown on the second app open. On the second session, the modal is scheduled to appear after approximately 30 seconds from session start. This scheduling happens once the session is confirmed as eligible.
+
+After the modal is shown, the app stores the timestamp of the last display and tracks the number of times the user has dismissed the modal using the “maybe later” action. If the user taps “maybe later”, the frequency is reduced further: after the first dismissal, the next eligible display is skipped once, so it appears on the fourth open instead of the third; after another dismissal, it appears on the seventh, and so on. This logic ensures the modal becomes less frequent the more the user postpones it.
+
+The modal includes a small “maybe later” text button centered at the bottom. Tapping this button closes the modal and updates the dismissal counters and timestamps. No navigation happens in this case.
+
+In addition to the automatic display, the profile screen includes an entry point above the streaks component with the text “Check out our other apps”. When the user taps this entry, the same modal is opened immediately via a user-triggered action, regardless of session count or timing rules. In this case, we do not count the "maybe later" action and not the number of times the user has dismissed the modal.
+
+Event tracking is required for full visibility. Events must be fired when the modal is shown, including the list of app IDs displayed and which one is the hero. An event must be sent when the user taps “maybe later”. When the user clicks on an app, an event must be sent with the selected app ID and a boolean flag indicating whether the clicked app was the hero or not. These events should be compatible with Google Analytics and allow analysis of impressions, clicks, hero vs non-hero performance, and overall engagement with the feature. We must also track the number of times the modal has been dismissed and the number of times the user has tapped "maybe later". We also track opening the modal from the profile screen.
+
+---
+
+We need to update the admin-dashboard to support this new configuration.
+- The app level config must fetch ids from the global config to ensure we always select existing IDs
+- The app level config has two inputs, hero app and 4 other apps. The IDs can't repeat
+- The global level configutation must support CRUD to add apps.
+-- Select platform, paste app url, then we fetch the image and app url and title, subtitle.
+-- This is done in a new modal. Deleting an app from the list is after a confirmation modal.
+-- We can update the title and subtitle only. The url and icon can't change - we need to delete and add the app again if we want to update them
+-- The app ID can't be updated manualy to avoid mistakes. It's extracted from the app information.

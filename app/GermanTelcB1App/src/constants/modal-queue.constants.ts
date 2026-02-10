@@ -20,6 +20,7 @@ export const MODAL_PRIORITIES: Record<GlobalModalType, number> = {
   'issue-updates': 20, // After streaks, before premium upsell
   'premium-upsell': 15, // After streaks, before review
   'app-review': 10,
+  'cross-app-promotion': 5, // Lowest priority - shown after all other modals
 };
 
 /**

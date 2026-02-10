@@ -777,7 +777,8 @@
       "inProgressTitle": "Löschung in Arbeit",
       "inProgressMessage": "Ihre Anfrage zur Kontolöschung wird bereits bearbeitet. Ihr Konto wird innerhalb von 7 Tagen nach dem ursprünglichen Anfragedatum gelöscht.",
       "error": "Fehler beim Einreichen der Löschanfrage. Bitte versuchen Sie es erneut."
-    }
+    },
+    "checkOutOtherApps": "Schauen Sie sich unsere anderen Apps an"
   },
   "reportedIssues": {
     "title": "Gemeldete Probleme",
@@ -1958,5 +1959,11 @@
         }
       }
     }
+  },
+  "crossAppPromotion": {
+    "title": "Entdecken Sie unsere Apps",
+    "subtitle": "Weitere Apps von unserem Team",
+    "get": "ERHALTEN",
+    "maybeLater": "Vielleicht später"
   }
 }

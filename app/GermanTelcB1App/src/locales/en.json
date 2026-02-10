@@ -914,7 +914,8 @@
       "inProgressTitle": "Deletion in Progress",
       "inProgressMessage": "Your account deletion request is already being processed. Your account will be deleted within 7 days from the original request date.",
       "error": "Failed to submit deletion request. Please try again."
-    }
+    },
+    "checkOutOtherApps": "Check out our other apps"
   },
   "reportedIssues": {
     "title": "Reported Issues",
@@ -1676,5 +1677,11 @@
         }
       }
     }
+  },
+  "crossAppPromotion": {
+    "title": "Discover Our Apps",
+    "subtitle": "More apps from our team",
+    "get": "GET",
+    "maybeLater": "Maybe later"
   }
 }

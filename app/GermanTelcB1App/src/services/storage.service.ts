@@ -12,6 +12,9 @@ class StorageService {
     REMOTE_CONFIG: 'remote_config',
     GLOBAL_CONFIG: 'global_config',
     APP_UPDATE_DISMISSED: 'app_update_dismissed',
+    CROSS_APP_PROMO_APP_OPEN_COUNT: 'cross_app_promo_app_open_count',
+    CROSS_APP_PROMO_LAST_SHOWN_AT: 'cross_app_promo_last_shown_at',
+    CROSS_APP_PROMO_DISMISS_COUNT: 'cross_app_promo_dismiss_count',
   };
 
   // User Progress Methods
@@ -275,6 +278,9 @@ class StorageService {
         StorageService.KEYS.USER_SETTINGS,
         StorageService.KEYS.GRAMMAR_STUDY_PROGRESS,
         StorageService.KEYS.GRAMMAR_STUDY_SESSION_COUNTER,
+        StorageService.KEYS.CROSS_APP_PROMO_APP_OPEN_COUNT,
+        StorageService.KEYS.CROSS_APP_PROMO_LAST_SHOWN_AT,
+        StorageService.KEYS.CROSS_APP_PROMO_DISMISS_COUNT,
       ]);
       return true;
     } catch (error) {
@@ -472,6 +478,78 @@ class StorageService {
       await AsyncStorage.removeItem(StorageService.KEYS.APP_UPDATE_DISMISSED);
     } catch (error) {
       console.error('Error clearing app update dismissed data:', error);
+    }
+  }
+
+  // Cross-App Promotion Methods
+  async getCrossAppPromoAppOpenCount(): Promise<number> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.CROSS_APP_PROMO_APP_OPEN_COUNT);
+      return data ? parseInt(data, 10) : 0;
+    } catch (error) {
+      console.error('Error getting cross-app promo app open count:', error);
+      return 0;
+    }
+  }
+
+  async incrementCrossAppPromoAppOpenCount(): Promise<number> {
+    try {
+      const current = await this.getCrossAppPromoAppOpenCount();
+      const newCount = current + 1;
+      await AsyncStorage.setItem(
+        StorageService.KEYS.CROSS_APP_PROMO_APP_OPEN_COUNT,
+        newCount.toString()
+      );
+      return newCount;
+    } catch (error) {
+      console.error('Error incrementing cross-app promo app open count:', error);
+      return 0;
+    }
+  }
+
+  async getCrossAppPromoLastShownAt(): Promise<number | null> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.CROSS_APP_PROMO_LAST_SHOWN_AT);
+      return data ? parseInt(data, 10) : null;
+    } catch (error) {
+      console.error('Error getting cross-app promo last shown at:', error);
+      return null;
+    }
+  }
+
+  async saveCrossAppPromoLastShownAt(): Promise<void> {
+    try {
+      await AsyncStorage.setItem(
+        StorageService.KEYS.CROSS_APP_PROMO_LAST_SHOWN_AT,
+        Date.now().toString()
+      );
+    } catch (error) {
+      console.error('Error saving cross-app promo last shown at:', error);
+    }
+  }
+
+  async getCrossAppPromoDismissCount(): Promise<number> {
+    try {
+      const data = await AsyncStorage.getItem(StorageService.KEYS.CROSS_APP_PROMO_DISMISS_COUNT);
+      return data ? parseInt(data, 10) : 0;
+    } catch (error) {
+      console.error('Error getting cross-app promo dismiss count:', error);
+      return 0;
+    }
+  }
+
+  async incrementCrossAppPromoDismissCount(): Promise<number> {
+    try {
+      const current = await this.getCrossAppPromoDismissCount();
+      const newCount = current + 1;
+      await AsyncStorage.setItem(
+        StorageService.KEYS.CROSS_APP_PROMO_DISMISS_COUNT,
+        newCount.toString()
+      );
+      return newCount;
+    } catch (error) {
+      console.error('Error incrementing cross-app promo dismiss count:', error);
+      return 0;
     }
   }
 }

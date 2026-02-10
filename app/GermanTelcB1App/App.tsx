@@ -7,6 +7,7 @@ import OfflineBlockingModal from './src/components/OfflineBlockingModal';
 import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
+import { CrossAppPromotionProvider } from './src/contexts/CrossAppPromotionContext';
 import { ModalQueueProvider } from './src/contexts/ModalQueueContext';
 import { NotificationReminderProvider } from './src/contexts/NotificationReminderContext';
 import { PremiumProvider } from './src/contexts/PremiumContext';
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         <ModalQueueProvider>
           <RemoteConfigProvider>
             <AppUpdateProvider>
+              <CrossAppPromotionProvider>
               <ReviewProvider>
                 <AuthProvider>
                   <PremiumProvider>
@@ -78,6 +80,7 @@ const App: React.FC = () => {
                   </PremiumProvider>
                 </AuthProvider>
               </ReviewProvider>
+            </CrossAppPromotionProvider>
             </AppUpdateProvider>
           </RemoteConfigProvider>
         </ModalQueueProvider>

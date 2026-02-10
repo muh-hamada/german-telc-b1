@@ -14,6 +14,44 @@ export interface SupportAdIntervalsConfig {
 }
 
 /**
+ * Cross-App Promotion Entry
+ * A single app entry in the global promotion directory
+ */
+export interface CrossAppPromotionEntry {
+  appId: string;         // Extracted from store URL (e.g. "id123456789" for iOS, "com.example.app" for Android)
+  storeUrl: string;      // App Store or Google Play URL
+  iconUrl: string;       // App icon URL
+  title: string;
+  subtitle: string;
+}
+
+/**
+ * Cross-App Promotion Global Configuration
+ * Platform-specific lists of apps available for promotion
+ */
+export interface CrossAppPromotionGlobalConfig {
+  ios: CrossAppPromotionEntry[];
+  android: CrossAppPromotionEntry[];
+}
+
+/**
+ * Cross-App Promotion per-platform selection
+ */
+export interface CrossAppPromotionPlatformSelection {
+  heroAppId: string;        // The featured/hero app ID
+  additionalAppIds: string[]; // Exactly 4 additional app IDs
+}
+
+/**
+ * Cross-App Promotion App-Level Configuration
+ * Separate selections for iOS and Android since app IDs differ per platform
+ */
+export interface CrossAppPromotionAppConfig {
+  ios: CrossAppPromotionPlatformSelection;
+  android: CrossAppPromotionPlatformSelection;
+}
+
+/**
  * Global Configuration
  * Applies to all apps - stored in app_configs/global
  */
@@ -21,6 +59,7 @@ export interface GlobalConfig {
   supportAdIntervals: SupportAdIntervalsConfig;
   onboardingImages: string[]; // Array of 5 image URLs for onboarding steps
   removeTelcFromText_iOS: boolean; // Whether to remove "telc" text from translations on iOS
+  crossAppPromotion: CrossAppPromotionGlobalConfig; // Cross-app promotion directory
   updatedAt: number;
 }
 
@@ -59,6 +98,8 @@ export interface RemoteConfig {
   vocabularyNativeAdInterval: number;
   // Premium offer configuration
   premiumOffer: PremiumOfferConfig;
+  // Cross-app promotion configuration
+  crossAppPromotion: CrossAppPromotionAppConfig;
   // Data version for cache invalidation - increment when exam data changes
   dataVersion: number;
   updatedAt: number;
@@ -67,6 +108,21 @@ export interface RemoteConfig {
 export const DEFAULT_SUPPORT_AD_INTERVALS: SupportAdIntervalsConfig = {
   grammarStudy: 20,
   vocabularyStudy: 20,
+};
+
+export const DEFAULT_CROSS_APP_PROMOTION_GLOBAL_CONFIG: CrossAppPromotionGlobalConfig = {
+  ios: [],
+  android: [],
+};
+
+export const DEFAULT_CROSS_APP_PROMOTION_PLATFORM_SELECTION: CrossAppPromotionPlatformSelection = {
+  heroAppId: '',
+  additionalAppIds: [],
+};
+
+export const DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG: CrossAppPromotionAppConfig = {
+  ios: { ...DEFAULT_CROSS_APP_PROMOTION_PLATFORM_SELECTION },
+  android: { ...DEFAULT_CROSS_APP_PROMOTION_PLATFORM_SELECTION },
 };
 
 export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
@@ -79,6 +135,7 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
     'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/onboarding_screen_steps%2Fstep-5.png?alt=media',
   ],
   removeTelcFromText_iOS: true, // Default: remove telc text on iOS (initial behavior)
+  crossAppPromotion: DEFAULT_CROSS_APP_PROMOTION_GLOBAL_CONFIG,
   updatedAt: Date.now(),
 };
 
@@ -111,6 +168,7 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   enableVocabularyNativeAd: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.enabled,
   vocabularyNativeAdInterval: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
   premiumOffer: DEFAULT_PREMIUM_OFFER_CONFIG,
+  crossAppPromotion: DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
   dataVersion: 1, // Increment when exam data changes to invalidate client cache
   updatedAt: Date.now(),
 };

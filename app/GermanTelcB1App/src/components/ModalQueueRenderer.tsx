@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { useAppUpdate } from '../contexts/AppUpdateContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useModalQueue } from '../contexts/ModalQueueContext';
+import { useCrossAppPromotion } from '../contexts/CrossAppPromotionContext';
 import { useNotificationReminder } from '../contexts/NotificationReminderContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
@@ -22,6 +23,7 @@ import { ReportedIssueDetails } from '../services/issue-report.service';
 import premiumPromptService from '../services/premium-prompt.service';
 import AppReviewModal from './AppReviewModal';
 import AppUpdateModal from './AppUpdateModal';
+import CrossAppPromotionModal from './CrossAppPromotionModal';
 import HourPickerModal from './HourPickerModal';
 import { IssueUpdateNotificationModal } from './IssueUpdateNotificationModal';
 import NotificationReminderModal from './NotificationReminderModal';
@@ -48,6 +50,13 @@ const ModalQueueRenderer: React.FC = () => {
     claimReward,
     dismissStreakModal,
   } = useStreak();
+  const {
+    heroApp: promoHeroApp,
+    additionalApps: promoAdditionalApps,
+    handleMaybeLater: promoHandleMaybeLater,
+    handleAppClick: promoHandleAppClick,
+    isManualTrigger: promoIsManualTrigger,
+  } = useCrossAppPromotion();
 
   // Track reward modal state
   const [showRewardModal, setShowRewardModal] = useState(false);
@@ -275,6 +284,29 @@ const ModalQueueRenderer: React.FC = () => {
           visible={true}
           onClose={handleIssueUpdatesDismiss}
           updatedReports={updatedReports}
+        />
+      );
+
+    case 'cross-app-promotion':
+      if (!promoHeroApp) {
+        dismissCurrentModal();
+        return null;
+      }
+      const handlePromoDismiss = async () => {
+        await promoHandleMaybeLater();
+        dismissCurrentModal();
+      };
+      const handlePromoAppClick = (appId: string, isHero: boolean) => {
+        promoHandleAppClick(appId, isHero);
+      };
+      return (
+        <CrossAppPromotionModal
+          visible={true}
+          heroApp={promoHeroApp}
+          additionalApps={promoAdditionalApps}
+          onMaybeLater={handlePromoDismiss}
+          onAppClick={handlePromoAppClick}
+          isManualTrigger={promoIsManualTrigger}
         />
       );
 

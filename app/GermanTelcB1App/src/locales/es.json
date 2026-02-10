@@ -780,7 +780,8 @@
       "averageScore": "Puntuación promedio",
       "totalScore": "Puntuación total",
       "completionRate": "Tasa de finalización"
-    }
+    },
+    "checkOutOtherApps": "Mira nuestras otras aplicaciones"
   },
   "reportedIssues": {
     "title": "Problemas Reportados",
@@ -1961,5 +1962,11 @@
         }
       }
     }
+  },
+  "crossAppPromotion": {
+    "title": "Descubra nuestras aplicaciones",
+    "subtitle": "Más aplicaciones de nuestro equipo",
+    "get": "Descargar",
+    "maybeLater": "tal vez más tarde"
   }
 }

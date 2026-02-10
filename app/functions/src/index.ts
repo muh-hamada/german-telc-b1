@@ -17,6 +17,7 @@ import {
 } from './user-analytics';
 import { generateSpeakingDialogue } from './generate-speaking-dialogue';
 import { evaluateSpeaking, generateSpeakingSummary } from './evaluate-speaking';
+import { fetchAppStoreInfo } from './fetch-app-store-info';
 
 export {
   evaluateWritingB1 as evaluateWriting, // Backward compatibility
@@ -36,5 +37,6 @@ export {
   onPremiumUpdate,
   generateSpeakingDialogue,
   evaluateSpeaking,
-  generateSpeakingSummary
+  generateSpeakingSummary,
+  fetchAppStoreInfo
 };

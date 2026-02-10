@@ -7,6 +7,7 @@ import {
   DEFAULT_SUPPORT_AD_INTERVALS,
   DEFAULT_VOCABULARY_NATIVE_AD_CONFIG,
   DEFAULT_PREMIUM_OFFER_CONFIG,
+  DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
 } from '../types/remote-config.types';
 
 /**
@@ -54,6 +55,7 @@ class FirebaseRemoteConfigService {
         ? data.vocabularyNativeAdInterval
         : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
       premiumOffer: data.premiumOffer || DEFAULT_PREMIUM_OFFER_CONFIG,
+      crossAppPromotion: data.crossAppPromotion || DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
       dataVersion: data.dataVersion ?? DEFAULT_REMOTE_CONFIG.dataVersion,
     };
   }
@@ -177,17 +179,7 @@ class FirebaseRemoteConfigService {
         return DEFAULT_GLOBAL_CONFIG;
       }
 
-      const config: GlobalConfig = {
-        supportAdIntervals: {
-          grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
-          vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
-        },
-        onboardingImages: Array.isArray(data.onboardingImages)
-          ? data.onboardingImages
-          : DEFAULT_GLOBAL_CONFIG.onboardingImages,
-        removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
-        updatedAt: data.updatedAt || Date.now(),
-      };
+      const config = this.buildGlobalConfig(data);
 
       console.log('[RemoteConfigService] Global config loaded successfully:', config);
       return config;
@@ -195,6 +187,24 @@ class FirebaseRemoteConfigService {
       console.error('[RemoteConfigService] Error fetching global config:', error);
       return DEFAULT_GLOBAL_CONFIG;
     }
+  }
+
+  /**
+   * Build GlobalConfig object from Firestore data with proper defaults
+   */
+  private buildGlobalConfig(data: any): GlobalConfig {
+    return {
+      supportAdIntervals: {
+        grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
+        vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
+      },
+      onboardingImages: Array.isArray(data.onboardingImages)
+        ? data.onboardingImages
+        : DEFAULT_GLOBAL_CONFIG.onboardingImages,
+      removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
+      crossAppPromotion: data.crossAppPromotion || DEFAULT_GLOBAL_CONFIG.crossAppPromotion,
+      updatedAt: data.updatedAt || Date.now(),
+    };
   }
 
   /**
@@ -223,17 +233,7 @@ class FirebaseRemoteConfigService {
             return;
           }
 
-          const config: GlobalConfig = {
-            supportAdIntervals: {
-              grammarStudy: data.supportAdIntervals?.grammarStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.grammarStudy,
-              vocabularyStudy: data.supportAdIntervals?.vocabularyStudy ?? DEFAULT_SUPPORT_AD_INTERVALS.vocabularyStudy,
-            },
-            onboardingImages: Array.isArray(data.onboardingImages)
-              ? data.onboardingImages
-              : DEFAULT_GLOBAL_CONFIG.onboardingImages,
-            removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
-            updatedAt: data.updatedAt || Date.now(),
-          };
+          const config = this.buildGlobalConfig(data);
 
           console.log('[RemoteConfigService] Global config updated:', config);
           callback(config);

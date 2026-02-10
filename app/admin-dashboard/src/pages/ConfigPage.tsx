@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { configService } from '../services/config.service';
-import { GlobalConfig, RemoteConfig, DEFAULT_GLOBAL_CONFIG, DEFAULT_REMOTE_CONFIG } from '../types/remote-config.types';
+import {
+  GlobalConfig,
+  RemoteConfig,
+  CrossAppPromotionEntry,
+  DEFAULT_GLOBAL_CONFIG,
+  DEFAULT_REMOTE_CONFIG,
+  DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
+} from '../types/remote-config.types';
 import { getAllAppConfigs } from '../config/apps.config';
 import { toast } from 'react-toastify';
 import './ConfigPage.css';
@@ -32,7 +39,176 @@ export const ConfigPage: React.FC = () => {
     onConfirm: () => void;
   } | null>(null);
 
+  // Cross-app promotion modal state
+  const [showAddAppModal, setShowAddAppModal] = useState(false);
+  const [addAppPlatform, setAddAppPlatform] = useState<'ios' | 'android'>('ios');
+  const [addAppStoreUrl, setAddAppStoreUrl] = useState('');
+  const [addAppIconUrl, setAddAppIconUrl] = useState('');
+  const [addAppTitle, setAddAppTitle] = useState('');
+  const [addAppSubtitle, setAddAppSubtitle] = useState('');
+  const [fetchingAppInfo, setFetchingAppInfo] = useState(false);
+  const [fetchError, setFetchError] = useState('');
+  const [editingApp, setEditingApp] = useState<{ platform: 'ios' | 'android'; index: number } | null>(null);
+  const [editAppTitle, setEditAppTitle] = useState('');
+  const [editAppSubtitle, setEditAppSubtitle] = useState('');
+
   const apps = getAllAppConfigs();
+
+  /** Extract app ID from a store URL */
+  const extractAppIdFromUrl = (url: string): string => {
+    // iOS App Store: https://apps.apple.com/.../id123456789
+    const iosMatch = url.match(/\/id(\d+)/);
+    if (iosMatch) return `id${iosMatch[1]}`;
+
+    // Google Play: https://play.google.com/store/apps/details?id=com.example.app
+    const androidMatch = url.match(/[?&]id=([^&]+)/);
+    if (androidMatch) return androidMatch[1];
+
+    return '';
+  };
+
+  const FUNCTIONS_BASE_URL = window.location.hostname === 'localhost'
+    ? 'http://127.0.0.1:5001/telc-b1-german/us-central1'
+    : 'https://us-central1-telc-b1-german.cloudfunctions.net';
+
+  /** Fetch app metadata from store URL via Cloud Function */
+  const fetchAppInfoFromUrl = async (url: string, platform: 'ios' | 'android') => {
+    setFetchingAppInfo(true);
+    setFetchError('');
+    setAddAppIconUrl('');
+    setAddAppTitle('');
+    setAddAppSubtitle('');
+
+    try {
+      const params = new URLSearchParams({ platform, storeUrl: url });
+      const response = await fetch(`${FUNCTIONS_BASE_URL}/fetchAppStoreInfo?${params}`);
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setFetchError(data.error || 'App not found');
+        return;
+      }
+
+      setAddAppTitle(data.title);
+      setAddAppSubtitle(data.subtitle);
+      setAddAppIconUrl(data.iconUrl);
+    } catch (error: any) {
+      console.error('Error fetching app info:', error);
+      setFetchError(error.message || 'Failed to fetch app information');
+    } finally {
+      setFetchingAppInfo(false);
+    }
+  };
+
+  /** Reset add app modal fields */
+  const resetAddAppModal = () => {
+    setAddAppStoreUrl('');
+    setAddAppIconUrl('');
+    setAddAppTitle('');
+    setAddAppSubtitle('');
+    setFetchingAppInfo(false);
+    setFetchError('');
+    setShowAddAppModal(false);
+  };
+
+  /** Handle adding a new app to the global promo list */
+  const handleAddPromoApp = () => {
+    const appId = extractAppIdFromUrl(addAppStoreUrl);
+    if (!appId) {
+      toast.error('Could not extract app ID from the provided URL');
+      return;
+    }
+    if (!addAppStoreUrl || !addAppIconUrl || !addAppTitle) {
+      toast.error('Please fill in all required fields (URL, Icon URL, Title)');
+      return;
+    }
+
+    const currentPromo = globalConfig.crossAppPromotion || { ios: [], android: [] };
+    const platformList = [...(currentPromo[addAppPlatform] || [])];
+
+    // Check for duplicates
+    if (platformList.some(app => app.appId === appId)) {
+      toast.error(`An app with ID "${appId}" already exists in the ${addAppPlatform.toUpperCase()} list`);
+      return;
+    }
+
+    const newEntry: CrossAppPromotionEntry = {
+      appId,
+      storeUrl: addAppStoreUrl,
+      iconUrl: addAppIconUrl,
+      title: addAppTitle,
+      subtitle: addAppSubtitle,
+    };
+
+    platformList.push(newEntry);
+    updateGlobalConfig({
+      crossAppPromotion: {
+        ...currentPromo,
+        [addAppPlatform]: platformList,
+      },
+    });
+
+    resetAddAppModal();
+    toast.success(`App "${addAppTitle}" added to ${addAppPlatform.toUpperCase()} list`);
+  };
+
+  /** Handle deleting a promo app */
+  const handleDeletePromoApp = (platform: 'ios' | 'android', index: number) => {
+    const currentPromo = globalConfig.crossAppPromotion || { ios: [], android: [] };
+    const platformList = [...(currentPromo[platform] || [])];
+    const appName = platformList[index]?.title || 'this app';
+
+    openConfirmModal(
+      'Delete App',
+      `Are you sure you want to delete "${appName}" from the ${platform.toUpperCase()} list?`,
+      () => {
+        platformList.splice(index, 1);
+        updateGlobalConfig({
+          crossAppPromotion: {
+            ...currentPromo,
+            [platform]: platformList,
+          },
+        });
+        toast.success(`App "${appName}" removed`);
+      }
+    );
+  };
+
+  /** Start editing a promo app */
+  const startEditPromoApp = (platform: 'ios' | 'android', index: number) => {
+    const currentPromo = globalConfig.crossAppPromotion || { ios: [], android: [] };
+    const app = currentPromo[platform]?.[index];
+    if (app) {
+      setEditingApp({ platform, index });
+      setEditAppTitle(app.title);
+      setEditAppSubtitle(app.subtitle);
+    }
+  };
+
+  /** Save edits to a promo app (title and subtitle only) */
+  const handleSaveEditPromoApp = () => {
+    if (!editingApp) return;
+    const { platform, index } = editingApp;
+
+    const currentPromo = globalConfig.crossAppPromotion || { ios: [], android: [] };
+    const platformList = [...(currentPromo[platform] || [])];
+
+    if (platformList[index]) {
+      platformList[index] = {
+        ...platformList[index],
+        title: editAppTitle,
+        subtitle: editAppSubtitle,
+      };
+      updateGlobalConfig({
+        crossAppPromotion: {
+          ...currentPromo,
+          [platform]: platformList,
+        },
+      });
+      toast.success('App updated');
+    }
+    setEditingApp(null);
+  };
 
   useEffect(() => {
     loadConfigs();
@@ -62,6 +238,8 @@ export const ConfigPage: React.FC = () => {
         ...global,
         // Ensure onboardingImages is always an array
         onboardingImages: global?.onboardingImages || DEFAULT_GLOBAL_CONFIG.onboardingImages,
+        // Ensure crossAppPromotion is always defined
+        crossAppPromotion: global?.crossAppPromotion || DEFAULT_GLOBAL_CONFIG.crossAppPromotion,
       };
 
       setGlobalConfig(fullGlobalConfig);
@@ -161,6 +339,8 @@ export const ConfigPage: React.FC = () => {
         premiumOffer: appConfigs[selectedAppId].premiumOffer || DEFAULT_REMOTE_CONFIG.premiumOffer,
         // Ensure dataVersion is always defined
         dataVersion: appConfigs[selectedAppId].dataVersion ?? DEFAULT_REMOTE_CONFIG.dataVersion,
+        // Ensure crossAppPromotion is always defined
+        crossAppPromotion: appConfigs[selectedAppId].crossAppPromotion || DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
       }
     : { 
         ...DEFAULT_REMOTE_CONFIG, 
@@ -341,6 +521,84 @@ export const ConfigPage: React.FC = () => {
                     <span className="field-hint">Automatically remove "Telc" references from all translations on iOS</span>
                   </label>
                 </div>
+              </div>
+
+              {/* Cross-App Promotion Directory */}
+              <div className="config-group">
+                <h3>Cross-App Promotion - App Directory</h3>
+                <p className="config-group-description">
+                  Manage the list of apps shown in cross-app promotion modals. Each platform (iOS/Android) has its own list.
+                </p>
+
+                {(['ios', 'android'] as const).map((platform) => {
+                  const platformApps = globalConfig.crossAppPromotion?.[platform] || [];
+                  return (
+                    <div key={platform} className="promo-platform-section">
+                      <div className="promo-platform-header">
+                        <h4>{platform === 'ios' ? 'iOS Apps' : 'Android Apps'} ({platformApps.length})</h4>
+                        <button
+                          type="button"
+                          className="btn-add-promo-app"
+                          onClick={() => {
+                            setAddAppPlatform(platform);
+                            setShowAddAppModal(true);
+                          }}
+                        >
+                          + Add App
+                        </button>
+                      </div>
+
+                      {platformApps.length === 0 ? (
+                        <p className="promo-empty-message">No apps configured for {platform.toUpperCase()}</p>
+                      ) : (
+                        <div className="promo-app-list">
+                          {platformApps.map((app, index) => (
+                            <div key={app.appId} className="promo-app-item">
+                              {editingApp?.platform === platform && editingApp?.index === index ? (
+                                <div className="promo-app-edit-form">
+                                  <img src={app.iconUrl} alt={app.title} className="promo-app-icon" />
+                                  <div className="promo-app-edit-fields">
+                                    <input
+                                      type="text"
+                                      value={editAppTitle}
+                                      onChange={(e) => setEditAppTitle(e.target.value)}
+                                      className="config-input"
+                                      placeholder="App Title"
+                                    />
+                                    <input
+                                      type="text"
+                                      value={editAppSubtitle}
+                                      onChange={(e) => setEditAppSubtitle(e.target.value)}
+                                      className="config-input"
+                                      placeholder="App Subtitle"
+                                    />
+                                    <div className="promo-app-edit-actions">
+                                      <button type="button" className="btn-promo-save" onClick={handleSaveEditPromoApp}>Save</button>
+                                      <button type="button" className="btn-promo-cancel" onClick={() => setEditingApp(null)}>Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              ) : (
+                                <>
+                                  <img src={app.iconUrl} alt={app.title} className="promo-app-icon" />
+                                  <div className="promo-app-info">
+                                    <span className="promo-app-title">{app.title}</span>
+                                    <span className="promo-app-subtitle">{app.subtitle}</span>
+                                    <span className="promo-app-id">ID: {app.appId}</span>
+                                  </div>
+                                  <div className="promo-app-actions">
+                                    <button type="button" className="btn-promo-edit" onClick={() => startEditPromoApp(platform, index)}>Edit</button>
+                                    <button type="button" className="btn-promo-delete" onClick={() => handleDeletePromoApp(platform, index)}>Delete</button>
+                                  </div>
+                                </>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="config-actions">
@@ -637,6 +895,119 @@ export const ConfigPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Cross-App Promotion */}
+              <div className="config-group">
+                <h3>Cross-App Promotion</h3>
+                <p className="config-group-description">
+                  Select which apps to promote in this app's cross-promotion modal.
+                  Configured separately for iOS and Android since app IDs differ per platform.
+                  Choose 1 hero app and 4 additional apps for each platform.
+                </p>
+
+                {(['ios', 'android'] as const).map((platform) => {
+                  const platformLabel = platform === 'ios' ? 'iOS' : 'Android';
+                  const platformApps = globalConfig.crossAppPromotion?.[platform] || [];
+                  const currentPromoConfig = currentAppConfig.crossAppPromotion || DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG;
+                  const platformSelection = currentPromoConfig[platform] || { heroAppId: '', additionalAppIds: [] };
+                  const selectedHero = platformSelection.heroAppId || '';
+                  const selectedAdditional = platformSelection.additionalAppIds || [];
+
+                  return (
+                    <div key={platform} className="promo-platform-config-section">
+                      <h4 className="promo-platform-config-title">{platformLabel}</h4>
+
+                      {platformApps.length === 0 ? (
+                        <p className="promo-empty-message">
+                          No {platformLabel} apps in the global directory yet. Add apps in the Global Configuration tab first.
+                        </p>
+                      ) : (
+                        <>
+                          <div className="config-field">
+                            <label htmlFor={`promoHeroApp-${platform}`}>
+                              Hero App
+                              <span className="field-hint">The featured app shown prominently at the top</span>
+                            </label>
+                            <select
+                              id={`promoHeroApp-${platform}`}
+                              value={selectedHero}
+                              onChange={(e) => {
+                                const newHero = e.target.value;
+                                const newAdditional = selectedAdditional.filter(id => id !== newHero);
+                                updateAppConfig({
+                                  crossAppPromotion: {
+                                    ...currentPromoConfig,
+                                    [platform]: {
+                                      heroAppId: newHero,
+                                      additionalAppIds: newAdditional,
+                                    },
+                                  },
+                                });
+                              }}
+                              className="config-input"
+                            >
+                              <option value="">-- Select Hero App --</option>
+                              {platformApps.map((app) => (
+                                <option key={app.appId} value={app.appId}>
+                                  {app.title} ({app.appId})
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="config-field">
+                            <label>
+                              Additional Apps (select up to 4)
+                              <span className="field-hint">
+                                These apps are shown in a 2x2 grid below the hero.
+                                Selected: {selectedAdditional.length}/4
+                              </span>
+                            </label>
+                            <div className="promo-additional-grid">
+                              {platformApps
+                                .filter(app => app.appId !== selectedHero)
+                                .map((app) => {
+                                  const isSelected = selectedAdditional.includes(app.appId);
+                                  return (
+                                    <label key={app.appId} className={`promo-additional-option ${isSelected ? 'selected' : ''}`}>
+                                      <input
+                                        type="checkbox"
+                                        checked={isSelected}
+                                        onChange={(e) => {
+                                          let newAdditional: string[];
+                                          if (e.target.checked) {
+                                            if (selectedAdditional.length >= 4) {
+                                              toast.warning('Maximum 4 additional apps allowed');
+                                              return;
+                                            }
+                                            newAdditional = [...selectedAdditional, app.appId];
+                                          } else {
+                                            newAdditional = selectedAdditional.filter(id => id !== app.appId);
+                                          }
+                                          updateAppConfig({
+                                            crossAppPromotion: {
+                                              ...currentPromoConfig,
+                                              [platform]: {
+                                                heroAppId: selectedHero,
+                                                additionalAppIds: newAdditional,
+                                              },
+                                            },
+                                          });
+                                        }}
+                                      />
+                                      <img src={app.iconUrl} alt={app.title} className="promo-option-icon" />
+                                      <span className="promo-option-title">{app.title}</span>
+                                    </label>
+                                  );
+                                })}
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
               {/* Actions */}
               <div className="config-actions">
                 <button
@@ -702,6 +1073,129 @@ export const ConfigPage: React.FC = () => {
                 }}
               >
                 Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Promo App Modal */}
+      {showAddAppModal && (
+        <div className="modal-overlay">
+          <div className="modal-content modal-content-wide">
+            <div className="modal-header">
+              <h3>Add App to {addAppPlatform.toUpperCase()} List</h3>
+            </div>
+            <div className="modal-body">
+              <div className="add-app-field">
+                <label>Platform</label>
+                <select
+                  value={addAppPlatform}
+                  onChange={(e) => {
+                    setAddAppPlatform(e.target.value as 'ios' | 'android');
+                    // Reset fetched data when platform changes
+                    setAddAppIconUrl('');
+                    setAddAppTitle('');
+                    setAddAppSubtitle('');
+                    setFetchError('');
+                  }}
+                  className="add-app-input"
+                >
+                  <option value="ios">iOS (App Store)</option>
+                  <option value="android">Android (Google Play)</option>
+                </select>
+              </div>
+
+              <div className="add-app-field">
+                <label>Store URL *</label>
+                <div className="add-app-url-row">
+                  <input
+                    type="text"
+                    value={addAppStoreUrl}
+                    onChange={(e) => setAddAppStoreUrl(e.target.value)}
+                    className="add-app-input"
+                    placeholder={addAppPlatform === 'ios'
+                      ? 'https://apps.apple.com/app/app-name/id123456789'
+                      : 'https://play.google.com/store/apps/details?id=com.example.app'}
+                  />
+                  <button
+                    type="button"
+                    className="btn-fetch-info"
+                    onClick={() => fetchAppInfoFromUrl(addAppStoreUrl, addAppPlatform)}
+                    disabled={!addAppStoreUrl || !extractAppIdFromUrl(addAppStoreUrl) || fetchingAppInfo}
+                  >
+                    {fetchingAppInfo ? 'Fetching...' : 'Fetch Info'}
+                  </button>
+                </div>
+                {addAppStoreUrl && (
+                  <span className="add-app-hint" style={{ color: extractAppIdFromUrl(addAppStoreUrl) ? '#3fb950' : '#f85149' }}>
+                    {extractAppIdFromUrl(addAppStoreUrl)
+                      ? `Extracted ID: ${extractAppIdFromUrl(addAppStoreUrl)}`
+                      : 'Could not extract ID from URL'}
+                  </span>
+                )}
+                {fetchError && (
+                  <span className="add-app-hint" style={{ color: '#f85149' }}>{fetchError}</span>
+                )}
+              </div>
+
+              {/* App preview / fetched data */}
+              {(addAppIconUrl || addAppTitle) && (
+                <div className="add-app-preview">
+                  {addAppIconUrl && (
+                    <img src={addAppIconUrl} alt="App icon" className="add-app-preview-icon" />
+                  )}
+                  <div className="add-app-preview-info">
+                    {addAppTitle && <span className="add-app-preview-title">{addAppTitle}</span>}
+                    {addAppSubtitle && <span className="add-app-preview-subtitle">{addAppSubtitle}</span>}
+                  </div>
+                </div>
+              )}
+
+              {/* Editable fields for title and subtitle (pre-filled by fetch) */}
+              <div className="add-app-field">
+                <label>Title *</label>
+                <input
+                  type="text"
+                  value={addAppTitle}
+                  onChange={(e) => setAddAppTitle(e.target.value)}
+                  className="add-app-input"
+                  placeholder="App display name"
+                />
+              </div>
+
+              <div className="add-app-field">
+                <label>Subtitle</label>
+                <input
+                  type="text"
+                  value={addAppSubtitle}
+                  onChange={(e) => setAddAppSubtitle(e.target.value)}
+                  className="add-app-input"
+                  placeholder="Short description shown below the title"
+                />
+              </div>
+
+              <div className="add-app-field">
+                <label>Icon URL *</label>
+                <input
+                  type="text"
+                  value={addAppIconUrl}
+                  onChange={(e) => setAddAppIconUrl(e.target.value)}
+                  className="add-app-input"
+                  placeholder="https://..."
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-modal-cancel" onClick={resetAddAppModal}>
+                Cancel
+              </button>
+              <button
+                className="btn-modal-confirm"
+                onClick={handleAddPromoApp}
+                disabled={!addAppStoreUrl || !addAppIconUrl || !addAppTitle || !extractAppIdFromUrl(addAppStoreUrl)}
+              >
+                Add App
               </button>
             </div>
           </div>
