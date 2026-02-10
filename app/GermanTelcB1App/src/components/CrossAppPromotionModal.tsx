@@ -21,6 +21,7 @@ import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { CrossAppPromotionEntry } from '../types/remote-config.types';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -29,7 +30,7 @@ interface CrossAppPromotionModalProps {
   heroApp: CrossAppPromotionEntry | null;
   additionalApps: CrossAppPromotionEntry[];
   onMaybeLater: () => void;
-  onAppClick: (appId: string, isHero: boolean) => void;
+  onAppClick: (appId: string, isHero: boolean, position?: number) => void;
   /** When true, "maybe later" does not track dismissals (manual trigger from profile) */
   isManualTrigger?: boolean;
 }
@@ -46,12 +47,22 @@ const CrossAppPromotionModal: React.FC<CrossAppPromotionModalProps> = ({
   const { t } = useCustomTranslation();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
-  const handleAppPress = async (app: CrossAppPromotionEntry, isHero: boolean) => {
-    onAppClick(app.appId, isHero);
+  const handleAppPress = async (app: CrossAppPromotionEntry, isHero: boolean, position?: number) => {
+    onAppClick(app.appId, isHero, position);
     try {
+      const supported = await Linking.canOpenURL(app.storeUrl);
+      if (!supported) {
+        console.error('[CrossAppPromoModal] Cannot open URL:', app.storeUrl);
+        return;
+      }
       await Linking.openURL(app.storeUrl);
     } catch (error) {
       console.error('[CrossAppPromoModal] Failed to open store URL:', error);
+      logEvent(AnalyticsEvents.CROSS_APP_PROMO_STORE_OPEN_FAILED, {
+        app_id: app.appId,
+        store_url: app.storeUrl,
+        error: String(error),
+      });
     }
   };
 
@@ -94,11 +105,11 @@ const CrossAppPromotionModal: React.FC<CrossAppPromotionModalProps> = ({
           {/* Row 1 - Two apps side by side */}
           {row1Apps.length > 0 && (
             <View style={styles.row}>
-              {row1Apps.map((app) => (
+              {row1Apps.map((app, index) => (
                 <TouchableOpacity
                   key={app.appId}
                   style={styles.smallCard}
-                  onPress={() => handleAppPress(app, false)}
+                  onPress={() => handleAppPress(app, false, index + 1)}
                   activeOpacity={0.7}
                 >
                   <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />
@@ -114,11 +125,11 @@ const CrossAppPromotionModal: React.FC<CrossAppPromotionModalProps> = ({
           {/* Row 2 - Two apps side by side */}
           {row2Apps.length > 0 && (
             <View style={styles.row}>
-              {row2Apps.map((app) => (
+              {row2Apps.map((app, index) => (
                 <TouchableOpacity
                   key={app.appId}
                   style={styles.smallCard}
-                  onPress={() => handleAppPress(app, false)}
+                  onPress={() => handleAppPress(app, false, index + 3)}
                   activeOpacity={0.7}
                 >
                   <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />

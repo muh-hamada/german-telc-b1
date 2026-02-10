@@ -291,7 +291,10 @@ export const AnalyticsEvents = {
   CROSS_APP_PROMO_MODAL_SHOWN: 'cross_app_promo_modal_shown',
   CROSS_APP_PROMO_MAYBE_LATER: 'cross_app_promo_maybe_later',
   CROSS_APP_PROMO_APP_CLICKED: 'cross_app_promo_app_clicked',
-  CROSS_APP_PROMO_OPENED_FROM_PROFILE: 'cross_app_promo_opened_from_profile',
+  CROSS_APP_PROMO_OPENED_FROM_PROFILE: 'cross_app_promo_opened_from_profile', // Deprecated: use CROSS_APP_PROMO_OPENED_FROM_PLACEMENT
+  CROSS_APP_PROMO_OPENED_FROM_PLACEMENT: 'cross_app_promo_opened_from_placement',
+  CROSS_APP_PROMO_AUTO_SKIPPED: 'cross_app_promo_auto_skipped',
+  CROSS_APP_PROMO_STORE_OPEN_FAILED: 'cross_app_promo_store_open_failed',
 
   // Speaking Assessment Events
   SPEAKING_ASSESSMENT_STARTED: 'speaking_assessment_started',

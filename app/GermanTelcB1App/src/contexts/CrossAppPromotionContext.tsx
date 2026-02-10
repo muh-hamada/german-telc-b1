@@ -27,12 +27,12 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import StorageService from '../services/storage.service';
 
 interface CrossAppPromotionContextType {
-  /** Open the promo modal manually (from profile). Bypasses scheduling rules. */
-  showPromoModal: () => void;
+  /** Open the promo modal manually (from profile, home, etc). Bypasses scheduling rules. */
+  showPromoModal: (placement: string) => void;
   /** Handle "maybe later" dismissal. Updates counters and analytics. */
   handleMaybeLater: () => Promise<void>;
   /** Handle app card click. Opens store URL and logs analytics. */
-  handleAppClick: (appId: string, isHero: boolean) => void;
+  handleAppClick: (appId: string, isHero: boolean, position?: number) => void;
   /** Resolved hero app entry from config */
   heroApp: CrossAppPromotionEntry | null;
   /** Resolved additional app entries from config */
@@ -166,10 +166,13 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
       console.log(`[CrossAppPromo] Scheduling modal in ${SHOW_DELAY_MS}ms`);
       scheduledRef.current = true;
 
-      timerRef.current = setTimeout(() => {
+      timerRef.current = setTimeout(async () => {
         // Skip if user already saw the modal this session (e.g. opened manually from profile)
         if (hasBeenShownRef.current) {
           console.log('[CrossAppPromo] Modal already shown this session, skipping automatic trigger');
+          logEvent(AnalyticsEvents.CROSS_APP_PROMO_AUTO_SKIPPED, {
+            reason: 'already_shown_manually',
+          });
           return;
         }
 
@@ -185,10 +188,14 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
         hasBeenShownRef.current = true;
         enqueueRef.current('cross-app-promotion');
 
+        const appOpenCount = await StorageService.getCrossAppPromoAppOpenCount();
+
         // Log analytics
         logEvent(AnalyticsEvents.CROSS_APP_PROMO_MODAL_SHOWN, {
           app_ids: [currentHero.appId, ...currentAdditional.map(a => a.appId)],
           hero_app_id: currentHero.appId,
+          additional_apps_count: currentAdditional.length,
+          app_open_count: appOpenCount,
           trigger: 'automatic',
         });
 
@@ -213,7 +220,7 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
   }, []);
 
   // Manual trigger from profile screen
-  const showPromoModal = useCallback(() => {
+  const showPromoModal = useCallback(async (placement: string) => {
     if (!heroApp) {
       console.log('[CrossAppPromo] Cannot show modal - no hero app configured');
       return;
@@ -223,12 +230,19 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
     hasBeenShownRef.current = true;
     enqueue('cross-app-promotion');
 
+    const appOpenCount = await StorageService.getCrossAppPromoAppOpenCount();
+
     // Log analytics
-    logEvent(AnalyticsEvents.CROSS_APP_PROMO_OPENED_FROM_PROFILE);
+    logEvent(AnalyticsEvents.CROSS_APP_PROMO_OPENED_FROM_PLACEMENT, {
+      placement,
+    });
     logEvent(AnalyticsEvents.CROSS_APP_PROMO_MODAL_SHOWN, {
       app_ids: [heroApp.appId, ...additionalApps.map(a => a.appId)],
       hero_app_id: heroApp.appId,
-      trigger: 'profile',
+      additional_apps_count: additionalApps.length,
+      app_open_count: appOpenCount,
+      trigger: 'manual',
+      placement,
     });
   }, [heroApp, additionalApps, enqueue]);
 
@@ -245,11 +259,15 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
   }, [isManualTrigger]);
 
   // Handle app card click
-  const handleAppClick = useCallback((appId: string, isHero: boolean) => {
-    logEvent(AnalyticsEvents.CROSS_APP_PROMO_APP_CLICKED, {
+  const handleAppClick = useCallback((appId: string, isHero: boolean, position?: number) => {
+    const params: Record<string, any> = {
       app_id: appId,
       is_hero: isHero,
-    });
+    };
+    if (!isHero && position !== undefined) {
+      params.grid_position = position;
+    }
+    logEvent(AnalyticsEvents.CROSS_APP_PROMO_APP_CLICKED, params);
   }, []);
 
   const value: CrossAppPromotionContextType = {

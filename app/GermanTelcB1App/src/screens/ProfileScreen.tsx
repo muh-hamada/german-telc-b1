@@ -26,6 +26,7 @@ import CompletionStatsCard from '../components/CompletionStatsCard';
 import ProfileStatsGrid from '../components/ProfileStatsGrid';
 import SupportAdButton from '../components/SupportAdButton';
 import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
+import CrossAppPromotionButton from '../components/CrossAppPromotionButton';
 import { useAuth } from '../contexts/AuthContext';
 import { useCompletion } from '../contexts/CompletionContext';
 import { useStreak } from '../contexts/StreakContext';
@@ -37,7 +38,6 @@ import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { openAppRating } from '../utils/appRating';
 import { DEMO_MODE, DEMO_COMPLETION_STATS } from '../config/development.config';
 import { calculateRewardDays } from '../constants/streak.constants';
-import { useCrossAppPromotion } from '../contexts/CrossAppPromotionContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 
 // Helper function to format time remaining
@@ -69,7 +69,6 @@ const ProfileScreen: React.FC = () => {
   const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
   const { isPremium, purchasePremium, isPurchasing, productPrice } = usePremium();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const { showPromoModal, heroApp } = useCrossAppPromotion();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
@@ -324,23 +323,11 @@ const ProfileScreen: React.FC = () => {
           </View>
         )}
 
-        {/* Check Out Our Other Apps */}
-        {heroApp && (
-          <TouchableOpacity
-            style={styles.otherAppsCard}
-            onPress={showPromoModal}
-            activeOpacity={0.7}
-          >
-            <View style={styles.actionIconContainer}>
-              <MaterialIcons name="grain" size={25} color={"orange"} />
-            </View>
-            <Text style={styles.actionItemText}>{t('profile.checkOutOtherApps')}</Text>
-            <Icon name={I18nManager.isRTL ? "chevron-left" : "chevron-right"} size={20} color={colors.text.tertiary} />
-          </TouchableOpacity>
-        )}
-
         {/* Stats Grid */}
         <ProfileStatsGrid variant="card" marginBottom={spacing.margin.md} backgroundColor={colors.background.secondary} />
+
+        {/* Check Out Our Other Apps */}
+        <CrossAppPromotionButton placement="profile" />
 
         {/* Ad-Free Badge - ABOVE Streaks Card */}
         {isStreaksEnabledForUser(user?.uid) && user && adFreeStatus.isActive && (
@@ -715,16 +702,6 @@ const createStyles = (colors: ThemeColors) =>
       height: 48,
       borderRadius: 12,
       transform: [{ rotate: I18nManager.isRTL ? '180deg' : '0deg' }],
-    },
-    otherAppsCard: {
-      backgroundColor: colors.background.secondary,
-      borderRadius: spacing.borderRadius.lg,
-      paddingVertical: spacing.padding.md,
-      paddingHorizontal: spacing.padding.lg,
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: spacing.margin.md,
-      ...spacing.shadow.sm,
     },
   });
 

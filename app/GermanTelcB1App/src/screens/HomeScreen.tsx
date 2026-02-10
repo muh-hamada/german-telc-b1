@@ -16,6 +16,7 @@ import Card from '../components/Card';
 import HomeHeader from '../components/HomeHeader';
 import HomeProgressCard from '../components/HomeProgressCard';
 import LoginModal from '../components/LoginModal';
+import CrossAppPromotionButton from '../components/CrossAppPromotionButton';
 import SupportAdButton from '../components/SupportAdButton';
 import { activeExamConfig } from '../config/active-exam.config';
 import { HIDE_SUPPORT_US } from '../config/development.config';
@@ -298,6 +299,9 @@ const HomeScreen: React.FC = () => {
 
         {/* Support Ad Button */}
         {!HIDE_SUPPORT_US && <SupportAdButton screen="home" style={styles.supportAdButton} />}
+
+        {/* Check Out Our Other Apps */}
+        <CrossAppPromotionButton placement="home" />
 
         {/* Grammar Study Card */}
         {!isA1 && (

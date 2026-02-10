@@ -296,8 +296,8 @@ const ModalQueueRenderer: React.FC = () => {
         await promoHandleMaybeLater();
         dismissCurrentModal();
       };
-      const handlePromoAppClick = (appId: string, isHero: boolean) => {
-        promoHandleAppClick(appId, isHero);
+      const handlePromoAppClick = (appId: string, isHero: boolean, position?: number) => {
+        promoHandleAppClick(appId, isHero, position);
       };
       return (
         <CrossAppPromotionModal
