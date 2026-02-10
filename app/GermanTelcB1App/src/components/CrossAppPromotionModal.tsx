@@ -12,6 +12,7 @@ import {
   Image,
   Linking,
   Modal,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -22,8 +23,39 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { CrossAppPromotionEntry } from '../types/remote-config.types';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+// Replace all "-" with "_"
+const SOURCE_APP = activeExamConfig.id.replace(/-/g, '_');
+
+/**
+ * Appends campaign tracking parameters to the store URL so installs
+ * can be attributed back to this cross-app promotion.
+ *
+ * iOS  → App Store campaign params (ct, pt, mt) visible in App Store Connect Analytics.
+ * Android → Play Store referrer with UTM params picked up by Install Referrer API / Firebase Analytics.
+ */
+const buildTrackedUrl = (
+  baseUrl: string,
+  isHero: boolean,
+  position?: number,
+): string => {
+  const placement = isHero ? 'hero' : `grid_${position}`;
+  const separator = baseUrl.includes('?') ? '&' : '?';
+
+  if (Platform.OS === 'ios') {
+    // ct (campaign token) is limited to 40 chars
+    return `${baseUrl}${separator}ct=${SOURCE_APP}_${placement}&mt=8`;
+  }
+
+  // Android: referrer value must be URL-encoded
+  const referrer = encodeURIComponent(
+    `utm_source=${SOURCE_APP}&utm_medium=cross_app_promo&utm_campaign=${placement}`,
+  );
+  return `${baseUrl}${separator}referrer=${referrer}`;
+};
 
 interface CrossAppPromotionModalProps {
   visible: boolean;
@@ -49,18 +81,20 @@ const CrossAppPromotionModal: React.FC<CrossAppPromotionModalProps> = ({
 
   const handleAppPress = async (app: CrossAppPromotionEntry, isHero: boolean, position?: number) => {
     onAppClick(app.appId, isHero, position);
+    const trackedUrl = buildTrackedUrl(app.storeUrl, isHero, position);
+    console.log('[CrossAppPromoModal] Tracked URL:', trackedUrl);
     try {
-      const supported = await Linking.canOpenURL(app.storeUrl);
+      const supported = await Linking.canOpenURL(trackedUrl);
       if (!supported) {
-        console.error('[CrossAppPromoModal] Cannot open URL:', app.storeUrl);
+        console.error('[CrossAppPromoModal] Cannot open URL:', trackedUrl);
         return;
       }
-      await Linking.openURL(app.storeUrl);
+      await Linking.openURL(trackedUrl);
     } catch (error) {
       console.error('[CrossAppPromoModal] Failed to open store URL:', error);
       logEvent(AnalyticsEvents.CROSS_APP_PROMO_STORE_OPEN_FAILED, {
         app_id: app.appId,
-        store_url: app.storeUrl,
+        store_url: trackedUrl,
         error: String(error),
       });
     }
