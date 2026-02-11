@@ -1,8 +1,8 @@
 {
   "name": "ExamPreparationApp",
-  "displayName": "German TELC A1",
+  "displayName": "Spanish DELE B1",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-5101905792101482~7598249331",
-    "ios_app_id": "ca-app-pub-5101905792101482~9095982078"
+    "android_app_id": "ca-app-pub-5101905792101482~3723260491",
+    "ios_app_id": "ca-app-pub-5101905792101482~5306475915"
   }
 }
