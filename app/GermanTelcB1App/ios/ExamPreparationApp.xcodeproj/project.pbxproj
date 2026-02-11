@@ -311,7 +311,7 @@
 				CODE_SIGN_ENTITLEMENTS = ExamPreparationApp/ExamPreparationApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 87;
+				CURRENT_PROJECT_VERSION = 88;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				ENABLE_BITCODE = NO;
 				FIREBASE_ANALYTICS_ENABLED = NO;
@@ -323,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.83;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -347,7 +347,7 @@
 				CODE_SIGN_ENTITLEMENTS = ExamPreparationApp/ExamPreparationApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 87;
+				CURRENT_PROJECT_VERSION = 88;
 				DEVELOPMENT_TEAM = 5UXC4BSKQ7;
 				FIREBASE_ANALYTICS_ENABLED = YES;
 				INFOPLIST_FILE = ExamPreparationApp/Info.plist;
@@ -358,7 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.83;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
