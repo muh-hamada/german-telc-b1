@@ -13,6 +13,7 @@ import {
   Linking,
   Modal,
   Platform,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -114,76 +115,82 @@ const CrossAppPromotionModal: React.FC<CrossAppPromotionModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
-          {/* Header */}
-          <View style={styles.header}>
-            <Text style={styles.headerTitle}>{t('crossAppPromotion.title')}</Text>
-            <Text style={styles.headerSubtitle}>{t('crossAppPromotion.subtitle')}</Text>
-          </View>
-
-          {/* Hero App - Full Width */}
-          <TouchableOpacity
-            style={styles.heroCard}
-            onPress={() => handleAppPress(heroApp, true)}
-            activeOpacity={0.7}
+          <ScrollView
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.scrollContent}
           >
-            <Image source={{ uri: heroApp.iconUrl }} style={styles.heroIcon} />
-            <View style={styles.heroContent}>
-              <Text style={styles.heroTitle} numberOfLines={1}>{heroApp.title}</Text>
-              <Text style={styles.heroSubtitle} numberOfLines={2}>{heroApp.subtitle}</Text>
+            {/* Header */}
+            <View style={styles.header}>
+              <Text style={styles.headerTitle}>{t('crossAppPromotion.title')}</Text>
+              <Text style={styles.headerSubtitle}>{t('crossAppPromotion.subtitle')}</Text>
             </View>
-            <View style={styles.getButton}>
-              <Text style={styles.getButtonText}>{t('crossAppPromotion.get')}</Text>
-            </View>
-          </TouchableOpacity>
 
-          {/* Row 1 - Two apps side by side */}
-          {row1Apps.length > 0 && (
-            <View style={styles.row}>
-              {row1Apps.map((app, index) => (
-                <TouchableOpacity
-                  key={app.appId}
-                  style={styles.smallCard}
-                  onPress={() => handleAppPress(app, false, index + 1)}
-                  activeOpacity={0.7}
-                >
-                  <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />
-                  <Text style={styles.smallTitle} numberOfLines={2}>{app.title}</Text>
-                  <View style={styles.smallGetButton}>
-                    <Text style={styles.smallGetButtonText}>{t('crossAppPromotion.get')}</Text>
-                  </View>
-                </TouchableOpacity>
-              ))}
-            </View>
-          )}
+            {/* Hero App - Full Width */}
+            <TouchableOpacity
+              style={styles.heroCard}
+              onPress={() => handleAppPress(heroApp, true)}
+              activeOpacity={0.7}
+            >
+              <Image source={{ uri: heroApp.iconUrl }} style={styles.heroIcon} />
+              <View style={styles.heroContent}>
+                <Text style={styles.heroTitle} numberOfLines={1}>{heroApp.title}</Text>
+                <Text style={styles.heroSubtitle} numberOfLines={2}>{heroApp.subtitle}</Text>
+              </View>
+              <View style={styles.getButton}>
+                <Text style={styles.getButtonText}>{t('crossAppPromotion.get')}</Text>
+              </View>
+            </TouchableOpacity>
 
-          {/* Row 2 - Two apps side by side */}
-          {row2Apps.length > 0 && (
-            <View style={styles.row}>
-              {row2Apps.map((app, index) => (
-                <TouchableOpacity
-                  key={app.appId}
-                  style={styles.smallCard}
-                  onPress={() => handleAppPress(app, false, index + 3)}
-                  activeOpacity={0.7}
-                >
-                  <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />
-                  <Text style={styles.smallTitle} numberOfLines={2}>{app.title}</Text>
-                  <View style={styles.smallGetButton}>
-                    <Text style={styles.smallGetButtonText}>{t('crossAppPromotion.get')}</Text>
-                  </View>
-                </TouchableOpacity>
-              ))}
-            </View>
-          )}
+            {/* Row 1 - Two apps side by side */}
+            {row1Apps.length > 0 && (
+              <View style={styles.row}>
+                {row1Apps.map((app, index) => (
+                  <TouchableOpacity
+                    key={app.appId}
+                    style={styles.smallCard}
+                    onPress={() => handleAppPress(app, false, index + 1)}
+                    activeOpacity={0.7}
+                  >
+                    <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />
+                    <Text style={styles.smallTitle} numberOfLines={2}>{app.title}</Text>
+                    <View style={styles.smallGetButton}>
+                      <Text style={styles.smallGetButtonText}>{t('crossAppPromotion.get')}</Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
 
-          {/* Maybe Later Button */}
-          <TouchableOpacity
-            style={styles.maybeLaterButton}
-            onPress={onMaybeLater}
-            activeOpacity={0.6}
-          >
-            <Text style={styles.maybeLaterText}>{t('crossAppPromotion.maybeLater')}</Text>
-          </TouchableOpacity>
+            {/* Row 2 - Two apps side by side */}
+            {row2Apps.length > 0 && (
+              <View style={styles.row}>
+                {row2Apps.map((app, index) => (
+                  <TouchableOpacity
+                    key={app.appId}
+                    style={styles.smallCard}
+                    onPress={() => handleAppPress(app, false, index + 3)}
+                    activeOpacity={0.7}
+                  >
+                    <Image source={{ uri: app.iconUrl }} style={styles.smallIcon} />
+                    <Text style={styles.smallTitle} numberOfLines={2}>{app.title}</Text>
+                    <View style={styles.smallGetButton}>
+                      <Text style={styles.smallGetButtonText}>{t('crossAppPromotion.get')}</Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+
+            {/* Maybe Later Button */}
+            <TouchableOpacity
+              style={styles.maybeLaterButton}
+              onPress={onMaybeLater}
+              activeOpacity={0.6}
+            >
+              <Text style={styles.maybeLaterText}>{t('crossAppPromotion.maybeLater')}</Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
       </View>
     </Modal>
@@ -201,15 +208,17 @@ const createStyles = (colors: ThemeColors) =>
       backgroundColor: colors.background.primary,
       borderTopLeftRadius: 28,
       borderTopRightRadius: 28,
-      paddingHorizontal: spacing.padding.lg,
-      paddingTop: spacing.padding.lg,
-      paddingBottom: spacing.padding.xl,
       maxHeight: SCREEN_HEIGHT * 0.75,
       shadowColor: '#000',
       shadowOffset: { width: 0, height: -4 },
       shadowOpacity: 0.15,
       shadowRadius: 12,
       elevation: 10,
+    },
+    scrollContent: {
+      paddingHorizontal: spacing.padding.lg,
+      paddingTop: spacing.padding.lg,
+      paddingBottom: spacing.padding.xl,
     },
     header: {
       alignItems: 'center',

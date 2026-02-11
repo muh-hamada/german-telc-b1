@@ -95,7 +95,7 @@ const HomeScreen: React.FC = () => {
 
       // Check current ATT status first (without requesting)
       const currentAttStatus = await attService.getStatus();
-      
+
       // Determine if we should request ATT permission:
       // 1. User must have explicitly consented to personalized ads (check actual user choices, not just status)
       //    OR be in a non-GDPR region (NOT_REQUIRED - they didn't see GDPR form)
@@ -104,15 +104,15 @@ const HomeScreen: React.FC = () => {
       const userConsentedToPersonalizedAds = consentService.canShowPersonalizedAds();
       const userDeclinedInGdpr = consentService.hasUserDeclinedConsent();
       const isNonGdprRegion = consentStatus === AdsConsentStatus.NOT_REQUIRED;
-      
+
       // Only request ATT if:
       // - User consented to personalized ads (checked via actual user choices), OR
       // - User is in non-GDPR region (didn't see GDPR form), AND
       // - User did NOT decline in GDPR form, AND
       // - ATT hasn't been determined yet
-      const canRequestAtt = 
+      const canRequestAtt =
         !userDeclinedInGdpr &&
-        (userConsentedToPersonalizedAds || isNonGdprRegion) && 
+        (userConsentedToPersonalizedAds || isNonGdprRegion) &&
         currentAttStatus === 'not-determined';
 
       if (canRequestAtt) {
@@ -301,13 +301,13 @@ const HomeScreen: React.FC = () => {
         {!HIDE_SUPPORT_US && <SupportAdButton screen="home" style={styles.supportAdButton} />}
 
         {/* Check Out Our Other Apps */}
-        <CrossAppPromotionButton placement="home" />
+        <CrossAppPromotionButton placement="home" style={{ marginBottom: 0 }} />
 
         {/* Grammar Study Card */}
         {!isA1 && (
           <Card style={styles.card} onPress={handleGrammarStudyPress}>
-          <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
-          <Text style={styles.cardDescription}>
+            <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
+            <Text style={styles.cardDescription}>
               {t('practice.grammar.study.description', { count: isDele ? 160 : 150 })}
             </Text>
           </Card>
