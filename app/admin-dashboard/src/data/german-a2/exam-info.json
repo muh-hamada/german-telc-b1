@@ -90,7 +90,7 @@
                         {
                             "part_name": "1. Sich Vorstellen",
                             "time_minutes": 3,
-                            "max_points": 5,
+                            "max_points": 3,
                             "question_type_detail": {
                                 "en": "Introduce yourself to your conversation partner. Topics include name, age, origin, place of residence, family, job, hobbies, and languages. Keywords are provided on a task sheet for orientation. After each candidate's introduction, the examiner asks two follow-up questions.",
                                 "ar": "قدّم نفسك لشريك المحادثة. تشمل المواضيع: الاسم، العمر، الأصل، مكان الإقامة، العائلة، العمل، الهوايات واللغات. تُوفَّر كلمات مفتاحية على ورقة المهام للتوجيه. بعد تقديم كل مشارك لنفسه، يطرح الممتحن سؤالين إضافيين.",
@@ -103,7 +103,7 @@
                         {
                             "part_name": "2. Ein Alltagsgespräch führen",
                             "time_minutes": 4,
-                            "max_points": 5,
+                            "max_points": 6,
                             "question_type_detail": {
                                 "en": "Hold a conversation about an everyday topic using picture cards. The examiner names a topic and lays out six cards. Each candidate draws three cards (including one with a question mark for a free question). Candidates take turns asking and answering questions based on the cards.",
                                 "ar": "إجراء محادثة حول موضوع يومي باستخدام بطاقات مصورة. يُسمّي الممتحن موضوعاً ويضع ست بطاقات على الطاولة. يسحب كل مشارك ثلاث بطاقات (بما في ذلك واحدة بعلامة استفهام لسؤال حر). يتناوب المشاركون في طرح الأسئلة والإجابة عليها بناءً على البطاقات.",
@@ -116,7 +116,7 @@
                         {
                             "part_name": "3. Etwas aushandeln",
                             "time_minutes": 4,
-                            "max_points": 5,
+                            "max_points": 6,
                             "question_type_detail": {
                                 "en": "Negotiate a joint activity with your conversation partner using a mind map with different suggestions. One branch has a question mark so candidates can contribute their own ideas. The goal is to agree on a plan together.",
                                 "ar": "تفاوض على نشاط مشترك مع شريك المحادثة باستخدام خريطة ذهنية تحتوي على اقتراحات مختلفة. يحتوي فرع واحد على علامة استفهام حتى يتمكن المشاركون من تقديم أفكارهم الخاصة. الهدف هو الاتفاق على خطة معاً.",
@@ -184,35 +184,38 @@
                     "criteria": [
                         {
                             "name": "1. Sich Vorstellen",
+                            "max_points": 3,
                             "explanation": {
-                                "en": "Candidates introduce themselves and ask their partner questions. The examiner asks two follow-up questions after each introduction. Assessed on task fulfillment and comprehensibility.",
-                                "ar": "يقدّم المشاركون أنفسهم ويطرحون أسئلة على شريكهم. يطرح الممتحن سؤالين إضافيين بعد كل تقديم. يتم التقييم بناءً على تنفيذ المهمة والوضوح.",
-                                "ru": "Кандидаты представляются и задают вопросы партнёру. Экзаменатор задаёт два дополнительных вопроса после каждого представления. Оценивается выполнение задания и понятность.",
-                                "fr": "Les candidats se présentent et posent des questions à leur partenaire. L'examinateur pose deux questions supplémentaires après chaque présentation. Évalué sur la réalisation de la tâche et la compréhensibilité.",
-                                "es": "Los candidatos se presentan y hacen preguntas a su compañero. El examinador hace dos preguntas de seguimiento después de cada presentación. Se evalúa el cumplimiento de la tarea y la comprensibilidad.",
-                                "de": "Die Teilnehmenden stellen sich vor und stellen ihrem Partner Fragen. Der/Die Prüfer:in stellt nach jeder Vorstellung zwei Zusatzfragen. Bewertet werden Aufgabenerfüllung und Verständlichkeit."
+                                "en": "V (Vorstellen/Introduction): 1 | 0.5 | 0 points. Z (Zusatzfragen/Follow-up questions): 2 | 1 | 0 points. The examiner asks two follow-up questions after each candidate's introduction. Max. 3 points.",
+                                "ar": "V (التقديم): 1 | 0.5 | 0 نقطة. Z (أسئلة المتابعة): 2 | 1 | 0 نقطة. يطرح الممتحن سؤالين إضافيين بعد تقديم كل مشارك. الحد الأقصى 3 نقاط.",
+                                "ru": "V (Представление): 1 | 0,5 | 0 баллов. Z (Дополнительные вопросы): 2 | 1 | 0 баллов. Экзаменатор задаёт два дополнительных вопроса после представления каждого кандидата. Макс. 3 балла.",
+                                "fr": "V (Présentation) : 1 | 0,5 | 0 point. Z (Questions supplémentaires) : 2 | 1 | 0 points. L'examinateur pose deux questions supplémentaires après la présentation de chaque candidat. Max. 3 points.",
+                                "es": "V (Presentación): 1 | 0,5 | 0 puntos. Z (Preguntas de seguimiento): 2 | 1 | 0 puntos. El examinador hace dos preguntas de seguimiento después de la presentación de cada candidato. Máx. 3 puntos.",
+                                "de": "V (Vorstellen): 1 | 0,5 | 0 Punkte. Z (Zusatzfragen): 2 | 1 | 0 Punkte. Der/Die Prüfer:in stellt nach jeder Vorstellung zwei Zusatzfragen. Max. 3 Punkte."
                             }
                         },
                         {
                             "name": "2. Ein Alltagsgespräch führen",
+                            "max_points": 6,
                             "explanation": {
-                                "en": "Candidates hold a conversation using picture cards on an everyday topic, taking turns asking and answering questions. Assessed on task fulfillment and comprehensibility.",
-                                "ar": "يجري المشاركون محادثة باستخدام بطاقات مصورة حول موضوع يومي، يتناوبون في طرح الأسئلة والإجابة عليها. يتم التقييم بناءً على تنفيذ المهمة والوضوح.",
-                                "ru": "Кандидаты ведут разговор с использованием карточек с картинками на повседневную тему, поочерёдно задавая вопросы и отвечая на них. Оценивается выполнение задания и понятность.",
-                                "fr": "Les candidats mènent une conversation à l'aide de cartes illustrées sur un sujet quotidien, en posant et répondant aux questions à tour de rôle. Évalué sur la réalisation de la tâche et la compréhensibilité.",
-                                "es": "Los candidatos mantienen una conversación utilizando tarjetas ilustradas sobre un tema cotidiano, turnándose para hacer y responder preguntas. Se evalúa el cumplimiento de la tarea y la comprensibilidad.",
-                                "de": "Die Teilnehmenden führen ein Gespräch anhand von Bildkarten zu einem Alltagsthema und stellen abwechselnd Fragen und beantworten sie. Bewertet werden Aufgabenerfüllung und Verständlichkeit."
+                                "en": "Each candidate asks 3 questions (Frage) and gives 3 answers (Antwort) using picture cards. Each question and each answer is scored: 1 | 0.5 | 0 points. Max. 6 points (3 questions + 3 answers).",
+                                "ar": "يطرح كل مشارك 3 أسئلة (Frage) ويقدم 3 إجابات (Antwort) باستخدام بطاقات مصورة. يتم تقييم كل سؤال وكل إجابة: 1 | 0.5 | 0 نقطة. الحد الأقصى 6 نقاط (3 أسئلة + 3 إجابات).",
+                                "ru": "Каждый кандидат задаёт 3 вопроса (Frage) и даёт 3 ответа (Antwort) с использованием карточек. Каждый вопрос и каждый ответ оценивается: 1 | 0,5 | 0 баллов. Макс. 6 баллов (3 вопроса + 3 ответа).",
+                                "fr": "Chaque candidat pose 3 questions (Frage) et donne 3 réponses (Antwort) à l'aide de cartes illustrées. Chaque question et chaque réponse est notée : 1 | 0,5 | 0 point. Max. 6 points (3 questions + 3 réponses).",
+                                "es": "Cada candidato hace 3 preguntas (Frage) y da 3 respuestas (Antwort) utilizando tarjetas ilustradas. Cada pregunta y cada respuesta se puntúa: 1 | 0,5 | 0 puntos. Máx. 6 puntos (3 preguntas + 3 respuestas).",
+                                "de": "Jede:r Teilnehmende stellt 3 Fragen und gibt 3 Antworten anhand von Bildkarten. Jede Frage und jede Antwort wird bewertet: 1 | 0,5 | 0 Punkte. Max. 6 Punkte (3 Fragen + 3 Antworten)."
                             }
                         },
                         {
                             "name": "3. Etwas aushandeln",
+                            "max_points": 6,
                             "explanation": {
-                                "en": "Candidates negotiate a joint activity using a mind map with suggestions. They must agree on a plan together. Mutual assistance between candidates is positively assessed.",
-                                "ar": "يتفاوض المشاركون على نشاط مشترك باستخدام خريطة ذهنية تحتوي على اقتراحات. يجب أن يتفقوا على خطة معاً. المساعدة المتبادلة بين المشاركين تُقيَّم إيجابياً.",
-                                "ru": "Кандидаты договариваются о совместном мероприятии, используя ментальную карту с предложениями. Они должны вместе согласовать план. Взаимопомощь между кандидатами оценивается положительно.",
-                                "fr": "Les candidats négocient une activité commune en utilisant une carte mentale avec des suggestions. Ils doivent se mettre d'accord sur un plan ensemble. L'entraide entre les candidats est évaluée positivement.",
-                                "es": "Los candidatos negocian una actividad conjunta utilizando un mapa mental con sugerencias. Deben acordar un plan juntos. La ayuda mutua entre candidatos se evalúa positivamente.",
-                                "de": "Die Teilnehmenden handeln eine gemeinsame Aktivität anhand eines Mindmaps mit Vorschlägen aus. Sie müssen sich gemeinsam auf einen Plan einigen. Gegenseitige Hilfestellungen werden positiv bewertet."
+                                "en": "A (Erfüllung der Aufgabenstellung/Task fulfillment): 3 | 1.5 | 0 points. R (Sprachliche Realisierung/Linguistic realization): 3 | 1.5 | 0 points. Candidates negotiate a joint activity using a mind map. Mutual assistance is positively assessed. Max. 6 points.",
+                                "ar": "A (تنفيذ المهمة): 3 | 1.5 | 0 نقطة. R (التحقيق اللغوي): 3 | 1.5 | 0 نقطة. يتفاوض المشاركون على نشاط مشترك باستخدام خريطة ذهنية. المساعدة المتبادلة تُقيَّم إيجابياً. الحد الأقصى 6 نقاط.",
+                                "ru": "A (Выполнение задания): 3 | 1,5 | 0 баллов. R (Языковая реализация): 3 | 1,5 | 0 баллов. Кандидаты договариваются о совместном мероприятии, используя ментальную карту. Взаимопомощь оценивается положительно. Макс. 6 баллов.",
+                                "fr": "A (Réalisation de la tâche) : 3 | 1,5 | 0 points. R (Réalisation linguistique) : 3 | 1,5 | 0 points. Les candidats négocient une activité commune en utilisant une carte mentale. L'entraide est évaluée positivement. Max. 6 points.",
+                                "es": "A (Cumplimiento de la tarea): 3 | 1,5 | 0 puntos. R (Realización lingüística): 3 | 1,5 | 0 puntos. Los candidatos negocian una actividad conjunta utilizando un mapa mental. La ayuda mutua se evalúa positivamente. Máx. 6 puntos.",
+                                "de": "A (Erfüllung der Aufgabenstellung): 3 | 1,5 | 0 Punkte. R (Sprachliche Realisierung): 3 | 1,5 | 0 Punkte. Die Teilnehmenden handeln eine gemeinsame Aktivität anhand eines Mindmaps aus. Gegenseitige Hilfestellungen werden positiv bewertet. Max. 6 Punkte."
                             }
                         }
                     ],

@@ -67,6 +67,27 @@ export const MOCK_EXAM_STEPS_A1: Omit<MockExamStep, 'isCompleted' | 'score' | 's
   { id: 'speaking-3', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 3, partName: 'Teil 3: Bitte formulieren und darauf reagieren', maxPoints: 5, timeMinutes: 4 },
 ];
 
+export const MOCK_EXAM_STEPS_A2: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
+  // 1. Hören (Listening) - 15 points, ca. 20 min
+  { id: 'listening-1', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 5, timeMinutes: 7 },
+  { id: 'listening-2', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 5, timeMinutes: 7 },
+  { id: 'listening-3', sectionNumber: 3, sectionName: 'Hörverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 6 },
+
+  // 2. Lesen (Reading) - 15 points, ~25 min (shared 50 min block with Writing)
+  { id: 'reading-1', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 1, partName: 'Teil 1: Globalverstehen', maxPoints: 5, timeMinutes: 8 },
+  { id: 'reading-2', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 2, partName: 'Teil 2: Detailverstehen', maxPoints: 5, timeMinutes: 9 },
+  { id: 'reading-3', sectionNumber: 1, sectionName: 'Leseverstehen', partNumber: 3, partName: 'Teil 3: Selektives Verstehen', maxPoints: 5, timeMinutes: 8 },
+
+  // 3. Schreiben (Writing) - 15 points, ~25 min (shared 50 min block with Reading)
+  { id: 'writing-part1', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Formular ausfüllen', maxPoints: 5, timeMinutes: 10 },
+  { id: 'writing-part2', sectionNumber: 4, sectionName: 'Schriftlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Eine kurze Mitteilung', maxPoints: 10, timeMinutes: 15 },
+
+  // 4. Sprechen (Speaking) - 15 points, ca. 11 min
+  { id: 'speaking-1', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 1, partName: 'Teil 1: Sich vorstellen', maxPoints: 3, timeMinutes: 3 },
+  { id: 'speaking-2', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 2, partName: 'Teil 2: Ein Alltagsgespräch führen', maxPoints: 6, timeMinutes: 4 },
+  { id: 'speaking-3', sectionNumber: 5, sectionName: 'Mündlicher Ausdruck', partNumber: 3, partName: 'Teil 3: Etwas aushandeln', maxPoints: 6, timeMinutes: 4 },
+];
+
 export const MOCK_EXAM_STEPS_DELE_B1: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime'>[] = [
   // 1. Reading Comprehension - 25 points total
   { id: 'reading-1', sectionNumber: 1, sectionName: 'Comprensión de Lectura', partNumber: 1, partName: 'Tarea 1', maxPoints: 5, timeMinutes: 14 },
@@ -107,6 +128,14 @@ export const TOTAL_MAX_POINTS_A1 = 60;
 export const PASSING_WRITTEN_POINTS_A1 = 27; // 60% of 45
 export const PASSING_ORAL_POINTS_A1 = 9; // 60% of 15
 export const PASSING_TOTAL_POINTS_A1 = 36; // 60% of 60
+
+// A2 Constants
+export const TOTAL_WRITTEN_MAX_POINTS_A2 = 45; // Hören (15) + Lesen (15) + Schreiben (15)
+export const TOTAL_ORAL_MAX_POINTS_A2 = 15; // Sprechen
+export const TOTAL_MAX_POINTS_A2 = 60;
+export const PASSING_WRITTEN_POINTS_A2 = 27; // 60% of 45
+export const PASSING_ORAL_POINTS_A2 = 9; // 60% of 15
+export const PASSING_TOTAL_POINTS_A2 = 36; // 60% of 60
 
 // Dele Constants
 export const TOTAL_WRITTEN_MAX_POINTS_DELE_B1 = 50; // Reading (25) + Writing (25)
