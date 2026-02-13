@@ -1,112 +1,183 @@
 {
     "instructions": {
         "de": {
-            "goal": "Sie sollen zu einem Alltagsthema Fragen stellen und auf Fragen antworten.",
+            "goal": "Sie sollen mit Ihrer Gesprächspartnerin oder Ihrem Gesprächspartner ein Alltagsgespräch führen.",
             "steps": [
-                "Der Prüfer nennt ein Thema (z. B. 'Essen und Trinken').",
-                "Sie ziehen eine Karte mit einem Wort.",
-                "Sie müssen eine Frage mit diesem Wort formulieren.",
-                "Ihr Partner antwortet auf die Frage.",
-                "Danach tauschen Sie die Rollen."
+                "Der/Die Prüfer:in nennt ein Thema und legt sechs Karten offen auf den Tisch.",
+                "Sie und Ihr:e Partner:in ziehen je drei Karten. Jede:r sollte eine Karte mit einem Fragezeichen haben.",
+                "Der/Die Prüfer:in stellt mit einer siebten Karte eine Beispielfrage. Sie beantworten diese Frage.",
+                "Dann stellen Sie abwechselnd Fragen und geben Antworten anhand Ihrer Karten.",
+                "Bei der Fragezeichen-Karte können Sie eine eigene Frage zum Thema stellen."
             ]
         },
         "en": {
-            "goal": "You should ask and answer questions about an everyday topic.",
+            "goal": "You should hold an everyday conversation with your conversation partner.",
             "steps": [
-                "The examiner names a topic (e.g., 'Food and Drink').",
-                "You draw a card with a word on it.",
-                "You must formulate a question using this word.",
-                "Your partner answers the question.",
-                "Then you switch roles."
+                "The examiner names a topic and lays out six cards face-up on the table.",
+                "You and your partner each draw three cards. Each of you should have one card with a question mark.",
+                "The examiner asks an example question using a seventh card. You answer this question.",
+                "Then you take turns asking questions and giving answers based on your cards.",
+                "With the question mark card, you can ask your own question about the topic."
             ]
         },
         "fr": {
-            "goal": "Vous devez poser des questions et répondre sur un sujet du quotidien.",
+            "goal": "Vous devez mener une conversation quotidienne avec votre partenaire.",
             "steps": [
-                "L'examinateur donne un thème (par ex. 'Manger et Boire').",
-                "Vous tirez une carte avec un mot.",
-                "Vous devez formuler une question avec ce mot.",
-                "Votre partenaire répond à la question.",
-                "Ensuite, vous échangez les rôles."
+                "L'examinateur nomme un sujet et dispose six cartes face visible sur la table.",
+                "Vous et votre partenaire tirez chacun trois cartes. Chacun devrait avoir une carte avec un point d'interrogation.",
+                "L'examinateur pose une question d'exemple avec une septième carte. Vous répondez à cette question.",
+                "Ensuite, vous posez et répondez aux questions à tour de rôle en vous basant sur vos cartes.",
+                "Avec la carte point d'interrogation, vous pouvez poser votre propre question sur le sujet."
             ]
         },
         "es": {
-            "goal": "Debe formular preguntas y respuestas sobre un tema cotidiano.",
+            "goal": "Debe mantener una conversación cotidiana con su compañero de conversación.",
             "steps": [
-                "El examinador nombra un tema (p. ej., 'Comida y Bebida').",
-                "Usted toma una tarjeta con una palabra.",
-                "Debe formular una pregunta usando esa palabra.",
-                "Su compañero responde a la pregunta.",
-                "Luego cambian de roles."
+                "El examinador nombra un tema y coloca seis tarjetas boca arriba sobre la mesa.",
+                "Usted y su compañero toman tres tarjetas cada uno. Cada uno debe tener una tarjeta con un signo de interrogación.",
+                "El examinador hace una pregunta de ejemplo con una séptima tarjeta. Usted responde a esta pregunta.",
+                "Luego se turnan para hacer preguntas y dar respuestas basándose en sus tarjetas.",
+                "Con la tarjeta del signo de interrogación, puede hacer su propia pregunta sobre el tema."
             ]
         },
         "ru": {
-            "goal": "Вы должны задавать вопросы и отвечать на них по повседневной теме.",
+            "goal": "Вы должны вести повседневный разговор с вашим собеседником.",
             "steps": [
-                "Экзаменатор называет тему (например, 'Еда и напитки').",
-                "Вы вытягиваете карточку со словом.",
-                "Вы должны сформулировать вопрос с этим словом.",
-                "Ваш партнер отвечает на вопрос.",
-                "Затем вы меняетесь ролями."
+                "Экзаменатор называет тему и раскладывает шесть карточек лицевой стороной вверх на столе.",
+                "Вы и ваш партнёр берёте по три карточки. У каждого должна быть одна карточка с вопросительным знаком.",
+                "Экзаменатор задаёт пример вопроса с помощью седьмой карточки. Вы отвечаете на этот вопрос.",
+                "Затем вы по очереди задаёте вопросы и даёте ответы на основе ваших карточек.",
+                "С карточкой с вопросительным знаком вы можете задать свой собственный вопрос по теме."
             ]
         },
         "ar": {
-            "goal": ".يجب عليك طرح أسئلة والإجابة عليها حول موضوع يومي",
+            "goal": ".يجب عليك إجراء محادثة يومية مع شريك المحادثة",
             "steps": [
-                ".(مثل 'الطعام والشراب') يحدد الممتحن موضوعاً",
-                ".تسحب بطاقة عليها كلمة",
-                ".يجب عليك صياغة سؤال باستخدام هذه الكلمة",
-                ".شريكك يجيب على السؤال",
-                ".ثم تتبادلان الأدوار"
+                ".يُسمّي الممتحن موضوعاً ويضع ست بطاقات مكشوفة على الطاولة",
+                ".تسحب أنت وشريكك ثلاث بطاقات لكل منكما. يجب أن يكون لدى كل منكما بطاقة بعلامة استفهام",
+                ".يطرح الممتحن سؤالاً توضيحياً باستخدام البطاقة السابعة. تجيب على هذا السؤال",
+                ".ثم تتناوبان في طرح الأسئلة وتقديم الإجابات بناءً على بطاقاتكما",
+                ".مع بطاقة علامة الاستفهام، يمكنك طرح سؤالك الخاص حول الموضوع"
             ]
         }
     },
     "simulation_data": {
-        "topic": "Essen und Trinken",
+        "topic": "Freizeit und Hobbys",
         "cards": [
             {
+                "id": "card_examiner",
+                "word": "Sport",
+                "image_icon": "sports-soccer",
+                "role": "examiner_example"
+            },
+            {
                 "id": "card_1",
-                "word": "Frühstück",
-                "image_icon": "fastfood"
+                "word": "Musik",
+                "image_icon": "music-note"
             },
             {
                 "id": "card_2",
-                "word": "Tee",
-                "image_icon": "emoji-food-beverage"
+                "word": "Reisen",
+                "image_icon": "flight"
             },
             {
                 "id": "card_3",
-                "word": "Kaffee",
-                "image_icon": "coffee"
+                "word": "?",
+                "image_icon": "help-outline"
             },
             {
                 "id": "card_4",
-                "word": "Grillen",
-                "image_icon": "outdoor-grill"
+                "word": "Kochen",
+                "image_icon": "restaurant"
+            },
+            {
+                "id": "card_5",
+                "word": "Lesen",
+                "image_icon": "menu-book"
+            },
+            {
+                "id": "card_6",
+                "word": "?",
+                "image_icon": "help-outline"
             }
         ],
         "example_dialogue": {
-            "context": "Thema: Essen und Trinken. Karte: 'Frühstück'",
+            "context": "Thema: Freizeit und Hobbys. Der/Die Prüfer:in stellt eine Beispielfrage mit der Karte 'Sport'.",
             "turns": [
                 {
-                    "speaker": "User",
-                    "role": "Questioner",
-                    "text": "Was essen Sie gern zum Frühstück?"
+                    "speaker": "Prüfer",
+                    "role": "Examiner",
+                    "text": "Machen Sie gern Sport?"
                 },
                 {
-                    "speaker": "Partner",
+                    "speaker": "Teilnehmer A",
                     "role": "Respondent",
-                    "text": "Ich esse meistens Brot und Obst."
+                    "text": "Ja, ich spiele gern Fußball. Am Wochenende spiele ich mit Freunden im Park."
                 },
                 {
-                    "speaker": "User",
-                    "role": "Questioner",
-                    "text": "Was trinken Sie gern zum Frühstück?"
-                },
-                {
-                    "speaker": "Partner",
+                    "speaker": "Teilnehmer B",
                     "role": "Respondent",
-                    "text": "Ich trinke meistens Tee."
+                    "text": "Ich mache nicht so gern Sport, aber ich gehe manchmal schwimmen."
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Questioner",
+                    "text": "Hören Sie gern Musik? (Karte: Musik)"
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Respondent",
+                    "text": "Ja, ich höre sehr gern Musik. Am liebsten höre ich Pop und Rock."
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Questioner",
+                    "text": "Kochen Sie gern? (Karte: Kochen)"
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Respondent",
+                    "text": "Ja, ich koche gern. Am Wochenende koche ich oft zusammen mit meiner Familie."
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Questioner",
+                    "text": "Reisen Sie gern? (Karte: Reisen)"
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Respondent",
+                    "text": "Ja, ich reise sehr gern. Letztes Jahr war ich in Spanien. Das war sehr schön."
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Questioner",
+                    "text": "Lesen Sie gern Bücher? (Karte: Lesen)"
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Respondent",
+                    "text": "Ich lese nicht so oft, aber manchmal lese ich abends ein Buch."
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Questioner",
+                    "text": "Was machen Sie am liebsten am Wochenende? (Karte: ?)"
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Respondent",
+                    "text": "Am Wochenende treffe ich mich gern mit Freunden. Wir gehen zusammen ins Café oder ins Kino."
+                },
+                {
+                    "speaker": "Teilnehmer B",
+                    "role": "Questioner",
+                    "text": "Haben Sie ein Lieblingsessen? (Karte: ?)"
+                },
+                {
+                    "speaker": "Teilnehmer A",
+                    "role": "Respondent",
+                    "text": "Ja, ich esse am liebsten Pasta. Das ist mein Lieblingsessen aus Italien."
                 }
             ]
         }

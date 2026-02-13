@@ -1,57 +1,57 @@
 {
     "instructions": {
         "de": {
-            "goal": "Sie sollen wichtige Informationen zur eigenen Person geben.",
+            "goal": "Sie sollen sich Ihrer Gesprächspartnerin bzw. Ihrem Gesprächspartner vorstellen und Fragen stellen.",
             "steps": [
-                "Sie bekommen ein Blatt mit Stichworten.",
-                "Sie stellen sich kurz vor (Name, Alter, Land, Wohnort, Sprachen, Beruf).",
-                "Nach der Vorstellung müssen Sie etwas buchstabieren (z. B. Ihren Namen).",
-                "Sie müssen eine Nummer nennen (z. B. Telefonnummer)."
+                "Sie bekommen ein Aufgabenblatt mit Stichworten zur Orientierung.",
+                "Sie stellen sich vor (Name, Alter, Herkunft, Wohnort, Familie, Beruf, Hobbys, Sprachen).",
+                "Sie können auch über andere Dinge sprechen, die nicht auf dem Blatt stehen.",
+                "Nach Ihrer Vorstellung stellt der/die Prüfer:in Ihnen zwei Zusatzfragen."
             ]
         },
         "en": {
-            "goal": "You should provide important information about yourself.",
+            "goal": "You should introduce yourself to your conversation partner and ask questions.",
             "steps": [
-                "You will receive a sheet with keywords.",
-                "You introduce yourself briefly (Name, Age, Country, Residence, Languages, Profession).",
-                "After the introduction, you must spell something (e.g., your name).",
-                "You must state a number (e.g., phone number)."
+                "You will receive a task sheet with keywords for orientation.",
+                "You introduce yourself (Name, Age, Origin, Residence, Family, Job, Hobbies, Languages).",
+                "You may also talk about other things not listed on the sheet.",
+                "After your introduction, the examiner will ask you two follow-up questions."
             ]
         },
         "fr": {
-            "goal": "Vous devez fournir des informations importantes sur vous-même.",
+            "goal": "Vous devez vous présenter à votre partenaire de conversation et poser des questions.",
             "steps": [
-                "Vous recevrez une feuille avec des mots-clés.",
-                "Vous vous présentez brièvement (Nom, Âge, Pays, Domicile, Langues, Profession).",
-                "Après la présentation, vous devez épeler quelque chose (par ex. votre nom).",
-                "Vous devez indiquer un numéro (par ex. numéro de téléphone)."
+                "Vous recevrez une feuille de travail avec des mots-clés pour vous orienter.",
+                "Vous vous présentez (Nom, Âge, Origine, Domicile, Famille, Profession, Loisirs, Langues).",
+                "Vous pouvez aussi parler d'autres choses qui ne figurent pas sur la feuille.",
+                "Après votre présentation, l'examinateur vous posera deux questions supplémentaires."
             ]
         },
         "es": {
-            "goal": "Debe proporcionar información importante sobre usted.",
+            "goal": "Debe presentarse a su compañero de conversación y hacer preguntas.",
             "steps": [
-                "Recibirá una hoja con palabras clave.",
-                "Se presenta brevemente (Nombre, Edad, País, Domicilio, Idiomas, Profesión).",
-                "Después de la presentación, debe deletrear algo (por ejemplo, su nombre).",
-                "Debe indicar un número (por ejemplo, su número de teléfono)."
+                "Recibirá una hoja de tareas con palabras clave como orientación.",
+                "Se presenta (Nombre, Edad, Origen, Residencia, Familia, Profesión, Aficiones, Idiomas).",
+                "También puede hablar de otras cosas que no estén en la hoja.",
+                "Después de su presentación, el examinador le hará dos preguntas de seguimiento."
             ]
         },
         "ru": {
-            "goal": "Вы должны предоставить важную информацию о себе.",
+            "goal": "Вы должны представиться собеседнику и задать вопросы.",
             "steps": [
-                "Вы получите лист с ключевыми словами.",
-                "Вы кратко представляетесь (Имя, Возраст, Страна, Место жительства, Языки, Профессия).",
-                "После представления вы должны что-то продиктовать по буквам (например, свое имя).",
-                "Вы должны назвать номер (например, номер телефона)."
+                "Вы получите лист с ключевыми словами для ориентации.",
+                "Вы представляетесь (Имя, Возраст, Происхождение, Место жительства, Семья, Профессия, Хобби, Языки).",
+                "Вы также можете говорить о других вещах, не указанных на листе.",
+                "После вашего представления экзаменатор задаст вам два дополнительных вопроса."
             ]
         },
         "ar": {
-            "goal": ".يجب عليك تقديم معلومات مهمة عن نفسك",
+            "goal": ".يجب عليك تقديم نفسك لشريك المحادثة وطرح أسئلة",
             "steps": [
-                ".سوف تتلقى ورقة بها كلمات مفتاحية",
-                ".(الاسم، العمر، البلد، السكن، اللغات، المهنة) تقدم نفسك بإيجاز",
-                ".بعد التقديم، يجب عليك تهجئة شيء ما (مثل اسمك)",
-                ".(مثل رقم الهاتف) يجب عليك ذكر رقم"
+                ".ستحصل على ورقة مهام تحتوي على كلمات مفتاحية للتوجيه",
+                ".(الاسم، العمر، الأصل، مكان الإقامة، العائلة، المهنة، الهوايات، اللغات) تقدم نفسك",
+                ".يمكنك أيضاً التحدث عن أشياء أخرى غير مذكورة في الورقة",
+                ".بعد تقديمك، سيطرح عليك الممتحن سؤالين إضافيين"
             ]
         }
     },
@@ -59,13 +59,15 @@
         "template_keywords": [
             "Name",
             "Alter",
-            "Land / Herkunft",
+            "Herkunft",
             "Wohnort",
-            "Sprachen",
-            "Beruf"
+            "Familie",
+            "Beruf",
+            "Hobbys",
+            "Sprachen"
         ],
         "example_monologue": {
-            "description": "Example introduction based on exam requirements.",
+            "description": "Example introduction based on A2 exam requirements.",
             "text_segments": [
                 {
                     "keyword": "Name",
@@ -78,48 +80,58 @@
                     "example_value": "Ich bin 28 Jahre alt."
                 },
                 {
-                    "keyword": "Land",
+                    "keyword": "Herkunft",
                     "phrase": "Ich komme aus ...",
-                    "example_value": "Ich komme aus Italien."
+                    "example_value": "Ich komme aus Italien, aus einer kleinen Stadt in der Nähe von Rom."
                 },
                 {
                     "keyword": "Wohnort",
-                    "phrase": "Ich lebe in ...",
-                    "example_value": "Ich lebe in München."
+                    "phrase": "Ich wohne in ...",
+                    "example_value": "Jetzt wohne ich in München, weil ich hier Arbeit gefunden habe."
+                },
+                {
+                    "keyword": "Familie",
+                    "phrase": "Ich bin verheiratet / ledig / ...",
+                    "example_value": "Ich bin verheiratet und habe eine Tochter. Sie ist drei Jahre alt."
+                },
+                {
+                    "keyword": "Beruf",
+                    "phrase": "Ich arbeite als ... / Von Beruf bin ich ...",
+                    "example_value": "Ich arbeite als Lehrerin in einer Grundschule."
+                },
+                {
+                    "keyword": "Hobbys",
+                    "phrase": "In meiner Freizeit ... / Mein Hobby ist ...",
+                    "example_value": "In meiner Freizeit lese ich gern und gehe oft mit meiner Familie spazieren."
                 },
                 {
                     "keyword": "Sprachen",
                     "phrase": "Ich spreche ...",
-                    "example_value": "Ich spreche Italienisch, Englisch und ein bisschen Deutsch."
-                },
-                {
-                    "keyword": "Beruf",
-                    "phrase": "Von Beruf bin ich ...",
-                    "example_value": "Von Beruf bin ich Lehrerin."
+                    "example_value": "Ich spreche Italienisch und Englisch. Ich lerne jetzt Deutsch, weil ich in Deutschland lebe."
                 }
             ]
         },
         "example_interaction": {
-            "description": "Example of follow-up questions from the examiner.",
+            "description": "Example of two follow-up questions from the examiner after the introduction.",
             "dialogue": [
                 {
                     "speaker": "Prüfer",
-                    "text": "Können Sie bitte Ihren Familiennamen buchstabieren?",
-                    "type": "request_spelling"
+                    "text": "Sie haben gesagt, Sie wohnen in München. Was gefällt Ihnen dort besonders gut?",
+                    "type": "follow_up_question"
                 },
                 {
                     "speaker": "Teilnehmer",
-                    "text": "R - O - S - S - I",
+                    "text": "München gefällt mir sehr gut, weil die Stadt schön ist und es viele Parks gibt. Ich gehe oft mit meiner Tochter in den Englischen Garten.",
                     "type": "response"
                 },
                 {
                     "speaker": "Prüfer",
-                    "text": "Und wie ist bitte Ihre Telefonnummer?",
-                    "type": "request_number"
+                    "text": "Und was machen Sie am Wochenende?",
+                    "type": "follow_up_question"
                 },
                 {
                     "speaker": "Teilnehmer",
-                    "text": "0 - 1 - 7 - 5 - 1 - 2 - 3 - 4",
+                    "text": "Am Wochenende kochen wir zusammen oder besuchen Freunde. Manchmal fahren wir auch in die Berge.",
                     "type": "response"
                 }
             ]
