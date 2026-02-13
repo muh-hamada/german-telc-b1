@@ -52,7 +52,7 @@ Create the Radio Information messages, then structure it into a JSON file with t
   // ... intro parts ...
   
   // MESSAGE 6 - FIRST TIME
-  { "type": "ready", "id": "message-6" },
+  { "type": "ready", "id": "number-6" },
   { "type": "speech", "id": "message-speaker-1", repeated: true, speed: 0.8, voiceId: 'person1|person3', "text": "Guten Tag, Herr..." },
 
   { "type": "pause", "durationSeconds": 5 },
@@ -73,31 +73,31 @@ Create the Radio Information messages, then structure it into a JSON file with t
         { type: 'pause', durationSeconds: 10 },
 
 
-        { type: 'ready', id: 'message-6' },
+        { type: 'ready', id: 'number-6' },
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
 
         { type: 'pause', durationSeconds: 5 },
 
-        { type: 'ready', id: 'message-7' },
+        { type: 'ready', id: 'number-7' },
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
 
         { type: 'pause', durationSeconds: 5 },
 
-        { type: 'ready', id: 'message-8' },
+        { type: 'ready', id: 'number-8' },
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         
         { type: 'pause', durationSeconds: 5 },
 
-        { type: 'ready', id: 'message-9' },
+        { type: 'ready', id: 'number-9' },
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
 
         { type: 'pause', durationSeconds: 5 },
 
-        { type: 'ready', id: 'message-10' },
+        { type: 'ready', id: 'number-10' },
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         

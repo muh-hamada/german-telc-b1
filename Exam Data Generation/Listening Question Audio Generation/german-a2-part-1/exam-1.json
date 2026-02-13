@@ -1,0 +1,57 @@
+[
+    { "type": "pause", "durationSeconds": 1 },
+    { "type": "ready", "id": "a2-part-1-intro" },
+    { "type": "pause", "durationSeconds": 10 },
+
+    { "type": "ready", "id": "number-1" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "speech", "id": "message-speaker-1", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Guten Tag. Hier ist die automatische Ansage der Praxis Dr. Stein. Unsere Praxis ist diese Woche wegen Renovierung geschlossen. In dringenden Fällen gehen Sie bitte ins Krankenhaus. Wir sind ab dem 3. Mai wieder ganz normal für Sie da. Vielen Dank." },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "a2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "speech", "id": "message-speaker-1", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Guten Tag. Hier ist die automatische Ansage der Praxis Dr. Stein. Unsere Praxis ist diese Woche wegen Renovierung geschlossen. In dringenden Fällen gehen Sie bitte ins Krankenhaus. Wir sind ab dem 3. Mai wieder ganz normal für Sie da. Vielen Dank." },
+    
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-2" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "speech", "id": "message-speaker-2", "repeated": true, "speed": 0.8, "voiceId": "person3", "text": "Hallo Claudia, hier ist Thomas. Du, ich habe gerade gesehen, das Konzert heute Abend beginnt schon früher als wir dachten. Wir müssen uns beeilen. Können wir uns schon um 18 Uhr direkt vor der Halle treffen? Ruf mich kurz an, ob das klappt." },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "a2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "speech", "id": "message-speaker-2", "repeated": true, "speed": 0.8, "voiceId": "person3", "text": "Hallo Claudia, hier ist Thomas. Du, ich habe gerade gesehen, das Konzert heute Abend beginnt schon früher als wir dachten. Wir müssen uns beeilen. Können wir uns schon um 18 Uhr direkt vor der Halle treffen? Ruf mich kurz an, ob das klappt." },
+
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-3" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "speech", "id": "message-speaker-3", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Hi Sarah, hier ist Mama. Hör mal, ich bin noch im Supermarkt und es dauert etwas länger. Im Radio haben sie gesagt, es gibt gleich ein Gewitter. Kannst du bitte zu Hause sofort alle Fenster zumachen? Ich bin in einer halben Stunde da." },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "a2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "speech", "id": "message-speaker-3", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Hi Sarah, hier ist Mama. Hör mal, ich bin noch im Supermarkt und es dauert etwas länger. Im Radio haben sie gesagt, es gibt gleich ein Gewitter. Kannst du bitte zu Hause sofort alle Fenster zumachen? Ich bin in einer halben Stunde da." },
+
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-4" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "speech", "id": "message-speaker-4", "repeated": true, "speed": 0.8, "voiceId": "person3", "text": "Guten Tag, Herr Müller. Hier spricht der Kundenservice der Telekom. Eine kurze Information für Sie: Ihr bestelltes Handy ist heute angekommen. Sie können es ab morgen in unserer Filiale Stadtmitte abholen. Der offene Betrag ist 120 Euro. Bitte bringen Sie das Geld bar mit." },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "a2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "speech", "id": "message-speaker-4", "repeated": true, "speed": 0.8, "voiceId": "person3", "text": "Guten Tag, Herr Müller. Hier spricht der Kundenservice der Telekom. Eine kurze Information für Sie: Ihr bestelltes Handy ist heute angekommen. Sie können es ab morgen in unserer Filiale Stadtmitte abholen. Der offene Betrag ist 120 Euro. Bitte bringen Sie das Geld bar mit." },
+
+    { "type": "pause", "durationSeconds": 5 },
+
+    { "type": "ready", "id": "number-5" },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "speech", "id": "message-speaker-5", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Guten Tag, Herr Koch. Hier ist Frau Meier von der Personalabteilung. Es gibt ein Problem im Büro, wir haben leider einen großen Wasserschaden im Flur. Bitte kommen Sie morgen nicht in die Firma. Bitte arbeiten Sie morgen von zu Hause. Wir melden uns wieder." },
+    { "type": "pause", "durationSeconds": 2 },
+    { "type": "ready", "id": "a2-2nd-time" },
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "speech", "id": "message-speaker-5", "repeated": true, "speed": 0.8, "voiceId": "person1", "text": "Guten Tag, Herr Koch. Hier ist Frau Meier von der Personalabteilung. Es gibt ein Problem im Büro, wir haben leider einen großen Wasserschaden im Flur. Bitte kommen Sie morgen nicht in die Firma. Bitte arbeiten Sie morgen von zu Hause. Wir melden uns wieder." },
+
+    { "type": "pause", "durationSeconds": 3 },
+    { "type": "ready", "id": "part-1-outro" },
+    { "type": "pause", "durationSeconds": 5 }
+  ]

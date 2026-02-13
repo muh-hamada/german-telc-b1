@@ -1,3 +1,332 @@
 {
-  "exams": []
+  "exams": [
+    {
+      "id": "cdb04fe2-301b-44d5-a0a3-67bc238b6da8",
+      "title": "Reisen, Jobs und Bildung in Deutschland",
+      "advertisements": {
+        "a": "**www.bahn.de**\nGenießen Sie schöne Ferien in Deutschland mit uns. Wir bringen Sie in alle Städte. Günstige Ski-Reisen mit Spar­ möglichkeiten für Ihre Geldbörse!",
+        "b": "**www.reiserat.com**\n• Reisegebiete, Bundesländer\n• Flussreisen (Rhein, Main, Donau)\n• Ferienhaus online buchen\n• Interaktive Deutschlandkarte",
+        "c": "www.goodjob.de\n**Auslandsjobs**\nWeltweit Stellenangebote – für ­ junge Deutsche im Ausland: Fest­ anstellung, Teilzeit, mit freier Zeit­ einteilung. Auch Schüler- und Studentenjobs.",
+        "d": "www.schneider.de\n**Dr. Schneiders Sprachreisen**\nIhr Spezialist für erfolgreiche Sprach- Weiterbildung in: Groß­ britannien, Portugal, Spanien, Frankreich und den USA.",
+        "e": "www.sprachtreff.de\n**SPRACHTREFF**\nSprachreisen, Sprachkurse für­ Erwachsene und Schüler, Schülersprachreisen in Deutschland und aller Welt.\n**Dazu viele Freizeitangebote.**",
+        "f": "**Urlaub in Deutschland**\nLuxus-Hotels\n• Ferienwohnungen und Ferien­ häuser\n• Mietwagen mit Fahrer\n• gehobene internationale ­Gastronomie\n\nInfos unter www.inforeisen.de",
+        "g": "**Billig reisen:** Online-Preis­ vergleich aller Anbieter für ­ Deutschland-Reisen. Kurzurlaub, Rundreisen mit Pkw oder Caravan, Ferienhäuser/Ferienwohnungen, Mietwagen.\n\nwww.inforeisen.de",
+        "h": "**www.germanembassy-india.org**\n• Arbeiten in Deutschland\n• Zollvorschriften\n• Studieren in Deutschland\n• Schüler- und Jugendaustausch",
+        "x": "Keine passende Anzeige"
+      },
+      "questions": [
+        {
+          "id": 11,
+          "question": "Sie möchten in Deutschland studieren und in den Semesterferien Geld verdienen. Sie suchen Informationen.",
+          "answer": "h",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'h'. أنت تبحث عن معلومات حول 'الدراسة' (studieren) و'كسب المال' (Geld verdienen/Arbeiten). الإعلان 'h' من السفارة الألمانية يقدم معلومات حول 'Arbeiten in Deutschland' (العمل في ألمانيا) و'Studieren in Deutschland' (الدراسة في ألمانيا).",
+            "de": "Die richtige Lösung ist 'h'. Sie suchen nach Informationen zu 'studieren' und 'Geld verdienen' (arbeiten). Anzeige 'h' (German Embassy) bietet Informationen zu 'Arbeiten in Deutschland' und 'Studieren in Deutschland'.",
+            "en": "The correct answer is 'h'. You are looking for information on 'studying' (studieren) and 'earning money' (Geld verdienen/work). Advertisement 'h' from the German Embassy offers information on 'Arbeiten in Deutschland' (Working in Germany) and 'Studieren in Deutschland' (Studying in Germany).",
+            "es": "La respuesta correcta es 'h'. Buscas información sobre 'estudiar' (studieren) y 'ganar dinero' (Geld verdienen/trabajar). El anuncio 'h' de la Embajada Alemana ofrece información sobre 'Arbeiten in Deutschland' (Trabajar en Alemania) y 'Studieren in Deutschland' (Estudiar en Alemania).",
+            "fr": "La bonne réponse est 'h'. Vous cherchez des informations pour 'étudier' (studieren) et 'gagner de l'argent' (Geld verdienen/travailler). L'annonce 'h' de l'Ambassade d'Allemagne propose des informations sur 'Arbeiten in Deutschland' (Travailler en Allemagne) et 'Studieren in Deutschland' (Étudier en Allemagne).",
+            "ru": "Правильный ответ — 'h'. Вы ищете информацию об 'учебе' (studieren) и 'заработке' (Geld verdienen/Arbeiten). В объявлении 'h' от посольства Германии предлагается информация по темам 'Arbeiten in Deutschland' (Работа в Германии) и 'Studieren in Deutschland' (Учеба в Германии)."
+          }
+        },
+        {
+          "id": 12,
+          "question": "Ein Freund plant eine Deutschlandreise mit dem Mietwagen. Er sucht die günstigsten Preise.",
+          "answer": "g",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'g'. الكلمات المفتاحية هي 'Mietwagen' (سيارة مستأجرة) و'günstigste Preise' (أرخص الأسعار). الإعلان 'g' يذكر 'Billig reisen' (السفر الرخيص)، و'Preisvergleich' (مقارنة الأسعار)، و'Mietwagen' (سيارة مستأجرة). الإعلان 'f' يذكر السيارات المستأجرة ولكن مع سائق (فاخرة)، وليست الأرخص.",
+            "de": "Die richtige Lösung ist 'g'. Die Schlüsselwörter sind 'Mietwagen' und 'günstigste Preise'. Anzeige 'g' erwähnt 'Billig reisen', einen 'Preisvergleich' und 'Mietwagen'. Anzeige 'f' erwähnt zwar auch Mietwagen, aber im Kontext von Luxus und mit Fahrer, nicht als günstigste Option.",
+            "en": "The correct answer is 'g'. The keywords are 'Mietwagen' (rental car) and 'günstigste Preise' (cheapest prices). Advertisement 'g' mentions 'Billig reisen' (travel cheaply), 'Preisvergleich' (price comparison), and 'Mietwagen'. Advertisement 'f' mentions rental cars but with drivers (luxury), not the cheapest option.",
+            "es": "La respuesta correcta es 'g'. Las palabras clave son 'Mietwagen' (coche de alquiler) y 'günstigste Preise' (precios más baratos). El anuncio 'g' menciona 'Billig reisen' (viajar barato), 'Preisvergleich' (comparación de precios) y 'Mietwagen'. El anuncio 'f' menciona coches de alquiler pero con conductor (lujo), no la opción más barata.",
+            "fr": "La bonne réponse est 'g'. Les mots-clés sont 'Mietwagen' (voiture de location) et 'günstigste Preise' (prix les moins chers). L'annonce 'g' mentionne 'Billig reisen' (voyager pas cher), 'Preisvergleich' (comparaison de prix) et 'Mietwagen'. L'annonce 'f' mentionne les voitures de location mais avec chauffeur (luxe), ce n'est pas l'option la moins chère.",
+            "ru": "Правильный ответ — 'g'. Ключевые слова: 'Mietwagen' (арендованный автомобиль) и 'günstigste Preise' (самые низкие цены). В объявлении 'g' упоминаются 'Billig reisen' (дешевые путешествия), 'Preisvergleich' (сравнение цен) и 'Mietwagen'. В объявлении 'f' также есть аренда авто, но с водителем (люкс), что не является самым дешевым вариантом."
+          }
+        },
+        {
+          "id": 13,
+          "question": "Sie lieben gutes Essen und möchten einen Kochkurs machen.",
+          "answer": "x",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'x'. أنت تبحث عن 'Kochkurs' (دورة طبخ). الإعلان 'f' يذكر 'Gastronomie' (فن الأكل/طعام) ولكنه يشير إلى المطاعم، وليس الدورات التعليمية. لا يوجد إعلان يقدم دروساً في الطبخ.",
+            "de": "Die richtige Lösung ist 'x'. Sie suchen einen 'Kochkurs'. Anzeige 'f' erwähnt zwar 'Gastronomie' (Essen), bezieht sich aber auf den Verzehr in Restaurants, nicht auf das Lernen (Kurse). Keine der Anzeigen bietet einen Kochkurs an.",
+            "en": "The correct answer is 'x'. You are looking for a 'Kochkurs' (cooking course). Advertisement 'f' mentions 'Gastronomie' (gastronomy/food) but refers to eating in restaurants, not learning. None of the advertisements offer a cooking course.",
+            "es": "La respuesta correcta es 'x'. Buscas un 'Kochkurs' (curso de cocina). El anuncio 'f' menciona 'Gastronomie' (gastronomía/comida) pero se refiere a comer en restaurantes, no a aprender. Ninguno de los anuncios ofrece un curso de cocina.",
+            "fr": "La bonne réponse est 'x'. Vous cherchez un 'Kochkurs' (cours de cuisine). L'annonce 'f' mentionne 'Gastronomie' (gastronomie/nourriture) mais fait référence aux restaurants, pas à l'apprentissage. Aucun des annonces ne propose de cours de cuisine.",
+            "ru": "Правильный ответ — 'x'. Вы ищете 'Kochkurs' (кулинарный курс). В объявлении 'f' упоминается 'Gastronomie' (гастрономия/еда), но речь идет о ресторанах, а не об обучении. Ни одно из объявлений не предлагает кулинарные курсы."
+          }
+        },
+        {
+          "id": 14,
+          "question": "Ihre Freundin möchte Urlaub in Deutschland machen und Deutsch lernen.",
+          "answer": "e",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'e'. الصديقة تريد 'Urlaub' (عطلة) و'Deutsch lernen' (تعلم الألمانية). الإعلان 'e' يقدم 'Sprachreisen' (رحلات لغوية) و'Sprachkurse' (دورات لغة) في ألمانيا، بالإضافة إلى 'Freizeitangebote' (عروض ترفيهية) لقضاء العطلة.",
+            "de": "Die richtige Lösung ist 'e'. Die Freundin möchte 'Urlaub' und 'Deutsch lernen'. Anzeige 'e' bietet 'Sprachreisen' und 'Sprachkurse' in Deutschland an, kombiniert mit 'Freizeitangeboten' für den Urlaub.",
+            "en": "The correct answer is 'e'. The friend wants a 'Urlaub' (vacation) and to 'Deutsch lernen' (learn German). Advertisement 'e' offers 'Sprachreisen' (language trips) and 'Sprachkurse' (language courses) in Germany, combined with 'Freizeitangebote' (leisure activities) for the vacation.",
+            "es": "La respuesta correcta es 'e'. La amiga quiere 'Urlaub' (vacaciones) y 'Deutsch lernen' (aprender alemán). El anuncio 'e' ofrece 'Sprachreisen' (viajes de idiomas) y 'Sprachkurse' (cursos de idiomas) en Alemania, combinados con 'Freizeitangebote' (ofertas de ocio) para las vacaciones.",
+            "fr": "La bonne réponse est 'e'. L'amie veut des 'Urlaub' (vacances) et 'Deutsch lernen' (apprendre l'allemand). L'annonce 'e' propose des 'Sprachreisen' (séjours linguistiques) et des 'Sprachkurse' (cours de langue) en Allemagne, combinés avec des 'Freizeitangebote' (activités de loisirs) pour les vacances.",
+            "ru": "Правильный ответ — 'e'. Подруга хочет 'Urlaub' (отпуск) и 'Deutsch lernen' (выучить немецкий). Объявление 'e' предлагает 'Sprachreisen' (языковые туры) и 'Sprachkurse' (языковые курсы) в Германии в сочетании с 'Freizeitangebote' (предложениями для досуга)."
+          }
+        },
+        {
+          "id": 15,
+          "question": "Sie möchten eine Rundreise durch Deutschland machen und mit dem Zug von Stadt zu Stadt fahren.",
+          "answer": "a",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'a'. الكلمات المفتاحية هي 'Rundreise' (رحلة ذهاب وإياب/جولة) و'Zug' (قطار). الإعلان 'a' هو لـ 'bahn.de' (السكك الحديدية الألمانية) ويعد بأخذك إلى 'alle Städte' (جميع المدن)، وهو ما يطابق السفر بالقطار من مدينة إلى أخرى.",
+            "de": "Die richtige Lösung ist 'a'. Die Schlüsselwörter sind 'Rundreise' und 'Zug'. Anzeige 'a' ist von 'bahn.de' (Deutsche Bahn) und verspricht, Sie in 'alle Städte' zu bringen, was einer Reise mit dem Zug von Stadt zu Stadt entspricht.",
+            "en": "The correct answer is 'a'. The keywords are 'Rundreise' (round trip/tour) and 'Zug' (train). Advertisement 'a' is for 'bahn.de' (German Railways) and promises to take you to 'alle Städte' (all cities), which matches traveling by train from city to city.",
+            "es": "La respuesta correcta es 'a'. Las palabras clave son 'Rundreise' (viaje de ida y vuelta/tour) y 'Zug' (tren). El anuncio 'a' es de 'bahn.de' (Ferrocarriles Alemanes) y promete llevarte a 'alle Städte' (todas las ciudades), lo que coincide con viajar en tren de ciudad en ciudad.",
+            "fr": "La bonne réponse est 'a'. Les mots-clés sont 'Rundreise' (circuit/tour) et 'Zug' (train). L'annonce 'a' concerne 'bahn.de' (chemins de fer allemands) et promet de vous emmener dans 'alle Städte' (toutes les villes), ce qui correspond à un voyage en train de ville en ville.",
+            "ru": "Правильный ответ — 'a'. Ключевые слова: 'Rundreise' (круговое путешествие) и 'Zug' (поезд). Объявление 'a' относится к 'bahn.de' (Немецкие железные дороги) и обещает доставить вас в 'alle Städte' (все города), что соответствует путешествию на поезде из города в город."
+          }
+        }
+      ]
+    },
+    {
+      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+      "title": "Dienstleistungen und Angebote rund ums Haus",
+      "advertisements": {
+        "a": "**Blitz-Umzüge Müller**\nWir machen Ihren Umzug leicht! \n• Transporterverleih\n• Möbelmontage\n• Starke Helfer zum Tragen\n**www.blitz-umzug-berlin.de**",
+        "b": "**Möbel-Gigant**\nAlles muss raus wegen Umbau!\nSofas, Betten und Schränke zu Tiefstpreisen.\nNur diese Woche: **20% Extra-Rabatt** auf alle Küchen.\nBesuchen Sie uns im Gewerbepark Süd.",
+        "c": "**Garten-Profi Meyer**\nWir pflegen Ihre grüne Oase.\n• Rasenmähen und Baumschnitt\n• Planung von neuen Gärten\n• Verkauf von Pflanzen und Erde\nInfos unter 089-12345678",
+        "d": "**Immobilien-Scout**\nSie suchen ein Haus?\nWir vermitteln exklusive Eigentumswohnungen und Villen zum Kauf in bester Lage.\nVereinbaren Sie einen Beratungstermin.",
+        "e": "**Der Fenster-Putzer**\nKlare Sicht für Ihr Zuhause.\nWir reinigen Fenster, Wintergärten und Glasdächer.\nSchnell, sauber und preiswert.\n**Tel: 030-9876543**",
+        "f": "**WG-Gesucht.de**\nDas Portal für Studenten und Azubis.\nFinden Sie provisionsfreie Zimmer in Wohngemeinschaften oder gründen Sie eine neue WG.\nOnline suchen und inserieren.",
+        "g": "**Antik-Hof**\nLieben Sie alte Möbel?\nWir restaurieren Ihre Erbstücke.\nAn- und Verkauf von historischen Schränken und Kommoden aus dem 18. und 19. Jahrhundert.",
+        "h": "**Elektro-Schulze**\nIhr Meisterbetrieb für:\n• Lichtinstallationen\n• Steckdosen und Schalter\n• Reparatur von Haushaltsgeräten\nNotdienst rund um die Uhr!",
+        "x": "Keine passende Anzeige"
+      },
+      "questions": [
+        {
+          "id": 11,
+          "question": "Sie ziehen bald um und brauchen jemanden, der Ihnen beim Tragen der Kisten hilft.",
+          "answer": "a",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'a'. الكلمات المفتاحية هي 'umziehen' (ينتقل) و'Tragen' (حمل). الإعلان 'a' خاص بشركة نقل (Umzüge) ويقدم 'Starke Helfer zum Tragen' (مساعدين أقوياء للحمل). الإعلان 'b' لبيع الأثاث وليس لخدمات النقل.",
+            "de": "Die richtige Lösung ist 'a'. Die Schlüsselwörter sind 'umziehen' und 'Tragen'. Anzeige 'a' ist für 'Umzüge' und bietet 'Starke Helfer zum Tragen' an. Anzeige 'b' verkauft Möbel, bietet aber keine Umzugshilfe.",
+            "en": "The correct answer is 'a'. The keywords are 'umziehen' (to move house) and 'Tragen' (carrying). Advertisement 'a' is for 'Umzüge' (moves) and offers 'Starke Helfer zum Tragen' (strong helpers for carrying). Advertisement 'b' sells furniture but does not offer moving services.",
+            "es": "La respuesta correcta es 'a'. Las palabras clave son 'umziehen' (mudarse) y 'Tragen' (cargar). El anuncio 'a' es para 'Umzüge' (mudanzas) y ofrece 'Starke Helfer zum Tragen' (ayudantes fuertes para cargar). El anuncio 'b' vende muebles pero no ofrece servicios de mudanza.",
+            "fr": "La bonne réponse est 'a'. Les mots-clés sont 'umziehen' (déménager) et 'Tragen' (porter). L'annonce 'a' concerne les 'Umzüge' (déménagements) et propose des 'Starke Helfer zum Tragen' (aides forts pour porter). L'annonce 'b' vend des meubles mais n'offre pas de services de déménagement.",
+            "ru": "Правильный ответ — 'a'. Ключевые слова: 'umziehen' (переезжать) и 'Tragen' (нести/таскать). Объявление 'a' посвящено переездам ('Umzüge') и предлагает 'Starke Helfer zum Tragen' (сильных помощников для переноски). Объявление 'b' продает мебель, но не услуги грузчиков."
+          }
+        },
+        {
+          "id": 12,
+          "question": "Sie studieren und suchen ein günstiges Zimmer in einer gemeinsamen Wohnung.",
+          "answer": "f",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'f'. أنت طالب (studieren) وتبحث عن 'gemeinsame Wohnung' (شقة مشتركة). المصطلح الألماني لهذا هو 'WG' أو 'Wohngemeinschaft'. الإعلان 'f' مخصص لـ 'Studenten' (الطلاب) و'Wohngemeinschaften'.",
+            "de": "Die richtige Lösung ist 'f'. Sie 'studieren' und suchen eine 'gemeinsame Wohnung'. Der deutsche Begriff dafür ist 'WG' (Wohngemeinschaft). Anzeige 'f' richtet sich an 'Studenten' und bietet Zimmer in 'Wohngemeinschaften'.",
+            "en": "The correct answer is 'f'. You are studying ('studieren') and looking for a 'gemeinsame Wohnung' (shared apartment). The German term for this is 'WG' or 'Wohngemeinschaft'. Advertisement 'f' targets 'Studenten' (students) and offers rooms in 'Wohngemeinschaften'.",
+            "es": "La respuesta correcta es 'f'. Usted estudia ('studieren') y busca un 'gemeinsame Wohnung' (apartamento compartido). El término alemán para esto es 'WG' o 'Wohngemeinschaft'. El anuncio 'f' está dirigido a 'Studenten' (estudiantes) y ofrece habitaciones en 'Wohngemeinschaften'.",
+            "fr": "La bonne réponse est 'f'. Vous étudiez ('studieren') et cherchez un 'gemeinsame Wohnung' (appartement partagé). Le terme allemand pour cela est 'WG' ou 'Wohngemeinschaft'. L'annonce 'f' s'adresse aux 'Studenten' (étudiants) et propose des chambres en 'Wohngemeinschaften'.",
+            "ru": "Правильный ответ — 'f'. Вы учитесь ('studieren') и ищете 'gemeinsame Wohnung' (совместную квартиру). Немецкий термин для этого — 'WG' или 'Wohngemeinschaft'. Объявление 'f' ориентировано на студентов ('Studenten') и предлагает комнаты в коммунальных квартирах ('Wohngemeinschaften')."
+          }
+        },
+        {
+          "id": 13,
+          "question": "Die Heizung in Ihrem Haus ist kaputt und Sie suchen einen Handwerker für die Reparatur.",
+          "answer": "x",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'x'. المشكلة هي 'Heizung' (تدفئة). الإعلان 'h' لـ 'Elektro' (كهربائي) ويصلح 'Haushaltsgeräte' (الأجهزة المنزلية مثل الغسالات). التدفئة تتطلب عادةً فني تركيبات صحية أو تدفئة، وليس كهربائياً.",
+            "de": "Die richtige Lösung ist 'x'. Das Problem ist die 'Heizung'. Anzeige 'h' ist für 'Elektro' und repariert 'Haushaltsgeräte' (z.B. Waschmaschinen). Heizungen fallen in den Bereich Sanitär/Heizung, nicht Elektro. Daher passt keine Anzeige.",
+            "en": "The correct answer is 'x'. The problem is the 'Heizung' (heating). Advertisement 'h' is for 'Elektro' (electrician) and repairs 'Haushaltsgeräte' (household appliances like washing machines). Heating systems usually require a heating specialist, not an electrician.",
+            "es": "La respuesta correcta es 'x'. El problema es la 'Heizung' (calefacción). El anuncio 'h' es para 'Elektro' (electricista) y repara 'Haushaltsgeräte' (electrodomésticos). La calefacción requiere un especialista en calefacción, no un electricista.",
+            "fr": "La bonne réponse est 'x'. Le problème est le 'Heizung' (chauffage). L'annonce 'h' concerne 'Elektro' (électricien) et répare les 'Haushaltsgeräte' (appareils électroménagers). Le chauffage nécessite généralement un chauffagiste, pas un électricien.",
+            "ru": "Правильный ответ — 'x'. Проблема в 'Heizung' (отоплении). Объявление 'h' относится к 'Elektro' (электрике) и ремонту 'Haushaltsgeräte' (бытовой техники). Отопление требует специалиста по сантехнике/отоплению, а не электрика."
+          }
+        },
+        {
+          "id": 14,
+          "question": "Sie möchten Ihren Garten neu gestalten und brauchen professionelle Hilfe bei der Planung.",
+          "answer": "c",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'c'. الكلمات المفتاحية هي 'Garten' (حديقة) و'Planung' (تخطيط). الإعلان 'c' من 'Garten-Profi' ويذكر صراحة 'Planung von neuen Gärten' (تخطيط حدائق جديدة).",
+            "de": "Die richtige Lösung ist 'c'. Die Schlüsselwörter sind 'Garten' und 'Planung'. Anzeige 'c' ist vom 'Garten-Profi' und erwähnt explizit die 'Planung von neuen Gärten'.",
+            "en": "The correct answer is 'c'. The keywords are 'Garten' (garden) and 'Planung' (planning). Advertisement 'c' is from a 'Garten-Profi' (garden pro) and explicitly mentions 'Planung von neuen Gärten' (planning of new gardens).",
+            "es": "La respuesta correcta es 'c'. Las palabras clave son 'Garten' (jardín) y 'Planung' (planificación). El anuncio 'c' es de un 'Garten-Profi' (profesional de jardines) y menciona explícitamente 'Planung von neuen Gärten' (planificación de nuevos jardines).",
+            "fr": "La bonne réponse est 'c'. Les mots-clés sont 'Garten' (jardin) et 'Planung' (planification). L'annonce 'c' vient d'un 'Garten-Profi' (pro du jardin) et mentionne explicitement 'Planung von neuen Gärten' (planification de nouveaux jardins).",
+            "ru": "Правильный ответ — 'c'. Ключевые слова: 'Garten' (сад) и 'Planung' (планирование). Объявление 'c' от 'Garten-Profi' (профи по садам) прямо упоминает 'Planung von neuen Gärten' (планирование новых садов)."
+          }
+        },
+        {
+          "id": 15,
+          "question": "Sie möchten Ihre Fenster nicht selbst putzen und suchen eine Firma dafür.",
+          "answer": "e",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'e'. الكلمة المفتاحية هي 'Fenster putzen' (تنظيف النوافذ). الإعلان 'e' عنوانه 'Der Fenster-Putzer' (منظف النوافذ) ويقول 'Wir reinigen Fenster' (نحن ننظف النوافذ).",
+            "de": "Die richtige Lösung ist 'e'. Das Schlüsselwort ist 'Fenster putzen'. Anzeige 'e' hat den Titel 'Der Fenster-Putzer' und sagt 'Wir reinigen Fenster'.",
+            "en": "The correct answer is 'e'. The keyword is 'Fenster putzen' (clean windows). Advertisement 'e' is titled 'Der Fenster-Putzer' (The Window Cleaner) and states 'Wir reinigen Fenster' (We clean windows).",
+            "es": "La respuesta correcta es 'e'. La palabra clave es 'Fenster putzen' (limpiar ventanas). El anuncio 'e' se titula 'Der Fenster-Putzer' (El limpiador de ventanas) y dice 'Wir reinigen Fenster' (Limpiamos ventanas).",
+            "fr": "La bonne réponse est 'e'. Le mot-clé est 'Fenster putzen' (nettoyer les fenêtres). L'annonce 'e' est intitulée 'Der Fenster-Putzer' (Le nettoyeur de vitres) et indique 'Wir reinigen Fenster' (Nous nettoyons les fenêtres).",
+            "ru": "Правильный ответ — 'e'. Ключевое слово — 'Fenster putzen' (мыть окна). Объявление 'e' называется 'Der Fenster-Putzer' (Мойщик окон) и гласит 'Wir reinigen Fenster' (Мы моем окна)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "e4d3c2a1-b8f9-4a0c-9d8e-7f6a5b4c3d2e",
+      "title": "Dienstleistungen und Angebote rund ums Haus",
+      "advertisements": {
+        "a": "**Blitz-Umzüge Müller**\nWir machen Ihren Umzug leicht! \n• Transporterverleih\n• Möbelmontage\n• Starke Helfer zum Tragen\n**www.blitz-umzug-berlin.de**",
+        "b": "**Möbel-Gigant**\nAlles muss raus wegen Umbau!\nSofas, Betten und Schränke zu Tiefstpreisen.\nNur diese Woche: **20% Extra-Rabatt** auf alle Küchen.\nBesuchen Sie uns im Gewerbepark Süd.",
+        "c": "**Garten-Profi Meyer**\nWir pflegen Ihre grüne Oase.\n• Rasenmähen und Baumschnitt\n• Planung von neuen Gärten\n• Verkauf von Pflanzen und Erde\nInfos unter 089-12345678",
+        "d": "**Immobilien-Scout**\nSie suchen ein Haus?\nWir vermitteln exklusive Eigentumswohnungen und Villen zum Kauf in bester Lage.\nVereinbaren Sie einen Beratungstermin.",
+        "e": "**Der Fenster-Putzer**\nKlare Sicht für Ihr Zuhause.\nWir reinigen Fenster, Wintergärten und Glasdächer.\nSchnell, sauber und preiswert.\n**Tel: 030-9876543**",
+        "f": "**WG-Gesucht.de**\nDas Portal für Studenten und Azubis.\nFinden Sie provisionsfreie Zimmer in Wohngemeinschaften oder gründen Sie eine neue WG.\nOnline suchen und inserieren.",
+        "g": "**Antik-Hof**\nLieben Sie alte Möbel?\nWir restaurieren Ihre Erbstücke.\nAn- und Verkauf von historischen Schränken und Kommoden aus dem 18. und 19. Jahrhundert.",
+        "h": "**Elektro-Schulze**\nIhr Meisterbetrieb für:\n• Lichtinstallationen\n• Steckdosen und Schalter\n• Reparatur von Haushaltsgeräten\nNotdienst rund um die Uhr!",
+        "x": "Keine passende Anzeige"
+      },
+      "questions": [
+        {
+          "id": 11,
+          "question": "Sie ziehen bald um und brauchen jemanden, der Ihnen beim Tragen der Kisten hilft.",
+          "answer": "a",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'a'. الكلمات المفتاحية هي 'umziehen' (الانتقال) و 'Tragen' (الحمل). الإعلان 'a' مخصص لشركة نقل (Blitz-Umzüge) ويذكر صراحة توفر 'Starke Helfer zum Tragen' (مساعدين أقوياء للحمل).",
+            "de": "Die richtige Lösung ist 'a'. Die Schlüsselwörter sind 'umziehen' und 'Tragen'. Anzeige 'a' ist für eine Umzugsfirma und bietet 'Starke Helfer zum Tragen' an. Dies passt genau zur Situation.",
+            "en": "The correct answer is 'a'. The keywords are 'umziehen' (to move house) and 'Tragen' (carrying). Advertisement 'a' is for a moving company (Blitz-Umzüge) and explicitly offers 'Starke Helfer zum Tragen' (strong helpers for carrying).",
+            "es": "La respuesta correcta es 'a'. Las palabras clave son 'umziehen' (mudarse) y 'Tragen' (cargar). El anuncio 'a' es de una empresa de mudanzas y ofrece 'Starke Helfer zum Tragen' (ayudantes fuertes para cargar).",
+            "fr": "La bonne réponse est 'a'. Les mots-clés sont 'umziehen' (déménager) et 'Tragen' (porter). L'annonce 'a' concerne une entreprise de déménagement et propose des 'Starke Helfer zum Tragen' (aides forts pour porter).",
+            "ru": "Правильный ответ — 'a'. Ключевые слова: 'umziehen' (переезжать) и 'Tragen' (нести/таскать). В объявлении 'a' (Blitz-Umzüge) предлагаются 'Starke Helfer zum Tragen' (сильные помощники для перески вещей)."
+          }
+        },
+        {
+          "id": 12,
+          "question": "Sie studieren und suchen ein günstiges Zimmer in einer gemeinsamen Wohnung.",
+          "answer": "f",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'f'. تشير الحالة إلى أنك طالب (studieren) وتبحث عن 'gemeinsame Wohnung' (شقة مشتركة). المصطلح الألماني لهذا هو 'WG' أو 'Wohngemeinschaften'. الإعلان 'f' مخصص للطلاب.",
+            "de": "Die richtige Lösung ist 'f'. Sie sind Student und suchen eine 'gemeinsame Wohnung'. Der deutsche Begriff hierfür ist 'WG' (Wohngemeinschaft). Anzeige 'f' (WG-Gesucht) richtet sich speziell an Studenten.",
+            "en": "The correct answer is 'f'. You are studying ('studieren') and looking for a 'gemeinsame Wohnung' (shared apartment). The German term for this is 'WG' or 'Wohngemeinschaft'. Advertisement 'f' is specifically for students.",
+            "es": "La respuesta correcta es 'f'. Usted estudia ('studieren') y busca un 'gemeinsame Wohnung' (apartamento compartido). El término alemán para esto es 'WG' (Wohngemeinschaft). El anuncio 'f' es específico para estudiantes.",
+            "fr": "La bonne réponse est 'f'. Vous étudiez ('studieren') et cherchez un 'gemeinsame Wohnung' (appartement en colocation). Le terme allemand pour cela est 'WG' (Wohngemeinschaft). L'annonce 'f' s'adresse spécifiquement aux étudiants.",
+            "ru": "Правильный ответ — 'f'. Вы учитесь ('studieren') и ищете 'gemeinsame Wohnung' (совместную квартиру). Немецкий термин для этого — 'WG' или 'Wohngemeinschaft'. Объявление 'f' предназначено для студентов."
+          }
+        },
+        {
+          "id": 13,
+          "question": "Die Heizung in Ihrem Haus ist kaputt und Sie suchen einen Handwerker für die Reparatur.",
+          "answer": "x",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'x'. المشكلة هي 'Heizung' (تدفئة). الإعلان 'h' خاص بـ 'Elektro' (كهربائي) ويصلح 'Haushaltsgeräte' (أجهزة منزلية). إصلاح التدفئة يتطلب فني مختلف. لا يوجد إعلان مناسب.",
+            "de": "Die richtige Lösung ist 'x'. Das Problem ist die 'Heizung'. Anzeige 'h' ist ein 'Elektro'-Betrieb und repariert 'Haushaltsgeräte' (z. B. Waschmaschinen), aber keine Heizungsanlagen. Daher gibt es keine passende Anzeige.",
+            "en": "The correct answer is 'x'. The problem is the 'Heizung' (heating). Advertisement 'h' is for 'Elektro' (electrical) and repairs 'Haushaltsgeräte' (household appliances), not heating systems. Therefore, no advertisement fits.",
+            "es": "La respuesta correcta es 'x'. El problema es la 'Heizung' (calefacción). El anuncio 'h' es de 'Elektro' (electricidad) y repara 'Haushaltsgeräte' (electrodomésticos), no sistemas de calefacción. No hay un anuncio adecuado.",
+            "fr": "La bonne réponse est 'x'. Le problème est le 'Heizung' (chauffage). L'annonce 'h' concerne l'électricité ('Elektro') et la réparation d'appareils électroménagers ('Haushaltsgeräte'), pas le chauffage. Aucune annonce ne convient.",
+            "ru": "Правильный ответ — 'x'. Проблема с 'Heizung' (отоплением). Объявление 'h' — это 'Elektro' (электрика), где ремонтируют 'Haushaltsgeräte' (бытовую технику), а не системы отопления. Подходящего объявления нет."
+          }
+        },
+        {
+          "id": 14,
+          "question": "Sie möchten Ihren Garten neu gestalten und brauchen professionelle Hilfe bei der Planung.",
+          "answer": "c",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'c'. الكلمات المفتاحية هي 'Garten' (حديقة) و 'Planung' (تخطيط). الإعلان 'c' (Garten-Profi) يذكر صراحة 'Planung von neuen Gärten' (تخطيط حدائق جديدة).",
+            "de": "Die richtige Lösung ist 'c'. Die Schlüsselwörter sind 'Garten' und 'Planung'. Anzeige 'c' (Garten-Profi) erwähnt ausdrücklich die 'Planung von neuen Gärten'.",
+            "en": "The correct answer is 'c'. The keywords are 'Garten' (garden) and 'Planung' (planning). Advertisement 'c' (Garten-Profi) explicitly mentions 'Planung von neuen Gärten' (planning of new gardens).",
+            "es": "La respuesta correcta es 'c'. Las palabras clave son 'Garten' (jardín) y 'Planung' (planificación). El anuncio 'c' menciona explícitamente 'Planung von neuen Gärten' (planificación de nuevos jardines).",
+            "fr": "La bonne réponse est 'c'. Les mots-clés sont 'Garten' (jardin) et 'Planung' (planification). L'annonce 'c' mentionne explicitement 'Planung von neuen Gärten' (planification de nouveaux jardins).",
+            "ru": "Правильный ответ — 'c'. Ключевые слова: 'Garten' (сад) и 'Planung' (планирование). В объявлении 'c' (Garten-Profi) прямо упоминается 'Planung von neuen Gärten' (планирование новых садов)."
+          }
+        },
+        {
+          "id": 15,
+          "question": "Sie möchten Ihre Fenster nicht selbst putzen und suchen eine Firma dafür.",
+          "answer": "e",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'e'. أنت تبحث عن شخص لـ 'Fenster putzen' (تنظيف النوافذ). الإعلان 'e' عنوانه 'Der Fenster-Putzer' ويقول 'Wir reinigen Fenster' (نحن ننظف النوافذ).",
+            "de": "Die richtige Lösung ist 'e'. Sie suchen jemanden zum 'Fenster putzen'. Anzeige 'e' hat den Titel 'Der Fenster-Putzer' und bestätigt 'Wir reinigen Fenster'.",
+            "en": "The correct answer is 'e'. You are looking for someone for 'Fenster putzen' (cleaning windows). Advertisement 'e' is titled 'Der Fenster-Putzer' and states 'Wir reinigen Fenster' (We clean windows).",
+            "es": "La respuesta correcta es 'e'. Busca a alguien para 'Fenster putzen' (limpiar ventanas). El anuncio 'e' se titula 'Der Fenster-Putzer' y dice 'Wir reinigen Fenster'.",
+            "fr": "La bonne réponse est 'e'. Vous cherchez quelqu'un pour 'Fenster putzen' (nettoyer les fenêtres). L'annonce 'e' est intitulée 'Der Fenster-Putzer' et indique 'Wir reinigen Fenster'.",
+            "ru": "Правильный ответ — 'e'. Вы ищете кого-то, чтобы 'Fenster putzen' (помыть окна). Объявление 'e' озаглавлено 'Der Fenster-Putzer' (Мойщик окон) и гласит 'Wir reinigen Fenster'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "title": "Freizeitangebote und Kurse in Ihrer Stadt",
+      "advertisements": {
+        "a": "**Kochschule Lecker**\nLernen Sie kochen wie in Italien!\nKurse für Pasta, Pizza und Desserts.\nAnmeldung jetzt unter www.kochschule-lecker.de",
+        "b": "**Fit & Stark**\nIhr Fitnessstudio im Zentrum.\nModernste Geräte, Hantelbereich und Sauna.\n**Probetraining gratis!**",
+        "c": "**Musikschule Tonart**\nUnterricht für Kinder und Erwachsene.\nKlavier, Gitarre, Flöte und mehr.\nInstrumente können ausgeliehen werden.",
+        "d": "**Kino-Palast**\nJeden Dienstag Kinotag: Alle Filme nur 6 Euro.\nPopcorn und Getränke zum halben Preis.\nAktuelles Programm online.",
+        "e": "**Kunst-Galerie**\nAusstellung: Moderne Malerei.\nÖffnungszeiten: Di-So 10-18 Uhr.\nEintritt frei am ersten Sonntag im Monat.",
+        "f": "**Tanzschule Rhythmus**\nKurse für Standard und Latein.\nSalsa-Partys am Wochenende.\nSpezielle Angebote für Hochzeits-Paare.",
+        "g": "**Tennis-Club Rot-Weiß**\nFreie Plätze in der Halle und draußen.\nTrainerstunden für Anfänger und Profis.\nSchlägerverleih vor Ort.",
+        "h": "**Sprach-Akademie**\nEnglisch, Spanisch und Französisch.\nIntensivkurse und Abendkurse.\nKleine Gruppen, erfahrene Lehrer.",
+        "x": "Keine passende Anzeige"
+      },
+      "questions": [
+        {
+          "id": 11,
+          "question": "Sie möchten lernen, wie man italienische Gerichte zubereitet.",
+          "answer": "a",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'a'. الكلمات المفتاحية هي 'lernen' (تعلم) و 'italienische Gerichte' (أطباق إيطالية). الإعلان 'a' خاص بـ 'Kochschule' (مدرسة طبخ) ويقدم دورات لتعلم 'kochen wie in Italien' (الطبخ كما في إيطاليا).",
+            "de": "Die richtige Lösung ist 'a'. Die Schlüsselwörter sind 'lernen' und 'italienische Gerichte'. Anzeige 'a' ist eine 'Kochschule' und bietet Kurse an, um zu 'kochen wie in Italien' (Pasta, Pizza).",
+            "en": "The correct answer is 'a'. The keywords are 'lernen' (learn) and 'italienische Gerichte' (Italian dishes). Advertisement 'a' is for a 'Kochschule' (cooking school) and offers courses to 'kochen wie in Italien' (cook like in Italy).",
+            "es": "La respuesta correcta es 'a'. Las palabras clave son 'lernen' (aprender) y 'italienische Gerichte' (platos italianos). El anuncio 'a' es de una 'Kochschule' (escuela de cocina) y ofrece cursos para 'kochen wie in Italien' (cocinar como en Italia).",
+            "fr": "La bonne réponse est 'a'. Les mots-clés sont 'lernen' (apprendre) et 'italienische Gerichte' (plats italiens). L'annonce 'a' concerne une 'Kochschule' (école de cuisine) et propose des cours pour 'kochen wie in Italien' (cuisiner comme en Italie).",
+            "ru": "Правильный ответ — 'a'. Ключевые слова: 'lernen' (учиться) и 'italienische Gerichte' (итальянские блюда). Объявление 'a' — это 'Kochschule' (кулинарная школа), где учат 'kochen wie in Italien' (готовить как в Италии)."
+          }
+        },
+        {
+          "id": 12,
+          "question": "Sie suchen einen Ort, an dem Sie schwimmen gehen können.",
+          "answer": "x",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'x'. أنت تبحث عن مكان لـ 'schwimmen' (السباحة). الإعلان 'b' هو نادي رياضي (Fitnessstudio) ويحتوي على ساونا، لكنه لا يذكر وجود مسبح (Schwimmbad). لا يوجد إعلان يقدم السباحة.",
+            "de": "Die richtige Lösung ist 'x'. Sie möchten 'schwimmen' gehen. Anzeige 'b' ist zwar ein Fitnessstudio, erwähnt aber nur Geräte und Sauna, kein Schwimmbad. Keine der Anzeigen bietet eine Möglichkeit zum Schwimmen.",
+            "en": "The correct answer is 'x'. You want to go 'schwimmen' (swimming). Advertisement 'b' is a gym (Fitnessstudio), but it only mentions equipment and a sauna, not a swimming pool. None of the advertisements offer swimming facilities.",
+            "es": "La respuesta correcta es 'x'. Quiere ir a 'schwimmen' (nadar). El anuncio 'b' es un gimnasio (Fitnessstudio), pero solo menciona máquinas y sauna, no una piscina. Ninguno de los anuncios ofrece instalaciones para nadar.",
+            "fr": "La bonne réponse est 'x'. Vous voulez 'schwimmen' (nager). L'annonce 'b' est une salle de sport (Fitnessstudio), mais elle ne mentionne que des équipements et un sauna, pas de piscine. Aucune des annonces ne propose la baignade.",
+            "ru": "Правильный ответ — 'x'. Вы хотите 'schwimmen' (поплавать). Объявление 'b' — это фитнес-студия, но там упоминаются только тренажеры и сауна, а не бассейн. Ни одно из объявлений не предлагает плавание."
+          }
+        },
+        {
+          "id": 13,
+          "question": "Sie möchten am Abend eine neue Sprache lernen.",
+          "answer": "h",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'h'. الكلمات المفتاحية هي 'Sprache' (لغة) و 'am Abend' (في المساء). الإعلان 'h' لـ 'Sprach-Akademie' (أكاديمية لغات) ويقدم 'Abendkurse' (دورات مسائية).",
+            "de": "Die richtige Lösung ist 'h'. Die Schlüsselwörter sind 'Sprache' und 'am Abend'. Anzeige 'h' ist eine 'Sprach-Akademie' und bietet speziell 'Abendkurse' an.",
+            "en": "The correct answer is 'h'. The keywords are 'Sprache' (language) and 'am Abend' (in the evening). Advertisement 'h' is a 'Sprach-Akademie' (Language Academy) and specifically offers 'Abendkurse' (evening courses).",
+            "es": "La respuesta correcta es 'h'. Las palabras clave son 'Sprache' (idioma) y 'am Abend' (por la tarde/noche). El anuncio 'h' es una 'Sprach-Akademie' (academia de idiomas) y ofrece específicamente 'Abendkurse' (cursos nocturnos).",
+            "fr": "La bonne réponse est 'h'. Les mots-clés sont 'Sprache' (langue) et 'am Abend' (le soir). L'annonce 'h' est une 'Sprach-Akademie' (académie de langues) et propose spécifiquement des 'Abendkurse' (cours du soir).",
+            "ru": "Правильный ответ — 'h'. Ключевые слова: 'Sprache' (язык) и 'am Abend' (вечером). Объявление 'h' — это языковая академия ('Sprach-Akademie'), предлагающая вечерние курсы ('Abendkurse')."
+          }
+        },
+        {
+          "id": 14,
+          "question": "Sie wollen sich einen aktuellen Film ansehen.",
+          "answer": "d",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'd'. الكلمة المفتاحية هي 'Film' (فيلم). الإعلان 'd' هو لـ 'Kino-Palast' (قصر السينما) ويذكر عرض 'Alle Filme' (جميع الأفلام).",
+            "de": "Die richtige Lösung ist 'd'. Das Schlüsselwort ist 'Film'. Anzeige 'd' wirbt für den 'Kino-Palast' und erwähnt 'Filme'.",
+            "en": "The correct answer is 'd'. The keyword is 'Film' (movie). Advertisement 'd' promotes the 'Kino-Palast' (Cinema Palace) and mentions 'Filme' (movies).",
+            "es": "La respuesta correcta es 'd'. La palabra clave es 'Film' (película). El anuncio 'd' promociona el 'Kino-Palast' (Palacio de Cine) y menciona 'Filme' (películas).",
+            "fr": "La bonne réponse est 'd'. Le mot-clé est 'Film'. L'annonce 'd' fait la promotion du 'Kino-Palast' (Palais du Cinéma) et mentionne les 'Filme' (films).",
+            "ru": "Правильный ответ — 'd'. Ключевое слово — 'Film' (фильм). Объявление 'd' рекламирует 'Kino-Palast' (Кинодворец) и упоминает 'Filme' (фильмы)."
+          }
+        },
+        {
+          "id": 15,
+          "question": "Sie möchten zusammen mit Ihrem Partner tanzen lernen.",
+          "answer": "f",
+          "explanation": {
+            "ar": "الحل الصحيح هو 'f'. الكلمة المفتاحية هي 'tanzen' (الرقص). الإعلان 'f' لـ 'Tanzschule' (مدرسة رقص) ويقدم دورات. الإعلان 'c' للموسيقى، وليس الرقص.",
+            "de": "Die richtige Lösung ist 'f'. Das Schlüsselwort ist 'tanzen'. Anzeige 'f' ist eine 'Tanzschule' und bietet entsprechende Kurse an. Anzeige 'c' ist für Musikunterricht, nicht für Tanz.",
+            "en": "The correct answer is 'f'. The keyword is 'tanzen' (dance). Advertisement 'f' is a 'Tanzschule' (dance school) and offers relevant courses. Advertisement 'c' is for music lessons, not dance.",
+            "es": "La respuesta correcta es 'f'. La palabra clave es 'tanzen' (bailar). El anuncio 'f' es una 'Tanzschule' (escuela de baile) y ofrece cursos relevantes. El anuncio 'c' es para clases de música, no de baile.",
+            "fr": "La bonne réponse est 'f'. Le mot-clé est 'tanzen' (danser). L'annonce 'f' est une 'Tanzschule' (école de danse) et propose des cours adaptés. L'annonce 'c' concerne des cours de musique, pas de danse.",
+            "ru": "Правильный ответ — 'f'. Ключевое слово — 'tanzen' (танцевать). Объявление 'f' — это 'Tanzschule' (школа танцев), предлагающая соответствующие курсы. Объявление 'c' — это уроки музыки, а не танцев."
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -49,30 +49,7 @@ Create the conversation, then structure it into a JSON file with the following f
 - questions array must have 5 questions with Id from 11 to 15
 - audio_transcription is on the top level with the full conversation. Use \n to separate between different parts
 - The question is about where the people are. Create questions similar to the below JSON: "options" are list of places, "question" is the person
-- The JSON output must include a "segments" array that strictly follows this repetition structure for every message:
-
-"segments": [
-  // ... intro parts ...
-  
-  // MESSAGE 1 - FIRST TIME
-  { "type": "ready", "id": "message-1" },
-  { "type": "speech", "id": "message-speaker-1", repeated: true, speed: 0.8, voiceId: 'person1|person3', "text": "Guten Tag, Herr..." },
-
-  // SEPARATOR
-  { type: 'pause', durationSeconds: 2 },
-  { type: 'ready', id: 'part-1-2nd-time' },
-  { type: 'pause', durationSeconds: 3 },
-  
-  // MESSAGE 1 - SECOND TIME (Exact Repeat)
-  { "type": "speech", "id": "message-speaker-1", repeated: true, speed: 0.8, voiceId: 'person1|person3', "text": "Guten Tag, Herr..." },
-
-  { "type": "pause", "durationSeconds": 5 },
-
-  // ... continue for Message 2 until  Message 5
-
-  // ... outro parts ...
-]
-
+- The JSON output must include a "segments" array that strictly follows the structure in the following JSON.
 
 
 ---- FULL JSON ----

@@ -1,3 +1,64 @@
 {
-    "exams": []
+    "exams": [
+        {
+            "title": "Paola heiratet nächsten Monat Stefan",
+            "id": "6db73e0f-bb1d-4b4d-b872-d6e3c2407d20",
+            "modalAnswer": "Liebe Paola,\n\nvielen Dank für die Einladung! Ich freue mich sehr und komme gerne zur Hochzeit. Herzlichen Glückwunsch auch an Stefan! Was wünscht ihr euch als Geschenk? Ich suche auch noch eine günstige Übernachtung in Berlin. Hast du einen Tipp?\n\nViele Grüße\nMaria",
+            "writingPoints": [
+                "jemanden mitbringen",
+                "Geschenk",
+                "Stefan",
+                "Übernachtung in Berlin"
+            ],
+            "instruction": "Ihre Bekannte Paola heiratet nächsten Monat Stefan. Die Hochzeit ist in Berlin. Paola hat Sie eingeladen. Antworten Sie mit einem Brief.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze.\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+        },
+        {
+            "title": "Besuch von Freundin Sarah am Wochenende",
+            "id": "4c92f18b-6d3e-4f7a-9a1c-2e5b8d0f1a93",
+            "modalAnswer": "Liebe Sarah,\n\nich freue mich sehr, dass du mich besuchen kommst! Natürlich hole ich dich am Freitag gerne vom Bahnhof ab. Du kannst bei mir auf dem Sofa schlafen, das ist kein Problem. Wollen wir am Samstagabend zusammen in ein italienisches Restaurant gehen?\n\nViele Grüße\nAlex",
+            "writingPoints": [
+                "Abholung vom Bahnhof",
+                "Übernachtung",
+                "Programm am Samstag",
+                "Essen"
+            ],
+            "instruction": "Ihre Freundin Sarah hat Ihnen geschrieben. Sie möchte Sie am nächsten Wochenende besuchen und fragt nach Plänen.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze.\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+        },
+        {
+            "title": "Abschiedsparty für Kollegen Herrn Müller planen",
+            "id": "a4f8d2e1-9c3b-47e2-8f1a-5d6e9c2b3a1f",
+            "modalAnswer": "Liebe Kollegen,\n\nHerr Müller verlässt bald unsere Firma. Ich möchte gerne eine Abschiedsparty für ihn organisieren. Wollen wir am Freitag um 17 Uhr im Büro feiern? Ich kann Kuchen und Getränke mitbringen. Habt ihr eine Idee für ein Geschenk?\n\nViele Grüße\nMax Mustermann",
+            "writingPoints": [
+                "Termin",
+                "Ort",
+                "Essen und Trinken",
+                "Geschenk"
+            ],
+            "instruction": "Ihr Kollege Herr Müller verlässt nächsten Monat die Firma. Sie möchten eine Abschiedsparty organisieren. Schreiben Sie eine E-Mail an Ihre Kollegen.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze.\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+        },
+        {
+            "title": "Hilfe beim Umzug von Freund Tobias",
+            "id": "8c2d1b4e-5f9a-47d3-9e1c-6b0a8f2d5e31",
+            "modalAnswer": "Lieber Tobias,\n\nnatürlich helfe ich dir gerne bei deinem Umzug am Samstag. Ich komme um 9 Uhr zu dir. Soll ich mein Auto mitbringen? Das ist groß genug für viele Kartons. Ich kann auch Brötchen für das Frühstück kaufen.\n\nViele Grüße\nDein Freund",
+            "writingPoints": [
+                "Uhrzeit",
+                "Auto",
+                "Essen mitbringen",
+                "Wer hilft noch?"
+            ],
+            "instruction": "Ihr Freund Tobias zieht am Wochenende um und hat Sie um Hilfe gebeten. Antworten Sie auf seine Nachricht.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze. [cite: 8]\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+        },
+        {
+            "title": "Entschuldigung für Fehlen im Deutschkurs",
+            "id": "b3e9a1c8-4f2d-4075-a8e9-2c6b4d3f1a0e",
+            "modalAnswer": "Liebe Frau Meyer,\n\nich kann nächste Woche leider nicht zum Deutschkurs kommen. Ich bin krank und muss im Bett liegen. Können Sie mir bitte die Hausaufgaben per E-Mail schicken? Ich komme am nächsten Montag wieder zum Unterricht.\n\nViele Grüße\nAnna Müller",
+            "writingPoints": [
+                "Grund für das Fehlen",
+                "Hausaufgaben",
+                "Wann wieder da?",
+                "Attest vom Arzt"
+            ],
+            "instruction": "Sie können nächste Woche nicht zum Deutschkurs gehen. Schreiben Sie eine E-Mail an Ihre Lehrerin, Frau Meyer.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze.\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+        }
+    ]
 }

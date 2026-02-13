@@ -1,0 +1,222 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "a2-part-1-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 10
+    },
+    {
+      "type": "ready",
+      "id": "number-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-1",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Guten Tag. Hier ist der Kundenservice der Stadtwerke. Für Fragen zu Ihrer Rechnung rufen Sie bitte unsere Hotline an. Die Nummer ist 22 44 66. Die Vorwahl ist 040. Vielen Dank."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-1",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Guten Tag. Hier ist der Kundenservice der Stadtwerke. Für Fragen zu Ihrer Rechnung rufen Sie bitte unsere Hotline an. Die Nummer ist 22 44 66. Die Vorwahl ist 040. Vielen Dank."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-2",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Hallo Maria, hier ist Lisa. Du, ich stehe noch im Stau und komme etwas später zum Essen. Fangt doch schon mal ohne mich an. Ich bin in 20 Minuten da."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-2",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Hallo Maria, hier ist Lisa. Du, ich stehe noch im Stau und komme etwas später zum Essen. Fangt doch schon mal ohne mich an. Ich bin in 20 Minuten da."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-3",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person3",
+      "text": "Hi Paul, hier ist Jonas. Wegen dem Fußballtraining am Sonntag: Es findet nicht auf dem Sportplatz statt, sondern in der Halle. Bitte vergiss deine Turnschuhe nicht!"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-3",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person3",
+      "text": "Hi Paul, hier ist Jonas. Wegen dem Fußballtraining am Sonntag: Es findet nicht auf dem Sportplatz statt, sondern in der Halle. Bitte vergiss deine Turnschuhe nicht!"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-4",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person3",
+      "text": "Guten Tag, hier ist die Autowerkstatt Huber. Herr Müller, Ihr Auto ist fertig. Die Reparatur kostet 120 Euro. Sie können den Wagen heute bis 18 Uhr abholen."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-4",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person3",
+      "text": "Guten Tag, hier ist die Autowerkstatt Huber. Herr Müller, Ihr Auto ist fertig. Die Reparatur kostet 120 Euro. Sie können den Wagen heute bis 18 Uhr abholen."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-5",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Praxis Dr. Lang, guten Tag. Frau Schneider, Ihr Termin zur Kontrolle am Freitag muss leider verschoben werden. Könnten Sie stattdessen am Donnerstag um 10 Uhr kommen? Bitte rufen Sie zurück."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "speech",
+      "id": "message-speaker-5",
+      "repeated": true,
+      "speed": 0.8,
+      "voiceId": "person1",
+      "text": "Praxis Dr. Lang, guten Tag. Frau Schneider, Ihr Termin zur Kontrolle am Freitag muss leider verschoben werden. Könnten Sie stattdessen am Donnerstag um 10 Uhr kommen? Bitte rufen Sie zurück."
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-1-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

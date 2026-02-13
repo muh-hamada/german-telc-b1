@@ -11,6 +11,159 @@
         "prep_time_seconds": 0
     },
     "exams": [
-        
+        {
+            "id": "9f4c2b1a-8d3e-4f5a-9c6b-7e1d2a3b4c5d",
+            "title": "Telefonnachrichten und wichtige Informationen hören",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-1-exam-1.mp3?alt=media",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "**Praxis Dr. Stein**\nDie Praxis ist geschlossen.\n\nWieder geöffnet ab: _____",
+                    "answer": "3. Mai",
+                    "audio_transcription": "Guten Tag. Hier ist die automatische Ansage der Praxis Dr. Stein. Unsere Praxis ist diese Woche wegen Renovierung geschlossen. In dringenden Fällen gehen Sie bitte ins Krankenhaus. Wir sind ab dem 3. Mai wieder ganz normal für Sie da. Vielen Dank.",
+                    "explanation": {
+                        "ar": "يذكر الإعلان الصوتي بوضوح: 'سنكون متاحين لخدمتكم مرة أخرى بشكل طبيعي اعتباراً من 3 مايو'. التاريخ هو المعلومة الأساسية المطلوبة.",
+                        "de": "Die Ansage erwähnt explizit: 'Wir sind ab dem 3. Mai wieder ganz normal für Sie da.' Das Datum ist die gesuchte Schlüsselinformation.",
+                        "en": "The announcement explicitly states: 'We will be available for you again normally from May 3rd.' The date is the key information required.",
+                        "fr": "L'annonce indique explicitement : 'Nous serons à nouveau là pour vous normalement à partir du 3 mai.' La date est l'information clé recherchée.",
+                        "ru": "В объявлении четко сказано: «Мы снова будем работать для вас в обычном режиме с 3 мая». Дата — это ключевая запрашиваем информация.",
+                        "es": "El anuncio indica explícitamente: 'Estaremos de nuevo a su entera disposición a partir del 3 de mayo'. La fecha es la información clave requerida."
+                    }
+                },
+                {
+                    "id": 2,
+                    "question": "**Thomas anrufen**\nKonzert heute Abend.\n\nTreffen um: _____",
+                    "answer": "18 Uhr",
+                    "audio_transcription": "Hallo Claudia, hier ist Thomas. Du, ich habe gerade gesehen, das Konzert heute Abend beginnt schon früher als wir dachten. Wir müssen uns beeilen. Können wir uns schon um 18 Uhr direkt vor der Halle treffen? Ruf mich kurz an, ob das klappt.",
+                    "explanation": {
+                        "ar": "نظراً لأن الحفل يبدأ في وقت أبكر مما كان متوقعاً، يقترح توماس وقتاً جديداً للاجتماع ويسأل: 'هل يمكننا أن نلتقي بالفعل في الساعة 18؟'",
+                        "de": "Da das Konzert früher beginnt als gedacht, schlägt Thomas eine neue Treffzeit vor und fragt: 'Können wir uns schon um 18 Uhr treffen?'",
+                        "en": "Since the concert starts earlier than expected, Thomas suggests a new meeting time, asking: 'Can we meet as early as 6 PM (18 Uhr)?'",
+                        "fr": "Comme le concert commence plus tôt que prévu, Thomas propose une nouvelle heure de rendez-vous en demandant : 'Pouvons-nous nous retrouver dès 18 heures ?'",
+                        "ru": "Так как концерт начинается раньше, чем ожидалось, Томас предлагает новое время встречи, спрашивая: «Можем ли мы встретиться уже в 18 часов?»",
+                        "es": "Dado que el concierto empieza antes de lo previsto, Thomas sugiere una nueva hora de encuentro y pregunta: '¿Podemos vernos ya a las 18 horas?'"
+                    }
+                },
+                {
+                    "id": 3,
+                    "question": "**Nachricht von Mama**\nBitte zu Hause etwas tun.\n\n_____ zumachen",
+                    "answer": "die Fenster",
+                    "audio_transcription": "Hi Sarah, hier ist Mama. Hör mal, ich bin noch im Supermarkt und es dauert etwas länger. Im Radio haben sie gesagt, es gibt gleich ein Gewitter. Kannst du bitte zu Hause sofort alle Fenster zumachen? Ich bin in einer halben Stunde da.",
+                    "explanation": {
+                        "ar": "بسبب العاصفة الرعدية القادمة، تطلب الأم إجراءً محدداً: 'هل يمكنك من فضلك إغلاق جميع النوافذ في المنزل فوراً؟'",
+                        "de": "Wegen des kommenden Gewitters bittet die Mutter um eine spezifische Handlung: 'Kannst du bitte zu Hause sofort alle Fenster zumachen?'",
+                        "en": "Due to the approaching thunderstorm, the mother asks for a specific action: 'Can you please close all windows at home immediately?'",
+                        "fr": "En raison de l'orage qui approche, la mère demande une action précise : 'Peux-tu s'il te plaît fermer immédiatement toutes les fenêtres à la maison ?'",
+                        "ru": "Из-за приближающейся грозы мама просит выполнить конкретное действие: «Можешь, пожалуйста, немедленно закрыть дома все окна?»",
+                        "es": "Debido a la tormenta que se acerca, la madre pide una acción específica: '¿Puedes por favor cerrar todas las ventanas en casa inmediatamente?'"
+                    }
+                },
+                {
+                    "id": 4,
+                    "question": "**Telekom Kundenservice**\nNeues Handy ist da.\n\nPreis: _____",
+                    "answer": "120 Euro",
+                    "audio_transcription": "Guten Tag, Herr Müller. Hier spricht der Kundenservice der Telekom. Eine kurze Information für Sie: Ihr bestelltes Handy ist heute angekommen. Sie können es ab morgen in unserer Filiale Stadtmitte abholen. Der offene Betrag ist 120 Euro. Bitte bringen Sie das Geld bar mit.",
+                    "explanation": {
+                        "ar": "تحدد خدمة العملاء التكلفة المتبقية لاستلام الهاتف المحمول الجديد: 'المبلغ المفتوح هو 120 يورو'.",
+                        "de": "Der Kundenservice nennt die verbleibenden Kosten für die Abholung des neuen Handys: 'Der offene Betrag ist 120 Euro.'",
+                        "en": "Customer service specifies the remaining cost for picking up the new mobile phone: 'The open amount is 120 Euros.'",
+                        "fr": "Le service client précise le coût restant pour récupérer le nouveau téléphone portable : 'Le montant dû est de 120 euros.'",
+                        "ru": "Служба поддержки уточняет оставшуюся стоимость для получения нового мобильного телефона: «Неоплаченная сумма составляет 120 евро».",
+                        "es": "El servicio de atención al cliente especifica el coste restante para recoger el nuevo teléfono móvil: 'El importe pendiente es de 120 euros'."
+                    }
+                },
+                {
+                    "id": 5,
+                    "question": "**Frau Meier (Personalabteilung)**\nArbeitsort morgen.\n\nBitte arbeiten Sie: _____",
+                    "answer": "von zu Hause",
+                    "audio_transcription": "Guten Tag, Herr Koch. Hier ist Frau Meier von der Personalabteilung. Es gibt ein Problem im Büro, wir haben leider einen großen Wasserschaden im Flur. Bitte kommen Sie morgen nicht in die Firma. Bitte arbeiten Sie morgen von zu Hause. Wir melden uns wieder.",
+                    "explanation": {
+                        "ar": "بسبب الأضرار الناجمة عن المياه في المكتب، أصدر قسم الموارد البشرية تعليمات واضحة: 'يرجى العمل من المنزل غداً'.",
+                        "de": "Aufgrund eines Wasserschadens im Büro gibt die Personalabteilung eine klare Anweisung: 'Bitte arbeiten Sie morgen von zu Hause.'",
+                        "en": "Due to water damage in the office, the HR department gives a clear instruction: 'Please work from home tomorrow.'",
+                        "fr": "En raison d'un dégât des eaux au bureau, le service des ressources humaines donne une instruction claire : 'Veuillez travailler depuis chez vous demain.'",
+                        "ru": "Из-за повреждения водой в офисе отдел кадров дает четкое указание: «Пожалуйста, работайте завтра из дома».",
+                        "es": "Debido a un daño por agua en la oficina, el departamento de recursos humanos da una instrucción clara: 'Por favor, trabajen mañana desde casa'."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e4f1a2b3-c8d9-4e5f-a6b7-c8d9e0f1a2b3",
+            "title": "Wichtige Nachrichten am Telefon verstehen",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-1-exam-2.mp3?alt=media",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "**Stadtwerke Hotline**\nVorwahl: 040\n\nRufnummer _____",
+                    "answer": "22 44 66",
+                    "audio_transcription": "Guten Tag. Hier ist der Kundenservice der Stadtwerke. Für Fragen zu Ihrer Rechnung rufen Sie bitte unsere Hotline an. Die Nummer ist 22 44 66. Die Vorwahl ist 040. Vielen Dank.",
+                    "explanation": {
+                        "ar": "يذكر المتحدث رقم الهاتف بوضوح بعد ذكر الغرض من الاتصال: 'الرقم هو 22 44 66'.",
+                        "de": "Der Sprecher nennt die Rufnummer deutlich nach dem Zweck des Anrufs: 'Die Nummer ist 22 44 66'.",
+                        "en": "The speaker clearly states the phone number after mentioning the purpose of the call: 'The number is 22 44 66'.",
+                        "fr": "Le locuteur indique clairement le numéro de téléphone après avoir mentionné l'objet de l'appel : 'Le numéro est le 22 44 66'.",
+                        "ru": "Диктор четко называет номер телефона после упоминания цели звонка: «Номер 22 44 66».",
+                        "es": "El locutor indica claramente el número de teléfono tras mencionar el motivo de la llamada: 'El número es 22 44 66'."
+                    }
+                },
+                {
+                    "id": 2,
+                    "question": "**Lisa kommt später**\nGrund: _____\n\nAnkunft: in 20 Minuten",
+                    "answer": "Stau",
+                    "audio_transcription": "Hallo Maria, hier ist Lisa. Du, ich stehe noch im Stau und komme etwas später zum Essen. Fangt doch schon mal ohne mich an. Ich bin in 20 Minuten da.",
+                    "explanation": {
+                        "ar": "توضح ليزا سبب تأخرها بقولها: 'أنا لا أزال عالقة في ازدحام مروري'. الكلمة الرئيسية هي 'Stau'.",
+                        "de": "Lisa erklärt den Grund für ihre Verspätung mit: 'ich stehe noch im Stau'. Das Schlüsselwort ist 'Stau'.",
+                        "en": "Lisa explains the reason for her delay by saying: 'I'm still stuck in a traffic jam.' The keyword is 'Stau'.",
+                        "fr": "Lisa explique la raison de son retard : « je suis encore dans les bouchons ». Le mot-clé est « Stau » (embouteillage).",
+                        "ru": "Лиза объясняет причину своего опоздания фразой: «я все еще стою в пробке». Ключевое слово — «Stau» (пробка).",
+                        "es": "Lisa explica el motivo de su retraso diciendo: 'todavía estoy en un atasco'. La palabra clave es 'Stau'."
+                    }
+                },
+                {
+                    "id": 3,
+                    "question": "**Fußballtraining**\nWann: Sonntag\n\nWo: _____",
+                    "answer": "in der Halle",
+                    "audio_transcription": "Hi Paul, hier ist Jonas. Wegen dem Fußballtraining am Sonntag: Es findet nicht auf dem Sportplatz statt, sondern in der Halle. Bitte vergiss deine Turnschuhe nicht!",
+                    "explanation": {
+                        "ar": "ينفي يونس المكان المعتاد (الملعب الرياضي) ويؤكد المكان الجديد: 'بدلاً من ذلك في القاعة'.",
+                        "de": "Jonas verneint den üblichen Ort (Sportplatz) und bestätigt den neuen Ort: 'sondern in der Halle'.",
+                        "en": "Jonas negates the usual location (sports field) and confirms the new location: 'but in the indoor hall'.",
+                        "fr": "Jonas infirme le lieu habituel (le terrain de sport) et confirme le nouveau lieu : « mais dans la salle » (in der Halle).",
+                        "ru": "Йонас отрицает обычное место (спортивная площадка) и подтверждает новое: «а в зале» (in der Halle).",
+                        "es": "Jonas descarta el lugar habitual (el campo de deportes) y confirma el nuevo lugar: 'sino en el pabellón' (in der Halle)."
+                    }
+                },
+                {
+                    "id": 4,
+                    "question": "**Autowerkstatt Huber**\nAbholen: bis 18 Uhr\n\nKosten: _____",
+                    "answer": "120 Euro",
+                    "audio_transcription": "Guten Tag, hier ist die Autowerkstatt Huber. Herr Müller, Ihr Auto ist fertig. Die Reparatur kostet 120 Euro. Sie können den Wagen heute bis 18 Uhr abholen.",
+                    "explanation": {
+                        "ar": "يتم ذكر التكاليف مباشرة في جملة واحدة: 'تكلف عملية الإصلاح 120 يورو'.",
+                        "de": "Die Kosten werden direkt in einem Satz genannt: 'Die Reparatur kostet 120 Euro'.",
+                        "en": "The costs are mentioned directly in one sentence: 'The repair costs 120 Euro.'",
+                        "fr": "Le coût est mentionné directement dans une phrase : « La réparation coûte 120 euros ».",
+                        "ru": "Стоимость ремонта упоминается напрямую в одном предложении: «Ремонт стоит 120 евро».",
+                        "es": "Los costes se mencionan directamente en una frase: 'La reparación cuesta 120 euros'."
+                    }
+                },
+                {
+                    "id": 5,
+                    "question": "**Terminänderung**\nAlter Termin: Freitag\n\nNeuer Vorschlag: _____",
+                    "answer": "Donnerstag",
+                    "audio_transcription": "Praxis Dr. Lang, guten Tag. Frau Schneider, Ihr Termin zur Kontrolle am Freitag muss leider verschoben werden. Könnten Sie stattdessen am Donnerstag um 10 Uhr kommen? Bitte rufen Sie zurück.",
+                    "explanation": {
+                        "ar": "يتم إلغاء موعد يوم الجمعة ويُقترح يوم الخميس كبديل ('stattdessen am Donnerstag').",
+                        "de": "Der Termin am Freitag wird abgesagt und der Donnerstag als Alternative vorgeschlagen ('stattdessen am Donnerstag').",
+                        "en": "The Friday appointment is canceled and Thursday is suggested as an alternative ('instead on Thursday').",
+                        "fr": "Le rendez-vous de vendredi est annulé et celui de jeudi est proposé comme alternative (« au lieu de cela le jeudi »).",
+                        "ru": "Прием в пятницу отменяется, и в качестве альтернативы предлагается четверг («вместо этого в четверг»).",
+                        "es": "La cita del viernes se cancela y se propone el jueves como alternativa ('en su lugar el jueves')."
+                    }
+                }
+            ]
+        }
     ]
 }

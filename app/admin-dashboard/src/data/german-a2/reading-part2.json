@@ -1,3 +1,292 @@
 {
-  "exams": []
+  "exams": [
+    {
+      "id": "e5a3e62e-1973-4f95-aecc-06f8e27aa7c4",
+      "title": "Peter Nohlen: Hochzeit in Las Vegas",
+      "text": "Der deutsche Popsänger Peter Nohlen (48) und seine Patricia (23) werden bald Hochzeit feiern. Darüber freut sich nicht nur Patricia selbst – auch ihre Mutter Maria Luisa García Concha (48) ist erleichtert: „Ich bin froh, dass er sie endlich heiraten will.“ Patricias Mutter machte sich Sorgen, weil ihre Tochter schon zwei Jahre mit Peter in einem Haus zusammenlebt. Peter ist nach drei gescheiterten Ehen und unzähligen Affären nicht gerade ein Wunschkandidat für Schwiegermütter. Maria Luisa stellte Nachforschungen über den blonden Peter aus Berlin an. Mit positivem Ausgang: „Patricia hat im Leben immer eine gute Wahl getroffen. Wenn sie mit Peter glücklich ist, soll er mir als Schwiegersohn willkommen sein“, so ihre Mutter. Und dann gibt Maria Luisa ihrem Schwiegersohn in spe auch gleich den ersten Rat mit auf den Weg: „Heiraten ist mehr als nur nach Las Vegas fahren. Ich möchte, dass er meine Tochter glücklich macht, und außerdem möchte ich bald Oma werden.“",
+      "questions": [
+        {
+          "id": 6,
+          "statement": "Peter Nohlen wird bald heiraten.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The first sentence clearly states: 'Peter Nohlen... and his Patricia... will celebrate their wedding soon.'",
+            "de": "Richtig. Der erste Satz besagt eindeutig: „Peter Nohlen... und seine Patricia... werden bald Hochzeit feiern.“",
+            "es": "Correcto. La primera frase dice claramente: 'Peter Nohlen... y su Patricia... celebrarán pronto su boda'.",
+            "fr": "Vrai. La première phrase indique clairement : « Peter Nohlen... et sa Patricia... vont bientôt célébrer leur mariage. »",
+            "ru": "Верно. В первом предложении четко сказано: «Петер Нолен... и его Патрисия... скоро отпразднуют свадьбу».",
+            "ar": "صحيح. الجملة الأولى تنص بوضوح على: \"بيتر نولين... وباتريشيا... سيحتفلان بالزفاف قريباً\"."
+          }
+        },
+        {
+          "id": 7,
+          "statement": "Maria Luisa ist gegen die Hochzeit.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The text states she is 'relieved' and explicitly says: 'I am glad that he finally wants to marry her.'",
+            "de": "Falsch. Im Text steht, sie ist „erleichtert“ und sagt ausdrücklich: „Ich bin froh, dass er sie endlich heiraten will.“",
+            "es": "Falso. El texto dice que está 'aliviada' y afirma explícitamente: 'Me alegro de que por fin quiera casarse con ella'.",
+            "fr": "Faux. Le texte indique qu'elle est « soulagée » et dit explicitement : « Je suis contente qu'il veuille enfin l'épouser. »",
+            "ru": "Неверно. В тексте говорится, что она «почувствовала облегчение» и прямо сказано: «Я рада, что он наконец хочет на ней жениться».",
+            "ar": "خطأ. يذكر النص أنها تشعر بـ \"الارتياح\" وتقول صراحة: \"أنا سعيدة لأنه يريد أخيراً الزواج منها\"."
+          }
+        },
+        {
+          "id": 8,
+          "statement": "Peter war mit Patricia vor zwei Jahren schon einmal verheiratet.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The text says they have been living together in a house for two years, not that they were married.",
+            "de": "Falsch. Im Text steht, dass sie seit zwei Jahren in einem Haus zusammenleben, nicht dass sie verheiratet waren.",
+            "es": "Falso. El texto dice que viven juntos en una casa desde hace dos años, no que estuvieran casados.",
+            "fr": "Faux. Le texte dit qu'ils vivent ensemble dans une maison depuis deux ans, pas qu'ils étaient mariés.",
+            "ru": "Неверно. В тексте говорится, что они живут вместе в доме два года, а не то, что они были женаты.",
+            "ar": "خطأ. يقول النص إنهما يعيشان معاً في منزل منذ عامين، وليس أنهما كانا متزوجين."
+          }
+        },
+        {
+          "id": 9,
+          "statement": "Peter ist genauso alt wie seine neue Schwiegermutter.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text specifies the ages in brackets: Peter Nohlen (48) and Maria Luisa García Concha (48).",
+            "de": "Richtig. Der Text gibt die Altersangaben in Klammern an: Peter Nohlen (48) und Maria Luisa García Concha (48).",
+            "es": "Correcto. El texto especifica las edades entre paréntesis: Peter Nohlen (48) y María Luisa García Concha (48).",
+            "fr": "Vrai. Le texte précise les âges entre parenthèses : Peter Nohlen (48) et Maria Luisa García Concha (48).",
+            "ru": "Верно. В тексте возраст указан в скобках: Петер Нолен (48) и Мария Луиза Гарсия Конча (48).",
+            "ar": "صحيح. يحدد النص الأعمار بين قوسين: بيتر نولين (48) وماريا لويزا غارسيا كونشا (48)."
+          }
+        },
+        {
+          "id": 10,
+          "statement": "Maria Luisa wünscht sich ein Enkelkind.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. In the final sentence, Maria Luisa says: '...furthermore, I would like to become a grandma soon.'",
+            "de": "Richtig. Im letzten Satz sagt Maria Luisa: „...außerdem möchte ich bald Oma werden.“",
+            "es": "Correcto. En la última frase, María Luisa dice: '...además quiero ser abuela pronto'.",
+            "fr": "Vrai. Dans la dernière phrase, Maria Luisa dit : « ...de plus, je voudrais bientôt devenir grand-mère. »",
+            "ru": "Верно. В последнем предложении Мария Луиза говорит: «...кроме того, я хочу скоро стать бабушкой».",
+            "ar": "صحيح. في الجملة الأخيرة، تقول ماريا لويزا: \"...وعلاوة على ذلك أريد أن أصبح جدة قريباً\"."
+          }
+        }
+      ]
+    },
+    {
+      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+      "title": "Nuevo supermercado moderno en Múnich",
+      "text": "In München hat ein besonderer Supermarkt eröffnet. Er heißt 'Schnellkauf'. Hier gibt es keine Kassen und keine Kassierer. Die Kunden machen alles mit einer App auf ihrem Smartphone. Der Besitzer, Hans Müller (50), glaubt an den Erfolg: „Das Einkaufen geht so viel schneller.“ Besonders Studenten mögen das neue Geschäft. Aber nicht alle sind zufrieden. Rentnerin Helga Schmidt (75) findet es schwierig: „Ich verstehe die Technik nicht und mir fehlt das Gespräch.“ Trotzdem ist der Laden immer voll, denn er ist Tag und Nacht geöffnet.",
+      "questions": [
+        {
+          "id": 6,
+          "statement": "Im Supermarkt 'Schnellkauf' arbeiten viele Kassierer.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The text explicitly states: 'There are no registers and no cashiers here.'",
+            "de": "Falsch. Der Text besagt ausdrücklich: „Hier gibt es keine Kassen und keine Kassierer.“",
+            "es": "Falso. El texto dice explícitamente: 'Aquí no hay cajas ni cajeros'.",
+            "fr": "Faux. Le texte indique explicitement : « Ici, il n'y a ni caisses ni caissiers. »",
+            "ru": "Неверно. В тексте прямо сказано: «Здесь нет ни касс, ни кассиров».",
+            "ar": "خطأ. ينص النص صراحة على: \"لا توجد هنا صناديق دفع ولا صرافين\"."
+          }
+        },
+        {
+          "id": 7,
+          "statement": "Zum Einkaufen braucht man ein Handy.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text explains that customers do everything 'with an app on their smartphone'.",
+            "de": "Richtig. Der Text erklärt, dass die Kunden alles „mit einer App auf ihrem Smartphone“ machen.",
+            "es": "Correcto. El texto explica que los clientes lo hacen todo 'con una aplicación en su teléfono inteligente'.",
+            "fr": "Vrai. Le texte explique que les clients font tout « avec une application sur leur smartphone ».",
+            "ru": "Верно. В тексте объясняется, что клиенты делают все «с помощью приложения на своем смартфоне».",
+            "ar": "صحيح. يوضح النص أن العملاء يقومون بكل شيء \"باستخدام تطبيق على هواتفهم الذكية\"."
+          }
+        },
+        {
+          "id": 8,
+          "statement": "Hans Müller findet, dass Einkaufen jetzt langsamer ist.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. Hans Müller believes the opposite: 'Shopping is so much faster.'",
+            "de": "Falsch. Hans Müller glaubt das Gegenteil: „Das Einkaufen geht so viel schneller.“",
+            "es": "Falso. Hans Müller cree lo contrario: 'Hacer la compra es mucho más rápido'.",
+            "fr": "Faux. Hans Müller croit le contraire : « Les courses sont tellement plus rapides. »",
+            "ru": "Неверно. Ганс Мюллер считает наоборот: «Покупки совершаются намного быстрее».",
+            "ar": "خطأ. يعتقد هانز مولر العكس: \"التسوق يتم بشكل أسرع بكثير\"."
+          }
+        },
+        {
+          "id": 9,
+          "statement": "Helga Schmidt vermisst das Sprechen mit Menschen.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. Helga Schmidt criticizes the lack of personal contact: '...and I miss the conversation.'",
+            "de": "Richtig. Helga Schmidt kritisiert den fehlenden persönlichen Kontakt: „...und mir fehlt das Gespräch.“",
+            "es": "Correcto. Helga Schmidt critica la falta de contacto personal: '...y echo de menos la conversación'.",
+            "fr": "Vrai. Helga Schmidt critique le manque de contact personnel : « ...et la conversation me manque. »",
+            "ru": "Верно. Хельга Шмидт критикует отсутствие личного контакта: «...и мне не хватает общения».",
+            "ar": "صحيح. تنتقد هيلغا شميدت غياب التواصل الشخصي: \"...وأفتقد الحديث\"."
+          }
+        },
+        {
+          "id": 10,
+          "statement": "Man kann dort auch nachts einkaufen.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The last sentence confirms the opening hours: '...because it is open day and night.'",
+            "de": "Richtig. Der letzte Satz bestätigt die Öffnungszeiten: „...denn er ist Tag und Nacht geöffnet.“",
+            "es": "Correcto. La última frase confirma el horario de apertura: '...porque está abierto día y noche'.",
+            "fr": "Vrai. La dernière phrase confirme les heures d'ouverture : « ...car il est ouvert jour et nuit. »",
+            "ru": "Верно. Последнее предложение подтверждает часы работы: «...потому что он открыт день и ночь».",
+            "ar": "صحيح. الجملة الأخيرة تؤكد ساعات العمل: \"...لأنه مفتوح ليلاً ونهاراً\"."
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8f2a1e4-9b3d-476c-8a2e-5d1f0e9c3b4a",
+      "title": "Unas vacaciones familiares en el lago",
+      "text": "Sabine (35) und ihre Familie waren im letzten Sommer am Bodensee. Sie haben in einem kleinen Hotel direkt am Wasser gewohnt. Das Wetter war fast immer sonnig, nur am Dienstag hat es kurz geregnet. Sie sind jeden Tag Fahrrad gefahren und haben im See gebadet. Sabines Bruder Markus (32) fand das Essen im Hotel nicht so gut, aber den Eltern hat es sehr geschmeckt. Nächstes Jahr wollen sie alle wieder dorthin fahren.",
+      "questions": [
+        {
+          "id": 6,
+          "statement": "Sabine war im Winter am Bodensee.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The very first sentence states they were at Lake Constance 'last summer' (im letzten Sommer).",
+            "de": "Falsch. Der allererste Satz besagt, dass sie „im letzten Sommer“ am Bodensee waren.",
+            "es": "Falso. La primera frase indica que estuvieron en el lago de Constanza el 'último verano' (im letzten Sommer).",
+            "fr": "Faux. La toute première phrase indique qu'ils étaient au lac de Constance « l'été dernier » (im letzten Sommer).",
+            "ru": "Неверно. В самом первом предложении говорится, что они были на Боденском озере «прошлым летом» (im letzten Sommer).",
+            "ar": "خطأ. الجملة الأولى تنص على أنهم كانوا في بحيرة كونستانس \"في الصيف الماضي\" (im letzten Sommer)."
+          }
+        },
+        {
+          "id": 7,
+          "statement": "Das Hotel liegt direkt am See.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text describes their accommodation as 'a small hotel directly by the water'.",
+            "de": "Richtig. Der Text beschreibt ihre Unterkunft als „ein kleines Hotel direkt am Wasser“.",
+            "es": "Correcto. El texto describe su alojamiento como 'un pequeño hotel directamente junto al agua'.",
+            "fr": "Vrai. Le texte décrit leur hébergement comme « un petit hôtel directement au bord de l'eau ».",
+            "ru": "Верно. В тексте их жилье описывается как «небольшой отель прямо у воды».",
+            "ar": "صحيح. يصف النص مكان إقامتهم بأنه \"فندق صغير يقع مباشرة على الماء\"."
+          }
+        },
+        {
+          "id": 8,
+          "statement": "Es hat den ganzen Urlaub geregnet.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. It says the weather was 'almost always sunny' and it only rained briefly on Tuesday.",
+            "de": "Falsch. Es heißt, das Wetter war „fast immer sonnig“ und es hat nur am Dienstag kurz geregnet.",
+            "es": "Falso. Dice que el tiempo fue 'casi siempre soleado' y que solo llovió brevemente el martes.",
+            "fr": "Faux. Il est dit que le temps était « presque toujours ensoleillé » et qu'il n'a plu que brièvement mardi.",
+            "ru": "Неверно. Сказано, что погода была «почти всегда солнечной» и дождь шел лишь недолго во вторник.",
+            "ar": "خطأ. يقول النص إن الطقس كان \"مشمساً تقريباً دائماً\" ولم تمطر إلا لفترة وجيزة يوم الثلاثاء."
+          }
+        },
+        {
+          "id": 9,
+          "statement": "Markus hat das Essen nicht geschmeckt.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text explicitly states: 'Sabine's brother Markus found the food in the hotel not so good.'",
+            "de": "Richtig. Im Text steht ausdrücklich: „Sabines Bruder Markus fand das Essen im Hotel nicht so gut.“",
+            "es": "Correcto. El texto dice explícitamente: 'A Markus, el hermano de Sabine, la comida del hotel no le pareció tan buena'.",
+            "fr": "Vrai. Le texte indique explicitement : « Markus, le frère de Sabine, n'a pas trouvé la nourriture de l'hôtel très bonne. »",
+            "ru": "Верно. В тексте прямо сказано: «Брат Сабины Маркус нашел еду в отеле не очень хорошей».",
+            "ar": "صحيح. ينص النص صراحة على: \"ماركوس شقيق سابين وجد الطعام في الفندق ليس جيداً جداً\"."
+          }
+        },
+        {
+          "id": 10,
+          "statement": "Die Familie möchte nicht mehr zurückkommen.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The final sentence confirms they want to 'go there again' (wieder dorthin fahren) next year.",
+            "de": "Falsch. Der letzte Satz bestätigt, dass sie nächstes Jahr „wieder dorthin fahren“ wollen.",
+            "es": "Falso. La última frase confirma que quieren 'volver a ir allí' (wieder dorthin fahren) el año que viene.",
+            "fr": "Faux. La dernière phrase confirme qu'ils veulent « y retourner » (wieder dorthin fahren) l'année prochaine.",
+            "ru": "Неверно. Последнее предложение подтверждает, что они хотят «поехать туда снова» (wieder dorthin fahren) в следующем году.",
+            "ar": "خطأ. تؤكد الجملة الأخيرة أنهم يريدون \"الذهاب إلى هناك مرة أخرى\" (wieder dorthin fahren) في العام المقبل."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5a4f1d2e-8c9b-4321-a0d5-e6f7a8b9c0d1",
+      "title": "Nuevo trabajo en la panadería",
+      "text": "Lisa (24) hat seit einer Woche einen neuen Job. Sie arbeitet jetzt in einer kleinen Bäckerei im Stadtzentrum. Das frühe Aufstehen fällt ihr noch schwer, denn sie muss schon um 4 Uhr morgens in der Backstube sein. Aber die Arbeit macht ihr großen Spaß. Ihre Kollegen sind sehr freundlich und helfen ihr oft, wenn viel los ist. Der Chef, Herr Braun, ist zwar streng, aber er bezahlt gut. Lisa möchte gerne lange dort arbeiten.",
+      "questions": [
+        {
+          "id": 6,
+          "statement": "Lisa arbeitet schon ein Jahr in der Bäckerei.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The text states she has had the new job 'for a week', not a year.",
+            "de": "Falsch. Im Text steht, sie hat den neuen Job „seit einer Woche“, nicht seit einem Jahr.",
+            "es": "Falso. El texto dice que tiene el nuevo trabajo 'desde hace una semana', no un año.",
+            "fr": "Faux. Le texte indique qu'elle a ce nouveau travail « depuis une semaine », et non un an.",
+            "ru": "Неверно. В тексте сказано, что у нее новая работа «уже неделю», а не год.",
+            "ar": "خطأ. ينص النص على أنها حصلت على الوظيفة الجديدة \"منذ أسبوع\"، وليس منذ عام."
+          }
+        },
+        {
+          "id": 7,
+          "statement": "Die Bäckerei liegt im Zentrum der Stadt.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text mentions she works in a small bakery 'in the city center'.",
+            "de": "Richtig. Der Text erwähnt, dass sie in einer kleinen Bäckerei „im Stadtzentrum“ arbeitet.",
+            "es": "Correcto. El texto menciona que trabaja en una pequeña panadería 'en el centro de la ciudad'.",
+            "fr": "Vrai. Le texte mentionne qu'elle travaille dans une petite boulangerie « au centre-ville ».",
+            "ru": "Верно. В тексте упоминается, что она работает в небольшой пекарне «в центре города».",
+            "ar": "صحيح. يذكر النص أنها تعمل في مخبز صغير \"في وسط المدينة\"."
+          }
+        },
+        {
+          "id": 8,
+          "statement": "Lisa findet es einfach, früh aufzustehen.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The text says exactly the opposite: 'Getting up early is still hard for her.'",
+            "de": "Falsch. Der Text sagt genau das Gegenteil: „Das frühe Aufstehen fällt ihr noch schwer.“",
+            "es": "Falso. El texto dice exactamente lo contrario: 'Levantarse temprano todavía le resulta difícil'.",
+            "fr": "Faux. Le texte dit exactement le contraire : « Se lever tôt est encore difficile pour elle. »",
+            "ru": "Неверно. В тексте сказано прямо противоположное: «Ранний подъем ей все еще дается тяжело».",
+            "ar": "خطأ. يقول النص عكس ذلك تماماً: \"الاستيقاظ المبكر لا يزال صعباً عليها\"."
+          }
+        },
+        {
+          "id": 9,
+          "statement": "Die Kollegen sind nett zu Lisa.",
+          "is_correct": true,
+          "explanation": {
+            "en": "Correct. The text describes her colleagues as 'very friendly'.",
+            "de": "Richtig. Der Text beschreibt ihre Kollegen als „sehr freundlich“.",
+            "es": "Correcto. El texto describe a sus compañeros como 'muy amables'.",
+            "fr": "Vrai. Le texte décrit ses collègues comme « très amicaux ».",
+            "ru": "Верно. В тексте ее коллеги описываются как «очень дружелюбные».",
+            "ar": "صحيح. يصف النص زملاءها بأنهم \"ودودون للغاية\"."
+          }
+        },
+        {
+          "id": 10,
+          "statement": "Lisa will den Job bald wechseln.",
+          "is_correct": false,
+          "explanation": {
+            "en": "False. The last sentence states: 'Lisa would like to work there for a long time.'",
+            "de": "Falsch. Im letzten Satz steht: „Lisa möchte gerne lange dort arbeiten.“",
+            "es": "Falso. La última frase dice: 'A Lisa le gustaría trabajar allí mucho tiempo'.",
+            "fr": "Faux. La dernière phrase indique : « Lisa aimerait travailler là-bas longtemps. »",
+            "ru": "Неверно. В последнем предложении говорится: «Лиза хотела бы работать там долго».",
+            "ar": "خطأ. الجملة الأخيرة تنص على: \"تود ليزا العمل هناك لفترة طويلة\"."
+          }
+        }
+      ]
+    }
+  ]
 }

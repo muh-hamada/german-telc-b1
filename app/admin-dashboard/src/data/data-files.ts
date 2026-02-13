@@ -15,6 +15,22 @@ import germanA1ListeningPart2 from './german-a1/listening-part2.json';
 import germanA1ListeningPart3 from './german-a1/listening-part3.json';
 import germanA1ListeningPractice from './german-a1/listening-practice.json';
 
+// 
+// German A2
+import germanA2ExamInfo from './german-a2/exam-info.json';
+import germanA2ReadingPart1 from './german-a2/reading-part1.json';
+import germanA2ReadingPart2 from './german-a2/reading-part2.json';
+import germanA2ReadingPart3 from './german-a2/reading-part3.json';
+import germanA2ListeningPart1 from './german-a2/listening-part1.json';
+import germanA2ListeningPart2 from './german-a2/listening-part2.json';
+import germanA2ListeningPart3 from './german-a2/listening-part3.json';
+import germanA2WritingPart1 from './german-a2/writing-part1.json';
+import germanA2WritingPart2 from './german-a2/writing-part2.json';
+import germanA2SpeakingPart1 from './german-a2/speaking-part1.json';
+import germanA2SpeakingPart2 from './german-a2/speaking-part2.json';
+import germanA2SpeakingPart3 from './german-a2/speaking-part3.json';
+import germanA2ListeningPractice from './german-a2/listening-practice.json';
+
 // German B1
 import germanB1ExamInfo from './german-b1/exam-info.json';
 import germanB1GrammarPart1 from './german-b1/grammar-part1.json';
@@ -157,6 +173,21 @@ export const appDataMap: AppDataMap = {
         'listening-part2': germanA1ListeningPart2,
         'listening-part3': germanA1ListeningPart3,
         'listening-practice': germanA1ListeningPractice,
+    },
+    [APP_CONFIGS['german-a2'].id]: {
+        'exam-info': germanA2ExamInfo,
+        'reading-part1': germanA2ReadingPart1,
+        'reading-part2': germanA2ReadingPart2,
+        'reading-part3': germanA2ReadingPart3,
+        'listening-part1': germanA2ListeningPart1,
+        'listening-part2': germanA2ListeningPart2,
+        'listening-part3': germanA2ListeningPart3,
+        'writing-part1': germanA2WritingPart1,
+        'writing-part2': germanA2WritingPart2,
+        'speaking-part1': germanA2SpeakingPart1,
+        'speaking-part2': germanA2SpeakingPart2,
+        'speaking-part3': germanA2SpeakingPart3,
+        'listening-practice': germanA2ListeningPractice,
     },
     [APP_CONFIGS['german-b1'].id]: {
         'exam-info': germanB1ExamInfo,
