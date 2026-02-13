@@ -7,6 +7,7 @@
 
 import { ExamConfig } from '../exam-config.types';
 import { germanA1Config } from './german-a1.config';
+import { germanA2Config } from './german-a2.config';
 import { germanB1Config } from './german-b1.config';
 import { germanB2Config } from './german-b2.config';
 import { englishB1Config } from './english-b1.config';
@@ -20,6 +21,7 @@ import { deleSpanishB1Config } from './dele-spanish-b1.config';
  */
 export const EXAM_CONFIGS: Record<string, ExamConfig> = {
   'german-a1': germanA1Config,
+  'german-a2': germanA2Config,
   'german-b1': germanB1Config,
   'german-b2': germanB2Config,
   'english-b1': englishB1Config,

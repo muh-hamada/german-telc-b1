@@ -10,6 +10,7 @@ import './AnswerScreen.css';
 
 // Import all logos
 import germanA1Logo from '../assets/german-a1-logo.png';
+import germanA2Logo from '../assets/german-a2-logo.png';
 import germanB1Logo from '../assets/german-b1-logo.png';
 import germanB2Logo from '../assets/german-b2-logo.png';
 
@@ -31,6 +32,7 @@ const AnswerScreen: React.FC = () => {
     const key = `${appConfig.language.toLowerCase()}-${appConfig.level.toLowerCase()}`;
     const logoMap: Record<string, string> = {
       'german-a1': germanA1Logo,
+      'german-a2': germanA2Logo,
       'german-b1': germanB1Logo,
       'german-b2': germanB2Logo,
     };

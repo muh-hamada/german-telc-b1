@@ -1,27 +1,27 @@
 {
     "exam_info": {
         "title": {
-            "en": "Telc Deutsch A2 / Zertifikat Deutsch Exam Overview",
-            "ar": "نظرة عامة على اختبار Telc Deutsch A2 / شهادة اللغة الألمانية",
-            "ru": "Обзор экзамена Telc Deutsch A2 / Сертификат по немецкому языку",
-            "fr": "Aperçu de l'examen Telc Deutsch A2 / Certificat d'allemand",
-            "es": "Resumen del Examen Telc Deutsch A2 / Certificado de Alemán",
-            "de": "Überblick über die Prüfung Telc Deutsch A2 / Zertifikat Deutsch"
+            "en": "telc Deutsch A2 Exam Overview",
+            "ar": "نظرة عامة على اختبار telc Deutsch A2",
+            "ru": "Обзор экзамена telc Deutsch A2",
+            "fr": "Aperçu de l'examen telc Deutsch A2",
+            "es": "Resumen del examen telc Deutsch A2",
+            "de": "Überblick über die Prüfung telc Deutsch A2"
         },
         "cefr_level": "A2",
         "total_duration_minutes": 85,
         "total_max_points": 60,
         "passing_score": {
-            "overall_points": 60,
+            "overall_points": 36,
             "written_component_min_points": 27,
             "oral_component_min_points": 9,
             "note": {
-                "en": "A minimum of 60% must be achieved in both the Written (27/60) and Oral (9/15) components to pass the entire exam.",
-                "ar": "يجب أن يحصل على نسبة 60٪ على الأقل في كل من الكتابي (27/60) والشفوي (9/15) للاجتياز الاختبار بالكامل.",
-                "ru": "Для сдачи экзамена кандидаты должны набрать 60% от максимального балла как в письменной части (27 из 60 баллов), так и в устной части (9 из 15 баллов).",
-                "fr": "Pour réussir, les candidats doivent obtenir 60 % du score maximum dans les DEUX examens : Écrit (27/60 points) et Oral (9/15 points).",
-                "es": "Para aprobar, los candidatos deben alcanzar el 60% de la puntuación máxima tanto en el Examen Escrito (27/60 puntos) como en el Examen Oral (9/15 puntos).",
-                "de": "Zum Bestehen müssen die Teilnehmenden 60 % der Höchstpunktzahl in BEIDEN Prüfungsteilen erreichen: Schriftliche Prüfung (27/60 Punkte) und Mündliche Prüfung (9/15 Punkte)."
+                "en": "A minimum of 60% must be achieved in both the Written (27/45) and Oral (9/15) components to pass the entire exam.",
+                "ar": "يجب تحقيق 60٪ على الأقل في كل من الامتحان الكتابي (27/45) والامتحان الشفهي (9/15) لاجتياز الاختبار بالكامل.",
+                "ru": "Для сдачи экзамена необходимо набрать минимум 60% как в письменной части (27 из 45 баллов), так и в устной части (9 из 15 баллов).",
+                "fr": "Un minimum de 60 % doit être atteint dans les deux composantes : Écrit (27/45 points) et Oral (9/15 points) pour réussir l'examen.",
+                "es": "Se debe alcanzar un mínimo del 60% tanto en el examen escrito (27/45 puntos) como en el examen oral (9/15 puntos) para aprobar.",
+                "de": "Zum Bestehen müssen mindestens 60 % in beiden Prüfungsteilen erreicht werden: Schriftliche Prüfung (27/45 Punkte) und Mündliche Prüfung (9/15 Punkte)."
             }
         },
         "exam_structure": {
@@ -45,38 +45,38 @@
                             "time_minutes": 20,
                             "max_points": 15,
                             "question_type_detail": {
-                                "en": "Three parts consisting of True/False (Richtig/Falsch) and Multiple-Choice questions based on short texts.",
-                                "ar": "ثلاثة أجزاء تتكون بالكامل من أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد بناءً على نصوص قصيرة.",
-                                "ru": "Три части, полностью состоящие из вопросов 'Верно/Неверно' (Richtig/Falsch) и вопросов с выбором ответа на основе коротких текстов.",
-                                "fr": "Trois parties composées entièrement de questions Vrai/Faux (Richtig/Falsch) et questions à choix multiples basées sur des textes courts.",
-                                "es": "Tres partes que consisten enteramente en preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple basadas en textos cortos.",
-                                "de": "Drei Teile, die vollständig aus Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben bestehen, basierend auf kurzen Texten."
+                                "en": "Three parts consisting of True/False (Richtig/Falsch) and Multiple-Choice questions based on short audio recordings. The duration (ca. 20 min) is determined by the length of the audio recording and cannot be paused.",
+                                "ar": "ثلاثة أجزاء تتكون من أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد بناءً على تسجيلات صوتية قصيرة. المدة (حوالي 20 دقيقة) تحددها مدة التسجيل الصوتي ولا يمكن إيقافه مؤقتاً.",
+                                "ru": "Три части, состоящие из вопросов «Верно/Неверно» (Richtig/Falsch) и вопросов с множественным выбором на основе коротких аудиозаписей. Продолжительность (ок. 20 мин) определяется длиной аудиозаписи, прерывать воспроизведение нельзя.",
+                                "fr": "Trois parties composées de questions Vrai/Faux (Richtig/Falsch) et de questions à choix multiples basées sur de courts enregistrements audio. La durée (env. 20 min) est déterminée par la longueur de l'enregistrement audio et ne peut pas être interrompue.",
+                                "es": "Tres partes que consisten en preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple basadas en grabaciones de audio cortas. La duración (aprox. 20 min) está determinada por la duración de la grabación de audio y no se puede pausar.",
+                                "de": "Drei Teile bestehend aus Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben basierend auf kurzen Tonaufnahmen. Die Dauer (ca. 20 Min.) ist durch die Laufzeit der Tonaufnahme vorgegeben und darf nicht unterbrochen werden."
                             }
                         },
                         {
-                            "part_name": "1. Lesen",
+                            "part_name": "2. Lesen",
                             "time_minutes": 25,
                             "max_points": 15,
                             "question_type_detail": {
-                                "en": "Three parts testing Global, and Detailed comprehension: True/False (Richtig/Falsch) and Multiple-Choice questions.",
-                                "ar": "ثلاثة أجزاء لاختبار الفهم العام والتفصيلي: أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد.",
-                                "ru": "Три части, проверяющие глобальное и детальное понимание: вопросы 'Верно/Неверно' (Richtig/Falsch) и вопросы с выбором ответа.",
-                                "fr": "Trois parties testant la compréhension globale et détaillée : questions Vrai/Faux (Richtig/Falsch) et questions à choix multiples.",
-                                "es": "Tres partes que evalúan la comprensión global y detallada: preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple.",
-                                "de": "Drei Teile zur Prüfung des Global- und Detailverstehens: Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben."
+                                "en": "Three parts testing Global and Detailed reading comprehension: True/False (Richtig/Falsch) and Multiple-Choice questions. Combined with Writing in a shared 50-minute block after the Listening section.",
+                                "ar": "ثلاثة أجزاء لاختبار الفهم القرائي العام والتفصيلي: أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد. يُدمج مع الكتابة في كتلة زمنية مشتركة مدتها 50 دقيقة بعد قسم الاستماع.",
+                                "ru": "Три части, проверяющие глобальное и детальное понимание прочитанного: вопросы «Верно/Неверно» (Richtig/Falsch) и вопросы с множественным выбором. Объединяется с письмом в общий 50-минутный блок после раздела аудирования.",
+                                "fr": "Trois parties testant la compréhension écrite globale et détaillée : questions Vrai/Faux (Richtig/Falsch) et questions à choix multiples. Combiné avec l'écriture dans un bloc commun de 50 minutes après la section d'écoute.",
+                                "es": "Tres partes que evalúan la comprensión lectora global y detallada: preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple. Combinado con la escritura en un bloque compartido de 50 minutos después de la sección de comprensión auditiva.",
+                                "de": "Drei Teile zur Prüfung des Global- und Detailverstehens: Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben. Zusammen mit Schreiben in einem gemeinsamen 50-Minuten-Block nach dem Subtest Hören."
                             }
                         },
                         {
-                            "part_name": "2. Schreiben",
+                            "part_name": "3. Schreiben",
                             "time_minutes": 25,
                             "max_points": 15,
                             "question_type_detail": {
-                                "en": "Two parts testing Writing: filling out a form and writing a short message.",
-                                "ar": "ثلاثة أجزاء لاختبار الكتابة: تعبئة نموزج وكتابة ملاحظة صغيرة.",
-                                "ru": "Две части, проверяющие написание: заполнение формы и написание краткого сообщения.",
-                                "fr": "Deux parties testant la rédaction : remplissage d'un formulaire et rédaction d'un message court.",
-                                "es": "Dos partes que evalúan la escritura: rellenar un formulario y escribir un mensaje corto.",
-                                "de": "Zwei Teile zur Prüfung der Schreibung: Ausfüllen eines Formulars und Schreiben einer kurzen Mitteilung."
+                                "en": "Two parts: Part 1 involves filling out a form (5 points), Part 2 involves writing a short message such as an email or letter (10 points). Combined with Reading in a shared 50-minute block after the Listening section.",
+                                "ar": "جزءان: الجزء الأول يتضمن ملء نموذج (5 نقاط)، والجزء الثاني يتضمن كتابة رسالة قصيرة مثل بريد إلكتروني أو خطاب (10 نقاط). يُدمج مع القراءة في كتلة زمنية مشتركة مدتها 50 دقيقة بعد قسم الاستماع.",
+                                "ru": "Две части: Часть 1 — заполнение формуляра (5 баллов), Часть 2 — написание короткого сообщения, например электронного письма или письма (10 баллов). Объединяется с чтением в общий 50-минутный блок после раздела аудирования.",
+                                "fr": "Deux parties : la Partie 1 consiste à remplir un formulaire (5 points), la Partie 2 consiste à rédiger un court message tel qu'un e-mail ou une lettre (10 points). Combiné avec la lecture dans un bloc commun de 50 minutes après la section d'écoute.",
+                                "es": "Dos partes: la Parte 1 consiste en rellenar un formulario (5 puntos), la Parte 2 consiste en escribir un mensaje corto como un correo electrónico o una carta (10 puntos). Combinado con la lectura en un bloque compartido de 50 minutos después de la sección de comprensión auditiva.",
+                                "de": "Zwei Teile: Teil 1 umfasst das Ausfüllen eines Formulars (5 Punkte), Teil 2 das Verfassen einer kurzen Mitteilung wie z. B. eine E-Mail oder einen Brief (10 Punkte). Zusammen mit Lesen in einem gemeinsamen 50-Minuten-Block nach dem Subtest Hören."
                             }
                         }
                     ]
@@ -84,7 +84,6 @@
                 {
                     "name": "Mündliche Prüfung",
                     "total_time_minutes": 15,
-                    "preparation_time_minutes": 20,
                     "max_points": 15,
                     "weight_percent": 25,
                     "parts": [
@@ -93,12 +92,12 @@
                             "time_minutes": 3,
                             "max_points": 5,
                             "question_type_detail": {
-                                "en": "Introduce yourself on the topics of name, age, origin, living location, family, job, hobbies and languages.",
-                                "ar": "قدّم نفسك على المواضيع مثل الاسم، العمر، الأصل، الموقع المعيشي، العائلة، العمل، الهوايات واللغات.",
-                                "ru": "Представьтесь на темах имени, возраста, происхождения, места проживания, семьи, работы, хобби и языков.",
-                                "fr": "Présentez-vous sur les sujets de nom, âge, origine, lieu de vie, famille, travail, loisirs et langues.",
-                                "es": "Presentese en los temas de nombre, edad, origen, ubicación de residencia, familia, trabajo, hobbies y idiomas.",
-                                "de": "Sich selbst vorstellen auf den Themen Name, Alter, Herkunft, Wohnort, Familie, Beruf, Hobbys und Sprachen."
+                                "en": "Introduce yourself to your conversation partner. Topics include name, age, origin, place of residence, family, job, hobbies, and languages. Keywords are provided on a task sheet for orientation. After each candidate's introduction, the examiner asks two follow-up questions.",
+                                "ar": "قدّم نفسك لشريك المحادثة. تشمل المواضيع: الاسم، العمر، الأصل، مكان الإقامة، العائلة، العمل، الهوايات واللغات. تُوفَّر كلمات مفتاحية على ورقة المهام للتوجيه. بعد تقديم كل مشارك لنفسه، يطرح الممتحن سؤالين إضافيين.",
+                                "ru": "Представьтесь своему собеседнику. Темы включают: имя, возраст, происхождение, место жительства, семью, работу, хобби и языки. Ключевые слова предоставляются на листе заданий для ориентации. После представления каждого кандидата экзаменатор задаёт два дополнительных вопроса.",
+                                "fr": "Présentez-vous à votre partenaire de conversation. Les sujets incluent le nom, l'âge, l'origine, le lieu de résidence, la famille, le travail, les loisirs et les langues. Des mots-clés sont fournis sur une feuille de travail pour orientation. Après la présentation de chaque candidat, l'examinateur pose deux questions supplémentaires.",
+                                "es": "Preséntese a su compañero de conversación. Los temas incluyen nombre, edad, origen, lugar de residencia, familia, trabajo, aficiones e idiomas. Se proporcionan palabras clave en una hoja de tareas como orientación. Después de la presentación de cada candidato, el examinador hace dos preguntas de seguimiento.",
+                                "de": "Stellen Sie sich Ihrer Gesprächspartnerin bzw. Ihrem Gesprächspartner vor. Themen sind u. a. Name, Alter, Herkunft, Wohnort, Familie, Beruf, Hobbys und Sprachen. Das Aufgabenblatt mit Stichworten dient zur Orientierung. Nach jeder Vorstellung stellt der/die Prüfer:in zwei Zusatzfragen."
                             }
                         },
                         {
@@ -106,12 +105,12 @@
                             "time_minutes": 4,
                             "max_points": 5,
                             "question_type_detail": {
-                                "en": "Hold a conversation about everyday topics",
-                                "ar": "قم بحوار حول المواضيع اليومية",
-                                "ru": "Провести беседу о повседневных темах",
-                                "fr": "Conduire une conversation sur des sujets quotidiens",
-                                "es": "Conducir una conversación sobre temas cotidianos",
-                                "de": "Ein Gespräch über Alltagsthemen führen."
+                                "en": "Hold a conversation about an everyday topic using picture cards. The examiner names a topic and lays out six cards. Each candidate draws three cards (including one with a question mark for a free question). Candidates take turns asking and answering questions based on the cards.",
+                                "ar": "إجراء محادثة حول موضوع يومي باستخدام بطاقات مصورة. يُسمّي الممتحن موضوعاً ويضع ست بطاقات على الطاولة. يسحب كل مشارك ثلاث بطاقات (بما في ذلك واحدة بعلامة استفهام لسؤال حر). يتناوب المشاركون في طرح الأسئلة والإجابة عليها بناءً على البطاقات.",
+                                "ru": "Проведите разговор на повседневную тему с использованием карточек с картинками. Экзаменатор называет тему и раскладывает шесть карточек. Каждый кандидат берёт три карточки (включая одну с вопросительным знаком для свободного вопроса). Кандидаты по очереди задают вопросы и отвечают на них по карточкам.",
+                                "fr": "Menez une conversation sur un sujet quotidien à l'aide de cartes illustrées. L'examinateur nomme un sujet et dispose six cartes sur la table. Chaque candidat tire trois cartes (dont une avec un point d'interrogation pour une question libre). Les candidats posent et répondent aux questions à tour de rôle en se basant sur les cartes.",
+                                "es": "Mantenga una conversación sobre un tema cotidiano utilizando tarjetas ilustradas. El examinador nombra un tema y coloca seis tarjetas sobre la mesa. Cada candidato toma tres tarjetas (incluida una con un signo de interrogación para una pregunta libre). Los candidatos se turnan para hacer y responder preguntas basadas en las tarjetas.",
+                                "de": "Führen Sie ein Gespräch über ein Alltagsthema anhand von Bildkarten. Der/Die Prüfer:in nennt das Thema und legt sechs Karten offen auf den Tisch. Jede:r Teilnehmende zieht drei Karten (darunter eine mit Fragezeichen für eine freie Frage). Die Teilnehmenden stellen abwechselnd Fragen und beantworten sie anhand der Karten."
                             }
                         },
                         {
@@ -119,12 +118,12 @@
                             "time_minutes": 4,
                             "max_points": 5,
                             "question_type_detail": {
-                                "en": "Negotiate something with a conversation partner",
-                                "ar": "قم بالتفاوض مع شريك الحوار على شيء ما",
-                                "ru": "Провести переговоры с партнером о чем-то",
-                                "fr": "Négocier quelque chose avec un partenaire de conversation",
-                                "es": "Negociar algo con un compañero de conversación",
-                                "de": "Etwas mit einem Gesprächspartner aushandeln."
+                                "en": "Negotiate a joint activity with your conversation partner using a mind map with different suggestions. One branch has a question mark so candidates can contribute their own ideas. The goal is to agree on a plan together.",
+                                "ar": "تفاوض على نشاط مشترك مع شريك المحادثة باستخدام خريطة ذهنية تحتوي على اقتراحات مختلفة. يحتوي فرع واحد على علامة استفهام حتى يتمكن المشاركون من تقديم أفكارهم الخاصة. الهدف هو الاتفاق على خطة معاً.",
+                                "ru": "Договоритесь о совместном мероприятии с собеседником, используя ментальную карту с различными предложениями. Одна ветка содержит вопросительный знак, чтобы кандидаты могли предложить свои идеи. Цель — договориться о совместном плане.",
+                                "fr": "Négociez une activité commune avec votre partenaire de conversation en utilisant une carte mentale avec différentes suggestions. Une branche comporte un point d'interrogation pour que les candidats puissent proposer leurs propres idées. L'objectif est de se mettre d'accord sur un plan ensemble.",
+                                "es": "Negocie una actividad conjunta con su compañero de conversación utilizando un mapa mental con diferentes sugerencias. Una rama tiene un signo de interrogación para que los candidatos puedan aportar sus propias ideas. El objetivo es acordar un plan juntos.",
+                                "de": "Handeln Sie mit Ihrer Gesprächspartnerin bzw. Ihrem Gesprächspartner eine gemeinsame Aktivität aus. Ein Mindmap mit verschiedenen Vorschlägen liegt vor. Ein Zweig ist mit einem Fragezeichen versehen, damit eigene Ideen eingebracht werden können. Ziel ist es, sich gemeinsam auf einen Plan zu einigen."
                             }
                         }
                     ]
@@ -150,33 +149,33 @@
                             "max_points": 5,
                             "explanation": {
                                 "en": "The evaluators check the entries and mark them with (+) for correct and with (–) for incorrect on the answer sheet S30. Spelling errors are generally not relevant for fulfilling the task. For the solution „Donnerstag“, participant performances such as „Donerstach“ or „donastag“ are to be accepted. Only clearly correct solutions are acceptable for tasks with numbers.",
-                                "ar": "يتحقق المقيمون الإدخالات ويضعون علامة (+) للصحيح وعلامة (–) للخطأ على ورقة الإجابة S30. الأخطاء في الإملاء عادة لا تكون مرتبطة بالمهمة المطلوبة في الغالب. لحل المشكلة „Donnerstag“، يجب قبول الأداءات التي تشبه „Donerstach“ أو „donastag“ للمشاركين. يجب قبول الحلول الواضحة الصحيحة فقط للمهمات التي تتضمن الأرقام.",
-                                "ru": "Оценщики проверяют вводы и отмечают их знаком (+) для правильных и знаком (–) для неправильных на листе ответов S30. Орфографические ошибки обычно не имеют отношения к выполнению задания. Для решения „Donnerstag“ приемлемы результаты, такие как „Donerstach“ или „donastag“ для участников. Приемлемы только четко правильные решения для задач с числами.",
-                                "fr": "Les évaluateurs vérifient les entrées et les marquent avec (+) pour correct et avec (–) pour incorrect sur la feuille de réponse S30. Les erreurs d'orthographe sont généralement non pertinentes pour la réalisation de la tâche. Pour la solution „Donnerstag“, les performances des participants telles que „Donerstach“ ou „donastag“ sont acceptables. Seules les solutions clairement correctes sont acceptables pour les tâches avec des nombres.",
-                                "es": "Los evaluadores revisan las entradas y las marcan con (+) para correctas y con (–) para incorrectas en el formulario de respuesta S30. Los errores de ortografía generalmente no son relevantes para la realización de la tarea. Para la solución „Donnerstag“, las prestaciones de los participantes como „Donerstach“ o „donastag“ son aceptables. Solo se aceptan soluciones claramente correctas para tareas con números.",
+                                "ar": "يتحقق المقيمون من الإدخالات ويضعون علامة (+) للصحيح وعلامة (–) للخطأ على ورقة الإجابة S30. الأخطاء الإملائية عادة لا تكون ذات صلة بتنفيذ المهمة. لحل „Donnerstag“، يتم قبول أداءات المشاركين مثل „Donerstach“ أو „donastag“. يُقبل فقط الحلول الصحيحة بوضوح للمهام التي تتضمن أرقاماً.",
+                                "ru": "Оценщики проверяют записи и отмечают их знаком (+) для правильных и знаком (–) для неправильных на листе ответов S30. Орфографические ошибки, как правило, не имеют значения для выполнения задания. Для решения „Donnerstag“ приемлемы варианты участников, такие как „Donerstach“ или „donastag“. Для заданий с числами принимаются только однозначно правильные решения.",
+                                "fr": "Les évaluateurs vérifient les entrées et les marquent avec (+) pour correct et avec (–) pour incorrect sur la feuille de réponse S30. Les erreurs d'orthographe ne sont généralement pas pertinentes pour la réalisation de la tâche. Pour la solution „Donnerstag“, les performances des participants telles que „Donerstach“ ou „donastag“ sont acceptables. Seules les solutions clairement correctes sont acceptables pour les tâches avec des nombres.",
+                                "es": "Los evaluadores revisan las entradas y las marcan con (+) para correctas y con (–) para incorrectas en el formulario de respuesta S30. Los errores de ortografía generalmente no son relevantes para la realización de la tarea. Para la solución „Donnerstag“, las respuestas de los participantes como „Donerstach“ o „donastag“ son aceptables. Solo se aceptan soluciones claramente correctas para tareas con números.",
                                 "de": "Die Bewerterinnen oder Bewerter überprüfen die Einträge und kennzeichnen sie mit (+) für richtig und mit (–) für falsch auf dem Antwortbogen S30. Rechtschreibfehler sind für die Erfüllung der Aufgabe in der Regel nicht relevant. Bei der Lösung „Donnerstag“ sind Teilnehmerleistungen wie „Donerstach“ oder „donastag“ zu akzeptieren. Bei Aufgaben mit Zahlen können nur eindeutig richtige Lösungen akzeptiert werden."
                             }
                         },
                         {
                             "name": "II. Teil 2",
-                            "max_points": 5,
+                            "max_points": 10,
                             "explanation": {
-                                "en": "Fulfillment of the task (per content point): 3 points for task fully fulfilled and understandable, 1.5 points for task due to linguistic and content shortcomings only partially fulfilled, 0 points for task not fulfilled and/or incomprehensible\n\nCommunicative Design of the Text: 1 point for the text sort appropriate, 0.5 points for atypical or missing expressions, e.g. no address, 0 points for inappropriate text sort",
-                                "ar": "تنفيذ المهمة (لكل نقطة محتوى): 3 نقاط للمهمة التي تم تنفيذها بشكل كامل ومفهومة، 1.5 نقطة للمهمة ناتجة عن عيوب لغوية ومحتوية فقط تم تنفيذها بشكل جزئي، 0 نقطة للمهمة التي لم يتم تنفيذها و/أو غير مفهومة\n\nتصميم النص التواصلي: 1 نقطة لنوع النص المناسب، 0.5 نقطة للتعبيرات غير النمطية أو المفقودة، مثل عدم وجود عنوان، 0 نقطة لنوع النص غير المناسب",
-                                "ru": "Выполнение задания (за каждую точку содержания): 3 балла за задание, полностью выполненное и понятное, 1.5 балла за задание из-за лингвистических и содержательных недостатков только частично выполненное, 0 баллов за задание, не выполненное и/или непонятное\n\nКоммуникативное оформление текста: 1 балл за тип текста подходящий, 0.5 балла за нетипичные или отсутствующие выражения, например, отсутствие адресата, 0 баллов за неприемлемый тип текста",
-                                "fr": "Réalisation de la tâche (par point de contenu): 3 points pour la tâche entièrement remplie et compréhensible, 1.5 points pour la tâche due à des défauts linguistiques et de contenu uniquement partiellement remplie, 0 points pour la tâche non remplie et/ou incompréhensible\n\nDesign communicatif du texte: 1 point pour le type de texte approprié, 0.5 points pour les expressions atypiques ou manquantes, par exemple, absence d'adresse, 0 points pour le type de texte inapproprié",
-                                "es": "Cumplimiento de la tarea (por cada punto de contenido): 3 puntos para la tarea completamente cumplida y comprensible, 1.5 puntos para la tarea debido a deficiencias lingüísticas y de contenido solo parcialmente cumplida, 0 puntos para la tarea no cumplida y/o incomprensible\n\nDiseño comunicativo del texto: 1 punto para el tipo de texto apropiado, 0.5 puntos para expresiones atípicas o faltantes, por ejemplo, ausencia de dirección, 0 puntos para el tipo de texto inapropiado",
-                                "de": "Erfüllung der Aufgabenstellung (pro Inhaltspunkt): 3 Punkte für Aufgabe voll erfüllt und verständlich, 1.5 Punkte für Aufgabe wegen sprachlicher und inhaltlicher Mängel nur teilweise erfüllt, 0 Punkte für Aufgabe nicht erfüllt und/oder unverständlich\n\nKommunikative Gestaltung des Texts: 1 Punkt für der Textsorte angemessen, 0.5 Punkte für untypische oder fehlende Wendungen, z. B. keine Anrede, 0 Punkte für keine textsortenspezifischen Wendungen"
+                                "en": "Fulfillment of the task (per content point): 3 points for task fully fulfilled and understandable, 1.5 points for task due to linguistic and content shortcomings only partially fulfilled, 0 points for task not fulfilled and/or incomprehensible.\n\nCommunicative Design of the Text: 1 point for the text sort appropriate, 0.5 points for atypical or missing expressions, e.g. no address, 0 points for inappropriate text sort.",
+                                "ar": "تنفيذ المهمة (لكل نقطة محتوى): 3 نقاط للمهمة المنفذة بالكامل والمفهومة، 1.5 نقطة للمهمة المنفذة جزئياً فقط بسبب عيوب لغوية ومحتوية، 0 نقطة للمهمة غير المنفذة و/أو غير المفهومة.\n\nالتصميم التواصلي للنص: 1 نقطة لنوع النص المناسب، 0.5 نقطة للتعبيرات غير النمطية أو المفقودة مثل عدم وجود عنوان، 0 نقطة لنوع النص غير المناسب.",
+                                "ru": "Выполнение задания (за каждый содержательный пункт): 3 балла за задание, полностью выполненное и понятное, 1,5 балла за задание, выполненное лишь частично из-за языковых и содержательных недостатков, 0 баллов за невыполненное и/или непонятное задание.\n\nКоммуникативное оформление текста: 1 балл за соответствие типу текста, 0,5 балла за нетипичные или отсутствующие выражения, например отсутствие обращения, 0 баллов за несоответствие типу текста.",
+                                "fr": "Réalisation de la tâche (par point de contenu) : 3 points pour la tâche entièrement remplie et compréhensible, 1,5 points pour la tâche partiellement remplie en raison de défauts linguistiques et de contenu, 0 points pour la tâche non remplie et/ou incompréhensible.\n\nConception communicative du texte : 1 point pour le type de texte approprié, 0,5 points pour les expressions atypiques ou manquantes, par ex. absence d'adresse, 0 points pour le type de texte inapproprié.",
+                                "es": "Cumplimiento de la tarea (por cada punto de contenido): 3 puntos para la tarea completamente cumplida y comprensible, 1,5 puntos para la tarea solo parcialmente cumplida debido a deficiencias lingüísticas y de contenido, 0 puntos para la tarea no cumplida y/o incomprensible.\n\nDiseño comunicativo del texto: 1 punto para el tipo de texto apropiado, 0,5 puntos para expresiones atípicas o faltantes, por ej. ausencia de dirección, 0 puntos para el tipo de texto inapropiado.",
+                                "de": "Erfüllung der Aufgabenstellung (pro Inhaltspunkt): 3 Punkte für Aufgabe voll erfüllt und verständlich, 1,5 Punkte für Aufgabe wegen sprachlicher und inhaltlicher Mängel nur teilweise erfüllt, 0 Punkte für Aufgabe nicht erfüllt und/oder unverständlich.\n\nKommunikative Gestaltung des Texts: 1 Punkt für der Textsorte angemessen, 0,5 Punkte für untypische oder fehlende Wendungen, z. B. keine Anrede, 0 Punkte für keine textsortenspezifischen Wendungen."
                             }
                         }
                     ],
                     "note": {
-                        "en": "Max. 10 points can be awarded. The evaluator or the evaluator enters their or her evaluations first in the answer sheet at „Evaluation 1“ and „telc Evaluation“. In case of disagreements, the telc evaluation overrides Evaluation 1.",
-                        "ar": "يمكن تعيين 10 نقطة كحد أقصى. يدخل المقيم أو المقيم التقييمات الخاصة به أولاً في ورقة الإجابة على „التقييم 1“ و„التقييم telc“. في حالة الإختلافات، يتم التغلب على التقييم 1 بالتقييم telc.",
-                        "ru": "Максимум 10 баллов может быть присуждено. Оценщик или оценщик вносит свои или его оценки сначала в лист ответов на „Оценка 1“ и „telc Оценка“. В случае разногласий, оценка telc переопределяет Оценку 1.",
-                        "fr": "Max. 10 points peuvent être attribués. L'évaluateur ou l'évaluatrice entre d'abord ses ou ses évaluations dans le formulaire de réponse à „Évaluation 1“ et „telc Évaluation“. En cas de désaccord, l'évaluation telc remplace l'Évaluation 1.",
-                        "es": "Máx. 10 puntos pueden ser otorgados. El evaluador o la evaluadora introduce primero sus o sus evaluaciones en el formulario de respuesta en „Evaluación 1“ y „telc Evaluación“. En caso de discrepancias, la evaluación telc anula la Evaluación 1.",
-                        "de": "Es können maximal 10 Punkte vergeben werden. Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei „Bewertung 1“ und „telc Bewertung“ ein. Bei Unstimmig keiten überstimmt die telc Bewertung Bewertung 1."
+                        "en": "Max. 10 points can be awarded for Teil 2. The evaluator enters their evaluations first in the answer sheet at „Bewertung 1“ and „telc Bewertung“. In case of disagreements, the telc evaluation overrides Bewertung 1.",
+                        "ar": "يمكن منح 10 نقاط كحد أقصى للجزء الثاني. يُدخل المقيم تقييماته أولاً في ورقة الإجابة عند „Bewertung 1“ و„telc Bewertung“. في حالة الاختلافات، يتغلب تقييم telc على Bewertung 1.",
+                        "ru": "Максимум 10 баллов может быть присуждено за Teil 2. Оценщик вносит свои оценки сначала в лист ответов в поля „Bewertung 1“ и „telc Bewertung“. В случае разногласий оценка telc имеет приоритет над Bewertung 1.",
+                        "fr": "Max. 10 points peuvent être attribués pour le Teil 2. L'évaluateur entre d'abord ses évaluations dans la feuille de réponse à « Bewertung 1 » et « telc Bewertung ». En cas de désaccord, l'évaluation telc remplace Bewertung 1.",
+                        "es": "Máx. 10 puntos pueden ser otorgados para el Teil 2. El evaluador introduce primero sus evaluaciones en el formulario de respuesta en „Bewertung 1“ y „telc Bewertung“. En caso de discrepancias, la evaluación telc prevalece sobre Bewertung 1.",
+                        "de": "Es können maximal 10 Punkte für Teil 2 vergeben werden. Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei „Bewertung 1“ und „telc Bewertung“ ein. Bei Unstimmigkeiten überstimmt die telc Bewertung Bewertung 1."
                     }
                 },
                 {
@@ -186,44 +185,44 @@
                         {
                             "name": "1. Sich Vorstellen",
                             "explanation": {
-                                "en": "Task fully completed and understandable",
-                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
-                                "ru": "Задание полностью выполнено и понятно",
-                                "fr": "Tâche entièrement remplie et compréhensible",
-                                "es": "Tarea completamente cumplida y comprensible",
-                                "de": "Aufgabe voll erfüllt und verständlich"
+                                "en": "Candidates introduce themselves and ask their partner questions. The examiner asks two follow-up questions after each introduction. Assessed on task fulfillment and comprehensibility.",
+                                "ar": "يقدّم المشاركون أنفسهم ويطرحون أسئلة على شريكهم. يطرح الممتحن سؤالين إضافيين بعد كل تقديم. يتم التقييم بناءً على تنفيذ المهمة والوضوح.",
+                                "ru": "Кандидаты представляются и задают вопросы партнёру. Экзаменатор задаёт два дополнительных вопроса после каждого представления. Оценивается выполнение задания и понятность.",
+                                "fr": "Les candidats se présentent et posent des questions à leur partenaire. L'examinateur pose deux questions supplémentaires après chaque présentation. Évalué sur la réalisation de la tâche et la compréhensibilité.",
+                                "es": "Los candidatos se presentan y hacen preguntas a su compañero. El examinador hace dos preguntas de seguimiento después de cada presentación. Se evalúa el cumplimiento de la tarea y la comprensibilidad.",
+                                "de": "Die Teilnehmenden stellen sich vor und stellen ihrem Partner Fragen. Der/Die Prüfer:in stellt nach jeder Vorstellung zwei Zusatzfragen. Bewertet werden Aufgabenerfüllung und Verständlichkeit."
                             }
                         },
                         {
-                            "name": "2. Um Informationen bitten und Informationen geben",
+                            "name": "2. Ein Alltagsgespräch führen",
                             "explanation": {
-                                "en": "Task fully completed and understandable",
-                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
-                                "ru": "Задание полностью выполнено и понятно",
-                                "fr": "Tâche entièrement remplie et compréhensible",
-                                "es": "Tarea completamente cumplida y comprensible",
-                                "de": "Aufgabe voll erfüllt und verständlich"
+                                "en": "Candidates hold a conversation using picture cards on an everyday topic, taking turns asking and answering questions. Assessed on task fulfillment and comprehensibility.",
+                                "ar": "يجري المشاركون محادثة باستخدام بطاقات مصورة حول موضوع يومي، يتناوبون في طرح الأسئلة والإجابة عليها. يتم التقييم بناءً على تنفيذ المهمة والوضوح.",
+                                "ru": "Кандидаты ведут разговор с использованием карточек с картинками на повседневную тему, поочерёдно задавая вопросы и отвечая на них. Оценивается выполнение задания и понятность.",
+                                "fr": "Les candidats mènent une conversation à l'aide de cartes illustrées sur un sujet quotidien, en posant et répondant aux questions à tour de rôle. Évalué sur la réalisation de la tâche et la compréhensibilité.",
+                                "es": "Los candidatos mantienen una conversación utilizando tarjetas ilustradas sobre un tema cotidiano, turnándose para hacer y responder preguntas. Se evalúa el cumplimiento de la tarea y la comprensibilidad.",
+                                "de": "Die Teilnehmenden führen ein Gespräch anhand von Bildkarten zu einem Alltagsthema und stellen abwechselnd Fragen und beantworten sie. Bewertet werden Aufgabenerfüllung und Verständlichkeit."
                             }
                         },
                         {
-                            "name": "3. Bitte formulieren und darauf reagieren",
+                            "name": "3. Etwas aushandeln",
                             "explanation": {
-                                "en": "Task fully completed and understandable",
-                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
-                                "ru": "Задание полностью выполнено и понятно",
-                                "fr": "Tâche entièrement remplie et compréhensible",
-                                "es": "Tarea completamente cumplida y comprensible",
-                                "de": "Aufgabe voll erfüllt und verständlich"
+                                "en": "Candidates negotiate a joint activity using a mind map with suggestions. They must agree on a plan together. Mutual assistance between candidates is positively assessed.",
+                                "ar": "يتفاوض المشاركون على نشاط مشترك باستخدام خريطة ذهنية تحتوي على اقتراحات. يجب أن يتفقوا على خطة معاً. المساعدة المتبادلة بين المشاركين تُقيَّم إيجابياً.",
+                                "ru": "Кандидаты договариваются о совместном мероприятии, используя ментальную карту с предложениями. Они должны вместе согласовать план. Взаимопомощь между кандидатами оценивается положительно.",
+                                "fr": "Les candidats négocient une activité commune en utilisant une carte mentale avec des suggestions. Ils doivent se mettre d'accord sur un plan ensemble. L'entraide entre les candidats est évaluée positivement.",
+                                "es": "Los candidatos negocian una actividad conjunta utilizando un mapa mental con sugerencias. Deben acordar un plan juntos. La ayuda mutua entre candidatos se evalúa positivamente.",
+                                "de": "Die Teilnehmenden handeln eine gemeinsame Aktivität anhand eines Mindmaps mit Vorschlägen aus. Sie müssen sich gemeinsam auf einen Plan einigen. Gegenseitige Hilfestellungen werden positiv bewertet."
                             }
                         }
                     ],
                     "points_distribution": {
-                        "en": "The examiners assess the participants' performance using the yellow telc assessment form M10",
-                        "ar": "يتم تقييم أداء المشاركين باستخدام نموزج التقييم الأصفر telc M10",
-                        "ru": "Оценщики оценивают выполнение заданий с помощью желтого формы оценки telc M10",
-                        "fr": "Les évaluateurs évaluent la performance des participants en utilisant le formulaire de notation jaune telc M10",
-                        "es": "Los evaluadores evalúan el rendimiento de los participantes utilizando el formulario de evaluación amarillo telc M10",
-                        "de": "Die Bewerter bewerten die Leistung der Teilnehmer mit dem gelben telc Bewertungsformular M10"
+                        "en": "The examiners assess the participants' performance using the telc assessment form M10. Both examiners independently record their assessments during the exam, then compare and agree on a final score after candidates leave the room. The agreed score is transferred to the answer sheet S30.",
+                        "ar": "يقيّم الممتحنون أداء المشاركين باستخدام نموذج التقييم telc M10. يسجل كلا الممتحنين تقييماتهما بشكل مستقل أثناء الاختبار، ثم يقارنان ويتفقان على درجة نهائية بعد مغادرة المشاركين الغرفة. تُنقل الدرجة المتفق عليها إلى ورقة الإجابة S30.",
+                        "ru": "Экзаменаторы оценивают выступление участников с помощью формы оценки telc M10. Оба экзаменатора независимо фиксируют свои оценки во время экзамена, а затем сравнивают их и согласовывают итоговую оценку после того, как кандидаты покидают комнату. Согласованная оценка переносится на лист ответов S30.",
+                        "fr": "Les examinateurs évaluent la performance des participants à l'aide du formulaire d'évaluation telc M10. Les deux examinateurs enregistrent indépendamment leurs évaluations pendant l'examen, puis comparent et conviennent d'un score final après le départ des candidats. Le score convenu est transféré sur la feuille de réponse S30.",
+                        "es": "Los examinadores evalúan el rendimiento de los participantes utilizando el formulario de evaluación telc M10. Ambos examinadores registran sus evaluaciones de forma independiente durante el examen, luego comparan y acuerdan una puntuación final después de que los candidatos abandonan la sala. La puntuación acordada se transfiere a la hoja de respuesta S30.",
+                        "de": "Die Prüfenden bewerten die Leistung der Teilnehmenden mit dem telc Bewertungsbogen M10. Beide Prüfende halten während der Prüfung unabhängig voneinander ihre Bewertungen fest, vergleichen diese anschließend und einigen sich auf eine Endbewertung, nachdem die Teilnehmenden den Raum verlassen haben. Die gemeinsame Bewertung wird auf den Antwortbogen S30 übertragen."
                     }
                 }
             ]

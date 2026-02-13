@@ -33,7 +33,7 @@ def load_app_store_metadata(app_id)
   metadata = JSON.parse(File.read(APP_STORE_METADATA_PATH))
   
   # Parse app_id to extract language and level
-  # Format: "german-a1", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1"
+  # Format: "german-a1", "german-a2", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1"
   parts = app_id.split('-')
   
   # Handle special case for "dele-spanish-b1"
@@ -177,6 +177,11 @@ def get_app_config(app_id)
     {
       android_package: "com.mhamada.telca1german",
       ios_bundle_id: "com.mhamada.telca1german"
+    }
+  when "german-a2"
+    {
+      android_package: "com.mhamada.telca2german",
+      ios_bundle_id: "com.mhamada.telca2german"
     }
   when "german-b1"
     {

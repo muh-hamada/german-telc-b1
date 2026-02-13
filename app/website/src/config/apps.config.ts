@@ -4,7 +4,7 @@
  */
 
 export type AppLanguage = 'german' | 'english' | 'spanish';
-export type AppLevel = 'A1' | 'B1' | 'B2';
+export type AppLevel = 'A1' | 'A2' | 'B1' | 'B2';
 export type ExamType = 'telc' | 'dele';
 
 export interface AppConfig {
@@ -38,6 +38,21 @@ export const appsConfig: AppConfig[] = [
     },
     packageName: 'com.mhamada.telca1german',
     iosAppId: '6756783649',
+  },
+  {
+    id: 'german-a2',
+    language: 'german',
+    level: 'A2',
+    examType: 'telc',
+    displayName: 'German TELC A2',
+    flag: '🇩🇪',
+    isAvailable: true,
+    storeLinks: {
+      android: 'https://play.google.com/store/apps/details?id=com.mhamada.telca2german',
+      ios: 'https://apps.apple.com/app/id6756783649',
+    },
+    packageName: 'com.mhamada.telca2german',
+    iosAppId: '',
   },
   {
     id: 'german-b1',

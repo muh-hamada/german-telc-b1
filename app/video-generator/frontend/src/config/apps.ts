@@ -9,6 +9,13 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     level: 'A1',
     vocabularyCollection: 'vocabulary_data_german_a1',
   },
+  'german-a2': {
+    id: 'german-a2',
+    displayName: 'German TELC A2',
+    language: 'German',
+    level: 'A2',
+    vocabularyCollection: 'vocabulary_data_german_a2',
+  },
   'german-b1': {
     id: 'german-b1',
     displayName: 'German TELC B1',
@@ -41,6 +48,7 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
 
 export const FIREBASE_COLLECTIONS: Record<string, string> = {
   'german-a1': 'german_a1_telc_exam_data',
+  'german-a2': 'german_a2_telc_exam_data',
   'german-b1': 'b1_telc_exam_data', // Backward compatibility
   'german-b2': 'german_b2_telc_exam_data',
   'english-b1': 'english_b1_telc_exam_data',

@@ -11,6 +11,15 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     vocabularyCollection: 'vocabulary_data_german_a1',
     ttsLanguageCode: 'de-DE',
   },
+  'german-a2': {
+    id: 'german-a2',
+    displayName: 'German TELC A2',
+    language: 'German',
+    level: 'A2',
+    collectionName: 'german_a2_telc_exam_data',
+    vocabularyCollection: 'vocabulary_data_german_a2',
+    ttsLanguageCode: 'de-DE',
+  },
   'german-b1': {
     id: 'german-b1',
     displayName: 'German TELC B1',

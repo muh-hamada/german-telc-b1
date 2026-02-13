@@ -16,6 +16,7 @@ if [ -z "$EXAM_ID" ]; then
   echo ""
   echo "Available exam IDs:"
   echo "  - german-a1"
+  echo "  - german-a2"
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"

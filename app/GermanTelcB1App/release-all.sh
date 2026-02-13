@@ -17,7 +17,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Apps to build (can be configured)
-DEFAULT_APPS=("german-a1" "german-b1" "german-b2" "english-b1" "english-b2" "dele-spanish-b1")
+DEFAULT_APPS=("german-a1" "german-a2" "german-b1" "german-b2" "english-b1" "english-b2" "dele-spanish-b1")
 
 # Usage message
 usage() {
@@ -28,7 +28,7 @@ usage() {
   echo ""
   echo "Options:"
   echo "  --apps          : Comma-separated list of apps to release (default: all)"
-  echo "                    Example: --apps german-b1,english-b2"
+  echo "                    Example: --apps german-a1,german-b1,english-b2"
   echo "  --android-only  : Only build and release Android apps"
   echo "  --ios-only      : Only build and release iOS apps"
   echo "  --skip-build    : Skip build steps (use existing builds)"
@@ -40,7 +40,7 @@ usage() {
   echo ""
   echo "Examples:"
   echo "  ./release-all.sh 0"
-  echo "  ./release-all.sh 0 --apps german-b1,english-b2"
+  echo "  ./release-all.sh 0 --apps german-a1,german-b1,english-b2"
   echo "  ./release-all.sh 0 --android-only"
   echo "  ./release-all.sh 0 --skip-build --rollout 0.1"
   echo "  ./release-all.sh 0 --debug"
@@ -270,6 +270,7 @@ if [ "$BUILD_ANDROID" = true ]; then
       # Find the built AAB file
       case "$APP_ID" in
         "german-a1") FLAVOR="germanA1" ;;
+        "german-a2") FLAVOR="germanA2" ;;
         "german-b1") FLAVOR="germanB1" ;;
         "german-b2") FLAVOR="germanB2" ;;
         "english-b1") FLAVOR="englishB1" ;;
