@@ -1,15 +1,15 @@
 {
     "exam_info": {
         "title": {
-            "en": "Telc Deutsch A1 / Zertifikat Deutsch Exam Overview",
-            "ar": "نظرة عامة على اختبار Telc Deutsch A1 / شهادة اللغة الألمانية",
-            "ru": "Обзор экзамена Telc Deutsch A1 / Сертификат по немецкому языку",
-            "fr": "Aperçu de l'examen Telc Deutsch A1 / Certificat d'allemand",
-            "es": "Resumen del Examen Telc Deutsch A1 / Certificado de Alemán",
-            "de": "Überblick über die Prüfung Telc Deutsch A1 / Zertifikat Deutsch"
+            "en": "Telc Deutsch A2 / Zertifikat Deutsch Exam Overview",
+            "ar": "نظرة عامة على اختبار Telc Deutsch A2 / شهادة اللغة الألمانية",
+            "ru": "Обзор экзамена Telc Deutsch A2 / Сертификат по немецкому языку",
+            "fr": "Aperçu de l'examen Telc Deutsch A2 / Certificat d'allemand",
+            "es": "Resumen del Examen Telc Deutsch A2 / Certificado de Alemán",
+            "de": "Überblick über die Prüfung Telc Deutsch A2 / Zertifikat Deutsch"
         },
-        "cefr_level": "A1",
-        "total_duration_minutes": 90,
+        "cefr_level": "A2",
+        "total_duration_minutes": 85,
         "total_max_points": 60,
         "passing_score": {
             "overall_points": 60,
@@ -36,7 +36,7 @@
             "sections": [
                 {
                     "name": "Schriftliche Prüfung",
-                    "total_time_minutes": 75,
+                    "total_time_minutes": 70,
                     "max_points": 45,
                     "weight_percent": 75,
                     "parts": [
@@ -68,7 +68,7 @@
                         },
                         {
                             "part_name": "2. Schreiben",
-                            "time_minutes": 20,
+                            "time_minutes": 25,
                             "max_points": 15,
                             "question_type_detail": {
                                 "en": "Two parts testing Writing: filling out a form and writing a short message.",
@@ -85,7 +85,7 @@
                     "name": "Mündliche Prüfung",
                     "total_time_minutes": 15,
                     "preparation_time_minutes": 20,
-                    "max_points": 75,
+                    "max_points": 15,
                     "weight_percent": 25,
                     "parts": [
                         {
@@ -102,29 +102,29 @@
                             }
                         },
                         {
-                            "part_name": "2. Um Informationen bitten und Informationen geben",
+                            "part_name": "2. Ein Alltagsgespräch führen",
                             "time_minutes": 4,
                             "max_points": 5,
                             "question_type_detail": {
-                                "en": "Request and provide information on two everyday topics",
-                                "ar": "اطلب وقدّم معلومات حول موضوعين من المواضيع اليومية",
-                                "ru": "Запрос и предоставление информации на двух повседневных темах",
-                                "fr": "Demander et fournir des informations sur deux sujets quotidiens",
-                                "es": "Solicitar y proporcionar información sobre dos temas cotidianos",
-                                "de": "Zu zwei Alltagsthemen Informationen erfragen und geben."
+                                "en": "Hold a conversation about everyday topics",
+                                "ar": "قم بحوار حول المواضيع اليومية",
+                                "ru": "Провести беседу о повседневных темах",
+                                "fr": "Conduire une conversation sur des sujets quotidiens",
+                                "es": "Conducir una conversación sobre temas cotidianos",
+                                "de": "Ein Gespräch über Alltagsthemen führen."
                             }
                         },
                         {
-                            "part_name": "3. Bitte formulieren und darauf reagieren",
+                            "part_name": "3. Etwas aushandeln",
                             "time_minutes": 4,
                             "max_points": 5,
                             "question_type_detail": {
-                                "en": "Ask a conversation partner for something and react to their request.",
-                                "ar": "اسأل شريك الحوار بشيء واستجب لطلبه.",
-                                "ru": "Спросить у партнера о чем-то и ответить на его просьбу.",
-                                "fr": "Demander à un partenaire de quelque chose et réagir à sa demande.",
-                                "es": "Preguntar a un compañero de algo y responder a su petición.",
-                                "de": "Einen Gesprächspartner um etwas bitten und auf seine Bitte reagieren."
+                                "en": "Negotiate something with a conversation partner",
+                                "ar": "قم بالتفاوض مع شريك الحوار على شيء ما",
+                                "ru": "Провести переговоры с партнером о чем-то",
+                                "fr": "Négocier quelque chose avec un partenaire de conversation",
+                                "es": "Negociar algo con un compañero de conversación",
+                                "de": "Etwas mit einem Gesprächspartner aushandeln."
                             }
                         }
                     ]
