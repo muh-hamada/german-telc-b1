@@ -1,0 +1,16 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 1",
+        "instructions_de": "Sie hören fünf Ansagen am Telefon. Zu jedem Text gibt es eine Aufgabe. Ergänzen Sie die Telefonnotizen. Sie hören jeden Text zweimal.",
+        "instructions_en": "",
+        "instructions_ar": "",
+        "instructions_ru": "",
+        "instructions_fr": "",
+        "instructions_es": "",
+        "duration_minutes": 7,
+        "prep_time_seconds": 30
+    },
+    "exams": [
+        
+    ]
+}

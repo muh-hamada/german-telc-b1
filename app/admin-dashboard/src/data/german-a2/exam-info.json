@@ -1,0 +1,232 @@
+{
+    "exam_info": {
+        "title": {
+            "en": "Telc Deutsch A1 / Zertifikat Deutsch Exam Overview",
+            "ar": "نظرة عامة على اختبار Telc Deutsch A1 / شهادة اللغة الألمانية",
+            "ru": "Обзор экзамена Telc Deutsch A1 / Сертификат по немецкому языку",
+            "fr": "Aperçu de l'examen Telc Deutsch A1 / Certificat d'allemand",
+            "es": "Resumen del Examen Telc Deutsch A1 / Certificado de Alemán",
+            "de": "Überblick über die Prüfung Telc Deutsch A1 / Zertifikat Deutsch"
+        },
+        "cefr_level": "A1",
+        "total_duration_minutes": 90,
+        "total_max_points": 60,
+        "passing_score": {
+            "overall_points": 60,
+            "written_component_min_points": 27,
+            "oral_component_min_points": 9,
+            "note": {
+                "en": "A minimum of 60% must be achieved in both the Written (27/60) and Oral (9/15) components to pass the entire exam.",
+                "ar": "يجب أن يحصل على نسبة 60٪ على الأقل في كل من الكتابي (27/60) والشفوي (9/15) للاجتياز الاختبار بالكامل.",
+                "ru": "Для сдачи экзамена кандидаты должны набрать 60% от максимального балла как в письменной части (27 из 60 баллов), так и в устной части (9 из 15 баллов).",
+                "fr": "Pour réussir, les candidats doivent obtenir 60 % du score maximum dans les DEUX examens : Écrit (27/60 points) et Oral (9/15 points).",
+                "es": "Para aprobar, los candidatos deben alcanzar el 60% de la puntuación máxima tanto en el Examen Escrito (27/60 puntos) como en el Examen Oral (9/15 puntos).",
+                "de": "Zum Bestehen müssen die Teilnehmenden 60 % der Höchstpunktzahl in BEIDEN Prüfungsteilen erreichen: Schriftliche Prüfung (27/60 Punkte) und Mündliche Prüfung (9/15 Punkte)."
+            }
+        },
+        "exam_structure": {
+            "title": {
+                "en": "Detailed Exam Structure and Timing",
+                "ar": "الهيكل التفصيلي للاختبار والتوقيت",
+                "ru": "Подробная структура и тайминг экзамена",
+                "fr": "Structure détaillée de l'examen et calendrier",
+                "es": "Estructura detallada del examen y horarios",
+                "de": "Detaillierte Prüfungsstruktur und Zeitrahmen"
+            },
+            "sections": [
+                {
+                    "name": "Schriftliche Prüfung",
+                    "total_time_minutes": 75,
+                    "max_points": 45,
+                    "weight_percent": 75,
+                    "parts": [
+                        {
+                            "part_name": "1. Hören",
+                            "time_minutes": 20,
+                            "max_points": 15,
+                            "question_type_detail": {
+                                "en": "Three parts consisting of True/False (Richtig/Falsch) and Multiple-Choice questions based on short texts.",
+                                "ar": "ثلاثة أجزاء تتكون بالكامل من أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد بناءً على نصوص قصيرة.",
+                                "ru": "Три части, полностью состоящие из вопросов 'Верно/Неверно' (Richtig/Falsch) и вопросов с выбором ответа на основе коротких текстов.",
+                                "fr": "Trois parties composées entièrement de questions Vrai/Faux (Richtig/Falsch) et questions à choix multiples basées sur des textes courts.",
+                                "es": "Tres partes que consisten enteramente en preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple basadas en textos cortos.",
+                                "de": "Drei Teile, die vollständig aus Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben bestehen, basierend auf kurzen Texten."
+                            }
+                        },
+                        {
+                            "part_name": "1. Lesen",
+                            "time_minutes": 25,
+                            "max_points": 15,
+                            "question_type_detail": {
+                                "en": "Three parts testing Global, and Detailed comprehension: True/False (Richtig/Falsch) and Multiple-Choice questions.",
+                                "ar": "ثلاثة أجزاء لاختبار الفهم العام والتفصيلي: أسئلة صواب/خطأ (Richtig/Falsch) وأسئلة الاختيار من متعدد.",
+                                "ru": "Три части, проверяющие глобальное и детальное понимание: вопросы 'Верно/Неверно' (Richtig/Falsch) и вопросы с выбором ответа.",
+                                "fr": "Trois parties testant la compréhension globale et détaillée : questions Vrai/Faux (Richtig/Falsch) et questions à choix multiples.",
+                                "es": "Tres partes que evalúan la comprensión global y detallada: preguntas de Verdadero/Falso (Richtig/Falsch) y preguntas de opción múltiple.",
+                                "de": "Drei Teile zur Prüfung des Global- und Detailverstehens: Richtig/Falsch-Aufgaben und Multiple-Choice-Aufgaben."
+                            }
+                        },
+                        {
+                            "part_name": "2. Schreiben",
+                            "time_minutes": 20,
+                            "max_points": 15,
+                            "question_type_detail": {
+                                "en": "Two parts testing Writing: filling out a form and writing a short message.",
+                                "ar": "ثلاثة أجزاء لاختبار الكتابة: تعبئة نموزج وكتابة ملاحظة صغيرة.",
+                                "ru": "Две части, проверяющие написание: заполнение формы и написание краткого сообщения.",
+                                "fr": "Deux parties testant la rédaction : remplissage d'un formulaire et rédaction d'un message court.",
+                                "es": "Dos partes que evalúan la escritura: rellenar un formulario y escribir un mensaje corto.",
+                                "de": "Zwei Teile zur Prüfung der Schreibung: Ausfüllen eines Formulars und Schreiben einer kurzen Mitteilung."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Mündliche Prüfung",
+                    "total_time_minutes": 15,
+                    "preparation_time_minutes": 20,
+                    "max_points": 75,
+                    "weight_percent": 25,
+                    "parts": [
+                        {
+                            "part_name": "1. Sich Vorstellen",
+                            "time_minutes": 3,
+                            "max_points": 5,
+                            "question_type_detail": {
+                                "en": "Introduce yourself on the topics of name, age, origin, living location, family, job, hobbies and languages.",
+                                "ar": "قدّم نفسك على المواضيع مثل الاسم، العمر، الأصل، الموقع المعيشي، العائلة، العمل، الهوايات واللغات.",
+                                "ru": "Представьтесь на темах имени, возраста, происхождения, места проживания, семьи, работы, хобби и языков.",
+                                "fr": "Présentez-vous sur les sujets de nom, âge, origine, lieu de vie, famille, travail, loisirs et langues.",
+                                "es": "Presentese en los temas de nombre, edad, origen, ubicación de residencia, familia, trabajo, hobbies y idiomas.",
+                                "de": "Sich selbst vorstellen auf den Themen Name, Alter, Herkunft, Wohnort, Familie, Beruf, Hobbys und Sprachen."
+                            }
+                        },
+                        {
+                            "part_name": "2. Um Informationen bitten und Informationen geben",
+                            "time_minutes": 4,
+                            "max_points": 5,
+                            "question_type_detail": {
+                                "en": "Request and provide information on two everyday topics",
+                                "ar": "اطلب وقدّم معلومات حول موضوعين من المواضيع اليومية",
+                                "ru": "Запрос и предоставление информации на двух повседневных темах",
+                                "fr": "Demander et fournir des informations sur deux sujets quotidiens",
+                                "es": "Solicitar y proporcionar información sobre dos temas cotidianos",
+                                "de": "Zu zwei Alltagsthemen Informationen erfragen und geben."
+                            }
+                        },
+                        {
+                            "part_name": "3. Bitte formulieren und darauf reagieren",
+                            "time_minutes": 4,
+                            "max_points": 5,
+                            "question_type_detail": {
+                                "en": "Ask a conversation partner for something and react to their request.",
+                                "ar": "اسأل شريك الحوار بشيء واستجب لطلبه.",
+                                "ru": "Спросить у партнера о чем-то и ответить на его просьбу.",
+                                "fr": "Demander à un partenaire de quelque chose et réagir à sa demande.",
+                                "es": "Preguntar a un compañero de algo y responder a su petición.",
+                                "de": "Einen Gesprächspartner um etwas bitten und auf seine Bitte reagieren."
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "assessment_score": {
+            "title": {
+                "en": "Assessment Criteria and Maximum Scores by Section",
+                "ar": "معايير التقييم والحد الأقصى للدرجات حسب القسم",
+                "ru": "Критерии оценки и максимальные баллы по разделам",
+                "fr": "Critères d'évaluation et scores maximums par section",
+                "es": "Criterios de evaluación y puntuaciones máximas por sección",
+                "de": "Bewertungskriterien und Höchstpunktzahlen nach Teilbereich"
+            },
+            "assessment_details": [
+                {
+                    "section_name": "Schreiben",
+                    "max_points": 15,
+                    "criteria": [
+                        {
+                            "name": "I. Teil 1",
+                            "max_points": 5,
+                            "explanation": {
+                                "en": "The evaluators check the entries and mark them with (+) for correct and with (–) for incorrect on the answer sheet S30. Spelling errors are generally not relevant for fulfilling the task. For the solution „Donnerstag“, participant performances such as „Donerstach“ or „donastag“ are to be accepted. Only clearly correct solutions are acceptable for tasks with numbers.",
+                                "ar": "يتحقق المقيمون الإدخالات ويضعون علامة (+) للصحيح وعلامة (–) للخطأ على ورقة الإجابة S30. الأخطاء في الإملاء عادة لا تكون مرتبطة بالمهمة المطلوبة في الغالب. لحل المشكلة „Donnerstag“، يجب قبول الأداءات التي تشبه „Donerstach“ أو „donastag“ للمشاركين. يجب قبول الحلول الواضحة الصحيحة فقط للمهمات التي تتضمن الأرقام.",
+                                "ru": "Оценщики проверяют вводы и отмечают их знаком (+) для правильных и знаком (–) для неправильных на листе ответов S30. Орфографические ошибки обычно не имеют отношения к выполнению задания. Для решения „Donnerstag“ приемлемы результаты, такие как „Donerstach“ или „donastag“ для участников. Приемлемы только четко правильные решения для задач с числами.",
+                                "fr": "Les évaluateurs vérifient les entrées et les marquent avec (+) pour correct et avec (–) pour incorrect sur la feuille de réponse S30. Les erreurs d'orthographe sont généralement non pertinentes pour la réalisation de la tâche. Pour la solution „Donnerstag“, les performances des participants telles que „Donerstach“ ou „donastag“ sont acceptables. Seules les solutions clairement correctes sont acceptables pour les tâches avec des nombres.",
+                                "es": "Los evaluadores revisan las entradas y las marcan con (+) para correctas y con (–) para incorrectas en el formulario de respuesta S30. Los errores de ortografía generalmente no son relevantes para la realización de la tarea. Para la solución „Donnerstag“, las prestaciones de los participantes como „Donerstach“ o „donastag“ son aceptables. Solo se aceptan soluciones claramente correctas para tareas con números.",
+                                "de": "Die Bewerterinnen oder Bewerter überprüfen die Einträge und kennzeichnen sie mit (+) für richtig und mit (–) für falsch auf dem Antwortbogen S30. Rechtschreibfehler sind für die Erfüllung der Aufgabe in der Regel nicht relevant. Bei der Lösung „Donnerstag“ sind Teilnehmerleistungen wie „Donerstach“ oder „donastag“ zu akzeptieren. Bei Aufgaben mit Zahlen können nur eindeutig richtige Lösungen akzeptiert werden."
+                            }
+                        },
+                        {
+                            "name": "II. Teil 2",
+                            "max_points": 5,
+                            "explanation": {
+                                "en": "Fulfillment of the task (per content point): 3 points for task fully fulfilled and understandable, 1.5 points for task due to linguistic and content shortcomings only partially fulfilled, 0 points for task not fulfilled and/or incomprehensible\n\nCommunicative Design of the Text: 1 point for the text sort appropriate, 0.5 points for atypical or missing expressions, e.g. no address, 0 points for inappropriate text sort",
+                                "ar": "تنفيذ المهمة (لكل نقطة محتوى): 3 نقاط للمهمة التي تم تنفيذها بشكل كامل ومفهومة، 1.5 نقطة للمهمة ناتجة عن عيوب لغوية ومحتوية فقط تم تنفيذها بشكل جزئي، 0 نقطة للمهمة التي لم يتم تنفيذها و/أو غير مفهومة\n\nتصميم النص التواصلي: 1 نقطة لنوع النص المناسب، 0.5 نقطة للتعبيرات غير النمطية أو المفقودة، مثل عدم وجود عنوان، 0 نقطة لنوع النص غير المناسب",
+                                "ru": "Выполнение задания (за каждую точку содержания): 3 балла за задание, полностью выполненное и понятное, 1.5 балла за задание из-за лингвистических и содержательных недостатков только частично выполненное, 0 баллов за задание, не выполненное и/или непонятное\n\nКоммуникативное оформление текста: 1 балл за тип текста подходящий, 0.5 балла за нетипичные или отсутствующие выражения, например, отсутствие адресата, 0 баллов за неприемлемый тип текста",
+                                "fr": "Réalisation de la tâche (par point de contenu): 3 points pour la tâche entièrement remplie et compréhensible, 1.5 points pour la tâche due à des défauts linguistiques et de contenu uniquement partiellement remplie, 0 points pour la tâche non remplie et/ou incompréhensible\n\nDesign communicatif du texte: 1 point pour le type de texte approprié, 0.5 points pour les expressions atypiques ou manquantes, par exemple, absence d'adresse, 0 points pour le type de texte inapproprié",
+                                "es": "Cumplimiento de la tarea (por cada punto de contenido): 3 puntos para la tarea completamente cumplida y comprensible, 1.5 puntos para la tarea debido a deficiencias lingüísticas y de contenido solo parcialmente cumplida, 0 puntos para la tarea no cumplida y/o incomprensible\n\nDiseño comunicativo del texto: 1 punto para el tipo de texto apropiado, 0.5 puntos para expresiones atípicas o faltantes, por ejemplo, ausencia de dirección, 0 puntos para el tipo de texto inapropiado",
+                                "de": "Erfüllung der Aufgabenstellung (pro Inhaltspunkt): 3 Punkte für Aufgabe voll erfüllt und verständlich, 1.5 Punkte für Aufgabe wegen sprachlicher und inhaltlicher Mängel nur teilweise erfüllt, 0 Punkte für Aufgabe nicht erfüllt und/oder unverständlich\n\nKommunikative Gestaltung des Texts: 1 Punkt für der Textsorte angemessen, 0.5 Punkte für untypische oder fehlende Wendungen, z. B. keine Anrede, 0 Punkte für keine textsortenspezifischen Wendungen"
+                            }
+                        }
+                    ],
+                    "note": {
+                        "en": "Max. 10 points can be awarded. The evaluator or the evaluator enters their or her evaluations first in the answer sheet at „Evaluation 1“ and „telc Evaluation“. In case of disagreements, the telc evaluation overrides Evaluation 1.",
+                        "ar": "يمكن تعيين 10 نقطة كحد أقصى. يدخل المقيم أو المقيم التقييمات الخاصة به أولاً في ورقة الإجابة على „التقييم 1“ و„التقييم telc“. في حالة الإختلافات، يتم التغلب على التقييم 1 بالتقييم telc.",
+                        "ru": "Максимум 10 баллов может быть присуждено. Оценщик или оценщик вносит свои или его оценки сначала в лист ответов на „Оценка 1“ и „telc Оценка“. В случае разногласий, оценка telc переопределяет Оценку 1.",
+                        "fr": "Max. 10 points peuvent être attribués. L'évaluateur ou l'évaluatrice entre d'abord ses ou ses évaluations dans le formulaire de réponse à „Évaluation 1“ et „telc Évaluation“. En cas de désaccord, l'évaluation telc remplace l'Évaluation 1.",
+                        "es": "Máx. 10 puntos pueden ser otorgados. El evaluador o la evaluadora introduce primero sus o sus evaluaciones en el formulario de respuesta en „Evaluación 1“ y „telc Evaluación“. En caso de discrepancias, la evaluación telc anula la Evaluación 1.",
+                        "de": "Es können maximal 10 Punkte vergeben werden. Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei „Bewertung 1“ und „telc Bewertung“ ein. Bei Unstimmig keiten überstimmt die telc Bewertung Bewertung 1."
+                    }
+                },
+                {
+                    "section_name": "Mündlicher Ausdruck",
+                    "max_points": 15,
+                    "criteria": [
+                        {
+                            "name": "1. Sich Vorstellen",
+                            "explanation": {
+                                "en": "Task fully completed and understandable",
+                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
+                                "ru": "Задание полностью выполнено и понятно",
+                                "fr": "Tâche entièrement remplie et compréhensible",
+                                "es": "Tarea completamente cumplida y comprensible",
+                                "de": "Aufgabe voll erfüllt und verständlich"
+                            }
+                        },
+                        {
+                            "name": "2. Um Informationen bitten und Informationen geben",
+                            "explanation": {
+                                "en": "Task fully completed and understandable",
+                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
+                                "ru": "Задание полностью выполнено и понятно",
+                                "fr": "Tâche entièrement remplie et compréhensible",
+                                "es": "Tarea completamente cumplida y comprensible",
+                                "de": "Aufgabe voll erfüllt und verständlich"
+                            }
+                        },
+                        {
+                            "name": "3. Bitte formulieren und darauf reagieren",
+                            "explanation": {
+                                "en": "Task fully completed and understandable",
+                                "ar": "المهمة التي تم تنفيذها بشكل كامل ومفهومة",
+                                "ru": "Задание полностью выполнено и понятно",
+                                "fr": "Tâche entièrement remplie et compréhensible",
+                                "es": "Tarea completamente cumplida y comprensible",
+                                "de": "Aufgabe voll erfüllt und verständlich"
+                            }
+                        }
+                    ],
+                    "points_distribution": {
+                        "en": "The examiners assess the participants' performance using the yellow telc assessment form M10",
+                        "ar": "يتم تقييم أداء المشاركين باستخدام نموزج التقييم الأصفر telc M10",
+                        "ru": "Оценщики оценивают выполнение заданий с помощью желтого формы оценки telc M10",
+                        "fr": "Les évaluateurs évaluent la performance des participants en utilisant le formulaire de notation jaune telc M10",
+                        "es": "Los evaluadores evalúan el rendimiento de los participantes utilizando el formulario de evaluación amarillo telc M10",
+                        "de": "Die Bewerter bewerten die Leistung der Teilnehmer mit dem gelben telc Bewertungsformular M10"
+                    }
+                }
+            ]
+        }
+    }
+}

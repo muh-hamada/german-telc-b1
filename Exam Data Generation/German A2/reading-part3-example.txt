@@ -1,0 +1,50 @@
+Reading Part 3
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- advertisements: 8 advertisement with keys from a to h. Use \n, \n\n, and ** to format the text
+- 5 questions. Ids start from number 11 to 15. Each question have a "question" and the correct "answer" key.
+- title: general title for the question in German. 4-6 words long
+
+{
+  "id": "ab066599-c197-44b7-9f1d-4198d3780fdd",
+  "title": "Tres Formas de Organizar Fiestas Infantiles",
+  "advertisements": {
+    "a": "**www.bahn.de**\nGenießen Sie schöne Ferien in Deutschland mit uns. Wir bringen Sie in alle Städte. Günstige Ski-Reisen mit Spar­ möglichkeiten für Ihre Geldbörse!",
+    "b": "**www.reiserat.com**\n• Reisegebiete, Bundesländer\n• Flussreisen (Rhein, Main, Donau)\n• Ferienhaus online buchen\n• Interaktive Deutschlandkarte",
+    "c": "www.goodjob.de\n**Auslandsjobs**\nWeltweit Stellenangebote – für ­ junge Deutsche im Ausland: Fest­ anstellung, Teilzeit, mit freier Zeit­ einteilung. Auch Schüler- und Studentenjobs.",
+    "d": "www.schneider.de\n**Dr. Schneiders Sprachreisen**\nIhr Spezialist für erfolgreiche Sprach- Weiterbildung in: Groß­ britannien, Portugal, Spanien, Frankreich und den USA.",
+    "e": "www.sprachtreff.de\n**SPRACHTREFF**\nSprachreisen, Sprachkurse für­ Erwachsene und Schüler, Schülersprachreisen in Deutschland und aller Welt.\n**Dazu viele Freizeitangebote.**",
+    "f": "**Urlaub in Deutschland**\nLuxus-Hotels\n• Ferienwohnungen und Ferien­ häuser\n• Mietwagen mit Fahrer\n• gehobene internationale ­Gastronomie\n\nInfos unter www.inforeisen.de",
+    "g": "**Billig reisen:** Online-Preis­ vergleich aller Anbieter für ­ Deutschland-Reisen. Kurzurlaub, Rundreisen mit Pkw oder Caravan, Ferienhäuser/Ferienwohnungen, Mietwagen.\n\nwww.inforeisen.de",
+    "h": "**www.germanembassy-india.org**\n• Arbeiten in Deutschland\n• Zollvorschriften\n• Studieren in Deutschland\n• Schüler- und Jugendaustausch",
+    "x": "Keine passende Anzeige"
+  },
+  "questions": [
+    {
+      "id": 11,
+      "question": "Sie möchten in Deutschland studieren und in den Semesterferien Geld verdienen. Sie suchen Informationen.",
+      "answer": "h"
+    },
+    {
+      "id": 12,
+      "question": "Ein Freund plant eine Deutschlandreise mit dem Mietwagen. Er sucht die günstigsten Preise.",
+      "answer": "g"
+    },
+    {
+      "id": 13,
+      "question": "Sie lieben gutes Essen und möchten einen Kochkurs machen.",
+      "answer": "x"
+    },
+    {
+      "id": 14,
+      "question": "Ihre Freundin möchte Urlaub in Deutschland machen und Deutsch lernen.",
+      "answer": "e"
+    },
+    {
+      "id": 15,
+      "question": "Sie möchten eine Rundreise durch Deutschland machen und mit dem Zug von Stadt zu Stadt fahren.",
+      "answer": "a"
+    }
+  ]
+}

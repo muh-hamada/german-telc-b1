@@ -1,0 +1,208 @@
+You are an expert in creating listening questions for the Telc German A2 exam.
+
+Create a similar interview to this one below; it should have the same language difficulty, text length, etc. This is from the Telc German A2 listening question.
+
+--- Radio Information Start ---
+
+Nummer 6
+Hier ist der Westdeutsche Rundfunk. Nach den ­ Nachrichten
+hören Sie das Mittagsmagazin. Um 15 Uhr folgt Lilliputz,
+das Kinderprogramm, um 16 Uhr dann ­ Boulevard Euro-
+pa …
+
+Nummer 7
+Der Wetterbericht. Heute bleibt es tagsüber weiter schön,
+bis 25º C. Gegen Abend Gewitterneigung, vor allem im Vor-
+alpenland werden starke Gewitter er­ -wartet. Morgen
+dann nass und kühler.
+
+Nummer 8
+Eine Verkehrsdurchsage. Achtung, Autofahrer auf der
+Autobahn A2 Karlsruhe – Basel, in der Nähe von ­ Freiburg:
+Fahren Sie langsam. Ein Schwein läuft über die Autobahn
+bei Kilometer 87 Nähe der Ausfahrt Freiburg.
+
+Nummer 9
+Und jetzt noch ein Geburtstagsgruß: Josef Hallhuber hat
+heute Geburtstag. Josef wird heute 17 Jahre alt: Ja, mit
+17 hat man noch Träume. Alles Gute und viel Glück wün-
+schen dir deine Eltern und Geschwister und ­ natürlich das
+gesamte Radio-Energy-Team.
+
+Nummer 10
+9:40 Uhr. Wie jeden Morgen um diese Zeit unser Gewinn-
+spiel. Heute unsere Frage zum Urlaubsbeginn: Wohin rei-
+sen die Deutschen am liebsten? a) Nach Italien. b)
+Nach Österreich. Oder c) Nach Deutschland. Rufen Sie
+uns an unter 23 23 23 und gewinnen Sie eine Reise für 2
+Personen an die Ostsee..
+
+--- Radio Information End ---
+
+Create the Radio Information messages, then structure it into a JSON file with the following format:
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- Each part has a person part (male or female)
+- For each Radio Information message, create a question and 3 multi-choices
+- For each part, create a one "type: 'speech'" item. It will be processed seperaretely later for Text-to-Speech
+- questions array must have 5 questions with Id from 6 to 10
+- audio_transcription is on the question level for each Radio Information message
+- The JSON output must include a "segments" array that strictly follows this repetition structure for every message:
+
+"segments": [
+  // ... intro parts ...
+  
+  // MESSAGE 6 - FIRST TIME
+  { "type": "ready", "id": "message-6" },
+  { "type": "speech", "id": "message-speaker-1", repeated: true, speed: 0.8, voiceId: 'person1|person3', "text": "Guten Tag, Herr..." },
+
+  { "type": "pause", "durationSeconds": 5 },
+
+  // ... continue for Message 6 until Message 10
+
+  // ... outro parts ...
+]
+
+
+
+---- FULL JSON ----
+
+{
+    "segments": [
+        { type: 'pause', durationSeconds: 1 },
+        { type: 'ready', id: 'part-2-intro' },
+        { type: 'pause', durationSeconds: 10 },
+
+
+        { type: 'ready', id: 'message-6' },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'message-7' },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'message-8' },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
+        
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'message-9' },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
+
+        { type: 'pause', durationSeconds: 5 },
+
+        { type: 'ready', id: 'message-10' },
+        { type: 'pause', durationSeconds: 2 },
+        { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
+        
+        { type: 'pause', durationSeconds: 3 },
+        { type: 'ready', id: 'part-2-outro' },
+        { type: 'pause', durationSeconds: 5 },
+    ],
+    "title": <title in german>, // The title should be 4-6 words and related to the conversations
+    "id": "", // Generate UUIDv4 ID
+    "audio_url": "PLACEHOLDER_KEEP_IT_DO_NOT_CHANGE",
+    "questions": [
+      {
+        "id": 6,
+        "question": "<the question text>",
+        "audio_transcription": "",
+        "options": [
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "<the question text>",
+        "audio_transcription": "",
+        "options": [
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "<the question text>",
+        "audio_transcription": "",
+        "options": [
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "<the question text>",
+        "audio_transcription": "",
+        "options": [
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "<the question text>",
+        "audio_transcription": "",
+        "options": [
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          },
+          {
+            "is_correct": <boolean>,
+            "text": "<choice text>",
+          }
+        ]
+      }
+    ]
+}

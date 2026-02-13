@@ -1,0 +1,127 @@
+Reading Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- 5 questions. Ids start from number 1 to 5
+- information: 5 texts that include information about the scope of each level in a shopping mall. The key is the level number
+- title: general title for the question in German. 3-5 words long
+- Use the example below as a reference.
+
+{
+  "id": "915325ec-bc00-4e45-a867-6025a5c869af",
+  "title": "Dein Kaufhaus Waldheim",
+  "information": {
+    "4": "4. Stock: SB-Restaurant | Wickelraum | Garderobe | Toilette | Fundbüro | Fernsprecher",
+    "3": "3. Stock: Computer | Technik | Software | Foto | Optiker | Video | Radio | TV-Hi-Fi | Erste Hilfe | Autozubehör | Fahrräder | Sport artikel | Bade- und Strandmoden",
+    "2": "2. Stock: Betten | Matratze | Bett- und Tischwaren | Frottierwaren | Gardinen | Dekostoffe | Herrenbekleidung | Spielwaren | Kinderwagen | Kinderbekleidung | Schreibwaren / Bücher",
+    "1": "1. Stock: Damenbekleidung | Pelze | Schuhe | Stock und Schirm | Nachtwäsche | Alles für die Küche | Glas | Porzellan | Beleuchtung | Elektroartikel",
+    "0": "Erdgeschoss: Kosmetik | Handarbeiten | Kurzwaren | Putz- und Waschmittel | Wechselkasse | Tax-Free-Service | Friseursalon"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Sie suchen ein Buch für Ihre 12-jährige Nichte.",
+      "options": [
+        {
+            "id": 1,
+            "text": "Erdgeschoss",
+            "is_correct": false
+        },
+        {
+            "id": 2,
+            "option": "2. Stock",
+            "is_correct": true
+        },
+        {
+            "id": 3,
+            "option": "anderes Stockwerk",
+            "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Sie möchten einen Reiseführer über Berlin kaufen.",
+      "options": [
+        {
+            "id": 1,
+            "text": "Erdgeschoss",
+            "is_correct": false
+        },
+        {
+            "id": 2,
+            "option": "2. Stock",
+            "is_correct": true
+        },
+        {
+            "id": 3,
+            "option": "anderes Stockwerk",
+            "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Sie haben gestern im Kaufhaus Ihre Geldbörse verloren.",
+      "options": [
+        {
+            "id": 1,
+            "text": "Erdgeschoss",
+            "is_correct": false
+        },
+        {
+            "id": 2,
+            "option": "3. Stock",
+            "is_correct": false
+        },
+        {
+            "id": 3,
+            "option": "anderes Stockwerk",
+            "is_correct": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Sie möchten Seife kaufen.",
+      "options": [
+        {
+            "id": 1,
+            "text": "Erdgeschoss",
+            "is_correct": true
+        },
+        {
+            "id": 2,
+            "option": "3. Stock",
+            "is_correct": false
+        },
+        {
+            "id": 3,
+            "option": "anderes Stockwerk",
+            "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Sie möchten eine Sonnenbrille kaufen.",
+      "options": [
+        {
+            "id": 1,
+            "text": "Erdgeschoss",
+            "is_correct": false
+        },
+        {
+            "id": 2,
+            "option": "2. Stock",
+            "is_correct": false
+        },
+        {
+            "id": 3,
+            "option": "anderes Stockwerk",
+            "is_correct": true
+        }
+      ]
+    }
+  ]
+}

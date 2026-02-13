@@ -1,0 +1,48 @@
+{
+    "exams": [
+        {
+            "id": 0,
+            "title": "E-Mail / Brief schreiben",
+            "instruction_header": "Schreiben Sie an die Touristeninformation in Dresden:",
+            "task_points": [
+                {
+                    "id": "point_1",
+                    "text": "Sie kommen im August nach Dresden.",
+                    "keywords_expected": [
+                        "August",
+                        "Dresden",
+                        "komme",
+                        "reisen",
+                        "besuchen"
+                    ]
+                },
+                {
+                    "id": "point_2",
+                    "text": "Bitten Sie um Informationen über Film, Theater, Museen usw. (Kulturprogramm).",
+                    "keywords_expected": [
+                        "Informationen",
+                        "Film",
+                        "Theater",
+                        "Museen",
+                        "Kulturprogramm",
+                        "bitte"
+                    ]
+                },
+                {
+                    "id": "point_3",
+                    "text": "Bitten Sie um Hoteladressen.",
+                    "keywords_expected": [
+                        "Hotel",
+                        "Adressen",
+                        "übernachten",
+                        "Unterkunft"
+                    ]
+                }
+            ],
+            "constraints": {
+                "text_length_hint": "Schreiben Sie zu jedem Punkt ein bis zwei Sätze (circa 30 Wörter).",
+                "structure_hint": "Vergessen Sie nicht den passenden Anfang und Gruß am Schluss."
+            }
+        }
+    ]
+}

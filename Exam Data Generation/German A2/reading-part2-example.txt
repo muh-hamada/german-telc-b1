@@ -1,0 +1,43 @@
+Reading Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- 5 questions. Ids start from number 6 to 10. Each question have a "statement" and "is_correct".
+- text: create a text with a matching lengeth and complexity for German A2 level. Use the example below as a reference.
+- title: general title for the question in Spanish. 4-6 words long
+
+{
+    "id": "1410b9e5-2087-4d0f-aa22-6e6d72d2790e",
+    "title": "Peter Nohlen: Hochzeit in Las Vegas",
+    "text": "Der deutsche Popsänger Peter Nohlen (48) und seine Patricia (23) werden bald Hochzeit feiern. Darüber freut sich nicht nur Patricia selbst – auch ihre Mutter Maria Luisa García Concha (48) ist erleichtert: „Ich bin froh, dass er sie endlich heiraten will.“ Patricias Mutter machte sich Sorgen, weil ihre Tochter schon zwei Jahre mit Peter in einem Haus zusammenlebt. Peter ist nach drei gescheiterten Ehen und unzähligen Affären nicht gerade ein Wunschkandidat für Schwiegermütter. Maria Luisa stellte Nachforschungen über den blonden Peter aus Berlin an. Mit positivem Ausgang: „Patricia hat im Leben immer eine gute Wahl getroffen. Wenn sie mit Peter glücklich ist, soll er mir als Schwiegersohn willkommen sein“, so ihre Mutter. Und dann gibt Maria Luisa ihrem Schwiegersohn in spe auch gleich den ersten Rat mit auf den Weg: „Heiraten ist mehr als nur nach Las Vegas fahren. Ich möchte, dass er meine Tochter glücklich macht, und außerdem möchte ich bald Oma werden.“",
+    "questions": [
+        {
+            "id": 6,
+            "statement": "Peter Nohlen wird bald heiraten.",
+            "is_correct": true
+        },
+        {
+            "id": 7,
+            "statement": "Maria Luisa ist gegen die Hochzeit.",
+            "is_correct": false
+        },
+        {
+            "id": 8,
+            "statement": "Peter war mit Patricia vor zwei Jahren schon einmal verheiratet.",
+            "is_correct": false
+        },
+        {
+            "id": 9,
+            "statement": "Peter ist genauso alt wie seine neue Schwiegermutter.",
+            "is_correct": true
+        },
+        {
+            "id": 10,
+            "statement": "Maria Luisa wünscht sich ein Enkelkind.",
+            "is_correct": true
+        }
+    ]
+}
+
+
+

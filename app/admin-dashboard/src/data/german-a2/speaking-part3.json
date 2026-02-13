@@ -1,0 +1,251 @@
+{
+    "simulation_data": {
+        "cards_deck": [
+            {
+                "id": "card_01",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_01.png?alt=media&token=bcd863fa-1a1d-4588-8b82-491613e430c4",
+                "expected_keywords": [
+                    "Apfel",
+                    "essen",
+                    "kaufen",
+                    "haben",
+                    "bitte"
+                ],
+                "image_description": "Zwei grüne Äpfel",
+                "example_request": "Kann ich bitte einen Apfel haben?",
+                "image_label": "Äpfel"
+            },
+            {
+                "image_label": "Fleisch",
+                "expected_keywords": [
+                    "Fleisch",
+                    "braten",
+                    "essen",
+                    "kaufen",
+                    "bitte"
+                ],
+                "id": "card_02",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_02.png?alt=media&token=5581b556-98dc-46ff-80fa-eb95d0b8a56a",
+                "example_request": "Geben Sie mir bitte ein Stück Fleisch.",
+                "image_description": "Ein Stück rohes Fleisch (Kotelett)"
+            },
+            {
+                "image_label": "Banane",
+                "id": "card_03",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_03.png?alt=media&token=c0d072ff-b4df-41a9-b4e1-b008206e8344",
+                "expected_keywords": [
+                    "Banane",
+                    "essen",
+                    "geben",
+                    "bitte"
+                ],
+                "example_request": "Ich möchte bitte eine Banane essen.",
+                "image_description": "Eine gelbe Banane"
+            },
+            {
+                "example_request": "Ein Glas Orangensaft, bitte.",
+                "image_description": "Ein Glas Orangensaft und Orangenscheiben",
+                "image_label": "Saft",
+                "id": "card_04",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_04.png?alt=media&token=c3bd8507-bf31-4d04-bd8b-8146b1f14751",
+                "expected_keywords": [
+                    "Saft",
+                    "Orange",
+                    "trinken",
+                    "Glas",
+                    "bitte"
+                ]
+            },
+            {
+                "image_label": "Tasche",
+                "id": "card_05",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_05.png?alt=media&token=ae74bc4a-497e-48d8-b697-42242e5f9579",
+                "expected_keywords": [
+                    "Tasche",
+                    "tragen",
+                    "geben",
+                    "helfen",
+                    "bitte"
+                ],
+                "example_request": "Können Sie mir bitte die Tasche geben?",
+                "image_description": "Eine helle Handtasche/Korb"
+            },
+            {
+                "expected_keywords": [
+                    "Hund",
+                    "spazieren",
+                    "spielen",
+                    "draußen",
+                    "bitte"
+                ],
+                "image_description": "Ein Dalmatiner Hund",
+                "example_request": "Darf ich bitte mit dem Hund spielen?",
+                "image_label": "Hund",
+                "id": "card_06",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_06.png?alt=media&token=5dbffc56-5421-4630-b3b8-d954c5ac20f8"
+            },
+            {
+                "image_label": "Schlüssel",
+                "example_request": "Geben Sie mir bitte die Schlüssel.",
+                "image_description": "Ein Schlüsselbund mit drei Schlüsseln",
+                "id": "card_07",
+                "expected_keywords": [
+                    "Schlüssel",
+                    "geben",
+                    "Auto",
+                    "Haus",
+                    "bitte"
+                ],
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_07.png?alt=media&token=9543249c-b7c2-486a-ab65-ef161369378b"
+            },
+            {
+                "id": "card_08",
+                "image_description": "Ein dunkler Reisekoffer (Trolley)",
+                "expected_keywords": [
+                    "Koffer",
+                    "tragen",
+                    "helfen",
+                    "schwer",
+                    "bitte"
+                ],
+                "example_request": "Können Sie mir bitte mit dem Koffer helfen?",
+                "image_label": "Koffer",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_08.png?alt=media&token=782b87d9-49f7-45c1-b7f6-33799cd4b068"
+            },
+            {
+                "image_description": "Zwei Gerbera-Blüten (orange/gelb)",
+                "image_label": "Blumen",
+                "example_request": "Stellen Sie die Blumen bitte ins Wasser.",
+                "id": "card_09",
+                "expected_keywords": [
+                    "Blumen",
+                    "kaufen",
+                    "Schenken",
+                    "Wasser",
+                    "bitte"
+                ],
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_09.png?alt=media&token=38955014-8dcb-4a50-9092-3caf7a766e27"
+            },
+            {
+                "expected_keywords": [
+                    "Kuchen",
+                    "backen",
+                    "essen",
+                    "Stück",
+                    "bitte"
+                ],
+                "image_label": "Kuchen",
+                "id": "card_10",
+                "image_description": "Ein Gugelhupf (Kuchen)",
+                "example_request": "Ich hätte gern ein Stück Kuchen, bitte.",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_10.png?alt=media&token=9184b95d-8df9-478b-98d4-fb8a5e4874a5"
+            },
+            {
+                "image_label": "Laptop",
+                "id": "card_11",
+                "image_description": "Ein aufgeklappter Laptop",
+                "example_request": "Darf ich bitte kurz den Laptop benutzen?",
+                "expected_keywords": [
+                    "Laptop",
+                    "Computer",
+                    "E-Mail",
+                    "schreiben",
+                    "benutzen",
+                    "bitte"
+                ],
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_11.png?alt=media&token=9854328d-4ab8-4d3b-8b1b-5c2058cad8f8"
+            },
+            {
+                "expected_keywords": [
+                    "Auto",
+                    "fahren",
+                    "mitfahren",
+                    "Parkplatz",
+                    "bitte"
+                ],
+                "id": "card_12",
+                "image_description": "Ein silbernes Auto",
+                "image_label": "Auto",
+                "example_request": "Können Sie mich bitte mit dem Auto mitnehmen?",
+                "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/a1_exam_speaking_pictures%2Fcard_12.png?alt=media&token=c95caf5a-3203-42ef-ae24-377f7dcb852c"
+            }
+        ],
+        "example_scenario": {
+            "card_image_description": "Ein Glas Wasser (Example provided in instructions)",
+            "dialogue_example": [
+                {
+                    "speaker": "User",
+                    "role": "Requester",
+                    "options": [
+                        "Ein Glas Wasser, bitte!",
+                        "Könnte ich bitte ein Glas Wasser haben?"
+                    ]
+                },
+                {
+                    "options": [
+                        "Hier, bitte.",
+                        "Tut mir leid, ich habe keins."
+                    ],
+                    "speaker": "Partner",
+                    "role": "Responder"
+                }
+            ]
+        }
+    },
+    "instructions": {
+        "de": {
+            "goal": "Sie sollen Bitten formulieren und auf Bitten reagieren.",
+            "steps": [
+                "Sie ziehen eine Karte mit einem Bild (Handlungskarte).",
+                "Sie müssen eine Bitte zu diesem Bild formulieren.",
+                "Ihr Partner reagiert auf die Bitte (positiv oder negativ).",
+                "Danach tauschen Sie die Rollen."
+            ]
+        },
+        "es": {
+            "steps": [
+                "Usted toma una tarjeta con una imagen (Tarjeta de acción).",
+                "Debe formular una petición relacionada con esta imagen.",
+                "Su compañero responde a la petición (positiva o negativamente).",
+                "Luego cambian de roles."
+            ],
+            "goal": "Debe formular peticiones y responder a ellas."
+        },
+        "en": {
+            "goal": "You should formulate requests and respond to requests.",
+            "steps": [
+                "You draw a card with a picture (Action Card).",
+                "You must formulate a request related to this picture.",
+                "Your partner responds to the request (positively or negatively).",
+                "Then you switch roles."
+            ]
+        },
+        "fr": {
+            "steps": [
+                "Vous tirez une carte avec une image (Carte d'action).",
+                "Vous devez formuler une demande liée à cette image.",
+                "Votre partenaire répond à la demande (positivement ou négativement).",
+                "Ensuite, vous échangez les rôles."
+            ],
+            "goal": "Vous devez formuler des demandes et y répondre."
+        },
+        "ru": {
+            "goal": "Вы должны формулировать просьбы и отвечать на них.",
+            "steps": [
+                "Вы вытягиваете карточку с картинкой (Карточка действия).",
+                "Вы должны сформулировать просьбу, связанную с этой картинкой.",
+                "Ваш партнер отвечает на просьбу (положительно или отрицательно).",
+                "Затем вы меняетесь ролями."
+            ]
+        },
+        "ar": {
+            "steps": [
+                ".(بطاقة عمل) تسحب بطاقة عليها صورة",
+                ".يجب عليك صياغة طلب يتعلق بهذه الصورة",
+                ".(بالإيجاب أو السلب) يرد شريكك على الطلب",
+                ".ثم تتبادلان الأدوار"
+            ],
+            "goal": ".عليك صياغة الطلبات والرد عليها"
+        }
+    }
+}

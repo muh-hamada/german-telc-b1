@@ -1,0 +1,196 @@
+Writing Part 1
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- information: the information needed for the student to fill the form. It's split into three parts, personal_details, credit_card, and additional_info
+- form_fields: same exact number of fields and structure. Only change the text content based on the scenario.
+- instruction: fixed instruction. similar to the one provided in the example below. Do not change
+- title: general title for the question in German. 4-6 words long
+- Use the example below as a reference.
+
+{
+  "id": "915325ec-bc00-4e45-a867-6025a5c869af",
+  "form_fields": [
+    {
+      "id": "field_0",
+      "type": "text",
+      "value": "Del Sol",
+      "label": "Familienname, Vorname:",
+      "is_editable": false
+    },
+    {
+      "id": "field_1",
+      "type": "text",
+      "value": "Miguel",
+      "label": "Vorname:",
+      "is_editable": false
+    },
+    {
+      "id": "field_2",
+      "type": "text",
+      "value": null,
+      "label": "Wohnort:",
+      "is_editable": true,
+      "question_number": 1,
+      "validation": {
+        "acceptable_values": [
+          "Santiago"
+        ],
+        "correct_value": "Santiago"
+      }
+    },
+    {
+      "id": "field_3",
+      "type": "text",
+      "value": "Chile",
+      "label": "Land:",
+      "is_editable": false
+    },
+    {
+      "id": "field_4",
+      "type": "text",
+      "value": "Avenida de la Paz, 25",
+      "label": "Straße:",
+      "is_editable": false
+    },
+    {
+      "id": "field_5",
+      "type": "text",
+      "value": null,
+      "label": "Geburtsdatum:",
+      "is_editable": true,
+      "question_number": 2,
+      "validation": {
+        "acceptable_values": [
+          "18.10.1972",
+          "18-10-1972",
+          "18/10/1972"
+        ],
+        "correct_value": "18.10.1972"
+      }
+    },
+    {
+      "id": "field_6",
+      "type": "text",
+      "value": null,
+      "label": "Geburtsort:",
+      "is_editable": true,
+      "question_number": 3,
+      "validation": {
+        "acceptable_values": [
+          "Valparaiso"
+        ],
+        "correct_value": "Valparaiso"
+      }
+    },
+    {
+      "id": "field_7",
+      "type": "text",
+      "value": "chilenisch",
+      "label": "Nationalität:",
+      "is_editable": false
+    },
+    {
+      "id": "field_8",
+      "is_editable": false,
+      "validation": {
+        "correct_value": "männlich"
+      },
+      "type": "single_choice",
+      "options": [
+        {
+          "value": "weiblich",
+          "label": "Weiblich"
+        },
+        {
+          "value": "männlich",
+          "label": "Männlich"
+        }
+      ],
+      "label": "Geschlecht:"
+    },
+    {
+      "id": "field_9",
+      "type": "text",
+      "value": null,
+      "label": "Familienstand:",
+      "is_editable": true,
+      "question_number": 4,
+      "validation": {
+        "acceptable_values": [
+          "verheiratet"
+        ],
+        "correct_value": "verheiratet"
+      }
+    },
+    {
+      "id": "field_10",
+      "type": "text",
+      "value": "Arzt",
+      "label": "Beruf:",
+      "is_editable": false
+    },
+    {
+      "value": "Tragen Sie auch Folgendes ein",
+      "type": "label",
+      "style": "caption",
+      "id": "info_text"
+    },
+    {
+      "id": "field_11",
+      "type": "text",
+      "value": "Spanisch",
+      "label": "Muttersprache:",
+      "is_editable": false
+    },
+    {
+      "id": "field_12",
+      "type": "text",
+      "value": null,
+      "label": "Fremdsprachen:",
+      "is_editable": true,
+      "question_number": 5,
+      "validation": {
+        "acceptable_values": [
+          "Französisch",
+          "Franzosisch"
+        ],
+        "correct_value": "Französisch"
+      }
+    }
+  ],
+  "information": {
+    "personal_details": [
+      {
+        "key": "Name": 
+        "info": "DEl SOL"
+      },
+      {
+        "key": "Vorname",
+        "info": "MIGUEL"
+      },
+      {
+        "key": "geb. am",
+        "info": "18.10.1972"
+      },
+      {
+        "key": "geb. in",
+        "info": "VALPARAÍSO"
+      },
+      {
+        "key": "wohnhaft in",
+        "info": "Avenida de la Paz, 25 Santiago (Chile)"
+      }
+    ],
+    "credit_card": {
+      "bank": "BANCO DE LOS ANDES",
+      "name": "MIGUEL DEL SOL",
+      "type": "Mastercard",
+      "number": "3382 9824 8045 2670",
+      "expiry_date": "12 / 2023–11 / 2025"
+    },
+    "additional_info": "Miguel hat Medizin studiert und lebt in Santiago.\n\nEr ist verheiratet mit Natalie (28) und hat zwei Töchter. Er ist Arzt und spielt in seiner Freizeit gerne Fußball. Seine Muttersprache ist Spanisch und er spricht auch sehr gut Französisch, aber noch gar kein Deutsch."
+  },
+  "instruction": "Schreiben Sie die fünf fehlenden Informationen in das Formular.",
+  "title": "Bodensee Rundfahrt Anmeldung"
+}

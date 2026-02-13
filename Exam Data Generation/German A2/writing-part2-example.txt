@@ -1,0 +1,21 @@
+Writing Part 2
+
+You must follow the same exam JSON schema. The JSON must be complete.
+- id: You MUST generate a real, random UUID v4 string (e.g., "3f8a0b5d..."). Do NOT use a placeholder
+- instruction: the context of the question for the writing evaluation and instruction about the acceptable answer.
+- task_points: same exact number of points and structure. Only change the text content based on the new task.
+- modalAnswer: the modal answer for a student in German A2 level. It must fulfill all the writingPoints and provide a suitable complexity, style, and length for German A2 level.
+- title: general title for the question. 4-6 words long
+
+{
+  "title": "Paola heiratet nächsten Monat Stefan",
+  "id": "6db73e0f-bb1d-4b4d-b872-d6e3c2407d20",
+  "modalAnswer": "Liebe Paola,\n\nvielen Dank für die Einladung! Ich freue mich sehr und komme gerne zur Hochzeit. Herzlichen Glückwunsch auch an Stefan! Was wünscht ihr euch als Geschenk? Ich suche auch noch eine günstige Übernachtung in Berlin. Hast du einen Tipp?\n\nViele Grüße\nMaria",
+  "writingPoints": [
+    "jemanden mitbringen",
+    "Geschenk",
+    "Stefan",
+    "Übernachtung in Berlin"
+  ],
+  "instruction": "Ihre Bekannte Paola heiratet nächsten Monat Stefan. Die Hochzeit ist in Berlin. Paola hat Sie eingeladen. Antworten Sie mit einem Brief.\nHier finden Sie vier Punkte. Wählen Sie drei aus. Schreiben Sie zu jedem dieser drei Punkte ein bis zwei Sätze.\nVergessen Sie nicht den passenden Anfang und den Gruß am Schluss.\nSchreiben Sie ca. 40 Wörter."
+}

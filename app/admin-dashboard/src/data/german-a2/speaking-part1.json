@@ -1,0 +1,128 @@
+{
+    "instructions": {
+        "de": {
+            "goal": "Sie sollen wichtige Informationen zur eigenen Person geben.",
+            "steps": [
+                "Sie bekommen ein Blatt mit Stichworten.",
+                "Sie stellen sich kurz vor (Name, Alter, Land, Wohnort, Sprachen, Beruf).",
+                "Nach der Vorstellung müssen Sie etwas buchstabieren (z. B. Ihren Namen).",
+                "Sie müssen eine Nummer nennen (z. B. Telefonnummer)."
+            ]
+        },
+        "en": {
+            "goal": "You should provide important information about yourself.",
+            "steps": [
+                "You will receive a sheet with keywords.",
+                "You introduce yourself briefly (Name, Age, Country, Residence, Languages, Profession).",
+                "After the introduction, you must spell something (e.g., your name).",
+                "You must state a number (e.g., phone number)."
+            ]
+        },
+        "fr": {
+            "goal": "Vous devez fournir des informations importantes sur vous-même.",
+            "steps": [
+                "Vous recevrez une feuille avec des mots-clés.",
+                "Vous vous présentez brièvement (Nom, Âge, Pays, Domicile, Langues, Profession).",
+                "Après la présentation, vous devez épeler quelque chose (par ex. votre nom).",
+                "Vous devez indiquer un numéro (par ex. numéro de téléphone)."
+            ]
+        },
+        "es": {
+            "goal": "Debe proporcionar información importante sobre usted.",
+            "steps": [
+                "Recibirá una hoja con palabras clave.",
+                "Se presenta brevemente (Nombre, Edad, País, Domicilio, Idiomas, Profesión).",
+                "Después de la presentación, debe deletrear algo (por ejemplo, su nombre).",
+                "Debe indicar un número (por ejemplo, su número de teléfono)."
+            ]
+        },
+        "ru": {
+            "goal": "Вы должны предоставить важную информацию о себе.",
+            "steps": [
+                "Вы получите лист с ключевыми словами.",
+                "Вы кратко представляетесь (Имя, Возраст, Страна, Место жительства, Языки, Профессия).",
+                "После представления вы должны что-то продиктовать по буквам (например, свое имя).",
+                "Вы должны назвать номер (например, номер телефона)."
+            ]
+        },
+        "ar": {
+            "goal": ".يجب عليك تقديم معلومات مهمة عن نفسك",
+            "steps": [
+                ".سوف تتلقى ورقة بها كلمات مفتاحية",
+                ".(الاسم، العمر، البلد، السكن، اللغات، المهنة) تقدم نفسك بإيجاز",
+                ".بعد التقديم، يجب عليك تهجئة شيء ما (مثل اسمك)",
+                ".(مثل رقم الهاتف) يجب عليك ذكر رقم"
+            ]
+        }
+    },
+    "study_material": {
+        "template_keywords": [
+            "Name",
+            "Alter",
+            "Land / Herkunft",
+            "Wohnort",
+            "Sprachen",
+            "Beruf"
+        ],
+        "example_monologue": {
+            "description": "Example introduction based on exam requirements.",
+            "text_segments": [
+                {
+                    "keyword": "Name",
+                    "phrase": "Mein Name ist...",
+                    "example_value": "Mein Name ist Maria Rossi."
+                },
+                {
+                    "keyword": "Alter",
+                    "phrase": "Ich bin ... Jahre alt.",
+                    "example_value": "Ich bin 28 Jahre alt."
+                },
+                {
+                    "keyword": "Land",
+                    "phrase": "Ich komme aus ...",
+                    "example_value": "Ich komme aus Italien."
+                },
+                {
+                    "keyword": "Wohnort",
+                    "phrase": "Ich lebe in ...",
+                    "example_value": "Ich lebe in München."
+                },
+                {
+                    "keyword": "Sprachen",
+                    "phrase": "Ich spreche ...",
+                    "example_value": "Ich spreche Italienisch, Englisch und ein bisschen Deutsch."
+                },
+                {
+                    "keyword": "Beruf",
+                    "phrase": "Von Beruf bin ich ...",
+                    "example_value": "Von Beruf bin ich Lehrerin."
+                }
+            ]
+        },
+        "example_interaction": {
+            "description": "Example of follow-up questions from the examiner.",
+            "dialogue": [
+                {
+                    "speaker": "Prüfer",
+                    "text": "Können Sie bitte Ihren Familiennamen buchstabieren?",
+                    "type": "request_spelling"
+                },
+                {
+                    "speaker": "Teilnehmer",
+                    "text": "R - O - S - S - I",
+                    "type": "response"
+                },
+                {
+                    "speaker": "Prüfer",
+                    "text": "Und wie ist bitte Ihre Telefonnummer?",
+                    "type": "request_number"
+                },
+                {
+                    "speaker": "Teilnehmer",
+                    "text": "0 - 1 - 7 - 5 - 1 - 2 - 3 - 4",
+                    "type": "response"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "title": "Party bei Ralf",
+    "text": "Liebe Carmen, lieber José,\n\nam kommenden Sonntag habe ich Geburtstag. Ich möchte gerne mit euch feiern und lade euch herzlich zu meiner Party am Samstagabend ein. Wir fangen um 21 Uhr an. Ist das okay für euch? Es werden eine ganze Menge Leute da sein, die ihr auch kennt. Könntet ihr vielleicht einen Salat mit-bringen? Und vergesst bitte nicht einen Pullover oder eine Jacke! Wir wollen nämlich draußen im Garten feiern. Ich freue mich sehr auf euch!\n\nBis zum Wochenende\nRalf",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Lis Zug kommt nach halb eins an.",
+        "is_correct": true
+      },
+      {
+        "id": 2,
+        "question": "Karin wartet den ganzen Vormittag vor der Auskunft.",
+        "is_correct": false
+      },
+      {
+        "id": 3,
+        "question": "Ralf hatte am letzten Wochenende Geburtstag.",
+        "is_correct": false
+      },
+      {
+        "id": 4,
+        "question": "Ralf hat nur zwei oder drei Leute eingeladen.",
+        "is_correct": false
+      },
+      {
+        "id": 5,
+        "question": "Die Party findet draußen statt.",
+        "is_correct": true
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Essen bei Monika am Samstag",
+    "text": "Liebe Sabine,\n\nwie geht es dir? Ich habe eine Neuigkeit: Ich wohne jetzt in meiner neuen Wohnung! Sie ist sehr hell und hat einen großen Balkon. Ich möchte dich gerne zum Abendessen einladen. Hast du am nächsten Samstag Zeit? Ich koche Spaghetti mit Tomatensoße für uns. Das isst du doch so gerne. Ich habe viel Wasser und Tee zu Hause, aber hast du vielleicht Lust auf Saft? Kannst du bitte Orangensaft mitbringen?\n\nDie neue Adresse ist Parkstraße 10. Du kannst den Bus Nummer 12 nehmen, er hält direkt vor dem Haus.\n\nLiebe Grüße\nMonika",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Monika lädt Sabine in ein Restaurant ein.",
+        "is_correct": false
+      },
+      {
+        "id": 2,
+        "question": "Die neue Wohnung von Monika hat einen Balkon.",
+        "is_correct": true
+      },
+      {
+        "id": 3,
+        "question": "Sabine soll für das Essen einen Salat machen.",
+        "is_correct": false
+      },
+      {
+        "id": 4,
+        "question": "Monika bittet Sabine, Getränke mitzubringen.",
+        "is_correct": true
+      },
+      {
+        "id": 5,
+        "question": "Sabine kann mit dem Bus zu Monika fahren.",
+        "is_correct": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Einladung zum Picknick am See",
+    "text": "Liebe Sarah,\n\nich möchte dich herzlich zu einem Picknick einladen. Am nächsten Samstag soll das Wetter sehr schön werden. Wir treffen uns um 14 Uhr am Hauptbahnhof. Dann fahren wir mit dem Bus zum See. Ich habe schon Essen für alle gekauft. Kannst du bitte Getränke mitbringen? Vergiss bitte deine Sonnenbrille nicht!\n\nBis bald\nJulia",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Das Picknick findet am Wochenende statt.",
+        "is_correct": true
+      },
+      {
+        "id": 2,
+        "question": "Julia und Sarah treffen sich am Vormittag.",
+        "is_correct": false
+      },
+      {
+        "id": 3,
+        "question": "Sie fahren mit dem Zug zum See.",
+        "is_correct": false
+      },
+      {
+        "id": 4,
+        "question": "Sarah soll die Getränke bezahlen und mitbringen.",
+        "is_correct": true
+      },
+      {
+        "id": 5,
+        "question": "Julia hat das Essen schon organisiert.",
+        "is_correct": true
+      }
+    ]
+  }
+]
