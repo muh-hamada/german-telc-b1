@@ -69,7 +69,7 @@ Create the Radio Information messages, then structure it into a JSON file with t
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
-        { type: 'ready', id: 'part-2-intro' },
+        { type: 'ready', id: 'a2-part-2-intro' },
         { type: 'pause', durationSeconds: 10 },
 
 

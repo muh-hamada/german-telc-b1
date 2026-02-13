@@ -80,7 +80,7 @@ Create the conversation, then structure it into a JSON file with the following f
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
-        { type: 'ready', id: 'part-3-intro' },
+        { type: 'ready', id: 'a2-part-3-intro' },
         { type: 'pause', durationSeconds: 10 },
 
 
@@ -90,7 +90,7 @@ Create the conversation, then structure it into a JSON file with the following f
         // repeat to cover the entire conversation. Always add { type: 'pause', durationSeconds: 1 } between "speech" parts
         
         { type: 'pause', durationSeconds: 4 },
-        { type: 'ready', id: 'part-3-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 4 },
         
         // copy all conversation speeches here

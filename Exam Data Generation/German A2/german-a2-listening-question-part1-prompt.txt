@@ -57,7 +57,7 @@ Create the phone messages, then structure it into a JSON file with the following
 
   // SEPARATOR
   { type: 'pause', durationSeconds: 2 },
-  { type: 'ready', id: 'part-1-2nd-time' },
+  { type: 'ready', id: 'a2-2nd-time' },
   { type: 'pause', durationSeconds: 3 },
   
   // MESSAGE 1 - SECOND TIME (Exact Repeat)
@@ -77,7 +77,7 @@ Create the phone messages, then structure it into a JSON file with the following
 {
     "segments": [
         { type: 'pause', durationSeconds: 1 },
-        { type: 'ready', id: 'part-1-intro' },
+        { type: 'ready', id: 'a2-part-1-intro' },
         { type: 'pause', durationSeconds: 10 },
 
 
@@ -85,7 +85,7 @@ Create the phone messages, then structure it into a JSON file with the following
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
         // copy all voicemail message 1 parts here including the narrator
@@ -97,7 +97,7 @@ Create the phone messages, then structure it into a JSON file with the following
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
         // copy all voicemail message 2 parts here including the narrator
@@ -109,7 +109,7 @@ Create the phone messages, then structure it into a JSON file with the following
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
         // copy all voicemail message 3 parts here including the narrator
@@ -119,7 +119,7 @@ Create the phone messages, then structure it into a JSON file with the following
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
         // copy all voicemail message 4 parts here including the narrator
@@ -131,7 +131,7 @@ Create the phone messages, then structure it into a JSON file with the following
         { type: 'pause', durationSeconds: 2 },
         { type: 'speech', repeated: true, speed: 0.8, text: 'person speech', voiceId: 'person1|person3', // use person1 for female speaker, and use person3 for male speaker, id: "message-speaker-{index}"         },
         { type: 'pause', durationSeconds: 2 },
-        { type: 'ready', id: 'part-1-2nd-time' },
+        { type: 'ready', id: 'a2-2nd-time' },
         { type: 'pause', durationSeconds: 3 },
         
         // copy all voicemail message 5 parts here including the narrator

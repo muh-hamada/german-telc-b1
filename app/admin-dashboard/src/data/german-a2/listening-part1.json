@@ -2,13 +2,13 @@
     "section_details": {
         "title": "Hörverstehen Teil 1",
         "instructions_de": "Sie hören fünf Ansagen am Telefon. Zu jedem Text gibt es eine Aufgabe. Ergänzen Sie die Telefonnotizen. Sie hören jeden Text zweimal.",
-        "instructions_en": "",
-        "instructions_ar": "",
-        "instructions_ru": "",
-        "instructions_fr": "",
-        "instructions_es": "",
+        "instructions_en": "You will hear five recorded telephone messages. There is one task for each message. Complete the telephone notes. You will hear each message twice.",
+        "instructions_ar": "سوف تستمع إلى خمس رسائل هاتفية مسجلة. لكل نص هناك مهمة. أكمل ملاحظات الهاتف. ستسمع كل نص مرتين.",
+        "instructions_ru": "Вы услышите пять телефонных сообщений. К каждому тексту есть задание. Дополните телефонные заметки. Каждый текст прозвучит дважды.",
+        "instructions_fr": "Vous allez écouter cinq annonces téléphoniques. Il y a une tâche pour chaque texte. Complétez les notes téléphoniques. Vous entendrez chaque texte deux fois.",
+        "instructions_es": "Vas a escuchar cinco mensajes telefónicos. Hay una tarea para cada texto. Completa las notas telefónicas. Escucharás cada mensaje dos veces.",
         "duration_minutes": 7,
-        "prep_time_seconds": 30
+        "prep_time_seconds": 0
     },
     "exams": [
         
