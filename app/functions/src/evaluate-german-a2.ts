@@ -1,8 +1,8 @@
 /**
- * Firebase Cloud Functions for German Telc A1 Writing Assessment
+ * Firebase Cloud Functions for German Telc A2 Writing Assessment
  * 
  * This function integrates with OpenAI's API to evaluate user's writing responses
- * based on Telc A1 exam criteria.
+ * based on Telc A2 exam criteria.
  */
 
 import * as functions from 'firebase-functions';
@@ -24,7 +24,7 @@ interface ContentPoint {
   feedback: string;
 }
 
-interface WritingAssessmentA1 {
+interface WritingAssessmentA2 {
   overallScore: number;
   maxScore: number;
   userInput: string;
@@ -48,29 +48,37 @@ interface EvaluationRequest {
 }
 
 /**
- * System prompt that defines the AI's role as a Telc A1 German examiner
+ * System prompt that defines the AI's role as a Telc A2 German examiner
  */
-const SYSTEM_PROMPT = `Du bist ein erfahrener Prüfer für die Telc A1 Deutschprüfung, spezialisiert auf den schriftlichen Ausdruck Teil 2.
+const SYSTEM_PROMPT = `Du bist ein erfahrener Prüfer für die Telc A2 Deutschprüfung (Start Deutsch 2), spezialisiert auf den schriftlichen Ausdruck Teil 2.
 
-Deine Aufgabe ist es, Briefe/E-Mails nach den offiziellen Telc A1 Kriterien zu bewerten:
+Deine Aufgabe ist es, Briefe/E-Mails nach den offiziellen Telc A2 Kriterien zu bewerten:
 
 **Schreiben, Teil 2: Bewertungskriterien**
 
-Die Bewerterin oder der Bewerter bewertet die Teilnehmerleistungen auf dem Antwortbogen S30 nach folgenden Kriterien:
+Bewerten Sie die Teilnehmerleistungen auf dem Antwortbogen S30 nach folgenden Kriterien:
 
 **Erfüllung der Aufgabenstellung (pro Inhaltspunkt):**
 - **3 Punkte**: Aufgabe voll erfüllt und verständlich
 - **1,5 Punkte**: Aufgabe wegen sprachlicher und inhaltlicher Mängel nur teilweise erfüllt
 - **0 Punkte**: Aufgabe nicht erfüllt und/oder unverständlich
 
-**Kommunikative Gestaltung des Texts (KG):**
-- **1 Punkt**: der Textsorte angemessen
-- **0,5 Punkte**: untypische oder fehlende Wendungen, z.B. keine Anrede
-- **0 Punkte**: keine textsortenspezifischen Wendungen
+**Kommunikative Gestaltung des Texts (K):**
+- **1 Punkt**: Der Textsorte angemessen
+- **0,5 Punkte**: Untypische oder fehlende Wendungen, z. B. keine Anrede
+- **0 Punkte**: Keine textsortenspezifischen Wendungen
 
 **Maximale Punktzahl: 10 Punkte** (3 Inhaltspunkte × 3 Punkte + 1 KG Punkt)
 
 Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei "Bewertung 1" und "telc Bewertung" ein. Bei Unstimmigkeiten überstimmt die telc Bewertung Bewertung 1.
+
+**Wichtiger Hinweis zum A2-Niveau:**
+Bei der Bewertung ist das Sprachniveau A2 (GER) zu berücksichtigen. Auf A2-Niveau wird erwartet, dass der Teilnehmer:
+- Kurze, einfache Nachrichten und Briefe schreiben kann
+- Einfache Alltagssprache verwendet
+- Grundlegende Satzstrukturen und einfache Konnektoren (und, aber, weil, dann) beherrscht
+- Einen begrenzten, aber für den Alltag ausreichenden Wortschatz einsetzt
+Kleinere grammatische Fehler und ein begrenzter Wortschatz sind auf A2-Niveau akzeptabel, solange die Kommunikation verständlich bleibt.
 
 WICHTIG: Das Feld "userInput" muss EXAKT die Antwort des Teilnehmers enthalten, wie sie bereitgestellt wurde. Bei Bildern: Extrahiere den Text GENAU wie geschrieben, ohne Änderungen, Ergänzungen oder Korrekturen. Erfinde NIEMALS eine Beispielantwort.
 
@@ -108,7 +116,7 @@ WICHTIG für "correctedAnswer":
  * Creates a user prompt for text evaluation
  */
 function createUserPrompt(request: EvaluationRequest): string {
-  return `Bitte bewerte folgende Brief/E-Mail-Antwort für die Telc A1 Prüfung:
+  return `Bitte bewerte folgende Brief/E-Mail-Antwort für die Telc A2 Prüfung:
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
@@ -123,14 +131,14 @@ ${request.userAnswer}
 
 ---
 
-Bewerte diese Antwort nach den Telc A1 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
+Bewerte diese Antwort nach den Telc A2 Kriterien und gib das Ergebnis als JSON zurück. Kopiere die Antwort des Teilnehmers EXAKT in das "userInput" Feld. Für "correctedAnswer": Nimm die originale Antwort und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.`;
 }
 
 /**
  * Creates a user prompt for image evaluation
  */
 function createImageUserPrompt(request: EvaluationRequest): string {
-  return `Bitte bewerte die handschriftliche Brief/E-Mail-Antwort im Bild für die Telc A1 Prüfung:
+  return `Bitte bewerte die handschriftliche Brief/E-Mail-Antwort im Bild für die Telc A2 Prüfung:
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
@@ -147,7 +155,7 @@ WICHTIGE ANWEISUNGEN:
 2. Extrahiere den Text BUCHSTÄBLICH wie geschrieben - mit allen Fehlern und Rechtschreibfehlern
 3. Kopiere diesen extrahierten Text GENAU in das "userInput" Feld im JSON
 4. Erfinde KEINE Beispielantwort - verwende NUR den tatsächlichen Text aus dem Bild
-5. Bewerte dann diese extrahierte Antwort nach den Telc A1 Kriterien
+5. Bewerte dann diese extrahierte Antwort nach den Telc A2 Kriterien
 6. Für "correctedAnswer": Nimm den extrahierten Text und korrigiere nur die Fehler mit Markdown-Hervorhebungen (verwende **fett** für Korrekturen). Erstelle KEINE neue Antwort.
 
 Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine erfundene oder ideale Antwort.`;
@@ -156,14 +164,14 @@ Das "userInput" Feld muss den EXAKTEN Text aus dem Bild enthalten, nicht eine er
 /**
  * Calls OpenAI API to assess the writing
  */
-async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<WritingAssessmentA1> {
+async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<WritingAssessmentA2> {
   const apiKey = getOpenAIKey();
   if (!apiKey) {
     throw new Error('OpenAI API key is not configured');
   }
 
   try {
-    console.log('Starting OpenAI API call for A1 evaluation...');
+    console.log('Starting OpenAI API call for A2 evaluation...');
     console.log('Has image:', !!imageBase64);
     
     // Build the message content
@@ -230,7 +238,7 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
       throw new Error(`No response from OpenAI. Response structure: ${JSON.stringify(data)}`);
     }
 
-    const assessment: WritingAssessmentA1 = JSON.parse(content);
+    const assessment: WritingAssessmentA2 = JSON.parse(content);
     return assessment;
   } catch (error) {
     if (error instanceof Error) {
@@ -244,7 +252,7 @@ async function callOpenAI(userPrompt: string, imageBase64?: string): Promise<Wri
  * Main Cloud Function to evaluate writing
  * This is an HTTP endpoint that can be invoked from the mobile app
  */
-export const evaluateWritingGermanA1 = functions.https.onRequest(
+export const evaluateWritingGermanA2 = functions.https.onRequest(
   async (req, res) => {
     // Enable CORS
     res.set('Access-Control-Allow-Origin', '*');
@@ -282,7 +290,7 @@ export const evaluateWritingGermanA1 = functions.https.onRequest(
       }
 
       let userPrompt: string;
-      let assessment: WritingAssessmentA1;
+      let assessment: WritingAssessmentA2;
 
       if (data.imageBase64) {
         // Image evaluation
@@ -303,11 +311,10 @@ export const evaluateWritingGermanA1 = functions.https.onRequest(
 
       res.status(200).json(assessment);
     } catch (error) {
-      console.error('Error in evaluateWritingGermanA1 function:', error);
+      console.error('Error in evaluateWritingGermanA2 function:', error);
       res.status(500).json({
         error: error instanceof Error ? error.message : 'Unknown error occurred'
       });
     }
   }
 );
-
