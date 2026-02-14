@@ -54,6 +54,30 @@ export interface WritingAssessmentA1 {
   correctedAnswer: string;
 }
 
+/**
+ * Union type for all writing assessment response formats.
+ * Use `isGradedAssessment` type guard to discriminate.
+ */
+export type WritingAssessmentResult = WritingAssessment | WritingAssessmentA1;
+
+/**
+ * Type guard: returns true for B1/B2/DELE assessments (grade-based criteria).
+ */
+export function isGradedAssessment(
+  assessment: WritingAssessmentResult,
+): assessment is WritingAssessment {
+  return 'criteria' in assessment;
+}
+
+/**
+ * Type guard: returns true for A1/A2 assessments (content-points based).
+ */
+export function isPointBasedAssessment(
+  assessment: WritingAssessmentResult,
+): assessment is WritingAssessmentA1 {
+  return 'contentPoints' in assessment;
+}
+
 export interface EvaluationRequest {
   userAnswer?: string;
   imageBase64?: string;
@@ -95,9 +119,10 @@ export interface ImageEvaluationRequestA1 {
 /**
  * Calls Firebase Cloud Functions to assess the writing
  */
-async function callCloudFunctions(request: EvaluationRequest): Promise<WritingAssessment> {
+async function callCloudFunctions(request: EvaluationRequest): Promise<WritingAssessmentResult> {
   try {
-    const response = await axios.post<WritingAssessment>(CLOUD_FUNCTIONS_API_URL, {
+    console.log('Calling Cloud Functions with request:', request, CLOUD_FUNCTIONS_API_URL);
+    const response = await axios.post<WritingAssessmentResult>(CLOUD_FUNCTIONS_API_URL, {
       userAnswer: request.userAnswer,
       incomingEmail: request.incomingEmail,
       writingPoints: request.writingPoints,
@@ -105,7 +130,7 @@ async function callCloudFunctions(request: EvaluationRequest): Promise<WritingAs
       imageBase64: request.imageBase64,
     });
 
-    const assessment: WritingAssessment = response.data;
+    const assessment: WritingAssessmentResult = response.data;
     return assessment;
   } catch (error: any) {
     console.error('Error in callCloudFunctions:', error);
@@ -168,7 +193,7 @@ async function imageUriToBase64(uri: string): Promise<string> {
  */
 export async function evaluateWriting(
   request: EvaluationRequest
-): Promise<WritingAssessment> {
+): Promise<WritingAssessmentResult> {
   const assessment = await callCloudFunctions(request);
   return assessment;
 }
@@ -178,7 +203,7 @@ export async function evaluateWriting(
  */
 export async function evaluateWritingWithImage(
   request: ImageEvaluationRequest
-): Promise<WritingAssessment> {
+): Promise<WritingAssessmentResult> {
   let imageBase64: string;
   
   // Use provided base64 or convert from URI

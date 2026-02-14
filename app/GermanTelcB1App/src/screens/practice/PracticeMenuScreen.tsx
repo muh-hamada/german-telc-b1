@@ -25,6 +25,7 @@ const PracticeMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
@@ -33,8 +34,8 @@ const PracticeMenuScreen: React.FC = () => {
       setWritingExams(exams);
     };
 
-    // Skip loading writing exams for A1 and DELE as it will be loaded from the WritingMenuScreen
-    if (!isA1 && !isDele) {
+    // Skip loading writing exams for A1, A2 and DELE as it will be loaded from the WritingMenuScreen
+    if (!isA1 && !isA2 && !isDele) {
       loadWritingExams();
     }
     // Section opened
@@ -52,7 +53,7 @@ const PracticeMenuScreen: React.FC = () => {
   };
 
   const handleWritingPress = () => {
-    if (isA1 || isDele) {
+    if (isA1 || isA2 || isDele) {
       // For A1, navigate to WritingMenu screen
       logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'writing' });
       navigation.navigate('WritingMenu');
@@ -95,7 +96,7 @@ const PracticeMenuScreen: React.FC = () => {
           </Text>
         </Card>
 
-        {!isA1 && (
+        {!isA1 && !isA2 && (
           <Card style={styles.card} onPress={handleGrammarPress}>
             <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
             <Text style={styles.cardDescription}>
@@ -119,7 +120,7 @@ const PracticeMenuScreen: React.FC = () => {
         </Card>
       </ScrollView>
 
-      {!isA1 && (
+      {!isA1 && !isA2 && (
         <ExamSelectionModal
           visible={showWritingModal}
           onClose={() => setShowWritingModal(false)}

@@ -11,22 +11,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
-import { WritingAssessment } from '../../services/http.openai.service';
-import { WritingExam } from '../../types/exam.types';
-import { activeExamConfig } from '../../config/active-exam.config';
+import {
+  WritingAssessmentResult,
+  isGradedAssessment,
+  isPointBasedAssessment,
+} from '../../services/http.openai.service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-// In the Telc exam, the initiatial evaluation if from 15
-// Then we multiply by 3 to reach a max score of 45
-// For the Dele exams, we do not multiply at all, so the max score is 25
-const SCORE_MULTIPLIER = activeExamConfig.provider === 'dele' ? 1 : 3;
 
 interface WritingResultsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  assessment: WritingAssessment | null;
+  assessment: WritingAssessmentResult | null;
   isUsingCachedResult: boolean;
-  exam: WritingExam;
+  modalAnswer?: string;
+  /** Multiplier applied to displayed scores (default: 1). Used for B1/B2 Telc where raw 15 → 45. */
+  scoreMultiplier?: number;
 }
 
 const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
@@ -34,7 +33,8 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
   onClose,
   assessment,
   isUsingCachedResult,
-  exam,
+  modalAnswer,
+  scoreMultiplier = 1,
 }) => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
@@ -52,6 +52,11 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
 
   if (!assessment) return null;
 
+  // Determine the effective multiplier: only apply for graded (B1/B2) assessments
+  const effectiveMultiplier = isGradedAssessment(assessment) ? scoreMultiplier : 1;
+  const displayScore = assessment.overallScore * effectiveMultiplier;
+  const displayMaxScore = assessment.maxScore * effectiveMultiplier;
+
   const getGradeStyle = (grade: 'A' | 'B' | 'C' | 'D') => {
     switch (grade) {
       case 'A':
@@ -64,6 +69,99 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
       default:
         return styles.criterionYellow;
     }
+  };
+
+  // --- B1/B2 criteria rendering (grade-based) ---
+  const renderGradedCriteria = () => {
+    if (!isGradedAssessment(assessment)) return null;
+    return (
+      <View style={styles.criteriaSection}>
+        <Text style={styles.criteriaTitle}>{t('writing.evaluation.criteriaTitle')}</Text>
+
+        <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.taskCompletion.grade)]}>
+          <View style={styles.criterionHeader}>
+            <Text style={styles.criterionName}>{t('writing.evaluation.criteria.taskCompletion')}</Text>
+            <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.taskCompletion.grade}</Text>
+          </View>
+          <Text style={styles.criterionFeedback}>{assessment.criteria.taskCompletion.feedback}</Text>
+        </View>
+
+        <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.communicativeDesign.grade)]}>
+          <View style={styles.criterionHeader}>
+            <Text style={styles.criterionName}>{t('writing.evaluation.criteria.communicativeDesign')}</Text>
+            <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.communicativeDesign.grade}</Text>
+          </View>
+          <Text style={styles.criterionFeedback}>{assessment.criteria.communicativeDesign.feedback}</Text>
+        </View>
+
+        <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.formalCorrectness.grade)]}>
+          <View style={styles.criterionHeader}>
+            <Text style={styles.criterionName}>{t('writing.evaluation.criteria.formalCorrectness')}</Text>
+            <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.formalCorrectness.grade}</Text>
+          </View>
+          <Text style={styles.criterionFeedback}>{assessment.criteria.formalCorrectness.feedback}</Text>
+        </View>
+      </View>
+    );
+  };
+
+  // --- A1/A2 criteria rendering (content-points based) ---
+  const renderPointBasedCriteria = () => {
+    if (!isPointBasedAssessment(assessment)) return null;
+    return (
+      <>
+        {/* Content Points Results */}
+        {assessment.contentPoints && assessment.contentPoints.length > 0 && (
+          <View style={styles.contentPointsContainer}>
+            <Text style={styles.contentPointsTitle}>
+              {t('practice.writing.taskPoints')}
+            </Text>
+            {assessment.contentPoints.map((point, index) => (
+              <View key={index} style={styles.contentPointItem}>
+                <View style={styles.contentPointItemHeader}>
+                  <View style={[
+                    styles.contentPointNumber,
+                    point.score === 3 ? styles.contentPointCorrect :
+                      point.score >= 1.5 ? styles.contentPointPartial :
+                        styles.contentPointIncorrect,
+                  ]}>
+                    <Text style={styles.contentPointNumberText}>{point.pointNumber}</Text>
+                  </View>
+                  <Text style={styles.contentPointText}>
+                    {point.pointText}
+                  </Text>
+                  <Text style={styles.contentPointScore}>
+                    {point.score}/3
+                  </Text>
+                </View>
+                <Text style={styles.contentPointFeedback}>
+                  {point.feedback}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {/* Communicative Design */}
+        {assessment.communicativeDesign && (
+          <View style={styles.communicativeDesignSection}>
+            <Text style={styles.communicativeDesignTitle}>
+              {t('practice.writing.communicativeDesign')}
+            </Text>
+            <View style={styles.communicativeDesignCard}>
+              <View style={styles.communicativeDesignHeader}>
+                <Text style={styles.communicativeDesignScore}>
+                  {assessment.communicativeDesign.score}/1
+                </Text>
+              </View>
+              <Text style={styles.communicativeDesignFeedback}>
+                {assessment.communicativeDesign.feedback}
+              </Text>
+            </View>
+          </View>
+        )}
+      </>
+    );
   };
 
   return (
@@ -103,37 +201,13 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
               <View style={styles.scoreSection}>
                 <Text style={styles.scoreLabel}>{t('writing.evaluation.totalScore')}</Text>
                 <Text style={styles.scoreValue}>
-                  {assessment.overallScore * SCORE_MULTIPLIER} / {assessment.maxScore * SCORE_MULTIPLIER}
+                  {displayScore} / {displayMaxScore}
                 </Text>
               </View>
 
-              <View style={styles.criteriaSection}>
-                <Text style={styles.criteriaTitle}>{t('writing.evaluation.criteriaTitle')}</Text>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.taskCompletion.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.taskCompletion')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.taskCompletion.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.taskCompletion.feedback}</Text>
-                </View>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.communicativeDesign.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.communicativeDesign')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.communicativeDesign.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.communicativeDesign.feedback}</Text>
-                </View>
-
-                <View style={[styles.criterionCard, getGradeStyle(assessment.criteria.formalCorrectness.grade)]}>
-                  <View style={styles.criterionHeader}>
-                    <Text style={styles.criterionName}>{t('writing.evaluation.criteria.formalCorrectness')}</Text>
-                    <Text style={styles.criterionGrade}>{t('writing.evaluation.grade')} {assessment.criteria.formalCorrectness.grade}</Text>
-                  </View>
-                  <Text style={styles.criterionFeedback}>{assessment.criteria.formalCorrectness.feedback}</Text>
-                </View>
-              </View>
+              {/* Render criteria based on assessment type */}
+              {renderGradedCriteria()}
+              {renderPointBasedCriteria()}
 
               <View style={styles.userInputSection}>
                 <TouchableOpacity 
@@ -151,8 +225,8 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
                 )}
               </View>
 
-              {/* Modal Answer Section - Only show if modalAnswer exists in exam data */}
-              {exam.modalAnswer && (
+              {/* Modal Answer Section - Only show if modalAnswer exists */}
+              {modalAnswer && (
                 <View style={styles.modalAnswerSection}>
                   <TouchableOpacity 
                     style={styles.modalAnswerHeader}
@@ -166,7 +240,7 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
                     <Text style={styles.expandIcon}>{isModalAnswerExpanded ? '▼' : '▶'}</Text>
                   </TouchableOpacity>
                   {isModalAnswerExpanded && (
-                    <Text style={styles.modalAnswerText}>{exam.modalAnswer}</Text>
+                    <Text style={styles.modalAnswerText}>{modalAnswer}</Text>
                   )}
                 </View>
               )}
@@ -266,6 +340,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.primary[600],
     fontWeight: typography.fontWeight.bold,
   },
+
+  // --- B1/B2 grade-based criteria styles ---
   criteriaSection: {
     paddingHorizontal: spacing.padding.md,
     paddingVertical: spacing.padding.sm,
@@ -315,6 +391,104 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.text.primary,
     lineHeight: 22,
   },
+
+  // --- A1/A2 content-points based styles ---
+  contentPointsContainer: {
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
+  },
+  contentPointsTitle: {
+    ...typography.textStyles.h5,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  contentPointItem: {
+    backgroundColor: colors.background.primary,
+    padding: spacing.padding.sm,
+    borderRadius: spacing.borderRadius.sm,
+    marginBottom: spacing.margin.sm,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  contentPointItemHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.margin.xs,
+    marginBottom: spacing.margin.xs,
+  },
+  contentPointNumber: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  contentPointCorrect: {
+    backgroundColor: colors.success[500],
+  },
+  contentPointPartial: {
+    backgroundColor: colors.warning[500],
+  },
+  contentPointIncorrect: {
+    backgroundColor: colors.error[500],
+  },
+  contentPointNumberText: {
+    ...typography.textStyles.bodySmall,
+    fontSize: 11,
+    color: colors.white,
+    fontWeight: typography.fontWeight.bold,
+  },
+  contentPointText: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.primary,
+    flex: 1,
+    textAlign: 'left',
+  },
+  contentPointScore: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+  },
+  contentPointFeedback: {
+    ...typography.textStyles.bodySmall,
+    color: colors.text.secondary,
+    marginLeft: 30,
+    textAlign: 'left',
+    fontStyle: 'italic',
+  },
+  communicativeDesignSection: {
+    paddingHorizontal: spacing.padding.md,
+    paddingVertical: spacing.padding.sm,
+    marginBottom: spacing.margin.sm,
+  },
+  communicativeDesignTitle: {
+    ...typography.textStyles.h5,
+    color: colors.text.primary,
+    marginBottom: spacing.margin.sm,
+  },
+  communicativeDesignCard: {
+    backgroundColor: colors.background.primary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.sm,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  communicativeDesignHeader: {
+    marginBottom: spacing.margin.xs,
+  },
+  communicativeDesignScore: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+  },
+  communicativeDesignFeedback: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    textAlign: 'left',
+    fontStyle: 'italic',
+  },
+
+  // --- Shared styles ---
   userInputSection: {
     backgroundColor: colors.background.tertiary,
     padding: spacing.padding.md,

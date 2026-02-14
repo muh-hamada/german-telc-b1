@@ -32,6 +32,7 @@ const WritingScreen: React.FC = () => {
   const { updateExamProgress } = useProgress();
 
   const isDele = activeExamConfig.provider === 'dele';
+  const isA2 = activeExamConfig.level === 'A2';
 
   const { isCompleted, toggleCompletion } = useExamCompletion(`writing-part${part}`, examId);
 
@@ -58,6 +59,12 @@ const WritingScreen: React.FC = () => {
         } else {
           exam = await dataService.getDeleWritingPart2ExamById(String(examId));
         }
+      } else if (isA2) {
+        exam = await dataService.getWritingPart2Exam(examId);
+
+        // WritingUI component expects a "incomingEmail" property
+        exam.incomingEmail = exam.instruction
+        console.log('Loaded A2 Writing Part 2 Exam:', exam);
       } else {
         exam = await dataService.getWritingExam(examId);
       }

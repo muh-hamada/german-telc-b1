@@ -37,6 +37,7 @@ const SpeakingMenuScreen: React.FC = () => {
   const isB2 = activeExamConfig.level === 'B2';
   const isB1 = activeExamConfig.level === 'B1';
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
   const isTelc = activeExamConfig.provider === 'telc';
 
@@ -68,8 +69,8 @@ const SpeakingMenuScreen: React.FC = () => {
           title: q.title
         }));
         setB2Part3Questions(part3Questions);
-      } else if (isA1) {
-        // A1 level doesn't need to load data since parts don't have multiple exams
+      } else if (isA1 || isA2) {
+        // A1 and A2 levels don't need to load data since parts don't have multiple exams
         // Data is loaded directly in each screen
       } else if (isDele) {
         // Load DELE B1 data
@@ -351,8 +352,8 @@ const SpeakingMenuScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        {isA1 && isTelc && (
-          <>
+        {(isA1 || isA2) && isTelc && (
+          <> {/* A2 TODO: update titles for A2 */}
             <Card style={styles.card} onPress={handleA1Part1Press}>
               <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
               <Text style={styles.cardDescription}>{t('speaking.a1Part1.menuDescription')}</Text>

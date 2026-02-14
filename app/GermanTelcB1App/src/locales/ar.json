@@ -1485,7 +1485,8 @@
     "sections": {
       "incomingEmail": "البريد الإلكتروني الوارد:",
       "writingPoints": "النقاط الكتابية:",
-      "yourAnswer": "إجابتك:"
+      "yourAnswer": "إجابتك:",
+      "instruction": "تعليمات"
     },
     "input": {
       "placeholder": "أكتب إجابتك هنا...",
@@ -1555,6 +1556,11 @@
       "maybeLaterButton": "ربما لاحقًا",
       "adLoadingError": "فشل تحميل الإعلان. يرجى المحاولة مرة أخرى.",
       "adNotReady": "الإعلان ليس جاهزًا بعد. يرجى الانتظار لحظة والمحاولة مرة أخرى."
+    },
+    "a2": {
+      "instructions": {
+        "description": "اقرأ التعليمات التالية وفكر في نقاط الكتابة المقدمة."
+      }
     }
   },
   "listening": {

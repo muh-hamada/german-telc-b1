@@ -1279,7 +1279,8 @@
     "sections": {
       "incomingEmail": "Incoming Email:",
       "writingPoints": "Writing Points:",
-      "yourAnswer": "Your Answer:"
+      "yourAnswer": "Your Answer:",
+      "instruction": "Instruction"
     },
     "input": {
       "placeholder": "Write your answer here...",
@@ -1349,6 +1350,11 @@
       "maybeLaterButton": "Maybe Later",
       "adLoadingError": "Failed to load ad. Please try again.",
       "adNotReady": "Ad is not ready yet. Please wait a moment and try again."
+    },
+    "a2": {
+      "instructions": {
+        "description": "Read the following instructions and consider the writing points provided."
+      }
     }
   },
   "listening": {

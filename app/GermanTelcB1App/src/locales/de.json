@@ -1498,7 +1498,8 @@
     "sections": {
       "incomingEmail": "Eingehende E-Mail:",
       "writingPoints": "Schreibpunkte:",
-      "yourAnswer": "Ihre Antwort:"
+      "yourAnswer": "Ihre Antwort:",
+      "instruction": "Anweisung"
     },
     "input": {
       "placeholder": "Schreiben Sie hier Ihre Antwort...",
@@ -1568,6 +1569,11 @@
       "maybeLaterButton": "Vielleicht später",
       "adLoadingError": "Fehler beim Laden der Anzeige. Bitte versuchen Sie es erneut.",
       "adNotReady": "Anzeige ist noch nicht bereit. Bitte warten Sie einen Moment und versuchen Sie es erneut."
+    },
+    "a2": {
+      "instructions": {
+        "description": "Lesen Sie die folgenden Anweisungen und berücksichtigen Sie die bereitgestellten Schreibhinweise."
+      }
     }
   },
   "listening": {

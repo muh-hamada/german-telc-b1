@@ -24,7 +24,8 @@ import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
   evaluateWriting,
   evaluateWritingWithImage,
-  WritingAssessment,
+  WritingAssessmentResult,
+  isGradedAssessment,
 } from '../../services/http.openai.service';
 import { RewardedAd, RewardedAdEventType, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { SKIP_REWARDED_ADS } from '../../config/development.config';
@@ -63,7 +64,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
-  const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
+  const [assessment, setAssessment] = useState<WritingAssessmentResult | null>(null);
   const [isResultsModalOpen, setIsResultsModalOpen] = useState(false);
   const [lastEvaluatedAnswer, setLastEvaluatedAnswer] = useState('');
   const [capturedImageUri, setCapturedImageUri] = useState<string | null>(null);
@@ -80,7 +81,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const adEarnedRewardRef = useRef<boolean>(false);
   const userAnswerRef = useRef<string>('');
 
-  const isB2Exam = activeExamConfig.level === 'B2';
+  const isB2 = activeExamConfig.level === 'B2';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
 
   // Reset state when exam changes (e.g., moving from writing-1 to writing-2)
@@ -356,7 +358,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setIsUsingCachedResult(false); // This is a fresh evaluation (image)
 
     try {
-      let result: WritingAssessment;
+      let result: WritingAssessmentResult;
 
       // Use ref values which persist even if state is lost during ad display
       const imageBase64 = capturedImageBase64Ref.current;
@@ -382,10 +384,13 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         throw new Error('No image available');
       }
 
+      // Only apply score multiplier for graded (B1/B2) assessments
+      const multiplier = isGradedAssessment(result) ? SCORE_MULTIPLIER : 1;
+
       setLastEvaluatedAnswer(`[IMAGE:${imageUri}]`);
       setAssessment(result);
       setIsResultsModalOpen(true);
-      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
+      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * multiplier, max_score: result.maxScore * multiplier });
 
       // Call onComplete to save progress and move to next step
       const answers: UserAnswer[] = [];
@@ -397,7 +402,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         correctAnswer: undefined,
         assessment: result, // Store the assessment for later viewing
       });
-      onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
+      onComplete(result.overallScore * multiplier, answers);
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -461,24 +466,25 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setIsUsingCachedResult(false); // This is a fresh evaluation
 
     try {
-      let result: WritingAssessment;
-
       // Use ref value which persists even if state is stale in closure
       const answerToEvaluate = userAnswerRef.current;
       console.log('[WritingScreen] Evaluating text:', answerToEvaluate.substring(0, 50) + '...');
 
       // Call OpenAI API for text evaluation
-      result = await evaluateWriting({
+      const result = await evaluateWriting({
         userAnswer: answerToEvaluate,
         incomingEmail: exam.incomingEmail,
         writingPoints: exam.writingPoints,
         examTitle: exam.title,
       });
 
+      // Only apply score multiplier for graded (B1/B2) assessments
+      const multiplier = isGradedAssessment(result) ? SCORE_MULTIPLIER : 1;
+
       setLastEvaluatedAnswer(answerToEvaluate);
       setAssessment(result);
       setIsResultsModalOpen(true);
-      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * SCORE_MULTIPLIER, max_score: result.maxScore * SCORE_MULTIPLIER });
+      logEvent(AnalyticsEvents.WRITING_EVAL_COMPLETED, { overall_score: result.overallScore * multiplier, max_score: result.maxScore * multiplier });
 
       // Call onComplete to save progress and move to next step
       const answers: UserAnswer[] = [];
@@ -490,7 +496,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         correctAnswer: undefined,
         assessment: result, // Store the assessment for later viewing
       });
-      onComplete(result.overallScore * SCORE_MULTIPLIER, answers);
+      onComplete(result.overallScore * multiplier, answers);
     } catch (error) {
       console.error('Evaluation error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -708,8 +714,12 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   };
 
   const renderExamContent = () => {
-    if (isB2Exam) {
+    if (isB2) {
       return renderB2Theme1Question();
+    }
+
+    if (isA2) {
+      return renderA2Question();
     }
 
     return renderB1Question();
@@ -730,6 +740,40 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         {!!exam.incomingEmail && (
           <View style={styles.emailSection}>
             <Text style={styles.sectionTitle}>{t('writing.sections.incomingEmail')}</Text>
+            <View style={styles.emailCard}>
+              <Text style={styles.emailText}>{exam.incomingEmail}</Text>
+            </View>
+          </View>
+        )}
+
+        {/* Writing Points */}
+        {exam.writingPoints && exam.writingPoints.length > 0 && (
+          <View style={styles.pointsSection}>
+            <Text style={styles.sectionTitle}>{t('writing.sections.writingPoints')}</Text>
+            {exam.writingPoints.map((point, index) => (
+              <View key={index} style={styles.pointItem}>
+                <Text style={styles.pointBullet}>•</Text>
+                <Text style={styles.pointText}>{point}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+      </>
+    )
+  }
+
+  const renderA2Question = () => {
+    return (
+      <>
+        <View style={styles.instructionsCard}>
+          <Text style={styles.instructionsTitle}>{t('writing.instructions.title')}</Text>
+          <Text style={styles.instructionsText}>{t('writing.a2.instructions.description')}</Text>
+        </View>
+
+        {/* Incoming Email */}
+        {!!exam.incomingEmail && (
+          <View style={styles.emailSection}>
+            <Text style={styles.sectionTitle}>{t('writing.sections.instruction')}</Text>
             <View style={styles.emailCard}>
               <Text style={styles.emailText}>{exam.incomingEmail}</Text>
             </View>
@@ -844,7 +888,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
         onClose={() => setIsResultsModalOpen(false)}
         assessment={assessment}
         isUsingCachedResult={isUsingCachedResult}
-        exam={exam}
+        modalAnswer={exam.modalAnswer}
+        scoreMultiplier={SCORE_MULTIPLIER}
       />
       {renderImagePreviewModal()}
     </ScrollView>

@@ -152,7 +152,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
   };
 
   const renderField = (field: any, index: number) => {
-    const isEditable = field.is_editable || field.type === 'single_choice';
+    const isEditable = field.is_editable;
     const userAnswer = userAnswers[field.id] || '';
     const isCorrect = isSubmitted && isEditable ? checkAnswer(field) : undefined;
 
@@ -228,22 +228,29 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
           <Text style={styles.fieldLabel}>{field.label}</Text>
           <View style={styles.radioGroup}>
             {field.options.map((option: any) => {
-              const isSelected = userAnswer === option.value;
-              const isCorrectOption = option.value === field.validation.correct_value;
+              let isSelected
+
+              if(option.isEditable){ 
+                isSelected= userAnswer === option.value;
+              } else {
+                // We select it as it is not editable
+                isSelected = option.value === field.validation.correct_value;
+              }
 
               return (
                 <TouchableOpacity
                   key={option.value}
                   style={styles.radioOption}
                   onPress={() => !isSubmitted && handleInputChange(field.id, option.value)}
-                  disabled={isSubmitted}
+                  disabled={isSubmitted || !option.isEditable}
                 >
                   <View style={[
                     styles.radioCircle,
                     isSelected && styles.radioCircleSelected,
-                    isSubmitted && isSelected && (isCorrect ? styles.correctRadio : styles.incorrectRadio)
+                    isSubmitted && isSelected && (isCorrect ? styles.correctRadio : styles.incorrectRadio),
+                    !option.isEditable && styles.radioCircleDisabled
                   ]}>
-                    {isSelected && <View style={styles.radioInner} />}
+                    {isSelected && <View style={[styles.radioInner, !option.isEditable && styles.radioInnerDisabled] } />}
                   </View>
                   <Text style={styles.radioLabel}>{option.label}</Text>
                   {isSubmitted && isSelected && (
@@ -368,6 +375,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
       <Text style={styles.examTitle}>{exam.title}</Text>
 
       {/* Scenario */}
+      {/* A2 TODO: display "information" for A2 */}
       {exam.scenario_text && (
         <View style={styles.scenarioCard}>
           <Text style={styles.scenarioText}>{exam.scenario_text}</Text>
@@ -593,6 +601,12 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   radioLabel: {
     ...typography.textStyles.body,
     color: colors.text.primary,
+  },
+  radioCircleDisabled: {
+    borderColor: colors.border.dark,
+  },
+  radioInnerDisabled: {
+    backgroundColor: colors.border.dark,
   },
   submitButton: {
     backgroundColor: colors.primary[500],

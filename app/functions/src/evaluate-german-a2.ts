@@ -7,6 +7,7 @@
 
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import { EvaluationRequest } from './types';
 import { getOpenAIKey } from './api-keys';
 
 if (!admin.apps.length) {
@@ -34,17 +35,6 @@ interface WritingAssessmentA2 {
     feedback: string;
   };
   correctedAnswer: string;
-}
-
-interface EvaluationRequest {
-  userAnswer?: string;
-  imageBase64?: string;
-  examTitle: string;
-  instructionHeader: string;
-  taskPoints: Array<{
-    id: string;
-    text: string;
-  }>;
 }
 
 /**
@@ -120,11 +110,11 @@ function createUserPrompt(request: EvaluationRequest): string {
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
-**Aufgabenstellung:**
-${request.instructionHeader}
+**Eingegangene E-Mail:**
+${request.incomingEmail}
 
-**Zu bearbeitende Punkte:**
-${request.taskPoints.map((point, index) => `${index + 1}. ${point.text}`).join('\n')}
+**Zu bearbeitende Leitpunkte:**
+${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n')}
 
 **Antwort des Teilnehmers:**
 ${request.userAnswer}
@@ -142,11 +132,11 @@ function createImageUserPrompt(request: EvaluationRequest): string {
 
 **Prüfungsaufgabe:** ${request.examTitle}
 
-**Aufgabenstellung:**
-${request.instructionHeader}
+**Eingegangene E-Mail:**
+${request.incomingEmail}
 
-**Zu bearbeitende Punkte:**
-${request.taskPoints.map((point, index) => `${index + 1}. ${point.text}`).join('\n')}
+**Zu bearbeitende Leitpunkte:**
+${request.writingPoints.map((point, index) => `${index + 1}. ${point}`).join('\n')}
 
 ---
 
@@ -275,9 +265,9 @@ export const evaluateWritingGermanA2 = functions.https.onRequest(
       const data: EvaluationRequest = req.body;
 
       // Validate input
-      if (!data.examTitle || !data.instructionHeader || !data.taskPoints) {
+      if (!data.incomingEmail || !data.writingPoints || !data.examTitle) {
         res.status(400).json({
-          error: 'Missing required fields: examTitle, instructionHeader, or taskPoints'
+          error: 'Missing required fields: incomingEmail, writingPoints, or examTitle'
         });
         return;
       }

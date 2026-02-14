@@ -50,7 +50,7 @@ import ResultsModal from '../components/ResultsModal';
 import DeleGrammarPart1Wrapper from '../components/exam-wrappers/DeleGrammarPart1Wrapper';
 import DeleGrammarPart2Wrapper from '../components/exam-wrappers/DeleGrammarPart2Wrapper';
 import WritingResultsModal from '../components/exam-ui/WritingResultsModal';
-import { WritingAssessment } from '../services/http.openai.service';
+import { WritingAssessmentResult } from '../services/http.openai.service';
 import { dataService } from '../services/data.service';
 import WritingResultsModalA1 from '../components/exam-ui/WritingResultsModalA1';
 import WritingPart1ResultsModalA1 from '../components/exam-ui/WritingPart1ResultsModalA1';
@@ -62,7 +62,7 @@ const MockExamRunningScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedStepResult, setSelectedStepResult] = useState<ExamResult | null>(null);
   const [isResultsModalVisible, setIsResultsModalVisible] = useState(false);
-  const [selectedWritingAssessment, setSelectedWritingAssessment] = useState<WritingAssessment | null>(null);
+  const [selectedWritingAssessment, setSelectedWritingAssessment] = useState<WritingAssessmentResult | null>(null);
   const [selectedWritingExam, setSelectedWritingExam] = useState<any>(null);
   const [isWritingResultsModalVisible, setIsWritingResultsModalVisible] = useState(false);
   // A1 Writing modals
@@ -87,6 +87,7 @@ const MockExamRunningScreen: React.FC = () => {
 
   const isA1 = activeExamConfig.level === 'A1';
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
+  const scoreMultiplier = activeExamConfig.provider === 'dele' ? 1 : 3;
 
   useEffect(() => {
     loadProgress();
@@ -232,7 +233,7 @@ const MockExamRunningScreen: React.FC = () => {
 
       // Check if we have assessment data stored
       if (firstAnswer.assessment) {
-        setSelectedWritingAssessment(firstAnswer.assessment as WritingAssessment);
+        setSelectedWritingAssessment(firstAnswer.assessment as WritingAssessmentResult);
 
         // Load the exam data for this writing step
         try {
@@ -667,7 +668,8 @@ const MockExamRunningScreen: React.FC = () => {
             }}
             assessment={selectedWritingAssessment}
             isUsingCachedResult={false}
-            exam={selectedWritingExam}
+            modalAnswer={selectedWritingExam?.modalAnswer}
+            scoreMultiplier={scoreMultiplier}
           />
         )}
 

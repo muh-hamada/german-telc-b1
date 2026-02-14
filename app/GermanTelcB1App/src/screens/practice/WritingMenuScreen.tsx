@@ -26,7 +26,12 @@ const WritingMenuScreen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
+  // Check if writing has multiple parts based on exam structure
+  const writingParts = activeExamConfig.examStructure.writing || [1];
+  const hasPart2 = writingParts.includes(2);
   const isDele = activeExamConfig.provider === 'dele';
+  const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
 
   React.useEffect(() => {
     const loadExams = async () => {
@@ -74,14 +79,14 @@ const WritingMenuScreen: React.FC = () => {
     if(isDele) {
       navigation.navigate('Writing', { examId, part: 2 });
     } else {
+      if(isA2) {
+        // Telc A2 uses the same WritingUI component as B1/B2
+        navigation.navigate('Writing', { examId, part: 2 });
+      } else {
       navigation.navigate('WritingPart2', { examId});
+      }
     }
   };
-
-  // Check if writing has multiple parts based on exam structure
-  const writingParts = activeExamConfig.examStructure.writing || [1];
-  const hasPart2 = writingParts.includes(2);
-  const isA1 = activeExamConfig.level === 'A1';
 
   const getCardTitle = (partNumber: number) => {
     if (isA1) {
@@ -142,7 +147,6 @@ const WritingMenuScreen: React.FC = () => {
         partNumber={2}
         title={getCardTitle(2)}
       />
-
     </View>
   );
 };

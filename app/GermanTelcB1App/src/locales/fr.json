@@ -1485,7 +1485,8 @@
     "sections": {
       "incomingEmail": "Courriel entrant:",
       "writingPoints": "Points d'écriture:",
-      "yourAnswer": "Votre réponse:"
+      "yourAnswer": "Votre réponse:",
+      "instruction": "Instruction"
     },
     "input": {
       "placeholder": "Écrivez votre réponse ici...",
@@ -1555,6 +1556,11 @@
       "maybeLaterButton": "Peut-être plus tard",
       "adLoadingError": "Échec du chargement de la publicité. Veuillez réessayer.",
       "adNotReady": "La publicité n'est pas encore prête. Veuillez patienter un moment et réessayer."
+    },
+    "a2": {
+      "instructions": {
+        "description": "Lisez les instructions suivantes et tenez compte des points d’écriture fournis."
+      }
     }
   },
   "listening": {
