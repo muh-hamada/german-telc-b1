@@ -69,48 +69,6 @@ fi
 # Step 5: Extract and compare keys
 echo -e "\n${YELLOW}5. Checking for missing translation keys...${NC}"
 
-# Helper function to extract all keys from JSON
-extract_keys() {
-    node -e "
-    const fs = require('fs');
-    const extractKeys = (obj, prefix = '') => {
-        let keys = [];
-        for (let key in obj) {
-            const path = prefix ? \`\${prefix}.\${key}\` : key;
-            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
-                keys = keys.concat(extractKeys(obj[key], path));
-            } else {
-                keys.push(path);
-            }
-        }
-        return keys;
-    };
-    const data = JSON.parse(fs.readFileSync('$1', 'utf8'));
-    console.log(extractKeys(data).join('\n'));
-    "
-}
-
-# Helper function to extract empty value keys from JSON
-extract_empty_keys() {
-    node -e "
-    const fs = require('fs');
-    const extractEmptyKeys = (obj, prefix = '') => {
-        let keys = [];
-        for (let key in obj) {
-            const path = prefix ? \`\${prefix}.\${key}\` : key;
-            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
-                keys = keys.concat(extractEmptyKeys(obj[key], path));
-            } else if (obj[key] === '' || obj[key] === null || obj[key] === undefined) {
-                keys.push(path);
-            }
-        }
-        return keys;
-    };
-    const data = JSON.parse(fs.readFileSync('$1', 'utf8'));
-    console.log(extractEmptyKeys(data).join('\n'));
-    "
-}
-
 # Use English as the reference
 REFERENCE_FILE="src/locales/en.json"
 if [ ! -f "$REFERENCE_FILE" ]; then
@@ -119,11 +77,11 @@ if [ ! -f "$REFERENCE_FILE" ]; then
 fi
 
 echo -e "${GREEN}Using en.json as reference${NC}"
-REFERENCE_KEYS=$(extract_keys "$REFERENCE_FILE" | sort)
 
 MISSING_KEYS_FOUND=false
 
-# Check each locale against reference
+# Compare each locale against reference using a single node command
+# This avoids shell sort/comm locale issues and handles errors properly
 for locale in "${LOCALES[@]}"; do
     if [ "$locale" == "en" ]; then
         continue
@@ -138,43 +96,73 @@ for locale in "${LOCALES[@]}"; do
     
     echo -e "\n${YELLOW}Checking ${locale}.json...${NC}"
     
-    LOCALE_KEYS=$(extract_keys "$FILE" | sort)
+    # Run comparison in node to avoid sort/comm locale issues
+    RESULT=$(node -e "
+    const fs = require('fs');
+    const extractKeys = (obj, prefix = '') => {
+        let keys = [];
+        for (const key of Object.keys(obj)) {
+            const path = prefix ? \`\${prefix}.\${key}\` : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                keys = keys.concat(extractKeys(obj[key], path));
+            } else {
+                keys.push(path);
+            }
+        }
+        return keys;
+    };
+    const extractEmptyKeys = (obj, prefix = '') => {
+        let keys = [];
+        for (const key of Object.keys(obj)) {
+            const path = prefix ? \`\${prefix}.\${key}\` : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                keys = keys.concat(extractEmptyKeys(obj[key], path));
+            } else if (obj[key] === '' || obj[key] === null || obj[key] === undefined || (typeof obj[key] === 'string' && obj[key].trim() === '')) {
+                keys.push(path);
+            }
+        }
+        return keys;
+    };
+    const refData = JSON.parse(fs.readFileSync('$REFERENCE_FILE', 'utf8'));
+    const locData = JSON.parse(fs.readFileSync('$FILE', 'utf8'));
+    const refKeys = new Set(extractKeys(refData));
+    const locKeys = new Set(extractKeys(locData));
+    const missing = [...refKeys].filter(k => !locKeys.has(k)).sort();
+    const empty = extractEmptyKeys(locData).sort();
+    const output = { missing, empty, total: refKeys.size };
+    console.log(JSON.stringify(output));
+    " 2>&1)
     
-    # Find missing keys (in reference but not in locale)
-    MISSING=$(comm -23 <(echo "$REFERENCE_KEYS") <(echo "$LOCALE_KEYS"))
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}✗ Error checking ${locale}.json: ${RESULT}${NC}"
+        MISSING_KEYS_FOUND=true
+        continue
+    fi
     
-    # Find extra keys (in locale but not in reference)
-    EXTRA=$(comm -13 <(echo "$REFERENCE_KEYS") <(echo "$LOCALE_KEYS"))
+    MISSING_COUNT=$(echo "$RESULT" | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.missing.length)")
+    EMPTY_COUNT=$(echo "$RESULT" | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.empty.length)")
+    TOTAL_COUNT=$(echo "$RESULT" | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.total)")
     
-    # Find empty/null values in locale file
-    EMPTY_VALUES=$(extract_empty_keys "$FILE" | sort)
-    
-    if [ -z "$MISSING" ] && [ -z "$EXTRA" ] && [ -z "$EMPTY_VALUES" ]; then
-        echo -e "${GREEN}✓ All keys match ($(echo "$REFERENCE_KEYS" | wc -l | xargs) keys)${NC}"
+    if [ "$MISSING_COUNT" -eq 0 ] && [ "$EMPTY_COUNT" -eq 0 ]; then
+        echo -e "${GREEN}✓ All keys match (${TOTAL_COUNT} keys)${NC}"
     else
-        if [ -n "$MISSING" ]; then
+        if [ "$MISSING_COUNT" -gt 0 ]; then
             echo -e "${RED}✗ Missing keys in ${locale}.json:${NC}"
-            echo "$MISSING" | while read key; do
-                [ -n "$key" ] && echo -e "${RED}  - $key${NC}"
-            done
+            echo "$RESULT" | node -e "
+            const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+            d.missing.forEach(k => console.log('  - ' + k));
+            "
             MISSING_KEYS_FOUND=true
         fi
         
-        if [ -n "$EMPTY_VALUES" ]; then
+        if [ "$EMPTY_COUNT" -gt 0 ]; then
             echo -e "${RED}✗ Empty/null values in ${locale}.json:${NC}"
-            echo "$EMPTY_VALUES" | while read key; do
-                [ -n "$key" ] && echo -e "${RED}  - $key (empty value)${NC}"
-            done
+            echo "$RESULT" | node -e "
+            const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+            d.empty.forEach(k => console.log('  - ' + k + ' (empty value)'));
+            "
             MISSING_KEYS_FOUND=true
         fi
-        
-        # Extra keys check (not logged to console)
-        # if [ -n "$EXTRA" ]; then
-        #     echo -e "${YELLOW}⚠ Extra keys in ${locale}.json (not in en.json):${NC}"
-        #     echo "$EXTRA" | while read key; do
-        #         echo -e "${YELLOW}  + $key${NC}"
-        #     done
-        # fi
     fi
 done
 
