@@ -231,6 +231,7 @@ const ListeningPart1A2UI: React.FC<ListeningPart1A2UIProps> = ({ exam, sectionDe
               <Text style={styles.answerLabel}>{t('listening.part1.a2.yourAnswer')}:</Text>
               <TextInput
                 style={styles.answerInput}
+                textAlignVertical='top'
                 value={userAnswers[question.id] || ''}
                 onChangeText={(text) => handleAnswerChange(question.id, text)}
                 placeholder={t('listening.part1.a2.typePlaceholder')}
@@ -413,14 +414,15 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.xs,
   },
   answerInput: {
-    ...typography.textStyles.body,
+    ...typography.textStyles.bodySmall,
     color: colors.text.primary,
+    lineHeight: 0,
     backgroundColor: colors.background.primary,
     borderWidth: 1,
     borderColor: colors.secondary[300],
     borderRadius: spacing.borderRadius.sm,
     paddingHorizontal: spacing.padding.md,
-    paddingVertical: spacing.padding.sm,
+    paddingVertical: spacing.padding.md,
     direction: 'ltr',
   },
   submitButton: {
