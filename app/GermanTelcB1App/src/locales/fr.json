@@ -540,11 +540,21 @@
         },
         "dele": {
           "part3": "Faire correspondre les déclarations aux situations"
+        },
+        "a2": {
+          "part2": "Lire un texte long et répondre aux questions VRAI/FAUX",
+          "part1": "Lire des informations sur un bâtiment et répondre aux questions",
+          "part3": "Faites correspondre les situations aux publicités"
         }
       },
       "part1": "Partie 1 : Correspondance des titres",
       "dele": {
         "part3": "Partie 3 : Adaptation des situations"
+      },
+      "a2": {
+        "part1": "Partie 1 : Choix multiples",
+        "part2": "Partie 2 : Lire le texte et répondre aux questions",
+        "part3": "Partie 3 : Faire correspondre le texte avec les publicités"
       }
     },
     "listening": {
@@ -614,6 +624,10 @@
         "dele": {
           "part1": "Écrivez un e-mail formel ou semi-formel",
           "part2": "Commenter un message publié dans un blog"
+        },
+        "a2": {
+          "part1": "Lire un scénario et remplir les informations manquantes dans un formulaire",
+          "part2": "Il s'agit d'écrire un court message tel qu'un e-mail ou une lettre"
         }
       },
       "taskPoints": "Points de tâche",
@@ -628,6 +642,10 @@
       "dele": {
         "part1": "Partie 1 : Écrire un e-mail",
         "part2": "Partie 2 : Commenter un message"
+      },
+      "a2": {
+        "part1": "Partie 1 : Remplir un formulaire",
+        "part2": "Partie 2 : Rédiger un court e-mail ou une lettre"
       }
     },
     "speaking": {
@@ -648,7 +666,9 @@
         "part3": "Partie 3 : Décrire une photographie",
         "part4": "Partie 4 : Dialogue dans une situation simulée",
         "importantPhrases": "Phrases importantes"
-      }
+      },
+      "a2Part2": "Partie 2 : Conversation quotidienne",
+      "a2Part3": "Partie 3 : Négocier quelque chose"
     },
     "grammar": {
       "title": "Éléments de langage",
@@ -701,7 +721,7 @@
     "signOut": "Se déconnecter",
     "changeLanguage": "Changer de langue",
     "signedInWith": "Connecté avec",
-    "appName": "Application de préparation à l'examen {{language}} {{provider}} {{level}}",
+    "appName": "{{language}} {{provider}} {{level}} Examen",
     "version": "Version",
     "completionStats": "Statistiques d'achèvement",
     "totalProgress": "Progression totale",
@@ -1168,6 +1188,12 @@
       "dele": {
         "subtitle": "Étudiez des expressions courantes que vous pouvez utiliser dans de nombreuses situations et questions"
       }
+    },
+    "a2Part3": {
+      "menuDescription": "Négocier une activité commune avec votre interlocuteur"
+    },
+    "a2Part2": {
+      "menuDescription": "Tenir une conversation sur un sujet quotidien à l'aide de cartes"
     }
   },
   "results": {

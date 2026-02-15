@@ -29,6 +29,7 @@ const ReadingMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
 
   React.useEffect(() => {
@@ -95,10 +96,19 @@ const ReadingMenuScreen: React.FC = () => {
   const getCardTitle = (partNumber: number) => {
     switch (partNumber) {
       case 1:
+        if(isA2) {
+          return t('practice.reading.a2.part1');
+        }
         return isA1 ? t('practice.reading.a1.part1') : t('practice.reading.part1');
       case 2:
+        if(isA2) {
+          return t('practice.reading.a2.part2');
+        }
         return isA1 ? t('practice.reading.a1.part2') : t('practice.reading.part2');
       case 3:
+        if(isA2) {
+          return t('practice.reading.a2.part3');
+        }
         return isA1
           ? t('practice.reading.a1.part3')
           : (isDele ? t('practice.reading.dele.part3') : t('practice.reading.part3'));
@@ -110,14 +120,23 @@ const ReadingMenuScreen: React.FC = () => {
   const getCardDescription = (partNumber: number) => {
     switch (partNumber) {
       case 1:
+        if(isA2) {
+          return t('practice.reading.descriptions.a2.part1')
+        }
         return isA1
           ? t('practice.reading.descriptions.a1.part1')
           : t('practice.reading.descriptions.part1');
       case 2:
+        if(isA2) {
+          return t('practice.reading.descriptions.a2.part2')
+        }
         return isA1
           ? t('practice.reading.descriptions.a1.part2')
           : t('practice.reading.descriptions.part2');
       case 3:
+        if(isA2) {
+          return t('practice.reading.descriptions.a2.part3')
+        }
         return isA1
           ? t('practice.reading.descriptions.a1.part3')
           : (isDele ? t('practice.reading.descriptions.dele.part3') : t('practice.reading.descriptions.part3'));

@@ -93,6 +93,14 @@ const WritingMenuScreen: React.FC = () => {
       return t(`practice.writing.a1.part${partNumber}`);
     }
 
+    if(isA2) {
+      if(partNumber === 1) {
+        return t(`practice.writing.a2.part1`);
+      } else {
+        return t(`practice.writing.a2.part2`);
+      }
+    }
+
     if(isDele) {
       return t(`practice.writing.dele.part${partNumber}`);
     }
@@ -103,6 +111,14 @@ const WritingMenuScreen: React.FC = () => {
   const getCardDescription = (partNumber: number) => {
     if (isA1) {
       return t(`practice.writing.descriptions.a1.part${partNumber}`);
+    }
+
+    if(isA2) {
+      if(partNumber === 1) {
+        return t(`practice.writing.descriptions.a2.part1`);
+      } else {
+        return t(`practice.writing.descriptions.a2.part2`);
+      }
     }
 
     if(isDele) {

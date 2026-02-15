@@ -552,11 +552,21 @@
         },
         "dele": {
           "part3": "Ordnen Sie Aussagen Situationen zu"
+        },
+        "a2": {
+          "part2": "Lesen Sie den Langtext und beantworten Sie WAHR/FALSCH-Fragen",
+          "part1": "Lesen Sie Informationen zu einem Gebäude und beantworten Sie Fragen",
+          "part3": "Ordnen Sie Situationen der Werbung zu"
         }
       },
       "part1": "Teil 1: Passende Überschriften",
       "dele": {
         "part3": "Teil 3: Situationsanpassung"
+      },
+      "a2": {
+        "part1": "Teil 1: Multiple Choice",
+        "part2": "Teil 2: Text lesen und Fragen beantworten",
+        "part3": "Teil 3: Text mit Werbung abgleichen"
       }
     },
     "listening": {
@@ -626,6 +636,10 @@
         "dele": {
           "part1": "Schreiben Sie eine formelle oder halbformelle E-Mail",
           "part2": "Kommentieren Sie eine in einem Blog veröffentlichte Nachricht"
+        },
+        "a2": {
+          "part1": "Lesen Sie ein Szenario und tragen Sie die fehlenden Informationen in ein Formular ein",
+          "part2": "Dabei handelt es sich um das Verfassen einer kurzen Nachricht, beispielsweise einer E-Mail oder eines Briefes"
         }
       },
       "taskPoints": "Aufgabenpunkte",
@@ -640,6 +654,10 @@
       "dele": {
         "part1": "Teil 1: Eine E-Mail schreiben",
         "part2": "Teil 2: Kommentieren Sie eine Nachricht"
+      },
+      "a2": {
+        "part1": "Teil 1: Füllen Sie ein Formular aus",
+        "part2": "Teil 2: Schreiben Sie eine kurze E-Mail oder einen Brief"
       }
     },
     "speaking": {
@@ -660,7 +678,9 @@
         "part3": "Teil 3: Beschreiben Sie ein Foto",
         "part4": "Teil 4: Dialog in einer simulierten Situation",
         "importantPhrases": "Wichtige Sätze"
-      }
+      },
+      "a2Part2": "Teil 2: Alltagsgespräche",
+      "a2Part3": "Teil 3: Etwas aushandeln"
     },
     "grammar": {
       "title": "Sprachbausteine",
@@ -759,7 +779,7 @@
     "shareApp": "Mit Freunden teilen",
     "reportedIssues": "Gemeldete Probleme",
     "deleteAccount": "Konto löschen",
-    "appName": "{{language}} {{provider}} {{level}} Prüfungsvorbereitungs-App",
+    "appName": "{{language}} {{provider}} {{level}} Prüfung",
     "weeklyActivity": "Wöchentliche Aktivität",
     "totalXP": "EP",
     "stats": {
@@ -1351,6 +1371,12 @@
       "dele": {
         "subtitle": "Lernen Sie gebräuchliche Ausdrücke, die Sie in vielen Situationen und Fragen verwenden können"
       }
+    },
+    "a2Part3": {
+      "menuDescription": "Vereinbaren Sie mit Ihrem Gesprächspartner eine gemeinsame Aktivität"
+    },
+    "a2Part2": {
+      "menuDescription": "Führen Sie mithilfe von Karten ein Gespräch über ein alltägliches Thema"
     }
   },
   "results": {

@@ -352,8 +352,8 @@ const SpeakingMenuScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        {(isA1 || isA2) && isTelc && (
-          <> {/* A2 TODO: update titles for A2 */}
+        {(isA1) && isTelc && (
+          <> 
             <Card style={styles.card} onPress={handleA1Part1Press}>
               <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
               <Text style={styles.cardDescription}>{t('speaking.a1Part1.menuDescription')}</Text>
@@ -365,6 +365,23 @@ const SpeakingMenuScreen: React.FC = () => {
             <Card style={styles.card} onPress={handleA1Part3Press}>
               <Text style={styles.cardTitle}>{t('practice.speaking.a1Part3')}</Text>
               <Text style={styles.cardDescription}>{t('speaking.a1Part3.menuDescription')}</Text>
+            </Card>
+          </>
+        )}
+
+        {(isA2) && isTelc && (
+          <> 
+            <Card style={styles.card} onPress={handleA1Part1Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a1Part1.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleA1Part2Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.a2Part2')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a2Part2.menuDescription')}</Text>
+            </Card>
+            <Card style={styles.card} onPress={handleA1Part3Press}>
+              <Text style={styles.cardTitle}>{t('practice.speaking.a2Part3')}</Text>
+              <Text style={styles.cardDescription}>{t('speaking.a2Part3.menuDescription')}</Text>
             </Card>
           </>
         )}

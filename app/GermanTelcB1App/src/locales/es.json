@@ -552,11 +552,21 @@
         },
         "dele": {
           "part3": "Relacionar declaraciones con situaciones"
+        },
+        "a2": {
+          "part2": "Lea textos extensos y responda preguntas VERDADERAS/FALSAS",
+          "part1": "Leer información sobre un edificio y responder preguntas.",
+          "part3": "Relacionar situaciones con anuncios"
         }
       },
       "part1": "Parte 1: Encabezados coincidentes",
       "dele": {
         "part3": "Parte 3: Coincidencia de situaciones"
+      },
+      "a2": {
+        "part1": "Parte 1: Opción múltiple",
+        "part2": "Parte 2: leer el texto y responder preguntas",
+        "part3": "Parte 3: relacionar texto con anuncios"
       }
     },
     "listening": {
@@ -626,6 +636,10 @@
         "dele": {
           "part1": "Escribe un correo electrónico formal o semiformal.",
           "part2": "Comentar un mensaje publicado en un blog."
+        },
+        "a2": {
+          "part1": "Leer un escenario y completar la información que falta en un formulario.",
+          "part2": "Implica escribir un mensaje corto como un correo electrónico o una carta."
         }
       },
       "taskPoints": "Puntos de tarea",
@@ -640,6 +654,10 @@
       "dele": {
         "part1": "Parte 1: escribir un correo electrónico",
         "part2": "Parte 2: comentar un mensaje"
+      },
+      "a2": {
+        "part1": "Parte 1: Complete un formulario",
+        "part2": "Parte 2: escribir una carta o un correo electrónico breve"
       }
     },
     "speaking": {
@@ -660,7 +678,9 @@
         "part3": "Parte 3: Describe una fotografía",
         "part4": "Parte 4: Diálogo en una situación simulada",
         "importantPhrases": "Frases importantes"
-      }
+      },
+      "a2Part2": "Parte 2: Conversación cotidiana",
+      "a2Part3": "Parte 3: Negociar algo"
     },
     "grammar": {
       "title": "Bloques de construcción del idioma",
@@ -713,7 +733,7 @@
     "signOut": "Cerrar sesión",
     "changeLanguage": "Cambiar idioma",
     "signedInWith": "Sesión iniciada con",
-    "appName": "Aplicación de preparación para el examen de {{language}} {{provider}} {{level}}",
+    "appName": "{{language}} {{provider}} {{level}} Examen",
     "version": "Versión",
     "completionStats": "Estadísticas de finalización",
     "totalProgress": "Progreso total",
@@ -1350,6 +1370,12 @@
       "dele": {
         "subtitle": "Estudia frases comunes que puedes usar en muchas situaciones y preguntas."
       }
+    },
+    "a2Part3": {
+      "menuDescription": "Negociar una actividad conjunta con su interlocutor"
+    },
+    "a2Part2": {
+      "menuDescription": "Mantener una conversación sobre un tema cotidiano utilizando tarjetas."
     }
   },
   "results": {

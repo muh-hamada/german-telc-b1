@@ -553,6 +553,12 @@
       "dele": {
         "subtitle": "Study common phrases you can use in many situations and questions"
       }
+    },
+    "a2Part3": {
+      "menuDescription": "Negotiate a joint activity with your conversation partner"
+    },
+    "a2Part2": {
+      "menuDescription": "Hold a conversation about an everyday topic using cards"
     }
   },
   "vocabulary": {
@@ -692,10 +698,20 @@
         },
         "dele": {
           "part3": "Match statments to situations"
+        },
+        "a2": {
+          "part2": "Read long text and answer TRUR/FALSE questions",
+          "part1": "Read info about a building and answer questions",
+          "part3": "Match situations to advertisements"
         }
       },
       "dele": {
         "part3": "Part 3: Situation Matching"
+      },
+      "a2": {
+        "part1": "Part 1: Multiple Choice",
+        "part2": "Part 2: Read text and answer questions",
+        "part3": "Part 3: Match text with advertisements"
       }
     },
     "listening": {
@@ -763,6 +779,10 @@
         "dele": {
           "part1": "Write a formal or semi-formal email",
           "part2": "Comment on a message published in a blog"
+        },
+        "a2": {
+          "part1": "Read a scenario and fill in the missing information in a form",
+          "part2": "It involves writing a short message such as an email or letter"
         }
       },
       "taskPoints": "Task Points",
@@ -777,6 +797,10 @@
       "dele": {
         "part1": "Part 1: Write an Email",
         "part2": "Part 2: Comment on a Message"
+      },
+      "a2": {
+        "part1": "Part 1: Fill in a Form",
+        "part2": "Part 2: Write short email or letter"
       }
     },
     "speaking": {
@@ -797,7 +821,9 @@
         "part3": "Part 3: Describe a photograph",
         "part4": "Part 4: Dialogue in a simulated situation",
         "importantPhrases": "Important Phrases"
-      }
+      },
+      "a2Part2": "Part 2: Everyday Conversation",
+      "a2Part3": "Part 3: Negotiate Something"
     },
     "grammar": {
       "title": "Language Building Blocks",
@@ -896,7 +922,7 @@
     "shareApp": "Share with friends",
     "reportedIssues": "Reported Issues",
     "deleteAccount": "Delete Account",
-    "appName": "{{language}} {{provider}} {{level}} Exam Preparation App",
+    "appName": "{{language}} {{provider}} {{level}} Exam",
     "weeklyActivity": "Weekly Activity",
     "totalXP": "XP",
     "stats": {
