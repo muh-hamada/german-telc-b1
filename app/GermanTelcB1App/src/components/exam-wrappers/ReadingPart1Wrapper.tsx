@@ -4,7 +4,8 @@ import { ThemeColors, typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart1UI from '../exam-ui/ReadingPart1UI';
 import ReadingPart1A1UI from '../exam-ui/ReadingPart1A1UI';
-import { ReadingPart1Exam, ReadingPart1A1Exam, UserAnswer } from '../../types/exam.types';
+import ReadingPart1A2UI from '../exam-ui/ReadingPart1A2UI';
+import { ReadingPart1Exam, ReadingPart1A1Exam, ReadingPart1A2Exam, UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
@@ -16,8 +17,9 @@ interface ReadingPart1WrapperProps {
 
 const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onComplete }) => {
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const { t } = useCustomTranslation();
-  const [exam, setExam] = useState<ReadingPart1Exam | ReadingPart1A1Exam | null>(null);
+  const [exam, setExam] = useState<ReadingPart1Exam | ReadingPart1A1Exam | ReadingPart1A2Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
@@ -29,6 +31,8 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
         let loadedExam;
         if (isA1) {
           loadedExam = await dataService.getReadingPart1A1ExamById(testId);
+        } else if (isA2) {
+          loadedExam = await dataService.getReadingPart1A2ExamById(testId);
         } else {
           loadedExam = await dataService.getReadingPart1ExamById(testId);
         }
@@ -40,7 +44,7 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
       }
     };
     loadExam();
-  }, [testId, isA1]);
+  }, [testId, isA1, isA2]);
 
   if (isLoading) {
     return (
@@ -58,6 +62,8 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
     <View style={styles.container}>
       {isA1 ? (
         <ReadingPart1A1UI exam={exam as ReadingPart1A1Exam} onComplete={onComplete} />
+      ) : isA2 ? (
+        <ReadingPart1A2UI exam={exam as ReadingPart1A2Exam} onComplete={onComplete} />
       ) : (
         <ReadingPart1UI exam={exam as ReadingPart1Exam} onComplete={onComplete} />
       )}

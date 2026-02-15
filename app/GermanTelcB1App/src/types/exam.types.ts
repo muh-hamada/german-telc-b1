@@ -122,6 +122,62 @@ export interface ReadingPart3A1Exam {
   questions: ReadingPart3A1Question[];
 }
 
+// ==========================================
+// GERMAN A2 READING EXAM TYPES
+// ==========================================
+
+// Reading Part 1 A2 (Store Directory Lookup - 3-option MCQ)
+export interface ReadingPart1A2Option {
+  id: number;
+  text?: string;
+  option?: string;
+  is_correct: boolean;
+}
+
+export interface ReadingPart1A2Question {
+  id: number;
+  question: string;
+  options: ReadingPart1A2Option[];
+  explanation?: Record<string, string>;
+}
+
+export interface ReadingPart1A2Exam {
+  id: string;
+  title: string;
+  information: Record<string, string>;
+  questions: ReadingPart1A2Question[];
+}
+
+// Reading Part 2 A2 (True/False with Article Text)
+export interface ReadingPart2A2Question {
+  id: number;
+  statement: string;
+  is_correct: boolean;
+  explanation?: Record<string, string>;
+}
+
+export interface ReadingPart2A2Exam {
+  id: string;
+  title: string;
+  text: string;
+  questions: ReadingPart2A2Question[];
+}
+
+// Reading Part 3 A2 (Advertisement Matching)
+export interface ReadingPart3A2Question {
+  id: number;
+  question: string;
+  answer: string;
+  explanation?: Record<string, string>;
+}
+
+export interface ReadingPart3A2Exam {
+  id: string;
+  title: string;
+  advertisements: Record<string, string>;
+  questions: ReadingPart3A2Question[];
+}
+
 // Writing Section
 export interface WritingExam {
   id: number;

@@ -139,6 +139,7 @@ const createStyles = (colors: ThemeColors) =>
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: spacing.lg,
+      paddingVertical: spacing.padding.md,
       borderBottomWidth: 1,
       borderBottomColor: colors.border.light,
     },

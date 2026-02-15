@@ -1457,6 +1457,7 @@
       "taskTitle": "Tarea:",
       "taskDescription": "Lea los siguientes cinco textos y asigne un título adecuado a cada texto. Hay más títulos que textos. Cada título solo se puede usar una vez.",
       "a1TaskDescription": "Lea el texto y decida si las afirmaciones son correctas (Richtig) o incorrectas (Falsch).",
+      "a2TaskDescription": "Lea el directorio de la tienda y responda las preguntas. Para cada pregunta, elija la planta correcta.",
       "headings": "Títulos (a-j):",
       "texts": "Textos (1-{{count}}):",
       "text": "Texto",
@@ -1480,6 +1481,7 @@
       "taskTitle": "Tarea:",
       "taskDescription": "Lea el siguiente texto y responda las preguntas seleccionando la respuesta correcta.",
       "a1TaskDescription": "Lea cada situación y elija la opción correcta (sitio web o anuncio) que corresponda.",
+      "a2TaskDescription": "Lea el texto y decida si las afirmaciones son correctas (Richtig) o incorrectas (Falsch).",
       "option": "Opción",
       "questions": "Preguntas ({{first}}-{{last}}):",
       "submitAnswers": "Enviar Respuestas ({{answered}}/{{total}})",
@@ -1493,6 +1495,7 @@
       "taskTitle": "Tarea:",
       "taskDescription": "Lea los anuncios y las situaciones. ¿Qué anuncio se ajusta a qué situación? No hay un anuncio adecuado para cada situación.",
       "a1TaskDescription": "Lea el contexto y la afirmación, luego decida si es correcta (Richtig) o incorrecta (Falsch).",
+      "a2TaskDescription": "Lea los anuncios y relacione cada situación con el anuncio correcto. Si ningún anuncio es adecuado, seleccione X.",
       "advertisements": "Anuncios:",
       "situations": "Situaciones:",
       "selectAdvertisement": "Seleccionar anuncio:",
@@ -1933,6 +1936,11 @@
           "part1": "Cartas y mensajes",
           "part2": "Sitios web y anuncios",
           "part3": "Señales y avisos"
+        },
+        "a2": {
+          "part1": "Directorio de tienda",
+          "part2": "Verdadero / Falso",
+          "part3": "Emparejar anuncios"
         },
         "dele": {
           "part1": "Coincidencia de programas de televisión",

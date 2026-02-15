@@ -1,0 +1,122 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "a2-part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 10
+    },
+    {
+        "type": "ready",
+        "id": "number-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Sie hören den Mitteldeutschen Rundfunk. Es ist 14 Uhr. Gleich hören Sie Tipps für den Garten. Danach um 15 Uhr kommt unsere Sendung 'Klassik für Kinder'. Und um 16 Uhr: Nachrichten aus aller Welt.",
+        "voiceId": "person3",
+        "id": "message-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Das Wetter am Wochenende. Am Samstag ist es bewölkt, aber trocken bei 18 Grad. Am Sonntag kommt die Sonne zurück. Es wird sehr warm, bis 28 Grad. Perfekt für einen Ausflug zum See.",
+        "voiceId": "person1",
+        "id": "message-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Verkehrsfunk. Achtung auf der A9 München Richtung Nürnberg. Zwischen Ingolstadt und Greding gibt es 5 Kilometer Stau wegen einer Baustelle. Bitte fahren Sie vorsichtig und langsam.",
+        "voiceId": "person3",
+        "id": "message-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Haben Sie am Freitagabend Zeit? Kommen Sie in das neue Einkaufszentrum am Markt! Bis 22 Uhr können Sie dort einkaufen. Es gibt Musik und für jeden Besucher ein kostenloses Getränk.",
+        "voiceId": "person1",
+        "id": "message-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Unser Gewinnspiel am Morgen! Gewinnen Sie heute einen Gutschein über 50 Euro für den Supermarkt. Die Frage ist einfach: Wie viele Stunden hat ein Tag? a) 12, b) 24 oder c) 48. Rufen Sie jetzt an!",
+        "voiceId": "person3",
+        "id": "message-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

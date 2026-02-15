@@ -700,7 +700,7 @@
           "part3": "Match statments to situations"
         },
         "a2": {
-          "part2": "Read long text and answer TRUR/FALSE questions",
+          "part2": "Read long text and answer TRUE/FALSE questions",
           "part1": "Read info about a building and answer questions",
           "part3": "Match situations to advertisements"
         }
@@ -1239,6 +1239,7 @@
       "taskTitle": "Task:",
       "taskDescription": "Read the following five texts and assign a suitable heading to each text. There are more headings than texts. Each heading can only be used once.",
       "a1TaskDescription": "Read the text and decide if the statements are correct (Richtig) or incorrect (Falsch).",
+      "a2TaskDescription": "Read the store directory and answer the questions. For each question, choose the correct floor.",
       "headings": "Headings (a-j):",
       "texts": "Texts (1-{{count}}):",
       "text": "Text",
@@ -1262,6 +1263,7 @@
       "taskTitle": "Task:",
       "taskDescription": "Read the following text and answer the questions by selecting the correct answer.",
       "a1TaskDescription": "Read each situation and choose the correct option (website or advertisement) that matches.",
+      "a2TaskDescription": "Read the text and decide if the statements are correct (Richtig) or incorrect (Falsch).",
       "option": "Option",
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Submit Answers ({{answered}}/{{total}})",
@@ -1275,6 +1277,7 @@
       "taskTitle": "Task:",
       "taskDescription": "Read the advertisements and the situations. Which advertisement fits which situation? There is not a suitable advertisement for every situation.",
       "a1TaskDescription": "Read the context and the statement, then decide if it is correct (Richtig) or incorrect (Falsch).",
+      "a2TaskDescription": "Read the advertisements and match each situation to the correct advertisement. If no advertisement fits, select X.",
       "advertisements": "Advertisements:",
       "situations": "Situations:",
       "selectAdvertisement": "Select advertisement:",
@@ -1648,6 +1651,11 @@
           "part1": "Letters and Messages",
           "part2": "Websites and Ads",
           "part3": "Signs and Notices"
+        },
+        "a2": {
+          "part1": "Store Directory",
+          "part2": "True / False",
+          "part3": "Ad Matching"
         },
         "dele": {
           "part1": "TV Program Matching",

@@ -11,6 +11,9 @@ import {
   ReadingPart2A1Exam,
   ReadingPart3Exam,
   ReadingPart3A1Exam,
+  ReadingPart1A2Exam,
+  ReadingPart2A2Exam,
+  ReadingPart3A2Exam,
   WritingExam,
   SpeakingPart1Content,
   SpeakingPart2Content,
@@ -298,6 +301,38 @@ class DataService {
 
   async getReadingPart3A1ExamById(id: string): Promise<ReadingPart3A1Exam | undefined> {
     const exams = await this.getReadingPart3A1Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Reading Part 1 A2 (Store Directory Lookup - 3-option MCQ)
+  async getReadingPart1A2Exams(): Promise<ReadingPart1A2Exam[]> {
+    return await this.fetchFromFirestore('reading-part1', null);
+  }
+
+  async getReadingPart1A2ExamById(id: string): Promise<ReadingPart1A2Exam | undefined> {
+    const exams = await this.getReadingPart1A2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Reading Part 2 A2 (True/False with Article Text)
+  async getReadingPart2A2Exams(): Promise<ReadingPart2A2Exam[]> {
+    const data = await this.fetchFromFirestore('reading-part2', null);
+    return data.exams || [];
+  }
+
+  async getReadingPart2A2ExamById(id: string): Promise<ReadingPart2A2Exam | undefined> {
+    const exams = await this.getReadingPart2A2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Reading Part 3 A2 (Advertisement Matching)
+  async getReadingPart3A2Exams(): Promise<ReadingPart3A2Exam[]> {
+    const data = await this.fetchFromFirestore('reading-part3', null);
+    return data.exams || [];
+  }
+
+  async getReadingPart3A2ExamById(id: string): Promise<ReadingPart3A2Exam | undefined> {
+    const exams = await this.getReadingPart3A2Exams();
     return exams.find(exam => exam.id.toString() === id.toString());
   }
 

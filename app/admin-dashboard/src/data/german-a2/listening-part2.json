@@ -11,6 +11,289 @@
         "prep_time_seconds": 0
     },
     "exams": [
-       
+        {
+            "title": "Radioprogramm, Wetterbericht, Verkehr und Gewinnspiel",
+            "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-2-exam-1.mp3?alt=media",
+            "questions": [
+                {
+                    "id": 6,
+                    "question": "Was kommt um 11 Uhr im Radio?",
+                    "audio_transcription": "Hier ist Radio Sonnenschein. Es ist 10 Uhr. Wir machen weiter mit Musik. Um 11 Uhr hören Sie dann ein Interview mit dem Sänger Tim Bendzko. Um 12 Uhr folgen die Nachrichten.",
+                    "explanation": {
+                        "en": "The speaker explicitly states that an interview with the singer Tim Bendzko will air at 11 o'clock. The news follows later at 12 o'clock.",
+                        "de": "Der Sprecher sagt ausdrücklich, dass um 11 Uhr ein Interview mit dem Sänger Tim Bendzko gesendet wird. Die Nachrichten folgen erst um 12 Uhr.",
+                        "es": "El locutor afirma explícitamente que a las 11 se emitirá una entrevista con el cantante Tim Bendzko. Las noticias seguirán a las 12.",
+                        "fr": "Le présentateur indique explicitement qu'une interview du chanteur Tim Bendzko sera diffusée à 11 heures. Les informations suivront à 12 heures.",
+                        "ru": "Диктор четко говорит, что в 11 часов выйдет интервью с певцом Тимом Бендзко. Новости последуют позже, в 12 часов.",
+                        "ar": "يذكر المتحدث صراحة أن مقابلة مع المغني تيم بيندزكو ستبث في الساعة 11. الأخبار تأتي لاحقًا في الساعة 12."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Nachrichten"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Ein Interview"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Nur Musik"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "question": "Wie wird das Wetter am Nachmittag?",
+                    "audio_transcription": "Der Wetterbericht. Heute Vormittag ist es noch sonnig und warm. Aber Achtung: Ab 15 Uhr kommen Wolken und es regnet stark. Die Temperaturen fallen auf 15 Grad.",
+                    "explanation": {
+                        "en": "The forecast mentions that while the morning is sunny, it will rain heavily starting at 3 PM (15:00), which corresponds to the afternoon.",
+                        "de": "Der Wetterbericht erwähnt, dass der Vormittag sonnig ist, es aber ab 15 Uhr stark regnen wird, was dem Nachmittag entspricht.",
+                        "es": "El pronóstico menciona que, aunque la mañana es soleada, lloverá fuertemente a partir de las 15:00 horas, lo que corresponde a la tarde.",
+                        "fr": "Les prévisions mentionnent que, bien que la matinée soit ensoleillée, il pleuvra fortement à partir de 15 heures, ce qui correspond à l'après-midi.",
+                        "ru": "В прогнозе упоминается, что, хотя утро солнечное, с 15:00 (днем) пойдет сильный дождь.",
+                        "ar": "تذكر النشرة الجوية أنه بينما يكون الصباح مشمسًا، ستمطر بغزارة بدءًا من الساعة 3 مساءً (15:00)، وهو وقت ما بعد الظهر."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Sonnig"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Regnerisch"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Heiß"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "question": "Was liegt auf der Autobahn A3?",
+                    "audio_transcription": "Verkehrsservice. Vorsicht auf der A3 Frankfurt Richtung Köln. In der Nähe vom Flughafen liegt ein großes Stück Holz auf der Straße. Bitte fahren Sie dort sehr langsam.",
+                    "explanation": {
+                        "en": "The traffic report warns drivers about a large piece of wood lying on the road near the airport on the A3 motorway.",
+                        "de": "Der Verkehrsservice warnt die Autofahrer vor einem großen Stück Holz, das auf der Autobahn A3 in der Nähe des Flughafens liegt.",
+                        "es": "El informe de tráfico advierte a los conductores sobre un gran trozo de madera en la carretera cerca del aeropuerto en la autopista A3.",
+                        "fr": "L'info trafic avertit les conducteurs qu'un gros morceau de bois se trouve sur la route près de l'aéroport, sur l'autoroute A3.",
+                        "ru": "В сообщении о дорожном движении водителей предупреждают о большом куске дерева, лежащем на дороге возле аэропорта на автобане А3.",
+                        "ar": "يحذر تقرير المرور السائقين من وجود قطعة كبيرة من الخشب ملقاة على الطريق بالقرب من المطار على الطريق السريع A3."
+                    },
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Holz"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Ein Auto"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Ein Koffer"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "question": "Wer bezahlt keinen Eintritt beim Stadtfest?",
+                    "audio_transcription": "Programmtipp für das Wochenende: Am Samstag ist das große Stadtfest. Es gibt Musik und Essen aus vielen Ländern. Der Eintritt ist für Kinder kostenlos. Beginn ist um 14 Uhr.",
+                    "explanation": {
+                        "en": "The announcement states that admission is free specifically for children. Other groups are not mentioned as having free entry.",
+                        "de": "Die Durchsage besagt, dass der Eintritt speziell für Kinder kostenlos ist. Andere Gruppen werden nicht als kostenfrei erwähnt.",
+                        "es": "El anuncio establece que la entrada es gratuita específicamente para niños. No se menciona que otros grupos tengan entrada libre.",
+                        "fr": "L'annonce précise que l'entrée est gratuite spécifiquement pour les enfants. Il n'est pas mentionné que l'entrée est gratuite pour d'autres groupes.",
+                        "ru": "В объявлении говорится, что вход бесплатный именно для детей. О бесплатном входе для других групп не упоминается.",
+                        "ar": "يوضح الإعلان أن الدخول مجاني للأطفال تحديدًا. لم يتم ذكر مجموعات أخرى تتمتع بدخول مجاني."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Männer"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Kinder"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Senioren"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "question": "Was können die Hörer gewinnen?",
+                    "audio_transcription": "Und jetzt unser Gewinnspiel. Möchten Sie zwei Tickets für das Kino gewinnen? Dann rufen Sie uns an! Unsere Frage: Welche Farbe hat eine Banane? a) Blau, b) Gelb oder c) Rot. Die Nummer ist 0800 55 44.",
+                    "explanation": {
+                        "en": "The announcer asks if listeners want to win two tickets for the cinema, which corresponds to the option 'Kinokarten'.",
+                        "de": "Der Sprecher fragt, ob die Zuhörer zwei Tickets für das Kino gewinnen möchten, was der Antwort 'Kinokarten' entspricht.",
+                        "es": "El locutor pregunta si los oyentes quieren ganar dos entradas para el cine, lo que corresponde a la opción 'Kinokarten'.",
+                        "fr": "Le présentateur demande si les auditeurs veulent gagner deux billets pour le cinéma, ce qui correspond à l'option 'Kinokarten'.",
+                        "ru": "Ведущий спрашивает, хотят ли слушатели выиграть два билета в кино, что соответствует варианту 'Kinokarten'.",
+                        "ar": "يسأل المذيع عما إذا كان المستمعون يرغبون في الفوز بتذكرتين للسينما، وهو ما يتوافق مع خيار 'Kinokarten'."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Geld"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Eine Reise"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Kinokarten"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Radioprogramm, Wochenendwetter, Verkehr und Einkauf",
+            "id": "4f2a7e91-c8d4-4a5b-9c2e-8f1b3d5e7a9c",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-2-exam-2.mp3?alt=media",
+            "questions": [
+                {
+                    "id": 6,
+                    "question": "Was hören Sie um 15 Uhr?",
+                    "audio_transcription": "Sie hören den Mitteldeutschen Rundfunk. Es ist 14 Uhr. Gleich hören Sie Tipps für den Garten. Danach um 15 Uhr kommt unsere Sendung 'Klassik für Kinder'. Und um 16 Uhr: Nachrichten aus aller Welt.",
+                    "explanation": {
+                        "en": "The program at 15:00 is explicitly named 'Classics for Children', which refers to music. Garden tips are aired earlier at 14:00.",
+                        "de": "Die Sendung um 15 Uhr heißt ausdrücklich 'Klassik für Kinder', was sich auf Musik bezieht. Gartentipps werden früher um 14 Uhr gesendet.",
+                        "es": "El programa de las 15:00 se llama explícitamente 'Clásica para niños', que se refiere a música. Los consejos de jardinería se emiten antes, a las 14:00.",
+                        "fr": "L'émission de 15 heures est explicitement intitulée 'Classique pour enfants', ce qui fait référence à de la musique. Les conseils de jardinage sont diffusés plus tôt, à 14 heures.",
+                        "ru": "Программа в 15:00 прямо называется «Классика для детей», что относится к музыке. Советы по садоводству транслируются раньше, в 14:00.",
+                        "ar": "البرنامج في الساعة 15:00 يسمى صراحة 'كلاسيكيات للأطفال'، وهو يشير إلى الموسيقى. يتم بث نصائح الحديقة في وقت سابق في الساعة 14:00."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Gartentipps"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Musik für Kinder"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Nachrichten"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "question": "Wie ist das Wetter am Sonntag?",
+                    "audio_transcription": "Das Wetter am Wochenende. Am Samstag ist es bewölkt, aber trocken bei 18 Grad. Am Sonntag kommt die Sonne zurück. Es wird sehr warm, bis 28 Grad. Perfekt für einen Ausflug zum See.",
+                    "explanation": {
+                        "en": "The forecast for Sunday mentions that the sun is coming back and it will be very warm. Clouds ('bewölkt') are predicted for Saturday.",
+                        "de": "Der Wetterbericht für Sonntag erwähnt, dass die Sonne zurückkommt und es sehr warm wird. Wolken ('bewölkt') sind für Samstag vorhergesagt.",
+                        "es": "El pronóstico para el domingo menciona que vuelve el sol y hará mucho calor. Las nubes ('bewölkt') están previstas para el sábado.",
+                        "fr": "Les prévisions pour dimanche indiquent que le soleil revient et qu'il fera très chaud. Des nuages ('bewölkt') sont prévus pour samedi.",
+                        "ru": "Прогноз на воскресенье упоминает, что солнце вернется и будет очень тепло. Облачность ('bewölkt') прогнозируется на субботу.",
+                        "ar": "تشير التوقعات ليوم الأحد إلى أن الشمس ستعود وسيكون الطقس دافئًا جدًا. الغيوم ('bewölkt') متوقعة يوم السبت."
+                    },
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Sonnig und warm"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Bewölkt"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Regnerisch"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "question": "Warum gibt es Stau auf der A9?",
+                    "audio_transcription": "Verkehrsfunk. Achtung auf der A9 München Richtung Nürnberg. Zwischen Ingolstadt und Greding gibt es 5 Kilometer Stau wegen einer Baustelle. Bitte fahren Sie vorsichtig und langsam.",
+                    "explanation": {
+                        "en": "The speaker states clearly that the traffic jam is caused by roadworks ('Baustelle'). No accident or animal is mentioned as a cause.",
+                        "de": "Der Sprecher sagt deutlich, dass der Stau durch eine Baustelle verursacht wird. Ein Unfall oder ein Tier wird nicht als Ursache erwähnt.",
+                        "es": "El locutor dice claramente que el atasco es causado por obras ('Baustelle'). No se menciona ningún accidente ni animal como causa.",
+                        "fr": "Le locuteur indique clairement que l'embouteillage est causé par des travaux ('Baustelle'). Aucun accident ou animal n'est mentionné comme cause.",
+                        "ru": "Диктор четко говорит, что пробка вызвана дорожными работами ('Baustelle'). Авария или животное в качестве причины не упоминаются.",
+                        "ar": "يذكر المتحدث بوضوح أن الازدحام المروري سببه أعمال بناء ('Baustelle'). لم يتم ذكر أي حادث أو حيوان كسبب."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Ein Unfall"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Eine Baustelle"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Ein Tier"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "question": "Was bekommen Besucher im Einkaufszentrum kostenlos?",
+                    "audio_transcription": "Haben Sie am Freitagabend Zeit? Kommen Sie in das neue Einkaufszentrum am Markt! Bis 22 Uhr können Sie dort einkaufen. Es gibt Musik und für jeden Besucher ein kostenloses Getränk.",
+                    "explanation": {
+                        "en": "Listeners are invited to the shopping center where every visitor receives a free drink ('Getränk'). Food or books are not mentioned.",
+                        "de": "Zuhörer werden in das Einkaufszentrum eingeladen, wo jeder Besucher ein kostenloses Getränk erhält. Essen oder Bücher werden nicht erwähnt.",
+                        "es": "Se invita a los oyentes al centro comercial, donde cada visitante recibe una bebida ('Getränk') gratis. No se mencionan comida ni libros.",
+                        "fr": "Les auditeurs sont invités au centre commercial où chaque visiteur reçoit une boisson ('Getränk') gratuite. La nourriture ou les livres ne sont pas mentionnés.",
+                        "ru": "Слушателей приглашают в торговый центр, где каждый посетитель получает бесплатный напиток ('Getränk'). Еда или книги не упоминаются.",
+                        "ar": "المستمعون مدعوون إلى مركز التسوق حيث يحصل كل زائر على مشروب ('Getränk') مجاني. لم يتم ذكر الطعام أو الكتب."
+                    },
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Ein Buch"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Essen"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Ein Getränk"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "question": "Was ist der Preis beim Gewinnspiel?",
+                    "audio_transcription": "Unser Gewinnspiel am Morgen! Gewinnen Sie heute einen Gutschein über 50 Euro für den Supermarkt. Die Frage ist einfach: Wie viele Stunden hat ein Tag? a) 12, b) 24 oder c) 48. Rufen Sie jetzt an!",
+                    "explanation": {
+                        "en": "The prize for the competition is explicitly identified as a voucher ('Gutschein') worth 50 Euros for the supermarket.",
+                        "de": "Der Preis für das Gewinnspiel wird ausdrücklich als Gutschein im Wert von 50 Euro für den Supermarkt identifiziert.",
+                        "es": "El premio del concurso se identifica explícitamente como un vale ('Gutschein') de 50 euros para el supermercado.",
+                        "fr": "Le prix du concours est explicitement identifié comme un bon d'achat ('Gutschein') de 50 euros pour le supermarché.",
+                        "ru": "Призом в конкурсе прямо назван ваучер ('Gutschein') на 50 евро для супермаркета.",
+                        "ar": "تم تحديد جائزة المسابقة صراحة على أنها قسيمة ('Gutschein') بقيمة 50 يورو للسوبر ماركت."
+                    },
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Ein Gutschein"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Eine Reise"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Ein Auto"
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }

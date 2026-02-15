@@ -79,6 +79,7 @@ Create the conversation, then structure it into a JSON file with the following f
     "title": <title in german>, // The title should be 4-6 words and related to the conversations
     "id": "", // Generate UUIDv4 ID
     "audio_url": "PLACEHOLDER_KEEP_IT_DO_NOT_CHANGE",
+    "audio_transcription": "",
     "options": {
       "a": "<option text>",
       "b": "<option text>",
@@ -93,32 +94,27 @@ Create the conversation, then structure it into a JSON file with the following f
       {
         "id": 11,
         "question": "Leiterin Export"
-        "answer": "b",
-        "audio_transcription": ""
+        "answer": "b"
       },
       {
         "id": 12,
         "question": "Sohn vom Chef"
-        "answer": "c",
-        "audio_transcription": ""
+        "answer": "c"
       },
       {
         "id": 13,
         "question": "Hausarbeiter"
-        "answer": "f",
-        "audio_transcription": ""
+        "answer": "f"
       },
       {
         "id": 14,
         "question": "Praktikantin"
-        "answer": "h",
-        "audio_transcription": ""
+        "answer": "h"
       },
       {
         "id": 15,
         "question": "Sekretärin"
-        "answer": "i",
-        "audio_transcription": ""
+        "answer": "i"
       }
     ]
 }

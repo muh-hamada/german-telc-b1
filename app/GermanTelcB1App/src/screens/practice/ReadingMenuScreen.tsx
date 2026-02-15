@@ -65,9 +65,10 @@ const ReadingMenuScreen: React.FC = () => {
 
   const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 1, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ReadingPart1A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ReadingPart1A2', { examId });
     } else {
       navigation.navigate('ReadingPart1', { examId });
     }
@@ -75,9 +76,10 @@ const ReadingMenuScreen: React.FC = () => {
 
   const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 2, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ReadingPart2A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ReadingPart2A2', { examId });
     } else {
       navigation.navigate('ReadingPart2', { examId });
     }
@@ -85,9 +87,10 @@ const ReadingMenuScreen: React.FC = () => {
 
   const handleSelectPart3Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'reading', part: 3, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ReadingPart3A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ReadingPart3A2', { examId });
     } else {
       navigation.navigate('ReadingPart3', { examId });
     }

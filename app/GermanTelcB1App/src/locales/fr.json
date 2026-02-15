@@ -1445,6 +1445,7 @@
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez les cinq textes suivants et attribuez un titre approprié à chaque texte. Il y a plus de titres que de textes. Chaque titre ne peut être utilisé qu'une seule fois.",
       "a1TaskDescription": "Lisez le texte et décidez si les affirmations sont correctes (Richtig) ou incorrectes (Falsch).",
+      "a2TaskDescription": "Lisez le répertoire du magasin et répondez aux questions. Pour chaque question, choisissez le bon étage.",
       "headings": "Titres (a-j):",
       "texts": "Textes (1-{{count}}):",
       "text": "Texte",
@@ -1468,6 +1469,7 @@
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez le texte suivant et répondez aux questions en sélectionnant la bonne réponse.",
       "a1TaskDescription": "Lisez chaque situation et choisissez l'option correcte (site web ou annonce) qui correspond.",
+      "a2TaskDescription": "Lisez le texte et décidez si les affirmations sont correctes (Richtig) ou incorrectes (Falsch).",
       "option": "Option",
       "questions": "Questions ({{first}}-{{last}}):",
       "submitAnswers": "Soumettre les Réponses ({{answered}}/{{total}})",
@@ -1481,6 +1483,7 @@
       "taskTitle": "Tâche:",
       "taskDescription": "Lisez les annonces et les situations. Quelle annonce correspond à quelle situation? Il n'y a pas d'annonce appropriée pour chaque situation.",
       "a1TaskDescription": "Lisez le contexte et l'affirmation, puis décidez si elle est correcte (Richtig) ou incorrecte (Falsch).",
+      "a2TaskDescription": "Lisez les annonces et associez chaque situation à l'annonce correspondante. Si aucune annonce ne convient, sélectionnez X.",
       "advertisements": "Annonces:",
       "situations": "Situations:",
       "selectAdvertisement": "Sélectionner l'annonce:",
@@ -1921,6 +1924,11 @@
           "part1": "Lettres et messages",
           "part2": "Sites Web et publicités",
           "part3": "Panneaux et avis"
+        },
+        "a2": {
+          "part1": "Répertoire du magasin",
+          "part2": "Vrai / Faux",
+          "part3": "Correspondance d'annonces"
         },
         "dele": {
           "part1": "Correspondance des programmes TV",

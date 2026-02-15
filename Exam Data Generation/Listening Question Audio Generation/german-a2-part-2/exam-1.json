@@ -1,0 +1,122 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "a2-part-2-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 10
+    },
+    {
+      "type": "ready",
+      "id": "number-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Hier ist Radio Sonnenschein. Es ist 10 Uhr. Wir machen weiter mit Musik. Um 11 Uhr hören Sie dann ein Interview mit dem Sänger Tim Bendzko. Um 12 Uhr folgen die Nachrichten.",
+      "voiceId": "person1",
+      "id": "message-speaker-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Der Wetterbericht. Heute Vormittag ist es noch sonnig und warm. Aber Achtung: Ab 15 Uhr kommen Wolken und es regnet stark. Die Temperaturen fallen auf 15 Grad.",
+      "voiceId": "person3",
+      "id": "message-speaker-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Verkehrsservice. Vorsicht auf der A3 Frankfurt Richtung Köln. In der Nähe vom Flughafen liegt ein großes Stück Holz auf der Straße. Bitte fahren Sie dort sehr langsam.",
+      "voiceId": "person1",
+      "id": "message-speaker-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Programmtipp für das Wochenende: Am Samstag ist das große Stadtfest. Es gibt Musik und Essen aus vielen Ländern. Der Eintritt ist für Kinder kostenlos. Beginn ist um 14 Uhr.",
+      "voiceId": "person3",
+      "id": "message-speaker-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    },
+    {
+      "type": "ready",
+      "id": "number-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 2
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Und jetzt unser Gewinnspiel. Möchten Sie zwei Tickets für das Kino gewinnen? Dann rufen Sie uns an! Unsere Frage: Welche Farbe hat eine Banane? a) Blau, b) Gelb oder c) Rot. Die Nummer ist 0800 55 44.",
+      "voiceId": "person1",
+      "id": "message-speaker-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-2-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

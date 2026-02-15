@@ -1458,6 +1458,7 @@
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie die folgenden fünf Texte und ordnen Sie jedem Text eine passende Überschrift zu. Es gibt mehr Überschriften als Texte. Jede Überschrift kann nur einmal verwendet werden.",
       "a1TaskDescription": "Lesen Sie den Text und entscheiden Sie, ob die Aussagen richtig oder falsch sind.",
+      "a2TaskDescription": "Lesen Sie das Verzeichnis und beantworten Sie die Fragen. Wählen Sie für jede Frage das richtige Stockwerk.",
       "headings": "Überschriften (a-j):",
       "texts": "Texte (1-{{count}}):",
       "text": "Text",
@@ -1481,6 +1482,7 @@
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie den folgenden Text und beantworten Sie die Fragen, indem Sie die richtige Antwort auswählen.",
       "a1TaskDescription": "Lesen Sie jede Situation und wählen Sie die richtige Option (Website oder Anzeige), die passt.",
+      "a2TaskDescription": "Lesen Sie den Text und entscheiden Sie, ob die Aussagen richtig oder falsch sind.",
       "option": "Option",
       "questions": "Fragen ({{first}}-{{last}}):",
       "submitAnswers": "Antworten absenden ({{answered}}/{{total}})",
@@ -1494,6 +1496,7 @@
       "taskTitle": "Aufgabe:",
       "taskDescription": "Lesen Sie die Anzeigen und die Situationen. Welche Anzeige passt zu welcher Situation? Nicht für jede Situation gibt es eine passende Anzeige.",
       "a1TaskDescription": "Lesen Sie den Kontext und die Aussage, und entscheiden Sie dann, ob sie richtig oder falsch ist.",
+      "a2TaskDescription": "Lesen Sie die Anzeigen und ordnen Sie jede Situation der richtigen Anzeige zu. Wenn keine Anzeige passt, wählen Sie X.",
       "advertisements": "Anzeigen:",
       "situations": "Situationen:",
       "selectAdvertisement": "Anzeige auswählen:",
@@ -1930,6 +1933,11 @@
           "part1": "Briefe und Nachrichten",
           "part2": "Websites und Anzeigen",
           "part3": "Schilder und Hinweise"
+        },
+        "a2": {
+          "part1": "Kaufhaus-Verzeichnis",
+          "part2": "Richtig / Falsch",
+          "part3": "Anzeigen zuordnen"
         },
         "dele": {
           "part1": "Passende TV-Programme",

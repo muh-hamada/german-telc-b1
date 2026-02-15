@@ -29,6 +29,9 @@ export type HomeStackParamList = {
   ReadingPart2A1: { examId: string };
   ReadingPart3: { examId: string };
   ReadingPart3A1: { examId: string };
+  ReadingPart1A2: { examId: string };
+  ReadingPart2A2: { examId: string };
+  ReadingPart3A2: { examId: string };
   GrammarMenu: undefined;
   GrammarPart1: { examId: string };
   GrammarPart2: { examId: string };

@@ -29,6 +29,9 @@ import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
 import ReadingPart2A1Screen from '../screens/practice/ReadingPart2A1Screen';
 import ReadingPart2Screen from '../screens/practice/ReadingPart2Screen';
 import ReadingPart3A1Screen from '../screens/practice/ReadingPart3A1Screen';
+import ReadingPart1A2Screen from '../screens/practice/ReadingPart1A2Screen';
+import ReadingPart2A2Screen from '../screens/practice/ReadingPart2A2Screen';
+import ReadingPart3A2Screen from '../screens/practice/ReadingPart3A2Screen';
 import ReadingPart3Screen from '../screens/practice/ReadingPart3Screen';
 import SpeakingB2Part1Screen from '../screens/practice/SpeakingB2Part1Screen';
 import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
@@ -185,6 +188,27 @@ const HomeStackNavigator: React.FC = () => {
         component={ReadingPart3A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a1.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ReadingPart1A2"
+        component={ReadingPart1A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a2.part1" />,
+        }}
+      />
+      <Stack.Screen
+        name="ReadingPart2A2"
+        component={ReadingPart2A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a2.part2" />,
+        }}
+      />
+      <Stack.Screen
+        name="ReadingPart3A2"
+        component={ReadingPart3A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.reading.a2.part3" />,
         }}
       />
       <Stack.Screen

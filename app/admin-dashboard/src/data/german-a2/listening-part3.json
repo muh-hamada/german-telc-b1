@@ -11,6 +11,171 @@
         "prep_time_seconds": 0
     },
     "exams": [
-        
+        {
+            "title": "Der erste Tag im Büro",
+            "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-3-exam-1.mp3?alt=media",
+            "audio_transcription": "Herr Müller: So, Frau Schmidt, herzlich willkommen. Schauen wir mal, wer noch da ist. Hier ist eigentlich der Platz von Frau Graf, unserer Sekretärin.\nFrau Schmidt: Der Stuhl ist aber leer. Wo ist sie denn?\nHerr Müller: Ah, ich sehe sie dort hinten. Sie hilft heute Vormittag am Empfang aus, weil dort so viel los ist.\nFrau Schmidt: Verstehe. Und wo finde ich den Chef, Herrn Bauer?\nHerr Müller: Herr Bauer ist normalerweise in Zimmer 12. Aber um diese Zeit macht er immer Pause. Er sitzt sicher in der Kantine und trinkt Kaffee.\nFrau Schmidt: Alles klar. Ich habe noch eine Frage. Ich habe noch kein Passwort für meinen Computer.\nHerr Müller: Da müssen Sie zu Herrn Kurz. Das ist unser IT-Spezialist. Sein Büro ist hier rechts, aber er arbeitet gerade im Serverraum an den Kabeln.\nFrau Schmidt: Gut, dann gehe ich später zum Serverraum. Und wo werde ich arbeiten?\nHerr Müller: Tja, Ihr Büro wird diese Woche noch gestrichen. Deshalb sitzen Sie die ersten Tage unten in der Bibliothek. Da ist es sehr ruhig.\nFrau Schmidt: In der Bibliothek? Das klingt doch nett.\nHerr Müller: Ja. Ach, noch etwas. Wenn Sie Büromaterial wie Stifte oder Papier brauchen, fragen Sie Herrn Riese, den Hausmeister. Er ist unten im Keller.",
+            "options": {
+                "a": "am Empfang",
+                "b": "im Keller",
+                "c": "in der Bibliothek",
+                "d": "in der Kantine",
+                "e": "im Serverraum",
+                "f": "im Kopierraum",
+                "g": "im Zimmer 12",
+                "h": "in der Teeküche"
+            },
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "Sekretärin (Frau Graf)",
+                    "answer": "a",
+                    "explanation": {
+                        "de": "Im Text heißt es: 'Sie hilft heute Vormittag am Empfang aus.' Frau Graf ist also nicht an ihrem Platz, sondern am Empfang.",
+                        "en": "The text states: 'She is helping out at the reception this morning.' Ms. Graf is therefore not at her desk, but at the reception.",
+                        "fr": "Le texte dit : 'Elle aide à la réception ce matin.' Mme Graf n'est donc pas à son bureau, mais à la réception.",
+                        "es": "El texto dice: 'Ella está ayudando en la recepción esta mañana'. Por lo tanto, la Sra. Graf no está en su escritorio, sino en la recepción.",
+                        "ru": "В тексте говорится: 'Сегодня утром она помогает на ресепшене'. Таким образом, госпожа Граф находится не на своем месте, а на ресепшене.",
+                        "ar": "يقول النص: 'هي تساعد في مكتب الاستقبال هذا الصباح'. إذن السيدة غراف ليست في مكانها، بل في مكتب الاستقبال."
+                    }
+                },
+                {
+                    "id": 12,
+                    "question": "Chef (Herr Bauer)",
+                    "answer": "d",
+                    "explanation": {
+                        "de": "Herr Müller sagt: 'Er sitzt sicher in der Kantine und trinkt Kaffee.' Obwohl sein Büro Zimmer 12 ist, macht er gerade Pause.",
+                        "en": "Mr. Müller says: 'He is surely sitting in the canteen drinking coffee.' Although his office is Room 12, he is currently taking a break.",
+                        "fr": "M. Müller dit : 'Il est sûrement assis à la cantine en train de boire un café.' Bien que son bureau soit la salle 12, il fait actuellement une pause.",
+                        "es": "El Sr. Müller dice: 'Seguramente está sentado en la cantina bebiendo café'. Aunque su oficina es la habitación 12, actualmente está tomando un descanso.",
+                        "ru": "Господин Мюллер говорит: 'Он наверняка сидит в столовой и пьет кофе'. Хотя его кабинет — номер 12, сейчас у него перерыв.",
+                        "ar": "يقول السيد مولر: 'هو بالتأكيد يجلس في الكافيتيريا ويشرب القهوة'. على الرغم من أن مكتبه هو الغرفة 12، إلا أنه في استراحة حاليًا."
+                    }
+                },
+                {
+                    "id": 13,
+                    "question": "IT-Spezialist (Herr Kurz)",
+                    "answer": "e",
+                    "explanation": {
+                        "de": "Der IT-Spezialist ist nicht in seinem Büro. Der Text erklärt: '...aber er arbeitet gerade im Serverraum an den Kabeln.'",
+                        "en": "The IT specialist is not in his office. The text explains: '...but he is currently working in the server room on the cables.'",
+                        "fr": "Le spécialiste informatique n'est pas dans son bureau. Le texte explique : '...mais il travaille actuellement dans la salle des serveurs sur les câbles.'",
+                        "es": "El especialista en TI no está en su oficina. El texto explica: '...pero actualmente está trabajando en la sala de servidores con los cables'.",
+                        "ru": "IT-специалиста нет в его кабинете. В тексте объясняется: '...но сейчас он работает в серверной с кабелями'.",
+                        "ar": "أخصائي تكنولوجيا المعلومات ليس في مكتبه. يوضح النص: '...لكنه يعمل حاليًا في غرفة الخوادم على الكابلات'."
+                    }
+                },
+                {
+                    "id": 14,
+                    "question": "Neue Mitarbeiterin (Frau Schmidt)",
+                    "answer": "c",
+                    "explanation": {
+                        "de": "Da ihr Büro noch gestrichen wird, lautet die Anweisung: 'Deshalb sitzen Sie die ersten Tage unten in der Bibliothek.'",
+                        "en": "Since her office is still being painted, the instruction is: 'That implies you will sit downstairs in the library for the first few days.'",
+                        "fr": "Comme son bureau est encore en train d'être peint, l'instruction est : 'C'est pourquoi vous serez assise en bas à la bibliothèque les premiers jours.'",
+                        "es": "Como su oficina todavía se está pintando, la instrucción es: 'Por eso se sentará abajo en la biblioteca los primeros días'.",
+                        "ru": "Так как ее кабинет еще красят, указание звучит так: 'Поэтому первые дни вы будете сидеть внизу в библиотеке'.",
+                        "ar": "بما أن مكتبها لا يزال يُطلى، فإن التعليمات هي: 'لهذا السبب ستجلسين في الطابق السفلي في المكتبة خلال الأيام الأولى'."
+                    }
+                },
+                {
+                    "id": 15,
+                    "question": "Hausmeister (Herr Riese)",
+                    "answer": "b",
+                    "explanation": {
+                        "de": "Am Ende des Gesprächs wird der Ort des Hausmeisters genannt: 'Er ist unten im Keller.'",
+                        "en": "At the end of the conversation, the caretaker's location is mentioned: 'He is downstairs in the basement.'",
+                        "fr": "À la fin de la conversation, l'emplacement du concierge est mentionné : 'Il est en bas à la cave.'",
+                        "es": "Al final de la conversación se menciona la ubicación del conserje: 'Él está abajo en el sótano'.",
+                        "ru": "В конце разговора упоминается местонахождение смотрителя: 'Он внизу в подвале'.",
+                        "ar": "في نهاية المحادثة تم ذكر مكان الحارس: 'إنه في الأسفل في القبو'."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "a4b8c9d2-e5f6-4789-a1b2-c3d4e5f67890",
+            "title": "Rundgang durch die neue Firma",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-3-exam-2.mp3?alt=media",
+            "audio_transcription": "Herr Müller: So, Frau Tanzer. Herzlich willkommen bei uns.\nFrau Tanzer: Vielen Dank, Herr Müller. Ich bin schon sehr gespannt.\nHerr Müller: Wir fangen hier unten an. Gleich hier vorne sitzt unser IT-Spezialist, Herr Kurz. Er ist normalerweise im Computerraum, aber jetzt trinkt er gerade einen Kaffee in der Kantine.\nFrau Tanzer: Ah, gut zu wissen.\nHerr Müller: Hier links, in Zimmer 3, finden Sie unsere Buchhalterin, Frau Lang. Wenn Sie Fragen zum Gehalt haben, gehen Sie zu ihr.\nFrau Tanzer: Alles klar.\nHerr Müller: Vorsicht, hier ist es nass. Unser Hausmeister, Herr Huber, putzt gerade den Flur. Er kümmert sich um das ganze Gebäude.\nFrau Tanzer: Gut. Und wo werde ich arbeiten?\nHerr Müller: Sie sitzen oben im ersten Stock. Ihr Schreibtisch steht im großen Raum 10, direkt neben dem Marketing.\nFrau Tanzer: Das klingt gut.\nHerr Müller: Und zum Schluss: Der Vertriebsleiter, Herr Stein, ist heute nicht in seinem Büro. Er hat eine Besprechung im Konferenzraum.",
+            "options": {
+                "a": "Computerraum",
+                "b": "Kantine",
+                "c": "Zimmer 3",
+                "d": "Empfang",
+                "e": "Flur",
+                "f": "Raum 10",
+                "g": "Konferenzraum",
+                "h": "Büro des Chefs"
+            },
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "IT-Spezialist",
+                    "answer": "b",
+                    "explanation": {
+                        "en": "The speaker mentions that while the specialist is usually in the computer room, he is currently drinking coffee in the canteen.",
+                        "de": "Der Sprecher erwähnt, dass der Spezialist zwar normalerweise im Computerraum ist, aber gerade einen Kaffee in der Kantine trinkt.",
+                        "fr": "Le locuteur mentionne que bien que le spécialiste soit habituellement dans la salle informatique, il boit actuellement un café à la cantine.",
+                        "es": "El orador menciona que, aunque el especialista suele estar en la sala de ordenadores, actualmente está tomando un café en la cantina.",
+                        "ru": "Говорящий упоминает, что, хотя специалист обычно находится в компьютерном зале, сейчас он пьет кофе в столовой.",
+                        "ar": "يذكر المتحدث أنه بينما يكون الأخصائي عادة في غرفة الكمبيوتر، فإنه يشرب القهوة حاليًا في الكانتين (المقصف)."
+                    }
+                },
+                {
+                    "id": 12,
+                    "question": "Buchhalterin",
+                    "answer": "c",
+                    "explanation": {
+                        "en": "Herr Müller explicitly states that the accountant, Ms. Lang, can be found in Room 3 ('Zimmer 3').",
+                        "de": "Herr Müller sagt ausdrücklich, dass die Buchhalterin, Frau Lang, in Zimmer 3 zu finden ist.",
+                        "fr": "Monsieur Müller déclare explicitement que la comptable, Mme Lang, se trouve dans la chambre 3 ('Zimmer 3').",
+                        "es": "El Sr. Müller afirma explícitamente que la contable, la Sra. Lang, se encuentra en la habitación 3 ('Zimmer 3').",
+                        "ru": "Господин Мюллер прямо заявляет, что бухгалтера, госпожу Ланг, можно найти в комнате 3 ('Zimmer 3').",
+                        "ar": "يصرح السيد مولر بوضوح أن المحاسبة، السيدة لانغ، توجد في الغرفة 3 ('Zimmer 3')."
+                    }
+                },
+                {
+                    "id": 13,
+                    "question": "Hausmeister",
+                    "answer": "e",
+                    "explanation": {
+                        "en": "The janitor is currently cleaning the hallway ('Flur'), which is why Herr Müller warns that it is wet.",
+                        "de": "Der Hausmeister putzt gerade den Flur, weshalb Herr Müller warnt, dass es dort nass ist.",
+                        "fr": "Le concierge nettoie actuellement le couloir ('Flur'), c'est pourquoi M. Müller prévient que c'est mouillé.",
+                        "es": "El conserje está limpiando el pasillo ('Flur'), por lo que el Sr. Müller advierte que está mojado.",
+                        "ru": "Смотритель сейчас моет коридор ('Flur'), поэтому господин Мюллер предупреждает, что там мокро.",
+                        "ar": "يقوم البواب حاليًا بتنظيف الممر ('Flur')، ولهذا السبب يحذر السيد مولر من أن الأرض مبللة."
+                    }
+                },
+                {
+                    "id": 14,
+                    "question": "Praktikantin",
+                    "answer": "f",
+                    "explanation": {
+                        "en": "Frau Tanzer is told that she will be working in the large Room 10 ('Raum 10') on the first floor.",
+                        "de": "Frau Tanzer wird gesagt, dass sie im großen Raum 10 im ersten Stock arbeiten wird.",
+                        "fr": "On dit à Mme Tanzer qu'elle travaillera dans la grande salle 10 ('Raum 10') au premier étage.",
+                        "es": "A la Sra. Tanzer se le dice que trabajará en la gran sala 10 ('Raum 10') en el primer piso.",
+                        "ru": "Госпоже Танцер говорят, что она будет работать в большой комнате 10 ('Raum 10') на втором этаже.",
+                        "ar": "يتم إخبار السيدة تانزر أنها ستعمل في الغرفة الكبيرة رقم 10 ('Raum 10') في الطابق الأول."
+                    }
+                },
+                {
+                    "id": 15,
+                    "question": "Vertriebsleiter",
+                    "answer": "g",
+                    "explanation": {
+                        "en": "The sales manager is not in his office; he is currently in a meeting in the conference room ('Konferenzraum').",
+                        "de": "Der Vertriebsleiter ist nicht in seinem Büro; er ist gerade in einer Besprechung im Konferenzraum.",
+                        "fr": "Le directeur des ventes n'est pas dans son bureau ; il est actuellement en réunion dans la salle de conférence ('Konferenzraum').",
+                        "es": "El director de ventas no está en su oficina; actualmente está en una reunión en la sala de conferencias ('Konferenzraum').",
+                        "ru": "Руководителя отдела продаж нет в кабинете; в данный момент он находится на совещании в конференц-зале ('Konferenzraum').",
+                        "ar": "مدير المبيعات ليس في مكتبه؛ هو حاليًا في اجتماع في قاعة المؤتمرات ('Konferenzraum')."
+                    }
+                }
+            ]
+        }
     ]
 }
