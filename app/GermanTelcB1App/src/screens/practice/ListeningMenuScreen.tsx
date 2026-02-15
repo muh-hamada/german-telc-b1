@@ -29,6 +29,7 @@ const ListeningMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
@@ -113,9 +114,10 @@ const ListeningMenuScreen: React.FC = () => {
 
   const handleSelectPart1Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 1, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ListeningPart1A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ListeningPart1A2', { examId });
     } else {
       navigation.navigate('ListeningPart1', { examId });
     }
@@ -123,9 +125,10 @@ const ListeningMenuScreen: React.FC = () => {
 
   const handleSelectPart2Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 2, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ListeningPart2A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ListeningPart2A2', { examId });
     } else {
       navigation.navigate('ListeningPart2', { examId });
     }
@@ -133,9 +136,10 @@ const ListeningMenuScreen: React.FC = () => {
 
   const handleSelectPart3Exam = (examId: string) => {
     logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'listening', part: 3, exam_id: examId });
-    // Check app level and navigate to appropriate screen
     if (isA1) {
       navigation.navigate('ListeningPart3A1', { examId });
+    } else if (isA2) {
+      navigation.navigate('ListeningPart3A2', { examId });
     } else {
       navigation.navigate('ListeningPart3', { examId });
     }
@@ -165,11 +169,12 @@ const ListeningMenuScreen: React.FC = () => {
     if (isA1) {
       return t(`practice.listening.a1.part${partNumber}`);
     }
-
+    if (isA2) {
+      return t(`practice.listening.a2.part${partNumber}`);
+    }
     if (isDele) {
       return t(`practice.listening.dele.part${partNumber}`);
     }
-
     return t(`practice.listening.part${partNumber}`);
   }
 
@@ -177,11 +182,12 @@ const ListeningMenuScreen: React.FC = () => {
     if (isA1) {
       return t(`practice.listening.descriptions.a1.part${partNumber}`);
     }
-
+    if (isA2) {
+      return t(`practice.listening.descriptions.a2.part${partNumber}`);
+    }
     if (isDele) {
       return t(`practice.listening.descriptions.dele.part${partNumber}`);
     }
-
     return t(`practice.listening.part${partNumber}Description`);
   }
 

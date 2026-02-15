@@ -1,0 +1,122 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "a2-part-2-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 10
+    },
+    {
+        "type": "ready",
+        "id": "number-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Hier ist Radio Berlin. Gleich nach den Nachrichten hören Sie 'Musik für alle'. Um 14 Uhr kommt dann unser Programm für Kinder 'Kleine Geschichten', und um 15 Uhr hören Sie Sport aktuell.",
+        "voiceId": "person3",
+        "id": "message-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Das Wetter für das Wochenende. Am Samstag ist es noch warm mit viel Sonne, bis 22 Grad. Aber am Sonntag müssen Sie den Regenschirm mitnehmen. Es regnet den ganzen Tag und wird kühler.",
+        "voiceId": "person1",
+        "id": "message-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Achtung Autofahrer auf der A9 Nürnberg Richtung München. In der Nähe von Ingolstadt laufen Kinder auf der Fahrbahn. Bitte fahren Sie extrem langsam und überholen Sie nicht.",
+        "voiceId": "person3",
+        "id": "message-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Wir haben einen besonderen Geburtstagsgruß. Frau Müller aus Potsdam wird heute 80 Jahre alt. Herzlichen Glückwunsch, liebe Oma! Das wünschen dir deine Enkel Lukas und Sarah.",
+        "voiceId": "person1",
+        "id": "message-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Und hier unser Super-Gewinnspiel! Möchten Sie ein neues Fahrrad gewinnen? Dann rufen Sie uns an! Sagen Sie uns: Wie heißt die Hauptstadt von Frankreich? Rufen Sie die Nummer 030 99 88 77 an.",
+        "voiceId": "person3",
+        "id": "message-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-2-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

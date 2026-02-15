@@ -1,0 +1,222 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "a2-part-1-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 10
+    },
+    {
+        "type": "ready",
+        "id": "number-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Guten Tag, hier ist die Zahnarztpraxis Dr. Meyer. Unsere Praxis ist diese Woche am Freitag geschlossen. In dringenden Fällen wählen Sie bitte die Nummer 112. Ab Montag sind wir wieder für Sie da."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-1",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Guten Tag, hier ist die Zahnarztpraxis Dr. Meyer. Unsere Praxis ist diese Woche am Freitag geschlossen. In dringenden Fällen wählen Sie bitte die Nummer 112. Ab Montag sind wir wieder für Sie da."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hallo Thomas, hier ist Lisa. Wir wollten doch am Sonntag zusammen kochen. Ich kaufe das Gemüse und das Fleisch. Kannst du bitte die Getränke mitbringen? Bis dann!"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-2",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Hallo Thomas, hier ist Lisa. Wir wollten doch am Sonntag zusammen kochen. Ich kaufe das Gemüse und das Fleisch. Kannst du bitte die Getränke mitbringen? Bis dann!"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hallo, hier ist der Reparaturservice Müller. Ihre Waschmaschine ist fertig. Die Reparatur war etwas teurer. Es kostet insgesamt 120 Euro. Wir kommen morgen Vormittag vorbei."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-3",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Hallo, hier ist der Reparaturservice Müller. Ihre Waschmaschine ist fertig. Die Reparatur war etwas teurer. Es kostet insgesamt 120 Euro. Wir kommen morgen Vormittag vorbei."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Achtung an Gleis 3. Der Intercity nach Berlin fährt heute nicht von Gleis 3, sondern von Gleis 7. Die Abfahrtszeit bleibt gleich, 10:30 Uhr. Bitte gehen Sie zu Gleis 7."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-4",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person1",
+        "text": "Achtung an Gleis 3. Der Intercity nach Berlin fährt heute nicht von Gleis 3, sondern von Gleis 7. Die Abfahrtszeit bleibt gleich, 10:30 Uhr. Bitte gehen Sie zu Gleis 7."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    },
+    {
+        "type": "ready",
+        "id": "number-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Guten Morgen, Frau Klein. Hier ist Herr Wagner aus der Buchhaltung. Ich kann den Schlüssel für den Schrank nicht finden. Liegt er vielleicht bei Ihnen auf dem Schreibtisch? Bitte rufen Sie kurz zurück."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 2
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "speech",
+        "id": "message-speaker-5",
+        "repeated": true,
+        "speed": 0.8,
+        "voiceId": "person3",
+        "text": "Guten Morgen, Frau Klein. Hier ist Herr Wagner aus der Buchhaltung. Ich kann den Schlüssel für den Schrank nicht finden. Liegt er vielleicht bei Ihnen auf dem Schreibtisch? Bitte rufen Sie kurz zurück."
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-1-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

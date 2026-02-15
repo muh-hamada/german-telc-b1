@@ -164,6 +164,83 @@
                     }
                 }
             ]
-        }
+        },
+        {
+            "id": "e4f1b8d2-9a3c-4e5f-b6d7-8c9a0b1e2f3d",
+            "title": "Wichtige Nachrichten am Telefon verstehen",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-1-exam-3.mp3?alt=media",
+            "questions": [
+              {
+                "id": 1,
+                "question": "**Zahnarztpraxis**\nDiese Woche\n\nam Freitag: _____",
+                "answer": "geschlossen",
+                "audio_transcription": "Guten Tag, hier ist die Zahnarztpraxis Dr. Meyer. Unsere Praxis ist diese Woche am Freitag geschlossen. In dringenden Fällen wählen Sie bitte die Nummer 112. Ab Montag sind wir wieder für Sie da.",
+                "explanation": {
+                  "de": "Die Ansage nennt den Freitag ausdrücklich als „geschlossen“. Das ist die gesuchte Information für die Notiz.",
+                  "en": "The announcement explicitly states that the practice is \"closed\" on Friday. This is the information needed for the note.",
+                  "fr": "L'annonce indique explicitement que le cabinet est « fermé » le vendredi. C'est l'information recherchée pour la note.",
+                  "es": "El anuncio indica explícitamente que el consultorio está \"cerrado\" el viernes. Esta es la información necesaria para la nota.",
+                  "ru": "В объявлении четко сказано, что в пятницу практика «закрыта». Это и есть искомая информация для заметки.",
+                  "ar": "يذكر الإعلان صراحة أن العيادة \"مغلقة\" يوم الجمعة. هذه هي المعلومة المطلوبة للملحوظة."
+                }
+              },
+              {
+                "id": 2,
+                "question": "**Kochen mit Lisa**\nThomas soll mitbringen:\n\n_____",
+                "answer": "Getränke",
+                "audio_transcription": "Hallo Thomas, hier ist Lisa. Wir wollten doch am Sonntag zusammen kochen. Ich kaufe das Gemüse und das Fleisch. Kannst du bitte die Getränke mitbringen? Bis dann!",
+                "explanation": {
+                  "de": "Lisa kauft Gemüse und Fleisch, aber sie bittet Thomas: „Kannst du bitte die Getränke mitbringen?“",
+                  "en": "Lisa implies she is buying vegetables and meat, but she asks Thomas: \"Can you please bring the drinks?\"",
+                  "fr": "Lisa achète les légumes et la viande, mais elle demande à Thomas : « Peux-tu apporter les boissons, s'il te plaît ? »",
+                  "es": "Lisa compra las verduras y la carne, pero le pide a Thomas: \"¿Puedes traer las bebidas, por favor?\"",
+                  "ru": "Лиза покупает овощи и мясо, но просит Томаса: «Ты не мог бы принести напитки?»",
+                  "ar": "تشتري ليزا الخضروات واللحوم، لكنها تطلب من توماس: \"هل يمكنك إحضار المشروبات من فضلك؟\""
+                }
+              },
+              {
+                "id": 3,
+                "question": "**Reparaturservice**\nWaschmaschine fertig.\n\nKosten: _____",
+                "answer": "120 Euro",
+                "audio_transcription": "Hallo, hier ist der Reparaturservice Müller. Ihre Waschmaschine ist fertig. Die Reparatur war etwas teurer. Es kostet insgesamt 120 Euro. Wir kommen morgen Vormittag vorbei.",
+                "explanation": {
+                  "de": "Der genannte Betrag ist „120 Euro“. Die Schlüsselphrase im Text lautet „kostet insgesamt“.",
+                  "en": "The stated amount is \"120 Euro\". The key phrase in the text is \"costs a total of\".",
+                  "fr": "Le montant indiqué est de « 120 euros ». La phrase clé du texte est « coûte au total ».",
+                  "es": "La cantidad indicada es \"120 euros\". La frase clave en el texto es \"cuesta un total de\".",
+                  "ru": "Указанная сумма — «120 евро». Ключевая фраза в тексте — «стоит всего».",
+                  "ar": "المبلغ المذكور هو \"120 يورو\". العبارة الرئيسية في النص هي \"التكلفة الإجمالية\"."
+                }
+              },
+              {
+                "id": 4,
+                "question": "**Zug nach Berlin**\nAbfahrtszeit: 10:30 Uhr\n\nAbfahrt von: _____",
+                "answer": "Gleis 7",
+                "audio_transcription": "Achtung an Gleis 3. Der Intercity nach Berlin fährt heute nicht von Gleis 3, sondern von Gleis 7. Die Abfahrtszeit bleibt gleich, 10:30 Uhr. Bitte gehen Sie zu Gleis 7.",
+                "explanation": {
+                  "de": "Der Zug fährt heute von „Gleis 7“. Gleis 3 wird erwähnt, ist aber falsch, da der Zug dort heute nicht fährt.",
+                  "en": "The train departs from \"Platform 7\" today. Platform 3 is mentioned but is incorrect because the train is not departing from there.",
+                  "fr": "Le train part aujourd'hui de la « voie 7 ». La voie 3 est mentionnée mais est incorrecte car le train n'en part pas.",
+                  "es": "El tren sale hoy de la \"vía 7\". Se menciona la vía 3, pero es incorrecta porque el tren no sale de allí.",
+                  "ru": "Поезд отправляется сегодня с «7-го пути». 3-й путь упоминается, но это неверно, так как поезд оттуда не идет.",
+                  "ar": "يغادر القطار اليوم من \"الرصيف 7\". تم ذكر الرصيف 3 ولكنه غير صحيح لأن القطار لن يغادر منه."
+                }
+              },
+              {
+                "id": 5,
+                "question": "**Herr Wagner**\nProblem: Schlüssel weg\n\nWo suchen? _____",
+                "answer": "auf dem Schreibtisch",
+                "audio_transcription": "Guten Morgen, Frau Klein. Hier ist Herr Wagner aus der Buchhaltung. Ich kann den Schlüssel für den Schrank nicht finden. Liegt er vielleicht bei Ihnen auf dem Schreibtisch? Bitte rufen Sie kurz zurück.",
+                "explanation": {
+                  "de": "Herr Wagner vermutet, dass der Schlüssel „auf dem Schreibtisch“ liegt. Das ist der Ort, an dem gesucht werden soll.",
+                  "en": "Mr. Wagner suspects that the key is \"on the desk\". This is the location where one should look.",
+                  "fr": "M. Wagner suppose que la clé se trouve « sur le bureau ». C'est l'endroit où il faut chercher.",
+                  "es": "El Sr. Wagner sospecha que la llave está \"sobre el escritorio\". Ese es el lugar donde se debe buscar.",
+                  "ru": "Господин Вагнер предполагает, что ключ находится «на письменном столе». Именно там и следует искать.",
+                  "ar": "يشك السيد فاغنر في أن المفتاح موجود \"على المكتب\". هذا هو المكان الذي يجب البحث فيه."
+                }
+              }
+            ]
+          }
     ]
 }

@@ -1,0 +1,294 @@
+[
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "ready",
+      "id": "a2-part-3-intro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 10
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "So, Frau Tanzer. Herzlich willkommen bei uns.",
+      "voiceId": "person3",
+      "id": "part-speaker-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Vielen Dank, Herr Müller. Ich bin schon sehr gespannt.",
+      "voiceId": "person1",
+      "id": "part-speaker-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Wir fangen hier unten an. Gleich hier vorne sitzt unser IT-Spezialist, Herr Kurz. Er ist normalerweise im Computerraum, aber jetzt trinkt er gerade einen Kaffee in der Kantine.",
+      "voiceId": "person3",
+      "id": "part-speaker-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Ah, gut zu wissen.",
+      "voiceId": "person1",
+      "id": "part-speaker-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Hier links, in Zimmer 3, finden Sie unsere Buchhalterin, Frau Lang. Wenn Sie Fragen zum Gehalt haben, gehen Sie zu ihr.",
+      "voiceId": "person3",
+      "id": "part-speaker-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Alles klar.",
+      "voiceId": "person1",
+      "id": "part-speaker-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Vorsicht, hier ist es nass. Unser Hausmeister, Herr Huber, putzt gerade den Flur. Er kümmert sich um das ganze Gebäude.",
+      "voiceId": "person3",
+      "id": "part-speaker-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Gut. Und wo werde ich arbeiten?",
+      "voiceId": "person1",
+      "id": "part-speaker-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Sie sitzen oben im ersten Stock. Ihr Schreibtisch steht im großen Raum 10, direkt neben dem Marketing.",
+      "voiceId": "person3",
+      "id": "part-speaker-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Das klingt gut.",
+      "voiceId": "person1",
+      "id": "part-speaker-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Und zum Schluss: Der Vertriebsleiter, Herr Stein, ist heute nicht in seinem Büro. Er hat eine Besprechung im Konferenzraum.",
+      "voiceId": "person3",
+      "id": "part-speaker-11"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 4
+    },
+    {
+      "type": "ready",
+      "id": "a2-2nd-time"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 4
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "So, Frau Tanzer. Herzlich willkommen bei uns.",
+      "voiceId": "person3",
+      "id": "part-speaker-1"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Vielen Dank, Herr Müller. Ich bin schon sehr gespannt.",
+      "voiceId": "person1",
+      "id": "part-speaker-2"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Wir fangen hier unten an. Gleich hier vorne sitzt unser IT-Spezialist, Herr Kurz. Er ist normalerweise im Computerraum, aber jetzt trinkt er gerade einen Kaffee in der Kantine.",
+      "voiceId": "person3",
+      "id": "part-speaker-3"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Ah, gut zu wissen.",
+      "voiceId": "person1",
+      "id": "part-speaker-4"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Hier links, in Zimmer 3, finden Sie unsere Buchhalterin, Frau Lang. Wenn Sie Fragen zum Gehalt haben, gehen Sie zu ihr.",
+      "voiceId": "person3",
+      "id": "part-speaker-5"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Alles klar.",
+      "voiceId": "person1",
+      "id": "part-speaker-6"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Vorsicht, hier ist es nass. Unser Hausmeister, Herr Huber, putzt gerade den Flur. Er kümmert sich um das ganze Gebäude.",
+      "voiceId": "person3",
+      "id": "part-speaker-7"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Gut. Und wo werde ich arbeiten?",
+      "voiceId": "person1",
+      "id": "part-speaker-8"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Sie sitzen oben im ersten Stock. Ihr Schreibtisch steht im großen Raum 10, direkt neben dem Marketing.",
+      "voiceId": "person3",
+      "id": "part-speaker-9"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Das klingt gut.",
+      "voiceId": "person1",
+      "id": "part-speaker-10"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 1
+    },
+    {
+      "type": "speech",
+      "repeated": true,
+      "speed": 0.8,
+      "text": "Und zum Schluss: Der Vertriebsleiter, Herr Stein, ist heute nicht in seinem Büro. Er hat eine Besprechung im Konferenzraum.",
+      "voiceId": "person3",
+      "id": "part-speaker-11"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 3
+    },
+    {
+      "type": "ready",
+      "id": "part-3-outro"
+    },
+    {
+      "type": "pause",
+      "durationSeconds": 5
+    }
+  ]

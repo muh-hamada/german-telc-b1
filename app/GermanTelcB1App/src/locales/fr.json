@@ -570,11 +570,21 @@
         "part2": "Partie 2 : Annonce Radio",
         "part3": "Partie 3 : Conversations Téléphoniques"
       },
+      "a2": {
+        "part1": "Partie 1 : Messages Téléphoniques",
+        "part2": "Partie 2 : Informations Radio",
+        "part3": "Partie 3 : Conversation"
+      },
       "descriptions": {
         "a1": {
           "part1": "Écoutez de courtes conversations et annonces, puis répondez aux questions à choix multiples",
           "part2": "Écoutez une annonce radio et répondez aux questions sur les détails",
           "part3": "Écoutez des conversations téléphoniques et identifiez les informations clés"
+        },
+        "a2": {
+          "part1": "Écoutez des messages téléphoniques et complétez les notes en remplissant les informations manquantes",
+          "part2": "Écoutez des informations radio et répondez aux questions à choix multiples",
+          "part3": "Écoutez une conversation et associez les personnes aux lieux"
         },
         "dele": {
           "part1": "Écouter six messages vocaux depuis un téléphone",
@@ -1621,6 +1631,12 @@
         "incomplete": "Incomplet",
         "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
       },
+      "a2": {
+        "yourAnswer": "Votre réponse",
+        "typePlaceholder": "Tapez votre réponse ici...",
+        "incomplete": "Incomplet",
+        "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      },
       "questions": "Questions"
     },
     "part2": {
@@ -1644,7 +1660,11 @@
       "audioError": "Erreur Audio",
       "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s).",
+      "a2": {
+        "incomplete": "Incomplet",
+        "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      }
     },
     "part3": {
       "title": "Compréhension orale Partie 3",
@@ -1667,7 +1687,13 @@
       "audioError": "Erreur Audio",
       "audioErrorMessage": "Le fichier audio n'a pas pu être chargé.",
       "incomplete": "Incomplet",
-      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s)."
+      "incompleteMessage": "Veuillez répondre à toutes les déclarations avant de soumettre. {{count}} déclaration(s) restante(s).",
+      "a2": {
+        "locations": "Emplacements disponibles :",
+        "matchPeople": "Associez chaque personne à un lieu :",
+        "incomplete": "Incomplet",
+        "incompleteMessage": "Veuillez répondre à toutes les questions avant de soumettre. {{count}} question(s) restante(s)."
+      }
     },
     "statements": "Déclarations",
     "person": "Personne",
@@ -1955,6 +1981,11 @@
           "part1": "Conversations et annonces",
           "part2": "Annonce radio",
           "part3": "Conversations téléphoniques"
+        },
+        "a2": {
+          "part1": "Messages téléphoniques",
+          "part2": "Informations radio",
+          "part3": "Conversation"
         },
         "dele": {
           "part1": "Messages vocaux",

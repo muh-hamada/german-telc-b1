@@ -176,6 +176,89 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+            "title": "Rundgang durch die neue Firma",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-3-exam-3.mp3?alt=media",
+            "audio_transcription": "Herr Müller: So, schauen wir mal, wo Herr Braun ist. Er ist der Marketingleiter.\nFrau Lang: Ist er in seinem Büro?\nHerr Müller: Nein, gerade nicht. Aber sein Büro ist hier, Raum 12, direkt am Eingang.\nFrau Lang: Alles klar.\nHerr Müller: Kommen wir weiter. Hier am Empfang sitzt heute meine Frau.\nFrau Lang: Ihre Frau? Arbeiten viele Verwandte hier?\nHerr Müller: Ja, wir sind ein Familienbetrieb. Meine Frau hilft oft am Vormittag am Empfang.\nFrau Lang: Das ist schön.\nHerr Müller: Passen Sie hier bitte auf. Die Lampe an der Decke ist locker. Der Hausmeister muss das reparieren.\nFrau Lang: Wo finde ich den Hausmeister, wenn etwas kaputt ist?\nHerr Müller: Er ist fast immer unten im Keller. Dort ist seine Werkstatt.\nFrau Lang: Gut zu wissen. Und wo werde ich arbeiten?\nHerr Müller: Unsere Praktikantinnen sitzen normalerweise im ersten Stock. Aber Ihr Platz ist heute in der Bibliothek.\nFrau Lang: In der Bibliothek?\nHerr Müller: Ja, dort ist es sehr ruhig. Da können Sie gut lesen. Wir gehen gleich hin.\nFrau Lang: In Ordnung.\nHerr Müller: Aber zuerst suchen wir noch Herrn Kurz, den IT-Leiter. Er sitzt sicher in der Kantine und trinkt Kaffee.",
+            "options": {
+                "a": "Empfang",
+                "b": "Kantine",
+                "c": "Keller",
+                "d": "Raum 12",
+                "e": "Bibliothek",
+                "f": "Kopierraum",
+                "g": "Erster Stock",
+                "h": "Garten"
+            },
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "Marketingleiter",
+                    "answer": "d",
+                    "explanation": {
+                        "en": "Mr. Müller mentions that the marketing manager (Mr. Braun) has his office in Room 12, right at the entrance.",
+                        "de": "Herr Müller erwähnt, dass der Marketingleiter (Herr Braun) sein Büro in Raum 12 hat, direkt am Eingang.",
+                        "fr": "M. Müller mentionne que le directeur marketing (M. Braun) a son bureau dans la salle 12, juste à l'entrée.",
+                        "es": "El Sr. Müller menciona que el director de marketing (Sr. Braun) tiene su oficina en la Sala 12, justo en la entrada.",
+                        "ru": "Господин Мюллер упоминает, что офис менеджера по маркетингу (господина Брауна) находится в комнате 12, прямо у входа.",
+                        "ar": "يذكر السيد مولر أن مدير التسويق (السيد براون) يقع مكتبه في الغرفة 12، عند المدخل مباشرة."
+                    }
+                },
+                {
+                    "id": 12,
+                    "question": "Ehefrau vom Chef",
+                    "answer": "a",
+                    "explanation": {
+                        "en": "Mr. Müller states that his wife is sitting at the reception ('Empfang') today to help out.",
+                        "de": "Herr Müller sagt, dass seine Frau heute am Empfang sitzt, um zu helfen.",
+                        "fr": "M. Müller déclare que sa femme est assise à la réception ('Empfang') aujourd'hui pour aider.",
+                        "es": "El Sr. Müller afirma que su esposa está hoy en la recepción ('Empfang') para ayudar.",
+                        "ru": "Господин Мюллер утверждает, что его жена сегодня сидит на ресепшене ('Empfang') и помогает.",
+                        "ar": "يصرح السيد مولر أن زوجته تجلس في مكتب الاستقبال ('Empfang') اليوم للمساعدة."
+                    }
+                },
+                {
+                    "id": 13,
+                    "question": "Hausmeister",
+                    "answer": "c",
+                    "explanation": {
+                        "en": "When asked where to find the caretaker (Hausmeister), Mr. Müller replies that he is almost always down in the basement ('Keller').",
+                        "de": "Auf die Frage, wo der Hausmeister zu finden sei, antwortet Herr Müller, dass er fast immer unten im Keller ist.",
+                        "fr": "Lorsqu'on lui demande où trouver le concierge (Hausmeister), M. Müller répond qu'il est presque toujours au sous-sol ('Keller').",
+                        "es": "Cuando se le pregunta dónde encontrar al conserje (Hausmeister), el Sr. Müller responde que casi siempre está abajo en el sótano ('Keller').",
+                        "ru": "На вопрос, где найти завхоза (Hausmeister), господин Мюллер отвечает, что он почти всегда находится в подвале ('Keller').",
+                        "ar": "عند السؤال عن مكان تواجد المسؤول عن الصيانة (Hausmeister)، يجيب السيد مولر بأنه دائمًا تقريبًا في القبو ('Keller')."
+                    }
+                },
+                {
+                    "id": 14,
+                    "question": "Praktikantin",
+                    "answer": "e",
+                    "explanation": {
+                        "en": "Although interns usually sit on the first floor, Ms. Lang is told her specific spot today is in the library ('Bibliothek').",
+                        "de": "Obwohl Praktikantinnen normalerweise im ersten Stock sitzen, wird Frau Lang gesagt, dass ihr Platz heute in der Bibliothek ist.",
+                        "fr": "Bien que les stagiaires s'assoient généralement au premier étage, on dit à Mme Lang que sa place est aujourd'hui à la bibliothèque ('Bibliothek').",
+                        "es": "Aunque los pasantes suelen sentarse en el primer piso, le dicen a la Sra. Lang que su lugar hoy está en la biblioteca ('Bibliothek').",
+                        "ru": "Хотя стажеры обычно сидят на первом этаже (по-немецки 'erster Stock' — это второй этаж), госпоже Ланг говорят, что ее место сегодня в библиотеке ('Bibliothek').",
+                        "ar": "على الرغم من أن المتدربين يجلسون عادة في الطابق الأول، إلا أنه تم إخبار السيدة لانغ أن مكانها اليوم في المكتبة ('Bibliothek')."
+                    }
+                },
+                {
+                    "id": 15,
+                    "question": "IT-Leiter",
+                    "answer": "b",
+                    "explanation": {
+                        "en": "Mr. Müller believes Mr. Kurz, the IT manager, is sitting in the canteen ('Kantine') drinking coffee.",
+                        "de": "Herr Müller glaubt, dass Herr Kurz, der IT-Leiter, in der Kantine sitzt und Kaffee trinkt.",
+                        "fr": "M. Müller pense que M. Kurz, le responsable informatique, est assis à la cantine ('Kantine') en train de boire un café.",
+                        "es": "El Sr. Müller cree que el Sr. Kurz, el director de TI, está sentado en la cantina ('Kantine') tomando café.",
+                        "ru": "Господин Мюллер полагает, что господин Курц, ИТ-директор, сидит в столовой ('Kantine') и пьет кофе.",
+                        "ar": "يعتقد السيد مولر أن السيد كورز، مدير تكنولوجيا المعلومات، يجلس في الكافيتيريا ('Kantine') ويشرب القهوة."
+                    }
+                }
+            ]
         }
     ]
 }

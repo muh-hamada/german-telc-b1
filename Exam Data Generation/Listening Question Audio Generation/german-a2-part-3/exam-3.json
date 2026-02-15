@@ -1,0 +1,438 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "a2-part-3-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 10
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "So, schauen wir mal, wo Herr Braun ist. Er ist der Marketingleiter.",
+        "voiceId": "person3",
+        "id": "part-speaker-0"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ist er in seinem Büro?",
+        "voiceId": "person1",
+        "id": "part-speaker-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, gerade nicht. Aber sein Büro ist hier, Raum 12, direkt am Eingang.",
+        "voiceId": "person3",
+        "id": "part-speaker-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Alles klar.",
+        "voiceId": "person1",
+        "id": "part-speaker-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Kommen wir weiter. Hier am Empfang sitzt heute meine Frau.",
+        "voiceId": "person3",
+        "id": "part-speaker-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ihre Frau? Arbeiten viele Verwandte hier?",
+        "voiceId": "person1",
+        "id": "part-speaker-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, wir sind ein Familienbetrieb. Meine Frau hilft oft am Vormittag am Empfang.",
+        "voiceId": "person3",
+        "id": "part-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Das ist schön.",
+        "voiceId": "person1",
+        "id": "part-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Passen Sie hier bitte auf. Die Lampe an der Decke ist locker. Der Hausmeister muss das reparieren.",
+        "voiceId": "person3",
+        "id": "part-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Wo finde ich den Hausmeister, wenn etwas kaputt ist?",
+        "voiceId": "person1",
+        "id": "part-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Er ist fast immer unten im Keller. Dort ist seine Werkstatt.",
+        "voiceId": "person3",
+        "id": "part-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut zu wissen. Und wo werde ich arbeiten?",
+        "voiceId": "person1",
+        "id": "part-speaker-11"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Unsere Praktikantinnen sitzen normalerweise im ersten Stock. Aber Ihr Platz ist heute in der Bibliothek.",
+        "voiceId": "person3",
+        "id": "part-speaker-12"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In der Bibliothek?",
+        "voiceId": "person1",
+        "id": "part-speaker-13"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, dort ist es sehr ruhig. Da können Sie gut lesen. Wir gehen gleich hin.",
+        "voiceId": "person3",
+        "id": "part-speaker-14"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In Ordnung.",
+        "voiceId": "person1",
+        "id": "part-speaker-15"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Aber zuerst suchen wir noch Herrn Kurz, den IT-Leiter. Er sitzt sicher in der Kantine und trinkt Kaffee.",
+        "voiceId": "person3",
+        "id": "part-speaker-16"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 4
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 4
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "So, schauen wir mal, wo Herr Braun ist. Er ist der Marketingleiter.",
+        "voiceId": "person3",
+        "id": "part-speaker-0"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ist er in seinem Büro?",
+        "voiceId": "person1",
+        "id": "part-speaker-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Nein, gerade nicht. Aber sein Büro ist hier, Raum 12, direkt am Eingang.",
+        "voiceId": "person3",
+        "id": "part-speaker-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Alles klar.",
+        "voiceId": "person1",
+        "id": "part-speaker-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Kommen wir weiter. Hier am Empfang sitzt heute meine Frau.",
+        "voiceId": "person3",
+        "id": "part-speaker-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ihre Frau? Arbeiten viele Verwandte hier?",
+        "voiceId": "person1",
+        "id": "part-speaker-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, wir sind ein Familienbetrieb. Meine Frau hilft oft am Vormittag am Empfang.",
+        "voiceId": "person3",
+        "id": "part-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Das ist schön.",
+        "voiceId": "person1",
+        "id": "part-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Passen Sie hier bitte auf. Die Lampe an der Decke ist locker. Der Hausmeister muss das reparieren.",
+        "voiceId": "person3",
+        "id": "part-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Wo finde ich den Hausmeister, wenn etwas kaputt ist?",
+        "voiceId": "person1",
+        "id": "part-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Er ist fast immer unten im Keller. Dort ist seine Werkstatt.",
+        "voiceId": "person3",
+        "id": "part-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut zu wissen. Und wo werde ich arbeiten?",
+        "voiceId": "person1",
+        "id": "part-speaker-11"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Unsere Praktikantinnen sitzen normalerweise im ersten Stock. Aber Ihr Platz ist heute in der Bibliothek.",
+        "voiceId": "person3",
+        "id": "part-speaker-12"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In der Bibliothek?",
+        "voiceId": "person1",
+        "id": "part-speaker-13"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja, dort ist es sehr ruhig. Da können Sie gut lesen. Wir gehen gleich hin.",
+        "voiceId": "person3",
+        "id": "part-speaker-14"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In Ordnung.",
+        "voiceId": "person1",
+        "id": "part-speaker-15"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Aber zuerst suchen wir noch Herrn Kurz, den IT-Leiter. Er sitzt sicher in der Kantine und trinkt Kaffee.",
+        "voiceId": "person3",
+        "id": "part-speaker-16"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-3-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

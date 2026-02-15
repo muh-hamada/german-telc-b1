@@ -1,0 +1,294 @@
+[
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "ready",
+        "id": "a2-part-3-intro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 10
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "So, Frau Schmidt, herzlich willkommen. Schauen wir mal, wer noch da ist. Hier ist eigentlich der Platz von Frau Graf, unserer Sekretärin.",
+        "voiceId": "person3",
+        "id": "part-speaker-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Der Stuhl ist aber leer. Wo ist sie denn?",
+        "voiceId": "person1",
+        "id": "part-speaker-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ah, ich sehe sie dort hinten. Sie hilft heute Vormittag am Empfang aus, weil dort so viel los ist.",
+        "voiceId": "person3",
+        "id": "part-speaker-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Verstehe. Und wo finde ich den Chef, Herrn Bauer?",
+        "voiceId": "person1",
+        "id": "part-speaker-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Herr Bauer ist normalerweise in Zimmer 12. Aber um diese Zeit macht er immer Pause. Er sitzt sicher in der Kantine und trinkt Kaffee.",
+        "voiceId": "person3",
+        "id": "part-speaker-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Alles klar. Ich habe noch eine Frage. Ich habe noch kein Passwort für meinen Computer.",
+        "voiceId": "person1",
+        "id": "part-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Da müssen Sie zu Herrn Kurz. Das ist unser IT-Spezialist. Sein Büro ist hier rechts, aber er arbeitet gerade im Serverraum an den Kabeln.",
+        "voiceId": "person3",
+        "id": "part-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut, dann gehe ich später zum Serverraum. Und wo werde ich arbeiten?",
+        "voiceId": "person1",
+        "id": "part-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Tja, Ihr Büro wird diese Woche noch gestrichen. Deshalb sitzen Sie die ersten Tage unten in der Bibliothek. Da ist es sehr ruhig.",
+        "voiceId": "person3",
+        "id": "part-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In der Bibliothek? Das klingt doch nett.",
+        "voiceId": "person1",
+        "id": "part-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja. Ach, noch etwas. Wenn Sie Büromaterial wie Stifte oder Papier brauchen, fragen Sie Herrn Riese, den Hausmeister. Er ist unten im Keller.",
+        "voiceId": "person3",
+        "id": "part-speaker-11"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 4
+    },
+    {
+        "type": "ready",
+        "id": "a2-2nd-time"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 4
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "So, Frau Schmidt, herzlich willkommen. Schauen wir mal, wer noch da ist. Hier ist eigentlich der Platz von Frau Graf, unserer Sekretärin.",
+        "voiceId": "person3",
+        "id": "part-speaker-1"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Der Stuhl ist aber leer. Wo ist sie denn?",
+        "voiceId": "person1",
+        "id": "part-speaker-2"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ah, ich sehe sie dort hinten. Sie hilft heute Vormittag am Empfang aus, weil dort so viel los ist.",
+        "voiceId": "person3",
+        "id": "part-speaker-3"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Verstehe. Und wo finde ich den Chef, Herrn Bauer?",
+        "voiceId": "person1",
+        "id": "part-speaker-4"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Herr Bauer ist normalerweise in Zimmer 12. Aber um diese Zeit macht er immer Pause. Er sitzt sicher in der Kantine und trinkt Kaffee.",
+        "voiceId": "person3",
+        "id": "part-speaker-5"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Alles klar. Ich habe noch eine Frage. Ich habe noch kein Passwort für meinen Computer.",
+        "voiceId": "person1",
+        "id": "part-speaker-6"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Da müssen Sie zu Herrn Kurz. Das ist unser IT-Spezialist. Sein Büro ist hier rechts, aber er arbeitet gerade im Serverraum an den Kabeln.",
+        "voiceId": "person3",
+        "id": "part-speaker-7"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Gut, dann gehe ich später zum Serverraum. Und wo werde ich arbeiten?",
+        "voiceId": "person1",
+        "id": "part-speaker-8"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Tja, Ihr Büro wird diese Woche noch gestrichen. Deshalb sitzen Sie die ersten Tage unten in der Bibliothek. Da ist es sehr ruhig.",
+        "voiceId": "person3",
+        "id": "part-speaker-9"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "In der Bibliothek? Das klingt doch nett.",
+        "voiceId": "person1",
+        "id": "part-speaker-10"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 1
+    },
+    {
+        "type": "speech",
+        "repeated": true,
+        "speed": 0.8,
+        "text": "Ja. Ach, noch etwas. Wenn Sie Büromaterial wie Stifte oder Papier brauchen, fragen Sie Herrn Riese, den Hausmeister. Er ist unten im Keller.",
+        "voiceId": "person3",
+        "id": "part-speaker-11"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 3
+    },
+    {
+        "type": "ready",
+        "id": "part-3-outro"
+    },
+    {
+        "type": "pause",
+        "durationSeconds": 5
+    }
+]

@@ -178,6 +178,64 @@ export interface ReadingPart3A2Exam {
   questions: ReadingPart3A2Question[];
 }
 
+// ==========================================
+// GERMAN A2 LISTENING EXAM TYPES
+// ==========================================
+
+// Listening Part 1 A2 (Telephone Gap-Fill)
+export interface ListeningPart1A2Question {
+  id: number;
+  question: string;
+  answer: string;
+  audio_transcription: string;
+  explanation?: Record<string, string>;
+}
+
+export interface ListeningPart1A2Exam {
+  id: string;
+  title: string;
+  audio_url: string;
+  questions: ListeningPart1A2Question[];
+}
+
+// Listening Part 2 A2 (Radio MCQ)
+export interface ListeningPart2A2Option {
+  is_correct: boolean;
+  text: string;
+}
+
+export interface ListeningPart2A2Question {
+  id: number;
+  question: string;
+  audio_transcription: string;
+  explanation?: Record<string, string>;
+  options: ListeningPart2A2Option[];
+}
+
+export interface ListeningPart2A2Exam {
+  id: string;
+  title: string;
+  audio_url: string;
+  questions: ListeningPart2A2Question[];
+}
+
+// Listening Part 3 A2 (Conversation Matching)
+export interface ListeningPart3A2Question {
+  id: number;
+  question: string;
+  answer: string;
+  explanation?: Record<string, string>;
+}
+
+export interface ListeningPart3A2Exam {
+  id: string;
+  title: string;
+  audio_url: string;
+  audio_transcription: string;
+  options: Record<string, string>;
+  questions: ListeningPart3A2Question[];
+}
+
 // Writing Section
 export interface WritingExam {
   id: number;

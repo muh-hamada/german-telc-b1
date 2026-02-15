@@ -18,6 +18,9 @@ import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2A1Screen from '../screens/practice/ListeningPart2A1Screen';
 import ListeningPart2Screen from '../screens/practice/ListeningPart2Screen';
 import ListeningPart3A1Screen from '../screens/practice/ListeningPart3A1Screen';
+import ListeningPart1A2Screen from '../screens/practice/ListeningPart1A2Screen';
+import ListeningPart2A2Screen from '../screens/practice/ListeningPart2A2Screen';
+import ListeningPart3A2Screen from '../screens/practice/ListeningPart3A2Screen';
 import ListeningPart3Screen from '../screens/practice/ListeningPart3Screen';
 import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeListScreen';
 import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
@@ -414,6 +417,27 @@ const HomeStackNavigator: React.FC = () => {
         component={ListeningPart3A1Screen}
         options={{
           headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a1.part3" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart1A2"
+        component={ListeningPart1A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a2.part1" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart2A2"
+        component={ListeningPart2A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a2.part2" />,
+        }}
+      />
+      <Stack.Screen
+        name="ListeningPart3A2"
+        component={ListeningPart3A2Screen}
+        options={{
+          headerTitle: () => <HeaderTitle titleKey="nav.practice.listening.a2.part3" />,
         }}
       />
       <Stack.Screen

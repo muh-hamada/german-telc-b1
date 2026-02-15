@@ -582,11 +582,21 @@
         "part2": "Parte 2: Anuncio de Radio",
         "part3": "Parte 3: Conversaciones Telefónicas"
       },
+      "a2": {
+        "part1": "Parte 1: Mensajes Telefónicos",
+        "part2": "Parte 2: Información de Radio",
+        "part3": "Parte 3: Conversación"
+      },
       "descriptions": {
         "a1": {
           "part1": "Escuche conversaciones y anuncios cortos, luego responda preguntas de opción múltiple",
           "part2": "Escuche un anuncio de radio y responda preguntas sobre detalles",
           "part3": "Escuche conversaciones telefónicas e identifique información clave"
+        },
+        "a2": {
+          "part1": "Escuche mensajes telefónicos y complete las notas rellenando la información faltante",
+          "part2": "Escuche anuncios de radio y responda preguntas de opción múltiple",
+          "part3": "Escuche una conversación y empareje personas con lugares"
         },
         "dele": {
           "part1": "Escuche seis mensajes de correo de voz desde un teléfono",
@@ -1633,6 +1643,12 @@
         "incomplete": "Incompleto",
         "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
       },
+      "a2": {
+        "yourAnswer": "Tu respuesta",
+        "typePlaceholder": "Escribe tu respuesta aquí...",
+        "incomplete": "Incompleto",
+        "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      },
       "questions": "Preguntas"
     },
     "part2": {
@@ -1656,7 +1672,11 @@
       "audioError": "Error de Audio",
       "audioErrorMessage": "No se pudo cargar el archivo de audio.",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s).",
+      "a2": {
+        "incomplete": "Incompleto",
+        "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      }
     },
     "part3": {
       "title": "Comprensión auditiva Parte 3",
@@ -1679,7 +1699,13 @@
       "audioError": "Error de Audio",
       "audioErrorMessage": "No se pudo cargar el archivo de audio.",
       "incomplete": "Incompleto",
-      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s)."
+      "incompleteMessage": "Por favor responda todas las declaraciones antes de enviar. {{count}} declaración(es) restante(s).",
+      "a2": {
+        "locations": "Ubicaciones disponibles:",
+        "matchPeople": "Empareje cada persona con una ubicación:",
+        "incomplete": "Incompleto",
+        "incompleteMessage": "Por favor responda todas las preguntas antes de enviar. {{count}} pregunta(s) restante(s)."
+      }
     },
     "statements": "Declaraciones",
     "person": "Persona",
@@ -1967,6 +1993,11 @@
           "part1": "Conversaciones y anuncios",
           "part2": "Anuncio de radio",
           "part3": "Conversaciones telefónicas"
+        },
+        "a2": {
+          "part1": "Mensajes telefónicos",
+          "part2": "Información de radio",
+          "part3": "Conversación"
         },
         "dele": {
           "part1": "Mensajes de correo de voz",

@@ -582,11 +582,21 @@
         "part2": "Teil 2: Radiodurchsage",
         "part3": "Teil 3: Telefongespräche"
       },
+      "a2": {
+        "part1": "Teil 1: Telefonnachrichten",
+        "part2": "Teil 2: Radio-Informationen",
+        "part3": "Teil 3: Gespräch"
+      },
       "descriptions": {
         "a1": {
           "part1": "Hören Sie kurze Gespräche und Ansagen, dann beantworten Sie Multiple-Choice-Fragen",
           "part2": "Hören Sie eine Radiodurchsage und beantworten Sie Fragen zu Details",
           "part3": "Hören Sie Telefongespräche und identifizieren Sie wichtige Informationen"
+        },
+        "a2": {
+          "part1": "Hören Sie Telefonnachrichten und ergänzen Sie die fehlenden Informationen",
+          "part2": "Hören Sie Radio-Informationen und beantworten Sie Multiple-Choice-Fragen",
+          "part3": "Hören Sie ein Gespräch und ordnen Sie Personen den Orten zu"
         },
         "dele": {
           "part1": "Hören Sie sich sechs Voicemail-Nachrichten von einem Telefon an",
@@ -1634,6 +1644,12 @@
         "incomplete": "Unvollständig",
         "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
       },
+      "a2": {
+        "yourAnswer": "Ihre Antwort",
+        "typePlaceholder": "Geben Sie Ihre Antwort hier ein...",
+        "incomplete": "Unvollständig",
+        "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      },
       "questions": "Fragen"
     },
     "part2": {
@@ -1657,7 +1673,11 @@
       "audioError": "Audiofehler",
       "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben.",
+      "a2": {
+        "incomplete": "Unvollständig",
+        "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      }
     },
     "part3": {
       "title": "Hören Teil 3",
@@ -1680,7 +1700,13 @@
       "audioError": "Audiofehler",
       "audioErrorMessage": "Die Audiodatei konnte nicht geladen werden.",
       "incomplete": "Unvollständig",
-      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben."
+      "incompleteMessage": "Bitte beantworten Sie alle Aussagen, bevor Sie absenden. {{count}} Aussage(n) verbleiben.",
+      "a2": {
+        "locations": "Verfügbare Orte:",
+        "matchPeople": "Ordnen Sie jede Person einem Ort zu:",
+        "incomplete": "Unvollständig",
+        "incompleteMessage": "Bitte beantworten Sie alle Fragen, bevor Sie absenden. {{count}} Frage(n) verbleiben."
+      }
     },
     "statements": "Aussagen",
     "person": "Person",
@@ -1964,6 +1990,11 @@
           "part1": "Gespräche und Ankündigungen",
           "part2": "Radioankündigung",
           "part3": "Telefongespräche"
+        },
+        "a2": {
+          "part1": "Telefonnachrichten",
+          "part2": "Radio-Informationen",
+          "part3": "Gespräch"
         },
         "dele": {
           "part1": "Voicemail-Nachrichten",

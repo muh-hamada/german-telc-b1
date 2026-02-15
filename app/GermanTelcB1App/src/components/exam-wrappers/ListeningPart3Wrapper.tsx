@@ -4,6 +4,7 @@ import { ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart3UI from '../exam-ui/ListeningPart3UI';
 import ListeningPart3UIA1 from '../exam-ui/ListeningPart3UIA1';
+import ListeningPart3A2UI from '../exam-ui/ListeningPart3A2UI';
 import { UserAnswer } from '../../types/exam.types';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
@@ -29,6 +30,7 @@ interface Exam {
 const ListeningPart3Wrapper: React.FC<ListeningPart3WrapperProps> = ({ testId, onComplete }) => {
   const { t } = useCustomTranslation();
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const [isLoading, setIsLoading] = useState(true);
   const [listeningData, setListeningData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -77,6 +79,12 @@ const ListeningPart3Wrapper: React.FC<ListeningPart3WrapperProps> = ({ testId, o
     <View style={styles.container}>
       {isA1 ? (
         <ListeningPart3UIA1 
+          exam={exam} 
+          sectionDetails={sectionDetails}
+          onComplete={onComplete} 
+        />
+      ) : isA2 ? (
+        <ListeningPart3A2UI 
           exam={exam} 
           sectionDetails={sectionDetails}
           onComplete={onComplete} 

@@ -727,11 +727,21 @@
         "part2": "Part 2: Radio Announcement",
         "part3": "Part 3: Telephone Conversations"
       },
+      "a2": {
+        "part1": "Part 1: Telephone Messages",
+        "part2": "Part 2: Radio Information",
+        "part3": "Part 3: Conversation"
+      },
       "descriptions": {
         "a1": {
           "part1": "Listen to short conversations and announcements, then answer multiple choice questions",
           "part2": "Listen to a radio announcement and answer questions about details",
           "part3": "Listen to telephone conversations and identify key information"
+        },
+        "a2": {
+          "part1": "Listen to telephone messages and complete the notes by filling in the missing information",
+          "part2": "Listen to radio announcements and answer multiple choice questions",
+          "part3": "Listen to a conversation and match people to locations"
         },
         "dele": {
           "part1": "Listen to six voicemail messages from a telephone",
@@ -1415,6 +1425,12 @@
         "incomplete": "Incomplete",
         "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
       },
+      "a2": {
+        "yourAnswer": "Your answer",
+        "typePlaceholder": "Type your answer here...",
+        "incomplete": "Incomplete",
+        "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      },
       "questions": "Questions"
     },
     "part2": {
@@ -1438,7 +1454,11 @@
       "audioError": "Audio Error",
       "audioErrorMessage": "The audio file could not be loaded.",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining.",
+      "a2": {
+        "incomplete": "Incomplete",
+        "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      }
     },
     "part3": {
       "title": "Listening Part 3",
@@ -1461,7 +1481,13 @@
       "audioError": "Audio Error",
       "audioErrorMessage": "The audio file could not be loaded.",
       "incomplete": "Incomplete",
-      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining."
+      "incompleteMessage": "Please answer all statements before submitting. {{count}} statement(s) remaining.",
+      "a2": {
+        "locations": "Available Locations:",
+        "matchPeople": "Match each person to a location:",
+        "incomplete": "Incomplete",
+        "incompleteMessage": "Please answer all questions before submitting. {{count}} question(s) remaining."
+      }
     },
     "statements": "Statements",
     "person": "Person",
@@ -1682,6 +1708,11 @@
           "part1": "Conversations and Announcements",
           "part2": "Radio Announcement",
           "part3": "Telephone Conversations"
+        },
+        "a2": {
+          "part1": "Telephone Messages",
+          "part2": "Radio Information",
+          "part3": "Conversation"
         },
         "dele": {
           "part1": "Voicemail Messages",

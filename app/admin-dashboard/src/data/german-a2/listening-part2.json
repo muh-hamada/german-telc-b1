@@ -294,6 +294,148 @@
                     ]
                 }
             ]
+        },
+        {
+            "id": "e4d3c2b1-a9f8-4d7e-9c6b-5a4f3d2e1c0b",
+            "title": "Radioansagen und Informationen verstehen",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a2-listening-question-part-2-exam-3.mp3?alt=media",
+            "questions": [
+                {
+                    "id": 6,
+                    "question": "Was hören Sie um 14 Uhr?",
+                    "audio_transcription": "Hier ist Radio Berlin. Gleich nach den Nachrichten hören Sie 'Musik für alle'. Um 14 Uhr kommt dann unser Programm für Kinder 'Kleine Geschichten', und um 15 Uhr hören Sie Sport aktuell.",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Musik für alle"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Ein Kinderprogramm"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Sport aktuell"
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The audio explicitly states: 'At 2 p.m. comes our program for children'. The music program is right after the news, and sports is at 3 p.m.",
+                        "de": "Das Audio sagt explizit: 'Um 14 Uhr kommt dann unser Programm für Kinder'. 'Musik für alle' läuft direkt nach den Nachrichten und Sport erst um 15 Uhr.",
+                        "fr": "L'audio indique explicitement : 'À 14 heures, c'est notre programme pour enfants'. L'émission musicale passe juste après les nouvelles, et le sport à 15 heures.",
+                        "es": "El audio dice explícitamente: 'A las 14 horas viene nuestro programa para niños'. El programa de música es justo después de las noticias y los deportes a las 15 horas.",
+                        "ru": "В аудиозаписи четко сказано: «В 14 часов будет наша программа для детей». Музыкальная программа идет сразу после новостей, а спорт — в 15 часов.",
+                        "ar": "يذكر التسجيل بوضوح: 'في الساعة 14 يأتي برنامجنا للأطفال'. برنامج الموسيقى يأتي مباشرة بعد الأخبار، والرياضة في الساعة 15."
+                    }
+                },
+                {
+                    "id": 7,
+                    "question": "Wie wird das Wetter am Sonntag?",
+                    "audio_transcription": "Das Wetter für das Wochenende. Am Samstag ist es noch warm mit viel Sonne, bis 22 Grad. Aber am Sonntag müssen Sie den Regenschirm mitnehmen. Es regnet den ganzen Tag und wird kühler.",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Sonnig und warm"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Regnerisch und kühl"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Es schneit"
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Pay attention to the specific day. On 'Sunday', it rains and gets cooler. 'Warm with lots of sun' describes Saturday.",
+                        "de": "Achten Sie auf den Wochentag. Am 'Sonntag' regnet es und wird kühler. 'Warm mit viel Sonne' bezieht sich auf den Samstag.",
+                        "fr": "Faites attention au jour précis. 'Dimanche', il pleut et il fait plus frais. 'Chaud avec beaucoup de soleil' décrit la journée de samedi.",
+                        "es": "Preste atención al día específico. El 'domingo' llueve y hace más frío. 'Cálido y con mucho sol' describe el sábado.",
+                        "ru": "Обратите внимание на конкретный день. В «воскресенье» идет дождь и становится прохладнее. «Тепло и солнечно» относится к субботе.",
+                        "ar": "انتبه لليوم المحدد. يوم 'الأحد' تمطر ويصبح الجو أكثر برودة. عبارة 'دافئ ومشمش' تصف يوم السبت."
+                    }
+                },
+                {
+                    "id": 8,
+                    "question": "Was ist das Problem auf der A9?",
+                    "audio_transcription": "Achtung Autofahrer auf der A9 Nürnberg Richtung München. In der Nähe von Ingolstadt laufen Kinder auf der Fahrbahn. Bitte fahren Sie extrem langsam und überholen Sie nicht.",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Ein Stau"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Tiere auf der Straße"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Personen auf der Straße"
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The announcement warns of 'children' on the road. Children fall into the category of 'people' (Personen).",
+                        "de": "Die Ansage warnt vor 'Kindern' auf der Fahrbahn. Kinder fallen unter die Kategorie 'Personen'.",
+                        "fr": "L'annonce met en garde contre la présence d''enfants' sur la chaussée. Les enfants entrent dans la catégorie des 'personnes'.",
+                        "es": "El anuncio advierte sobre 'niños' en la carretera. Los niños entran en la categoría de 'personas'.",
+                        "ru": "Объявление предупреждает о «детях» на дороге. Дети относятся к категории «люди» (Personen).",
+                        "ar": "التحذير ينبه من وجود 'أطفال' على الطريق. الأطفال يندرجون تحت فئة 'أشخاص' (Personen)."
+                    }
+                },
+                {
+                    "id": 9,
+                    "question": "Wer hat heute Geburtstag?",
+                    "audio_transcription": "Wir haben einen besonderen Geburtstagsgruß. Frau Müller aus Potsdam wird heute 80 Jahre alt. Herzlichen Glückwunsch, liebe Oma! Das wünschen dir deine Enkel Lukas und Sarah.",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Lukas"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Sarah"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Frau Müller"
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Ms. Müller is the one having the birthday ('turning 80 today'). Lukas and Sarah are the grandchildren sending the greetings.",
+                        "de": "Frau Müller ist das Geburtstagskind ('wird heute 80 Jahre alt'). Lukas und Sarah sind die Enkel, die gratulieren.",
+                        "fr": "C'est l'anniversaire de Mme Müller ('elle a 80 ans aujourd'hui'). Lukas et Sarah sont les petits-enfants qui envoient les vœux.",
+                        "es": "Es el cumpleaños de la Sra. Müller ('hoy cumple 80 años'). Lukas y Sarah son los nietos que envían los saludos.",
+                        "ru": "День рождения у госпожи Мюллер ('сегодня исполняется 80 лет'). Лукас и Сара — внуки, которые прислали поздравления.",
+                        "ar": "السيدة مولر هي صاحبة عيد الميلاد ('تبلغ اليوم 80 عامًا'). لوكاس وسارة هما الحفيدان اللذان يرسلان التهاني."
+                    }
+                },
+                {
+                    "id": 10,
+                    "question": "Was können Sie gewinnen?",
+                    "audio_transcription": "Und hier unser Super-Gewinnspiel! Möchten Sie ein neues Fahrrad gewinnen? Dann rufen Sie uns an! Sagen Sie uns: Wie heißt die Hauptstadt von Frankreich? Rufen Sie die Nummer 030 99 88 77 an.",
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Ein Fahrrad"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Eine Reise nach Frankreich"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Ein Auto"
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The speaker asks: 'Would you like to win a new bicycle?'. France is only mentioned as part of the quiz question (capital of France).",
+                        "de": "Der Sprecher fragt: 'Möchten Sie ein neues Fahrrad gewinnen?'. Frankreich wird nur als Teil der Quizfrage (Hauptstadt von Frankreich) erwähnt.",
+                        "fr": "L'orateur demande : 'Voulez-vous gagner un nouveau vélo ?'. La France n'est mentionnée que dans le cadre de la question du quiz (capitale de la France).",
+                        "es": "El locutor pregunta: '¿Le gustaría ganar una bicicleta nueva?'. Francia solo se menciona como parte de la pregunta del concurso (capital de Francia).",
+                        "ru": "Диктор спрашивает: «Хотите выиграть новый велосипед?». Франция упоминается только как часть вопроса викторины (столица Франции).",
+                        "ar": "يسأل المتحدث: 'هل تود ربح دراجة جديدة؟'. تم ذكر فرنسا فقط كجزء من سؤال المسابقة (عاصمة فرنسا)."
+                    }
+                }
+            ]
         }
     ]
 }
