@@ -7,6 +7,7 @@ import {
   Alert,
   ScrollView,
   TextInput,
+  ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { spacing, typography, type ThemeColors } from '../../theme';
@@ -348,6 +349,71 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
     return {results, score, totalQuestions}; 
   }
 
+  const renderCreditCard = (card: any) => {
+    return (
+      <View style={styles.creditCardOuter}>
+        <ImageBackground
+          source={require('../../../assets/images/credit-card-empty.png')}
+          style={styles.creditCard}
+          imageStyle={styles.creditCardImage}
+          resizeMode="contain"
+        >
+          {/* Bank name */}
+          <Text style={[styles.creditCardText, styles.creditCardBank]}>
+            {card.bank}
+          </Text>
+
+          {/* Cardholder name */}
+          <Text style={[styles.creditCardText, styles.creditCardName]}>
+            {card.name}
+          </Text>
+
+          {/* Card number */}
+          <Text style={[styles.creditCardText, styles.creditCardNumber]}>
+            {card.number}
+          </Text>
+
+          {/* Expiry date */}
+          <Text style={[styles.creditCardText, styles.creditCardExpiry]}>
+            {card.expiry_date}
+          </Text>
+        </ImageBackground>
+      </View>
+    );
+  };
+
+  const renderInformation = () => {
+    if (!exam.information) return null;
+
+    const { personal_details, credit_card, additional_info } = exam.information;
+
+    return (
+      <View style={styles.informationContainer}>
+        {/* Personal Details */}
+        {personal_details && personal_details.length > 0 && (
+          <View style={styles.personalDetailsCard}>
+            {personal_details.map((detail: any, index: number) => (
+              <View key={index} style={styles.personalDetailRow}>
+                <Text style={styles.personalDetailKey}>{detail.key}:</Text>
+                <Text style={styles.personalDetailInfo}>{detail.info}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+
+        {/* Credit Card */}
+        {credit_card && renderCreditCard(credit_card)}
+
+        {/* Additional Info */}
+        {additional_info && (
+          <View style={styles.additionalInfoCard}>
+            <Text style={styles.additionalInfoText}>{additional_info}</Text>
+          </View>
+        )}
+      </View>
+    );
+  };
+
   const renderResultsModal = () => {
     const resultData = buildResults();
     if(!resultData) return null;
@@ -372,8 +438,10 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
       {/* Title */}
       <Text style={styles.examTitle}>{exam.title}</Text>
 
+      {/* Information (A2) */}
+      {renderInformation()}
+
       {/* Scenario */}
-      {/* A2 TODO: display "information" for A2 */}
       {exam.scenario_text && (
         <View style={styles.scenarioCard}>
           <Text style={styles.scenarioText}>{exam.scenario_text}</Text>
@@ -623,6 +691,96 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     ...typography.textStyles.h5,
     color: colors.white,
     fontWeight: typography.fontWeight.bold,
+  },
+
+  // Information section (A2)
+  informationContainer: {
+    marginBottom: spacing.margin.md,
+    gap: spacing.margin.md,
+    direction: 'ltr',
+  },
+  personalDetailsCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  personalDetailRow: {
+    flexDirection: 'row',
+    paddingVertical: 4,
+  },
+  personalDetailKey: {
+    ...typography.textStyles.body,
+    color: colors.text.secondary,
+    fontWeight: typography.fontWeight.semibold,
+    minWidth: 110,
+    textAlign: 'left',
+  },
+  personalDetailInfo: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    fontWeight: typography.fontWeight.bold,
+    flex: 1,
+    textAlign: 'left',
+  },
+
+  // Credit card
+  creditCardOuter: {
+    alignItems: 'center',
+  },
+  creditCard: {
+    width: '100%',
+    aspectRatio: 1.586,
+    position: 'relative',
+  },
+  creditCardImage: {
+    borderRadius: 10,
+  },
+  creditCardText: {
+    position: 'absolute',
+    color: '#1A1A1A',
+    fontWeight: '700',
+  },
+  creditCardBank: {
+    top: '7.5%',
+    left: '5%',
+    fontSize: 13,
+    fontWeight: '900',
+    letterSpacing: 1.5,
+  },
+  creditCardName: {
+    top: '36%',
+    left: '30%',
+    fontSize: 14,
+    letterSpacing: 1,
+  },
+  creditCardNumber: {
+    bottom: '25%',
+    left: '6%',
+    fontSize: 16,
+    letterSpacing: 1.5,
+  },
+  creditCardExpiry: {
+    bottom: '6%',
+    left: '6%',
+    fontSize: 14,
+    letterSpacing: 0.5,
+  },
+
+  // Additional info
+  additionalInfoCard: {
+    backgroundColor: colors.background.secondary,
+    padding: spacing.padding.md,
+    borderRadius: spacing.borderRadius.md,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  additionalInfoText: {
+    ...typography.textStyles.body,
+    color: colors.text.primary,
+    lineHeight: 22,
+    textAlign: 'left',
   },
 });
 
