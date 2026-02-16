@@ -17,6 +17,8 @@ interface WritingWrapperProps {
 
 const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onComplete }) => {
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
+  const isA1OrA2 = isA1 || isA2;
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
   const [exam, setExam] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +40,8 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
           } else if (stepId === 'writing-2') {
             loadedExam = await dataService.getDeleWritingPart2ExamById(testId);
           }
-        } else if (isA1) {
-          // For A1, determine which part based on stepId
+        } else if (isA1OrA2) {
+          // For A1/A2, determine which part based on stepId
           if (stepId === 'writing-part1') {
             loadedExam = await dataService.getWritingPart1Exam(testId);
           } else if (stepId === 'writing-part2') {
@@ -56,7 +58,7 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
       }
     };
     loadExam();
-  }, [testId, stepId, isA1, isDele]);
+  }, [testId, stepId, isA1OrA2, isDele]);
 
   if (isLoading) {
     return (
@@ -70,8 +72,8 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
     return <View style={styles.container} />;
   }
 
-  // For A1, render the appropriate part
-  if (isA1) {
+  // For A1/A2, render the appropriate part
+  if (isA1OrA2) {
     if (stepId === 'writing-part1' && exam) {
       return (
         <View style={styles.container}>

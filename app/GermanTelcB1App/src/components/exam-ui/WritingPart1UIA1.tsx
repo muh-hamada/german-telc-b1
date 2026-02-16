@@ -75,8 +75,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
     // Get all editable fields
     const editableFields = exam.form_fields.filter((field: any) =>
       field.is_editable ||
-      (field.type === 'composite_text' && field.parts?.some((p: any) => p.is_editable)) ||
-      field.type === 'single_choice'
+      (field.type === 'composite_text' && field.parts?.some((p: any) => p.is_editable))
     );
 
     // Check if all fields are answered

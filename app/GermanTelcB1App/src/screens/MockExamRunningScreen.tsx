@@ -86,6 +86,7 @@ const MockExamRunningScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
   const scoreMultiplier = activeExamConfig.provider === 'dele' ? 1 : 3;
 
@@ -261,8 +262,8 @@ const MockExamRunningScreen: React.FC = () => {
       }
     }
 
-    // Handle A1 writing results
-    if (isWritingStep && isA1 && step.answers.length > 0) {
+    // Handle A1/A2 writing results (same format: writing-part1 form fill + writing-part2 short message)
+    if (isWritingStep && (isA1 || isA2) && step.answers.length > 0) {
       const firstAnswer = step.answers[0];
 
       // Check if we have assessment data stored (Part 2 - WritingPart2UIA1)
@@ -422,11 +423,11 @@ const MockExamRunningScreen: React.FC = () => {
       return <ReadingPart3Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
 
-    // Section 2: Language (Sprachbausteine) - B1/B2 only
-    if (!isA1 && currentStep.id === 'language-1') {
+    // Section 2: Language (Sprachbausteine) - B1/B2 only (not in A1 or A2)
+    if (!isA1 && !isA2 && currentStep.id === 'language-1') {
       return <LanguagePart1Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
-    if (!isA1 && currentStep.id === 'language-2') {
+    if (!isA1 && !isA2 && currentStep.id === 'language-2') {
       return <LanguagePart2Wrapper testId={testId} onComplete={handleCompleteStep} />;
     }
 
@@ -452,9 +453,6 @@ const MockExamRunningScreen: React.FC = () => {
 
 
   const renderResults = () => {
-    const isA1 = activeExamConfig.level === 'A1';
-    const isDele = activeExamConfig.id === 'dele-spanish-b1';
-
     let writtenScore, oralScore, writtenMaxPoints, oralMaxPoints;
     let passingWrittenPoints, passingOralPoints, passingTotalPoints;
 
@@ -487,11 +485,11 @@ const MockExamRunningScreen: React.FC = () => {
         .filter(step => step.sectionNumber === 5)
         .reduce((acc, step) => acc + (step.score || 0), 0);
 
-      oralMaxPoints = isA1 ? 15 : 75;
+      oralMaxPoints = (isA1 || isA2) ? 15 : 75;
       writtenMaxPoints = examProgress.totalMaxPoints; // For Telc, we calculate total max points = the written max points
 
-      passingWrittenPoints = isA1 ? 27 : 135; // 60% of written max
-      passingOralPoints = isA1 ? 9 : 45; // 60% of oral max
+      passingWrittenPoints = (isA1 || isA2) ? 27 : 135; // 60% of written max
+      passingOralPoints = (isA1 || isA2) ? 9 : 45; // 60% of oral max
       passingTotalPoints = passingWrittenPoints // Exclude oral passing points for total
     }
 
