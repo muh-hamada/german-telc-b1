@@ -1,0 +1,21 @@
+{
+  "name": "speaking-dialogue-audio-generation",
+  "version": "1.0.0",
+  "description": "Generate TTS audio for speaking dialogue AI turns and upload to Firebase Storage",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "generate": "tsx generate-speaking-audio.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^1.34.0",
+    "firebase-admin": "^13.0.0",
+    "fluent-ffmpeg": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.28",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

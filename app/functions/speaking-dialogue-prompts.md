@@ -26,6 +26,23 @@ Requirements:
 
 ---
 
+## 1. German A2 (TELC)
+Generate a realistic TELC German A2 speaking assessment dialogue in JSON format.
+The dialogue must cover:
+1. **Teil 1: Sich Vorstellen** (AI welcomes the user and asks them to introduce themselves. Topics include: name, age, origin, place of residence, family, job, hobbies, and languages. After the user introduces themselves, the AI asks two follow-up questions based on the introduction.)
+2. **Teil 2: Ein Alltagsgespräch führen** (AI names an everyday topic and the user and AI take turns asking and answering questions about it, as if using picture cards. Topics can be e.g. Einkaufen, Wohnen, Freizeit, Essen & Trinken, Reisen. The AI asks 3 questions and answers 3 questions from the user.)
+3. **Teil 3: Etwas aushandeln** (AI and user negotiate a joint activity together, e.g. planning a trip, organizing a party, buying a gift. A set of suggestions is discussed and they must agree on a plan. The user should also contribute their own idea.)
+
+Requirements:
+- Difficulty: Strictly A2 level.
+- Language: Entirely in German.
+- Format: Return ONLY a JSON array.
+  - For AI: `{"speaker": "ai", "text": "...", "audio_url": "PLACEHOLDER"}`
+  - For User: `{"speaker": "user", "instruction": {"de": "...", "ar": "...", "en": "...", "ru": "...", "es": "...", "fr": "..."}}`
+- Length: 8-10 exchanges.
+
+---
+
 ## 2. German B1 (TELC)
 Generate a realistic TELC German B1 speaking assessment dialogue in JSON format.
 The dialogue must cover:

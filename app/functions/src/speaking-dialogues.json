@@ -312,6 +312,127 @@
             }
         ]
     },
+    "a2": {
+        "german": [
+            {
+                "id": "dialogue-a2-german-1",
+                "turns": [
+                    {
+                      "speaker": "ai",
+                      "text": "Herzlich willkommen zur Prüfung Start Deutsch 2. Wir beginnen mit Teil 1: Sich vorstellen. Bitte erzählen Sie etwas über sich. Wie heißen Sie, wie alt sind Sie, woher kommen Sie und was machen Sie beruflich?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Stellen Sie sich vor. Nennen Sie Ihren Namen, Ihr Alter, Ihr Heimatland, Ihren Wohnort und Ihren Beruf.",
+                        "ar": "قدم نفسك. اذكر اسمك وعمرك وبلدك ومكان إقامتك ووظيفتك.",
+                        "en": "Introduce yourself. State your name, age, home country, place of residence, and job.",
+                        "ru": "Представьтесь. Назовите свое имя, возраст, родную страну, место жительства и профессию.",
+                        "es": "Preséntese. Diga su nombre, edad, país de origen, lugar de residencia y profesión.",
+                        "fr": "Présentez-vous. Indiquez votre nom, votre âge, votre pays d'origine, votre lieu de résidence et votre profession."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Vielen Dank. Ich habe noch zwei Fragen an Sie: Welche Sprachen sprechen Sie? Und was sind Ihre Hobbys?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Antworten Sie auf die Fragen (z.B. Englisch und Spanisch; Fußball spielen und Lesen).",
+                        "ar": "أجب عن الأسئلة (مثلاً: الإنجليزية والإسبانية؛ لعب كرة القدم والقراءة).",
+                        "en": "Answer the questions (e.g., English and Spanish; playing soccer and reading).",
+                        "ru": "Ответьте на вопросы (например, английский и испанский; игра в футбол и чтение).",
+                        "es": "Responda a las preguntas (p. ej., inglés y español; jugar al fútbol y leer).",
+                        "fr": "Répondez aux questions (par ex. anglais et espagnol ; jouer au football et lire)."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Gut. Wir kommen nun zu Teil 2: Ein Gespräch führen. Unser Thema ist 'Einkaufen'. Ich fange an: Gehen Sie lieber in den Supermarkt oder auf den Markt?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Antworten Sie (z.B. Supermarkt, weil es billiger ist) und stellen Sie eine Rückfrage zum Thema Einkaufen.",
+                        "ar": "أجب (مثلاً: السوبر ماركت لأنه أرخص) واطرح سؤالاً حول التسوق.",
+                        "en": "Answer (e.g., Supermarket because it is cheaper) and ask a return question about shopping.",
+                        "ru": "Ответьте (например, супермаркет, потому что это дешевле) и задайте встречный вопрос о покупках.",
+                        "es": "Responda (p. ej., supermercado porque es más barato) y haga una pregunta sobre las compras.",
+                        "fr": "Répondez (par ex. supermarché parce que c'est moins cher) et posez une question en retour sur les courses."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Ich gehe gern auf den Markt, das Obst ist dort frisch. Nächste Frage: Wer kocht bei Ihnen zu Hause?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Sagen Sie, dass Sie oft kochen. Fragen Sie dann den Prüfer, was sein Lieblingsessen ist.",
+                        "ar": "قل أنك تطبخ غالبًا. ثم اسأل الممتحن عن طعامه المفضل.",
+                        "en": "Say that you cook often. Then ask the examiner what their favorite food is.",
+                        "ru": "Скажите, что вы часто готовите. Затем спросите экзаменатора, какая у него любимая еда.",
+                        "es": "Diga que cocina a menudo. Luego pregunte al examinador cuál es su comida favorita.",
+                        "fr": "Dites que vous cuisinez souvent. Demandez ensuite à l'examinateur quel est son plat préféré."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Ich esse sehr gern Pizza und Salat. Kommen wir zu Teil 3: Etwas aushandeln. Wir wollen am Samstag zusammen einen Ausflug machen. Haben Sie eine Idee?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Schlagen Sie vor, ins Kino zu gehen, weil es einen neuen Film gibt.",
+                        "ar": "اقترح الذهاب إلى السينما لأن هناك فيلمًا جديدًا.",
+                        "en": "Suggest going to the cinema because there is a new movie.",
+                        "ru": "Предложите пойти в кино, потому что вышел новый фильм.",
+                        "es": "Sugiera ir al cine porque hay una película nueva.",
+                        "fr": "Suggérez d'aller au cinéma car il y a un nouveau film."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Kino finde ich bei dem schönen Wetter nicht so gut. Wollen wir lieber im Park ein Picknick machen?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Stimmen Sie zu. Bieten Sie an, Getränke und Obst mitzubringen.",
+                        "ar": "وافق. اعرض إحضاء المشروبات والفاكهة.",
+                        "en": "Agree. Offer to bring drinks and fruit.",
+                        "ru": "Согласитесь. Предложите принести напитки и фрукты.",
+                        "es": "Esté de acuerdo. Ofrezca llevar bebidas y fruta.",
+                        "fr": "Soyez d'accord. Proposez d'apporter des boissons et des fruits."
+                      }
+                    },
+                    {
+                      "speaker": "ai",
+                      "text": "Das ist eine tolle Idee. Ich bringe Brot und Käse mit. Treffen wir uns um 14 Uhr am Eingang?",
+                      "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                      "speaker": "user",
+                      "instruction": {
+                        "de": "Bestätigen Sie die Uhrzeit und verabschieden Sie sich.",
+                        "ar": "أكد الوقت وودع الشخص.",
+                        "en": "Confirm the time and say goodbye.",
+                        "ru": "Подтвердите время и попрощайтесь.",
+                        "es": "Confirme la hora y despídase.",
+                        "fr": "Confirmez l'heure et dites au revoir."
+                      }
+                    }
+                  ]
+            }
+        ]
+    },
     "b1": {
         "german": [
             {
