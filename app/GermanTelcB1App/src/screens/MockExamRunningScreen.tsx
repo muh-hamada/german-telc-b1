@@ -683,6 +683,7 @@ const MockExamRunningScreen: React.FC = () => {
             assessment={selectedWritingAssessmentA1}
             isUsingCachedResult={false}
             lastEvaluatedAnswer=""
+            modalAnswer={selectedWritingExamA1?.modalAnswer}
           />
         )}
 
@@ -701,9 +702,9 @@ const MockExamRunningScreen: React.FC = () => {
             score={writingPart1ResultsA1.score}
             totalQuestions={writingPart1ResultsA1.totalQuestions}
             results={writingPart1ResultsA1.results}
+            isMockExam={true}
           />
         )}
-
 
       </SafeAreaView>
     );

@@ -326,8 +326,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
 
     const editableFields = exam.form_fields.filter((field: any) =>
       field.is_editable ||
-      (field.type === 'composite_text' && field.parts?.some((p: any) => p.is_editable)) ||
-      field.type === 'single_choice'
+      (field.type === 'composite_text' && field.parts?.some((p: any) => p.is_editable))
     );
     const totalQuestions = editableFields.length;
 
@@ -357,7 +356,7 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
     const { results, score, totalQuestions } = resultData;
 
     return (
-      <WritingPart1ResultsModalA1
+      <WritingPart1ResultsModalA1 
         isOpen={showResultsModal}
         onClose={() => setShowResultsModal(false)}
         onRetry={handleRetry}

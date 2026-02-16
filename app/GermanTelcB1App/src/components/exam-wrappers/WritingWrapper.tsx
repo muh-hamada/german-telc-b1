@@ -46,6 +46,10 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
             loadedExam = await dataService.getWritingPart1Exam(testId);
           } else if (stepId === 'writing-part2') {
             loadedExam = await dataService.getWritingPart2Exam(testId);
+            if (isA2 && loadedExam) {
+              // WritingUI expects "incomingEmail" for the instruction section
+              loadedExam.incomingEmail = loadedExam.instruction;
+            }
           }
         } else {
           loadedExam = await dataService.getWritingExam(testId);
@@ -81,6 +85,15 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
         </View>
       );
     } else if (stepId === 'writing-part2' && exam) {
+      // A2 Part 2 uses WritingUI (same as practice mode) since its data format
+      // (instruction, writingPoints) differs from A1 (instruction_header, task_points)
+      if (isA2) {
+        return (
+          <View style={styles.container}>
+            <WritingUI exam={exam} onComplete={onComplete} isMockExam={true} part={2} />
+          </View>
+        );
+      }
       return (
         <View style={styles.container}>
           <WritingPart2UIA1 exam={exam} onComplete={onComplete} isMockExam={true} />

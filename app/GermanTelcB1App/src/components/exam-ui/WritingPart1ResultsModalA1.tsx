@@ -28,6 +28,7 @@ interface WritingPart1ResultsModalA1Props {
     isCorrect: boolean;
   }>;
   modalAnswer?: string;
+  isMockExam?: boolean;
 }
 
 const WritingPart1ResultsModalA1: React.FC<WritingPart1ResultsModalA1Props> = ({
@@ -37,6 +38,8 @@ const WritingPart1ResultsModalA1: React.FC<WritingPart1ResultsModalA1Props> = ({
   score,
   totalQuestions,
   results,
+  modalAnswer,
+  isMockExam,
 }) => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
@@ -139,13 +142,15 @@ const WritingPart1ResultsModalA1: React.FC<WritingPart1ResultsModalA1Props> = ({
               />
 
               <View style={styles.modalButtons}>
-                <TouchableOpacity
-                  style={[styles.modalButton, styles.retryButton]}
-                  onPress={onRetry}
-                >
-                  <Icon name="refresh" size={16} color={colors.white} />
-                  <Text style={styles.modalButtonText}>{t('exam.retry')}</Text>
-                </TouchableOpacity>
+                {!isMockExam && (
+                  <TouchableOpacity
+                    style={[styles.modalButton, styles.retryButton]}
+                    onPress={onRetry}
+                  >
+                    <Icon name="refresh" size={16} color={colors.white} />
+                    <Text style={styles.modalButtonText}>{t('exam.retry')}</Text>
+                  </TouchableOpacity>
+                )}
 
                 <TouchableOpacity
                   style={[styles.modalButton, styles.closeButtonBottom]}
