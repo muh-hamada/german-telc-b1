@@ -60,7 +60,7 @@ export const generateSpeakingDialogue = functions.https.onRequest(
     });
 
     // Validate input
-    if (!['A1', 'B1', 'B2'].includes(level)) {
+    if (!['A1', 'A2', 'B1', 'B2'].includes(level)) {
       res.status(400).json({ error: 'Invalid level: ' + level });
       return;
     }

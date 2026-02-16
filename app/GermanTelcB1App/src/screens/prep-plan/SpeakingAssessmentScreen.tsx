@@ -49,6 +49,7 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
     if (!user) return;
 
     try {
+      console.log('[SpeakingAssessmentScreen] Loading data...');
       setIsLoading(true);
       const [dialogueHistory, currentInProgress] = await Promise.all([
         speakingService.listDialogues(user.uid),
@@ -57,6 +58,8 @@ export const SpeakingAssessmentScreen: React.FC<Props> = () => {
 
       setHistory(dialogueHistory);
       setInProgressDialogue(currentInProgress);
+      console.log('[SpeakingAssessmentScreen] Dialogue history:', dialogueHistory);
+      console.log('[SpeakingAssessmentScreen] Current in progress dialogue:', currentInProgress);
       setIsLoading(false);
     } catch (error) {
       console.error('[SpeakingAssessmentScreen] Error loading data:', error);

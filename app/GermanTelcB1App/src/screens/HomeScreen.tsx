@@ -50,6 +50,7 @@ const HomeScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const isA1 = activeExamConfig.level === 'A1';
+  const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
 
   useEffect(() => {
@@ -304,7 +305,7 @@ const HomeScreen: React.FC = () => {
         <CrossAppPromotionButton placement="home" style={{ marginBottom: 0 }} />
 
         {/* Grammar Study Card */}
-        {!isA1 && (
+        {!isA1 && !isA2 && (
           <Card style={styles.card} onPress={handleGrammarStudyPress}>
             <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
             <Text style={styles.cardDescription}>

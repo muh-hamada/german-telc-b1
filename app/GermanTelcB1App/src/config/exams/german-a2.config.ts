@@ -26,9 +26,9 @@ export const germanA2Config: ExamConfig = {
   firebaseCollections: {
     examData: 'german_a2_telc_exam_data',              // Existing collection
     userProgress: 'users/{uid}/german_a2_progress/data',   // Fixed: Must be 4 segments for .doc() to work
-    completions: 'users/{uid}/completions_german_a1',      // Lang and level in path (3 segments to allow appending 3 more for doc)
+    completions: 'users/{uid}/completions_german_a2',      // Lang and level in path (3 segments to allow appending 3 more for doc)
     streaks: 'users/{uid}/streaks/german-a2',              // Daily streaks tracking per exam
-    vocabularyData: 'vocabulary_data_german_a1',           // Vocabulary words collection
+    vocabularyData: 'vocabulary_data_german_a2',           // Vocabulary words collection
     vocabularyProgress: 'users/{uid}/vocabulary_progress_german_a2/data', // User vocabulary progress
     speakingDialogues: 'users/{uid}/speaking_dialogues_german_a2', // Speaking assessments
   },

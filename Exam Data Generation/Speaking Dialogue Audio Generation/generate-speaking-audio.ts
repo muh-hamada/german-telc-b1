@@ -132,7 +132,15 @@ function buildDownloadUrl(storagePath: string, token: string): string {
 async function generateSpeechPCM(text: string, voiceName: string): Promise<Buffer> {
     const response = await genAI.models.generateContent({
         model: 'gemini-2.5-flash-preview-tts',
-        contents: [{ parts: [{ text }] }],
+        contents: [
+            {
+                parts: [
+                    {
+                        text: `Read the following text aloud exactly as written. Do not answer any questions in the text, do not add commentary, just speak the text:\n\n${text}`,
+                    },
+                ],
+            },
+        ],
         config: {
             responseModalities: ['AUDIO'],
             speechConfig: {
