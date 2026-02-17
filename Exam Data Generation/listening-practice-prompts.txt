@@ -312,6 +312,83 @@ Content: It should visualize the specific setting of the text with simple, clear
 Layout constraint: The image should not have two scenes. Only one scene takes up the full image.
 
 
+------------------------ German A2 ------------------------
+
+You are an expert German language tutor specializing in the **Telc A2 Exam preparation** (Start Deutsch 2). My goal is to create listening practice materials using Google NotebookLM.
+
+For every topic I give you, you must generate four specific assets. Please wait for me to provide a topic, then generate the following 4 steps in a single response:
+
+### 1. A2-Level Source Text (German)
+Generate a 300-350 word text in German.
+* **Level:** A2 (Elementary). Use simple but slightly more varied German than A1. Use present tense (Präsens), Perfekt for past events, and introduce basic Präteritum for common verbs (*war, hatte, ging, kam*). Use modal verbs (*können, müssen, wollen, sollen, dürfen*) and basic connectors (*weil, dass, wenn, aber, oder, und, deshalb, trotzdem*). Sentence structure should include simple main clauses and common subordinate clauses. Vocabulary should cover familiar everyday topics but go beyond immediate personal needs.
+* **Content:** The text must be suitable for Telc A2 listening tasks. It should cover routine everyday situations that require simple, direct exchange of information (e.g., shopping and comparing products, making simple plans with friends, describing your home or neighborhood, talking about hobbies and leisure activities, simple travel situations, basic work conversations, or describing past experiences). Use concrete, practical vocabulary related to daily life.
+* **Structure:** Title, Brief Introduction, 2-3 short paragraphs, Brief Conclusion.
+
+### 2. NotebookLM Audio Instruction (English)
+Provide a specific prompt I can paste into NotebookLM's "Customize" box to generate the audio.
+* **Format:** Deep Dive.
+* **Instruction:** Instruct the AI hosts to hold a simple A2-level conversation. They should speak clearly and at a slightly slower pace than normal, using everyday vocabulary that elementary learners can follow. Speaker A shares information or tells about an experience, and Speaker B reacts naturally with simple follow-up questions or comments (e.g., "Das klingt gut!", "Und was hast du dann gemacht?", "Ich finde das auch wichtig."). They should use short, clear sentences and occasionally rephrase or repeat key details in a natural way. Avoid complex grammar, idioms, or abstract topics. The tone should be conversational and friendly, like two acquaintances chatting.
+
+### 3. Assessment JSON (German)
+Create a JSON file with 10 questions to test understanding.
+* **Constraint:** The questions must target the audio conversation. The phrasing should be "Im Gespräch..." or "Die Sprecher sagen..." rather than "Im Text...".
+* **Format:** The questions must be answered by "true" or "false" only.
+* **Level:** The questions should test **Practical Understanding** of routine information (Who? What? Where? When? How much? Why?). Questions should focus on concrete facts and simple reasons stated in the conversation. Some questions can test whether the listener understood a simple opinion or preference, but avoid any complex inference. Use clear, simple A2-level vocabulary in the questions.
+IMPORTANT: in the Assessment questions, phrase the questions considering that the user will only listen to the audio and not read text. Examples:
+- Incorrect question phrasing: Laut dem Text kauft Maria ein neues Fahrrad.
+- Correct question phrasing: Im Gespräch sagt Maria, dass sie ein neues Fahrrad kauft.
+* **Schema:**
+```json
+{
+    "title": "<Title of the text>",
+    "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
+    "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
+    "duration": "PLACEHOLDER_FOR_DURATION",
+    "questions": [
+        {
+            "question": "<Simple statement in German based on the audio>",
+            "correct": <boolean>,
+            "explanation": "<Clear explanation in German: Why is this true/false? Use simple A2 vocabulary>"
+        }
+    ]
+}
+```
+
+### 4. Image Generation Prompt (English)
+Create a prompt to generate a vertical background image for the mobile app.
+
+Aspect Ratio: 9:16 (Vertical).
+Style: Cinematic, realistic photography, candid style, bright and natural lighting.
+Content: It should visualize the specific setting of the text with clear, relatable everyday scenes (e.g., a neighborhood street with shops, a cozy living room, a local gym, a train station platform, a farmer's market).
+Layout constraint: The image should not have two scenes. Only one scene takes up the full image. Place key visual elements at the top of the image, as the audio controls will cover the lower half.
+
+Please confirm you understand these instructions. I will then provide the first topic.
+
+
+------------------------ A2 Topics ------------------------
+
+1. Einkaufen im Supermarkt – Produkte vergleichen und ein Angebot finden
+2. Ein Wochenende mit Freunden planen – Aktivitäten vorschlagen und sich verabreden
+3. Die eigene Wohnung beschreiben – Zimmer, Möbel und was man mag
+4. Ein Hobby vorstellen – Warum man es macht und wie oft
+5. Eine Reise mit dem Zug planen – Fahrkarten kaufen und den Weg finden
+6. Beim Arzt anrufen – Einen Termin machen und Symptome einfach beschreiben
+7. Im Restaurant bestellen – Die Speisekarte lesen und Wünsche äußern
+8. Das Wetter und passende Kleidung – Über das Wetter sprechen und Pläne ändern
+9. Einen neuen Nachbarn kennenlernen – Sich vorstellen und über das Viertel sprechen
+10. Einen Brief oder eine E-Mail schreiben – Sich beschweren oder etwas fragen
+11. Sport und Fitness – Über Lieblingssportarten und Gesundheit sprechen
+12. Den Tagesablauf erzählen – Von morgens bis abends, Arbeit und Freizeit
+13. Auf dem Flohmarkt – Gebrauchte Sachen kaufen und über Preise verhandeln
+14. Ein Fest oder eine Feier organisieren – Geburtstag, Grillparty oder Einweihungsfeier
+15. Einen Ausflug in die Natur machen – Wandern, Fahrradfahren oder Picknick
+16. Probleme in der Wohnung melden – Der Wasserhahn tropft, die Heizung funktioniert nicht
+17. Über die Familie erzählen – Geschwister, Eltern und was sie beruflich machen
+18. Im Kaufhaus – Kleidung anprobieren, Größen und Farben besprechen
+19. Mit öffentlichen Verkehrsmitteln fahren – Bus, U-Bahn und Verspätungen
+20. Urlaubserlebnisse erzählen – Was man gemacht hat und was besonders schön war
+
+
 ------------------------ B1 Topics ------------------------
 
 1. Reservar una habitación de hotel en Barcelona para unas vacaciones de verano

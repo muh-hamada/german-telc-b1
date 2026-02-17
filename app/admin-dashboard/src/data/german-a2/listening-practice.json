@@ -1,5 +1,184 @@
 {
     "interviews": [
-       
+        {
+            "id": 1,
+            "title": "Der Wocheneinkauf am Samstag",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-1.m4a?alt=media",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-1.jpg?alt=media",
+            "transcription_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-1-transcription.json?alt=media",
+            "duration": "04:17",
+            "questions": [
+                {
+                    "question": "Im Gespräch erzählt Lukas, dass er am Samstagmorgen einkaufen war.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er erzählt Anna, dass er am Samstagmorgen im Supermarkt war, um für die Woche einzukaufen."
+                },
+                {
+                    "question": "Er möchte Pizza für seine Freunde backen.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er möchte eine Gemüsesuppe und einen Obstsalat machen."
+                },
+                {
+                    "question": "Die Bio-Tomaten waren billiger als die normalen Tomaten.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Die Bio-Tomaten waren teurer (3,99 Euro). Die normalen Tomaten waren billiger (1,99 Euro)."
+                },
+                {
+                    "question": "Lukas hat die normalen Tomaten gekauft, um Geld zu sparen.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er hat die günstigeren Tomaten gewählt, weil er sparen wollte."
+                },
+                {
+                    "question": "Die Bio-Karotten waren im Angebot.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er hat einen Sack Bio-Karotten für nur 1,50 Euro gefunden."
+                },
+                {
+                    "question": "Der Markenkaffee kostet weniger als 5 Euro.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Der bekannte Markenkaffee kostet fast 7 Euro. Das Sonderangebot kostete 4,49 Euro."
+                },
+                {
+                    "question": "Lukas hat seinen Lieblings-Orangensaft gekauft.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Sein Lieblings-Orangensaft war ausverkauft. Er musste eine andere Sorte kaufen."
+                },
+                {
+                    "question": "An der Kasse musste Lukas lange warten.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Es gab eine lange Schlange und er musste zehn Minuten warten."
+                },
+                {
+                    "question": "Er hat den Einkauf bar mit Geldscheinen bezahlt.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er hat mit der Karte (EC-Karte) bezahlt."
+                },
+                {
+                    "question": "Der Einkauf hat insgesamt 35 Euro gekostet.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Lukas sagt am Ende, dass er 35 Euro bezahlt hat."
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Pläne für das Wochenende",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-2.m4a?alt=media",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-2.jpg?alt=media",
+            "transcription_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-2-transcription.json?alt=media",
+            "duration": "03:49",
+            "questions": [
+                {
+                    "question": "Im Gespräch sagt Stefan, dass er eine ruhige Woche bei der Arbeit hatte.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er hatte eine anstrengende Woche und freut sich auf das Wochenende."
+                },
+                {
+                    "question": "Stefan wollte zuerst eine Radtour zum See machen.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Sein erster Vorschlag war eine Radtour."
+                },
+                {
+                    "question": "Lena sagt, dass das Wetter am Samstag sonnig ist.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Lena sagt, dass es regnen soll und windig wird."
+                },
+                {
+                    "question": "Lena findet die Idee mit dem Museum sehr interessant.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Lena findet das Museum langweilig. Sie möchte lieber etwas Lustiges machen."
+                },
+                {
+                    "question": "Die Freunde entscheiden sich für einen Kinobesuch.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Sie wollen zusammen eine neue Komödie ansehen."
+                },
+                {
+                    "question": "Sie schauen einen Actionfilm aus den USA.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Sie schauen eine Komödie aus Frankreich."
+                },
+                {
+                    "question": "Stefan und Lena treffen sich um 16:00 Uhr.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Lena muss bis 16 Uhr lernen. Sie treffen sich erst um 19:00 Uhr."
+                },
+                {
+                    "question": "Der Treffpunkt ist direkt vor dem Kino.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Stefan schlägt vor, sich vor dem Kino zu treffen."
+                },
+                {
+                    "question": "Nach dem Film wollen sie Pizza essen gehen.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Sie wollen in ein Burger-Restaurant gehen."
+                },
+                {
+                    "question": "Stefan fragt Paul, ob er auch mitkommen möchte.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Am Ende lädt Stefan seinen Freund Paul ein."
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Meine neue Wohnung",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-3.m4a?alt=media",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-3.jpg?alt=media",
+            "transcription_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a2_listening_practice%2Fgerman-a2-audio-3-transcription.json?alt=media",
+            "duration": "15:11",
+            "questions": [
+                {
+                    "question": "Tim erzählt, dass er vor einem Jahr umgezogen ist.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er ist vor einem Monat umgezogen."
+                },
+                {
+                    "question": "Die neue Wohnung hat einen Aufzug.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Es gibt keinen Aufzug. Tim muss die Treppen laufen."
+                },
+                {
+                    "question": "Tim findet die Küche gemütlich, obwohl sie klein ist.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Die Küche ist nicht groß, aber hell und gemütlich."
+                },
+                {
+                    "question": "Im Wohnzimmer steht ein rotes Sofa.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Das Sofa ist grau."
+                },
+                {
+                    "question": "Der Teppich im Wohnzimmer ist ein Geschenk von seiner Großmutter.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Der Teppich ist alt und war ein Geschenk."
+                },
+                {
+                    "question": "Das Schlafzimmer ist laut, weil es zur Straße zeigt.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Das Fenster zeigt zum Innenhof, deshalb ist es ruhig."
+                },
+                {
+                    "question": "Tims Lieblingsplatz in der Wohnung ist das Badezimmer.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Sein Lieblingsplatz ist der Balkon."
+                },
+                {
+                    "question": "Auf dem Balkon hat Tim schon Pflanzen.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er hat Tomaten und Blumen gekauft."
+                },
+                {
+                    "question": "Tim hat schon einen großen Schreibtisch im Schlafzimmer.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er hat noch keinen Schreibtisch und muss am Küchentisch arbeiten."
+                },
+                {
+                    "question": "Tim möchte nächste Woche ins Möbelhaus fahren.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er will einen Schreibtisch kaufen."
+                }
+            ]
+        }
     ]
 }

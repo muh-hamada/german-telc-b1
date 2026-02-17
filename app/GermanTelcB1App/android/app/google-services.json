@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "494473710301-fd1puptu35vsu987jc7k5cb2bkhir5o0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.deleb1spanish",
+            "certificate_hash": "ba01f2fd807e7388884a8ceef46325f8e36ca1ef"
+          }
+        },
+        {
+          "client_id": "494473710301-r287hr28vno7n3mphm142tg6qdfks96p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mhamada.deleb1spanish",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -40,7 +56,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-5101905792101482~3723260491"
     },
     {
       "client_info": {
@@ -95,6 +112,43 @@
         }
       },
       "admob_app_id": "ca-app-pub-5101905792101482~7598249331"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494473710301:android:b0fc235a51e8f6a2c0a934",
+        "android_client_info": {
+          "package_name": "com.mhamada.telca2german"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "494473710301-0c2v1beqf81i2qrqtrifier6lsd6qo3r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mhamada.telcb2german",
+                "app_store_id": "6755521000"
+              }
+            }
+          ]
+        }
+      }
     },
     {
       "client_info": {
