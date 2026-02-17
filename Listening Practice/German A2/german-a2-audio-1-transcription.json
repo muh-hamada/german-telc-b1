@@ -1,0 +1,7364 @@
+{
+  "createdAt": "2026-02-16T23:00:11.981Z",
+  "segments": [
+    {
+      "id": "0",
+      "start": 0.1,
+      "end": 0.92,
+      "text": "Hallo und herzlich",
+      "words": [
+        {
+          "word": "Hallo",
+          "start": 0.1,
+          "end": 0.29,
+          "probability": 0.99739414,
+          "line_number": 0
+        },
+        {
+          "word": "und",
+          "start": 0.29,
+          "end": 0.46,
+          "probability": 0.99980354,
+          "line_number": 0
+        },
+        {
+          "word": "herzlich",
+          "start": 0.46,
+          "end": 0.92,
+          "probability": 0.9984505,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "start": 0.92,
+      "end": 1.7,
+      "text": "willkommen.",
+      "words": [
+        {
+          "word": "willkommen.",
+          "start": 0.92,
+          "end": 1.7,
+          "probability": 0.8719566,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "start": 1.7,
+      "end": 2.89,
+      "text": "Du, ich komme gerade",
+      "words": [
+        {
+          "word": "Du,",
+          "start": 1.7,
+          "end": 1.91,
+          "probability": 0.77293515,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 1.99,
+          "end": 2.16,
+          "probability": 0.9999199,
+          "line_number": 2
+        },
+        {
+          "word": "komme",
+          "start": 2.21,
+          "end": 2.49,
+          "probability": 0.9773121,
+          "line_number": 2
+        },
+        {
+          "word": "gerade",
+          "start": 2.49,
+          "end": 2.89,
+          "probability": 0.9997883,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "start": 2.89,
+      "end": 3.69,
+      "text": "direkt aus dem",
+      "words": [
+        {
+          "word": "direkt",
+          "start": 2.89,
+          "end": 3.24,
+          "probability": 0.99966437,
+          "line_number": 3
+        },
+        {
+          "word": "aus",
+          "start": 3.28,
+          "end": 3.49,
+          "probability": 0.99983597,
+          "line_number": 3
+        },
+        {
+          "word": "dem",
+          "start": 3.49,
+          "end": 3.69,
+          "probability": 0.99960715,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "start": 3.69,
+      "end": 4.6,
+      "text": "Supermarkt.",
+      "words": [
+        {
+          "word": "Supermarkt.",
+          "start": 3.69,
+          "end": 4.6,
+          "probability": 0.9988379,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "start": 4.7,
+      "end": 5.39,
+      "text": "Oh, hallo.",
+      "words": [
+        {
+          "word": "Oh,",
+          "start": 4.7,
+          "end": 4.86,
+          "probability": 0.81647813,
+          "line_number": 0
+        },
+        {
+          "word": "hallo.",
+          "start": 4.86,
+          "end": 5.39,
+          "probability": 0.9838183,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "start": 5.39,
+      "end": 6.12,
+      "text": "Und, war der",
+      "words": [
+        {
+          "word": "Und,",
+          "start": 5.39,
+          "end": 5.71,
+          "probability": 0.8967432,
+          "line_number": 1
+        },
+        {
+          "word": "war",
+          "start": 5.72,
+          "end": 5.88,
+          "probability": 0.9998932,
+          "line_number": 1
+        },
+        {
+          "word": "der",
+          "start": 5.94,
+          "end": 6.12,
+          "probability": 0.99998474,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "start": 6.12,
+      "end": 7.52,
+      "text": "Kühlschrank leer?",
+      "words": [
+        {
+          "word": "Kühlschrank",
+          "start": 6.12,
+          "end": 6.92,
+          "probability": 0.99955297,
+          "line_number": 2
+        },
+        {
+          "word": "leer?",
+          "start": 6.97,
+          "end": 7.52,
+          "probability": 0.9999132,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "start": 7.62,
+      "end": 8.3,
+      "text": "Total leer.",
+      "words": [
+        {
+          "word": "Total",
+          "start": 7.62,
+          "end": 7.85,
+          "probability": 0.9995729,
+          "line_number": 0
+        },
+        {
+          "word": "leer.",
+          "start": 7.85,
+          "end": 8.3,
+          "probability": 0.99959767,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "start": 8.3,
+      "end": 9.14,
+      "text": "Ja, ich musste",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 8.3,
+          "end": 8.52,
+          "probability": 0.999959,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 8.57,
+          "end": 8.75,
+          "probability": 0.99996185,
+          "line_number": 1
+        },
+        {
+          "word": "musste",
+          "start": 8.75,
+          "end": 9.14,
+          "probability": 0.9997711,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "start": 9.14,
+      "end": 10.17,
+      "text": "wirklich einkaufen",
+      "words": [
+        {
+          "word": "wirklich",
+          "start": 9.14,
+          "end": 9.3,
+          "probability": 0.9999924,
+          "line_number": 2
+        },
+        {
+          "word": "einkaufen",
+          "start": 9.63,
+          "end": 10.17,
+          "probability": 0.9997985,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "start": 10.26,
+      "end": 10.84,
+      "text": "gehen.",
+      "words": [
+        {
+          "word": "gehen.",
+          "start": 10.26,
+          "end": 10.84,
+          "probability": 0.9999895,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "start": 10.94,
+      "end": 11.74,
+      "text": "Und, was hast du",
+      "words": [
+        {
+          "word": "Und,",
+          "start": 10.94,
+          "end": 11.16,
+          "probability": 0.9963323,
+          "line_number": 0
+        },
+        {
+          "word": "was",
+          "start": 11.16,
+          "end": 11.32,
+          "probability": 0.99996567,
+          "line_number": 0
+        },
+        {
+          "word": "hast",
+          "start": 11.47,
+          "end": 11.61,
+          "probability": 0.9999008,
+          "line_number": 0
+        },
+        {
+          "word": "du",
+          "start": 11.61,
+          "end": 11.74,
+          "probability": 0.9917203,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "start": 11.74,
+      "end": 12.19,
+      "text": "alles so",
+      "words": [
+        {
+          "word": "alles",
+          "start": 11.74,
+          "end": 12.06,
+          "probability": 0.9999695,
+          "line_number": 1
+        },
+        {
+          "word": "so",
+          "start": 12.06,
+          "end": 12.19,
+          "probability": 0.9999714,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "start": 12.19,
+      "end": 13.09,
+      "text": "mitgebracht?",
+      "words": [
+        {
+          "word": "mitgebracht?",
+          "start": 12.19,
+          "end": 13.09,
+          "probability": 0.9999447,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "start": 13.14,
+      "end": 13.92,
+      "text": "War es voll?",
+      "words": [
+        {
+          "word": "War",
+          "start": 13.14,
+          "end": 13.28,
+          "probability": 0.9990163,
+          "line_number": 3
+        },
+        {
+          "word": "es",
+          "start": 13.28,
+          "end": 13.36,
+          "probability": 0.9768313,
+          "line_number": 3
+        },
+        {
+          "word": "voll?",
+          "start": 13.42,
+          "end": 13.92,
+          "probability": 0.99993324,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "start": 14.01,
+      "end": 14.61,
+      "text": "Es war ziemlich",
+      "words": [
+        {
+          "word": "Es",
+          "start": 14.01,
+          "end": 14.02,
+          "probability": 0.9999466,
+          "line_number": 0
+        },
+        {
+          "word": "war",
+          "start": 14.02,
+          "end": 14.18,
+          "probability": 0.9999733,
+          "line_number": 0
+        },
+        {
+          "word": "ziemlich",
+          "start": 14.18,
+          "end": 14.61,
+          "probability": 0.99996567,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "start": 14.61,
+      "end": 15.18,
+      "text": "voll, ja.",
+      "words": [
+        {
+          "word": "voll,",
+          "start": 14.61,
+          "end": 14.92,
+          "probability": 0.99815357,
+          "line_number": 1
+        },
+        {
+          "word": "ja.",
+          "start": 14.92,
+          "end": 15.18,
+          "probability": 0.9997397,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "start": 15.18,
+      "end": 15.7,
+      "text": "Aber ich habe",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 15.18,
+          "end": 15.33,
+          "probability": 0.9996167,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 15.4,
+          "end": 15.55,
+          "probability": 0.9999676,
+          "line_number": 2
+        },
+        {
+          "word": "habe",
+          "start": 15.55,
+          "end": 15.7,
+          "probability": 0.99210817,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "start": 15.8,
+      "end": 16.78,
+      "text": "einiges bekommen.",
+      "words": [
+        {
+          "word": "einiges",
+          "start": 15.8,
+          "end": 16.129,
+          "probability": 0.99993324,
+          "line_number": 3
+        },
+        {
+          "word": "bekommen.",
+          "start": 16.129,
+          "end": 16.78,
+          "probability": 0.999979,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "start": 16.78,
+      "end": 17.53,
+      "text": "Ich will nämlich",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 16.78,
+          "end": 16.93,
+          "probability": 0.6552096,
+          "line_number": 4
+        },
+        {
+          "word": "will",
+          "start": 16.93,
+          "end": 17.13,
+          "probability": 0.9999542,
+          "line_number": 4
+        },
+        {
+          "word": "nämlich",
+          "start": 17.13,
+          "end": 17.53,
+          "probability": 0.9999237,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "start": 17.54,
+      "end": 18.26,
+      "text": "heute Abend für",
+      "words": [
+        {
+          "word": "heute",
+          "start": 17.54,
+          "end": 17.8,
+          "probability": 0.9997635,
+          "line_number": 5
+        },
+        {
+          "word": "Abend",
+          "start": 17.8,
+          "end": 18.05,
+          "probability": 0.99949086,
+          "line_number": 5
+        },
+        {
+          "word": "für",
+          "start": 18.1,
+          "end": 18.26,
+          "probability": 0.9995919,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "start": 18.26,
+      "end": 19.14,
+      "text": "Freunde kochen.",
+      "words": [
+        {
+          "word": "Freunde",
+          "start": 18.26,
+          "end": 18.53,
+          "probability": 0.99704605,
+          "line_number": 6
+        },
+        {
+          "word": "kochen.",
+          "start": 18.61,
+          "end": 19.14,
+          "probability": 0.99970764,
+          "line_number": 6
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "start": 19.24,
+      "end": 20.14,
+      "text": "Ah, schön.",
+      "words": [
+        {
+          "word": "Ah,",
+          "start": 19.24,
+          "end": 19.46,
+          "probability": 0.9987073,
+          "line_number": 0
+        },
+        {
+          "word": "schön.",
+          "start": 19.46,
+          "end": 20.14,
+          "probability": 0.99995995,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "start": 20.19,
+      "end": 21.46,
+      "text": "Was gibt es denn?",
+      "words": [
+        {
+          "word": "Was",
+          "start": 20.19,
+          "end": 20.42,
+          "probability": 0.99988556,
+          "line_number": 1
+        },
+        {
+          "word": "gibt",
+          "start": 20.48,
+          "end": 20.74,
+          "probability": 0.9999714,
+          "line_number": 1
+        },
+        {
+          "word": "es",
+          "start": 20.74,
+          "end": 20.9,
+          "probability": 0.99995995,
+          "line_number": 1
+        },
+        {
+          "word": "denn?",
+          "start": 20.9,
+          "end": 21.46,
+          "probability": 0.9999914,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "start": 21.6,
+      "end": 21.98,
+      "text": "Ich habe mir",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 21.6,
+          "end": 21.66,
+          "probability": 0.99995804,
+          "line_number": 0
+        },
+        {
+          "word": "habe",
+          "start": 21.66,
+          "end": 21.88,
+          "probability": 0.9994947,
+          "line_number": 0
+        },
+        {
+          "word": "mir",
+          "start": 21.88,
+          "end": 21.98,
+          "probability": 0.99998856,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "start": 22.13,
+      "end": 23.07,
+      "text": "überlegt, ich mache",
+      "words": [
+        {
+          "word": "überlegt,",
+          "start": 22.13,
+          "end": 22.61,
+          "probability": 0.9999396,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 22.64,
+          "end": 22.78,
+          "probability": 0.99999046,
+          "line_number": 1
+        },
+        {
+          "word": "mache",
+          "start": 22.84,
+          "end": 23.07,
+          "probability": 0.99925834,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "start": 23.07,
+      "end": 24.09,
+      "text": "eine Gemüsesuppe und",
+      "words": [
+        {
+          "word": "eine",
+          "start": 23.07,
+          "end": 23.28,
+          "probability": 0.9999218,
+          "line_number": 2
+        },
+        {
+          "word": "Gemüsesuppe",
+          "start": 23.28,
+          "end": 23.93,
+          "probability": 0.99879396,
+          "line_number": 2
+        },
+        {
+          "word": "und",
+          "start": 23.93,
+          "end": 24.09,
+          "probability": 0.99999046,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "start": 24.09,
+      "end": 24.89,
+      "text": "danach noch einen",
+      "words": [
+        {
+          "word": "danach",
+          "start": 24.09,
+          "end": 24.42,
+          "probability": 0.9999771,
+          "line_number": 3
+        },
+        {
+          "word": "noch",
+          "start": 24.42,
+          "end": 24.64,
+          "probability": 0.99995804,
+          "line_number": 3
+        },
+        {
+          "word": "einen",
+          "start": 24.64,
+          "end": 24.89,
+          "probability": 0.9999733,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "start": 24.93,
+      "end": 26.11,
+      "text": "frischen Obstsalat.",
+      "words": [
+        {
+          "word": "frischen",
+          "start": 24.93,
+          "end": 25.35,
+          "probability": 0.99989605,
+          "line_number": 4
+        },
+        {
+          "word": "Obstsalat.",
+          "start": 25.35,
+          "end": 26.11,
+          "probability": 0.99809045,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "start": 26.23,
+      "end": 27.4,
+      "text": "Klingt super.",
+      "words": [
+        {
+          "word": "Klingt",
+          "start": 26.23,
+          "end": 26.62,
+          "probability": 0.99937284,
+          "line_number": 0
+        },
+        {
+          "word": "super.",
+          "start": 26.77,
+          "end": 27.4,
+          "probability": 0.9975492,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "start": 27.48,
+      "end": 27.88,
+      "text": "Ja, und dafür",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 27.48,
+          "end": 27.56,
+          "probability": 0.79563266,
+          "line_number": 0
+        },
+        {
+          "word": "und",
+          "start": 27.56,
+          "end": 27.68,
+          "probability": 0.9996434,
+          "line_number": 0
+        },
+        {
+          "word": "dafür",
+          "start": 27.68,
+          "end": 27.88,
+          "probability": 0.9998436,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "start": 28.03,
+      "end": 28.55,
+      "text": "brauchte ich halt",
+      "words": [
+        {
+          "word": "brauchte",
+          "start": 28.03,
+          "end": 28.26,
+          "probability": 0.9827021,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 28.26,
+          "end": 28.38,
+          "probability": 0.9999733,
+          "line_number": 1
+        },
+        {
+          "word": "halt",
+          "start": 28.38,
+          "end": 28.55,
+          "probability": 0.9966639,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "start": 28.55,
+      "end": 29.18,
+      "text": "ganz viele frische",
+      "words": [
+        {
+          "word": "ganz",
+          "start": 28.55,
+          "end": 28.68,
+          "probability": 0.99998474,
+          "line_number": 2
+        },
+        {
+          "word": "viele",
+          "start": 28.74,
+          "end": 28.93,
+          "probability": 0.9998703,
+          "line_number": 2
+        },
+        {
+          "word": "frische",
+          "start": 28.93,
+          "end": 29.18,
+          "probability": 0.99967015,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "start": 29.28,
+      "end": 29.66,
+      "text": "Sachen.",
+      "words": [
+        {
+          "word": "Sachen.",
+          "start": 29.28,
+          "end": 29.66,
+          "probability": 0.9999304,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "start": 30.1,
+      "end": 30.9,
+      "text": "Und da ging es schon",
+      "words": [
+        {
+          "word": "Und",
+          "start": 30.1,
+          "end": 30.17,
+          "probability": 0.98224753,
+          "line_number": 0
+        },
+        {
+          "word": "da",
+          "start": 30.17,
+          "end": 30.28,
+          "probability": 0.84810483,
+          "line_number": 0
+        },
+        {
+          "word": "ging",
+          "start": 30.28,
+          "end": 30.48,
+          "probability": 0.9999676,
+          "line_number": 0
+        },
+        {
+          "word": "es",
+          "start": 30.62,
+          "end": 30.62,
+          "probability": 0.9999809,
+          "line_number": 0
+        },
+        {
+          "word": "schon",
+          "start": 30.63,
+          "end": 30.9,
+          "probability": 0.89756614,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "start": 30.9,
+      "end": 31.24,
+      "text": "los.",
+      "words": [
+        {
+          "word": "los.",
+          "start": 30.9,
+          "end": 31.24,
+          "probability": 0.9997864,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "start": 31.24,
+      "end": 32.259,
+      "text": "Also, als erstes bin",
+      "words": [
+        {
+          "word": "Also,",
+          "start": 31.24,
+          "end": 31.58,
+          "probability": 0.77512944,
+          "line_number": 2
+        },
+        {
+          "word": "als",
+          "start": 31.58,
+          "end": 31.75,
+          "probability": 0.99996376,
+          "line_number": 2
+        },
+        {
+          "word": "erstes",
+          "start": 31.75,
+          "end": 32.03,
+          "probability": 0.9951103,
+          "line_number": 2
+        },
+        {
+          "word": "bin",
+          "start": 32.1,
+          "end": 32.259,
+          "probability": 0.9998207,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "start": 32.299,
+      "end": 32.64,
+      "text": "ich in die",
+      "words": [
+        {
+          "word": "ich",
+          "start": 32.299,
+          "end": 32.43,
+          "probability": 0.9999943,
+          "line_number": 3
+        },
+        {
+          "word": "in",
+          "start": 32.43,
+          "end": 32.52,
+          "probability": 0.9999981,
+          "line_number": 3
+        },
+        {
+          "word": "die",
+          "start": 32.58,
+          "end": 32.64,
+          "probability": 0.99995804,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "start": 32.74,
+      "end": 33.86,
+      "text": "Gemüseabteilung.",
+      "words": [
+        {
+          "word": "Gemüseabteilung.",
+          "start": 32.74,
+          "end": 33.86,
+          "probability": 0.9997004,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "start": 33.96,
+      "end": 35.06,
+      "text": "Ich brauchte Tomaten",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 33.96,
+          "end": 34.06,
+          "probability": 0.9996548,
+          "line_number": 0
+        },
+        {
+          "word": "brauchte",
+          "start": 34.06,
+          "end": 34.59,
+          "probability": 0.9987855,
+          "line_number": 0
+        },
+        {
+          "word": "Tomaten",
+          "start": 34.59,
+          "end": 35.06,
+          "probability": 0.99882317,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "start": 35.06,
+      "end": 36.06,
+      "text": "für die Suppe und",
+      "words": [
+        {
+          "word": "für",
+          "start": 35.06,
+          "end": 35.27,
+          "probability": 0.99995995,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 35.34,
+          "end": 35.53,
+          "probability": 0.9999962,
+          "line_number": 1
+        },
+        {
+          "word": "Suppe",
+          "start": 35.53,
+          "end": 35.86,
+          "probability": 0.99943095,
+          "line_number": 1
+        },
+        {
+          "word": "und",
+          "start": 35.86,
+          "end": 36.06,
+          "probability": 0.9995576,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "start": 36.07,
+      "end": 37.1,
+      "text": "auch Karotten.",
+      "words": [
+        {
+          "word": "auch",
+          "start": 36.07,
+          "end": 36.33,
+          "probability": 0.99999046,
+          "line_number": 2
+        },
+        {
+          "word": "Karotten.",
+          "start": 36.33,
+          "end": 37.1,
+          "probability": 0.99924284,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "43",
+      "start": 37.24,
+      "end": 37.62,
+      "text": "Okay.",
+      "words": [
+        {
+          "word": "Okay.",
+          "start": 37.24,
+          "end": 37.62,
+          "probability": 0.98954666,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "44",
+      "start": 37.74,
+      "end": 38.9,
+      "text": "Und bei den Tomaten,",
+      "words": [
+        {
+          "word": "Und",
+          "start": 37.74,
+          "end": 37.85,
+          "probability": 0.99998856,
+          "line_number": 0
+        },
+        {
+          "word": "bei",
+          "start": 37.85,
+          "end": 38.06,
+          "probability": 0.99663156,
+          "line_number": 0
+        },
+        {
+          "word": "den",
+          "start": 38.06,
+          "end": 38.13,
+          "probability": 0.9999447,
+          "line_number": 0
+        },
+        {
+          "word": "Tomaten,",
+          "start": 38.27,
+          "end": 38.9,
+          "probability": 0.9998557,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "start": 38.9,
+      "end": 39.88,
+      "text": "da stand ich dann",
+      "words": [
+        {
+          "word": "da",
+          "start": 38.9,
+          "end": 39.04,
+          "probability": 0.9999752,
+          "line_number": 1
+        },
+        {
+          "word": "stand",
+          "start": 39.04,
+          "end": 39.39,
+          "probability": 0.9998646,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 39.39,
+          "end": 39.44,
+          "probability": 0.99995804,
+          "line_number": 1
+        },
+        {
+          "word": "dann",
+          "start": 39.63,
+          "end": 39.88,
+          "probability": 0.99998856,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "start": 39.94,
+      "end": 40.29,
+      "text": "vor der",
+      "words": [
+        {
+          "word": "vor",
+          "start": 39.94,
+          "end": 40.09,
+          "probability": 0.99944323,
+          "line_number": 2
+        },
+        {
+          "word": "der",
+          "start": 40.09,
+          "end": 40.29,
+          "probability": 0.99999046,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "47",
+      "start": 40.37,
+      "end": 41.36,
+      "text": "Entscheidung.",
+      "words": [
+        {
+          "word": "Entscheidung.",
+          "start": 40.37,
+          "end": 41.36,
+          "probability": 0.90893376,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "48",
+      "start": 41.36,
+      "end": 42.72,
+      "text": "Es gab zwei Sorten.",
+      "words": [
+        {
+          "word": "Es",
+          "start": 41.36,
+          "end": 41.5,
+          "probability": 0.9974455,
+          "line_number": 4
+        },
+        {
+          "word": "gab",
+          "start": 41.5,
+          "end": 41.71,
+          "probability": 0.99995613,
+          "line_number": 4
+        },
+        {
+          "word": "zwei",
+          "start": 41.71,
+          "end": 41.99,
+          "probability": 0.9977652,
+          "line_number": 4
+        },
+        {
+          "word": "Sorten.",
+          "start": 41.99,
+          "end": 42.72,
+          "probability": 0.9997845,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "start": 42.82,
+      "end": 43.82,
+      "text": "Ah, die klassische",
+      "words": [
+        {
+          "word": "Ah,",
+          "start": 42.82,
+          "end": 42.98,
+          "probability": 0.999877,
+          "line_number": 0
+        },
+        {
+          "word": "die",
+          "start": 42.98,
+          "end": 43.17,
+          "probability": 1,
+          "line_number": 0
+        },
+        {
+          "word": "klassische",
+          "start": 43.17,
+          "end": 43.82,
+          "probability": 0.99988365,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "start": 43.82,
+      "end": 44.5,
+      "text": "Situation.",
+      "words": [
+        {
+          "word": "Situation.",
+          "start": 43.82,
+          "end": 44.5,
+          "probability": 0.9999523,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "start": 44.74,
+      "end": 45.12,
+      "text": "Genau.",
+      "words": [
+        {
+          "word": "Genau.",
+          "start": 44.74,
+          "end": 45.12,
+          "probability": 0.9999199,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "start": 45.27,
+      "end": 46.28,
+      "text": "Also, auf der einen",
+      "words": [
+        {
+          "word": "Also,",
+          "start": 45.27,
+          "end": 45.55,
+          "probability": 0.99527144,
+          "line_number": 1
+        },
+        {
+          "word": "auf",
+          "start": 45.55,
+          "end": 45.75,
+          "probability": 0.99998856,
+          "line_number": 1
+        },
+        {
+          "word": "der",
+          "start": 45.75,
+          "end": 45.92,
+          "probability": 0.9999809,
+          "line_number": 1
+        },
+        {
+          "word": "einen",
+          "start": 45.98,
+          "end": 46.28,
+          "probability": 0.9996415,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "53",
+      "start": 46.28,
+      "end": 46.89,
+      "text": "Seite gab es",
+      "words": [
+        {
+          "word": "Seite",
+          "start": 46.28,
+          "end": 46.42,
+          "probability": 0.9999752,
+          "line_number": 2
+        },
+        {
+          "word": "gab",
+          "start": 46.63,
+          "end": 46.81,
+          "probability": 0.99999046,
+          "line_number": 2
+        },
+        {
+          "word": "es",
+          "start": 46.81,
+          "end": 46.89,
+          "probability": 0.9999943,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "start": 46.94,
+      "end": 47.76,
+      "text": "Biotomaten.",
+      "words": [
+        {
+          "word": "Biotomaten.",
+          "start": 46.94,
+          "end": 47.76,
+          "probability": 0.9374199,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "start": 47.77,
+      "end": 48.77,
+      "text": "Die sahen wirklich",
+      "words": [
+        {
+          "word": "Die",
+          "start": 47.77,
+          "end": 47.97,
+          "probability": 0.9943455,
+          "line_number": 4
+        },
+        {
+          "word": "sahen",
+          "start": 47.97,
+          "end": 48.3,
+          "probability": 0.99983597,
+          "line_number": 4
+        },
+        {
+          "word": "wirklich",
+          "start": 48.3,
+          "end": 48.77,
+          "probability": 0.99998665,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "start": 48.83,
+      "end": 49.95,
+      "text": "perfekt aus, total",
+      "words": [
+        {
+          "word": "perfekt",
+          "start": 48.83,
+          "end": 49.25,
+          "probability": 0.99996376,
+          "line_number": 5
+        },
+        {
+          "word": "aus,",
+          "start": 49.25,
+          "end": 49.61,
+          "probability": 0.8935138,
+          "line_number": 5
+        },
+        {
+          "word": "total",
+          "start": 49.91,
+          "end": 49.95,
+          "probability": 0.99993324,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "57",
+      "start": 49.95,
+      "end": 50.44,
+      "text": "rot.",
+      "words": [
+        {
+          "word": "rot.",
+          "start": 49.95,
+          "end": 50.44,
+          "probability": 0.999532,
+          "line_number": 6
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "start": 50.54,
+      "end": 51.62,
+      "text": "Und der Preis?",
+      "words": [
+        {
+          "word": "Und",
+          "start": 50.54,
+          "end": 50.69,
+          "probability": 0.99998474,
+          "line_number": 0
+        },
+        {
+          "word": "der",
+          "start": 50.69,
+          "end": 50.92,
+          "probability": 0.99951756,
+          "line_number": 0
+        },
+        {
+          "word": "Preis?",
+          "start": 51.07,
+          "end": 51.62,
+          "probability": 0.9999485,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "59",
+      "start": 51.72,
+      "end": 53.83,
+      "text": "Der Preis war 3,99",
+      "words": [
+        {
+          "word": "Der",
+          "start": 51.72,
+          "end": 51.93,
+          "probability": 0.99990654,
+          "line_number": 0
+        },
+        {
+          "word": "Preis",
+          "start": 51.93,
+          "end": 52.4,
+          "probability": 0.99998283,
+          "line_number": 0
+        },
+        {
+          "word": "war",
+          "start": 52.46,
+          "end": 52.77,
+          "probability": 0.99978065,
+          "line_number": 0
+        },
+        {
+          "word": "3,99",
+          "start": 52.77,
+          "end": 53.83,
+          "probability": 0.9807849,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "start": 53.92,
+      "end": 55.38,
+      "text": "Euro pro Kilo.",
+      "words": [
+        {
+          "word": "Euro",
+          "start": 53.92,
+          "end": 54.27,
+          "probability": 0.99633795,
+          "line_number": 1
+        },
+        {
+          "word": "pro",
+          "start": 54.36,
+          "end": 54.65,
+          "probability": 0.9999542,
+          "line_number": 1
+        },
+        {
+          "word": "Kilo.",
+          "start": 54.65,
+          "end": 55.38,
+          "probability": 0.9998646,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "61",
+      "start": 55.54,
+      "end": 57.09,
+      "text": "Okay, das ist schon,",
+      "words": [
+        {
+          "word": "Okay,",
+          "start": 55.54,
+          "end": 55.92,
+          "probability": 0.9660865,
+          "line_number": 0
+        },
+        {
+          "word": "das",
+          "start": 56.07,
+          "end": 56.22,
+          "probability": 0.9998684,
+          "line_number": 0
+        },
+        {
+          "word": "ist",
+          "start": 56.22,
+          "end": 56.44,
+          "probability": 0.99998856,
+          "line_number": 0
+        },
+        {
+          "word": "schon,",
+          "start": 56.49,
+          "end": 57.09,
+          "probability": 0.97385347,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "62",
+      "start": 57.09,
+      "end": 57.58,
+      "text": "ja.",
+      "words": [
+        {
+          "word": "ja.",
+          "start": 57.09,
+          "end": 57.58,
+          "probability": 0.99943376,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "63",
+      "start": 58.25,
+      "end": 58.36,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 58.25,
+          "end": 58.36,
+          "probability": 0.7090908,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "64",
+      "start": 58.36,
+      "end": 59.07,
+      "text": "Und die zweite",
+      "words": [
+        {
+          "word": "Und",
+          "start": 58.36,
+          "end": 58.54,
+          "probability": 0.9539574,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 58.54,
+          "end": 58.66,
+          "probability": 0.9970936,
+          "line_number": 1
+        },
+        {
+          "word": "zweite",
+          "start": 58.81,
+          "end": 59.07,
+          "probability": 0.99968916,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "65",
+      "start": 59.07,
+      "end": 59.94,
+      "text": "Sorte, das waren",
+      "words": [
+        {
+          "word": "Sorte,",
+          "start": 59.07,
+          "end": 59.45,
+          "probability": 0.99879956,
+          "line_number": 2
+        },
+        {
+          "word": "das",
+          "start": 59.52,
+          "end": 59.59,
+          "probability": 0.99975777,
+          "line_number": 2
+        },
+        {
+          "word": "waren",
+          "start": 59.65,
+          "end": 59.94,
+          "probability": 0.99951375,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "66",
+      "start": 59.94,
+      "end": 60.6,
+      "text": "ganz normale",
+      "words": [
+        {
+          "word": "ganz",
+          "start": 59.94,
+          "end": 59.98,
+          "probability": 0.9995214,
+          "line_number": 3
+        },
+        {
+          "word": "normale",
+          "start": 60.33,
+          "end": 60.6,
+          "probability": 0.9996434,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "67",
+      "start": 60.6,
+      "end": 61.24,
+      "text": "Tomaten.",
+      "words": [
+        {
+          "word": "Tomaten.",
+          "start": 60.6,
+          "end": 61.24,
+          "probability": 0.827092,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "68",
+      "start": 61.24,
+      "end": 62.46,
+      "text": "Die kosteten nur",
+      "words": [
+        {
+          "word": "Die",
+          "start": 61.24,
+          "end": 61.5,
+          "probability": 0.7697341,
+          "line_number": 5
+        },
+        {
+          "word": "kosteten",
+          "start": 61.5,
+          "end": 62.2,
+          "probability": 0.99791074,
+          "line_number": 5
+        },
+        {
+          "word": "nur",
+          "start": 62.2,
+          "end": 62.46,
+          "probability": 0.999754,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "69",
+      "start": 62.46,
+      "end": 64.739,
+      "text": "1,99 Euro pro Kilo.",
+      "words": [
+        {
+          "word": "1,99",
+          "start": 62.46,
+          "end": 63.42,
+          "probability": 0.99818,
+          "line_number": 6
+        },
+        {
+          "word": "Euro",
+          "start": 63.45,
+          "end": 63.77,
+          "probability": 0.9991201,
+          "line_number": 6
+        },
+        {
+          "word": "pro",
+          "start": 63.77,
+          "end": 64.03,
+          "probability": 0.9994051,
+          "line_number": 6
+        },
+        {
+          "word": "Kilo.",
+          "start": 64.03,
+          "end": 64.739,
+          "probability": 0.9994771,
+          "line_number": 6
+        }
+      ]
+    },
+    {
+      "id": "70",
+      "start": 64.84,
+      "end": 65.16,
+      "text": "Wow.",
+      "words": [
+        {
+          "word": "Wow.",
+          "start": 64.84,
+          "end": 65.16,
+          "probability": 0.958163,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "71",
+      "start": 65.16,
+      "end": 66.28,
+      "text": "Das ist ja genau die",
+      "words": [
+        {
+          "word": "Das",
+          "start": 65.16,
+          "end": 65.23,
+          "probability": 0.615846,
+          "line_number": 1
+        },
+        {
+          "word": "ist",
+          "start": 65.37,
+          "end": 65.57,
+          "probability": 0.9998436,
+          "line_number": 1
+        },
+        {
+          "word": "ja",
+          "start": 65.58,
+          "end": 65.72,
+          "probability": 0.99995995,
+          "line_number": 1
+        },
+        {
+          "word": "genau",
+          "start": 65.72,
+          "end": 66.02,
+          "probability": 0.9993098,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 66.08,
+          "end": 66.28,
+          "probability": 0.9997635,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "72",
+      "start": 66.28,
+      "end": 67,
+      "text": "Hälfte.",
+      "words": [
+        {
+          "word": "Hälfte.",
+          "start": 66.28,
+          "end": 67,
+          "probability": 0.99996614,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "73",
+      "start": 67.04,
+      "end": 67.38,
+      "text": "Und?",
+      "words": [
+        {
+          "word": "Und?",
+          "start": 67.04,
+          "end": 67.38,
+          "probability": 0.7383431,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "74",
+      "start": 67.38,
+      "end": 68.38,
+      "text": "Welche hast du dann",
+      "words": [
+        {
+          "word": "Welche",
+          "start": 67.38,
+          "end": 67.76,
+          "probability": 0.9164482,
+          "line_number": 4
+        },
+        {
+          "word": "hast",
+          "start": 67.76,
+          "end": 67.98,
+          "probability": 0.9997025,
+          "line_number": 4
+        },
+        {
+          "word": "du",
+          "start": 68.02,
+          "end": 68.13,
+          "probability": 0.9952525,
+          "line_number": 4
+        },
+        {
+          "word": "dann",
+          "start": 68.13,
+          "end": 68.38,
+          "probability": 0.99956715,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "75",
+      "start": 68.38,
+      "end": 69.12,
+      "text": "genommen?",
+      "words": [
+        {
+          "word": "genommen?",
+          "start": 68.38,
+          "end": 69.12,
+          "probability": 0.99996185,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "76",
+      "start": 69.78,
+      "end": 70.16,
+      "text": "Ich habe kurz",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 69.78,
+          "end": 69.82,
+          "probability": 0.90387887,
+          "line_number": 0
+        },
+        {
+          "word": "habe",
+          "start": 69.82,
+          "end": 70.01,
+          "probability": 0.594535,
+          "line_number": 0
+        },
+        {
+          "word": "kurz",
+          "start": 70.01,
+          "end": 70.16,
+          "probability": 0.9741743,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "77",
+      "start": 70.31,
+      "end": 71.3,
+      "text": "überlegt, wirklich.",
+      "words": [
+        {
+          "word": "überlegt,",
+          "start": 70.31,
+          "end": 70.68,
+          "probability": 0.9379899,
+          "line_number": 1
+        },
+        {
+          "word": "wirklich.",
+          "start": 70.73,
+          "end": 71.3,
+          "probability": 0.9983344,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "78",
+      "start": 71.4,
+      "end": 72.54,
+      "text": "Aber ich habe dann",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 71.4,
+          "end": 71.63,
+          "probability": 0.97961134,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 71.63,
+          "end": 71.78,
+          "probability": 0.9794264,
+          "line_number": 0
+        },
+        {
+          "word": "habe",
+          "start": 71.93,
+          "end": 72.21,
+          "probability": 0.99958044,
+          "line_number": 0
+        },
+        {
+          "word": "dann",
+          "start": 72.21,
+          "end": 72.54,
+          "probability": 0.9999466,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "79",
+      "start": 72.54,
+      "end": 73.94,
+      "text": "die normalen, also",
+      "words": [
+        {
+          "word": "die",
+          "start": 72.54,
+          "end": 72.79,
+          "probability": 0.9999523,
+          "line_number": 1
+        },
+        {
+          "word": "normalen,",
+          "start": 72.79,
+          "end": 73.61,
+          "probability": 0.9995177,
+          "line_number": 1
+        },
+        {
+          "word": "also",
+          "start": 73.61,
+          "end": 73.94,
+          "probability": 0.9999275,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "80",
+      "start": 73.94,
+      "end": 75.01,
+      "text": "die billigeren",
+      "words": [
+        {
+          "word": "die",
+          "start": 73.94,
+          "end": 74.19,
+          "probability": 0.9999161,
+          "line_number": 2
+        },
+        {
+          "word": "billigeren",
+          "start": 74.19,
+          "end": 75.01,
+          "probability": 0.99977493,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "81",
+      "start": 75.01,
+      "end": 76.6,
+      "text": "Tomaten genommen.",
+      "words": [
+        {
+          "word": "Tomaten",
+          "start": 75.01,
+          "end": 75.59,
+          "probability": 0.9996196,
+          "line_number": 3
+        },
+        {
+          "word": "genommen.",
+          "start": 75.59,
+          "end": 76.6,
+          "probability": 0.99615055,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "82",
+      "start": 76.7,
+      "end": 76.96,
+      "text": "Warum?",
+      "words": [
+        {
+          "word": "Warum?",
+          "start": 76.7,
+          "end": 76.96,
+          "probability": 0.9889374,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "83",
+      "start": 77.01,
+      "end": 77.75,
+      "text": "Naja, ich habe mir",
+      "words": [
+        {
+          "word": "Naja,",
+          "start": 77.01,
+          "end": 77.26,
+          "probability": 0.95693403,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 77.26,
+          "end": 77.41,
+          "probability": 0.9999809,
+          "line_number": 0
+        },
+        {
+          "word": "habe",
+          "start": 77.41,
+          "end": 77.61,
+          "probability": 0.9993803,
+          "line_number": 0
+        },
+        {
+          "word": "mir",
+          "start": 77.61,
+          "end": 77.75,
+          "probability": 0.999979,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "84",
+      "start": 77.78,
+      "end": 78.57,
+      "text": "gedacht, für die",
+      "words": [
+        {
+          "word": "gedacht,",
+          "start": 77.78,
+          "end": 78.22,
+          "probability": 0.9999199,
+          "line_number": 1
+        },
+        {
+          "word": "für",
+          "start": 78.22,
+          "end": 78.37,
+          "probability": 0.9999809,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 78.44,
+          "end": 78.57,
+          "probability": 0.99999046,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "85",
+      "start": 78.57,
+      "end": 79.22,
+      "text": "Suppe ist das ja",
+      "words": [
+        {
+          "word": "Suppe",
+          "start": 78.57,
+          "end": 78.82,
+          "probability": 0.9997435,
+          "line_number": 2
+        },
+        {
+          "word": "ist",
+          "start": 78.84,
+          "end": 78.91,
+          "probability": 0.9999771,
+          "line_number": 2
+        },
+        {
+          "word": "das",
+          "start": 79.06,
+          "end": 79.12,
+          "probability": 0.9999695,
+          "line_number": 2
+        },
+        {
+          "word": "ja",
+          "start": 79.12,
+          "end": 79.22,
+          "probability": 0.99996185,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "86",
+      "start": 79.26,
+      "end": 80.18,
+      "text": "eigentlich egal.",
+      "words": [
+        {
+          "word": "eigentlich",
+          "start": 79.26,
+          "end": 79.73,
+          "probability": 0.9999504,
+          "line_number": 3
+        },
+        {
+          "word": "egal.",
+          "start": 79.73,
+          "end": 80.18,
+          "probability": 0.9996873,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "87",
+      "start": 80.18,
+      "end": 81.03,
+      "text": "Da wird ja alles",
+      "words": [
+        {
+          "word": "Da",
+          "start": 80.18,
+          "end": 80.31,
+          "probability": 0.81212324,
+          "line_number": 4
+        },
+        {
+          "word": "wird",
+          "start": 80.31,
+          "end": 80.57,
+          "probability": 0.9999428,
+          "line_number": 4
+        },
+        {
+          "word": "ja",
+          "start": 80.57,
+          "end": 80.7,
+          "probability": 0.99998283,
+          "line_number": 4
+        },
+        {
+          "word": "alles",
+          "start": 80.7,
+          "end": 81.03,
+          "probability": 0.99990654,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "88",
+      "start": 81.03,
+      "end": 82.22,
+      "text": "gekocht und püriert.",
+      "words": [
+        {
+          "word": "gekocht",
+          "start": 81.03,
+          "end": 81.43,
+          "probability": 0.9977724,
+          "line_number": 5
+        },
+        {
+          "word": "und",
+          "start": 81.55,
+          "end": 81.65,
+          "probability": 0.94079196,
+          "line_number": 5
+        },
+        {
+          "word": "püriert.",
+          "start": 81.72,
+          "end": 82.22,
+          "probability": 0.9987858,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "89",
+      "start": 82.32,
+      "end": 83.18,
+      "text": "Stimmt.",
+      "words": [
+        {
+          "word": "Stimmt.",
+          "start": 82.32,
+          "end": 83.18,
+          "probability": 0.97960156,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "90",
+      "start": 83.71,
+      "end": 84.11,
+      "text": "Und ich wollte heute",
+      "words": [
+        {
+          "word": "Und",
+          "start": 83.71,
+          "end": 83.73,
+          "probability": 0.7866273,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 83.73,
+          "end": 83.84,
+          "probability": 0.92483824,
+          "line_number": 0
+        },
+        {
+          "word": "wollte",
+          "start": 83.84,
+          "end": 84.06,
+          "probability": 0.9865397,
+          "line_number": 0
+        },
+        {
+          "word": "heute",
+          "start": 84.06,
+          "end": 84.11,
+          "probability": 0.9522703,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "91",
+      "start": 84.25,
+      "end": 84.9,
+      "text": "einfach ein bisschen",
+      "words": [
+        {
+          "word": "einfach",
+          "start": 84.25,
+          "end": 84.51,
+          "probability": 0.99570817,
+          "line_number": 1
+        },
+        {
+          "word": "ein",
+          "start": 84.51,
+          "end": 84.62,
+          "probability": 0.998681,
+          "line_number": 1
+        },
+        {
+          "word": "bisschen",
+          "start": 84.62,
+          "end": 84.9,
+          "probability": 0.9950038,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "92",
+      "start": 84.96,
+      "end": 85.4,
+      "text": "Geld sparen.",
+      "words": [
+        {
+          "word": "Geld",
+          "start": 84.96,
+          "end": 85.03,
+          "probability": 0.9965118,
+          "line_number": 2
+        },
+        {
+          "word": "sparen.",
+          "start": 85.1,
+          "end": 85.4,
+          "probability": 0.9970696,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "93",
+      "start": 85.56,
+      "end": 85.79,
+      "text": "Absolut",
+      "words": [
+        {
+          "word": "Absolut",
+          "start": 85.56,
+          "end": 85.79,
+          "probability": 0.995196,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "94",
+      "start": 85.79,
+      "end": 86.56,
+      "text": "verständlich.",
+      "words": [
+        {
+          "word": "verständlich.",
+          "start": 85.79,
+          "end": 86.56,
+          "probability": 0.9965369,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "95",
+      "start": 86.66,
+      "end": 87.84,
+      "text": "Aber direkt danach,",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 86.66,
+          "end": 86.85,
+          "probability": 0.9711689,
+          "line_number": 0
+        },
+        {
+          "word": "direkt",
+          "start": 86.85,
+          "end": 87.29,
+          "probability": 0.99953663,
+          "line_number": 0
+        },
+        {
+          "word": "danach,",
+          "start": 87.29,
+          "end": 87.84,
+          "probability": 0.9287711,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "96",
+      "start": 87.9,
+      "end": 89.17,
+      "text": "bei den Karotten, da",
+      "words": [
+        {
+          "word": "bei",
+          "start": 87.9,
+          "end": 88.09,
+          "probability": 0.9998627,
+          "line_number": 1
+        },
+        {
+          "word": "den",
+          "start": 88.09,
+          "end": 88.31,
+          "probability": 0.99983215,
+          "line_number": 1
+        },
+        {
+          "word": "Karotten,",
+          "start": 88.31,
+          "end": 89.03,
+          "probability": 0.98851633,
+          "line_number": 1
+        },
+        {
+          "word": "da",
+          "start": 89.03,
+          "end": 89.17,
+          "probability": 0.9996014,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "97",
+      "start": 89.17,
+      "end": 90.04,
+      "text": "hatte ich dann",
+      "words": [
+        {
+          "word": "hatte",
+          "start": 89.17,
+          "end": 89.53,
+          "probability": 0.9995614,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 89.53,
+          "end": 89.75,
+          "probability": 0.99996567,
+          "line_number": 2
+        },
+        {
+          "word": "dann",
+          "start": 89.75,
+          "end": 90.04,
+          "probability": 0.99991035,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "98",
+      "start": 90.04,
+      "end": 91.24,
+      "text": "richtig Glück.",
+      "words": [
+        {
+          "word": "richtig",
+          "start": 90.04,
+          "end": 90.55,
+          "probability": 0.99990845,
+          "line_number": 3
+        },
+        {
+          "word": "Glück.",
+          "start": 90.55,
+          "end": 91.24,
+          "probability": 0.9999552,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "99",
+      "start": 91.38,
+      "end": 91.74,
+      "text": "Oh.",
+      "words": [
+        {
+          "word": "Oh.",
+          "start": 91.38,
+          "end": 91.74,
+          "probability": 0.97470474,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "100",
+      "start": 91.84,
+      "end": 92.74,
+      "text": "Ja, da gab es ein",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 91.84,
+          "end": 92.02,
+          "probability": 0.67304635,
+          "line_number": 0
+        },
+        {
+          "word": "da",
+          "start": 92.02,
+          "end": 92.16,
+          "probability": 0.99990845,
+          "line_number": 0
+        },
+        {
+          "word": "gab",
+          "start": 92.16,
+          "end": 92.38,
+          "probability": 0.99996185,
+          "line_number": 0
+        },
+        {
+          "word": "es",
+          "start": 92.38,
+          "end": 92.52,
+          "probability": 0.9995995,
+          "line_number": 0
+        },
+        {
+          "word": "ein",
+          "start": 92.52,
+          "end": 92.74,
+          "probability": 0.99995995,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "101",
+      "start": 92.74,
+      "end": 93.9,
+      "text": "super Angebot.",
+      "words": [
+        {
+          "word": "super",
+          "start": 92.74,
+          "end": 93.11,
+          "probability": 0.99885625,
+          "line_number": 1
+        },
+        {
+          "word": "Angebot.",
+          "start": 93.11,
+          "end": 93.9,
+          "probability": 0.99838257,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "102",
+      "start": 93.95,
+      "end": 95.03,
+      "text": "Ein großer Sack",
+      "words": [
+        {
+          "word": "Ein",
+          "start": 93.95,
+          "end": 94.14,
+          "probability": 0.9491315,
+          "line_number": 2
+        },
+        {
+          "word": "großer",
+          "start": 94.14,
+          "end": 94.71,
+          "probability": 0.99966437,
+          "line_number": 2
+        },
+        {
+          "word": "Sack",
+          "start": 94.71,
+          "end": 95.03,
+          "probability": 0.9997054,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "103",
+      "start": 95.03,
+      "end": 96.21,
+      "text": "Bio-Karotten für",
+      "words": [
+        {
+          "word": "Bio-Karotten",
+          "start": 95.03,
+          "end": 95.99,
+          "probability": 0.9826105,
+          "line_number": 3
+        },
+        {
+          "word": "für",
+          "start": 95.99,
+          "end": 96.21,
+          "probability": 0.98909456,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "104",
+      "start": 96.33,
+      "end": 98.31,
+      "text": "nur, pass auf, 1,50",
+      "words": [
+        {
+          "word": "nur,",
+          "start": 96.33,
+          "end": 96.7,
+          "probability": 0.99892634,
+          "line_number": 4
+        },
+        {
+          "word": "pass",
+          "start": 97.01,
+          "end": 97.03,
+          "probability": 0.9973143,
+          "line_number": 4
+        },
+        {
+          "word": "auf,",
+          "start": 97.03,
+          "end": 97.43,
+          "probability": 0.9997015,
+          "line_number": 4
+        },
+        {
+          "word": "1,50",
+          "start": 97.43,
+          "end": 98.31,
+          "probability": 0.9987471,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "105",
+      "start": 98.31,
+      "end": 98.96,
+      "text": "Euro.",
+      "words": [
+        {
+          "word": "Euro.",
+          "start": 98.31,
+          "end": 98.96,
+          "probability": 0.9986984,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "106",
+      "start": 99.06,
+      "end": 99.96,
+      "text": "Wirklich?",
+      "words": [
+        {
+          "word": "Wirklich?",
+          "start": 99.06,
+          "end": 99.96,
+          "probability": 0.9889567,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "107",
+      "start": 100.01,
+      "end": 100.66,
+      "text": "Das ist ja ein",
+      "words": [
+        {
+          "word": "Das",
+          "start": 100.01,
+          "end": 100.18,
+          "probability": 0.97220397,
+          "line_number": 1
+        },
+        {
+          "word": "ist",
+          "start": 100.18,
+          "end": 100.36,
+          "probability": 0.9999237,
+          "line_number": 1
+        },
+        {
+          "word": "ja",
+          "start": 100.36,
+          "end": 100.48,
+          "probability": 0.9999809,
+          "line_number": 1
+        },
+        {
+          "word": "ein",
+          "start": 100.48,
+          "end": 100.66,
+          "probability": 0.9998741,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "108",
+      "start": 100.66,
+      "end": 101.61,
+      "text": "Schnäppchen.",
+      "words": [
+        {
+          "word": "Schnäppchen.",
+          "start": 100.66,
+          "end": 101.61,
+          "probability": 0.9992808,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "109",
+      "start": 101.99,
+      "end": 102.39,
+      "text": "Ja, total.",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 101.99,
+          "end": 102.09,
+          "probability": 0.9743041,
+          "line_number": 0
+        },
+        {
+          "word": "total.",
+          "start": 102.09,
+          "end": 102.39,
+          "probability": 0.9992157,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "110",
+      "start": 102.53,
+      "end": 103.11,
+      "text": "Da habe ich mich",
+      "words": [
+        {
+          "word": "Da",
+          "start": 102.53,
+          "end": 102.59,
+          "probability": 0.9847049,
+          "line_number": 1
+        },
+        {
+          "word": "habe",
+          "start": 102.59,
+          "end": 102.78,
+          "probability": 0.999773,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 102.78,
+          "end": 102.9,
+          "probability": 0.999979,
+          "line_number": 1
+        },
+        {
+          "word": "mich",
+          "start": 102.95,
+          "end": 103.11,
+          "probability": 0.9999733,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "111",
+      "start": 103.11,
+      "end": 103.9,
+      "text": "richtig gefreut und",
+      "words": [
+        {
+          "word": "richtig",
+          "start": 103.11,
+          "end": 103.45,
+          "probability": 0.9999161,
+          "line_number": 2
+        },
+        {
+          "word": "gefreut",
+          "start": 103.45,
+          "end": 103.7,
+          "probability": 0.99988747,
+          "line_number": 2
+        },
+        {
+          "word": "und",
+          "start": 103.78,
+          "end": 103.9,
+          "probability": 0.92663395,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "112",
+      "start": 104,
+      "end": 104.72,
+      "text": "den Sack natürlich",
+      "words": [
+        {
+          "word": "den",
+          "start": 104,
+          "end": 104.05,
+          "probability": 0.99985695,
+          "line_number": 3
+        },
+        {
+          "word": "Sack",
+          "start": 104.05,
+          "end": 104.22,
+          "probability": 0.998677,
+          "line_number": 3
+        },
+        {
+          "word": "natürlich",
+          "start": 104.27,
+          "end": 104.72,
+          "probability": 0.9998684,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "113",
+      "start": 104.72,
+      "end": 105.4,
+      "text": "sofort in den Wagen",
+      "words": [
+        {
+          "word": "sofort",
+          "start": 104.72,
+          "end": 105.01,
+          "probability": 0.999979,
+          "line_number": 4
+        },
+        {
+          "word": "in",
+          "start": 105.01,
+          "end": 105.1,
+          "probability": 0.99998856,
+          "line_number": 4
+        },
+        {
+          "word": "den",
+          "start": 105.1,
+          "end": 105.24,
+          "probability": 0.9999924,
+          "line_number": 4
+        },
+        {
+          "word": "Wagen",
+          "start": 105.24,
+          "end": 105.4,
+          "probability": 0.99957955,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "114",
+      "start": 105.48,
+      "end": 106.03,
+      "text": "gelegt.",
+      "words": [
+        {
+          "word": "gelegt.",
+          "start": 105.48,
+          "end": 106.03,
+          "probability": 0.9988771,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "115",
+      "start": 106.16,
+      "end": 107.04,
+      "text": "Das glaube ich dir.",
+      "words": [
+        {
+          "word": "Das",
+          "start": 106.16,
+          "end": 106.22,
+          "probability": 0.99985504,
+          "line_number": 0
+        },
+        {
+          "word": "glaube",
+          "start": 106.22,
+          "end": 106.53,
+          "probability": 0.99926597,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 106.54,
+          "end": 106.7,
+          "probability": 0.99998665,
+          "line_number": 0
+        },
+        {
+          "word": "dir.",
+          "start": 106.7,
+          "end": 107.04,
+          "probability": 0.93415976,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "116",
+      "start": 107.14,
+      "end": 107.37,
+      "text": "So.",
+      "words": [
+        {
+          "word": "So.",
+          "start": 107.14,
+          "end": 107.37,
+          "probability": 0.9924168,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "117",
+      "start": 107.37,
+      "end": 108.32,
+      "text": "Und danach bin ich",
+      "words": [
+        {
+          "word": "Und",
+          "start": 107.37,
+          "end": 107.52,
+          "probability": 0.9955202,
+          "line_number": 1
+        },
+        {
+          "word": "danach",
+          "start": 107.67,
+          "end": 107.98,
+          "probability": 0.9998894,
+          "line_number": 1
+        },
+        {
+          "word": "bin",
+          "start": 107.98,
+          "end": 108.15,
+          "probability": 0.9998436,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 108.18,
+          "end": 108.32,
+          "probability": 0.99998665,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "118",
+      "start": 108.38,
+      "end": 109.36,
+      "text": "dann weiter zu den",
+      "words": [
+        {
+          "word": "dann",
+          "start": 108.38,
+          "end": 108.65,
+          "probability": 0.9999943,
+          "line_number": 2
+        },
+        {
+          "word": "weiter",
+          "start": 108.65,
+          "end": 108.82,
+          "probability": 0.99995995,
+          "line_number": 2
+        },
+        {
+          "word": "zu",
+          "start": 109.07,
+          "end": 109.19,
+          "probability": 0.9999485,
+          "line_number": 2
+        },
+        {
+          "word": "den",
+          "start": 109.22,
+          "end": 109.36,
+          "probability": 0.9999714,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "119",
+      "start": 109.41,
+      "end": 110.38,
+      "text": "Getränken.",
+      "words": [
+        {
+          "word": "Getränken.",
+          "start": 109.41,
+          "end": 110.38,
+          "probability": 0.9998184,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "120",
+      "start": 110.48,
+      "end": 110.86,
+      "text": "Okay.",
+      "words": [
+        {
+          "word": "Okay.",
+          "start": 110.48,
+          "end": 110.86,
+          "probability": 0.9968542,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "121",
+      "start": 111.42,
+      "end": 112.32,
+      "text": "Da brauchte ich",
+      "words": [
+        {
+          "word": "Da",
+          "start": 111.42,
+          "end": 111.48,
+          "probability": 0.86681634,
+          "line_number": 0
+        },
+        {
+          "word": "brauchte",
+          "start": 111.48,
+          "end": 112.1,
+          "probability": 0.99274254,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 112.1,
+          "end": 112.32,
+          "probability": 0.9999256,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "122",
+      "start": 112.37,
+      "end": 113.12,
+      "text": "Kaffee und auch",
+      "words": [
+        {
+          "word": "Kaffee",
+          "start": 112.37,
+          "end": 112.79,
+          "probability": 0.9994611,
+          "line_number": 1
+        },
+        {
+          "word": "und",
+          "start": 112.8,
+          "end": 113.04,
+          "probability": 0.9999485,
+          "line_number": 1
+        },
+        {
+          "word": "auch",
+          "start": 113.04,
+          "end": 113.12,
+          "probability": 0.99996185,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "123",
+      "start": 113.42,
+      "end": 114.52,
+      "text": "Orangensaft.",
+      "words": [
+        {
+          "word": "Orangensaft.",
+          "start": 113.42,
+          "end": 114.52,
+          "probability": 0.99845123,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "124",
+      "start": 114.62,
+      "end": 114.92,
+      "text": "Mhm.",
+      "words": [
+        {
+          "word": "Mhm.",
+          "start": 114.62,
+          "end": 114.92,
+          "probability": 0.979174,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "125",
+      "start": 115.02,
+      "end": 116,
+      "text": "Und beim Kaffee,",
+      "words": [
+        {
+          "word": "Und",
+          "start": 115.02,
+          "end": 115.14,
+          "probability": 0.99983215,
+          "line_number": 0
+        },
+        {
+          "word": "beim",
+          "start": 115.14,
+          "end": 115.4,
+          "probability": 0.99951375,
+          "line_number": 0
+        },
+        {
+          "word": "Kaffee,",
+          "start": 115.5,
+          "end": 116,
+          "probability": 0.99965155,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "126",
+      "start": 116,
+      "end": 117.16,
+      "text": "also mein normaler",
+      "words": [
+        {
+          "word": "also",
+          "start": 116,
+          "end": 116.29,
+          "probability": 0.9999733,
+          "line_number": 1
+        },
+        {
+          "word": "mein",
+          "start": 116.29,
+          "end": 116.58,
+          "probability": 0.9998169,
+          "line_number": 1
+        },
+        {
+          "word": "normaler",
+          "start": 116.58,
+          "end": 117.16,
+          "probability": 0.99988174,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "127",
+      "start": 117.16,
+      "end": 118.53,
+      "text": "Kaffee, die bekannte",
+      "words": [
+        {
+          "word": "Kaffee,",
+          "start": 117.16,
+          "end": 117.73,
+          "probability": 0.999806,
+          "line_number": 2
+        },
+        {
+          "word": "die",
+          "start": 117.73,
+          "end": 117.95,
+          "probability": 0.9999809,
+          "line_number": 2
+        },
+        {
+          "word": "bekannte",
+          "start": 117.95,
+          "end": 118.53,
+          "probability": 0.9997609,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "128",
+      "start": 118.53,
+      "end": 119.39,
+      "text": "Marke, die war",
+      "words": [
+        {
+          "word": "Marke,",
+          "start": 118.53,
+          "end": 119.03,
+          "probability": 0.99490196,
+          "line_number": 3
+        },
+        {
+          "word": "die",
+          "start": 119.03,
+          "end": 119.25,
+          "probability": 0.995938,
+          "line_number": 3
+        },
+        {
+          "word": "war",
+          "start": 119.25,
+          "end": 119.39,
+          "probability": 0.9999256,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "129",
+      "start": 119.51,
+      "end": 120.72,
+      "text": "richtig teuer.",
+      "words": [
+        {
+          "word": "richtig",
+          "start": 119.51,
+          "end": 119.61,
+          "probability": 0.9999504,
+          "line_number": 4
+        },
+        {
+          "word": "teuer.",
+          "start": 120.13,
+          "end": 120.72,
+          "probability": 0.9999008,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "130",
+      "start": 120.82,
+      "end": 121.37,
+      "text": "Was kostet die",
+      "words": [
+        {
+          "word": "Was",
+          "start": 120.82,
+          "end": 120.88,
+          "probability": 0.9993898,
+          "line_number": 0
+        },
+        {
+          "word": "kostet",
+          "start": 120.88,
+          "end": 121.2,
+          "probability": 0.99987984,
+          "line_number": 0
+        },
+        {
+          "word": "die",
+          "start": 121.2,
+          "end": 121.37,
+          "probability": 0.9999466,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "131",
+      "start": 121.37,
+      "end": 122.1,
+      "text": "inzwischen?",
+      "words": [
+        {
+          "word": "inzwischen?",
+          "start": 121.37,
+          "end": 122.1,
+          "probability": 0.99994725,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "132",
+      "start": 122.2,
+      "end": 123.5,
+      "text": "Fast sieben Euro.",
+      "words": [
+        {
+          "word": "Fast",
+          "start": 122.2,
+          "end": 122.42,
+          "probability": 0.99942225,
+          "line_number": 0
+        },
+        {
+          "word": "sieben",
+          "start": 122.42,
+          "end": 122.89,
+          "probability": 0.9164294,
+          "line_number": 0
+        },
+        {
+          "word": "Euro.",
+          "start": 122.92,
+          "end": 123.5,
+          "probability": 0.99996376,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "133",
+      "start": 123.6,
+      "end": 124.42,
+      "text": "Wahnsinn.",
+      "words": [
+        {
+          "word": "Wahnsinn.",
+          "start": 123.6,
+          "end": 124.42,
+          "probability": 0.99865955,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "134",
+      "start": 124.52,
+      "end": 124.72,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 124.52,
+          "end": 124.72,
+          "probability": 0.9289975,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "135",
+      "start": 124.72,
+      "end": 125.51,
+      "text": "Aber dann habe ich",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 124.72,
+          "end": 124.9,
+          "probability": 0.96388876,
+          "line_number": 1
+        },
+        {
+          "word": "dann",
+          "start": 125.05,
+          "end": 125.14,
+          "probability": 0.99995613,
+          "line_number": 1
+        },
+        {
+          "word": "habe",
+          "start": 125.14,
+          "end": 125.35,
+          "probability": 0.9999447,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 125.35,
+          "end": 125.51,
+          "probability": 0.99998856,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "136",
+      "start": 125.51,
+      "end": 126.18,
+      "text": "es gesehen.",
+      "words": [
+        {
+          "word": "es",
+          "start": 125.51,
+          "end": 125.61,
+          "probability": 0.99487096,
+          "line_number": 2
+        },
+        {
+          "word": "gesehen.",
+          "start": 125.61,
+          "end": 126.18,
+          "probability": 0.94739175,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "137",
+      "start": 126.18,
+      "end": 127.29,
+      "text": "Ein großes rote",
+      "words": [
+        {
+          "word": "Ein",
+          "start": 126.18,
+          "end": 126.22,
+          "probability": 0.980101,
+          "line_number": 3
+        },
+        {
+          "word": "großes",
+          "start": 126.6,
+          "end": 126.94,
+          "probability": 0.99985695,
+          "line_number": 3
+        },
+        {
+          "word": "rote",
+          "start": 127,
+          "end": 127.29,
+          "probability": 0.8139781,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "138",
+      "start": 127.29,
+      "end": 127.92,
+      "text": "Schild.",
+      "words": [
+        {
+          "word": "Schild.",
+          "start": 127.29,
+          "end": 127.92,
+          "probability": 0.86377996,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "139",
+      "start": 128,
+      "end": 129.539,
+      "text": "Ein Sonderangebot.",
+      "words": [
+        {
+          "word": "Ein",
+          "start": 128,
+          "end": 128.18,
+          "probability": 0.9919511,
+          "line_number": 5
+        },
+        {
+          "word": "Sonderangebot.",
+          "start": 128.25,
+          "end": 129.539,
+          "probability": 0.9997144,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "140",
+      "start": 129.64,
+      "end": 130.02,
+      "text": "Ah.",
+      "words": [
+        {
+          "word": "Ah.",
+          "start": 129.64,
+          "end": 130.02,
+          "probability": 0.98711896,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "141",
+      "start": 130.18,
+      "end": 130.86,
+      "text": "Eine andere",
+      "words": [
+        {
+          "word": "Eine",
+          "start": 130.18,
+          "end": 130.39,
+          "probability": 0.99934983,
+          "line_number": 0
+        },
+        {
+          "word": "andere",
+          "start": 130.39,
+          "end": 130.86,
+          "probability": 0.9999523,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "142",
+      "start": 130.86,
+      "end": 132.03,
+      "text": "Kaffeesorte hat nur",
+      "words": [
+        {
+          "word": "Kaffeesorte",
+          "start": 130.86,
+          "end": 131.71,
+          "probability": 0.9954028,
+          "line_number": 1
+        },
+        {
+          "word": "hat",
+          "start": 131.71,
+          "end": 131.86,
+          "probability": 0.9998779,
+          "line_number": 1
+        },
+        {
+          "word": "nur",
+          "start": 131.96,
+          "end": 132.03,
+          "probability": 0.9999409,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "143",
+      "start": 132.21,
+      "end": 134.3,
+      "text": "4,49 Euro gekostet.",
+      "words": [
+        {
+          "word": "4,49",
+          "start": 132.21,
+          "end": 133,
+          "probability": 0.95261145,
+          "line_number": 2
+        },
+        {
+          "word": "Euro",
+          "start": 133.02,
+          "end": 133.32,
+          "probability": 0.99854195,
+          "line_number": 2
+        },
+        {
+          "word": "gekostet.",
+          "start": 133.32,
+          "end": 134.3,
+          "probability": 0.99987316,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "144",
+      "start": 134.4,
+      "end": 135.5,
+      "text": "4,49 Euro.",
+      "words": [
+        {
+          "word": "4,49",
+          "start": 134.4,
+          "end": 135.03,
+          "probability": 0.99880576,
+          "line_number": 0
+        },
+        {
+          "word": "Euro.",
+          "start": 135.03,
+          "end": 135.5,
+          "probability": 0.9707431,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "145",
+      "start": 135.5,
+      "end": 136.5,
+      "text": "Okay, das ist ein",
+      "words": [
+        {
+          "word": "Okay,",
+          "start": 135.5,
+          "end": 135.9,
+          "probability": 0.9819945,
+          "line_number": 1
+        },
+        {
+          "word": "das",
+          "start": 135.9,
+          "end": 136.08,
+          "probability": 0.99996185,
+          "line_number": 1
+        },
+        {
+          "word": "ist",
+          "start": 136.08,
+          "end": 136.21,
+          "probability": 0.99999046,
+          "line_number": 1
+        },
+        {
+          "word": "ein",
+          "start": 136.29,
+          "end": 136.5,
+          "probability": 0.9999428,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "146",
+      "start": 136.6,
+      "end": 137.48,
+      "text": "Unterschied.",
+      "words": [
+        {
+          "word": "Unterschied.",
+          "start": 136.6,
+          "end": 137.48,
+          "probability": 0.999918,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "147",
+      "start": 137.48,
+      "end": 138.5,
+      "text": "Kennst du den Kaffee",
+      "words": [
+        {
+          "word": "Kennst",
+          "start": 137.48,
+          "end": 137.8,
+          "probability": 0.98339903,
+          "line_number": 3
+        },
+        {
+          "word": "du",
+          "start": 137.88,
+          "end": 137.96,
+          "probability": 0.99957854,
+          "line_number": 3
+        },
+        {
+          "word": "den",
+          "start": 137.96,
+          "end": 138.14,
+          "probability": 0.9998512,
+          "line_number": 3
+        },
+        {
+          "word": "Kaffee",
+          "start": 138.14,
+          "end": 138.5,
+          "probability": 0.99985695,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "148",
+      "start": 138.5,
+      "end": 138.92,
+      "text": "denn?",
+      "words": [
+        {
+          "word": "denn?",
+          "start": 138.5,
+          "end": 138.92,
+          "probability": 0.99977404,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "149",
+      "start": 139.06,
+      "end": 139.31,
+      "text": "Nein.",
+      "words": [
+        {
+          "word": "Nein.",
+          "start": 139.06,
+          "end": 139.31,
+          "probability": 0.9242075,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "150",
+      "start": 139.31,
+      "end": 140.16,
+      "text": "Die Marke kannte ich",
+      "words": [
+        {
+          "word": "Die",
+          "start": 139.31,
+          "end": 139.44,
+          "probability": 0.99892676,
+          "line_number": 1
+        },
+        {
+          "word": "Marke",
+          "start": 139.59,
+          "end": 139.71,
+          "probability": 0.9998245,
+          "line_number": 1
+        },
+        {
+          "word": "kannte",
+          "start": 139.71,
+          "end": 139.96,
+          "probability": 0.9990386,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 140.01,
+          "end": 140.16,
+          "probability": 0.99988747,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "151",
+      "start": 140.16,
+      "end": 141.12,
+      "text": "überhaupt nicht.",
+      "words": [
+        {
+          "word": "überhaupt",
+          "start": 140.16,
+          "end": 140.66,
+          "probability": 0.9999809,
+          "line_number": 2
+        },
+        {
+          "word": "nicht.",
+          "start": 140.66,
+          "end": 141.12,
+          "probability": 0.99993134,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "152",
+      "start": 141.22,
+      "end": 141.58,
+      "text": "Und?",
+      "words": [
+        {
+          "word": "Und?",
+          "start": 141.22,
+          "end": 141.58,
+          "probability": 0.998851,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "153",
+      "start": 141.68,
+      "end": 142.56,
+      "text": "Aber ich dachte mir,",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 141.68,
+          "end": 141.8,
+          "probability": 0.99983597,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 141.8,
+          "end": 141.96,
+          "probability": 0.99998665,
+          "line_number": 0
+        },
+        {
+          "word": "dachte",
+          "start": 141.96,
+          "end": 142.29,
+          "probability": 0.9999752,
+          "line_number": 0
+        },
+        {
+          "word": "mir,",
+          "start": 142.29,
+          "end": 142.56,
+          "probability": 0.9997378,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "154",
+      "start": 142.56,
+      "end": 143.36,
+      "text": "bei dem Preis, da",
+      "words": [
+        {
+          "word": "bei",
+          "start": 142.56,
+          "end": 142.69,
+          "probability": 0.99991226,
+          "line_number": 1
+        },
+        {
+          "word": "dem",
+          "start": 142.72,
+          "end": 142.86,
+          "probability": 0.9997521,
+          "line_number": 1
+        },
+        {
+          "word": "Preis,",
+          "start": 142.92,
+          "end": 143.27,
+          "probability": 0.99972343,
+          "line_number": 1
+        },
+        {
+          "word": "da",
+          "start": 143.27,
+          "end": 143.36,
+          "probability": 0.99998474,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "155",
+      "start": 143.36,
+      "end": 144.1,
+      "text": "probiere ich das",
+      "words": [
+        {
+          "word": "probiere",
+          "start": 143.36,
+          "end": 143.82,
+          "probability": 0.99800754,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 143.88,
+          "end": 143.98,
+          "probability": 0.9999924,
+          "line_number": 2
+        },
+        {
+          "word": "das",
+          "start": 143.98,
+          "end": 144.1,
+          "probability": 0.9999676,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "156",
+      "start": 144.16,
+      "end": 145.08,
+      "text": "einfach mal aus.",
+      "words": [
+        {
+          "word": "einfach",
+          "start": 144.16,
+          "end": 144.53,
+          "probability": 0.99998856,
+          "line_number": 3
+        },
+        {
+          "word": "mal",
+          "start": 144.53,
+          "end": 144.69,
+          "probability": 0.9999962,
+          "line_number": 3
+        },
+        {
+          "word": "aus.",
+          "start": 144.69,
+          "end": 145.08,
+          "probability": 0.99997616,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "157",
+      "start": 145.24,
+      "end": 146.08,
+      "text": "Mutig.",
+      "words": [
+        {
+          "word": "Mutig.",
+          "start": 145.24,
+          "end": 146.08,
+          "probability": 0.96671027,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "158",
+      "start": 146.17,
+      "end": 146.31,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 146.17,
+          "end": 146.31,
+          "probability": 0.75204396,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "159",
+      "start": 146.31,
+      "end": 146.87,
+      "text": "Ich habe sogar",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 146.31,
+          "end": 146.45,
+          "probability": 0.99971014,
+          "line_number": 1
+        },
+        {
+          "word": "habe",
+          "start": 146.45,
+          "end": 146.56,
+          "probability": 0.9966088,
+          "line_number": 1
+        },
+        {
+          "word": "sogar",
+          "start": 146.71,
+          "end": 146.87,
+          "probability": 0.99995804,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "160",
+      "start": 146.9,
+      "end": 147.36,
+      "text": "gleich zwei",
+      "words": [
+        {
+          "word": "gleich",
+          "start": 146.9,
+          "end": 147.17,
+          "probability": 0.9999752,
+          "line_number": 2
+        },
+        {
+          "word": "zwei",
+          "start": 147.17,
+          "end": 147.36,
+          "probability": 0.82392013,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "161",
+      "start": 147.42,
+      "end": 148.26,
+      "text": "Packungen gekauft.",
+      "words": [
+        {
+          "word": "Packungen",
+          "start": 147.42,
+          "end": 147.78,
+          "probability": 0.99791574,
+          "line_number": 3
+        },
+        {
+          "word": "gekauft.",
+          "start": 147.78,
+          "end": 148.26,
+          "probability": 0.99993706,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "162",
+      "start": 148.26,
+      "end": 149.14,
+      "text": "Man weiß ja nie.",
+      "words": [
+        {
+          "word": "Man",
+          "start": 148.26,
+          "end": 148.39,
+          "probability": 0.99965674,
+          "line_number": 4
+        },
+        {
+          "word": "weiß",
+          "start": 148.45,
+          "end": 148.6,
+          "probability": 0.9992964,
+          "line_number": 4
+        },
+        {
+          "word": "ja",
+          "start": 148.66,
+          "end": 148.73,
+          "probability": 0.9996415,
+          "line_number": 4
+        },
+        {
+          "word": "nie.",
+          "start": 148.81,
+          "end": 149.14,
+          "probability": 0.9999685,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "163",
+      "start": 149.24,
+      "end": 149.81,
+      "text": "Sehr gut.",
+      "words": [
+        {
+          "word": "Sehr",
+          "start": 149.24,
+          "end": 149.41,
+          "probability": 0.9999294,
+          "line_number": 0
+        },
+        {
+          "word": "gut.",
+          "start": 149.41,
+          "end": 149.81,
+          "probability": 0.99998283,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "164",
+      "start": 149.81,
+      "end": 150.87,
+      "text": "Ein Vorrat schadet",
+      "words": [
+        {
+          "word": "Ein",
+          "start": 149.81,
+          "end": 150.01,
+          "probability": 0.9997178,
+          "line_number": 1
+        },
+        {
+          "word": "Vorrat",
+          "start": 150.01,
+          "end": 150.41,
+          "probability": 0.99952805,
+          "line_number": 1
+        },
+        {
+          "word": "schadet",
+          "start": 150.41,
+          "end": 150.87,
+          "probability": 0.9995494,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "165",
+      "start": 150.87,
+      "end": 151.41,
+      "text": "nicht.",
+      "words": [
+        {
+          "word": "nicht.",
+          "start": 150.87,
+          "end": 151.41,
+          "probability": 0.99993324,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "166",
+      "start": 151.51,
+      "end": 151.92,
+      "text": "Eben.",
+      "words": [
+        {
+          "word": "Eben.",
+          "start": 151.51,
+          "end": 151.92,
+          "probability": 0.9998843,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "167",
+      "start": 151.92,
+      "end": 153.12,
+      "text": "Aber dann, dann kam",
+      "words": [
+        {
+          "word": "Aber",
+          "start": 151.92,
+          "end": 152.21,
+          "probability": 0.99988747,
+          "line_number": 1
+        },
+        {
+          "word": "dann,",
+          "start": 152.21,
+          "end": 152.63,
+          "probability": 0.922187,
+          "line_number": 1
+        },
+        {
+          "word": "dann",
+          "start": 152.63,
+          "end": 152.85,
+          "probability": 0.99995804,
+          "line_number": 1
+        },
+        {
+          "word": "kam",
+          "start": 152.92,
+          "end": 153.12,
+          "probability": 0.9999161,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "168",
+      "start": 153.12,
+      "end": 153.82,
+      "text": "das Pech.",
+      "words": [
+        {
+          "word": "das",
+          "start": 153.12,
+          "end": 153.22,
+          "probability": 0.99998856,
+          "line_number": 2
+        },
+        {
+          "word": "Pech.",
+          "start": 153.32,
+          "end": 153.82,
+          "probability": 0.9937282,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "169",
+      "start": 153.82,
+      "end": 155.14,
+      "text": "Beim Orangensaft.",
+      "words": [
+        {
+          "word": "Beim",
+          "start": 153.82,
+          "end": 154.09,
+          "probability": 0.99262494,
+          "line_number": 3
+        },
+        {
+          "word": "Orangensaft.",
+          "start": 154.17,
+          "end": 155.14,
+          "probability": 0.99923134,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "170",
+      "start": 155.24,
+      "end": 155.88,
+      "text": "Oh nein.",
+      "words": [
+        {
+          "word": "Oh",
+          "start": 155.24,
+          "end": 155.3,
+          "probability": 0.99963576,
+          "line_number": 0
+        },
+        {
+          "word": "nein.",
+          "start": 155.3,
+          "end": 155.88,
+          "probability": 0.99774224,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "171",
+      "start": 155.88,
+      "end": 156.92,
+      "text": "Was war da los?",
+      "words": [
+        {
+          "word": "Was",
+          "start": 155.88,
+          "end": 156.13,
+          "probability": 0.9997959,
+          "line_number": 1
+        },
+        {
+          "word": "war",
+          "start": 156.13,
+          "end": 156.38,
+          "probability": 0.99990845,
+          "line_number": 1
+        },
+        {
+          "word": "da",
+          "start": 156.38,
+          "end": 156.54,
+          "probability": 0.99998856,
+          "line_number": 1
+        },
+        {
+          "word": "los?",
+          "start": 156.54,
+          "end": 156.92,
+          "probability": 0.99988747,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "172",
+      "start": 157.18,
+      "end": 158.18,
+      "text": "Mein Lieblingssaft",
+      "words": [
+        {
+          "word": "Mein",
+          "start": 157.18,
+          "end": 157.34,
+          "probability": 0.9998512,
+          "line_number": 0
+        },
+        {
+          "word": "Lieblingssaft",
+          "start": 157.34,
+          "end": 158.18,
+          "probability": 0.99969643,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "173",
+      "start": 158.18,
+      "end": 158.83,
+      "text": "war einfach",
+      "words": [
+        {
+          "word": "war",
+          "start": 158.18,
+          "end": 158.36,
+          "probability": 0.9999447,
+          "line_number": 1
+        },
+        {
+          "word": "einfach",
+          "start": 158.42,
+          "end": 158.83,
+          "probability": 0.9999924,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "174",
+      "start": 158.83,
+      "end": 159.72,
+      "text": "ausverkauft.",
+      "words": [
+        {
+          "word": "ausverkauft.",
+          "start": 158.83,
+          "end": 159.72,
+          "probability": 0.99986535,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "175",
+      "start": 159.72,
+      "end": 160.74,
+      "text": "Das ganze Regal war",
+      "words": [
+        {
+          "word": "Das",
+          "start": 159.72,
+          "end": 159.91,
+          "probability": 0.99796504,
+          "line_number": 3
+        },
+        {
+          "word": "ganze",
+          "start": 159.91,
+          "end": 160.23,
+          "probability": 0.99982643,
+          "line_number": 3
+        },
+        {
+          "word": "Regal",
+          "start": 160.23,
+          "end": 160.55,
+          "probability": 0.99930143,
+          "line_number": 3
+        },
+        {
+          "word": "war",
+          "start": 160.55,
+          "end": 160.74,
+          "probability": 0.99991417,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "176",
+      "start": 160.74,
+      "end": 161.3,
+      "text": "leer.",
+      "words": [
+        {
+          "word": "leer.",
+          "start": 160.74,
+          "end": 161.3,
+          "probability": 0.9999714,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "177",
+      "start": 161.4,
+      "end": 162.3,
+      "text": "Ärgerlich.",
+      "words": [
+        {
+          "word": "Ärgerlich.",
+          "start": 161.4,
+          "end": 162.3,
+          "probability": 0.954039,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "178",
+      "start": 162.44,
+      "end": 162.8,
+      "text": "Total.",
+      "words": [
+        {
+          "word": "Total.",
+          "start": 162.44,
+          "end": 162.8,
+          "probability": 0.9998188,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "179",
+      "start": 162.8,
+      "end": 163.55,
+      "text": "Ich musste dann",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 162.8,
+          "end": 162.83,
+          "probability": 0.995805,
+          "line_number": 1
+        },
+        {
+          "word": "musste",
+          "start": 162.97,
+          "end": 163.32,
+          "probability": 0.999815,
+          "line_number": 1
+        },
+        {
+          "word": "dann",
+          "start": 163.32,
+          "end": 163.55,
+          "probability": 0.9994051,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "180",
+      "start": 163.55,
+      "end": 164.47,
+      "text": "einen anderen Saft",
+      "words": [
+        {
+          "word": "einen",
+          "start": 163.55,
+          "end": 163.84,
+          "probability": 0.9990163,
+          "line_number": 2
+        },
+        {
+          "word": "anderen",
+          "start": 163.84,
+          "end": 164.12,
+          "probability": 0.9998112,
+          "line_number": 2
+        },
+        {
+          "word": "Saft",
+          "start": 164.21,
+          "end": 164.47,
+          "probability": 0.9995891,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "181",
+      "start": 164.55,
+      "end": 164.99,
+      "text": "nehmen.",
+      "words": [
+        {
+          "word": "nehmen.",
+          "start": 164.55,
+          "end": 164.99,
+          "probability": 0.7734854,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "182",
+      "start": 165.07,
+      "end": 165.5,
+      "text": "Und der war",
+      "words": [
+        {
+          "word": "Und",
+          "start": 165.07,
+          "end": 165.16,
+          "probability": 0.99877053,
+          "line_number": 4
+        },
+        {
+          "word": "der",
+          "start": 165.16,
+          "end": 165.32,
+          "probability": 0.99575186,
+          "line_number": 4
+        },
+        {
+          "word": "war",
+          "start": 165.33,
+          "end": 165.5,
+          "probability": 0.99998283,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "183",
+      "start": 165.5,
+      "end": 166.7,
+      "text": "natürlich teurer.",
+      "words": [
+        {
+          "word": "natürlich",
+          "start": 165.5,
+          "end": 166.08,
+          "probability": 0.9999752,
+          "line_number": 5
+        },
+        {
+          "word": "teurer.",
+          "start": 166.08,
+          "end": 166.7,
+          "probability": 0.9998894,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "184",
+      "start": 166.8,
+      "end": 167.61,
+      "text": "Das ist immer so,",
+      "words": [
+        {
+          "word": "Das",
+          "start": 166.8,
+          "end": 166.88,
+          "probability": 0.92378396,
+          "line_number": 0
+        },
+        {
+          "word": "ist",
+          "start": 166.88,
+          "end": 167.06,
+          "probability": 0.9986181,
+          "line_number": 0
+        },
+        {
+          "word": "immer",
+          "start": 167.06,
+          "end": 167.37,
+          "probability": 0.9997311,
+          "line_number": 0
+        },
+        {
+          "word": "so,",
+          "start": 167.37,
+          "end": 167.61,
+          "probability": 0.9998398,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "185",
+      "start": 167.61,
+      "end": 168.08,
+      "text": "oder?",
+      "words": [
+        {
+          "word": "oder?",
+          "start": 167.61,
+          "end": 168.08,
+          "probability": 0.99992085,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "186",
+      "start": 168.37,
+      "end": 168.76,
+      "text": "Ja, immer.",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 168.37,
+          "end": 168.44,
+          "probability": 0.9335165,
+          "line_number": 0
+        },
+        {
+          "word": "immer.",
+          "start": 168.44,
+          "end": 168.76,
+          "probability": 0.99973583,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "187",
+      "start": 168.86,
+      "end": 169.72,
+      "text": "Sag mal, war denn",
+      "words": [
+        {
+          "word": "Sag",
+          "start": 168.86,
+          "end": 168.95,
+          "probability": 0.976876,
+          "line_number": 0
+        },
+        {
+          "word": "mal,",
+          "start": 168.95,
+          "end": 169.24,
+          "probability": 0.89539826,
+          "line_number": 0
+        },
+        {
+          "word": "war",
+          "start": 169.39,
+          "end": 169.46,
+          "probability": 0.99937266,
+          "line_number": 0
+        },
+        {
+          "word": "denn",
+          "start": 169.46,
+          "end": 169.72,
+          "probability": 0.97257584,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "188",
+      "start": 169.72,
+      "end": 170.76,
+      "text": "General viel los im",
+      "words": [
+        {
+          "word": "General",
+          "start": 169.72,
+          "end": 170.17,
+          "probability": 0.95381725,
+          "line_number": 1
+        },
+        {
+          "word": "viel",
+          "start": 170.24,
+          "end": 170.44,
+          "probability": 0.9643172,
+          "line_number": 1
+        },
+        {
+          "word": "los",
+          "start": 170.44,
+          "end": 170.54,
+          "probability": 0.99958616,
+          "line_number": 1
+        },
+        {
+          "word": "im",
+          "start": 170.64,
+          "end": 170.76,
+          "probability": 0.99991035,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "189",
+      "start": 170.89,
+      "end": 171.68,
+      "text": "Supermarkt?",
+      "words": [
+        {
+          "word": "Supermarkt?",
+          "start": 170.89,
+          "end": 171.68,
+          "probability": 0.99973875,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "190",
+      "start": 171.68,
+      "end": 172.42,
+      "text": "Du warst ja an einem",
+      "words": [
+        {
+          "word": "Du",
+          "start": 171.68,
+          "end": 171.77,
+          "probability": 0.98215574,
+          "line_number": 3
+        },
+        {
+          "word": "warst",
+          "start": 171.77,
+          "end": 172,
+          "probability": 0.9997454,
+          "line_number": 3
+        },
+        {
+          "word": "ja",
+          "start": 172,
+          "end": 172.09,
+          "probability": 0.99993896,
+          "line_number": 3
+        },
+        {
+          "word": "an",
+          "start": 172.09,
+          "end": 172.16,
+          "probability": 0.92461777,
+          "line_number": 3
+        },
+        {
+          "word": "einem",
+          "start": 172.19,
+          "end": 172.42,
+          "probability": 0.9735279,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "191",
+      "start": 172.42,
+      "end": 173.04,
+      "text": "Samstag da.",
+      "words": [
+        {
+          "word": "Samstag",
+          "start": 172.42,
+          "end": 172.75,
+          "probability": 0.99947953,
+          "line_number": 4
+        },
+        {
+          "word": "da.",
+          "start": 172.75,
+          "end": 173.04,
+          "probability": 0.99761105,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "192",
+      "start": 173.14,
+      "end": 173.52,
+      "text": "Oh ja.",
+      "words": [
+        {
+          "word": "Oh",
+          "start": 173.14,
+          "end": 173.19,
+          "probability": 0.9995004,
+          "line_number": 0
+        },
+        {
+          "word": "ja.",
+          "start": 173.19,
+          "end": 173.52,
+          "probability": 0.99472344,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "193",
+      "start": 173.67,
+      "end": 174.8,
+      "text": "Es war die Hölle.",
+      "words": [
+        {
+          "word": "Es",
+          "start": 173.67,
+          "end": 173.71,
+          "probability": 0.99831724,
+          "line_number": 1
+        },
+        {
+          "word": "war",
+          "start": 173.71,
+          "end": 173.93,
+          "probability": 0.99998474,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 173.93,
+          "end": 174.15,
+          "probability": 0.99998283,
+          "line_number": 1
+        },
+        {
+          "word": "Hölle.",
+          "start": 174.15,
+          "end": 174.8,
+          "probability": 0.99972606,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "194",
+      "start": 174.8,
+      "end": 175.63,
+      "text": "Wirklich.",
+      "words": [
+        {
+          "word": "Wirklich.",
+          "start": 174.8,
+          "end": 175.63,
+          "probability": 0.9117958,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "195",
+      "start": 175.63,
+      "end": 176.69,
+      "text": "Es waren so viele",
+      "words": [
+        {
+          "word": "Es",
+          "start": 175.63,
+          "end": 175.78,
+          "probability": 0.99991226,
+          "line_number": 3
+        },
+        {
+          "word": "waren",
+          "start": 175.78,
+          "end": 176.16,
+          "probability": 0.99993896,
+          "line_number": 3
+        },
+        {
+          "word": "so",
+          "start": 176.16,
+          "end": 176.28,
+          "probability": 0.99998283,
+          "line_number": 3
+        },
+        {
+          "word": "viele",
+          "start": 176.32,
+          "end": 176.69,
+          "probability": 0.9999771,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "196",
+      "start": 176.69,
+      "end": 177.51,
+      "text": "Leute da.",
+      "words": [
+        {
+          "word": "Leute",
+          "start": 176.69,
+          "end": 177.07,
+          "probability": 0.999979,
+          "line_number": 4
+        },
+        {
+          "word": "da.",
+          "start": 177.07,
+          "end": 177.51,
+          "probability": 0.9999943,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "197",
+      "start": 177.64,
+      "end": 178.02,
+      "text": "Kann ich mir",
+      "words": [
+        {
+          "word": "Kann",
+          "start": 177.64,
+          "end": 177.74,
+          "probability": 0.99978065,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 177.74,
+          "end": 177.89,
+          "probability": 0.99996567,
+          "line_number": 0
+        },
+        {
+          "word": "mir",
+          "start": 177.89,
+          "end": 178.02,
+          "probability": 0.99998283,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "198",
+      "start": 178.17,
+      "end": 178.74,
+      "text": "vorstellen.",
+      "words": [
+        {
+          "word": "vorstellen.",
+          "start": 178.17,
+          "end": 178.74,
+          "probability": 0.99998,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "199",
+      "start": 178.84,
+      "end": 179.6,
+      "text": "Und das hat man dann",
+      "words": [
+        {
+          "word": "Und",
+          "start": 178.84,
+          "end": 178.9,
+          "probability": 0.9990925,
+          "line_number": 0
+        },
+        {
+          "word": "das",
+          "start": 178.9,
+          "end": 179.06,
+          "probability": 0.99999046,
+          "line_number": 0
+        },
+        {
+          "word": "hat",
+          "start": 179.06,
+          "end": 179.21,
+          "probability": 0.99999046,
+          "line_number": 0
+        },
+        {
+          "word": "man",
+          "start": 179.22,
+          "end": 179.38,
+          "probability": 0.99998856,
+          "line_number": 0
+        },
+        {
+          "word": "dann",
+          "start": 179.38,
+          "end": 179.6,
+          "probability": 0.99998474,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "200",
+      "start": 179.6,
+      "end": 180.31,
+      "text": "vor allem an der",
+      "words": [
+        {
+          "word": "vor",
+          "start": 179.6,
+          "end": 179.74,
+          "probability": 0.9987248,
+          "line_number": 1
+        },
+        {
+          "word": "allem",
+          "start": 179.79,
+          "end": 180.02,
+          "probability": 0.99983406,
+          "line_number": 1
+        },
+        {
+          "word": "an",
+          "start": 180.08,
+          "end": 180.15,
+          "probability": 0.9999542,
+          "line_number": 1
+        },
+        {
+          "word": "der",
+          "start": 180.15,
+          "end": 180.31,
+          "probability": 0.9999962,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "201",
+      "start": 180.31,
+      "end": 181.22,
+      "text": "Kasse gemerkt.",
+      "words": [
+        {
+          "word": "Kasse",
+          "start": 180.31,
+          "end": 180.52,
+          "probability": 0.9998684,
+          "line_number": 2
+        },
+        {
+          "word": "gemerkt.",
+          "start": 180.62,
+          "end": 181.22,
+          "probability": 0.9998315,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "202",
+      "start": 181.29,
+      "end": 182.48,
+      "text": "Lange Schlangen.",
+      "words": [
+        {
+          "word": "Lange",
+          "start": 181.29,
+          "end": 181.58,
+          "probability": 0.99873364,
+          "line_number": 0
+        },
+        {
+          "word": "Schlangen.",
+          "start": 181.58,
+          "end": 182.48,
+          "probability": 0.97828084,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "203",
+      "start": 182.58,
+      "end": 183.18,
+      "text": "Eine sehr, sehr",
+      "words": [
+        {
+          "word": "Eine",
+          "start": 182.58,
+          "end": 182.68,
+          "probability": 0.95521915,
+          "line_number": 0
+        },
+        {
+          "word": "sehr,",
+          "start": 182.68,
+          "end": 182.97,
+          "probability": 0.999205,
+          "line_number": 0
+        },
+        {
+          "word": "sehr",
+          "start": 183.11,
+          "end": 183.18,
+          "probability": 0.99998474,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "204",
+      "start": 183.18,
+      "end": 183.98,
+      "text": "lange Schlange.",
+      "words": [
+        {
+          "word": "lange",
+          "start": 183.18,
+          "end": 183.43,
+          "probability": 0.9999027,
+          "line_number": 1
+        },
+        {
+          "word": "Schlange.",
+          "start": 183.43,
+          "end": 183.98,
+          "probability": 0.99982005,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "205",
+      "start": 183.98,
+      "end": 184.68,
+      "text": "Ich glaube, ich",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 183.98,
+          "end": 184.13,
+          "probability": 0.99078256,
+          "line_number": 2
+        },
+        {
+          "word": "glaube,",
+          "start": 184.13,
+          "end": 184.52,
+          "probability": 0.9992926,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 184.58,
+          "end": 184.68,
+          "probability": 0.9999733,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "206",
+      "start": 184.78,
+      "end": 185.68,
+      "text": "musste bestimmt 10",
+      "words": [
+        {
+          "word": "musste",
+          "start": 184.78,
+          "end": 184.98,
+          "probability": 0.9992431,
+          "line_number": 3
+        },
+        {
+          "word": "bestimmt",
+          "start": 184.98,
+          "end": 185.38,
+          "probability": 0.99993706,
+          "line_number": 3
+        },
+        {
+          "word": "10",
+          "start": 185.38,
+          "end": 185.68,
+          "probability": 0.563953,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "207",
+      "start": 185.68,
+      "end": 186.58,
+      "text": "Minuten warten.",
+      "words": [
+        {
+          "word": "Minuten",
+          "start": 185.68,
+          "end": 185.98,
+          "probability": 0.99985313,
+          "line_number": 4
+        },
+        {
+          "word": "warten.",
+          "start": 186.08,
+          "end": 186.58,
+          "probability": 0.9999895,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "208",
+      "start": 186.68,
+      "end": 187.93,
+      "text": "10 Minuten.",
+      "words": [
+        {
+          "word": "10",
+          "start": 186.68,
+          "end": 187.06,
+          "probability": 0.911539,
+          "line_number": 0
+        },
+        {
+          "word": "Minuten.",
+          "start": 187.21,
+          "end": 187.93,
+          "probability": 0.8862892,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "209",
+      "start": 187.93,
+      "end": 188.36,
+      "text": "Puh.",
+      "words": [
+        {
+          "word": "Puh.",
+          "start": 187.93,
+          "end": 188.36,
+          "probability": 0.99651176,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "210",
+      "start": 188.88,
+      "end": 189.78,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 188.88,
+          "end": 189.78,
+          "probability": 0.77375066,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "211",
+      "start": 189.78,
+      "end": 190.56,
+      "text": "Aber, das muss ich",
+      "words": [
+        {
+          "word": "Aber,",
+          "start": 189.78,
+          "end": 190.06,
+          "probability": 0.6691419,
+          "line_number": 1
+        },
+        {
+          "word": "das",
+          "start": 190.12,
+          "end": 190.19,
+          "probability": 0.98145914,
+          "line_number": 1
+        },
+        {
+          "word": "muss",
+          "start": 190.26,
+          "end": 190.45,
+          "probability": 0.9975901,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 190.45,
+          "end": 190.56,
+          "probability": 0.99942416,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "212",
+      "start": 190.66,
+      "end": 191.1,
+      "text": "sagen, die",
+      "words": [
+        {
+          "word": "sagen,",
+          "start": 190.66,
+          "end": 190.96,
+          "probability": 0.9761021,
+          "line_number": 2
+        },
+        {
+          "word": "die",
+          "start": 190.96,
+          "end": 191.1,
+          "probability": 0.99689394,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "213",
+      "start": 191.15,
+      "end": 191.82,
+      "text": "Kassiererin war",
+      "words": [
+        {
+          "word": "Kassiererin",
+          "start": 191.15,
+          "end": 191.67,
+          "probability": 0.9991293,
+          "line_number": 3
+        },
+        {
+          "word": "war",
+          "start": 191.67,
+          "end": 191.82,
+          "probability": 0.99946606,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "214",
+      "start": 191.82,
+      "end": 192.86,
+      "text": "super freundlich.",
+      "words": [
+        {
+          "word": "super",
+          "start": 191.82,
+          "end": 192.08,
+          "probability": 0.9994985,
+          "line_number": 4
+        },
+        {
+          "word": "freundlich.",
+          "start": 192.08,
+          "end": 192.86,
+          "probability": 0.9958232,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "215",
+      "start": 192.96,
+      "end": 193.52,
+      "text": "Das ist schön.",
+      "words": [
+        {
+          "word": "Das",
+          "start": 192.96,
+          "end": 192.99,
+          "probability": 0.92966646,
+          "line_number": 0
+        },
+        {
+          "word": "ist",
+          "start": 192.99,
+          "end": 193.12,
+          "probability": 0.9999008,
+          "line_number": 0
+        },
+        {
+          "word": "schön.",
+          "start": 193.12,
+          "end": 193.52,
+          "probability": 0.99703157,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "216",
+      "start": 193.52,
+      "end": 194.25,
+      "text": "Das macht ja auch",
+      "words": [
+        {
+          "word": "Das",
+          "start": 193.52,
+          "end": 193.65,
+          "probability": 0.96899015,
+          "line_number": 1
+        },
+        {
+          "word": "macht",
+          "start": 193.68,
+          "end": 193.94,
+          "probability": 0.99959,
+          "line_number": 1
+        },
+        {
+          "word": "ja",
+          "start": 193.94,
+          "end": 194.04,
+          "probability": 0.9996453,
+          "line_number": 1
+        },
+        {
+          "word": "auch",
+          "start": 194.04,
+          "end": 194.25,
+          "probability": 0.9998436,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "217",
+      "start": 194.25,
+      "end": 194.66,
+      "text": "viel aus.",
+      "words": [
+        {
+          "word": "viel",
+          "start": 194.25,
+          "end": 194.46,
+          "probability": 0.70695084,
+          "line_number": 2
+        },
+        {
+          "word": "aus.",
+          "start": 194.46,
+          "end": 194.66,
+          "probability": 0.9995024,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "218",
+      "start": 194.9,
+      "end": 195.18,
+      "text": "Total.",
+      "words": [
+        {
+          "word": "Total.",
+          "start": 194.9,
+          "end": 195.18,
+          "probability": 0.99284613,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "219",
+      "start": 195.18,
+      "end": 195.7,
+      "text": "Das macht die",
+      "words": [
+        {
+          "word": "Das",
+          "start": 195.18,
+          "end": 195.28,
+          "probability": 0.98352045,
+          "line_number": 1
+        },
+        {
+          "word": "macht",
+          "start": 195.43,
+          "end": 195.56,
+          "probability": 0.99983025,
+          "line_number": 1
+        },
+        {
+          "word": "die",
+          "start": 195.56,
+          "end": 195.7,
+          "probability": 0.9990506,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "220",
+      "start": 195.7,
+      "end": 196.3,
+      "text": "Wartezeit dann",
+      "words": [
+        {
+          "word": "Wartezeit",
+          "start": 195.7,
+          "end": 196.08,
+          "probability": 0.99971014,
+          "line_number": 2
+        },
+        {
+          "word": "dann",
+          "start": 196.14,
+          "end": 196.3,
+          "probability": 0.9999542,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "221",
+      "start": 196.3,
+      "end": 197.28,
+      "text": "irgendwie besser.",
+      "words": [
+        {
+          "word": "irgendwie",
+          "start": 196.3,
+          "end": 196.58,
+          "probability": 0.9998703,
+          "line_number": 3
+        },
+        {
+          "word": "besser.",
+          "start": 196.74,
+          "end": 197.28,
+          "probability": 0.9999876,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "222",
+      "start": 197.38,
+      "end": 198.14,
+      "text": "Und?",
+      "words": [
+        {
+          "word": "Und?",
+          "start": 197.38,
+          "end": 198.14,
+          "probability": 0.86831987,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "223",
+      "start": 198.14,
+      "end": 198.85,
+      "text": "Was hat der ganze",
+      "words": [
+        {
+          "word": "Was",
+          "start": 198.14,
+          "end": 198.28,
+          "probability": 0.96876657,
+          "line_number": 1
+        },
+        {
+          "word": "hat",
+          "start": 198.33,
+          "end": 198.44,
+          "probability": 0.999876,
+          "line_number": 1
+        },
+        {
+          "word": "der",
+          "start": 198.44,
+          "end": 198.56,
+          "probability": 0.9996682,
+          "line_number": 1
+        },
+        {
+          "word": "ganze",
+          "start": 198.62,
+          "end": 198.85,
+          "probability": 0.99937075,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "224",
+      "start": 198.85,
+      "end": 199.7,
+      "text": "Einkauf dann am Ende",
+      "words": [
+        {
+          "word": "Einkauf",
+          "start": 198.85,
+          "end": 199.08,
+          "probability": 0.99963105,
+          "line_number": 2
+        },
+        {
+          "word": "dann",
+          "start": 199.19,
+          "end": 199.4,
+          "probability": 0.9996739,
+          "line_number": 2
+        },
+        {
+          "word": "am",
+          "start": 199.4,
+          "end": 199.5,
+          "probability": 0.9999523,
+          "line_number": 2
+        },
+        {
+          "word": "Ende",
+          "start": 199.58,
+          "end": 199.7,
+          "probability": 0.9999447,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "225",
+      "start": 199.7,
+      "end": 200.34,
+      "text": "gekostet?",
+      "words": [
+        {
+          "word": "gekostet?",
+          "start": 199.7,
+          "end": 200.34,
+          "probability": 0.99986076,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "226",
+      "start": 200.34,
+      "end": 201.04,
+      "text": "Und hast du bar",
+      "words": [
+        {
+          "word": "Und",
+          "start": 200.34,
+          "end": 200.52,
+          "probability": 0.83630776,
+          "line_number": 4
+        },
+        {
+          "word": "hast",
+          "start": 200.52,
+          "end": 200.76,
+          "probability": 0.9986962,
+          "line_number": 4
+        },
+        {
+          "word": "du",
+          "start": 200.76,
+          "end": 200.87,
+          "probability": 0.99673045,
+          "line_number": 4
+        },
+        {
+          "word": "bar",
+          "start": 200.88,
+          "end": 201.04,
+          "probability": 0.58940107,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "227",
+      "start": 201.11,
+      "end": 201.66,
+      "text": "bezahlt?",
+      "words": [
+        {
+          "word": "bezahlt?",
+          "start": 201.11,
+          "end": 201.66,
+          "probability": 0.9984753,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "228",
+      "start": 201.92,
+      "end": 202.66,
+      "text": "Nein, bar nicht.",
+      "words": [
+        {
+          "word": "Nein,",
+          "start": 201.92,
+          "end": 202.12,
+          "probability": 0.94075024,
+          "line_number": 0
+        },
+        {
+          "word": "bar",
+          "start": 202.12,
+          "end": 202.27,
+          "probability": 0.95675534,
+          "line_number": 0
+        },
+        {
+          "word": "nicht.",
+          "start": 202.27,
+          "end": 202.66,
+          "probability": 0.9994519,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "229",
+      "start": 202.67,
+      "end": 203.48,
+      "text": "Ich habe mit meiner",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 202.67,
+          "end": 202.82,
+          "probability": 0.9747951,
+          "line_number": 1
+        },
+        {
+          "word": "habe",
+          "start": 202.82,
+          "end": 203.02,
+          "probability": 0.8388063,
+          "line_number": 1
+        },
+        {
+          "word": "mit",
+          "start": 203.02,
+          "end": 203.17,
+          "probability": 0.9920798,
+          "line_number": 1
+        },
+        {
+          "word": "meiner",
+          "start": 203.17,
+          "end": 203.48,
+          "probability": 0.9989572,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "230",
+      "start": 203.48,
+      "end": 204.46,
+      "text": "EC-Karte bezahlt.",
+      "words": [
+        {
+          "word": "EC-Karte",
+          "start": 203.48,
+          "end": 203.77,
+          "probability": 0.99565816,
+          "line_number": 2
+        },
+        {
+          "word": "bezahlt.",
+          "start": 203.92,
+          "end": 204.46,
+          "probability": 0.9997515,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "231",
+      "start": 204.56,
+      "end": 204.88,
+      "text": "Okay.",
+      "words": [
+        {
+          "word": "Okay.",
+          "start": 204.56,
+          "end": 204.88,
+          "probability": 0.99499357,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "232",
+      "start": 205.28,
+      "end": 206.94,
+      "text": "Und der Gesamtpreis",
+      "words": [
+        {
+          "word": "Und",
+          "start": 205.28,
+          "end": 205.49,
+          "probability": 0.15671867,
+          "line_number": 0
+        },
+        {
+          "word": "der",
+          "start": 205.49,
+          "end": 205.66,
+          "probability": 0.9766897,
+          "line_number": 0
+        },
+        {
+          "word": "Gesamtpreis",
+          "start": 205.81,
+          "end": 206.94,
+          "probability": 0.99436754,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "233",
+      "start": 206.94,
+      "end": 209.2,
+      "text": "war genau 35 Euro.",
+      "words": [
+        {
+          "word": "war",
+          "start": 206.94,
+          "end": 206.98,
+          "probability": 0.9988772,
+          "line_number": 1
+        },
+        {
+          "word": "genau",
+          "start": 207.36,
+          "end": 207.77,
+          "probability": 0.99878764,
+          "line_number": 1
+        },
+        {
+          "word": "35",
+          "start": 207.77,
+          "end": 208.4,
+          "probability": 0.9953312,
+          "line_number": 1
+        },
+        {
+          "word": "Euro.",
+          "start": 208.4,
+          "end": 209.2,
+          "probability": 0.99926233,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "234",
+      "start": 209.94,
+      "end": 210.74,
+      "text": "35 Euro?",
+      "words": [
+        {
+          "word": "35",
+          "start": 209.94,
+          "end": 210.25,
+          "probability": 0.84065056,
+          "line_number": 0
+        },
+        {
+          "word": "Euro?",
+          "start": 210.25,
+          "end": 210.74,
+          "probability": 0.97656906,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "235",
+      "start": 210.84,
+      "end": 211.21,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 210.84,
+          "end": 211.21,
+          "probability": 0.9960643,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "236",
+      "start": 211.22,
+      "end": 211.67,
+      "text": "Und ich war",
+      "words": [
+        {
+          "word": "Und",
+          "start": 211.22,
+          "end": 211.23,
+          "probability": 0.9559883,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 211.37,
+          "end": 211.52,
+          "probability": 0.99996376,
+          "line_number": 1
+        },
+        {
+          "word": "war",
+          "start": 211.52,
+          "end": 211.67,
+          "probability": 0.99995804,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "237",
+      "start": 211.67,
+      "end": 212.37,
+      "text": "eigentlich ganz",
+      "words": [
+        {
+          "word": "eigentlich",
+          "start": 211.67,
+          "end": 212.15,
+          "probability": 0.99985313,
+          "line_number": 2
+        },
+        {
+          "word": "ganz",
+          "start": 212.22,
+          "end": 212.37,
+          "probability": 0.9999256,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "238",
+      "start": 212.37,
+      "end": 213.26,
+      "text": "zufrieden damit.",
+      "words": [
+        {
+          "word": "zufrieden",
+          "start": 212.37,
+          "end": 212.77,
+          "probability": 0.9997838,
+          "line_number": 3
+        },
+        {
+          "word": "damit.",
+          "start": 212.87,
+          "end": 213.26,
+          "probability": 0.99997425,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "239",
+      "start": 213.36,
+      "end": 214.37,
+      "text": "Das klingt doch nach",
+      "words": [
+        {
+          "word": "Das",
+          "start": 213.36,
+          "end": 213.46,
+          "probability": 0.999693,
+          "line_number": 0
+        },
+        {
+          "word": "klingt",
+          "start": 213.46,
+          "end": 213.74,
+          "probability": 0.99995804,
+          "line_number": 0
+        },
+        {
+          "word": "doch",
+          "start": 213.89,
+          "end": 214.12,
+          "probability": 0.9999027,
+          "line_number": 0
+        },
+        {
+          "word": "nach",
+          "start": 214.12,
+          "end": 214.37,
+          "probability": 0.9995538,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "240",
+      "start": 214.4,
+      "end": 215.58,
+      "text": "einem erfolgreichen",
+      "words": [
+        {
+          "word": "einem",
+          "start": 214.4,
+          "end": 214.67,
+          "probability": 0.9997902,
+          "line_number": 1
+        },
+        {
+          "word": "erfolgreichen",
+          "start": 214.73,
+          "end": 215.58,
+          "probability": 0.9987018,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "241",
+      "start": 215.63,
+      "end": 216.59,
+      "text": "Einkauf trotz des",
+      "words": [
+        {
+          "word": "Einkauf",
+          "start": 215.63,
+          "end": 216.06,
+          "probability": 0.99993706,
+          "line_number": 2
+        },
+        {
+          "word": "trotz",
+          "start": 216.06,
+          "end": 216.38,
+          "probability": 0.8913145,
+          "line_number": 2
+        },
+        {
+          "word": "des",
+          "start": 216.39,
+          "end": 216.59,
+          "probability": 0.9998627,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "242",
+      "start": 216.59,
+      "end": 217.66,
+      "text": "Orangensafts.",
+      "words": [
+        {
+          "word": "Orangensafts.",
+          "start": 216.59,
+          "end": 217.66,
+          "probability": 0.99321747,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "243",
+      "start": 217.75,
+      "end": 218.66,
+      "text": "Ja, auf jeden Fall.",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 217.75,
+          "end": 217.86,
+          "probability": 0.99121976,
+          "line_number": 0
+        },
+        {
+          "word": "auf",
+          "start": 217.86,
+          "end": 218.02,
+          "probability": 0.9999771,
+          "line_number": 0
+        },
+        {
+          "word": "jeden",
+          "start": 218.02,
+          "end": 218.14,
+          "probability": 0.99998856,
+          "line_number": 0
+        },
+        {
+          "word": "Fall.",
+          "start": 218.29,
+          "end": 218.66,
+          "probability": 0.9999466,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "244",
+      "start": 218.71,
+      "end": 219.41,
+      "text": "Ich habe dann alles",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 218.71,
+          "end": 218.83,
+          "probability": 0.94520396,
+          "line_number": 1
+        },
+        {
+          "word": "habe",
+          "start": 218.83,
+          "end": 219.01,
+          "probability": 0.99839914,
+          "line_number": 1
+        },
+        {
+          "word": "dann",
+          "start": 219.01,
+          "end": 219.19,
+          "probability": 0.99993515,
+          "line_number": 1
+        },
+        {
+          "word": "alles",
+          "start": 219.19,
+          "end": 219.41,
+          "probability": 0.99998474,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "245",
+      "start": 219.41,
+      "end": 219.97,
+      "text": "in meine Tasche",
+      "words": [
+        {
+          "word": "in",
+          "start": 219.41,
+          "end": 219.44,
+          "probability": 0.9999924,
+          "line_number": 2
+        },
+        {
+          "word": "meine",
+          "start": 219.54,
+          "end": 219.6,
+          "probability": 0.9994375,
+          "line_number": 2
+        },
+        {
+          "word": "Tasche",
+          "start": 219.76,
+          "end": 219.97,
+          "probability": 0.9996472,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "246",
+      "start": 220.03,
+      "end": 220.74,
+      "text": "gepackt und bin",
+      "words": [
+        {
+          "word": "gepackt",
+          "start": 220.03,
+          "end": 220.31,
+          "probability": 0.9997406,
+          "line_number": 3
+        },
+        {
+          "word": "und",
+          "start": 220.39,
+          "end": 220.54,
+          "probability": 0.9723607,
+          "line_number": 3
+        },
+        {
+          "word": "bin",
+          "start": 220.54,
+          "end": 220.74,
+          "probability": 0.99991035,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "247",
+      "start": 220.74,
+      "end": 221.98,
+      "text": "jetzt, wie gesagt,",
+      "words": [
+        {
+          "word": "jetzt,",
+          "start": 220.74,
+          "end": 221.16,
+          "probability": 0.99785304,
+          "line_number": 4
+        },
+        {
+          "word": "wie",
+          "start": 221.24,
+          "end": 221.41,
+          "probability": 0.9916674,
+          "line_number": 4
+        },
+        {
+          "word": "gesagt,",
+          "start": 221.41,
+          "end": 221.98,
+          "probability": 0.9948413,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "248",
+      "start": 221.98,
+      "end": 222.63,
+      "text": "wieder zu Hause.",
+      "words": [
+        {
+          "word": "wieder",
+          "start": 221.98,
+          "end": 222.13,
+          "probability": 0.93344575,
+          "line_number": 5
+        },
+        {
+          "word": "zu",
+          "start": 222.25,
+          "end": 222.3,
+          "probability": 0.99892104,
+          "line_number": 5
+        },
+        {
+          "word": "Hause.",
+          "start": 222.3,
+          "end": 222.63,
+          "probability": 0.9993396,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "249",
+      "start": 222.74,
+      "end": 223.6,
+      "text": "Super.",
+      "words": [
+        {
+          "word": "Super.",
+          "start": 222.74,
+          "end": 223.6,
+          "probability": 0.96353817,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "250",
+      "start": 223.7,
+      "end": 224.36,
+      "text": "Und jetzt kann ich",
+      "words": [
+        {
+          "word": "Und",
+          "start": 223.7,
+          "end": 223.75,
+          "probability": 0.6415411,
+          "line_number": 0
+        },
+        {
+          "word": "jetzt",
+          "start": 223.75,
+          "end": 224.01,
+          "probability": 0.9998112,
+          "line_number": 0
+        },
+        {
+          "word": "kann",
+          "start": 224.01,
+          "end": 224.09,
+          "probability": 0.9999237,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 224.23,
+          "end": 224.36,
+          "probability": 0.99998283,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "251",
+      "start": 224.36,
+      "end": 225.01,
+      "text": "endlich mit dem",
+      "words": [
+        {
+          "word": "endlich",
+          "start": 224.36,
+          "end": 224.71,
+          "probability": 0.9997959,
+          "line_number": 1
+        },
+        {
+          "word": "mit",
+          "start": 224.74,
+          "end": 224.87,
+          "probability": 0.9999676,
+          "line_number": 1
+        },
+        {
+          "word": "dem",
+          "start": 224.87,
+          "end": 225.01,
+          "probability": 0.9999695,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "252",
+      "start": 225.08,
+      "end": 225.92,
+      "text": "Kochen anfangen.",
+      "words": [
+        {
+          "word": "Kochen",
+          "start": 225.08,
+          "end": 225.32,
+          "probability": 0.99904144,
+          "line_number": 2
+        },
+        {
+          "word": "anfangen.",
+          "start": 225.32,
+          "end": 225.92,
+          "probability": 0.9997857,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "253",
+      "start": 226.06,
+      "end": 226.91,
+      "text": "Dann wünsche ich dir",
+      "words": [
+        {
+          "word": "Dann",
+          "start": 226.06,
+          "end": 226.17,
+          "probability": 0.86521,
+          "line_number": 0
+        },
+        {
+          "word": "wünsche",
+          "start": 226.17,
+          "end": 226.45,
+          "probability": 0.99978924,
+          "line_number": 0
+        },
+        {
+          "word": "ich",
+          "start": 226.59,
+          "end": 226.75,
+          "probability": 0.9998665,
+          "line_number": 0
+        },
+        {
+          "word": "dir",
+          "start": 226.75,
+          "end": 226.91,
+          "probability": 0.99948895,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "254",
+      "start": 226.91,
+      "end": 227.74,
+      "text": "ganz viel Spaß dabei",
+      "words": [
+        {
+          "word": "ganz",
+          "start": 226.91,
+          "end": 227.12,
+          "probability": 0.99996567,
+          "line_number": 1
+        },
+        {
+          "word": "viel",
+          "start": 227.12,
+          "end": 227.33,
+          "probability": 0.99995995,
+          "line_number": 1
+        },
+        {
+          "word": "Spaß",
+          "start": 227.33,
+          "end": 227.6,
+          "probability": 0.9999237,
+          "line_number": 1
+        },
+        {
+          "word": "dabei",
+          "start": 227.6,
+          "end": 227.74,
+          "probability": 0.9999218,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "255",
+      "start": 227.86,
+      "end": 228.73,
+      "text": "und einen schönen",
+      "words": [
+        {
+          "word": "und",
+          "start": 227.86,
+          "end": 227.99,
+          "probability": 0.9950703,
+          "line_number": 2
+        },
+        {
+          "word": "einen",
+          "start": 228.11,
+          "end": 228.28,
+          "probability": 0.9998493,
+          "line_number": 2
+        },
+        {
+          "word": "schönen",
+          "start": 228.33,
+          "end": 228.73,
+          "probability": 0.9999199,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "256",
+      "start": 228.73,
+      "end": 229.46,
+      "text": "Abend mit deinen",
+      "words": [
+        {
+          "word": "Abend",
+          "start": 228.73,
+          "end": 229,
+          "probability": 0.999918,
+          "line_number": 3
+        },
+        {
+          "word": "mit",
+          "start": 229,
+          "end": 229.16,
+          "probability": 0.99998665,
+          "line_number": 3
+        },
+        {
+          "word": "deinen",
+          "start": 229.16,
+          "end": 229.46,
+          "probability": 0.9986962,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "257",
+      "start": 229.54,
+      "end": 230.08,
+      "text": "Freunden.",
+      "words": [
+        {
+          "word": "Freunden.",
+          "start": 229.54,
+          "end": 230.08,
+          "probability": 0.999815,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "258",
+      "start": 230.68,
+      "end": 231.04,
+      "text": "Danke dir.",
+      "words": [
+        {
+          "word": "Danke",
+          "start": 230.68,
+          "end": 230.78,
+          "probability": 0.96645224,
+          "line_number": 0
+        },
+        {
+          "word": "dir.",
+          "start": 230.78,
+          "end": 231.04,
+          "probability": 0.98752916,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "259",
+      "start": 231.14,
+      "end": 232.04,
+      "text": "Sag mal, eine letzte",
+      "words": [
+        {
+          "word": "Sag",
+          "start": 231.14,
+          "end": 231.21,
+          "probability": 0.9967095,
+          "line_number": 0
+        },
+        {
+          "word": "mal,",
+          "start": 231.21,
+          "end": 231.49,
+          "probability": 0.9915047,
+          "line_number": 0
+        },
+        {
+          "word": "eine",
+          "start": 231.49,
+          "end": 231.72,
+          "probability": 0.9771667,
+          "line_number": 0
+        },
+        {
+          "word": "letzte",
+          "start": 231.72,
+          "end": 232.04,
+          "probability": 0.99982834,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "260",
+      "start": 232.09,
+      "end": 232.82,
+      "text": "Frage noch.",
+      "words": [
+        {
+          "word": "Frage",
+          "start": 232.09,
+          "end": 232.32,
+          "probability": 0.9999199,
+          "line_number": 1
+        },
+        {
+          "word": "noch.",
+          "start": 232.38,
+          "end": 232.82,
+          "probability": 0.99356675,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "261",
+      "start": 232.92,
+      "end": 233.24,
+      "text": "Ja.",
+      "words": [
+        {
+          "word": "Ja.",
+          "start": 232.92,
+          "end": 233.24,
+          "probability": 0.9203749,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "262",
+      "start": 233.3,
+      "end": 233.73,
+      "text": "Achtest du",
+      "words": [
+        {
+          "word": "Achtest",
+          "start": 233.3,
+          "end": 233.64,
+          "probability": 0.9564901,
+          "line_number": 0
+        },
+        {
+          "word": "du",
+          "start": 233.64,
+          "end": 233.73,
+          "probability": 0.9999771,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "263",
+      "start": 233.87,
+      "end": 234.8,
+      "text": "eigentlich immer auf",
+      "words": [
+        {
+          "word": "eigentlich",
+          "start": 233.87,
+          "end": 234.34,
+          "probability": 0.99990845,
+          "line_number": 1
+        },
+        {
+          "word": "immer",
+          "start": 234.34,
+          "end": 234.63,
+          "probability": 0.9999752,
+          "line_number": 1
+        },
+        {
+          "word": "auf",
+          "start": 234.63,
+          "end": 234.8,
+          "probability": 0.99995613,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "264",
+      "start": 234.8,
+      "end": 235.02,
+      "text": "solche",
+      "words": [
+        {
+          "word": "solche",
+          "start": 234.8,
+          "end": 235.02,
+          "probability": 0.9999676,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "265",
+      "start": 235.11,
+      "end": 236.16,
+      "text": "Sonderangebote oder",
+      "words": [
+        {
+          "word": "Sonderangebote",
+          "start": 235.11,
+          "end": 235.88,
+          "probability": 0.9995554,
+          "line_number": 3
+        },
+        {
+          "word": "oder",
+          "start": 235.98,
+          "end": 236.16,
+          "probability": 0.98952854,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "266",
+      "start": 236.18,
+      "end": 237.16,
+      "text": "nur manchmal, wenn",
+      "words": [
+        {
+          "word": "nur",
+          "start": 236.18,
+          "end": 236.35,
+          "probability": 0.99993324,
+          "line_number": 4
+        },
+        {
+          "word": "manchmal,",
+          "start": 236.35,
+          "end": 236.93,
+          "probability": 0.9999752,
+          "line_number": 4
+        },
+        {
+          "word": "wenn",
+          "start": 236.93,
+          "end": 237.16,
+          "probability": 0.9999447,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "267",
+      "start": 237.16,
+      "end": 237.94,
+      "text": "es gerade passt?",
+      "words": [
+        {
+          "word": "es",
+          "start": 237.16,
+          "end": 237.27,
+          "probability": 0.997339,
+          "line_number": 5
+        },
+        {
+          "word": "gerade",
+          "start": 237.27,
+          "end": 237.62,
+          "probability": 0.999897,
+          "line_number": 5
+        },
+        {
+          "word": "passt?",
+          "start": 237.62,
+          "end": 237.94,
+          "probability": 0.9998312,
+          "line_number": 5
+        }
+      ]
+    },
+    {
+      "id": "268",
+      "start": 238.34,
+      "end": 239.46,
+      "text": "Ähm, das ist eine",
+      "words": [
+        {
+          "word": "Ähm,",
+          "start": 238.34,
+          "end": 238.69,
+          "probability": 0.9804339,
+          "line_number": 0
+        },
+        {
+          "word": "das",
+          "start": 238.69,
+          "end": 238.92,
+          "probability": 0.9999161,
+          "line_number": 0
+        },
+        {
+          "word": "ist",
+          "start": 238.92,
+          "end": 239.15,
+          "probability": 0.9999695,
+          "line_number": 0
+        },
+        {
+          "word": "eine",
+          "start": 239.15,
+          "end": 239.46,
+          "probability": 0.99887913,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "269",
+      "start": 239.46,
+      "end": 240.42,
+      "text": "gute Frage.",
+      "words": [
+        {
+          "word": "gute",
+          "start": 239.46,
+          "end": 239.77,
+          "probability": 0.99995995,
+          "line_number": 1
+        },
+        {
+          "word": "Frage.",
+          "start": 239.77,
+          "end": 240.42,
+          "probability": 0.99997234,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "270",
+      "start": 240.54,
+      "end": 241.48,
+      "text": "Ich glaube, ich",
+      "words": [
+        {
+          "word": "Ich",
+          "start": 240.54,
+          "end": 240.65,
+          "probability": 0.8751501,
+          "line_number": 2
+        },
+        {
+          "word": "glaube,",
+          "start": 240.65,
+          "end": 241.27,
+          "probability": 0.99992657,
+          "line_number": 2
+        },
+        {
+          "word": "ich",
+          "start": 241.27,
+          "end": 241.48,
+          "probability": 0.9999733,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "271",
+      "start": 241.52,
+      "end": 242.71,
+      "text": "schaue immer öfter",
+      "words": [
+        {
+          "word": "schaue",
+          "start": 241.52,
+          "end": 241.95,
+          "probability": 0.9995106,
+          "line_number": 3
+        },
+        {
+          "word": "immer",
+          "start": 241.95,
+          "end": 242.34,
+          "probability": 0.999979,
+          "line_number": 3
+        },
+        {
+          "word": "öfter",
+          "start": 242.34,
+          "end": 242.71,
+          "probability": 0.99975777,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "272",
+      "start": 242.83,
+      "end": 243.5,
+      "text": "drauf.",
+      "words": [
+        {
+          "word": "drauf.",
+          "start": 242.83,
+          "end": 243.5,
+          "probability": 0.998121,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "273",
+      "start": 243.6,
+      "end": 244.42,
+      "text": "Also gerade, wenn",
+      "words": [
+        {
+          "word": "Also",
+          "start": 243.6,
+          "end": 243.73,
+          "probability": 0.99957097,
+          "line_number": 0
+        },
+        {
+          "word": "gerade,",
+          "start": 243.73,
+          "end": 244.19,
+          "probability": 0.7815372,
+          "line_number": 0
+        },
+        {
+          "word": "wenn",
+          "start": 244.19,
+          "end": 244.42,
+          "probability": 0.99995613,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "274",
+      "start": 244.42,
+      "end": 245.04,
+      "text": "die Preise so",
+      "words": [
+        {
+          "word": "die",
+          "start": 244.42,
+          "end": 244.59,
+          "probability": 0.99998856,
+          "line_number": 1
+        },
+        {
+          "word": "Preise",
+          "start": 244.59,
+          "end": 244.91,
+          "probability": 0.999692,
+          "line_number": 1
+        },
+        {
+          "word": "so",
+          "start": 244.98,
+          "end": 245.04,
+          "probability": 0.9999466,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "275",
+      "start": 245.04,
+      "end": 245.78,
+      "text": "steigen, dann",
+      "words": [
+        {
+          "word": "steigen,",
+          "start": 245.04,
+          "end": 245.54,
+          "probability": 0.9998906,
+          "line_number": 2
+        },
+        {
+          "word": "dann",
+          "start": 245.62,
+          "end": 245.78,
+          "probability": 0.9999237,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "276",
+      "start": 245.8,
+      "end": 246.74,
+      "text": "vergleicht man halt",
+      "words": [
+        {
+          "word": "vergleicht",
+          "start": 245.8,
+          "end": 246.35,
+          "probability": 0.9985552,
+          "line_number": 3
+        },
+        {
+          "word": "man",
+          "start": 246.35,
+          "end": 246.52,
+          "probability": 0.9999676,
+          "line_number": 3
+        },
+        {
+          "word": "halt",
+          "start": 246.52,
+          "end": 246.74,
+          "probability": 0.99971205,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "277",
+      "start": 246.74,
+      "end": 247.94,
+      "text": "schon mehr, oder?",
+      "words": [
+        {
+          "word": "schon",
+          "start": 246.74,
+          "end": 247,
+          "probability": 0.9999752,
+          "line_number": 4
+        },
+        {
+          "word": "mehr,",
+          "start": 247.08,
+          "end": 247.38,
+          "probability": 0.9980757,
+          "line_number": 4
+        },
+        {
+          "word": "oder?",
+          "start": 247.38,
+          "end": 247.94,
+          "probability": 0.99988556,
+          "line_number": 4
+        }
+      ]
+    },
+    {
+      "id": "278",
+      "start": 248.03,
+      "end": 249.05,
+      "text": "Ja, das stimmt wohl.",
+      "words": [
+        {
+          "word": "Ja,",
+          "start": 248.03,
+          "end": 248.16,
+          "probability": 0.9998388,
+          "line_number": 0
+        },
+        {
+          "word": "das",
+          "start": 248.16,
+          "end": 248.33,
+          "probability": 0.9999676,
+          "line_number": 0
+        },
+        {
+          "word": "stimmt",
+          "start": 248.33,
+          "end": 248.67,
+          "probability": 0.99993134,
+          "line_number": 0
+        },
+        {
+          "word": "wohl.",
+          "start": 248.67,
+          "end": 249.05,
+          "probability": 0.9706161,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "279",
+      "start": 249.08,
+      "end": 249.44,
+      "text": "Man wird",
+      "words": [
+        {
+          "word": "Man",
+          "start": 249.08,
+          "end": 249.22,
+          "probability": 0.99698144,
+          "line_number": 1
+        },
+        {
+          "word": "wird",
+          "start": 249.28,
+          "end": 249.44,
+          "probability": 0.99990463,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "280",
+      "start": 249.45,
+      "end": 250.46,
+      "text": "preissensibler.",
+      "words": [
+        {
+          "word": "preissensibler.",
+          "start": 249.45,
+          "end": 250.46,
+          "probability": 0.99647707,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "281",
+      "start": 250.56,
+      "end": 251.14,
+      "text": "Genau.",
+      "words": [
+        {
+          "word": "Genau.",
+          "start": 250.56,
+          "end": 251.14,
+          "probability": 0.9996701,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "282",
+      "start": 251.14,
+      "end": 252.37,
+      "text": "Also dann, ich lege",
+      "words": [
+        {
+          "word": "Also",
+          "start": 251.14,
+          "end": 251.44,
+          "probability": 0.9858268,
+          "line_number": 1
+        },
+        {
+          "word": "dann,",
+          "start": 251.44,
+          "end": 251.87,
+          "probability": 0.97687626,
+          "line_number": 1
+        },
+        {
+          "word": "ich",
+          "start": 251.94,
+          "end": 252.12,
+          "probability": 0.9999523,
+          "line_number": 1
+        },
+        {
+          "word": "lege",
+          "start": 252.12,
+          "end": 252.37,
+          "probability": 0.87635344,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "283",
+      "start": 252.45,
+      "end": 253.26,
+      "text": "mal los in der",
+      "words": [
+        {
+          "word": "mal",
+          "start": 252.45,
+          "end": 252.65,
+          "probability": 0.9998493,
+          "line_number": 2
+        },
+        {
+          "word": "los",
+          "start": 252.76,
+          "end": 252.88,
+          "probability": 0.99951756,
+          "line_number": 2
+        },
+        {
+          "word": "in",
+          "start": 252.88,
+          "end": 252.98,
+          "probability": 0.9999542,
+          "line_number": 2
+        },
+        {
+          "word": "der",
+          "start": 253.04,
+          "end": 253.26,
+          "probability": 0.99950993,
+          "line_number": 2
+        }
+      ]
+    },
+    {
+      "id": "284",
+      "start": 253.26,
+      "end": 253.96,
+      "text": "Küche.",
+      "words": [
+        {
+          "word": "Küche.",
+          "start": 253.26,
+          "end": 253.96,
+          "probability": 0.9999256,
+          "line_number": 3
+        }
+      ]
+    },
+    {
+      "id": "285",
+      "start": 254.08,
+      "end": 255.18,
+      "text": "Macht das gut.",
+      "words": [
+        {
+          "word": "Macht",
+          "start": 254.08,
+          "end": 254.41,
+          "probability": 0.8351983,
+          "line_number": 0
+        },
+        {
+          "word": "das",
+          "start": 254.41,
+          "end": 254.67,
+          "probability": 0.99968535,
+          "line_number": 0
+        },
+        {
+          "word": "gut.",
+          "start": 254.67,
+          "end": 255.18,
+          "probability": 0.9973053,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "286",
+      "start": 255.18,
+      "end": 255.89,
+      "text": "Bis bald.",
+      "words": [
+        {
+          "word": "Bis",
+          "start": 255.18,
+          "end": 255.39,
+          "probability": 0.9930463,
+          "line_number": 1
+        },
+        {
+          "word": "bald.",
+          "start": 255.45,
+          "end": 255.89,
+          "probability": 0.9968368,
+          "line_number": 1
+        }
+      ]
+    },
+    {
+      "id": "287",
+      "start": 256.16,
+      "end": 256.53,
+      "text": "Bis bald.",
+      "words": [
+        {
+          "word": "Bis",
+          "start": 256.16,
+          "end": 256.2,
+          "probability": 0.9995595,
+          "line_number": 0
+        },
+        {
+          "word": "bald.",
+          "start": 256.2,
+          "end": 256.53,
+          "probability": 0.9988119,
+          "line_number": 0
+        }
+      ]
+    },
+    {
+      "id": "288",
+      "start": 256.53,
+      "end": 257.06,
+      "text": "Tschüss.",
+      "words": [
+        {
+          "word": "Tschüss.",
+          "start": 256.53,
+          "end": 257.06,
+          "probability": 0.99763674,
+          "line_number": 1
+        }
+      ]
+    }
+  ]
+}
