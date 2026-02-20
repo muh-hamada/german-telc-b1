@@ -14,6 +14,8 @@ interface AuthContextType {
   logout: () => Promise<void>;
 }
 
+const ALLOWED_ADMIN_EMAIL = 'mohamedarefali@gmail.com';
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
@@ -34,9 +36,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const auth = firebaseService.getAuth();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       console.log('[AuthProvider] onAuthStateChanged', user);
-      setCurrentUser(user);
+      if (user && user.email?.toLowerCase() !== ALLOWED_ADMIN_EMAIL.toLowerCase()) {
+        await signOut(auth);
+        setCurrentUser(null);
+      } else {
+        setCurrentUser(user);
+      }
       setLoading(false);
     });
 
@@ -44,8 +51,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [auth]);
 
   const login = async (email: string, password: string) => {
+    if (email.toLowerCase() !== ALLOWED_ADMIN_EMAIL.toLowerCase()) {
+      throw new Error('Access denied. This admin is restricted to authorized users only.');
+    }
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      if (user.email?.toLowerCase() !== ALLOWED_ADMIN_EMAIL.toLowerCase()) {
+        await signOut(auth);
+        throw new Error('Access denied. This admin is restricted to authorized users only.');
+      }
     } catch (error: any) {
       throw new Error(error.message || 'Failed to login');
     }

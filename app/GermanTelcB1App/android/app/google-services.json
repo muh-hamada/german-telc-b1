@@ -7,151 +7,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:494473710301:android:7658e663719bd4f8c0a934",
-        "android_client_info": {
-          "package_name": "com.mhamada.deleb1spanish"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "494473710301-fd1puptu35vsu987jc7k5cb2bkhir5o0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.deleb1spanish",
-            "certificate_hash": "ba01f2fd807e7388884a8ceef46325f8e36ca1ef"
-          }
-        },
-        {
-          "client_id": "494473710301-r287hr28vno7n3mphm142tg6qdfks96p.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.deleb1spanish",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "494473710301-0c2v1beqf81i2qrqtrifier6lsd6qo3r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mhamada.telcb2german",
-                "app_store_id": "6755521000"
-              }
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-5101905792101482~3723260491"
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:494473710301:android:68a3a66245d4d720c0a934",
-        "android_client_info": {
-          "package_name": "com.mhamada.telca1german"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "494473710301-bn0g2kvipm5glp1k9ha5tgd983rspbmr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.telca1german",
-            "certificate_hash": "b2768ec43c5d885fed24963f3bbd0493a24274dd"
-          }
-        },
-        {
-          "client_id": "494473710301-k6ivsb6i85mshajfb10s513rn3883199.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.telca1german",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "494473710301-0c2v1beqf81i2qrqtrifier6lsd6qo3r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mhamada.telcb2german",
-                "app_store_id": "6755521000"
-              }
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-5101905792101482~7598249331"
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:494473710301:android:b0fc235a51e8f6a2c0a934",
-        "android_client_info": {
-          "package_name": "com.mhamada.telca2german"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAdM3mACEJ0TfHgJjyOjOIKqqp5RuGHlqU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "494473710301-0c2v1beqf81i2qrqtrifier6lsd6qo3r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mhamada.telcb2german",
-                "app_store_id": "6755521000"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:494473710301:android:48815da3ec9a12adc0a934",
         "android_client_info": {
           "package_name": "com.mhamada.telcb1english"
@@ -196,7 +51,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
               "client_type": 3
             },
             {
@@ -209,8 +64,7 @@
             }
           ]
         }
-      },
-      "admob_app_id": "ca-app-pub-5101905792101482~2261614095"
+      }
     },
     {
       "client_info": {
@@ -250,7 +104,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
               "client_type": 3
             },
             {
@@ -275,30 +129,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "494473710301-9sdd85qdls54k0bn5jb4hcc99bm4458a.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.telcb2english",
-            "certificate_hash": "691cedf56dc4b45f707547e8ca18e103ec8e43e2"
-          }
-        },
-        {
-          "client_id": "494473710301-jl6nnjep9bglqh0pvap1ljfolpi9moua.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.telcb2english",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "494473710301-qd9h8u49b5f9v014c4vvhnj7iiuge40s.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mhamada.telcb2english",
-            "certificate_hash": "acb8abedcf198a8ff0a455a9e12ee21bbb8508e8"
-          }
-        },
-        {
           "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -312,7 +142,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
               "client_type": 3
             },
             {
@@ -325,8 +155,7 @@
             }
           ]
         }
-      },
-      "admob_app_id": "ca-app-pub-5101905792101482~4246632658"
+      }
     },
     {
       "client_info": {
@@ -374,7 +203,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "494473710301-ojr31d8lrnqtnbtlrqkeretcnqolpucg.apps.googleusercontent.com",
+              "client_id": "494473710301-vr1l4s8eaokh62nj6c91fol3pcfmu531.apps.googleusercontent.com",
               "client_type": 3
             },
             {

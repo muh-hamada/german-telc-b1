@@ -30,6 +30,8 @@
 		<string>TelcExamApp AppStore Distribution B2 English</string>
 		<key>com.mhamada.telca1german</key>
 		<string>TelcExamApp AppStore Distribution A1 German</string>
+		<key>com.mhamada.telca2german</key>
+		<string>TelcExamApp AppStore Distribution A2 German</string>
 		<key>com.mhamada.deleb1spanish</key>
 		<string>DeleExamApp AppStore Distribution B1 Spanish</string>
 	</dict>

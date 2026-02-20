@@ -53,33 +53,33 @@ export const germanA2Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telca2german',
-    ios: '',
+    ios: 'ca-app-pub-5101905792101482~8374326066',
   },
 
   ads: {
     appID: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482~7489444215',
+      ios: '6759285601',
     },
     banner: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/3363765868',
+      ios: 'ca-app-pub-5101905792101482/7061244390',
     },
     rewarded: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/2050684196',
+      ios: 'ca-app-pub-5101905792101482/4163618312',
     },
     userSupport: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/5984790854',
+      ios: 'ca-app-pub-5101905792101482/4435081057',
     },
     vocabularyBuilder: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/1914952828',
+      ios: 'ca-app-pub-5101905792101482/2233248106',
     },
     appOpen: {
-      android: '',
-      ios: '',
+      android: 'ca-app-pub-5101905792101482/3737901467',
+      ios: 'ca-app-pub-5101905792101482/6919867494',
     },
   },
 
