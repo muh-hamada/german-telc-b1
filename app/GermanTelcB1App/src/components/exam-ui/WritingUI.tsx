@@ -17,7 +17,7 @@ import {
 import { launchCamera } from 'react-native-image-picker';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
-import { usePremium } from '../../contexts/PremiumContext';
+import { useAdFreeStatus } from '../../hooks/useAdFreeStatus';
 import { spacing, typography, type ThemeColors } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
@@ -60,7 +60,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const { setContextualModalActive } = useModalQueue();
-  const { isPremium } = usePremium();
+  const { isAdFree, isPremium, isGiftAdFreeActive } = useAdFreeStatus();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -341,8 +341,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('image');
     pendingEvaluationTypeRef.current = 'image';
 
-    // Skip rewarded ad for premium users, if SKIP_REWARDED_ADS is enabled, or if ad failed to load
-    if (SKIP_REWARDED_ADS || isPremium || adLoadFailed) {
+    // Skip rewarded ad for ad-free users (premium, gift, or streak), if SKIP_REWARDED_ADS is enabled, or if ad failed to load
+    if (SKIP_REWARDED_ADS || isAdFree || adLoadFailed) {
       if(adLoadFailed) {
         logEvent(AnalyticsEvents.WRITING_EVAL_FREE_AD_FAILED, { evaluation_type: 'image' });
       }
@@ -449,8 +449,8 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
     setPendingEvaluationType('text');
     pendingEvaluationTypeRef.current = 'text';
 
-    // Skip rewarded ad for premium users, if SKIP_REWARDED_ADS is enabled, or if ad failed to load
-    if (SKIP_REWARDED_ADS || isPremium || adLoadFailed) {
+    // Skip rewarded ad for ad-free users (premium, gift, or streak), if SKIP_REWARDED_ADS is enabled, or if ad failed to load
+    if (SKIP_REWARDED_ADS || isAdFree || adLoadFailed) {
       if(adLoadFailed) {
         logEvent(AnalyticsEvents.WRITING_EVAL_FREE_AD_FAILED, { evaluation_type: 'text' });
       }

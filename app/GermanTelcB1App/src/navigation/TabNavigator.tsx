@@ -14,6 +14,7 @@ import { useNotificationReminder } from '../contexts/NotificationReminderContext
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { usePremium } from '../contexts/PremiumContext';
+import { useAdFreeStatus } from '../hooks/useAdFreeStatus';
 import notificationReminderService from '../services/notification-reminder.service';
 import premiumPromptService from '../services/premium-prompt.service';
 import appOpenAdService from '../services/app-open-ad.service';
@@ -150,6 +151,7 @@ const TabNavigator: React.FC = () => {
   const { enqueue } = useModalQueue();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const { isPremium, productPrice, productCurrency } = usePremium();
+  const { isAdFree, isLoading: isAdFreeLoading } = useAdFreeStatus();
   const appState = useRef(AppState.currentState);
   const usageTrackingRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasEnqueuedPremiumModalRef = useRef(false);
@@ -169,16 +171,25 @@ const TabNavigator: React.FC = () => {
     }
 
     console.log('[TabNavigator] Loading app open ad...');
+    console.log('[TabNavigator] Ad-free loading:', isAdFreeLoading, 'Ad-free status:', isAdFree);
+    
+    // Wait for ad-free status to be loaded
+    if (isAdFreeLoading) {
+      console.log('[TabNavigator] Waiting for ad-free status to load...');
+      // Wait and re-check (the effect will re-run when isAdFreeLoading changes)
+      return;
+    }
     
     // Load the ad (this will preload it in background)
     await appOpenAdService.loadAd();
     
     // Wait a bit to ensure ad is fully loaded and user sees main screen
-    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 seconds
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Try to show the ad
     console.log('[TabNavigator] Attempting to show app open ad...');
-    const wasShown = await appOpenAdService.showAdIfAvailable(isPremium);
+    console.log('[TabNavigator] Final ad-free status:', isAdFree);
+    const wasShown = await appOpenAdService.showAdIfAvailable(isAdFree);
     
     if (wasShown) {
       console.log('[TabNavigator] App open ad was shown');
@@ -186,7 +197,7 @@ const TabNavigator: React.FC = () => {
     } else {
       console.log('[TabNavigator] App open ad was not shown (check logs for reason)');
     }
-  }, [isPremium]);
+  }, [isAdFree, isAdFreeLoading]);
 
   // Check for notification reminder triggers on mount and app foreground
   useEffect(() => {

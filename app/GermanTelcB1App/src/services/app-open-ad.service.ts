@@ -140,13 +140,13 @@ class AppOpenAdService {
 
   /**
    * Show the App Open Ad if available and conditions are met
-   * @param isPremium - Whether the user is a premium subscriber
+   * @param isAdFree - Whether the user has any ad-free status (premium, gift, or streak)
    * @returns Promise<boolean> - True if ad was shown, false otherwise
    */
-  async showAdIfAvailable(isPremium: boolean): Promise<boolean> {
-    // Don't show ads to premium users
-    if (isPremium) {
-      console.log('[AppOpenAd] User is premium, not showing ad');
+  async showAdIfAvailable(isAdFree: boolean): Promise<boolean> {
+    // Don't show ads to users with ad-free status
+    if (isAdFree) {
+      console.log('[AppOpenAd] User has ad-free status, not showing ad');
       return false;
     }
 

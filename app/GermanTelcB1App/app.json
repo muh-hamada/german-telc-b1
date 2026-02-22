@@ -1,8 +1,8 @@
 {
-  "name": "ExamPreparationApp",
-  "displayName": "German TELC A2",
+  "name": "GermanTelcB2App",
+  "displayName": "German TELC B2",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-5101905792101482~7489444215",
-    "ios_app_id": "6759285601"
+    "android_app_id": "ca-app-pub-5101905792101482~5846015787",
+    "ios_app_id": "ca-app-pub-5101905792101482~5081566168"
   }
 }

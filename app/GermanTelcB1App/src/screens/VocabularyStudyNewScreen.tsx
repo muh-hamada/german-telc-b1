@@ -12,9 +12,8 @@ import { useVocabulary } from '../contexts/VocabularyContext';
 import { useStreak } from '../contexts/StreakContext';
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
-import { usePremium } from '../contexts/PremiumContext';
-import { useAuth } from '../contexts/AuthContext';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { useAdFreeStatus } from '../hooks/useAdFreeStatus';
 import VocabularyCard from '../components/VocabularyCard';
 import VocabularyAdCard from '../components/VocabularyAdCard';
 import VocabularyCompletionModal from '../components/VocabularyCompletionModal';
@@ -29,11 +28,10 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const navigation = useNavigation();
   const { t } = useCustomTranslation();
   const { progress, getNewWords, markWordAsLearned, loadProgress } = useVocabulary();
-  const { recordActivity, setStreakModalVisibility, adFreeStatus } = useStreak();
+  const { recordActivity, setStreakModalVisibility } = useStreak();
   const { setContextualModalActive } = useModalQueue();
-  const { getVocabularyNativeAdConfig, isStreaksEnabledForUser } = useRemoteConfig();
-  const { isPremium } = usePremium();
-  const { user } = useAuth();
+  const { getVocabularyNativeAdConfig } = useRemoteConfig();
+  const { isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
@@ -54,19 +52,15 @@ const VocabularyStudyNewScreen: React.FC = () => {
   // Get native ad config from remote config
   const nativeAdConfig = getVocabularyNativeAdConfig();
   
-  // Check if user should see ads (not premium and no active streak reward)
+  // Check if user should see ads (not premium and no active ad-free period)
   const shouldShowAds = useCallback(() => {
-    // Skip ads if premium
-    if (isPremium) {
-      console.log('[VocabularyStudyNewScreen] Premium user - skipping ads');
-      logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason: 'premium' });
-      return false;
-    }
-    
-    // Skip ads if streak reward (ad-free) is active
-    if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
-      console.log('[VocabularyStudyNewScreen] Streak reward active - skipping ads');
-      logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason: 'streak_reward' });
+    // Skip ads if user has any ad-free status
+    if (isAdFree) {
+      const reason = isPremium ? 'premium' : 
+                     isGiftAdFreeActive ? 'gift_reward' : 
+                     isStreakAdFreeActive ? 'streak_reward' : 'unknown';
+      console.log(`[VocabularyStudyNewScreen] Ad-free active (${reason}) - skipping ads`);
+      logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason });
       return false;
     }
     
@@ -77,7 +71,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
     }
     
     return true;
-  }, [isPremium, isStreaksEnabledForUser, user?.uid, adFreeStatus.isActive, nativeAdConfig.enabled]);
+  }, [isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive, nativeAdConfig.enabled]);
   
   // Check if we should show an ad at the current word index
   const shouldShowAdAtIndex = useCallback((index: number) => {

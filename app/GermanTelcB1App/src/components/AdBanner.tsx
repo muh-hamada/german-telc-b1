@@ -4,15 +4,12 @@ import DeviceInfo from 'react-native-device-info';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { activeExamConfig } from '../config/active-exam.config';
 import { HIDE_ADS } from '../config/development.config';
-import { useAuth } from '../contexts/AuthContext';
-import { usePremium } from '../contexts/PremiumContext';
-import { useRemoteConfig } from '../contexts/RemoteConfigContext';
-import { useStreak } from '../contexts/StreakContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import consentService from '../services/consent.service';
 import memoryMonitorService from '../services/memory-monitor.service';
 import { ThemeColors } from '../theme';
+import { useAdFreeStatus } from '../hooks/useAdFreeStatus';
 
 // Test Ad Unit IDs - Replace these with your real Ad Unit IDs in production
 const adUnitId = __DEV__
@@ -46,10 +43,7 @@ interface AdBannerProps {
  * - Prevents multiple banner ad instances from accumulating in memory
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
-  const { user } = useAuth();
-  const { adFreeStatus } = useStreak();
-  const { isStreaksEnabledForUser } = useRemoteConfig();
-  const { isPremium } = usePremium();
+  const { isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
@@ -148,15 +142,15 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
     return null;
   }
   
-  // Check if user has premium subscription
-  if (isPremium) {
-    console.log('[AdBanner] Premium user, hiding ad');
-    return null;
-  }
-  
-  // Check if user has active ad-free period from streaks
-  if (isStreaksEnabledForUser(user?.uid) && adFreeStatus.isActive) {
-    console.log('[AdBanner] Ad-free period active, hiding ad');
+  // Use the unified ad-free check
+  if (isAdFree) {
+    if (isPremium) {
+      console.log('[AdBanner] Premium user, hiding ad');
+    } else if (isGiftAdFreeActive) {
+      console.log('[AdBanner] Gift ad-free period active, hiding ad');
+    } else if (isStreakAdFreeActive) {
+      console.log('[AdBanner] Streak ad-free period active, hiding ad');
+    }
     return null;
   }
 

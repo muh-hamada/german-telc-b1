@@ -89,6 +89,9 @@ const ModalQueueRenderer: React.FC = () => {
       }
     }
     
+    // Note: ad-free-gift modal is intentionally NOT checked here
+    // It can be shown to non-logged-in users (they'll be prompted to log in when claiming)
+    
     // Check premium upsell modal eligibility
     if (currentModal.type === 'premium-upsell') {
       if (!isPremiumFeaturesEnabled()) {
