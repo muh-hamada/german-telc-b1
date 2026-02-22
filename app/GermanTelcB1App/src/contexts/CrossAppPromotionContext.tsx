@@ -116,7 +116,7 @@ export const CrossAppPromotionProvider: React.FC<CrossAppPromotionProviderProps>
 
       console.log(`[CrossAppPromo] appOpenCount=${appOpenCount}, dismissCount=${dismissCount}, nextEligible=${nextEligible}`);
 
-      return appOpenCount >= nextEligible;
+      return appOpenCount === nextEligible;
     } catch (error) {
       console.error('[CrossAppPromo] Error checking eligibility:', error);
       return false;
