@@ -13,7 +13,7 @@ export const DEMO_MODE = false; // Set to false for production
 
 export const ALWAYS_SHOW_PREMIUM_MODAL = false; // Set to false for production
 
-export const HIDE_ADS = true; // Set to false for production
+export const HIDE_ADS = false; // Set to false for production
 
 export const SKIP_REWARDED_ADS = false; // Set to false for production
 
@@ -27,7 +27,7 @@ export const SIMULATE_PREMIUM_USER = false; // Set to true to simulate a premium
 
 export const FORCE_DARK_MODE = false; // Set to true to force dark mode
 
-export const FORCE_AD_FREE_GIFT_ELIGIBLE = true; // Set to true to force show ad-free gift eligibility
+export const FORCE_AD_FREE_GIFT_ELIGIBLE = false; // Set to true to force show ad-free gift eligibility
 
 /**
  * Streak Feature Flags

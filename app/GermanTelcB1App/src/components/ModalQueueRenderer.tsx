@@ -78,6 +78,32 @@ const ModalQueueRenderer: React.FC = () => {
     }
   }, [currentModal?.type]);
 
+  // Dismiss invalid modals (prevent setState during render)
+  useEffect(() => {
+    if (!currentModal) return;
+    
+    // Check streak modal eligibility
+    if (currentModal.type === 'streak' || currentModal.type === 'streak-reward') {
+      if (!isStreaksEnabledForUser(user?.uid) || !user) {
+        dismissCurrentModal();
+      }
+    }
+    
+    // Check premium upsell modal eligibility
+    if (currentModal.type === 'premium-upsell') {
+      if (!isPremiumFeaturesEnabled()) {
+        dismissCurrentModal();
+      }
+    }
+    
+    // Check cross-app promotion modal eligibility
+    if (currentModal.type === 'cross-app-promotion') {
+      if (!promoHeroApp) {
+        dismissCurrentModal();
+      }
+    }
+  }, [currentModal, user, isStreaksEnabledForUser, isPremiumFeaturesEnabled, promoHeroApp, dismissCurrentModal]);
+
   if (!currentModal) {
     return null;
   }
@@ -230,11 +256,7 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'streak':
-      // Check if streaks are enabled for user
-      if (!isStreaksEnabledForUser(user?.uid) || !user) {
-        dismissCurrentModal();
-        return null;
-      }
+      // Eligibility check moved to useEffect
       return (
         <StreakModal
           visible={true}
@@ -245,11 +267,7 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'streak-reward':
-      // Check if streaks are enabled for user
-      if (!isStreaksEnabledForUser(user?.uid) || !user) {
-        dismissCurrentModal();
-        return null;
-      }
+      // Eligibility check moved to useEffect
       return (
         <StreakRewardModal
           visible={showRewardModal}
@@ -260,11 +278,7 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'ad-free-gift':
-      // Check if user is authenticated
-      if (!user?.uid) {
-        dismissCurrentModal();
-        return null;
-      }
+      // Eligibility check moved to useEffect
       
       const handleAdFreeGiftClaim = async (): Promise<boolean> => {
         return await claimAdFreeGiftReward();
@@ -298,11 +312,7 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'premium-upsell':
-      // Don't show if premium features are disabled
-      if (!isPremiumFeaturesEnabled()) {
-        dismissCurrentModal();
-        return null;
-      }
+      // Eligibility check moved to useEffect
       // Note: We don't check isPremium here anymore because we want to show
       // AlreadyPremiumView after successful purchase. User closes with the close button.
       return (
@@ -331,10 +341,7 @@ const ModalQueueRenderer: React.FC = () => {
       );
 
     case 'cross-app-promotion':
-      if (!promoHeroApp) {
-        dismissCurrentModal();
-        return null;
-      }
+      // Eligibility check moved to useEffect
       const handlePromoDismiss = async () => {
         await promoHandleMaybeLater();
         dismissCurrentModal();

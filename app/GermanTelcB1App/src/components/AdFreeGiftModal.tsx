@@ -202,7 +202,7 @@ const AdFreeGiftModal: React.FC<AdFreeGiftModalProps> = ({
                   <Text style={styles.title}>
                     {t('adFreeGift.reviewTitle')}
                   </Text>
-                  <Text style={[styles.emoji, styles.starEmoji]}>⭐⭐⭐⭐⭐</Text>
+                  <Text style={[styles.emoji]}>🔋</Text>
                   <Text style={[styles.description, styles.reviewMessage]}>
                     {t('adFreeGift.reviewMessage')}
                   </Text>

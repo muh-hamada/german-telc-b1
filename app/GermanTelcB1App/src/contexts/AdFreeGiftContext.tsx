@@ -84,14 +84,17 @@ export const AdFreeGiftProvider: React.FC<AdFreeGiftProviderProps> = ({ children
         return;
       }
 
-      // Must have user (not anonymous)
-      if (!user?.uid) {
-        console.log('[AdFreeGift] No user, not eligible');
-        setIsEligible(false);
+      // For non-logged-in users, show the modal but they'll need to log in to claim
+      const isLoggedIn = !!user?.uid;
+      
+      if (!isLoggedIn) {
+        console.log('[AdFreeGift] User not logged in, but showing modal (will prompt login on claim)');
+        setIsEligible(true);
+        scheduleModal();
         return;
       }
 
-      // Record session first
+      // For logged-in users, record session and check eligibility
       await adFreeGiftService.recordSession();
       
       // Check all eligibility criteria
@@ -213,8 +216,8 @@ export const AdFreeGiftProvider: React.FC<AdFreeGiftProviderProps> = ({ children
     if (FORCE_AD_FREE_GIFT_ELIGIBLE) {
       checkEligibility();
     } else {
-      // Wait for dependencies to be loaded
-      if (!user?.uid || isPremium === undefined || !streakData) {
+      // Wait for dependencies to be loaded (but not user - we want to show modal even if not logged in)
+      if (isPremium === undefined || !streakData) {
         return;
       }
       checkEligibility();

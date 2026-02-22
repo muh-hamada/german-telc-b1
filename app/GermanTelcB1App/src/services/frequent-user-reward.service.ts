@@ -92,29 +92,22 @@ class FrequentUserRewardService {
       }
 
       const now = Date.now();
-
-      // Check if ad-free is already active
-      if (rewardData.adFree && rewardData.adFree.isActive && rewardData.adFree.expiresAt && rewardData.adFree.expiresAt > now) {
-        console.log('[FrequentUserRewardService] Ad-free already active, extending duration');
-        // Extend the current duration
-        const remainingTime = rewardData.adFree.expiresAt - now;
-        const additionalTime = durationHours * 60 * 60 * 1000;
-        rewardData.adFree.expiresAt = now + remainingTime + additionalTime;
-      } else {
-        // Activate new ad-free period
-        const expiresAt = now + (durationHours * 60 * 60 * 1000);
-        
-        console.log('[FrequentUserRewardService] Activating new ad-free period');
-        // Ensure adFree object exists
-        if (!rewardData.adFree) {
-          rewardData.adFree = { ...DEFAULT_REWARD_DATA.adFree };
-        }
-        rewardData.adFree.isActive = true;
-        rewardData.adFree.expiresAt = expiresAt;
-        rewardData.adFree.grantedAt = now;
-        rewardData.adFree.source = source;
+      const expiresAt = now + (durationHours * 60 * 60 * 1000);
+      
+      console.log('[FrequentUserRewardService] Setting ad-free period');
+      console.log(`[FrequentUserRewardService] Duration: ${durationHours} hours`);
+      console.log(`[FrequentUserRewardService] Now: ${now}, ExpiresAt: ${expiresAt}`);
+      
+      // Ensure adFree object exists
+      if (!rewardData.adFree) {
+        rewardData.adFree = { ...DEFAULT_REWARD_DATA.adFree };
       }
-
+      
+      // Always set to the specified duration from now (no extension logic)
+      rewardData.adFree.isActive = true;
+      rewardData.adFree.expiresAt = expiresAt;
+      rewardData.adFree.grantedAt = now;
+      rewardData.adFree.source = source;
       rewardData.lastUpdated = now;
 
       console.log('[FrequentUserRewardService] Writing to Firestore...');
