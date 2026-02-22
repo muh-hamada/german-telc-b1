@@ -27,6 +27,8 @@ export const SIMULATE_PREMIUM_USER = false; // Set to true to simulate a premium
 
 export const FORCE_DARK_MODE = false; // Set to true to force dark mode
 
+export const FORCE_AD_FREE_GIFT_ELIGIBLE = true; // Set to true to force show ad-free gift eligibility
+
 /**
  * Streak Feature Flags
  */

@@ -1,0 +1,28 @@
+This feature introduces a reward modal that grants one ad-free day to eligible free users as a loyalty gift. The goal is to reward engaged users and encourage them to leave a review, while ensuring the experience is controlled, measurable, and fully configurable.
+
+On app launch, the system checks eligibility. 
+- The user must be a free user (no premium subscription)
+- Must have at least two previous sessions on two different days, meaning the current session is their third session across three distinct calendar days
+- Must not have received this reward within the last two weeks.
+- Must not have the ad-free day reward already active
+- Sessions on the same day count only once for eligibility.
+- All required session data and reward history must be stored reliably in device storage to ensure consistent logic even if the app restarts.
+- Must not have the streak reward active as well
+- Their streak must be less than five days, because if it's more than five days, then they will get the streak reward soon
+
+
+The feature is controlled by a feature flag in the app-level remote configuration. By default, the feature is disabled if the remote configuration is not loaded or the flag is missing. Only when the flag is explicitly enabled and the eligibility conditions are met does the modal become eligible for display.
+
+If eligible, the modal is scheduled to appear one minute after the session start, ensuring the user is actively using the app before being interrupted. The modal opens from the bottom, similar to other bottom-sheet style modals in the app. The modal must support vertical scrolling in case the content exceeds the available height on smaller screens.
+
+The first state of the modal thanks the user for being a frequent user and informs them that they have a gift to support their exam preparation. It includes a prominent primary title “One ad-free day” with a short description below it stating that the user will get one full day without ads. The user can tap a clear call-to-action button to claim the reward.
+
+When the user claims the reward, the app activates one ad-free day immediately and stores the reward timestamp in device storage. A confetti animation is shown, and a success message confirms that the reward has been claimed. After this, the modal transitions to a second state without closing.
+
+In the second state, the content changes to ask the user to support the app by writing a review and sharing their experience. Two actions are presented: a primary button to write a review, which triggers the native store review flow or redirects to the store page (already implemented - ReviewService), and a secondary small text button labeled “Maybe later,” which simply closes the modal. This flow must force the review process to be triggered - bypass the current check to not trigger the review again - probably call the review implemention directly (e.g., enqueue('app-review'))
+
+All key interactions must be tracked with Google Analytics events. This includes eligibility evaluation, modal shown, reward claimed, review button clicked, and “maybe later” clicked. Events must include relevant metadata such as user type (free), session count, and timestamp. This allows analysis of reward effectiveness and review conversion.
+
+All user-facing strings must be fully localized. No hard-coded strings are allowed in the codebase. Every string must be added to the translation files for all supported languages before release. The feature must be implemented in a way that ensures consistent eligibility checks, correct reward timing logic, and complete analytics coverage.
+
+The eligibility logic is extended with additional constraints to avoid overlapping rewards and to ensure the user’s current experience includes ads.

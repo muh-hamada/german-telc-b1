@@ -296,6 +296,13 @@ export const AnalyticsEvents = {
   CROSS_APP_PROMO_AUTO_SKIPPED: 'cross_app_promo_auto_skipped',
   CROSS_APP_PROMO_STORE_OPEN_FAILED: 'cross_app_promo_store_open_failed',
 
+  // Ad-Free Gift
+  AD_FREE_GIFT_ELIGIBILITY_CHECKED: 'ad_free_gift_eligibility_checked',
+  AD_FREE_GIFT_MODAL_SHOWN: 'ad_free_gift_modal_shown',
+  AD_FREE_GIFT_CLAIMED: 'ad_free_gift_claimed',
+  AD_FREE_GIFT_REVIEW_CLICKED: 'ad_free_gift_review_clicked',
+  AD_FREE_GIFT_MAYBE_LATER_CLICKED: 'ad_free_gift_maybe_later_clicked',
+
   // Speaking Assessment Events
   SPEAKING_ASSESSMENT_STARTED: 'speaking_assessment_started',
   SPEAKING_DIALOGUE_TURN_COMPLETED: 'speaking_dialogue_turn_completed',

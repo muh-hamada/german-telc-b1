@@ -2039,5 +2039,20 @@
     "subtitle": "Más aplicaciones de nuestro equipo",
     "get": "Descargar",
     "maybeLater": "tal vez más tarde"
+  },
+  "adFreeGift": {
+    "thankYou": "¡Gracias!",
+    "frequentUserMessage": "Hemos notado que eres un usuario frecuente. ¡Aquí tienes un regalo para apoyar tu preparación del examen!",
+    "rewardTitle": "Un día sin anuncios",
+    "rewardDescription": "Hemos notado su arduo trabajo. ¡Aquí tienes un regalo especial para mejorar tu preparación para el examen sin distracciones!",
+    "claimButton": "Reclamar recompensa",
+    "claimed": "¡Recompensa reclamada!",
+    "claimedMessage": "Tu día sin anuncios ha sido activado. ¡Disfruta de tu tiempo de estudio sin distracciones!",
+    "reviewTitle": "Ayúdanos a crecer",
+    "reviewMessage": "¡Tu apoyo significa mucho para nosotros! ¿Te importaría compartir tu experiencia con una breve reseña?",
+    "writeReviewButton": "Escribir una reseña",
+    "maybeLaterButton": "tal vez más tarde",
+    "congratulations": "¡Felicidades!",
+    "youEarned": "¡Te ganaste una recompensa!"
   }
 }

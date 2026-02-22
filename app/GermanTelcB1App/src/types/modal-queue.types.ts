@@ -11,6 +11,7 @@ export type GlobalModalType =
   | 'hour-picker'
   | 'streak'
   | 'streak-reward'
+  | 'ad-free-gift'
   | 'app-review'
   | 'premium-upsell'
   | 'issue-updates'

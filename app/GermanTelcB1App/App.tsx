@@ -4,6 +4,7 @@ import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ModalQueueRenderer from './src/components/ModalQueueRenderer';
 import OfflineBlockingModal from './src/components/OfflineBlockingModal';
+import { AdFreeGiftProvider } from './src/contexts/AdFreeGiftContext';
 import { AppUpdateProvider } from './src/contexts/AppUpdateContext';
 import { AuthProvider } from './src/contexts/AuthContext';
 import { CompletionProvider } from './src/contexts/CompletionContext';
@@ -66,15 +67,17 @@ const App: React.FC = () => {
                   <PremiumProvider>
                     <VocabularyProvider>
                       <StreakProvider>
-                        <NotificationReminderProvider>
-                          <ToastProvider>
-                            <ProgressProvider>
-                              <CompletionProvider>
-                                <AppContent />
-                              </CompletionProvider>
-                            </ProgressProvider>
-                          </ToastProvider>
-                        </NotificationReminderProvider>
+                        <AdFreeGiftProvider>
+                          <NotificationReminderProvider>
+                            <ToastProvider>
+                              <ProgressProvider>
+                                <CompletionProvider>
+                                  <AppContent />
+                                </CompletionProvider>
+                              </ProgressProvider>
+                            </ToastProvider>
+                          </NotificationReminderProvider>
+                        </AdFreeGiftProvider>
                       </StreakProvider>
                     </VocabularyProvider>
                   </PremiumProvider>

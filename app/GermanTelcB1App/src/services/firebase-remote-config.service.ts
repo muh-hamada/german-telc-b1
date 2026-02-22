@@ -56,6 +56,9 @@ class FirebaseRemoteConfigService {
         : DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
       premiumOffer: data.premiumOffer || DEFAULT_PREMIUM_OFFER_CONFIG,
       crossAppPromotion: data.crossAppPromotion || DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
+      adFreeGiftEnabled: data.adFreeGiftEnabled !== undefined
+        ? data.adFreeGiftEnabled
+        : DEFAULT_REMOTE_CONFIG.adFreeGiftEnabled,
       dataVersion: data.dataVersion ?? DEFAULT_REMOTE_CONFIG.dataVersion,
     };
   }

@@ -100,6 +100,8 @@ export interface RemoteConfig {
   premiumOffer: PremiumOfferConfig;
   // Cross-app promotion configuration
   crossAppPromotion: CrossAppPromotionAppConfig;
+  // Ad-free day gift feature enabled (disabled by default)
+  adFreeGiftEnabled: boolean;
   // Data version for cache invalidation - increment when exam data changes
   dataVersion: number;
   updatedAt: number;
@@ -181,6 +183,7 @@ export const DEFAULT_REMOTE_CONFIG: RemoteConfig = {
   vocabularyNativeAdInterval: DEFAULT_VOCABULARY_NATIVE_AD_CONFIG.interval,
   premiumOffer: DEFAULT_PREMIUM_OFFER_CONFIG,
   crossAppPromotion: DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
+  adFreeGiftEnabled: false, // Disabled by default
   dataVersion: 1, // Increment when exam data changes to invalidate client cache
   updatedAt: Date.now(),
 };

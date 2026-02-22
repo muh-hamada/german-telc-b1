@@ -2036,5 +2036,20 @@
     "subtitle": "Weitere Apps von unserem Team",
     "get": "ERHALTEN",
     "maybeLater": "Vielleicht später"
+  },
+  "adFreeGift": {
+    "thankYou": "Vielen Dank!",
+    "frequentUserMessage": "Wir haben bemerkt, dass Sie ein häufiger Nutzer sind. Hier ist ein Geschenk zur Unterstützung Ihrer Prüfungsvorbereitung!",
+    "rewardTitle": "Ein werbefreier Tag",
+    "rewardDescription": "Wir haben Ihre harte Arbeit bemerkt. Hier ist ein besonderes Geschenk, um Ihre Prüfungsvorbereitung ohne Ablenkungen voranzutreiben!",
+    "claimButton": "Belohnung einlösen",
+    "claimed": "Belohnung eingelöst!",
+    "claimedMessage": "Ihr werbefreier Tag wurde aktiviert. Genießen Sie Ihre ungestörte Lernzeit!",
+    "reviewTitle": "Helfen Sie uns zu wachsen",
+    "reviewMessage": "Ihre Unterstützung bedeutet uns sehr viel! Würden Sie Ihre Erfahrung mit einer kurzen Bewertung teilen?",
+    "writeReviewButton": "Bewertung schreiben",
+    "maybeLaterButton": "Vielleicht später",
+    "congratulations": "Glückwunsch!",
+    "youEarned": "Du hast eine Belohnung erhalten!"
   }
 }

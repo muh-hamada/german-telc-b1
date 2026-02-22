@@ -15,12 +15,14 @@ import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useReview } from '../contexts/ReviewContext';
 import { useStreak } from '../contexts/StreakContext';
+import { useAdFreeGift } from '../contexts/AdFreeGiftContext';
 
 // Import modal components
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import { DEFAULT_NOTIFICATION_HOUR } from '../services/firestore.service';
 import { ReportedIssueDetails } from '../services/issue-report.service';
 import premiumPromptService from '../services/premium-prompt.service';
+import AdFreeGiftModal from './AdFreeGiftModal';
 import AppReviewModal from './AppReviewModal';
 import AppUpdateModal from './AppUpdateModal';
 import CrossAppPromotionModal from './CrossAppPromotionModal';
@@ -32,7 +34,7 @@ import StreakModal from './StreakModal';
 import StreakRewardModal from './StreakRewardModal';
 
 const ModalQueueRenderer: React.FC = () => {
-  const { currentModal, dismissCurrentModal } = useModalQueue();
+  const { currentModal, dismissCurrentModal, enqueue } = useModalQueue();
   const { user } = useAuth();
   const { isStreaksEnabledForUser, isPremiumFeaturesEnabled } = useRemoteConfig();
   const { isPremium, isPurchasing, purchasePremium, productPrice, productCurrency } = usePremium();
@@ -57,6 +59,9 @@ const ModalQueueRenderer: React.FC = () => {
     handleAppClick: promoHandleAppClick,
     isManualTrigger: promoIsManualTrigger,
   } = useCrossAppPromotion();
+  const {
+    claimReward: claimAdFreeGiftReward,
+  } = useAdFreeGift();
 
   // Track reward modal state
   const [showRewardModal, setShowRewardModal] = useState(false);
@@ -251,6 +256,44 @@ const ModalQueueRenderer: React.FC = () => {
           currentStreak={streakData?.currentStreak || 0}
           onClaim={handleClaimReward}
           onClose={handleRewardDismiss}
+        />
+      );
+
+    case 'ad-free-gift':
+      // Check if user is authenticated
+      if (!user?.uid) {
+        dismissCurrentModal();
+        return null;
+      }
+      
+      const handleAdFreeGiftClaim = async (): Promise<boolean> => {
+        return await claimAdFreeGiftReward();
+      };
+      
+      const handleAdFreeGiftWriteReview = () => {
+        // Trigger native review directly (bypassing eligibility checks and modal)
+        completeReview();
+        
+        logEvent(AnalyticsEvents.AD_FREE_GIFT_REVIEW_CLICKED, {
+          source: 'ad_free_gift_modal',
+        });
+      };
+      
+      const handleAdFreeGiftMaybeLater = () => {
+        logEvent(AnalyticsEvents.AD_FREE_GIFT_MAYBE_LATER_CLICKED);
+      };
+      
+      const handleAdFreeGiftClose = () => {
+        dismissCurrentModal();
+      };
+      
+      return (
+        <AdFreeGiftModal
+          visible={true}
+          onClaim={handleAdFreeGiftClaim}
+          onWriteReview={handleAdFreeGiftWriteReview}
+          onMaybeLater={handleAdFreeGiftMaybeLater}
+          onClose={handleAdFreeGiftClose}
         />
       );
 

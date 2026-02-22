@@ -19,6 +19,7 @@ export const MODAL_PRIORITIES: Record<GlobalModalType, number> = {
   'hour-picker': 23, // Sub-modal of notification reminder
   'issue-updates': 20, // After streaks, before premium upsell
   'premium-upsell': 15, // After streaks, before review
+  'ad-free-gift': 12, // After premium upsell, before app review
   'app-review': 10,
   'cross-app-promotion': 5, // Lowest priority - shown after all other modals
 };

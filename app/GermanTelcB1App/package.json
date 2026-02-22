@@ -10,11 +10,8 @@
     "android:german-b2": "./scripts/build-config.sh german-b2 android && react-native run-android --mode=germanB2Debug --appId com.mhamada.telcb2german",
     "android:english-b1": "./scripts/build-config.sh english-b1 android && react-native run-android --mode=englishB1Debug --appId com.mhamada.telcb1english",
     "android:english-b2": "./scripts/build-config.sh english-b2 android && react-native run-android --mode=englishB2Debug --appId com.mhamada.telcb2english",
-    
     "android:dele-spanish-b1": "./scripts/build-config.sh dele-spanish-b1 android && react-native run-android --mode=deleSpanishB1Debug --appId com.mhamada.deleb1spanish",
-
     "android:run-release:german-b1": "./scripts/build-config.sh german-b1 android && react-native run-android --mode=germanB1Release --appId com.mhamada.telcb1german",
-
     "ios:pods": "cd ios && rm -rf build && rm -rf ~/Library/Developer/Xcode/DerivedData/ExamPreparationApp-* && pod install && cd ..",
     "ios:german-a1": "./scripts/build-config.sh german-a1 ios && react-native run-ios --scheme ExamPreparationApp",
     "ios:german-a2": "./scripts/build-config.sh german-a2 ios && react-native run-ios --scheme ExamPreparationApp",
@@ -72,6 +69,7 @@
     "react": "19.1.1",
     "react-i18next": "^16.0.1",
     "react-native": "0.82.0",
+    "react-native-confetti-cannon": "^1.5.2",
     "react-native-device-info": "^14.1.1",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.28.0",

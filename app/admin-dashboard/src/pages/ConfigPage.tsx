@@ -776,6 +776,19 @@ export const ConfigPage: React.FC = () => {
 
                 <div className="config-field-checkbox">
                   <input
+                    id="adFreeGiftEnabled"
+                    type="checkbox"
+                    checked={currentAppConfig.adFreeGiftEnabled}
+                    onChange={(e) => updateAppConfig({ adFreeGiftEnabled: e.target.checked })}
+                  />
+                  <label htmlFor="adFreeGiftEnabled">
+                    Enable Ad-Free Day Gift
+                    <span className="field-hint">Show ad-free day loyalty gift modal to eligible frequent users</span>
+                  </label>
+                </div>
+
+                <div className="config-field-checkbox">
+                  <input
                     id="enableStreaksForAllUsers"
                     type="checkbox"
                     checked={currentAppConfig.enableStreaksForAllUsers}

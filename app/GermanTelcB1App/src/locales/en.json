@@ -1754,5 +1754,20 @@
     "subtitle": "More apps from our team",
     "get": "GET",
     "maybeLater": "Maybe later"
+  },
+  "adFreeGift": {
+    "thankYou": "Thank You!",
+    "frequentUserMessage": "We've noticed you're a frequent user. Here's a gift to support your exam preparation!",
+    "rewardTitle": "One Ad-Free Day",
+    "rewardDescription": "We've noticed your hard work. Here's a special gift to boost your exam preparation without any distractions!",
+    "claimButton": "Claim Reward",
+    "claimed": "Reward Claimed!",
+    "claimedMessage": "Your ad-free day has been activated. Enjoy your distraction-free study time!",
+    "reviewTitle": "Help Us Grow",
+    "reviewMessage": "Your support means the world to us! Would you mind sharing your experience with a quick review?",
+    "writeReviewButton": "Write a Review",
+    "maybeLaterButton": "Maybe later",
+    "congratulations": "Congratulations!",
+    "youEarned": "You Earned a Reward!"
   }
 }
