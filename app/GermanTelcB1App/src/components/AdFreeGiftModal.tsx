@@ -131,8 +131,6 @@ const AdFreeGiftModal: React.FC<AdFreeGiftModalProps> = ({
           activeOpacity={1}
           onPress={(e) => e.stopPropagation()}
         >
-          <View style={styles.handleBar} />
-
           <ScrollView
             style={styles.scrollView}
             contentContainerStyle={styles.scrollContent}
@@ -237,15 +235,13 @@ const AdFreeGiftModal: React.FC<AdFreeGiftModalProps> = ({
         </TouchableOpacity>
 
         {/* Confetti Animation */}
-        {state === ModalState.CLAIMED && (
-          <ConfettiCannon
-            ref={confettiRef}
-            count={150}
-            origin={{ x: Dimensions.get('window').width / 2, y: 0 }}
-            autoStart={false}
-            fadeOut={true}
-          />
-        )}
+        <ConfettiCannon
+          ref={confettiRef}
+          count={150}
+          origin={{ x: Dimensions.get('window').width / 2, y: -20 }}
+          autoStart={false}
+          fadeOut={true}
+        />
       </TouchableOpacity>
 
       {/* Login Modal */}
