@@ -366,36 +366,66 @@ platform :ios do
     app_metadata = load_app_store_metadata(options[:app_id])
     
     # Remove emojis from messages for App Store (App Store rejects emojis in release notes)
-    # TODO: Enable multi-language support once localizations are set up in App Store Connect
-    # For now, only using English (en-US)
-    ios_message = {
-      "en-US" => remove_emojis(update_message["en"])
+    # Query App Store Connect to get configured localizations for this app
+    UI.message("   🔍 Detecting configured localizations for #{bundle_id}...")
+    
+    # Login to App Store Connect
+    Spaceship::ConnectAPI.login
+    app = Spaceship::ConnectAPI::App.find(bundle_id)
+    
+    unless app
+      UI.user_error!("Could not find app with bundle ID: #{bundle_id}")
+    end
+    
+    # Get the app info localizations (these are the configured locales in App Store Connect)
+    app_info = app.fetch_edit_app_info
+    configured_locales = []
+    
+    if app_info
+      app_info_localizations = app_info.get_app_info_localizations
+      configured_locales = app_info_localizations.map { |loc| loc.locale }
+    end
+    
+    # Fallback to en-US if we couldn't detect any locales
+    if configured_locales.empty?
+      UI.message("   ⚠️  Could not detect configured locales, defaulting to en-US only")
+      configured_locales = ["en-US"]
+    end
+    
+    UI.message("   📍 App Store Connect configured locales: #{configured_locales.join(', ')}")
+    
+    # Map update message locales to App Store Connect locale codes
+    locale_map = {
+      "en" => "en-US", "de" => "de-DE", "es" => "es-ES", "fr" => "fr-FR",
+      "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar-SA", "tr" => "tr-TR"
     }
     
-    # Use English-only metadata
+    # Build release notes only for configured locales
+    ios_message = {}
+    update_message.each do |locale_key, msg|
+      full_locale = locale_map[locale_key] || locale_key
+      
+      # Only include if this locale is configured in App Store Connect
+      if configured_locales.include?(full_locale)
+        ios_message[full_locale] = remove_emojis(msg)
+      end
+    end
+    
+    # Ensure we have at least English
+    if ios_message.empty? && update_message["en"]
+      ios_message["en-US"] = remove_emojis(update_message["en"])
+      UI.message("   ⚠️  No matching locales found, using English as fallback")
+    end
+    
+    UI.message("   📝 Setting release notes for locales: #{ios_message.keys.join(', ')}")
+    
+    # Use English-only metadata (metadata localization is separate from release notes)
     english_metadata = {
       description: { "en-US" => app_metadata[:description]["en-US"] },
       keywords: { "en-US" => app_metadata[:keywords]["en-US"] },
       support_url: { "en-US" => app_metadata[:support_url] },
       marketing_url: { "en-US" => app_metadata[:marketing_url] }
     }
-    
-    # Multi-language support (commented out until localizations are set up):
-    # ios_message = {}
-    # update_message.each do |locale_key, msg|
-    #   locale_map = {
-    #     "en" => "en-US", "de" => "de-DE", "es" => "es-ES", "fr" => "fr-FR",
-    #     "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar", "tr" => "tr-TR"
-    #   }
-    #   full_locale = locale_map[locale_key] || locale_key
-    #   ios_message[full_locale] = remove_emojis(msg)
-    # end
-    #
-    # Multi-language metadata (commented out):
-    # description: app_metadata[:description],
-    # keywords: app_metadata[:keywords],
-    # support_url: app_metadata[:description].keys.map { |locale| [locale, app_metadata[:support_url]] }.to_h,
-    # marketing_url: app_metadata[:description].keys.map { |locale| [locale, app_metadata[:marketing_url]] }.to_h,
     
     UI.message("🍎 Creating App Store release...")
     UI.message("   App: #{options[:app_id]}")

@@ -35,6 +35,17 @@
       "ar": "مبتدئ",
       "tr": "başlangıç"
     },
+    "A2": {
+      "en": "elementary",
+      "de": "Grundstufe",
+      "es": "elemental",
+      "fr": "élémentaire",
+      "it": "elementare",
+      "pt": "elementar",
+      "ru": "элементарный",
+      "ar": "أساسي",
+      "tr": "temel"
+    },
     "B1": {
       "en": "intermediate",
       "de": "Mittelstufe",

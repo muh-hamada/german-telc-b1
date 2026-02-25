@@ -34,3 +34,7 @@ coverage/
 *.tmp
 *.temp
 
+# Service account credentials
+**/fastlane/*.json
+app/functions/*-firebase-adminsdk-*.json
+
