@@ -1,0 +1,114 @@
+{
+    "instructions": {
+        "de": {
+            "goal": "Sie sollen zu einem Alltagsthema Fragen stellen und auf Fragen antworten.",
+            "steps": [
+                "Der Prüfer nennt ein Thema (z. B. 'Essen und Trinken').",
+                "Sie ziehen eine Karte mit einem Wort.",
+                "Sie müssen eine Frage mit diesem Wort formulieren.",
+                "Ihr Partner antwortet auf die Frage.",
+                "Danach tauschen Sie die Rollen."
+            ]
+        },
+        "en": {
+            "goal": "You should ask and answer questions about an everyday topic.",
+            "steps": [
+                "The examiner names a topic (e.g., 'Food and Drink').",
+                "You draw a card with a word on it.",
+                "You must formulate a question using this word.",
+                "Your partner answers the question.",
+                "Then you switch roles."
+            ]
+        },
+        "fr": {
+            "goal": "Vous devez poser des questions et répondre sur un sujet du quotidien.",
+            "steps": [
+                "L'examinateur donne un thème (par ex. 'Manger et Boire').",
+                "Vous tirez une carte avec un mot.",
+                "Vous devez formuler une question avec ce mot.",
+                "Votre partenaire répond à la question.",
+                "Ensuite, vous échangez les rôles."
+            ]
+        },
+        "es": {
+            "goal": "Debe formular preguntas y respuestas sobre un tema cotidiano.",
+            "steps": [
+                "El examinador nombra un tema (p. ej., 'Comida y Bebida').",
+                "Usted toma una tarjeta con una palabra.",
+                "Debe formular una pregunta usando esa palabra.",
+                "Su compañero responde a la pregunta.",
+                "Luego cambian de roles."
+            ]
+        },
+        "ru": {
+            "goal": "Вы должны задавать вопросы и отвечать на них по повседневной теме.",
+            "steps": [
+                "Экзаменатор называет тему (например, 'Еда и напитки').",
+                "Вы вытягиваете карточку со словом.",
+                "Вы должны сформулировать вопрос с этим словом.",
+                "Ваш партнер отвечает на вопрос.",
+                "Затем вы меняетесь ролями."
+            ]
+        },
+        "ar": {
+            "goal": ".يجب عليك طرح أسئلة والإجابة عليها حول موضوع يومي",
+            "steps": [
+                ".(مثل 'الطعام والشراب') يحدد الممتحن موضوعاً",
+                ".تسحب بطاقة عليها كلمة",
+                ".يجب عليك صياغة سؤال باستخدام هذه الكلمة",
+                ".شريكك يجيب على السؤال",
+                ".ثم تتبادلان الأدوار"
+            ]
+        }
+    },
+    "simulation_data": {
+        "topic": "Essen und Trinken",
+        "cards": [
+            {
+                "id": "card_1",
+                "word": "Frühstück",
+                "image_icon": "fastfood"
+            },
+            {
+                "id": "card_2",
+                "word": "Tee",
+                "image_icon": "emoji-food-beverage"
+            },
+            {
+                "id": "card_3",
+                "word": "Kaffee",
+                "image_icon": "coffee"
+            },
+            {
+                "id": "card_4",
+                "word": "Grillen",
+                "image_icon": "outdoor-grill"
+            }
+        ],
+        "example_dialogue": {
+            "context": "Thema: Essen und Trinken. Karte: 'Frühstück'",
+            "turns": [
+                {
+                    "speaker": "User",
+                    "role": "Questioner",
+                    "text": "Was essen Sie gern zum Frühstück?"
+                },
+                {
+                    "speaker": "Partner",
+                    "role": "Respondent",
+                    "text": "Ich esse meistens Brot und Obst."
+                },
+                {
+                    "speaker": "User",
+                    "role": "Questioner",
+                    "text": "Was trinken Sie gern zum Frühstück?"
+                },
+                {
+                    "speaker": "Partner",
+                    "role": "Respondent",
+                    "text": "Ich trinke meistens Tee."
+                }
+            ]
+        }
+    }
+}

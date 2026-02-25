@@ -7,10 +7,11 @@ import React, {
   useState,
 } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { darkColors, lightColors, type ThemeColors, type ThemeMode } from '../theme/colors';
+import { themes, type ThemeColors, type ThemeMode } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { FORCE_DARK_MODE } from '../config/development.config';
+import { activeExamConfig } from '../config/active-exam.config';
 
 const THEME_STORAGE_KEY = 'app_theme';
 
@@ -66,7 +67,10 @@ export const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) =
   }, [mode, persistTheme]);
 
   const value = useMemo<ThemeContextValue>(() => {
-    const currentColors = mode === 'light' ? lightColors : darkColors;
+    // Get the theme colors based on the active exam's theme configuration
+    const themeName = activeExamConfig.theme;
+    const themeColors = themes[themeName];
+    const currentColors = mode === 'light' ? themeColors.light : themeColors.dark;
 
     return {
       mode,

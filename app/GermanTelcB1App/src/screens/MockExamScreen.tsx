@@ -386,7 +386,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     textAlign: 'left',
   },
   startButton: {
-    backgroundColor: colors.success[500],
+    backgroundColor: colors.action.primary,
     paddingVertical: spacing.padding.lg,
     paddingHorizontal: spacing.padding.xl,
     borderRadius: spacing.borderRadius.lg,

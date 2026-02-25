@@ -23,6 +23,9 @@ export const englishB1Config: ExamConfig = {
     ios: 'com.mhamada.telcb1english',
   },
   
+  // Theme Configuration
+  theme: 'default',
+  
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'english_b1_telc_exam_data',              // Existing collection

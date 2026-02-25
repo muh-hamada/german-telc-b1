@@ -3,6 +3,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { useAppTheme } from '../contexts/ThemeContext';
 import ExamStructureScreen from '../screens/ExamStructureScreen';
 import HomeScreen from '../screens/HomeScreen';
 import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
@@ -55,7 +56,6 @@ import VocabularyProgressScreen from '../screens/VocabularyProgressScreen';
 import VocabularyReviewScreen from '../screens/VocabularyReviewScreen';
 import VocabularyStudiedListScreen from '../screens/VocabularyStudiedListScreen';
 import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
-import { colors } from '../theme';
 import { HomeStackParamList } from '../types/navigation.types';
 // Prep Plan Screens
 import { activeExamConfig } from '../config/active-exam.config';
@@ -70,10 +70,11 @@ const Stack = createStackNavigator<HomeStackParamList>();
 // Header component for dynamic translations
 const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
   return (
     <Text 
       style={{ 
-        color: colors.white, 
+        color: colors.navigation.text, 
         fontSize: 18, 
         fontWeight: '600',
         maxWidth: 250, // Prevent overlap with back button
@@ -88,6 +89,7 @@ const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
 
 const HomeStackNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
+  const { colors } = useAppTheme();
   const isDele = activeExamConfig.provider === 'dele';
   
   // Helper function to get title key based on part number
@@ -109,9 +111,9 @@ const HomeStackNavigator: React.FC = () => {
   // Common screen options for RTL support
   const screenOptions = {
     headerStyle: {
-      backgroundColor: colors.primary[500],
+      backgroundColor: colors.navigation.background,
     },
-    headerTintColor: colors.white,
+    headerTintColor: colors.navigation.text,
     headerTitleStyle: {
       fontWeight: '600' as '600',
       fontSize: 18,

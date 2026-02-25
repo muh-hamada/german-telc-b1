@@ -23,6 +23,9 @@ export const deleSpanishB1Config: ExamConfig = {
     ios: 'com.mhamada.deleb1spanish',
   },
   
+  // Theme Configuration
+  theme: 'default',
+  
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'spanish_b1_dele_exam_data',              // Existing collection

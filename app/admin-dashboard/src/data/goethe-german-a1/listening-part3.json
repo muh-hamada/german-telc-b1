@@ -1,0 +1,112 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 3",
+        "instructions_de": "Sie hören kurze Gespräche und Ansagen. Zu jedem Text gibt es eine Aufgabe. Lesen Sie zuerst die Aufgabe. Hören Sie dann den Text dazu. Kreuzen Sie die richtige Lösung an.",
+        "instructions_en": "You will hear short conversations and announcements. To each text there is a task. Read the task first. Then listen to the text. Mark the correct solution.",
+        "instructions_ar": "ستستمعون إلى محادثات قصيرة وإعلانات. لكل نص مهمة. اقرأوا المهمة أولاً، ثم استمعوا إلى النص. حددوا الإجابة الصحيحة.",
+        "instructions_ru": "Вы услышите короткие разговоры и объявления. К каждому тексту есть задача. Прочитайте задачу сначала. Затем послушайте текст. Отметьте правильное решение.",
+        "instructions_fr": "Vous entendrez des conversations et des annonces courtes. À chaque texte, il y a une tâche. Lisez la tâche d'abord. Ensuite, écoutez le texte. Marquez la solution correcte.",
+        "instructions_es": "Escucharás conversaciones y anuncios cortos. A cada texto hay una tarea. Lee la tarea primero. Luego escucha el texto. Marca la solución correcta.",
+        "duration_minutes": 5,
+        "prep_time_seconds": 30
+    },
+    "exams": [
+        {
+            "id": 0,
+            "title": "Telefonnachrichten und Durchsagen",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a1-listening-question-part-3-exam-1.mp3?alt=media&token=19c8c2aa-ffd2-4bf1-8ef3-35313379631e",
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "Die Hotline-Nummer ist:",
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "56778"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "65778"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "56787"
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "question": "Wo wartet Pedro?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Im Zimmer"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Vor dem Hotel"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "An der Bar"
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "question": "Wie lange hat Monika noch Zeit?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "30 Minuten"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "10 Minuten"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Eine Stunde"
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "question": "Wann soll Frau Klein kommen?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Am Freitag"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Am Samstag"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Am Sonntag"
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "question": "Was ist kaputt?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Das Auto"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Der Fernseher"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Der Computer"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

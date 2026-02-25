@@ -25,6 +25,9 @@ export interface ExamConfig {
     ios: string;              // e.g., "com.mhamada.telcb1german"
   };
   
+  // Theme Configuration
+  theme: 'default' | 'alarm' | 'audiobook'; // Color theme for this exam
+  
   // Firebase Configuration
   firebaseCollections: {
     examData: string;         // e.g., "b1_telc_exam_data" or "german_b1_exam_data"

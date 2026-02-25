@@ -635,13 +635,13 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
       marginLeft: 6,
     },
     purchaseButton: {
-      backgroundColor: colors.success[500],
+      backgroundColor: colors.action.primary,
       borderRadius: 28,
       paddingVertical: 18,
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: spacing.margin.sm,
-      shadowColor: colors.success[500],
+      shadowColor: colors.action.primary,
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 0.25,
       shadowRadius: 8,
@@ -665,7 +665,7 @@ const createStyles = (colors: ThemeColors, isDarkMode: boolean) =>
     purchaseButtonText: {
       fontSize: 17,
       fontWeight: '600',
-      color: colors.text.inverse,
+      color: colors.action.primaryText,
       letterSpacing: 0.3,
     },
     secondaryButton: {

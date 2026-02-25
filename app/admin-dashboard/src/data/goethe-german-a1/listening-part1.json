@@ -1,0 +1,130 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 1",
+        "instructions_de": "Sie hören kurze Gespräche und Ansagen. Zu jedem Text gibt es eine Aufgabe. Lesen Sie zuerst die Aufgabe. Hören Sie dann den Text dazu. Kreuzen Sie die richtige Lösung an.",
+        "instructions_en": "You will hear short conversations and announcements. To each text there is a task. Read the task first. Then listen to the text. Mark the correct solution.",
+        "instructions_ar": "ستستمعون إلى محادثات قصيرة وإعلانات. لكل نص مهمة. اقرأوا المهمة أولاً، ثم استمعوا إلى النص. حددوا الإجابة الصحيحة.",
+        "instructions_ru": "Вы услышите короткие разговоры и объявления. К каждому тексту есть задача. Прочитайте задачу сначала. Затем послушайте текст. Отметьте правильное решение.",
+        "instructions_fr": "Vous entendrez des conversations et des annonces courtes. À chaque texte, il y a une tâche. Lisez la tâche d'abord. Ensuite, écoutez le texte. Marquez la solution correcte.",
+        "instructions_es": "Escucharás conversaciones y anuncios cortos. A cada texto hay una tarea. Lee la tarea primero. Luego escucha el texto. Marca la solución correcta.",
+        "duration_minutes": 5,
+        "prep_time_seconds": 30
+    },
+    "exams": [
+        {
+            "id": 0,
+            "title": "Schuhe, Kino und ein Stück Kuchen",
+            "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german-a1-listening-question-part-1-exam-1.mp3?alt=media&token=fc610c7b-4e31-4a9d-8450-0a6e422669c6",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Was kosten die Schuhe?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "80,00 €"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "45,00 €"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "38,00 €"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Wie spät ist es?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "14.00 Uhr"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "14.15 Uhr"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "14.30 Uhr"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Was isst der Mann?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Käsekuchen"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Apfelkuchen"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Eis"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Mit wem wohnt Herr Müller zusammen?",
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Mit seinem Bruder"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Mit seiner Schwester"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Allein"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Wo ist die Toilette?",
+                    "options": [
+                        {
+                            "is_correct": true,
+                            "text": "Im ersten Stock"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Im Erdgeschoss"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Vor dem Aufzug"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "question": "Warum geht Stefan nicht ins Kino?",
+                    "options": [
+                        {
+                            "is_correct": false,
+                            "text": "Er hat keine Lust"
+                        },
+                        {
+                            "is_correct": false,
+                            "text": "Er muss arbeiten"
+                        },
+                        {
+                            "is_correct": true,
+                            "text": "Er ist krank"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

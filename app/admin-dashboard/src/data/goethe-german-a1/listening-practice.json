@@ -1,0 +1,62 @@
+{
+    "interviews": [
+        {
+            "title": "Ein kurzer Einkauf im Supermarkt",
+            "audio_url": "PLACEHOLDER_FOR_AUDIO_URL",
+            "image_url": "PLACEHOLDER_FOR_IMAGE_URL",
+            "duration": "02:17",
+            "questions": [
+                {
+                    "question": "Im Gespräch sagt Lukas: Der Supermarkt ist weit weg.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Lukas sagt: Der Supermarkt ist nicht weit von der Wohnung."
+                },
+                {
+                    "question": "Lukas geht zu Fuß zum Supermarkt.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er geht nicht mit dem Auto oder dem Bus."
+                },
+                {
+                    "question": "Lukas kauft fünf Äpfel.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er sagt, er nimmt fünf Äpfel."
+                },
+                {
+                    "question": "Die Bananen sind heute sehr teuer.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Die Bananen sind heute sehr günstig (billig)."
+                },
+                {
+                    "question": "Im Gespräch sagt Lukas, dass er Fleisch kauft.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er kauft Obst, Gemüse, Brot, Käse, Milch und Eier, aber kein Fleisch."
+                },
+                {
+                    "question": "Lukas braucht vier Brötchen für das Frühstück.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Er kauft ein Brot und vier Brötchen."
+                },
+                {
+                    "question": "Die Milch steht im Regal auf der rechten Seite.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Lukas sagt, die Milch steht links."
+                },
+                {
+                    "question": "Eine Packung Milch kostet einen Euro zwanzig.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Das ist der Preis für die Milch."
+                },
+                {
+                    "question": "Lukas kauft eine Flasche Orangensaft.",
+                    "correct": false,
+                    "explanation": "Das ist falsch. Er kauft eine Flasche Apfelsaft."
+                },
+                {
+                    "question": "Der Einkauf kostet insgesamt fünfzehn Euro.",
+                    "correct": true,
+                    "explanation": "Das ist richtig. Lukas bezahlt fünfzehn Euro an der Kasse."
+                }
+            ]
+        }
+    ]
+}

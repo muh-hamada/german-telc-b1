@@ -22,6 +22,9 @@ export const germanA2Config: ExamConfig = {
     ios: 'com.mhamada.telca2german',
   },
   
+  // Theme Configuration
+  theme: 'default',
+  
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'german_a2_telc_exam_data',              // Existing collection
