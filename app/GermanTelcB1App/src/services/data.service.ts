@@ -443,7 +443,9 @@ class DataService {
 
   // Exam Info (structure, assessment criteria, etc.)
   async getExamInfo(): Promise<any> {
-    return await this.fetchFromFirestore('exam-info', null);
+    const isGoetheGermanA1 = activeExamConfig.id === 'goethe-german-a1'
+    const collectionName = isGoetheGermanA1 ? 'goethe-exam-info' : 'exam-info';
+    return await this.fetchFromFirestore(collectionName, null);
   }
 
   // Grammar Study Questions

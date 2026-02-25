@@ -61,6 +61,15 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     description: 'German language exam preparation for TELC A1 level',
     dataFolder: 'german-a1',
   },
+  'goethe-german-a1': {
+    id: 'goethe-german-a1',
+    language: 'german',
+    level: 'A1',
+    displayName: 'Goethe German A1',
+    collectionName: 'german_a1_telc_exam_data', // We use the same collection name as Goethe German A1 is identical to Telc German A1
+    description: 'German language exam preparation for Goethe German A1 level',
+    dataFolder: 'german-a1',
+  },
   'german-a2': {
     id: 'german-a2',
     language: 'german',

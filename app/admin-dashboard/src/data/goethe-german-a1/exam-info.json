@@ -171,12 +171,12 @@
                         }
                     ],
                     "note": {
-                        "en": "Max. 10 points can be awarded. The evaluator or the evaluator enters their or her evaluations first in the answer sheet at „Evaluation 1“ and „telc Evaluation“. In case of disagreements, the telc evaluation overrides Evaluation 1.",
-                        "ar": "يمكن تعيين 10 نقطة كحد أقصى. يدخل المقيم أو المقيم التقييمات الخاصة به أولاً في ورقة الإجابة على „التقييم 1“ و„التقييم telc“. في حالة الإختلافات، يتم التغلب على التقييم 1 بالتقييم telc.",
-                        "ru": "Максимум 10 баллов может быть присуждено. Оценщик или оценщик вносит свои или его оценки сначала в лист ответов на „Оценка 1“ и „telc Оценка“. В случае разногласий, оценка telc переопределяет Оценку 1.",
-                        "fr": "Max. 10 points peuvent être attribués. L'évaluateur ou l'évaluatrice entre d'abord ses ou ses évaluations dans le formulaire de réponse à „Évaluation 1“ et „telc Évaluation“. En cas de désaccord, l'évaluation telc remplace l'Évaluation 1.",
-                        "es": "Máx. 10 puntos pueden ser otorgados. El evaluador o la evaluadora introduce primero sus o sus evaluaciones en el formulario de respuesta en „Evaluación 1“ y „telc Evaluación“. En caso de discrepancias, la evaluación telc anula la Evaluación 1.",
-                        "de": "Es können maximal 10 Punkte vergeben werden. Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei „Bewertung 1“ und „telc Bewertung“ ein. Bei Unstimmig keiten überstimmt die telc Bewertung Bewertung 1."
+                        "en": "Max. 10 points can be awarded. The evaluator or the evaluator enters their or her evaluations first in the answer sheet at „Evaluation 1“ and „Goethe Evaluation“. In case of disagreements, the Goethe evaluation overrides Evaluation 1.",
+                        "ar": "يمكن تعيين 10 نقطة كحد أقصى. يدخل المقيم أو المقيم التقييمات الخاصة به أولاً في ورقة الإجابة على „التقييم 1“ و„التقييم Goethe“. في حالة الإختلافات، يتم التغلب على التقييم 1 بالتقييم Goethe.",
+                        "ru": "Максимум 10 баллов может быть присуждено. Оценщик или оценщик вносит свои или его оценки сначала в лист ответов на „Оценка 1“ и „Goethe Оценка“. В случае разногласий, оценка Goethe переопределяет Оценку 1.",
+                        "fr": "Max. 10 points peuvent être attribués. L'évaluateur ou l'évaluatrice entre d'abord ses ou ses évaluations dans le formulaire de réponse à „Évaluation 1“ et „Goethe Évaluation“. En cas de désaccord, l'évaluation Goethe remplace l'Évaluation 1.",
+                        "es": "Máx. 10 puntos pueden ser otorgados. El evaluador o la evaluadora introduce primero sus o sus evaluaciones en el formulario de respuesta en „Evaluación 1“ y „Goethe Evaluación“. En caso de discrepancias, la evaluación Goethe anula la Evaluación 1.",
+                        "de": "Es können maximal 10 Punkte vergeben werden. Der oder die Bewertende trägt seine bzw. ihre Bewertungen zunächst in dem Antwortbogen bei „Bewertung 1“ und „Goethe Bewertung“ ein. Bei Unstimmig keiten überstimmt die Goethe Bewertung Bewertung 1."
                     }
                 },
                 {
@@ -218,12 +218,12 @@
                         }
                     ],
                     "points_distribution": {
-                        "en": "The examiners assess the participants' performance using the yellow telc assessment form M10",
-                        "ar": "يتم تقييم أداء المشاركين باستخدام نموزج التقييم الأصفر telc M10",
-                        "ru": "Оценщики оценивают выполнение заданий с помощью желтого формы оценки telc M10",
-                        "fr": "Les évaluateurs évaluent la performance des participants en utilisant le formulaire de notation jaune telc M10",
-                        "es": "Los evaluadores evalúan el rendimiento de los participantes utilizando el formulario de evaluación amarillo telc M10",
-                        "de": "Die Bewerter bewerten die Leistung der Teilnehmer mit dem gelben telc Bewertungsformular M10"
+                        "en": "The examiners assess the participants' performance using the Goethe assessment form",
+                        "ar": "يتم تقييم أداء المشاركين باستخدام نموزج التقييم الألماني Goethe",
+                        "ru": "Оценщики оценивают выполнение заданий с помощью формы оценки Goethe",
+                        "fr": "Les évaluateurs évaluent la performance des participants en utilisant le formulaire de notation Goethe",
+                        "es": "Los evaluadores evalúan el rendimiento de los participantes utilizando el formulario de evaluación Goethe",
+                        "de": "Die Bewerter bewerten die Leistung der Teilnehmer mit dem Goethe Bewertungsformular"
                     }
                 }
             ]

@@ -303,6 +303,123 @@
                         }
                     }
                 ]
+            },
+            {
+                "id": "dialogue-a1-german-4",
+                "turns": [
+                    {
+                        "speaker": "ai",
+                        "text": "Guten Tag! Willkommen zur Prüfung. Wir beginnen mit Teil 1. Wie heißen Sie und woher kommen Sie?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie Ihren Namen und aus welchem Land Sie kommen.",
+                            "ar": "قل اسمك ومن أي بلد أنت.",
+                            "en": "Say your name and which country you come from.",
+                            "ru": "Назовите свое имя и из какой вы страны.",
+                            "es": "Di tu nombre y de qué país vienes.",
+                            "fr": "Dites votre nom et de quel pays vous venez."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Freut mich. Können Sie Ihren Familiennamen bitte buchstabieren?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Buchstabieren Sie Ihren Nachnamen.",
+                            "ar": "تهجى اسم عائلتك.",
+                            "en": "Spell your last name.",
+                            "ru": "Произнесите свою фамилию по буквам.",
+                            "es": "Deletrea tu apellido.",
+                            "fr": "Épelez votre nom de famille."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Danke. Und welche Sprachen sprechen Sie?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, welche Sprachen Sie sprechen.",
+                            "ar": "اذكر اللغات التي تتحدثها.",
+                            "en": "Say which languages you speak.",
+                            "ru": "Скажите, на каких языках вы говорите.",
+                            "es": "Di qué idiomas hablas.",
+                            "fr": "Dites quelles langues vous parlez."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Sehr gut. Kommen wir zu Teil 2. Wir möchten zusammen am Wochenende einkaufen gehen. Wann haben Sie Zeit?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Schlagen Sie eine Uhrzeit am Samstag vor.",
+                            "ar": "اقترح وقتًا يوم السبت.",
+                            "en": "Suggest a time on Saturday.",
+                            "ru": "Предложите время в субботу.",
+                            "es": "Sugiere una hora el sábado.",
+                            "fr": "Suggérez une heure le samedi."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Samstag passt gut. Was müssen wir für das Frühstück kaufen?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Sagen Sie, dass Sie Brot, Eier und Kaffee kaufen möchten.",
+                            "ar": "قل أنك تريد شراء الخبز والبيض والقهوة.",
+                            "en": "Say that you want to buy bread, eggs, and coffee.",
+                            "ru": "Скажите, что вы хотите купить хлеб, яйца и кофе.",
+                            "es": "Di que quieres comprar pan, huevos y café.",
+                            "fr": "Dites que vous voulez acheter du pain, des œufs et du café."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Super, das machen wir! Jetzt Teil 3. Ich habe noch eine Frage an Sie: Was essen Sie normalerweise gerne zum Frühstück?",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Antworten Sie, was Sie normalerweise zum Frühstück essen.",
+                            "ar": "أجب عما تأكله عادة في وجبة الإفطار.",
+                            "en": "Answer what you usually eat for breakfast.",
+                            "ru": "Ответьте, что вы обычно едите на завтрак.",
+                            "es": "Responde qué comes normalmente en el desayuno.",
+                            "fr": "Répondez ce que vous mangez normalement au petit-déjeuner."
+                        }
+                    },
+                    {
+                        "speaker": "ai",
+                        "text": "Das klingt lecker. Vielen Dank für das Gespräch! Wir sind fertig. Auf Wiedersehen!",
+                        "audio_url": "PLACEHOLDER"
+                    },
+                    {
+                        "speaker": "user",
+                        "instruction": {
+                            "de": "Verabschieden Sie sich.",
+                            "ar": "ودع.",
+                            "en": "Say goodbye.",
+                            "ru": "Попрощайтесь.",
+                            "es": "Despídete.",
+                            "fr": "Dites au revoir."
+                        }
+                    }
+                ]
             }
         ],
         "english": [

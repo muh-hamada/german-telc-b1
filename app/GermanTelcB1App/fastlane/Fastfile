@@ -178,6 +178,11 @@ def get_app_config(app_id)
       android_package: "com.mhamada.telca1german",
       ios_bundle_id: "com.mhamada.telca1german"
     }
+  when "goethe-german-a1"
+    {
+      android_package: "com.mhamada.goethea1german",
+      ios_bundle_id: "com.mhamada.goethea1german"
+    }
   when "german-a2"
     {
       android_package: "com.mhamada.telca2german",

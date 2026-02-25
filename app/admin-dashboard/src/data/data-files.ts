@@ -1,6 +1,6 @@
 import { APP_CONFIGS } from '../config/apps.config';
 
-// German A1
+// Telc German A1
 import germanA1ExamInfo from './german-a1/exam-info.json';
 import germanA1ReadingPart1 from './german-a1/reading-part1.json';
 import germanA1ReadingPart2 from './german-a1/reading-part2.json';
@@ -15,8 +15,13 @@ import germanA1ListeningPart2 from './german-a1/listening-part2.json';
 import germanA1ListeningPart3 from './german-a1/listening-part3.json';
 import germanA1ListeningPractice from './german-a1/listening-practice.json';
 
-// 
-// German A2
+
+// Goethe German A1
+import goetheGermanA1ExamInfo from './goethe-german-a1/exam-info.json';
+// The rest of the sections are the same as the Telc German A1 sections
+
+ 
+// TelcGerman A2
 import germanA2ExamInfo from './german-a2/exam-info.json';
 import germanA2ReadingPart1 from './german-a2/reading-part1.json';
 import germanA2ReadingPart2 from './german-a2/reading-part2.json';
@@ -31,7 +36,7 @@ import germanA2SpeakingPart2 from './german-a2/speaking-part2.json';
 import germanA2SpeakingPart3 from './german-a2/speaking-part3.json';
 import germanA2ListeningPractice from './german-a2/listening-practice.json';
 
-// German B1
+// Telc German B1
 import germanB1ExamInfo from './german-b1/exam-info.json';
 import germanB1GrammarPart1 from './german-b1/grammar-part1.json';
 import germanB1GrammarPart2 from './german-b1/grammar-part2.json';
@@ -49,7 +54,7 @@ import germanB1SpeakingImportantPhrases from './german-b1/speaking-important-phr
 import germanB1GrammarStudyQuestions from './german-b1/grammer-study-questions.json';
 import germanB1ListeningPractice from './german-b1/listening-practice.json';
 
-// German B2
+// Telc German B2
 import germanB2ExamInfo from './german-b2/exam-info.json';
 import germanB2ReadingPart1 from './german-b2/reading-part1.json';
 import germanB2ReadingPart2 from './german-b2/reading-part2.json';
@@ -68,7 +73,7 @@ import germanB2SpeakingPart3 from './german-b2/speaking-part3.json';
 import germanB2GrammarStudyQuestions from './german-b2/grammer-study-questions.json';
 import germanB2ListeningPractice from './german-b2/listening-practice.json';
 
-// English B1
+// Telc English B1
 import englishB1ExamInfo from './english-b1/exam-info.json';
 import englishB1GrammarPart1 from './english-b1/grammar-part1.json';
 import englishB1GrammarPart2 from './english-b1/grammar-part2.json';
@@ -87,7 +92,7 @@ import englishB1GrammarStudyQuestions from './english-b1/grammer-study-questions
 import englishB1ListeningPractice from './english-b1/listening-practice.json';
 
 
-// English B2
+// Telc English B2
 import englishB2ExamInfo from './english-b2/exam-info.json';
 import englishB2GrammarStudyQuestions from './english-b2/grammer-study-questions.json';
 import englishB2ReadingPart1 from './english-b2/reading-part1.json';
@@ -106,7 +111,7 @@ import englishB2SpeakingPart3 from './english-b2/speaking-part3.json';
 import englishB2SpeakingImportantPhrases from './english-b2/speaking-important-phrases.json';
 import englishB2ListeningPractice from './english-b2/listening-practice.json';
 
-// Spanish Dele B1
+// Dele Spanish B1
 import spanishDeleB1ExamInfo from './dele-spanish-b1/exam-info.json';
 import spanishDeleB1GrammarPart1 from './dele-spanish-b1/grammar-part1.json';
 import spanishDeleB1GrammarPart2 from './dele-spanish-b1/grammar-part2.json';
@@ -130,6 +135,7 @@ import spanishDeleB1ListeningPractice from './dele-spanish-b1/listening-practice
 
 interface AppData {
     'exam-info'?: any;
+    'goethe-exam-info'?: any;
     'grammar-part1'?: any;
     'grammar-part2'?: any;
     'listening-part1'?: any;
@@ -284,5 +290,8 @@ export const appDataMap: AppDataMap = {
         'speaking-important-phrases': spanishDeleB1SpeakingImportantPhrases,
         'grammar-study-questions': spanishDeleB1GrammarStudyQuestions,
         'listening-practice': spanishDeleB1ListeningPractice,
+    },
+    [APP_CONFIGS['goethe-german-a1'].id]: {
+        'goethe-exam-info': goetheGermanA1ExamInfo,
     },
 }

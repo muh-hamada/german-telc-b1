@@ -2,8 +2,8 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-02-25T10:59:10.533Z
- * Exam: German TELC A1
+ * Generated at: 2026-02-25T15:37:11.627Z
+ * Exam: Goethe German A1
  * 
  * This file determines which exam configuration is active for the current build.
  * To change the active exam, run the build script with a different exam ID.
@@ -12,7 +12,7 @@
 import { ExamConfig } from './exam-config.types';
 import { getExamConfig } from './exams';
 
-const ACTIVE_EXAM_ID = 'german-a1';
+const ACTIVE_EXAM_ID = 'goethe-german-a1';
 
 /**
  * Get the active exam configuration
