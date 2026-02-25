@@ -305,8 +305,8 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     marginBottom: spacing.margin.xl,
   },
   examWarning: {
-    backgroundColor: colors.error[50],
-    borderColor: colors.error[500],
+    backgroundColor: colors.alertBox.background,
+    borderColor: colors.alertBox.border,
     borderWidth: 1,
     borderRadius: spacing.borderRadius.md,
     padding: spacing.padding.md,
@@ -344,7 +344,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
     color: colors.text.secondary,
   },
   playButton: {
-    backgroundColor: colors.primary[500],
+    backgroundColor: colors.audioControl.background,
     paddingVertical: spacing.padding.md,
     paddingHorizontal: spacing.padding.lg,
     borderRadius: spacing.borderRadius.md,
@@ -353,7 +353,7 @@ const createStyles = (colors: ThemeColors) => StyleSheet.create({
   playButtonText: {
     ...typography.textStyles.body,
     fontWeight: typography.fontWeight.bold,
-    color: colors.background.secondary,
+    color: colors.audioControl.text,
   },
   playingIndicator: {
     padding: spacing.padding.md,

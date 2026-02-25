@@ -110,6 +110,31 @@ export const defaultLightColors = {
     primaryText: '#FFFFFF',
   },
 
+  // Info/Alert box colors
+  infoBox: {
+    background: '#FFF4DC', // Light orange (current warning[100])
+    border: '#F59E0B', // Orange (current warning[500])
+    text: '#B45309', // Dark orange (current warning[700])
+  },
+
+  alertBox: {
+    background: '#FFEBEE', // Light red (current error[50])
+    border: '#F44336', // Red (current error[500])
+    text: '#D32F2F', // Dark red (current error[700])
+  },
+
+  // Audio control colors
+  audioControl: {
+    background: '#0077B6', // Blue (current primary[500])
+    text: '#FFFFFF',
+  },
+
+  // Tab bar colors
+  tabBar: {
+    active: '#0077B6', // Blue (current primary[500])
+    inactive: '#757575', // Gray (current text.secondary)
+  },
+
   social: {
     google: '#4285F4',
     twitter: '#1DA1F2',
@@ -229,6 +254,31 @@ export const defaultDarkColors = {
   action: {
     primary: '#3fb950', // Brighter green for dark mode
     primaryText: '#0d1117',
+  },
+
+  // Info/Alert box colors - Dark theme
+  infoBox: {
+    background: '#2d1b00', // Dark orange
+    border: '#d29922', // Orange
+    text: '#ffd33d', // Light orange
+  },
+
+  alertBox: {
+    background: '#2d0f0f', // Dark red
+    border: '#f85149', // Red
+    text: '#ff8585', // Light red
+  },
+
+  // Audio control colors - Dark theme
+  audioControl: {
+    background: '#58a6ff', // Light blue
+    text: '#0d1117',
+  },
+
+  // Tab bar colors - Dark theme
+  tabBar: {
+    active: '#58a6ff', // Light blue
+    inactive: '#8b949e', // Gray
   },
 
   social: {
@@ -353,6 +403,31 @@ export const alarmLightColors = {
     primaryText: '#432344', // Dark purple text on yellow
   },
 
+  // Info/Alert box colors - Alarm theme
+  infoBox: {
+    background: '#FFDE94', // Light yellow
+    border: '#FFC03D', // Golden yellow
+    text: '#996C05', // Dark yellow/brown
+  },
+
+  alertBox: {
+    background: '#FFDFDF', // Light pink/red
+    border: '#FF2525', // Bright red from design
+    text: '#CC1A1A', // Dark red
+  },
+
+  // Audio control colors
+  audioControl: {
+    background: '#432344', // Dark purple
+    text: '#FFFFFF',
+  },
+
+  // Tab bar colors - Alarm theme
+  tabBar: {
+    active: '#FFC03D', // Golden yellow
+    inactive: '#8B6473', // Muted purple/gray
+  },
+
   social: {
     google: '#4285F4',
     twitter: '#1DA1F2',
@@ -472,6 +547,31 @@ export const alarmDarkColors = {
   action: {
     primary: '#FFD370', // Lighter yellow for dark mode
     primaryText: '#2A142A', // Dark purple text
+  },
+
+  // Info/Alert box colors - Alarm dark theme
+  infoBox: {
+    background: '#3A2300', // Dark yellow/brown
+    border: '#E6A823', // Orange gold
+    text: '#FFD370', // Light yellow
+  },
+
+  alertBox: {
+    background: '#4A1616', // Dark red/brown
+    border: '#FF6B6B', // Muted red
+    text: '#FF8585', // Light red
+  },
+
+  // Audio control colors - Dark theme
+  audioControl: {
+    background: '#5A3A5A', // Lighter purple
+    text: '#FFFFFF',
+  },
+
+  // Tab bar colors - Alarm dark theme
+  tabBar: {
+    active: '#FFD370', // Light yellow
+    inactive: '#BAA2AB', // Light gray/purple
   },
 
   social: {
@@ -596,6 +696,31 @@ export const audiobookLightColors = {
     primaryText: '#FFFFFF',
   },
 
+  // Info/Alert box colors - Audiobook theme
+  infoBox: {
+    background: '#FFFFFF',
+    border: '#FDCEDF', // Soft pink from design
+    text: '#7D2E57', // Dark pink
+  },
+
+  alertBox: {
+    background: '#FFF0F0', // Light red
+    border: '#F44336', // Red
+    text: '#D32F2F', // Dark red
+  },
+
+  // Audio control colors
+  audioControl: {
+    background: '#3A3967', // Navy purple from design
+    text: '#FFFFFF',
+  },
+
+  // Tab bar colors - Audiobook theme
+  tabBar: {
+    active: '#7D2E57', // Soft pink from design
+    inactive: '#A08498', // Slightly darker muted purple/gray
+  },
+
   social: {
     google: '#4285F4',
     twitter: '#1DA1F2',
@@ -715,6 +840,31 @@ export const audiobookDarkColors = {
   action: {
     primary: '#3fb950', // Brighter green for dark mode
     primaryText: '#0C0B15',
+  },
+
+  // Info/Alert box colors - Audiobook dark theme
+  infoBox: {
+    background: '#2D0A1F', // Dark pink/purple
+    border: '#D47BA5', // Muted pink
+    text: '#F7D8E7', // Light pink
+  },
+
+  alertBox: {
+    background: '#2D0A0A', // Dark red/brown
+    border: '#FF6666', // Muted red
+    text: '#FF8585', // Light red
+  },
+
+  // Audio control colors - Dark theme
+  audioControl: {
+    background: '#8777A3', // Lighter purple
+    text: '#0C0B15',
+  },
+
+  // Tab bar colors - Audiobook dark theme
+  tabBar: {
+    active: '#E09ABB', // Muted pink
+    inactive: '#BAA2AB', // Light gray
   },
 
   social: {

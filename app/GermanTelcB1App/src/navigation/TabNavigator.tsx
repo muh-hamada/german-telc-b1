@@ -305,8 +305,8 @@ const TabNavigator: React.FC = () => {
       tabBar={(props) => <CustomTabBar {...props} colors={colors} />}
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: colors.primary[500],
-        tabBarInactiveTintColor: colors.text.secondary,
+        tabBarActiveTintColor: colors.tabBar.active,
+        tabBarInactiveTintColor: colors.tabBar.inactive,
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '500',
