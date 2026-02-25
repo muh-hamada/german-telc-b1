@@ -23,7 +23,7 @@ export const germanA1Config: ExamConfig = {
   },
   
   // Theme Configuration
-  theme: 'audiobook',
+  theme: 'default',
   
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
