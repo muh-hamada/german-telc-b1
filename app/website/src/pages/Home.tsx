@@ -37,7 +37,6 @@ const Home: React.FC = () => {
   // Get store links based on selection
   const androidLink = selectedApp?.storeLinks.android || 'https://play.google.com/store/apps/details?id=com.mhamada.telcb1german';
   const iosLink = selectedApp?.storeLinks.ios || '#';
-  const appDisplayName = selectedApp?.displayName || 'TELC Exam';
 
   return (
     <div className="home">

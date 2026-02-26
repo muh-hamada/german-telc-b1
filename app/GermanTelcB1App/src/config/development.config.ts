@@ -13,7 +13,7 @@ export const DEMO_MODE = false; // Set to false for production
 
 export const ALWAYS_SHOW_PREMIUM_MODAL = false; // Set to false for production
 
-export const HIDE_ADS = true; // Set to false for production
+export const HIDE_ADS = false; // Set to false for production
 
 export const SKIP_REWARDED_ADS = false; // Set to false for production
 
@@ -23,7 +23,7 @@ export const DISABLE_DATA_CACHE = false; // Set to true to disable data cache
 
 export const HIDE_SUPPORT_US = false; // Set to false for production
 
-export const SIMULATE_PREMIUM_USER = true; // Set to true to simulate a premium user
+export const SIMULATE_PREMIUM_USER = false; // Set to true to simulate a premium user
 
 export const FORCE_DARK_MODE = false; // Set to true to force dark mode
 

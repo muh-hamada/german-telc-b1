@@ -310,7 +310,7 @@
                     {
                         "speaker": "ai",
                         "text": "Guten Tag! Willkommen zur Prüfung. Wir beginnen mit Teil 1. Wie heißen Sie und woher kommen Sie?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F1.mp3?alt=media&token=6becfb6d-12fd-48a9-b0aa-50cb95a487f1"
                     },
                     {
                         "speaker": "user",
@@ -326,7 +326,7 @@
                     {
                         "speaker": "ai",
                         "text": "Freut mich. Können Sie Ihren Familiennamen bitte buchstabieren?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F2.mp3?alt=media&token=31d91e63-90d8-4d9d-86a4-35101f40bf17"
                     },
                     {
                         "speaker": "user",
@@ -342,7 +342,7 @@
                     {
                         "speaker": "ai",
                         "text": "Danke. Und welche Sprachen sprechen Sie?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F3.mp3?alt=media&token=8668d7b9-6287-4125-ac88-7c23cbef2af4"
                     },
                     {
                         "speaker": "user",
@@ -358,7 +358,7 @@
                     {
                         "speaker": "ai",
                         "text": "Sehr gut. Kommen wir zu Teil 2. Wir möchten zusammen am Wochenende einkaufen gehen. Wann haben Sie Zeit?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F4.mp3?alt=media&token=ecbf63b4-1e80-4dc1-8d31-adbbf3a24305"
                     },
                     {
                         "speaker": "user",
@@ -374,7 +374,7 @@
                     {
                         "speaker": "ai",
                         "text": "Samstag passt gut. Was müssen wir für das Frühstück kaufen?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F5.mp3?alt=media&token=298ec622-7758-4e8a-8571-5f9dd18d0108"
                     },
                     {
                         "speaker": "user",
@@ -390,7 +390,7 @@
                     {
                         "speaker": "ai",
                         "text": "Super, das machen wir! Jetzt Teil 3. Ich habe noch eine Frage an Sie: Was essen Sie normalerweise gerne zum Frühstück?",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F6.mp3?alt=media&token=fedcda01-6a68-424b-afc6-d788fd5e5b24"
                     },
                     {
                         "speaker": "user",
@@ -406,7 +406,7 @@
                     {
                         "speaker": "ai",
                         "text": "Das klingt lecker. Vielen Dank für das Gespräch! Wir sind fertig. Auf Wiedersehen!",
-                        "audio_url": "PLACEHOLDER"
+                        "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/german_a1_speaking_practice%2Fdialogue-4%2F7.mp3?alt=media&token=e692bb29-b008-4276-9c7a-4e7ffc403bda"
                     },
                     {
                         "speaker": "user",

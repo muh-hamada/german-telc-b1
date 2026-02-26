@@ -6,12 +6,14 @@
 export type AppLanguage = 'german' | 'english' | 'spanish';
 export type AppLevel = 'A1' | 'A2' | 'B1' | 'B2';
 export type ExamType = 'telc' | 'dele';
+export type ExamProvider = 'telc' | 'dele' | 'goethe';
 
 export interface AppConfig {
   id: string;
   language: AppLanguage;
   level: AppLevel;
   examType: ExamType;
+  examProvider: ExamProvider;
   displayName: string;
   flag: string;
   isAvailable: boolean;
@@ -29,6 +31,7 @@ export const appsConfig: AppConfig[] = [
     language: 'german',
     level: 'A1',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'German TELC A1',
     flag: '🇩🇪',
     isAvailable: true,
@@ -44,6 +47,7 @@ export const appsConfig: AppConfig[] = [
     language: 'german',
     level: 'A2',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'German TELC A2',
     flag: '🇩🇪',
     isAvailable: true,
@@ -59,6 +63,7 @@ export const appsConfig: AppConfig[] = [
     language: 'german',
     level: 'B1',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'German TELC B1',
     flag: '🇩🇪',
     isAvailable: true,
@@ -74,6 +79,7 @@ export const appsConfig: AppConfig[] = [
     language: 'german',
     level: 'B2',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'German TELC B2',
     flag: '🇩🇪',
     isAvailable: true,
@@ -89,6 +95,7 @@ export const appsConfig: AppConfig[] = [
     language: 'english',
     level: 'B1',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'English TELC B1',
     flag: '🇬🇧',
     isAvailable: true,
@@ -104,6 +111,7 @@ export const appsConfig: AppConfig[] = [
     language: 'english',
     level: 'B2',
     examType: 'telc',
+    examProvider: 'telc',
     displayName: 'English TELC B2',
     flag: '🇬🇧',
     isAvailable: true,
@@ -114,9 +122,28 @@ export const appsConfig: AppConfig[] = [
     packageName: 'com.mhamada.telcb2english',
     iosAppId: '6756295159',
   },
+  {
+    id: 'goethe-german-a1',
+    language: 'german',
+    level: 'A1',
+    examType: 'telc',
+    examProvider: 'goethe',
+    displayName: 'Goethe German A1',
+    flag: '🇩🇪',
+    isAvailable: true,
+    storeLinks: {
+      android: '',
+      ios: '',
+    },
+    packageName: 'com.mhamada.goethea1german',
+    iosAppId: '',
+  },
 ];
 
-export const getAppConfig = (language: AppLanguage, level: AppLevel): AppConfig | undefined => {
+export const getAppConfig = (language: AppLanguage, level: AppLevel, examProvider?: ExamProvider): AppConfig | undefined => {
+  if (examProvider) {
+    return appsConfig.find(app => app.language === language && app.level === level && app.examProvider === examProvider);
+  }
   return appsConfig.find(app => app.language === language && app.level === level);
 };
 

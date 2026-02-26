@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AppConfig, AppLanguage, AppLevel, getAppConfig, appsConfig } from '../config/apps.config';
+import { AppConfig, AppLanguage, AppLevel, ExamProvider, getAppConfig } from '../config/apps.config';
 
 const STORAGE_KEY = 'telc_app_selection';
 
 interface AppSelection {
   language: AppLanguage;
   level: AppLevel;
+  examProvider?: ExamProvider;
 }
 
 interface AppSelectionContextType {
@@ -57,7 +58,7 @@ export const AppSelectionProvider: React.FC<{ children: ReactNode }> = ({ childr
     localStorage.removeItem(STORAGE_KEY);
   };
 
-  const selectedApp = selection ? getAppConfig(selection.language, selection.level) ?? null : null;
+  const selectedApp = selection ? getAppConfig(selection.language, selection.level, selection.examProvider) ?? null : null;
 
   return (
     <AppSelectionContext.Provider

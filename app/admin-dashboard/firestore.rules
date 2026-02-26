@@ -146,6 +146,14 @@ service cloud.firestore {
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
         allow write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // User progress data (Goethe German A1 - nested under users)
+      match /goethe_german_a1_progress/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
       
       // User progress data (German A2 - nested under users)
       match /german_a2_progress/{document=**} {
@@ -205,8 +213,16 @@ service cloud.firestore {
         allow write: if request.auth != null && request.auth.uid == userId;
       }
       
-      // User completions (German A1)
+      // User completions (Telc German A1)
       match /completions_german_a1/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User completions (Goethe German A1)
+      match /completions_goethe_german_a1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
@@ -275,6 +291,14 @@ service cloud.firestore {
 
       // User vocabulary progress (German A1)
       match /vocabulary_progress_german_a1/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // User vocabulary progress (Goethe German A1)
+      match /vocabulary_progress_goethe_german_a1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
@@ -353,8 +377,16 @@ service cloud.firestore {
         allow write: if request.auth != null && request.auth.uid == userId;
       }
 
-      // Speaking dialogues (German A1)
+      // Speaking dialogues (Telc German A1)
       match /speaking_dialogues_german_a1/{document=**} {
+        allow read: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Speaking dialogues (Goethe German A1)
+      match /speaking_dialogues_goethe_german_a1/{document=**} {
         allow read: if request.auth != null && 
                       (request.auth.uid == userId || 
                        request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43");

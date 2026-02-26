@@ -70,6 +70,12 @@
 				<string>com.googleusercontent.apps.494473710301-gavh32lp3th6s2ib8hicvbji42mtnsr0</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.494473710301-ikumdr07nv5ipaetbfga7mml3lo6po81</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>

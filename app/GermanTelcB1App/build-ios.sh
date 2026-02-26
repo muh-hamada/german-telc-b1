@@ -11,6 +11,7 @@ if [ -z "$EXAM_ID" ]; then
   echo "Example: ./build-ios.sh german-b1"
   echo ""
   echo "Available exam IDs:"
+  echo "  - goethe-german-a1"
   echo "  - german-b1"
   echo "  - german-b2"
   echo "  - english-b1"
@@ -55,6 +56,9 @@ elif [[ "$EXAM_ID" == "german-b1" ]]; then
 elif [[ "$EXAM_ID" == "german-a1" ]]; then
     BUNDLE_ID="com.mhamada.telca1german"
     PROVISIONING_PROFILE="TelcExamApp AppStore Distribution A1 German"
+elif [[ "$EXAM_ID" == "goethe-german-a1" ]]; then
+    BUNDLE_ID="com.mhamada.goethea1german"
+    PROVISIONING_PROFILE="GoetheExamApp AppStore Distribution A1 German"
 elif [[ "$EXAM_ID" == "german-a2" ]]; then
     BUNDLE_ID="com.mhamada.telca2german"
     PROVISIONING_PROFILE="TelcExamApp AppStore Distribution A2 German"

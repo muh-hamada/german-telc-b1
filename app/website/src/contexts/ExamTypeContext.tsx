@@ -1,9 +1,11 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 
 export type ExamType = 'telc' | 'dele';
+export type ExamProvider = 'telc' | 'dele' | 'goethe' | 'all';
 
 interface ExamTypeContextType {
   examType: ExamType;
+  examProvider: ExamProvider;
   getExamTypeName: () => string;
   getExamTypeNameLower: () => string;
 }
@@ -12,9 +14,11 @@ const ExamTypeContext = createContext<ExamTypeContextType | undefined>(undefined
 
 // Read exam type from environment variable at build time
 const examTypeFromEnv = (process.env.REACT_APP_EXAM_TYPE || 'telc') as ExamType;
+const examProviderFromEnv = (process.env.REACT_APP_EXAM_PROVIDER || 'all') as ExamProvider;
 
 export const ExamTypeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const examType = examTypeFromEnv;
+  const examProvider = examProviderFromEnv;
 
   const getExamTypeName = (): string => {
     return examType === 'telc' ? 'TELC' : 'DELE';
@@ -28,6 +32,7 @@ export const ExamTypeProvider: React.FC<{ children: ReactNode }> = ({ children }
     <ExamTypeContext.Provider
       value={{
         examType,
+        examProvider,
         getExamTypeName,
         getExamTypeNameLower,
       }}

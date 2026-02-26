@@ -266,7 +266,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     progressBar: {
       height: 8,
-      backgroundColor: colors.secondary[200],
+      backgroundColor: colors.secondary[400],
       borderRadius: 4,
       overflow: 'hidden',
     },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppLanguage, AppLevel, getAppConfig } from '../config/apps.config';
+import { AppLanguage, AppLevel, ExamProvider, getAppConfig } from '../config/apps.config';
 import { useAppSelection } from '../contexts/AppSelectionContext';
 import { useExamType } from '../contexts/ExamTypeContext';
 import { getAvailableAppsForExamType } from '../config/available-apps.config';
@@ -7,8 +7,8 @@ import './AppSelectorModal.css';
 
 const AppSelectorModal: React.FC = () => {
   const { showModal, setShowModal, setSelection, selection } = useAppSelection();
-  const { examType, getExamTypeName } = useExamType();
-  const availableLanguages = getAvailableAppsForExamType(examType);
+  const { examType, examProvider, getExamTypeName } = useExamType();
+  const availableLanguages = getAvailableAppsForExamType(examType, examProvider);
   
   const [selectedLanguage, setSelectedLanguage] = useState<AppLanguage | null>(
     selection?.language || null
@@ -16,41 +16,57 @@ const AppSelectorModal: React.FC = () => {
   const [selectedLevel, setSelectedLevel] = useState<AppLevel | null>(
     selection?.level || null
   );
+  const [selectedProvider, setSelectedProvider] = useState<ExamProvider | null>(
+    selection?.examProvider || null
+  );
 
   if (!showModal) return null;
 
   const handleLanguageSelect = (language: AppLanguage) => {
     setSelectedLanguage(language);
-    setSelectedLevel(null); // Reset level when language changes
+    setSelectedLevel(null);
+    setSelectedProvider(null);
   };
 
-  const handleLevelSelect = (level: AppLevel) => {
+  const handleLevelSelect = (level: AppLevel, provider?: ExamProvider) => {
     setSelectedLevel(level);
+    setSelectedProvider(provider || null);
   };
 
   const handleConfirm = () => {
     if (selectedLanguage && selectedLevel) {
-      const app = getAppConfig(selectedLanguage, selectedLevel);
+      const app = getAppConfig(selectedLanguage, selectedLevel, selectedProvider || undefined);
       if (app && !app.isAvailable) {
-        // Don't close modal for unavailable apps
         return;
       }
-      setSelection({ language: selectedLanguage, level: selectedLevel });
+      setSelection({ 
+        language: selectedLanguage, 
+        level: selectedLevel,
+        examProvider: selectedProvider || undefined
+      });
     }
   };
 
-  // Check if selected combination is available
   const selectedLanguageConfig = availableLanguages.find(lang => lang.id === selectedLanguage);
-  const selectedLevelConfig = selectedLanguageConfig?.availableLevels.find(lvl => lvl.level === selectedLevel);
+  
+  const selectedLevelConfig = selectedLanguageConfig?.availableLevels.find(
+    lvl => lvl.level === selectedLevel && 
+    (!selectedProvider || lvl.examProvider === selectedProvider)
+  );
+  
   const isComingSoon = selectedLanguage && selectedLevel && selectedLevelConfig && !selectedLevelConfig.isAvailable;
-
   const canConfirm = selectedLanguage && selectedLevel && !isComingSoon;
+
+  const getProviderDisplayName = (provider?: ExamProvider): string => {
+    if (!provider) return '';
+    return provider.toUpperCase();
+  };
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
         <div className="modal-header">
-          <h2>Welcome to {getExamTypeName()} Exam Prep</h2>
+          <h2>Welcome to {examProvider === 'all' ? 'Language' : getExamTypeName()} Exam Prep</h2>
           <p>Select your language and level to get started</p>
         </div>
 
@@ -77,19 +93,28 @@ const AppSelectorModal: React.FC = () => {
             <div className="selection-section">
               <h3>Choose Level</h3>
               <div className="selection-grid">
-                {selectedLanguageConfig.availableLevels.map((levelOption) => (
-                  <button
-                    key={levelOption.level}
-                    className={`selection-card ${selectedLevel === levelOption.level ? 'selected' : ''} ${!levelOption.isAvailable ? 'coming-soon' : ''}`}
-                    onClick={() => handleLevelSelect(levelOption.level)}
-                  >
-                    <span className="card-level">{levelOption.level}</span>
-                    <span className="card-sublabel">{levelOption.label}</span>
-                    {!levelOption.isAvailable && (
-                      <span className="coming-soon-badge">Soon</span>
-                    )}
-                  </button>
-                ))}
+                {selectedLanguageConfig.availableLevels.map((levelOption, index) => {
+                  const key = `${levelOption.level}-${levelOption.examProvider || 'default'}-${index}`;
+                  const isSelected = selectedLevel === levelOption.level && 
+                    (examProvider !== 'all' || selectedProvider === levelOption.examProvider);
+                  
+                  return (
+                    <button
+                      key={key}
+                      className={`selection-card ${isSelected ? 'selected' : ''} ${!levelOption.isAvailable ? 'coming-soon' : ''}`}
+                      onClick={() => handleLevelSelect(levelOption.level, levelOption.examProvider)}
+                    >
+                      <span className="card-level">{levelOption.level}</span>
+                      <span className="card-sublabel">{levelOption.label}</span>
+                      {levelOption.examProvider && examProvider === 'all' && (
+                        <span className="card-provider">{getProviderDisplayName(levelOption.examProvider)}</span>
+                      )}
+                      {!levelOption.isAvailable && (
+                        <span className="coming-soon-badge">Soon</span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}

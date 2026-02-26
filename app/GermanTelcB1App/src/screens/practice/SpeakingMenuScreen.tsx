@@ -40,6 +40,7 @@ const SpeakingMenuScreen: React.FC = () => {
   const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
   const isTelc = activeExamConfig.provider === 'telc';
+  const isGoethe = activeExamConfig.provider === 'goethe';
 
   useEffect(() => {
     const loadData = async () => {
@@ -352,7 +353,7 @@ const SpeakingMenuScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        {(isA1) && isTelc && (
+        {(isA1) && (isTelc || isGoethe) && (
           <> 
             <Card style={styles.card} onPress={handleA1Part1Press}>
               <Text style={styles.cardTitle}>{t('practice.speaking.part1')}</Text>

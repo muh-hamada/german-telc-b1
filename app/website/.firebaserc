@@ -10,6 +10,9 @@
         ],
         "dele": [
           "dele-exam-preperation"
+        ],
+        "lang": [
+          "lang-exam-preparation"
         ]
       }
     }

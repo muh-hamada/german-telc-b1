@@ -28,7 +28,7 @@ export const goetheGermanA1Config: ExamConfig = {
   // Firebase Collections (keeping existing collection names for backward compatibility)
   firebaseCollections: {
     examData: 'german_a1_telc_exam_data',              // Existing collection
-    userProgress: 'users/{uid}/german_a1_progress/data',   // Fixed: Must be 4 segments for .doc() to work
+    userProgress: 'users/{uid}/goethe_german_a1_progress/data',   // Fixed: Must be 4 segments for .doc() to work
     completions: 'users/{uid}/completions_goethe_german_a1',      // Lang and level in path (3 segments to allow appending 3 more for doc)
     streaks: 'users/{uid}/streaks/goethe-german-a1',              // Daily streaks tracking per exam
     vocabularyData: 'vocabulary_data_german_a1',           // Vocabulary words collection
@@ -61,27 +61,27 @@ export const goetheGermanA1Config: ExamConfig = {
 
   ads: {
     appID: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482~2106426459',
       ios: '',
     },
     banner: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482/6560676787',
       ios: '',
     },
     rewarded: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482/7023857007',
       ios: '',
     },
     userSupport: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482/8336938678',
       ios: '',
     },
     vocabularyBuilder: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482/2621431773',
       ios: '',
     },
     appOpen: {
-      android: '',
+      android: 'ca-app-pub-5101905792101482/1963102012',
       ios: '',
     },
   },

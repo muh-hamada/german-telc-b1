@@ -25,10 +25,14 @@
     "build": "react-scripts build",
     "build:telc": "env-cmd -f .env.telc react-scripts build",
     "build:dele": "rm -rf build-dele && env-cmd -f .env.dele react-scripts build && mv build build-dele",
-    "build:all": "npm run build:dele && npm run build:telc",
+    "build:lang": "rm -rf build-lang && env-cmd -f .env.lang react-scripts build && mv build build-lang",
+    "build:all": "npm run build:dele && npm run build:telc && npm run build:lang",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build:all && firebase deploy --only hosting",
+    "deploy:telc": "npm run build:telc && firebase deploy --only hosting:telc",
+    "deploy:dele": "npm run build:dele && firebase deploy --only hosting:dele",
+    "deploy:lang": "npm run build:lang && firebase deploy --only hosting:lang",
     "serve": "firebase serve"
   },
   "eslintConfig": {

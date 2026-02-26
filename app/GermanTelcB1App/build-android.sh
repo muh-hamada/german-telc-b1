@@ -14,6 +14,7 @@ if [ -z "$EXAM_ID" ]; then
   echo ""
   echo "Available exam IDs:"
   echo "  - german-a1"
+  echo "  - goethe-german-a1"
   echo "  - german-a2"
   echo "  - german-b1"
   echo "  - german-b2"
@@ -38,6 +39,9 @@ fi
 case "$EXAM_ID" in
   "german-a1")
     FLAVOR="germanA1"
+    ;;
+  "goethe-german-a1")
+    FLAVOR="goetheGermanA1"
     ;;
   "german-a2")
     FLAVOR="germanA2"
