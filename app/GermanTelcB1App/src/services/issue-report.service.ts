@@ -26,7 +26,7 @@ interface IssueReport {
   examId: string;
   questionSnapshot: any;
   userFeedback: string;
-  status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
+  status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug' | 'feature_request' | 'question_clarification' | 'inaccurate_question' | string;
   adminResponse?: string;
   seenByUserAt?: number;
   seenByUserSource?: 'modal' | 'screen';
@@ -41,8 +41,8 @@ export interface ReportedIssueDetails {
   part: number;
   examId: string;
   userFeedback: string;
-  status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
-  displayStatus: 'pending' | 'in_progress' | 'resolved'; // Mapped status for display
+  status: string;
+  displayStatus: 'pending' | 'in_progress' | 'resolved';
   adminResponse?: string;
   seenByUserAt?: number;
   seenByUserSource?: 'modal' | 'screen';
@@ -75,17 +75,21 @@ class IssueReportService {
 
   /**
    * Map admin status to user-friendly display status
-   * pending -> pending
-   * in_progress -> in_progress
-   * fixed, not_a_bug, cannot_reproduce -> resolved
+   * Backward compatible: treats any unknown status as 'resolved'
+   * 
+   * Known mappings:
+   * - pending -> pending
+   * - in_progress -> in_progress
+   * - fixed, not_a_bug, cannot_reproduce, feature_request, question_clarification, inaccurate_question -> resolved
+   * - any other status -> resolved (for forward compatibility)
    */
   private mapStatusToDisplay(
-    status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug'
+    status: string
   ): 'pending' | 'in_progress' | 'resolved' {
-    if (status === 'fixed' || status === 'not_a_bug' || status === 'cannot_reproduce') {
-      return 'resolved';
+    if (status === 'pending' || status === 'in_progress') {
+      return status as 'pending' | 'in_progress';
     }
-    return status as 'pending' | 'in_progress';
+    return 'resolved';
   }
 
   /**

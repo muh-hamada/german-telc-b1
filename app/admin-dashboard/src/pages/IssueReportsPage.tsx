@@ -11,6 +11,9 @@ const STATUS_LABELS: { [key: string]: string } = {
   'cannot_reproduce': 'Cannot Reproduce',
   'fixed': 'Fixed',
   'not_a_bug': 'Not a Bug',
+  'feature_request': 'Feature Request',
+  'question_clarification': 'Question Clarification',
+  'inaccurate_question': 'Inaccurate Question',
 };
 
 const STATUS_COLORS: { [key: string]: string } = {
@@ -19,6 +22,9 @@ const STATUS_COLORS: { [key: string]: string } = {
   'cannot_reproduce': '#9e9e9e',
   'fixed': '#4caf50',
   'not_a_bug': '#9c27b0',
+  'feature_request': '#00bcd4',
+  'question_clarification': '#ff5722',
+  'inaccurate_question': '#f44336',
 };
 
 export const IssueReportsPage: React.FC = () => {
@@ -46,6 +52,9 @@ export const IssueReportsPage: React.FC = () => {
     cannotReproduce: 0,
     fixed: 0,
     notABug: 0,
+    featureRequest: 0,
+    questionClarification: 0,
+    inaccurateQuestion: 0,
   });
 
   useEffect(() => {
@@ -248,46 +257,40 @@ export const IssueReportsPage: React.FC = () => {
       {/* Stats Overview */}
       <div className="stats-overview">
         <div className="stat-card total">
-          <div className="stat-icon">📊</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.total}</div>
-            <div className="stat-label">Total Reports</div>
-          </div>
+          <div className="stat-value">{stats.total}</div>
+          <div className="stat-label">Total Reports</div>
         </div>
         <div className="stat-card pending">
-          <div className="stat-icon">⏳</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.pending}</div>
-            <div className="stat-label">Pending</div>
-          </div>
+          <div className="stat-value">{stats.pending}</div>
+          <div className="stat-label">Pending</div>
         </div>
         <div className="stat-card in-progress">
-          <div className="stat-icon">🔄</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.inProgress}</div>
-            <div className="stat-label">In Progress</div>
-          </div>
+          <div className="stat-value">{stats.inProgress}</div>
+          <div className="stat-label">In Progress</div>
         </div>
         <div className="stat-card cannot-reproduce">
-          <div className="stat-icon">❓</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.cannotReproduce}</div>
-            <div className="stat-label">Cannot Reproduce</div>
-          </div>
+          <div className="stat-value">{stats.cannotReproduce}</div>
+          <div className="stat-label">Cannot Reproduce</div>
         </div>
         <div className="stat-card fixed">
-          <div className="stat-icon">✅</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.fixed}</div>
-            <div className="stat-label">Fixed</div>
-          </div>
+          <div className="stat-value">{stats.fixed}</div>
+          <div className="stat-label">Fixed</div>
         </div>
         <div className="stat-card not-a-bug">
-          <div className="stat-icon">🚫</div>
-          <div className="stat-content">
-            <div className="stat-value">{stats.notABug}</div>
-            <div className="stat-label">Not a Bug</div>
-          </div>
+          <div className="stat-value">{stats.notABug}</div>
+          <div className="stat-label">Not a Bug</div>
+        </div>
+        <div className="stat-card feature-request">
+          <div className="stat-value">{stats.featureRequest}</div>
+          <div className="stat-label">Feature Request</div>
+        </div>
+        <div className="stat-card question-clarification">
+          <div className="stat-value">{stats.questionClarification}</div>
+          <div className="stat-label">Question Clarification</div>
+        </div>
+        <div className="stat-card inaccurate-question">
+          <div className="stat-value">{stats.inaccurateQuestion}</div>
+          <div className="stat-label">Inaccurate Question</div>
         </div>
       </div>
 
@@ -325,6 +328,9 @@ export const IssueReportsPage: React.FC = () => {
           <option value="cannot_reproduce">Cannot Reproduce</option>
           <option value="fixed">Fixed</option>
           <option value="not_a_bug">Not a Bug</option>
+          <option value="feature_request">Feature Request</option>
+          <option value="question_clarification">Question Clarification</option>
+          <option value="inaccurate_question">Inaccurate Question</option>
         </select>
 
         <select 
@@ -428,6 +434,9 @@ export const IssueReportsPage: React.FC = () => {
                     <option value="cannot_reproduce">Cannot Reproduce</option>
                     <option value="fixed">Fixed</option>
                     <option value="not_a_bug">Not a Bug</option>
+                    <option value="feature_request">Feature Request</option>
+                    <option value="question_clarification">Question Clarification</option>
+                    <option value="inaccurate_question">Inaccurate Question</option>
                   </select>
                 </div>
 

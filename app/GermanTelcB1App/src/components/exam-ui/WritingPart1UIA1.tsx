@@ -229,8 +229,9 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
           <View style={styles.radioGroup}>
             {field.options.map((option: any) => {
               let isSelected
+              const isEditable = option.is_editable || field.is_editable;
 
-              if(option.isEditable){ 
+              if(isEditable){ 
                 isSelected= userAnswer === option.value;
               } else {
                 // We select it as it is not editable
@@ -242,15 +243,15 @@ const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, i
                   key={option.value}
                   style={styles.radioOption}
                   onPress={() => !isSubmitted && handleInputChange(field.id, option.value)}
-                  disabled={isSubmitted || !option.isEditable}
+                  disabled={isSubmitted || !isEditable}
                 >
                   <View style={[
                     styles.radioCircle,
                     isSelected && styles.radioCircleSelected,
                     isSubmitted && isSelected && (isCorrect ? styles.correctRadio : styles.incorrectRadio),
-                    !option.isEditable && styles.radioCircleDisabled
+                    !isEditable && styles.radioCircleDisabled
                   ]}>
-                    {isSelected && <View style={[styles.radioInner, !option.isEditable && styles.radioInnerDisabled] } />}
+                    {isSelected && <View style={[styles.radioInner, !isEditable && styles.radioInnerDisabled] } />}
                   </View>
                   <Text style={styles.radioLabel}>{option.label}</Text>
                   {isSubmitted && isSelected && (

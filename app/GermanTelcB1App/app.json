@@ -1,8 +1,8 @@
 {
-  "name": "ExamPreparationApp",
-  "displayName": "Goethe German A1",
+  "name": "GermanTelcA1App",
+  "displayName": "German TELC A1",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-5101905792101482~2106426459",
-    "ios_app_id": "ca-app-pub-5101905792101482~9600047321"
+    "android_app_id": "ca-app-pub-5101905792101482~7598249331",
+    "ios_app_id": "ca-app-pub-5101905792101482~9095982078"
   }
 }

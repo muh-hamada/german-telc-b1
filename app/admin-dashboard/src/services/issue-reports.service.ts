@@ -23,7 +23,7 @@ export interface IssueReport {
   examId: string;
   questionSnapshot: any;
   userFeedback: string;
-  status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug';
+  status: 'pending' | 'in_progress' | 'cannot_reproduce' | 'fixed' | 'not_a_bug' | 'feature_request' | 'question_clarification' | 'inaccurate_question';
   createdAt: Timestamp | Date;
   internalComments?: string;
   adminResponse?: string;
@@ -112,6 +112,9 @@ class IssueReportsService {
     cannotReproduce: number;
     fixed: number;
     notABug: number;
+    featureRequest: number;
+    questionClarification: number;
+    inaccurateQuestion: number;
   }> {
     try {
       const reports = await this.getAllIssueReports();
@@ -123,6 +126,9 @@ class IssueReportsService {
         cannotReproduce: reports.filter(r => r.status === 'cannot_reproduce').length,
         fixed: reports.filter(r => r.status === 'fixed').length,
         notABug: reports.filter(r => r.status === 'not_a_bug').length,
+        featureRequest: reports.filter(r => r.status === 'feature_request').length,
+        questionClarification: reports.filter(r => r.status === 'question_clarification').length,
+        inaccurateQuestion: reports.filter(r => r.status === 'inaccurate_question').length,
       };
     } catch (error) {
       console.error('Error getting report counts:', error);
