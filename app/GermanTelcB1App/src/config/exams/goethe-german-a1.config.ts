@@ -56,33 +56,33 @@ export const goetheGermanA1Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.goethea1german',
-    ios: '',
+    ios: '6759726606',
   },
 
   ads: {
     appID: {
       android: 'ca-app-pub-5101905792101482~2106426459',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482~9600047321',
     },
     banner: {
       android: 'ca-app-pub-5101905792101482/6560676787',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/2891168749',
     },
     rewarded: {
       android: 'ca-app-pub-5101905792101482/7023857007',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/3698176892',
     },
     userSupport: {
       android: 'ca-app-pub-5101905792101482/8336938678',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/6651643293',
     },
     vocabularyBuilder: {
       android: 'ca-app-pub-5101905792101482/2621431773',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/9233720398',
     },
     appOpen: {
       android: 'ca-app-pub-5101905792101482/1963102012',
-      ios: '',
+      ios: 'ca-app-pub-5101905792101482/2072911095',
     },
   },
 

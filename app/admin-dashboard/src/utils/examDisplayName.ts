@@ -4,6 +4,7 @@ export const APP_DISPLAY_NAMES: { [key: string]: string } = {
     'english-b1': 'English B1',
     'english-b2': 'English B2',
     'german-a1': 'German A1',
+    'goethe-german-a1': 'Goethe German A1',
     'german-a2': 'German A2',
     'dele-spanish-b1': 'DELE Spanish B1',
 };

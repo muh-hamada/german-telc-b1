@@ -56,13 +56,13 @@ export const germanA2Config: ExamConfig = {
   // Store IDs
   storeIds: {
     android: 'com.mhamada.telca2german',
-    ios: 'ca-app-pub-5101905792101482~8374326066',
+    ios: '6759285601',
   },
 
   ads: {
     appID: {
       android: 'ca-app-pub-5101905792101482~7489444215',
-      ios: '6759285601',
+      ios: 'ca-app-pub-5101905792101482~8374326066',
     },
     banner: {
       android: 'ca-app-pub-5101905792101482/3363765868',

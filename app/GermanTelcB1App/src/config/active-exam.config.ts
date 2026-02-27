@@ -2,7 +2,7 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-02-26T08:25:11.399Z
+ * Generated at: 2026-02-26T22:11:19.660Z
  * Exam: Goethe German A1
  * 
  * This file determines which exam configuration is active for the current build.
