@@ -100,53 +100,11 @@ android {
         }
     }
     
-    // Configure packaging options to handle native libraries correctly
     packagingOptions {
         jniLibs {
             useLegacyPackaging = true
-            // Keep debug symbols for troubleshooting
-            keepDebugSymbols += ["**/*.so"]
         }
-        
-        // Ensure React Native native libraries are not stripped
-        doNotStrip '**/libreactnative.so'
-        doNotStrip '**/libhermes.so'
-        doNotStrip '**/libjsc.so'
-        doNotStrip '**/libfbjni.so'
-        doNotStrip '**/libc++_shared.so'
-        
-        // Explicitly exclude duplicates to prevent conflicts
-        // Pick first occurrence if there are duplicate libraries
-        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
-        pickFirst 'lib/arm64-v8a/libc++_shared.so'
-        pickFirst 'lib/x86/libc++_shared.so'
-        pickFirst 'lib/x86_64/libc++_shared.so'
-        
-        // Explicitly handle all React Native libraries
-        pickFirst 'lib/armeabi-v7a/libreactnative.so'
-        pickFirst 'lib/arm64-v8a/libreactnative.so'
-        pickFirst 'lib/x86/libreactnative.so'
-        pickFirst 'lib/x86_64/libreactnative.so'
-        
-        pickFirst 'lib/armeabi-v7a/libhermes.so'
-        pickFirst 'lib/arm64-v8a/libhermes.so'
-        pickFirst 'lib/x86/libhermes.so'
-        pickFirst 'lib/x86_64/libhermes.so'
-        
-        pickFirst 'lib/armeabi-v7a/libfbjni.so'
-        pickFirst 'lib/arm64-v8a/libfbjni.so'
-        pickFirst 'lib/x86/libfbjni.so'
-        pickFirst 'lib/x86_64/libfbjni.so'
-        
-        // Ensure META-INF files don't cause conflicts
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/ASL2.0'
+        pickFirst 'lib/*/libc++_shared.so'
         exclude 'META-INF/*.kotlin_module'
     }
     
@@ -229,18 +187,20 @@ android {
         }
     }
     
-    // Configure APK splits for different architectures
-    // DISABLED: APK splits cause architecture mismatch issues with React Native
-    // Use Android App Bundle (AAB) for Play Store instead, or universal APK for testing
     splits {
         abi {
-            // Disable APK splitting by ABI to prevent architecture mismatch issues
-            // that cause SoLoader crashes on Android 11/12
             enable false
-            // Clear the default list
             reset()
-            // Generate a universal APK that includes all ABIs
             universalApk true
+        }
+    }
+    
+    // Disable ABI splitting in App Bundles so native libraries (.so) remain in
+    // base.apk. Without this, Play Store puts them in config split APKs that
+    // SoLoader's BackupSoSource cannot reach, causing SoLoaderDSONotFoundError.
+    bundle {
+        abi {
+            enableSplit = false
         }
     }
 }

@@ -26,35 +26,12 @@
 -keep class com.facebook.hermes.unicode.** { *; }
 -keep class com.facebook.jni.** { *; }
 
-# Keep SoLoader - critical for native library loading
-# This is essential for React Native 0.82+ with New Architecture
+# Keep SoLoader
 -keep class com.facebook.soloader.** { *; }
--keep interface com.facebook.soloader.** { *; }
--keepclassmembers class com.facebook.soloader.** { *; }
--keepclasseswithmembers class com.facebook.soloader.** { *; }
 -dontwarn com.facebook.soloader.**
--dontnote com.facebook.soloader.**
 
-# Keep SoLoader annotations
--keepattributes *Annotation*,Signature,Exception
-
-# Prevent SoLoader from being optimized away
--keep,allowobfuscation class com.facebook.soloader.SoLoader {
-    public static <methods>;
-    public static <fields>;
-}
--keep class com.facebook.soloader.SoLoaderULError { *; }
--keep class com.facebook.soloader.SoLoaderDSONotFoundError { *; }
--keep class com.facebook.soloader.DirectorySoSource { *; }
--keep class com.facebook.soloader.ApkSoSource { *; }
-
-# Keep React Native feature flags - critical for New Architecture
+# Keep React Native feature flags and new architecture entry points
 -keep class com.facebook.react.internal.featureflags.** { *; }
--keep interface com.facebook.react.internal.featureflags.** { *; }
--keepclassmembers class com.facebook.react.internal.featureflags.** { *; }
--dontwarn com.facebook.react.internal.featureflags.**
-
-# Keep all classes related to native library loading
 -keep class com.facebook.react.defaults.** { *; }
 -keep class com.facebook.react.ReactNativeApplicationEntryPoint { *; }
 
