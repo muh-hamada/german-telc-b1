@@ -157,7 +157,7 @@ class VocabularyDataService {
       let lastDocId: string | null = null;
       let hasMore = true;
       let attempts = 0;
-      const maxAttempts = 10; // Prevent infinite loops
+      const maxAttempts = Math.max(10, Math.ceil(studiedWordIds.size / BATCH_SIZE) + 3); // Scale with studied words
 
       console.log(`[VocabularyDataService] Finding ${limit} new words (${studiedWordIds.size} already studied)`);
 

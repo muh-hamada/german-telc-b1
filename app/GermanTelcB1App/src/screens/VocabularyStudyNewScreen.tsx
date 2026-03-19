@@ -182,11 +182,6 @@ const VocabularyStudyNewScreen: React.FC = () => {
       setIsLoading(true);
       const newWords = await getNewWords(dailyLimit);
       setWords(newWords);
-      
-      if (newWords.length === 0) {
-        // No new words available, go back
-        navigation.goBack();
-      }
     } catch (error) {
       console.error('[VocabularyStudyNewScreen] Error loading words:', error);
       navigation.goBack();
