@@ -33,13 +33,13 @@ def load_app_store_metadata(app_id)
   metadata = JSON.parse(File.read(APP_STORE_METADATA_PATH))
   
   # Parse app_id to extract language and level
-  # Format: "german-a1", "german-a2", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1"
+  # Format: "german-a1", "german-a2", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1", "goethe-german-a1"
   parts = app_id.split('-')
   
-  # Handle special case for "dele-spanish-b1"
-  if parts.length == 3 && parts[0] == "dele"
-    language = parts[1]  # "spanish"
-    level = parts[2].upcase  # "B1"
+  # Handle special cases for 3-part IDs with prefix (e.g., "dele-spanish-b1", "goethe-german-a1")
+  if parts.length == 3 && ["dele", "goethe"].include?(parts[0])
+    language = parts[1]  # "spanish" or "german"
+    level = parts[2].upcase  # "B1", "A1"
   else
     language = parts[0]  # "german" or "english"
     level = parts[1].upcase  # "A1", "B1", "B2"
@@ -364,14 +364,15 @@ platform :ios do
     build_number = options[:build_number]
     message_index = options[:message_index].to_i
     
-    # Load update message
+    # Load update message (has keys like "en", "de", "es", "fr", "ar", "tr", "ja", "ko", etc.)
     update_message = load_update_message(message_index)
     
     # Load App Store metadata with placeholders replaced
+    # app_metadata[:description] has keys like "en-US", "de-DE", "es-ES", etc. (9 locales from our JSON)
+    # app_metadata[:keywords] same structure
+    # app_metadata[:support_url] and [:marketing_url] are plain strings
     app_metadata = load_app_store_metadata(options[:app_id])
     
-    # Remove emojis from messages for App Store (App Store rejects emojis in release notes)
-    # Query App Store Connect to get configured localizations for this app
     UI.message("   🔍 Detecting configured localizations for #{bundle_id}...")
     
     # Login to App Store Connect
@@ -382,55 +383,137 @@ platform :ios do
       UI.user_error!("Could not find app with bundle ID: #{bundle_id}")
     end
     
-    # Get the app info localizations (these are the configured locales in App Store Connect)
-    app_info = app.fetch_edit_app_info
+    # ──────────────────────────────────────────────────────────────────────
+    # STEP 1: Detect configured locales from App Store Connect
+    #
+    # App Store Connect requires that EVERY configured locale has:
+    #   - whatsNew (release notes)
+    #   - description
+    #   - keywords
+    #   - supportUrl
+    # If we miss any, the submission is rejected.
+    #
+    # We try multiple API methods because depending on app state
+    # (no edit version yet, pending review, etc.) different APIs work.
+    # ──────────────────────────────────────────────────────────────────────
     configured_locales = []
     
-    if app_info
-      app_info_localizations = app_info.get_app_info_localizations
-      configured_locales = app_info_localizations.map { |loc| loc.locale }
+    # Method 1: Try to get locales from existing app store versions
+    begin
+      versions = app.get_app_store_versions(filter: { platform: "IOS" })
+      if versions && !versions.empty?
+        versions.each do |ver|
+          begin
+            version_localizations = ver.get_app_store_version_localizations
+            if version_localizations && !version_localizations.empty?
+              configured_locales = version_localizations.map { |loc| loc.locale }
+              UI.message("   ✅ Detected #{configured_locales.length} locales from app store version (state: #{ver.app_store_state})")
+              break
+            end
+          rescue => e
+            UI.message("   ⚠️  Could not get localizations from version (#{ver.app_store_state}): #{e.message}")
+          end
+        end
+      end
+    rescue => e
+      UI.message("   ⚠️  Could not fetch app store versions: #{e.message}")
     end
     
-    # Fallback to en-US if we couldn't detect any locales
+    # Method 2: Fallback to app info localizations
+    if configured_locales.empty?
+      begin
+        app_info = app.fetch_edit_app_info || app.fetch_live_app_info
+        if app_info
+          app_info_localizations = app_info.get_app_info_localizations
+          if app_info_localizations && !app_info_localizations.empty?
+            configured_locales = app_info_localizations.map { |loc| loc.locale }
+            UI.message("   ✅ Detected #{configured_locales.length} locales from app info")
+          end
+        end
+      rescue => e
+        UI.message("   ⚠️  Could not fetch app info localizations: #{e.message}")
+      end
+    end
+    
+    # Method 3: Last resort — en-US is always safe
     if configured_locales.empty?
       UI.message("   ⚠️  Could not detect configured locales, defaulting to en-US only")
       configured_locales = ["en-US"]
     end
     
-    UI.message("   📍 App Store Connect configured locales: #{configured_locales.join(', ')}")
+    UI.message("   📍 Configured locales: #{configured_locales.join(', ')}")
     
-    # Map update message locales to App Store Connect locale codes
-    locale_map = {
+    # ──────────────────────────────────────────────────────────────────────
+    # STEP 2: Build localized data for EVERY configured locale.
+    #
+    # Mapping: App Store Connect locale code -> update_message short key
+    # Some apps use short codes (e.g. "tr", "ar") and some use full
+    # codes (e.g. "tr-TR", "ar-SA"). We handle both directions.
+    # ──────────────────────────────────────────────────────────────────────
+    
+    # Maps App Store locale -> short key in update_message / metadata JSON
+    reverse_locale_map = {
+      "en-US" => "en", "de-DE" => "de", "es-ES" => "es", "fr-FR" => "fr",
+      "it-IT" => "it", "pt-PT" => "pt", "pt-BR" => "pt", "ru-RU" => "ru",
+      "ar-SA" => "ar", "ar" => "ar", "tr-TR" => "tr", "tr" => "tr"
+    }
+    
+    # Maps short key -> App Store full locale (used for looking up our metadata)
+    forward_locale_map = {
       "en" => "en-US", "de" => "de-DE", "es" => "es-ES", "fr" => "fr-FR",
-      "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar-SA", "tr" => "tr-TR"
+      "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar", "tr" => "tr-TR"
     }
     
-    # Build release notes only for configured locales
-    ios_message = {}
-    update_message.each do |locale_key, msg|
-      full_locale = locale_map[locale_key] || locale_key
+    en_release_note = remove_emojis(update_message["en"] || "Bug fixes and improvements")
+    en_description = app_metadata[:description]["en-US"] || ""
+    en_keywords = app_metadata[:keywords]["en-US"] || ""
+    
+    ios_release_notes = {}
+    ios_descriptions = {}
+    ios_keywords = {}
+    ios_support_url = {}
+    ios_marketing_url = {}
+    
+    configured_locales.each do |app_store_locale|
+      # Find the short key for this locale (e.g. "de-DE" -> "de", "tr" -> "tr")
+      short_key = reverse_locale_map[app_store_locale]
       
-      # Only include if this locale is configured in App Store Connect
-      if configured_locales.include?(full_locale)
-        ios_message[full_locale] = remove_emojis(msg)
+      # Also try to find the metadata locale key (how load_app_store_metadata indexed it)
+      # Our metadata uses forward_locale_map values as keys (e.g. "en-US", "de-DE", "tr-TR")
+      # But App Store Connect might report "tr" while our metadata has "tr-TR"
+      metadata_locale = app_store_locale
+      if short_key && forward_locale_map[short_key]
+        metadata_locale = forward_locale_map[short_key]
       end
+      
+      # Release notes: use translated update_message, or English fallback
+      if short_key && update_message[short_key]
+        ios_release_notes[app_store_locale] = remove_emojis(update_message[short_key])
+      elsif update_message[app_store_locale]
+        # Try direct match (e.g. "pt-BR" key exists in update_message)
+        ios_release_notes[app_store_locale] = remove_emojis(update_message[app_store_locale])
+      else
+        ios_release_notes[app_store_locale] = en_release_note
+        UI.message("   ⚠️  No release note for '#{app_store_locale}', using English")
+      end
+      
+      # Description: use localized metadata, or English fallback
+      ios_descriptions[app_store_locale] = app_metadata[:description][metadata_locale] ||
+                                           app_metadata[:description][app_store_locale] ||
+                                           en_description
+      
+      # Keywords: use localized metadata, or English fallback
+      ios_keywords[app_store_locale] = app_metadata[:keywords][metadata_locale] ||
+                                       app_metadata[:keywords][app_store_locale] ||
+                                       en_keywords
+      
+      # URLs: same for all locales
+      ios_support_url[app_store_locale] = app_metadata[:support_url]
+      ios_marketing_url[app_store_locale] = app_metadata[:marketing_url]
     end
     
-    # Ensure we have at least English
-    if ios_message.empty? && update_message["en"]
-      ios_message["en-US"] = remove_emojis(update_message["en"])
-      UI.message("   ⚠️  No matching locales found, using English as fallback")
-    end
-    
-    UI.message("   📝 Setting release notes for locales: #{ios_message.keys.join(', ')}")
-    
-    # Use English-only metadata (metadata localization is separate from release notes)
-    english_metadata = {
-      description: { "en-US" => app_metadata[:description]["en-US"] },
-      keywords: { "en-US" => app_metadata[:keywords]["en-US"] },
-      support_url: { "en-US" => app_metadata[:support_url] },
-      marketing_url: { "en-US" => app_metadata[:marketing_url] }
-    }
+    UI.message("   📝 Release notes for: #{ios_release_notes.keys.join(', ')}")
+    UI.message("   📝 Descriptions for: #{ios_descriptions.keys.join(', ')}")
     
     UI.message("🍎 Creating App Store release...")
     UI.message("   App: #{options[:app_id]}")
@@ -447,25 +530,21 @@ platform :ios do
     deliver(
       app_identifier: bundle_id,
       app_version: version,
-      build_number: build_number.to_s,  # Ensure build_number is a string
+      build_number: build_number.to_s,
       skip_binary_upload: true,
       skip_screenshots: true,
-      skip_metadata: false,  # Enable metadata upload
+      skip_metadata: false,
       force: true,
-      submit_for_review: true,  # Auto-submit enabled (ITSAppUsesNonExemptEncryption in Info.plist handles encryption)
+      submit_for_review: true,
       automatic_release: true,
       
-      # Release notes (English only)
-      release_notes: ios_message,
-      
-      # App metadata (English only)
-      description: english_metadata[:description],
-      keywords: english_metadata[:keywords],
-      support_url: english_metadata[:support_url],
-      marketing_url: english_metadata[:marketing_url]
+      # All fields provided for EVERY configured locale
+      release_notes: ios_release_notes,
+      description: ios_descriptions,
+      keywords: ios_keywords,
+      support_url: ios_support_url,
+      marketing_url: ios_marketing_url
     )
-    
-    UI.success("✅ Successfully created and submitted release for #{options[:app_id]} in App Store Connect!")
     
     UI.success("✅ Successfully created and submitted release for #{options[:app_id]} in App Store Connect!")
   end

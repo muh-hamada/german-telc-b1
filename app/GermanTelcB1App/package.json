@@ -22,6 +22,7 @@
     "ios:english-b1": "./scripts/build-config.sh english-b1 ios && react-native run-ios --scheme ExamPreparationApp",
     "ios:english-b2": "./scripts/build-config.sh english-b2 ios && react-native run-ios --scheme ExamPreparationApp",
     "ios:dele-spanish-b1": "./scripts/build-config.sh dele-spanish-b1 ios && react-native run-ios --scheme ExamPreparationApp",
+    "versions": "./print-versions.sh",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
