@@ -23,11 +23,13 @@ export const DISABLE_DATA_CACHE = false; // Set to true to disable data cache
 
 export const HIDE_SUPPORT_US = false; // Set to false for production
 
-export const SIMULATE_PREMIUM_USER = true; // Set to true to simulate a premium user
+export const SIMULATE_PREMIUM_USER = false; // Set to true to simulate a premium user
 
 export const FORCE_DARK_MODE = false; // Set to true to force dark mode
 
 export const FORCE_AD_FREE_GIFT_ELIGIBLE = false; // Set to true to force show ad-free gift eligibility
+
+export const FORCE_SHOW_ONBOARDING = false; // Set to true to force show onboarding flow on app launch
 
 /**
  * Streak Feature Flags

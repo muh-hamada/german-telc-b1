@@ -47,7 +47,7 @@ const SpeakingPart2Screen: React.FC = () => {
   const topicId = route.params?.topicId ?? 0;
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const markdownStyles = useMemo(() => createMarkdownStyles(colors), [colors]);
+  const markdownStyles = useMemo(() => createMarkdownStyles(colors, typography), [colors, typography]);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part2', topicId);
 
@@ -245,7 +245,7 @@ const SpeakingPart2Screen: React.FC = () => {
   );
 };
 
-const createMarkdownStyles = (colors: ThemeColors) => ({
+const createMarkdownStyles = (colors: ThemeColors, typography: Typography) => ({
   body: {
     ...typography.textStyles.body,
     color: colors.text.primary,

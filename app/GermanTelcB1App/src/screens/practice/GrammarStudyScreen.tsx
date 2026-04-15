@@ -78,7 +78,7 @@ const GrammarStudyScreen: React.FC = () => {
   // Set up header menu (font size toggle)
   useEffect(() => {
     navigation.setOptions({
-      headerRight: ExamHeaderMenu,
+      headerRight: () => <ExamHeaderMenu />,
     });
   }, [navigation]);
   const SUPPORT_AD_INTERVAL = getSupportAdInterval('grammarStudy');

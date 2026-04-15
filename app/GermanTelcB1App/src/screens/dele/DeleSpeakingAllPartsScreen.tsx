@@ -34,7 +34,7 @@ const DeleSpeakingAllPartsScreen: React.FC = () => {
 
   useEffect(() => {
     navigation.setOptions({
-      headerRight: ExamHeaderMenu,
+      headerRight: () => <ExamHeaderMenu />,
     });
   }, [navigation]);
 

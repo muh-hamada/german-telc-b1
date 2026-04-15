@@ -50,7 +50,15 @@ class FrequentUserRewardService {
         return DEFAULT_REWARD_DATA;
       }
 
-      return doc.data() as FrequentUserRewardData;
+      const data = doc.data() as Partial<FrequentUserRewardData>;
+      return {
+        ...DEFAULT_REWARD_DATA,
+        ...data,
+        adFree: {
+          ...DEFAULT_REWARD_DATA.adFree,
+          ...data?.adFree,
+        },
+      };
     } catch (error) {
       console.error('[FrequentUserRewardService] Error getting reward data:', error);
       return DEFAULT_REWARD_DATA;

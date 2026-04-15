@@ -11,6 +11,7 @@ import MockExamRunningScreen from '../screens/MockExamRunningScreen';
 import { useIssueUpdateChecker } from '../hooks/useIssueUpdateChecker';
 import { logScreenView } from '../services/analytics.events';
 import { useAppTheme } from '../contexts/ThemeContext';
+import { FORCE_SHOW_ONBOARDING } from '../config/development.config';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -70,7 +71,7 @@ const RootNavigator: React.FC = () => {
       theme={navigationTheme}
     >
       <Stack.Navigator
-        initialRouteName={isFirstLaunch ? 'Onboarding' : 'Main'}
+        initialRouteName={(isFirstLaunch || FORCE_SHOW_ONBOARDING) ? 'Onboarding' : 'Main'}
         screenOptions={{
           headerShown: false,
           cardStyle: { backgroundColor: colors.background.primary },
