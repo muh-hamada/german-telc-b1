@@ -1,5 +1,5 @@
 import { colors, darkColors, lightColors, type ThemeMode, type ThemeColors } from './colors';
-import { typography } from './typography';
+import { typography, createScaledTypography, type Typography } from './typography';
 import { spacing } from './spacing';
 
 export const theme = {
@@ -9,7 +9,7 @@ export const theme = {
 } as const;
 
 export type Theme = typeof theme;
-export type { ThemeMode, ThemeColors };
+export type { ThemeMode, ThemeColors, Typography };
 
 // Re-export individual theme modules
-export { colors, darkColors, lightColors, typography, spacing };
+export { colors, darkColors, lightColors, typography, createScaledTypography, spacing };

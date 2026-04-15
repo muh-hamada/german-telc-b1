@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import dataService from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -16,8 +16,8 @@ import { LanguageNameToLanguageCodes } from '../../utils/i18n';
 
 const SpeakingB2StructureScreen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   const examLanguageCode = LanguageNameToLanguageCodes[activeExamConfig.language] || 'de';
   const [activeTab, setActiveTab] = useState<'overview' | 'parts' | 'hints'>('overview');
@@ -197,7 +197,7 @@ const SpeakingB2StructureScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

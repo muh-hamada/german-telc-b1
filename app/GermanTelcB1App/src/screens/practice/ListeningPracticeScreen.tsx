@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndi
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import Sound from 'react-native-nitro-sound';
 import { HomeStackParamList } from '../../types/navigation.types';
@@ -26,8 +26,8 @@ const ListeningPracticeScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const { updateExamProgress, userProgress } = useProgress();
   const { user } = useAuth();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   // Parse duration from "MM:SS" format to seconds
   const parseDuration = (timeString: string): number => {
@@ -341,7 +341,7 @@ const ListeningPracticeScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
   },

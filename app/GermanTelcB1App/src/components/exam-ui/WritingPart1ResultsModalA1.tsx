@@ -10,7 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import SupportAdButton from '../SupportAdButton';
 
@@ -42,8 +42,8 @@ const WritingPart1ResultsModalA1: React.FC<WritingPart1ResultsModalA1Props> = ({
   isMockExam,
 }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const percentage = Math.round((score / totalQuestions) * 100);
 
@@ -167,7 +167,7 @@ const WritingPart1ResultsModalA1: React.FC<WritingPart1ResultsModalA1Props> = ({
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',

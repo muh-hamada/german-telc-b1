@@ -42,7 +42,7 @@ const SettingsScreen: React.FC = () => {
   const { user, isLoading: authLoading } = useAuth();
   const { isPremium } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
-  const { colors, mode: themeMode, setTheme, isLoading: isThemeLoading } = useAppTheme();
+  const { colors, mode: themeMode, setTheme, isBigFont, toggleFontSize, isLoading: isThemeLoading } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const isDarkMode = themeMode === 'dark';
   const {
@@ -618,6 +618,20 @@ const SettingsScreen: React.FC = () => {
               {isDarkMode
                 ? t('settings.darkModeOn')
                 : t('settings.darkModeOff')}
+            </Text>
+          </View>
+          <View style={styles.notificationsContainer}>
+            <View style={styles.notificationsRow}>
+              <Text style={styles.settingLabel}>{t('settings.largeFont')}</Text>
+              <Switch
+                value={isBigFont}
+                onValueChange={() => toggleFontSize()}
+                trackColor={{ false: colors.secondary[200], true: colors.primary[200] }}
+                thumbColor={isBigFont ? colors.primary[500] : colors.secondary[400]}
+              />
+            </View>
+            <Text style={styles.helperText}>
+              {t('settings.largeFontDescription')}
             </Text>
           </View>
         </View>

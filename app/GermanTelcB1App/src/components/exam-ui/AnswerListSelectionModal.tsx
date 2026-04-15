@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 
 interface ChoiceOption {
@@ -37,8 +37,8 @@ const AnswerListSelectionModal: React.FC<AnswerListSelectionModalProps> = ({
   modalTitle,
 }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const defaultTitle = selectedGap !== null 
     ? t('grammar.part2.selectWord', { gap: selectedGap })
@@ -96,7 +96,7 @@ const AnswerListSelectionModal: React.FC<AnswerListSelectionModalProps> = ({
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',

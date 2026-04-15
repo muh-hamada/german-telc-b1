@@ -1,4 +1,4 @@
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
@@ -10,9 +10,10 @@ import {
   View,
 } from 'react-native';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import dataService from '../../services/data.service';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import {
   DeleSpeakingPart1Topic,
   DeleSpeakingPart2Question,
@@ -27,8 +28,15 @@ const DeleSpeakingAllPartsScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<DeleSpeakingAllPartsScreenRouteProp>();
   const { part, topicIndex } = route.params;
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const navigation = useNavigation();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: ExamHeaderMenu,
+    });
+  }, [navigation]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [part1Topic, setPart1Topic] = useState<DeleSpeakingPart1Topic | null>(null);
@@ -335,7 +343,7 @@ const DeleSpeakingAllPartsScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

@@ -10,7 +10,7 @@ import {
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-nitro-sound';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { DeleListeningExam, DeleListeningSectionDetails, UserAnswer } from '../../types/exam.types';
@@ -26,8 +26,8 @@ interface DeleListeningUIProps {
 
 const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails, part, onComplete }) => {
   const { i18n, t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number | string }>({});
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -408,7 +408,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

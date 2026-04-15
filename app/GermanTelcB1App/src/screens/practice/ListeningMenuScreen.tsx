@@ -3,7 +3,7 @@ import { Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
@@ -25,8 +25,8 @@ const ListeningMenuScreen: React.FC = () => {
   const [part3Exams, setPart3Exams] = useState<any[]>([]);
   const [part4Exams, setPart4Exams] = useState<any[]>([]);
   const [part5Exams, setPart5Exams] = useState<any[]>([]);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const isA1 = activeExamConfig.level === 'A1';
   const isA2 = activeExamConfig.level === 'A2';
@@ -279,7 +279,7 @@ const ListeningMenuScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: { 
       flex: 1,

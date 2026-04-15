@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import {
   WritingAssessmentResult,
@@ -37,8 +37,8 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
   scoreMultiplier = 1,
 }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [isUserInputExpanded, setIsUserInputExpanded] = React.useState(false);
   const [isModalAnswerExpanded, setIsModalAnswerExpanded] = React.useState(false);
 
@@ -259,7 +259,7 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',

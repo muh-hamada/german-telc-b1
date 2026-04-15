@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, CommonActions } from '@react-navigation/native';
-import { spacing, typography, type ThemeColors } from '../theme';
+import { spacing, type ThemeColors, type Typography } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { activeExamConfig } from '../config/active-exam.config';
 import ExamStepper from '../components/ExamStepper';
@@ -82,8 +82,8 @@ const MockExamRunningScreen: React.FC = () => {
     }>;
   } | null>(null);
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const isA1 = activeExamConfig.level === 'A1';
   const isA2 = activeExamConfig.level === 'A2';
@@ -745,7 +745,7 @@ const MockExamRunningScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

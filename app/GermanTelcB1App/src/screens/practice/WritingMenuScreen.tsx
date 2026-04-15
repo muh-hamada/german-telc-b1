@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
@@ -23,8 +23,8 @@ const WritingMenuScreen: React.FC = () => {
   const [showPart2Modal, setShowPart2Modal] = useState(false);
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   // Check if writing has multiple parts based on exam structure
   const writingParts = activeExamConfig.examStructure.writing || [1];
@@ -167,7 +167,7 @@ const WritingMenuScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

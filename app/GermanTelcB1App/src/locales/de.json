@@ -107,6 +107,8 @@
     "completedCount": "{{completed}}/{{total}} abgeschlossen",
     "markedCompleted": "Prüfung als abgeschlossen markiert!",
     "markedIncomplete": "Prüfung als unvollständig markiert!",
+    "markComplete": "Als abgeschlossen markieren",
+    "markIncomplete": "Als unvollständig markieren",
     "completionFailed": "Fehler beim Aktualisieren des Status",
     "loginToSaveProgress": "Sie müssen sich anmelden, um Ihren Fortschritt zu speichern",
     "autoCompleted": "Gut gemacht! Wir haben dies als abgeschlossen markiert. Sie können es jederzeit wieder entfernen.",
@@ -892,7 +894,9 @@
     "appearance": "Aussehen",
     "darkMode": "Dunkler Modus",
     "darkModeOn": "Dunkles Thema reduziert Blendung.",
-    "darkModeOff": "Das helle Thema sorgt für ein helleres Aussehen."
+    "darkModeOff": "Das helle Thema sorgt für ein helleres Aussehen.",
+    "largeFont": "Große Schrift",
+    "largeFontDescription": "Vergrößert die Schrift auf Fragenbildschirmen für leichteres Lesen."
   },
   "stats": {
     "title": "Statistiken",

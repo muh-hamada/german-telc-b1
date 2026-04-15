@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { Text, StyleSheet, ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
@@ -31,8 +31,8 @@ const SpeakingMenuScreen: React.FC = () => {
   const [b2Part1Topics, setB2Part1Topics] = useState<any[]>([]);
   const [b2Part2Topics, setB2Part2Topics] = useState<any[]>([]);
   const [b2Part3Questions, setB2Part3Questions] = useState<any[]>([]);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const isB2 = activeExamConfig.level === 'B2';
   const isB1 = activeExamConfig.level === 'B1';
@@ -466,7 +466,7 @@ const SpeakingMenuScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

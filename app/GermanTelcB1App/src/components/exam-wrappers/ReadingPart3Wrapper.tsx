@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { ThemeColors, typography } from '../../theme';
+import { ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart3UI from '../exam-ui/ReadingPart3UI';
 import ReadingPart3A1UI from '../exam-ui/ReadingPart3A1UI';
@@ -19,8 +19,8 @@ const ReadingPart3Wrapper: React.FC<ReadingPart3WrapperProps> = ({ testId, onCom
   const isA2 = activeExamConfig.level === 'A2';
   const [exam, setExam] = useState<ReadingPart3Exam | ReadingPart3A1Exam | ReadingPart3A2Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   useEffect(() => {
     const loadExam = async () => {
@@ -69,7 +69,7 @@ const ReadingPart3Wrapper: React.FC<ReadingPart3WrapperProps> = ({ testId, onCom
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

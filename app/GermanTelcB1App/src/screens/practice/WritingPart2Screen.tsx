@@ -12,6 +12,7 @@ import { spacing, type ThemeColors } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -56,28 +57,11 @@ const WritingPart2Screen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity
-            onPress={() => setShowReportIssueModal(true)}
-            style={styles.headerButton}
-          >
-            <Icon
-              name="warning"
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleToggleCompletion}
-            style={styles.headerButton}
-          >
-            <Icon
-              name={isCompleted ? 'check-circle' : 'circle-o'}
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-        </View>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+          onReportIssue={() => setShowReportIssueModal(true)}
+        />
       ),
     });
   }, [isCompleted, navigation]);

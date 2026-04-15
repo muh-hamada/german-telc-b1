@@ -107,6 +107,8 @@
     "completedCount": "{{completed}}/{{total}} completado",
     "markedCompleted": "¡Examen marcado como completado!",
     "markedIncomplete": "¡Examen marcado como incompleto!",
+    "markComplete": "Marcar como completado",
+    "markIncomplete": "Marcar como incompleto",
     "completionFailed": "Error al actualizar el estado de finalización",
     "loginToSaveProgress": "Necesitas iniciar sesión para guardar tu progreso",
     "autoCompleted": "¡Bien hecho! Lo hemos marcado como completado. Siempre puedes desmarcarlo de nuevo.",
@@ -895,7 +897,9 @@
     "appearance": "Apariencia",
     "darkMode": "modo oscuro",
     "darkModeOn": "El tema oscuro reduce el deslumbramiento.",
-    "darkModeOff": "El tema claro mantiene una apariencia más brillante."
+    "darkModeOff": "El tema claro mantiene una apariencia más brillante.",
+    "largeFont": "Fuente grande",
+    "largeFontDescription": "Aumentar el tamaño del texto en las pantallas de preguntas para facilitar la lectura."
   },
   "review": {
     "title": "¿Disfrutando la aplicación?",

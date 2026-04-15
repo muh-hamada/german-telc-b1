@@ -2,8 +2,9 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import dataService from '../../services/data.service';
 import { SpeakingImportantPhrasesContent, SpeakingImportantPhrasesGroup } from '../../types/exam.types';
 import { HomeStackParamList } from '../../types/navigation.types';
@@ -21,8 +22,8 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [content, setContent] = useState<SpeakingImportantPhrasesContent | null>(null);
   const groupIndex = route.params?.groupIndex ?? 0;
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part4', groupIndex);
 
@@ -51,13 +52,10 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={handleToggleCompletion} style={styles.headerButton}>
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+        />
       ),
     });
   }, [isCompleted, navigation, colors]);
@@ -124,7 +122,7 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

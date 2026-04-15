@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { ThemeColors, typography } from '../../theme';
+import { ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import WritingUI from '../exam-ui/WritingUI';
 import WritingPart1UIA1 from '../exam-ui/WritingPart1UIA1';
@@ -22,8 +22,8 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
   const isDele = activeExamConfig.id === 'dele-spanish-b1';
   const [exam, setExam] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   useEffect(() => {
     // Reset exam data immediately when stepId or testId changes to prevent rendering with stale data
@@ -121,7 +121,7 @@ const WritingWrapper: React.FC<WritingWrapperProps> = ({ testId, stepId, onCompl
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

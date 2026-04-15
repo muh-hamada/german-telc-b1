@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { DeleReadingPart3Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -20,8 +20,8 @@ interface DeleReadingPart3UIProps {
 
 const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: string }>({});
 
   const textKeys = useMemo(() => Object.keys(exam.texts).sort((a, b) => a.localeCompare(b)), [exam.texts]);
@@ -174,7 +174,7 @@ const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplet
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

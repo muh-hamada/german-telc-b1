@@ -1,5 +1,48 @@
 import { Platform } from 'react-native';
 
+const BIG_FONT_SCALE = 1.35;
+
+const scaleFontSize = (size: number, isBigFont: boolean): number =>
+  isBigFont ? Math.round(size * BIG_FONT_SCALE) : size;
+
+const scaleLineHeight = (height: number, isBigFont: boolean): number =>
+  isBigFont ? Math.round(height * BIG_FONT_SCALE) : height;
+
+export const createScaledTypography = (isBigFont: boolean) => ({
+  fontFamily: typography.fontFamily,
+  fontSize: {
+    xs: scaleFontSize(12, isBigFont),
+    sm: scaleFontSize(14, isBigFont),
+    base: scaleFontSize(16, isBigFont),
+    lg: scaleFontSize(18, isBigFont),
+    xl: scaleFontSize(20, isBigFont),
+    '2xl': scaleFontSize(24, isBigFont),
+    '3xl': scaleFontSize(30, isBigFont),
+    '4xl': scaleFontSize(36, isBigFont),
+    '5xl': scaleFontSize(48, isBigFont),
+  },
+  lineHeight: typography.lineHeight,
+  fontWeight: typography.fontWeight,
+  textStyles: {
+    h1: { ...typography.textStyles.h1, fontSize: scaleFontSize(32, isBigFont), lineHeight: scaleLineHeight(44, isBigFont) },
+    h2: { ...typography.textStyles.h2, fontSize: scaleFontSize(28, isBigFont), lineHeight: scaleLineHeight(38, isBigFont) },
+    h3: { ...typography.textStyles.h3, fontSize: scaleFontSize(22, isBigFont), lineHeight: scaleLineHeight(32, isBigFont) },
+    h4: { ...typography.textStyles.h4, fontSize: scaleFontSize(18, isBigFont), lineHeight: scaleLineHeight(28, isBigFont) },
+    h5: { ...typography.textStyles.h5, fontSize: scaleFontSize(16, isBigFont), lineHeight: scaleLineHeight(26, isBigFont) },
+    h6: { ...typography.textStyles.h6, fontSize: scaleFontSize(12, isBigFont), lineHeight: scaleLineHeight(18, isBigFont) },
+    body: { ...typography.textStyles.body, fontSize: scaleFontSize(14, isBigFont), lineHeight: scaleLineHeight(24, isBigFont) },
+    bodyLarge: { ...typography.textStyles.bodyLarge, fontSize: scaleFontSize(16, isBigFont), lineHeight: scaleLineHeight(28, isBigFont) },
+    bodySmall: { ...typography.textStyles.bodySmall, fontSize: scaleFontSize(12, isBigFont), lineHeight: scaleLineHeight(20, isBigFont) },
+    label: { ...typography.textStyles.label, fontSize: scaleFontSize(12, isBigFont), lineHeight: scaleLineHeight(20, isBigFont) },
+    caption: { ...typography.textStyles.caption, fontSize: scaleFontSize(10, isBigFont), lineHeight: scaleLineHeight(16, isBigFont) },
+    button: { ...typography.textStyles.button, fontSize: scaleFontSize(14, isBigFont), lineHeight: scaleLineHeight(24, isBigFont) },
+    buttonLarge: { ...typography.textStyles.buttonLarge, fontSize: scaleFontSize(16, isBigFont), lineHeight: scaleLineHeight(28, isBigFont) },
+    bold: typography.textStyles.bold,
+  },
+});
+
+export type Typography = ReturnType<typeof createScaledTypography>;
+
 export const typography = {
   // Font families
   fontFamily: {

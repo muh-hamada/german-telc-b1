@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { DeleReadingPart2Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -21,8 +21,8 @@ interface DeleReadingPart2UIProps {
 
 const DeleReadingPart2UI: React.FC<DeleReadingPart2UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
@@ -160,7 +160,7 @@ const DeleReadingPart2UI: React.FC<DeleReadingPart2UIProps> = ({ exam, onComplet
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

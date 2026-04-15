@@ -18,6 +18,7 @@ import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { useToast } from '../../contexts/ToastContext';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -56,24 +57,11 @@ const ListeningPart1A2Screen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity
-            onPress={() => setShowReportIssueModal(true)}
-            style={styles.headerButton}
-          >
-            <Icon name="warning" size={24} color={colors.white} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleToggleCompletion}
-            style={styles.headerButton}
-          >
-            <Icon
-              name={isCompleted ? 'check-circle' : 'circle-o'}
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-        </View>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+          onReportIssue={() => setShowReportIssueModal(true)}
+        />
       ),
     });
   }, [isCompleted, navigation, examId]);

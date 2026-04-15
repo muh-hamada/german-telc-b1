@@ -12,8 +12,9 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Markdown from 'react-native-markdown-display';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -44,8 +45,8 @@ const SpeakingPart2Screen: React.FC = () => {
   const route = useRoute<SpeakingPart2ScreenRouteProp>();
   const navigation = useNavigation();
   const topicId = route.params?.topicId ?? 0;
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const markdownStyles = useMemo(() => createMarkdownStyles(colors), [colors]);
 
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part2', topicId);
@@ -63,16 +64,10 @@ const SpeakingPart2Screen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+        />
       ),
     });
   }, [isCompleted, navigation, colors]);
@@ -265,7 +260,7 @@ const createMarkdownStyles = (colors: ThemeColors) => ({
   },
 });
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

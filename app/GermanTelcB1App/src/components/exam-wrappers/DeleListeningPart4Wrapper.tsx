@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { ThemeColors, typography } from '../../theme';
+import { ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import DeleListeningUI from '../exam-ui/DeleListeningUI';
 import { DeleListeningExam, DeleListeningSectionDetails, UserAnswer } from '../../types/exam.types';
@@ -15,8 +15,8 @@ const DeleListeningPart4Wrapper: React.FC<DeleListeningPart4WrapperProps> = ({ t
   const [exam, setExam] = useState<DeleListeningExam | null>(null);
   const [sectionDetails, setSectionDetails] = useState<DeleListeningSectionDetails | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   useEffect(() => {
     const loadExam = async () => {
@@ -59,7 +59,7 @@ const DeleListeningPart4Wrapper: React.FC<DeleListeningPart4WrapperProps> = ({ t
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

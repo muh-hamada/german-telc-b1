@@ -9,12 +9,13 @@ import {
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import { useProgress } from '../../contexts/ProgressContext';
 import { useExamCompletion, useCompletion } from '../../contexts/CompletionContext';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { useToast } from '../../contexts/ToastContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
@@ -31,8 +32,8 @@ const GrammarPart1Screen: React.FC = () => {
   const navigation = useNavigation();
   const { updateExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const examId = route.params?.examId ?? 0;
   const isDele = activeExamConfig.provider === 'dele';
   
@@ -54,28 +55,11 @@ const GrammarPart1Screen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity
-            onPress={() => setShowReportIssueModal(true)}
-            style={styles.headerButton}
-          >
-            <Icon
-              name="warning"
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleToggleCompletion}
-            style={styles.headerButton}
-          >
-            <Icon
-              name={isCompleted ? 'check-circle' : 'circle-o'}
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-        </View>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+          onReportIssue={() => setShowReportIssueModal(true)}
+        />
       ),
     });
   }, [isCompleted, navigation]);
@@ -212,7 +196,7 @@ const GrammarPart1Screen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

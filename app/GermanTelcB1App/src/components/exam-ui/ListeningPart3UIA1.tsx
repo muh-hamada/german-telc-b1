@@ -10,7 +10,7 @@ import {
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import Sound from 'react-native-nitro-sound';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { UserAnswer } from '../../types/exam.types';
@@ -45,8 +45,8 @@ interface ListeningPart3UIA1Props {
 
 const ListeningPart3UIA1: React.FC<ListeningPart3UIA1Props> = ({ exam, sectionDetails, onComplete }) => {
   const { i18n, t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -325,7 +325,7 @@ const ListeningPart3UIA1: React.FC<ListeningPart3UIA1Props> = ({ exam, sectionDe
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

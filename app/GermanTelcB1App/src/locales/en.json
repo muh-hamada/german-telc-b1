@@ -107,6 +107,8 @@
     "completedCount": "{{completed}}/{{total}} completed",
     "markedCompleted": "Exam marked as completed!",
     "markedIncomplete": "Exam marked as incomplete!",
+    "markComplete": "Mark as Complete",
+    "markIncomplete": "Mark as Incomplete",
     "completionFailed": "Failed to update completion status",
     "loginToSaveProgress": "You need to log in to save your progress",
     "autoCompleted": "Good job! We've marked this as completed. You can always unmark it again.",
@@ -1035,7 +1037,9 @@
     "appearance": "Appearance",
     "darkMode": "Dark mode",
     "darkModeOn": "Dark theme reduces glare.",
-    "darkModeOff": "Light theme keeps a brighter look."
+    "darkModeOff": "Light theme keeps a brighter look.",
+    "largeFont": "Large Font",
+    "largeFontDescription": "Increase text size on question screens for easier reading."
   },
   "stats": {
     "title": "Statistics",

@@ -15,7 +15,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { UserAnswer } from '../../types/exam.types';
@@ -48,10 +48,10 @@ interface WritingPart2UIA1Props {
 
 const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, isMockExam = false }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
+  const { colors, typography } = useAppTheme();
   const { isPremium } = usePremium();
   const { setContextualModalActive } = useModalQueue();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const [userText, setUserText] = useState('');
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -791,7 +791,7 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

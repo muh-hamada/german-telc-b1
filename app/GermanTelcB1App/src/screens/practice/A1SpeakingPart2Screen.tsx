@@ -12,8 +12,9 @@ import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import dataService from '../../services/data.service';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -55,8 +56,8 @@ const A1SpeakingPart2Screen: React.FC = () => {
   const { t, i18n } = useCustomTranslation();
   const navigation = useNavigation();
   const { isCompleted, toggleCompletion } = useExamCompletion('speaking-part2', 0);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const [activeTab, setActiveTab] = useState<TabType>('instructions');
   const [isLoading, setIsLoading] = useState(true);
@@ -69,16 +70,10 @@ const A1SpeakingPart2Screen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          onPress={handleToggleCompletion}
-          style={styles.headerButton}
-        >
-          <Icon
-            name={isCompleted ? 'check-circle' : 'circle-o'}
-            size={24}
-            color={colors.white}
-          />
-        </TouchableOpacity>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+        />
       ),
     });
   }, [isCompleted, navigation, colors]);
@@ -263,7 +258,7 @@ const A1SpeakingPart2Screen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

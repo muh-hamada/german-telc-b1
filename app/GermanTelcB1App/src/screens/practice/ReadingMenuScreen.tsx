@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import Card from '../../components/Card';
 import { HomeStackNavigationProp } from '../../types/navigation.types';
 import ExamSelectionModal from '../../components/ExamSelectionModal';
@@ -25,8 +25,8 @@ const ReadingMenuScreen: React.FC = () => {
   const [part1Exams, setPart1Exams] = useState<any[]>([]);
   const [part2Exams, setPart2Exams] = useState<any[]>([]);
   const [part3Exams, setPart3Exams] = useState<any[]>([]);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const isA1 = activeExamConfig.level === 'A1';
   const isA2 = activeExamConfig.level === 'A2';
@@ -201,7 +201,7 @@ const ReadingMenuScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

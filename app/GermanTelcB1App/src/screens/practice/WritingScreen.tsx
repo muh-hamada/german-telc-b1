@@ -8,10 +8,11 @@ import {
 } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useExamCompletion } from '../../contexts/CompletionContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { WritingExam, DeleWritingExam } from '../../types/exam.types';
@@ -25,8 +26,8 @@ const WritingScreen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'Writing'>>();
   const navigation = useNavigation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const examId = route.params?.examId ?? 0;
   const part = route.params?.part ?? 1;
   const { updateExamProgress } = useProgress();
@@ -81,28 +82,11 @@ const WritingScreen: React.FC = () => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity
-            onPress={() => setShowReportIssueModal(true)}
-            style={styles.headerButton}
-          >
-            <Icon
-              name="warning"
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleToggleCompletion}
-            style={styles.headerButton}
-          >
-            <Icon
-              name={isCompleted ? 'check-circle' : 'circle-o'}
-              size={24}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-        </View>
+        <ExamHeaderMenu
+          isCompleted={isCompleted}
+          onToggleCompletion={handleToggleCompletion}
+          onReportIssue={() => setShowReportIssueModal(true)}
+        />
       ),
     });
   }, [isCompleted, navigation]);
@@ -185,7 +169,7 @@ const WritingScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

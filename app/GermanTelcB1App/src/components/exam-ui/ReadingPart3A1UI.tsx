@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { ReadingPart3A1Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -21,8 +21,8 @@ interface ReadingPart3A1UIProps {
 
 const ReadingPart3A1UI: React.FC<ReadingPart3A1UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: boolean }>({});
 
   const handleAnswerSelect = (questionId: number, answer: boolean) => {
@@ -160,7 +160,7 @@ const ReadingPart3A1UI: React.FC<ReadingPart3A1UIProps> = ({ exam, onComplete })
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

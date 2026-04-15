@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { ThemeColors, typography } from '../../theme';
+import { ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import ReadingPart1UI from '../exam-ui/ReadingPart1UI';
 import ReadingPart1A1UI from '../exam-ui/ReadingPart1A1UI';
@@ -21,8 +21,8 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
   const { t } = useCustomTranslation();
   const [exam, setExam] = useState<ReadingPart1Exam | ReadingPart1A1Exam | ReadingPart1A2Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   useEffect(() => {
     const loadExam = async () => {
@@ -71,7 +71,7 @@ const ReadingPart1Wrapper: React.FC<ReadingPart1WrapperProps> = ({ testId, onCom
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

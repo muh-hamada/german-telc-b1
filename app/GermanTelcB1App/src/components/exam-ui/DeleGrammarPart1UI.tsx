@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { DeleGrammarPart1Exam, UserAnswer } from '../../types/exam.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
@@ -22,8 +22,8 @@ interface DeleGrammarPart1UIProps {
 
 const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplete }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [userAnswers, setUserAnswers] = useState<{ [gapId: string]: string }>({});
   const [showModal, setShowModal] = useState(false);
   const [selectedGap, setSelectedGap] = useState<string | null>(null);
@@ -187,7 +187,7 @@ const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplet
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

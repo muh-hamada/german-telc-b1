@@ -18,7 +18,7 @@ import { launchCamera } from 'react-native-image-picker';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useModalQueue } from '../../contexts/ModalQueueContext';
 import { useAdFreeStatus } from '../../hooks/useAdFreeStatus';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { UserAnswer, WritingExam } from '../../types/exam.types';
 import {
@@ -57,8 +57,8 @@ const REWARDED_AD_UNIT_ID = __DEV__
 
 const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = false, part = 1 }) => {
   const { t } = useCustomTranslation();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const { setContextualModalActive } = useModalQueue();
   const { isAdFree, isPremium, isGiftAdFreeActive } = useAdFreeStatus();
   const [userAnswer, setUserAnswer] = useState('');
@@ -896,7 +896,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,

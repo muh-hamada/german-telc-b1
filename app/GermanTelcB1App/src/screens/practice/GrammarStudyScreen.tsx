@@ -1,4 +1,4 @@
-import React, { useState, useEffect, act, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useNavigation } from '@react-navigation/native';
-import { spacing, typography, type ThemeColors } from '../../theme';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import StorageService from '../../services/storage.service';
 import GrammarStudyProgressModal from '../../components/GrammarStudyProgressModal';
 import SupportAdScreen from '../../components/SupportAdScreen';
@@ -24,6 +24,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useRemoteConfig } from '../../contexts/RemoteConfigContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { useAppTheme } from '../../contexts/ThemeContext';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { QUESTIONS_PER_ACTIVITY } from '../../constants/streak.constants';
 import { activeExamConfig } from '../../config/active-exam.config';
 
@@ -69,12 +70,17 @@ const GrammarStudyScreen: React.FC = () => {
   const { isPremium } = usePremium();
   const { recordActivity } = useStreak();
   const { isStreaksEnabledForUser, getSupportAdInterval } = useRemoteConfig();
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   const navigation = useNavigation();
-  
-  // Get support ad interval from remote config
+
+  // Set up header menu (font size toggle)
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: ExamHeaderMenu,
+    });
+  }, [navigation]);
   const SUPPORT_AD_INTERVAL = getSupportAdInterval('grammarStudy');
 
   // Flatten all questions from all groups
@@ -610,7 +616,7 @@ const GrammarStudyScreen: React.FC = () => {
   );
 };
 
-const createStyles = (colors: ThemeColors) =>
+const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     container: {
       flex: 1,

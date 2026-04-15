@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { ThemeColors, typography } from '../../theme';
+import { ThemeColors, type Typography } from '../../theme';
 import { dataService } from '../../services/data.service';
 import DeleReadingPart2UI from '../exam-ui/DeleReadingPart2UI';
 import { DeleReadingPart2Exam, UserAnswer } from '../../types/exam.types';
@@ -14,8 +14,8 @@ interface DeleReadingPart2WrapperProps {
 const DeleReadingPart2Wrapper: React.FC<DeleReadingPart2WrapperProps> = ({ testId, onComplete }) => {
   const [exam, setExam] = useState<DeleReadingPart2Exam | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { colors } = useAppTheme();
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { colors, typography } = useAppTheme();
+  const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
   useEffect(() => {
     const loadExam = async () => {
@@ -51,7 +51,7 @@ const DeleReadingPart2Wrapper: React.FC<DeleReadingPart2WrapperProps> = ({ testI
   );
 };
 
-const createStyles = (colors: ThemeColors) => StyleSheet.create({
+const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background.primary,
