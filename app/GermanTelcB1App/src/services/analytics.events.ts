@@ -136,6 +136,8 @@ export const AnalyticsEvents = {
   SETTINGS_THEME_DISABLED: 'settings_theme_disabled',
   SETTINGS_PREMIUM_DARK_MODE_MODAL_SHOWN: 'settings_premium_dark_mode_modal_shown',
   SETTINGS_PREMIUM_BENEFITS_VIEWED: 'settings_premium_benefits_viewed',
+  SETTINGS_LARGE_FONT_ENABLED: 'settings_large_font_enabled',
+  SETTINGS_LARGE_FONT_DISABLED: 'settings_large_font_disabled',
   
   // Listening Practice
   LISTENING_PRACTICE_STARTED: 'listening_practice_started',

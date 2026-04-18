@@ -11,6 +11,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface ExamHeaderMenuProps {
   isCompleted?: boolean;
@@ -31,6 +32,7 @@ const ExamHeaderMenu: React.FC<ExamHeaderMenuProps> = ({
   const menuTop = safeTop + (Platform.OS === 'ios' ? 44 : 56);
 
   const handleFontSizeToggle = () => {
+    logEvent(isBigFont ? AnalyticsEvents.SETTINGS_LARGE_FONT_DISABLED : AnalyticsEvents.SETTINGS_LARGE_FONT_ENABLED, { source: 'exam_menu' });
     toggleFontSize();
     // Stay open so user can see the Aa/AA badge update
   };

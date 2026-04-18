@@ -117,10 +117,18 @@ echo "================================================"
 echo "Uploading to App Store Connect..."
 echo "================================================"
 echo ""
-xcrun altool --upload-app --type ios --file "$IPA_PATH" --username "muhammad.aref.ali.hamada@gmail.com" --password "yuur-innd-jamw-ahpg"
+ALTOOL_OUTPUT=$(xcrun altool --upload-app --type ios --file "$IPA_PATH" --username "muhammad.aref.ali.hamada@gmail.com" --password "yuur-innd-jamw-ahpg" 2>&1)
+ALTOOL_EXIT=$?
+echo "$ALTOOL_OUTPUT"
 
-if [ $? -ne 0 ]; then
-    echo "Upload failed!"
+if [ $ALTOOL_EXIT -ne 0 ] || echo "$ALTOOL_OUTPUT" | grep -q "ERROR:\|Failed to upload"; then
+    echo ""
+    echo "❌ Upload failed!"
+    if echo "$ALTOOL_OUTPUT" | grep -q "CONTRACT_NOT_VALID\|required contracts"; then
+        echo ""
+        echo "⚠️  Apple requires you to accept pending agreements in App Store Connect."
+        echo "   → Visit https://appstoreconnect.apple.com and accept any pending contracts."
+    fi
     exit 1
 fi
 

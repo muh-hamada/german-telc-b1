@@ -625,7 +625,10 @@ const SettingsScreen: React.FC = () => {
               <Text style={styles.settingLabel}>{t('settings.largeFont')}</Text>
               <Switch
                 value={isBigFont}
-                onValueChange={() => toggleFontSize()}
+                onValueChange={() => {
+                  logEvent(isBigFont ? AnalyticsEvents.SETTINGS_LARGE_FONT_DISABLED : AnalyticsEvents.SETTINGS_LARGE_FONT_ENABLED);
+                  toggleFontSize();
+                }}
                 trackColor={{ false: colors.secondary[200], true: colors.primary[200] }}
                 thumbColor={isBigFont ? colors.primary[500] : colors.secondary[400]}
               />

@@ -81,6 +81,9 @@ def load_app_store_metadata(app_id)
                    .gsub("{{LEVEL_NAME}}", level_name)
                    .gsub("{{COUNTRY}}", country_name)
     
+    # App Store limit: description must not exceed 4000 characters
+    text = text[0, 4000] if text.length > 4000
+    
     processed[:description][full_locale] = text
   end
   
@@ -104,6 +107,9 @@ def load_app_store_metadata(app_id)
     
     text = template.gsub("{{LANGUAGE}}", language_name)
                    .gsub("{{LEVEL}}", level)
+    
+    # App Store limit: keywords must not exceed 100 characters
+    text = text[0, 100] if text.length > 100
     
     processed[:keywords][full_locale] = text
   end
