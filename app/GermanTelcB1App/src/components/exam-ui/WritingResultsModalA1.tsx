@@ -13,6 +13,7 @@ import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { WritingAssessmentA1 } from '../../services/http.openai.service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import WritingModelAnswer from '../common/WritingModelAnswer';
 
 interface WritingResultsModalA1Props {
   isOpen: boolean;
@@ -35,13 +36,11 @@ const WritingResultsModalA1: React.FC<WritingResultsModalA1Props> = ({
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const [isUserInputExpanded, setIsUserInputExpanded] = React.useState(false);
-  const [isModalAnswerExpanded, setIsModalAnswerExpanded] = React.useState(false);
 
   // Reset expanded states when modal closes
   useEffect(() => {
     if (!isOpen) {
       setIsUserInputExpanded(false);
-      setIsModalAnswerExpanded(false);
     }
   }, [isOpen]);
 
@@ -157,21 +156,8 @@ const WritingResultsModalA1: React.FC<WritingResultsModalA1Props> = ({
 
               {/* Modal Answer Section - Only show if modalAnswer exists in exam data */}
               {modalAnswer && (
-                <View style={styles.modalAnswerSection}>
-                  <TouchableOpacity 
-                    style={styles.modalAnswerHeader}
-                    onPress={() => setIsModalAnswerExpanded(!isModalAnswerExpanded)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.modalAnswerTitleContainer}>
-                      <Text style={styles.modalAnswerIcon}>⭐</Text>
-                      <Text style={styles.modalAnswerTitle}>{t('writing.evaluation.modelAnswer')}</Text>
-                    </View>
-                    <Text style={styles.expandIcon}>{isModalAnswerExpanded ? '▼' : '▶'}</Text>
-                  </TouchableOpacity>
-                  {isModalAnswerExpanded && (
-                    <Text style={styles.modalAnswerText}>{modalAnswer}</Text>
-                  )}
+                <View style={{ marginHorizontal: spacing.margin.md }}>
+                  <WritingModelAnswer answer={modalAnswer} />
                 </View>
               )}
 
@@ -403,41 +389,6 @@ const createStyles = (colors: ThemeColors, typography: Typography) => StyleSheet
     marginLeft: spacing.margin.sm,
   },
   userInputText: {
-    ...typography.textStyles.body,
-    color: colors.text.primary,
-    lineHeight: 22,
-    marginTop: spacing.margin.sm,
-  },
-  modalAnswerSection: {
-    backgroundColor: colors.success[50],
-    padding: spacing.padding.md,
-    borderRadius: spacing.borderRadius.md,
-    marginHorizontal: spacing.margin.md,
-    marginBottom: spacing.margin.md,
-    borderWidth: 1,
-    borderColor: colors.success[200],
-  },
-  modalAnswerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  modalAnswerTitleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  modalAnswerIcon: {
-    fontSize: 18,
-    marginRight: spacing.margin.xs,
-  },
-  modalAnswerTitle: {
-    ...typography.textStyles.body,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.success[700],
-    flex: 1,
-  },
-  modalAnswerText: {
     ...typography.textStyles.body,
     color: colors.text.primary,
     lineHeight: 22,
