@@ -31,6 +31,10 @@ class FirebaseService {
   getAuth(): Auth {
     return this.authInstance;
   }
+
+  getApp(): FirebaseApp {
+    return this.app;
+  }
 }
 
 const firebaseService = new FirebaseService();

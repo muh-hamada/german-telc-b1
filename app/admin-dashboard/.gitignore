@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# API credentials (NEVER commit these)
+*.p8
+appstoreconnect-key.p8
+*-service-account.json

@@ -160,6 +160,17 @@ export const AppSelectionPage: React.FC = () => {
               View Reports →
             </button>
           </div>
+          <div
+            className="admin-action-card store-ratings"
+            onClick={() => navigate('/store-ratings')}
+          >
+            <div className="admin-action-icon">⭐</div>
+            <h3>Store Ratings</h3>
+            <p>Track iOS and Android app ratings and reviews</p>
+            <button className="btn-action-select">
+              View Ratings →
+            </button>
+          </div>
         </div>
       </div>
     </div>

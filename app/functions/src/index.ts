@@ -19,6 +19,11 @@ import {
 import { generateSpeakingDialogue } from './generate-speaking-dialogue';
 import { evaluateSpeaking, generateSpeakingSummary } from './evaluate-speaking';
 import { fetchAppStoreInfo } from './fetch-app-store-info';
+import {
+  scheduledStoreRatingsSnapshot,
+  triggerStoreRatingsSnapshot,
+  fetchAppStoreReviews,
+} from './store-ratings';
 
 export {
   evaluateWritingB1 as evaluateWriting, // Backward compatibility
@@ -40,5 +45,8 @@ export {
   generateSpeakingDialogue,
   evaluateSpeaking,
   generateSpeakingSummary,
-  fetchAppStoreInfo
+  fetchAppStoreInfo,
+  scheduledStoreRatingsSnapshot,
+  triggerStoreRatingsSnapshot,
+  fetchAppStoreReviews,
 };

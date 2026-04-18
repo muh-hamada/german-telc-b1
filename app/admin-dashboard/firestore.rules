@@ -497,6 +497,20 @@ service cloud.firestore {
     match /user_rewards/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
+
+    // Store Ratings Snapshots
+    // Only admin can read. Cloud Functions (service account) write via server SDK.
+    match /store_ratings/{appId} {
+      allow read: if request.auth != null &&
+                    request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+      allow write: if false;
+
+      match /snapshots/{date} {
+        allow read: if request.auth != null &&
+                      request.auth.uid == "jgOmmKqU1ZYO1KE8NwrqpxiUkn43";
+        allow write: if false;
+      }
+    }
   }
 }
 

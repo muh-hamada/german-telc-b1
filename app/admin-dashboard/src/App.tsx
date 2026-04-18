@@ -14,6 +14,7 @@ import { QuestionsOverviewPage } from './pages/QuestionsOverviewPage';
 import { ConfigPage } from './pages/ConfigPage';
 import { UsersPage } from './pages/UsersPage';
 import { IssueReportsPage } from './pages/IssueReportsPage';
+import { StoreRatingsPage } from './pages/StoreRatingsPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -109,6 +110,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <IssueReportsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/store-ratings"
+            element={
+              <ProtectedRoute>
+                <StoreRatingsPage />
               </ProtectedRoute>
             }
           />
