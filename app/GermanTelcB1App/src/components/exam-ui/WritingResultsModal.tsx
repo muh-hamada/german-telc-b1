@@ -16,6 +16,7 @@ import {
   isGradedAssessment,
   isPointBasedAssessment,
 } from '../../services/http.openai.service';
+import WritingModelAnswer from '../common/WritingModelAnswer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface WritingResultsModalProps {
@@ -227,21 +228,8 @@ const WritingResultsModal: React.FC<WritingResultsModalProps> = ({
 
               {/* Modal Answer Section - Only show if modalAnswer exists */}
               {modalAnswer && (
-                <View style={styles.modalAnswerSection}>
-                  <TouchableOpacity 
-                    style={styles.modalAnswerHeader}
-                    onPress={() => setIsModalAnswerExpanded(!isModalAnswerExpanded)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.modalAnswerTitleContainer}>
-                      <Text style={styles.modalAnswerIcon}>⭐</Text>
-                      <Text style={styles.modalAnswerTitle}>{t('writing.evaluation.modelAnswer')}</Text>
-                    </View>
-                    <Text style={styles.expandIcon}>{isModalAnswerExpanded ? '▼' : '▶'}</Text>
-                  </TouchableOpacity>
-                  {isModalAnswerExpanded && (
-                    <Text style={styles.modalAnswerText}>{modalAnswer}</Text>
-                  )}
+                <View style={{ marginHorizontal: spacing.margin.md }}>
+                  <WritingModelAnswer answer={modalAnswer} />
                 </View>
               )}
 
