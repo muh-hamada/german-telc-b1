@@ -2,8 +2,13 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
+<<<<<<< HEAD
  * Generated at: 2026-04-16T08:14:35.603Z
  * Exam: Spanish DELE B1
+=======
+ * Generated at: 2026-04-18T12:55:53.667Z
+ * Exam: German TELC A1
+>>>>>>> 99317ad72eafba066234b0c77db53d6afbbc1cc2
  * 
  * This file determines which exam configuration is active for the current build.
  * To change the active exam, run the build script with a different exam ID.

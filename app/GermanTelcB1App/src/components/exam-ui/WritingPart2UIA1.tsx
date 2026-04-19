@@ -742,7 +742,7 @@ const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, i
             placeholderTextColor={colors.text.secondary}
             multiline
             textAlignVertical="top"
-            editable={!assessment}
+            editable={!isEvaluating}
           />
           <View style={styles.countersRow}>
             <Text style={styles.counterText}>
