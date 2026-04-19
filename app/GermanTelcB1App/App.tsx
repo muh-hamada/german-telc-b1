@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
+import SplashBootScreen from './src/components/SplashBootScreen';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ModalQueueRenderer from './src/components/ModalQueueRenderer';
@@ -26,6 +27,8 @@ import { applyRTLLayout } from './src/utils/i18n';
 
 const AppContent: React.FC = () => {
   const { colors, mode } = useAppTheme();
+  const [isBootComplete, setIsBootComplete] = useState(false);
+  const handleBootComplete = useCallback(() => setIsBootComplete(true), []);
 
   return (
     <>
@@ -37,6 +40,9 @@ const AppContent: React.FC = () => {
       <RootNavigator />
       <ModalQueueRenderer />
       <OfflineBlockingModal />
+      {!isBootComplete && (
+        <SplashBootScreen onBootComplete={handleBootComplete} />
+      )}
     </>
   );
 };

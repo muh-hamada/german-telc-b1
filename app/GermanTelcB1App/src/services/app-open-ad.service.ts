@@ -108,14 +108,6 @@ class AppOpenAdService {
           console.log('[AppOpenAd] Ad opened');
         });
 
-        // Ad closed by user
-        this.appOpenAd.addAdEventListener(AdEventType.CLOSED, () => {
-          console.log('[AppOpenAd] Ad closed');
-          this.isShowingAd = false;
-          
-          logEvent(AnalyticsEvents.APP_OPEN_AD_CLOSED);
-        });
-
         // Load the ad
         this.appOpenAd.load();
         
@@ -178,17 +170,29 @@ class AppOpenAdService {
       
       logEvent(AnalyticsEvents.APP_OPEN_AD_SHOWN);
       
-      // Show the ad
+      // Create a promise that resolves when the ad is CLOSED by the user.
+      // show() resolves when the ad starts presenting, not when it's dismissed,
+      // so we need the CLOSED event to know when the user finishes with the ad.
+      const adClosedPromise = new Promise<void>((resolve) => {
+        this.appOpenAd!.addAdEventListener(AdEventType.CLOSED, () => {
+          console.log('[AppOpenAd] Ad closed by user');
+          this.isShowingAd = false;
+          this.appOpenAd = null;
+          logEvent(AnalyticsEvents.APP_OPEN_AD_CLOSED);
+          resolve();
+        });
+      });
+
+      // Show the ad (resolves when ad appears on screen)
       await this.appOpenAd.show();
       
       // Update last shown time
       this.lastAdShownTime = Date.now();
+
+      // Wait until the user actually dismisses the ad
+      await adClosedPromise;
       
-      // Clean up - ad can only be shown once
-      this.appOpenAd = null;
-      this.isShowingAd = false;
-      
-      // Load next ad
+      // Load next ad for future use
       this.loadAd();
       
       return true;

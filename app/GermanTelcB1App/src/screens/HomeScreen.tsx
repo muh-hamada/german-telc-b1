@@ -1,6 +1,6 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp, useNavigation } from '@react-navigation/native';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Image,
   ScrollView,
@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import mobileAds from 'react-native-google-mobile-ads';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
 import Card from '../components/Card';
@@ -27,8 +26,6 @@ import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
-import attService, { TrackingStatus } from '../services/app-tracking-transparency.service';
-import consentService, { AdsConsentStatus } from '../services/consent.service';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { HomeStackNavigationProp, MainTabParamList } from '../types/navigation.types';
 
@@ -52,108 +49,6 @@ const HomeScreen: React.FC = () => {
   const isA1 = activeExamConfig.level === 'A1';
   const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
-
-  useEffect(() => {
-    // Initialize ads with consent flow when user lands on home screen
-    // This ensures onboarding is complete and user is "in" the app
-    initializeAdsWithConsent();
-  }, []);
-
-  /**
-   * Initialize Google Mobile Ads with ATT and UMP consent flow
-   * 
-   * Order of operations (CRITICAL for Apple compliance):
-   * 1. Request GDPR/CCPA consent (UMP)
-   * 2. Request App Tracking Transparency (ATT) permission (iOS only)
-   *    - ONLY if user consented to personalized ads in GDPR
-   *    - NEVER if user denied tracking in GDPR (respect user choice)
-   *    - NEVER if user already denied ATT previously
-   * 3. Initialize ads SDK
-   */
-  const initializeAdsWithConsent = async () => {
-    try {
-      // Check if consent is already handled to avoid unnecessary processing
-      const currentConsent = consentService.getConsentStatus();
-      if (currentConsent === AdsConsentStatus.OBTAINED || currentConsent === AdsConsentStatus.NOT_REQUIRED) {
-        // If already consented/not required, just ensure ads are initialized
-        // We don't want to show forms again if not needed
-        await mobileAds().initialize();
-        return;
-      }
-
-      // Step 1: Request and handle user consent (GDPR/US Privacy) - Show this FIRST
-      // Apple Guideline 5.1.1: If the app shows the GDPR prompt before showing the App Tracking Transparency permission request, there is no need to modify the wording of the GDPR prompt.
-      console.log('[HomeScreen] Starting UMP consent flow...');
-
-      const consentStatus = await consentService.requestConsent();
-      console.log('[HomeScreen] UMP consent flow completed with status:', consentStatus);
-
-      // Step 2: Request App Tracking Transparency (ATT) permission (iOS 14+)
-      // Apple Guideline 5.1.1: Only request ATT if user has consented to personalized ads in GDPR prompt.
-      // If user denied tracking in GDPR, respect that choice and skip ATT entirely.
-      // Also, never request ATT again if user has already denied it.
-      let attStatus: TrackingStatus = 'not-determined';
-
-      // Check current ATT status first (without requesting)
-      const currentAttStatus = await attService.getStatus();
-
-      // Determine if we should request ATT permission:
-      // 1. User must have explicitly consented to personalized ads (check actual user choices, not just status)
-      //    OR be in a non-GDPR region (NOT_REQUIRED - they didn't see GDPR form)
-      // 2. ATT status must be not-determined (user hasn't been asked yet)
-      // 3. NEVER request if user explicitly declined in GDPR form
-      const userConsentedToPersonalizedAds = consentService.canShowPersonalizedAds();
-      const userDeclinedInGdpr = consentService.hasUserDeclinedConsent();
-      const isNonGdprRegion = consentStatus === AdsConsentStatus.NOT_REQUIRED;
-
-      // Only request ATT if:
-      // - User consented to personalized ads (checked via actual user choices), OR
-      // - User is in non-GDPR region (didn't see GDPR form), AND
-      // - User did NOT decline in GDPR form, AND
-      // - ATT hasn't been determined yet
-      const canRequestAtt =
-        !userDeclinedInGdpr &&
-        (userConsentedToPersonalizedAds || isNonGdprRegion) &&
-        currentAttStatus === 'not-determined';
-
-      if (canRequestAtt) {
-        console.log('[HomeScreen] Requesting App Tracking Transparency permission...');
-        // Add a small delay to ensure the UMP dialog is fully dismissed before showing ATT
-        // This prevents UI conflicts and ensures the user is ready for the next prompt
-        await new Promise<void>(resolve => setTimeout(resolve, 500));
-        attStatus = await attService.requestPermission();
-        console.log('[HomeScreen] ATT permission status:', attStatus);
-      } else {
-        console.log('[HomeScreen] Skipping ATT permission request - respecting user choice');
-        console.log('[HomeScreen]   - User consented to personalized ads:', userConsentedToPersonalizedAds);
-        console.log('[HomeScreen]   - Is non-GDPR region:', isNonGdprRegion);
-        console.log('[HomeScreen]   - User declined in GDPR:', userDeclinedInGdpr);
-        console.log('[HomeScreen]   - Current ATT status:', currentAttStatus);
-        // Use current status without requesting
-        attStatus = currentAttStatus;
-      }
-
-      // Step 3: Initialize Google Mobile Ads SDK after all consents
-      console.log('[HomeScreen] Initializing Google Mobile Ads...');
-      const adapterStatuses = await mobileAds().initialize();
-      console.log('[HomeScreen] Mobile Ads initialized:', adapterStatuses);
-
-      // Log tracking and personalization status
-      if (consentService.canShowPersonalizedAds() && attStatus === 'authorized') {
-        console.log('[HomeScreen] ✓ Full tracking enabled - personalized ads allowed');
-      } else {
-        console.log('[HomeScreen] ⚠ Limited ad personalization');
-      }
-    } catch (error) {
-      console.error('[HomeScreen] Error during ads initialization:', error);
-      // Even if consent fails, try to initialize ads (will use non-personalized)
-      try {
-        await mobileAds().initialize();
-      } catch (adsError) {
-        console.error('[HomeScreen] Failed to initialize Mobile Ads:', adsError);
-      }
-    }
-  };
 
   const handleExamStructurePress = () => {
     logEvent(AnalyticsEvents.EXAM_STRUCTURE_OPENED);
